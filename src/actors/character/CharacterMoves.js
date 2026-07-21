@@ -148,6 +148,15 @@ export class CharacterMoves {
 		return item?.system?.choices ? this._factory.forDocument(item._id, "pickValues") : null;
 	}
 
+	// The current value of a move's own track — the Thrall's Favor, say. Null when the character
+	// doesn't own the move or the move has no track, which keeps "no such stat" distinct from a
+	// track sitting at 0.
+	resourceValue(moveSlug) {
+		const item = findMoveItemBySlug(this._actor, moveSlug);
+		if (!item?.system?.resource) return null;
+		return this._resourceController.getCurrent("moves", moveSlug);
+	}
+
 	async setMoveResourceCurrent(moveSlug, current) {
 		await this._resourceController.set("moves", moveSlug, current);
 	}

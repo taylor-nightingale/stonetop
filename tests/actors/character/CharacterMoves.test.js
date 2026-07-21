@@ -861,6 +861,43 @@ describe("CharacterMoves.setMoveResourceCurrent", () => {
 	});
 });
 
+// ── resourceValue ─────────────────────────────────────────────────────────────
+
+// What a move rolled against its own track reads (Dark Succor's +Favor), so "the character has no
+// such track" has to stay distinguishable from "the track is at 0".
+describe("CharacterMoves.resourceValue", () => {
+	const withTrack = () => new FakeMoveRepository([
+		new FakeCompendiumMoveBuilder().withName("Favor").asStarting()
+			.withResource({max: 3, title: "Favor", labels: []}).build(),
+	]);
+
+	it("is the track's current value", async () => {
+		const repo = withTrack();
+		const m = makeMoves({repo});
+		await initPlaybook(m, repo);
+		await m.setMoveResourceCurrent("favor", 2);
+		expect(m.resourceValue("favor")).toBe(2);
+	});
+
+	it("is 0 for an owned track never ticked", async () => {
+		const repo = withTrack();
+		const m = makeMoves({repo});
+		await initPlaybook(m, repo);
+		expect(m.resourceValue("favor")).toBe(0);
+	});
+
+	it("is null for an owned move that has no track", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Urges").asStarting().build()]);
+		const m = makeMoves({repo});
+		await initPlaybook(m, repo);
+		expect(m.resourceValue("urges")).toBeNull();
+	});
+
+	it("is null for a move the character doesn't own", async () => {
+		expect(makeMoves().resourceValue("favor")).toBeNull();
+	});
+});
+
 // ── onDropMove ────────────────────────────────────────────────────────────────
 
 describe("CharacterMoves.onDropMove", () => {

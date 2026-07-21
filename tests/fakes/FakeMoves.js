@@ -7,8 +7,14 @@ export class FakeMoves {
 	_addedCategories     = [];
 	_snapshotsByCategory = {};
 
+	_tracks = {};
+
 	ownMove(slug, count = 1)  { this._counts[slug] = count; return this; }
 	countOwnedBySlug(slug)    { return this._counts[slug] ?? 0; }
+
+	// A move that carries a track (Thrall's Favor), at the given current value.
+	withTrack(slug, value)    { this._tracks[slug] = value; return this; }
+	resourceValue(slug)       { return this._tracks[slug] ?? null; }
 
 	async incrementMove(catKey, moveSlug) { this._incremented.push([catKey, moveSlug]); }
 	async decrementMove(catKey, moveSlug) { this._decremented.push([catKey, moveSlug]); }

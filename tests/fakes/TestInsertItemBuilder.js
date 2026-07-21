@@ -7,6 +7,7 @@ export class TestInsertItemBuilder {
 	_instinct     = null;
 	_choices      = [];
 	_choiceValues = {};
+	_moves        = [];
 
 	withId(id)                  { this._id           = id;      return this; }
 	withSlug(slug)              { this._slug         = slug;    return this; }
@@ -16,6 +17,8 @@ export class TestInsertItemBuilder {
 	withInstinct(def)           { this._instinct     = def;     return this; }
 	withChoices(choices)        { this._choices      = choices; return this; }
 	withChoiceValues(values)    { this._choiceValues = values;  return this; }
+	// The move slugs the insert grants — how it names its own track (Thrall → "favor").
+	withMoves(slugs)            { this._moves        = slugs;   return this; }
 
 	build() {
 		return {
@@ -29,6 +32,7 @@ export class TestInsertItemBuilder {
 				instinct:     this._instinct,
 				choices:      this._choices,
 				choiceValues: this._choiceValues,
+				moves:        this._moves,
 			},
 		};
 	}

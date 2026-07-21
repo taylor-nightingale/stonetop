@@ -326,8 +326,15 @@ export class StonetopCharacter {
 		return this._stats.getRollableStats();
 	}
 
+	// A character rolls its own six stats. Anything else belongs to something the character is tied
+	// to, so the lookup falls down the chain: an insert's own track (the Thrall's Favor, rolled by
+	// Dark Succor), then the steading it calls home (Requisition's +Fortunes). Null when nothing
+	// answers — ActorRolling reads that as "can't roll this" and posts the move's text instead.
 	resolveBonus(stat) {
-		return this._stats.resolveBonus(stat) ?? this._homeSteading?.resolveBonus(stat) ?? null;
+		return this._stats.resolveBonus(stat)
+			?? this._inserts.resolveBonus(stat)
+			?? this._homeSteading?.resolveBonus(stat)
+			?? null;
 	}
 
 	get _homeSteading() {

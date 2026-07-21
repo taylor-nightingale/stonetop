@@ -247,3 +247,50 @@ describe("CharacterInserts.syncPlaybookInserts", () => {
 		expect([...actor.items].some(i => i.system?.slug === "revenant")).toBe(true);
 	});
 });
+
+// ── resolveBonus ──────────────────────────────────────────────────────────────
+
+// Dark Succor rolls +Favor, and Favor is the Thrall's own track: the insert lists the `favor` move,
+// that move carries the track. So the insert can answer for a stat none of the character's six cover.
+describe("CharacterInserts.resolveBonus", () => {
+	const THRALL = new TestInsertItemBuilder()
+		.withId("insert-thrall").withSlug("thrall").withName("Thrall")
+		.withMoves(["favor", "urges", "dark-succor", "unholy-vessel"])
+		.build();
+
+	function thrallWith(favor) {
+		return makeInserts({ items: [THRALL], moves: new FakeMoves().withTrack("favor", favor) });
+	}
+
+	it("resolves a stat named by one of its moves' tracks", () => {
+		expect(thrallWith(2).inserts.resolveBonus("favor")).toBe(2);
+	});
+
+	// 0 Favor is a real bonus to roll with — it must not read as "no such stat".
+	it("resolves an empty track as 0, not null", () => {
+		expect(thrallWith(0).inserts.resolveBonus("favor")).toBe(0);
+	});
+
+	it("is null for a move the insert grants that has no track", () => {
+		expect(thrallWith(2).inserts.resolveBonus("urges")).toBeNull();
+	});
+
+	it("is null for a stat no insert names", () => {
+		expect(thrallWith(2).inserts.resolveBonus("str")).toBeNull();
+	});
+
+	it("is null when the character carries no inserts", () => {
+		const { inserts } = makeInserts({ moves: new FakeMoves().withTrack("favor", 3) });
+		expect(inserts.resolveBonus("favor")).toBeNull();
+	});
+
+	// The track has to be granted BY an insert — a move the character picked up some other way is
+	// not an insert stat.
+	it("ignores a track whose move no insert grants", () => {
+		const { inserts } = makeInserts({
+			items: [REVENANT],
+			moves: new FakeMoves().withTrack("favor", 3),
+		});
+		expect(inserts.resolveBonus("favor")).toBeNull();
+	});
+});

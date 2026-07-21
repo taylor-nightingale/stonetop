@@ -27,7 +27,9 @@
 	{{/if}}
 	<strong class="stonetop-item-name">{{name}}</strong>
 	{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
-	{{#if (and (gt selection.value 0) rollStat)}}
+	{{!-- Any move that rolls shows its die, ticked or not: the check marks what the character has
+	      taken, not what the table is allowed to roll. --}}
+	{{#if rollStat}}
 	<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
 		<i class="fas fa-dice-d6"></i>
 	</span>

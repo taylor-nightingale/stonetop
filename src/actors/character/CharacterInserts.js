@@ -53,6 +53,20 @@ export class CharacterInserts {
 		if (slug) await this._moves.removeCategory(`insert-${slug}`);
 	}
 
+	// A stat a move rolls that is none of the character's six: an insert's own track, like the
+	// Thrall's Favor (Dark Succor rolls +Favor). The insert names the move, the move owns the track,
+	// so nothing here needs a second place to declare the stat. Null when no insert grants it.
+	resolveBonus(stat) {
+		for (const item of this._insertItems()) {
+			if ((item.system?.moves ?? []).includes(stat)) return this._moves.resourceValue(stat);
+		}
+		return null;
+	}
+
+	_insertItems() {
+		return [...this._actor.items].filter(i => i.type === "insert");
+	}
+
 	/** The controller for one insert's choice values. An insert's instinct group is exclusive with its
 	 *  write-in box, so that group resolves to the controller that enforces it. */
 	controllerFor(itemId, groupSlug) {
@@ -82,8 +96,7 @@ export class CharacterInserts {
 	}
 
 	async buildSnapshot() {
-		const insertItems = [...this._actor.items].filter(i => i.type === "insert");
-		return Promise.all(insertItems.map(item => this._buildOne(item)));
+		return Promise.all(this._insertItems().map(item => this._buildOne(item)));
 	}
 
 	async _buildOne(item) {

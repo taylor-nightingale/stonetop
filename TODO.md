@@ -1,11 +1,9 @@
 * add steading move automations for debilities
-* dark succor move should be rollable (support jsonpath to another item on the character move.post-death.favor)
 * localize steading defaults
 * Figure out how to add items from pick rows.
 * support editing/displaying and adding compendium items
   * outfitItems
   * playbooks
-* Thrall extra rollable stat — move pack data for Thrall's loyalty move should declare extraStats: [{ key: "loyalty",  }]; CharacterRolling.resolveBonus("loyalty") needs a path to the custom stat on the actor system
 * moveResults data — many moves don't yet have moveResults populated in pack data
 * Add button to create or break a link to an NPC to residents and neighbors.
 * Convert bio and notes section in notes tab to use prosemirror
