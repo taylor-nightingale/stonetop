@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { migrateCharacterMoves } from "../../src/migration/migrateCharacter.js";
+import { migrateCharacterMoves, migrateReferenceMoveCategories } from "../../src/migration/migrateCharacter.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakeMoveRepository } from "../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../fakes/FakeCompendiumMoveBuilder.js";
@@ -220,5 +220,79 @@ describe("migrateCharacterMoves — no flag data", () => {
 		await migrateCharacterMoves(actor, repo);
 		const created = actor.createdDocs.find(d => d.name === "Defy Danger");
 		expect(created).toBeDefined();
+	});
+});
+
+// ── reference categories added after the character was made ───────────────────
+
+// Expedition moves shipped after characters already existed. The flag-era migration above bails for
+// anyone already on embedded moves, so this is what actually reaches them.
+describe("migrateReferenceMoveCategories", () => {
+	const REFERENCE_DOCS = [
+		new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").asStarting().build(),
+		new FakeCompendiumMoveBuilder().withName("Make Camp").withMoveType("expedition").asStarting().build(),
+		new FakeCompendiumMoveBuilder().withName("Chart a Course").withMoveType("expedition").asStarting().build(),
+		new FakeCompendiumMoveBuilder().withName("Death's Door").withMoveType("special").asStarting().build(),
+		new FakeCompendiumMoveBuilder().withName("Order Followers").withMoveType("follower").asStarting().build(),
+	];
+
+	const makeRepo = () => new FakeMoveRepository([], [...REFERENCE_DOCS]);
+
+	// A character migrated before expedition existed: every other reference category is embedded.
+	function makeMigratedActor(extraItems = []) {
+		return makeActor({}, [
+			{ _id: "m-basic",    type: "move", name: "Defy Danger",     system: { slug: "defy-danger", categoryKey: "basic" } },
+			{ _id: "m-special",  type: "move", name: "Death's Door",    system: { slug: "deaths-door", categoryKey: "special" } },
+			{ _id: "m-follower", type: "move", name: "Order Followers", system: { slug: "order-followers", categoryKey: "follower" } },
+			...extraItems,
+		]);
+	}
+
+	const createdNames = (actor) => actor.createdDocs.map(d => d.name);
+
+	it("seeds the missing expedition category", async () => {
+		const actor = makeMigratedActor();
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		expect(createdNames(actor)).toEqual(expect.arrayContaining(["Make Camp", "Chart a Course"]));
+	});
+
+	it("stamps the seeded moves with the expedition category, acquired", async () => {
+		const actor = makeMigratedActor();
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		const created = actor.createdDocs.find(d => d.name === "Make Camp");
+		expect(created.system.categoryKey).toBe("expedition");
+		expect(created.system.acquired).toBe(true);
+	});
+
+	it("leaves the categories the character already has alone", async () => {
+		const actor = makeMigratedActor();
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		expect(createdNames(actor)).not.toContain("Defy Danger");
+		expect(createdNames(actor)).not.toContain("Death's Door");
+	});
+
+	it("adds nothing on a second run", async () => {
+		const actor = makeMigratedActor();
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		const afterFirst = actor.createdDocs.length;
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		expect(actor.createdDocs).toHaveLength(afterFirst);
+	});
+
+	// The GM deleted one expedition move on purpose. The category still has the other, so the
+	// migration must not top it back up.
+	it("does not restore a single move deleted from a category the character still has", async () => {
+		const actor = makeMigratedActor([
+			{ _id: "m-camp", type: "move", name: "Make Camp", system: { slug: "make-camp", categoryKey: "expedition" } },
+		]);
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		expect(createdNames(actor)).not.toContain("Chart a Course");
+	});
+
+	it("seeds every category for a character carrying no moves at all", async () => {
+		const actor = makeActor({}, []);
+		await migrateReferenceMoveCategories(actor, makeRepo());
+		expect(createdNames(actor).sort())
+			.toEqual(["Chart a Course", "Death's Door", "Defy Danger", "Make Camp", "Order Followers"]);
 	});
 });
