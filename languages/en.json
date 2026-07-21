@@ -269,6 +269,27 @@
 				"piercing2": "<em>x</em> = 2 piercing"
 			}
 		},
+		"outfitItem": {
+			"namePlaceholder": "Item name",
+			"weight": "Weight",
+			"weightHint": "Weight is how many diamonds the row shows — 0 for a weightless item.",
+			"column": "Column",
+			"columnRegular": "Regular",
+			"columnSmall": "Small items",
+			"twoCol": "Span both columns",
+			"tags": "Tags",
+			"tagsPlaceholder": "hand, thrown, near",
+			"note": "Note",
+			"notePlaceholder": "Parenthetical shown after the name",
+			"armor": "Armor",
+			"addArmor": "Add armor",
+			"removeArmor": "Remove armor",
+			"armorHint": "While carried: the highest base among your items, plus every modifier.",
+			"armorBase": "Base",
+			"armorModifier": "Modifier",
+			"edit": "Edit",
+			"done": "Done"
+		},
 		"settings": {
 			"hideRollMode": {
 				"name": "Hide Roll Mode",

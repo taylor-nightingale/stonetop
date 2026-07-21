@@ -21,10 +21,13 @@ describe("OutfitItemData defaults", () => {
 		expect(d.note).toBe("");
 	});
 
-	it("defaults resource, armor, sortOrder to null", () => {
+	it("defaults resource and armor to null", () => {
 		const d = new OutfitItemData();
 		expect(d.resource).toBeNull();
 		expect(d.armor).toBeNull();
-		expect(d.sortOrder).toBeNull();
+	});
+
+	it("has no sort field — outfit rows render in compendium order", () => {
+		expect(Object.keys(OutfitItemData.defineSchema())).not.toContain("sortOrder");
 	});
 });

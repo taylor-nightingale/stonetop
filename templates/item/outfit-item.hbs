@@ -1,0 +1,88 @@
+{{!-- ApplicationV2 part: the sheet root IS the <form> (DocumentSheetV2 tag) and carries the
+      stonetop/sheet/item/outfit-item classes from DEFAULT_OPTIONS. HandlebarsApplicationMixin
+      requires each part to render a SINGLE root element — hence this wrapper div. --}}
+<div class="stonetop-item-sheet-part">
+
+{{#unless editMode}}
+{{!-- ---- Rendered view: the row exactly as it appears in the inventory ---- --}}
+<header class="stonetop-insert-sheet-header">
+	<img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt="">
+	<span class="stonetop-insert-sheet-name">{{item.name}}</span>
+	{{#if editable}}
+	<button type="button" class="outfit-item-edit-toggle" data-action="toggleEditMode" data-mode="edit">{{localize "stonetop.outfitItem.edit"}}</button>
+	{{/if}}
+</header>
+
+{{!-- The row's checkboxes/pips fire character-scoped actions (inventoryItemCheck,
+      inventoryResourcePip) that have no meaning here — the preview is inert (CSS). --}}
+<div class="stonetop-outfit-item-preview">
+	{{> "stonetop.outfit-item-row" preview}}
+</div>
+
+{{else}}
+{{!-- ---- Editor ---- --}}
+<header class="stonetop-insert-sheet-header">
+	<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+	<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
+	       placeholder="{{localize 'stonetop.outfitItem.namePlaceholder'}}">
+	<button type="button" class="outfit-item-edit-toggle" data-action="toggleEditMode" data-mode="view">{{localize "stonetop.outfitItem.done"}}</button>
+</header>
+
+<div class="stonetop-insert-sheet-body">
+
+	<section class="stonetop-insert-sheet-section">
+		<div class="stonetop-arcanum-fields">
+			<label>{{localize "stonetop.outfitItem.weight"}}
+				<input type="number" min="0" name="system.weight" value="{{system.weight}}">
+			</label>
+			<label>{{localize "stonetop.outfitItem.column"}}
+				<select name="system.inventoryColumn">
+					<option value="regular" {{#if (eq system.inventoryColumn "regular")}}selected{{/if}}>{{localize "stonetop.outfitItem.columnRegular"}}</option>
+					<option value="small" {{#if (eq system.inventoryColumn "small")}}selected{{/if}}>{{localize "stonetop.outfitItem.columnSmall"}}</option>
+				</select>
+			</label>
+			<label class="stonetop-arcanum-field--check">
+				<input type="checkbox" name="system.twoCol" {{#if system.twoCol}}checked{{/if}}>
+				<span>{{localize "stonetop.outfitItem.twoCol"}}</span>
+			</label>
+		</div>
+		<p class="stonetop-outfit-item-hint">{{localize "stonetop.outfitItem.weightHint"}}</p>
+	</section>
+
+	<section class="stonetop-insert-sheet-section">
+		<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.tags"}}</label>
+		<input type="text" name="system.tagList" value="{{system.tagList}}"
+		       placeholder="{{localize 'stonetop.outfitItem.tagsPlaceholder'}}">
+		<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.note"}}</label>
+		<input type="text" name="system.note" value="{{system.note}}"
+		       placeholder="{{localize 'stonetop.outfitItem.notePlaceholder'}}">
+	</section>
+
+	<section class="stonetop-insert-sheet-section">
+		{{> "stonetop.arcanum-resource" resource=system.resource path="system.resource"}}
+	</section>
+
+	<section class="stonetop-insert-sheet-section">
+		<div class="stonetop-insert-sheet-section-head">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.armor"}}</label>
+			<button type="button" class="outfit-armor-toggle">
+				{{#if system.armor}}{{localize "stonetop.outfitItem.removeArmor"}}{{else}}{{localize "stonetop.outfitItem.addArmor"}}{{/if}}
+			</button>
+		</div>
+		{{#if system.armor}}
+		<p class="stonetop-outfit-item-hint">{{localize "stonetop.outfitItem.armorHint"}}</p>
+		<div class="stonetop-arcanum-fields">
+			<label>{{localize "stonetop.outfitItem.armorBase"}}
+				<input type="number" class="outfit-armor-field" data-field="base" value="{{system.armor.base}}">
+			</label>
+			<label>{{localize "stonetop.outfitItem.armorModifier"}}
+				<input type="number" class="outfit-armor-field" data-field="modifier" value="{{system.armor.modifier}}">
+			</label>
+		</div>
+		{{/if}}
+	</section>
+
+</div>
+{{/unless}}
+
+</div>

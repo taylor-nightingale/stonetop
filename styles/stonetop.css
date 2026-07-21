@@ -5172,6 +5172,13 @@ button.stonetop-xp-toggle {
    preview of the improvement's structure (real track state lives on each steading), so disable them. */
 .stonetop-improvement-preview input { pointer-events: none; }
 
+/* -- Inventory item sheet (StonetopOutfitItemSheet) — reuses .stonetop-insert-sheet-* layout and
+   the shared .stonetop-arcanum-fields editor rows. The rendered view shares outfit-item-row.hbs
+   with the character/follower inventories; its weight diamonds and resource pips address a
+   character's state, which a catalog item has none of, so the whole preview is inert. */
+.stonetop-outfit-item-preview { pointer-events: none; }
+.stonetop-outfit-item-hint { font-size: var(--fs-note); opacity: 0.7; font-style: italic; margin: 4px 0 0; }
+
 /* V2 part root: single wrapper element (HandlebarsApplicationMixin requirement) that stacks the
    header + body and owns the sheet's scrolling (PARTS marks it scrollable).
    .stonetop-item-sheet-part is the shared wrapper for all migrated item sheets;

@@ -1,4 +1,22 @@
 export class OutfitItem {
+	// Map a raw `outfitItem` document (pack entry, world item, or the item sheet's own document)
+	// onto the entity. `group` is the folder-derived section name — only pack entries have one.
+	static fromDocument(item, group = null) {
+		const sys = item.system ?? {};
+		return new OutfitItemBuilder()
+			.withSlug(sys.slug)
+			.withName(item.name)
+			.withWeight(sys.weight ?? 0)
+			.withTags(sys.tagList ?? "")
+			.withNote(sys.note ?? null)
+			.withInventoryColumn(sys.inventoryColumn ?? null)
+			.withResource(sys.resource ?? null)
+			.withTwoCol(sys.twoCol ?? false)
+			.withGroup(group)
+			.withArmor(sys.armor ?? null)
+			.build();
+	}
+
 	constructor(b) {
 		this.slug            = b._slug;
 		this.name            = b._name;

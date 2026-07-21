@@ -10,7 +10,6 @@
 		"note": "+1 armor, +1 Readiness on 7+ to Defend",
 		"resource": null,
 		"twoCol": false,
-		"sortOrder": 25,
 		"armor": {
 			"modifier": 1
 		},

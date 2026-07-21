@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { buildOutfitSections, buildOutfitColumn, loadBand } from "../../../src/model/snapshot/character/outfitSections.js";
+import { buildOutfitSections, buildOutfitColumn, toOutfitItemSnapshot, loadBand } from "../../../src/model/snapshot/character/outfitSections.js";
 
 const item = (slug, column = "regular", group = "Weapons") => ({ slug, name: slug, inventoryColumn: column, group });
 const idMap = i => ({ slug: i.slug, group: i.group }); // trivial mapItem
@@ -61,6 +61,35 @@ describe("buildOutfitColumn", () => {
 	it("defaults resource to null when no resourceFn is given", () => {
 		const [section] = buildOutfitColumn(repo, [], {}, "regular");
 		expect(section.items[0].resource).toBeNull();
+	});
+});
+
+describe("toOutfitItemSnapshot", () => {
+	// The one mapping behind every rendered outfit row (both inventories + the item sheet preview).
+	const hatchet = { slug: "hatchet", name: "Hatchet", weight: 1, tags: "hand", note: "x", twoCol: false };
+
+	it("wraps tags and note as RichText and carries the caller's checked/resource decisions", () => {
+		const snap = toOutfitItemSnapshot(hatchet, true, { max: 2 });
+		expect(snap.slug).toBe("hatchet");
+		expect(snap.name).toBe("Hatchet");
+		expect(snap.weight).toBe(1);
+		expect(snap.tags.raw).toBe("hand");
+		expect(snap.note.raw).toBe("x");
+		expect(snap.checked).toBe(true);
+		expect(snap.resource).toEqual({ max: 2 });
+	});
+
+	it("marks an item custom (deletable) only when it carries an ownedId", () => {
+		expect(toOutfitItemSnapshot(hatchet, false, null).isCustom).toBe(false);
+		expect(toOutfitItemSnapshot(hatchet, false, null).ownedId).toBeNull();
+
+		const owned = toOutfitItemSnapshot({ ...hatchet, ownedId: "abc" }, false, null);
+		expect(owned.isCustom).toBe(true);
+		expect(owned.ownedId).toBe("abc");
+	});
+
+	it("defaults twoCol to false when absent", () => {
+		expect(toOutfitItemSnapshot({ slug: "x", name: "X", weight: 0 }, false, null).twoCol).toBe(false);
 	});
 });
 

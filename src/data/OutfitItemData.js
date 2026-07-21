@@ -12,7 +12,7 @@ export class OutfitItemData extends foundry.abstract.TypeDataModel {
 			note:            new f.StringField({ initial: "" }),
 			resource:        new f.ObjectField({ nullable: true, initial: null }),
 			twoCol:          new f.BooleanField({ initial: false }),
-			sortOrder:       new f.NumberField({ nullable: true, initial: null }),
+			// Outfit rows render in compendium order (then world items) — there is no sort field.
 			armor:           new f.ObjectField({ nullable: true, initial: null }),
 			source:          new f.StringField({ nullable: true, initial: null }),
 		};

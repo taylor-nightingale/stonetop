@@ -32,19 +32,26 @@ export function buildOutfitSections(repoItems, embeddedItems, column, mapItem) {
 // items = inline; resources follower-scoped). `customItems` carry `ownedId` (→ isCustom + deletable);
 // repo items don't. `resourceFn(item)` returns the item's resource snapshot (or null).
 export function buildOutfitColumn(repoItems, customItems, checkedMap, column, resourceFn = () => null) {
-	const mapItem = (oi) => new OutfitItemSnapshotBuilder()
+	const mapItem = (oi) => toOutfitItemSnapshot(oi, checkedMap[oi.slug] ?? false, resourceFn(oi));
+	return buildOutfitSections(repoItems, customItems, column, mapItem);
+}
+
+// One OutfitItem → its render snapshot. The single mapping used everywhere an outfit row is drawn:
+// the character inventory, the follower inventory, and the outfit-item sheet's own preview — so all
+// three render identically through outfit-item-row.hbs.
+export function toOutfitItemSnapshot(oi, checked, resource) {
+	return new OutfitItemSnapshotBuilder()
 		.withSlug(oi.slug)
 		.withName(oi.name)
 		.withTags(rich(oi.tags))
 		.withNote(rich(oi.note))
 		.withWeight(oi.weight)
-		.withChecked(checkedMap[oi.slug] ?? false)
-		.withResource(resourceFn(oi))
+		.withChecked(checked)
+		.withResource(resource)
 		.withIsCustom(oi.ownedId != null)
 		.withOwnedId(oi.ownedId ?? null)
 		.withTwoCol(oi.twoCol ?? false)
 		.build();
-	return buildOutfitSections(repoItems, customItems, column, mapItem);
 }
 
 // Informational load band from total checked weight. Guidance only — never a cap (see the

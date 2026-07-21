@@ -1,29 +1,13 @@
-import { OutfitItemBuilder } from "../../../model/data/character/OutfitItem.js";
+import { OutfitItem } from "../../../model/data/character/OutfitItem.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 import { WorldItemStore } from "./WorldItemStore.js";
 
 const FIELDS = [
-	"system.slug", "system.inventoryColumn", "system.sortOrder",
+	"system.slug", "system.inventoryColumn",
 	"system.weight", "system.tagList", "system.note", "system.resource",
 	"system.twoCol", "system.armor",
 	"folder",
 ];
-
-function _toOutfitItem(item, group = null) {
-	const sys = item.system ?? {};
-	return new OutfitItemBuilder()
-		.withSlug(sys.slug)
-		.withName(item.name)
-		.withWeight(sys.weight ?? 0)
-		.withTags(sys.tagList ?? "")
-		.withNote(sys.note ?? null)
-		.withInventoryColumn(sys.inventoryColumn ?? null)
-		.withResource(sys.resource ?? null)
-		.withTwoCol(sys.twoCol ?? false)
-		.withGroup(group)
-		.withArmor(sys.armor ?? null)
-		.build();
-}
 
 export class FoundryOutfitItemRepository {
 	constructor() {
@@ -39,10 +23,10 @@ export class FoundryOutfitItemRepository {
 			this._worldStore.getAll(),
 			this._store.getFolders(),
 		]);
-		const packItems  = entries.map(item => _toOutfitItem(item, folders.get(item.folder) ?? null));
-		const worldItems = worldEntries.map(item => _toOutfitItem(item));
-		this._cache = [...packItems, ...worldItems]
-			.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+		const packItems  = entries.map(item => OutfitItem.fromDocument(item, folders.get(item.folder) ?? null));
+		const worldItems = worldEntries.map(item => OutfitItem.fromDocument(item));
+		// Pack order is the authored order (the compendium's own sequence); world items trail it.
+		this._cache = [...packItems, ...worldItems];
 		return this._cache;
 	}
 }

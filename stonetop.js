@@ -9,6 +9,7 @@ import { createStonetopMoveSheetClass } from "./src/item/StonetopMoveSheet.js";
 import { createStonetopInsertSheetClass } from "./src/item/StonetopInsertSheet.js";
 import { createStonetopArcanumSheetClass } from "./src/item/StonetopArcanumSheet.js";
 import { createStonetopPossessionSheetClass } from "./src/item/StonetopPossessionSheet.js";
+import { createStonetopOutfitItemSheetClass } from "./src/item/StonetopOutfitItemSheet.js";
 import { createStonetopFollowerSheetClass } from "./src/item/StonetopFollowerSheet.js";
 import { createStonetopImprovementSheetClass } from "./src/item/StonetopImprovementSheet.js";
 import { createStonetopItemSheetV2BaseClass } from "./src/item/StonetopItemSheetV2.js";
@@ -174,6 +175,13 @@ Hooks.once("init", () => {
 		types: ["possession"],
 		makeDefault: true,
 		label: "Stonetop Possession Sheet",
+	});
+
+	const StonetopOutfitItemSheet = createStonetopOutfitItemSheetClass(ItemSheetV2Base);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopOutfitItemSheet, {
+		types: ["outfitItem"],
+		makeDefault: true,
+		label: "Stonetop Inventory Item Sheet",
 	});
 
 	const StonetopFollowerSheet = createStonetopFollowerSheetClass(ItemSheetV2Base);
