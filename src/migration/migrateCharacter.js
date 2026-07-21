@@ -64,6 +64,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateEmbeddedMoveSlugs(actor);
 	await migrateCharacterMoves(actor, repos.moves, insertRepo);
 	await migrateReferenceMoveCategories(actor, repos.moves);
+	await migrateMovePackData(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookChoices(actor, repos.playbooks);
 	await migratePlaybookIntroductions(actor, repos.playbooks);
@@ -755,4 +756,51 @@ export async function migrateArcanaFollowerPackData(actor, followerRepo) {
 		});
 	}
 	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+}
+
+// ── Q. Refresh an embedded move's authored fields from the pack ───────────────
+// An embedded move is a copy taken when it was seeded or granted, so regenerating the pack never
+// reaches a character already in play: prose corrected later never shows, and links added to a move
+// (Death's Door → the Revenant/Ghost/Thrall inserts) stay unclickable. Reference moves can't be
+// re-added by hand — they seed once, at character creation — so refreshing in place is the only
+// route open to an existing character.
+//
+// Authored fields come from the pack (matched by slug); player state is preserved by omission —
+// acquired, instanceCount, categoryKey/Label/Note, sortOrder, compendiumId and pickValues all
+// survive Foundry's merge. `name` is deliberately left alone so a GM rename is not clobbered.
+// Scoped to moves the repo knows, so homebrew moves are skipped; a GM's hand-edits to a PACK move on
+// a character are overwritten, the same trade the possession/arcana refreshes already make.
+export async function migrateMovePackData(actor, moveRepo) {
+	const items = [...actor.items].filter(i => i.type === "move" && i.system?.slug);
+	if (!items.length) return;
+
+	const bySlug = await moveRepo.buildSlugIndex();
+	const updates = [];
+	for (const item of items) {
+		const move = bySlug.get(item.system.slug);
+		if (!move) continue;
+		// The index carries a subset of fields; the definition has to come from the document itself so
+		// nothing authored (xpOnMiss, result tiers) is silently dropped on the way through.
+		const doc = await moveRepo.getReferencedMoveDocument(move.id);
+		const sys = doc?.toObject?.().system ?? doc?.system ?? null;
+		if (!sys) continue;
+		updates.push({
+			_id: item._id,
+			system: {
+				description: sys.description ?? "",
+				moveResults: sys.moveResults ?? null,
+				rollStat:    sys.rollStat    ?? null,
+				requirement: sys.requirement ?? null,
+				resource:    sys.resource    ?? null,
+				choices:     sys.choices     ?? null,
+				repeatMax:   sys.repeatMax   ?? 1,
+				// "Mark XP on a 6- unless the move says otherwise" — a move says otherwise with false.
+				xpOnMiss:    sys.xpOnMiss !== false,
+			},
+		});
+	}
+	if (!updates.length) return;
+
+	info(`Refreshing ${updates.length} embedded move(s) from pack data.`);
+	await actor.updateEmbeddedDocuments("Item", updates);
 }

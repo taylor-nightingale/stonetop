@@ -21,7 +21,7 @@
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add expedition moves to the quick list that one can pop out. they are kinda a big deal when one goes out adventuring. even if it is only for referencing them.
 * posessions' choice groups don't render the md *close* correctly
-* Add link to revenant, ghost and thrall inserts from Deaths Door move
+
 
 == Nice to have
 * toggle to turn off non-selected character options
