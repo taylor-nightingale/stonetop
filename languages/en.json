@@ -407,9 +407,14 @@
 			"move": {
 				"namePlaceholder": "Move Name",
 				"rollStat": {
-					"none":   "— No Roll —",
-					"ask":    "Ask (player chooses)",
-					"prompt": "Prompt (no roll)"
+					"none":       "— No Roll —",
+					"ask":        "Ask (player chooses)",
+					"prompt":     "Prompt (no roll)",
+					"fortunes":   "Fortunes (steading)",
+					"prosperity": "Prosperity (steading)",
+					"population": "Population (steading)",
+					"defenses":   "Defenses (steading)",
+					"favor":      "Favor (Thrall)"
 				},
 				"moveType": {
 					"none":       "— Type —",

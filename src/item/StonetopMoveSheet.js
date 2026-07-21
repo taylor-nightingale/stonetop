@@ -17,16 +17,29 @@ export function moveSheetRichText(system) {
 	};
 }
 
-const ROLL_STAT_CHOICES = {
-	"":       "stonetop.item.move.rollStat.none",
-	str:      "stonetop.character.stats.abbr.str",
-	dex:      "stonetop.character.stats.abbr.dex",
-	con:      "stonetop.character.stats.abbr.con",
-	int:      "stonetop.character.stats.abbr.int",
-	wis:      "stonetop.character.stats.abbr.wis",
-	cha:      "stonetop.character.stats.abbr.cha",
-	ask:      "stonetop.item.move.rollStat.ask",
-	prompt:   "stonetop.item.move.rollStat.prompt",
+// Every key `resolveBonus` can answer, so a stored value always has an option to sit on. A key
+// missing here doesn't just display wrong — the select falls back to its first option and the next
+// submit writes that over the move's real roll (this is how Requisition/Dark Succor lost theirs).
+// The steading ratings are rolled by moves a CHARACTER makes (Requisition's +Fortunes), resolved
+// through the character's home steading.
+export const ROLL_STAT_CHOICES = {
+	"":         "stonetop.item.move.rollStat.none",
+	str:        "stonetop.character.stats.abbr.str",
+	dex:        "stonetop.character.stats.abbr.dex",
+	con:        "stonetop.character.stats.abbr.con",
+	int:        "stonetop.character.stats.abbr.int",
+	wis:        "stonetop.character.stats.abbr.wis",
+	cha:        "stonetop.character.stats.abbr.cha",
+	fortunes:   "stonetop.item.move.rollStat.fortunes",
+	prosperity: "stonetop.item.move.rollStat.prosperity",
+	population: "stonetop.item.move.rollStat.population",
+	defenses:   "stonetop.item.move.rollStat.defenses",
+	// An insert's own track. Listing it here is a stopgap: the key belongs to the Thrall, not to
+	// every move in the system, and the list can't grow a line per insert. Better would be building
+	// the choices from the same sources resolveBonus consults.
+	favor:      "stonetop.item.move.rollStat.favor",
+	ask:        "stonetop.item.move.rollStat.ask",
+	prompt:     "stonetop.item.move.rollStat.prompt",
 };
 
 // moveType is the resolution key for reference moves seeded by type (no container owns them).
