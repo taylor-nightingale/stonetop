@@ -20,7 +20,6 @@
 * Make input text in choice boxes expand down as more text is typed in.
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add expedition moves to the quick list that one can pop out. they are kinda a big deal when one goes out adventuring. even if it is only for referencing them.
-* let fly formatting is messed up. the <ul> is overlapping the move-sheet-results
 * posessions' choice groups don't render the md *close* correctly
 
 == Nice to have
@@ -29,4 +28,5 @@
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from
 * support non-stonetop steading sheets
+
 

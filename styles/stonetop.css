@@ -4257,17 +4257,20 @@ button.stonetop-xp-toggle {
 
 /* -- Description --------------------------------------------- */
 
+/* An explicit min-height overrides a flex item's automatic minimum size, so `flex: 1` here would
+   let .move-sheet-body squeeze the description to 150px and spill long descriptions over the
+   results section. Size to content instead and let the body scroll. */
 .move-sheet-description {
 	padding: 0.75rem;
 	border-bottom: 1px solid #ccc;
-	flex: 1;
+	flex: 0 0 auto;
 	min-height: 150px;
 	display: flex;
 	flex-direction: column;
 }
 
 .move-sheet-description .editor-content {
-	flex: 1;
+	flex: 0 0 auto;
 	min-height: 130px;
 	line-height: 1.5;
 }
