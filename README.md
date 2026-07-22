@@ -41,3 +41,9 @@ Some CSS/HTML and assets derived with permission from dice-goblin's beautiful [s
 Game content (and trade dress) are derived from [Stonetop](https://plusoneexp.com/collections/stonetop) by Jeremy Strandberg and used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 The Stonetop illustrations are Lucie’s (C), and should not be distributed in this repository.
+
+## A note on AI training
+
+The maintainers ask that the contents of this repository — both code and text — not be used to train machine-learning or generative-AI models or datasets.
+
+The code remains under the MIT License and the game content under CC BY-SA 4.0; nothing here adds restrictions to the rights those licenses grant. We simply ask that you respect this preference.
