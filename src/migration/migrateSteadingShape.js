@@ -65,7 +65,7 @@ function _healRootFortunesSurplus(source) {
 function _healPlaces(source) {
 	if (!Array.isArray(source.placesOfInterest)) return;
 	source.placesOfInterest = source.placesOfInterest.map(p =>
-		typeof p === "string" ? { name: p, journalReference: "" } : p);
+		typeof p === "string" ? { name: p, linkUuid: "" } : p);
 }
 
 // Old `improvements` held pick STATE ({pickValues}); the owned slug list didn't exist (the old

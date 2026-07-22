@@ -73,3 +73,32 @@ describe("NeighborPeople — named update methods", () => {
 		expect(p.occupation).toBe("");
 	});
 });
+
+describe("NeighborPeople — document linking", () => {
+	it("linkDocument stores the uuid and exposes a docLink @UUID token", async () => {
+		const n = make();
+		await n.add();
+		const id = n.buildSnapshot()[0].id;
+		await n.linkDocument(id, "Actor.xyz");
+		expect(n.buildSnapshot()[0].linkUuid).toBe("Actor.xyz");
+		expect(n.buildSnapshot()[0].docLink.raw).toBe("@UUID[Actor.xyz]");
+	});
+
+	it("linking preserves the home field", async () => {
+		const n = make();
+		await n.add();
+		const id = n.buildSnapshot()[0].id;
+		await n.updateHome(id, "Marshedge");
+		await n.linkDocument(id, "Actor.xyz");
+		expect(n.buildSnapshot()[0].home).toBe("Marshedge");
+	});
+
+	it("unlinkDocument clears the link", async () => {
+		const n = make();
+		await n.add();
+		const id = n.buildSnapshot()[0].id;
+		await n.linkDocument(id, "Actor.xyz");
+		await n.unlinkDocument(id);
+		expect("linkUuid" in n.buildSnapshot()[0]).toBe(false);
+	});
+});

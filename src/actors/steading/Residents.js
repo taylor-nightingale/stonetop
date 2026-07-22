@@ -34,6 +34,14 @@ export class Residents {
 		await this._list.update(this._list.findById(id).withTraits(traits));
 	}
 
+	async linkDocument(id, uuid) {
+		await this._list.update(this._list.findById(id).withLink(uuid));
+	}
+
+	async unlinkDocument(id) {
+		await this._list.update(this._list.findById(id).withoutLink());
+	}
+
 	buildSnapshot() {
 		return this._list.buildSnapshot();
 	}

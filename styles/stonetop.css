@@ -3913,7 +3913,10 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-residents-header,
 .stonetop.sheet.steading .steading-resident-row {
 	display: grid;
-	grid-template-columns: 1fr 1fr 2fr auto;
+	/* Trailing link + delete columns are FIXED (not auto): each row is its own grid, so a
+	   content-sized column would compute a different width per row and knock the text inputs out of
+	   alignment with the header. Fixed tracks keep every row and the header on the same columns. */
+	grid-template-columns: 1fr 1fr 2fr 6rem 1.5rem;
 	gap: 4px;
 	align-items: center;
 }
@@ -3939,6 +3942,53 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-resident-row input[type="text"]:focus {
 	border-bottom-color: rgba(0,0,0,0.3);
 	outline: none;
+}
+
+/* Linked-document chip: a clickable content link (actor/journal/item) + an unlink (✕) button. Sits
+   in its own fixed grid cell (residents/neighbors) or inline (places); truncates to fit. */
+.stonetop.sheet.steading .steading-doc-link {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	min-width: 0;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.stonetop.sheet.steading .steading-doc-link .content-link {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: var(--fs-note);
+}
+
+/* Muted one-line hint under each linkable list. */
+.stonetop.sheet.steading .steading-link-hint {
+	margin: 2px 0 0;
+	font-size: var(--fs-micro);
+	font-style: italic;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop.sheet.steading .stonetop-resident-unlink,
+.stonetop.sheet.steading .stonetop-neighbor-person-unlink,
+.stonetop.sheet.steading .stonetop-place-unlink {
+	flex-shrink: 0;
+	width: auto;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	padding: 0 2px;
+	line-height: 1;
+	font-size: var(--fs-micro);
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop.sheet.steading .stonetop-resident-unlink:hover,
+.stonetop.sheet.steading .stonetop-neighbor-person-unlink:hover,
+.stonetop.sheet.steading .stonetop-place-unlink:hover {
+	color: var(--color-text-dark-primary, #111);
 }
 
 .stonetop.sheet.steading .steading-add-resident {
@@ -4015,7 +4065,7 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-neighbors-header,
 .stonetop.sheet.steading .steading-neighbor-row {
-	grid-template-columns: 1fr 1fr 2fr 1fr auto;
+	grid-template-columns: 1fr 1fr 2fr 1fr 6rem 1.5rem;
 }
 
 .stonetop.sheet.steading .steading-neighbor-places {

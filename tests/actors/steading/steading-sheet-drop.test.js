@@ -20,9 +20,13 @@ class FakeCoreActorSheetBase {
 	async _onDrop(event) {
 		await this._onDropDocument(event, event._testDroppedItem);
 	}
-	async _onDropDocument(event, item) {
-		return this._onDropItem(event, item);
+	// Core resolves the drop to a Document, then routes by documentName (Actor → _onDropActor,
+	// everything else → _onDropItem here). JournalEntry has no core case — it falls through.
+	async _onDropDocument(event, document) {
+		if (document?.documentName === "Actor") return this._onDropActor(event, document);
+		return this._onDropItem(event, document);
 	}
+	async _onDropActor() { return null; }
 	// Core's default embed for items the subclass doesn't intercept.
 	async _onDropItem(event, item) {
 		await this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
@@ -33,7 +37,12 @@ class FakeCoreActorSheetBase {
 const StonetopSteadingSheet = createStonetopSteadingSheetClass(FakeCoreActorSheetBase);
 
 function makeSheet({ editable = true } = {}) {
-	const typedSteading = { applyDroppedItem: vi.fn(async () => false) };
+	const typedSteading = {
+		applyDroppedItem: vi.fn(async () => false),
+		residents:        { linkDocument: vi.fn(async () => {}) },
+		neighborPeople:   { linkDocument: vi.fn(async () => {}) },
+		placesOfInterest: { linkDocument: vi.fn(async () => {}) },
+	};
 	const actor = {
 		typedActor: typedSteading, name: "Stonetop", system: { steadfast: "" },
 		createEmbeddedDocuments: vi.fn(async () => {}),
@@ -41,6 +50,14 @@ function makeSheet({ editable = true } = {}) {
 	const sheet = new StonetopSteadingSheet(actor);
 	sheet.isEditable = editable;
 	return { sheet, typedSteading, actor };
+}
+
+// Builds a drop event whose target sits inside the given row markup, so `_onDrop*` can walk up to
+// the row via `.closest()`.
+function dropOnRow(rowHtml, innerSelector) {
+	const holder = document.createElement("div");
+	holder.innerHTML = rowHtml;
+	return { target: holder.querySelector(innerSelector) };
 }
 
 describe("StonetopSteadingSheet._onDropItem", () => {
@@ -75,6 +92,54 @@ describe("StonetopSteadingSheet._onDropItem", () => {
 		expect(typedSteading.applyDroppedItem).not.toHaveBeenCalled();
 		expect(actor.createEmbeddedDocuments).not.toHaveBeenCalled();
 		expect(result).toBeNull();
+	});
+});
+
+describe("StonetopSteadingSheet._onDropDocument — linking documents to rows", () => {
+	const actorDoc   = { documentName: "Actor", uuid: "Actor.abc" };
+	const journalDoc = { documentName: "JournalEntry", uuid: "JournalEntry.j1" };
+	const itemDoc    = { documentName: "Item", uuid: "Item.i1", type: "possession", toObject: () => ({ type: "possession" }) };
+
+	const residentRow = `<div class="steading-resident-row" data-id="r1"><input class="stonetop-resident-name"></div>`;
+	const neighborRow = `<div class="steading-resident-row steading-neighbor-row" data-id="n1"><input class="stonetop-neighbor-person-name"></div>`;
+	const placeRow    = `<div class="stonetop-places-row" data-index="2"><input class="stonetop-place-field"></div>`;
+
+	it("links an actor dropped on a resident row", async () => {
+		const { sheet, typedSteading } = makeSheet();
+		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), actorDoc);
+		expect(typedSteading.residents.linkDocument).toHaveBeenCalledWith("r1", "Actor.abc");
+	});
+
+	it("links a journal dropped on a resident row (any document type)", async () => {
+		const { sheet, typedSteading } = makeSheet();
+		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), journalDoc);
+		expect(typedSteading.residents.linkDocument).toHaveBeenCalledWith("r1", "JournalEntry.j1");
+	});
+
+	it("links to the neighbor (not the resident) when the row is a neighbor row", async () => {
+		const { sheet, typedSteading } = makeSheet();
+		await sheet._onDropDocument(dropOnRow(neighborRow, ".stonetop-neighbor-person-name"), actorDoc);
+		expect(typedSteading.neighborPeople.linkDocument).toHaveBeenCalledWith("n1", "Actor.abc");
+		expect(typedSteading.residents.linkDocument).not.toHaveBeenCalled();
+	});
+
+	it("links a document dropped on a place-of-interest row", async () => {
+		const { sheet, typedSteading } = makeSheet();
+		await sheet._onDropDocument(dropOnRow(placeRow, ".stonetop-place-field"), journalDoc);
+		expect(typedSteading.placesOfInterest.linkDocument).toHaveBeenCalledWith(2, "JournalEntry.j1");
+	});
+
+	it("does not link when the sheet is not editable", async () => {
+		const { sheet, typedSteading } = makeSheet({ editable: false });
+		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), actorDoc);
+		expect(typedSteading.residents.linkDocument).not.toHaveBeenCalled();
+	});
+
+	it("passes a document dropped off any linkable row through to core routing (item embed)", async () => {
+		const { sheet, actor, typedSteading } = makeSheet();
+		await sheet._onDropDocument({ target: document.createElement("div") }, itemDoc);
+		expect(typedSteading.residents.linkDocument).not.toHaveBeenCalled();
+		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{ type: "possession" }]);
 	});
 });
 

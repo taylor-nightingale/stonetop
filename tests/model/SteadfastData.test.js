@@ -54,9 +54,9 @@ describe("SteadfastData authored values", () => {
 		expect(d.assets.fortifications).toEqual(["Village militia"]);
 	});
 
-	it("shapes each place of interest as { name, journalReference }, filling a blank reference", () => {
+	it("shapes each place of interest as { name, linkUuid }, filling a blank reference", () => {
 		const d = new SteadfastData({ placesOfInterest: [{ name: "The Stone" }] });
-		expect(d.placesOfInterest).toEqual([{ name: "The Stone", journalReference: "" }]);
+		expect(d.placesOfInterest).toEqual([{ name: "The Stone", linkUuid: "" }]);
 	});
 
 	it("shapes each coinage row as a typed record, filling missing counts with 0", () => {

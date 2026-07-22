@@ -35,8 +35,9 @@ export function steadingProfileSchema(f) {
 		}),
 
 		placesOfInterest: new f.ArrayField(new f.SchemaField({
-			name:             new f.StringField({ initial: "" }),
-			journalReference: new f.StringField({ initial: "" }),
+			name:     new f.StringField({ initial: "" }),
+			// A linked document (journal / actor / item …), stored as a bare uuid; "" when unlinked.
+			linkUuid: new f.StringField({ initial: "" }),
 		})),
 
 		neighborPlaces: new f.ArrayField(new f.SchemaField({

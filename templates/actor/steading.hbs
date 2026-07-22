@@ -184,16 +184,23 @@
 
 					<div class="steading-residents-table">
 						<div class="steading-residents-header">
-							<span>Name (Pronouns)</span>
-							<span>Occupation</span>
-							<span>Traits, Relations, Etc</span>
+							<span>{{localize "stonetop.steading.colName"}}</span>
+							<span>{{localize "stonetop.steading.colOccupation"}}</span>
+							<span>{{localize "stonetop.steading.colTraits"}}</span>
+							<span>{{localize "stonetop.steading.linkColumn"}}</span>
 						</div>
 						<div class="steading-residents-rows">
 							{{#each stonetop.residents}}
-								<div class="steading-resident-row">
+								<div class="steading-resident-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
 									<input type="text" class="stonetop-resident-name" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
 									<input type="text" class="stonetop-resident-occupation" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
 									<input type="text" class="stonetop-resident-traits" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
+									<span class="steading-doc-link">
+										{{#if docLink}}
+											{{rich docLink}}
+											<button class="stonetop-resident-unlink" type="button" data-id="{{id}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
+										{{/if}}
+									</span>
 									<button class="stonetop-resident-remove stonetop-icon-btn" type="button" data-id="{{id}}" data-name="{{name}}" title="Delete resident" aria-label="Delete resident">
 										<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 									</button>
@@ -203,6 +210,7 @@
 						<button class="stonetop-resident-add stonetop-icon-btn" type="button" title="Add resident" aria-label="Add resident">
 							<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 						</button>
+						<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
 					</div>
 				</section>
 
@@ -269,18 +277,25 @@
 
 					<div class="steading-residents-table steading-neighbors-table">
 						<div class="steading-residents-header steading-neighbors-header">
-							<span>Name (Pronouns)</span>
-							<span>Occupation</span>
-							<span>Traits, Relations, Etc</span>
-							<span>Home</span>
+							<span>{{localize "stonetop.steading.colName"}}</span>
+							<span>{{localize "stonetop.steading.colOccupation"}}</span>
+							<span>{{localize "stonetop.steading.colTraits"}}</span>
+							<span>{{localize "stonetop.steading.colHome"}}</span>
+							<span>{{localize "stonetop.steading.linkColumn"}}</span>
 						</div>
 						<div class="steading-residents-rows">
 							{{#each stonetop.neighbors.people}}
-								<div class="steading-resident-row steading-neighbor-row">
+								<div class="steading-resident-row steading-neighbor-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
 									<input type="text" class="stonetop-neighbor-person-name" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
 									<input type="text" class="stonetop-neighbor-person-occupation" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
 									<input type="text" class="stonetop-neighbor-person-traits" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
 									<input type="text" class="stonetop-neighbor-person-home" data-id="{{id}}" value="{{home}}" placeholder="Home">
+									<span class="steading-doc-link">
+										{{#if docLink}}
+											{{rich docLink}}
+											<button class="stonetop-neighbor-person-unlink" type="button" data-id="{{id}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
+										{{/if}}
+									</span>
 									<button class="stonetop-neighbor-person-remove stonetop-icon-btn" type="button" data-id="{{id}}" data-name="{{name}}" title="Delete neighbor" aria-label="Delete neighbor">
 										<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 									</button>
@@ -290,6 +305,7 @@
 						<button class="stonetop-neighbor-person-add stonetop-icon-btn" type="button" title="Add neighbor" aria-label="Add neighbor">
 							<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 						</button>
+						<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
 					</div>
 				</section>
 
@@ -387,7 +403,7 @@
 			<div class="steading-notes-grid">
 
 				<section class="steading-notes-column">
-					{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest}}
+					{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest linkHint=true}}
 				</section>
 
 				<div class="steading-notes-divider" aria-hidden="true"></div>

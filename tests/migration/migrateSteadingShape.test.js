@@ -48,8 +48,8 @@ describe("migrateSteadingShape — legacy full source", () => {
 	it("reshapes string places to objects", () => {
 		const src = migrateSteadingShape(legacySource());
 		expect(src.placesOfInterest).toEqual([
-			{ name: "The Stone", journalReference: "" },
-			{ name: "The Granary", journalReference: "" },
+			{ name: "The Stone", linkUuid: "" },
+			{ name: "The Granary", linkUuid: "" },
 		]);
 	});
 
@@ -84,7 +84,7 @@ describe("migrateSteadingShape — current-shape sources and update diffs (must 
 			steadfast: "stonetop",
 			attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 2, defenses: -1 },
 			assets: { items: [], resources: ["Farming"], fortifications: [], coinage: [] },
-			placesOfInterest: [{ name: "The Stone", journalReference: "" }],
+			placesOfInterest: [{ name: "The Stone", linkUuid: "" }],
 			residents: { names: "", traits: [] },
 			residentPeople: [],
 			improvements: ["market"],

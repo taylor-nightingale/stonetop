@@ -14,7 +14,7 @@ function makeItem(overrides = {}) {
 			description: "A pass.",
 			attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 1, defenses: 2 },
 			assets: { items: ["A cart"], resources: ["Timber"], fortifications: ["Ramparts"], coinage: [{ title: "gold", purses: 0, handfuls: 0, coins: 0 }] },
-			placesOfInterest: [{ name: "The Gate", journalReference: "" }],
+			placesOfInterest: [{ name: "The Gate", linkUuid: "" }],
 			neighborPlaces: [{ slug: "stonetop", name: "Stonetop", subtitle: "", note: "", names: "" }],
 			residents: { names: "Ana, Bram", traits: ["Gruff", "Kind"] },
 			improvements: ["watchtower"],

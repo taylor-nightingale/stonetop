@@ -17,6 +17,10 @@ describe("Person.blank", () => {
 		expect("home" in Person.blank()).toBe(false);
 	});
 
+	it("does not have a linkUuid field", () => {
+		expect("linkUuid" in Person.blank()).toBe(false);
+	});
+
 	it("each call produces a unique id", () => {
 		expect(Person.blank().id).not.toBe(Person.blank().id);
 	});
@@ -64,6 +68,21 @@ describe("Person with-methods", () => {
 		expect(p.withHome("Marshedge").home).toBe("Marshedge");
 	});
 
+	it("withLink returns a new Person carrying the document uuid, preserving other fields", () => {
+		const p = Person.fromRaw({id: "abc", name: "Aldric", occupation: "Smith", traits: "Gruff"});
+		const linked = p.withLink("Actor.xyz");
+		expect(linked.linkUuid).toBe("Actor.xyz");
+		expect(linked.name).toBe("Aldric");
+		expect(linked.occupation).toBe("Smith");
+	});
+
+	it("withoutLink drops the linkUuid field", () => {
+		const p = Person.fromRaw({id: "abc", name: "Aldric", linkUuid: "Actor.xyz"});
+		const unlinked = p.withoutLink();
+		expect("linkUuid" in unlinked).toBe(false);
+		expect(unlinked.name).toBe("Aldric");
+	});
+
 	it("with-methods do not mutate the original", () => {
 		const p = Person.blank();
 		p.withName("Aldric");
@@ -84,6 +103,15 @@ describe("Person.fromRaw", () => {
 	it("round-trips a neighbor person (with home)", () => {
 		const p = Person.fromRaw({id: "abc", name: "Maren", occupation: "Merchant", traits: "Cunning", home: "Marshedge"});
 		expect(p.home).toBe("Marshedge");
+	});
+
+	it("round-trips a linked document uuid", () => {
+		const p = Person.fromRaw({id: "abc", name: "Maren", linkUuid: "JournalEntry.xyz"});
+		expect(p.linkUuid).toBe("JournalEntry.xyz");
+	});
+
+	it("omits linkUuid when absent", () => {
+		expect("linkUuid" in Person.fromRaw({id: "abc"})).toBe(false);
 	});
 
 	it("defaults missing fields to empty string", () => {

@@ -54,3 +54,45 @@ describe("PlacesOfInterest.setPlaceValue", () => {
 		expect(snapshot[1].value).toBe("The Granary");
 	});
 });
+
+describe("PlacesOfInterest — document linking", () => {
+	it("linkDocument stores the uuid and preserves the place name", async () => {
+		const poi = make();
+		await poi.linkDocument(0, "JournalEntry.abc");
+		const snapshot = poi.buildSnapshot();
+		expect(snapshot[0].linkUuid).toBe("JournalEntry.abc");
+		expect(snapshot[0].value).toBe("The Stone");
+	});
+
+	it("buildSnapshot exposes a docLink @UUID token for a linked place", async () => {
+		const poi = make();
+		await poi.linkDocument(0, "JournalEntry.abc");
+		expect(poi.buildSnapshot()[0].docLink.raw).toBe("@UUID[JournalEntry.abc]");
+	});
+
+	it("links any document type (an actor, not just a journal)", async () => {
+		const poi = make();
+		await poi.linkDocument(0, "Actor.a1");
+		expect(poi.buildSnapshot()[0].docLink.raw).toBe("@UUID[Actor.a1]");
+	});
+
+	it("an unlinked place has a null docLink", async () => {
+		expect(make().buildSnapshot()[0].docLink).toBeNull();
+	});
+
+	it("unlinkDocument clears the uuid and the link", async () => {
+		const poi = make();
+		await poi.linkDocument(0, "JournalEntry.abc");
+		await poi.unlinkDocument(0);
+		const snapshot = poi.buildSnapshot();
+		expect(snapshot[0].linkUuid).toBe("");
+		expect(snapshot[0].docLink).toBeNull();
+	});
+
+	it("does not affect other places", async () => {
+		const poi = make();
+		await poi.linkDocument(2, "JournalEntry.abc");
+		expect(poi.buildSnapshot()[0].linkUuid).toBe("");
+		expect(poi.buildSnapshot()[2].linkUuid).toBe("JournalEntry.abc");
+	});
+});

@@ -44,6 +44,6 @@ describe("steadingProfileSchema", () => {
 			placesOfInterest: [{ name: "The Stone" }],
 		});
 		expect(profile.assets.coinage).toEqual([{ title: "silver", purses: 2, handfuls: 0, coins: 0 }]);
-		expect(profile.placesOfInterest).toEqual([{ name: "The Stone", journalReference: "" }]);
+		expect(profile.placesOfInterest).toEqual([{ name: "The Stone", linkUuid: "" }]);
 	});
 });

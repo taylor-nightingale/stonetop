@@ -68,6 +68,24 @@ export function createStonetopSteadingSheetClass(Base) {
 			return super._onDropItem(event, item);
 		}
 
+		// Core routes every resolved drop through _onDropDocument (→ _onDropActor/_onDropItem/…). Any
+		// document (actor, journal, item…) dropped onto a resident/neighbor/place row links there as a
+		// bare UUID, rendered as a clickable content link; the row kind decides which typed list owns
+		// it (a neighbor row carries the resident class too, so it is checked first). Off any linkable
+		// row, the drop falls through to core's routing (steadfast/move handling, item embed, …).
+		async _onDropDocument(event, document) {
+			if (this.isEditable && document?.uuid) {
+				const s = this._stonetopSteading;
+				const neighborRow = event.target.closest?.(".steading-neighbor-row");
+				if (neighborRow) return void await s.neighborPeople.linkDocument(neighborRow.dataset.id, document.uuid);
+				const residentRow = event.target.closest?.(".steading-resident-row");
+				if (residentRow) return void await s.residents.linkDocument(residentRow.dataset.id, document.uuid);
+				const placeRow = event.target.closest?.(".stonetop-places-row");
+				if (placeRow) return void await s.placesOfInterest.linkDocument(Number(placeRow.dataset.index), document.uuid);
+			}
+			return super._onDropDocument(event, document);
+		}
+
 		// Root-delegated, one-time wiring — the V2 root persists across re-renders. Editability is
 		// checked per event, not at wiring time, so a sheet that becomes editable later just works.
 		async _onFirstRender(context, options) {
@@ -193,6 +211,9 @@ export function createStonetopSteadingSheetClass(Base) {
 			bindAll(root, ".stonetop-resident-traits", "change", async ev => {
 				await s.residents.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
+			bindAll(root, ".stonetop-resident-unlink", "click", async ev => {
+				await s.residents.unlinkDocument(ev.currentTarget.dataset.id);
+			});
 
 			// Resident traits source textarea — Residents owns the one-per-line parse.
 			bindAll(root, ".steading-npc-traits-source", "change", async ev => {
@@ -216,6 +237,9 @@ export function createStonetopSteadingSheetClass(Base) {
 			bindAll(root, ".stonetop-neighbor-person-home", "change", async ev => {
 				await s.neighborPeople.updateHome(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
+			bindAll(root, ".stonetop-neighbor-person-unlink", "click", async ev => {
+				await s.neighborPeople.unlinkDocument(ev.currentTarget.dataset.id);
+			});
 
 			// Neighbors — places
 			bindAll(root, ".stonetop-neighbor-place-note", "change", async ev => {
@@ -226,6 +250,9 @@ export function createStonetopSteadingSheetClass(Base) {
 			bindAll(root, ".stonetop-place-add", "click", async () => { await s.placesOfInterest.addBlankPlace(); });
 			bindAll(root, ".stonetop-place-field", "change", async ev => {
 				await s.placesOfInterest.setPlaceValue(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
+			});
+			bindAll(root, ".stonetop-place-unlink", "click", async ev => {
+				await s.placesOfInterest.unlinkDocument(parseInt(ev.currentTarget.dataset.index));
 			});
 
 			// Homefront moves: the acquisition checkbox toggles the owned move. Resource pips/text are

@@ -65,6 +65,57 @@ describe("Residents — named update methods", () => {
 	});
 });
 
+describe("Residents — document linking", () => {
+	it("linkDocument stores the uuid on the person", async () => {
+		const r = make();
+		await r.add();
+		const id = r.buildSnapshot()[0].id;
+		await r.linkDocument(id, "Actor.xyz");
+		expect(r.buildSnapshot()[0].linkUuid).toBe("Actor.xyz");
+	});
+
+	it("buildSnapshot exposes a docLink @UUID token for a linked resident", async () => {
+		const r = make();
+		await r.add();
+		const id = r.buildSnapshot()[0].id;
+		await r.linkDocument(id, "Actor.xyz");
+		expect(r.buildSnapshot()[0].docLink.raw).toBe("@UUID[Actor.xyz]");
+	});
+
+	it("links any document type (a journal, not just an actor)", async () => {
+		const r = make();
+		await r.add();
+		const id = r.buildSnapshot()[0].id;
+		await r.linkDocument(id, "JournalEntry.j1");
+		expect(r.buildSnapshot()[0].docLink.raw).toBe("@UUID[JournalEntry.j1]");
+	});
+
+	it("an unlinked resident has no docLink", async () => {
+		const r = make();
+		await r.add();
+		expect(r.buildSnapshot()[0].docLink).toBeUndefined();
+	});
+
+	it("unlinkDocument clears the link", async () => {
+		const r = make();
+		await r.add();
+		const id = r.buildSnapshot()[0].id;
+		await r.linkDocument(id, "Actor.xyz");
+		await r.unlinkDocument(id);
+		expect("linkUuid" in r.buildSnapshot()[0]).toBe(false);
+		expect(r.buildSnapshot()[0].docLink).toBeUndefined();
+	});
+
+	it("linking preserves the other fields", async () => {
+		const r = make();
+		await r.add();
+		const id = r.buildSnapshot()[0].id;
+		await r.updateName(id, "Aldric");
+		await r.linkDocument(id, "Actor.xyz");
+		expect(r.buildSnapshot()[0].name).toBe("Aldric");
+	});
+});
+
 describe("Residents.updateTraitsSource", () => {
 	it("parses one trait per line into system.residents.traits", async () => {
 		const actor = new FakeActorBuilder().build();

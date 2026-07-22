@@ -58,27 +58,27 @@
 		"placesOfInterest": [
 			{
 				"name": "The Stone",
-				"journalReference": ""
+				"linkUuid": ""
 			},
 			{
 				"name": "The Granary",
-				"journalReference": ""
+				"linkUuid": ""
 			},
 			{
 				"name": "Public House & Stables",
-				"journalReference": ""
+				"linkUuid": ""
 			},
 			{
 				"name": "Cistern",
-				"journalReference": ""
+				"linkUuid": ""
 			},
 			{
 				"name": "Pavilion of the Gods",
-				"journalReference": ""
+				"linkUuid": ""
 			},
 			{
 				"name": "Watchtowers",
-				"journalReference": ""
+				"linkUuid": ""
 			}
 		],
 		"neighborPlaces": [

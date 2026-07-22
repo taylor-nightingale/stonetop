@@ -2,10 +2,7 @@
 * localize steading defaults
 * Figure out how to add items from pick rows.
 * support editing/displaying and adding compendium items
-  * outfitItems
   * playbooks
-* moveResults data — many moves don't yet have moveResults populated in pack data
-* Add button to create or break a link to an NPC to residents and neighbors.
 * Convert bio and notes section in notes tab to use prosemirror
 * Halix and Astor (Mysteries of the Blackwood fetishes) and the Mighty Servant (Mysteries of the Mindgem) don't have their icons parsed.
 * Update steading default icon to something nicer
@@ -14,7 +11,6 @@
 * Improvement drop on the steading sheet: StonetopSteadingSheet._onDropItem branch for type "improvement" — add item.system.slug to system.improvements (deduped, via a named SteadingImprovements method, no embed). Today only the steadfast sheet accepts improvement drops; the steading schema already anticipates "wonder improvements dropped later".
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * the mini-core fake V2 base in character-sheet-app.test.js overlaps the steading test's fake
-* Make input text in choice boxes expand down as more text is typed in.
 * let the GM define what the basic moves list entails, perhaps _  all_ default move lists (playbook, special, steading, etc.)
 
 

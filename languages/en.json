@@ -67,7 +67,11 @@
 			"dis": "Disadvantage"
 		},
 		"steading": {
-			"startsAt": "Starts at {value}"
+			"startsAt": "Starts at {value}",
+			"linkColumn": "Link",
+			"linkHint": "Drag a document onto an entry to link it.",
+			"linkDropTitle": "Drop an actor, journal, or item here to link it",
+			"unlink": "Unlink"
 		},
 		"followers": {
 			"empty": "Drag followers here from the Followers compendium.",
@@ -456,7 +460,7 @@
 					"failurePlaceholder": "What happens on a 6-…"
 				},
 				"details": {
-					"repeatMax":          "Checkboxes"
+					"repeatMax": "Checkboxes"
 				}
 			}
 		}

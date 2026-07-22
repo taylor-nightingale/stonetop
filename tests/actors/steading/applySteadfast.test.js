@@ -29,7 +29,7 @@ const steadfast = () => ({
 		slug: "stonetop",
 		attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
 		assets: { items: ["wagon"], resources: ["Farming"], fortifications: ["militia"], coinage: [{ title: "silver", purses: 0, handfuls: 0, coins: 0 }] },
-		placesOfInterest: [{ name: "The Stone", journalReference: "" }],
+		placesOfInterest: [{ name: "The Stone", linkUuid: "" }],
 		neighborPlaces: [{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", names: "Abben" }],
 		residents: { names: "Aderyn", traits: ["curious"] },
 		improvements: ["market", "mill"],
@@ -65,7 +65,7 @@ describe("applySteadfast", () => {
 		await applySteadfast(actor, steadfast());
 		expect(actor.system.attributes).toEqual(steadfast().system.attributes);
 		expect(actor.system.assets).toEqual(steadfast().system.assets);
-		expect(actor.system.placesOfInterest).toEqual([{ name: "The Stone", journalReference: "" }]);
+		expect(actor.system.placesOfInterest).toEqual([{ name: "The Stone", linkUuid: "" }]);
 		expect(actor.system.neighborPlaces[0].slug).toBe("marshedge");
 		expect(actor.system.residents).toEqual({ names: "Aderyn", traits: ["curious"] });
 		expect(actor.system.improvements).toEqual(["market", "mill"]);
