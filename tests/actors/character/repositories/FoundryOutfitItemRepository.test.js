@@ -7,7 +7,7 @@ function makeEntry(slug, systemOverrides = {}) {
 	return {
 		_id: `id-${slug}`,
 		name: slug,
-		system: { slug, inventoryColumn: "regular", sortOrder: 1, weight: 1, tagList: "", note: null, ...systemOverrides },
+		system: { slug, inventoryColumn: "regular", weight: 1, tagList: "", note: null, ...systemOverrides },
 	};
 }
 
@@ -19,8 +19,11 @@ function makePack(entries = [], folders = []) {
 	};
 }
 
-function stubGame(pack) {
-	vi.stubGlobal("game", { packs: { get: () => pack } });
+function stubGame(pack, worldItems = []) {
+	vi.stubGlobal("game", {
+		packs: { get: () => pack },
+		items: { contents: worldItems, get: id => worldItems.find(i => i._id === id) ?? null },
+	});
 }
 
 function stubGameNoPack() {
@@ -94,6 +97,16 @@ describe("FoundryOutfitItemRepository", () => {
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
 		expect(items[0].group).toBeNull();
+	});
+
+	it("excludes world-authored outfit items — the catalog is the compendium only", async () => {
+		// A custom outfit item authored in the Items directory must NOT force-show on every character's
+		// inventory grid. It reaches a character only by being dropped (embedded, removable) instead.
+		const world = { _id: "w1", type: "outfitItem", name: "Homebrew charm", system: { slug: "homebrew-charm", inventoryColumn: "regular", weight: 1 }, toObject() { return this; } };
+		stubGame(makePack([makeEntry("cloak")]), [world]);
+		const repo = new FoundryOutfitItemRepository();
+		const items = await repo.getAll();
+		expect(items.map(i => i.slug)).toEqual(["cloak"]);
 	});
 
 	it("caches results — getIndex is not called a second time", async () => {
