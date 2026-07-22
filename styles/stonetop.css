@@ -4919,6 +4919,16 @@ button.stonetop-xp-toggle {
 /* Always-visible choice data-entry boxes. input.type "rich" gets a taller textarea. */
 .stonetop-choice-input { width: 100%; }
 .stonetop-choice-input--rich { min-height: 4.5em; resize: vertical; }
+/* input.type "inline": a textarea that starts one line tall and grows downward as the answer wraps,
+   instead of an <input> that scrolls the text out of view sideways. field-sizing drives the growth
+   (already used elsewhere in this sheet); no manual resize handle. */
+.stonetop-choice-input--inline {
+	field-sizing: content;
+	resize: none;
+	overflow: hidden;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
 
 /* ── Tag chips (structured tags: toggle to select, free-text to add) ───────────── */
 .stonetop-tags {

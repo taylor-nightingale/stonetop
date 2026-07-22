@@ -108,13 +108,13 @@
               data-cg-option="{{input.slug}}"
               {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
     {{else}}
-    <input type="text" class="stonetop-cg-text stonetop-choice-input"
-           data-change-action="cgText"
-           data-cg-context="{{cgContext}}"
-           data-cg-group="{{cgGroup}}"
-           data-cg-option="{{input.slug}}"
-           value="{{input.value}}"
-           {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>
+    {{! Single-line to start, but grows downward as the answer wraps (field-sizing: content). }}
+    <textarea rows="1" class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--inline"
+              data-change-action="cgText"
+              data-cg-context="{{cgContext}}"
+              data-cg-group="{{cgGroup}}"
+              data-cg-option="{{input.slug}}"
+              {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
     {{/if}}
     {{else}}
     {{! Read-only preview (e.g. the move item sheet): just show the value. }}
