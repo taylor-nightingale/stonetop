@@ -1,8 +1,5 @@
 * add steading move automations for debilities
 * localize steading defaults
-* Figure out how to add items from pick rows.
-* support editing/displaying and adding compendium items
-  * playbooks
 * Convert bio and notes section in notes tab to use prosemirror
 * Halix and Astor (Mysteries of the Blackwood fetishes) and the Mighty Servant (Mysteries of the Mindgem) don't have their icons parsed.
 * Update steading default icon to something nicer
