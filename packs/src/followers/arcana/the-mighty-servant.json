@@ -3,7 +3,7 @@
 	"_key": "!items!q6rtLEUNcSqqcEbC",
 	"name": "The Mighty Servant",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-pyramid.png",
 	"system": {
 		"slug": "the-mighty-servant",
 		"arcanaSlug": "mindgem",

@@ -3,7 +3,7 @@
 	"_key": "!items!QrCWSgMjE96X4dGl",
 	"name": "Astor",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-skull.png",
 	"system": {
 		"slug": "astor",
 		"arcanaSlug": "blackwood-fetishes",
@@ -11,7 +11,7 @@
 			"value": 0,
 			"max": 13
 		},
-		"armor": "1",
+		"armor": "1 lacks organs",
 		"damage": "ghostly spear d8 (reach, ignores armor)",
 		"specialQuality": "",
 		"instinct": {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -663,5 +663,42 @@ describe("parseBack — an assign-one-die para becomes a fill-in list (Horn of S
 
 	it("renders each blank-led row as its own list item (blanks still literal — numbered at build)", () => {
 		expect(back.description).toBe("- ____ **Onset: 1** = next day.\n- ____ **Intensity: 1** = dangerous.");
+	});
+});
+
+describe("matchFollowerIcons (marker icon beside a major follower's name heading)", () => {
+	// Real geometry from the book: an 18px marker at x≈432 with the name heading starting at x≈450 on the
+	// same baseline (the Mighty Servant on the Mindgem back p275; Astor/Halix on the Blackwood back p283).
+	const line = (text, x, y) => ({ text, bbox: [x, y, x + 90, y + 12] });
+	const marker = (x, y, file) => ({ file, x, y, w: 18, h: 18 });
+
+	it("pairs a marker with the name heading just to its right on the same baseline", () => {
+		const lines = [line("Astor", 450, 300), line("Halix", 450, 402)];
+		const images = [marker(432, 300, "/tmp/astor.png"), marker(432, 402, "/tmp/halix.png")];
+		expect(matchFollowerIcons(lines, images, ["Astor", "Halix"])).toEqual([
+			{ name: "Astor", iconFile: "/tmp/astor.png" },
+			{ name: "Halix", iconFile: "/tmp/halix.png" },
+		]);
+	});
+
+	it("matches an ALL-CAPS heading to its title-case roster name (The Mighty Servant)", () => {
+		const lines = [line("THE MIGHTY SERVANT", 461, 96)];
+		const images = [marker(432, 96, "/tmp/servant.png")];
+		expect(matchFollowerIcons(lines, images, ["The Mighty Servant"])).toEqual([
+			{ name: "The Mighty Servant", iconFile: "/tmp/servant.png" },
+		]);
+	});
+
+	it("ignores a marker that isn't adjacent (wrong baseline or too far left of the name)", () => {
+		const lines = [line("Astor", 450, 300)];
+		expect(matchFollowerIcons(lines, [marker(432, 340, "/tmp/x.png")], ["Astor"])).toEqual([]); // y-band off
+		expect(matchFollowerIcons(lines, [marker(63, 300, "/tmp/x.png")], ["Astor"])).toEqual([]);  // far-left card art
+	});
+
+	it("ignores a large (non-marker) image and a name not in the target set", () => {
+		const lines = [line("Astor", 450, 300), line("Not A Follower", 450, 402)];
+		const big = { file: "/tmp/art.png", x: 432, y: 300, w: 270, h: 162 };
+		expect(matchFollowerIcons(lines, [big], ["Astor"])).toEqual([]);                         // w ≥ 25 → not a marker
+		expect(matchFollowerIcons(lines, [marker(432, 402, "/tmp/m.png")], ["Astor"])).toEqual([]); // heading not targeted
 	});
 });

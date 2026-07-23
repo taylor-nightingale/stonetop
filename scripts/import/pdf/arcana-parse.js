@@ -158,6 +158,30 @@ export function isArcanaFollower(block) {
 	return !!first && !/^\d+$/.test(first.text.trim());
 }
 
+/** Match a page's marker icons to named follower headings. A back-side MAJOR follower (Astor/Halix on
+ *  the Blackwood Fetishes back, the Mighty Servant on the Mindgem back) prints an ~18px creature marker
+ *  immediately left of its name heading, on the same baseline — but the layout parser doesn't recognize
+ *  these as stat blocks (they're hand-authored), so `isArcanaFollower`'s icon path never sees them.
+ *  This locates the marker sitting just left of each named heading so build-arcana can stamp it onto the
+ *  preserved follower doc. A marker is a small image (`w < 25`); it pairs with the heading whose
+ *  normalized text equals one of `names` and whose left edge sits just right of the marker on the same
+ *  baseline. Returns [{ name, iconFile }] (the caller's original `names` spelling, with its icon file). */
+export function matchFollowerIcons(lines, images, names) {
+	const targets = new Map((names || []).map((n) => [toSlug(n), n])); // slug -> original spelling
+	const markers = (images || []).filter((im) => im?.file && typeof im.w === "number" && im.w < 25);
+	const out = [];
+	for (const im of markers) {
+		const right = im.x + im.w;
+		const line = (lines || []).find((l) => {
+			const slug = toSlug((l.text || "").trim());
+			if (!targets.has(slug)) return false;
+			return Math.abs((l.bbox?.[1] ?? 0) - im.y) <= 8 && (l.bbox?.[0] ?? 0) - right >= 0 && (l.bbox?.[0] ?? 0) - right < 25;
+		});
+		if (line) out.push({ name: targets.get(toSlug(line.text.trim())), iconFile: im.file });
+	}
+	return out;
+}
+
 /** The item tags line under a title → an outfit-item-shaped object (name = arcanum name, weight from
  *  ◇ pips). The book italicizes tags (`*close*`) and leaves stats/notes plain (`+1 damage`), so the
  *  italic runs become `tags` and the remaining plain text becomes `note`. null when there's nothing. */

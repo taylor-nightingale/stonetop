@@ -3,7 +3,7 @@
 	"_key": "!items!qefhHxkAI1atQFh3",
 	"name": "Halix",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-skull.png",
 	"system": {
 		"slug": "halix",
 		"arcanaSlug": "blackwood-fetishes",
@@ -11,7 +11,7 @@
 			"value": 0,
 			"max": 10
 		},
-		"armor": "1",
+		"armor": "1 lacks organs",
 		"damage": "ghostly touch d4 (band, ignores armor) or host's weapon d6 (tags vary)",
 		"specialQuality": "",
 		"instinct": {
