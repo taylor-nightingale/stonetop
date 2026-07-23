@@ -13,14 +13,21 @@ import * as CG from "../utils/choiceGroupEdit.js";
 export function activateChoiceGroupEditors(sheet, root) {
 	const pathOf = el => el.closest("[data-cg-path]")?.dataset.cgPath ?? null;
 	const group  = path => foundry.utils.getProperty(sheet.item, path) ?? CG.newGroup(sheet.item.system.slug);
-	// Foundry ArrayFields are atomic — a dotted `system.choices.0` update won't set one element.
-	// For an indexed path, rewrite the whole parent array; otherwise update the field directly.
+	// Foundry ArrayFields are atomic — a dotted `system.choices.0` update won't set one element, and
+	// a group nested in an element (`system.backgrounds.0.choices`) can't be dotted in either. For any
+	// path with an array index, rewrite the WHOLE field array; otherwise update the field directly.
+	// The regex captures the field-array path, the first index, and any remainder after it:
+	//   system.choices.0            → ["system.choices", 0, undefined]  (element itself is the group)
+	//   system.backgrounds.0.choices → ["system.backgrounds", 0, "choices"] (group is a subfield)
 	const save = (path, g) => {
-		const m = path.match(/^(.*)\.(\d+)$/);
+		const m = path.match(/^(.+?)\.(\d+)(?:\.(.+))?$/);
 		if (m) {
-			const arr = foundry.utils.deepClone(foundry.utils.getProperty(sheet.item, m[1]) ?? []);
-			arr[Number(m[2])] = g;
-			return sheet.item.update({ [m[1]]: arr });
+			const [, arrPath, idxStr, rest] = m;
+			const arr = foundry.utils.deepClone(foundry.utils.getProperty(sheet.item, arrPath) ?? []);
+			const i   = Number(idxStr);
+			if (rest) foundry.utils.setProperty((arr[i] ??= {}), rest, g);
+			else      arr[i] = g;
+			return sheet.item.update({ [arrPath]: arr });
 		}
 		return sheet.item.update({ [path]: g });
 	};

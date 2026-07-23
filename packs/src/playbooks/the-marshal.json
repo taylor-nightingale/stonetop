@@ -7,7 +7,6 @@
   "flags": {},
   "system": {
     "slug": "the-marshal",
-    "actorType": "character",
     "followers": [
       "crew"
     ],

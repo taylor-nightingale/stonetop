@@ -14,6 +14,7 @@ import { createStonetopFollowerSheetClass } from "./src/item/StonetopFollowerShe
 import { createStonetopImprovementSheetClass } from "./src/item/StonetopImprovementSheet.js";
 import { createStonetopItemSheetV2BaseClass } from "./src/item/StonetopItemSheetV2.js";
 import { createStonetopSteadfastSheetClass } from "./src/item/StonetopSteadfastSheet.js";
+import { createStonetopPlaybookSheetClass } from "./src/item/StonetopPlaybookSheet.js";
 import { onReady } from "./src/hooks/Ready.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
@@ -205,6 +206,13 @@ Hooks.once("init", () => {
 		label: "Stonetop Steadfast Sheet",
 	});
 
+	const StonetopPlaybookSheet = createStonetopPlaybookSheetClass(ItemSheetV2Base);
+	foundry.documents.collections.Items.registerSheet("stonetop", StonetopPlaybookSheet, {
+		types: ["playbook"],
+		makeDefault: true,
+		label: "Stonetop Playbook Sheet",
+	});
+
 	foundry.applications.handlebars.loadTemplates({
 		"stonetop.chat-move-roll":   "systems/stonetop/templates/chat/move-roll.hbs",
 		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
@@ -248,6 +256,7 @@ Hooks.once("init", () => {
 		"stonetop.steading":              "systems/stonetop/templates/actor/steading.hbs",
 		"stonetop.choices-entry-fields":  "systems/stonetop/templates/item/partials/choices-entry-fields.hbs",
 		"stonetop.choice-group-editor":   "systems/stonetop/templates/item/partials/choice-group-editor.hbs",
+		"stonetop.playbook-ref-row":      "systems/stonetop/templates/item/partials/playbook-ref-row.hbs",
 		"stonetop.arcanum-item-def":      "systems/stonetop/templates/item/partials/arcanum-item-def.hbs",
 		"stonetop.arcanum-resource":      "systems/stonetop/templates/item/partials/arcanum-resource.hbs",
 		"stonetop.arcanum-mystery-move":  "systems/stonetop/templates/item/partials/arcanum-mystery-move.hbs",

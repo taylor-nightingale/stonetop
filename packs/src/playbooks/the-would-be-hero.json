@@ -7,7 +7,6 @@
   "flags": {},
   "system": {
     "slug": "the-would-be-hero",
-    "actorType": "character",
     "description": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
     "startingMovesNote": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
     "damage": {

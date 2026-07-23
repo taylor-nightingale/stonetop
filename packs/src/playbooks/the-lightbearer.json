@@ -7,7 +7,6 @@
   "flags": {},
   "system": {
     "slug": "the-lightbearer",
-    "actorType": "character",
     "followers": [],
     "inserts": [
       "lightbearer-invocations-insert"

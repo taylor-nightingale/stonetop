@@ -2,10 +2,9 @@ import { describe, it, expect } from "vitest";
 import { PlaybookData } from "../../src/data/PlaybookData.js";
 
 describe("PlaybookData defaults", () => {
-	it("defaults slug and actorType to null", () => {
+	it("defaults slug to null", () => {
 		const d = new PlaybookData();
 		expect(d.slug).toBeNull();
-		expect(d.actorType).toBeNull();
 	});
 
 	it("defaults description, statsNote, startingMovesNote to empty string", () => {

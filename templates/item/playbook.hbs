@@ -1,0 +1,291 @@
+{{!-- V2 part: single root element. Sheet root form + classes come from DEFAULT_OPTIONS. Tabs use the
+      native ApplicationV2 machinery (context.tabs); each body shows/hides via its cssClass. --}}
+<div class="stonetop-item-sheet-part playbook-sheet">
+
+	<header class="stonetop-insert-sheet-header">
+		<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
+		       placeholder="{{localize 'stonetop.playbook.namePlaceholder'}}" {{#unless editable}}disabled{{/unless}}>
+	</header>
+
+	<nav class="sheet-tabs tabs" data-group="primary">
+		{{#each tabs}}
+		<a class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</a>
+		{{/each}}
+	</nav>
+
+	{{!-- ── Basics ─────────────────────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.basics.cssClass}}" data-group="primary" data-tab="basics">
+		<section class="stonetop-insert-sheet-section editor">
+			<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.description"}}</label>
+			{{#if editable}}
+			<prose-mirror class="stonetop-item-description-editor" name="system.description" value="{{system.description}}"></prose-mirror>
+			{{else}}
+			<div class="editor-content">{{rich rich.description}}</div>
+			{{/if}}
+		</section>
+
+		<div class="playbook-field-grid">
+			<label class="playbook-field">
+				<span>{{localize "stonetop.playbook.hp"}}</span>
+				<input type="number" name="system.hp" value="{{system.hp}}" {{#unless editable}}disabled{{/unless}}>
+			</label>
+			<label class="playbook-field">
+				<span>{{localize "stonetop.playbook.damage"}}</span>
+				<input type="text" name="system.damage.value" value="{{system.damage.value}}" placeholder="d8" {{#unless editable}}disabled{{/unless}}>
+			</label>
+		</div>
+
+		<label class="playbook-field playbook-field--block">
+			<span>{{localize "stonetop.playbook.statsNote"}}</span>
+			<textarea name="system.statsNote" rows="2" {{#unless editable}}disabled{{/unless}}>{{system.statsNote}}</textarea>
+		</label>
+		<label class="playbook-field playbook-field--block">
+			<span>{{localize "stonetop.playbook.startingMovesNote"}}</span>
+			<textarea name="system.startingMovesNote" rows="2" {{#unless editable}}disabled{{/unless}}>{{system.startingMovesNote}}</textarea>
+		</label>
+	</div>
+
+	{{!-- ── Backgrounds & Origin ───────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.backgrounds.cssClass}}" data-group="primary" data-tab="backgrounds">
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.backgrounds"}}</label>
+				{{#if editable}}<button type="button" class="playbook-background-add">+ {{localize "stonetop.playbook.addBackground"}}</button>{{/if}}
+			</div>
+			{{#each backgrounds}}
+			<div class="playbook-background">
+				<div class="playbook-background-head">
+					<input type="text" class="playbook-background-field" data-index="{{index}}" data-field="label"
+					       value="{{label}}" placeholder="{{localize 'stonetop.playbook.backgroundLabel'}}" {{#unless ../editable}}disabled{{/unless}}>
+					<input type="text" class="playbook-background-field playbook-background-slug" data-index="{{index}}" data-field="slug"
+					       value="{{slug}}" placeholder="slug" {{#unless ../editable}}disabled{{/unless}}>
+					{{#if ../editable}}
+					<button type="button" class="playbook-background-up" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveUp'}}">↑</button>
+					<button type="button" class="playbook-background-down" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveDown'}}">↓</button>
+					<button type="button" class="playbook-background-remove" data-index="{{index}}" title="{{localize 'stonetop.playbook.remove'}}">✕</button>
+					{{/if}}
+				</div>
+				<textarea class="playbook-background-field" data-index="{{index}}" data-field="description" rows="3"
+				          placeholder="{{localize 'stonetop.playbook.backgroundDescription'}}" {{#unless ../editable}}disabled{{/unless}}>{{description}}</textarea>
+
+				<div class="playbook-subsection">
+					<div class="playbook-subsection-head">
+						<span>{{localize "stonetop.playbook.grantedMoves"}}</span>
+						{{#if ../editable}}<button type="button" class="playbook-background-move-add" data-index="{{index}}">+ {{localize "stonetop.playbook.addMove"}}</button>{{/if}}
+					</div>
+					<ul class="playbook-ref-list">
+						{{#each moves}}
+						<li class="playbook-ref-row{{#if missing}} is-missing{{/if}}">
+							<a class="playbook-ref-open" data-kind="move" data-slug="{{slug}}">{{name}}</a>
+							{{#if missing}}<span class="playbook-ref-missing" title="{{localize 'stonetop.playbook.refMissing'}}">?</span>{{/if}}
+							{{#if ../../editable}}<button type="button" class="playbook-background-move-remove" data-index="{{../index}}" data-slug="{{slug}}" title="{{localize 'stonetop.playbook.remove'}}">✕</button>{{/if}}
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+
+				<div class="playbook-subsection">
+					<div class="playbook-subsection-head">
+						<span>{{localize "stonetop.playbook.backgroundChoices"}}</span>
+						{{#if ../editable}}
+						<button type="button" class="playbook-background-toggle-choices" data-index="{{index}}">{{#if hasChoices}}{{localize "stonetop.playbook.removeChoices"}}{{else}}+ {{localize "stonetop.playbook.addChoices"}}{{/if}}</button>
+						{{/if}}
+					</div>
+					{{#if hasChoices}}{{> "stonetop.choice-group-editor" cgPath=cgPath rows=choiceRows}}{{/if}}
+				</div>
+			</div>
+			{{/each}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.origin"}}</label>
+				{{#if editable}}<button type="button" class="playbook-origin-add">+ {{localize "stonetop.playbook.addOrigin"}}</button>{{/if}}
+			</div>
+			{{#each origin}}
+			<div class="playbook-origin">
+				<div class="playbook-origin-head">
+					<input type="text" class="playbook-origin-region" data-index="{{index}}" value="{{region}}"
+					       placeholder="{{localize 'stonetop.playbook.originRegion'}}" {{#unless ../editable}}disabled{{/unless}}>
+					{{#if ../editable}}
+					<button type="button" class="playbook-origin-up" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveUp'}}">↑</button>
+					<button type="button" class="playbook-origin-down" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveDown'}}">↓</button>
+					<button type="button" class="playbook-origin-remove" data-index="{{index}}" title="{{localize 'stonetop.playbook.remove'}}">✕</button>
+					{{/if}}
+				</div>
+				<textarea class="playbook-origin-names" data-index="{{index}}" rows="3"
+				          placeholder="{{localize 'stonetop.playbook.originNames'}}" {{#unless ../editable}}disabled{{/unless}}>{{names}}</textarea>
+			</div>
+			{{/each}}
+		</section>
+	</div>
+
+	{{!-- ── Instinct & Appearance ──────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.traits.cssClass}}" data-group="primary" data-tab="traits">
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.instinct"}}</label>
+				{{#if editable}}<button type="button" class="playbook-instinct-add">+ {{localize "stonetop.playbook.addInstinct"}}</button>{{/if}}
+			</div>
+			<ul class="playbook-string-list">
+				{{#each instinctStrings}}
+				<li class="playbook-string-row">
+					<input type="text" class="playbook-instinct-string" data-index="{{@index}}" value="{{this}}" {{#unless ../editable}}disabled{{/unless}}>
+					{{#if ../editable}}<button type="button" class="playbook-instinct-remove" data-index="{{@index}}" title="{{localize 'stonetop.playbook.remove'}}">✕</button>{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.appearance"}}</label>
+				{{#if editable}}
+				<button type="button" class="playbook-group-toggle" data-path="system.appearance" data-slug="appearance">{{#if hasAppearance}}{{localize "stonetop.playbook.removeGroup"}}{{else}}+ {{localize "stonetop.playbook.addGroup"}}{{/if}}</button>
+				{{/if}}
+			</div>
+			{{#if hasAppearance}}{{> "stonetop.choice-group-editor" cgPath="system.appearance" rows=appearanceRows}}{{/if}}
+		</section>
+	</div>
+
+	{{!-- ── Choices ────────────────────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.choices.cssClass}}" data-group="primary" data-tab="choices">
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.choices"}}</label>
+				{{#if editable}}<button type="button" class="playbook-choices-add-group">+ {{localize "stonetop.playbook.addChoices"}}</button>{{/if}}
+			</div>
+			{{#each choicesGroups}}
+			<div class="stonetop-insert-sheet-choices-group">
+				<div class="stonetop-insert-sheet-choices-group-head">
+					<span class="stonetop-insert-sheet-choices-slug">{{slug}}</span>
+					{{#if ../editable}}<button type="button" class="playbook-choices-remove-group" data-index="{{index}}">×</button>{{/if}}
+				</div>
+				{{> "stonetop.choice-group-editor" cgPath=cgPath rows=rows}}
+			</div>
+			{{/each}}
+		</section>
+	</div>
+
+	{{!-- ── Special Possessions ────────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.possessions.cssClass}}" data-group="primary" data-tab="possessions">
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.possessions"}}</label>
+				{{#if editable}}<button type="button" class="playbook-possessions-toggle">{{#if hasPossessions}}{{localize "stonetop.playbook.removeGroup"}}{{else}}+ {{localize "stonetop.playbook.enable"}}{{/if}}</button>{{/if}}
+			</div>
+			{{#if hasPossessions}}
+			<div class="playbook-field-grid">
+				<label class="playbook-field playbook-field--narrow">
+					<span>{{localize "stonetop.playbook.pickCount"}}</span>
+					<input type="number" min="0" class="playbook-possessions-field" data-field="pickCount" value="{{possessions.pickCount}}" {{#unless editable}}disabled{{/unless}}>
+				</label>
+				<label class="playbook-field playbook-field--grow">
+					<span>{{localize "stonetop.playbook.pickNote"}}</span>
+					<input type="text" class="playbook-possessions-field" data-field="pickNote" value="{{possessions.pickNote}}" {{#unless editable}}disabled{{/unless}}>
+				</label>
+			</div>
+			<div class="playbook-subsection-head">
+				<span>{{localize "stonetop.playbook.possessionList"}}</span>
+				{{#if editable}}<button type="button" class="playbook-possessions-add">+ {{localize "stonetop.playbook.addPossession"}}</button>{{/if}}
+			</div>
+			<ul class="playbook-ref-list">
+				{{#each possessions.items}}
+				<li class="playbook-ref-row{{#if missing}} is-missing{{/if}}">
+					{{#if ../editable}}
+					<label class="playbook-ref-flag" title="{{localize 'stonetop.playbook.preselected'}}">
+						<input type="checkbox" class="playbook-possessions-preselected" data-slug="{{slug}}" {{#if preselected}}checked{{/if}}>
+					</label>
+					{{/if}}
+					{{> "stonetop.playbook-ref-row" row=this kind="possession" removeClass="playbook-possessions-remove" editable=../editable}}
+				</li>
+				{{/each}}
+			</ul>
+			{{/if}}
+		</section>
+	</div>
+
+	{{!-- ── Moves ──────────────────────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.moves.cssClass}}" data-group="primary" data-tab="moves">
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.moves"}}</label>
+				{{#if editable}}<button type="button" class="playbook-moves-add"><i class="fas fa-plus"></i> {{localize "stonetop.playbook.addMove"}}</button>{{/if}}
+			</div>
+			<p class="playbook-hint">{{localize "stonetop.playbook.startingHint"}}</p>
+			<ul class="playbook-ref-list">
+				{{#each playbookMoves}}
+				<li class="playbook-ref-row{{#if missing}} is-missing{{/if}}">
+					{{#if ../editable}}
+					<label class="playbook-ref-flag" title="{{localize 'stonetop.playbook.startingMove'}}">
+						<input type="checkbox" class="playbook-move-starting" data-slug="{{slug}}" {{#if starting}}checked{{/if}}>
+					</label>
+					{{/if}}
+					{{> "stonetop.playbook-ref-row" row=this kind="move" removeClass="playbook-move-remove" editable=../editable}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+	</div>
+
+	{{!-- ── Followers & Inserts ────────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.grants.cssClass}}" data-group="primary" data-tab="grants">
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.followers"}}</label>
+				{{#if editable}}<button type="button" class="playbook-followers-add">+ {{localize "stonetop.playbook.addFollower"}}</button>{{/if}}
+			</div>
+			<p class="playbook-hint">{{localize "stonetop.playbook.grantsHint"}}</p>
+			<ul class="playbook-ref-list">
+				{{#each followers}}
+				<li class="playbook-ref-row{{#if missing}} is-missing{{/if}}">
+					{{> "stonetop.playbook-ref-row" row=this kind="follower" removeClass="playbook-follower-remove" editable=../editable}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.inserts"}}</label>
+				{{#if editable}}<button type="button" class="playbook-inserts-add">+ {{localize "stonetop.playbook.addInsert"}}</button>{{/if}}
+			</div>
+			<ul class="playbook-ref-list">
+				{{#each inserts}}
+				<li class="playbook-ref-row{{#if missing}} is-missing{{/if}}">
+					{{> "stonetop.playbook-ref-row" row=this kind="insert" removeClass="playbook-insert-remove" editable=../editable}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+	</div>
+
+	{{!-- ── Introductions ──────────────────────────────────────────────────────── --}}
+	<div class="tab playbook-sheet-tab-body {{tabs.introductions.cssClass}}" data-group="primary" data-tab="introductions">
+		<label class="playbook-field playbook-field--block">
+			<span>{{localize "stonetop.playbook.introStep3"}}</span>
+			<textarea name="system.introductions.step3" rows="3" {{#unless editable}}disabled{{/unless}}>{{introductions.step3}}</textarea>
+		</label>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.introStep4"}}</label>
+				{{#if editable}}
+				<button type="button" class="playbook-group-toggle" data-path="system.introductions.step4" data-slug="intro-npc">{{#if introductions.hasStep4}}{{localize "stonetop.playbook.removeGroup"}}{{else}}+ {{localize "stonetop.playbook.addGroup"}}{{/if}}</button>
+				{{/if}}
+			</div>
+			{{#if introductions.hasStep4}}{{> "stonetop.choice-group-editor" cgPath="system.introductions.step4" rows=introductions.step4Rows}}{{/if}}
+		</section>
+
+		<section class="stonetop-insert-sheet-section">
+			<div class="stonetop-insert-sheet-section-head">
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.introStep6"}}</label>
+				{{#if editable}}
+				<button type="button" class="playbook-group-toggle" data-path="system.introductions.step6" data-slug="intro-pc">{{#if introductions.hasStep6}}{{localize "stonetop.playbook.removeGroup"}}{{else}}+ {{localize "stonetop.playbook.addGroup"}}{{/if}}</button>
+				{{/if}}
+			</div>
+			{{#if introductions.hasStep6}}{{> "stonetop.choice-group-editor" cgPath="system.introductions.step6" rows=introductions.step6Rows}}{{/if}}
+		</section>
+	</div>
+
+</div>

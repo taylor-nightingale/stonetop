@@ -1,0 +1,7 @@
+{{!-- One referenced item: a name that opens its sheet, a "not found" marker, and a remove button.
+      Params: row {slug, name, missing}, kind (for _openReference), removeClass, editable. --}}
+<a class="playbook-ref-open" data-kind="{{kind}}" data-slug="{{row.slug}}">{{row.name}}</a>
+{{#if row.missing}}<span class="playbook-ref-missing" title="{{localize 'stonetop.playbook.refMissing'}}">?</span>{{/if}}
+{{#if editable}}
+<button type="button" class="{{removeClass}}" data-slug="{{row.slug}}" title="{{localize 'stonetop.playbook.remove'}}">✕</button>
+{{/if}}

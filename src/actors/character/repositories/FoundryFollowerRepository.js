@@ -1,6 +1,7 @@
 import { Follower } from "../../../model/data/character/Follower.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 import { WorldItemStore } from "./WorldItemStore.js";
+import { summarizeEntries } from "./referenceSummaries.js";
 
 export class FoundryFollowerRepository {
 	constructor() {
@@ -27,5 +28,10 @@ export class FoundryFollowerRepository {
 
 	async findBySlugs(slugs) {
 		return (await Promise.all(slugs.map(s => this.findBySlug(s)))).filter(Boolean);
+	}
+
+	// { slug, name }[] of every referenceable follower (compendium + world), for authoring pickers.
+	async listSummaries() {
+		return summarizeEntries([...(await this._store.getAll()), ...(await this._worldStore.getAll())]);
 	}
 }

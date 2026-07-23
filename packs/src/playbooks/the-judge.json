@@ -7,7 +7,6 @@
   "flags": {},
   "system": {
     "slug": "the-judge",
-    "actorType": "character",
     "description": "Look here at this little town, this candleflame in the darkness. Its very existence is an act of courage and faith. And Aratis has charged you to keep it: to settle its disputes; to chronicle its tales; to defend it from darkness and ruin. Take up your hammer, Judge. Your town needs you.",
     "startingMovesNote": "You start with Censure, Chronicler of Stonetop, plus 2 more of your choice.",
     "damage": {

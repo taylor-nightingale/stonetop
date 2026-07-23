@@ -39,7 +39,6 @@ export class TestPlaybookItemBuilder {
 			choiceValues:       this._choiceValues,
 			origin:             this._origin,
 			specialPossessions: this._specialPossessions,
-			actorType:          null,
 			hp:                 0,
 			damage:             { value: null },
 			startingMovesNote:  "",

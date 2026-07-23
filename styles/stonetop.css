@@ -5275,6 +5275,72 @@ button.stonetop-xp-toggle {
 }
 .stonetop-possession-scaling-note { font-size: var(--fs-fine); opacity: 0.7; margin: 2px 0; }
 
+/* -- Playbook item sheet (StonetopPlaybookSheet) — tabbed authoring editor. Reuses the
+   .stonetop-insert-sheet-* section/label/choices classes; the .playbook-* classes below add the
+   tab bodies, field grid, and the reference/background/origin editors. Tab show/hide is core's
+   .tab machinery (see the actor sheets), so only layout lives here. */
+.playbook-sheet .stonetop-insert-sheet-name { font-weight: bold; }
+/* Tab bodies: DON'T force display here — core's layered `.tab[data-tab]:not(.active){display:none}`
+   (@layer blocks.base) must hide inactive tabs, and this stylesheet is unlayered (so it always wins).
+   Only the active tab opts into the flex column layout; inactive ones get core's display:none. */
+.playbook-sheet-tab-body { flex-direction: column; gap: 8px; padding-top: 4px; }
+.playbook-sheet-tab-body.active { display: flex; }
+/* Eight tabs on a narrow item sheet: wrap instead of running off the edge, and tighten so a row fits. */
+.playbook-sheet .sheet-tabs { flex-wrap: wrap; row-gap: 4px; }
+.playbook-sheet .sheet-tabs .item { min-height: 28px; padding: 5px 12px 4px; font-size: var(--fs-note); }
+.playbook-hint { font-size: var(--fs-fine); opacity: 0.7; font-style: italic; margin: 0; }
+
+/* Basics field grid + labelled fields */
+.playbook-field-grid { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: flex-end; }
+.playbook-field { display: flex; flex-direction: column; gap: 2px; font-size: var(--fs-note); }
+.playbook-field > span { font-weight: bold; font-size: var(--fs-fine); text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; }
+.playbook-field--block { display: flex; }
+.playbook-field--block textarea { width: 100%; resize: vertical; }
+.playbook-field--narrow input { width: 5em; }
+.playbook-field--grow { flex: 1 1 12em; }
+.playbook-field--grow input { width: 100%; }
+
+/* Sub-sections inside a background / possessions block */
+.playbook-subsection { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.playbook-subsection-head {
+	display: flex; align-items: center; justify-content: space-between; gap: 8px;
+	font-size: var(--fs-fine); text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7;
+}
+
+/* Backgrounds */
+.playbook-background {
+	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px;
+	padding: 8px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 6px;
+}
+.playbook-background-head { display: flex; align-items: center; gap: 6px; }
+.playbook-background-head input { min-width: 0; }
+.playbook-background-head input.playbook-background-field:first-child { flex: 1 1 auto; font-weight: bold; }
+.playbook-background-slug { flex: 0 1 10em; font-size: var(--fs-fine); opacity: 0.7; }
+.playbook-background textarea { width: 100%; resize: vertical; }
+
+/* Origin */
+.playbook-origin {
+	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px;
+	padding: 6px; margin-bottom: 6px; display: flex; flex-direction: column; gap: 4px;
+}
+.playbook-origin-head { display: flex; align-items: center; gap: 6px; }
+.playbook-origin-head .playbook-origin-region { flex: 1 1 auto; font-weight: bold; }
+.playbook-origin textarea { width: 100%; resize: vertical; }
+
+/* Instinct string list */
+.playbook-string-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.playbook-string-row { display: flex; align-items: center; gap: 6px; }
+.playbook-string-row .playbook-instinct-string { flex: 1 1 auto; }
+
+/* Reference lists (moves / followers / inserts / possessions / background moves) */
+.playbook-ref-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.playbook-ref-row { display: flex; align-items: center; gap: 8px; padding: 2px 4px; }
+.playbook-ref-row .playbook-ref-open { flex: 1 1 auto; cursor: pointer; }
+.playbook-ref-row .playbook-ref-open:hover { text-decoration: underline; }
+.playbook-ref-flag { flex: 0 0 auto; display: flex; align-items: center; }
+.playbook-ref-row.is-missing .playbook-ref-open { opacity: 0.6; font-style: italic; }
+.playbook-ref-missing { flex: 0 0 auto; color: var(--color-level-error, #a33); font-weight: bold; cursor: help; }
+
 /* -- Arcanum item sheet (StonetopArcanumSheet) — reuses .stonetop-insert-sheet-* layout ------- */
 .stonetop-arcanum-core { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
 .stonetop-arcanum-field--check { display: inline-flex; align-items: center; gap: 5px; }

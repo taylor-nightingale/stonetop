@@ -14,7 +14,6 @@ export class PlaybookData extends foundry.abstract.TypeDataModel {
 		const f = foundry.data.fields;
 		return {
 			slug:               new f.StringField({ nullable: true, initial: null }),
-			actorType:          new f.StringField({ nullable: true, initial: null }),
 			description:        new f.StringField({ initial: "" }),
 			hp:                 new f.NumberField({ initial: 0, integer: true }),
 			damage:             new f.SchemaField({ value: new f.StringField({ nullable: true, initial: null }) }),

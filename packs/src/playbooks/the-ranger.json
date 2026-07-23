@@ -7,7 +7,6 @@
   "flags": {},
   "system": {
     "slug": "the-ranger",
-    "actorType": "character",
     "followers": [
       "animal-companion"
     ],
