@@ -189,8 +189,7 @@ const parsedBack = new Map();  // slug -> back
 const arcanaUnlockAt = new Map(); // slug -> unlockAt (front-derived, for major backs)
 const resourceBySlug = new Map(); // move slug -> { max, hasBlank } (right-aligned ○ resource tracks)
 const parsedByName = new Map(); // normName -> { creature, staged }  (parsed follower stat blocks)
-const frontFollowerIcon = new Map(); // arcanum slug -> staged icon path (a major that prints its follower on the front)
-const majorFollowerIcon = new Map(); // follower slug -> staged icon path (a back-side major follower's marker)
+const majorFollowerIcon = new Map(); // follower slug -> staged icon path (marker beside a major follower's name heading)
 const review = [`# Arcanum parse — manual review`, ``];
 
 const iconStage = mkdtempSync(path.join(os.tmpdir(), "arc-icons-"));
@@ -213,13 +212,6 @@ for (const range of ranges) {
 			const front = parseFront(bl, { name: rec.doc.name, slug: rec.slug });
 			parsedFront.set(rec.slug, front);
 			if (rec.tier === "major") arcanaUnlockAt.set(rec.slug, detectUnlockAt(bl)); // mark-gate lives on the front, stored on back
-			// A card that prints its follower on the front (the Ring) carries the marker icon inside the
-			// front span — stage it out of the per-range tmp before it's removed (mirrors the minor loop).
-			if (front._frontFollower?.iconFile) {
-				const staged = path.join(iconStage, `front-${rec.slug}.png`);
-				copyFileSync(front._frontFollower.iconFile, staged);
-				frontFollowerIcon.set(rec.slug, staged);
-			}
 		}
 	// Backs: majors are segmented by the front→back label span (robust to a missing/mis-placed
 	// "Mysteries of X" title); minors still anchor on the existing back.title, bounded at "back".
@@ -239,10 +231,11 @@ for (const range of ranges) {
 		if (b.icon?.file) { staged = path.join(iconStage, `${key}.png`); copyFileSync(b.icon.file, staged); }
 		parsedByName.set(key, { creature, staged });
 	}
-	// A back-side major follower (Astor/Halix on the Blackwood back, the Mighty Servant on the Mindgem
-	// back) isn't recognized as a stat block, so the loop above never sees its icon. Its ~18px marker
-	// sits right beside its name heading, so scan each major page for a marker adjacent to a major
-	// follower's name and stage it (matched to the preserved doc after the write loop).
+	// A major follower's stat block isn't recognized by the layout parser (the back-side Astor/Halix on
+	// the Blackwood back, the Mighty Servant on the Mindgem back; the front-side Ring on Daagon), so the
+	// loop above never sees its icon. Its ~18px marker sits right beside its name heading — scan each
+	// major page for a marker adjacent to a major follower's name and stage it, consumed below by
+	// emitFrontFollower (front-resident) and the back-follower icon patch (preserved backs).
 	if (!isMinor) {
 		const majorNames = [...followerRoster.values()].filter((r) => !r.minor).map((r) => r.name);
 		for (let i = 0; i < pages.length; i++)
@@ -292,7 +285,7 @@ function emitFrontFollower(rec, front) {
 	// re-run preserves it; otherwise it's derived (slug drops a leading "The", e.g. "the-ring").
 	const rosterEntry = followerRoster.get(norm(creature.name));
 	const slug = rosterEntry?.slug ?? toSlug(creature.name);
-	const img = markerImg(frontFollowerIcon.get(rec.slug)) || NPC_DEFAULT_IMG;
+	const img = markerImg(majorFollowerIcon.get(slug)) || NPC_DEFAULT_IMG; // the marker beside the follower's front-side name heading
 	const doc = toFollowerDoc(creature, { slug, arcanaSlug: rec.slug, id: rosterEntry?.id, key: rosterEntry?.key, img, folder: rosterEntry?.folder ?? ARCANA_FOLLOWER_FOLDER });
 	if (WRITE) { writeFileSync(path.join(FOLLOWER_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n"); }
 	frontEmittedSlugs.add(slug);

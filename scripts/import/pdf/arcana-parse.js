@@ -356,9 +356,9 @@ const isHead = (b, re) => (b?.type === "heading" || b?.type === "title") && re.t
  *  stranded "(Loyalty ○○○)" (counted, dropped), and everything else (the ä move bullets) belongs
  *  to the stat block. A lone short italic para is the CARD's displaced tag line (printed under the
  *  title, stranded here by the split) — returned separately for `front.tags`. Rules, images and
- *  side labels drop; the follower's marker icon file (a small extracted image) is returned for
- *  marker resolution.
- *  Returns { blocks, followerLines, loyaltyMax, cardTagsMd, iconFile }. */
+ *  side labels drop (the follower's marker icon is resolved separately, off its name heading, via
+ *  matchFollowerIcons).
+ *  Returns { blocks, followerLines, loyaltyMax, cardTagsMd }. */
 export function splitFrontFollower(blocks) {
 	let at = -1, seenHeading = false;
 	for (let i = 0; i < blocks.length && at < 0; i++) {
@@ -369,13 +369,13 @@ export function splitFrontFollower(blocks) {
 		const next = blocks.slice(i + 1, i + 3).find((n) => n.type === "para" || n.type === "list");
 		if (next?.type === "para" && next.tags) at = i;
 	}
-	if (at < 0) return { blocks, followerLines: null, loyaltyMax: 0, cardTagsMd: null, iconFile: null };
+	if (at < 0) return { blocks, followerLines: null, loyaltyMax: 0, cardTagsMd: null };
 
 	const remaining = blocks.slice(0, at);
 	const followerLines = [blocks[at].line];
-	let loyaltyMax = 0, cardTagsMd = null, iconFile = null;
+	let loyaltyMax = 0, cardTagsMd = null;
 	for (const b of blocks.slice(at + 1)) {
-		if (b.type === "image") { iconFile = iconFile ?? (b.image?.file ?? null); continue; }
+		if (b.type === "image") continue; // marker icon drops (resolved via matchFollowerIcons off the name heading)
 		if (b.type === "para") {
 			const md = joinMd(b.lines);
 			if (/^\*[^*]+\*$/.test(md) && md.length < 40) { cardTagsMd = cardTagsMd ?? md; continue; }
@@ -392,7 +392,7 @@ export function splitFrontFollower(blocks) {
 		}
 		// rules / side labels / tables drop
 	}
-	return { blocks: remaining, followerLines, loyaltyMax, cardTagsMd, iconFile };
+	return { blocks: remaining, followerLines, loyaltyMax, cardTagsMd };
 }
 
 /** Build the front side from its blocks (already bounded to one card's front). */
@@ -404,7 +404,7 @@ export function parseFront(blocks, { name, slug }) {
 	const ff = splitFrontFollower(blocks);
 	if (ff.followerLines) {
 		blocks = ff.blocks;
-		front._frontFollower = { lines: ff.followerLines, loyaltyMax: ff.loyaltyMax, iconFile: ff.iconFile };
+		front._frontFollower = { lines: ff.followerLines, loyaltyMax: ff.loyaltyMax };
 		// ff.cardTagsMd is the arcanum's own "*magical*" tag, stranded in the follower span by the column
 		// split. No major front captures a tags line (the parser drops them uniformly), so it's discarded
 		// here too — pulling it aside just keeps it out of the follower's moves.

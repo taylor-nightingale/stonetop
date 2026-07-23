@@ -3,7 +3,7 @@
 	"_key": "!items!VdpSGoAvfGEdIYKD",
 	"name": "Gwendyl, Your Mentor",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "gwendyl",
 		"arcanaSlug": null,

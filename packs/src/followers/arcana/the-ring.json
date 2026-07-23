@@ -3,7 +3,7 @@
 	"_key": "!items!IFe9XzX2z6fYnbsr",
 	"name": "The Ring",
 	"type": "follower",
-	"img": "systems/stonetop/assets/content/icons/npc.png",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-triskele.png",
 	"system": {
 		"slug": "the-ring",
 		"reference": null,

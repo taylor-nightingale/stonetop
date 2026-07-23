@@ -3,7 +3,7 @@
 	"_key": "!items!9410O8O9uaLDj4SZ",
 	"name": "Enfys, the Acolyte",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "enfys",
 		"arcanaSlug": null,

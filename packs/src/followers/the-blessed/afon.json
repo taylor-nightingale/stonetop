@@ -3,7 +3,7 @@
 	"_key": "!items!AUcGUCtuZs1Z0pRE",
 	"name": "Afon, a Fellow Initiate",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "afon",
 		"arcanaSlug": null,

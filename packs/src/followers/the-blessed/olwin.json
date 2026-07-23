@@ -3,7 +3,7 @@
 	"_key": "!items!nGXhJJXLcLNHUDWa",
 	"name": "Olwin, Your Anointed Lover",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "olwin",
 		"arcanaSlug": null,

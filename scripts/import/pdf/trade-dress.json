@@ -4,6 +4,8 @@
     "0137b7c118189a81010c858ea8a01a525dbfa43456d76d882df2c2efe3ffbcb7": "marker-tree",
     "04402350ab80c7113d554de5c3158fe6c276682de91d4b6a382305168a8dfd9e": "marker-pyramid",
     "05dc5556df51001092949df7456caf9112ddf8427508e0004305d861c3bf4159": "marker-eye",
+    "0651f2d83ca1787cd3d06f8eaf6b0ca737ee008300765e23bb299a83206c4482": "marker-shell",
+    "0cfe862bf2aac0842cc0c251029fcf4e5da3522de7b645e01028e312083da8e7": "marker-skull",
     "2b2c9315d6dd1ea130d6d4fc8a03b3fbc2097390ead3143c1def70e88b03cd50": "marker-wind",
     "2e414a3304c723bd1d93a237875105f6fba9256736cc472b1f878767fd6f7d42": "marker-water",
     "4545e52038d5f3c8d7ba5e0228c147d8cb56fd794270afbc1146318dc748decc": "marker-person",
@@ -22,6 +24,7 @@
     "c153e12dd0a78a1ba42cca4dbab7c63f8e9271b6860a30d250c34a21b3f54815": "marker-shell",
     "dc8a419b0d57f97ec262dabdd77b51991f6510804917fab0ed3a466d119376b0": "marker-swirl",
     "e3835d737afbfdba1b8fe745bc323e6cbbec40c9e5b4e83413b1ed5bd737d834": "marker-arrow",
+    "e3c88554b9c6513d5ee2c16b2eca0dcdf1a6ba17f0f9f963f7a057b59de25d4c": "marker-wind",
     "eb3a05362e5093f2b133b6004fc12c736a3e7fabca0f2045645557f732698518": "marker-snowflake",
     "ef396e29d130aff27fa8b4be66a8d18439a21ad198c24885c4ba01e5c528a190": "marker-sprout"
   }

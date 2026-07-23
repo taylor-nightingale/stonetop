@@ -3,7 +3,7 @@
 	"_key": "!items!gxUFykyDSMMwcsxS",
 	"name": "Seren the Eldest",
 	"type": "follower",
-	"img": "icons/svg/item-bag.svg",
+	"img": "systems/stonetop/assets/content/icons/npc.png",
 	"system": {
 		"slug": "seren-the-eldest",
 		"arcanaSlug": null,
