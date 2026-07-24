@@ -11,11 +11,23 @@
  * (The legacy shape — a bare `followers` slug array with a sibling `inlineDisplay` flag — is
  * normalized to this object by migrateChoiceRow; runtime consumers only ever see this shape.)
  */
+/** `showOnTab` false = card-only: the follower lives on its owning card, never the roster tab. */
+export class FollowerGrant {
+	constructor(slug, showOnTab) {
+		this.slug      = slug;
+		this.showOnTab = showOnTab;
+	}
+}
+
 export class FollowerLink {
 	constructor({ slugs = [], inlineDisplay = false, hideFromFollowersTab = false } = {}) {
 		this.slugs                = slugs;
 		this.inlineDisplay        = inlineDisplay;
 		this.hideFromFollowersTab = hideFromFollowersTab;
+	}
+
+	grants() {
+		return this.slugs.map(slug => new FollowerGrant(slug, !this.hideFromFollowersTab));
 	}
 
 	/** Parse a row's stored `followers` value. Returns null when the row links no followers. */

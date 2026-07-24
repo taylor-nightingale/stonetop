@@ -47,13 +47,15 @@
     honored regardless of the row's composition. Un-indented rows keep their flat structure. }}
 {{#if indent}}<div class="stonetop-choice--indent">{{/if}}
 {{#if followers}}
-{{! Entry with resolved follower cards (followers = EntryRowFollowers) }}
+{{! Entry with a follower reference (followers = EntryRowFollowers, carrying slugs). Inline cards resolve
+    each slug against the normalized registry at @root.stonetop.followers.bySlug; #with skips a slug that
+    doesn't resolve (e.g. an item-sheet preview, which has no registry), so nothing renders there. }}
 <div class="stonetop-arcanum-follower">
     {{#if followers.inlineDisplay}}
     {{#if track}}
     {{> follower-check}}
     {{/if}}
-    {{#each followers.cards}}{{> "stonetop.follower-card" this}}{{/each}}
+    {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
     {{else if (hasText content.text)}}
     <label class="stonetop-arcanum-follower-label">
         {{#if track}}

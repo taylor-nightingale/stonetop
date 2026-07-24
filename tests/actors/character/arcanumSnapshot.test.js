@@ -1,8 +1,13 @@
 import { describe, it, expect } from "vitest";
-import { buildArcanumSnapshot, buildArcanumOutfitItem, buildArcanumMoveSnapshot } from "../../../src/actors/character/arcanumSnapshot.js";
-import { MoveSnapshot } from "../../../src/model/snapshot/character/MoveSnapshot.js";
+import {
+	ArcanumSnapshotBuilder, ArcanumRenderContext, arcanumOutfitItemSnapshot,
+} from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { MoveSnapshot, MoveSnapshotBuilder } from "../../../src/model/snapshot/character/MoveSnapshot.js";
 import { ChoiceValues } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 import { Arcanum } from "../../../src/model/data/character/Arcanum.js";
+
+// The builders own the construction; a caller just hands over an Arcanum + a render context.
+const snap = (arcanum, opts = {}) => ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext(opts));
 
 const richArcanum = () => new Arcanum({
 	slug: "azure", major: true, name: "Azure Hand", img: null,
@@ -22,9 +27,9 @@ const richArcanum = () => new Arcanum({
 	},
 });
 
-describe("buildArcanumSnapshot", () => {
+describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 	it("maps a full arcanum to front/back snapshots", () => {
-		const s = buildArcanumSnapshot(richArcanum(), { flipped: true });
+		const s = snap(richArcanum(), { flipped: true });
 		expect(s).toMatchObject({ slug: "azure", major: true, name: "Azure Hand", owned: true, flipped: true });
 		expect(s.front.title.raw).toBe("Azure Hand");
 		expect(s.front.item.name).toBe("Azure Hand");
@@ -40,19 +45,19 @@ describe("buildArcanumSnapshot", () => {
 
 	it("carries a diamond-less front's disguise tags through to the snapshot (item stays null)", () => {
 		const a = new Arcanum({ slug: "the-key", front: { title: "A... key?", tags: "magical, terrifying", description: "a white thing" }, back: {} });
-		const s = buildArcanumSnapshot(a);
+		const s = snap(a);
 		expect(s.front.item).toBeNull();
 		expect(s.front.tags).toBe("magical, terrifying");
 	});
 
 	it("uses caller-supplied moveSnapshots (major arcana real moves) over inline back.moves", () => {
 		const real = [{ name: "Real Battery" }, { name: "Real Resonance" }];
-		const s = buildArcanumSnapshot(richArcanum(), { moveSnapshots: real });
+		const s = snap(richArcanum(), { moveSnapshots: real });
 		expect(s.back.moves).toBe(real);
 	});
 
-	it("defaults (preview): not flipped/owned, empty groups → null, no stats crash", () => {
-		const s = buildArcanumSnapshot(new Arcanum({ slug: "x", front: {}, back: {} }));
+	it("defaults (preview): not flipped, empty groups → null, no stats crash", () => {
+		const s = snap(new Arcanum({ slug: "x", front: {}, back: {} }));
 		expect(s.flipped).toBe(false);
 		expect(s.owned).toBe(true);
 		expect(s.front.unlock).toBeNull();
@@ -66,32 +71,32 @@ describe("buildArcanumSnapshot", () => {
 			azure:        { marks: 3 },   // unlock group slug = "azure"
 			consequences: { c1: 1 },      // consequences group slug = "consequences"
 		});
-		const s = buildArcanumSnapshot(richArcanum(), { flipped: true, choiceValues });
-		// unlock track (max 4) reflects stored count of 3
+		const s = snap(richArcanum(), { flipped: true, choiceValues });
 		expect(s.front.unlock.list[0].track.checks).toEqual([true, true, true, false]);
-		// consequence c1 (default track max 1) reflects the stored check
 		expect(s.back.consequences.list[0].track.checks).toEqual([true]);
 	});
 
 	it("consequences default to unchecked when the store has no value (regression: #50)", () => {
-		const s = buildArcanumSnapshot(richArcanum(), { flipped: true });
+		const s = snap(richArcanum(), { flipped: true });
 		expect(s.back.consequences.list[0].track.checks).toEqual([false]);
 	});
 
 	it("carries a consequence's indent flag through to the snapshot row", () => {
-		const s = buildArcanumSnapshot(richArcanum(), { flipped: true });
+		const s = snap(richArcanum(), { flipped: true });
 		expect(s.back.consequences.list.map(r => r.indent)).toEqual([false, true]);
-	});
-
-	it("buildArcanumOutfitItem returns null for no item; maps fields otherwise", () => {
-		expect(buildArcanumOutfitItem("x", null)).toBeNull();
-		expect(buildArcanumOutfitItem("x", { name: "Cloak", weight: 1 })).toMatchObject({ slug: "x", name: "Cloak", weight: 1 });
 	});
 });
 
-describe("buildArcanumMoveSnapshot", () => {
+describe("arcanumOutfitItemSnapshot", () => {
+	it("returns null for no item; maps fields otherwise", () => {
+		expect(arcanumOutfitItemSnapshot("x", null)).toBeNull();
+		expect(arcanumOutfitItemSnapshot("x", { name: "Cloak", weight: 1 })).toMatchObject({ slug: "x", name: "Cloak", weight: 1 });
+	});
+});
+
+describe("MoveSnapshotBuilder.forArcanumMystery", () => {
 	it("maps an arcanum mystery move into an always-active, non-selectable MoveSnapshot", () => {
-		const m = buildArcanumMoveSnapshot({ id: "battery", name: "Battery", text: "store energy" });
+		const m = MoveSnapshotBuilder.forArcanumMystery({ id: "battery", name: "Battery", text: "store energy" });
 		expect(m).toBeInstanceOf(MoveSnapshot);
 		expect(m).toMatchObject({
 			id: "battery", slug: "battery", name: "Battery",
@@ -102,7 +107,7 @@ describe("buildArcanumMoveSnapshot", () => {
 	});
 
 	it("carries a subtitle through as the move sourceLabel (null when absent)", () => {
-		expect(buildArcanumMoveSnapshot({ name: "Resonance", subtitle: "Requires: Battery" }).sourceLabel).toBe("Requires: Battery");
-		expect(buildArcanumMoveSnapshot({ name: "Unquenched" }).sourceLabel).toBeNull();
+		expect(MoveSnapshotBuilder.forArcanumMystery({ name: "Resonance", subtitle: "Requires: Battery" }).sourceLabel).toBe("Requires: Battery");
+		expect(MoveSnapshotBuilder.forArcanumMystery({ name: "Unquenched" }).sourceLabel).toBeNull();
 	});
 });

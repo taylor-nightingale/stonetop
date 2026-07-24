@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { ChoiceGroup, ChoiceValues, EntryRow } from "../../../src/model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues, EntryRow, EntryRowFollowers } from "../../../src/model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../../../src/model/snapshot/character/buildChoiceGroup.js";
 
 // ── EntryRow — content/track/input ───────────────────────────────────────────
 
 describe("ChoiceGroup — entry row without followers", () => {
 	it("builds an EntryRow with type 'entry'", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "my-row", content: { title: "T", text: "Hello" } }],
 		});
@@ -13,7 +14,7 @@ describe("ChoiceGroup — entry row without followers", () => {
 	});
 
 	it("entry row has null followers when no followers field", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "my-row", content: { title: null, text: null } }],
 		});
@@ -21,7 +22,7 @@ describe("ChoiceGroup — entry row without followers", () => {
 	});
 
 	it("entry row track starts all false", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "tracked", content: {}, track: { max: 2 } }],
 		});
@@ -30,7 +31,7 @@ describe("ChoiceGroup — entry row without followers", () => {
 
 	it("entry row track reflects stored count", () => {
 		const values = new ChoiceValues({ ns: { tracked: 1 } });
-		const group = ChoiceGroup.fromPackData(
+		const group = buildChoiceGroup(
 			{ slug: "ns", list: [{ type: "entry", slug: "tracked", content: {}, track: { max: 2 } }] },
 			values,
 		);
@@ -38,7 +39,7 @@ describe("ChoiceGroup — entry row without followers", () => {
 	});
 
 	it("entry row has null track when no track field", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "no-track", content: {} }],
 		});
@@ -46,49 +47,46 @@ describe("ChoiceGroup — entry row without followers", () => {
 	});
 });
 
-// ── EntryRow — followers resolution ──────────────────────────────────────────
+// ── EntryRow — follower REFERENCES ───────────────────────────────────────────
+// buildChoiceGroup emits a pure reference (slugs + inlineDisplay); resolution to cards happens later
+// against followers.bySlug (see CharacterFollowers.buildFollowersSnapshot). No card data lives here.
 
-describe("ChoiceGroup — entry row with followers", () => {
-	const ENFYS_SNAPSHOT = { slug: "enfys", name: "Enfys" };
-
-	it("resolves the link's slugs to snapshot cards from followersBySlug", () => {
-		const group = ChoiceGroup.fromPackData(
+describe("ChoiceGroup — entry row with a follower reference", () => {
+	it("emits an EntryRowFollowers carrying the link's slugs", () => {
+		const group = buildChoiceGroup(
 			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"], inlineDisplay: false }, track: { max: 1 } }] },
 			new ChoiceValues(),
-			{ enfys: ENFYS_SNAPSHOT },
 		);
-		expect(group.list[0].followers.cards).toEqual([ENFYS_SNAPSHOT]);
+		expect(group.list[0].followers).toBeInstanceOf(EntryRowFollowers);
+		expect(group.list[0].followers.slugs).toEqual(["enfys"]);
 	});
 
-	it("followers is null when no linked slug resolves to a snapshot", () => {
-		const group = ChoiceGroup.fromPackData(
-			{ slug: "ns", list: [{ type: "entry", slug: "rook", content: {}, followers: { slugs: ["rook"] }, track: { max: 1 } }] },
+	it("followers is null when the row carries no follower link", () => {
+		const group = buildChoiceGroup(
+			{ slug: "ns", list: [{ type: "entry", slug: "rook", content: {}, track: { max: 1 } }] },
 			new ChoiceValues(),
-			{},
 		);
 		expect(group.list[0].followers).toBeNull();
 	});
 
 	it("inlineDisplay is false when the link omits it", () => {
-		const group = ChoiceGroup.fromPackData(
+		const group = buildChoiceGroup(
 			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"] } }] },
 			new ChoiceValues(),
-			{ enfys: ENFYS_SNAPSHOT },
 		);
 		expect(group.list[0].followers.inlineDisplay).toBe(false);
 	});
 
 	it("inlineDisplay is carried from the link", () => {
-		const group = ChoiceGroup.fromPackData(
+		const group = buildChoiceGroup(
 			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"], inlineDisplay: true } }] },
 			new ChoiceValues(),
-			{ enfys: ENFYS_SNAPSHOT },
 		);
 		expect(group.list[0].followers.inlineDisplay).toBe(true);
 	});
 
 	it("indent is false by default", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "c1", content: { text: "Base consequence" }, track: { max: 1 } }],
 		});
@@ -96,7 +94,7 @@ describe("ChoiceGroup — entry row with followers", () => {
 	});
 
 	it("indent is carried from pack data", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "c2", content: { text: "Escalation" }, track: { max: 1 }, indent: true }],
 		});
@@ -108,7 +106,7 @@ describe("ChoiceGroup — entry row with followers", () => {
 
 describe("ChoiceGroup — pick rows", () => {
 	it("builds a ChoiceRow (radio) for a type:'pick' row with pickCount 1", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "pick", pickCount: 1, options: [{ slug: "a", content: { title: "A" } }, { slug: "b", content: { title: "B" } }] }],
 		});
@@ -120,7 +118,7 @@ describe("ChoiceGroup — pick rows", () => {
 	});
 
 	it("builds a checkbox ChoiceRow for pickCount > 1", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "pick", pickCount: 2, options: [{ slug: "a" }, { slug: "b" }] }],
 		});
@@ -129,7 +127,7 @@ describe("ChoiceGroup — pick rows", () => {
 	});
 
 	it("routes a type-less row with an options array to a pick (groupDefs shape)", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ options: [{ slug: "a" }, { slug: "b" }] }],
 		});
@@ -142,7 +140,7 @@ describe("ChoiceGroup — pick rows", () => {
 
 describe("ChoiceGroup — entry rows (current shape; legacy is handled by migrateChoices)", () => {
 	it("renders entry rows with type 'entry'", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "my-row", content: { text: "a heading" } }],
 		});
@@ -151,19 +149,17 @@ describe("ChoiceGroup — entry rows (current shape; legacy is handled by migrat
 		expect(group.list[0].followers).toBeNull();
 	});
 
-	it("resolves followers from the grouped link via followersBySlug", () => {
-		const SNAP = { slug: "enfys", name: "Enfys" };
-		const group = ChoiceGroup.fromPackData(
+	it("emits a follower reference (slugs + inlineDisplay) from the grouped link", () => {
+		const group = buildChoiceGroup(
 			{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"], inlineDisplay: true }, track: { max: 1 } }] },
 			new ChoiceValues(),
-			{ enfys: SNAP },
 		);
-		expect(group.list[0].followers.cards).toEqual([SNAP]);
+		expect(group.list[0].followers.slugs).toEqual(["enfys"]);
 		expect(group.list[0].followers.inlineDisplay).toBe(true);
 	});
 
 	it("exposes the input type and the renamed content fields", () => {
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "cost", content: { subtitle: "S", subtitleNote: "(p1)", titleNote: "(p2)" }, input: { type: "inline" } }],
 		});
@@ -181,7 +177,7 @@ describe("ChoiceGroup — entry rows (current shape; legacy is handled by migrat
 describe("ChoiceGroup — rich-text enrichment (integration)", () => {
 	it("enriches content.{title,text} @UUID/markdown through the one pass", async () => {
 		const { enrichRichTextTree } = await import("../../../src/utils/enrichRichText.js");
-		const group = ChoiceGroup.fromPackData({
+		const group = buildChoiceGroup({
 			slug: "ns",
 			list: [{ type: "entry", slug: "row", content: {
 				title: "**Choose**",

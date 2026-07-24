@@ -1,3 +1,4 @@
+import { FollowersSnapshot } from "./FollowerSnapshot.js";
 export { Resource } from "../../data/Resource.js";
 export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
 export { StatSnapshot } from "./StatSnapshot.js";
@@ -31,9 +32,12 @@ export {
 	ArcanumSnapshot, ArcanumSnapshotBuilder,
 	ArcanumFrontSnapshot, ArcanumFrontSnapshotBuilder,
 	ArcanumBackSnapshot, ArcanumBackSnapshotBuilder,
+	arcanumOutfitItemSnapshot,
 } from "./ArcanaSnapshot.js";
-export { FollowerSnapshot, FollowerSnapshotBuilder } from "./FollowerSnapshot.js";
+export { ArcanumRenderContext } from "./ArcanumRenderContext.js";
+export { FollowerSnapshot, FollowerSnapshotBuilder, FollowersSnapshot } from "./FollowerSnapshot.js";
 export { ChoiceOption, ChoiceRow, EntryRow, ChoiceGroup, ChoiceValues } from "./ChoiceGroup.js";
+export { buildChoiceGroup } from "./buildChoiceGroup.js";
 
 /**
  * The canonical read-only data object returned by `StonetopCharacter.buildSnapshot()`.
@@ -51,7 +55,7 @@ export { ChoiceOption, ChoiceRow, EntryRow, ChoiceGroup, ChoiceValues } from "./
  * @property {PossessionsSnapshot|null} possessions
  * @property {ArcanaSnapshot} arcana
  * @property {InsertSnapshot[]} inserts
- * @property {FollowerSnapshot[]} followers
+ * @property {FollowersSnapshot} followers - normalized { bySlug, tab }
  * @property {string} rollMode - "normal" | "adv" | "dis"
  */
 export class CharacterSnapshot {
@@ -66,7 +70,7 @@ export class CharacterSnapshot {
 		this.possessions     = b._possessions ?? null;
 		this.arcana          = b._arcana;
 		this.inserts         = b._inserts ?? [];
-		this.followers       = b._followers ?? [];
+		this.followers       = b._followers ?? new FollowersSnapshot();
 		this.rollMode        = b._rollMode;
 		this.bio             = b._bio   ?? "";
 		this.notes           = b._notes ?? "";

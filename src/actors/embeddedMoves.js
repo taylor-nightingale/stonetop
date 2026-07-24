@@ -3,7 +3,8 @@ import {
 	RequirementSnapshot,
 	ValueMax,
 } from "../model/snapshot/character/MoveSnapshot.js";
-import { ChoiceGroup, ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { toSlug } from "../utils/slug.js";
 
@@ -80,7 +81,7 @@ export function buildMoveSnapshot(item, categoryKey, selectable, requirementsMet
 	let choices = null;
 	if (sys?.choices) {
 		const values = new ChoiceValues(sys.pickValues ?? {});
-		choices = ChoiceGroup.fromPackData(sys.choices, values);
+		choices = buildChoiceGroup(sys.choices, values);
 	}
 	const req      = sys?.requirement ?? null;
 	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);

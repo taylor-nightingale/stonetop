@@ -54,9 +54,14 @@ export function followerFields() {
 		arcanaSlug:   new f.StringField({ nullable: true, initial: null }),
 		playbookSlug: new f.StringField({ nullable: true, initial: null }),
 		owned:        new f.BooleanField({ initial: false }),
-		// A statless follower is an object, not a creature (the Ring of Daagon): the sheet hides the
-		// HP/Armor/Damage row and the inventory. Cost/Instinct/Loyalty/moves render as usual.
-		statless:     new f.BooleanField({ initial: false }),
+		// A follower is either a "creature" (HP/Armor/Damage/special quality + inventory) or an "object"
+		// — a magical thing that acts as a follower (the Ring of Daagon): Loyalty/Instinct/Cost/tags/moves
+		// render as usual, but the combat stats and inventory are hidden. The follower card branches on it.
+		kind:         new f.StringField({ initial: "creature", choices: ["creature", "object"] }),
+		// Placement, stamped by whoever GRANTS the follower: true = show on the Followers tab (the default
+		// for player-added and choice-granted followers); false = card-only (the Ring lives on its arcanum
+		// card, never the tab). CharacterFollowers reads this to assemble the tab — it never re-derives it.
+		showOnTab:    new f.BooleanField({ initial: true }),
 		cost:         selectionField({ multi: false }), // pick one (+ custom)
 		loyalty:      new f.SchemaField({
 			value: new f.NumberField({ initial: 0, integer: true }),
@@ -148,6 +153,13 @@ export function migrateCreatureData(source) {
 	if (source.tagList && typeof source.tagList === "object" && !Array.isArray(source.tagList)) {
 		if (Array.isArray(source.tagList.selected)) source.tagList.selected = normalizeGroupTags(source.tagList.selected).tags;
 		if (Array.isArray(source.tagList.options))  source.tagList.options  = normalizeGroupTags(source.tagList.options).tags;
+	}
+
+	// statless flag -> kind. Only when the legacy flag is actually present (never on a partial diff that
+	// omits it), so an ordinary edit can't retro-flag a creature as an object.
+	if (source.statless !== undefined) {
+		if (source.statless === true && source.kind === undefined) source.kind = "object";
+		delete source.statless;
 	}
 
 	// hp: flat NPC number (+ maxHp) OR legacy {value,min,max} -> {value, max}.

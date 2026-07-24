@@ -3,6 +3,8 @@ export class Follower {
 		this.slug             = data.slug;
 		this.name             = data.name;
 		this.img              = data.img              ?? null;
+		// "creature" (full combat stats) vs "object" (the Ring: loyalty/instinct/cost/moves, no HP).
+		this.kind             = data.kind             ?? "creature";
 		this.tags             = data.tagList     ?? data.tags ?? null;
 		this.hp               = data.hp               ?? { value: 0, max: 0 };
 		this.armor            = data.armor            ?? "";

@@ -14,7 +14,7 @@
 
 import * as CG from "../utils/choiceGroupEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
-import { ChoiceGroup } from "../model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 
 export function createStonetopImprovementSheetClass(Base) {
@@ -58,7 +58,7 @@ export function createStonetopImprovementSheetClass(Base) {
 			// Rendered view — the SAME snapshot (ChoiceGroup) + improvement-group.hbs partial the steading
 			// renders. Empty ChoiceValues → tracks show unchecked (a catalog improvement has no track
 			// state of its own; that lives on each steading that adopts it).
-			context.preview = ChoiceGroup.fromPackData(sys.choices ?? { slug: sys.slug, list: [] });
+			context.preview = buildChoiceGroup(sys.choices ?? { slug: sys.slug, list: [] });
 			await enrichRichTextTree(context.preview, this.item?.getRollData?.() ?? {});
 
 			// View-first: an authored improvement opens as the rendered view; a blank one (no rows yet)

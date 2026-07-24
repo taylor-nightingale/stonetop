@@ -22,6 +22,10 @@ export class FollowerSnapshot {
 		this.slug           = b._slug;
 		this.name           = b._name;
 		this.img            = b._img ?? null;
+		// "creature" (full combat stats + inventory) vs "object" (the Ring: no HP/armor/damage/special
+		// quality/inventory). The follower-card partial branches on `isObject`.
+		this.kind           = b._kind ?? "creature";
+		this.isObject       = this.kind === "object";
 		this.tagSelection   = Selection.fromStored(b._tags);
 		this.tags           = this.tagSelection.text;   // display string (back-compat)
 		this.isGroup        = this.tagSelection.has("group");
@@ -78,10 +82,30 @@ export class FollowerSnapshot {
 	}
 }
 
+/**
+ * The character's followers, normalized: `bySlug` holds each follower's data exactly once (the
+ * entities), and `tab` is the slug list the granting authorities placed on the Followers tab. Every
+ * place a follower renders — the tab, an arcanum card — references it by slug and resolves against
+ * `bySlug`, so no follower data is duplicated. Built by CharacterFollowers.
+ */
+export class FollowersSnapshot {
+	constructor(bySlug = {}, tab = []) {
+		this.bySlug = bySlug;   // { [slug]: FollowerSnapshot }
+		this.tab    = tab;      // [slug, ...] — ordered slugs shown on the Followers tab
+	}
+
+	/** The tab's cards in order — references into `bySlug`, not copies (template convenience). */
+	get tabCards() { return this.tab.map(s => this.bySlug[s]).filter(Boolean); }
+
+	/** Resolve one slug to its card (or null) — used for inline references on cards. */
+	get(slug) { return this.bySlug[slug] ?? null; }
+}
+
 export class FollowerSnapshotBuilder {
 	withSlug(v)            { this._slug            = v; return this; }
 	withName(v)            { this._name            = v; return this; }
 	withImg(v)             { this._img             = v; return this; }
+	withKind(v)            { this._kind            = v; return this; }
 	withTags(v)            { this._tags            = v; return this; }
 	withHp(v)              { this._hp              = v; return this; }
 	withHpMax(v)           { this._hpMax           = v; return this; }

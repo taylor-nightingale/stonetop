@@ -135,9 +135,13 @@ export function stripLoyalty(costRaw) {
 /** The single-pick choice row that links an arcanum to one of its followers — the follower IS
  *  the row (empty content, full card shown inline). Mirrors the hand-authored `beautiful-scroll`
  *  back. `hideFromFollowersTab` keeps a card-resident follower (the Ring) off the followers tab. */
-export function followerChoiceEntry(followerSlug, { hideFromFollowersTab = false } = {}) {
-	return { type: "entry", slug: followerSlug, content: { title: null, text: "" }, track: { max: 1 },
+export function followerChoiceEntry(followerSlug, { hideFromFollowersTab = false, owned = false } = {}) {
+	const entry = { type: "entry", slug: followerSlug, content: { title: null, text: "" },
 		followers: { slugs: [followerSlug], inlineDisplay: true, hideFromFollowersTab } };
+	// A choice-gated follower gets a checkbox (track: gain it when checked). An owned-by-default,
+	// card-resident follower (the Ring) has no checkbox — the arcanum grants it outright.
+	if (!owned) entry.track = { max: 1 };
+	return entry;
 }
 
 /** The back-side choice group that inlines an arcanum's follower(s), or null if it has none. Same

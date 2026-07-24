@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { ChoiceGroup, ChoiceValues } from "../../../../src/model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../../../../src/model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../../../../src/model/snapshot/character/buildChoiceGroup.js";
 import { RichText } from "../../../../src/model/snapshot/RichText.js";
 
 /** A pack-shaped pick row with markdown in its option labels (possession gear lists do this). */
@@ -14,8 +15,8 @@ const pickEntry = {
 	}],
 };
 
-describe("ChoiceGroup.buildPickRow — option labels are rich text", () => {
-	const options = () => ChoiceGroup.fromPackData(pickEntry, new ChoiceValues()).list[0].options;
+describe("buildChoiceGroup pick rows — option labels are rich text", () => {
+	const options = () => buildChoiceGroup(pickEntry, new ChoiceValues()).list[0].options;
 
 	it("wraps an option's `text` in a RichText", () => {
 		expect(options()[0].text).toBeInstanceOf(RichText);
@@ -34,7 +35,7 @@ describe("ChoiceGroup.buildPickRow — option labels are rich text", () => {
 	});
 
 	it("gives an option with no label an empty RichText rather than null", () => {
-		const group = ChoiceGroup.fromPackData({ slug: "g", list: [{ type: "pick", options: [{ slug: "a" }] }] });
+		const group = buildChoiceGroup({ slug: "g", list: [{ type: "pick", options: [{ slug: "a" }] }] });
 		expect(group.list[0].options[0].text.raw).toBe("");
 	});
 });

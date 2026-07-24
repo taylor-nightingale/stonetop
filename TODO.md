@@ -11,6 +11,7 @@
 * let the GM define what the basic moves list entails, perhaps _  all_ default move lists (playbook, special, steading, etc.)
 
 
+
 == Nice to have
 * toggle to turn off non-selected character options
 * add descriptions to debilities for hover over (p 53)

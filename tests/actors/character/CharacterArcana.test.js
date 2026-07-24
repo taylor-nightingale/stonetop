@@ -742,7 +742,7 @@ describe("CharacterArcana — follower sync", () => {
 		expect(followerItem).toBeUndefined();
 	});
 
-	it("shows an unchecked linked follower on the card via a repo preview, then owns it when checked", async () => {
+	it("keeps the card's follower REFERENCE whether or not the follower is owned, and owns it when checked", async () => {
 		const actor = makeActor([makeArcanumItem(CRACKED_FLUTE)]);
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
@@ -754,19 +754,20 @@ describe("CharacterArcana — follower sync", () => {
 		factory.subscribe(new FollowerSideEffectHandler(followers));
 		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository([CRACKED_FLUTE]), null, followers, factory);
 
-		// Unchecked: nothing embedded, but the card row still shows the follower (repo-backed preview).
+		// Unchecked: nothing embedded, but the card row still references the follower by slug (the card
+		// resolves it against followers.bySlug at render — CharacterFollowers builds the preview there).
 		let snap = await charArcana.buildSnapshot();
 		let row = snap.minor.items[0].back.choices.list.find(r => r.slug === "andalau-of-the-flute");
 		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
-		expect(row.followers.cards.map(f => f.slug)).toEqual(["andalau-of-the-flute"]);
+		expect(row.followers.slugs).toEqual(["andalau-of-the-flute"]);
 
-		// Checking the box owns the follower (adds it to the tab); it still shows on the card.
+		// Checking the box owns the follower; the card still references it by slug.
 		await charArcana.setChoiceCount("cracked-flute", "cracked-flute", "andalau-of-the-flute", 1);
 		const owned = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
 		expect(owned?.system?.owned).toBe(true);
 		snap = await charArcana.buildSnapshot();
 		row = snap.minor.items[0].back.choices.list.find(r => r.slug === "andalau-of-the-flute");
-		expect(row.followers.cards.map(f => f.slug)).toEqual(["andalau-of-the-flute"]);
+		expect(row.followers.slugs).toEqual(["andalau-of-the-flute"]);
 	});
 });
 
@@ -793,18 +794,19 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 		expect(row.slug).toBe("andalau-of-the-flute");
 	});
 
-	it("EntryRow.followers is null when follower is not in actor.items", async () => {
-		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
+	it("EntryRow.followers is null when the row carries no follower link", async () => {
+		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(FFYRNIG_SPHERE)], [FFYRNIG_SPHERE]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].followers).toBeNull();
+		// FFYRNIG_SPHERE has no back.choices at all; a link-carrying row would instead yield a reference.
+		expect(snap.minor.items[0].back.choices).toBeNull();
 	});
 
-	it("EntryRow.followers resolves when follower is in actor.items", async () => {
-		const { actor, charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
-		actor.items.push(makeNpcItem("andalau-of-the-flute", { owned: false }));
+	it("EntryRow.followers is a slug REFERENCE — resolution to a card is CharacterFollowers' job", async () => {
+		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].followers.cards).toHaveLength(1);
-		expect(snap.minor.items[0].back.choices.list[0].followers.cards[0].slug).toBe("andalau-of-the-flute");
+		// buildSnapshot emits only the reference; no card data lives on the choice tree.
+		expect(snap.minor.items[0].back.choices.list[0].followers.slugs).toEqual(["andalau-of-the-flute"]);
+		expect(snap.minor.items[0].back.choices.list[0].followers.cards).toBeUndefined();
 	});
 
 	it("EntryRow.track.checks is [false] when backChoices count is 0", async () => {

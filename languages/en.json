@@ -76,6 +76,9 @@
 		"followers": {
 			"empty": "Drag followers here from the Followers compendium.",
 			"remove": "Remove",
+			"kind": "Kind",
+			"kindCreature": "Creature",
+			"kindObject": "Object (no combat stats)",
 			"hp": "HP",
 			"armor": "Armor",
 			"damage": "Damage",

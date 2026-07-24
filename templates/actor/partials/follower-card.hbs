@@ -30,6 +30,8 @@
 
 	<div class="stonetop-creature-statrow">
 		<div class="stonetop-creature-statrow__fields">
+			{{! An object follower (the Ring) has no combat stats — only instinct stays. }}
+			{{#unless isObject}}
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.armor"}}</span>
 				{{> "stonetop.editable-field" field=armor slug=slug
@@ -40,12 +42,13 @@
 				{{> "stonetop.editable-field" field=damage slug=slug
 					inputClass="stonetop-follower-damage" changeAction="followerDamage"}}
 			</div>
+			{{/unless}}
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
 				{{> "stonetop.selection-input" sel=instinctSelection slug=slug field="instinct" inputClass="stonetop-follower-instinct" changeAction="followerInstinct" placeholder=(localize "stonetop.followers.instinct")}}
 			</div>
 		</div>
-		{{#unless isGroup}}
+		{{#unless isGroup}}{{#unless isObject}}
 		<div class="stonetop-creature-hp">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 			<div class="stonetop-creature-hp__row">
@@ -58,13 +61,15 @@
 				       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
 			</div>
 		</div>
-		{{/unless}}
+		{{/unless}}{{/unless}}
 	</div>
 
+	{{#unless isObject}}
 	<div class="stonetop-creature-line">
 		<span class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</span>
 		{{> "stonetop.editable-field" field=specialQuality slug=slug inputClass="stonetop-follower-special-quality" changeAction="followerSpecialQuality"}}
 	</div>
+	{{/unless}}
 
 	{{#if isGroup}}
 	<div class="stonetop-members">
@@ -136,7 +141,9 @@
 	</div>
 	{{/if}}
 
+	{{#unless isObject}}
 	{{> "stonetop.follower-inventory"}}
+	{{/unless}}
 
 	{{> "stonetop.editable-rich-block" label=(localize "stonetop.followers.description")
 		field=description textareaClass="stonetop-follower-description" changeAction="followerDescription" slug=slug}}

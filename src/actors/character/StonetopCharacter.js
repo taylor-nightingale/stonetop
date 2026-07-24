@@ -107,8 +107,7 @@ export class StonetopCharacter {
 		const level = this._vitals.level;
 		const {checked} = this._inventory;
 		const actor = this._actor;
-		const followers = await this._followers.buildSnapshot();
-		const [arcana, outfit, inserts, playbook, vitals, moves, possessions] = await Promise.all([
+		const [arcana, outfit, inserts, playbook, vitals, moves, possessions, followers] = await Promise.all([
 			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
 			this._inserts.buildSnapshot(),
@@ -116,6 +115,7 @@ export class StonetopCharacter {
 			this._vitals.buildVitalsSnapshot(),
 			this._moves.buildSnapshot(),
 			this._possessions.buildSnapshot(level),
+			this._followers.buildFollowersSnapshot()
 		]);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)

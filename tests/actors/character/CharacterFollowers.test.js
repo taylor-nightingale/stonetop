@@ -455,13 +455,6 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		expect(snap.img).toBeNull();
 	});
 
-	it("a linked-but-unowned preview follower carries its pack img", async () => {
-		const withArt = new Follower({ slug: "preview-art", name: "Preview", img: "systems/stonetop/assets/content/icons/npc.png" });
-		const cf = makeCf(new FakeFollowerRepository([withArt]));
-		const [snap] = await cf.buildSnapshot(["preview-art"]);
-		expect(snap.img).toBe("systems/stonetop/assets/content/icons/npc.png");
-	});
-
 	it("hp defaults to hp.value when no state", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
@@ -515,59 +508,59 @@ describe("CharacterFollowers.buildSnapshot", () => {
 	});
 });
 
-// -- Tests: extraSlugs (arcana-linked followers) -------------------------------
+// -- Tests: buildSnapshot renders OWNED followers only -------------------------
+// buildSnapshot derives its set entirely from the actor's owned follower items — nothing is passed in,
+// and an embedded-but-unowned follower (owned:false) is not rendered.
 
-describe("CharacterFollowers.buildSnapshot with extraSlugs", () => {
-	it("returns static snapshot for extra slug pre-embedded with owned=false", async () => {
+describe("CharacterFollowers.buildSnapshot — owned only", () => {
+	it("does not render an embedded follower that is not owned", async () => {
 		const actor = makeActor();
-		actor.items.push(makeFollowerItem(ENFYS_DATA));
+		actor.items.push(makeFollowerItem({ ...ENFYS_DATA, owned: false }));
 		const cf = new CharacterFollowers(actor, new FakeFollowerRepository(), makeResourceController());
-		const snaps = await cf.buildSnapshot(["enfys"]);
-		expect(snaps).toHaveLength(1);
-		expect(snaps[0].slug).toBe("enfys");
+		expect(await cf.buildSnapshot()).toEqual([]);
 	});
 
-	it("static snapshot uses embedded data for HP and loyalty", async () => {
-		const actor = makeActor();
-		actor.items.push(makeFollowerItem(ENFYS_DATA));
-		const cf = new CharacterFollowers(actor, new FakeFollowerRepository(), makeResourceController());
-		const [snap] = await cf.buildSnapshot(["enfys"]);
-		expect(snap.hp).toBe(6);
-		expect(snap.loyalty.current).toBe(0);
-	});
-
-	it("does not duplicate when extra slug is already owned", async () => {
+	it("renders an embedded follower once it is owned", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
-		const snaps = await cf.buildSnapshot(["enfys"]);
-		expect(snaps).toHaveLength(1);
-	});
-
-	it("owned followers appear before extra static snapshots", async () => {
-		const actor = makeActor();
-		actor.items.push(makeFollowerItem(ENFYS_DATA));
-		const cf = new CharacterFollowers(actor, new FakeFollowerRepository([PICKER]), makeResourceController());
-		await cf.addFollower("test-picker");
-		const snaps = await cf.buildSnapshot(["enfys"]);
-		expect(snaps).toHaveLength(2);
-		expect(snaps[0].slug).toBe("test-picker");
-		expect(snaps[1].slug).toBe("enfys");
-	});
-
-	it("silently omits extra slug that is neither embedded nor in the repo", async () => {
-		const cf = makeCf(new FakeFollowerRepository());
-		const snaps = await cf.buildSnapshot(["nonexistent"]);
-		expect(snaps).toEqual([]);
-	});
-
-	it("returns a read-only repo preview for a linked slug that is not embedded", async () => {
-		const actor = makeActor();
-		const cf = new CharacterFollowers(actor, new FakeFollowerRepository([ENFYS]), makeResourceController());
-		const snaps = await cf.buildSnapshot(["enfys"]);
+		const snaps = await cf.buildSnapshot();
 		expect(snaps).toHaveLength(1);
 		expect(snaps[0].slug).toBe("enfys");
-		// Preview only — the follower is sourced from the repo, nothing is embedded on the actor.
-		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
+	});
+});
+
+// -- Tests: buildFollowersSnapshot — the normalized { bySlug, tab } authority --
+
+const RING = new Follower({
+	slug: "the-ring", name: "The Ring", kind: "object", tags: null,
+	hp: { value: 0, max: 0 }, armor: "", damage: "", instinct: "", loyalty: { value: 0, max: 3 },
+});
+
+describe("CharacterFollowers.buildFollowersSnapshot — normalized { bySlug, tab }", () => {
+	it("bySlug holds every owned follower; tab lists only the showOnTab ones", async () => {
+		const cf = makeCf(new FakeFollowerRepository([ENFYS, RING]));
+		await cf.addFollower("enfys");                          // showOnTab default true
+		await cf.addFollower("the-ring", { showOnTab: false }); // card-only (the Ring)
+		const snap = await cf.buildFollowersSnapshot();
+		expect(Object.keys(snap.bySlug).sort()).toEqual(["enfys", "the-ring"]);
+		expect(snap.tab).toEqual(["enfys"]);                    // the-ring owned but off the tab
+		expect(snap.bySlug["the-ring"]).toBeTruthy();           // still resolvable for its inline card
+		expect(snap.bySlug["the-ring"].isObject).toBe(true);
+	});
+
+	it("tabCards resolves the tab slugs to shared bySlug references (no duplication)", async () => {
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
+		await cf.addFollower("enfys");
+		const snap = await cf.buildFollowersSnapshot();
+		expect(snap.tabCards).toHaveLength(1);
+		expect(snap.tabCards[0]).toBe(snap.bySlug["enfys"]);    // same object, not a copy
+	});
+
+	it("an owned follower carries its kind through to the card", async () => {
+		const cf = makeCf(new FakeFollowerRepository([RING]));
+		await cf.addFollower("the-ring", { showOnTab: false });
+		const snap = await cf.buildFollowersSnapshot();
+		expect(snap.get("the-ring").isObject).toBe(true);
 	});
 });
 

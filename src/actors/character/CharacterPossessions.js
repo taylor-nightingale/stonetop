@@ -3,7 +3,8 @@ import {
 	PossessionsSnapshot,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { ResourceController } from "./ResourceController.js";
-import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../../model/snapshot/character/buildChoiceGroup.js";
 import { Possession } from "../../model/data/character/Possession.js";
 import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
 import { rich } from "../../model/snapshot/RichText.js";
@@ -190,7 +191,7 @@ export class CharacterPossessions {
 				.withPreselectedSource(isPre ? "Starting" : null)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(isSelected && p.choices ? ChoiceGroup.fromPackData({ ...p.choices, slug: p.slug }, pickValues) : null)
+				.withChoices(isSelected && p.choices ? buildChoiceGroup({ ...p.choices, slug: p.slug }, pickValues) : null)
 				.build();
 		});
 
@@ -215,7 +216,7 @@ export class CharacterPossessions {
 				.withRemovable(true)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(p.choices ? ChoiceGroup.fromPackData({ ...p.choices, slug: p.slug }, pickValues) : null)
+				.withChoices(p.choices ? buildChoiceGroup({ ...p.choices, slug: p.slug }, pickValues) : null)
 				.build());
 		}
 

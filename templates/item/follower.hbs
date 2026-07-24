@@ -31,7 +31,15 @@
 				{{> "stonetop.follower-selection-field" sel=tagListSel field="tagList"
 					label=(localize "stonetop.followers.tags") editable=editable}}
 
+				<label class="stonetop-follower-label">{{localize "stonetop.followers.kind"}}</label>
+				<select name="system.kind" {{#unless editable}}disabled{{/unless}}>
+					<option value="creature" {{#unless (eq system.kind "object")}}selected{{/unless}}>{{localize "stonetop.followers.kindCreature"}}</option>
+					<option value="object" {{#if (eq system.kind "object")}}selected{{/if}}>{{localize "stonetop.followers.kindObject"}}</option>
+				</select>
+
 				<div class="stonetop-follower-fields">
+					{{! An object follower (the Ring) has no combat stats — only loyalty stays. }}
+					{{#unless (eq system.kind "object")}}
 					<label>{{localize "stonetop.followers.hp"}}
 						<input type="number" min="0" name="system.hp.value" value="{{system.hp.value}}">
 					</label>
@@ -44,6 +52,7 @@
 					<label>{{localize "stonetop.followers.damage"}}
 						<input type="text" name="system.damage" value="{{system.damage}}">
 					</label>
+					{{/unless}}
 					<label>{{localize "stonetop.followers.loyalty"}} max
 						<input type="number" min="0" name="system.loyalty.max" value="{{system.loyalty.max}}">
 					</label>
@@ -52,8 +61,10 @@
 				{{> "stonetop.follower-selection-field" sel=instinctSel field="instinct"
 					label=(localize "stonetop.followers.instinct") editable=editable}}
 
+				{{#unless (eq system.kind "object")}}
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</label>
 				<input type="text" name="system.specialQuality" value="{{system.specialQuality}}">
+				{{/unless}}
 
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.moves"}}</label>
 				<textarea name="system.moves" rows="3">{{system.moves}}</textarea>

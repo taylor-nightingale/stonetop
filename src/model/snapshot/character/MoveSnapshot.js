@@ -1,4 +1,6 @@
 export { ValueMax } from "./VitalsSnapshot.js";
+import { ValueMax } from "./VitalsSnapshot.js";
+import { rich } from "../RichText.js";
 
 /** Move or possession requirement. */
 export class RequirementSnapshot {
@@ -57,6 +59,30 @@ export class MoveSnapshotBuilder {
 	withResource(v)      { this._resource      = v; return this; }
 	withChoices(v)       { this._choices       = v; return this; }
 	build()              { return new MoveSnapshot(this); }
+
+	// A major-arcanum back "mystery move" ({id, name, text, subtitle?}) shaped as a MoveSnapshot so it
+	// renders through the SAME move-item partial as the moves tab. The fallback for minor/custom arcana
+	// that carry inline back.moves (no owned move item): always active ({1,1}, checkbox suppressed),
+	// non-rollable. MAJOR arcana bypass this — their mystery moves are real owned move items resolved via
+	// CharacterMoves, which carry ownedId + rollStat.
+	static forArcanumMystery(move) {
+		return new MoveSnapshotBuilder()
+			.withId(move.id ?? null)
+			.withOwnedId(null)
+			.withSlug(move.id ?? null)
+			.withName(move.name ?? "")
+			.withDescription(rich(move.text ?? ""))
+			.withRollStat(null)
+			.withSource({ type: "arcanum" })
+			.withSourceLabel(move.subtitle || null)
+			.withSelection(new ValueMax(1, 1))
+			.withSelectable(false)
+			.withRequirement(null)
+			.withRequiresLabel(null)
+			.withResource(null)
+			.withChoices(null)
+			.build();
+	}
 }
 
 /**

@@ -1,4 +1,5 @@
-import {ChoiceGroup, ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
+import {ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
+import {buildChoiceGroup} from "../../model/snapshot/character/buildChoiceGroup.js";
 import {FoundrySteadingImprovementRepository} from "./repositories/FoundrySteadingImprovementRepository.js";
 
 // A steading renders only the improvements it OWNS — the slugs in system.improvements (copied from its
@@ -35,7 +36,7 @@ export class SteadingImprovements {
 		const groups = [];
 		for (const slug of this._slugs) {
 			const imp = await this._repo.getBySlug(slug);
-			if (imp?.choices != null) groups.push(ChoiceGroup.fromPackData(imp.choices, values));
+			if (imp?.choices != null) groups.push(buildChoiceGroup(imp.choices, values));
 		}
 		return groups;
 	}

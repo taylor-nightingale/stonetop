@@ -1,7 +1,8 @@
 import { toSlug } from "../utils/slug.js";
 import { bindAll } from "../utils/bindAll.js";
 import { setField as setChoicesField, newGroup } from "../utils/choiceGroupEdit.js";
-import { ChoiceGroup, ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 
@@ -97,7 +98,7 @@ export function createStonetopMoveSheetClass(Base) {
 			context.rich             = moveSheetRichText(this.item.system);
 			await enrichRichTextTree(context.rich, this.item?.getRollData?.() ?? {});
 			if (context.system.choices) {
-				context.choiceSnapshot = ChoiceGroup.fromPackData(context.system.choices, new ChoiceValues(), {});
+				context.choiceSnapshot = buildChoiceGroup(context.system.choices, new ChoiceValues());
 				context.choiceRows = context.system.choices.list.map((row, ri) => ({
 					...row,
 					_index: ri,

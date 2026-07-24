@@ -8,7 +8,8 @@
 // inventory snapshot (or null when there's no live outfit catalog to render).
 
 import { FollowerSnapshotBuilder } from "./FollowerSnapshot.js";
-import { ChoiceGroup, ChoiceValues } from "./ChoiceGroup.js";
+import { ChoiceValues } from "./ChoiceGroup.js";
+import { buildChoiceGroup } from "./buildChoiceGroup.js";
 import { ResourceController } from "../../../actors/character/ResourceController.js";
 
 export function buildFollowerSnapshot(item, { loyaltyCurrent = 0, inventory = null } = {}) {
@@ -18,6 +19,7 @@ export function buildFollowerSnapshot(item, { loyaltyCurrent = 0, inventory = nu
 		.withSlug(sys.slug)
 		.withName(item.name)
 		.withImg(item.img ?? null)
+		.withKind(sys.kind ?? "creature")
 		.withTags(sys.tagList ?? null)
 		.withHp(sys.hp?.value ?? 0)
 		.withHpMax(sys.hp?.max ?? 0)
@@ -30,7 +32,7 @@ export function buildFollowerSnapshot(item, { loyaltyCurrent = 0, inventory = nu
 		.withLoyalty(ResourceController.build({ max: sys.loyalty?.max ?? 3, title: null, labels: [] }, loyaltyCurrent))
 		.withDescription(sys.description ?? "")
 		.withNotes(sys.notes ?? "")
-		.withChoices(sys.choices?.length ? ChoiceGroup.fromPackData(sys.choices[0], values) : null)
+		.withChoices(sys.choices?.length ? buildChoiceGroup(sys.choices[0], values) : null)
 		.withMembers(sys.members ?? [])
 		.withMemberSuggestions(sys.memberSuggestions ?? { names: [], tags: [], traits: [] })
 		.withMembersNote(sys.membersNote ?? "")

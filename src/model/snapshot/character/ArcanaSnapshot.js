@@ -1,3 +1,27 @@
+import { rich } from "../RichText.js";
+import { MoveSnapshotBuilder } from "./MoveSnapshot.js";
+
+// An arcanum side's inline ◇ item, shaped like an OutfitItemSnapshot so it renders through the shared
+// outfit-item-row partial. `slug` is the ARCANUM slug (the checkbox/resource toggle keyed by it), and
+// `checked` is the arcanum's owned/checked state. `resolvedResource` undefined → use the item's own raw
+// resource (front); pass a built resource (or null) to override it (back). Shared by both side builders.
+export function arcanumOutfitItemSnapshot(slug, itemData, resolvedResource = undefined, checked = false) {
+	if (!itemData) return null;
+	return {
+		slug,
+		name:            itemData.name,
+		weight:          itemData.weight ?? null,
+		tags:            rich(itemData.tags ?? null),
+		note:            rich(itemData.note ?? null),
+		inventoryColumn: itemData.inventoryColumn ?? null,
+		twoCol:          itemData.twoCol ?? false,
+		resource:        resolvedResource !== undefined ? resolvedResource : (itemData.resource ?? null),
+		checked,
+		isCustom:        false,
+		ownedId:         null,
+	};
+}
+
 // ── Front / back snapshots ────────────────────────────────────────────────────
 
 export class ArcanumFrontSnapshot {
@@ -17,6 +41,16 @@ export class ArcanumFrontSnapshotBuilder {
 	withDescription(v) { this._description = v; return this; }
 	withUnlock(v)      { this._unlock      = v; return this; }
 	build()            { return new ArcanumFrontSnapshot(this); }
+
+	static fromFront(front, slug, ctx) {
+		return new ArcanumFrontSnapshotBuilder()
+			.withTitle(rich(front.title))
+			.withItem(arcanumOutfitItemSnapshot(slug, front.item, undefined, ctx.checked))
+			.withTags(front.tags)
+			.withDescription(rich(front.description))
+			.withUnlock(ctx.group(front.unlock))
+			.build();
+	}
 }
 
 export class ArcanumBackSnapshot {
@@ -42,6 +76,21 @@ export class ArcanumBackSnapshotBuilder {
 	withConsequences(v) { this._consequences = v; return this; }
 	withUnlockAt(v)     { this._unlockAt     = v; return this; }
 	build()             { return new ArcanumBackSnapshot(this); }
+
+	/** Major arcana pass their real mystery-move snapshots via `ctx.moveSnapshots`; minor/custom fall
+	 *  back to shaping the inline `back.moves`. */
+	static fromBack(back, slug, ctx) {
+		return new ArcanumBackSnapshotBuilder()
+			.withTitle(rich(back.title))
+			.withItem(arcanumOutfitItemSnapshot(slug, back.item, ctx.itemResource(back.item?.resource ?? null), ctx.checked))
+			.withDescription(rich(back.description))
+			.withResource(ctx.resource(back.resource ?? null))
+			.withChoices(ctx.group(back.choices))
+			.withMoves(ctx.moveSnapshots ?? (back.moves ?? []).map(m => MoveSnapshotBuilder.forArcanumMystery(m)))
+			.withConsequences(ctx.group(back.consequences))
+			.withUnlockAt(back.unlockAt)
+			.build();
+	}
 }
 
 // ── Arcanum ───────────────────────────────────────────────────────────────────
@@ -71,6 +120,22 @@ export class ArcanumSnapshotBuilder {
 	withFlipped(v) { this._flipped = v; return this; }
 	withChecked(v) { this._checked = v; return this; }
 	build()        { return new ArcanumSnapshot(this); }
+
+	/** The full render snapshot for one arcanum card — used by both the character sheet and the item
+	 *  sheet's live preview. */
+	static fromArcanum(arcanum, ctx) {
+		return new ArcanumSnapshotBuilder()
+			.withSlug(arcanum.slug)
+			.withMajor(arcanum.major)
+			.withName(arcanum.name)
+			.withImg(arcanum.img)
+			.withFront(ArcanumFrontSnapshotBuilder.fromFront(arcanum.front, arcanum.slug, ctx))
+			.withBack(ArcanumBackSnapshotBuilder.fromBack(arcanum.back, arcanum.slug, ctx))
+			.withOwned(ctx.owned)
+			.withFlipped(ctx.flipped)
+			.withChecked(ctx.checked)
+			.build();
+	}
 }
 
 // ── Sections ──────────────────────────────────────────────────────────────────

@@ -3,7 +3,7 @@ import { SteadingImprovements } from "../../../src/actors/steading/SteadingImpro
 import { FoundrySteadingImprovementRepository } from "../../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 
 // End-to-end: the REAL improvement repository (compendium + world) resolving a steading's OWNED slugs
-// through the REAL SteadingImprovements snapshot builder (real ChoiceGroup.fromPackData). Only the
+// through the REAL SteadingImprovements snapshot builder (real buildChoiceGroup). Only the
 // Foundry game boundary (packs + items) is mocked — proving a custom world improvement the steading
 // owns actually surfaces on it.
 

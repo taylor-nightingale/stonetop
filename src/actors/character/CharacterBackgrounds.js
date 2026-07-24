@@ -2,7 +2,8 @@ import {
 	BackgroundOptionSnapshotBuilder,
 	BackgroundSection,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
-import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../../model/snapshot/RichText.js";
 import { toSlug } from "../../utils/slug.js";
 
@@ -39,7 +40,7 @@ export class CharacterBackgrounds {
 
 		const options = [];
 		for (const b of (backgroundsData ?? [])) {
-			const choices = b.choices ? ChoiceGroup.fromPackData(b.choices, values) : null;
+			const choices = b.choices ? buildChoiceGroup(b.choices, values) : null;
 			options.push(new BackgroundOptionSnapshotBuilder()
 				.withSlug(b.slug)
 				.withLabel(rich(b.label))

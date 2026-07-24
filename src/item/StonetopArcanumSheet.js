@@ -15,7 +15,8 @@ import * as AME from "../utils/arcanumMoveEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { bindAll } from "../utils/bindAll.js";
 import { Arcanum } from "../model/data/character/Arcanum.js";
-import { buildArcanumSnapshot, buildArcanumMoveSnapshot } from "../actors/character/arcanumSnapshot.js";
+import { ArcanumSnapshotBuilder, ArcanumRenderContext } from "../model/snapshot/character/CharacterSnapshot.js";
+import { MoveSnapshotBuilder } from "../model/snapshot/character/MoveSnapshot.js";
 import { FoundryMoveRepository } from "../actors/character/repositories/FoundryMoveRepository.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 
@@ -103,9 +104,11 @@ export function createStonetopArcanumSheetClass(Base) {
 			const moveSlugs = back.moveSlugs ?? [];
 			const resolved  = moveSlugs.length ? await new FoundryMoveRepository().getMovesBySlugs(moveSlugs) : [];
 			const moveSnapshots = resolved.length
-				? resolved.map(m => buildArcanumMoveSnapshot({ id: m.slug, name: m.name, text: m.description }))
+				? resolved.map(m => MoveSnapshotBuilder.forArcanumMystery({ id: m.slug, name: m.name, text: m.description }))
 				: null;
-			context.preview        = [buildArcanumSnapshot(arcanum, { flipped: this._previewFlipped, moveSnapshots })];
+			context.preview        = [ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext({ flipped: this._previewFlipped, moveSnapshots }))];
+			// Inline follower rows are slug references resolved against the character's followers.bySlug at
+			// render; an item-sheet preview has no such registry, so those rows simply show nothing here.
 			await enrichRichTextTree(context.preview, this.item?.getRollData?.() ?? {});
 			// The non-editable description view ({{else}} branch) renders the SAME enriched front/back
 			// RichText the preview card uses — no separate {{md}} render path.

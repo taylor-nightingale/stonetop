@@ -1,4 +1,5 @@
 import { buildFollowerSnapshot } from "../../model/snapshot/character/buildFollowerSnapshot.js";
+import { FollowersSnapshot } from "../../model/snapshot/character/FollowerSnapshot.js";
 import { ResourceController } from "./ResourceController.js";
 import { Selection } from "../../model/data/Selection.js";
 import { normalizeGroupTags } from "../../model/data/groupTag.js";
@@ -74,11 +75,14 @@ export class CharacterFollowers {
 			.filter(Boolean);
 	}
 
-	async addFollower(slug) {
+	// Embed a follower as owned. `showOnTab` is the granting authority's placement decision, stamped onto
+	// the item: choice/playbook grants leave it true (the follower joins the roster); a card-bound grant
+	// like the Ring of Daagon passes false (it lives on its arcanum card, never the tab).
+	async addFollower(slug, { showOnTab = true } = {}) {
 		const existing = _findFollowerItem(this._actor, slug);
 		if (existing?.system?.owned) return;
 		if (existing) {
-			await this._actor.updateEmbeddedDocuments("Item", [{ _id: existing._id, system: { owned: true } }]);
+			await this._actor.updateEmbeddedDocuments("Item", [{ _id: existing._id, system: { owned: true, showOnTab } }]);
 			return;
 		}
 		const [follower] = await this._followerRepo.findBySlugs([slug]);
@@ -86,7 +90,7 @@ export class CharacterFollowers {
 		await this._actor.createEmbeddedDocuments("Item", [{
 			name: follower.name, type: "follower",
 			...(follower.img ? { img: follower.img } : {}),
-			system: { ..._followerToSystemFields(follower), owned: true },
+			system: { ..._followerToSystemFields(follower), owned: true, showOnTab },
 		}]);
 	}
 
@@ -355,36 +359,16 @@ export class CharacterFollowers {
 		return item ? this._factory.forDocument(item._id, "choiceValues") : null;
 	}
 
-	async buildSnapshot(extraSlugs = []) {
-		const npcItems      = [...this._actor.items].filter(i => i.type === "follower");
-		const ownedItems    = npcItems.filter(i => i.system?.owned === true);
-		const ownedSlugsSet = new Set(ownedItems.map(i => i.system?.slug).filter(Boolean));
-		const embeddedSlugs = new Set(npcItems.map(i => i.system?.slug).filter(Boolean));
-		const staticSlugs   = extraSlugs.filter(s => !ownedSlugsSet.has(s));
-		const staticItems   = npcItems.filter(i => staticSlugs.includes(i.system?.slug));
-		// A linked slug (extraSlugs) with no embedded item at all → a read-only card preview sourced from
-		// the follower repo. This lets an arcanum card show its follower stat block before the player
-		// checks the box (which is what actually embeds the follower as owned).
-		const previewSlugs  = staticSlugs.filter(s => !embeddedSlugs.has(s));
-
-		if (!ownedItems.length && !staticItems.length && !previewSlugs.length) return [];
-
+	// The card snapshots for every follower the character OWNS (embedded items with owned:true), in item
+	// order. That is the whole set the sheet renders — the tab lists a subset, and an arcanum card looks
+	// up its owned follower by slug (the Ring is owned-by-default). Game-text fields are RichText; the
+	// sheet's enrichRichTextTree pass enriches them along with the rest of the tree.
+	async buildSnapshot() {
+		const ownedItems = [...this._actor.items].filter(i => i.type === "follower" && i.system?.owned === true);
+		if (!ownedItems.length) return [];
 		// Fetch the shared outfit-item catalog once (async) and pass it into each follower's snapshot.
 		const repoItems = this._inventoryRepo ? await this._inventoryRepo.getAll() : [];
-
-		const result = ownedItems.map(item => this._buildFollowerSnapshotFromItem(item, repoItems));
-		for (const item of staticItems) result.push(this._buildFollowerSnapshotFromItem(item, repoItems));
-		if (previewSlugs.length) {
-			const previews = await this._followerRepo.findBySlugs(previewSlugs);
-			for (const follower of previews) {
-				const item = { name: follower.name, img: follower.img ?? null, system: { ..._followerToSystemFields(follower), owned: false } };
-				result.push(this._buildFollowerSnapshotFromItem(item, repoItems));
-			}
-		}
-
-		// Game-text fields are RichText on the snapshot; the character sheet's enrichRichTextTree pass
-		// enriches the whole tree (these followers included) — one render path, no bespoke enrichHTML.
-		return result;
+		return ownedItems.map(item => this._buildFollowerSnapshotFromItem(item, repoItems));
 	}
 
 	_buildFollowerSnapshotFromItem(item, repoItems = []) {
@@ -392,6 +376,25 @@ export class CharacterFollowers {
 		const loyaltyCurrent = this._resourceController.getCurrent("followers", sys.slug);
 		const inventory      = this._buildFollowerInventory(sys.slug, sys.inventory ?? {}, repoItems);
 		return buildFollowerSnapshot(item, { loyaltyCurrent, inventory });
+	}
+
+	/**
+	 * The character's followers, normalized for the sheet — the single authority, derived entirely from
+	 * the actor's own owned follower items (nothing passed in):
+	 *  - `bySlug`: every owned follower's card, once.
+	 *  - `tab`: the owned followers whose granting authority placed them on the tab (`showOnTab`), in item
+	 *    order. A card-bound follower like the Ring is owned (so it's in `bySlug` for its inline card) but
+	 *    omitted here — nobody put it on the tab.
+	 * Cards everywhere reference a slug and resolve against `bySlug`, so no follower data is duplicated.
+	 */
+	async buildFollowersSnapshot() {
+		const owned  = await this.buildSnapshot();
+		const bySlug = Object.fromEntries(owned.map(f => [f.slug, f]));
+		const tab    = [...this._actor.items]
+			.filter(i => i.type === "follower" && i.system?.owned === true && i.system?.showOnTab !== false)
+			.map(i => i.system?.slug)
+			.filter(Boolean);
+		return new FollowersSnapshot(bySlug, tab);
 	}
 
 	// Build the follower's inventory snapshot — parity with the character (twoCol grids, resources,
@@ -462,6 +465,7 @@ function _followerToSystemFields(follower) {
 	return {
 		slug:           follower.slug,
 		arcanaSlug:     follower.arcanaSlug ?? null,
+		kind:           follower.kind ?? "creature",
 		tagList:   Selection.fromStored(follower.tags).toRaw(),
 		// New followers start at full HP (pack data stores value 0 as a template default).
 		hp:             { value: follower.hp?.max ?? 0, max: follower.hp?.max ?? 0 },

@@ -25,19 +25,18 @@ export class ChoiceGroupControllerFactory {
 	}
 
 	forDocument(itemId, valueField) {
-		const actor   = this._actor;
-		const getItem = () => [...actor.items].find(i => i._id === itemId) ?? null;
-		return new ChoiceGroupController({
-			reader:      () => getItem()?.system?.[valueField] ?? {},
-			writer:      async (v) => actor.updateEmbeddedDocuments("Item", [{ _id: itemId, system: { [valueField]: v } }]),
-			itemGetter:  getItem,
-			subscribers: this._subscribers,
-		});
+		return this._bind(() => [...this._actor.items].find(i => i._id === itemId) ?? null, valueField);
 	}
 
 	forSingleton(type, valueField) {
-		const actor   = this._actor;
-		const getItem = () => [...actor.items].find(i => i.type === type) ?? null;
+		return this._bind(() => [...this._actor.items].find(i => i.type === type) ?? null, valueField);
+	}
+
+	// One binding for both: the caller supplies the item-resolution strategy (by id or by type) and the
+	// store field. The writer re-resolves through `getItem` every time so a controller that outlives its
+	// document (a deleted/swapped item) no-ops cleanly instead of writing to a stale id.
+	_bind(getItem, valueField) {
+		const actor = this._actor;
 		return new ChoiceGroupController({
 			reader: () => getItem()?.system?.[valueField] ?? {},
 			writer: async (v) => {

@@ -289,8 +289,9 @@ function emitFrontFollower(rec, front) {
 	const doc = toFollowerDoc(creature, { slug, arcanaSlug: rec.slug, id: rosterEntry?.id, key: rosterEntry?.key, img, folder: rosterEntry?.folder ?? ARCANA_FOLLOWER_FOLDER });
 	if (WRITE) { writeFileSync(path.join(FOLLOWER_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n"); }
 	frontEmittedSlugs.add(slug);
-	(front.unlock ??= { slug: rec.slug, list: [] }).list.push(followerChoiceEntry(slug, { hideFromFollowersTab: true }));
-	frontFollowerLines.push(`- \`${slug}\` ← ${rec.slug}  (FRONT-resident, statless=${!!doc.system.statless}, img: ${img.split("/").pop()})`);
+	// FRONT-resident: the arcanum grants it owned-by-default (no checkbox), stamped off the followers tab.
+	(front.unlock ??= { slug: rec.slug, list: [] }).list.push(followerChoiceEntry(slug, { hideFromFollowersTab: true, owned: true }));
+	frontFollowerLines.push(`- \`${slug}\` ← ${rec.slug}  (FRONT-resident, kind=${doc.system.kind ?? "creature"}, img: ${img.split("/").pop()})`);
 }
 
 const reviewBody = [];

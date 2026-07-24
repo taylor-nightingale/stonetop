@@ -1,6 +1,3 @@
-import { rich } from "../RichText.js";
-import { FollowerLink } from "../../data/FollowerLink.js";
-
 export class ChoiceOption {
 	constructor(slug, {text = null, description = null, checked = false, checks = null, requires = null, type = null, fillValue = ""} = {}) {
 		this.slug        = slug;
@@ -14,11 +11,12 @@ export class ChoiceOption {
 	}
 }
 
-/** The resolved follower cards a choice entry renders, plus how they present. Built from the
- *  entry's stored FollowerLink; null on the EntryRow when no follower snapshot resolved. */
+/** A follower slot on a choice entry — a pure REFERENCE, not the card data. It carries the link's slugs;
+ *  the template resolves each slug against the normalized `followers.bySlug` registry at render. No
+ *  follower data is duplicated into the choice tree. */
 export class EntryRowFollowers {
-	constructor(cards, inlineDisplay = false) {
-		this.cards         = cards;         // FollowerSnapshot[]
+	constructor(slugs, inlineDisplay = false) {
+		this.slugs         = slugs;         // referenced follower slugs (the FollowerLink)
 		this.inlineDisplay = inlineDisplay; // full card inline vs. a labelled checkbox row
 	}
 }
@@ -73,80 +71,11 @@ export class ChoiceValues {
 	}
 }
 
+/** The resolved snapshot of one choice group: a namespace slug and its rows (EntryRow | ChoiceRow).
+ *  Built from pack data by the pure `buildChoiceGroup` function. */
 export class ChoiceGroup {
 	constructor(slug, list) {
 		this.slug = slug;
 		this.list = list;
-	}
-
-	static fromPackData(entry, values = new ChoiceValues(), followersBySlug = {}) {
-		const es = entry.slug;
-		const list = (entry.list ?? []).map((item, idx) => {
-			return this.buildRow(item, values, es, idx, followersBySlug);
-		});
-		return new ChoiceGroup(es, list);
-	}
-
-	static buildRow(item, values, es, idx, followersBySlug = {}) {
-		// Picks carry an explicit type in pack data but are identified only by an `options`
-		// array in character groupDefs — route both to buildPickRow.
-		return (item.type === "pick" || Array.isArray(item.options))
-			? this.buildPickRow(item, es, idx, values)
-			: this.buildEntryRow(item, values, es, followersBySlug);
-	}
-
-	static buildEntryRow(item, values, es, followersBySlug = {}) {
-		let track = null;
-		if (item.track && item.slug) {
-			const count  = values.getCount(es, item.slug);
-			const checks = Array.from({length: item.track.max ?? 1}, (_, i) => i < count);
-			track = { slug: item.slug, checks, requires: item.track.requires ?? null };
-		}
-		const input = item.input
-			? {
-				slug:        `${item.slug}-input`,
-				placeholder: item.input.placeholder ?? null,
-				value:       values.getText(es, `${item.slug}-input`) || (item.input.default ?? ""),
-				type:        item.input.type ?? "inline",
-			}
-			: null;
-		const c = item.content ?? {};
-		const content = {
-			title:        rich(c.title),
-			titleNote:    rich(c.titleNote),
-			subtitle:     rich(c.subtitle),
-			subtitleNote: rich(c.subtitleNote),
-			text:         rich(c.text),
-		};
-
-		const link  = FollowerLink.fromRaw(item.followers);
-		const cards = (link?.slugs ?? []).map(s => followersBySlug[s] ?? null).filter(Boolean);
-		const followers = cards.length ? new EntryRowFollowers(cards, link.inlineDisplay) : null;
-
-		return new EntryRow(
-			item.slug ?? null,
-			content,
-			track,
-			input,
-			followers,
-			item.outfitItems ?? [],
-			item.indent ?? false,
-		);
-	}
-
-	static buildPickRow(item, es, idx, values) {
-		const radio          = (item.pickCount ?? 1) === 1;
-		const rowKey         = `${es}-row-${idx}`;
-		const siblingSlugsCsv = radio ? (item.options ?? []).map(o => o.slug).join(",") : null;
-		return new ChoiceRow(
-			(item.options ?? []).map(o => new ChoiceOption(o.slug, {
-				text:        rich(o.content?.title ?? o.text ?? null),
-				description: rich(o.content?.text ?? o.description ?? null),
-				checked:     values.getCount(es, o.slug) > 0,
-				type:        o.type ?? null,
-				fillValue:   o.type === "input" ? values.getText(es, o.slug + "-fill") : "",
-			})),
-			{inline: item.inline ?? false, rowKey, radio, siblingSlugsCsv},
-		);
 	}
 }

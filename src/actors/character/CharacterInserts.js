@@ -1,4 +1,5 @@
-import { ChoiceGroup, ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
+import { buildChoiceGroup } from "../../model/snapshot/character/buildChoiceGroup.js";
 import { InsertSnapshotBuilder } from "../../model/snapshot/character/InsertSnapshot.js";
 import { InstinctController } from "./InstinctController.js";
 import { rich } from "../../model/snapshot/RichText.js";
@@ -103,9 +104,9 @@ export class CharacterInserts {
 		const slug             = item.system?.slug ?? null;
 		const values           = new ChoiceValues(item.system?.choiceValues ?? {});
 		const instinct         = item.system?.instinct ?? null;
-		const instinctGroup    = instinct ? ChoiceGroup.fromPackData(instinct, values) : null;
+		const instinctGroup    = instinct ? buildChoiceGroup(instinct, values) : null;
 		const instinctSelected = InstinctController.computeSelected(instinctGroup, values);
-		const choices          = (item.system?.choices ?? []).map(g => ChoiceGroup.fromPackData(g, values));
+		const choices          = (item.system?.choices ?? []).map(g => buildChoiceGroup(g, values));
 		const moves            = await this._moves.getMoveSnapshotsForCategory(`insert-${slug}`);
 		return new InsertSnapshotBuilder()
 			.withId(item._id)

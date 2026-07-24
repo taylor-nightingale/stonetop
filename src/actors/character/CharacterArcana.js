@@ -1,96 +1,56 @@
 import {
-	ArcanaSnapshot, ArcanaSectionSnapshot, ChoiceValues,
+	ArcanaSnapshot, ArcanaSectionSnapshot, ArcanumSnapshotBuilder, ArcanumRenderContext,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
-import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
-import { Arcanum } from "../../model/data/character/Arcanum.js";
-import { FollowerLink } from "../../model/data/FollowerLink.js";
-import { buildArcanumSnapshot } from "./arcanumSnapshot.js";
+import { OwnedArcanum } from "./OwnedArcanum.js";
+
 export class CharacterArcana {
 	constructor(actor, arcanaRepo, stats = null, followers = null, factory = null, moves = null, containerOutfitSync = null) {
-		this._actor      = actor;
+		this._actor = actor;
 		this._arcanaRepo = arcanaRepo;
-		this._stats      = stats;
-		this._followers  = followers;
-		this._factory    = factory;
-		this._moves      = moves;
+		this._stats = stats;
+		this._followers = followers;
+		this._factory = factory;
+		this._moves = moves;
 		this._outfitSync = containerOutfitSync;
 	}
 
 	get ownedSlugs() {
-		return new Set(
-			[...this._actor.items].filter(i => i.type === "arcanum")
-				.map(i => i.system?.slug)
-				.filter(Boolean),
-		);
-	}
-
-	// Follower slugs an arcanum wires through its choice groups. The front unlock can carry a
-	// follower row too (the Ring of Daagon prints its follower on the card front), so both sides scan.
-	_followerSlugsFor(item) {
-		return this._followerLinksFor(item).flatMap(link => link.slugs);
-	}
-
-	_followerLinksFor(item) {
-		const rows = [...(item?.front?.unlock?.list ?? []), ...(item?.back?.choices?.list ?? [])];
-		return rows.map(r => FollowerLink.fromRaw(r.followers)).filter(Boolean);
-	}
-
-	/** Slugs of followers that live inline on an owned arcanum card only — the followers tab
-	 *  excludes them (the entry's `hideFromFollowersTab` flag). */
-	get tabHiddenFollowerSlugs() {
-		return new Set(
-			[...this._actor.items].filter(i => i.type === "arcanum")
-				.flatMap(i => this._followerLinksFor(_itemToArcanum(i)))
-				.filter(link => link.hideFromFollowersTab)
-				.flatMap(link => link.slugs),
-		);
+		return new Set(OwnedArcanum.all(this._actor).map(a => a.slug).filter(Boolean));
 	}
 
 	async buildSnapshot(checkedMap = {}, resourceController = null) {
 		const stats = this._stats?.getStats() ?? {};
-		const arcanumItems = [...this._actor.items].filter(i => i.type === "arcanum");
-
-		const fetchedItems     = arcanumItems.map(i => _itemToArcanum(i));
-		const flippedBySlug    = new Map(arcanumItems.map(i => [i.system?.slug, i.system?.flipped ?? false]));
-		const choiceValuesBySlug = new Map(arcanumItems.map(i => [i.system?.slug, new ChoiceValues(i.system?.choiceValues ?? {})]));
-
-		const allLinkedSlugs = fetchedItems.flatMap(item => this._followerSlugsFor(item));
-		const followerSnapshots = this._followers
-			? await this._followers.buildSnapshot(allLinkedSlugs)
-			: [];
-		const followersBySlug = Object.fromEntries(followerSnapshots.map(f => [f.slug, f]));
-
-		const snapshots = await Promise.all(fetchedItems.map(async item => buildArcanumSnapshot(item, {
-			flipped:          flippedBySlug.get(item.slug)      ?? false,
-			choiceValues:     choiceValuesBySlug.get(item.slug) ?? new ChoiceValues({}),
-			followersBySlug,
-			stats,
-			current:          resourceController?.getCurrent("inventory", item.slug) ?? 0,
-			checked:          checkedMap[item.slug] ?? false,
-			owned:            true,
-			moveSnapshots:    await this._mysteryMoveSnapshots(item),
-		})));
+		// Inline follower cards are NOT resolved here — the card emits slug references, and the template
+		// resolves each against the character's normalized `followers.bySlug` registry.
+		const snapshots = await Promise.all(OwnedArcanum.all(this._actor).map(async a => {
+			const ctx = new ArcanumRenderContext({
+				flipped:       a.flipped,
+				choiceValues:  a.choiceValues,
+				stats,
+				current:       resourceController?.getCurrent("inventory", a.slug) ?? 0,
+				checked:       checkedMap[a.slug] ?? false,
+				owned:         true,
+				moveSnapshots: await this._mysteryMoveSnapshots(a),
+			});
+			return ArcanumSnapshotBuilder.fromArcanum(a.definition(), ctx);
+		}));
 
 		const minor = new ArcanaSectionSnapshot("Minor Arcana", snapshots.filter(s => !s.major));
-		const major = new ArcanaSectionSnapshot("Major Arcana", snapshots.filter(s =>  s.major));
+		const major = new ArcanaSectionSnapshot("Major Arcana", snapshots.filter(s => s.major));
 		return new ArcanaSnapshot(minor, major);
 	}
 
 	// Major arcana own their mystery moves as real `move` items in an `arcana-<slug>` category (seeded
-	// un-acquired — the player ticks each to unlock). Resolve them through CharacterMoves so the card
-	// renders the same move snapshots as the moves tab. Minor/custom arcana (no moveSlugs) fall back to
-	// the inline back.moves shape in buildArcanumSnapshot, so return null for them.
-	async _mysteryMoveSnapshots(item) {
-		if (!this._moves || !(item.back?.moveSlugs?.length)) return null;
-		return this._moves.getMoveSnapshotsForCategory(`arcana-${item.slug}`);
+	// un-acquired — the player ticks each to unlock). Minor/custom arcana (no moveSlugs) fall back to the
+	// inline back.moves shape in ArcanumBackSnapshotBuilder, so return null for them.
+	async _mysteryMoveSnapshots(arcanum) {
+		if (!this._moves || !arcanum.moveSlugs.length) return null;
+		return this._moves.getMoveSnapshotsForCategory(`arcana-${arcanum.slug}`);
 	}
 
-	// Post an INLINE mystery move (minor/custom arcana back.moves — no move item behind it) to chat.
-	// Ids (`move-<randomID>` for custom, pack ids otherwise) are unique across arcana, so a flat
-	// search over the owned arcanum items is safe. Returns false when no arcanum carries the id.
 	async sendMysteryMoveToChat(moveId) {
-		for (const item of [...this._actor.items].filter(i => i.type === "arcanum")) {
-			const move = (item.system?.back?.moves ?? []).find(m => m.id === moveId);
+		for (const arcanum of OwnedArcanum.all(this._actor)) {
+			const move = arcanum.mysteryMove(moveId);
 			if (move) {
 				await this._actor.sendDescriptionToChat(move.name, move.text);
 				return true;
@@ -103,7 +63,7 @@ export class CharacterArcana {
 		if (this.ownedSlugs.has(slug)) return;
 		const [arcanum] = await this._arcanaRepo.findBySlugs([slug]);
 		if (!arcanum) return;
-		await this._actor.createEmbeddedDocuments("Item", [{
+		const [created] = await this._actor.createEmbeddedDocuments("Item", [{
 			name: arcanum.name ?? arcanum.slug, img: arcanum.img ?? null, type: "arcanum",
 			system: {
 				slug: arcanum.slug, major: arcanum.major,
@@ -111,121 +71,78 @@ export class CharacterArcana {
 				flipped: false, choiceValues: {},
 			},
 		}]);
-		await this.onArcanumCreated({ system: { slug, front: arcanum.front, back: arcanum.back } });
+		await this.onArcanumCreated(created);
 	}
 
 	async onArcanumCreated(item) {
-		const slug = item.system?.slug;
-		if (!slug) return;
-		const raw = { front: item.system.front ?? {}, back: item.system.back ?? {} };
-		// Followers are NOT embedded on add — they're added/removed only when their back-choice box is
-		// checked (the standard FollowerSideEffectHandler path). The card shows an inline preview sourced
-		// from the follower repo, so no embedded item is needed until the player checks the box.
-		await this._syncSideEffects(slug);
-		const moveSlugs = raw.back?.moveSlugs ?? [];
-		if (moveSlugs.length) await this._moves?.addCategory(`arcana-${slug}`, item.name ?? slug, moveSlugs, []);
+		const arcanum = new OwnedArcanum(item, this._actor);
+		if (!arcanum.slug) return;
+		// Choice-gated followers (rows with a track) are embedded later by the checkbox side-effect, not here.
+		for (const grant of arcanum.ownedFollowerGrants()) {
+			await this._followers?.addFollower(grant.slug, { showOnTab: grant.showOnTab });
+		}
+		await this._syncSideEffects(arcanum);
+		if (arcanum.moveSlugs.length) {
+			await this._moves?.addCategory(`arcana-${arcanum.slug}`, arcanum.name ?? arcanum.slug, arcanum.moveSlugs, []);
+		}
 	}
 
 	async removeArcanum(slug) {
-		const embeddedItem = _findArcanumItem(this._actor, slug);
-		if (embeddedItem) await this._actor.deleteEmbeddedDocuments("Item", [embeddedItem._id]);
+		await OwnedArcanum.bySlug(this._actor, slug)?.delete();
 		await this._moves?.removeCategory(`arcana-${slug}`);
 		await this._outfitSync?.clear("arcana:" + slug);
 		await this._followers?.removeByArcanum(slug);
 	}
 
 	async flipArcanum(slug) {
-		const item = _findArcanumItem(this._actor, slug);
-		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { flipped: true } }]);
-		await this._syncSideEffects(slug);
+		const arcanum = OwnedArcanum.bySlug(this._actor, slug);
+		if (!arcanum) return;
+		await arcanum.flip();
+		await this._syncSideEffects(arcanum);
 	}
 
 	async unflipArcanum(slug) {
-		const item = _findArcanumItem(this._actor, slug);
-		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { flipped: false } }]);
-		await this._syncSideEffects(slug);
+		const arcanum = OwnedArcanum.bySlug(this._actor, slug);
+		if (!arcanum) return;
+		await arcanum.unflip();
+		await this._syncSideEffects(arcanum);
 	}
 
-	// Every arcanum choice group (front.unlock, back.choices, back.consequences) persists through the
-	// ONE `choiceValues` store, namespaced by the group's OWN slug — the same generic path inserts use.
-	// `groupSlug` is the choice group's slug; side effects (followers/outfit items) fire via the shared
-	// handlers when the resolved group def carries them.
-	/** The controller for one arcanum's choice values, or null when no such arcanum is embedded. Every
-	 *  group on the card (front.unlock, back.choices, back.consequences) shares this one store. */
+	// Every arcanum choice group (front.unlock, back.choices, back.consequences) shares the ONE
+	// `choiceValues` store, namespaced by each group's own slug — side effects fire via the factory's
+	// subscribers when a group carries them.
 	controllerFor(arcanumSlug) {
-		const item = _findArcanumItem(this._actor, arcanumSlug);
-		return item ? this._factory.forDocument(item._id, "choiceValues") : null;
+		return OwnedArcanum.bySlug(this._actor, arcanumSlug)?.choiceController(this._factory) ?? null;
 	}
 
 	async setChoiceCount(arcanumSlug, groupSlug, optionSlug, count) {
-		const item = _findArcanumItem(this._actor, arcanumSlug);
-		if (!item) return;
-		await this._factory.forDocument(item._id, "choiceValues")
-			.setCount(groupSlug, optionSlug, count);
+		await this.controllerFor(arcanumSlug)?.setCount(groupSlug, optionSlug, count);
 	}
 
 	async selectChoice(arcanumSlug, groupSlug, optionSlug, siblingsCsv) {
-		const item = _findArcanumItem(this._actor, arcanumSlug);
-		if (!item) return;
-		await this._factory.forDocument(item._id, "choiceValues")
-			.selectOption(groupSlug, optionSlug, siblingsCsv);
+		await this.controllerFor(arcanumSlug)?.selectOption(groupSlug, optionSlug, siblingsCsv);
 	}
 
 	async setChoiceText(arcanumSlug, groupSlug, optionSlug, text) {
-		const item = _findArcanumItem(this._actor, arcanumSlug);
-		if (!item) return;
-		await this._factory.forDocument(item._id, "choiceValues")
-			.setText(groupSlug, optionSlug, text);
+		await this.controllerFor(arcanumSlug)?.setText(groupSlug, optionSlug, text);
 	}
 
-	// Write-in blank fields (the `@Blank[key]` tokens in an arcanum's text) persist as free text in the
-	// same `choiceValues` store under a reserved `"blanks"` namespace, keyed by the blank's stable index.
+	// Write-in blank fields (the `@Blank[key]` tokens in an arcanum's text) persist in the same
+	// `choiceValues` store under a reserved `"blanks"` namespace, keyed by the blank's stable index.
 	async setBlankValue(arcanumSlug, key, text) {
-		const item = _findArcanumItem(this._actor, arcanumSlug);
-		if (!item) return;
-		await this._factory.forDocument(item._id, "choiceValues").setText("blanks", String(key), text);
+		await this.controllerFor(arcanumSlug)?.setText("blanks", String(key), text);
 	}
 
-	/** The stored `{ key: text }` map of write-in blank values for an arcanum (empty when none). */
 	getBlanks(arcanumSlug) {
-		const item = _findArcanumItem(this._actor, arcanumSlug);
-		return item?.system?.choiceValues?.blanks ?? {};
+		return OwnedArcanum.bySlug(this._actor, arcanumSlug)?.blanks ?? {};
 	}
 
-	/** What an arcanum grants right now: the card item for the side facing up, plus whatever its
-	 *  ticked choices grant. One source, recomputed — so flipping is just another sync. */
+	// Registered with ContainerOutfitSync, which calls it with a raw arcanum item.
 	static outfitGrantFor(item) {
-		const sys      = item.system ?? {};
-		const source   = "arcana:" + sys.slug;
-		const sideItem = sys.flipped ? sys.back?.item : sys.front?.item;
-		const base     = sideItem?.inventoryColumn
-			? [{ ...sideItem, slug: sys.slug }]
-			: [];
-		return OutfitGrant.forContainer(source, base, sys, sys.choiceValues ?? {});
+		return new OwnedArcanum(item).outfitGrant();
 	}
 
-	async _syncSideEffects(slug) {
-		const embeddedItem = _findArcanumItem(this._actor, slug);
-		if (!embeddedItem) {
-			await this._outfitSync?.clear("arcana:" + slug);
-			return;
-		}
-		await this._outfitSync?.syncItem(embeddedItem);
+	async _syncSideEffects(arcanum) {
+		await arcanum.syncOutfit(this._outfitSync);
 	}
-
-
-}
-
-function _findArcanumItem(actor, slug) {
-	return [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === slug) ?? null;
-}
-
-function _itemToArcanum(item) {
-	return new Arcanum({
-		slug: item.system.slug, major: item.system.major,
-		name: item.name, img: item.img,
-		front: item.system.front, back: item.system.back,
-	});
 }

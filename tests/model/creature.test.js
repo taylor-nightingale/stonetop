@@ -27,6 +27,34 @@ describe("creatureFields / followerFields composition", () => {
 	});
 });
 
+describe("migrateCreatureData — statless flag → kind", () => {
+	it("maps statless:true to kind 'object' and drops the flag", () => {
+		const s = { name: "The Ring", statless: true };
+		migrateCreatureData(s);
+		expect(s.kind).toBe("object");
+		expect(s.statless).toBeUndefined();
+	});
+
+	it("drops statless:false without setting a kind (stays default creature)", () => {
+		const s = { name: "Enfys", statless: false };
+		migrateCreatureData(s);
+		expect(s.kind).toBeUndefined();
+		expect(s.statless).toBeUndefined();
+	});
+
+	it("does not clobber an already-set kind", () => {
+		const s = { name: "The Ring", statless: true, kind: "creature" };
+		migrateCreatureData(s);
+		expect(s.kind).toBe("creature");
+	});
+
+	it("is a no-op on a partial diff that omits statless (migrate-on-diff safe)", () => {
+		const s = { hp: { value: 4 } };
+		migrateCreatureData(s);
+		expect(s.kind).toBeUndefined();
+	});
+});
+
 describe("migrateCreatureData — legacy Crew inventory → inventory.checked", () => {
 	const crewSource = () => ({
 		choices: [{ slug: "choices", list: [

@@ -8,6 +8,7 @@ import { CharacterFollowers } from "../actors/character/CharacterFollowers.js";
 import { ActorOutfitItems } from "../actors/character/ActorOutfitItems.js";
 import { ResourceController } from "../actors/character/ResourceController.js";
 import { migrateChoiceRow } from "./migrateChoices.js";
+import { ChoiceGroupDefs } from "../model/data/ChoiceGroupDefs.js";
 import { Selection } from "../model/data/Selection.js";
 
 const SCOPE = "stonetop";
@@ -87,6 +88,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateFollowers(actor, repos.followers, resourceController);
 	_logArcanumFlipped(actor, "after migrateFollowers");
 	await migrateArcanaFollowerPackData(actor, repos.followers);
+	await migrateArcanaOwnedFollowers(actor, repos.followers, resourceController);
 
 	const moves = new CharacterMoves(repos.moves, actor, null);
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
@@ -756,6 +758,26 @@ export async function migrateArcanaFollowerPackData(actor, followerRepo) {
 		});
 	}
 	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+}
+
+// Back-fill owned-by-default arcana follower grants (the Ring of Daagon). Old data granted the Ring only
+// when its front mark was checked; the mark is gone and the arcanum now grants it outright. For each
+// owned arcanum, embed any owned-by-default follower it's missing, and stamp the card-only ones off the
+// tab (`showOnTab: false`) — including a Ring already embedded under the old checkbox path.
+export async function migrateArcanaOwnedFollowers(actor, followerRepo, resourceController) {
+	const arcana = [...actor.items].filter(i => i.type === "arcanum");
+	if (!arcana.length) return;
+	const followers = new CharacterFollowers(actor, followerRepo, resourceController);
+	for (const arc of arcana) {
+		for (const grant of ChoiceGroupDefs.ownedFollowerGrants(arc.system ?? {})) {
+			const item = [...actor.items].find(i => i.type === "follower" && i.system?.slug === grant.slug);
+			if (!item?.system?.owned) {
+				await followers.addFollower(grant.slug, { showOnTab: grant.showOnTab });
+			} else if ((item.system?.showOnTab ?? true) !== grant.showOnTab) {
+				await actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { showOnTab: grant.showOnTab } }]);
+			}
+		}
+	}
 }
 
 // ── Q. Refresh an embedded move's authored fields from the pack ───────────────
