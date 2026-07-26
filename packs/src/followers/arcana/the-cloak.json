@@ -1,0 +1,62 @@
+{
+	"_id": "TheCloakDemon001",
+	"_key": "!items!TheCloakDemon001",
+	"name": "The Cloak",
+	"type": "follower",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-skull.png",
+	"system": {
+		"slug": "the-cloak",
+		"reference": null,
+		"arcanaSlug": "demonhide-cloak",
+		"tagList": {
+			"selected": [
+				"bloodthirsty",
+				"demon-wise",
+				"extraordinary",
+				"magical"
+			],
+			"options": [],
+			"multi": true,
+			"allowCustom": true
+		},
+		"hp": {
+			"value": 0,
+			"max": 0
+		},
+		"armor": "",
+		"damage": "",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to bicker and argue (with you, with itself)"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [
+				"chaos and wanton destruction"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"kind": "object",
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"moves": "- Reveal a dark and terrible secret, or part of one\n- Manifest a minor demonic effect\n- Possess you in your sleep",
+		"description": "",
+		"notes": ""
+	},
+	"flags": {},
+	"folder": "BNaYX2Y4eMe7EOPK"
+}

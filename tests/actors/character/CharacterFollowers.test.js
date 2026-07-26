@@ -562,6 +562,7 @@ describe("CharacterFollowers.buildFollowersSnapshot — normalized { bySlug, tab
 		const snap = await cf.buildFollowersSnapshot();
 		expect(snap.get("the-ring").isObject).toBe(true);
 	});
+
 });
 
 // -- Tests: choices snapshot --------------------------------------------------

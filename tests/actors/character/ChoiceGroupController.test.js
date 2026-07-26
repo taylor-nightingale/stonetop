@@ -125,7 +125,7 @@ describe("ChoiceGroupController — follower side effects", () => {
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
-	it("setCount(0) on an entry row with a single follower removes the follower", async () => {
+	it("setCount(0) on an entry row toggles its follower off the tab, keeps it owned", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
 			[{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"] }, track: { max: 1 } }] }],
@@ -133,7 +133,8 @@ describe("ChoiceGroupController — follower side effects", () => {
 		);
 		await ctrl.setCount("ns", "enfys", 1);
 		await ctrl.setCount("ns", "enfys", 0);
-		expect(followers.isOwned("enfys")).toBe(false);
+		expect(followers.isOwned("enfys")).toBe(true);
+		expect(followers.showOnTab("enfys")).toBe(false);
 	});
 
 	it("setCount(1) on entry row with followers[] adds all followers", async () => {
@@ -160,7 +161,7 @@ describe("ChoiceGroupController — follower side effects", () => {
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
-	it("switching pick option fires removeFollower for the previously selected option", async () => {
+	it("switching pick option toggles the deselected option's follower off the tab", async () => {
 		const followers = new FakeFollowers();
 		const { ctrl } = makeCtrl(
 			[{ slug: "ns", list: [{ type: "pick", pickCount: 1, options: [
@@ -171,8 +172,8 @@ describe("ChoiceGroupController — follower side effects", () => {
 		);
 		await ctrl.selectOption("ns", "a", "a,b");
 		await ctrl.selectOption("ns", "b", "a,b");
-		expect(followers.isOwned("enfys")).toBe(false);
-		expect(followers.isOwned("rook")).toBe(true);
+		expect(followers.showOnTab("enfys")).toBe(false);   // deselected → off the tab (still owned)
+		expect(followers.showOnTab("rook")).toBe(true);     // selected → on the tab
 	});
 
 	it("entry row without followers does not add anything", async () => {

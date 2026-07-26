@@ -68,9 +68,10 @@ export class OwnedArcanum {
 		});
 	}
 
-	/** Followers this arcanum grants owned-by-default (a follower row with no checkbox). */
-	ownedFollowerGrants() {
-		return ChoiceGroupDefs.ownedFollowerGrants(this._item.system ?? {});
+	/** Every follower slug this arcanum's cards reference. All are owned when the arcanum is added; a mark
+	 *  only toggles whether one shows on the roster tab. */
+	followerSlugs() {
+		return ChoiceGroupDefs.followerLinks(this._item.system ?? {}).flatMap(l => l.slugs);
 	}
 
 	/** An inline mystery move ({id,name,text}) by id, or null. */

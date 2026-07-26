@@ -693,7 +693,7 @@ describe("CharacterArcana — follower sync", () => {
 		expect(followerItem).toBeDefined();
 	});
 
-	it("addArcanum embeds no follower items", async () => {
+	it("addArcanum owns the card's referenced followers, off the tab", async () => {
 		const actor = makeActor();
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
@@ -703,7 +703,9 @@ describe("CharacterArcana — follower sync", () => {
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
 		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository([CRACKED_FLUTE]), null, followers);
 		await charArcana.addArcanum("cracked-flute");
-		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
+		const f = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
+		expect(f?.system?.owned).toBe(true);
+		expect(f?.system?.showOnTab).toBe(false);
 	});
 
 	it("does not embed follower when arcanum has no back.choices", async () => {
@@ -734,12 +736,13 @@ describe("CharacterArcana — follower sync", () => {
 		expect(followerItem?.system?.owned).toBe(true);
 	});
 
-	it("setChoiceCount=0 on back-choices removes follower", async () => {
-		const { actor, charArcana, followers } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
+	it("setChoiceCount=0 on back-choices toggles the follower off the tab, keeps it owned", async () => {
+		const { actor, charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		actor.items.push(makeNpcItem("andalau-of-the-flute", { owned: true }));
 		await charArcana.setChoiceCount("cracked-flute", "cracked-flute", "andalau-of-the-flute", 0);
-		const followerItem = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
-		expect(followerItem).toBeUndefined();
+		const f = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
+		expect(f?.system?.owned).toBe(true);
+		expect(f?.system?.showOnTab).toBe(false);
 	});
 
 	it("keeps the card's follower REFERENCE whether or not the follower is owned, and owns it when checked", async () => {
@@ -827,7 +830,7 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 // ── onArcanumCreated ──────────────────────────────────────────────────────────
 
 describe("CharacterArcana.onArcanumCreated", () => {
-	it("embeds no follower items (followers are added only when the box is checked)", async () => {
+	it("owns the card's referenced followers off the tab", async () => {
 		const actor = makeActor([makeArcanumItem(CRACKED_FLUTE)]);
 		const followerRepo = new FakeFollowerRepository([{
 			slug: "andalau-of-the-flute", name: "The Andalau", tags: null,
@@ -837,7 +840,9 @@ describe("CharacterArcana.onArcanumCreated", () => {
 		const followers = new CharacterFollowers(actor, followerRepo, makeResourceController());
 		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, followers);
 		await charArcana.onArcanumCreated(makeArcanumItem(CRACKED_FLUTE));
-		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
+		const f = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
+		expect(f?.system?.owned).toBe(true);
+		expect(f?.system?.showOnTab).toBe(false);
 	});
 
 	it("does not embed follower when arcanum has no back choices", async () => {

@@ -2721,15 +2721,6 @@ button.stonetop-xp-toggle {
 	margin-top: 6px;
 }
 
-.stonetop-arcanum-follower-label {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	font-size: var(--fs-note);
-	font-weight: normal;
-	cursor: pointer;
-}
-
 .stonetop-arcanum-follower .stonetop-follower-card {
 	box-shadow: none;
 	flex: 1;

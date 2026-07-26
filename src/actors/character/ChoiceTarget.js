@@ -41,18 +41,4 @@ export class ChoiceTarget {
 			moveSlug:       el.closest("[data-move-slug]")?.dataset.moveSlug ?? null,
 		});
 	}
-
-	// The arcana/background follower-check track uses its own attribute names (data-slug is the
-	// GROUP, data-option the option) and only routes to an arcanum card when its context says so.
-	static fromFollowerCheck(el) {
-		const { cgContext, slug, option } = el.dataset;
-		return new ChoiceTarget({
-			context: cgContext ?? null,
-			group:   slug      ?? null,
-			option:  option    ?? null,
-			arcanumSlug: cgContext === "arcana"
-				? el.closest(".stonetop-arcanum-card")?.dataset.slug ?? null
-				: null,
-		});
-	}
 }

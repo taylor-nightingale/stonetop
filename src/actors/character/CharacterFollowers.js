@@ -75,14 +75,16 @@ export class CharacterFollowers {
 			.filter(Boolean);
 	}
 
-	// Embed a follower as owned. `showOnTab` is the granting authority's placement decision, stamped onto
-	// the item: choice/playbook grants leave it true (the follower joins the roster); a card-bound grant
-	// like the Ring of Daagon passes false (it lives on its arcanum card, never the tab).
+	// Embed a follower as owned, or refresh an already-owned one's `showOnTab`. Idempotent: a card grants
+	// ownership up front (showOnTab:false, card-only), then a mark toggles the follower onto the roster
+	// (showOnTab:true) and back — the same call each time.
 	async addFollower(slug, { showOnTab = true } = {}) {
 		const existing = _findFollowerItem(this._actor, slug);
-		if (existing?.system?.owned) return;
 		if (existing) {
-			await this._actor.updateEmbeddedDocuments("Item", [{ _id: existing._id, system: { owned: true, showOnTab } }]);
+			const sys = existing.system ?? {};
+			if (sys.owned !== true || sys.showOnTab !== showOnTab) {
+				await this._actor.updateEmbeddedDocuments("Item", [{ _id: existing._id, system: { owned: true, showOnTab } }]);
+			}
 			return;
 		}
 		const [follower] = await this._followerRepo.findBySlugs([slug]);
@@ -359,10 +361,8 @@ export class CharacterFollowers {
 		return item ? this._factory.forDocument(item._id, "choiceValues") : null;
 	}
 
-	// The card snapshots for every follower the character OWNS (embedded items with owned:true), in item
-	// order. That is the whole set the sheet renders — the tab lists a subset, and an arcanum card looks
-	// up its owned follower by slug (the Ring is owned-by-default). Game-text fields are RichText; the
-	// sheet's enrichRichTextTree pass enriches them along with the rest of the tree.
+	// The card snapshot for every follower the character OWNS. A card-bound follower (the Ring, the Cloak)
+	// is owned but stamped showOnTab:false, so it resolves on its arcanum card yet stays off the tab.
 	async buildSnapshot() {
 		const ownedItems = [...this._actor.items].filter(i => i.type === "follower" && i.system?.owned === true);
 		if (!ownedItems.length) return [];
@@ -380,12 +380,11 @@ export class CharacterFollowers {
 
 	/**
 	 * The character's followers, normalized for the sheet — the single authority, derived entirely from
-	 * the actor's own owned follower items (nothing passed in):
-	 *  - `bySlug`: every owned follower's card, once.
-	 *  - `tab`: the owned followers whose granting authority placed them on the tab (`showOnTab`), in item
-	 *    order. A card-bound follower like the Ring is owned (so it's in `bySlug` for its inline card) but
-	 *    omitted here — nobody put it on the tab.
-	 * Cards everywhere reference a slug and resolve against `bySlug`, so no follower data is duplicated.
+	 * the actor:
+	 *  - `bySlug`: every follower card once — owned instances + definition previews for referenced-but-
+	 *    unowned followers (see buildSnapshot). A card resolves its slug against this.
+	 *  - `tab`: the OWNED followers whose granting authority placed them on the tab (`showOnTab`). A
+	 *    card-bound follower (the Ring) and an un-owned preview are both absent here.
 	 */
 	async buildFollowersSnapshot() {
 		const owned  = await this.buildSnapshot();

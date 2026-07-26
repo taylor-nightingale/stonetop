@@ -1,12 +1,3 @@
-{{#*inline "follower-check"}}
-<input type="checkbox" class="stonetop-arcanum-follower-check"
-       data-change-action="followerCheck"
-       data-cg-context="{{cgContext}}"
-       data-slug="{{cgGroup}}"
-       data-option="{{slug}}"
-       data-index="0"
-       {{#if (lookup track.checks 0)}}checked{{/if}}>
-{{/inline}}
 {{#*inline "track-checks"}}
 {{#each track.checks}}
 <input type="checkbox"
@@ -46,27 +37,16 @@
     consequences) wraps ALL its output — title, track, text, input, followers — so the flag is
     honored regardless of the row's composition. Un-indented rows keep their flat structure. }}
 {{#if indent}}<div class="stonetop-choice--indent">{{/if}}
-{{#if followers}}
-{{! Entry with a follower reference (followers = EntryRowFollowers, carrying slugs). Inline cards resolve
-    each slug against the normalized registry at @root.stonetop.followers.bySlug; #with skips a slug that
-    doesn't resolve (e.g. an item-sheet preview, which has no registry), so nothing renders there. }}
+{{#if (and followers.inlineDisplay (not (hasText content.title)) (not (hasText content.text)) (not (hasText content.subtitle)))}}
+{{! A follower row with no content of its own: the mark sits INLINE with the follower card, not alone on
+    an empty line above it. }}
 <div class="stonetop-arcanum-follower">
-    {{#if followers.inlineDisplay}}
-    {{#if track}}
-    {{> follower-check}}
-    {{/if}}
+    {{#if track}}<span class="stonetop-choice-track-checks">{{> track-checks}}</span>{{/if}}
     {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
-    {{else if (hasText content.text)}}
-    <label class="stonetop-arcanum-follower-label">
-        {{#if track}}
-        {{> follower-check}}
-        {{/if}}
-        <span>{{rich content.text}}</span>
-    </label>
-    {{/if}}
 </div>
 {{else}}
-{{! Entry without followers: content/track/input }}
+{{! Content / track / input rendered like any entry row (same checkbox, tabbing, formatting as siblings);
+    a linked follower's card sits below the content. }}
 {{#if (hasText content.title)}}{{> "stonetop.section-heading" title=content.title note=content.titleNote}}{{/if}}
 {{#if track}}
 {{#if (hasText content.subtitle)}}
@@ -122,6 +102,13 @@
     {{! Read-only preview (e.g. the move item sheet): just show the value. }}
     <span class="stonetop-choice-input-preview">{{#if input.value}}{{input.value}}{{else}}<span class="stonetop-editable__placeholder">{{input.placeholder}}</span>{{/if}}</span>
     {{/if}}
+</div>
+{{/if}}
+{{! The row's linked follower card, below its content. Resolves each slug against the normalized registry
+    (@root.stonetop.followers.bySlug); #with skips a slug with no card (e.g. an item-sheet preview). }}
+{{#if followers.inlineDisplay}}
+<div class="stonetop-arcanum-follower">
+    {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
 </div>
 {{/if}}
 {{/if}}

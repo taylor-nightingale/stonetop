@@ -87,12 +87,13 @@ describe("CharacterBackgrounds.setChoiceValue", () => {
 		expect(followers.isOwned("enfys")).toBe(true);
 	});
 
-	it("removes the follower when count is set to 0 on a follower-type row", async () => {
+	it("toggles the follower off the tab when count is set to 0 on a follower-type row", async () => {
 		const followers = new FakeFollowers();
 		const bg = makeBg("", {}, followers, null, FOLLOWER_CHOICES_DATA);
 		await bg.setChoiceValue("initiate", "enfys", 1);
 		await bg.setChoiceValue("initiate", "enfys", 0);
-		expect(followers.isOwned("enfys")).toBe(false);
+		expect(followers.isOwned("enfys")).toBe(true);
+		expect(followers.showOnTab("enfys")).toBe(false);
 	});
 
 	it("does not add to followers for non-follower (heading) rows", async () => {

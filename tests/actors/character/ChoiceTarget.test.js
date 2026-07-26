@@ -86,36 +86,3 @@ describe("ChoiceTarget.fromElement", () => {
 		expect(ChoiceTarget.fromElement(el).arcanumSlug).toBe("the-eye");
 	});
 });
-
-describe("ChoiceTarget.fromFollowerCheck", () => {
-	it("maps data-slug to group and data-option to option", () => {
-		const el = elementFrom(
-			`<input class="stonetop-arcanum-follower-check" data-cg-context="background" data-slug="grp" data-option="opt">`,
-			".stonetop-arcanum-follower-check",
-		);
-		const target = ChoiceTarget.fromFollowerCheck(el);
-		expect(target.context).toBe("background");
-		expect(target.group).toBe("grp");
-		expect(target.option).toBe("opt");
-	});
-
-	it("resolves the arcanum card only for the arcana context", () => {
-		const el = elementFrom(
-			`<div class="stonetop-arcanum-card" data-slug="the-eye">
-				<input class="stonetop-arcanum-follower-check" data-cg-context="arcana" data-slug="grp" data-option="opt">
-			</div>`,
-			".stonetop-arcanum-follower-check",
-		);
-		expect(ChoiceTarget.fromFollowerCheck(el).arcanumSlug).toBe("the-eye");
-	});
-
-	it("ignores an enclosing arcanum card for a non-arcana context", () => {
-		const el = elementFrom(
-			`<div class="stonetop-arcanum-card" data-slug="the-eye">
-				<input class="stonetop-arcanum-follower-check" data-cg-context="background" data-slug="grp" data-option="opt">
-			</div>`,
-			".stonetop-arcanum-follower-check",
-		);
-		expect(ChoiceTarget.fromFollowerCheck(el).arcanumSlug).toBeNull();
-	});
-});

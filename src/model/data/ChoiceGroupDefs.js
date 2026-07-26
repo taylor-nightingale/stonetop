@@ -23,14 +23,6 @@ export class ChoiceGroupDef {
 	followerLinks() {
 		return this.rows.map(r => FollowerLink.fromRaw(r.followers)).filter(Boolean);
 	}
-
-	/** Followers granted outright: a follower row with NO track (no checkbox to gain it). A row WITH a
-	 *  track is choice-gated — added/removed when its box is checked — so it grants nothing here. */
-	ownedFollowerGrants() {
-		return this.rows
-			.filter(r => !r.track)
-			.flatMap(r => FollowerLink.fromRaw(r.followers)?.grants() ?? []);
-	}
 }
 
 export class ChoiceGroupDefs {
@@ -63,9 +55,5 @@ export class ChoiceGroupDefs {
 
 	static followerLinks(data) {
 		return this.findAll(data).flatMap(d => d.followerLinks());
-	}
-
-	static ownedFollowerGrants(data) {
-		return this.findAll(data).flatMap(d => d.ownedFollowerGrants());
 	}
 }

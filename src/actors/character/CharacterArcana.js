@@ -77,9 +77,9 @@ export class CharacterArcana {
 	async onArcanumCreated(item) {
 		const arcanum = new OwnedArcanum(item, this._actor);
 		if (!arcanum.slug) return;
-		// Choice-gated followers (rows with a track) are embedded later by the checkbox side-effect, not here.
-		for (const grant of arcanum.ownedFollowerGrants()) {
-			await this._followers?.addFollower(grant.slug, { showOnTab: grant.showOnTab });
+		// Own every follower the card references, off the tab. A mark later toggles the tab placement.
+		for (const slug of arcanum.followerSlugs()) {
+			await this._followers?.addFollower(slug, { showOnTab: false });
 		}
 		await this._syncSideEffects(arcanum);
 		if (arcanum.moveSlugs.length) {

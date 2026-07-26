@@ -147,6 +147,13 @@
 						},
 						"track": {
 							"max": 1
+						},
+						"followers": {
+							"slugs": [
+								"the-cloak"
+							],
+							"inlineDisplay": true,
+							"hideFromFollowersTab": true
 						}
 					}
 				]

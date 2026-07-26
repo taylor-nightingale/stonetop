@@ -272,7 +272,6 @@ export function createStonetopCharacterSheetClass(Base) {
 					return char.setChoicePickFor(ChoiceTarget.fromElement(el), el.checked);
 				},
 				cgText:        el => char.setChoiceTextFor(ChoiceTarget.fromElement(el), el.value),
-				followerCheck: el => char.setChoiceTrackFor(ChoiceTarget.fromFollowerCheck(el), el.dataset.index, el.checked),
 				arcanumBlank:  el => {
 					const card = el.closest(".stonetop-arcanum-card");
 					if (card) return char.setArcanumBlank(card.dataset.slug, el.dataset.blankKey, el.value);

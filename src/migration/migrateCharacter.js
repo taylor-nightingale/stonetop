@@ -760,21 +760,23 @@ export async function migrateArcanaFollowerPackData(actor, followerRepo) {
 	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }
 
-// Back-fill owned-by-default arcana follower grants (the Ring of Daagon). Old data granted the Ring only
-// when its front mark was checked; the mark is gone and the arcanum now grants it outright. For each
-// owned arcanum, embed any owned-by-default follower it's missing, and stamp the card-only ones off the
-// tab (`showOnTab: false`) — including a Ring already embedded under the old checkbox path.
+// A card owns every follower it references (the Ring, the Cloak, choice followers); a mark only toggles
+// the tab. Back-fill: embed any referenced follower an owned arcanum is missing, off the tab — leaving
+// already-owned ones (and their marked tab placement) alone.
 export async function migrateArcanaOwnedFollowers(actor, followerRepo, resourceController) {
 	const arcana = [...actor.items].filter(i => i.type === "arcanum");
 	if (!arcana.length) return;
 	const followers = new CharacterFollowers(actor, followerRepo, resourceController);
 	for (const arc of arcana) {
-		for (const grant of ChoiceGroupDefs.ownedFollowerGrants(arc.system ?? {})) {
-			const item = [...actor.items].find(i => i.type === "follower" && i.system?.slug === grant.slug);
-			if (!item?.system?.owned) {
-				await followers.addFollower(grant.slug, { showOnTab: grant.showOnTab });
-			} else if ((item.system?.showOnTab ?? true) !== grant.showOnTab) {
-				await actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { showOnTab: grant.showOnTab } }]);
+		for (const link of ChoiceGroupDefs.followerLinks(arc.system ?? {})) {
+			for (const slug of link.slugs) {
+				const item = [...actor.items].find(i => i.type === "follower" && i.system?.slug === slug);
+				// Embed a missing follower off the tab; fix a card-bound one that an old path left on the
+				// tab. A tab follower's marked placement is left alone (addFollower is idempotent).
+				if (!item?.system?.owned) await followers.addFollower(slug, { showOnTab: false });
+				else if (link.hideFromFollowersTab && item.system?.showOnTab !== false) {
+					await followers.addFollower(slug, { showOnTab: false });
+				}
 			}
 		}
 	}
