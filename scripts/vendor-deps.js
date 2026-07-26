@@ -4,6 +4,7 @@
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildUint8ArrayPolyfill } from "./build-uint8-array-polyfill.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -17,8 +18,9 @@ const vendored = [
 	// openjpeg decodes the books' JPEG2000 color plates, jbig2 the line-art
 	// stencils of the 1st-printing PDFs (a missing decoder silently drops every
 	// image it covers, so vendor them all), qcms handles ICC color profiles.
-	["node_modules/pdfjs-dist/build/pdf.min.mjs", "lib/pdfjs/pdf.mjs"],
-	["node_modules/pdfjs-dist/build/pdf.worker.min.mjs", "lib/pdfjs/pdf.worker.mjs"],
+	// "pdfjs" mode also prepends the Uint8Array hex/base64 polyfill (see below).
+	["node_modules/pdfjs-dist/build/pdf.min.mjs", "lib/pdfjs/pdf.mjs", "pdfjs"],
+	["node_modules/pdfjs-dist/build/pdf.worker.min.mjs", "lib/pdfjs/pdf.worker.mjs", "pdfjs"],
 	["node_modules/pdfjs-dist/wasm/openjpeg.wasm", "lib/pdfjs/wasm/openjpeg.wasm", "binary"],
 	["node_modules/pdfjs-dist/wasm/openjpeg_nowasm_fallback.js", "lib/pdfjs/wasm/openjpeg_nowasm_fallback.js", "binary"],
 	["node_modules/pdfjs-dist/wasm/jbig2.wasm", "lib/pdfjs/wasm/jbig2.wasm", "binary"],
@@ -32,14 +34,20 @@ const vendored = [
 	["node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_QCMS", "lib/pdfjs/wasm/LICENSE_PDFJS_QCMS", "binary"],
 ];
 
+// Prepended to the pdf.js ESM builds so the Uint8Array hex/base64 methods pdf.js
+// relies on exist even on clients whose engine hasn't shipped them (e.g. older
+// Electron/Chromium). Bundled from the es-shims polyfill; see the builder module.
+const pdfjsPolyfill = await buildUint8ArrayPolyfill();
+
 for (const [from, to, mode] of vendored) {
 	mkdirSync(join(root, dirname(to)), { recursive: true });
 	if (mode === "binary") {
 		copyFileSync(join(root, from), join(root, to));
 	} else {
 		// Strip the trailing sourceMappingURL so the browser doesn't 404 on the missing map.
-		const src = readFileSync(join(root, from), "utf8")
+		let src = readFileSync(join(root, from), "utf8")
 			.replace(/\n?\/\/# sourceMappingURL=.*$/m, "\n");
+		if (mode === "pdfjs") src = `${pdfjsPolyfill}\n${src}`;
 		writeFileSync(join(root, to), src);
 	}
 	console.log(`vendored ${from} -> ${to}`);

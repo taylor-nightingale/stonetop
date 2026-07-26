@@ -13,10 +13,12 @@
     "build-arcana": "node scripts/import/pdf/build-arcana.js",
     "build-packs": "node scripts/build-packs.js",
     "art-manifest": "node scripts/art/build-art-manifest.js",
-	"pack:module": "node scripts/pack-module.js"
+    "pack:module": "node scripts/pack-module.js"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "es-arraybuffer-base64": "^1.1.2",
+    "esbuild": "^0.28.1",
     "happy-dom": "^20.10.3",
     "vitest": "^4.1.7"
   },
@@ -24,5 +26,10 @@
     "fflate": "^0.8.3",
     "pdfjs-dist": "^6.1.200",
     "snarkdown": "^2.0.0"
+  },
+  "overrides": {
+    "js-yaml": "^4.3.0",
+    "postcss": "^8.5.18",
+    "vite": "^8.0.16"
   }
 }
