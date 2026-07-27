@@ -8,7 +8,7 @@
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * the mini-core fake V2 base in character-sheet-app.test.js overlaps the steading test's fake
 * let the GM define what the basic moves list entails, perhaps _  all_ default move lists (playbook, special, steading, etc.)
-
+* Spells for the Hec'Tumel Codex are missing
 
 
 == Nice to have

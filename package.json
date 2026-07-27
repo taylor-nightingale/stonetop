@@ -17,8 +17,6 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
-    "es-arraybuffer-base64": "^1.1.2",
-    "esbuild": "^0.28.1",
     "happy-dom": "^20.10.3",
     "vitest": "^4.1.7"
   },
