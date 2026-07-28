@@ -17,15 +17,19 @@ const richArcanum = () => new Arcanum({
 	},
 	back: {
 		title: "Mysteries", description: "the back", resource: { max: 2, labels: ["a", "b"] },
-		choices: { slug: "choices", list: [] },
-		moves: [{ id: "battery", name: "Battery", text: "store energy" }],
-		consequences: { slug: "consequences", list: [
-			{ type: "entry", slug: "c1", content: { text: "burned" }, track: { max: 1 } },
-			{ type: "entry", slug: "c2", content: { text: "scorched" }, track: { max: 1 }, indent: true },
-		] },
+		choices: [
+			{ slug: "moves", title: "Moves", list: [{ type: "entry", slug: "battery", track: { max: 1 }, grants: [{ type: "move", slug: "battery", locations: ["inline"] }] }] },
+			{ slug: "consequences", title: "Consequences", list: [
+				{ type: "entry", slug: "c1", content: { text: "burned" }, track: { max: 1 } },
+				{ type: "entry", slug: "c2", content: { text: "scorched" }, track: { max: 1 }, indent: true },
+			] },
+		],
 		unlockAt: "after 4 marks",
 	},
 });
+
+// The consequences group inside the back's ordered choices array.
+const consequencesOf = (s) => s.back.choices.find(g => g.slug === "consequences");
 
 describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 	it("maps a full arcanum to front/back snapshots", () => {
@@ -35,11 +39,9 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 		expect(s.front.item.name).toBe("Azure Hand");
 		expect(s.front.unlock).toBeTruthy();            // ChoiceGroup
 		expect(s.back.resource).toBeTruthy();           // ResourceSnapshot
-		expect(s.back.moves).toHaveLength(1);
-		expect(s.back.moves[0]).toBeInstanceOf(MoveSnapshot);
-		expect(s.back.moves[0]).toMatchObject({ name: "Battery" });
-		expect(s.back.moves[0].description.raw).toBe("store energy");
-		expect(s.back.consequences).toBeTruthy();
+		expect(s.back.choices.map(g => g.slug)).toEqual(["moves", "consequences"]);  // ordered groups
+		// A move is a move-grant entry (resolved inline against moves.bySlug at render), not a MoveSnapshot here.
+		expect(s.back.choices[0].list[0].moves.slugs).toEqual(["battery"]);
 		expect(s.back.unlockAt).toBe("after 4 marks");
 	});
 
@@ -50,40 +52,33 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 		expect(s.front.tags).toBe("magical, terrifying");
 	});
 
-	it("uses caller-supplied moveSnapshots (major arcana real moves) over inline back.moves", () => {
-		const real = [{ name: "Real Battery" }, { name: "Real Resonance" }];
-		const s = snap(richArcanum(), { moveSnapshots: real });
-		expect(s.back.moves).toBe(real);
-	});
-
-	it("defaults (preview): not flipped, empty groups → null, no stats crash", () => {
+	it("defaults (preview): not flipped, empty groups → [], no stats crash", () => {
 		const s = snap(new Arcanum({ slug: "x", front: {}, back: {} }));
 		expect(s.flipped).toBe(false);
 		expect(s.owned).toBe(true);
 		expect(s.front.unlock).toBeNull();
-		expect(s.back.choices).toBeNull();
+		expect(s.back.choices).toEqual([]);
 		expect(s.back.resource).toBeNull();
-		expect(s.back.moves).toEqual([]);
 	});
 
-	it("reads unlock, back.choices, and consequences from the ONE choiceValues store by each group's own slug", () => {
+	it("reads unlock and each back group from the ONE choiceValues store by each group's own slug", () => {
 		const choiceValues = new ChoiceValues({
 			azure:        { marks: 3 },   // unlock group slug = "azure"
 			consequences: { c1: 1 },      // consequences group slug = "consequences"
 		});
 		const s = snap(richArcanum(), { flipped: true, choiceValues });
 		expect(s.front.unlock.list[0].track.checks).toEqual([true, true, true, false]);
-		expect(s.back.consequences.list[0].track.checks).toEqual([true]);
+		expect(consequencesOf(s).list[0].track.checks).toEqual([true]);
 	});
 
 	it("consequences default to unchecked when the store has no value (regression: #50)", () => {
 		const s = snap(richArcanum(), { flipped: true });
-		expect(s.back.consequences.list[0].track.checks).toEqual([false]);
+		expect(consequencesOf(s).list[0].track.checks).toEqual([false]);
 	});
 
 	it("carries a consequence's indent flag through to the snapshot row", () => {
 		const s = snap(richArcanum(), { flipped: true });
-		expect(s.back.consequences.list.map(r => r.indent)).toEqual([false, true]);
+		expect(consequencesOf(s).list.map(r => r.indent)).toEqual([false, true]);
 	});
 });
 

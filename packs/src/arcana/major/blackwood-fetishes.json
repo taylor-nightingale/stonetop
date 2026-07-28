@@ -68,58 +68,82 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": {
-				"slug": "blackwood-fetishes",
-				"list": [
-					{
-						"slug": "astor",
-						"track": {
-							"max": 1
+			"unlockAt": 3,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "call-forth-and-command",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "call-forth-and-command",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"slug": "blackwood-fetishes",
+					"list": [
+						{
+							"slug": "astor",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "astor",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							]
 						},
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "astor",
-								"locations": [
-									"inline",
-									"tab"
-								]
-							}
-						]
-					},
-					{
-						"slug": "halix",
-						"track": {
-							"max": 1
-						},
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "halix",
-								"locations": [
-									"inline",
-									"tab"
-								]
-							}
-						]
-					}
-				]
-			},
-			"moveSlugs": [
-				"call-forth-and-command"
-			],
-			"consequences": null,
-			"unlockAt": 3
+						{
+							"slug": "halix",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "halix",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		"major": true
 	},

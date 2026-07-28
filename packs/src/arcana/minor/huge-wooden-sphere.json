@@ -83,10 +83,8 @@
 			"item": null,
 			"description": "When you **_pickle fresh ffyrnig root in a suspen_****_sion of boar bile for two full moons_**, it becomes a skin of ffyrnig tonic (3 uses, *magical*).\n\nWhen you **_take a draught of ffyrnig tonic,_** pick 1:\n\n- Regain HP equal to ½ half your max\n- Clear a debility Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness. When you **_drink a second draught of ffyrnig tonic_** **_before getting a good night’s sleep_**, it has no effect other than to make you ill (mark a debility).",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

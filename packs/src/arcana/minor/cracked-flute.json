@@ -43,37 +43,34 @@
 		"back": {
 			"title": "Dancing Wind Spirit",
 			"item": null,
-			"description": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.",
+			"description": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.\n\n**HP**\n\nStarts at 8",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": {
-				"slug": "cracked-flute",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "andalau-of-the-flute",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"track": {
-							"max": 1
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "andalau-of-the-flute",
-								"locations": [
-									"inline",
-									"tab"
-								]
+			"choices": [
+				{
+					"slug": "cracked-flute",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "andalau-of-the-flute",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"followers": {
+								"slugs": [
+									"andalau-of-the-flute"
+								],
+								"inlineDisplay": true,
+								"hideFromFollowersTab": false
+							},
+							"track": {
+								"max": 1
 							}
-						]
-					}
-				]
-			}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

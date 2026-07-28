@@ -72,35 +72,32 @@
 			"item": null,
 			"description": "When you **_boil the bones of beasts in the cauldron_** **_and stir in your own fresh blood,_** mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (*bear-like*, *owl-like*, etc.).\n\nFor each debility you marked, pick 1:\n\n- It is stable (else, it falls apart in a day)\n- It is not *clumsy*\n- Replace its instinct with \"to shun light\"",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": {
-				"slug": "rusty-cauldron",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "unliving-chimera",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"track": {
-							"max": 1
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "unliving-chimera",
-								"locations": [
-									"inline",
-									"tab"
-								]
+			"choices": [
+				{
+					"slug": "rusty-cauldron",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "unliving-chimera",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"followers": {
+								"slugs": [
+									"unliving-chimera"
+								],
+								"inlineDisplay": true,
+								"hideFromFollowersTab": false
+							},
+							"track": {
+								"max": 1
 							}
-						]
-					}
-				]
-			}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

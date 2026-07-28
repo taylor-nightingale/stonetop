@@ -26,7 +26,10 @@ const BACK_DATA = {
 	item: ITEM_DATA,
 	description: "<p>Crackles with lightning.</p>",
 	resource: null,
-	moves: [{ name: "When you speak the secret word", text: "<p>Lightning appears.</p>" }],
+	choices: [
+		{ slug: "moves", title: "Moves", list: [{ type: "entry", slug: "thunderbolt", track: { max: 1 }, grants: [{ type: "move", slug: "thunderbolt", locations: ["inline"] }] }] },
+		{ slug: "consequences", title: "Consequences", list: [{ type: "entry", slug: "c1", content: { text: "A cost." }, track: { max: 1 } }] },
+	],
 	options: [],
 };
 
@@ -125,32 +128,24 @@ describe("ArcanumBack", () => {
 		expect(new ArcanumBack(BACK_DATA).resource).toBeNull();
 	});
 
-	it("wraps moves in ArcanumMove", () => {
+	it("keeps choices as an ordered array of groups (moves / consequences)", () => {
 		const back = new ArcanumBack(BACK_DATA);
-		expect(back.moves).toHaveLength(1);
-		expect(back.moves[0].name).toBe("When you speak the secret word");
-		expect(back.moves[0].text).toBe("<p>Lightning appears.</p>");
+		expect(back.choices.map(g => g.slug)).toEqual(["moves", "consequences"]);
+		expect(back.choices[0].list[0].grants[0]).toEqual({ type: "move", slug: "thunderbolt", locations: ["inline"] });
 	});
 
 	it("options defaults to []", () => {
 		expect(new ArcanumBack({ ...BACK_DATA, options: undefined }).options).toEqual([]);
 	});
 
-	it("moves defaults to [] when absent", () => {
-		expect(new ArcanumBack({ ...BACK_DATA, moves: undefined }).moves).toEqual([]);
+	it("choices defaults to [] when absent", () => {
+		expect(new ArcanumBack({ ...BACK_DATA, choices: undefined }).choices).toEqual([]);
 	});
 
-	it("keeps moveSlugs (major arcana reference real moves by slug)", () => {
-		expect(new ArcanumBack({ ...BACK_DATA, moveSlugs: ["battery", "resonance"] }).moveSlugs)
-			.toEqual(["battery", "resonance"]);
-	});
-
-	it("moveSlugs defaults to [] when absent", () => {
-		expect(new ArcanumBack(BACK_DATA).moveSlugs).toEqual([]);
-	});
-
-	it("consequences defaults to null when absent", () => {
-		expect(new ArcanumBack(BACK_DATA).consequences).toBeNull();
+	it("wraps a legacy single-group choices object into a one-element array", () => {
+		const back = new ArcanumBack({ ...BACK_DATA, choices: { slug: "g", list: [] } });
+		expect(back.choices).toHaveLength(1);
+		expect(back.choices[0].slug).toBe("g");
 	});
 
 	it("unlockAt defaults to null when absent", () => {

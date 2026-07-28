@@ -76,41 +76,38 @@
 		"back": {
 			"title": "Void Elemental",
 			"item": null,
-			"description": "When you **_touch the crown and speak the Words_** **_of Being_**, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you **_touch the crown and chant_** **_the Words of Unbeing_**, the spirit can return to the void—if it wants.",
+			"description": "When you **_touch the crown and speak the Words_** **_of Being_**, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you **_touch the crown and chant_** **_the Words of Unbeing_**, the spirit can return to the void—if it wants.\n\n**HP**\n\nStarts at 15",
 			"resource": {
 				"max": 3,
 				"title": "Loyalty",
 				"labels": []
 			},
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": {
-				"slug": "oversized-crown",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "void-elemental",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"track": {
-							"max": 1
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "void-elemental",
-								"locations": [
-									"inline",
-									"tab"
-								]
+			"choices": [
+				{
+					"slug": "oversized-crown",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "void-elemental",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"followers": {
+								"slugs": [
+									"void-elemental"
+								],
+								"inlineDisplay": true,
+								"hideFromFollowersTab": false
+							},
+							"track": {
+								"max": 1
 							}
-						]
-					}
-				]
-			}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

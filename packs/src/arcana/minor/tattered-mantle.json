@@ -56,35 +56,32 @@
 			"item": null,
 			"description": "When you **_let slip the wraiths tethered to the_** **_mantle_**, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.\n\n*Group* (3), *spirit, undead, terrifying, vicious*\n\nStarts at 13 each",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": {
-				"slug": "tattered-mantle",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "mantle-wraiths",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"track": {
-							"max": 1
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "mantle-wraiths",
-								"locations": [
-									"inline",
-									"tab"
-								]
+			"choices": [
+				{
+					"slug": "tattered-mantle",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "mantle-wraiths",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"followers": {
+								"slugs": [
+									"mantle-wraiths"
+								],
+								"inlineDisplay": true,
+								"hideFromFollowersTab": false
+							},
+							"track": {
+								"max": 1
 							}
-						]
-					}
-				]
-			}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

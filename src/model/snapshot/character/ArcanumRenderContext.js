@@ -15,12 +15,10 @@ export class ArcanumRenderContext {
 		current       = 0,
 		checked       = false,
 		owned         = true,
-		moveSnapshots = null,        // major arcana: real `move`-item snapshots resolved by the caller
 	} = {}) {
 		this.flipped       = flipped;
 		this.checked       = checked;
 		this.owned         = owned;
-		this.moveSnapshots = moveSnapshots;
 		this._choiceValues = choiceValues;
 		this._stats        = stats;
 		this._current      = current;

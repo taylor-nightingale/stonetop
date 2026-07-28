@@ -80,130 +80,132 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": {
-				"slug": "mindgem",
-				"list": [
-					{
-						"slug": "the-mighty-servant",
-						"track": {
-							"max": 1
-						},
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "the-mighty-servant",
-								"locations": [
-									"inline",
-									"tab"
-								]
+			"unlockAt": null,
+			"choices": [
+				{
+					"slug": "mindgem",
+					"list": [
+						{
+							"slug": "the-mighty-servant",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "the-mighty-servant",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "mindgem-c1",
+							"content": {
+								"title": null,
+								"text": "It becomes frustrated/agitated and begins to obsessively do something destructive or dangerous to others"
+							},
+							"track": {
+								"max": 1
 							}
-						]
-					}
-				]
-			},
-			"moveSlugs": [],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "mindgem-c1",
-						"content": {
-							"title": null,
-							"text": "It becomes frustrated/agitated and begins to obsessively do something destructive or dangerous to others"
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "mindgem-c2",
+							"content": {
+								"title": null,
+								"text": "It begins to understand (or perhaps it remembers) lies and deception. It gains the *devious* tag and this move:\n- Reveal an earlier deception or half-truth"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "mindgem-c3",
+							"content": {
+								"title": null,
+								"text": "It develops a sense of pride; cross off the *meek* tag."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "mindgem-c4",
+							"content": {
+								"title": null,
+								"text": "It realizes its potential as a weapon. Replace the *slow* tag with the *warrior* tag, and its damage becomes 1d10+5 (*hand, close, messy, forceful*, 3 piercing)"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "mindgem-c5",
+							"content": {
+								"title": null,
+								"text": "It becomes aggressive and reckless in battle. Its attacks gain the *area* and *dangerous* tags."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "mindgem-c6",
+							"content": {
+								"title": null,
+								"text": "It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant’s new cost (replacing \"wonder, excitement, joy\"). **1d4** purpose cost"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "mindgem-c7",
+							"content": {
+								"title": null,
+								"text": "Its instinct becomes \"to pursue its purpose.\" You must Persuade it to do anything unrelated to that purpose, and it will flat-out refuse to act against its purpose."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "mindgem-c8",
+							"content": {
+								"title": null,
+								"text": "It wanders off in pursuit of its purpose, implacably pursuing it. It is no longer a follower, though you might still be able to Persuade it."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c2",
-						"content": {
-							"title": null,
-							"text": "It begins to understand (or perhaps it remembers) lies and deception. It gains the *devious* tag and this move:\n- Reveal an earlier deception or half-truth"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c3",
-						"content": {
-							"title": null,
-							"text": "It develops a sense of pride; cross off the *meek* tag."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c4",
-						"content": {
-							"title": null,
-							"text": "It realizes its potential as a weapon. Replace the *slow* tag with the *warrior* tag, and its damage becomes 1d10+5 (*hand, close, messy, forceful*, 3 piercing)"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c5",
-						"content": {
-							"title": null,
-							"text": "It becomes aggressive and reckless in battle. Its attacks gain the *area* and *dangerous* tags."
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c6",
-						"content": {
-							"title": null,
-							"text": "It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant’s new cost (replacing \"wonder, excitement, joy\"). **1d4** purpose cost"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c7",
-						"content": {
-							"title": null,
-							"text": "Its instinct becomes \"to pursue its purpose.\" You must Persuade it to do anything unrelated to that purpose, and it will flat-out refuse to act against its purpose."
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "mindgem-c8",
-						"content": {
-							"title": null,
-							"text": "It wanders off in pursuit of its purpose, implacably pursuing it. It is no longer a follower, though you might still be able to Persuade it."
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					}
-				]
-			},
-			"unlockAt": null
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

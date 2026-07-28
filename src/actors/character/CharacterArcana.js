@@ -30,7 +30,6 @@ export class CharacterArcana {
 				current:       resourceController?.getCurrent("inventory", a.slug) ?? 0,
 				checked:       checkedMap[a.slug] ?? false,
 				owned:         true,
-				moveSnapshots: await this._moveSnapshots(a),
 			});
 			return ArcanumSnapshotBuilder.fromArcanum(a.definition(), ctx);
 		}));
@@ -38,14 +37,6 @@ export class CharacterArcana {
 		const minor = new ArcanaSectionSnapshot("Minor Arcana", snapshots.filter(s => !s.major));
 		const major = new ArcanaSectionSnapshot("Major Arcana", snapshots.filter(s => s.major));
 		return new ArcanaSnapshot(minor, major);
-	}
-
-	// Major arcana own their moves as real `move` items in an `arcana-<slug>` category (seeded
-	// un-acquired — the player ticks each to unlock). Minor/custom arcana (no moveSlugs) fall back to the
-	// inline back.moves shape in ArcanumBackSnapshotBuilder, so return null for them.
-	async _moveSnapshots(arcanum) {
-		if (!this._moves || !arcanum.moveSlugs.length) return null;
-		return this._moves.getMoveSnapshotsForCategory(`arcana-${arcanum.slug}`);
 	}
 
 	async sendArcanumMoveToChat(moveId) {
@@ -82,8 +73,11 @@ export class CharacterArcana {
 			await this._followers?.addFollower(slug, { showOnTab: false });
 		}
 		await this._syncSideEffects(arcanum);
+		// Every move the card grants becomes a real, owned move item so it rolls. They're seeded ACQUIRED
+		// (startingSlugs = all): the "unlocked" checkbox is now the granting entry's ornamental choice track,
+		// not the move's acquire state.
 		if (arcanum.moveSlugs.length) {
-			await this._moves?.addCategory(`arcana-${arcanum.slug}`, arcanum.name ?? arcanum.slug, arcanum.moveSlugs, []);
+			await this._moves?.addCategory(`arcana-${arcanum.slug}`, arcanum.name ?? arcanum.slug, arcanum.moveSlugs, arcanum.moveSlugs);
 		}
 	}
 

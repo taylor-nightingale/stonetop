@@ -23,35 +23,16 @@
 		{{#if (hasText back.description)}}
 		<div class="stonetop-arcanum-section">{{rich back.description}}</div>
 		{{/if}}
-		{{#if back.moves.length}}
-		<div class="stonetop-arcanum-section">
-			<p class="stonetop-arcanum-section-label">{{localize "stonetop.arcana.moves"}}</p>
-			<ol class="items-list stonetop-arcanum-moves">
-				{{!-- Major arcana: real move items the player ticks to unlock (categoryKey = source.type =
-				      arcana-<slug>), rollable via the shared move-row wrapper (so the roll resolves the owned
-				      move item, not a bare stat). Minor/custom arcana render inline, always-active, no checkbox. --}}
-				{{#each back.moves}}
-				{{> "stonetop.move-row" showCheck=../major categoryKey=source.type alwaysShowResource=true}}
-				{{/each}}
-			</ol>
-		</div>
-		{{/if}}
-		{{#if back.choices}}
-		<div class="stonetop-arcanum-back-choices stonetop-arcanum-section">
-			{{#if back.choices.title}}<p class="stonetop-arcanum-section-label">{{back.choices.title}}</p>{{/if}}
-			{{#each back.choices.list}}
-			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../back.choices.slug}}
+		{{!-- The back is an ordered list of choice groups (spells / moves / followers / consequences). Each
+		      row renders its content, ornamental track, and any inline follower/move grant via choice-row. --}}
+		{{#each back.choices}}
+		<div class="stonetop-arcanum-section" data-cg-group="{{slug}}">
+			{{#if title}}<p class="stonetop-arcanum-section-label">{{title}}</p>{{/if}}
+			{{#each list}}
+			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../slug}}
 			{{/each}}
 		</div>
-		{{/if}}
-		{{#if back.consequences}}
-		<div class="stonetop-arcanum-consequences stonetop-arcanum-section">
-			<p class="stonetop-arcanum-section-label">{{localize "stonetop.arcana.consequences"}}</p>
-			{{#each back.consequences.list}}
-			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../back.consequences.slug}}
-			{{/each}}
-		</div>
-		{{/if}}
+		{{/each}}
 	</div>
 
 	{{else}}

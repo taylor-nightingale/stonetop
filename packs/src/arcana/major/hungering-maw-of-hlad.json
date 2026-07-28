@@ -55,86 +55,168 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"siphon",
-				"inescapable-pull",
-				"maelstrom",
-				"dust-to-dust"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "hlad-c1",
-						"content": {
-							"title": null,
-							"text": "A powerful earthquake strikes the area. Each time you choose this option, the quake is longer, more powerful, more destructive."
+			"unlockAt": 3,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "siphon",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "siphon",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 3
+						{
+							"type": "entry",
+							"slug": "inescapable-pull",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "inescapable-pull",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "maelstrom",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "maelstrom",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "dust-to-dust",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "dust-to-dust",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "hlad-c2",
-						"content": {
-							"title": null,
-							"text": "The ring fuses to your flesh and bone and can no longer be removed without cutting off your finger."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "hlad-c1",
+							"content": {
+								"title": null,
+								"text": "A powerful earthquake strikes the area. Each time you choose this option, the quake is longer, more powerful, more destructive."
+							},
+							"track": {
+								"max": 3
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "hlad-c2",
+							"content": {
+								"title": null,
+								"text": "The ring fuses to your flesh and bone and can no longer be removed without cutting off your finger."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "hlad-c3",
+							"content": {
+								"title": null,
+								"text": "The air in your presence is always noticeably colder, though you yourself are unharmed and unfazed by even the bitterest cold."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "hlad-c4",
+							"content": {
+								"title": null,
+								"text": "The ring wounds your soul, reducing your max HP by 4. Until your soul is healed, your instinct becomes \"Hunger: to fill the emptiness inside you with excess.\" Should you roll a 6- on Death’s Door, you die and become a wraith (a monster in the GM’s control)."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "hlad-c5",
+							"content": {
+								"title": null,
+								"text": "The ring opens a gaping vortex, sucking in the life-force of everything around it (d10 damage, *near*, *area*, *grabby*, ignores armor) and weakening stone and metal and wood. You can, perhaps, close the vortex through a force of will."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "hlad-c6",
+							"content": {
+								"title": null,
+								"text": "The earth shakes. The ring tears at your life-force (1d10 damage, *messy*, ignores armor, mark all three debilities). The ring is gone and your hand is left a withered and palsied thing. And somewhere, a hole has opened in the world."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "hlad-c3",
-						"content": {
-							"title": null,
-							"text": "The air in your presence is always noticeably colder, though you yourself are unharmed and unfazed by even the bitterest cold."
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "hlad-c4",
-						"content": {
-							"title": null,
-							"text": "The ring wounds your soul, reducing your max HP by 4. Until your soul is healed, your instinct becomes \"Hunger: to fill the emptiness inside you with excess.\" Should you roll a 6- on Death’s Door, you die and become a wraith (a monster in the GM’s control)."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "hlad-c5",
-						"content": {
-							"title": null,
-							"text": "The ring opens a gaping vortex, sucking in the life-force of everything around it (d10 damage, *near*, *area*, *grabby*, ignores armor) and weakening stone and metal and wood. You can, perhaps, close the vortex through a force of will."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "hlad-c6",
-						"content": {
-							"title": null,
-							"text": "The earth shakes. The ring tears at your life-force (1d10 damage, *messy*, ignores armor, mark all three debilities). The ring is gone and your hand is left a withered and palsied thing. And somewhere, a hole has opened in the world."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			"unlockAt": 3
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

@@ -51,8 +51,10 @@ export class OwnedArcanum {
 		return this._item.system?.choiceValues?.blanks ?? {};
 	}
 
+	/** Every move slug this arcanum's cards grant (front + back choice-group move-grant entries) — created
+	 *  as real, owned move items when the arcanum is added, so they roll. */
 	get moveSlugs() {
-		return this._item.system?.back?.moveSlugs ?? [];
+		return ChoiceGroupDefs.grants(this._item.system ?? {}, "move").map(g => g.slug);
 	}
 
 	/** The rich definition (slug/major/name/img/front/back) the snapshot builders consume. */

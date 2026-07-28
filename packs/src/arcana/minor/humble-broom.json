@@ -84,10 +84,8 @@
 			},
 			"description": "When you **_start sweeping an area as you softly_** **_sing the lullaby_**, roll +CHA: **on a 7+**, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. **Also,** **on a 10+**, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.\n\nWhen you **_sing the full lullaby, sweeping all_** **_the while_**, roll +CHA: **on a 10+**, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; **on a 7-9**, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; **on a 6-**, at least one of your audience snaps to and realizes just how weird this all is.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

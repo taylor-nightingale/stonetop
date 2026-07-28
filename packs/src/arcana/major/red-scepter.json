@@ -32,7 +32,7 @@
 						"type": "entry",
 						"content": {
 							"title": null,
-							"text": "When you **_bleed a helpless, living creature and dip the Scepter’s crystal in their still-warm blood_**, mark 1 charge as the crystal soaks up the blood (to a maximum of 3):\n\n**INFLAME** When you **_wield the Scepter and incite an individual to violent action_**, you may erase 1 charge to roll +CHA: **on a 10+**, they must pick 1 from the list below; **on a 7-9**, they may choose to either lash out violently against a target of their choice or choose 1 from the list below.\n- Act as you suggest, without doubt or fear, dealing +1d4 damage while they do so\n- Resist, but suffer painful burns (2d4 damage, ignores armor)."
+							"text": "When you **_bleed a helpless, living creature and dip the Scepter’s crystal in their still-warm blood_**, mark 1 charge as the crystal soaks up the blood (to a maximum of 3):"
 						}
 					},
 					{
@@ -70,6 +70,23 @@
 						"track": {
 							"max": 4
 						}
+					},
+					{
+						"type": "entry",
+						"slug": "inflame",
+						"content": {
+							"title": null,
+							"text": null
+						},
+						"grants": [
+							{
+								"type": "move",
+								"slug": "inflame",
+								"locations": [
+									"inline"
+								]
+							}
+						]
 					}
 				]
 			}
@@ -80,116 +97,160 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"burning-hatred",
-				"fanning-the-flames"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "scepter-c1",
-						"content": {
-							"title": null,
-							"text": "Your skin becomes feverish. You always feel hot and can’t bear to wear *warm* gear."
+			"unlockAt": 4,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "burning-hatred",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "burning-hatred",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "fanning-the-flames",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "fanning-the-flames",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c2",
-						"content": {
-							"title": null,
-							"text": "Your eyes change, glowing like fiery embers. They flare with your temper."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "scepter-c1",
+							"content": {
+								"title": null,
+								"text": "Your skin becomes feverish. You always feel hot and can’t bear to wear *warm* gear."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c3",
-						"content": {
-							"title": null,
-							"text": "The crystal tip of the Scepter cracks, and you cannot use the Scepter’s powers until you have \"fed\" the Scepter another chunk of red crystal, one at least the size of your fist."
+						{
+							"type": "entry",
+							"slug": "scepter-c2",
+							"content": {
+								"title": null,
+								"text": "Your eyes change, glowing like fiery embers. They flare with your temper."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c4",
-						"content": {
-							"title": null,
-							"text": "To gain any future charge, the victim you bleed must be awake and terrified."
+						{
+							"type": "entry",
+							"slug": "scepter-c3",
+							"content": {
+								"title": null,
+								"text": "The crystal tip of the Scepter cracks, and you cannot use the Scepter’s powers until you have \"fed\" the Scepter another chunk of red crystal, one at least the size of your fist."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c5",
-						"content": {
-							"title": null,
-							"text": "To gain any future charge, the blood-letting must be brutal, messy, and wanton."
+						{
+							"type": "entry",
+							"slug": "scepter-c4",
+							"content": {
+								"title": null,
+								"text": "To gain any future charge, the victim you bleed must be awake and terrified."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c6",
-						"content": {
-							"title": null,
-							"text": "Henceforth, when you **_incite someone to violence with the Scepter and they act as you suggest_**, they lose themselves to primal bloodlust. They feel no pain and revel in carnage until they are killed, restrained, or crippled."
+						{
+							"type": "entry",
+							"slug": "scepter-c5",
+							"content": {
+								"title": null,
+								"text": "To gain any future charge, the blood-letting must be brutal, messy, and wanton."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c7",
-						"content": {
-							"title": null,
-							"text": "When you **_use Burning Hatred_**, something on your person or within reach also catches fire."
+						{
+							"type": "entry",
+							"slug": "scepter-c6",
+							"content": {
+								"title": null,
+								"text": "Henceforth, when you **_incite someone to violence with the Scepter and they act as you suggest_**, they lose themselves to primal bloodlust. They feel no pain and revel in carnage until they are killed, restrained, or crippled."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c8",
-						"content": {
-							"title": null,
-							"text": "You always hear a dim howling in the back of your mind. When the wind blows, the howling grows in volume, making it difficult to hear anything other than insults or plans to commit violence."
+						{
+							"type": "entry",
+							"slug": "scepter-c7",
+							"content": {
+								"title": null,
+								"text": "When you **_use Burning Hatred_**, something on your person or within reach also catches fire."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scepter-c9",
-						"content": {
-							"title": null,
-							"text": "When you **_Persuade using anything other than threats, pain, or violence_**, the best you can get is a 7-9."
+						{
+							"type": "entry",
+							"slug": "scepter-c8",
+							"content": {
+								"title": null,
+								"text": "You always hear a dim howling in the back of your mind. When the wind blows, the howling grows in volume, making it difficult to hear anything other than insults or plans to commit violence."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "scepter-c9",
+							"content": {
+								"title": null,
+								"text": "When you **_Persuade using anything other than threats, pain, or violence_**, the best you can get is a 7-9."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			},
-			"unlockAt": 4
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

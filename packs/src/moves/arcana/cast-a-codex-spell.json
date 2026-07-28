@@ -1,0 +1,31 @@
+{
+	"_id": "51578ed66bafe722",
+	"_key": "!items!51578ed66bafe722",
+	"name": "Cast a Codex Spell",
+	"type": "move",
+	"system": {
+		"slug": "cast-a-codex-spell",
+		"moveType": null,
+		"description": "When you **_cast a spell learned from the Hec’tumel Codex_**, roll +INT: **on a 10+**, the spell works as described; **on a 7-9**, the spell works, but choose 1 from the list below; **on a 6-**, mark a consequence (see reverse) in addition to whatever the GM says.\n- You draw unwelcome attention or put yourself in a spot (ask the GM how)\n- Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec’tumel to show you what you’re doing wrong (the penalty is cumulative)",
+		"rollStat": "int",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "the spell works as described"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "the spell works, but choose 1 from the list below"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "mark a consequence (see reverse) in addition to whatever the GM says."
+			}
+		},
+		"resource": {
+			"max": 5,
+			"title": "Casting penalty"
+		}
+	},
+	"folder": "ArcanaMoves00001"
+}

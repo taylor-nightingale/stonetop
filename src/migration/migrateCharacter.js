@@ -352,10 +352,11 @@ export async function migrateArcana(actor, arcanaRepo, followerRepo) {
 }
 
 // ── F2. Arcana mystery moves → real move items ────────────────────────────────
-// Major arcana now own their mystery moves as real `move` items in an `arcana-<slug>` category
-// (mystery-moves-as-real-moves). Existing embedded major arcana carry the legacy inline back.moves and
-// no category; refresh their `back` from the repo so they gain back.moveSlugs, then register the
-// category. addCategory is idempotent (skips if the category already exists), so this is re-run safe.
+// Arcana own the moves they grant as real `move` items in an `arcana-<slug>` category. The moves are
+// referenced by move-grant entries in the arcanum's choice groups (front + back); seed the category
+// ACQUIRED (the "unlocked" checkbox is now the granting entry's ornamental choice track). Note:
+// migrateArcanumPackData refreshes each arcanum's front/back from the pack first, so the grants are the
+// current array shape by the time this runs. addCategory is idempotent, so this is re-run safe.
 export async function migrateArcanaMoves(actor, arcanaRepo, moveRepo) {
 	const arcana = [...actor.items].filter(i => i.type === "arcanum");
 	if (!arcana.length) return;
@@ -364,18 +365,8 @@ export async function migrateArcanaMoves(actor, arcanaRepo, moveRepo) {
 	for (const item of arcana) {
 		const slug = item.system?.slug;
 		if (!slug) continue;
-
-		let back = item.system?.back ?? {};
-		if (!(back.moveSlugs?.length)) {
-			const raw = await arcanaRepo.findBySlug(slug);
-			if (raw?.back?.moveSlugs?.length) {
-				back = raw.back;
-				await actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { back } }]);
-			}
-		}
-
-		const moveSlugs = back.moveSlugs ?? [];
-		if (moveSlugs.length) await moves.addCategory(`arcana-${slug}`, item.name ?? slug, moveSlugs, []);
+		const moveSlugs = ChoiceGroupDefs.grants(item.system ?? {}, "move").map(g => g.slug);
+		if (moveSlugs.length) await moves.addCategory(`arcana-${slug}`, item.name ?? slug, moveSlugs, moveSlugs);
 	}
 }
 
@@ -409,9 +400,12 @@ export async function migrateArcanumChoiceGroupSlugs(actor) {
 	const updates = [];
 	for (const item of actor.items) {
 		if (item.type !== "arcanum") continue;
-		const slug      = item.system?.slug;
-		const back      = item.system?.back;
-		const groupSlug = back?.choices?.slug;
+		const slug = item.system?.slug;
+		const back = item.system?.back;
+		// Only the LEGACY single-group `back.choices` (a follower group that shipped with slug "followers")
+		// needs correcting to the arcanum slug. The current shape is an array of groups with their own
+		// stable slugs — leave it alone.
+		const groupSlug = (back && !Array.isArray(back.choices)) ? back.choices?.slug : null;
 		if (!slug || groupSlug == null || groupSlug === slug) continue;
 		updates.push({ _id: item._id, system: { back: { ...back, choices: { ...back.choices, slug } } } });
 	}

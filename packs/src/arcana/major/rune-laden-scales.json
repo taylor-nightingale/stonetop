@@ -61,98 +61,180 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"indomitable",
-				"magnet",
-				"power-sink",
-				"proof-against-harm"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "scales-c1",
-						"content": {
-							"title": null,
-							"text": "You no longer mark 1 (see reverse) when you simply *defeat* a being that wields chaotic magic; you must destroy it instead."
+			"unlockAt": 5,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "indomitable",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "indomitable",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "magnet",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "magnet",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "power-sink",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "power-sink",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "proof-against-harm",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "proof-against-harm",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "scales-c2",
-						"content": {
-							"title": null,
-							"text": "Mere minions and mindless horrors will no longer suffice. You only mark 1 for destroying a potent agent of chaos, such as a mighty demon or sorcerer."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "scales-c1",
+							"content": {
+								"title": null,
+								"text": "You no longer mark 1 (see reverse) when you simply *defeat* a being that wields chaotic magic; you must destroy it instead."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "scales-c2",
+							"content": {
+								"title": null,
+								"text": "Mere minions and mindless horrors will no longer suffice. You only mark 1 for destroying a potent agent of chaos, such as a mighty demon or sorcerer."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
 						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "scales-c3",
-						"content": {
-							"title": null,
-							"text": "When you **_use or knowingly submit to chaotic magic_**, the Rune-laden Scales cease to benefit you or anyone you consider to be a friend or ally."
+						{
+							"type": "entry",
+							"slug": "scales-c3",
+							"content": {
+								"title": null,
+								"text": "When you **_use or knowingly submit to chaotic magic_**, the Rune-laden Scales cease to benefit you or anyone you consider to be a friend or ally."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "scales-c4",
+							"content": {
+								"title": null,
+								"text": "When you **_kill a living creature out of anger, fear, or passion_**, even an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "scales-c5",
+							"content": {
+								"title": null,
+								"text": "When you **_take any violent action out of anger, fear, or passion_**, even against an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "scales-c6",
+							"content": {
+								"title": null,
+								"text": "You come to the attention of one of the mightiest of the Things Below, and they make your doom—or your corruption—a priority."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "scales-c7",
+							"content": {
+								"title": null,
+								"text": "You ascend into a vision state, in which you meet the spirit of the last hero to wear the Scales. Should you refuse the quest they offer, the Rune-laden Scales cease to function."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "scales-c4",
-						"content": {
-							"title": null,
-							"text": "When you **_kill a living creature out of anger, fear, or passion_**, even an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scales-c5",
-						"content": {
-							"title": null,
-							"text": "When you **_take any violent action out of anger, fear, or passion_**, even against an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself."
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "scales-c6",
-						"content": {
-							"title": null,
-							"text": "You come to the attention of one of the mightiest of the Things Below, and they make your doom—or your corruption—a priority."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "scales-c7",
-						"content": {
-							"title": null,
-							"text": "You ascend into a vision state, in which you meet the spirit of the last hero to wear the Scales. Should you refuse the quest they offer, the Rune-laden Scales cease to function."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			"unlockAt": 5
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

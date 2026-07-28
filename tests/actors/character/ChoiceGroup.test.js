@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ChoiceValues, EntryRow, EntryRowFollowers } from "../../../src/model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues, EntryRow, EntryRowFollowers, EntryRowMoves } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../../../src/model/snapshot/character/buildChoiceGroup.js";
 
 // ── EntryRow — content/track/input ───────────────────────────────────────────
@@ -83,6 +83,28 @@ describe("ChoiceGroup — entry row with a follower reference", () => {
 			new ChoiceValues(),
 		);
 		expect(group.list[0].followers.inlineDisplay).toBe(true);
+	});
+
+	it("emits an EntryRowMoves from an inline move grant (resolved against moves.bySlug at render)", () => {
+		const group = buildChoiceGroup(
+			{ slug: "ns", list: [{ type: "entry", slug: "darksome-vessel", content: {}, track: { max: 1 },
+				grants: [{ type: "follower", slug: "hectumel", locations: ["inline"] }, { type: "move", slug: "darksome-vessel", locations: ["inline"] }] }] },
+			new ChoiceValues(),
+		);
+		// A row can carry both a follower and a move grant.
+		expect(group.list[0].moves).toBeInstanceOf(EntryRowMoves);
+		expect(group.list[0].moves.slugs).toEqual(["darksome-vessel"]);
+		expect(group.list[0].followers.slugs).toEqual(["hectumel"]);
+	});
+
+	it("moves is null for a non-inline (tab-only) move grant, or no move grant", () => {
+		const noInline = buildChoiceGroup(
+			{ slug: "ns", list: [{ type: "entry", slug: "x", content: {}, grants: [{ type: "move", slug: "m", locations: ["tab"] }] }] },
+			new ChoiceValues(),
+		);
+		expect(noInline.list[0].moves).toBeNull();
+		const none = buildChoiceGroup({ slug: "ns", list: [{ type: "entry", slug: "y", content: {} }] }, new ChoiceValues());
+		expect(none.list[0].moves).toBeNull();
 	});
 
 	it("indent is false by default", () => {

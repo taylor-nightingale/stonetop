@@ -171,8 +171,22 @@ export class CharacterMoves {
 		const acquiredSlugs      = _acquiredSlugs(allMoveItems);
 		const resourceController = this._resourceController;
 
-		// Arcana mystery moves live in `arcana-<slug>` categories; they render on their arcanum card, not
-		// the moves tab. They still count toward acquiredSlugs above (for other moves' requirements).
+		// One MoveSnapshot per move item, keyed by slug — the `bySlug` registry an inline move grant (in
+		// any choice row) resolves against, so it renders rollable with its resource. Built for EVERY move,
+		// including arcana-<slug> moves that are kept off the tab below.
+		const snapById = new Map();
+		const bySlug   = {};
+		for (const item of allMoveItems) {
+			const snap = await buildMoveSnapshot(item, item.system?.categoryKey ?? "other",
+				computeSelectable(item),
+				_requirementsMet(item.system ?? null, level, acquiredSlugs),
+				resourceController);
+			snapById.set(item, snap);
+			if (snap.slug) bySlug[snap.slug] = snap;
+		}
+
+		// Arcana moves live in `arcana-<slug>` categories; they render on their arcanum card, not the moves
+		// tab. They still count toward acquiredSlugs above (for other moves' requirements) and stay in bySlug.
 		const tabMoveItems = allMoveItems.filter(i => !(i.system?.categoryKey ?? "").startsWith("arcana-"));
 
 		const byCatKey = new Map();
@@ -187,20 +201,15 @@ export class CharacterMoves {
 
 		const sortedKeys = [...byCatKey.keys()].sort((a, b) => _categoryOrder(a) - _categoryOrder(b));
 
-		const categories = await Promise.all(sortedKeys.map(async catKey => {
+		const categories = sortedKeys.map(catKey => {
 			const meta  = _categoryMetadata(catKey, byCatKey.get(catKey));
-			const moves = await Promise.all(byCatKey.get(catKey).map(item =>
-				buildMoveSnapshot(item, catKey,
-					computeSelectable(item),
-					_requirementsMet(item.system ?? null, level, acquiredSlugs),
-					resourceController)
-			));
+			const moves = byCatKey.get(catKey).map(item => snapById.get(item));
 			return new MoveCategorySnapshotBuilder()
 				.withKey(meta.key).withLabel(meta.label).withRenderStyle(meta.renderStyle)
 				.withAllowAdditional(meta.allowAdditional).withNote(meta.note)
 				.withMoves(moves).build();
-		}));
-		return new MovelistBuilder().withCategories(categories).build();
+		});
+		return new MovelistBuilder().withCategories(categories).withBySlug(bySlug).build();
 	}
 
 	countOwnedBySlug(moveSlug) {

@@ -61,10 +61,8 @@
 			"item": null,
 			"description": "When you **_carve the shattering words of Aalz_** **_Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or_** **_phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

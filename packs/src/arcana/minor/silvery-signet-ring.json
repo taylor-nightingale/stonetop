@@ -76,10 +76,8 @@
 				"title": "Authority",
 				"labels": []
 			},
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

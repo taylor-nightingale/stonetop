@@ -65,10 +65,8 @@
 			"item": null,
 			"description": "When you **_make an offering of good liquor, fresh_** **_fruit, or fresh-cooked meat and call up the shade of_** **_the skull_**, it manifests before you in shadows.\n\nThe shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (**Instinct** to fulfill its increasingly specific longings.)\n\nWhile it rides you, the shade communicates only through impulse and desire. When it **_compels_** **_you to act against your wishes_**, mark XP if you comply. If you resist, you are Defying Danger.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

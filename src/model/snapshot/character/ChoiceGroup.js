@@ -21,14 +21,23 @@ export class EntryRowFollowers {
 	}
 }
 
+/** Inline move grants on a choice entry — a pure REFERENCE (slugs only); the template resolves each
+ *  against the normalized `moves.bySlug` registry at render, rendering a rollable move-row. */
+export class EntryRowMoves {
+	constructor(slugs) {
+		this.slugs = slugs;                 // inline move-grant slugs
+	}
+}
+
 export class EntryRow {
-	constructor(slug, content = {}, track = null, input = null, followers = null, outfitItems = [], indent = false) {
+	constructor(slug, content = {}, track = null, input = null, followers = null, outfitItems = [], indent = false, moves = null) {
 		this.type          = "entry";
 		this.slug          = slug;
 		this.content       = content;       // { title, titleNote, subtitle, subtitleNote, text }
 		this.track         = track;         // null | { slug, checks: bool[], requires? }
 		this.input         = input;         // null | { slug, placeholder, value, type: "inline"|"rich" }
 		this.followers     = followers;     // EntryRowFollowers | null
+		this.moves         = moves;         // EntryRowMoves | null
 		this.outfitItems   = outfitItems;   // OutfitItem[]
 		this.indent        = indent;        // render tabbed in under the previous row
 	}

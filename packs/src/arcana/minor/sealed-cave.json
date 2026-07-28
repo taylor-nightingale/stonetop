@@ -50,10 +50,8 @@
 			"item": null,
 			"description": "When you **_mark a place with the peace-bond_** **_glyphs_**, violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. The longer one stays in a peacebonded area, and the more tightly woven the glyphs are, the greater the effect.\n\nWhen you **_attempt to commit violence within_** **_a peacebonded area, or to harm the peacebond_** **_glyphs themselves_**, you hesitate.\n\nIf you **_will yourself to continue_**, lose 1d4 HP and roll +WIS: **on a 10+**, go for it; **on a 7-9**, you act but have disadvantage on any rolls to commit violence (including damage); **on a 6-**, you fail to act and mark *dazed*.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

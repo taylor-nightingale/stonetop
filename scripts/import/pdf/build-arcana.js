@@ -22,7 +22,7 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
-import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, detectUnlockAt, parseMoveRoll, resourceTracks, followerChoices, followerChoiceEntry, numberBlanks } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, detectUnlockAt, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, numberBlanks } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
@@ -50,29 +50,66 @@ const isLabel = (b, re) => (b.type === "heading" || b.type === "title") && re.te
 const ARCANA_MOVES_DIR = "packs/src/moves/arcana";
 const ARCANA_MOVES_FOLDER = "ArcanaMoves00001"; // packs/src/moves/_folders/arcana.json
 const arcanaMoveId = (slug) => createHash("sha1").update("arcana-move:" + slug).digest("hex").slice(0, 16);
+
+// Write one arcana move pack file from a parsed inline move ({id, name, text, requirement?}). Rollable
+// text ("roll +X") gets its stat + 10+/7-9/6- tiers (bug #43); a matched ○ resource track (back moves'
+// far-right pips, or a front move's Casting penalty) becomes the move's resource, with `hasBlank` → a
+// write-in input (bug #41). Shared by back moves and the front move.
+function writeArcanaMove(m, resourceBySlug) {
+	mkdirSync(ARCANA_MOVES_DIR, { recursive: true });
+	const slug = m.id;
+	const id = arcanaMoveId(slug);
+	const { rollStat, moveResults } = parseMoveRoll(m.text ?? "");
+	const rt = resourceBySlug.get(slug);
+	const resource = rt ? { max: rt.max, title: rt.title ?? null, ...(rt.hasBlank ? { input: { type: "inline" } } : {}) } : null;
+	const doc = { _id: id, _key: `!items!${id}`, name: m.name, type: "move",
+		system: { slug, moveType: null, description: m.text ?? "",
+			...(rollStat ? { rollStat } : {}), ...(moveResults ? { moveResults } : {}),
+			...(resource ? { resource } : {}),
+			...(m.requirement ? { requirement: m.requirement } : {}) }, folder: ARCANA_MOVES_FOLDER };
+	writeFileSync(path.join(ARCANA_MOVES_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n");
+	return slug;
+}
+
 function emitArcanaMoves(back, resourceBySlug = new Map()) {
 	if (!back || !Array.isArray(back.moves)) return back;
-	mkdirSync(ARCANA_MOVES_DIR, { recursive: true });
-	const slugs = [];
-	for (const m of back.moves) {
-		const slug = m.id; slugs.push(slug);
-		const id = arcanaMoveId(slug);
-		// A move whose text says "roll +X" is rollable: pull the stat and the 10+/7-9/6- outcomes so the
-		// sheet shows the dice button and the roll card shows the per-tier result (bug #43).
-		const { rollStat, moveResults } = parseMoveRoll(m.text ?? "");
-		// A move with a right-aligned ○ resource track (Battery, Mindwalking, Storm's Fury) carries a
-		// resource pool; a single ○ with a trailing dotted line is a write-in blank (bug #41).
-		const rt = resourceBySlug.get(slug);
-		const resource = rt ? { max: rt.max, title: null, ...(rt.hasBlank ? { input: { type: "inline" } } : {}) } : null;
-		const doc = { _id: id, _key: `!items!${id}`, name: m.name, type: "move",
-			system: { slug, moveType: null, description: m.text ?? "",
-				...(rollStat ? { rollStat } : {}), ...(moveResults ? { moveResults } : {}),
-				...(resource ? { resource } : {}),
-				...(m.requirement ? { requirement: m.requirement } : {}) }, folder: ARCANA_MOVES_FOLDER };
-		writeFileSync(path.join(ARCANA_MOVES_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n");
-	}
+	const slugs = back.moves.map((m) => writeArcanaMove(m, resourceBySlug));
 	const out = {};
 	for (const [k, v] of Object.entries(back)) { if (k === "moves") out.moveSlugs = slugs; else out[k] = v; }
+	return out;
+}
+
+// A front-granted move (the Codex's CAST A CODEX SPELL) rides on `front._frontMove`; write its move file
+// and strip the transient field (the move-grant unlock entry is already in place from parseFront).
+function emitFrontMove(front, resourceBySlug = new Map()) {
+	if (!front?._frontMove) return front;
+	writeArcanaMove(front._frontMove, resourceBySlug);
+	const out = {}; for (const [k, v] of Object.entries(front)) { if (k !== "_frontMove") out[k] = v; }
+	return out;
+}
+
+// Fold a major/minor back's separate sections into ONE ordered `back.choices` array of groups, dropping
+// the sibling `moveSlugs`/`moves`/`consequences` fields. Canonical order: spells, moves, followers,
+// consequences. A move becomes a choice entry that grants the move inline (with an ornamental checkbox);
+// the move's definition lives in the emitted move item. `back.choices` before the fold is a single group
+// — the spells picks (Hec'tumel Codex) OR the preserved hand-authored follower group (mindgem/blackwood).
+const isFollowerGroup = (grp) => grp?.list?.some((r) => Array.isArray(r.grants) && r.grants.some((x) => x.type === "follower"));
+function foldBackChoices(back, followerGroup = null) {
+	const g = back.choices && !Array.isArray(back.choices) ? back.choices : null;
+	const spells    = g && !isFollowerGroup(g) ? g : null;
+	const followers = followerGroup;
+	const moves = (back.moveSlugs ?? []).length ? {
+		slug: "moves", title: "Moves",
+		list: back.moveSlugs.map((s) => ({
+			type: "entry", slug: s, content: { title: null, text: null }, track: { max: 1 },
+			grants: [{ type: "move", slug: s, locations: ["inline"] }],
+		})),
+	} : null;
+	const consequences = back.consequences ? { ...back.consequences, title: back.consequences.title ?? "Consequences" } : null;
+	const choices = [spells, moves, followers, consequences].filter(Boolean);
+	const out = {};
+	for (const [k, v] of Object.entries(back)) { if (!["choices", "moveSlugs", "moves", "consequences"].includes(k)) out[k] = v; }
+	out.choices = choices;
 	return out;
 }
 
@@ -204,7 +241,12 @@ for (const range of ranges) {
 
 	// Move resource tracks read straight off each page's raw markers (the column split strands them, so
 	// they never survive into `blocks`). Move slugs are unique book-wide, so a flat slug→track map is safe.
-	for (const p of pages) for (const t of resourceTracks(p.lines)) resourceBySlug.set(t.slug, t);
+	// Back moves' pips sit in the far-right column (resourceTracks); a FRONT move's pips sit mid-left,
+	// keyed off its bold ALL-CAPS header (frontMoveResources — the Codex's Casting penalty).
+	for (const p of pages) {
+		for (const t of resourceTracks(p.lines)) resourceBySlug.set(t.slug, t);
+		for (const t of frontMoveResources(p.lines)) resourceBySlug.set(t.slug, t);
+	}
 
 	// Fronts: anchored on arcanum names, bounded at the "front" label.
 	for (const { rec, blocks: bl } of segmentBy(blocks, byName, /^front$/i))
@@ -311,14 +353,19 @@ for (const rec of bySlug.values()) {
 		// The parser is now authoritative for every major back (front→back span segmentation handles the
 		// cards that used to come up empty), so no hand-authored back fallback.
 		let back = parsed.back;
-		// Carve-out: the major follower cards (mindgem/blackwood) inline their followers via a hand-authored
-		// choice group — preserve it (the 3 major followers stay hand-authored, per the roster). Guarded on
-		// the group actually holding followers, so the parser stays authoritative for a non-follower back
-		// choice group (the Hec'tumel Codex's "Spells of the Codex" picks).
-		if (back && rec.doc.system.back?.choices?.list?.some((r) => r.followers)) back.choices = rec.doc.system.back.choices;
-		// Promote parsed inline moves → move pack files + `back.moveSlugs` (no-op if already moveSlugs).
-		back = emitArcanaMoves(back, resourceBySlug);
-		const sys = { slug: rec.slug, front, back, major: true };
+		// The major follower cards (mindgem/blackwood) inline their followers via a hand-authored choice
+		// group — extract it from the existing doc (a single group pre-migration, or an array element after
+		// a prior regen) so the fold re-inserts it in canonical order. The parser stays authoritative for the
+		// rest (spells / moves / consequences).
+		const existing = rec.doc.system.back?.choices;
+		const existingGroups = Array.isArray(existing) ? existing : (existing ? [existing] : []);
+		const followerGroup = existingGroups.find(isFollowerGroup) ?? null;
+		// Promote parsed inline moves → move pack files + `back.moveSlugs`, then fold every back section
+		// (spells / moves / followers / consequences) into the ordered `back.choices` array of groups.
+		back = foldBackChoices(emitArcanaMoves(back, resourceBySlug), followerGroup);
+		// A front-granted move (the Codex's CAST A CODEX SPELL) → its move pack file; strips `_frontMove`.
+		const outFront = emitFrontMove(front, resourceBySlug);
+		const sys = { slug: rec.slug, front: outFront, back, major: true };
 		const out = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
 			...(rec.doc.img ? { img: rec.doc.img } : {}), system: sys, flags: {}, folder: rec.doc.folder };
 		writeFileSync(rec.file, JSON.stringify(out, null, "\t") + "\n");
@@ -371,7 +418,7 @@ if (WRITE_MINOR) {
 		const rec = byName.get(norm(card.frontTitle)) ?? byBackTitle.get(norm(card.backTitle));
 		if (!rec || rec.tier !== "minor") { minorUnmatched.push(`${card.number}:${card.frontTitle}`); continue; }
 		const front = parseFront(card.frontBlocks, { name: rec.doc.name, slug: rec.slug });
-		const back = parseBack(card.backBlocks, { name: card.backTitle, slug: rec.slug, major: false });
+		let back = parseBack(card.backBlocks, { name: card.backTitle, slug: rec.slug, major: false });
 		back.choices = followerChoices(rec.slug, followersByArcana.get(rec.slug)); // inline follower(s), major-style
 		// Manual pass: a few backs don't print their own item — it's implied by the front (e.g. the
 		// redwood basin IS the bittersweet elixir's vessel). Copy the front item onto the back side.
@@ -383,6 +430,7 @@ if (WRITE_MINOR) {
 			minorTables++;
 		});
 		delete back.rollTables;
+		back = foldBackChoices(back); // minors have only a follower group (no moves/consequences) → [followers?]
 		const doc = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
 			...(rec.doc.img ? { img: rec.doc.img } : {}), system: { slug: rec.slug, front, back }, flags: {}, folder: rec.doc.folder };
 		writeFileSync(rec.file, JSON.stringify(doc, null, "\t") + "\n");

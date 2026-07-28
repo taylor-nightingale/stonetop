@@ -61,99 +61,200 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"mindwalking",
-				"a-mighty-will",
-				"farwalker",
-				"telepathy",
-				"thoughtcrafter"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "sphere-c1",
-						"content": {
-							"title": null,
-							"text": "You draw the attention of some powerful, hungry entity of the spirit world. It has your scent."
+			"unlockAt": 3,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "mindwalking",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "mindwalking",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "a-mighty-will",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "a-mighty-will",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "farwalker",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "farwalker",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "telepathy",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "telepathy",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"slug": "thoughtcrafter",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "thoughtcrafter",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "sphere-c2",
-						"content": {
-							"title": null,
-							"text": "Your physical body withers and fades—permanently mark the *weakened* debility"
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "sphere-c1",
+							"content": {
+								"title": null,
+								"text": "You draw the attention of some powerful, hungry entity of the spirit world. It has your scent."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "sphere-c2",
+							"content": {
+								"title": null,
+								"text": "Your physical body withers and fades—permanently mark the *weakened* debility"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "sphere-c3",
+							"content": {
+								"title": null,
+								"text": "Your emotions dull. You can no longer be affected by fear, hate, passion, or other powerful emotions (for good or ill)."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "sphere-c4",
+							"content": {
+								"title": null,
+								"text": "Replace your instinct with \"Detachment: To distance yourself from human connections and emotions.\""
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "sphere-c5",
+							"content": {
+								"title": null,
+								"text": "Your skin tinges bluish; your body becomes cold to the touch. You are unaffected by even the bitterest cold, but find heat and warmth unbearable."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "sphere-c6",
+							"content": {
+								"title": null,
+								"text": "When you take damage from fire, roll twice and take the higher result."
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "sphere-c7",
+							"content": {
+								"title": null,
+								"text": "When you **_roll 6- at Death’s Door_**, you have no choice: gain the Ghost insert (with the Ice Sphere as your tether)."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "sphere-c3",
-						"content": {
-							"title": null,
-							"text": "Your emotions dull. You can no longer be affected by fear, hate, passion, or other powerful emotions (for good or ill)."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "sphere-c4",
-						"content": {
-							"title": null,
-							"text": "Replace your instinct with \"Detachment: To distance yourself from human connections and emotions.\""
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "sphere-c5",
-						"content": {
-							"title": null,
-							"text": "Your skin tinges bluish; your body becomes cold to the touch. You are unaffected by even the bitterest cold, but find heat and warmth unbearable."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "sphere-c6",
-						"content": {
-							"title": null,
-							"text": "When you take damage from fire, roll twice and take the higher result."
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "sphere-c7",
-						"content": {
-							"title": null,
-							"text": "When you **_roll 6- at Death’s Door_**, you have no choice: gain the Ghost insert (with the Ice Sphere as your tether)."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			"unlockAt": 3
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

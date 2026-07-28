@@ -48,85 +48,167 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"suffering-unleashed",
-				"greater-conduit",
-				"the-roots-grow-deep",
-				"we-are-as-one"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "effigy-c1",
-						"content": {
-							"title": null,
-							"text": "Your heartbeat slows and your emotions dull. Magic cannot stir your emotions unless it specifically targets the effigy. Alas, you can no longer Burn Brightly."
+			"unlockAt": 3,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "suffering-unleashed",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "suffering-unleashed",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "effigy-c2",
-						"content": {
-							"title": null,
-							"text": "Your blood flows like sap and your muscles become like wood. Gain +1 armor and +4 max HP, but you can no longer regain HP via the Recover move. When you **_Make Camp_**, you must rest while touching soil or you get no benefit."
+						{
+							"type": "entry",
+							"slug": "greater-conduit",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "greater-conduit",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "effigy-c3",
-						"content": {
-							"title": null,
-							"text": "Henceforth, when **_anyone works magic upon the effigy_**, it affects you instead and bypasses any defenses that you have in place (including Surrogate Suffering)."
+						{
+							"type": "entry",
+							"slug": "the-roots-grow-deep",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "the-roots-grow-deep",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "we-are-as-one",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "we-are-as-one",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "effigy-c4",
-						"content": {
-							"title": null,
-							"text": "Henceforth, when you **_suffer physical harm while you hold Conduit_**, you must spend it and use Surrogate Suffering."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "effigy-c1",
+							"content": {
+								"title": null,
+								"text": "Your heartbeat slows and your emotions dull. Magic cannot stir your emotions unless it specifically targets the effigy. Alas, you can no longer Burn Brightly."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "effigy-c5",
-						"content": {
-							"title": null,
-							"text": "The effigy becomes both *fragile* and highly flammable. When you suffer damage from heat or fire, you take +1d6 damage. If the effigy suffers harm from heat or fire in your place, it will burst into flames and be destroyed."
+						{
+							"type": "entry",
+							"slug": "effigy-c2",
+							"content": {
+								"title": null,
+								"text": "Your blood flows like sap and your muscles become like wood. Gain +1 armor and +4 max HP, but you can no longer regain HP via the Recover move. When you **_Make Camp_**, you must rest while touching soil or you get no benefit."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "effigy-c6",
-						"content": {
-							"title": null,
-							"text": "When you **_roll 6- at Death’s Door_**, you have no choice: gain the Revenant insert until the effigy is destroyed (and you become a wraith controlled by the GM) or it is buried in a Red Grove (and you become an NPC spirit of that grove). When you **_would mark a consequence but they’ve all been marked_**, pick a harm stored in the effigy at random. Erase that harm and suffer it now (it can’t be diverted)."
+						{
+							"type": "entry",
+							"slug": "effigy-c3",
+							"content": {
+								"title": null,
+								"text": "Henceforth, when **_anyone works magic upon the effigy_**, it affects you instead and bypasses any defenses that you have in place (including Surrogate Suffering)."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "effigy-c4",
+							"content": {
+								"title": null,
+								"text": "Henceforth, when you **_suffer physical harm while you hold Conduit_**, you must spend it and use Surrogate Suffering."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "effigy-c5",
+							"content": {
+								"title": null,
+								"text": "The effigy becomes both *fragile* and highly flammable. When you suffer damage from heat or fire, you take +1d6 damage. If the effigy suffers harm from heat or fire in your place, it will burst into flames and be destroyed."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "effigy-c6",
+							"content": {
+								"title": null,
+								"text": "When you **_roll 6- at Death’s Door_**, you have no choice: gain the Revenant insert until the effigy is destroyed (and you become a wraith controlled by the GM) or it is buried in a Red Grove (and you become an NPC spirit of that grove). When you **_would mark a consequence but they’ve all been marked_**, pick a harm stored in the effigy at random. Erase that harm and suffer it now (it can’t be diverted)."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			},
-			"unlockAt": 3
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

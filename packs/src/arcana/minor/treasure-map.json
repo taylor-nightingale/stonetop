@@ -120,10 +120,8 @@
 			},
 			"description": "A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.\n\nWhen you **_jingle the silver branch_**, all who hear it (*reach*, *area* except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n\n- The branch starts to fade; if already fading, it goes bare, its powers gone\n- Some (GM’s choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime\n- Some (GM’s choice of who) become obsessed with hearing it jingle again",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

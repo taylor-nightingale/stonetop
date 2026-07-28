@@ -75,92 +75,127 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"the-flesh-remembers",
-				"unholy-visage"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "cloak-c1",
-						"content": {
-							"title": null,
-							"text": "You experience an overwhelming vision, from the point of view of a demon sewn into the Cloak. Ask the GM what you see and when you come to."
+			"unlockAt": 3,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "the-flesh-remembers",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "the-flesh-remembers",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 2
+						{
+							"type": "entry",
+							"slug": "unholy-visage",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "unholy-visage",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "cloak-c2",
-						"content": {
-							"title": null,
-							"text": "A number of seams fray and tear. The Cloak loses its powers until you sew a new piece of"
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cloak-c3",
-						"content": {
-							"title": null,
-							"text": "demon flesh into it."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cloak-c4",
-						"content": {
-							"title": null,
-							"text": "The Cloak’s stench grows stronger, noticeable even when you go unseen and unheard. You smell faintly of the Cloak even when you aren’t wearing it."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cloak-c5",
-						"content": {
-							"title": null,
-							"text": "You become incapable of fear while wearing the Cloak. If you **_wear the Cloak during a session_**, your instinct becomes \"Recklessness: To act with no regard to danger or consequence.\""
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cloak-c6",
-						"content": {
-							"title": null,
-							"text": "You begin to hear the voices of the dark creatures sewn into the Cloak. The Cloak becomes a follower (see below). When you would mark a Consequence, you can choose to spend 1 of the Cloak’s Loyalty instead."
-						},
-						"track": {
-							"max": 1
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "the-cloak",
-								"locations": [
-									"inline"
-								]
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "cloak-c1",
+							"content": {
+								"title": null,
+								"text": "You experience an overwhelming vision, from the point of view of a demon sewn into the Cloak. Ask the GM what you see and when you come to."
+							},
+							"track": {
+								"max": 2
 							}
-						]
-					}
-				]
-			},
-			"unlockAt": 3
+						},
+						{
+							"type": "entry",
+							"slug": "cloak-c2",
+							"content": {
+								"title": null,
+								"text": "A number of seams fray and tear. The Cloak loses its powers until you sew a new piece of"
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "cloak-c3",
+							"content": {
+								"title": null,
+								"text": "demon flesh into it."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "cloak-c4",
+							"content": {
+								"title": null,
+								"text": "The Cloak’s stench grows stronger, noticeable even when you go unseen and unheard. You smell faintly of the Cloak even when you aren’t wearing it."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "cloak-c5",
+							"content": {
+								"title": null,
+								"text": "You become incapable of fear while wearing the Cloak. If you **_wear the Cloak during a session_**, your instinct becomes \"Recklessness: To act with no regard to danger or consequence.\""
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "cloak-c6",
+							"content": {
+								"title": null,
+								"text": "You begin to hear the voices of the dark creatures sewn into the Cloak. The Cloak becomes a follower (see below). When you would mark a Consequence, you can choose to spend 1 of the Cloak’s Loyalty instead."
+							},
+							"track": {
+								"max": 1
+							}
+						}
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

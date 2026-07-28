@@ -2,7 +2,7 @@
 // rich description, unlock track) + back (title, item / itemSameAsFront, rich description, resource,
 // choices; major-only: mystery moves, consequences, unlockAt) + major/weight. The three choice groups
 // (front.unlock, back.choices, back.consequences) reuse the shared choiceGroupEdit helpers +
-// choiceGroupEditorMixin + choice-group-editor partial; the mystery-moves list uses arcanumMoveEdit.
+// choiceGroupEditorMixin + choice-group-editor partial. Moves are choice-group entries that grant a move.
 // The V2 form's submitOnChange auto-saves `name`/`system.*` inputs, including the two named
 // <prose-mirror> descriptions.
 //
@@ -11,13 +11,10 @@
 // siblings. _prepareContext initialises front/back to {} so there is always a merge target.
 
 import * as CG from "../utils/choiceGroupEdit.js";
-import * as AME from "../utils/arcanumMoveEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { bindAll } from "../utils/bindAll.js";
 import { Arcanum } from "../model/data/character/Arcanum.js";
 import { ArcanumSnapshotBuilder, ArcanumRenderContext } from "../model/snapshot/character/CharacterSnapshot.js";
-import { MoveSnapshotBuilder } from "../model/snapshot/character/MoveSnapshot.js";
-import { FoundryMoveRepository } from "../actors/character/repositories/FoundryMoveRepository.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 
 const BLANK_ITEM     = () => ({ name: "", weight: 1, tags: null, note: null, inventoryColumn: null, twoCol: false, resource: null });
@@ -30,7 +27,7 @@ function isArcanumBlank(front = {}, back = {}) {
 	return !(
 		has(front.title) || has(front.description) || front.item != null || front.unlock != null ||
 		has(back.title)  || has(back.description)  || back.item  != null || back.resource != null ||
-		back.choices != null || (back.moves && back.moves.length) || back.consequences != null
+		has(back.choices)
 	);
 }
 
@@ -84,31 +81,25 @@ export function createStonetopArcanumSheetClass(Base) {
 			context.back     = back;
 			context.frontItem = front.item ?? null;
 			context.backItem  = back.item  ?? null;
-			// Whether each choice group EXISTS (so a freshly-added, still-empty group renders its editor —
-			// `{{#if rows}}` would be false for an empty array). Rows may be [] for an empty group.
-			context.hasUnlock        = front.unlock      != null;
-			context.hasBackChoices   = back.choices      != null;
-			context.hasConsequences  = back.consequences != null;
-			context.unlockRows       = front.unlock      ? CG.buildRows(front.unlock)      : [];
-			context.backChoiceRows   = back.choices      ? CG.buildRows(back.choices)      : [];
-			context.consequenceRows  = back.consequences ? CG.buildRows(back.consequences) : [];
-			context.moves            = back.moves ?? [];
+			// The front unlock is a single group; the back is an ordered ARRAY of groups (spells / moves /
+			// followers / consequences), each edited via the shared choice-group editor (mirrors the Insert
+			// sheet). A freshly-added, still-empty group must still render its editor, so pass the groups.
+			context.hasUnlock        = front.unlock != null;
+			context.unlockRows       = front.unlock ? CG.buildRows(front.unlock) : [];
+			context.backChoiceGroups = (back.choices ?? []).map((grp, i) => ({
+				index: i, slug: grp.slug, title: grp.title ?? null,
+				cgPath: `system.back.choices.${i}`, rows: CG.buildRows(grp),
+			}));
 
 			// Live preview — the SAME snapshot builder + arcanum-cards.hbs partial the character uses.
 			this._previewFlipped ??= false;
 			const arcanum = new Arcanum({
 				slug: sys.slug, major: sys.major, name: this.item.name, img: this.item.img, front, back,
 			});
-			// Major arcana reference mystery moves by slug; resolve them read-only so a locked canonical
-			// arcanum still previews its moves (custom arcana author inline back.moves → moveSnapshots null).
-			const moveSlugs = back.moveSlugs ?? [];
-			const resolved  = moveSlugs.length ? await new FoundryMoveRepository().getMovesBySlugs(moveSlugs) : [];
-			const moveSnapshots = resolved.length
-				? resolved.map(m => MoveSnapshotBuilder.forArcanum({ id: m.slug, name: m.name, text: m.description }))
-				: null;
-			context.preview        = [ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext({ flipped: this._previewFlipped, moveSnapshots }))];
-			// Inline follower rows are slug references resolved against the character's followers.bySlug at
-			// render; an item-sheet preview has no such registry, so those rows simply show nothing here.
+			context.preview        = [ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext({ flipped: this._previewFlipped }))];
+			// Inline follower/move grants are slug references resolved against the character's
+			// followers.bySlug / moves.bySlug at render; an item-sheet preview has no such registry, so those
+			// grants simply show nothing here.
 			await enrichRichTextTree(context.preview, this.item?.getRollData?.() ?? {});
 			// The non-editable description view ({{else}} branch) renders the SAME enriched front/back
 			// RichText the preview card uses — no separate {{md}} render path.
@@ -130,14 +121,24 @@ export function createStonetopArcanumSheetClass(Base) {
 			if (!this.isEditable) return;
 			const root = this.element;
 
-			activateChoiceGroupEditors(this, root); // edits front.unlock / back.choices / back.consequences
+			activateChoiceGroupEditors(this, root); // edits front.unlock + each back.choices[i] group
 
-			// Choice-group lifecycle (create / remove a whole group at a given path).
+			// front.unlock is a single group (create / remove at a fixed path).
 			const setGroup = (path, group) => this.item.update({ [path]: group });
 			bindAll(root, ".arcanum-group-add", "click", ev =>
 				setGroup(ev.currentTarget.dataset.path, CG.newGroup(ev.currentTarget.dataset.slug || this.item.system.slug)));
 			bindAll(root, ".arcanum-group-remove", "click", ev =>
 				setGroup(ev.currentTarget.dataset.path, null));
+
+			// back.choices is an ARRAY of groups — add appends a new group, remove splices by index
+			// (whole-array atomic writes, mirroring the Insert sheet).
+			const backChoices = () => this.item.system.back?.choices ?? [];
+			bindAll(root, ".arcanum-back-group-add", "click", () =>
+				this.item.update({ "system.back.choices": [...backChoices(), CG.newGroup(`choices-${backChoices().length}`)] }));
+			bindAll(root, ".arcanum-back-group-remove", "click", ev => {
+				const arr = [...backChoices()]; arr.splice(Number(ev.currentTarget.dataset.index), 1);
+				this.item.update({ "system.back.choices": arr });
+			});
 
 			// Optional item definition (front.item / back.item) — toggle on/off.
 			bindAll(root, ".arcanum-item-toggle", "click", ev => {
@@ -156,21 +157,6 @@ export function createStonetopArcanumSheetClass(Base) {
 				const path   = ev.currentTarget.dataset.path;
 				const labels = ev.currentTarget.value ? ev.currentTarget.value.split(",").map(s => s.trim()).filter(Boolean) : [];
 				this.item.update({ [`${path}.labels`]: labels });
-			});
-
-			// Mystery moves (back.moves) — bespoke list editor (whole-array writes).
-			const moves    = () => this.item.system.back?.moves ?? [];
-			const setMoves = list => this.item.update({ "system.back.moves": list });
-			const idx      = ev => Number(ev.currentTarget.dataset.index);
-			bindAll(root, ".arcanum-move-add", "click",            ()  => setMoves(AME.addMove(moves())));
-			bindAll(root, ".arcanum-move-remove", "click",         ev  => setMoves(AME.removeMove(moves(), idx(ev))));
-			bindAll(root, ".arcanum-move-up", "click",             ev  => setMoves(AME.moveMove(moves(), idx(ev), -1)));
-			bindAll(root, ".arcanum-move-down", "click",           ev  => setMoves(AME.moveMove(moves(), idx(ev), 1)));
-			bindAll(root, ".arcanum-move-toggle-tracker", "click", ev  => setMoves(AME.toggleTracker(moves(), idx(ev))));
-			bindAll(root, ".arcanum-move-field", "change", ev => {
-				const el = ev.currentTarget;
-				const value = el.type === "number" ? (el.value ? Number(el.value) : null) : (el.value || null);
-				setMoves(AME.setMoveField(moves(), { index: Number(el.dataset.index), field: el.dataset.field, value }));
 			});
 		}
 	};

@@ -19,14 +19,14 @@ function consequenceArcanumItem() {
 			slug: "blood-quenched-sword", major: true, flipped: true,
 			front: { title: "Blood-quenched Sword", description: null, item: null, unlock: null },
 			back: {
-				title: "The curse", description: "the back", choices: null,
-				consequences: {
-					slug: "consequences",
+				title: "The curse", description: "the back",
+				choices: [{
+					slug: "consequences", title: "Consequences",
 					list: [
 						{ type: "entry", slug: "sword-c1", content: { title: null, text: "blood-rage" }, track: { max: 3 } },
 						{ type: "entry", slug: "sword-c2", content: { title: null, text: "paranoia" }, track: { max: 1 } },
 					],
-				},
+				}],
 			},
 			choiceValues: {},
 		},
@@ -45,7 +45,8 @@ function characterWithConsequenceArcanum() {
 async function consequenceChecks(character, optionSlug) {
 	const snap = await character.buildSnapshot();
 	const card = snap.arcana.major.items.find(a => a.slug === "blood-quenched-sword");
-	const row  = card.back.consequences.list.find(r => r.slug === optionSlug);
+	const group = card.back.choices.find(g => g.slug === "consequences");
+	const row  = group.list.find(r => r.slug === optionSlug);
 	return row.track.checks;
 }
 

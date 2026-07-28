@@ -61,10 +61,8 @@
 			"item": null,
 			"description": "When you **_will dark ice to form_**, lose 1 HP, +1 HP for each of the following you desire:\n\n- It’s enough to make a small wall or encase a person (else, it’s at most)\n- It’s hard as stone\n- It’s solid to spirits, able to block/harm/ hinder them Then, roll +CON: **on a 10+**, pick 2; **on a 7-9**, pick 1, or pick 2 and lose 2 more HP.\n- It forms quickly, even violently (else, it takes minutes, even hours)\n- It forms at up to *near* range (else, it forms at only *hand* range)\n- Its shape is as intricate as you can imagine (else, it’s just a crude block) The ice persists until it’s broken, melted by intense heat, or you let it melt. You cannot regain the spent HP while it persists.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

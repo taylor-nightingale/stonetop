@@ -101,7 +101,9 @@ export function numberBlanks(system) {
 	if (back) {
 		back.description = number(back.description);
 		for (const m of back.moves ?? []) m.text = number(m.text);
-		entries(back.choices);
+		// back.choices is an ordered array of groups (spells / moves / followers / consequences); older
+		// single-group / consequences fields are handled too for a pre-fold pass.
+		for (const group of Array.isArray(back.choices) ? back.choices : [back.choices]) entries(group);
 		entries(back.consequences);
 	}
 	return n;
@@ -329,6 +331,26 @@ export function resourceTracks(lines) {
 	return tracks;
 }
 
+/** Read a FRONT move's right-aligned resource off a page's raw lines. A front move header is a bold
+ *  ALL-CAPS line (the Hec'tumel Codex's "CAST A CODEX SPELL"); its resource is a run of ○ pips on the
+ *  same baseline to the right, preceded by an italic label ("Casting penalty"). Unlike `resourceTracks`,
+ *  the pips sit in the left page column (x≈330), not the back's far-right column — so this keys off the
+ *  header baseline instead of a fixed x. Returns [{ slug, max, title }] (slug = the move's slug). */
+export function frontMoveResources(lines) {
+	const out = [];
+	const headers = lines.filter((l) => /Bold/.test(l.font || "") && /^[A-Z][A-Z0-9 '’]+$/.test((l.text || "").trim()));
+	for (const h of headers) {
+		const y = h.bbox[1];
+		const pips = lines.filter((l) => l.font === "marker" && l.text.includes("○") && Math.abs(l.bbox[1] - y) <= 5 && l.bbox[0] > h.bbox[2]);
+		const max = pips.reduce((n, p) => n + (p.text.match(/○/g) || []).length, 0);
+		if (!max) continue;
+		const pipX = Math.min(...pips.map((p) => p.bbox[0]));
+		const label = lines.find((l) => /Italic/.test(l.font || "") && Math.abs(l.bbox[1] - y) <= 5 && l.bbox[0] < pipX && l.bbox[2] <= pipX + 2);
+		out.push({ slug: toSlug(titleCase(h.text.trim())), max, title: label ? label.text.trim() : null });
+	}
+	return out;
+}
+
 /** Split a major move header line's leading ALL-CAPS run (the move name) from any inline remainder
  *  ("WHISPERS When you grip the shaft" → {name:"WHISPERS", rest:"When you grip the shaft"}). */
 export function majorMoveName(text) {
@@ -450,6 +472,38 @@ export function parseFront(blocks, { name, slug }) {
 	}
 	front.item = item;
 
+	// A rollable ALL-CAPS front header (the Hec'tumel Codex's "CAST A CODEX SPELL") is a front-granted
+	// MOVE, not an unlock option: pull that para (and its following option bullets) out of the seq into a
+	// move def + a move-grant unlock entry. Gated tightly — an ALL-CAPS bold run-in that is rollable
+	// (`roll +X`) — so only the Codex's front move matches. build-arcana emits the move file from `_frontMove`.
+	let frontMove = null;
+	{
+		const i = seq.findIndex((s) => {
+			if (s.kind !== "para") return false;
+			const md = joinMd(s.lines);
+			const nm = runInName(md);
+			return nm && /^[A-Z][A-Z0-9 '’-]+$/.test(nm) && !!parseMoveRoll(md).rollStat;
+		});
+		if (i >= 0) {
+			const md = joinMd(seq[i].lines);
+			const name = titleCase(runInName(md));
+			let text = stripMarkers(md).replace(/^\*\*[^*]+\*\*\s*/, "").trim();
+			let j = i + 1;
+			for (; j < seq.length && seq[j].kind === "li"; j++)
+				text += "\n- " + stripMarkers(joinMd(seq[j].lines)).replace(/^[ä••\-\s]+/, "");
+			frontMove = { id: toSlug(name), name, text };
+			seq.splice(i, j - i);
+		}
+	}
+	const attachFrontMove = () => {
+		if (!frontMove) return;
+		front._frontMove = frontMove;
+		(front.unlock ??= { slug, list: [] }).list.push({
+			type: "entry", slug: frontMove.id, content: { title: null, text: null },
+			grants: [{ type: "move", slug: frontMove.id, locations: ["inline"] }],
+		});
+	};
+
 	// MAJOR-style unlock: the options are bold-italic "When you **_…_**" trigger paragraphs, each
 	// accreting its following option bullets / continuation paras; task checkboxes and the Marks run are
 	// their own tracked entries. (Minors have no such triggers — they fall through to the li logic below.)
@@ -475,6 +529,7 @@ export function parseFront(blocks, { name, slug }) {
 		// Drop the trailing gate instruction ("When you make the last mark, you unlock …") after the track.
 		if (list.some((e) => e.track)) while (list.length && !list[list.length - 1].track) list.pop();
 		front.unlock = { slug, list };
+		attachFrontMove();
 		return front;
 	}
 
@@ -513,6 +568,7 @@ export function parseFront(blocks, { name, slug }) {
 	// the last mark, you unlock …") — they're informational, not unlock options.
 	if (list.some((e) => e.track)) while (list.length && !list[list.length - 1].track) list.pop();
 	front.unlock = { slug, list };
+	attachFrontMove();
 	return front;
 }
 

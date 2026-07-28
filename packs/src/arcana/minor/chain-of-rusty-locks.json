@@ -71,10 +71,8 @@
 				"title": "Disturbance",
 				"labels": []
 			},
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

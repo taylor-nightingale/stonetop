@@ -1,0 +1,27 @@
+{
+	"_id": "a86e34485544f053",
+	"_key": "!items!a86e34485544f053",
+	"name": "Inflame",
+	"type": "move",
+	"system": {
+		"slug": "inflame",
+		"moveType": null,
+		"description": "When you **_wield the Scepter and incite an individual to violent action_**, you may erase 1 charge to roll +CHA: **on a 10+**, they must pick 1 from the list below; **on a 7-9**, they may choose to either lash out violently against a target of their choice or choose 1 from the list below.\n- Act as you suggest, without doubt or fear, dealing +1d4 damage while they do so\n- Resist, but suffer painful burns (2d4 damage, ignores armor).",
+		"rollStat": "cha",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "they must pick 1 from the list below"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "they may choose to either lash out violently against a target of their choice or choose 1 from the list below."
+			},
+			"failure": {
+				"label": "6-",
+				"value": ""
+			}
+		}
+	},
+	"folder": "ArcanaMoves00001"
+}

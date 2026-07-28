@@ -37,13 +37,23 @@
     consequences) wraps ALL its output — title, track, text, input, followers — so the flag is
     honored regardless of the row's composition. Un-indented rows keep their flat structure. }}
 {{#if indent}}<div class="stonetop-choice--indent">{{/if}}
-{{#if (and followers.inlineDisplay (not (hasText content.title)) (not (hasText content.text)) (not (hasText content.subtitle)))}}
-{{! A follower row with no content of its own: the mark sits INLINE with the follower card, not alone on
-    an empty line above it. }}
+{{#if (and (or followers.inlineDisplay moves) (not (hasText content.title)) (not (hasText content.text)) (not (hasText content.subtitle)))}}
+{{! A bare grant row (a follower/move IS the row): the ornamental mark sits INLINE with the granted
+    card/move, not alone on an empty line above it. }}
+{{#if followers.inlineDisplay}}
 <div class="stonetop-arcanum-follower">
     {{#if track}}<span class="stonetop-choice-track-checks">{{> track-checks}}</span>{{/if}}
     {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
 </div>
+{{/if}}
+{{#if moves}}
+<div class="stonetop-arcanum-move-grant">
+    {{#if track}}<span class="stonetop-choice-track-checks">{{> track-checks}}</span>{{/if}}
+    <ol class="items-list stonetop-arcanum-moves">
+        {{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" showCheck=false alwaysShowResource=true}}{{/with}}{{/each}}
+    </ol>
+</div>
+{{/if}}
 {{else}}
 {{! Content / track / input rendered like any entry row (same checkbox, tabbing, formatting as siblings);
     a linked follower's card sits below the content. }}
@@ -109,6 +119,14 @@
 {{#if followers.inlineDisplay}}
 <div class="stonetop-arcanum-follower">
     {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
+</div>
+{{/if}}
+{{! The row's inline move grant(s), below its content — resolved against the moves.bySlug registry. }}
+{{#if moves}}
+<div class="stonetop-arcanum-move-grant">
+    <ol class="items-list stonetop-arcanum-moves">
+        {{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" showCheck=false alwaysShowResource=true}}{{/with}}{{/each}}
+    </ol>
 </div>
 {{/if}}
 {{/if}}

@@ -61,104 +61,129 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"spirits-of-the-herd"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "witch-c1",
-						"content": {
-							"title": null,
-							"text": "You give off a strong, musky scent no matter how much you bathe. It is distinctive and easily recognized."
-						},
-						"track": {
-							"max": 1
+			"unlockAt": 5,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "spirits-of-the-herd",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "spirits-of-the-herd",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c2",
-						"content": {
-							"title": null,
-							"text": "Over the next few days, you grow 4-6 inches."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "witch-c1",
+							"content": {
+								"title": null,
+								"text": "You give off a strong, musky scent no matter how much you bathe. It is distinctive and easily recognized."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c3",
-						"content": {
-							"title": null,
-							"text": "Over the next few days, your body mass doubles. Your size and relative strength remain mostly the same."
+						{
+							"type": "entry",
+							"slug": "witch-c2",
+							"content": {
+								"title": null,
+								"text": "Over the next few days, you grow 4-6 inches."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c4",
-						"content": {
-							"title": null,
-							"text": "You consume twice the normal amount of supplies or provisions each day."
+						{
+							"type": "entry",
+							"slug": "witch-c3",
+							"content": {
+								"title": null,
+								"text": "Over the next few days, your body mass doubles. Your size and relative strength remain mostly the same."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c5",
-						"content": {
-							"title": null,
-							"text": "You make an inordinate amount of noise; your voice booms, your feet stomp heavily, even your breathing is loud."
+						{
+							"type": "entry",
+							"slug": "witch-c4",
+							"content": {
+								"title": null,
+								"text": "You consume twice the normal amount of supplies or provisions each day."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c6",
-						"content": {
-							"title": null,
-							"text": "Your attacks all gain the *forceful* tag (and become more so if they already were *forceful*) and large weapons lose the *awkward* tag. Alas, you hardly know your own strength and must be careful to avoid breaking things (including your friends)."
+						{
+							"type": "entry",
+							"slug": "witch-c5",
+							"content": {
+								"title": null,
+								"text": "You make an inordinate amount of noise; your voice booms, your feet stomp heavily, even your breathing is loud."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c7",
-						"content": {
-							"title": null,
-							"text": "Predators sense that you would be delicious and will choose to attack and eat you before just about any other potential prey."
+						{
+							"type": "entry",
+							"slug": "witch-c6",
+							"content": {
+								"title": null,
+								"text": "Your attacks all gain the *forceful* tag (and become more so if they already were *forceful*) and large weapons lose the *awkward* tag. Alas, you hardly know your own strength and must be careful to avoid breaking things (including your friends)."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "witch-c8",
-						"content": {
-							"title": null,
-							"text": "You become territorial and overly defensive of your allies. When someone or thing **_disrespects you,_** **_challenges your authority, or directly threatens your allies_**, you have disadvantage to do anything other than set them straight."
+						{
+							"type": "entry",
+							"slug": "witch-c7",
+							"content": {
+								"title": null,
+								"text": "Predators sense that you would be delicious and will choose to attack and eat you before just about any other potential prey."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "witch-c8",
+							"content": {
+								"title": null,
+								"text": "You become territorial and overly defensive of your allies. When someone or thing **_disrespects you,_** **_challenges your authority, or directly threatens your allies_**, you have disadvantage to do anything other than set them straight."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			},
-			"unlockAt": 5
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

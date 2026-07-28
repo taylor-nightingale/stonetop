@@ -67,10 +67,8 @@
 			"item": null,
 			"description": "When you **_strike the chime forcefully and will_** **_yourself to maintain your grip upon it_**, mark a debility and roll +CON.\n\n**On a 10+**, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.\n\n**On a 7-9**, pick 1:\n\n- Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility\n- Realize that you can’t control it and dampen the chime before it causes any harm (say how)",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

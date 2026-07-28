@@ -61,10 +61,8 @@
 			"item": null,
 			"description": "When you **_trace the runes along the inside of a_** **_room or container_**, they gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each of the following that are true:\n\n- The container/room is more than a few feet long in any dimension\n- The container is portable (else, the effect ends if it is moved)\n- The effect lasts indefinitely, as long as the runes are intact (else, it starts when the room/container is sealed and ends when it is unsealed) Once the runes are in place, roll +CON: **on a** **10+**, you regain the lost HP normally; **on a 7-9**, you can’t regain the lost HP until a season passes *or* the effect ends, whichever comes first; **on a 6-**, you can’t regain the lost HP until the effect ends and then a season passes (and don’t mark XP).",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

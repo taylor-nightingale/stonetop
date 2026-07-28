@@ -95,10 +95,8 @@
 			},
 			"description": "When you **_Clash with the aetherium spear and_** **_get a 7+_**, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful*, *loud*).\n\nWhen you **point the aetherium spear at your foes** **and bellow a thunderous warcry**, mark a debility and unleash a blast of lightning (*far*, *area*, *force**ful*, *loud*, *dangerous*), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). **On a 6-**, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

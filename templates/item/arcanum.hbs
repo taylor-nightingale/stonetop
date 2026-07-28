@@ -98,38 +98,27 @@
 				{{/if}}
 				</div>
 
+				{{!-- The back is an ordered ARRAY of choice groups (spells / moves / followers / consequences).
+				      Each group has an editable title + slug, its rows, and a remove button; a move is a row
+				      that grants a move inline. --}}
 				<div class="stonetop-arcanum-subhead">
 					<span>{{localize "stonetop.arcanum.choices"}}</span>
-					{{#if hasBackChoices}}
-					<button type="button" class="arcanum-group-remove" data-path="system.back.choices">{{localize "stonetop.arcanum.remove"}}</button>
-					{{else}}
-					<button type="button" class="arcanum-group-add" data-path="system.back.choices" data-slug="choices">{{localize "stonetop.arcanum.add"}}</button>
-					{{/if}}
+					<button type="button" class="arcanum-back-group-add">{{localize "stonetop.arcanum.add"}}</button>
 				</div>
-				{{#if hasBackChoices}}{{> "stonetop.choice-group-editor" cgPath="system.back.choices" rows=backChoiceRows}}{{/if}}
+				{{#each backChoiceGroups}}
+				<div class="stonetop-arcanum-back-group" data-cg-path="{{cgPath}}">
+					<div class="stonetop-arcanum-subhead">
+						<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
+							<input type="text" data-choices-target="group" data-choices-field="title" value="{{title}}">
+						</label>
+						<span class="stonetop-arcanum-slug">{{slug}}</span>
+						<button type="button" class="arcanum-back-group-remove" data-index="{{index}}">{{localize "stonetop.arcanum.remove"}}</button>
+					</div>
+					{{> "stonetop.choice-group-editor" cgPath=cgPath rows=rows}}
+				</div>
+				{{/each}}
 
 				{{#if major}}
-				{{!-- Major-only: mystery moves, consequences, unlock-at --}}
-				<div class="stonetop-arcanum-subhead">
-					<span>{{localize "stonetop.arcanum.moves"}}</span>
-					<button type="button" class="arcanum-move-add">{{localize "stonetop.arcanum.add"}}</button>
-				</div>
-				<div class="stonetop-arcanum-move-editor-list">
-					{{#each moves}}
-					{{> "stonetop.arcanum-move" move=this index=@index}}
-					{{/each}}
-				</div>
-
-				<div class="stonetop-arcanum-subhead">
-					<span>{{localize "stonetop.arcanum.consequences"}}</span>
-					{{#if hasConsequences}}
-					<button type="button" class="arcanum-group-remove" data-path="system.back.consequences">{{localize "stonetop.arcanum.remove"}}</button>
-					{{else}}
-					<button type="button" class="arcanum-group-add" data-path="system.back.consequences" data-slug="consequences">{{localize "stonetop.arcanum.add"}}</button>
-					{{/if}}
-				</div>
-				{{#if hasConsequences}}{{> "stonetop.choice-group-editor" cgPath="system.back.consequences" rows=consequenceRows}}{{/if}}
-
 				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.unlockAt"}}
 					<input type="text" name="system.back.unlockAt" value="{{back.unlockAt}}">
 				</label>

@@ -73,10 +73,8 @@
 			},
 			"description": "When you **_wear a goldleaf cloak that you have_** **_tanned yourself and that has been fitted to your_** **_exact measurements_**, then all of these are true:\n\n- You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.\n- You are immune to effects that calm or dampen your emotions.\n- You are surrounded by a constant golden glow (*hand*, *area*), making it nearly impossible to hide. When you **_die and are buried in the earth,_** **_wrapped in your goldleaf cloak_**, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

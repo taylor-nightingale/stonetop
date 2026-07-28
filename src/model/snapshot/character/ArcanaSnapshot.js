@@ -1,5 +1,4 @@
 import { rich } from "../RichText.js";
-import { MoveSnapshotBuilder } from "./MoveSnapshot.js";
 
 // An arcanum side's inline ◇ item, shaped like an OutfitItemSnapshot so it renders through the shared
 // outfit-item-row partial. `slug` is the ARCANUM slug (the checkbox/resource toggle keyed by it), and
@@ -55,39 +54,33 @@ export class ArcanumFrontSnapshotBuilder {
 
 export class ArcanumBackSnapshot {
 	constructor(b) {
-		this.title        = b._title;
-		this.item         = b._item;
-		this.description  = b._description;
-		this.resource     = b._resource;
-		this.choices      = b._choices      ?? null;
-		this.moves        = b._moves        ?? [];
-		this.consequences = b._consequences ?? null; // ChoiceGroup|null
-		this.unlockAt     = b._unlockAt     ?? null;
+		this.title       = b._title;
+		this.item        = b._item;
+		this.description = b._description;
+		this.resource    = b._resource;
+		this.choices     = b._choices  ?? [];   // ChoiceGroup[] — spells / moves / followers / consequences
+		this.unlockAt    = b._unlockAt ?? null;
 	}
 }
 
 export class ArcanumBackSnapshotBuilder {
-	withTitle(v)        { this._title        = v; return this; }
-	withItem(v)         { this._item         = v; return this; }
-	withDescription(v)  { this._description  = v; return this; }
-	withResource(v)     { this._resource     = v; return this; }
-	withChoices(v)      { this._choices      = v; return this; }
-	withMoves(v)        { this._moves        = v; return this; }
-	withConsequences(v) { this._consequences = v; return this; }
-	withUnlockAt(v)     { this._unlockAt     = v; return this; }
-	build()             { return new ArcanumBackSnapshot(this); }
+	withTitle(v)       { this._title       = v; return this; }
+	withItem(v)        { this._item        = v; return this; }
+	withDescription(v) { this._description = v; return this; }
+	withResource(v)    { this._resource    = v; return this; }
+	withChoices(v)     { this._choices     = v; return this; }
+	withUnlockAt(v)    { this._unlockAt    = v; return this; }
+	build()            { return new ArcanumBackSnapshot(this); }
 
-	/** Major arcana pass their real mystery-move snapshots via `ctx.moveSnapshots`; minor/custom fall
-	 *  back to shaping the inline `back.moves`. */
+	/** The back is an ordered array of choice groups; each resolves through `ctx.group`. Moves inside a
+	 *  group are move-grant entries, resolved inline against `moves.bySlug` by the template. */
 	static fromBack(back, slug, ctx) {
 		return new ArcanumBackSnapshotBuilder()
 			.withTitle(rich(back.title))
 			.withItem(arcanumOutfitItemSnapshot(slug, back.item, ctx.itemResource(back.item?.resource ?? null), ctx.checked))
 			.withDescription(rich(back.description))
 			.withResource(ctx.resource(back.resource ?? null))
-			.withChoices(ctx.group(back.choices))
-			.withMoves(ctx.moveSnapshots ?? (back.moves ?? []).map(m => MoveSnapshotBuilder.forArcanum(m)))
-			.withConsequences(ctx.group(back.consequences))
+			.withChoices((back.choices ?? []).map(g => ctx.group(g)))
 			.withUnlockAt(back.unlockAt)
 			.build();
 	}

@@ -78,10 +78,8 @@
 			"item": null,
 			"description": "When you **_channel the storm primeval and utter_** **_a thunderous bellow_**, take 1d6 damage (ignores armor) and roll +CON: **on a 10+**, everyone nearby (except you) must choose 2; **on a 7-9**, everyone nearby (except you) must choose 1.\n\n- Drop what they’re carrying and cover their ears\n- Be deafened and disoriented for a few moments\n- Stagger a few steps away from you",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

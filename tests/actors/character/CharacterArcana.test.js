@@ -79,9 +79,6 @@ const FFYRNIG_SPHERE = {
 		item: { name: "Ffyrnig Tonic", weight: 1, note: "magical", inventoryColumn: "regular" },
 		description: "<p>When you pickle fresh ffyrnig root…</p>",
 		resource: { max: 3, maxStat: null, title: "Ffyrnig Tonic", labels: [] },
-		moves: [
-			{ name: "When you take a draught of ffyrnig tonic", text: "<p>pick 1: regain HP or clear a debility.</p>" },
-		],
 	},
 };
 
@@ -288,22 +285,8 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await arcana.buildSnapshot()).minor.items[0].back.resource).toBeNull();
 		});
 
-		it("back.moves[0] is a MoveSnapshot with name and description (the raw text)", async () => {
-			const item = await getItem();
-			expect(item.back.moves[0]).toMatchObject({
-				name: "When you take a draught of ffyrnig tonic",
-			});
-			expect(item.back.moves[0].description.raw).toBe("<p>pick 1: regain HP or clear a debility.</p>");
-		});
-
-		it("back.moves is empty when absent in JSON", async () => {
-			const noMoves = { ...FFYRNIG_SPHERE, back: { ...FFYRNIG_SPHERE.back, moves: undefined } };
-			const arcana = new CharacterArcana(makeActor([makeArcanumItem(noMoves)]), new FakeArcanaRepository());
-			expect((await arcana.buildSnapshot()).minor.items[0].back.moves).toEqual([]);
-		});
-
-		it("back.choices is null when absent in JSON", async () => {
-			expect((await getItem()).back.choices).toBeNull();
+		it("back.choices is an empty array when absent in JSON", async () => {
+			expect((await getItem()).back.choices).toEqual([]);
 		});
 	});
 
@@ -356,7 +339,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			const arcana = makeArcana([makeArcanumItem(CRACKED_FLUTE)]);
 			await arcana.setChoiceCount("cracked-flute", "cracked-flute", "andalau-of-the-flute", 1);
 			const snap = await arcana.buildSnapshot();
-			expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([true]);
+			expect(snap.minor.items[0].back.choices[0].list[0].track.checks).toEqual([true]);
 		});
 
 		it("selectChoice writes the picked option under the group slug and clears its siblings", async () => {
@@ -595,16 +578,15 @@ const CRACKED_FLUTE = {
 	},
 	back: {
 		title: "Dancing Wind Spirit",
-		choices: {
+		choices: [{
 			slug: "cracked-flute",
 			list: [
 				{ type: "entry", slug: "andalau-of-the-flute", grants: [{ type: "follower", slug: "andalau-of-the-flute", locations: ["inline", "tab"] }], content: {}, track: { max: 1 } },
 			],
-		},
+		}],
 		item: null,
 		description: "<p>The andalau manifests.</p>",
 		resource: null,
-		move: null,
 	},
 };
 
@@ -618,16 +600,15 @@ const STONE_IDOL = {
 	},
 	back: {
 		title: "The Angry Little God",
-		choices: {
+		choices: [{
 			slug: "stone-idol",
 			list: [
 				{ type: "entry", slug: "all-mighty-thistlewisk", grants: [{ type: "follower", slug: "all-mighty-thistlewisk", locations: ["inline", "tab"] }], content: {}, track: { max: 1 } },
 			],
-		},
+		}],
 		item: null,
 		description: "<p>It wakes.</p>",
 		resource: null,
-		move: null,
 	},
 };
 
@@ -760,7 +741,7 @@ describe("CharacterArcana — follower sync", () => {
 		// Unchecked: nothing embedded, but the card row still references the follower by slug (the card
 		// resolves it against followers.bySlug at render — CharacterFollowers builds the preview there).
 		let snap = await charArcana.buildSnapshot();
-		let row = snap.minor.items[0].back.choices.list.find(r => r.slug === "andalau-of-the-flute");
+		let row = snap.minor.items[0].back.choices[0].list.find(r => r.slug === "andalau-of-the-flute");
 		expect([...actor.items].filter(i => i.type === "follower")).toHaveLength(0);
 		expect(row.followers.slugs).toEqual(["andalau-of-the-flute"]);
 
@@ -769,7 +750,7 @@ describe("CharacterArcana — follower sync", () => {
 		const owned = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
 		expect(owned?.system?.owned).toBe(true);
 		snap = await charArcana.buildSnapshot();
-		row = snap.minor.items[0].back.choices.list.find(r => r.slug === "andalau-of-the-flute");
+		row = snap.minor.items[0].back.choices[0].list.find(r => r.slug === "andalau-of-the-flute");
 		expect(row.followers.slugs).toEqual(["andalau-of-the-flute"]);
 	});
 });
@@ -780,19 +761,19 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 	it("back.choices is null when arcanum has no back choices", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(FFYRNIG_SPHERE)], [FFYRNIG_SPHERE]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices).toBeNull();
+		expect(snap.minor.items[0].back.choices).toEqual([]);
 	});
 
 	it("back.choices is a ChoiceGroup when arcanum has back.choices", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices).toBeInstanceOf(ChoiceGroup);
+		expect(snap.minor.items[0].back.choices[0]).toBeInstanceOf(ChoiceGroup);
 	});
 
-	it("back.choices.list contains EntryRow instances for follower rows", async () => {
+	it("back.choices[0].list contains EntryRow instances for follower rows", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
-		const row = snap.minor.items[0].back.choices.list[0];
+		const row = snap.minor.items[0].back.choices[0].list[0];
 		expect(row).toBeInstanceOf(EntryRow);
 		expect(row.slug).toBe("andalau-of-the-flute");
 	});
@@ -801,21 +782,21 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(FFYRNIG_SPHERE)], [FFYRNIG_SPHERE]);
 		const snap = await charArcana.buildSnapshot();
 		// FFYRNIG_SPHERE has no back.choices at all; a link-carrying row would instead yield a reference.
-		expect(snap.minor.items[0].back.choices).toBeNull();
+		expect(snap.minor.items[0].back.choices).toEqual([]);
 	});
 
 	it("EntryRow.followers is a slug REFERENCE — resolution to a card is CharacterFollowers' job", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
 		// buildSnapshot emits only the reference; no card data lives on the choice tree.
-		expect(snap.minor.items[0].back.choices.list[0].followers.slugs).toEqual(["andalau-of-the-flute"]);
-		expect(snap.minor.items[0].back.choices.list[0].followers.cards).toBeUndefined();
+		expect(snap.minor.items[0].back.choices[0].list[0].followers.slugs).toEqual(["andalau-of-the-flute"]);
+		expect(snap.minor.items[0].back.choices[0].list[0].followers.cards).toBeUndefined();
 	});
 
 	it("EntryRow.track.checks is [false] when backChoices count is 0", async () => {
 		const { charArcana } = makeArcanaWithFollowers([makeArcanumItem(CRACKED_FLUTE)]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([false]);
+		expect(snap.minor.items[0].back.choices[0].list[0].track.checks).toEqual([false]);
 	});
 
 	it("EntryRow.track.checks is [true] when backChoices count is 1", async () => {
@@ -823,7 +804,7 @@ describe("CharacterArcana.buildSnapshot() — back.choices", () => {
 			makeArcanumItem(CRACKED_FLUTE, { choiceValues: { "cracked-flute": { "andalau-of-the-flute": 1 } } }),
 		]);
 		const snap = await charArcana.buildSnapshot();
-		expect(snap.minor.items[0].back.choices.list[0].track.checks).toEqual([true]);
+		expect(snap.minor.items[0].back.choices[0].list[0].track.checks).toEqual([true]);
 	});
 });
 
@@ -878,12 +859,18 @@ describe("CharacterArcana.onArcanumCreated", () => {
 	});
 });
 
-// -- Tests: mystery moves (major arcana) ---------------------------------------
+// -- Tests: moves granted by choice-group entries (major arcana) ---------------
 
 const AZURE_HAND = {
 	slug: "azure-hand", major: true, name: "Azure Hand",
 	front: { title: "Azure Hand", item: null, description: "<p>A staff.</p>", unlock: { slug: "azure-hand", list: [] } },
-	back:  { title: "Mysteries", item: null, description: "<p>The back.</p>", moveSlugs: ["battery", "resonance"] },
+	back: {
+		title: "Mysteries", item: null, description: "<p>The back.</p>",
+		choices: [{ slug: "moves", title: "Moves", list: [
+			{ type: "entry", slug: "battery",   track: { max: 1 }, grants: [{ type: "move", slug: "battery",   locations: ["inline"] }] },
+			{ type: "entry", slug: "resonance", track: { max: 1 }, grants: [{ type: "move", slug: "resonance", locations: ["inline"] }] },
+		] }],
+	},
 };
 
 function makeArcanaWithMoves(items = [], moves = new FakeMoves(), arcana = [AZURE_HAND]) {
@@ -892,8 +879,8 @@ function makeArcanaWithMoves(items = [], moves = new FakeMoves(), arcana = [AZUR
 	return { actor, charArcana, moves };
 }
 
-describe("CharacterArcana — mystery moves", () => {
-	it("onArcanumCreated registers an arcana-<slug> move category from back.moveSlugs, seeded un-acquired", async () => {
+describe("CharacterArcana — granted moves", () => {
+	it("onArcanumCreated registers an arcana-<slug> move category from the card's move grants", async () => {
 		const { charArcana, moves } = makeArcanaWithMoves();
 		await charArcana.onArcanumCreated(makeArcanumItem(AZURE_HAND));
 		expect(moves.addedCategories).toEqual([
@@ -901,7 +888,7 @@ describe("CharacterArcana — mystery moves", () => {
 		]);
 	});
 
-	it("onArcanumCreated registers nothing for an arcanum without moveSlugs (minor/custom)", async () => {
+	it("onArcanumCreated registers nothing for an arcanum that grants no moves (minor/custom)", async () => {
 		const { charArcana, moves } = makeArcanaWithMoves();
 		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
 		expect(moves.addedCategories).toEqual([]);
@@ -911,25 +898,6 @@ describe("CharacterArcana — mystery moves", () => {
 		const { charArcana, moves } = makeArcanaWithMoves([makeArcanumItem(AZURE_HAND)]);
 		await charArcana.removeArcanum("azure-hand");
 		expect(moves.removedCategories).toContain("arcana-azure-hand");
-	});
-
-	it("buildSnapshot renders the resolved real-move snapshots on the major card", async () => {
-		const moves = new FakeMoves();
-		const resolved = [{ name: "Battery" }, { name: "Resonance" }];
-		moves.setSnapshotsForCategory("arcana-azure-hand", resolved);
-		const { charArcana } = makeArcanaWithMoves([makeArcanumItem(AZURE_HAND)], moves);
-
-		const snap = await charArcana.buildSnapshot();
-		const card = snap.major.items.find(c => c.slug === "azure-hand");
-		expect(card.back.moves).toEqual(resolved);
-	});
-
-	it("buildSnapshot keeps the inline back.moves fallback for arcana without moveSlugs", async () => {
-		const { charArcana } = makeArcanaWithMoves([makeArcanumItem(FFYRNIG_SPHERE)], new FakeMoves(), [FFYRNIG_SPHERE]);
-		const snap = await charArcana.buildSnapshot();
-		const card = snap.minor.items.find(c => c.slug === "huge-wooden-sphere");
-		expect(card.back.moves).toHaveLength(1);
-		expect(card.back.moves[0].name).toBe("When you take a draught of ffyrnig tonic");
 	});
 });
 

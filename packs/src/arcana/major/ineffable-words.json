@@ -55,71 +55,96 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"speak-the-unutterable"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "words-c1",
-						"content": {
-							"title": null,
-							"text": "The Word’s power draws the attention of every magical being for miles around. They will recognize you on sight as the bearer of the Word."
-						},
-						"track": {
-							"max": 3
+			"unlockAt": 3,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "speak-the-unutterable",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "speak-the-unutterable",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "words-c2",
-						"content": {
-							"title": null,
-							"text": "The power of the Word overflows, affecting every possible target within *far* range to violent effect."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "words-c1",
+							"content": {
+								"title": null,
+								"text": "The Word’s power draws the attention of every magical being for miles around. They will recognize you on sight as the bearer of the Word."
+							},
+							"track": {
+								"max": 3
+							}
 						},
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "words-c3",
-						"content": {
-							"title": null,
-							"text": "Your voice takes on a metallic, inhuman edge. Henceforth, all creatures understand you as though you spoke their native tongue, but you can never again use language to lie or deceive."
+						{
+							"type": "entry",
+							"slug": "words-c2",
+							"content": {
+								"title": null,
+								"text": "The power of the Word overflows, affecting every possible target within *far* range to violent effect."
+							},
+							"track": {
+								"max": 2
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "words-c4",
-						"content": {
-							"title": null,
-							"text": "The Word tears reality, leaving a rift from which primordial power pours into the world. Expect all manner of strange and chaotic effects."
+						{
+							"type": "entry",
+							"slug": "words-c3",
+							"content": {
+								"title": null,
+								"text": "Your voice takes on a metallic, inhuman edge. Henceforth, all creatures understand you as though you spoke their native tongue, but you can never again use language to lie or deceive."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "words-c5",
-						"content": {
-							"title": null,
-							"text": "You rouse an eternal, ancient being of Order. It seeks you out, implacably, to reprimand you for your reckless use of such primordial power."
+						{
+							"type": "entry",
+							"slug": "words-c4",
+							"content": {
+								"title": null,
+								"text": "The Word tears reality, leaving a rift from which primordial power pours into the world. Expect all manner of strange and chaotic effects."
+							},
+							"track": {
+								"max": 1
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "words-c5",
+							"content": {
+								"title": null,
+								"text": "You rouse an eternal, ancient being of Order. It seeks you out, implacably, to reprimand you for your reckless use of such primordial power."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			},
-			"unlockAt": 3
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

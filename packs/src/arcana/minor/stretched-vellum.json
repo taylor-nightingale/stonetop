@@ -67,10 +67,8 @@
 			"item": null,
 			"description": "When you **_hold forth a bit of one beast (fur, bone,_** **_etc.) and speak the words of chimeric transmog_****_rification upon another_**, roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but only if you mark a debility.\n\nWhen **_the spell works_**, roll 1d10+CON. If your roll **equals or exceeds the target’s current HP**, name a feature of the beast you hold—the target’s form twists and buckles, gaining that feature until they sleep for a few hours. The experience is disorienting and alarming; most beasts and people will panic. If you roll **less than the target’s** **current HP**, their form twists and buckles alarmingly for a few seconds, but they fight off the transformation. **Either way**, the bit of the beast you hold is lost, shriveling away to nothing.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

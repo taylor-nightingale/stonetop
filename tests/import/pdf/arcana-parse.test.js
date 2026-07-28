@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -74,6 +74,20 @@ describe("majorMoveName", () => {
 	});
 	it("returns null name when the line is not an all-caps move header", () => {
 		expect(majorMoveName("When you do the thing").name).toBe("");
+	});
+});
+
+describe("frontMoveResources (a front move's Casting-penalty pips)", () => {
+	it("reads the ○ pips + italic label off a bold ALL-CAPS front header baseline", () => {
+		const lines = [
+			{ font: "ACaslonPro-Bold",   text: "CAST A CODEX SPELL", bbox: [36, 359, 126, 0] },
+			{ font: "ACaslonPro-Italic", text: "Casting penalty",    bbox: [277, 359, 327, 0] },
+			{ font: "marker",            text: "○ ○ ○ ○ ○",          bbox: [330, 359, 362, 0] },
+		];
+		expect(frontMoveResources(lines)).toEqual([{ slug: "cast-a-codex-spell", max: 5, title: "Casting penalty" }]);
+	});
+	it("ignores a bold ALL-CAPS header with no pips beside it", () => {
+		expect(frontMoveResources([{ font: "ACaslonPro-Bold", text: "CAST A CODEX SPELL", bbox: [36, 359, 126, 0] }])).toEqual([]);
 	});
 });
 

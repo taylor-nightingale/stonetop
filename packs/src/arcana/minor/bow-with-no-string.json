@@ -93,10 +93,8 @@
 			},
 			"description": "When you **_speak the secret word_**, the bow activates and hums ominously. When you then **_wear the aetherium glove and grasp where the_** **_string should be_**, a crackling line of lightning appears between the horns.\n\nWhen you **_draw back the lightning_**, a thunderbolt forms where an arrow should be. It manifests over the course of a deep breath, after which you can Let Fly.\n\nYou must charge the bow with lightning to replenish its ammo.\n\nWhen you **_draw back the lightning for at least_** **_ten deep breathes_**, deplete your ammo. Your next shot deals +1d4 damage (+*area*, +*dangerous*), but if you roll snake eyes to Let Fly, the bow explodes (3d6 damage, *reach*, *area*, *forceful*, *loud*).",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

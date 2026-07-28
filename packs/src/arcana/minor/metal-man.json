@@ -59,41 +59,38 @@
 		"back": {
 			"title": "Bronze Protector",
 			"item": null,
-			"description": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.",
+			"description": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.\n\n**HP**\n\nStarts at 13",
 			"resource": {
 				"max": 4,
 				"title": "Readiness",
 				"labels": []
 			},
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": {
-				"slug": "metal-man",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "bronze-protector",
-						"content": {
-							"title": null,
-							"text": ""
-						},
-						"track": {
-							"max": 1
-						},
-						"grants": [
-							{
-								"type": "follower",
-								"slug": "bronze-protector",
-								"locations": [
-									"inline",
-									"tab"
-								]
+			"choices": [
+				{
+					"slug": "metal-man",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "bronze-protector",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"followers": {
+								"slugs": [
+									"bronze-protector"
+								],
+								"inlineDisplay": true,
+								"hideFromFollowersTab": false
+							},
+							"track": {
+								"max": 1
 							}
-						]
-					}
-				]
-			}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

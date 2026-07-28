@@ -50,10 +50,8 @@
 			"item": null,
 			"description": "When you **_soak a pair of gwir-nettle seedpods in_** **_your own blood, whisper secrets over them, and_** **_say the words of power_**, they become truth seeds (*magical)*.\n\nWhen you and another **_each eat a truth seed and_** **_make promises to each other_**, the seeds stay in your guts and ensure that the promises are kept.\n\nWhen you **_break your promise_**, the truth seed in your gut sprouts violently into a full-grown gwir-nettle, dealing 1d10+3 damage with advantage (*messy*, ignores armor) and now you’ve got a gwir-nettle growing out of you.\n\nIf the **_other party breaks their promise_**, they suffer the same fate.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

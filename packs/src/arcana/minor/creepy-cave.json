@@ -61,10 +61,8 @@
 			"item": null,
 			"description": "When you **_cruelly kill a warm-blooded being_** **_in the cave,_** one of similar size to yourself, and **_smear both its blood and yours upon the stones,_** mark 1:\n\n- Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.\n- Gain one of your victim’s physical traits (their strength, their speed, their looks, their strong heart, etc.).\n- Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.). **_Each time you use this power_**, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave’s power are gone.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

@@ -50,10 +50,8 @@
 			"item": null,
 			"description": "When you **_use mud from the tomb-bog to mark_** **_someone with the sign of Aratis_** **_and pronounce_** **_them guilty of a crime_**, you can place a geas upon them. Phrase it as one of the following:\n\n- You must never again @Blank[0].\n- Henceforth, you must always seek to @Blank[1] when you have the chance. Should they **_fail to follow the geas_**, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they **_prove themselves innocent to the_** **_tomb-bog spirit_**, your life is forfeit instead.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

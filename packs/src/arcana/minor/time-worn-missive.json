@@ -94,10 +94,8 @@
 			},
 			"description": "When you **_use ink of powdered cinnabar to_** **_carefully trace the sigils of one portal inside the_** **_permanent sigils of another, and then invoke_** **_the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the_** **_sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the_** **_axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

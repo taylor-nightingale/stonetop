@@ -72,6 +72,21 @@ describe("CharacterMoves.buildSnapshot — empty", () => {
 	});
 });
 
+// ── buildSnapshot — bySlug registry ──────────────────────────────────────────
+
+describe("CharacterMoves.buildSnapshot — bySlug registry", () => {
+	it("keys every owned move by its slug (the registry inline move grants resolve against)", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().build()]);
+		const m = makeMoves({ repo });
+		await initPlaybook(m, repo);
+		const snap = await m.buildSnapshot();
+		expect(snap.bySlug["bulwark"]).toBeDefined();
+		expect(snap.bySlug["bulwark"].slug).toBe("bulwark");
+		// bySlug entries are the same MoveSnapshots the tab categories render.
+		expect(snap.bySlug["bulwark"]).toBe(snap.categories[0].moves[0]);
+	});
+});
+
 // ── buildSnapshot — category structure ───────────────────────────────────────
 
 describe("CharacterMoves.buildSnapshot — category structure", () => {

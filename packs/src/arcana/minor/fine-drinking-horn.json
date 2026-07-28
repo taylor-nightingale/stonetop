@@ -78,10 +78,8 @@
 			"item": null,
 			"description": "When you **_get yourself good and drunk from the_** **_horn,_** mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. **_Until the storm passes_**, you can’t clear debilities.\n\nAssign one d4 to each of the following:\n\n- @Blank[0] **Onset: 1** = next day; **2-3** = in a few hours; **4** = within the hour.\n- @Blank[1] **Intensity: 1** = dangerous to be out in; **2-3** = damages weak structures; **4** = lays waste to weak structures and damages sturdy ones.\n- @Blank[2] **Reach: 1** = a mile or so; **2-3** = a dozen miles or so; **4** = dozens or scores of miles.\n- @Blank[3] **Duration** (once it gets going)**: 1** = less than an hour; **2-3** = a few hours; **4** = a day or so.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

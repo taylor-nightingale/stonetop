@@ -68,84 +68,128 @@
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
-			"moveSlugs": [
-				"unquenched",
-				"a-flickering-flame"
-			],
-			"consequences": {
-				"slug": "consequences",
-				"list": [
-					{
-						"type": "entry",
-						"slug": "sword-c1",
-						"content": {
-							"title": null,
-							"text": "You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.\n\nWhen you **_attack the nearest living creature_**, you have advantage on damage rolls.\n\nWhen you **_attempt to stay your hand_**, roll +WIS: **on a 10+**, you do so, and can choose to calm yourself and end the rage with a few moments focus; **on a 7-9**, you stay your hand, but must choose a different target for your rage; **on a 6-**, attack without mercy or doubt."
+			"unlockAt": 5,
+			"choices": [
+				{
+					"slug": "moves",
+					"title": "Moves",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "unquenched",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "unquenched",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
-						"track": {
-							"max": 3
+						{
+							"type": "entry",
+							"slug": "a-flickering-flame",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "a-flickering-flame",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "sword-c2",
-						"content": {
-							"title": null,
-							"text": "Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either *dazed* or *miserable* (your choice)."
+					]
+				},
+				{
+					"slug": "consequences",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "sword-c1",
+							"content": {
+								"title": null,
+								"text": "You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.\n\nWhen you **_attack the nearest living creature_**, you have advantage on damage rolls.\n\nWhen you **_attempt to stay your hand_**, roll +WIS: **on a 10+**, you do so, and can choose to calm yourself and end the rage with a few moments focus; **on a 7-9**, you stay your hand, but must choose a different target for your rage; **on a 6-**, attack without mercy or doubt."
+							},
+							"track": {
+								"max": 3
+							}
 						},
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"slug": "sword-c2",
+							"content": {
+								"title": null,
+								"text": "Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either *dazed* or *miserable* (your choice)."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "sword-c3",
+							"content": {
+								"title": null,
+								"text": "Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\""
+							},
+							"track": {
+								"max": 1
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
+							"slug": "sword-c4",
+							"content": {
+								"title": null,
+								"text": "You can no longer sleep or rest without the Blood-quenched Sword at hand."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "sword-c5",
+							"content": {
+								"title": null,
+								"text": "You no longer gain sustenance from food. When you **_slay a living, bleeding creature with the_** **_Sword_**, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead."
+							},
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "sword-c6",
+							"content": {
+								"title": null,
+								"text": "You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else."
+							},
+							"track": {
+								"max": 1
+							}
 						}
-					},
-					{
-						"type": "entry",
-						"slug": "sword-c3",
-						"content": {
-							"title": null,
-							"text": "Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\""
-						},
-						"track": {
-							"max": 1
-						},
-						"indent": true
-					},
-					{
-						"type": "entry",
-						"slug": "sword-c4",
-						"content": {
-							"title": null,
-							"text": "You can no longer sleep or rest without the Blood-quenched Sword at hand."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "sword-c5",
-						"content": {
-							"title": null,
-							"text": "You no longer gain sustenance from food. When you **_slay a living, bleeding creature with the_** **_Sword_**, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead."
-						},
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "sword-c6",
-						"content": {
-							"title": null,
-							"text": "You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else."
-						},
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			},
-			"unlockAt": 5
+					],
+					"title": "Consequences"
+				}
+			]
 		},
 		"major": true
 	},

@@ -22,33 +22,17 @@ export class ArcanumFront {
 	}
 }
 
-// Mystery moves are major-arcana-only.
-
-export class ArcanumMove {
-	constructor(data) {
-		this.id           = data.id;
-		this.name         = data.name;
-		this.subtitle     = data.subtitle     ?? null;
-		this.tracker      = data.tracker      ?? null;
-		this.text         = data.text;
-		this.followerSlug = data.followerSlug ?? null;
-	}
-}
-
 export class ArcanumBack {
 	constructor(data) {
 		this.title        = data.title        ?? null;
-		this.choices      = data.choices      ?? null;
+		// `choices` is an ordered array of choice groups (spells / moves / followers / consequences). A
+		// move is a choice entry that grants the move inline; a consequence is just another group. Legacy
+		// single-group data is wrapped so old saves still render before migration.
+		this.choices      = Array.isArray(data.choices) ? data.choices : (data.choices ? [data.choices] : []);
 		this.item         = data.item ? new ArcanumItem(data.item) : null;
 		this.description  = data.description  ?? null;
 		this.resource     = data.resource ? new Resource(data.resource) : null;
 		this.options      = data.options      ?? [];
-		// Major arcana reference their mystery moves by slug (back.moveSlugs) — resolved to real `move`
-		// items on the character. `moves` is the legacy inline shape, still used by minor arcana and
-		// custom-authored arcana (and as a render fallback when moveSlugs is empty).
-		this.moveSlugs    = data.moveSlugs    ?? [];
-		this.moves        = (data.moves ?? []).map(m => new ArcanumMove(m));
-		this.consequences = data.consequences ?? null;
 		this.unlockAt     = data.unlockAt     ?? null;
 	}
 }

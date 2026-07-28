@@ -67,10 +67,8 @@
 			"item": null,
 			"description": "When you **_feed the satchel 1 Surplus of freshly_** **_harvested foodstuffs_**, it fits even though it should not. Until next autumn’s harvest, the satchel will provide 1 use of provisions each day. They are fresh and nourishing, but different each time (and not at all what you fed the satchel).\n\n**1d6** today’s food is...\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.zKCaEYu3bUkn3A7p]{1d6}\n\nWhen you **_draw more than 1 use of provisions_** **_from the satchel in a given day_**, it provides up to 10 uses but will produce no more until you feed it again next autumn.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

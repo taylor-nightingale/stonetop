@@ -61,10 +61,8 @@
 			"item": null,
 			"description": "When you **_sing a rumbling note and focus your_** **_will upon a point of earth or stone_**, mark a debility and roll +INT:\n\n**On a 10+**, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.\n\n**On a 7-9**, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},

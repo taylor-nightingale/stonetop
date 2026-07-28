@@ -72,10 +72,8 @@
 			"item": null,
 			"description": "When you **_speak the dread word_**, name an object that your voice can reach—it shatters, unravels, or is otherwise unmade.\n\nThen roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, pick 1 in addition to whatever else the GM says; **regard****less**, if the item you destroyed was *indestructible*, pick 1 more.\n\n- Your throat burns and your tongue blisters; mark *miserable* and you can barely whisper for a few days.\n- Your ears and those of all who heard the word start bleeding (1d4 damage, ignores armor, temporarily deafened).\n- 1d4 other objects of the GM’s choice also shatter/unravel/are unmade.\n- This place is corrupted by the Things Below; if already corrupted, it gets worse; otherwise, it is now a shunned place, a place of disquiet and unease.",
 			"resource": null,
-			"moves": [],
-			"consequences": null,
 			"unlockAt": null,
-			"choices": null
+			"choices": []
 		}
 	},
 	"flags": {},
