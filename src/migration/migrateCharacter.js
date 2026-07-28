@@ -768,15 +768,14 @@ export async function migrateArcanaOwnedFollowers(actor, followerRepo, resourceC
 	if (!arcana.length) return;
 	const followers = new CharacterFollowers(actor, followerRepo, resourceController);
 	for (const arc of arcana) {
-		for (const link of ChoiceGroupDefs.followerLinks(arc.system ?? {})) {
-			for (const slug of link.slugs) {
-				const item = [...actor.items].find(i => i.type === "follower" && i.system?.slug === slug);
-				// Embed a missing follower off the tab; fix a card-bound one that an old path left on the
-				// tab. A tab follower's marked placement is left alone (addFollower is idempotent).
-				if (!item?.system?.owned) await followers.addFollower(slug, { showOnTab: false });
-				else if (link.hideFromFollowersTab && item.system?.showOnTab !== false) {
-					await followers.addFollower(slug, { showOnTab: false });
-				}
+		for (const grant of ChoiceGroupDefs.grants(arc.system ?? {}, "follower")) {
+			const slug = grant.slug;
+			const item = [...actor.items].find(i => i.type === "follower" && i.system?.slug === slug);
+			// Embed a missing follower off the tab; fix a card-bound one (no "tab" location) that an old
+			// path left on the tab. A tab follower's marked placement is left alone (addFollower is idempotent).
+			if (!item?.system?.owned) await followers.addFollower(slug, { showOnTab: false });
+			else if (!grant.onTab && item.system?.showOnTab !== false) {
+				await followers.addFollower(slug, { showOnTab: false });
 			}
 		}
 	}

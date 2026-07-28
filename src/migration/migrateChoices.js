@@ -3,8 +3,8 @@
 //   - content: { title, titleNote, subtitle, subtitleNote, text }
 //       (subHeading → subtitle, subNote → subtitleNote, entry-level `note` → content.titleNote)
 //   - any `input` gains a `type` ("inline" by default; "rich" must be set explicitly)
-//   - follower wiring groups into one `followers` object (see FollowerLink): a legacy slug array
-//     + sibling `inlineDisplay` flag → { slugs, inlineDisplay, hideFromFollowersTab }
+//   - follower wiring folds into the generic `grants` array (see Grant): a legacy `followers` slug
+//     array/object → [{ type:"follower", slug, locations }] (inlineDisplay→"inline", tab unless hidden)
 // Pure and idempotent — shared by the pack-conversion script and runtime migrations.
 
 export function migrateChoices(choices) {
@@ -33,7 +33,7 @@ export function migrateChoiceRow(row) {
 	// data, but in character groupDefs they're identified only by an `options` array) —
 	// except their options' follower wiring, which normalizes like an entry's.
 	if (row.type === "pick" || Array.isArray(row.options)) {
-		for (const opt of row.options ?? []) migrateFollowerLink(opt);
+		for (const opt of row.options ?? []) migrateGrants(opt);
 		return row;
 	}
 
@@ -43,8 +43,8 @@ export function migrateChoiceRow(row) {
 	const c = row.content ?? (row.content = {});
 	// Legacy follower/heading rows kept their label in a top-level `title`.
 	if (row.title !== undefined) { c.text ??= row.title; delete row.title; }
-	if (wasFollower && row.slug && row.followers === undefined) row.followers = [row.slug];
-	migrateFollowerLink(row);
+	if (wasFollower && row.slug && row.followers === undefined && row.grants === undefined) row.followers = [row.slug];
+	migrateGrants(row);
 
 	if (c.subHeading !== undefined) { c.subtitle     ??= c.subHeading; delete c.subHeading; }
 	if (c.subNote   !== undefined) { c.subtitleNote ??= c.subNote;    delete c.subNote; }
@@ -56,17 +56,30 @@ export function migrateChoiceRow(row) {
 	return row;
 }
 
-// Legacy follower wiring — a bare slug array in `followers` plus a sibling `inlineDisplay`
-// flag — becomes one grouped object (the FollowerLink shape). An empty legacy array meant
-// "no followers", so it collapses to null; the stray sibling flag is dropped either way.
-// Exported for the pack-conversion script, which applies ONLY this (a full migrateChoiceRow
-// would stamp row shapes onto structures it can't positively identify as choice rows).
-export function migrateFollowerLink(row) {
+// The follower wiring a row/option carries becomes the generic `grants` array: each follower slug → a
+// `{ type:"follower", slug, locations }` grant. `locations` encodes the old booleans — `inlineDisplay`
+// → "inline", NOT `hideFromFollowersTab` → "tab". Handles every legacy source (a bare `followers` slug
+// array + sibling `inlineDisplay` flag, or the grouped `{slugs, inlineDisplay, hideFromFollowersTab}`
+// object) and is idempotent (a row already carrying `grants` is left alone). The stray legacy keys are
+// dropped. Exported for the pack-conversion script, which applies ONLY this to known choice rows.
+export function migrateGrants(row) {
+	if (!row || typeof row !== "object") return row;
+	if (Array.isArray(row.grants)) { delete row.followers; delete row.inlineDisplay; return row; }
+
+	let slugs = [], inlineDisplay = false, hideFromFollowersTab = false;
 	if (Array.isArray(row.followers)) {
-		row.followers = row.followers.length
-			? { slugs: row.followers, inlineDisplay: row.inlineDisplay ?? false, hideFromFollowersTab: false }
-			: null;
+		slugs = row.followers.filter(Boolean);
+		inlineDisplay = row.inlineDisplay ?? false;
+	} else if (row.followers && typeof row.followers === "object") {
+		slugs = Array.isArray(row.followers.slugs) ? row.followers.slugs.filter(Boolean) : [];
+		inlineDisplay = !!row.followers.inlineDisplay;
+		hideFromFollowersTab = !!row.followers.hideFromFollowersTab;
 	}
+	if (slugs.length) {
+		const locations = [...(inlineDisplay ? ["inline"] : []), ...(hideFromFollowersTab ? [] : ["tab"])];
+		row.grants = slugs.map(slug => ({ type: "follower", slug, locations }));
+	}
+	delete row.followers;
 	if (row.inlineDisplay !== undefined) delete row.inlineDisplay;
 	return row;
 }

@@ -61,13 +61,16 @@
 						"track": {
 							"max": 1
 						},
-						"followers": {
-							"slugs": [
-								"andalau-of-the-flute"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "andalau-of-the-flute",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					}
 				]
 			}

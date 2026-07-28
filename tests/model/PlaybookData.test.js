@@ -60,7 +60,7 @@ describe("PlaybookData.migrateData", () => {
 		PlaybookData.migrateData(source);
 		expect(source.choices[0].list[0].type).toBe("entry");
 		expect(source.choices[0].list[0].content.subtitle).toBe("H");
-		expect(source.specialPossessions.list[0].followers).toEqual({ slugs: ["enfys"], inlineDisplay: false, hideFromFollowersTab: false });
+		expect(source.specialPossessions.list[0].grants).toEqual([{ type: "follower", slug: "enfys", locations: ["tab"] }]);
 	});
 
 	it("normalizes the introductions step4/step6 choice groups", () => {

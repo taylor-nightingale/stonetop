@@ -40,7 +40,7 @@ function followerArcanumItem() {
 				choices: {
 					slug: "blackwood-fetishes",
 					list: [
-						{ type: "entry", slug: "astor", followers: { slugs: ["astor"], inlineDisplay: true },
+						{ type: "entry", slug: "astor", grants: [{ type: "follower", slug: "astor", locations: ["inline", "tab"] }],
 							content: { title: null, text: "" }, track: { max: 1 } },
 					],
 				},
@@ -124,7 +124,7 @@ function ringArcanumItem() {
 					list: [
 						// No `track`: owned-by-default grant, not a choice-gated checkbox.
 						{ type: "entry", slug: "the-ring", content: { title: null, text: "" },
-							followers: { slugs: ["the-ring"], inlineDisplay: true, hideFromFollowersTab: true } },
+							grants: [{ type: "follower", slug: "the-ring", locations: ["inline"] }] },
 					],
 				},
 			},

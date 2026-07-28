@@ -77,7 +77,7 @@ describe("ChoiceGroupFactory.forDocument", () => {
 	it("default definition getter reads from item.system.choices array for side effects", async () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, choices: [
-			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "companion", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }] },
 		]}});
 		const { factory } = makeFactory([item]);
 		factory.subscribe(new FollowerSideEffectHandler(followers));
@@ -89,7 +89,7 @@ describe("ChoiceGroupFactory.forDocument", () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { pickValues: {}, choices: {
 			slug: "ns",
-			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
+			list: [{ type: "entry", slug: "companion", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }],
 		}}});
 		const { factory } = makeFactory([item]);
 		factory.subscribe(new FollowerSideEffectHandler(followers));
@@ -101,7 +101,7 @@ describe("ChoiceGroupFactory.forDocument", () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, back: { choices: {
 			slug: "ns",
-			list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }],
+			list: [{ type: "entry", slug: "companion", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }],
 		}}}});
 		const { factory } = makeFactory([item]);
 		factory.subscribe(new FollowerSideEffectHandler(followers));
@@ -147,7 +147,7 @@ describe("ChoiceGroupFactory.forSingleton", () => {
 		const followers = new FakeFollowers();
 		const item = { _id: "pb-1", type: "playbook", name: "The Blessed", system: {
 			choiceValues: {},
-			instinct: { slug: "instinct", list: [{ type: "entry", slug: "guide", followers: { slugs: ["enfys"] } }] },
+			instinct: { slug: "instinct", list: [{ type: "entry", slug: "guide", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }] },
 		}};
 		const { factory } = makeFactory([item]);
 		factory.subscribe(new FollowerSideEffectHandler(followers));
@@ -163,7 +163,7 @@ describe("ChoiceGroupFactory — subscribe", () => {
 	it("handler registered after the controller is built fires on subsequent mutations", async () => {
 		const followers = new FakeFollowers();
 		const item = makeItem({ system: { choiceValues: {}, choices: [
-			{ slug: "ns", list: [{ type: "entry", slug: "companion", followers: { slugs: ["enfys"] } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "companion", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }] },
 		]}});
 		const { factory } = makeFactory([item]);
 		const ctrl = factory.forDocument("item-1", "choiceValues");
@@ -202,7 +202,7 @@ describe("ChoiceGroupFactory — definition lookup", () => {
 			system: {
 				slug: "ring-of-daagon", choiceValues: {},
 				front: { unlock: { slug: "ring-of-daagon", list: [
-					{ type: "entry", slug: "the-ring", followers: { slugs: ["the-ring"] }, track: { max: 1 } },
+					{ type: "entry", slug: "the-ring", grants: [{ type: "follower", slug: "the-ring", locations: ["tab"] }], track: { max: 1 } },
 				]}},
 				back: {},
 			},
@@ -223,7 +223,7 @@ describe("ChoiceGroupFactory — definition lookup", () => {
 				slug: "some-arcanum", choiceValues: {},
 				front: {},
 				back: { consequences: { slug: "consequences", list: [
-					{ type: "entry", slug: "doom", followers: { slugs: ["enfys"] }, track: { max: 1 } },
+					{ type: "entry", slug: "doom", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }], track: { max: 1 } },
 				]}},
 			},
 		};
@@ -242,7 +242,7 @@ describe("ChoiceGroupFactory — definition lookup", () => {
 			system: {
 				choiceValues: {},
 				backgrounds: [{ slug: "initiate", choices: { slug: "initiate", list: [
-					{ type: "entry", slug: "mentor", followers: { slugs: ["enfys"] }, track: { max: 1 } },
+					{ type: "entry", slug: "mentor", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }], track: { max: 1 } },
 				]}}],
 			},
 		};

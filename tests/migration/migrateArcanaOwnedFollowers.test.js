@@ -19,7 +19,7 @@ function ringArcanumItem() {
 			slug: "ring-of-daagon", major: true,
 			front: { unlock: { slug: "ring-of-daagon", list: [
 				{ type: "entry", slug: "the-ring", content: { title: null, text: "" },
-					followers: { slugs: ["the-ring"], inlineDisplay: true, hideFromFollowersTab: true } },
+					grants: [{ type: "follower", slug: "the-ring", locations: ["inline"] }] },
 			] } },
 			back: {},
 		},

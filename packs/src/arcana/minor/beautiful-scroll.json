@@ -105,13 +105,16 @@
 						"track": {
 							"max": 1
 						},
-						"followers": {
-							"slugs": [
-								"tulpa"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "tulpa",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					}
 				]
 			}

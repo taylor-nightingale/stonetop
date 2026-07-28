@@ -93,13 +93,16 @@
 							"title": null,
 							"text": ""
 						},
-						"followers": {
-							"slugs": [
-								"the-mighty-servant"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "the-mighty-servant",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					}
 				]
 			},

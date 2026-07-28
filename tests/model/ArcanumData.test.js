@@ -61,15 +61,16 @@ describe("ArcanumData.migrateData — legacy value stores → choiceValues", () 
 });
 
 describe("ArcanumData.migrateData — choice-group normalization in front/back", () => {
-	it("groups legacy follower wiring in back.choices into the followers object", () => {
+	it("folds legacy follower wiring in back.choices into a follower grant", () => {
 		const out = ArcanumData.migrateData({
 			back: { choices: { slug: "mindgem", list: [
 				{ type: "entry", slug: "the-mighty-servant", content: {}, track: { max: 1 },
 					inlineDisplay: true, followers: ["the-mighty-servant"] },
 			] } },
 		});
-		expect(out.back.choices.list[0].followers)
-			.toEqual({ slugs: ["the-mighty-servant"], inlineDisplay: true, hideFromFollowersTab: false });
+		expect(out.back.choices.list[0].grants)
+			.toEqual([{ type: "follower", slug: "the-mighty-servant", locations: ["inline", "tab"] }]);
+		expect(out.back.choices.list[0].followers).toBeUndefined();
 		expect(out.back.choices.list[0].inlineDisplay).toBeUndefined();
 	});
 
@@ -80,7 +81,7 @@ describe("ArcanumData.migrateData — choice-group normalization in front/back",
 					inlineDisplay: true, followers: ["the-ring"] },
 			] } },
 		});
-		expect(out.front.unlock.list[0].followers.slugs).toEqual(["the-ring"]);
+		expect(out.front.unlock.list[0].grants.map(g => g.slug)).toEqual(["the-ring"]);
 	});
 
 	it("leaves a partial diff without front/back untouched (migrate-on-diff safety)", () => {

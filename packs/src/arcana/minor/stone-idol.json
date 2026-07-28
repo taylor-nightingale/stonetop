@@ -83,13 +83,16 @@
 						"track": {
 							"max": 1
 						},
-						"followers": {
-							"slugs": [
-								"all-mighty-thistlewisk"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "all-mighty-thistlewisk",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					}
 				]
 			}

@@ -22,7 +22,7 @@ describe("FollowerSideEffectHandler", () => {
 	it("marking a row puts its followers on the tab (count > 0)", async () => {
 		const followers = new FakeFollowers();
 		await new FollowerSideEffectHandler(followers).handle(
-			changeFor({ followers: { slugs: ["enfys", "afon"] } }, { count: 1 }));
+			changeFor({ grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }, { type: "follower", slug: "afon", locations: ["tab"] }] }, { count: 1 }));
 		expect(followers.showOnTab("enfys")).toBe(true);
 		expect(followers.showOnTab("afon")).toBe(true);
 	});
@@ -31,15 +31,15 @@ describe("FollowerSideEffectHandler", () => {
 		const followers = new FakeFollowers();
 		await followers.addFollower("enfys");
 		await new FollowerSideEffectHandler(followers).handle(
-			changeFor({ followers: { slugs: ["enfys"] } }, { count: 0 }));
+			changeFor({ grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }, { count: 0 }));
 		expect(followers.isOwned("enfys")).toBe(true);
 		expect(followers.showOnTab("enfys")).toBe(false);
 	});
 
-	it("a card-bound follower (hideFromFollowersTab) stays off the tab even when marked", async () => {
+	it("a card-bound follower (no tab location) stays off the tab even when marked", async () => {
 		const followers = new FakeFollowers();
 		await new FollowerSideEffectHandler(followers).handle(
-			changeFor({ followers: { slugs: ["the-cloak"], hideFromFollowersTab: true } }, { count: 1 }));
+			changeFor({ grants: [{ type: "follower", slug: "the-cloak", locations: ["inline"] }] }, { count: 1 }));
 		expect(followers.isOwned("the-cloak")).toBe(true);
 		expect(followers.showOnTab("the-cloak")).toBe(false);
 	});

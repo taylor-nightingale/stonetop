@@ -72,13 +72,16 @@
 						"track": {
 							"max": 1
 						},
-						"followers": {
-							"slugs": [
-								"dool-spirit"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "dool-spirit",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					}
 				]
 			}

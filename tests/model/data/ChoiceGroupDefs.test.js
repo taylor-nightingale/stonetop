@@ -11,7 +11,7 @@ const pick  = (...options) => ({ type: "pick", pickCount: 1, options });
 
 const ARCANUM = {
 	slug: "ring-of-daagon",
-	front: { unlock: group("ring-of-daagon", entry("the-ring", { followers: { slugs: ["the-ring"] } })) },
+	front: { unlock: group("ring-of-daagon", entry("the-ring", { grants: [{ type: "follower", slug: "the-ring", locations: ["inline"] }] })) },
 	back:  {
 		choices:      group("ring-back", entry("a")),
 		consequences: group("ring-consequences", entry("b")),
@@ -65,13 +65,12 @@ describe("ChoiceGroupDefs.findBySlug", () => {
 	});
 });
 
-describe("ChoiceGroupDefs.followerLinks", () => {
-	it("parses follower links from rows in any group", () => {
-		const links = ChoiceGroupDefs.followerLinks(ARCANUM);
-		expect(links.flatMap(l => l.slugs)).toEqual(["the-ring"]);
+describe("ChoiceGroupDefs.grants", () => {
+	it("collects grants (filtered by type) from rows in any group", () => {
+		expect(ChoiceGroupDefs.grants(ARCANUM, "follower").map(g => g.slug)).toEqual(["the-ring"]);
 	});
 
-	it("ignores rows with no follower link", () => {
-		expect(ChoiceGroupDefs.followerLinks(PLAYBOOK)).toEqual([]);
+	it("returns nothing when no rows grant that type", () => {
+		expect(ChoiceGroupDefs.grants(PLAYBOOK, "follower")).toEqual([]);
 	});
 });

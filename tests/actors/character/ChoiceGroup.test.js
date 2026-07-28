@@ -54,7 +54,7 @@ describe("ChoiceGroup — entry row without followers", () => {
 describe("ChoiceGroup — entry row with a follower reference", () => {
 	it("emits an EntryRowFollowers carrying the link's slugs", () => {
 		const group = buildChoiceGroup(
-			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"], inlineDisplay: false }, track: { max: 1 } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }], track: { max: 1 } }] },
 			new ChoiceValues(),
 		);
 		expect(group.list[0].followers).toBeInstanceOf(EntryRowFollowers);
@@ -71,7 +71,7 @@ describe("ChoiceGroup — entry row with a follower reference", () => {
 
 	it("inlineDisplay is false when the link omits it", () => {
 		const group = buildChoiceGroup(
-			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"] } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }] }] },
 			new ChoiceValues(),
 		);
 		expect(group.list[0].followers.inlineDisplay).toBe(false);
@@ -79,7 +79,7 @@ describe("ChoiceGroup — entry row with a follower reference", () => {
 
 	it("inlineDisplay is carried from the link", () => {
 		const group = buildChoiceGroup(
-			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, followers: { slugs: ["enfys"], inlineDisplay: true } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", content: {}, grants: [{ type: "follower", slug: "enfys", locations: ["inline", "tab"] }] }] },
 			new ChoiceValues(),
 		);
 		expect(group.list[0].followers.inlineDisplay).toBe(true);
@@ -151,7 +151,7 @@ describe("ChoiceGroup — entry rows (current shape; legacy is handled by migrat
 
 	it("emits a follower reference (slugs + inlineDisplay) from the grouped link", () => {
 		const group = buildChoiceGroup(
-			{ slug: "ns", list: [{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"], inlineDisplay: true }, track: { max: 1 } }] },
+			{ slug: "ns", list: [{ type: "entry", slug: "enfys", grants: [{ type: "follower", slug: "enfys", locations: ["inline", "tab"] }], track: { max: 1 } }] },
 			new ChoiceValues(),
 		);
 		expect(group.list[0].followers.slugs).toEqual(["enfys"]);

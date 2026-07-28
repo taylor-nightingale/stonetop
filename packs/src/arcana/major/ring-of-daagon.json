@@ -60,13 +60,15 @@
 							"title": null,
 							"text": ""
 						},
-						"followers": {
-							"slugs": [
-								"the-ring"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": true
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "the-ring",
+								"locations": [
+									"inline"
+								]
+							}
+						]
 					}
 				]
 			}

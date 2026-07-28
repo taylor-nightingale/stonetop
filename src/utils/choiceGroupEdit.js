@@ -8,15 +8,15 @@
 import { rich } from "../model/snapshot/RichText.js";
 
 export const DEFAULT_ROWS = {
-	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, followers: null, outfitItems: [], indent: false },
+	entry: { type: "entry", slug: "", content: { title: null, text: null }, note: null, track: null, input: null, grants: [], outfitItems: [], indent: false },
 	pick:  { type: "pick",  pickCount: 1, inline: false, options: [] },
 };
 
 const BLANK_OUTFIT_ITEM = { slug: "", name: "", weight: 0, inventoryColumn: "regular" };
-const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, followers: null, outfitItems: [], note: null, type: null };
+const BLANK_PICK_OPTION  = { slug: "", content: { title: null, text: null }, grants: [], outfitItems: [], note: null, type: null };
 
 export function blankOption(n) {
-	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], followers: null };
+	return { ...BLANK_PICK_OPTION, slug: "option-" + n, content: { title: "Option " + n, text: null }, outfitItems: [], grants: [] };
 }
 
 const clone = g => foundry.utils.deepClone(g);
@@ -101,15 +101,36 @@ export function setField(group, { target, rowIndex, optionIndex, field, value })
 	else if (target === "row")    obj = g.list[rowIndex];
 	else if (target === "option") obj = g.list[rowIndex].options[optionIndex];
 	if (!obj) return g;
-	// Follower wiring lives in one grouped object (see FollowerLink) that blank rows store as
-	// null — seed it before setting a subfield, and collapse back to null when the slugs empty
-	// (so "no followers" stays canonical and the presentation flags can't linger slug-less).
-	if (field.startsWith("followers.") && obj.followers == null) {
-		obj.followers = { slugs: [], inlineDisplay: false, hideFromFollowersTab: false };
-	}
+	// The follower editor UI (a CSV of slugs + inline/hide-from-tab checkboxes) writes `followers.*`
+	// fields; translate them onto the canonical `grants` array (one follower Grant per slug).
+	if (field.startsWith("followers.")) { applyFollowerField(obj, field.slice("followers.".length), value); return g; }
 	foundry.utils.setProperty(obj, field, value);
-	if (field === "followers.slugs" && !(value?.length)) obj.followers = null;
 	return g;
+}
+
+// The follower editor's current view, reconstructed from a row/option's `grants` (follower type only).
+function followerView(obj) {
+	const follower = (obj.grants ?? []).filter(gr => gr.type === "follower");
+	return {
+		slugs:  follower.map(gr => gr.slug),
+		inline: follower.some(gr => (gr.locations ?? []).includes("inline")),
+		// A row with no follower grants defaults to "on tab" (the historical fresh-link default).
+		onTab:  follower.length ? follower.some(gr => (gr.locations ?? []).includes("tab")) : true,
+	};
+}
+
+// Apply one follower-editor field (slugs | inlineDisplay | hideFromFollowersTab) to `obj.grants`,
+// rebuilding the follower grants (non-follower grants are preserved) and dropping `grants` when empty.
+function applyFollowerField(obj, sub, value) {
+	const view = followerView(obj);
+	if (sub === "slugs")                     view.slugs  = Array.isArray(value) ? value : (value ? [value] : []);
+	else if (sub === "inlineDisplay")        view.inline = !!value;
+	else if (sub === "hideFromFollowersTab") view.onTab  = !value;
+	const locations = [...(view.inline ? ["inline"] : []), ...(view.onTab ? ["tab"] : [])];
+	const nonFollower = (obj.grants ?? []).filter(gr => gr.type !== "follower");
+	const follower    = view.slugs.map(slug => ({ type: "follower", slug, locations }));
+	const grants = [...nonFollower, ...follower];
+	if (grants.length) obj.grants = grants; else delete obj.grants;
 }
 
 // -- Instinct: stored as a choice group internally, edited as a plain list of strings ----------
@@ -139,14 +160,26 @@ function contentWithHtml(content) {
 	return { ...content, textHtml: rich(content?.text ?? "").render() };
 }
 
+// The `followers`-shaped view the choices-entry-fields.hbs editor reads (CSV slugs + two checkboxes),
+// derived from the row/option's canonical `grants`. Slugs stay an array — `{{followers.slugs}}` renders
+// it comma-joined, and the mixin's change handler splits it back to an array. Undefined when no follower
+// grants (the fields render empty/unchecked).
+function followerEditorView(obj) {
+	const view = followerView(obj);
+	if (!view.slugs.length) return undefined;
+	return { slugs: view.slugs, inlineDisplay: view.inline, hideFromFollowersTab: !view.onTab };
+}
+
 // Render-ready rows with the metadata the choice-group-editor partial needs.
 export function buildRows(group) {
 	return (group?.list ?? []).map((row, ri) => ({
 		...row,
 		content: contentWithHtml(row.content),
+		followers: followerEditorView(row),
 		_index: ri, _target: "row", _rowIndex: ri, _hasOptionIndex: false, _optionIndex: null,
 		options: row.options?.map((opt, oi) => ({
 			...opt, content: contentWithHtml(opt.content),
+			followers: followerEditorView(opt),
 			_index: oi, _rowIndex: ri, _target: "option", _hasOptionIndex: true, _optionIndex: oi,
 		})),
 	}));

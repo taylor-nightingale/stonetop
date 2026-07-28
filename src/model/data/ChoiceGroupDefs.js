@@ -1,4 +1,4 @@
-import { FollowerLink } from "./FollowerLink.js";
+import { GrantList } from "./Grant.js";
 
 /**
  * Structural discovery of choice groups. A choice group is any object carrying a string `slug` and an
@@ -19,9 +19,11 @@ export class ChoiceGroupDef {
 
 	get rows() { return this.def.list ?? []; }
 
-	/** The follower links carried by this group's rows. */
-	followerLinks() {
-		return this.rows.map(r => FollowerLink.fromRaw(r.followers)).filter(Boolean);
+	/** Every Grant carried by this group's rows (and pick options), optionally filtered by `type`. */
+	grants(type = null) {
+		const rows = this.rows.flatMap(r => [r, ...(r.options ?? [])]);
+		const all  = rows.flatMap(r => GrantList.fromRaw(r.grants).grants);
+		return type ? all.filter(g => g.type === type) : all;
 	}
 }
 
@@ -53,7 +55,9 @@ export class ChoiceGroupDefs {
 		return this.findAll(data).filter(d => d.slug === slug);
 	}
 
-	static followerLinks(data) {
-		return this.findAll(data).flatMap(d => d.followerLinks());
+	/** Every Grant across a document's choice groups, optionally filtered by `type` (e.g. "follower",
+	 *  "move"). The structural collector that answers "what does this document grant?". */
+	static grants(data, type = null) {
+		return this.findAll(data).flatMap(d => d.grants(type));
 	}
 }

@@ -148,13 +148,15 @@
 						"track": {
 							"max": 1
 						},
-						"followers": {
-							"slugs": [
-								"the-cloak"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": true
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "the-cloak",
+								"locations": [
+									"inline"
+								]
+							}
+						]
 					}
 				]
 			},

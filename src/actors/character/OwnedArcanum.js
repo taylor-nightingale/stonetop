@@ -71,7 +71,7 @@ export class OwnedArcanum {
 	/** Every follower slug this arcanum's cards reference. All are owned when the arcanum is added; a mark
 	 *  only toggles whether one shows on the roster tab. */
 	followerSlugs() {
-		return ChoiceGroupDefs.followerLinks(this._item.system ?? {}).flatMap(l => l.slugs);
+		return ChoiceGroupDefs.grants(this._item.system ?? {}, "follower").map(g => g.slug);
 	}
 
 	/** An inline arcanum move ({id,name,text}) by id, or null. */

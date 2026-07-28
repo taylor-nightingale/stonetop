@@ -1,5 +1,5 @@
 import { rich } from "../RichText.js";
-import { FollowerLink } from "../../data/FollowerLink.js";
+import { GrantList } from "../../data/Grant.js";
 import {
 	ChoiceGroup, ChoiceOption, ChoiceRow, ChoiceValues, EntryRow, EntryRowFollowers,
 } from "./ChoiceGroup.js";
@@ -53,9 +53,13 @@ function buildEntryRow(item, values, es) {
 		text:         rich(c.text),
 	};
 
-	// A pure reference — the template resolves each slug against `followers.bySlug` at render.
-	const link      = FollowerLink.fromRaw(item.followers);
-	const followers = link ? new EntryRowFollowers(link.slugs, link.inlineDisplay) : null;
+	// A pure reference — the template resolves each slug against `followers.bySlug` at render. Follower
+	// grants keep the old EntryRowFollowers render shape (slugs + one inline flag); the data is now the
+	// generic `grants` array, so a move grant on the same row is ignored here (rendered in Phase 3).
+	const followerGrants = GrantList.fromRaw(item.grants).ofType("follower");
+	const followers = followerGrants.length
+		? new EntryRowFollowers(followerGrants.map(g => g.slug), followerGrants.some(g => g.inline))
+		: null;
 
 	return new EntryRow(
 		item.slug ?? null,

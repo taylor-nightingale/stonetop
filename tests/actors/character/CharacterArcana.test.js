@@ -598,7 +598,7 @@ const CRACKED_FLUTE = {
 		choices: {
 			slug: "cracked-flute",
 			list: [
-				{ type: "entry", slug: "andalau-of-the-flute", followers: { slugs: ["andalau-of-the-flute"], inlineDisplay: true }, content: {}, track: { max: 1 } },
+				{ type: "entry", slug: "andalau-of-the-flute", grants: [{ type: "follower", slug: "andalau-of-the-flute", locations: ["inline", "tab"] }], content: {}, track: { max: 1 } },
 			],
 		},
 		item: null,
@@ -621,7 +621,7 @@ const STONE_IDOL = {
 		choices: {
 			slug: "stone-idol",
 			list: [
-				{ type: "entry", slug: "all-mighty-thistlewisk", followers: { slugs: ["all-mighty-thistlewisk"], inlineDisplay: true }, content: {}, track: { max: 1 } },
+				{ type: "entry", slug: "all-mighty-thistlewisk", grants: [{ type: "follower", slug: "all-mighty-thistlewisk", locations: ["inline", "tab"] }], content: {}, track: { max: 1 } },
 			],
 		},
 		item: null,

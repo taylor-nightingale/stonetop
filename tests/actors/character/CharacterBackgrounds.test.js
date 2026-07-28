@@ -34,8 +34,8 @@ const FOLLOWER_CHOICES_DATA = [{
 	choices: {
 		slug: "initiate",
 		list: [
-			{ type: "entry", slug: "enfys", followers: { slugs: ["enfys"], inlineDisplay: false }, content: { text: "Enfys, your acolyte" }, track: { max: 1 } },
-			{ type: "entry", slug: "afon",  followers: ["afon"],  inlineDisplay: false, content: { text: "Afon, Fae-touched"   }, track: { max: 1 } },
+			{ type: "entry", slug: "enfys", grants: [{ type: "follower", slug: "enfys", locations: ["tab"] }], content: { text: "Enfys, your acolyte" }, track: { max: 1 } },
+			{ type: "entry", slug: "afon",  grants: [{ type: "follower", slug: "afon", locations: ["tab"] }], content: { text: "Afon, Fae-touched"   }, track: { max: 1 } },
 		],
 	},
 }];

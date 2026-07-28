@@ -83,21 +83,22 @@ describe("choiceGroupEdit", () => {
 		expect(group.list[0].options[0].content.title).toBe("Hi");
 	});
 
-	it("setField on a followers.* subfield seeds the grouped followers object on a blank row", () => {
+	it("setField on a followers.* subfield writes follower grants on a blank row", () => {
 		let group = addRow(g(), "entry");
-		expect(group.list[0].followers).toBeNull();
+		expect(group.list[0].grants).toEqual([]);
 		group = setField(group, { target: "row", rowIndex: 0, field: "followers.slugs", value: ["enfys"] });
-		expect(group.list[0].followers).toEqual({ slugs: ["enfys"], inlineDisplay: false, hideFromFollowersTab: false });
+		expect(group.list[0].grants).toEqual([{ type: "follower", slug: "enfys", locations: ["tab"] }]);
 		group = setField(group, { target: "row", rowIndex: 0, field: "followers.hideFromFollowersTab", value: true });
-		expect(group.list[0].followers.hideFromFollowersTab).toBe(true);
+		expect(group.list[0].grants).toEqual([{ type: "follower", slug: "enfys", locations: [] }]);
 	});
 
-	it("setField collapses followers to null when the slugs empty", () => {
+	it("setField drops the grants when the slugs empty", () => {
 		let group = addRow(g(), "entry");
 		group = setField(group, { target: "row", rowIndex: 0, field: "followers.slugs", value: ["enfys"] });
 		group = setField(group, { target: "row", rowIndex: 0, field: "followers.inlineDisplay", value: true });
+		expect(group.list[0].grants).toEqual([{ type: "follower", slug: "enfys", locations: ["inline", "tab"] }]);
 		group = setField(group, { target: "row", rowIndex: 0, field: "followers.slugs", value: [] });
-		expect(group.list[0].followers).toBeNull();
+		expect(group.list[0].grants).toBeUndefined();
 	});
 
 	it("instinct: round-trips a list of strings through the choice-group shape", () => {

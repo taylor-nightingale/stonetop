@@ -81,13 +81,16 @@
 							"title": null,
 							"text": ""
 						},
-						"followers": {
-							"slugs": [
-								"astor"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "astor",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					},
 					{
 						"slug": "halix",
@@ -99,13 +102,16 @@
 							"title": null,
 							"text": ""
 						},
-						"followers": {
-							"slugs": [
-								"halix"
-							],
-							"inlineDisplay": true,
-							"hideFromFollowersTab": false
-						}
+						"grants": [
+							{
+								"type": "follower",
+								"slug": "halix",
+								"locations": [
+									"inline",
+									"tab"
+								]
+							}
+						]
 					}
 				]
 			},
