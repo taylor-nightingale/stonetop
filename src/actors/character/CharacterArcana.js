@@ -30,7 +30,7 @@ export class CharacterArcana {
 				current:       resourceController?.getCurrent("inventory", a.slug) ?? 0,
 				checked:       checkedMap[a.slug] ?? false,
 				owned:         true,
-				moveSnapshots: await this._mysteryMoveSnapshots(a),
+				moveSnapshots: await this._moveSnapshots(a),
 			});
 			return ArcanumSnapshotBuilder.fromArcanum(a.definition(), ctx);
 		}));
@@ -40,17 +40,17 @@ export class CharacterArcana {
 		return new ArcanaSnapshot(minor, major);
 	}
 
-	// Major arcana own their mystery moves as real `move` items in an `arcana-<slug>` category (seeded
+	// Major arcana own their moves as real `move` items in an `arcana-<slug>` category (seeded
 	// un-acquired — the player ticks each to unlock). Minor/custom arcana (no moveSlugs) fall back to the
 	// inline back.moves shape in ArcanumBackSnapshotBuilder, so return null for them.
-	async _mysteryMoveSnapshots(arcanum) {
+	async _moveSnapshots(arcanum) {
 		if (!this._moves || !arcanum.moveSlugs.length) return null;
 		return this._moves.getMoveSnapshotsForCategory(`arcana-${arcanum.slug}`);
 	}
 
-	async sendMysteryMoveToChat(moveId) {
+	async sendArcanumMoveToChat(moveId) {
 		for (const arcanum of OwnedArcanum.all(this._actor)) {
-			const move = arcanum.mysteryMove(moveId);
+			const move = arcanum.moveById(moveId);
 			if (move) {
 				await this._actor.sendDescriptionToChat(move.name, move.text);
 				return true;

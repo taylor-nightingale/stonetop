@@ -42,16 +42,150 @@
 			}
 		},
 		"back": {
-			"title": "Spells of the Codex",
+			"title": "Mysteries of the Hec’tumel Codex",
 			"item": null,
 			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"choices": null,
+			"choices": {
+				"slug": "hectumel-codex",
+				"title": "Spells of the Codex",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "call-up-the-dead",
+						"content": {
+							"title": null,
+							"text": "**Call Up the Dead.** Touch a corpse; you conjure its shade, which must truthfully answer 3 questions. **Empowered:** Bind the shade to a tether as a revenant or a ghost; it must perform 3 tasks before being freed from your service."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "serpentine",
+						"content": {
+							"title": null,
+							"text": "**Serpentine.** Your soul slithers from your mouth in the form of an albino viper (*tiny*, *stealthy*, *quick*, *venomous*), leaving your body insensate until you slither back in. Use your normal stats while in this form. **Empowered:** Rather than your soul leaving your body, you physically transform into a man-sized serpent (2 armor, *stealthy*, *quick*, *venomous*, *forceful*, *grabby*)."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "snuff-the-spirit",
+						"content": {
+							"title": null,
+							"text": "**Snuff the Spirit.** Name a living victim within *near* range and roll 2d6. If the victim has fewer current HP than your roll, it dies suddenly. **Empowered:** each living creature near your victim is also affected."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "torpor",
+						"content": {
+							"title": null,
+							"text": "**Torpor.** Lock eyes with someone and whisper soothing words. They start to fall asleep. If they resist, roll 3d4—if your roll exceeds their current HP, they fail. Once asleep, they do not age, need not eat/drink, and suffer no harm from poison or disease. They cannot be roused until they hear their name thrice-spoken. **Empowered**: Over 3d6 days, all physical harm heals, lost limbs (etc.) regenerate, poisons & diseases are cured, and the infirmities of age reverse."
+						},
+						"track": {
+							"max": 1
+						}
+					}
+				]
+			},
 			"moveSlugs": [
 				"darksome-vessel"
 			],
-			"consequences": null,
+			"consequences": {
+				"slug": "consequences",
+				"list": [
+					{
+						"type": "entry",
+						"slug": "codex-c1",
+						"content": {
+							"title": null,
+							"text": "Over a few days, you lose all body hair. Your skin pales and develops scaly patches."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "codex-c2",
+						"content": {
+							"title": null,
+							"text": "Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor."
+						},
+						"track": {
+							"max": 1
+						},
+						"indent": true
+					},
+					{
+						"type": "entry",
+						"slug": "codex-c3",
+						"content": {
+							"title": null,
+							"text": "Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "codex-c4",
+						"content": {
+							"title": null,
+							"text": "Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic."
+						},
+						"track": {
+							"max": 1
+						},
+						"indent": true
+					},
+					{
+						"type": "entry",
+						"slug": "codex-c5",
+						"content": {
+							"title": null,
+							"text": "Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to."
+						},
+						"track": {
+							"max": 1
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "codex-c6",
+						"content": {
+							"title": null,
+							"text": "Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren’t moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch."
+						},
+						"track": {
+							"max": 1
+						},
+						"indent": true
+					},
+					{
+						"type": "entry",
+						"slug": "codex-c7",
+						"content": {
+							"title": null,
+							"text": "Anything that you perceive, Hec’tumel perceives it too."
+						},
+						"track": {
+							"max": 1
+						},
+						"indent": true
+					}
+				]
+			},
 			"unlockAt": 4
 		},
 		"major": true

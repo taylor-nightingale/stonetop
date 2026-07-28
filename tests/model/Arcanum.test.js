@@ -125,7 +125,7 @@ describe("ArcanumBack", () => {
 		expect(new ArcanumBack(BACK_DATA).resource).toBeNull();
 	});
 
-	it("wraps moves in ArcanumMysteryMove", () => {
+	it("wraps moves in ArcanumMove", () => {
 		const back = new ArcanumBack(BACK_DATA);
 		expect(back.moves).toHaveLength(1);
 		expect(back.moves[0].name).toBe("When you speak the secret word");

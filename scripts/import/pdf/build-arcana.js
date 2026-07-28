@@ -312,8 +312,10 @@ for (const rec of bySlug.values()) {
 		// cards that used to come up empty), so no hand-authored back fallback.
 		let back = parsed.back;
 		// Carve-out: the major follower cards (mindgem/blackwood) inline their followers via a hand-authored
-		// choice group — preserve it (the 3 major followers stay hand-authored, per the roster).
-		if (back && rec.doc.system.back?.choices) back.choices = rec.doc.system.back.choices;
+		// choice group — preserve it (the 3 major followers stay hand-authored, per the roster). Guarded on
+		// the group actually holding followers, so the parser stays authoritative for a non-follower back
+		// choice group (the Hec'tumel Codex's "Spells of the Codex" picks).
+		if (back && rec.doc.system.back?.choices?.list?.some((r) => r.followers)) back.choices = rec.doc.system.back.choices;
 		// Promote parsed inline moves → move pack files + `back.moveSlugs` (no-op if already moveSlugs).
 		back = emitArcanaMoves(back, resourceBySlug);
 		const sys = { slug: rec.slug, front, back, major: true };

@@ -92,7 +92,7 @@ export function createStonetopArcanumSheetClass(Base) {
 			context.unlockRows       = front.unlock      ? CG.buildRows(front.unlock)      : [];
 			context.backChoiceRows   = back.choices      ? CG.buildRows(back.choices)      : [];
 			context.consequenceRows  = back.consequences ? CG.buildRows(back.consequences) : [];
-			context.mysteryMoves     = back.moves ?? [];
+			context.moves            = back.moves ?? [];
 
 			// Live preview — the SAME snapshot builder + arcanum-cards.hbs partial the character uses.
 			this._previewFlipped ??= false;
@@ -104,7 +104,7 @@ export function createStonetopArcanumSheetClass(Base) {
 			const moveSlugs = back.moveSlugs ?? [];
 			const resolved  = moveSlugs.length ? await new FoundryMoveRepository().getMovesBySlugs(moveSlugs) : [];
 			const moveSnapshots = resolved.length
-				? resolved.map(m => MoveSnapshotBuilder.forArcanumMystery({ id: m.slug, name: m.name, text: m.description }))
+				? resolved.map(m => MoveSnapshotBuilder.forArcanum({ id: m.slug, name: m.name, text: m.description }))
 				: null;
 			context.preview        = [ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext({ flipped: this._previewFlipped, moveSnapshots }))];
 			// Inline follower rows are slug references resolved against the character's followers.bySlug at

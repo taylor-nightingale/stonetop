@@ -259,7 +259,7 @@ Hooks.once("init", () => {
 		"stonetop.playbook-ref-row":      "systems/stonetop/templates/item/partials/playbook-ref-row.hbs",
 		"stonetop.arcanum-item-def":      "systems/stonetop/templates/item/partials/arcanum-item-def.hbs",
 		"stonetop.arcanum-resource":      "systems/stonetop/templates/item/partials/arcanum-resource.hbs",
-		"stonetop.arcanum-mystery-move":  "systems/stonetop/templates/item/partials/arcanum-mystery-move.hbs",
+		"stonetop.arcanum-move":          "systems/stonetop/templates/item/partials/arcanum-move.hbs",
 		"stonetop.string-list-editor":         "systems/stonetop/templates/item/partials/string-list-editor.hbs",
 		"stonetop.follower-selection-field":   "systems/stonetop/templates/item/partials/follower-selection-field.hbs",
 		"stonetop.follower-member-editor":     "systems/stonetop/templates/item/partials/follower-member-editor.hbs",

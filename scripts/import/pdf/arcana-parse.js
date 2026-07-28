@@ -218,6 +218,14 @@ export function titleCase(s) {
 	return words.map((w, i) => (i > 0 && MINOR_WORDS.has(w)) ? w : w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
+/** A choice entry's leading bold run-in name → a stable, readable slug source. The book prints each
+ *  Codex spell as "**Name.** body…"; pull "Name" (without its trailing period). Returns null when the
+ *  text has no bold run-in. */
+export function runInName(md) {
+	const m = (md || "").match(/^\*\*\s*(.+?)\s*\.?\*\*/);
+	return m ? m[1].trim() : null;
+}
+
 /** A mystery move whose text begins "(Requires: A, B)" gates on those moves — pull the comma-listed
  *  move names into `requirement.moves` (display names, mirroring `call-the-spirits`) and strip the
  *  parenthetical from the text. Returns { moves: string[]|null, text }. */
@@ -515,9 +523,10 @@ export function parseFront(blocks, { name, slug }) {
 function parseMajorBack(blocks, { slug, name, unlockAt }) {
 	const back = { title: null, item: null, description: null, resource: null, itemSameAsFront: true, choices: null, moves: [], consequences: null, unlockAt: unlockAt ?? null };
 	const abbr = toSlug((name || "").trim().split(/\s+/).pop() || "c") || "c"; // "Twisted Spear" → "spear"
-	let section = null; // null | "moves" | "consequences"
-	let cur = null;     // the move/consequence currently accreting following paras/bullets
-	const consX = [];   // each consequence row's start x0, parallel to back.consequences.list
+	let section = null;     // null | "moves" | "consequences" | "spells"
+	let spellsTitle = null; // the "Spells of the Codex" heading text → the spells choice-group title
+	let cur = null;         // the move/consequence currently accreting following paras/bullets
+	const consX = [];       // each consequence row's start x0, parallel to back.consequences.list
 	const flush = () => {
 		if (!cur) return;
 		const text = cur.text.replace(/\n{3,}/g, "\n\n").trim();
@@ -542,9 +551,18 @@ function parseMajorBack(blocks, { slug, name, unlockAt }) {
 			const t = b.line.text.trim();
 			if (/^moves$/i.test(t)) { flush(); section = "moves"; }
 			else if (/^consequences$/i.test(t)) { flush(); section = "consequences"; }
+			else if (/^spells of\b/i.test(t)) { flush(); section = "spells"; spellsTitle = t; } // the Hec'tumel Codex's pickable spells
 			else if (/^(front|back)$/i.test(t) || /^appendix [cd]/i.test(t)) { flush(); section = null; } // side label / running header ends back content
 			else if (!back.title) back.title = t;
 			continue;
+		}
+		// A section heading can arrive glued to stray leading markers as a 1-item list ("○ ○ ○ ○
+		// Consequences") when the column split strands markers onto it — treat it as the heading.
+		if (b.type === "list" && b.items.length === 1) {
+			const label = stripMarkers(joinMd(b.items[0])).trim();
+			if (/^moves$/i.test(label))        { flush(); section = "moves"; continue; }
+			if (/^consequences$/i.test(label)) { flush(); section = "consequences"; continue; }
+			if (/^spells of\b/i.test(label))   { flush(); section = "spells"; spellsTitle = label; continue; }
 		}
 		if (b.type === "rule") { flush(); continue; } // a rule separates moves / consequences
 		if (b.type === "boxstart" || b.type === "boxend" || b.type === "table" || b.type === "statblock" || b.type === "image") continue;
@@ -573,6 +591,21 @@ function parseMajorBack(blocks, { slug, name, unlockAt }) {
 					cur = { kind: "consequence", max: (rawOf(it).match(/[□◻]/g) || []).length, text: stripMarkers(joinMd(it)), x0: it[0]?.bbox?.[0] ?? null };
 				} else if (cur) cur.text += bullet(it);
 			} else if (b.type === "para" && cur) cur.text += "\n\n" + stripMarkers(joinMd(b.lines));
+		} else if (section === "spells") {
+			// Each spell is a self-contained "□ **Name.** body" list item you tick to learn it — a
+			// checkbox entry in the back's generic choice group, titled by the section heading.
+			if (b.type === "list") for (const it of b.items) {
+				const text = stripMarkers(joinMd(it));
+				if (!text) continue;
+				const nm = runInName(text);
+				// back.choices is namespaced by the arcanum slug everywhere (mindgem/blackwood followers,
+				// and migrateArcanumChoiceGroupSlugs force-corrects it) — the section heading is its `title`.
+				(back.choices ??= { slug, title: spellsTitle, list: [] });
+				back.choices.list.push({ type: "entry", slug: nm ? toSlug(nm) : unlockSlug(text), content: { title: null, text }, track: { max: 1 } });
+			} else if (b.type === "para" && back.choices?.list?.length) {
+				const last = back.choices.list[back.choices.list.length - 1];
+				last.content.text += "\n\n" + stripMarkers(joinMd(b.lines));
+			}
 		}
 	}
 	flush();

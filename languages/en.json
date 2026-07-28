@@ -287,7 +287,7 @@
 			"resourceLabels": "Labels",
 			"unlock": "Unlock",
 			"choices": "Choices",
-			"mysteryMoves": "Moves",
+			"moves": "Moves",
 			"consequences": "Consequences",
 			"unlockAt": "Unlock at",
 			"moveName": "Move name",

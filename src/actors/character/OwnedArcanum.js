@@ -74,8 +74,8 @@ export class OwnedArcanum {
 		return ChoiceGroupDefs.followerLinks(this._item.system ?? {}).flatMap(l => l.slugs);
 	}
 
-	/** An inline mystery move ({id,name,text}) by id, or null. */
-	mysteryMove(id) {
+	/** An inline arcanum move ({id,name,text}) by id, or null. */
+	moveById(id) {
 		return (this._item.system?.back?.moves ?? []).find(m => m.id === id) ?? null;
 	}
 

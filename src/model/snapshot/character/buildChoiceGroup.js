@@ -18,7 +18,7 @@ import {
 export function buildChoiceGroup(entry, values = new ChoiceValues()) {
 	const es = entry.slug;
 	const list = (entry.list ?? []).map((item, idx) => buildRow(item, values, es, idx));
-	return new ChoiceGroup(es, list);
+	return new ChoiceGroup(es, list, entry.title ?? null);
 }
 
 // Picks carry an explicit type in pack data but are identified only by an `options` array in character

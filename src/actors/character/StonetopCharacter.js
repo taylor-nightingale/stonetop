@@ -166,10 +166,10 @@ export class StonetopCharacter {
 	}
 
 	// The sheet's per-move chat button: owned move items first (moves tab, side-bar, major-arcana
-	// mysteries), then the inline arcanum mystery moves that have no item behind them.
+	// moves), then the inline arcanum moves that have no item behind them.
 	async sendMoveToChat(moveSlug) {
 		if (await this._moves.sendToChat(moveSlug)) return;
-		await this._arcana.sendMysteryMoveToChat(moveSlug);
+		await this._arcana.sendArcanumMoveToChat(moveSlug);
 	}
 
 	async setMoveResourceCurrent(moveSlug, current) {

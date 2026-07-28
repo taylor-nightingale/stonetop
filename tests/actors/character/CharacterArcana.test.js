@@ -933,9 +933,9 @@ describe("CharacterArcana — mystery moves", () => {
 	});
 });
 
-// ── sendMysteryMoveToChat ─────────────────────────────────────────────────────
+// ── sendArcanumMoveToChat ─────────────────────────────────────────────────────
 
-describe("CharacterArcana.sendMysteryMoveToChat", () => {
+describe("CharacterArcana.sendArcanumMoveToChat", () => {
 	function arcanumWithInlineMove() {
 		return makeArcanumItem({
 			slug: "silvery-ring",
@@ -949,7 +949,7 @@ describe("CharacterArcana.sendMysteryMoveToChat", () => {
 	it("posts the inline move's name + text through the actor's chat surface", async () => {
 		const actor = makeActor([arcanumWithInlineMove()]);
 		const arcana = new CharacterArcana(actor, new FakeArcanaRepository([]));
-		expect(await arcana.sendMysteryMoveToChat("move-abc12345")).toBe(true);
+		expect(await arcana.sendArcanumMoveToChat("move-abc12345")).toBe(true);
 		expect(actor.chatDescriptions).toEqual([
 			{ label: "Whispered Command", description: "Will someone to obey." },
 		]);
@@ -958,7 +958,7 @@ describe("CharacterArcana.sendMysteryMoveToChat", () => {
 	it("returns false (and posts nothing) when no owned arcanum carries the id", async () => {
 		const actor = makeActor([arcanumWithInlineMove()]);
 		const arcana = new CharacterArcana(actor, new FakeArcanaRepository([]));
-		expect(await arcana.sendMysteryMoveToChat("move-unknown")).toBe(false);
+		expect(await arcana.sendArcanumMoveToChat("move-unknown")).toBe(false);
 		expect(actor.chatDescriptions).toHaveLength(0);
 	});
 });

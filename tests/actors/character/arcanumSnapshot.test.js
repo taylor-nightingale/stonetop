@@ -94,9 +94,9 @@ describe("arcanumOutfitItemSnapshot", () => {
 	});
 });
 
-describe("MoveSnapshotBuilder.forArcanumMystery", () => {
+describe("MoveSnapshotBuilder.forArcanum", () => {
 	it("maps an arcanum mystery move into an always-active, non-selectable MoveSnapshot", () => {
-		const m = MoveSnapshotBuilder.forArcanumMystery({ id: "battery", name: "Battery", text: "store energy" });
+		const m = MoveSnapshotBuilder.forArcanum({ id: "battery", name: "Battery", text: "store energy" });
 		expect(m).toBeInstanceOf(MoveSnapshot);
 		expect(m).toMatchObject({
 			id: "battery", slug: "battery", name: "Battery",
@@ -107,7 +107,7 @@ describe("MoveSnapshotBuilder.forArcanumMystery", () => {
 	});
 
 	it("carries a subtitle through as the move sourceLabel (null when absent)", () => {
-		expect(MoveSnapshotBuilder.forArcanumMystery({ name: "Resonance", subtitle: "Requires: Battery" }).sourceLabel).toBe("Requires: Battery");
-		expect(MoveSnapshotBuilder.forArcanumMystery({ name: "Unquenched" }).sourceLabel).toBeNull();
+		expect(MoveSnapshotBuilder.forArcanum({ name: "Resonance", subtitle: "Requires: Battery" }).sourceLabel).toBe("Requires: Battery");
+		expect(MoveSnapshotBuilder.forArcanum({ name: "Unquenched" }).sourceLabel).toBeNull();
 	});
 });

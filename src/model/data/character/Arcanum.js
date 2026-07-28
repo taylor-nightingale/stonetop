@@ -24,7 +24,7 @@ export class ArcanumFront {
 
 // Mystery moves are major-arcana-only.
 
-export class ArcanumMysteryMove {
+export class ArcanumMove {
 	constructor(data) {
 		this.id           = data.id;
 		this.name         = data.name;
@@ -47,7 +47,7 @@ export class ArcanumBack {
 		// items on the character. `moves` is the legacy inline shape, still used by minor arcana and
 		// custom-authored arcana (and as a render fallback when moveSlugs is empty).
 		this.moveSlugs    = data.moveSlugs    ?? [];
-		this.moves        = (data.moves ?? []).map(m => new ArcanumMysteryMove(m));
+		this.moves        = (data.moves ?? []).map(m => new ArcanumMove(m));
 		this.consequences = data.consequences ?? null;
 		this.unlockAt     = data.unlockAt     ?? null;
 	}

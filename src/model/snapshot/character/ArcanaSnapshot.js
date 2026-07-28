@@ -86,7 +86,7 @@ export class ArcanumBackSnapshotBuilder {
 			.withDescription(rich(back.description))
 			.withResource(ctx.resource(back.resource ?? null))
 			.withChoices(ctx.group(back.choices))
-			.withMoves(ctx.moveSnapshots ?? (back.moves ?? []).map(m => MoveSnapshotBuilder.forArcanumMystery(m)))
+			.withMoves(ctx.moveSnapshots ?? (back.moves ?? []).map(m => MoveSnapshotBuilder.forArcanum(m)))
 			.withConsequences(ctx.group(back.consequences))
 			.withUnlockAt(back.unlockAt)
 			.build();

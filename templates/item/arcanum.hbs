@@ -111,12 +111,12 @@
 				{{#if major}}
 				{{!-- Major-only: mystery moves, consequences, unlock-at --}}
 				<div class="stonetop-arcanum-subhead">
-					<span>{{localize "stonetop.arcanum.mysteryMoves"}}</span>
+					<span>{{localize "stonetop.arcanum.moves"}}</span>
 					<button type="button" class="arcanum-move-add">{{localize "stonetop.arcanum.add"}}</button>
 				</div>
 				<div class="stonetop-arcanum-move-editor-list">
-					{{#each mysteryMoves}}
-					{{> "stonetop.arcanum-mystery-move" move=this index=@index}}
+					{{#each moves}}
+					{{> "stonetop.arcanum-move" move=this index=@index}}
 					{{/each}}
 				</div>
 

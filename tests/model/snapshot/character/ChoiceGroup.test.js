@@ -39,3 +39,13 @@ describe("buildChoiceGroup pick rows — option labels are rich text", () => {
 		expect(group.list[0].options[0].text.raw).toBe("");
 	});
 });
+
+describe("buildChoiceGroup — optional section title", () => {
+	it("carries a group-level `title` through to the ChoiceGroup (the Codex's 'Spells of the Codex')", () => {
+		const group = buildChoiceGroup({ slug: "spells", title: "Spells of the Codex", list: [] });
+		expect(group.title).toBe("Spells of the Codex");
+	});
+	it("defaults `title` to null when the group def has none (follower groups)", () => {
+		expect(buildChoiceGroup({ slug: "g", list: [] }).title).toBeNull();
+	});
+});

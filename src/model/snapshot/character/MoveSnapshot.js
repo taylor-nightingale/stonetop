@@ -60,12 +60,12 @@ export class MoveSnapshotBuilder {
 	withChoices(v)       { this._choices       = v; return this; }
 	build()              { return new MoveSnapshot(this); }
 
-	// A major-arcanum back "mystery move" ({id, name, text, subtitle?}) shaped as a MoveSnapshot so it
-	// renders through the SAME move-item partial as the moves tab. The fallback for minor/custom arcana
-	// that carry inline back.moves (no owned move item): always active ({1,1}, checkbox suppressed),
-	// non-rollable. MAJOR arcana bypass this — their mystery moves are real owned move items resolved via
-	// CharacterMoves, which carry ownedId + rollStat.
-	static forArcanumMystery(move) {
+	// An inline arcanum back move ({id, name, text, subtitle?}) shaped as a MoveSnapshot so it renders
+	// through the SAME move-item partial as the moves tab. The fallback for minor/custom arcana that carry
+	// inline back.moves (no owned move item): always active ({1,1}, checkbox suppressed), non-rollable.
+	// MAJOR arcana bypass this — their moves are real owned move items resolved via CharacterMoves, which
+	// carry ownedId + rollStat.
+	static forArcanum(move) {
 		return new MoveSnapshotBuilder()
 			.withId(move.id ?? null)
 			.withOwnedId(null)

@@ -74,8 +74,9 @@ export class ChoiceValues {
 /** The resolved snapshot of one choice group: a namespace slug and its rows (EntryRow | ChoiceRow).
  *  Built from pack data by the pure `buildChoiceGroup` function. */
 export class ChoiceGroup {
-	constructor(slug, list) {
-		this.slug = slug;
-		this.list = list;
+	constructor(slug, list, title = null) {
+		this.slug  = slug;
+		this.list  = list;
+		this.title = title; // optional section heading (e.g. the Hec'tumel Codex's "Spells of the Codex")
 	}
 }

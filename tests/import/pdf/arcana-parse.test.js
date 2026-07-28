@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -74,6 +74,17 @@ describe("majorMoveName", () => {
 	});
 	it("returns null name when the line is not an all-caps move header", () => {
 		expect(majorMoveName("When you do the thing").name).toBe("");
+	});
+});
+
+describe("runInName (leading bold run-in → slug source)", () => {
+	it("pulls the bold run-in name without its trailing period", () => {
+		expect(runInName("**Call Up the Dead.** Touch a corpse.")).toBe("Call Up the Dead");
+		expect(runInName("**Serpentine.** Your soul slithers.")).toBe("Serpentine");
+	});
+	it("is null when there is no bold run-in", () => {
+		expect(runInName("Touch a corpse and it answers.")).toBeNull();
+		expect(runInName("")).toBeNull();
 	});
 });
 
@@ -184,6 +195,50 @@ describe("parseBack — major mysteries (moves + consequence tracks)", () => {
 		expect(b.moves[0].name).toBe("Resonance");
 		expect(b.moves[0].requirement).toEqual({ moves: ["Battery", "Eye of the Storm"] });
 		expect(b.moves[0].text).toBe("When you unleash the storm, roll +CON.");
+	});
+});
+
+describe("parseBack — Hec'tumel Codex: 'Spells of the Codex' + a marker-glued Consequences heading", () => {
+	// The column split (a) scatters the "Mysteries of…" title to the end of the stream, after the running
+	// header, and (b) strands the front's Marks pips onto the "Consequences" heading, so it arrives as a
+	// 1-item list ("○ ○ ○ ○ Consequences") rather than a bare heading — mirrors the real page 557 blocks.
+	const lineAt = (x0, text) => ({ ..._line(text), bbox: [x0, 0, 0, 0] });
+	const consAt = (...items) => ({ type: "list", items: items.map(([x0, text]) => [lineAt(x0, text)]) });
+	const back = parseBack([
+		_heading("Spells of the Codex"),
+		_list(["□ **Call Up the Dead.** Touch a corpse; you conjure its shade."]),
+		_list(["□ **Serpentine.** Your soul slithers from your mouth."]),
+		_list(["□ **Snuff the Spirit.** Name a living victim."]),
+		_list(["□ **Torpor.** Lock eyes with someone and whisper."]),
+		_heading("Moves"),
+		_list(["□ DARKSOME VESSEL", "When you cast a Codex spell, on a 12+ you can choose the Empowered effect."]),
+		_list(["○ ○ ○ ○ Consequences"]), // the marker-glued heading that used to swallow the section
+		consAt(
+			[432.9, "□ Over a few days, you lose all body hair."],
+			[446.4, "□ Over a few days, you lose all your remaining hair. Gain +1 armor."],
+			[432.9, "□ Your body temperature drops and your skin becomes cool."],
+		),
+		_heading("appendix d : major arcana"),   // running header ends back content
+		_heading("Mysteries of the Hec'tumel Codex"), // the real title, scrambled to the end of the stream
+	], { slug: "hectumel-codex", name: "Hec'tumel Codex", major: true, unlockAt: 4 });
+
+	it("takes the real 'Mysteries of…' title, not the 'Spells of the Codex' subheading", () => {
+		expect(back.title).toBe("Mysteries of the Hec'tumel Codex");
+	});
+	it("parses the spells into a titled back choice group of learnable (max-1) picks", () => {
+		expect(back.choices.slug).toBe("hectumel-codex"); // back.choices is namespaced by the arcanum slug
+		expect(back.choices.title).toBe("Spells of the Codex");
+		expect(back.choices.list.map((r) => r.slug)).toEqual(["call-up-the-dead", "serpentine", "snuff-the-spirit", "torpor"]);
+		expect(back.choices.list.every((r) => r.track?.max === 1)).toBe(true);
+		expect(back.choices.list[0].content.text).toBe("**Call Up the Dead.** Touch a corpse; you conjure its shade.");
+	});
+	it("still parses the mystery move", () => {
+		expect(back.moves.map((m) => m.name)).toEqual(["Darksome Vessel"]);
+	});
+	it("recovers the Consequences section despite the marker-glued heading, with escalation indents", () => {
+		expect(back.consequences.list).toHaveLength(3);
+		expect(back.consequences.list.map((r) => r.indent ?? false)).toEqual([false, true, false]);
+		expect(back.consequences.list[1].content.text).toBe("Over a few days, you lose all your remaining hair. Gain +1 armor.");
 	});
 });
 

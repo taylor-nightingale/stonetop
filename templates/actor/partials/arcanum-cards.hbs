@@ -38,6 +38,7 @@
 		{{/if}}
 		{{#if back.choices}}
 		<div class="stonetop-arcanum-back-choices stonetop-arcanum-section">
+			{{#if back.choices.title}}<p class="stonetop-arcanum-section-label">{{back.choices.title}}</p>{{/if}}
 			{{#each back.choices.list}}
 			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../back.choices.slug}}
 			{{/each}}
