@@ -9,75 +9,94 @@
 			"title": "A silvery signet ring",
 			"item": null,
 			"tags": "magical, beautiful",
-			"description": "A ring of white metal, untarnished and gleaming, a single glyph carved into the bezel. The symbol squirms under your gaze, like it exists in more dimensions than you can perceive. The ring fits you perfectly, of course.",
-			"unlock": {
-				"slug": "silvery-signet-ring",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the ring’s mysteries, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a season wearing the ring and contemplating the glyph."
+			"choices": [
+				{
+					"slug": "silvery-signet-ring",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A ring of white metal, untarnished and gleaming, a single glyph carved into the bezel. The symbol squirms under your gaze, like it exists in more dimensions than you can perceive. The ring fits you perfectly, of course."
+							}
 						},
-						"slug": "spend-season",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… get used to the headaches & nausea that come from wearing the ring."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the ring’s mysteries, you must..."
+							}
 						},
-						"slug": "get-used",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend 1 of your follower’s Loyalty to charge the ring."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a season wearing the ring and contemplating the glyph."
+							},
+							"slug": "spend-season",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-1",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… get used to the headaches & nausea that come from wearing the ring."
+							},
+							"slug": "get-used",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "attempt-influence",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend 1 of your follower’s Loyalty to charge the ring."
+							},
+							"slug": "spend-1",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s)."
+							},
+							"slug": "attempt-influence",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Sigil of Authority",
 			"item": null,
-			"description": "When you **_Strengthen Your Bond_** with a member of your community, you can choose to hold +1 Authority (max 3) in lieu of your follower holding +1 Loyalty. If you **_remove the ring_**, lose all Authority.\n\nWhen you **_Persuade your follower(s) while hold_****_ing Authority_**, you have advantage.\n\nYou can spend Authority 1-for-1 to:\n\n- Wrap yourself in majesty for up to a few minutes, drawing all attention, cowing the weak-willed, and speaking in a voice that all can hear (*far*, *area*)\n- Will someone in your presence to do as you wish, attempting to Persuade them without words\n- Have one of your nearby followers suffer an attack on your behalf, as if they held Readiness from Defending",
 			"resource": {
 				"max": 3,
 				"title": "Authority",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_Strengthen Your Bond_** with a member of your community, you can choose to hold +1 Authority (max 3) in lieu of your follower holding +1 Loyalty. If you **_remove the ring_**, lose all Authority.\n\nWhen you **_Persuade your follower(s) while hold_****_ing Authority_**, you have advantage.\n\nYou can spend Authority 1-for-1 to:\n\n- Wrap yourself in majesty for up to a few minutes, drawing all attention, cowing the weak-willed, and speaking in a voice that all can hear (*far*, *area*)\n- Will someone in your presence to do as you wish, attempting to Persuade them without words\n- Have one of your nearby followers suffer an attack on your behalf, as if they held Readiness from Defending"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

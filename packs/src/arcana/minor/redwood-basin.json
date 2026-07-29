@@ -15,52 +15,60 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A wide, shallow bowl carved with flowers and thorny vines, twining through skulls of deer and other beasts. The pattern shifts when you aren’t looking; it’s never exactly the same twice.",
-			"unlock": {
-				"slug": "redwood-basin",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the mysteries of the basin, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… befriend the spirit of life and vitality that dwells within."
+			"choices": [
+				{
+					"slug": "redwood-basin",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A wide, shallow bowl carved with flowers and thorny vines, twining through skulls of deer and other beasts. The pattern shifts when you aren’t looking; it’s never exactly the same twice."
+							}
 						},
-						"slug": "befriend-spirit",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn from a Fae how to pour years of your life into the basin."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the mysteries of the basin, you must..."
+							}
 						},
-						"slug": "learn-fae",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… fill the basin with a few years of your life. When you **_mark the last requirement and unlock_** **_this arcanum_**, mark your current age on the other side. Then trigger the Bittersweet Elixir move."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… befriend the spirit of life and vitality that dwells within."
+							},
+							"slug": "befriend-spirit",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "fill-basin",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn from a Fae how to pour years of your life into the basin."
+							},
+							"slug": "learn-fae",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… fill the basin with a few years of your life. When you **_mark the last requirement and unlock_** **_this arcanum_**, mark your current age on the other side. Then trigger the Bittersweet Elixir move."
+							},
+							"slug": "fill-basin",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Bittersweet Elixir",
@@ -71,7 +79,6 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "When you **_fill the basin with a few years of your_** **_life_**, it becomes a draught of honey and regret. Either mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):\n\n- Your mood shifts, dramatically (how?)\n- You see the Last Door (what’s it like?)\n- Reduce STR, DEX, or CON by 1\n- You have less than a year to live When someone **_drinks down all of the bitter_****_sweet elixir, straight from the basin_**, they pick 1:\n- Regain all HP, clear all debilities, and heal any active problematic wounds\n- Purge themselves of all poison/disease\n- Fully recover from a permanent injury by next season’s end, or sooner",
 			"resource": {
 				"max": 3,
 				"title": null,
@@ -81,8 +88,20 @@
 					"elderly"
 				]
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_fill the basin with a few years of your_** **_life_**, it becomes a draught of honey and regret. Either mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):\n\n- Your mood shifts, dramatically (how?)\n- You see the Last Door (what’s it like?)\n- Reduce STR, DEX, or CON by 1\n- You have less than a year to live When someone **_drinks down all of the bitter_****_sweet elixir, straight from the basin_**, they pick 1:\n- Regain all HP, clear all debilities, and heal any active problematic wounds\n- Purge themselves of all poison/disease\n- Fully recover from a permanent injury by next season’s end, or sooner"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

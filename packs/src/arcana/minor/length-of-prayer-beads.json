@@ -15,64 +15,83 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A cord almost 10 feet long, strung with bronze beads. Each bead is carved with a different glyph and a figure in a unique meditative pose. If you run your fingers along the beads, you feel a sense of stillness—but also a merciless weight of judgement.",
-			"unlock": {
-				"slug": "length-of-prayer-beads",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the secrets of the prayer beads, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… decipher the Rime Lord glyphs embossed upon the beads."
+			"choices": [
+				{
+					"slug": "length-of-prayer-beads",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A cord almost 10 feet long, strung with bronze beads. Each bead is carved with a different glyph and a figure in a unique meditative pose. If you run your fingers along the beads, you feel a sense of stillness—but also a merciless weight of judgement."
+							}
 						},
-						"slug": "decipher-rime",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the meditative chants that accompany the beads (from a trove of knowledge or someone who knows)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the secrets of the prayer beads, you must..."
+							}
 						},
-						"slug": "learn-meditative",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a season in isolation, naked and fasting, meditating with the prayer beads, risking illness, accident, and misadventure."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… decipher the Rime Lord glyphs embossed upon the beads."
+							},
+							"slug": "decipher-rime",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-season",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the meditative chants that accompany the beads (from a trove of knowledge or someone who knows)."
+							},
+							"slug": "learn-meditative",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a season in isolation, naked and fasting, meditating with the prayer beads, risking illness, accident, and misadventure."
+							},
+							"slug": "spend-season",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Cold Mind, Iron Body",
 			"item": null,
-			"description": "When you **_Bolster by spending downtime in isola_****_tion, fasting, and meditation with the prayer beads_**, hold Preparation (as per the Bolster move).\n\nWhile you **_hold at least 1 Preparation_**, you require only an hour of sleep each night, can endure cold weather without *warm* clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.\n\nAlso, you can spend 1 Preparation to:\n\n- Add +1 to any roll, after it is made (maximum +1 per roll)\n- Clear a debility, or refuse to mark one\n- Perform a feat of extreme endurance\n- Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)",
 			"resource": {
 				"max": 3,
 				"title": "Preparation",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_Bolster by spending downtime in isola_****_tion, fasting, and meditation with the prayer beads_**, hold Preparation (as per the Bolster move).\n\nWhile you **_hold at least 1 Preparation_**, you require only an hour of sleep each night, can endure cold weather without *warm* clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.\n\nAlso, you can spend 1 Preparation to:\n\n- Add +1 to any roll, after it is made (maximum +1 per roll)\n- Clear a debility, or refuse to mark one\n- Perform a feat of extreme endurance\n- Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

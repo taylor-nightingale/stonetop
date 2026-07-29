@@ -28,7 +28,7 @@ export class ChoiceValueChange {
 	get affectsCounts() { return this.kind !== "text"; }
 
 	/** The group the write belongs to — the one actually holding the target when several share the
-	 *  namespace (arcana give front.unlock and back.choices the same slug), else the first match. */
+	 *  namespace (arcana give a front group and a back group the same slug), else the first match. */
 	get groupDef() {
 		this._resolve();
 		return this._groupDef;

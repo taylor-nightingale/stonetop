@@ -15,82 +15,101 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force.",
-			"unlock": {
-				"slug": "metal-puzzle-box",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock its mysteries, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… roll +INT to open the box: **on a 10+**, it takes a few days of fiddling; **on a 7-9**, it takes a few obsessive weeks; **on a 6-**, it’s beyond you."
+			"choices": [
+				{
+					"slug": "metal-puzzle-box",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force."
+							}
 						},
-						"slug": "roll-int",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a season deciphering the symbols etched along the inside."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock its mysteries, you must..."
+							}
 						},
-						"slug": "spend-season",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… roll +INT to open the box: **on a 10+**, it takes a few days of fiddling; **on a 7-9**, it takes a few obsessive weeks; **on a 6-**, it’s beyond you."
+							},
+							"slug": "roll-int",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-never",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… commune with a primordial spirit and learn the Silent Words from it."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a season deciphering the symbols etched along the inside."
+							},
+							"slug": "spend-season",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "commune-primordial",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so."
+							},
+							"slug": "risk-never",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… commune with a primordial spirit and learn the Silent Words from it."
+							},
+							"slug": "commune-primordial",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Runes of Creation",
 			"item": null,
-			"description": "When you **_carefully inscribe an object with the_** **_runes of creation_**, pick 1 desired effect:\n\n- It will flow into any shape you imagine\n- It will become *indestructible*\n- It will become *beautiful*\n- It will blaze with terrible heat (1d10 damage, *messy*), if only for a moment When you **_speak the Silent Word that completes_** **_the spell_** (*far* range) mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n- Mark another debility & lose 1d10 HP\n- The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.\n- The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM’s choosing",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_carefully inscribe an object with the_** **_runes of creation_**, pick 1 desired effect:\n\n- It will flow into any shape you imagine\n- It will become *indestructible*\n- It will become *beautiful*\n- It will blaze with terrible heat (1d10 damage, *messy*), if only for a moment When you **_speak the Silent Word that completes_** **_the spell_** (*far* range) mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n- Mark another debility & lose 1d10 HP\n- The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.\n- The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM’s choosing"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

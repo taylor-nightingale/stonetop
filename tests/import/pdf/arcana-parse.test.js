@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, detectUnlockAt, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -102,21 +102,6 @@ describe("runInName (leading bold run-in → slug source)", () => {
 	});
 });
 
-describe("detectUnlockAt (front 'marked N / last mark … unlock' phrase)", () => {
-	const line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
-	const para = (...t) => ({ type: "para", lines: t.map(line) });
-	const list = (...items) => ({ type: "list", items: items.map((it) => it.map(line)) });
-	it("reads an explicit 'marked N' count", () => {
-		expect(detectUnlockAt([para("When you have marked 3 tasks, you unlock the mysteries.")])).toBe(3);
-	});
-	it("uses the standalone Marks-run length for 'the last mark'", () => {
-		expect(detectUnlockAt([para("mark 1:"), list(["l l l l l"]), para("When you make the last mark, you unlock the shield’s mysteries.")])).toBe(5);
-	});
-	it("is null when there is no unlock phrase", () => {
-		expect(detectUnlockAt([para("When you draw the sword, it leaps forth.")])).toBeNull();
-	});
-});
-
 describe("parseBack — major mysteries (moves + consequence tracks)", () => {
 	const back = parseBack([
 		_heading("Mysteries of the Test Blade"),
@@ -129,13 +114,12 @@ describe("parseBack — major mysteries (moves + consequence tracks)", () => {
 		_list(["□ □ You lose yourself in a blood-rage. □"]),
 		_para("When you attack, advantage on damage."),
 		_list(["□ Pick someone who survives."]),
-	], { slug: "test-blade", name: "Test Blade", major: true, unlockAt: 3 });
+	], { slug: "test-blade", name: "Test Blade", major: true });
 
-	it("sets the major back scaffolding (itemSameAsFront, no item, unlockAt)", () => {
+	it("sets the major back scaffolding (itemSameAsFront, no item)", () => {
 		expect(back.title).toBe("Mysteries of the Test Blade");
 		expect(back.itemSameAsFront).toBe(true);
 		expect(back.item).toBeNull();
-		expect(back.unlockAt).toBe(3);
 	});
 	it("parses □ ALL-CAPS moves (title-cased + id) and folds sub-bullets instead of splitting them", () => {
 		expect(back.moves.map((m) => m.name)).toEqual(["Unquenched", "A Flickering Flame"]);
@@ -385,14 +369,15 @@ describe("parseFront — major unlock (Marks track + trigger + trailing trim)", 
 	], { name: "Azure Hand", slug: "azure-hand" });
 
 	it("keeps the standalone Marks run as one track entry with its true max", () => {
-		const marks = front.unlock.list.find((e) => e.slug === "marks");
+		const marks = front.choices[0].list.find((e) => e.slug === "marks");
 		expect(marks.track).toEqual({ max: 4 });
 		expect(marks.content.text).toBe("Marks");
 	});
-	it("drops the trailing 'last mark … unlock' instruction and keeps the trigger in unlock", () => {
-		expect(front.unlock.list.at(-1).slug).toBe("marks");
-		expect(front.unlock.list[0].content.text).toContain("bear the Azure Hand");
-		expect(front.description).toContain("thick staff");
+	it("folds the description into a leading content entry, keeps the trigger, drops the trailing unlock line", () => {
+		const list = front.choices[0].list;
+		expect(list.at(-1).slug).toBe("marks");                  // trailing 'last mark … unlock' dropped
+		expect(list[0].content.text).toContain("thick staff");   // description is the first entry now
+		expect(list[1].content.text).toContain("bear the Azure Hand");
 	});
 	it("counts inline ◇ pips on the item line so a 2-pip item weighs 2", () => {
 		const f = parseFront([
@@ -410,9 +395,9 @@ describe("parseFront — major unlock (Marks track + trigger + trailing trim)", 
 			_para("On a 6-, mark 1:"),
 			_list(["l l l l"]),
 		], { name: "Azure Hand", slug: "azure-hand" });
-		expect(f.unlock.list).toHaveLength(2); // the brandish trigger (+bullets+6-) and the Marks track
-		expect(f.unlock.list[0].content.text).toBe("When you **_brandish the Hand_**, choose 1:\n- Direct the energy\n- Discharge the energy\n\nOn a 6-, mark 1:");
-		expect(f.unlock.list[1].track).toEqual({ max: 4 });
+		expect(f.choices[0].list).toHaveLength(2); // the brandish trigger (+bullets+6-) and the Marks track
+		expect(f.choices[0].list[0].content.text).toBe("When you **_brandish the Hand_**, choose 1:\n- Direct the energy\n- Discharge the energy\n\nOn a 6-, mark 1:");
+		expect(f.choices[0].list[1].track).toEqual({ max: 4 });
 	});
 });
 
@@ -442,7 +427,7 @@ describe("parseFront — outfit item vs. disguise tags (the ◇ gate)", () => {
 		], { name: "A... key?", slug: "the-key" });
 		expect(f.item).toBeNull();
 		expect(f.tags).toBe("magical, terrifying");
-		expect(f.description).toContain("Makers'");
+		expect(f.choices[0].list[0].content.text).toContain("Makers'");   // description → leading content entry
 	});
 
 	it("counts a ◇ on its own line (pips-only block) so an item whose tags follow still weighs in", () => {
@@ -463,21 +448,23 @@ describe("parseFront — outfit item vs. disguise tags (the ◇ gate)", () => {
 		], { name: "A path in the woods", slug: "path-in-the-woods" });
 		expect(f.item).toBeNull();
 		expect(f.tags).toBeNull();
-		expect(f.description).toContain("Great Wood");
+		expect(f.choices[0].list[0].content.text).toContain("Great Wood");   // description → leading content entry
 	});
 });
 
 describe("followerChoiceEntry", () => {
-	it("builds the single-pick choice row that links an arcanum back to its follower", () => {
+	it("builds a checkbox entry that grants the follower inline (and on the tab)", () => {
 		expect(followerChoiceEntry("tulpa")).toEqual({
 			type: "entry", slug: "tulpa", content: { title: null, text: "" },
-			track: { max: 1 }, followers: { slugs: ["tulpa"], inlineDisplay: true, hideFromFollowersTab: false },
+			track: { max: 1 }, grants: [{ type: "follower", slug: "tulpa", locations: ["inline", "tab"] }],
 		});
 	});
 
-	it("marks a card-resident follower as hidden from the followers tab", () => {
-		expect(followerChoiceEntry("the-ring", { hideFromFollowersTab: true }).followers)
-			.toEqual({ slugs: ["the-ring"], inlineDisplay: true, hideFromFollowersTab: true });
+	it("a card-resident follower is granted inline but off the tab, with no checkbox when owned", () => {
+		expect(followerChoiceEntry("the-ring", { hideFromFollowersTab: true, owned: true })).toEqual({
+			type: "entry", slug: "the-ring", content: { title: null, text: "" },
+			grants: [{ type: "follower", slug: "the-ring", locations: ["inline"] }],
+		});
 	});
 });
 
@@ -687,20 +674,24 @@ describe("splitAssignRows (an 'assign one die to each' para → one list item pe
 });
 
 describe("numberBlanks (stable @Blank[n] tokens across an arcanum's text, front→back reading order)", () => {
+	// Both sides are one `choices` array of groups; blanks are numbered across every group's entry text.
 	const sys = () => ({
-		front: { description: "fill ____ here", unlock: { list: [{ content: { text: "Who benefits from __?" } }] } },
-		back: {
-			description: "- ____ **Onset**\n- ____ **Intensity**",
-			moves: [{ text: "roll ____ dice" }], choices: null, consequences: null,
-		},
+		front: { choices: [{ slug: "f", list: [
+			{ content: { text: "fill ____ here" } },
+			{ content: { text: "Who benefits from __?" } },
+		] }] },
+		back: { choices: [{ slug: "consequences", list: [
+			{ content: { text: "- ____ **Onset**\n- ____ **Intensity**" } },
+			{ content: { text: "roll ____ dice" } },
+		] }] },
 	});
 	it("numbers every blank in order and returns the count", () => {
 		const system = sys();
 		expect(numberBlanks(system)).toBe(5);
-		expect(system.front.description).toBe("fill @Blank[0] here");
-		expect(system.front.unlock.list[0].content.text).toBe("Who benefits from @Blank[1]?");
-		expect(system.back.description).toBe("- @Blank[2] **Onset**\n- @Blank[3] **Intensity**");
-		expect(system.back.moves[0].text).toBe("roll @Blank[4] dice");
+		expect(system.front.choices[0].list[0].content.text).toBe("fill @Blank[0] here");
+		expect(system.front.choices[0].list[1].content.text).toBe("Who benefits from @Blank[1]?");
+		expect(system.back.choices[0].list[0].content.text).toBe("- @Blank[2] **Onset**\n- @Blank[3] **Intensity**");
+		expect(system.back.choices[0].list[1].content.text).toBe("roll @Blank[4] dice");
 	});
 	it("is idempotent — a tokenised text has no bare underscore runs left to number", () => {
 		const system = sys();

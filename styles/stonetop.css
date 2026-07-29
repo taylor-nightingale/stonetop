@@ -2699,7 +2699,10 @@ button.stonetop-xp-toggle {
 
 /* PDF-style section titles on the arcanum card ("Moves" / "Consequences"), ruled off below as on
    the printed card (the bar above comes from the section divider). */
-.stonetop-arcanum-section-label {
+/* A choice ENTRY's title (content.title) shares the section-label look everywhere it renders — arcana,
+   playbook, insert, background, follower, possession, move choices. */
+.stonetop-arcanum-section-label,
+.stonetop-choice-entry-title {
 	font-weight: bold;
 	font-variant: small-caps;
 	font-size: var(--fs-heading);
@@ -2724,6 +2727,26 @@ button.stonetop-xp-toggle {
 .stonetop-arcanum-follower .stonetop-follower-card {
 	box-shadow: none;
 	flex: 1;
+}
+
+/* A move granted by a choice entry: the ornamental checkbox sits INLINE to the left of the move-row
+   (matching the follower pattern above), not stacked on the line above it. */
+.stonetop-arcanum-move-grant {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	margin-top: 6px;
+}
+
+.stonetop-arcanum-move-grant .stonetop-arcanum-moves {
+	flex: 1;
+	margin-top: 0;
+}
+
+/* The move-row li adds 4px top padding (fine on the moves tab); drop it here so the move NAME's first
+   line aligns with the ornamental checkbox to its left (as the consequence rows do). */
+.stonetop-arcanum-move-grant .stonetop-arcanum-moves .stonetop-item {
+	padding-top: 0;
 }
 
 /* -- Choice sections (Details + Post-Death tabs) ---------------- */

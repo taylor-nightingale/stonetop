@@ -16,66 +16,72 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A tattered cloak, stitched from a motley patchwork of unfamiliar hides and leather. Shifting odors waft from it: damp earth, ozone, musk, sulfur, rust, rot.\n\nIt is not a glamorous garment. Anything but.",
-			"unlock": {
-				"slug": "demonhide-cloak",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_wear the Cloak_**, its armor applies against demons in all cases, even if their attacks are piercing or ignore armor."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_draw up the hood of the Cloak_**, you see clearly in darkness."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_wrap the Cloak tightly about your person_**, you pass unnoticed by all so long as you move calmly and carefully and keep out of direct, harsh light. In retrospect, those you pass may recall a strange smell."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_flay the hide from a demon, tan it, and sew it onto the cloak_**, mark 1:"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_make the last mark_**, you unlock the mysteries of the Cloak and can use The Flesh Remembers (see reverse)."
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
+			"choices": [
+				{
+					"slug": "demonhide-cloak",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A tattered cloak, stitched from a motley patchwork of unfamiliar hides and leather. Shifting odors waft from it: damp earth, ozone, musk, sulfur, rust, rot.\n\nIt is not a glamorous garment. Anything but."
+							}
 						},
-						"track": {
-							"max": 3
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_wear the Cloak_**, its armor applies against demons in all cases, even if their attacks are piercing or ignore armor."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_draw up the hood of the Cloak_**, you see clearly in darkness."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_wrap the Cloak tightly about your person_**, you pass unnoticed by all so long as you move calmly and carefully and keep out of direct, harsh light. In retrospect, those you pass may recall a strange smell."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_flay the hide from a demon, tan it, and sew it onto the cloak_**, mark 1:"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the mysteries of the Cloak and can use The Flesh Remembers (see reverse)."
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
+							},
+							"track": {
+								"max": 3
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Demonhide Cloak",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 3,
 			"choices": [
 				{
 					"slug": "moves",

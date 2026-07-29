@@ -15,63 +15,71 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A short flatbow made of pale blue metal, rigid and gracefully curved even though it’s unstrung. There aren’t even hooks where you *could* attach a string.",
-			"unlock": {
-				"slug": "bow-with-no-string",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "It seems to be of little use, but there is more to this bow than meets the eye. To unlock its mysteries, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… acquire a glove of aetherium, properly attuned to the bow."
+			"choices": [
+				{
+					"slug": "bow-with-no-string",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A short flatbow made of pale blue metal, rigid and gracefully curved even though it’s unstrung. There aren’t even hooks where you *could* attach a string."
+							}
 						},
-						"slug": "acquire-glove",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the secret word that activates the bow."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "It seems to be of little use, but there is more to this bow than meets the eye. To unlock its mysteries, you must…"
+							}
 						},
-						"slug": "learn-secret",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… charge the bow with lightning, risking harm to the bow or yourself."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… acquire a glove of aetherium, properly attuned to the bow."
+							},
+							"slug": "acquire-glove",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "charge-bow",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a few weeks practicing, risking all manner of collateral damage in the process."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the secret word that activates the bow."
+							},
+							"slug": "learn-secret",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… charge the bow with lightning, risking harm to the bow or yourself."
+							},
+							"slug": "charge-bow",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few weeks practicing, risking all manner of collateral damage in the process."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Thunderbolt Bow",
@@ -91,10 +99,21 @@
 					]
 				}
 			},
-			"description": "When you **_speak the secret word_**, the bow activates and hums ominously. When you then **_wear the aetherium glove and grasp where the_** **_string should be_**, a crackling line of lightning appears between the horns.\n\nWhen you **_draw back the lightning_**, a thunderbolt forms where an arrow should be. It manifests over the course of a deep breath, after which you can Let Fly.\n\nYou must charge the bow with lightning to replenish its ammo.\n\nWhen you **_draw back the lightning for at least_** **_ten deep breathes_**, deplete your ammo. Your next shot deals +1d4 damage (+*area*, +*dangerous*), but if you roll snake eyes to Let Fly, the bow explodes (3d6 damage, *reach*, *area*, *forceful*, *loud*).",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_speak the secret word_**, the bow activates and hums ominously. When you then **_wear the aetherium glove and grasp where the_** **_string should be_**, a crackling line of lightning appears between the horns.\n\nWhen you **_draw back the lightning_**, a thunderbolt forms where an arrow should be. It manifests over the course of a deep breath, after which you can Let Fly.\n\nYou must charge the bow with lightning to replenish its ammo.\n\nWhen you **_draw back the lightning for at least_** **_ten deep breathes_**, deplete your ammo. Your next shot deals +1d4 damage (+*area*, +*dangerous*), but if you roll snake eyes to Let Fly, the bow explodes (3d6 damage, *reach*, *area*, *forceful*, *loud*)."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

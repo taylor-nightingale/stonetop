@@ -10,89 +10,95 @@
 			"title": "Twisted Spear",
 			"item": null,
 			"tags": null,
-			"description": "A knobby length of wood, pale as death and hard as steel, tapering to a needle point. The shaft is scored and notched, the tip stained with blood and soot.\n\nThe Spear is a potent weapon against spirits and demons. They cannot bear its touch and its presence makes them deeply ill at ease.",
-			"unlock": {
-				"slug": "twisted-spear",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_wield the Twisted Spear as a weapon_**, you ignore magical protections and can harm spirits, demons, and insubstantial creatures."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_first plunge the Spear into a spirit or demon_**, your mind reels with strange visions. These tasks become known to you:"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Impale a foul spirit with the Spear, and keep it skewered until it burns away to nothing."
+			"choices": [
+				{
+					"slug": "twisted-spear",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A knobby length of wood, pale as death and hard as steel, tapering to a needle point. The shaft is scored and notched, the tip stained with blood and soot.\n\nThe Spear is a potent weapon against spirits and demons. They cannot bear its touch and its presence makes them deeply ill at ease."
+							}
 						},
-						"slug": "impale-foul",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Visit the elder tree from which the Spear was carved, and water its roots with your blood."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_wield the Twisted Spear as a weapon_**, you ignore magical protections and can harm spirits, demons, and insubstantial creatures."
+							}
 						},
-						"slug": "visit-elder",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Face the Pale Hunter and survive the encounter."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_first plunge the Spear into a spirit or demon_**, your mind reels with strange visions. These tasks become known to you:"
+							}
 						},
-						"slug": "face-pale",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Spend a fortnight in the wild, eating nothing, naked and unarmed except for the Spear."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Impale a foul spirit with the Spear, and keep it skewered until it burns away to nothing."
+							},
+							"slug": "impale-foul",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-fortnight",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Pierce your own hand through with the Spear, giving it a shard of your soul and reducing your max HP by 1d4+1."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Visit the elder tree from which the Spear was carved, and water its roots with your blood."
+							},
+							"slug": "visit-elder",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "pierce-own",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Face the Pale Hunter and survive the encounter."
+							},
+							"slug": "face-pale",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Spend a fortnight in the wild, eating nothing, naked and unarmed except for the Spear."
+							},
+							"slug": "spend-fortnight",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Pierce your own hand through with the Spear, giving it a shard of your soul and reducing your max HP by 1d4+1."
+							},
+							"slug": "pierce-own",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Twisted Spear",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 3,
 			"choices": [
 				{
 					"slug": "moves",

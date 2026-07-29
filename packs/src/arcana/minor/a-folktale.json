@@ -9,49 +9,68 @@
 			"title": "A folktale",
 			"item": null,
 			"tags": null,
-			"description": "There’s this old tale, about an old herb tender from Marshedge that tricks a fen-troll into eating an enchanted seedpod. She promises to go get the troll more food if he promises to then let her go. Of course, the troll breaks his word and tries to eat her, but the seedpod bursts into a mass of gwir-nettles when he does.",
-			"unlock": {
-				"slug": "a-folktale",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "You can learn the secret of the enchanted seedpods, but need one of the following:"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "A Marshedge herbalist, steeped in lore, to teach you the ritual"
+			"choices": [
+				{
+					"slug": "a-folktale",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "There’s this old tale, about an old herb tender from Marshedge that tricks a fen-troll into eating an enchanted seedpod. She promises to go get the troll more food if he promises to then let her go. Of course, the troll breaks his word and tries to eat her, but the seedpod bursts into a mass of gwir-nettles when he does."
+							}
 						},
-						"slug": "marshedge-herbalist",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth"
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can learn the secret of the enchanted seedpods, but need one of the following:"
+							}
 						},
-						"slug": "spirit-gwir",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A Marshedge herbalist, steeped in lore, to teach you the ritual"
+							},
+							"slug": "marshedge-herbalist",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth"
+							},
+							"slug": "spirit-gwir",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Truth Seeds",
 			"item": null,
-			"description": "When you **_soak a pair of gwir-nettle seedpods in_** **_your own blood, whisper secrets over them, and_** **_say the words of power_**, they become truth seeds (*magical)*.\n\nWhen you and another **_each eat a truth seed and_** **_make promises to each other_**, the seeds stay in your guts and ensure that the promises are kept.\n\nWhen you **_break your promise_**, the truth seed in your gut sprouts violently into a full-grown gwir-nettle, dealing 1d10+3 damage with advantage (*messy*, ignores armor) and now you’ve got a gwir-nettle growing out of you.\n\nIf the **_other party breaks their promise_**, they suffer the same fate.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_soak a pair of gwir-nettle seedpods in_** **_your own blood, whisper secrets over them, and_** **_say the words of power_**, they become truth seeds (*magical)*.\n\nWhen you and another **_each eat a truth seed and_** **_make promises to each other_**, the seeds stay in your guts and ensure that the promises are kept.\n\nWhen you **_break your promise_**, the truth seed in your gut sprouts violently into a full-grown gwir-nettle, dealing 1d10+3 damage with advantage (*messy*, ignores armor) and now you’ve got a gwir-nettle growing out of you.\n\nIf the **_other party breaks their promise_**, they suffer the same fate."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

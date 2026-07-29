@@ -9,8 +9,6 @@
 			"title": "A crumbling arch",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1104,15 +1102,27 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Sanctifying Mark",
 			"item": null,
-			"description": "When you **_mark an object with the sigil of_** **_sanctification_**, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.\n\nWhen a **_being of darkness, chaos, or death first_** **_tests the power of your mark_**, roll +INT: **on a 10+**, all such creatures are kept at bay so long as your mark remains inviolate; **on a 7-9**, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_mark an object with the sigil of_** **_sanctification_**, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.\n\nWhen a **_being of darkness, chaos, or death first_** **_tests the power of your mark_**, roll +INT: **on a 10+**, all such creatures are kept at bay so long as your mark remains inviolate; **on a 7-9**, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

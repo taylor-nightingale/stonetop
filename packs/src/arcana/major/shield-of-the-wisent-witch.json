@@ -16,52 +16,58 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "+1 Readiness on a 7+ to Defend\n\nA shield of horn-oak, glossy from long use, shod in bronze and adorned with a stylized wisent skull. It’s heavier than it looks, but its heft gives you a feeling of confidence, like anyone would be a fool to mess with a titan such as you.",
-			"unlock": {
-				"slug": "shield-of-the-wisent-witch",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_bear the Shield openly_**, natural creatures give you wide berth and treat you with the respect that they would give a 1,000-lb. bison."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_use the Shield to Defend with both feet planted firmly on the ground,_** so long as you hold Readiness you cannot be moved or tripped. When you **_spend Readiness to strike back at an attacker_**, you also break their momentum, knock them back, and/or send them reeling."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_perform the sacred rites of the forest witches_**, alone in the woods under a clear crescent moon, mark 1:"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
+			"choices": [
+				{
+					"slug": "shield-of-the-wisent-witch",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "+1 Readiness on a 7+ to Defend\n\nA shield of horn-oak, glossy from long use, shod in bronze and adorned with a stylized wisent skull. It’s heavier than it looks, but its heft gives you a feeling of confidence, like anyone would be a fool to mess with a titan such as you."
+							}
 						},
-						"track": {
-							"max": 5
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_bear the Shield openly_**, natural creatures give you wide berth and treat you with the respect that they would give a 1,000-lb. bison."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_use the Shield to Defend with both feet planted firmly on the ground,_** so long as you hold Readiness you cannot be moved or tripped. When you **_spend Readiness to strike back at an attacker_**, you also break their momentum, knock them back, and/or send them reeling."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_perform the sacred rites of the forest witches_**, alone in the woods under a clear crescent moon, mark 1:"
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
+							},
+							"track": {
+								"max": 5
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Shield of the Wisent Witch",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 5,
 			"choices": [
 				{
 					"slug": "moves",

@@ -12,7 +12,7 @@ import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { Stats } from "../../../src/model/data/character/Stats.js";
 import {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
-	ArcanumSnapshot, ArcanumFrontSnapshot, ArcanumBackSnapshot,
+	ArcanumSnapshot, ArcanumSideSnapshot,
 	ChoiceGroup, EntryRow,
 } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 
@@ -61,8 +61,7 @@ const FFYRNIG_SPHERE = {
 	front: {
 		title: "A Huge Wooden Sphere",
 		item: { name: "A Huge Wooden Sphere", weight: null, note: "immobile", inventoryColumn: null },
-		description: "<p>Half-buried and largely overgrown.</p>",
-		unlock: {
+		choices: [{
 			slug: "huge-wooden-sphere",
 			list: [
 				{ type: "heading", content: { text: "The pictograms depict some sort of recipe, which you can learn but you must…" } },
@@ -72,13 +71,13 @@ const FFYRNIG_SPHERE = {
 				{ type: "heading", content: { text: "And then…" } },
 				{ type: "heading", slug: "risk-recipe",  content: { text: "… risk getting the recipe wrong." }, track: { max: 3 } },
 			],
-		},
+		}],
 	},
 	back: {
 		title: "Ffyrnig Tonic",
 		item: { name: "Ffyrnig Tonic", weight: 1, note: "magical", inventoryColumn: "regular" },
-		description: "<p>When you pickle fresh ffyrnig root…</p>",
 		resource: { max: 3, maxStat: null, title: "Ffyrnig Tonic", labels: [] },
+		choices: [],
 	},
 };
 
@@ -188,65 +187,47 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			return (await makeArcana([makeArcanumItem(FFYRNIG_SPHERE, overrides)]).buildSnapshot()).minor.items[0];
 		}
 
-		it("front is a ArcanumFrontSnapshot", async () => {
-			expect((await getItem()).front).toBeInstanceOf(ArcanumFrontSnapshot);
+		// The front's body is one choices group.
+		const unlock = async (overrides = {}) => (await getItem(overrides)).front.choices[0];
+
+		it("front is an ArcanumSideSnapshot", async () => {
+			expect((await getItem()).front).toBeInstanceOf(ArcanumSideSnapshot);
 		});
 
-		it("front has correct title, item, description", async () => {
+		it("front has correct title and item", async () => {
 			const { front } = await getItem();
 			expect(front.title.raw).toBe("A Huge Wooden Sphere");
 			expect(front.item?.weight).toBeNull();
 			expect(front.item?.note.raw).toBe("immobile");
-			expect(front.description.raw).toContain("Half-buried");
 		});
 
-		it("front.unlock is a ChoiceGroup", async () => {
-			expect((await getItem()).front.unlock).toBeInstanceOf(ChoiceGroup);
+		it("the front group is a ChoiceGroup namespaced by the arcanum slug", async () => {
+			const g = await unlock();
+			expect(g).toBeInstanceOf(ChoiceGroup);
+			expect(g.slug).toBe("huge-wooden-sphere");
 		});
 
-		it("front.unlock.slug is the arcanum slug", async () => {
-			expect((await getItem()).front.unlock.slug).toBe("huge-wooden-sphere");
-		});
-
-		it("front.unlock.list first item is an EntryRow with the unlock description", async () => {
-			const row = (await getItem()).front.unlock.list[0];
+		it("the group's first item is an EntryRow with the recipe text", async () => {
+			const row = (await unlock()).list[0];
 			expect(row).toBeInstanceOf(EntryRow);
 			expect(row.content.text.raw).toBe("The pictograms depict some sort of recipe, which you can learn but you must…");
+			expect(row.track).toBeNull();
 		});
 
-		it("front.unlock.list has all entry nodes", async () => {
-			const { list } = (await getItem()).front.unlock;
+		it("the group's list has all entry nodes", async () => {
+			const { list } = await unlock();
 			expect(list).toHaveLength(6);
 			expect(list.every(r => r.type === "entry")).toBe(true);
 		});
 
-		it("entry row without track has null track field", async () => {
-			const row = (await getItem()).front.unlock.list[0];
-			expect(row).toBeInstanceOf(EntryRow);
-			expect(row.track).toBeNull();
-		});
-
-		it("entry row with track has slug and checks array", async () => {
-			const row = (await getItem()).front.unlock.list[2];
-			expect(row).toBeInstanceOf(EntryRow);
-			expect(row.track).not.toBeNull();
+		it("a tracked entry has slug + checks (defaults false, max:3 → length 3, reflects saved values)", async () => {
+			const row = (await unlock()).list[2];
 			expect(row.track.slug).toBe("dig-sphere");
 			expect(row.content.text.raw).toBe("… first dig up and clean the sphere.");
-		});
-
-		it("heading+track defaults checks to all false when no count saved", async () => {
-			const row = (await getItem()).front.unlock.list[2];
 			expect(row.track.checks).toEqual([false]);
-		});
-
-		it("heading+track with max:3 has checks array of length 3", async () => {
-			const row = (await getItem()).front.unlock.list[5];
-			expect(row.track.checks).toHaveLength(3);
-		});
-
-		it("heading+track checks reflect saved unlock values", async () => {
-			const row = (await getItem({ choiceValues: { "huge-wooden-sphere": { "dig-sphere": 1 } } })).front.unlock.list[2];
-			expect(row.track.checks).toEqual([true]);
+			expect((await unlock()).list[5].track.checks).toHaveLength(3);
+			const saved = (await unlock({ choiceValues: { "huge-wooden-sphere": { "dig-sphere": 1 } } })).list[2];
+			expect(saved.track.checks).toEqual([true]);
 		});
 	});
 
@@ -255,16 +236,15 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			return (await makeArcana([makeArcanumItem(FFYRNIG_SPHERE, overrides)]).buildSnapshot()).minor.items[0];
 		}
 
-		it("back is a ArcanumBackSnapshot", async () => {
-			expect((await getItem()).back).toBeInstanceOf(ArcanumBackSnapshot);
+		it("back is an ArcanumSideSnapshot", async () => {
+			expect((await getItem()).back).toBeInstanceOf(ArcanumSideSnapshot);
 		});
 
-		it("back has correct title, item, description", async () => {
+		it("back has correct title and item", async () => {
 			const { back } = await getItem();
 			expect(back.title.raw).toBe("Ffyrnig Tonic");
 			expect(back.item?.weight).toBe(1);
 			expect(back.item?.note.raw).toBe("magical");
-			expect(back.description.raw).toContain("pickle fresh ffyrnig root");
 		});
 
 		it("back.resource is populated and defaults current to 0", async () => {
@@ -327,11 +307,11 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(snap.minor.items[0].flipped).toBe(false);
 		});
 
-		it("setChoiceCount on the unlock group is reflected in buildSnapshot unlock check state", async () => {
+		it("setChoiceCount on the front group is reflected in buildSnapshot check state", async () => {
 			const arcana = makeArcana([makeArcanumItem(FFYRNIG_SPHERE)]);
 			await arcana.setChoiceCount("huge-wooden-sphere", "huge-wooden-sphere", "dig-sphere", 1);
 			const snap = await arcana.buildSnapshot();
-			const row = snap.minor.items[0].front.unlock.list[2];
+			const row = snap.minor.items[0].front.choices[0].list[2];
 			expect(row.track.checks).toEqual([true]);
 		});
 

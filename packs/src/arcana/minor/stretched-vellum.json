@@ -15,60 +15,79 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.",
-			"unlock": {
-				"slug": "stretched-vellum",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock its mysteries and learn the spell, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… decipher the Green Lords’ glyphs."
+			"choices": [
+				{
+					"slug": "stretched-vellum",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell."
+							}
 						},
-						"slug": "decipher-green",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a few weeks studying and pondering them."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock its mysteries and learn the spell, you must…"
+							}
 						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… experiment on a beast of at least *small* size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… decipher the Green Lords’ glyphs."
+							},
+							"slug": "decipher-green",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "experiment-beast",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few weeks studying and pondering them."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… experiment on a beast of at least *small* size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad."
+							},
+							"slug": "experiment-beast",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Chimeric Transmogrification",
 			"item": null,
-			"description": "When you **_hold forth a bit of one beast (fur, bone,_** **_etc.) and speak the words of chimeric transmog_****_rification upon another_**, roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but only if you mark a debility.\n\nWhen **_the spell works_**, roll 1d10+CON. If your roll **equals or exceeds the target’s current HP**, name a feature of the beast you hold—the target’s form twists and buckles, gaining that feature until they sleep for a few hours. The experience is disorienting and alarming; most beasts and people will panic. If you roll **less than the target’s** **current HP**, their form twists and buckles alarmingly for a few seconds, but they fight off the transformation. **Either way**, the bit of the beast you hold is lost, shriveling away to nothing.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_hold forth a bit of one beast (fur, bone,_** **_etc.) and speak the words of chimeric transmog_****_rification upon another_**, roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but only if you mark a debility.\n\nWhen **_the spell works_**, roll 1d10+CON. If your roll **equals or exceeds the target’s current HP**, name a feature of the beast you hold—the target’s form twists and buckles, gaining that feature until they sleep for a few hours. The experience is disorienting and alarming; most beasts and people will panic. If you roll **less than the target’s** **current HP**, their form twists and buckles alarmingly for a few seconds, but they fight off the transformation. **Either way**, the bit of the beast you hold is lost, shriveling away to nothing."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

@@ -9,8 +9,6 @@
 			"title": "A cloak, richly embroidered",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -995,34 +993,22 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Flying Cloak",
 			"item": null,
-			"description": "When you **_wear the cloak and speak the word of_** **_command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.\n\n**HP**\n\nStarts at 13",
 			"resource": null,
-			"unlockAt": null,
 			"choices": [
 				{
-					"slug": "cloak-richly-embroidered",
+					"slug": "intro",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "spirit-in-the-cloak",
 							"content": {
 								"title": null,
-								"text": ""
-							},
-							"followers": {
-								"slugs": [
-									"spirit-in-the-cloak"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
-							},
-							"track": {
-								"max": 1
+								"text": "When you **_wear the cloak and speak the word of_** **_command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.\n\n**HP**\n\nStarts at 13"
 							}
 						}
 					]

@@ -9,8 +9,6 @@
 			"title": "A stone idol",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1233,34 +1231,22 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "The Angry Little God",
 			"item": null,
-			"description": "When you **_put the idol in a prominent place and_** **_beseech it to attend its humble servant,_** it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.\n\n**HP**\n\nStarts at 15",
 			"resource": null,
-			"unlockAt": null,
 			"choices": [
 				{
-					"slug": "stone-idol",
+					"slug": "intro",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "all-mighty-thistlewisk",
 							"content": {
 								"title": null,
-								"text": ""
-							},
-							"followers": {
-								"slugs": [
-									"all-mighty-thistlewisk"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
-							},
-							"track": {
-								"max": 1
+								"text": "When you **_put the idol in a prominent place and_** **_beseech it to attend its humble servant,_** it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.\n\n**HP**\n\nStarts at 15"
 							}
 						}
 					]

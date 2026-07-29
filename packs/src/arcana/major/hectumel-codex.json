@@ -16,55 +16,61 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A dozen copper plates, green with age and bound with loops of reddish metal wire. The outer plates are embossed with strange images of man and beast while the inner plates are etched with arcane diagrams and annotated in some forgotten script.",
-			"unlock": {
-				"slug": "hectumel-codex",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_first run your fingers over the inscriptions_**, your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.\n\n**Call the Pale Lizard.** Cast this spell at night. Hec’tumel (*Slithering One! Death Is Its Eyes!*) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.\n\nWhen **_Hec’tumel spends the night teaching you a spell from the Codex_**, mark 1:"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
-						},
-						"track": {
-							"max": 4
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "cast-a-codex-spell",
-						"content": {
-							"title": null,
-							"text": null
-						},
-						"grants": [
-							{
-								"type": "move",
-								"slug": "cast-a-codex-spell",
-								"locations": [
-									"inline"
-								]
+			"choices": [
+				{
+					"slug": "hectumel-codex",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A dozen copper plates, green with age and bound with loops of reddish metal wire. The outer plates are embossed with strange images of man and beast while the inner plates are etched with arcane diagrams and annotated in some forgotten script."
 							}
-						]
-					}
-				]
-			}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_first run your fingers over the inscriptions_**, your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.\n\n**Call the Pale Lizard.** Cast this spell at night. Hec’tumel (*Slithering One! Death Is Its Eyes!*) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.\n\nWhen **_Hec’tumel spends the night teaching you a spell from the Codex_**, mark 1:"
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
+							},
+							"track": {
+								"max": 4
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "cast-a-codex-spell",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "cast-a-codex-spell",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Hec’tumel Codex",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 4,
 			"choices": [
 				{
 					"slug": "hectumel-codex",

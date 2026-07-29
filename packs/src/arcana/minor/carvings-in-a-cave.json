@@ -9,75 +9,94 @@
 			"title": "Carvings in a cave",
 			"item": null,
 			"tags": null,
-			"description": "At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.",
-			"unlock": {
-				"slug": "carvings-in-a-cave",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "You can study the runes and learn the secrets they contain, but..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must carefully restore the runes over a few weeks of work."
+			"choices": [
+				{
+					"slug": "carvings-in-a-cave",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits."
+							}
 						},
-						"slug": "carefully-restore",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you risk ruining them as you work."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can study the runes and learn the secrets they contain, but..."
+							}
 						},
-						"slug": "risk-ruining",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must decipher the old writings, which are similar to Stone Lord runes."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must carefully restore the runes over a few weeks of work."
+							},
+							"slug": "carefully-restore",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "decipher-old",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… it will then take a few days of study."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you risk ruining them as you work."
+							},
+							"slug": "risk-ruining",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "then-take",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must decipher the old writings, which are similar to Stone Lord runes."
+							},
+							"slug": "decipher-old",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… it will then take a few days of study."
+							},
+							"slug": "then-take",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Shell Game of Souls",
 			"item": null,
-			"description": "When you **_touch a dying, intelligent being, speak_****_ing their name and words of binding_**, roll +INT: **on a 10+**, you bind their soul to your flesh; **on a** **7-9**, you bind their soul but weaken yours— reduce your max HP by 1d4+1.\n\nYour flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:\n\nWhen you **_roll a 6- on Death’s Door_**, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.",
 			"resource": {
 				"max": 3,
 				"title": "Souls max CON",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_touch a dying, intelligent being, speak_****_ing their name and words of binding_**, roll +INT: **on a 10+**, you bind their soul to your flesh; **on a** **7-9**, you bind their soul but weaken yours— reduce your max HP by 1d4+1.\n\nYour flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:\n\nWhen you **_roll a 6- on Death’s Door_**, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

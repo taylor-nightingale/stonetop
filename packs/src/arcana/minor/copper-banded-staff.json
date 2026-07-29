@@ -15,75 +15,94 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A short staff, about 4 feet tall, tapering towards the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.",
-			"unlock": {
-				"slug": "copper-banded-staff",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The staff still tingles with power. To unlock its mysteries you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… figure out the shape of the missing and damaged runes."
+			"choices": [
+				{
+					"slug": "copper-banded-staff",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A short staff, about 4 feet tall, tapering towards the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured."
+							}
 						},
-						"slug": "figure-out",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… replace the bands with new ones of rune-embossed aetherium."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The staff still tingles with power. To unlock its mysteries you must…"
+							}
 						},
-						"slug": "replace-bands",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… figure out the shape of the missing and damaged runes."
+							},
+							"slug": "figure-out",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "hold-fast",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a few days practicing with the charged-up staff."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… replace the bands with new ones of rune-embossed aetherium."
+							},
+							"slug": "replace-bands",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go)."
+							},
+							"slug": "hold-fast",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few days practicing with the charged-up staff."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Staff of Magnetism",
 			"item": null,
-			"description": "When **_lightning courses through the staff,_** it holds 3 Charge (max 3).\n\nWhen **_the staff holds Charge and you focus your_** **_will and senses through it_**, you can sense iron, steel, cobalt, and nickel within *near* range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.\n\nWhen you **_tap into the power stored within the_** **_staff_**, pick 1:\n\n- Extend its effects up to *far* range\n- Move items quickly and suddenly, fast enough to attack or defend (*dangerous*)\n- Manipulate an object of considerable mass, as much as you can deadlift Each time you tap into the staff’s power, roll 1d6. If you roll higher than the staff’s current Charge, it loses 1 Charge.",
 			"resource": {
 				"max": 3,
 				"title": "Charge",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When **_lightning courses through the staff,_** it holds 3 Charge (max 3).\n\nWhen **_the staff holds Charge and you focus your_** **_will and senses through it_**, you can sense iron, steel, cobalt, and nickel within *near* range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.\n\nWhen you **_tap into the power stored within the_** **_staff_**, pick 1:\n\n- Extend its effects up to *far* range\n- Move items quickly and suddenly, fast enough to attack or defend (*dangerous*)\n- Manipulate an object of considerable mass, as much as you can deadlift Each time you tap into the staff’s power, roll 1d6. If you roll higher than the staff’s current Charge, it loses 1 Charge."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

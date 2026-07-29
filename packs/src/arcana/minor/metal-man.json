@@ -9,83 +9,78 @@
 			"title": "A metal man",
 			"item": null,
 			"tags": "magical, fragile",
-			"description": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing’s patina. It’s dented, cracked, and torn apart, but a careful search will turn up all the pieces.",
-			"unlock": {
-				"slug": "metal-man",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "This is clearly no mere statue, but to unlock its mysteries you need to…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… repair the body, taking a full season for an *exceptional* smith (Value 3)."
-						},
-						"slug": "repair-body",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a few weeks repairing the runes, risking a mistake that makes them ineffective or unstable."
-						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… convince your own hearth’s spirit to inhabit the stove and animate the construct."
-						},
-						"slug": "convince-own",
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		},
-		"back": {
-			"title": "Bronze Protector",
-			"item": null,
-			"description": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.\n\n**HP**\n\nStarts at 13",
-			"resource": {
-				"max": 4,
-				"title": "Readiness",
-				"labels": []
-			},
-			"unlockAt": null,
 			"choices": [
 				{
 					"slug": "metal-man",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "bronze-protector",
 							"content": {
 								"title": null,
-								"text": ""
+								"text": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing’s patina. It’s dented, cracked, and torn apart, but a careful search will turn up all the pieces."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "This is clearly no mere statue, but to unlock its mysteries you need to…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… repair the body, taking a full season for an *exceptional* smith (Value 3)."
 							},
-							"followers": {
-								"slugs": [
-									"bronze-protector"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
-							},
+							"slug": "repair-body",
 							"track": {
 								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few weeks repairing the runes, risking a mistake that makes them ineffective or unstable."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… convince your own hearth’s spirit to inhabit the stove and animate the construct."
+							},
+							"slug": "convince-own",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
+		},
+		"back": {
+			"title": "Bronze Protector",
+			"item": null,
+			"resource": {
+				"max": 4,
+				"title": "Readiness",
+				"labels": []
+			},
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.\n\n**HP**\n\nStarts at 13"
 							}
 						}
 					]

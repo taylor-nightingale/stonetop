@@ -9,90 +9,85 @@
 			"title": "A rusty cauldron",
 			"item": null,
 			"tags": "immobile, magical",
-			"description": "Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that’s rust.",
-			"unlock": {
-				"slug": "rusty-cauldron",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The thing has a sinister feel, and you can sense its power. To unlock the cauldron’s mysteries, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… thoroughly scrub the rust from the cauldron."
-						},
-						"slug": "thoroughly-scrub",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time."
-						},
-						"slug": "spend-seven",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood."
-						},
-						"slug": "boil-bones",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… bring the wretched thing that arises under your control."
-						},
-						"slug": "bring-wretched",
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		},
-		"back": {
-			"title": "Unliving Chimera",
-			"item": null,
-			"description": "When you **_boil the bones of beasts in the cauldron_** **_and stir in your own fresh blood,_** mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (*bear-like*, *owl-like*, etc.).\n\nFor each debility you marked, pick 1:\n\n- It is stable (else, it falls apart in a day)\n- It is not *clumsy*\n- Replace its instinct with \"to shun light\"",
-			"resource": null,
-			"unlockAt": null,
 			"choices": [
 				{
 					"slug": "rusty-cauldron",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "unliving-chimera",
 							"content": {
 								"title": null,
-								"text": ""
+								"text": "Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that’s rust."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The thing has a sinister feel, and you can sense its power. To unlock the cauldron’s mysteries, you must…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… thoroughly scrub the rust from the cauldron."
 							},
-							"followers": {
-								"slugs": [
-									"unliving-chimera"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
-							},
+							"slug": "thoroughly-scrub",
 							"track": {
 								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time."
+							},
+							"slug": "spend-seven",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood."
+							},
+							"slug": "boil-bones",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… bring the wretched thing that arises under your control."
+							},
+							"slug": "bring-wretched",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
+		},
+		"back": {
+			"title": "Unliving Chimera",
+			"item": null,
+			"resource": null,
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_boil the bones of beasts in the cauldron_** **_and stir in your own fresh blood,_** mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (*bear-like*, *owl-like*, etc.).\n\nFor each debility you marked, pick 1:\n\n- It is stable (else, it falls apart in a day)\n- It is not *clumsy*\n- Replace its instinct with \"to shun light\""
 							}
 						}
 					]

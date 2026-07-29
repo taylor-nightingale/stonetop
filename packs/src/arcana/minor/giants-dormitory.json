@@ -9,60 +9,79 @@
 			"title": "A giant's dormitory",
 			"item": null,
 			"tags": "magical",
-			"description": "In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.",
-			"unlock": {
-				"slug": "giants-dormitory",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_enter the dormitory_**, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must have some talent for magic."
+			"choices": [
+				{
+					"slug": "giants-dormitory",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill."
+							}
 						},
-						"slug": "have-some",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… it will take weeks of repeated exposure and study."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_enter the dormitory_**, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…"
+							}
 						},
-						"slug": "take-weeks",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you risk lasting harm to your physique and health."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must have some talent for magic."
+							},
+							"slug": "have-some",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-lasting",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… it will take weeks of repeated exposure and study."
+							},
+							"slug": "take-weeks",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you risk lasting harm to your physique and health."
+							},
+							"slug": "risk-lasting",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Aalz Galt’s Sudden Sinkhole",
 			"item": null,
-			"description": "When you **_sing a rumbling note and focus your_** **_will upon a point of earth or stone_**, mark a debility and roll +INT:\n\n**On a 10+**, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.\n\n**On a 7-9**, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_sing a rumbling note and focus your_** **_will upon a point of earth or stone_**, mark a debility and roll +INT:\n\n**On a 10+**, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.\n\n**On a 7-9**, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor)."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

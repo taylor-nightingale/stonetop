@@ -15,60 +15,79 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "Found in an engraved lead box, this grisly relic is adorned with three golden rings (Value 2). Each ring has an empty setting, as though it was meant to hold a stone. Only dark, rust-like flakes remain.",
-			"unlock": {
-				"slug": "mummified-hand",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The hand still thrums with unholy vitality. To unlock its mysteries, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the name of the sorcerer whose hand this was."
+			"choices": [
+				{
+					"slug": "mummified-hand",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Found in an engraved lead box, this grisly relic is adorned with three golden rings (Value 2). Each ring has an empty setting, as though it was meant to hold a stone. Only dark, rust-like flakes remain."
+							}
 						},
-						"slug": "learn-name",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the words of power and the process below."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The hand still thrums with unholy vitality. To unlock its mysteries, you must..."
+							}
 						},
-						"slug": "learn-words",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… on three seperate nights, soak a different piece of red crystal (Value 1) in a bowl of your own fresh blood (5 HP, mark a debility), chanting words of power throughout the night, and then set the still-dripping crystal in one of the rings that adorn the hand."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the name of the sorcerer whose hand this was."
+							},
+							"slug": "learn-name",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "three-seperate",
-						"track": {
-							"max": 3
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the words of power and the process below."
+							},
+							"slug": "learn-words",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… on three seperate nights, soak a different piece of red crystal (Value 1) in a bowl of your own fresh blood (5 HP, mark a debility), chanting words of power throughout the night, and then set the still-dripping crystal in one of the rings that adorn the hand."
+							},
+							"slug": "three-seperate",
+							"track": {
+								"max": 3
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Hand of Aals Sannan",
 			"item": null,
-			"description": "When you (and only you) **_touch the hand and_** **_speak the name of Aals Sannan,_** all three crystals dim and the power of the long-dead sorcerer infuses you. Reset your HP to max, clear your debilities, and heal any problematic wounds (if you were dying, you no longer are). Also, mark one:\n\n- Part of your look changes, to be more like Aals Sannan.\n- Your instinct changes, to something more cynical/manipulative/ambitious.\n- Your heart hardens towards someone you care about, so that you see them now as only a tool or a threat. When **_all three have been marked_**, the three crystals crumble to dust. Clear all three marks but their effects remain. Also, clear the last three check boxes on the front of this card. Until you replace all three crystals, you can’t use this arcanum.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you (and only you) **_touch the hand and_** **_speak the name of Aals Sannan,_** all three crystals dim and the power of the long-dead sorcerer infuses you. Reset your HP to max, clear your debilities, and heal any problematic wounds (if you were dying, you no longer are). Also, mark one:\n\n- Part of your look changes, to be more like Aals Sannan.\n- Your instinct changes, to something more cynical/manipulative/ambitious.\n- Your heart hardens towards someone you care about, so that you see them now as only a tool or a threat. When **_all three have been marked_**, the three crystals crumble to dust. Clear all three marks but their effects remain. Also, clear the last three check boxes on the front of this card. Until you replace all three crystals, you can’t use this arcanum."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

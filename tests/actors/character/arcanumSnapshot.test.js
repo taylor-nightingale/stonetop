@@ -12,11 +12,11 @@ const snap = (arcanum, opts = {}) => ArcanumSnapshotBuilder.fromArcanum(arcanum,
 const richArcanum = () => new Arcanum({
 	slug: "azure", major: true, name: "Azure Hand", img: null,
 	front: {
-		title: "Azure Hand", description: "a staff", item: { name: "Azure Hand", weight: 1, note: "magical" },
-		unlock: { slug: "azure", list: [{ type: "entry", slug: "marks", content: { text: "Marks" }, track: { max: 4 } }] },
+		title: "Azure Hand", item: { name: "Azure Hand", weight: 1, note: "magical" },
+		choices: [{ slug: "azure", list: [{ type: "entry", slug: "marks", content: { text: "Marks" }, track: { max: 4 } }] }],
 	},
 	back: {
-		title: "Mysteries", description: "the back", resource: { max: 2, labels: ["a", "b"] },
+		title: "Mysteries", resource: { max: 2, labels: ["a", "b"] },
 		choices: [
 			{ slug: "moves", title: "Moves", list: [{ type: "entry", slug: "battery", track: { max: 1 }, grants: [{ type: "move", slug: "battery", locations: ["inline"] }] }] },
 			{ slug: "consequences", title: "Consequences", list: [
@@ -24,11 +24,11 @@ const richArcanum = () => new Arcanum({
 				{ type: "entry", slug: "c2", content: { text: "scorched" }, track: { max: 1 }, indent: true },
 			] },
 		],
-		unlockAt: "after 4 marks",
 	},
 });
 
-// The consequences group inside the back's ordered choices array.
+// A side's first (unlock) group; and the consequences group inside the back's ordered choices array.
+const frontGroup    = (s) => s.front.choices[0];
 const consequencesOf = (s) => s.back.choices.find(g => g.slug === "consequences");
 
 describe("ArcanumSnapshotBuilder.fromArcanum", () => {
@@ -37,12 +37,11 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 		expect(s).toMatchObject({ slug: "azure", major: true, name: "Azure Hand", owned: true, flipped: true });
 		expect(s.front.title.raw).toBe("Azure Hand");
 		expect(s.front.item.name).toBe("Azure Hand");
-		expect(s.front.unlock).toBeTruthy();            // ChoiceGroup
+		expect(frontGroup(s)).toBeTruthy();             // ChoiceGroup
 		expect(s.back.resource).toBeTruthy();           // ResourceSnapshot
 		expect(s.back.choices.map(g => g.slug)).toEqual(["moves", "consequences"]);  // ordered groups
 		// A move is a move-grant entry (resolved inline against moves.bySlug at render), not a MoveSnapshot here.
 		expect(s.back.choices[0].list[0].moves.slugs).toEqual(["battery"]);
-		expect(s.back.unlockAt).toBe("after 4 marks");
 	});
 
 	it("carries a diamond-less front's disguise tags through to the snapshot (item stays null)", () => {
@@ -52,22 +51,22 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 		expect(s.front.tags).toBe("magical, terrifying");
 	});
 
-	it("defaults (preview): not flipped, empty groups → [], no stats crash", () => {
+	it("defaults (preview): not flipped, empty choices arrays, no stats crash", () => {
 		const s = snap(new Arcanum({ slug: "x", front: {}, back: {} }));
 		expect(s.flipped).toBe(false);
 		expect(s.owned).toBe(true);
-		expect(s.front.unlock).toBeNull();
+		expect(s.front.choices).toEqual([]);
 		expect(s.back.choices).toEqual([]);
 		expect(s.back.resource).toBeNull();
 	});
 
-	it("reads unlock and each back group from the ONE choiceValues store by each group's own slug", () => {
+	it("reads each front/back group from the ONE choiceValues store by each group's own slug", () => {
 		const choiceValues = new ChoiceValues({
-			azure:        { marks: 3 },   // unlock group slug = "azure"
+			azure:        { marks: 3 },   // front group slug = "azure"
 			consequences: { c1: 1 },      // consequences group slug = "consequences"
 		});
 		const s = snap(richArcanum(), { flipped: true, choiceValues });
-		expect(s.front.unlock.list[0].track.checks).toEqual([true, true, true, false]);
+		expect(frontGroup(s).list[0].track.checks).toEqual([true, true, true, false]);
 		expect(consequencesOf(s).list[0].track.checks).toEqual([true]);
 	});
 

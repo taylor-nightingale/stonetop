@@ -23,65 +23,36 @@ export function arcanumOutfitItemSnapshot(slug, itemData, resolvedResource = und
 
 // ── Front / back snapshots ────────────────────────────────────────────────────
 
-export class ArcanumFrontSnapshot {
+// Front and back share ONE side snapshot: header chrome (title/item/tags/resource) + a body that is an
+// ordered array of choice groups. A move/follower grant or a □ track is just an entry; the old
+// description is a content entry inside a group.
+export class ArcanumSideSnapshot {
 	constructor(b) {
-		this.title       = b._title;
-		this.item        = b._item;
-		this.tags        = b._tags ?? null;
-		this.description = b._description;
-		this.unlock      = b._unlock;
+		this.title    = b._title;
+		this.item     = b._item;
+		this.tags     = b._tags ?? null;
+		this.resource = b._resource;
+		this.choices  = b._choices ?? [];   // ChoiceGroup[]
 	}
 }
 
-export class ArcanumFrontSnapshotBuilder {
-	withTitle(v)       { this._title       = v; return this; }
-	withItem(v)        { this._item        = v; return this; }
-	withTags(v)        { this._tags        = v; return this; }
-	withDescription(v) { this._description = v; return this; }
-	withUnlock(v)      { this._unlock      = v; return this; }
-	build()            { return new ArcanumFrontSnapshot(this); }
+export class ArcanumSideSnapshotBuilder {
+	withTitle(v)    { this._title    = v; return this; }
+	withItem(v)     { this._item     = v; return this; }
+	withTags(v)     { this._tags     = v; return this; }
+	withResource(v) { this._resource = v; return this; }
+	withChoices(v)  { this._choices  = v; return this; }
+	build()         { return new ArcanumSideSnapshot(this); }
 
-	static fromFront(front, slug, ctx) {
-		return new ArcanumFrontSnapshotBuilder()
-			.withTitle(rich(front.title))
-			.withItem(arcanumOutfitItemSnapshot(slug, front.item, undefined, ctx.checked))
-			.withTags(front.tags)
-			.withDescription(rich(front.description))
-			.withUnlock(ctx.group(front.unlock))
-			.build();
-	}
-}
-
-export class ArcanumBackSnapshot {
-	constructor(b) {
-		this.title       = b._title;
-		this.item        = b._item;
-		this.description = b._description;
-		this.resource    = b._resource;
-		this.choices     = b._choices  ?? [];   // ChoiceGroup[] — spells / moves / followers / consequences
-		this.unlockAt    = b._unlockAt ?? null;
-	}
-}
-
-export class ArcanumBackSnapshotBuilder {
-	withTitle(v)       { this._title       = v; return this; }
-	withItem(v)        { this._item        = v; return this; }
-	withDescription(v) { this._description = v; return this; }
-	withResource(v)    { this._resource    = v; return this; }
-	withChoices(v)     { this._choices     = v; return this; }
-	withUnlockAt(v)    { this._unlockAt    = v; return this; }
-	build()            { return new ArcanumBackSnapshot(this); }
-
-	/** The back is an ordered array of choice groups; each resolves through `ctx.group`. Moves inside a
-	 *  group are move-grant entries, resolved inline against `moves.bySlug` by the template. */
-	static fromBack(back, slug, ctx) {
-		return new ArcanumBackSnapshotBuilder()
-			.withTitle(rich(back.title))
-			.withItem(arcanumOutfitItemSnapshot(slug, back.item, ctx.itemResource(back.item?.resource ?? null), ctx.checked))
-			.withDescription(rich(back.description))
-			.withResource(ctx.resource(back.resource ?? null))
-			.withChoices((back.choices ?? []).map(g => ctx.group(g)))
-			.withUnlockAt(back.unlockAt)
+	/** Build one side (front or back). Each choice group resolves through `ctx.group`; inline move/follower
+	 *  grants resolve against `moves.bySlug` / `followers.bySlug` in the template. */
+	static fromSide(side, slug, ctx) {
+		return new ArcanumSideSnapshotBuilder()
+			.withTitle(rich(side.title))
+			.withItem(arcanumOutfitItemSnapshot(slug, side.item, ctx.itemResource(side.item?.resource ?? null), ctx.checked))
+			.withTags(side.tags)
+			.withResource(ctx.resource(side.resource ?? null))
+			.withChoices((side.choices ?? []).map(g => ctx.group(g)))
 			.build();
 	}
 }
@@ -122,8 +93,8 @@ export class ArcanumSnapshotBuilder {
 			.withMajor(arcanum.major)
 			.withName(arcanum.name)
 			.withImg(arcanum.img)
-			.withFront(ArcanumFrontSnapshotBuilder.fromFront(arcanum.front, arcanum.slug, ctx))
-			.withBack(ArcanumBackSnapshotBuilder.fromBack(arcanum.back, arcanum.slug, ctx))
+			.withFront(ArcanumSideSnapshotBuilder.fromSide(arcanum.front, arcanum.slug, ctx))
+			.withBack(ArcanumSideSnapshotBuilder.fromSide(arcanum.back, arcanum.slug, ctx))
 			.withOwned(ctx.owned)
 			.withFlipped(ctx.flipped)
 			.withChecked(ctx.checked)

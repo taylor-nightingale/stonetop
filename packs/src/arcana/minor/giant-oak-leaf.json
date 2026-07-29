@@ -15,52 +15,60 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?",
-			"unlock": {
-				"slug": "giant-oak-leaf",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "You can turn the leaf into a wondrous cloak, but to do so you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the secrets of its making (from a Fae, a spirit of the wild, or perhaps a favored servant of Danu)."
+			"choices": [
+				{
+					"slug": "giant-oak-leaf",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?"
+							}
 						},
-						"slug": "learn-secrets",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… tan the leaf with a mix of lime-water, crow guano, the brain of a cave bear, and your own blood."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can turn the leaf into a wondrous cloak, but to do so you must..."
+							}
 						},
-						"slug": "tan-leaf",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… have it fitted to your exact measurements by a tailor of *exceptional* skill."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the secrets of its making (from a Fae, a spirit of the wild, or perhaps a favored servant of Danu)."
+							},
+							"slug": "learn-secrets",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "have-fitted",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… tan the leaf with a mix of lime-water, crow guano, the brain of a cave bear, and your own blood."
+							},
+							"slug": "tan-leaf",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… have it fitted to your exact measurements by a tailor of *exceptional* skill."
+							},
+							"slug": "have-fitted",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Goldleaf Cloak",
@@ -71,10 +79,21 @@
 				"note": null,
 				"inventoryColumn": "regular"
 			},
-			"description": "When you **_wear a goldleaf cloak that you have_** **_tanned yourself and that has been fitted to your_** **_exact measurements_**, then all of these are true:\n\n- You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.\n- You are immune to effects that calm or dampen your emotions.\n- You are surrounded by a constant golden glow (*hand*, *area*), making it nearly impossible to hide. When you **_die and are buried in the earth,_** **_wrapped in your goldleaf cloak_**, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_wear a goldleaf cloak that you have_** **_tanned yourself and that has been fitted to your_** **_exact measurements_**, then all of these are true:\n\n- You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.\n- You are immune to effects that calm or dampen your emotions.\n- You are surrounded by a constant golden glow (*hand*, *area*), making it nearly impossible to hide. When you **_die and are buried in the earth,_** **_wrapped in your goldleaf cloak_**, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

@@ -15,57 +15,52 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there’s some magic here.",
-			"unlock": {
-				"slug": "cracked-flute",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr."
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
-						},
-						"track": {
-							"max": 3
-						}
-					}
-				]
-			}
-		},
-		"back": {
-			"title": "Dancing Wind Spirit",
-			"item": null,
-			"description": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.\n\n**HP**\n\nStarts at 8",
-			"resource": null,
-			"unlockAt": null,
 			"choices": [
 				{
 					"slug": "cracked-flute",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "andalau-of-the-flute",
 							"content": {
 								"title": null,
-								"text": ""
-							},
-							"followers": {
-								"slugs": [
-									"andalau-of-the-flute"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
+								"text": "A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there’s some magic here."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr."
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
 							},
 							"track": {
-								"max": 1
+								"max": 3
+							}
+						}
+					]
+				}
+			]
+		},
+		"back": {
+			"title": "Dancing Wind Spirit",
+			"item": null,
+			"resource": null,
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.\n\n**HP**\n\nStarts at 8"
 							}
 						}
 					]

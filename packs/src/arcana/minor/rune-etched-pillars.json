@@ -9,60 +9,79 @@
 			"title": "Rune-etched pillars",
 			"item": null,
 			"tags": "magical",
-			"description": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.",
-			"unlock": {
-				"slug": "rune-etched-pillars",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must spend a few days studying the runes and memorizing their sequence."
+			"choices": [
+				{
+					"slug": "rune-etched-pillars",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in."
+							}
 						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must meditate for a few weeks on the magic that infuses them."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…"
+							}
 						},
-						"slug": "meditate-few",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you risk triggering the spell contained in the runes, and collapsing the entire structure."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must spend a few days studying the runes and memorizing their sequence."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-triggering",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must meditate for a few weeks on the magic that infuses them."
+							},
+							"slug": "meditate-few",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you risk triggering the spell contained in the runes, and collapsing the entire structure."
+							},
+							"slug": "risk-triggering",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Shattering Words of Aalz Childric",
 			"item": null,
-			"description": "When you **_carve the shattering words of Aalz_** **_Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or_** **_phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_carve the shattering words of Aalz_** **_Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or_** **_phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

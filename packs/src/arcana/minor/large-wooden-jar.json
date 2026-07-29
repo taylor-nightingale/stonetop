@@ -15,75 +15,94 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "30 inches tall and carved of yew, with a lid shaped like a horned lion and sealed with wax. Its surface is cracked and speared with shards of red crystal. When you touch it, you can feel great annoyance and just a hint of fear.",
-			"unlock": {
-				"slug": "large-wooden-jar",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the jar’s mysteries, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… wash its surface with your own fresh blood (lose 1d10 HP and mark a debility)."
+			"choices": [
+				{
+					"slug": "large-wooden-jar",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "30 inches tall and carved of yew, with a lid shaped like a horned lion and sealed with wax. Its surface is cracked and speared with shards of red crystal. When you touch it, you can feel great annoyance and just a hint of fear."
+							}
 						},
-						"slug": "wash-surface",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… commune with the spirit of the haughty Green Lord to whom this jar is bound."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the jar’s mysteries, you must…"
+							}
 						},
-						"slug": "commune-spirit",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn to use the red crystals to torment the Green Lord’s spirit."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… wash its surface with your own fresh blood (lose 1d10 HP and mark a debility)."
+							},
+							"slug": "wash-surface",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "learn-use",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… convince the bound Green Lord spirit to change your form. If **_the jar is opened_**, all its magic is lost."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… commune with the spirit of the haughty Green Lord to whom this jar is bound."
+							},
+							"slug": "commune-spirit",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "convince-bound",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn to use the red crystals to torment the Green Lord’s spirit."
+							},
+							"slug": "learn-use",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… convince the bound Green Lord spirit to change your form. If **_the jar is opened_**, all its magic is lost."
+							},
+							"slug": "convince-bound",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Impudent Polymorph",
 			"item": null,
-			"description": "When you **_interrupt the idyllic afterlife of the_** **_Green Lord bound to the jar and demand that it_** **_change your form,_** describe the change and pick as many as you dare:\n\n- The change lasts as long as you like (else, it lasts till you get a 6- on a move)\n- The change is quick and easy (else, it takes minutes or even hours)\n- You adapt to the new form quickly (else, mark a debility)\n- Pick 2 of your stats; swap their values until the change ends Then roll +CHA: **on a 10+**, the spirit works the change, just as you asked; **on a 7-9**, it works the change, but you gain Ire equal to the number of choices you’ve made; **on a 6-**, the spirit rebels and wracks your body, dealing 1d10 damage per Ire you hold. If you survive, clear all Ire.",
 			"resource": {
 				"max": 9,
 				"title": "Ire",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_interrupt the idyllic afterlife of the_** **_Green Lord bound to the jar and demand that it_** **_change your form,_** describe the change and pick as many as you dare:\n\n- The change lasts as long as you like (else, it lasts till you get a 6- on a move)\n- The change is quick and easy (else, it takes minutes or even hours)\n- You adapt to the new form quickly (else, mark a debility)\n- Pick 2 of your stats; swap their values until the change ends Then roll +CHA: **on a 10+**, the spirit works the change, just as you asked; **on a 7-9**, it works the change, but you gain Ire equal to the number of choices you’ve made; **on a 6-**, the spirit rebels and wracks your body, dealing 1d10 damage per Ire you hold. If you survive, clear all Ire."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

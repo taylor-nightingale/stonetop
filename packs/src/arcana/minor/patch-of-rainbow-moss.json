@@ -9,60 +9,79 @@
 			"title": "A patch of rainbow moss",
 			"item": null,
 			"tags": "magical",
-			"description": "In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss.",
-			"unlock": {
-				"slug": "patch-of-rainbow-moss",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the mysteries of this place, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… lie down in the moss and let its tendrils fuse with your skin."
+			"choices": [
+				{
+					"slug": "patch-of-rainbow-moss",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss."
+							}
 						},
-						"slug": "lie-down",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the mysteries of this place, you must…"
+							}
 						},
-						"slug": "let-consciousness",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest’s senses."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… lie down in the moss and let its tendrils fuse with your skin."
+							},
+							"slug": "lie-down",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "spend-weeks",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits."
+							},
+							"slug": "let-consciousness",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest’s senses."
+							},
+							"slug": "spend-weeks",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "The Sylvan Web",
 			"item": null,
-			"description": "When you **_lie down in the rainbow moss and cast_** **_your mind into the Great Wood_**, say what you are looking for and roll +WIS: **on a 10+**, pick 3; **on** **a 7-9**, pick 1.\n\n- You learn the location of your quarry\n- You get a sense of your quarry’s recent activities, or the activity surrounding it\n- You discover something unexpected about the forest, or that which can be found within it (ask the GM what you learn)\n- You spend only an hour or so adrift (else, you spend all day) Whatever you learn, it is limited by and filtered through the senses the forest.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_lie down in the rainbow moss and cast_** **_your mind into the Great Wood_**, say what you are looking for and roll +WIS: **on a 10+**, pick 3; **on** **a 7-9**, pick 1.\n\n- You learn the location of your quarry\n- You get a sense of your quarry’s recent activities, or the activity surrounding it\n- You discover something unexpected about the forest, or that which can be found within it (ask the GM what you learn)\n- You spend only an hour or so adrift (else, you spend all day) Whatever you learn, it is limited by and filtered through the senses the forest."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

@@ -15,75 +15,94 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.",
-			"unlock": {
-				"slug": "disturbing-mask",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "There’s more to this mask than meets the eye. To unlock its secrets, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… don the mask while alone, and wear it unseen for a night and a day."
+			"choices": [
+				{
+					"slug": "disturbing-mask",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on."
+							}
 						},
-						"slug": "don-mask",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… watch someone unnoticed for a few hours, while you wear the mask."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "There’s more to this mask than meets the eye. To unlock its secrets, you must…"
+							}
 						},
-						"slug": "watch-someone",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… tell the mask a secret, something no one else knows about you (tell the GM and other players what it is)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… don the mask while alone, and wear it unseen for a night and a day."
+							},
+							"slug": "don-mask",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "tell-mask",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… tell the mask another person’s secret, something that you’ve promised never to tell (tell the GM and other players what it is)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… watch someone unnoticed for a few hours, while you wear the mask."
+							},
+							"slug": "watch-someone",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "tell-mask",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… tell the mask a secret, something no one else knows about you (tell the GM and other players what it is)."
+							},
+							"slug": "tell-mask",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… tell the mask another person’s secret, something that you’ve promised never to tell (tell the GM and other players what it is)."
+							},
+							"slug": "tell-mask",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Fetch’s Mask",
 			"item": null,
-			"description": "When you **_wear the mask and eat someone’s hair,_** **_blood, fingernail, etc._**, you and the mask become their flawless double until the next sunrise or you remove the mask.\n\nWhen you **_interact with an NPC known to_** **_whoever’s visage you wear_**, roll +CHA: **on a 10+**, hold 3 Ken; **on a 7-9**, hold 1 Ken; **on a 6-**, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:\n\n- What do they expect me to do/say?\n- What do they hope/want from me?\n- What secret do I keep from them? When you **_remove the mask after wearing_** **_someone’s visage_**, roll +CON: **on a 10+**, it hurts but comes off okay; **on a 7-9**, your face is raw and painful, mark a debility; **on a 6-**, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.",
 			"resource": {
 				"max": 3,
 				"title": "Ken",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_wear the mask and eat someone’s hair,_** **_blood, fingernail, etc._**, you and the mask become their flawless double until the next sunrise or you remove the mask.\n\nWhen you **_interact with an NPC known to_** **_whoever’s visage you wear_**, roll +CHA: **on a 10+**, hold 3 Ken; **on a 7-9**, hold 1 Ken; **on a 6-**, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:\n\n- What do they expect me to do/say?\n- What do they hope/want from me?\n- What secret do I keep from them? When you **_remove the mask after wearing_** **_someone’s visage_**, roll +CON: **on a 10+**, it hurts but comes off okay; **on a 7-9**, your face is raw and painful, mark a debility; **on a 6-**, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

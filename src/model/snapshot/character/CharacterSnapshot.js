@@ -30,8 +30,7 @@ export { InsertSnapshot, InsertSnapshotBuilder } from "./InsertSnapshot.js";
 export {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	ArcanumSnapshot, ArcanumSnapshotBuilder,
-	ArcanumFrontSnapshot, ArcanumFrontSnapshotBuilder,
-	ArcanumBackSnapshot, ArcanumBackSnapshotBuilder,
+	ArcanumSideSnapshot, ArcanumSideSnapshotBuilder,
 	arcanumOutfitItemSnapshot,
 } from "./ArcanaSnapshot.js";
 export { ArcanumRenderContext } from "./ArcanumRenderContext.js";

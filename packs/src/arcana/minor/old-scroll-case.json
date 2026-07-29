@@ -9,8 +9,6 @@
 			"title": "An old scroll case",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -976,15 +974,27 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Laoj Daveth’s Galvanic Infusion",
 			"item": null,
-			"description": "When you **_touch a piece of aetherium and draw_** **_its power into yourself_**, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but** **on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused— gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen **_the spell ends,_** you lose 1d8 HP.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_touch a piece of aetherium and draw_** **_its power into yourself_**, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but** **on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused— gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen **_the spell ends,_** you lose 1d8 HP."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

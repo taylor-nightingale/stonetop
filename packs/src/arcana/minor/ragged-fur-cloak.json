@@ -9,8 +9,6 @@
 			"title": "A ragged fur cloak",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1104,19 +1102,31 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Darkwalker Cloak",
 			"item": null,
-			"description": "When you **_open your own veins and drench the_** **_fur with your own fresh blood,_** lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.\n\nWhen you **_suffer a blow or physical injury while_** **_wearing the Darkwalker Cloak_**, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm after all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.\n\nWhen **_direct sunlight or holy light touch the_** **_Darkwalker Cloak,_** or **_anyone but you dons it_**, it loses all its Charges.",
 			"resource": {
 				"max": 4,
 				"title": "Charges",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_open your own veins and drench the_** **_fur with your own fresh blood,_** lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.\n\nWhen you **_suffer a blow or physical injury while_** **_wearing the Darkwalker Cloak_**, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm after all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.\n\nWhen **_direct sunlight or holy light touch the_** **_Darkwalker Cloak,_** or **_anyone but you dons it_**, it loses all its Charges."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

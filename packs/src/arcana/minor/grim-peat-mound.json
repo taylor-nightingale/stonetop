@@ -9,49 +9,68 @@
 			"title": "A grim peat mound",
 			"item": null,
 			"tags": null,
-			"description": "Not far from Marshedge, a ways into Ferrier’s Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town’s founding, the people of Marshedge have buried certain criminals here, alive.",
-			"unlock": {
-				"slug": "grim-peat-mound",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Over the years, the land has birthed a spirit that hungers for the dying breaths of the condemned (*Book II*, page 85). It is young and eager, and can be set to work upon criminals, but only if you..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… find a way to communicate with it."
+			"choices": [
+				{
+					"slug": "grim-peat-mound",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Not far from Marshedge, a ways into Ferrier’s Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town’s founding, the people of Marshedge have buried certain criminals here, alive."
+							}
 						},
-						"slug": "find-way",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… convince it that you will use its mark only to condemn the guilty."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Over the years, the land has birthed a spirit that hungers for the dying breaths of the condemned (*Book II*, page 85). It is young and eager, and can be set to work upon criminals, but only if you..."
+							}
 						},
-						"slug": "convince-that",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… find a way to communicate with it."
+							},
+							"slug": "find-way",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… convince it that you will use its mark only to condemn the guilty."
+							},
+							"slug": "convince-that",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "The Tomb-bog’s Mark",
 			"item": null,
-			"description": "When you **_use mud from the tomb-bog to mark_** **_someone with the sign of Aratis_** **_and pronounce_** **_them guilty of a crime_**, you can place a geas upon them. Phrase it as one of the following:\n\n- You must never again @Blank[0].\n- Henceforth, you must always seek to @Blank[1] when you have the chance. Should they **_fail to follow the geas_**, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they **_prove themselves innocent to the_** **_tomb-bog spirit_**, your life is forfeit instead.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_use mud from the tomb-bog to mark_** **_someone with the sign of Aratis_** **_and pronounce_** **_them guilty of a crime_**, you can place a geas upon them. Phrase it as one of the following:\n\n- You must never again @Blank[0].\n- Henceforth, you must always seek to @Blank[1] when you have the chance. Should they **_fail to follow the geas_**, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they **_prove themselves innocent to the_** **_tomb-bog spirit_**, your life is forfeit instead."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

@@ -9,74 +9,82 @@
 			"title": "A time-worn missive",
 			"item": null,
 			"tags": "fragile",
-			"description": "A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"",
-			"unlock": {
-				"slug": "time-worn-missive",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the mysteries of these portals, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… translate the archaic dialect."
+			"choices": [
+				{
+					"slug": "time-worn-missive",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\""
+							}
 						},
-						"slug": "translate-archaic",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… find a portal (other than the one depicted in the missive)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the mysteries of these portals, you must…"
+							}
 						},
-						"slug": "find-portal",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… determine how to \"invoke the axiom of local contagion.\""
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… translate the archaic dialect."
+							},
+							"slug": "translate-archaic",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "determine-how",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… acquire a pouch of powdered cinnabar (1d4+8 uses, Value 2)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… find a portal (other than the one depicted in the missive)."
+							},
+							"slug": "find-portal",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "acquire-pouch",
-						"track": {
-							"max": 2
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… attempt casting the spell the first time, and risk miscasting it."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… determine how to \"invoke the axiom of local contagion.\""
+							},
+							"slug": "determine-how",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "attempt-casting",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… acquire a pouch of powdered cinnabar (1d4+8 uses, Value 2)."
+							},
+							"slug": "acquire-pouch",
+							"track": {
+								"max": 2
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… attempt casting the spell the first time, and risk miscasting it."
+							},
+							"slug": "attempt-casting",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Opening the Way",
@@ -92,10 +100,21 @@
 					"labels": []
 				}
 			},
-			"description": "When you **_use ink of powdered cinnabar to_** **_carefully trace the sigils of one portal inside the_** **_permanent sigils of another, and then invoke_** **_the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the_** **_sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the_** **_axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_use ink of powdered cinnabar to_** **_carefully trace the sigils of one portal inside the_** **_permanent sigils of another, and then invoke_** **_the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the_** **_sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the_** **_axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

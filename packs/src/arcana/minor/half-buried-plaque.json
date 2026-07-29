@@ -15,71 +15,90 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A bronze plate poking out of the soil, somewhere in the Flats or near the Dread River. It’s dented, a bit warped, with Maker-runes and esoteric diagrams etched into the surface. How the heck did it end up here?",
-			"unlock": {
-				"slug": "half-buried-plaque",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The plate contains the workings of a spell, which you can learn but…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must first dig up & clean the plate."
+			"choices": [
+				{
+					"slug": "half-buried-plaque",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A bronze plate poking out of the soil, somewhere in the Flats or near the Dread River. It’s dented, a bit warped, with Maker-runes and esoteric diagrams etched into the surface. How the heck did it end up here?"
+							}
 						},
-						"slug": "first-dig",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you must decipher the Maker-runes."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The plate contains the workings of a spell, which you can learn but…"
+							}
 						},
-						"slug": "decipher-maker",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… it’ll take a few weeks of study."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must first dig up & clean the plate."
+							},
+							"slug": "first-dig",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "ll-take",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you must decipher the Maker-runes."
+							},
+							"slug": "decipher-maker",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-harm",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… it’ll take a few weeks of study."
+							},
+							"slug": "ll-take",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice."
+							},
+							"slug": "risk-harm",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Thunderous Bellow",
 			"item": null,
-			"description": "When you **_channel the storm primeval and utter_** **_a thunderous bellow_**, take 1d6 damage (ignores armor) and roll +CON: **on a 10+**, everyone nearby (except you) must choose 2; **on a 7-9**, everyone nearby (except you) must choose 1.\n\n- Drop what they’re carrying and cover their ears\n- Be deafened and disoriented for a few moments\n- Stagger a few steps away from you",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_channel the storm primeval and utter_** **_a thunderous bellow_**, take 1d6 damage (ignores armor) and roll +CON: **on a 10+**, everyone nearby (except you) must choose 2; **on a 7-9**, everyone nearby (except you) must choose 1.\n\n- Drop what they’re carrying and cover their ears\n- Be deafened and disoriented for a few moments\n- Stagger a few steps away from you"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

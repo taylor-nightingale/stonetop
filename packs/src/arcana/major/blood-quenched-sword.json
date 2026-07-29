@@ -16,59 +16,65 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "An ancient blade of deep red bronze, its pommel etched with symbols like those that the Hillfolk use to decorate their drinking horns. It thrums in its scabbard, wanting nothing more than to be drawn and to burn like a fire, quenching itself in the blood of foes.",
-			"unlock": {
-				"slug": "blood-quenched-sword",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_draw the Blood-quenched Sword_**, it leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_spill your own blood in order to return the Sword to its sheath_**, take 1d4 damage (ignoring armor) and the scars from the cut never fade."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_strike first in a fight with the Blood-quenched Sword_**, gain advantage on your first roll."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_sheathe the Sword after using it to kill a living, bleeding foe_**, mark 1 unless you have already done so since the last sunset:"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
+			"choices": [
+				{
+					"slug": "blood-quenched-sword",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "An ancient blade of deep red bronze, its pommel etched with symbols like those that the Hillfolk use to decorate their drinking horns. It thrums in its scabbard, wanting nothing more than to be drawn and to burn like a fire, quenching itself in the blood of foes."
+							}
 						},
-						"track": {
-							"max": 5
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_draw the Blood-quenched Sword_**, it leaps from its sheath before any present have time to even blink, and must spill blood before you can return it to its sheath."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_spill your own blood in order to return the Sword to its sheath_**, take 1d4 damage (ignoring armor) and the scars from the cut never fade."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_strike first in a fight with the Blood-quenched Sword_**, gain advantage on your first roll."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_sheathe the Sword after using it to kill a living, bleeding foe_**, mark 1 unless you have already done so since the last sunset:"
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
+							},
+							"track": {
+								"max": 5
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Blood-quenched Sword",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 5,
 			"choices": [
 				{
 					"slug": "moves",

@@ -9,8 +9,6 @@
 			"title": "A vellum scroll",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1055,19 +1053,31 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Wishing Candles",
 			"item": null,
-			"description": "When you **_spend a few days following the unsa_****_vory recipe from the scroll_** (Value 1), gain 1d4+1 Wishing Candles.\n\nWhen you **_burn a Wishing Candle and utter the_** **_ugly incantation_**, say what you wish to acquire: it will come into your possession soon. Roll the Die of Fate to learn the cost. If it was an item of Value 1 or less, roll twice and take your pick.\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.oJfcTJO2LY4FtMpA]{1d6}",
 			"resource": {
 				"max": 5,
 				"title": "Uses",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_spend a few days following the unsa_****_vory recipe from the scroll_** (Value 1), gain 1d4+1 Wishing Candles.\n\nWhen you **_burn a Wishing Candle and utter the_** **_ugly incantation_**, say what you wish to acquire: it will come into your possession soon. Roll the Die of Fate to learn the cost. If it was an item of Value 1 or less, roll twice and take your pick.\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.oJfcTJO2LY4FtMpA]{1d6}"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

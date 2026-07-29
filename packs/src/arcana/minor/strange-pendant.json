@@ -9,8 +9,6 @@
 			"title": "A strange pendant",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -800,19 +798,31 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "The Drowning Scale",
 			"item": null,
-			"description": "When you **_lean over a dying person, suck out_** **_their final breath, and breathe it into the pendant_**, roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1:\n\n- Hold 1 Breath, but it tears at your lungs; mark *miserable* and suffer a nasty coughing fit.\n- The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit. So long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour. When you **_remove the pendant_**, lose any Breath you hold.",
 			"resource": {
 				"max": 3,
 				"title": "Breath",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_lean over a dying person, suck out_** **_their final breath, and breathe it into the pendant_**, roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1:\n\n- Hold 1 Breath, but it tears at your lungs; mark *miserable* and suffer a nasty coughing fit.\n- The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit. So long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour. When you **_remove the pendant_**, lose any Breath you hold."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

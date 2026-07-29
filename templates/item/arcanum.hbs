@@ -41,89 +41,50 @@
 				<span class="stonetop-arcanum-slug">{{system.slug}}</span>
 			</div>
 
-			{{!-- ── FRONT ─────────────────────────────────────────────── --}}
+			{{!-- Front and back are the same shape (ArcanumSide): title + item (+ back's itemSameAsFront) +
+			      resource header, then a `choices` ARRAY of groups edited via the shared choice-group editor.
+			      Rendered by the inline "arcanum-side-editor" partial (see below). --}}
+			{{#*inline "arcanum-side-editor"}}
 			<section class="stonetop-arcanum-side">
-				<h2 class="stonetop-arcanum-side-title">{{localize "stonetop.arcanum.front"}}</h2>
+				<h2 class="stonetop-arcanum-side-title">{{localize label}}</h2>
 
 				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
-					<input type="text" name="system.front.title" value="{{front.title}}">
+					<input type="text" name="system.{{side}}.title" value="{{title}}">
 				</label>
 
-				{{> "stonetop.arcanum-item-def" item=frontItem path="system.front.item"}}
-
-				<label class="stonetop-insert-sheet-label">{{localize "stonetop.arcanum.description"}}</label>
-				<div class="editor stonetop-arcanum-editor-box">
-				{{#if editable}}
-				<prose-mirror class="stonetop-item-description-editor" name="system.front.description" value="{{front.description}}"></prose-mirror>
-				{{else}}
-				<div class="editor-content">{{rich previewCard.front.description}}</div>
-				{{/if}}
-				</div>
-
-				<div class="stonetop-arcanum-subhead">
-					<span>{{localize "stonetop.arcanum.unlock"}}</span>
-					{{#if hasUnlock}}
-					<button type="button" class="arcanum-group-remove" data-path="system.front.unlock">{{localize "stonetop.arcanum.remove"}}</button>
-					{{else}}
-					<button type="button" class="arcanum-group-add" data-path="system.front.unlock" data-slug="unlock">{{localize "stonetop.arcanum.add"}}</button>
-					{{/if}}
-				</div>
-				{{#if hasUnlock}}{{> "stonetop.choice-group-editor" cgPath="system.front.unlock" rows=unlockRows}}{{/if}}
-			</section>
-
-			{{!-- ── BACK ──────────────────────────────────────────────── --}}
-			<section class="stonetop-arcanum-side">
-				<h2 class="stonetop-arcanum-side-title">{{localize "stonetop.arcanum.back"}}</h2>
-
-				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
-					<input type="text" name="system.back.title" value="{{back.title}}">
-				</label>
-
+				{{#if isBack}}
 				<label class="stonetop-arcanum-field--check">
-					<input type="checkbox" name="system.back.itemSameAsFront" {{#if back.itemSameAsFront}}checked{{/if}}>
+					<input type="checkbox" name="system.back.itemSameAsFront" {{#if itemSameAsFront}}checked{{/if}}>
 					<span>{{localize "stonetop.arcanum.itemSameAsFront"}}</span>
 				</label>
-				{{#unless back.itemSameAsFront}}
-				{{> "stonetop.arcanum-item-def" item=backItem path="system.back.item"}}
+				{{/if}}
+				{{#unless itemSameAsFront}}
+				{{> "stonetop.arcanum-item-def" item=itemDef path=(concat "system." side ".item")}}
 				{{/unless}}
 
-				{{> "stonetop.arcanum-resource" resource=back.resource path="system.back.resource"}}
+				{{> "stonetop.arcanum-resource" resource=resource path=(concat "system." side ".resource")}}
 
-				<label class="stonetop-insert-sheet-label">{{localize "stonetop.arcanum.description"}}</label>
-				<div class="editor stonetop-arcanum-editor-box">
-				{{#if editable}}
-				<prose-mirror class="stonetop-item-description-editor" name="system.back.description" value="{{back.description}}"></prose-mirror>
-				{{else}}
-				<div class="editor-content">{{rich previewCard.back.description}}</div>
-				{{/if}}
-				</div>
-
-				{{!-- The back is an ordered ARRAY of choice groups (spells / moves / followers / consequences).
-				      Each group has an editable title + slug, its rows, and a remove button; a move is a row
-				      that grants a move inline. --}}
 				<div class="stonetop-arcanum-subhead">
 					<span>{{localize "stonetop.arcanum.choices"}}</span>
-					<button type="button" class="arcanum-back-group-add">{{localize "stonetop.arcanum.add"}}</button>
+					<button type="button" class="arcanum-group-add" data-side="{{side}}">{{localize "stonetop.arcanum.add"}}</button>
 				</div>
-				{{#each backChoiceGroups}}
+				{{#each groups}}
 				<div class="stonetop-arcanum-back-group" data-cg-path="{{cgPath}}">
 					<div class="stonetop-arcanum-subhead">
 						<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
 							<input type="text" data-choices-target="group" data-choices-field="title" value="{{title}}">
 						</label>
 						<span class="stonetop-arcanum-slug">{{slug}}</span>
-						<button type="button" class="arcanum-back-group-remove" data-index="{{index}}">{{localize "stonetop.arcanum.remove"}}</button>
+						<button type="button" class="arcanum-group-remove" data-side="{{../side}}" data-index="{{index}}">{{localize "stonetop.arcanum.remove"}}</button>
 					</div>
 					{{> "stonetop.choice-group-editor" cgPath=cgPath rows=rows}}
 				</div>
 				{{/each}}
-
-				{{#if major}}
-				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.unlockAt"}}
-					<input type="text" name="system.back.unlockAt" value="{{back.unlockAt}}">
-				</label>
-				{{/if}}
 			</section>
+			{{/inline}}
+
+			{{> arcanum-side-editor side="front" label="stonetop.arcanum.front" isBack=false title=front.title itemDef=frontItem itemSameAsFront=false resource=front.resource groups=frontChoiceGroups}}
+			{{> arcanum-side-editor side="back"  label="stonetop.arcanum.back"  isBack=true  title=back.title  itemDef=backItem  itemSameAsFront=back.itemSameAsFront resource=back.resource groups=backChoiceGroups}}
 
 		</div>
 

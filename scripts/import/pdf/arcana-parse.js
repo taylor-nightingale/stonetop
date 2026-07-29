@@ -96,15 +96,9 @@ export function numberBlanks(system) {
 	let n = 0;
 	const number  = (text) => (text == null ? text : text.replace(BLANK, () => `@Blank[${n++}]`));
 	const entries = (group) => { for (const row of group?.list ?? []) if (row?.content) row.content.text = number(row.content.text); };
-	const { front, back } = system;
-	if (front) { front.description = number(front.description); entries(front.unlock); }
-	if (back) {
-		back.description = number(back.description);
-		for (const m of back.moves ?? []) m.text = number(m.text);
-		// back.choices is an ordered array of groups (spells / moves / followers / consequences); older
-		// single-group / consequences fields are handled too for a pre-fold pass.
-		for (const group of Array.isArray(back.choices) ? back.choices : [back.choices]) entries(group);
-		entries(back.consequences);
+	// Each side's body is one `choices` array of groups; number blanks across every group's entry text.
+	for (const side of [system.front, system.back]) {
+		for (const group of Array.isArray(side?.choices) ? side.choices : (side?.choices ? [side.choices] : [])) entries(group);
 	}
 	return n;
 }
@@ -138,8 +132,10 @@ export function stripLoyalty(costRaw) {
  *  the row (empty content, full card shown inline). Mirrors the hand-authored `beautiful-scroll`
  *  back. `hideFromFollowersTab` keeps a card-resident follower (the Ring) off the followers tab. */
 export function followerChoiceEntry(followerSlug, { hideFromFollowersTab = false, owned = false } = {}) {
+	// A follower GRANT: shown inline on the card; on the roster tab unless card-bound (the Ring).
+	const locations = ["inline", ...(hideFromFollowersTab ? [] : ["tab"])];
 	const entry = { type: "entry", slug: followerSlug, content: { title: null, text: "" },
-		followers: { slugs: [followerSlug], inlineDisplay: true, hideFromFollowersTab } };
+		grants: [{ type: "follower", slug: followerSlug, locations }] };
 	// A choice-gated follower gets a checkbox (track: gain it when checked). An owned-by-default,
 	// card-resident follower (the Ring) has no checkbox — the arcanum grants it outright.
 	if (!owned) entry.track = { max: 1 };
@@ -361,21 +357,6 @@ export function majorMoveName(text) {
 	return { name: words.slice(0, n).join(" "), rest: words.slice(n).join(" ") };
 }
 
-/** The front's mark-gate count for unlocking the mysteries: an explicit "marked N", or the length of
- *  the standalone Marks run for "the last mark". Stored on `back.unlockAt`. */
-export function detectUnlockAt(blocks) {
-	const text = blocks.map((b) => b.type === "list" ? rawOf(b.items.flat()) : (b.lines ? rawOf(b.lines) : (b.line?.text ?? ""))).join(" ");
-	if (!/unlock/i.test(text)) return null;
-	const m = text.match(/marked\s+(\d+)/i);
-	if (m) return Number(m[1]);
-	if (/last mark/i.test(text)) {
-		let max = 0;
-		for (const b of blocks) if (b.type === "list") for (const it of b.items) { const { max: mx, text: t } = parseTrack(rawOf(it)); if (!t && mx > max) max = mx; }
-		return max || null;
-	}
-	return null;
-}
-
 // ─── blocks → front/back ──────────────────────────────────────────────────────
 const markerKind = (line) => { const t = (line?.text || "").trim(); return /^[□◻]/.test(t) ? "square" : /^◇/.test(t) ? "diamond" : /^[○◯]/.test(t) ? "circle" : null; };
 const rawOf = (lines) => (lines || []).map((l) => l.text).join(" ");
@@ -503,6 +484,17 @@ export function parseFront(blocks, { name, slug }) {
 			grants: [{ type: "move", slug: frontMove.id, locations: ["inline"] }],
 		});
 	};
+	// Fold the parsed front into the unified ArcanumSide shape: one choices group whose FIRST entry is the
+	// description (a content-only entry), followed by the unlock rows. `_frontMove` is left for build-arcana.
+	const finalize = () => {
+		attachFrontMove();
+		const list = [];
+		if (front.description) list.push({ type: "entry", content: { title: null, text: front.description } });
+		list.push(...(front.unlock?.list ?? []));
+		front.choices = list.length ? [{ slug: front.unlock?.slug ?? slug, list }] : [];
+		delete front.description; delete front.unlock;
+		return front;
+	};
 
 	// MAJOR-style unlock: the options are bold-italic "When you **_…_**" trigger paragraphs, each
 	// accreting its following option bullets / continuation paras; task checkboxes and the Marks run are
@@ -529,15 +521,14 @@ export function parseFront(blocks, { name, slug }) {
 		// Drop the trailing gate instruction ("When you make the last mark, you unlock …") after the track.
 		if (list.some((e) => e.track)) while (list.length && !list[list.length - 1].track) list.pop();
 		front.unlock = { slug, list };
-		attachFrontMove();
-		return front;
+		return finalize();
 	}
 
 	// description = paras before the first option (li); unlock = the intro para + every li/para after.
 	const firstLi = seq.findIndex((s) => s.kind === "li");
 	if (firstLi < 0) {
 		front.description = seq.map((s) => joinMd(s.lines)).filter(Boolean).join("\n\n") || null;
-		return front;
+		return finalize();
 	}
 	// The intro entry is the para right before the first option; majors precede it with several
 	// bold-italic "When you **_…_**" trigger paras that are unlock entries too — pull them all in.
@@ -568,16 +559,15 @@ export function parseFront(blocks, { name, slug }) {
 	// the last mark, you unlock …") — they're informational, not unlock options.
 	if (list.some((e) => e.track)) while (list.length && !list[list.length - 1].track) list.pop();
 	front.unlock = { slug, list };
-	attachFrontMove();
-	return front;
+	return finalize();
 }
 
 /** Build a MAJOR back: "Mysteries of X" with all-caps mystery moves and a consequence track. Majors
  *  share the front's item (itemSameAsFront) and have no separate back item/description/resource. Each
  *  move (a `□ ALL-CAPS NAME` list item) and each consequence (a `□`-marked list item) continues
  *  through the following paras until the next list item / rule / heading. `unlockAt` is front-derived. */
-function parseMajorBack(blocks, { slug, name, unlockAt }) {
-	const back = { title: null, item: null, description: null, resource: null, itemSameAsFront: true, choices: null, moves: [], consequences: null, unlockAt: unlockAt ?? null };
+function parseMajorBack(blocks, { slug, name }) {
+	const back = { title: null, item: null, description: null, resource: null, itemSameAsFront: true, choices: null, moves: [], consequences: null };
 	const abbr = toSlug((name || "").trim().split(/\s+/).pop() || "c") || "c"; // "Twisted Spear" → "spear"
 	let section = null;     // null | "moves" | "consequences" | "spells"
 	let spellsTitle = null; // the "Spells of the Codex" heading text → the spells choice-group title
@@ -747,14 +737,14 @@ export function parseNameFirstItem(text) {
 
 /** Build the back side (the spell / mysteries) from its blocks. Stat blocks (followers) are handled
  *  by build-arcana via toFollowerDoc; here we collect moves/consequences/resource. */
-export function parseBack(blocks, { slug, name, major, unlockAt } = {}) {
-	if (major) return parseMajorBack(blocks, { slug, name, unlockAt });
+export function parseBack(blocks, { slug, name, major } = {}) {
+	if (major) return parseMajorBack(blocks, { slug, name });
 	// A minor arcanum's back is the "spell": a title, an optional item tags line, and flowing
 	// description — no named moves or consequence tracks (those are major-only, kept null/[] for shape).
 	// A clean dice table is promoted to a RollTable (build-arcana writes the pack file) and referenced
 	// inline via a player-rollable @DrawTableInline block (rows + roll button); the footer-strip false-positive tables don't qualify
 	// and are dropped as card furniture.
-	const back = { title: null, item: null, description: null, resource: null, moves: [], consequences: null, unlockAt: null };
+	const back = { title: null, item: null, description: null, resource: null, moves: [], consequences: null };
 	const rollTables = []; // transient RollTable specs; build-arcana emits the pack files, then strips this
 	const parts = [];      // description fragments in reading order (paras, lists, table links interleaved)
 	let resource = null;   // the first ○-pip track; attached to back.item.resource if a back item exists, else back.resource

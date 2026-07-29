@@ -10,94 +10,100 @@
 			"title": "Red Scepter",
 			"item": null,
 			"tags": null,
-			"description": "A bronze rod, tipped with a glowing red crystal and carved with openwork shapes of hungry, leering faces.",
-			"unlock": {
-				"slug": "red-scepter",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_hold the Scepter and wind blows through the openings in the crystal_**, it makes a soft howling noise."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_gesture at an open flame with the scepter_**, the flame flickers or flares as if blown by the wind."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_bleed a helpless, living creature and dip the Scepter’s crystal in their still-warm blood_**, mark 1 charge as the crystal soaks up the blood (to a maximum of 3):"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_Inflame someone and they kill one or more living beings as a result_**, mark 1:"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_make the last mark_**, you unlock the Scepter’s mysteries and gain Burning Hatred (see reverse)."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "*, magical*"
-						},
-						"slug": "magical",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
-						},
-						"track": {
-							"max": 4
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "inflame",
-						"content": {
-							"title": null,
-							"text": null
-						},
-						"grants": [
-							{
-								"type": "move",
-								"slug": "inflame",
-								"locations": [
-									"inline"
-								]
+			"choices": [
+				{
+					"slug": "red-scepter",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A bronze rod, tipped with a glowing red crystal and carved with openwork shapes of hungry, leering faces."
 							}
-						]
-					}
-				]
-			}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_hold the Scepter and wind blows through the openings in the crystal_**, it makes a soft howling noise."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_gesture at an open flame with the scepter_**, the flame flickers or flares as if blown by the wind."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_bleed a helpless, living creature and dip the Scepter’s crystal in their still-warm blood_**, mark 1 charge as the crystal soaks up the blood (to a maximum of 3):"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_Inflame someone and they kill one or more living beings as a result_**, mark 1:"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the Scepter’s mysteries and gain Burning Hatred (see reverse)."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "*, magical*"
+							},
+							"slug": "magical",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
+							},
+							"track": {
+								"max": 4
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "inflame",
+							"content": {
+								"title": null,
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "inflame",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Red Scepter",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 4,
 			"choices": [
 				{
 					"slug": "moves",

@@ -15,74 +15,82 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "Hidden away in some vault or cave or Makerruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those the faint traces of runes?",
-			"unlock": {
-				"slug": "corroded-spearhead",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the secrets of this ancient weapon, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… carefully clean away the corrosion with proper chemics, without destroying the runes as you do so."
+			"choices": [
+				{
+					"slug": "corroded-spearhead",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Hidden away in some vault or cave or Makerruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those the faint traces of runes?"
+							}
 						},
-						"slug": "carefully-clean",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… decipher the runes and how they are meant to be charged."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the secrets of this ancient weapon, you must…"
+							}
 						},
-						"slug": "decipher-runes",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… infuse the restored spearhead with lightning."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… carefully clean away the corrosion with proper chemics, without destroying the runes as you do so."
+							},
+							"slug": "carefully-clean",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "infuse-restored",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… mount the spearhead on a shaft of birchwood."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… decipher the runes and how they are meant to be charged."
+							},
+							"slug": "decipher-runes",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "mount-spearhead",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… soak the spearhead in your own blood, to claim its power as yours."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… infuse the restored spearhead with lightning."
+							},
+							"slug": "infuse-restored",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "soak-spearhead",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… mount the spearhead on a shaft of birchwood."
+							},
+							"slug": "mount-spearhead",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… soak the spearhead in your own blood, to claim its power as yours."
+							},
+							"slug": "soak-spearhead",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Aetherium Spear",
@@ -93,10 +101,21 @@
 				"note": "+1 damage",
 				"inventoryColumn": "regular"
 			},
-			"description": "When you **_Clash with the aetherium spear and_** **_get a 7+_**, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful*, *loud*).\n\nWhen you **point the aetherium spear at your foes** **and bellow a thunderous warcry**, mark a debility and unleash a blast of lightning (*far*, *area*, *force**ful*, *loud*, *dangerous*), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). **On a 6-**, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_Clash with the aetherium spear and_** **_get a 7+_**, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful*, *loud*).\n\nWhen you **point the aetherium spear at your foes** **and bellow a thunderous warcry**, mark a debility and unleash a blast of lightning (*far*, *area*, *force**ful*, *loud*, *dangerous*), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). **On a 6-**, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

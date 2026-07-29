@@ -15,101 +15,96 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?",
-			"unlock": {
-				"slug": "beautiful-scroll",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the mysteries of this scroll, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… have some talent for magic."
-						},
-						"slug": "have-some",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… decipher the Rime Lord glyphs."
-						},
-						"slug": "decipher-rime",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a few months practicing the meditative techniques it describes."
-						},
-						"slug": "spend-few",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… describe and name the tiny spiritconstruct that you wish to create:"
-						},
-						"slug": "describe-name",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\""
-						},
-						"slug": "permanently-sacrifice",
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		},
-		"back": {
-			"title": "Little Friend",
-			"item": null,
-			"description": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.\n\n*Spirit, construct, tiny, naive,* *eager*\n\n- *fierce* *kind* *sly* *timid* *willful*\n\n**HP**\n\nStarts at 8",
-			"resource": null,
-			"unlockAt": null,
 			"choices": [
 				{
 					"slug": "beautiful-scroll",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "tulpa",
 							"content": {
 								"title": null,
-								"text": ""
+								"text": "Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the mysteries of this scroll, you must…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… have some talent for magic."
 							},
-							"followers": {
-								"slugs": [
-									"tulpa"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
-							},
+							"slug": "have-some",
 							"track": {
 								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… decipher the Rime Lord glyphs."
+							},
+							"slug": "decipher-rime",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few months practicing the meditative techniques it describes."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… describe and name the tiny spiritconstruct that you wish to create:"
+							},
+							"slug": "describe-name",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\""
+							},
+							"slug": "permanently-sacrifice",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
+		},
+		"back": {
+			"title": "Little Friend",
+			"item": null,
+			"resource": null,
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.\n\n*Spirit, construct, tiny, naive,* *eager*\n\n- *fierce* *kind* *sly* *timid* *willful*\n\n**HP**\n\nStarts at 8"
 							}
 						}
 					]

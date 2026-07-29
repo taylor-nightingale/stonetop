@@ -99,8 +99,8 @@ async function loadArcanaFiles() {
 				await scanDir(full);
 			} else if (entry.name.endsWith(".json")) {
 				const data = JSON.parse(await fs.readFile(full, "utf8"));
-				const unlock = data.system?.front?.unlock;
-				if (unlock) files.push({ name: entry.name, unlock });
+				// The front's body is a `choices` ARRAY of groups (front and back share one ArcanumSide shape).
+				for (const group of data.system?.front?.choices ?? []) files.push({ name: entry.name, unlock: group });
 			}
 		}
 	}
@@ -108,20 +108,20 @@ async function loadArcanaFiles() {
 	return files;
 }
 
-describe("Pack arcana unlock entries use the list format", () => {
+describe("Pack arcana front choice groups use the list format", () => {
 	let files;
 	beforeAll(async () => { files = await loadArcanaFiles(); });
 
-	it("loads at least one arcana file with an unlock", () => {
+	it("loads at least one arcana front choice group", () => {
 		expect(files.length).toBeGreaterThan(0);
 	});
 
-	it("each unlock has a slug and list, not description/requirements", () => {
+	it("each group has a slug and list, not description/requirements", () => {
 		for (const { name, unlock } of files) {
-			expect(unlock, `${name}: unlock should have slug`).toHaveProperty("slug");
-			expect(unlock, `${name}: unlock should have list`).toHaveProperty("list");
-			expect(unlock, `${name}: unlock should not have description`).not.toHaveProperty("description");
-			expect(unlock, `${name}: unlock should not have requirements`).not.toHaveProperty("requirements");
+			expect(unlock, `${name}: group should have slug`).toHaveProperty("slug");
+			expect(unlock, `${name}: group should have list`).toHaveProperty("list");
+			expect(unlock, `${name}: group should not have description`).not.toHaveProperty("description");
+			expect(unlock, `${name}: group should not have requirements`).not.toHaveProperty("requirements");
 		}
 	});
 

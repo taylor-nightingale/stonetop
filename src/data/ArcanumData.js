@@ -7,12 +7,28 @@ export class ArcanumData extends foundry.abstract.TypeDataModel {
 	// inserts use), so fold the legacy stores into it. Runs on raw source before schema cleaning; guarded on
 	// the legacy keys being present, so it never clobbers a plain `choiceValues` edit diff.
 	static migrateData(source) {
-		// Normalize the choice groups riding in the opaque front/back objects (row shapes, follower
-		// wiring — see migrateChoiceRow). Guarded on each group being present in `source`, so a partial
-		// update diff that omits front/back is never touched (the migrate-on-diff landmine).
-		if (source?.front?.unlock) migrateChoicesField(source.front.unlock);
-		if (source?.back?.choices) migrateChoicesField(source.back.choices);
-		if (source?.back?.consequences) migrateChoicesField(source.back.consequences);
+		// Front and back now share one ArcanumSide shape: a `choices` array of groups (no `unlock` /
+		// `description` / `unlockAt`). Fold legacy fields into it. Every step is guarded on the field being
+		// present in `source`, so a partial update diff that omits front/back is never touched (the
+		// migrate-on-diff landmine), and each conversion is idempotent (shape-checked).
+		for (const side of [source?.front, source?.back]) {
+			if (!side || typeof side !== "object") continue;
+			// Legacy single `unlock` group (front) → become `choices`.
+			if (side.unlock && side.choices == null) { side.choices = side.unlock; delete side.unlock; }
+			// Wrap a stray single-group `choices` object into an array.
+			if (side.choices && !Array.isArray(side.choices)) side.choices = [side.choices];
+			// Legacy `consequences` group (back) → append to `choices` (now an array).
+			if (side.consequences) { (side.choices ??= []).push({ ...side.consequences, title: side.consequences.title ?? "Consequences" }); delete side.consequences; }
+			// A `description` string → a leading content entry (once — guarded on the string still present).
+			if (typeof side.description === "string" && side.description) {
+				side.choices ??= [{ slug: source.slug ?? "choices", list: [] }];
+				(side.choices[0].list ??= []).unshift({ type: "entry", content: { title: null, text: side.description } });
+			}
+			delete side.description;
+			delete side.unlockAt;
+			// Normalize row shapes (row types, follower→grants wiring) across the groups.
+			if (side.choices) migrateChoicesField(side.choices);
+		}
 		if (source && (source.unlockValues !== undefined || source.backChoiceValues !== undefined)) {
 			const merged = { ...(source.choiceValues ?? {}) };
 			for (const store of [source.unlockValues, source.backChoiceValues]) {

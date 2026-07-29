@@ -9,8 +9,6 @@
 			"title": "A rusty steel blade",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1202,7 +1200,8 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Flaming Sword",
@@ -1224,10 +1223,21 @@
 					]
 				}
 			},
-			"description": "When you **_call on the fire spirit within,_** the blade erupts in flames (+*magical*, +*dangerous*) and casts light (*reach*, *area*). The hilt gets hot; wear thick gloves!\n\nWhen you **_Clash with the Flaming Sword_**, after you resolve the move and deal damage, increase the Blaze die one step.\n\nWhen you **_roll to make a move while wielding_** **_the sword_**, take damage equal to the Blaze die (ignores armor).\n\nWhen you **_deal damage with the sword_**, add the Blaze die.\n\nWhen you **_sheathe the sword_**, the fire goes out and cannot be relit until the Blaze die is nil. Reduce the Blaze die once each hour.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_call on the fire spirit within,_** the blade erupts in flames (+*magical*, +*dangerous*) and casts light (*reach*, *area*). The hilt gets hot; wear thick gloves!\n\nWhen you **_Clash with the Flaming Sword_**, after you resolve the move and deal damage, increase the Blaze die one step.\n\nWhen you **_roll to make a move while wielding_** **_the sword_**, take damage equal to the Blaze die (ignores armor).\n\nWhen you **_deal damage with the sword_**, add the Blaze die.\n\nWhen you **_sheathe the sword_**, the fire goes out and cannot be relit until the Blaze die is nil. Reduce the Blaze die once each hour."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

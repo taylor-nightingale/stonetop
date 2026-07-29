@@ -9,8 +9,6 @@
 			"title": "A vein of milky crystal",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1175,7 +1173,8 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Moonstone",
@@ -1191,10 +1190,21 @@
 					"labels": []
 				}
 			},
-			"description": "When you **_spend a night beneath the full moon,_** directing its light into the moonstone, it gains 1 hour of light (max 5).\n\nWhen you **_hold the moonstone aloft in darkness_** **_and utter a sacred word_**, it shines with pale white light (*area*, *near*) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.\n\nWhen **_the moonstone is your only light source and_** **_you shout the proper word_**, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_spend a night beneath the full moon,_** directing its light into the moonstone, it gains 1 hour of light (max 5).\n\nWhen you **_hold the moonstone aloft in darkness_** **_and utter a sacred word_**, it shines with pale white light (*area*, *near*) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.\n\nWhen **_the moonstone is your only light source and_** **_you shout the proper word_**, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

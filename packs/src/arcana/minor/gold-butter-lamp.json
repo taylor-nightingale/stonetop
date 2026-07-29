@@ -15,52 +15,60 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "An oversized, highly decorated lamp, shaped like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals.",
-			"unlock": {
-				"slug": "gold-butter-lamp",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "It’s worth a fortune (Value 4), but there’s more to this lamp than meets the eye. To unlock its secrets, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to learn the recipe and mantra that makes the lamp work."
+			"choices": [
+				{
+					"slug": "gold-butter-lamp",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "An oversized, highly decorated lamp, shaped like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals."
+							}
 						},
-						"slug": "consult-disciple",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "It’s worth a fortune (Value 4), but there’s more to this lamp than meets the eye. To unlock its secrets, you must..."
+							}
 						},
-						"slug": "acquire-special",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to learn the recipe and mantra that makes the lamp work."
+							},
+							"slug": "consult-disciple",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-drawing",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1)."
+							},
+							"slug": "acquire-special",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation."
+							},
+							"slug": "risk-drawing",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Revealing Light",
@@ -76,10 +84,21 @@
 					"labels": []
 				}
 			},
-			"description": "- hours). When you **_light the lamp using the magic butter_** **_and intone the mantra_**, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:\n- Active spirits are visible, even if they are not manifest\n- Illusions, glamours, and veils are stripped away\n- Shapechangers can be seen for what they truly are\n- Hidden things radiate a bright aura\n- Lies spoken are visible as black smoke that lingers near the ground Alas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "- hours). When you **_light the lamp using the magic butter_** **_and intone the mantra_**, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:\n- Active spirits are visible, even if they are not manifest\n- Illusions, glamours, and veils are stripped away\n- Shapechangers can be seen for what they truly are\n- Hidden things radiate a bright aura\n- Lies spoken are visible as black smoke that lingers near the ground Alas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

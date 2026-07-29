@@ -9,8 +9,6 @@
 			"title": "An odd conveyance",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1254,7 +1252,8 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Groundskimmer",
@@ -1265,10 +1264,21 @@
 				"note": "requires a crew of 2",
 				"inventoryColumn": "regular"
 			},
-			"description": "The groundskimmer can carry about as much as a fully-loaded wagon. When you **_grasp the tiller_** **_and focus_**, you can adjust how much the craft’s aetherium repels the earth. When you **_properly_** **_adjust it to match its current load_**, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers’ Roads in those regions is dangerous.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The groundskimmer can carry about as much as a fully-loaded wagon. When you **_grasp the tiller_** **_and focus_**, you can adjust how much the craft’s aetherium repels the earth. When you **_properly_** **_adjust it to match its current load_**, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers’ Roads in those regions is dangerous."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

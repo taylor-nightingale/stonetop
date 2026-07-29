@@ -15,94 +15,89 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A circlet of black, glossy metal set with eight spires of aetherium. It’s sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.",
-			"unlock": {
-				"slug": "oversized-crown",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_touch the crown with bare flesh and_** **_open your mind_**, you can speak to the primordial spirit to which the crown is attuned. But to fully unlock the mysteries of this crown, you must…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… risk your sense of self as you commune with this spirit of the void."
-						},
-						"slug": "risk-sense",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the Words of Being, which will force the spirit to manifest."
-						},
-						"slug": "learn-words",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… learn the Words of Unbeing, which will send the spirit home."
-						},
-						"slug": "learn-words",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… convince the spirit to manifest and then successfully dismiss it."
-						},
-						"slug": "convince-spirit",
-						"track": {
-							"max": 1
-						}
-					}
-				]
-			}
-		},
-		"back": {
-			"title": "Void Elemental",
-			"item": null,
-			"description": "When you **_touch the crown and speak the Words_** **_of Being_**, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you **_touch the crown and chant_** **_the Words of Unbeing_**, the spirit can return to the void—if it wants.\n\n**HP**\n\nStarts at 15",
-			"resource": {
-				"max": 3,
-				"title": "Loyalty",
-				"labels": []
-			},
-			"unlockAt": null,
 			"choices": [
 				{
 					"slug": "oversized-crown",
 					"list": [
 						{
 							"type": "entry",
-							"slug": "void-elemental",
 							"content": {
 								"title": null,
-								"text": ""
+								"text": "A circlet of black, glossy metal set with eight spires of aetherium. It’s sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_touch the crown with bare flesh and_** **_open your mind_**, you can speak to the primordial spirit to which the crown is attuned. But to fully unlock the mysteries of this crown, you must…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… risk your sense of self as you commune with this spirit of the void."
 							},
-							"followers": {
-								"slugs": [
-									"void-elemental"
-								],
-								"inlineDisplay": true,
-								"hideFromFollowersTab": false
-							},
+							"slug": "risk-sense",
 							"track": {
 								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the Words of Being, which will force the spirit to manifest."
+							},
+							"slug": "learn-words",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the Words of Unbeing, which will send the spirit home."
+							},
+							"slug": "learn-words",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… convince the spirit to manifest and then successfully dismiss it."
+							},
+							"slug": "convince-spirit",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
+		},
+		"back": {
+			"title": "Void Elemental",
+			"item": null,
+			"resource": {
+				"max": 3,
+				"title": "Loyalty",
+				"labels": []
+			},
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_touch the crown and speak the Words_** **_of Being_**, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you **_touch the crown and chant_** **_the Words of Unbeing_**, the spirit can return to the void—if it wants.\n\n**HP**\n\nStarts at 15"
 							}
 						}
 					]

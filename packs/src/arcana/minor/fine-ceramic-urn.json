@@ -9,8 +9,6 @@
 			"title": "A fine ceramic urn",
 			"item": null,
 			"tags": null,
-			"description": null,
-			"unlock": null,
 			"_frontFollower": {
 				"lines": [
 					{
@@ -1140,19 +1138,31 @@
 					}
 				],
 				"loyaltyMax": 0
-			}
+			},
+			"choices": []
 		},
 		"back": {
 			"title": "Plaster of Joining",
 			"item": null,
-			"description": "When you **_pour water, a pinch of blood, and spe_****_cial reagents (Value 1) into the urn and sing over_** **_it for a full day and night_**, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you **_use the plaster to join two or more pieces_** **_of stone, rock, or crystal_** and let the plaster set for a few hours, the pieces will fuse together. Different materials will show a natural, gradient seam. Similar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.",
 			"resource": {
 				"max": 3,
 				"title": "Uses",
 				"labels": []
 			},
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_pour water, a pinch of blood, and spe_****_cial reagents (Value 1) into the urn and sing over_** **_it for a full day and night_**, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you **_use the plaster to join two or more pieces_** **_of stone, rock, or crystal_** and let the plaster set for a few hours, the pieces will fuse together. Different materials will show a natural, gradient seam. Similar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

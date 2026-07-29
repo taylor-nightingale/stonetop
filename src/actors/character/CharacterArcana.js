@@ -102,7 +102,7 @@ export class CharacterArcana {
 		await this._syncSideEffects(arcanum);
 	}
 
-	// Every arcanum choice group (front.unlock, back.choices, back.consequences) shares the ONE
+	// Every arcanum choice group (front.choices[i] / back.choices[i]) shares the ONE
 	// `choiceValues` store, namespaced by each group's own slug — side effects fire via the factory's
 	// subscribers when a group carries them.
 	controllerFor(arcanumSlug) {

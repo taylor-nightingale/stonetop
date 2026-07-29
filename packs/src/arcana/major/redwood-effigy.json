@@ -10,45 +10,51 @@
 			"title": "Redwood Effigy",
 			"item": null,
 			"tags": null,
-			"description": "A vaguely man-shaped root of blood-red wood, wrapped in tattered cloth. Bright blue markings adorn the fabric, as do rust-colored stains. But you know that. After all, you made it yourself. You’ve bound your flesh and soul to the effigy, and this is the only one you will ever be able to make.",
-			"unlock": {
-				"slug": "redwood-effigy",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_perform the secret rite_**, which requires privacy, a few hours, and a drop of your own fresh blood, hold 1 Conduit (max 1 Conduit, at least to start).\n\n**SURROGATE SUFFERING** When you **_suffer physical harm while carrying the effigy on your person_**, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.\n\nRecord the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the **_effigy is destroyed_**, you suffer all this harm at once.\n\n**_Each time the effigy suffers harm on your behalf_**, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse)."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "When you **_make the last mark_**, you unlock the effigy’s mysteries and gain Suffering Unleashed (see reverse).\n\n*magical*"
-						}
-					},
-					{
-						"type": "entry",
-						"slug": "marks",
-						"content": {
-							"title": null,
-							"text": "Marks"
+			"choices": [
+				{
+					"slug": "redwood-effigy",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A vaguely man-shaped root of blood-red wood, wrapped in tattered cloth. Bright blue markings adorn the fabric, as do rust-colored stains. But you know that. After all, you made it yourself. You’ve bound your flesh and soul to the effigy, and this is the only one you will ever be able to make."
+							}
 						},
-						"track": {
-							"max": 3
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_perform the secret rite_**, which requires privacy, a few hours, and a drop of your own fresh blood, hold 1 Conduit (max 1 Conduit, at least to start).\n\n**SURROGATE SUFFERING** When you **_suffer physical harm while carrying the effigy on your person_**, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.\n\nRecord the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the **_effigy is destroyed_**, you suffer all this harm at once.\n\n**_Each time the effigy suffers harm on your behalf_**, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse)."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the effigy’s mysteries and gain Suffering Unleashed (see reverse).\n\n*magical*"
+							}
+						},
+						{
+							"type": "entry",
+							"slug": "marks",
+							"content": {
+								"title": null,
+								"text": "Marks"
+							},
+							"track": {
+								"max": 3
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Mysteries of the Redwood Effigy",
 			"item": null,
-			"description": null,
 			"resource": null,
 			"itemSameAsFront": true,
-			"unlockAt": 3,
 			"choices": [
 				{
 					"slug": "moves",

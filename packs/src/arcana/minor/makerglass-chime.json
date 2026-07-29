@@ -15,60 +15,79 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass.",
-			"unlock": {
-				"slug": "makerglass-chime",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: **on a 10+**, you’ve got it; **on a 7-9**, mark a debility and you’ll need to try again; **on a 6-**, ask the GM what goes terribly wrong."
+			"choices": [
+				{
+					"slug": "makerglass-chime",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass."
+							}
 						},
-						"slug": "grasp-firmly",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend a week or so learning to control the ringing chime."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The chime is a powerful tool, if you can unlock its secrets. To do so…"
+							}
 						},
-						"slug": "spend-week",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: **on a 10+**, you’ve got it; **on a 7-9**, mark a debility and you’ll need to try again; **on a 6-**, ask the GM what goes terribly wrong."
+							},
+							"slug": "grasp-firmly",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-permanent",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a week or so learning to control the ringing chime."
+							},
+							"slug": "spend-week",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice."
+							},
+							"slug": "risk-permanent",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Make Pliant the Stone",
 			"item": null,
-			"description": "When you **_strike the chime forcefully and will_** **_yourself to maintain your grip upon it_**, mark a debility and roll +CON.\n\n**On a 10+**, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.\n\n**On a 7-9**, pick 1:\n\n- Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility\n- Realize that you can’t control it and dampen the chime before it causes any harm (say how)",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_strike the chime forcefully and will_** **_yourself to maintain your grip upon it_**, mark a debility and roll +CON.\n\n**On a 10+**, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.\n\n**On a 7-9**, pick 1:\n\n- Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility\n- Realize that you can’t control it and dampen the chime before it causes any harm (say how)"
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

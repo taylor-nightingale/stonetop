@@ -15,71 +15,90 @@
 				"inventoryColumn": "regular"
 			},
 			"tags": null,
-			"description": "You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand.",
-			"unlock": {
-				"slug": "fine-drinking-horn",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "Since then, the horn has seemed to call to you, daring you to drink heavily from it. To unlock its mysteries, you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… fill it with whisky or a similarly potent spirit."
+			"choices": [
+				{
+					"slug": "fine-drinking-horn",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand."
+							}
 						},
-						"slug": "fill-whisky",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… drink the contents in a single pull (mark *dazed*)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Since then, the horn has seemed to call to you, daring you to drink heavily from it. To unlock its mysteries, you must..."
+							}
 						},
-						"slug": "drink-contents",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… risk blacking out, acting the fool, or at least marking more debilties."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… fill it with whisky or a similarly potent spirit."
+							},
+							"slug": "fill-whisky",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-blacking",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… survive the storm you summon as a result (see reverse)."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… drink the contents in a single pull (mark *dazed*)."
+							},
+							"slug": "drink-contents",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "survive-storm",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… risk blacking out, acting the fool, or at least marking more debilties."
+							},
+							"slug": "risk-blacking",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… survive the storm you summon as a result (see reverse)."
+							},
+							"slug": "survive-storm",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Horn of Storms",
 			"item": null,
-			"description": "When you **_get yourself good and drunk from the_** **_horn,_** mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. **_Until the storm passes_**, you can’t clear debilities.\n\nAssign one d4 to each of the following:\n\n- @Blank[0] **Onset: 1** = next day; **2-3** = in a few hours; **4** = within the hour.\n- @Blank[1] **Intensity: 1** = dangerous to be out in; **2-3** = damages weak structures; **4** = lays waste to weak structures and damages sturdy ones.\n- @Blank[2] **Reach: 1** = a mile or so; **2-3** = a dozen miles or so; **4** = dozens or scores of miles.\n- @Blank[3] **Duration** (once it gets going)**: 1** = less than an hour; **2-3** = a few hours; **4** = a day or so.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_get yourself good and drunk from the_** **_horn,_** mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. **_Until the storm passes_**, you can’t clear debilities.\n\nAssign one d4 to each of the following:\n\n- @Blank[0] **Onset: 1** = next day; **2-3** = in a few hours; **4** = within the hour.\n- @Blank[1] **Intensity: 1** = dangerous to be out in; **2-3** = damages weak structures; **4** = lays waste to weak structures and damages sturdy ones.\n- @Blank[2] **Reach: 1** = a mile or so; **2-3** = a dozen miles or so; **4** = dozens or scores of miles.\n- @Blank[3] **Duration** (once it gets going)**: 1** = less than an hour; **2-3** = a few hours; **4** = a day or so."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

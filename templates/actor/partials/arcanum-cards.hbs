@@ -6,26 +6,25 @@
 	<img class="stonetop-arcanum-img" src="{{img}}" alt="{{name}}">
 	{{/if}}
 
-	{{#if flipped}}
-	{{!-- Back side --}}
+	{{!-- Front and back share one shape (ArcanumSide); render the active side by `flipped`. Header chrome
+	      (title / item / tags / resource) sits above a body that is entirely choice groups — each row's
+	      content, ornamental □ track, and inline follower/move grant render through choice-row. The side is
+	      passed to the inline partial with the arcanum `slug` merged in (for the header resource track). --}}
+	{{#*inline "arcanum-side"}}
 	<div class="stonetop-arcanum-header">
 		<div class="stonetop-arcanum-header-left">
-			<span class="stonetop-arcanum-title">{{rich back.title}}</span>
-			{{#if back.item}}{{> "stonetop.outfit-item-row" back.item}}{{/if}}
+			<span class="stonetop-arcanum-title">{{rich title}}</span>
+			{{#if item}}{{> "stonetop.outfit-item-row" item}}{{/if}}
+			{{#if tags}}<span class="stonetop-arcanum-tags">{{tags}}</span>{{/if}}
 		</div>
-		{{#if back.resource}}
+		{{#if resource}}
 		<div class="stonetop-arcanum-header-resource">
-			{{> "stonetop.resource-track" resource=back.resource btnClass="stonetop-arcanum-resource-btn" action="arcanumResourcePip" slug=slug}}
+			{{> "stonetop.resource-track" resource=resource btnClass="stonetop-arcanum-resource-btn" action="arcanumResourcePip" slug=slug}}
 		</div>
 		{{/if}}
 	</div>
 	<div class="stonetop-arcanum-body">
-		{{#if (hasText back.description)}}
-		<div class="stonetop-arcanum-section">{{rich back.description}}</div>
-		{{/if}}
-		{{!-- The back is an ordered list of choice groups (spells / moves / followers / consequences). Each
-		      row renders its content, ornamental track, and any inline follower/move grant via choice-row. --}}
-		{{#each back.choices}}
+		{{#each choices}}
 		<div class="stonetop-arcanum-section" data-cg-group="{{slug}}">
 			{{#if title}}<p class="stonetop-arcanum-section-label">{{title}}</p>{{/if}}
 			{{#each list}}
@@ -34,29 +33,8 @@
 		</div>
 		{{/each}}
 	</div>
-
-	{{else}}
-	{{!-- Front side --}}
-	<div class="stonetop-arcanum-header">
-		<div class="stonetop-arcanum-header-left">
-			<span class="stonetop-arcanum-title">{{rich front.title}}</span>
-			{{#if front.item}}{{> "stonetop.outfit-item-row" front.item}}{{/if}}
-			{{#if front.tags}}<span class="stonetop-arcanum-tags">{{front.tags}}</span>{{/if}}
-		</div>
-	</div>
-	<div class="stonetop-arcanum-body">
-		{{#if (hasText front.description)}}
-		<div class="stonetop-arcanum-section">{{rich front.description}}</div>
-		{{/if}}
-		{{#if front.unlock.list.length}}
-		<div class="stonetop-arcanum-unlock stonetop-arcanum-section">
-			{{#each front.unlock.list}}
-			{{> "stonetop.choice-row" cgContext="arcana" cgGroup=../front.unlock.slug}}
-			{{/each}}
-		</div>
-		{{/if}}
-	</div>
-	{{/if}}
+	{{/inline}}
+	{{#if flipped}}{{> arcanum-side back slug=slug}}{{else}}{{> arcanum-side front slug=slug}}{{/if}}
 
 	<div class="stonetop-arcanum-footer">
 		<button type="button" class="stonetop-arcanum-flip-btn" data-action="flipArcanum"

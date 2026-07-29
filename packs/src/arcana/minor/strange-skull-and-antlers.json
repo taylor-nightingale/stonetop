@@ -9,64 +9,83 @@
 			"title": "A strange skull and antlers",
 			"item": null,
 			"tags": "immobile, magical",
-			"description": "A skull, the size of a horse’s head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar.",
-			"unlock": {
-				"slug": "strange-skull-and-antlers",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "To unlock the secrets of this relic, you…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… must learn the name of the shade"
+			"choices": [
+				{
+					"slug": "strange-skull-and-antlers",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A skull, the size of a horse’s head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar."
+							}
 						},
-						"slug": "learn-name",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "whose skull this was;"
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the secrets of this relic, you…"
+							}
 						},
-						"slug": "whose-skull"
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "or…"
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… use the Blessed’s Call the Spirits move to call up the shade."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… must learn the name of the shade"
+							},
+							"slug": "learn-name",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "use-blessed",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "whose skull this was;"
+							},
+							"slug": "whose-skull"
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "or…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… use the Blessed’s Call the Spirits move to call up the shade."
+							},
+							"slug": "use-blessed",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "The Green Lord’s Shade",
 			"item": null,
-			"description": "When you **_make an offering of good liquor, fresh_** **_fruit, or fresh-cooked meat and call up the shade of_** **_the skull_**, it manifests before you in shadows.\n\nThe shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (**Instinct** to fulfill its increasingly specific longings.)\n\nWhile it rides you, the shade communicates only through impulse and desire. When it **_compels_** **_you to act against your wishes_**, mark XP if you comply. If you resist, you are Defying Danger.",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make an offering of good liquor, fresh_** **_fruit, or fresh-cooked meat and call up the shade of_** **_the skull_**, it manifests before you in shadows.\n\nThe shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (**Instinct** to fulfill its increasingly specific longings.)\n\nWhile it rides you, the shade communicates only through impulse and desire. When it **_compels_** **_you to act against your wishes_**, mark XP if you comply. If you resist, you are Defying Danger."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

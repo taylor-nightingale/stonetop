@@ -57,7 +57,7 @@
 {{else}}
 {{! Content / track / input rendered like any entry row (same checkbox, tabbing, formatting as siblings);
     a linked follower's card sits below the content. }}
-{{#if (hasText content.title)}}{{> "stonetop.section-heading" title=content.title note=content.titleNote}}{{/if}}
+{{#if (hasText content.title)}}<p class="stonetop-choice-entry-title">{{rich content.title}}{{#if (hasText content.titleNote)}} <span class="stonetop-section-note">{{rich content.titleNote}}</span>{{/if}}</p>{{/if}}
 {{#if track}}
 {{#if (hasText content.subtitle)}}
 <div class="stonetop-choice-track stonetop-column">

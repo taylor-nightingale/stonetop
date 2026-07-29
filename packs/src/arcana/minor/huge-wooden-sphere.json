@@ -9,82 +9,101 @@
 			"title": "A huge wooden sphere",
 			"item": null,
 			"tags": "immobile",
-			"description": "Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.",
-			"unlock": {
-				"slug": "huge-wooden-sphere",
-				"list": [
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "The pictograms depict some sort of recipe, which you can learn but you must..."
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… first dig up and clean the sphere."
+			"choices": [
+				{
+					"slug": "huge-wooden-sphere",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby."
+							}
 						},
-						"slug": "first-dig",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… spend weeks studying the glyphs."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The pictograms depict some sort of recipe, which you can learn but you must..."
+							}
 						},
-						"slug": "spend-weeks",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… acquire some fresh ffyrnig root."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… first dig up and clean the sphere."
+							},
+							"slug": "first-dig",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "acquire-some",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… acquire the bile of a wild boar. And then…"
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend weeks studying the glyphs."
+							},
+							"slug": "spend-weeks",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "acquire-bile",
-						"track": {
-							"max": 1
-						}
-					},
-					{
-						"type": "entry",
-						"content": {
-							"title": null,
-							"text": "… you risk getting the recipe wrong, and lethally so."
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… acquire some fresh ffyrnig root."
+							},
+							"slug": "acquire-some",
+							"track": {
+								"max": 1
+							}
 						},
-						"slug": "risk-getting",
-						"track": {
-							"max": 1
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… acquire the bile of a wild boar. And then…"
+							},
+							"slug": "acquire-bile",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… you risk getting the recipe wrong, and lethally so."
+							},
+							"slug": "risk-getting",
+							"track": {
+								"max": 1
+							}
 						}
-					}
-				]
-			}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Ffyrnig Tonic",
 			"item": null,
-			"description": "When you **_pickle fresh ffyrnig root in a suspen_****_sion of boar bile for two full moons_**, it becomes a skin of ffyrnig tonic (3 uses, *magical*).\n\nWhen you **_take a draught of ffyrnig tonic,_** pick 1:\n\n- Regain HP equal to ½ half your max\n- Clear a debility Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness. When you **_drink a second draught of ffyrnig tonic_** **_before getting a good night’s sleep_**, it has no effect other than to make you ill (mark a debility).",
 			"resource": null,
-			"unlockAt": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_pickle fresh ffyrnig root in a suspen_****_sion of boar bile for two full moons_**, it becomes a skin of ffyrnig tonic (3 uses, *magical*).\n\nWhen you **_take a draught of ffyrnig tonic,_** pick 1:\n\n- Regain HP equal to ½ half your max\n- Clear a debility Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness. When you **_drink a second draught of ffyrnig tonic_** **_before getting a good night’s sleep_**, it has no effect other than to make you ill (mark a debility)."
+							}
+						}
+					]
+				}
+			]
 		}
 	},
 	"flags": {},

@@ -22,7 +22,7 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
-import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, detectUnlockAt, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, numberBlanks } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, numberBlanks } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
@@ -106,9 +106,12 @@ function foldBackChoices(back, followerGroup = null) {
 		})),
 	} : null;
 	const consequences = back.consequences ? { ...back.consequences, title: back.consequences.title ?? "Consequences" } : null;
-	const choices = [spells, moves, followers, consequences].filter(Boolean);
+	// A back description becomes a leading content-only entry in an untitled intro group, so it renders
+	// above the titled sections (the unified ArcanumSide has no separate `description` field).
+	const intro = back.description ? { slug: "intro", list: [{ type: "entry", content: { title: null, text: back.description } }] } : null;
+	const choices = [intro, spells, moves, followers, consequences].filter(Boolean);
 	const out = {};
-	for (const [k, v] of Object.entries(back)) { if (!["choices", "moveSlugs", "moves", "consequences"].includes(k)) out[k] = v; }
+	for (const [k, v] of Object.entries(back)) { if (!["choices", "moveSlugs", "moves", "consequences", "description", "unlockAt"].includes(k)) out[k] = v; }
 	out.choices = choices;
 	return out;
 }
@@ -197,7 +200,6 @@ function diverge(parsed, doc) {
 		if (parsed.major) {
 			if (pbSlugs.join("|") !== ebSlugs.join("|")) fl.push(`back.move slugs [${pbSlugs.join("|")}] vs [${ebSlugs.join("|")}]`);
 			if (tracks(pb.consequences) !== tracks(eb.consequences)) fl.push(`back.consequence tracks [${tracks(pb.consequences)}] vs [${tracks(eb.consequences)}]`);
-			if ((pb.unlockAt ?? null) !== (eb.unlockAt ?? null)) fl.push(`back.unlockAt ${pb.unlockAt ?? null} vs ${eb.unlockAt ?? null}`);
 		}
 	}
 	return fl;
@@ -223,7 +225,6 @@ if (existsSync(FOLLOWER_DIR)) for (const f of readdirSync(FOLLOWER_DIR).filter((
 const ranges = arcanaAppendixRanges(loadOutline(PDF), totalPages());
 const parsedFront = new Map(); // slug -> front
 const parsedBack = new Map();  // slug -> back
-const arcanaUnlockAt = new Map(); // slug -> unlockAt (front-derived, for major backs)
 const resourceBySlug = new Map(); // move slug -> { max, hasBlank } (right-aligned ○ resource tracks)
 const parsedByName = new Map(); // normName -> { creature, staged }  (parsed follower stat blocks)
 const majorFollowerIcon = new Map(); // follower slug -> staged icon path (marker beside a major follower's name heading)
@@ -251,15 +252,13 @@ for (const range of ranges) {
 	// Fronts: anchored on arcanum names, bounded at the "front" label.
 	for (const { rec, blocks: bl } of segmentBy(blocks, byName, /^front$/i))
 		if (!parsedFront.has(rec.slug)) {
-			const front = parseFront(bl, { name: rec.doc.name, slug: rec.slug });
-			parsedFront.set(rec.slug, front);
-			if (rec.tier === "major") arcanaUnlockAt.set(rec.slug, detectUnlockAt(bl)); // mark-gate lives on the front, stored on back
+			parsedFront.set(rec.slug, parseFront(bl, { name: rec.doc.name, slug: rec.slug }));
 		}
 	// Backs: majors are segmented by the front→back label span (robust to a missing/mis-placed
 	// "Mysteries of X" title); minors still anchor on the existing back.title, bounded at "back".
 	const backSegs = isMinor ? segmentBy(blocks, byBackTitle, /^back$/i) : segmentMajorBacks(blocks, byName);
 	for (const { rec, blocks: bl } of backSegs)
-		if (!parsedBack.has(rec.slug)) parsedBack.set(rec.slug, parseBack(bl, { slug: rec.slug, name: rec.doc.name, major: rec.tier === "major", unlockAt: arcanaUnlockAt.get(rec.slug) }));
+		if (!parsedBack.has(rec.slug)) parsedBack.set(rec.slug, parseBack(bl, { slug: rec.slug, name: rec.doc.name, major: rec.tier === "major" }));
 
 	// Follower stat blocks (matched to the roster by name later). Copy each icon out of the per-range
 	// tmp into the staging dir before it's removed.
@@ -332,7 +331,9 @@ function emitFrontFollower(rec, front) {
 	if (WRITE) { writeFileSync(path.join(FOLLOWER_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n"); }
 	frontEmittedSlugs.add(slug);
 	// FRONT-resident: the arcanum grants it owned-by-default (no checkbox), stamped off the followers tab.
-	(front.unlock ??= { slug: rec.slug, list: [] }).list.push(followerChoiceEntry(slug, { hideFromFollowersTab: true, owned: true }));
+	// parseFront already folded the front into one choices group — append the follower entry to it.
+	const group = (front.choices ??= [{ slug: rec.slug, list: [] }])[0];
+	group.list.push(followerChoiceEntry(slug, { hideFromFollowersTab: true, owned: true }));
 	frontFollowerLines.push(`- \`${slug}\` ← ${rec.slug}  (FRONT-resident, kind=${doc.system.kind ?? "creature"}, img: ${img.split("/").pop()})`);
 }
 
