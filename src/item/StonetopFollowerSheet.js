@@ -19,6 +19,7 @@ import { activateComboBoxes } from "../utils/comboBox.js";
 import { bindAll } from "../utils/bindAll.js";
 import { buildFollowerSnapshot } from "../model/snapshot/character/buildFollowerSnapshot.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
+import { GrantRegistry } from "./GrantRegistry.js";
 import { Selection } from "../model/data/Selection.js";
 
 // tagList is multi-select; instinct + cost are single-select.
@@ -96,7 +97,11 @@ export function createStonetopFollowerSheetClass(Base) {
 
 			// Live preview — the SAME snapshot builder + follower-card.hbs the character sheet renders.
 			context.preview = buildFollowerSnapshot(this.item, { loyaltyCurrent: sys.loyalty?.value ?? 0 });
+			// The follower's own choice group may grant moves/followers inline; resolve them so the
+			// preview's choice-row renders them (see GrantRegistry / the character's stonetop.*.bySlug).
+			context.stonetop = await GrantRegistry.fromChoiceGroups(context.preview.choices ? [context.preview.choices] : []);
 			await enrichRichTextTree(context.preview, this.item?.getRollData?.() ?? {});
+			await enrichRichTextTree(context.stonetop, this.item?.getRollData?.() ?? {});
 
 			// View-first: a follower with content opens as a rendered card; a blank one opens in the
 			// editor. A locked (non-editable) item is always view-only.

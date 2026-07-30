@@ -30,6 +30,23 @@ export class FoundryFollowerRepository {
 		return (await Promise.all(slugs.map(s => this.findBySlug(s)))).filter(Boolean);
 	}
 
+	// Item-shaped follower DOCUMENTS ({ name, img, system }) for the given slugs, across compendium +
+	// world — order-preserving, unknowns dropped. Unlike findBySlugs (flat Follower models), these feed
+	// buildFollowerSnapshot to render full follower CARDS in an item-sheet preview. Full documents are
+	// required: the follower pack index projects only `system.slug`, not the whole card.
+	async getFollowerDocsBySlugs(slugs = []) {
+		if (!slugs?.length) return [];
+		return (await Promise.all(slugs.map(s => this._findDoc(s)))).filter(Boolean);
+	}
+
+	async _findDoc(slug) {
+		// Compendium: the index projects only `system.slug`, so fetch the full document. World: the store's
+		// entry is already the whole item object (mirrors findBySlug), so use it directly.
+		const entry = await this._store.findEntry(e => e.system?.slug === slug);
+		if (entry) return this._store.getDocument(entry._id);
+		return this._worldStore.findEntry(e => e.system?.slug === slug);
+	}
+
 	// { slug, name }[] of every referenceable follower (compendium + world), for authoring pickers.
 	async listSummaries() {
 		return summarizeEntries([...(await this._store.getAll()), ...(await this._worldStore.getAll())]);

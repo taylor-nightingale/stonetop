@@ -5,6 +5,7 @@ import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
+import { GrantRegistry } from "./GrantRegistry.js";
 
 // The move sheet's display fields as RichText (un-enriched). getData runs the one enrich pass over
 // these; the template renders them with {{rich}}. Pure so it's unit-testable without the sheet.
@@ -99,6 +100,10 @@ export function createStonetopMoveSheetClass(Base) {
 			await enrichRichTextTree(context.rich, this.item?.getRollData?.() ?? {});
 			if (context.system.choices) {
 				context.choiceSnapshot = buildChoiceGroup(context.system.choices, new ChoiceValues());
+				// A move's choice group may grant moves/followers inline; resolve them so the view-mode
+				// choice-row renders them (see GrantRegistry / the character's stonetop.*.bySlug).
+				context.stonetop = await GrantRegistry.fromChoiceGroups([context.choiceSnapshot]);
+				await enrichRichTextTree(context.stonetop, this.item?.getRollData?.() ?? {});
 				context.choiceRows = context.system.choices.list.map((row, ri) => ({
 					...row,
 					_index: ri,

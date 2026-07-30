@@ -14,6 +14,7 @@ import { bindAll } from "../utils/bindAll.js";
 import { Arcanum } from "../model/data/character/Arcanum.js";
 import { ArcanumSnapshotBuilder, ArcanumRenderContext } from "../model/snapshot/character/CharacterSnapshot.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
+import { GrantRegistry } from "./GrantRegistry.js";
 
 const BLANK_ITEM     = () => ({ name: "", weight: 1, tags: null, note: null, inventoryColumn: null, twoCol: false, resource: null });
 const BLANK_RESOURCE = () => ({ max: 1, maxStat: null, title: null, labels: [] });
@@ -115,10 +116,14 @@ export function createStonetopArcanumSheetClass(Base) {
 				slug: sys.slug, major: sys.major, name: this.item.name, img: this.item.img, front, back,
 			});
 			context.preview        = [ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext({ flipped: this._previewFlipped }))];
-			// Inline follower/move grants are slug references resolved against the character's
-			// followers.bySlug / moves.bySlug at render; an item-sheet preview has no such registry, so those
-			// grants simply show nothing here.
+			// Inline follower/move grants are slug references choice-row resolves against
+			// stonetop.followers.bySlug / stonetop.moves.bySlug at render. The character supplies those from
+			// its owned items; here we resolve the arcanum's own grants from the compendium + world so the
+			// preview renders them too (both sides, so a flip shows either).
+			const card = context.preview[0];
+			context.stonetop = await GrantRegistry.fromChoiceGroups([...(card.front?.choices ?? []), ...(card.back?.choices ?? [])]);
 			await enrichRichTextTree(context.preview, this.item?.getRollData?.() ?? {});
+			await enrichRichTextTree(context.stonetop, this.item?.getRollData?.() ?? {});
 			// The non-editable description view ({{else}} branch) renders the SAME enriched front/back
 			// RichText the preview card uses — no separate {{md}} render path.
 			context.previewCard    = context.preview[0];

@@ -42,6 +42,23 @@ export class FoundryMoveRepository {
 		return slugs.map(s => index.get(s)).filter(Boolean);
 	}
 
+	// Item-shaped index entries ({ _id, name, img, system }) for the given slugs, across compendium +
+	// world — order-preserving, unknowns dropped. Unlike getMovesBySlugs (flat Move models, for name
+	// chips), these feed buildMoveSnapshot to render full move CARDS in an item-sheet preview.
+	async getMoveEntriesBySlugs(slugs = []) {
+		if (!slugs?.length) return [];
+		const [all, world] = await Promise.all([
+			this._moveStore.getAll(),
+			this._worldMoveStore.getAll(),
+		]);
+		const bySlug = new Map();
+		for (const entry of [...all, ...world]) {
+			const slug = new Move(entry).slug;
+			if (slug && !bySlug.has(slug)) bySlug.set(slug, entry);
+		}
+		return slugs.map(s => bySlug.get(s)).filter(Boolean);
+	}
+
 	// Fetch the full document for a referenced move (compendium OR world), so it can be embedded onto
 	// an actor. Try the pack, fall back to the world.
 	async getReferencedMoveDocument(id) {

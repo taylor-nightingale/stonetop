@@ -68,4 +68,23 @@ describe("FoundryMoveRepository", () => {
 			expect(moves[0]).toBeInstanceOf(Move);
 		});
 	});
+
+	describe("getMoveEntriesBySlugs", () => {
+		it("returns [] for an empty list", async () => {
+			new FakeGameBuilder().build();
+			expect(await new FoundryMoveRepository().getMoveEntriesBySlugs([])).toEqual([]);
+		});
+
+		it("returns item-shaped entries across compendium + world, in order, dropping unknowns", async () => {
+			const worldMove = new FakeCompendiumMoveBuilder().withName("Custom Move").build(); // slug: custom-move
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.movesPack().withItem(REVENANT_MOVE_A)) // slug: unliving
+				.withWorldItem(worldMove)
+				.build();
+			const entries = await new FoundryMoveRepository().getMoveEntriesBySlugs(["custom-move", "nope", "unliving"]);
+			// Item-shaped (carry `.system`), unlike the flat Move models getMovesBySlugs returns.
+			expect(entries.map(e => e.system.slug)).toEqual(["custom-move", "unliving"]);
+			expect(entries[1]).toBe(REVENANT_MOVE_A);
+		});
+	});
 });
