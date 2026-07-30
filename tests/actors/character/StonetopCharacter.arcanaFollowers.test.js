@@ -34,7 +34,7 @@ function followerArcanumItem() {
 		_id: "arc1", type: "arcanum", name: "Mysteries of the Blackwood", major: true,
 		system: {
 			slug: "blackwood-fetishes", major: true, flipped: true,
-			front: { title: "Blackwood fetishes", description: null, item: null, unlock: null },
+			front: { description: null, item: null, unlock: null },
 			back: {
 				title: "The fetishes", description: "the back",
 				choices: {
@@ -118,7 +118,7 @@ function ringArcanumItem() {
 		system: {
 			slug: "ring-of-daagon", major: true, flipped: false,
 			front: {
-				title: "Ring of Daagon", item: null,
+				item: null,
 				choices: [{
 					slug: "ring-of-daagon",
 					list: [

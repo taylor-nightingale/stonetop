@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "half-buried-plaque",
 		"front": {
-			"title": "A half-buried plaque",
 			"item": {
 				"name": "A half-buried plaque",
 				"weight": 2,

@@ -3,7 +3,7 @@ import { rich } from "../RichText.js";
 // An arcanum side's inline ◇ item, shaped like an OutfitItemSnapshot so it renders through the shared
 // outfit-item-row partial. `slug` is the ARCANUM slug (the checkbox/resource toggle keyed by it), and
 // `checked` is the arcanum's owned/checked state. `resolvedResource` undefined → use the item's own raw
-// resource (front); pass a built resource (or null) to override it (back). Shared by both side builders.
+// resource; pass a built resource (or null) to override it. Shared by both side builders.
 export function arcanumOutfitItemSnapshot(slug, itemData, resolvedResource = undefined, checked = false) {
 	if (!itemData) return null;
 	return {
@@ -23,9 +23,10 @@ export function arcanumOutfitItemSnapshot(slug, itemData, resolvedResource = und
 
 // ── Front / back snapshots ────────────────────────────────────────────────────
 
-// Front and back share ONE side snapshot: header chrome (title/item/tags/resource) + a body that is an
-// ordered array of choice groups. A move/follower grant or a □ track is just an entry; the old
-// description is a content entry inside a group.
+// ArcanumFront and ArcanumBack are authored differently but RENDER as the same card: header chrome
+// (title/item/tags/resource) above a body that is an ordered array of choice groups. So both build into
+// this one side snapshot — only where the heading comes from differs (see the two factories below). A
+// move/follower grant or a □ track is just an entry; the old description is a content entry in a group.
 export class ArcanumSideSnapshot {
 	constructor(b) {
 		this.title    = b._title;
@@ -44,12 +45,22 @@ export class ArcanumSideSnapshotBuilder {
 	withChoices(v)  { this._choices  = v; return this; }
 	build()         { return new ArcanumSideSnapshot(this); }
 
-	/** Build one side (front or back). Each choice group resolves through `ctx.group`; inline move/follower
-	 *  grants resolve against `moves.bySlug` / `followers.bySlug` in the template. */
-	static fromSide(side, slug, ctx) {
+	/** The front's heading is the ARCANUM's name — a front has no title of its own. */
+	static fromFront(front, name, slug, ctx) {
+		return ArcanumSideSnapshotBuilder.#build(front, rich(name), slug, ctx);
+	}
+
+	/** The back's heading is its own authored title — the mystery's name. */
+	static fromBack(back, slug, ctx) {
+		return ArcanumSideSnapshotBuilder.#build(back, rich(back.title), slug, ctx);
+	}
+
+	/** Each choice group resolves through `ctx.group`; inline move/follower grants resolve against
+	 *  `moves.bySlug` / `followers.bySlug` in the template. */
+	static #build(side, title, slug, ctx) {
 		return new ArcanumSideSnapshotBuilder()
-			.withTitle(rich(side.title))
-			.withItem(arcanumOutfitItemSnapshot(slug, side.item, ctx.itemResource(side.item?.resource ?? null), ctx.checked))
+			.withTitle(title)
+			.withItem(arcanumOutfitItemSnapshot(slug, side.item, ctx.resource(side.item?.resource ?? null), ctx.checked))
 			.withTags(side.tags)
 			.withResource(ctx.resource(side.resource ?? null))
 			.withChoices((side.choices ?? []).map(g => ctx.group(g)))
@@ -93,8 +104,8 @@ export class ArcanumSnapshotBuilder {
 			.withMajor(arcanum.major)
 			.withName(arcanum.name)
 			.withImg(arcanum.img)
-			.withFront(ArcanumSideSnapshotBuilder.fromSide(arcanum.front, arcanum.slug, ctx))
-			.withBack(ArcanumSideSnapshotBuilder.fromSide(arcanum.back, arcanum.slug, ctx))
+			.withFront(ArcanumSideSnapshotBuilder.fromFront(arcanum.front, arcanum.name, arcanum.slug, ctx))
+			.withBack(ArcanumSideSnapshotBuilder.fromBack(arcanum.back, arcanum.slug, ctx))
 			.withOwned(ctx.owned)
 			.withFlipped(ctx.flipped)
 			.withChecked(ctx.checked)

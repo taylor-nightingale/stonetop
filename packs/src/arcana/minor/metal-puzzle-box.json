@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "metal-puzzle-box",
 		"front": {
-			"title": "A metal puzzle box",
 			"item": {
 				"name": "A metal puzzle box",
 				"weight": 1,

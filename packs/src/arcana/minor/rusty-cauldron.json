@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "rusty-cauldron",
 		"front": {
-			"title": "A rusty cauldron",
 			"item": null,
 			"tags": "immobile, magical",
 			"choices": [

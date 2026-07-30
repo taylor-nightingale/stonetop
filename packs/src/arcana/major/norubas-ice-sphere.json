@@ -7,7 +7,6 @@
 	"system": {
 		"slug": "norubas-ice-sphere",
 		"front": {
-			"title": "Noruba's Ice Sphere",
 			"item": {
 				"name": "Noruba's Ice Sphere",
 				"weight": 1,

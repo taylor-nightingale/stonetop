@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "beautiful-scroll",
 		"front": {
-			"title": "A beautiful scroll",
 			"item": {
 				"name": "A beautiful scroll",
 				"weight": 1,

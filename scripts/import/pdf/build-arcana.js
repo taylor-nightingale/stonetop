@@ -88,6 +88,15 @@ function emitFrontMove(front, resourceBySlug = new Map()) {
 	return out;
 }
 
+// parseFront hangs transient staging fields on the front for the emitters above (`_frontMove`,
+// `_frontFollower`). None of them belong in pack data whether or not their emitter ran (minor fronts run
+// neither), so every write goes through here — one gate, rather than each emitter being trusted to clean up.
+function stripTransient(side) {
+	const out = {};
+	for (const [k, v] of Object.entries(side ?? {})) if (!k.startsWith("_")) out[k] = v;
+	return out;
+}
+
 // Fold a major/minor back's separate sections into ONE ordered `back.choices` array of groups, dropping
 // the sibling `moveSlugs`/`moves`/`consequences` fields. Canonical order: spells, moves, followers,
 // consequences. A move becomes a choice entry that grants the move inline (with an ornamental checkbox);
@@ -107,7 +116,7 @@ function foldBackChoices(back, followerGroup = null) {
 	} : null;
 	const consequences = back.consequences ? { ...back.consequences, title: back.consequences.title ?? "Consequences" } : null;
 	// A back description becomes a leading content-only entry in an untitled intro group, so it renders
-	// above the titled sections (the unified ArcanumSide has no separate `description` field).
+	// above the titled sections (ArcanumBack has no separate `description` field).
 	const intro = back.description ? { slug: "intro", list: [{ type: "entry", content: { title: null, text: back.description } }] } : null;
 	const choices = [intro, spells, moves, followers, consequences].filter(Boolean);
 	const out = {};
@@ -365,7 +374,7 @@ for (const rec of bySlug.values()) {
 		// (spells / moves / followers / consequences) into the ordered `back.choices` array of groups.
 		back = foldBackChoices(emitArcanaMoves(back, resourceBySlug), followerGroup);
 		// A front-granted move (the Codex's CAST A CODEX SPELL) → its move pack file; strips `_frontMove`.
-		const outFront = emitFrontMove(front, resourceBySlug);
+		const outFront = stripTransient(emitFrontMove(front, resourceBySlug));
 		const sys = { slug: rec.slug, front: outFront, back, major: true };
 		const out = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
 			...(rec.doc.img ? { img: rec.doc.img } : {}), system: sys, flags: {}, folder: rec.doc.folder };
@@ -433,7 +442,7 @@ if (WRITE_MINOR) {
 		delete back.rollTables;
 		back = foldBackChoices(back); // minors have only a follower group (no moves/consequences) → [followers?]
 		const doc = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
-			...(rec.doc.img ? { img: rec.doc.img } : {}), system: { slug: rec.slug, front, back }, flags: {}, folder: rec.doc.folder };
+			...(rec.doc.img ? { img: rec.doc.img } : {}), system: { slug: rec.slug, front: stripTransient(front), back }, flags: {}, folder: rec.doc.folder };
 		writeFileSync(rec.file, JSON.stringify(doc, null, "\t") + "\n");
 		minorWritten++;
 	}

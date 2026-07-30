@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "beaded-satchel",
 		"front": {
-			"title": "A beaded satchel",
 			"item": {
 				"name": "A beaded satchel",
 				"weight": 1,

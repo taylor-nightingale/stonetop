@@ -272,6 +272,7 @@
 			"front": "Front",
 			"back": "Back",
 			"title": "Title",
+			"backTitle": "Mystery name",
 			"description": "Description",
 			"item": "Item",
 			"itemName": "Name",

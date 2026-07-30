@@ -7,7 +7,6 @@
 	"system": {
 		"slug": "demonhide-cloak",
 		"front": {
-			"title": "Demonhide Cloak",
 			"item": {
 				"name": "Demonhide Cloak",
 				"weight": 1,

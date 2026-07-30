@@ -5,6 +5,7 @@ import {
 import { MoveSnapshot, MoveSnapshotBuilder } from "../../../src/model/snapshot/character/MoveSnapshot.js";
 import { ChoiceValues } from "../../../src/model/snapshot/character/ChoiceGroup.js";
 import { Arcanum } from "../../../src/model/data/character/Arcanum.js";
+import { Stats } from "../../../src/model/data/character/Stats.js";
 
 // The builders own the construction; a caller just hands over an Arcanum + a render context.
 const snap = (arcanum, opts = {}) => ArcanumSnapshotBuilder.fromArcanum(arcanum, new ArcanumRenderContext(opts));
@@ -12,7 +13,7 @@ const snap = (arcanum, opts = {}) => ArcanumSnapshotBuilder.fromArcanum(arcanum,
 const richArcanum = () => new Arcanum({
 	slug: "azure", major: true, name: "Azure Hand", img: null,
 	front: {
-		title: "Azure Hand", item: { name: "Azure Hand", weight: 1, note: "magical" },
+		item: { name: "Azure Hand", weight: 1, note: "magical" },
 		choices: [{ slug: "azure", list: [{ type: "entry", slug: "marks", content: { text: "Marks" }, track: { max: 4 } }] }],
 	},
 	back: {
@@ -35,7 +36,6 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 	it("maps a full arcanum to front/back snapshots", () => {
 		const s = snap(richArcanum(), { flipped: true });
 		expect(s).toMatchObject({ slug: "azure", major: true, name: "Azure Hand", owned: true, flipped: true });
-		expect(s.front.title.raw).toBe("Azure Hand");
 		expect(s.front.item.name).toBe("Azure Hand");
 		expect(frontGroup(s)).toBeTruthy();             // ChoiceGroup
 		expect(s.back.resource).toBeTruthy();           // ResourceSnapshot
@@ -44,11 +44,41 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 		expect(s.back.choices[0].list[0].moves.slugs).toEqual(["battery"]);
 	});
 
+	it("heads the front with the ARCANUM's name and the back with its own mystery title", () => {
+		const s = snap(richArcanum(), { flipped: true });
+		expect(s.front.title.raw).toBe("Azure Hand");
+		expect(s.back.title.raw).toBe("Mysteries");
+	});
+
+	it("front title follows the arcanum name — a stale stored front.title is ignored", () => {
+		const a = new Arcanum({ slug: "azure", name: "Azure Hand", front: { title: "Something Else" }, back: {} });
+		expect(snap(a).front.title.raw).toBe("Azure Hand");
+	});
+
 	it("carries a diamond-less front's disguise tags through to the snapshot (item stays null)", () => {
-		const a = new Arcanum({ slug: "the-key", front: { title: "A... key?", tags: "magical, terrifying", description: "a white thing" }, back: {} });
+		const a = new Arcanum({ slug: "the-key", name: "A... key?", front: { tags: "magical, terrifying", description: "a white thing" }, back: {} });
 		const s = snap(a);
 		expect(s.front.item).toBeNull();
 		expect(s.front.tags).toBe("magical, terrifying");
+	});
+
+	it("builds a front header resource track the same way the back's is built", () => {
+		const a = new Arcanum({ slug: "x", name: "X", front: { resource: { max: 3, labels: [] } }, back: {} });
+		const s = snap(a);
+		expect(s.front.resource).toBeTruthy();
+		expect(s.front.resource.max).toBe(3);
+	});
+
+	// One `resource()` builds both a side's header track and its inline item's — including a `maxStat` def,
+	// which used to resolve to 0 on the item path.
+	it("resolves a maxStat max from the stats for a header track AND an inline item resource", () => {
+		const a = new Arcanum({
+			slug: "x", name: "X",
+			back: { resource: { maxStat: "wis", labels: [] }, item: { name: "Orb", resource: { maxStat: "wis", labels: [] } } },
+		});
+		const s = snap(a, { stats: new Stats({ wis: 2 }) });
+		expect(s.back.resource.max).toBe(2);
+		expect(s.back.item.resource.max).toBe(2);
 	});
 
 	it("defaults (preview): not flipped, empty choices arrays, no stats crash", () => {

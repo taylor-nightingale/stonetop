@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "small-strange-book",
 		"front": {
-			"title": "A small, strange book",
 			"item": null,
 			"tags": "fragile",
 			"choices": [

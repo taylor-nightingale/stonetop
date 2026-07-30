@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "humble-broom",
 		"front": {
-			"title": "A humble broom",
 			"item": {
 				"name": "A humble broom",
 				"weight": 1,

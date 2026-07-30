@@ -5,13 +5,13 @@ import { FoundryArcanaRepository } from "../../../../src/actors/character/reposi
 
 const ARCANUM_SYSTEM = {
 	slug: "huge-wooden-sphere",
-	front: { title: "A Huge Wooden Sphere", item: null, description: "", unlock: { description: "", requirements: [] } },
+	front: { item: null, description: "", unlock: { description: "", requirements: [] } },
 	back:  { title: "Ffyrnig Tonic", item: null, description: "", resource: null, move: null, options: [] },
 };
 
 const OTHER_SYSTEM = {
 	slug: "humble-broom",
-	front: { title: "A Humble Broom", item: null, description: "", unlock: { description: "", requirements: [] } },
+	front: { item: null, description: "", unlock: { description: "", requirements: [] } },
 	back:  { title: "Broom of Sweeping", item: null, description: "", resource: null, move: null, options: [] },
 };
 
@@ -64,7 +64,7 @@ describe("FoundryArcanaRepository", () => {
 			const repo = new FoundryArcanaRepository();
 			const result = await repo.findBySlug("huge-wooden-sphere");
 			expect(result.slug).toBe("huge-wooden-sphere");
-			expect(result.front.title).toBe("A Huge Wooden Sphere");
+			expect(result.front.item).toBeNull();
 			expect(result.back.title).toBe("Ffyrnig Tonic");
 		});
 

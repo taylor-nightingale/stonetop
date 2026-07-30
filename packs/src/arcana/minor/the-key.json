@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "the-key",
 		"front": {
-			"title": "A... key?",
 			"item": null,
 			"tags": "magical, terrifying",
 			"choices": [

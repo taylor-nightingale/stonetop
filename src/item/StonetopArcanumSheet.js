@@ -1,8 +1,10 @@
-// Item sheet for authoring custom `arcanum` items. Front and back share one ArcanumSide shape: header
-// chrome (title, item, tags/resource; the back adds an itemSameAsFront checkbox) + a `choices` ARRAY of
-// groups. The body is entirely choices — a text entry is the description, □ tracks / follower & move
-// grants / section headers are all entries. Each side's groups reuse the shared choiceGroupEdit helpers +
-// choiceGroupEditorMixin + choice-group-editor partial (same array editor the Insert sheet uses).
+// Item sheet for authoring custom `arcanum` items. Both sides carry header chrome (item, tags/resource) +
+// a `choices` ARRAY of groups; the back adds the two fields that make it an ArcanumBack rather than an
+// ArcanumFront — its own title (the mystery's name) and an itemSameAsFront checkbox. The FRONT has no
+// title field: the document name in the header IS its heading. The body is entirely choices — a text
+// entry is the description, □ tracks / follower & move grants / section headers are all entries. Each
+// side's groups reuse the shared choiceGroupEdit helpers + choiceGroupEditorMixin + choice-group-editor
+// partial (same array editor the Insert sheet uses).
 //
 // front/back are opaque ObjectFields: nested writes (name= inputs, the cg mixin's whole-array
 // `item.update({"system.front.choices": [...]})`) rely on Foundry's recursive merge to preserve siblings.
@@ -20,12 +22,13 @@ const BLANK_ITEM     = () => ({ name: "", weight: 1, tags: null, note: null, inv
 const BLANK_RESOURCE = () => ({ max: 1, maxStat: null, title: null, labels: [] });
 
 // "Entirely blank" = no authored content on either side (name is ignored — a freshly created item
-// always carries a default name). A blank arcanum opens straight in edit mode (nothing to view yet).
+// always carries a default name, and it is also the front's heading). A blank arcanum opens straight in
+// edit mode (nothing to view yet).
 function isArcanumBlank(front = {}, back = {}) {
 	const has = v => v != null && v !== "" && !(Array.isArray(v) && v.length === 0);
 	return !(
-		has(front.title) || front.item != null || has(front.choices) ||
-		has(back.title)  || back.item  != null || back.resource != null || has(back.choices)
+		front.item != null || front.resource != null || has(front.choices) ||
+		has(back.title)    || back.item      != null || back.resource != null || has(back.choices)
 	);
 }
 

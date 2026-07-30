@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "oversized-crown",
 		"front": {
-			"title": "An oversized crown",
 			"item": {
 				"name": "An oversized crown",
 				"weight": 1,

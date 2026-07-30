@@ -7,10 +7,16 @@ export class ArcanumData extends foundry.abstract.TypeDataModel {
 	// inserts use), so fold the legacy stores into it. Runs on raw source before schema cleaning; guarded on
 	// the legacy keys being present, so it never clobbers a plain `choiceValues` edit diff.
 	static migrateData(source) {
-		// Front and back now share one ArcanumSide shape: a `choices` array of groups (no `unlock` /
-		// `description` / `unlockAt`). Fold legacy fields into it. Every step is guarded on the field being
-		// present in `source`, so a partial update diff that omits front/back is never touched (the
-		// migrate-on-diff landmine), and each conversion is idempotent (shape-checked).
+		// Both sides now carry a `choices` array of groups (no `unlock` / `description` / `unlockAt`). Fold
+		// legacy fields into it. Every step is guarded on the field being present in `source`, so a partial
+		// update diff that omits front/back is never touched (the migrate-on-diff landmine), and each
+		// conversion is idempotent (shape-checked).
+		// The front no longer has a title of its own (the document name is its heading), and
+		// `_frontFollower` is transient import-parser state that leaked into some pack data — drop both.
+		if (source?.front && typeof source.front === "object") {
+			delete source.front.title;
+			delete source.front._frontFollower;
+		}
 		for (const side of [source?.front, source?.back]) {
 			if (!side || typeof side !== "object") continue;
 			// Legacy single `unlock` group (front) → become `choices`.

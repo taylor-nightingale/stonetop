@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "giant-oak-leaf",
 		"front": {
-			"title": "A giant oak leaf",
 			"item": {
 				"name": "A giant oak leaf",
 				"weight": 1,

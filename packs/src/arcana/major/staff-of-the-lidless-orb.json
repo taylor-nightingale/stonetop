@@ -7,7 +7,6 @@
 	"system": {
 		"slug": "staff-of-the-lidless-orb",
 		"front": {
-			"title": "Staff of the Lidless Orb",
 			"item": {
 				"name": "Staff of the Lidless Orb",
 				"weight": 1,

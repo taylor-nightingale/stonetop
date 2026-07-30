@@ -58,8 +58,8 @@ function makeActor(items = []) {
 
 const FFYRNIG_SPHERE = {
 	slug: "huge-wooden-sphere",
+	name: "A Huge Wooden Sphere",
 	front: {
-		title: "A Huge Wooden Sphere",
 		item: { name: "A Huge Wooden Sphere", weight: null, note: "immobile", inventoryColumn: null },
 		choices: [{
 			slug: "huge-wooden-sphere",
@@ -194,7 +194,7 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect((await getItem()).front).toBeInstanceOf(ArcanumSideSnapshot);
 		});
 
-		it("front has correct title and item", async () => {
+		it("front is headed by the arcanum's own document name, and carries its item", async () => {
 			const { front } = await getItem();
 			expect(front.title.raw).toBe("A Huge Wooden Sphere");
 			expect(front.item?.weight).toBeNull();
@@ -373,8 +373,8 @@ describe("CharacterArcana.buildSnapshot()", () => {
 
 const CARVINGS_IN_A_CAVE = {
 	slug: "carvings-in-a-cave",
+	name: "Carvings in a Cave",
 	front: {
-		title: "Carvings in a Cave",
 		item: null,
 		description: "<p>Strange carvings.</p>",
 		unlock: { description: "Unlock by…", requirements: [] },
@@ -391,8 +391,8 @@ const CARVINGS_IN_A_CAVE = {
 
 const BOW_WITH_NO_STRING = {
 	slug: "bow-with-no-string",
+	name: "A Bow with No String",
 	front: {
-		title: "A Bow with No String",
 		item: { name: "A Bow with No String", weight: 1, note: null, inventoryColumn: "regular" },
 		description: "<p>An ancient bow.</p>",
 		unlock: { description: "Unlock by…", requirements: [] },
@@ -550,8 +550,8 @@ describe("CharacterArcana — outfitItems sync", () => {
 
 const CRACKED_FLUTE = {
 	slug: "cracked-flute",
+	name: "A cracked flute",
 	front: {
-		title: "A cracked flute",
 		item: null,
 		description: "<p>A cracked flute.</p>",
 		unlock: { slug: "cracked-flute", list: [] },
@@ -572,8 +572,8 @@ const CRACKED_FLUTE = {
 
 const STONE_IDOL = {
 	slug: "stone-idol",
+	name: "A stone idol",
 	front: {
-		title: "A stone idol",
 		item: null,
 		description: "<p>A tiny Fae.</p>",
 		unlock: { slug: "stone-idol", list: [] },
@@ -843,7 +843,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 
 const AZURE_HAND = {
 	slug: "azure-hand", major: true, name: "Azure Hand",
-	front: { title: "Azure Hand", item: null, description: "<p>A staff.</p>", unlock: { slug: "azure-hand", list: [] } },
+	front: { item: null, description: "<p>A staff.</p>", unlock: { slug: "azure-hand", list: [] } },
 	back: {
 		title: "Mysteries", item: null, description: "<p>The back.</p>",
 		choices: [{ slug: "moves", title: "Moves", list: [

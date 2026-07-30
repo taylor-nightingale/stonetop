@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "silvery-glass-bottle",
 		"front": {
-			"title": "A silvery glass bottle",
 			"item": {
 				"name": "A silvery glass bottle",
 				"weight": 1,

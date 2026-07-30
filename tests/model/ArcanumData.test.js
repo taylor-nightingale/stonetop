@@ -100,3 +100,26 @@ describe("ArcanumData.migrateData — choice-group normalization in front/back",
 		expect(out).toEqual({ flipped: true });
 	});
 });
+
+describe("ArcanumData.migrateData — front title and transient import fields", () => {
+	it("drops the front's redundant title (the document name is the front's heading)", () => {
+		const out = ArcanumData.migrateData({ front: { title: "A wolf pelt", tags: "warm" } });
+		expect(out.front.title).toBeUndefined();
+		expect(out.front.tags).toBe("warm");
+	});
+
+	it("keeps the back's own title (the mystery's name)", () => {
+		const out = ArcanumData.migrateData({ back: { title: "Call of the Hunt" } });
+		expect(out.back.title).toBe("Call of the Hunt");
+	});
+
+	it("drops `_frontFollower`, the transient import-parser field that leaked into pack data", () => {
+		const out = ArcanumData.migrateData({ front: { _frontFollower: { lines: [], loyaltyMax: 3 }, item: null } });
+		expect(out.front._frontFollower).toBeUndefined();
+	});
+
+	it("touches nothing when the diff omits front (migrate-on-diff safety)", () => {
+		const out = ArcanumData.migrateData({ back: { title: "Truth Seeds" } });
+		expect(out.front).toBeUndefined();
+	});
+});

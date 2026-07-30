@@ -412,7 +412,9 @@ export function splitFrontFollower(blocks) {
 
 /** Build the front side from its blocks (already bounded to one card's front). */
 export function parseFront(blocks, { name, slug }) {
-	const front = { title: name, item: null, tags: null, description: null, unlock: null };
+	// No `title`: the arcanum's document name IS the front's heading (only the back carries its own title).
+	// `name` is still needed below, to name the front's ◇ item and its front-granted move.
+	const front = { item: null, tags: null, description: null, unlock: null };
 	// A card that prints its follower on the FRONT (the Ring of Daagon) carries a second stat-block
 	// heading + tags para inside the front span. Pull it out before parsing the unlock, and stash the
 	// raw follower lines on the front for build-arcana to turn into a follower doc + unlock entry.
@@ -484,7 +486,7 @@ export function parseFront(blocks, { name, slug }) {
 			grants: [{ type: "move", slug: frontMove.id, locations: ["inline"] }],
 		});
 	};
-	// Fold the parsed front into the unified ArcanumSide shape: one choices group whose FIRST entry is the
+	// Fold the parsed front into the ArcanumFront shape: one choices group whose FIRST entry is the
 	// description (a content-only entry), followed by the unlock rows. `_frontMove` is left for build-arcana.
 	const finalize = () => {
 		attachFrontMove();

@@ -7,7 +7,6 @@
 	"system": {
 		"slug": "azure-hand",
 		"front": {
-			"title": "Azure Hand",
 			"item": {
 				"name": "Azure Hand",
 				"weight": 1,

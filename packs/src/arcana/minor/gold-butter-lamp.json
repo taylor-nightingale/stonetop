@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "gold-butter-lamp",
 		"front": {
-			"title": "A gold butter lamp",
 			"item": {
 				"name": "A gold butter lamp",
 				"weight": 2,

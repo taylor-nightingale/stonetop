@@ -7,7 +7,6 @@
 	"system": {
 		"slug": "mindgem",
 		"front": {
-			"title": "Mindgem",
 			"item": {
 				"name": "Mindgem",
 				"weight": 2,

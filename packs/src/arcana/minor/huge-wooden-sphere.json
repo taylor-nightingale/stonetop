@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "huge-wooden-sphere",
 		"front": {
-			"title": "A huge wooden sphere",
 			"item": null,
 			"tags": "immobile",
 			"choices": [

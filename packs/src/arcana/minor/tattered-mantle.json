@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "tattered-mantle",
 		"front": {
-			"title": "A tattered mantle",
 			"item": {
 				"name": "A tattered mantle",
 				"weight": 1,

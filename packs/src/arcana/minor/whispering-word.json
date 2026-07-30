@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "whispering-word",
 		"front": {
-			"title": "A whispering... word?",
 			"item": null,
 			"tags": "magical, immobile, terrifying",
 			"choices": [

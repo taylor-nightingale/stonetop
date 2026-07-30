@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "chain-of-rusty-locks",
 		"front": {
-			"title": "A chain of rusty locks",
 			"item": {
 				"name": "A chain of rusty locks",
 				"weight": 1,

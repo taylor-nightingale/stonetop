@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "metal-man",
 		"front": {
-			"title": "A metal man",
 			"item": null,
 			"tags": "magical, fragile",
 			"choices": [

@@ -6,8 +6,10 @@
 	<img class="stonetop-arcanum-img" src="{{img}}" alt="{{name}}">
 	{{/if}}
 
-	{{!-- Front and back share one shape (ArcanumSide); render the active side by `flipped`. Header chrome
-	      (title / item / tags / resource) sits above a body that is entirely choice groups — each row's
+	{{!-- Front and back are authored differently but render identically (one ArcanumSideSnapshot each);
+	      render the active side by `flipped`. The front's heading is the arcanum's own name, the back's is
+	      the mystery's title. Header chrome (title / item / tags / resource) sits above a body that is
+	      entirely choice groups — each row's
 	      content, ornamental □ track, and inline follower/move grant render through choice-row. The side is
 	      passed to the inline partial with the arcanum `slug` merged in (for the header resource track). --}}
 	{{#*inline "arcanum-side"}}

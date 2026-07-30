@@ -9,7 +9,7 @@ import { FakeOutfitItems } from "../fakes/FakeOutfitItems.js";
 import { ContainerOutfitSync } from "../../src/actors/character/ContainerOutfitSync.js";
 import { CharacterArcana } from "../../src/actors/character/CharacterArcana.js";
 
-const FRONT = { title: "Front", item: null, description: "desc", unlock: null };
+const FRONT = { item: null, description: "desc", unlock: null };
 const BACK  = { title: "Back",  item: null, description: "", choices: null };
 
 function makeArcanumItem(slug, overrides = {}) {
@@ -44,7 +44,7 @@ describe("migrateArcanumPackData", () => {
 	});
 
 	it("refreshes a populated arcanum's front/back from the pack (so pack fixes reach characters)", async () => {
-		const STALE = { title: "Old", item: null, description: "stale", unlock: null };
+		const STALE = { item: null, description: "stale", unlock: null };
 		const actor = makeActor([makeArcanumItem("maw", { front: STALE, back: { title: "Old back" } })]);
 		await migrateArcanumPackData(actor, makeRepo([{ slug: "maw", front: FRONT, back: BACK }]));
 		const updated = actor.updatedDocs.find(d => d._id === "maw");

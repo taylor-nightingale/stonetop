@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "makerglass-chime",
 		"front": {
-			"title": "A makerglass chime",
 			"item": {
 				"name": "A makerglass chime",
 				"weight": 2,

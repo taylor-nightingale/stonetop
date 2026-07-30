@@ -99,7 +99,7 @@ async function loadArcanaFiles() {
 				await scanDir(full);
 			} else if (entry.name.endsWith(".json")) {
 				const data = JSON.parse(await fs.readFile(full, "utf8"));
-				// The front's body is a `choices` ARRAY of groups (front and back share one ArcanumSide shape).
+				// The front's body is a `choices` ARRAY of groups (as is the back's).
 				for (const group of data.system?.front?.choices ?? []) files.push({ name: entry.name, unlock: group });
 			}
 		}

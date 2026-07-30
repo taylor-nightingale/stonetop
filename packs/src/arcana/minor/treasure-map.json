@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "treasure-map",
 		"front": {
-			"title": "A treasure map",
 			"item": null,
 			"tags": "fragile",
 			"choices": [

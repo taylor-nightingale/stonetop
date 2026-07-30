@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "oversized-codex",
 		"front": {
-			"title": "An oversized codex",
 			"item": null,
 			"tags": "immobile, fragile",
 			"choices": [

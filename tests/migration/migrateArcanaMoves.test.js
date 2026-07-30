@@ -10,7 +10,7 @@ import { FakeCompendiumMoveBuilder } from "../fakes/FakeCompendiumMoveBuilder.js
 // "unlocked" checkbox is now the granting entry's ornamental choice track). (migrateArcanumPackData
 // refreshes the back from the pack first, so the grants are the current array shape by the time this runs.)
 
-const FRONT = { title: "Front", unlock: null, item: null, description: "desc" };
+const FRONT = { unlock: null, item: null, description: "desc" };
 
 function makeActor(items = []) {
 	return new FakeCharacterActorBuilder().withItems(items).build();

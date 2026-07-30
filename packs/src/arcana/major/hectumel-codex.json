@@ -7,7 +7,6 @@
 	"system": {
 		"slug": "hectumel-codex",
 		"front": {
-			"title": "Hec'tumel Codex",
 			"item": {
 				"name": "Hec'tumel Codex",
 				"weight": 1,

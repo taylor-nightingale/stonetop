@@ -41,18 +41,19 @@
 				<span class="stonetop-arcanum-slug">{{system.slug}}</span>
 			</div>
 
-			{{!-- Front and back are the same shape (ArcanumSide): title + item (+ back's itemSameAsFront) +
-			      resource header, then a `choices` ARRAY of groups edited via the shared choice-group editor.
-			      Rendered by the inline "arcanum-side-editor" partial (see below). --}}
+			{{!-- ArcanumFront and ArcanumBack differ by exactly two authored fields — the back's own title
+			      (the mystery's name; a front is headed by the document name above) and its
+			      `itemSameAsFront` flag. Everything else (item, resource header, then a `choices` ARRAY of
+			      groups edited via the shared choice-group editor) is identical, so both render through the
+			      one inline "arcanum-side-editor" partial with those two gated on `isBack`. --}}
 			{{#*inline "arcanum-side-editor"}}
 			<section class="stonetop-arcanum-side">
 				<h2 class="stonetop-arcanum-side-title">{{localize label}}</h2>
 
-				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.title"}}
-					<input type="text" name="system.{{side}}.title" value="{{title}}">
-				</label>
-
 				{{#if isBack}}
+				<label class="stonetop-arcanum-title-field">{{localize "stonetop.arcanum.backTitle"}}
+					<input type="text" name="system.back.title" value="{{title}}">
+				</label>
 				<label class="stonetop-arcanum-field--check">
 					<input type="checkbox" name="system.back.itemSameAsFront" {{#if itemSameAsFront}}checked{{/if}}>
 					<span>{{localize "stonetop.arcanum.itemSameAsFront"}}</span>
@@ -83,8 +84,8 @@
 			</section>
 			{{/inline}}
 
-			{{> arcanum-side-editor side="front" label="stonetop.arcanum.front" isBack=false title=front.title itemDef=frontItem itemSameAsFront=false resource=front.resource groups=frontChoiceGroups}}
-			{{> arcanum-side-editor side="back"  label="stonetop.arcanum.back"  isBack=true  title=back.title  itemDef=backItem  itemSameAsFront=back.itemSameAsFront resource=back.resource groups=backChoiceGroups}}
+			{{> arcanum-side-editor side="front" label="stonetop.arcanum.front" isBack=false itemDef=frontItem itemSameAsFront=false resource=front.resource groups=frontChoiceGroups}}
+			{{> arcanum-side-editor side="back"  label="stonetop.arcanum.back"  isBack=true  title=back.title itemDef=backItem itemSameAsFront=back.itemSameAsFront resource=back.resource groups=backChoiceGroups}}
 
 		</div>
 

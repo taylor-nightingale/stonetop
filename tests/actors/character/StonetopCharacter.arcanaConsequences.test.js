@@ -17,7 +17,7 @@ function consequenceArcanumItem() {
 		_id: "arc1", type: "arcanum", name: "Blood-quenched Sword", major: true,
 		system: {
 			slug: "blood-quenched-sword", major: true, flipped: true,
-			front: { title: "Blood-quenched Sword", description: null, item: null, unlock: null },
+			front: { description: null, item: null, unlock: null },
 			back: {
 				title: "The curse", description: "the back",
 				choices: [{

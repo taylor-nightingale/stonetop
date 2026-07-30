@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "copper-banded-staff",
 		"front": {
-			"title": "A copper-banded staff",
 			"item": {
 				"name": "A copper-banded staff",
 				"weight": 1,

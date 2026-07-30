@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "runic-branding-iron",
 		"front": {
-			"title": "A runic branding iron",
 			"item": {
 				"name": "A runic branding iron",
 				"weight": 1,

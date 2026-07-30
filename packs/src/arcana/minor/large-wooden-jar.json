@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "large-wooden-jar",
 		"front": {
-			"title": "A large wooden jar",
 			"item": {
 				"name": "A large wooden jar",
 				"weight": 2,

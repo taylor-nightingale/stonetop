@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "redwood-basin",
 		"front": {
-			"title": "A redwood basin",
 			"item": {
 				"name": "A redwood basin",
 				"weight": 2,

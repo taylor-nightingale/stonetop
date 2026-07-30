@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "wolf-pelt",
 		"front": {
-			"title": "A wolf pelt",
 			"item": null,
 			"tags": "magical, warm",
 			"choices": [

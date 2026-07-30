@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "bow-with-no-string",
 		"front": {
-			"title": "A bow with no string",
 			"item": {
 				"name": "A bow with no string",
 				"weight": 1,

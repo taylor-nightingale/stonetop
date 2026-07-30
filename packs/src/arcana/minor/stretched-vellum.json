@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "stretched-vellum",
 		"front": {
-			"title": "A stretched vellum",
 			"item": {
 				"name": "A stretched vellum",
 				"weight": 2,

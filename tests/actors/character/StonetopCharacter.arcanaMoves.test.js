@@ -25,7 +25,7 @@ function majorArcanumItem(moveSlugs) {
 		_id: "arc1", type: "arcanum", name: "Azure Hand",
 		system: {
 			slug: "azure-hand", major: true, flipped: true,
-			front: { title: "Azure Hand", description: null, item: null, unlock: null },
+			front: { description: null, item: null, unlock: null },
 			back:  { title: "Mysteries", description: "the back", choices: [{ slug: "moves", title: "Moves",
 				list: moveSlugs.map(s => ({ type: "entry", slug: s, track: { max: 1 }, grants: [{ type: "move", slug: s, locations: ["inline"] }] })) }] },
 			choiceValues: {},

@@ -6,7 +6,6 @@
 	"system": {
 		"slug": "sealed-cave",
 		"front": {
-			"title": "A sealed cave",
 			"item": null,
 			"tags": "magical",
 			"choices": [
