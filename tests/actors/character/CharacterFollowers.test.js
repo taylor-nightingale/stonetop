@@ -344,6 +344,22 @@ describe("CharacterFollowers — group members", () => {
 		expect(cf._actor.items.get("lone-item").system.tagList.selected).toEqual(["group"]);
 	});
 
+	it("addMember leaves a horde tagged horde — it is already a group, so it gains no second tag", async () => {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem({ slug: "lone", tags: "horde" }, { owned: true }));
+		await cf.addMember("lone");
+		expect(cf._actor.items.get("lone-item").system.tagList.selected).toEqual(["horde"]);
+	});
+
+	it("a horde follower is a group: members render off the horde tag alone", async () => {
+		const cf = makeCf(new FakeFollowerRepository([]));
+		cf._actor.items.push(makeFollowerItem({ slug: "lone", tags: "horde" }, { owned: true }));
+		await cf.addMember("lone");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.isGroup).toBe(true);
+		expect(snap.members).toHaveLength(1);
+	});
+
 	it("removeMember drops the member at the given index", async () => {
 		const cf = await addCrew();
 		await cf.removeMember("crew", 0);

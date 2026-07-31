@@ -2,7 +2,7 @@ import { buildFollowerSnapshot } from "../../model/snapshot/character/buildFollo
 import { FollowersSnapshot } from "../../model/snapshot/character/FollowerSnapshot.js";
 import { ResourceController } from "./ResourceController.js";
 import { Selection } from "../../model/data/Selection.js";
-import { normalizeGroupTags } from "../../model/data/groupTag.js";
+import { normalizeGroupTags, hasGroupTag, GROUP_TAG } from "../../model/data/groupTag.js";
 import { newMember } from "../../utils/followerMemberEdit.js";
 import { blankCompanion } from "../../utils/followerCompanionEdit.js";
 import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
@@ -237,8 +237,10 @@ export class CharacterFollowers {
 		const max = item.system?.hp?.max ?? 0;
 		const blank = { name: "", hp: { value: max, max }, tags: Selection.multi([]).toRaw(), traits: Selection.multi([]).toRaw() };
 		const members = [..._members(item), blank];
-		// Adding a member makes this a group follower — ensure the "group" tag is set (FollowerSnapshot.isGroup).
-		const tagList = Selection.fromStored(item.system?.tagList, { multi: true }).select("group").toRaw();
+		// Adding a member makes this a group follower — ensure a group tag is set (FollowerSnapshot.isGroup).
+		// A follower already tagged "horde" IS a group, so it keeps its own word rather than gaining both.
+		const tags    = Selection.fromStored(item.system?.tagList, { multi: true });
+		const tagList = (hasGroupTag(tags) ? tags : tags.select(GROUP_TAG)).toRaw();
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { members, tagList } }]);
 	}
 

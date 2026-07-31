@@ -21,6 +21,7 @@ import { buildFollowerSnapshot } from "../model/snapshot/character/buildFollower
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { GrantRegistry } from "./GrantRegistry.js";
 import { Selection } from "../model/data/Selection.js";
+import { hasGroupTag, GROUP_TAG } from "../model/data/groupTag.js";
 
 // tagList is multi-select; instinct + cost are single-select.
 const SELECTION_MULTI = { tagList: true, instinct: false, cost: false };
@@ -171,11 +172,16 @@ export function createStonetopFollowerSheetClass(Base) {
 			const members    = () => item.system.members ?? [];
 			const setMembers = list => item.update({ "system.members": list });
 			const idx        = ev => numAttr(ev.currentTarget, "index");
-			// Adding a member makes this a group follower — write the members array AND ensure the
-			// "group" tag is set on tagList (FollowerSnapshot derives isGroup from it).
+			// Adding a member makes this a group follower — write the members array AND ensure a group
+			// tag is set on tagList (FollowerSnapshot derives isGroup from it). One already tagged
+			// "horde" IS a group, so it keeps its own word rather than gaining both.
+			const groupTagList = () => {
+				const tags = Selection.fromStored(item.system.tagList, { multi: true });
+				return (hasGroupTag(tags) ? tags : tags.select(GROUP_TAG)).toRaw();
+			};
 			bindAll(root, ".follower-member-add", "click", () => item.update({
 				"system.members": ME.addMember(members(), item.system.hp?.max ?? 0),
-				"system.tagList": Selection.fromStored(item.system.tagList, { multi: true }).select("group").toRaw(),
+				"system.tagList": groupTagList(),
 			}));
 			bindAll(root, ".follower-member-remove", "click", ev => setMembers(ME.removeMember(members(), idx(ev))));
 			bindAll(root, ".follower-member-up", "click", ev => setMembers(ME.moveMember(members(), idx(ev), -1)));

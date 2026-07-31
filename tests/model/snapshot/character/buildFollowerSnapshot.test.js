@@ -62,6 +62,16 @@ describe("buildFollowerSnapshot", () => {
 		expect(snap.memberSuggestions.names).toContain("Nesta");
 	});
 
+	it("marks a follower tagged 'horde' as isGroup — horde is a group tag", () => {
+		const snap = buildFollowerSnapshot(item({
+			slug: "servant-of-daagon",
+			tagList: { selected: ["terrifying", "horde"], options: [], multi: true, allowCustom: true },
+			members: [{ name: "", hp: { value: 3, max: 3 } }],
+		}));
+		expect(snap.isGroup).toBe(true);
+		expect(snap.members).toHaveLength(1);
+	});
+
 	it("exposes an enabled animal companion + its catalog", () => {
 		const snap = buildFollowerSnapshot(item({
 			slug: "animal-companion",

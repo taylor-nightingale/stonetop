@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
+import { isGroupTag } from "../../src/model/data/groupTag.js";
 
 const SRC_DIR = path.resolve("packs/src");
 
@@ -82,6 +83,20 @@ describe("pack source files", () => {
 			!doc.system?.back
 		);
 		expect(bad.map(b => b.file)).toEqual([]);
+	});
+
+	// isGroup is detected off the canonical lowercase token, so a stat block that kept the book's
+	// printed "Group"/"Horde" casing would silently render as a lone creature with no members.
+	it("group tags are stored canonically (no printed 'Group'/'Horde' casing)", () => {
+		const bad = [];
+		for (const { file, doc } of allDocs) {
+			for (const key of ["selected", "options"]) {
+				for (const tag of doc.system?.tagList?.[key] ?? []) {
+					if (isGroupTag(tag) && tag !== tag.toLowerCase()) bad.push(`${file}: tagList.${key} has "${tag}"`);
+				}
+			}
+		}
+		expect(bad).toEqual([]);
 	});
 
 	it("HTML descriptions have balanced tags", () => {

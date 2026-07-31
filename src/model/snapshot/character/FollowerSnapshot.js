@@ -15,6 +15,7 @@
  * @property {ChoiceGroup|null}         choices
  */
 import { Selection } from "../../data/Selection.js";
+import { hasGroupTag } from "../../data/groupTag.js";
 import { rich } from "../RichText.js";
 
 export class FollowerSnapshot {
@@ -28,7 +29,7 @@ export class FollowerSnapshot {
 		this.isObject       = this.kind === "object";
 		this.tagSelection   = Selection.fromStored(b._tags);
 		this.tags           = this.tagSelection.text;   // display string (back-compat)
-		this.isGroup        = this.tagSelection.has("group");
+		this.isGroup        = hasGroupTag(this.tagSelection);
 		this.hp             = b._hp;
 		this.hpMax          = b._hpMax;
 		// Rendered game text → RichText (enriched by the character sheet's enrichRichTextTree pass).

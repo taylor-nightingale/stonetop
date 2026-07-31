@@ -280,4 +280,13 @@ describe("migrateCreatureData — tags → tagList", () => {
 		expect(s.tagList.selected).toEqual(["group", "spirit"]);
 		expect(s.tagList.options).toEqual(["group"]);
 	});
+
+	it("normalizes a saved 'Horde' the same way — it is a group tag, and keeps its own word", () => {
+		// Worlds saved before horde counted as a group hold the book's printed casing; migrateData runs
+		// on every construction, so they conform on load with no separate world migration.
+		const s = { tagList: { selected: ["Horde", "tiny"], options: ["Horde (6)"], multi: true, allowCustom: true } };
+		migrateCreatureData(s);
+		expect(s.tagList.selected).toEqual(["horde", "tiny"]);
+		expect(s.tagList.options).toEqual(["horde"]);
+	});
 });

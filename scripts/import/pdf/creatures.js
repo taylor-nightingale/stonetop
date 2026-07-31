@@ -227,8 +227,8 @@ export function toNpcDoc(creature, { article, img = "systems/stonetop/assets/con
 		system: {
 			slug,
 			reference: article?.slug ?? null,
-			// Canonicalize the group tag ("Group"/"Group (N)" -> "group") so isGroup detects it and a
-			// follower dragged from this NPC inherits the working token.
+			// Canonicalize the group tags ("Group"/"Group (N)" -> "group", "Horde" -> "horde") so
+			// isGroup detects them and a follower dragged from this NPC inherits the working token.
 			tagList: selection(normalizeGroupTags(creature.tagList).tags, true),
 			hp: creature.hp,
 			armor: creature.armor,

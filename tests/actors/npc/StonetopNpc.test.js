@@ -65,6 +65,14 @@ describe("StonetopNpc — moves and tags in the snapshot", () => {
 		expect(snap.isGroup).toBe(true);
 	});
 
+	// 41 book NPCs are tagged "Horde" (wee folk, the Ghostly Legion, caribou…); it is a group tag,
+	// so they get the same group treatment as a "Group"-tagged stat block.
+	it("treats a horde NPC as a group", async () => {
+		const tagList = { selected: ["horde", "tiny", "fae"], options: [], multi: true, allowCustom: true };
+		const snap = await makeNpc({ tagList }).buildSnapshot();
+		expect(snap.isGroup).toBe(true);
+	});
+
 	// Instinct is single-select: a comma in the value must NOT be split into two selections.
 	it("keeps a comma-containing instinct as one single-select value", async () => {
 		const instinct = { selected: ["to protect, no matter the cost"], options: [], multi: false, allowCustom: true };

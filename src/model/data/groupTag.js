@@ -9,27 +9,49 @@
 // PDF parsers (scripts/import/pdf/creatures.js), and the NPC→follower conversion path.
 
 export const GROUP_TAG = "group";
+// "Horde" is the book's larger-scale spelling of the same idea (many near-identical members on one
+// stat block — the wee folk, the Ghostly Legion, a Servant of Daagon summoned as a horde). It is a
+// GROUP TAG for every mechanical purpose, so it drives the members list exactly as "group" does; it
+// keeps its own word because the scale it names is part of the creature's description.
+export const HORDE_TAG = "horde";
 
 // Matches a bare group tag with an optional "(N)" count, case-insensitively: "group", "Group",
-// "Group (3)". Anything else (e.g. "grouped", "wolf group") is left untouched.
-const GROUP_RE = /^group(?:\s*\((\d+)\))?$/i;
+// "Group (3)", "Horde", "Horde (6)". Anything else (e.g. "grouped", "wolf group") is untouched.
+const GROUP_RE = /^(group|horde)(?:\s*\((\d+)\))?$/i;
+
+/** Whether a tag names a group, in any casing/count form ("Group (3)", "horde", …). */
+export function isGroupTag(tag) {
+	return GROUP_RE.test(String(tag ?? "").trim());
+}
 
 /**
- * Normalize the group tag within a list of tag strings.
+ * Whether a creature's tags mark it as a group. The ONE place that question is answered — both
+ * FollowerSnapshot.isGroup and NpcSnapshot.isGroup delegate here, so a new group spelling never has
+ * to be added in two files again.
+ * @param {{ values?: string[] }|string[]} tags a Selection or a plain tag array
+ */
+export function hasGroupTag(tags) {
+	const list = Array.isArray(tags) ? tags : (tags?.values ?? []);
+	return list.some(isGroupTag);
+}
+
+/**
+ * Normalize the group tags within a list of tag strings.
  * @param {string[]} tags
- * @returns {{ tags: string[], count: number|null }} the list with every group entry rewritten to
- *   the canonical `"group"` (deduped to a single occurrence), and the member count from a "(N)"
- *   suffix if one was present (else null).
+ * @returns {{ tags: string[], count: number|null }} the list with every group entry rewritten to its
+ *   canonical lowercase token (`"group"` / `"horde"`, each deduped to a single occurrence), and the
+ *   member count from a "(N)" suffix if one was present (else null).
  */
 export function normalizeGroupTags(tags = []) {
 	let count = null;
-	let seen = false;
+	const seen = new Set();
 	const out = [];
 	for (const tag of tags) {
 		const m = GROUP_RE.exec(String(tag).trim());
 		if (!m) { out.push(tag); continue; }
-		if (m[1] != null) count = Number(m[1]);
-		if (!seen) { out.push(GROUP_TAG); seen = true; } // collapse "Group" + stray "group" to one
+		if (m[2] != null) count = Number(m[2]);
+		const canonical = m[1].toLowerCase();
+		if (!seen.has(canonical)) { out.push(canonical); seen.add(canonical); } // collapse "Group" + stray "group"
 	}
 	return { tags: out, count };
 }

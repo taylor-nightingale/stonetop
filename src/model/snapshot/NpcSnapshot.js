@@ -1,4 +1,5 @@
 import { Selection } from "../data/Selection.js";
+import { hasGroupTag } from "../data/groupTag.js";
 import { rich } from "./RichText.js";
 
 export class NpcSnapshot {
@@ -11,7 +12,7 @@ export class NpcSnapshot {
 		this.damage           = rich(b._damage, { roll: true });
 		this.tagSelection     = Selection.fromStored(b._tags);
 		this.tags             = this.tagSelection.text;
-		this.isGroup          = this.tagSelection.has("group");
+		this.isGroup          = hasGroupTag(this.tagSelection);
 		this.specialQuality   = rich(b._specialQuality ?? "", { roll: true });
 		this.instinctSelection = Selection.fromStored(b._instinct);
 		this.instinct         = this.instinctSelection.text;

@@ -24,6 +24,7 @@ import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
 import { onUpdateActor, onSteadingCreatedOrDeleted } from "./src/hooks/SteadingChanged.js";
 import { info } from "./src/utils/logger.js";
 import { rich, hasText } from "./src/model/snapshot/RichText.js";
+import { isGroupTag } from "./src/model/data/groupTag.js";
 import { registerDrawTableEnricher } from "./src/journal/drawTableEnricher.js";
 import { registerBlankFieldEnricher } from "./src/journal/blankFieldEnricher.js";
 import { CharacterData } from "./src/data/CharacterData.js";
@@ -108,6 +109,10 @@ Hooks.once("init", () => {
 	// Truthiness for an optional text field that may arrive as a bare string OR a RichText — used to
 	// guard optional notes/subtitles in the shared heading partials: {{#if (hasText note)}}.
 	Handlebars.registerHelper("hasText", hasText);
+
+	// A tag chip that marks a creature as a group ("group" / "horde") carries the group tooltip
+	// instead of the plain "remove" one: {{#if (isGroupTag this)}}.
+	Handlebars.registerHelper("isGroupTag", isGroupTag);
 
 	Handlebars.registerHelper("repeatChecks", move => {
 		const sel = move?.selection;
