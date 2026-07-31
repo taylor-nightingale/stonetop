@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -286,6 +286,17 @@ describe("parseMoveRoll", () => {
 	it("handles a comma inside the tier bold (suffering-unleashed shape)", () => {
 		const text = "When you **_feed the effigy_**, pick one and roll +CON: **on a 10+**, your target suffers that harm fully; **on a 7-9,** your target suffers that harm but pick 1; **on a 6-**, they suffer that harm but all 3 are true:\n- half the harm";
 		expect(parseMoveRoll(text).moveResults.partial.value).toBe("your target suffers that harm but pick 1");
+	});
+
+	it("ignores a tier named again as a back-reference inside a later outcome (call-up-the-deep-ones)", () => {
+		const text = "When you **_send them back whence they came_**, roll +CHA: **on a 10+**, they go, now; **on a 7-9**, they go,"
+			+ " but take their time and likely do some harm on their way; **on a 6-**, spend their Loyalty or mark a consequence"
+			+ " and they’ll eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers.";
+		expect(parseMoveRoll(text).moveResults).toEqual(results(
+			"they go, now",
+			"they go, but take their time and likely do some harm on their way",
+			"spend their Loyalty or mark a consequence and they’ll eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers.",
+		));
 	});
 
 	it("maps 'roll +nothing' to the prompt roll (the-flesh-remembers)", () => {
@@ -760,5 +771,95 @@ describe("matchFollowerIcons (marker icon beside a major follower's name heading
 		const big = { file: "/tmp/art.png", x: 432, y: 300, w: 270, h: 162 };
 		expect(matchFollowerIcons(lines, [big], ["Astor"])).toEqual([]);                         // w ≥ 25 → not a marker
 		expect(matchFollowerIcons(lines, [marker(432, 402, "/tmp/m.png")], ["Astor"])).toEqual([]); // heading not targeted
+	});
+});
+
+describe("statblockMoveTail (a move trigger swallowed by an adjacent stat block)", () => {
+	// The Ring of Daagon's back prints the Servant of Daagon stat block + its 5d4 builder BETWEEN the
+	// CALL UP THE DEEP ONES move and that move's closing "send them back" trigger, so the layout parser
+	// folds the trigger into the stat block. Spans/fonts are the book's real ones (p.562): a trigger line
+	// mixes runs, and `line.font` reports the dominant one (BoldItalic) even though it opens Regular.
+	const plain = (font, text) => ({ text, font, bbox: [432, 0, 700, 12], spans: [{ font, size: 9, text }] });
+	const trigger = (...spans) => ({
+		text: spans.map(([, t]) => t).join(""), font: "ACaslonPro-BoldItalic", bbox: [432, 0, 700, 12],
+		spans: spans.map(([font, text]) => ({ font, size: 9, text })),
+	});
+	const SEND_BACK = trigger(
+		["ACaslonPro-Regular", "When you "],
+		["ACaslonPro-BoldItalic", "send them back whence they came"],
+		["ACaslonPro-Regular", ", roll +CHA: "],
+		["ACaslonPro-Bold", "on a 10+"],
+		["ACaslonPro-Regular", ", they go, now; "],
+		["ACaslonPro-Bold", "on a 7-9"],
+		["ACaslonPro-Regular", ", they go, "],
+	);
+	const servantBlock = (...extra) => ({ type: "statblock", lines: [
+		plain("ACaslonPro-Bold", "Instinct to devour"),
+		plain("ACaslonPro-Regular", "Each time you Call Up the Deep Ones, roll five d4s and assign each to a different aspect:"),
+		plain("ACaslonPro-Regular", "_____ Tags: 1 = +craven; 2 = +ravenous; 3 = +cunning; 4 = +exceptional"),
+		...extra,
+	] });
+
+	it("returns the trigger and every line after it, as markdown", () => {
+		const tail = statblockMoveTail(servantBlock(
+			SEND_BACK,
+			plain("ACaslonPro-Regular", "but take their time; on a 6-, spend their Loyalty."),
+		));
+		expect(tail).toBe("When you **_send them back whence they came_**, roll +CHA: **on a 10+**, they go, now;"
+			+ " **on a 7-9**, they go, but take their time; on a 6-, spend their Loyalty.");
+	});
+
+	it("ignores a stat block with no trailing trigger at all", () => {
+		expect(statblockMoveTail(servantBlock())).toBeNull();
+		expect(statblockMoveTail(null)).toBeNull();
+	});
+
+	it("ignores a bold-italic run that isn't rollable (ordinary stat-block prose)", () => {
+		expect(statblockMoveTail(servantBlock(
+			trigger(["ACaslonPro-Regular", "When you "], ["ACaslonPro-BoldItalic", "look upon it"], ["ACaslonPro-Regular", ", you know it hungers."]),
+		))).toBeNull();
+	});
+});
+
+describe("parseBack — a stat block inside Moves gives its swallowed trigger back to the move", () => {
+	const plain = (font, text) => ({ text, font, bbox: [432, 0, 700, 12], spans: [{ font, size: 9, text }] });
+	const back = parseBack([
+		_heading("Mysteries of the Ring of Daagon"),
+		_heading("Moves"),
+		_list(["□ CALL UP THE DEEP ONES", "When you stand in heavy fog, they appear."]),
+		_rule(),
+		_heading("Servant of Daagon"),
+		{ type: "statblock", lines: [
+			plain("ACaslonPro-Bold", "Instinct to devour"),
+			{ text: "When you send them back whence they came, roll +CHA: on a 10+, they go, now; on a 7-9, they go,",
+				font: "ACaslonPro-BoldItalic", bbox: [432, 0, 700, 12], spans: [
+					{ font: "ACaslonPro-Regular", size: 9, text: "When you " },
+					{ font: "ACaslonPro-BoldItalic", size: 9, text: "send them back whence they came" },
+					{ font: "ACaslonPro-Regular", size: 9, text: ", roll +CHA: on a 10+, they go, now; on a 7-9, they go," },
+				] },
+			plain("ACaslonPro-Regular", "but take their time; on a 6-, they break free of your control."),
+		] },
+		_heading("Consequences"),
+		_list(["□ Your skin becomes clammy."]),
+	], { slug: "ring-of-daagon", name: "Ring of Daagon", major: true });
+
+	it("re-attaches the trigger to the preceding move (the rule already flushed it)", () => {
+		expect(back.moves).toHaveLength(1);
+		expect(back.moves[0].text).toBe("When you stand in heavy fog, they appear."
+			+ "\n\nWhen you **_send them back whence they came_**, roll +CHA: on a 10+, they go, now; on a 7-9, they go,"
+			+ " but take their time; on a 6-, they break free of your control.");
+	});
+
+	it("makes the move rollable, with the tiers read off the re-attached trigger", () => {
+		const { rollStat, moveResults } = parseMoveRoll(back.moves[0].text);
+		expect(rollStat).toBe("cha");
+		expect(moveResults.success.value).toBe("they go, now");
+		expect(moveResults.partial.value).toBe("they go, but take their time");
+		expect(moveResults.failure.value).toBe("they break free of your control.");
+	});
+
+	it("still drops the rest of the stat block, and the Consequences section is unaffected", () => {
+		expect(back.moves[0].text).not.toContain("Instinct to devour");
+		expect(back.consequences.list).toHaveLength(1);
 	});
 });

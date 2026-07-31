@@ -1,0 +1,242 @@
+{
+	"_id": "ServantDaagon001",
+	"_key": "!items!ServantDaagon001",
+	"name": "Servant of Daagon",
+	"type": "follower",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-beast.png",
+	"system": {
+		"slug": "servant-of-daagon",
+		"reference": null,
+		"arcanaSlug": "ring-of-daagon",
+		"tagList": {
+			"selected": [
+				"terrifying",
+				"violent",
+				"wretched"
+			],
+			"options": [
+				"craven",
+				"ravenous",
+				"cunning",
+				"exceptional",
+				"group",
+				"small",
+				"large",
+				"stealthy",
+				"cautious",
+				"powerful",
+				"grabby",
+				"messy"
+			],
+			"multi": true,
+			"allowCustom": true
+		},
+		"hp": {
+			"value": 0,
+			"max": 0
+		},
+		"armor": "",
+		"damage": "",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to devour"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "servant-of-daagon",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Each time you **_Call Up the Deep Ones_**, roll five d4s and assign each to a different aspect, then set this card's HP, damage and tags to match."
+						}
+					},
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"subtitle": "Tags",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "tags-craven",
+								"text": "1 = *+craven*"
+							},
+							{
+								"slug": "tags-ravenous",
+								"text": "2 = *+ravenous*"
+							},
+							{
+								"slug": "tags-cunning",
+								"text": "3 = *+cunning*"
+							},
+							{
+								"slug": "tags-exceptional",
+								"text": "4 = *+exceptional* (roll +2 for moves instead of +1)"
+							}
+						]
+					},
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"subtitle": "No. Appearing",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "number-horde",
+								"text": "1 = horde (quantity 2d6, HP 3, damage 1d6)"
+							},
+							{
+								"slug": "number-group",
+								"text": "2-3 = group (quantity 1d6+1, HP 6, damage 1d8)"
+							},
+							{
+								"slug": "number-solitary",
+								"text": "4 = solitary (HP 12, damage 1d10)"
+							}
+						]
+					},
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"subtitle": "Size",
+							"text": null
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 1,
+						"inline": true,
+						"options": [
+							{
+								"slug": "size-small",
+								"text": "1 = small (-2 HP, -2 damage, *hand*)"
+							},
+							{
+								"slug": "size-medium",
+								"text": "2-3 = medium (*close*)"
+							},
+							{
+								"slug": "size-large",
+								"text": "4 = large (+4 HP, +1 damage, *close*, *reach*)"
+							}
+						]
+					},
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"subtitle": "Traits",
+							"text": "Choose a number equal to the assigned die."
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 6,
+						"inline": true,
+						"options": [
+							{
+								"slug": "trait-hide",
+								"text": "blubbery/scaly hide (2 armor)"
+							},
+							{
+								"slug": "trait-stealthy",
+								"text": "*+stealthy* and *+cautious*"
+							},
+							{
+								"slug": "trait-powerful",
+								"text": "powerful (+2 damage, *forceful*)"
+							},
+							{
+								"slug": "trait-tentacles",
+								"text": "tentacles/pincers, etc. (*reach*, *grabby*)"
+							},
+							{
+								"slug": "trait-claws",
+								"text": "big claws/fangs (1 piercing, *messy*)"
+							},
+							{
+								"slug": "trait-projectiles",
+								"text": "projectiles (*+near*)"
+							}
+						]
+					},
+					{
+						"type": "entry",
+						"content": {
+							"title": null,
+							"subtitle": "Moves",
+							"text": "Choose a number equal to the assigned die."
+						}
+					},
+					{
+						"type": "pick",
+						"pickCount": 6,
+						"inline": true,
+						"options": [
+							{
+								"slug": "move-wriggle",
+								"text": "Wriggle free of danger/restraint"
+							},
+							{
+								"slug": "move-heal",
+								"text": "Heal at a prodigious rate"
+							},
+							{
+								"slug": "move-smother",
+								"text": "Smother/constrict/engulf them"
+							},
+							{
+								"slug": "move-dissolve",
+								"text": "Dissolve organic material"
+							},
+							{
+								"slug": "move-mesmerize",
+								"text": "Mesmerize the weak-willed"
+							},
+							{
+								"slug": "move-paralyze",
+								"text": "Paralyze them with venom"
+							}
+						]
+					}
+				]
+			}
+		],
+		"moves": "",
+		"description": "Summoned by Call Up the Deep Ones. They share a pool of Loyalty with the Ring itself.",
+		"notes": ""
+	},
+	"flags": {},
+	"folder": "BNaYX2Y4eMe7EOPK"
+}

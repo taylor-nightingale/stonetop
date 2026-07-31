@@ -3,7 +3,7 @@
 	"_key": "!items!TheCloakDemon001",
 	"name": "The Cloak",
 	"type": "follower",
-	"img": "systems/stonetop/assets/content/wonders/markers/marker-skull.png",
+	"img": "systems/stonetop/assets/content/wonders/markers/marker-triskele.png",
 	"system": {
 		"slug": "the-cloak",
 		"reference": null,

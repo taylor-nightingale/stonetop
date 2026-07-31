@@ -3383,14 +3383,6 @@ button.stonetop-xp-toggle {
 	margin-top: 4px;
 }
 
-.stonetop-follower-card .stonetop-choice-description {
-	font-weight: bold;
-	font-size: var(--fs-note);
-	font-style: italic;
-	text-transform: uppercase;
-	color: var(--color-text-dark-secondary, #555);
-}
-
 .stonetop-follower-choice-text {
 	width: 100%;
 	resize: vertical;

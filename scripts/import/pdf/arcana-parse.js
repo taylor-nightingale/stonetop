@@ -251,11 +251,19 @@ const cleanTier = (s) => (s || "").replace(/^[\s,;:]+/, "").replace(/[\s,;]+$/, 
 /** Extract the three result-tier outcomes from a rollable move's text. Each tier's value runs from the
  *  end of its header to the next tier header OR the next newline, whichever comes first — the tiers are
  *  written inline on one "roll …:" sentence, so this captures the outcome and stops before the option
- *  bullets / trailing paragraphs that follow. Absent tiers get "". Returns null with no 10+ header. */
+ *  bullets / trailing paragraphs that follow. Absent tiers get "". Returns null with no 10+ header.
+ *
+ *  Only the FIRST header for each tier counts. A tier can be named again inside a later outcome as a
+ *  back-reference (Call Up the Deep Ones' 6-: "they'll eventually go (as on a 7-9)"), which would
+ *  otherwise both overwrite that tier's real outcome and truncate the one it sits in. */
 function extractMoveResults(text) {
 	const t = text || "";
 	const hits = [];
-	for (const m of t.matchAll(TIER_RE)) hits.push({ key: TIER_KEY(m[1]), start: m.index, end: m.index + m[0].length });
+	for (const m of t.matchAll(TIER_RE)) {
+		const key = TIER_KEY(m[1]);
+		if (hits.some((h) => h.key === key)) continue;
+		hits.push({ key, start: m.index, end: m.index + m[0].length });
+	}
 	if (!hits.some((h) => h.key === "success")) return null;
 	const values = { success: "", partial: "", failure: "" };
 	for (let i = 0; i < hits.length; i++) {
@@ -564,6 +572,21 @@ export function parseFront(blocks, { name, slug }) {
 	return finalize();
 }
 
+/** A move's closing trigger paragraph, swallowed by a follower stat block printed inside the Moves
+ *  section. The Ring of Daagon prints its Servant of Daagon stat block (and that servant's builder)
+ *  between the CALL UP THE DEEP ONES move and its final "When you send them back …, roll +CHA"
+ *  trigger; the layout parser folds that whole right-hand column into one `statblock`, so the trigger
+ *  never reaches the move it belongs to. Returns the trailing run — a bold-italic "When you …" line
+ *  plus every line after it — or null. Gated on the run being ROLLABLE (`roll +X`), so a stat block's
+ *  ordinary italic prose can never be mistaken for a move trigger. */
+export function statblockMoveTail(block) {
+	const lines = block?.lines ?? [];
+	const at = lines.findIndex((l) => /BoldItalic/.test(l.font || "") && /^when you\b/i.test((l.text || "").trim()));
+	if (at < 0) return null;
+	const text = stripMarkers(joinMd(lines.slice(at)));
+	return parseMoveRoll(text).rollStat ? text : null;
+}
+
 /** Build a MAJOR back: "Mysteries of X" with all-caps mystery moves and a consequence track. Majors
  *  share the front's item (itemSameAsFront) and have no separate back item/description/resource. Each
  *  move (a `□ ALL-CAPS NAME` list item) and each consequence (a `□`-marked list item) continues
@@ -613,7 +636,17 @@ function parseMajorBack(blocks, { slug, name }) {
 			if (/^spells of\b/i.test(label))   { flush(); section = "spells"; spellsTitle = label; continue; }
 		}
 		if (b.type === "rule") { flush(); continue; } // a rule separates moves / consequences
-		if (b.type === "boxstart" || b.type === "boxend" || b.type === "table" || b.type === "statblock" || b.type === "image") continue;
+		if (b.type === "statblock") {
+			// A stat block inside the Moves section can have swallowed the move's closing trigger — give it
+			// back to the move it belongs to (the preceding one; a rule has usually already flushed `cur`).
+			const tail = section === "moves" ? statblockMoveTail(b) : null;
+			if (tail) {
+				if (cur) cur.text += "\n\n" + tail;
+				else if (back.moves.length) back.moves[back.moves.length - 1].text += "\n\n" + tail;
+			}
+			continue;
+		}
+		if (b.type === "boxstart" || b.type === "boxend" || b.type === "table" || b.type === "image") continue;
 		if (section === "moves") {
 			if (b.type === "list") for (const it of b.items) {
 				const head = majorMoveName(it[0]?.text || "");

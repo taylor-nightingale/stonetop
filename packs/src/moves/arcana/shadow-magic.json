@@ -11,11 +11,11 @@
 		"moveResults": {
 			"success": {
 				"label": "10+",
-				"value": "or the effect flickers out after mere moments (your choice which)"
+				"value": "the effect lasts as long as you wish, but you have disadvantage on all rolls while you maintain it"
 			},
 			"partial": {
 				"label": "7-9",
-				"value": "either mark a consequence and the effect lasts as"
+				"value": "either mark a consequence and the effect lasts as on a 10+, or the effect flickers out after mere moments (your choice which)"
 			},
 			"failure": {
 				"label": "6-",

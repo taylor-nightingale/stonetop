@@ -6,7 +6,22 @@
 	"system": {
 		"slug": "call-up-the-deep-ones",
 		"moveType": null,
-		"description": "When you **_stand in heavy fog or before deep water and call on the servants of Daagon to serve you_**, spend 1 Loyalty or mark a consequence and they appear. Treat them as followers, sharing a pool of Loyalty with the Ring itself. You can always choose to mark a consequence in lieu of spending their Loyalty."
+		"description": "When you **_stand in heavy fog or before deep water and call on the servants of Daagon to serve you_**, spend 1 Loyalty or mark a consequence and they appear. Treat them as followers, sharing a pool of Loyalty with the Ring itself. You can always choose to mark a consequence in lieu of spending their Loyalty.\n\nWhen you **_send them back whence they came_**, roll +CHA: **on a 10+**, they go, now; **on a 7-9**, they go, but take their time and likely do some harm on their way; **on a 6-**, spend their Loyalty or mark a consequence and they’ll eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers.",
+		"rollStat": "cha",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "they go, now"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "they go, but take their time and likely do some harm on their way"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "spend their Loyalty or mark a consequence and they’ll eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers."
+			}
+		}
 	},
 	"folder": "ArcanaMoves00001"
 }

@@ -113,6 +113,32 @@
 					]
 				},
 				{
+					"slug": "ring-of-daagon",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "servant-of-daagon",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"track": {
+								"max": 1
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "servant-of-daagon",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							]
+						}
+					]
+				},
+				{
 					"slug": "consequences",
 					"list": [
 						{
