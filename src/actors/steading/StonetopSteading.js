@@ -116,8 +116,10 @@ export class StonetopSteading {
 
 	// Routing for an item dropped on the steading. A steadfast re-seeds the definition (never
 	// embeds); a move joins the homefront list through SteadingMoves, which stamps the category
-	// fields an embedded steading move requires. Returns true when handled — false tells the caller
-	// (the sheet) to fall back to the default embed.
+	// fields an embedded steading move requires; an improvement joins the owned slug list (the
+	// steading gaining one in play — a wonder built, a trade route opened — on top of whatever its
+	// steadfast granted). Returns true when handled — false tells the caller (the sheet) to fall
+	// back to the default embed.
 	async applyDroppedItem(item) {
 		if (item?.type === "steadfast") {
 			await applySteadfast(this._actor, item);
@@ -125,6 +127,10 @@ export class StonetopSteading {
 		}
 		if (item?.type === "move") {
 			await this.moves.addMove(item);
+			return true;
+		}
+		if (item?.type === "improvement") {
+			await this.improvements.grant(item.system?.slug);
 			return true;
 		}
 		return false;

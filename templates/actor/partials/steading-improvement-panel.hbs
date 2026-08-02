@@ -1,0 +1,14 @@
+{{!-- One owned improvement on the steading sheet: the framed panel, its revoke × (editable sheets
+      only), and the shared improvement-group rendering. Context = the ChoiceGroup. Used by each of
+      the three improvement columns so the panel is described once. --}}
+<div class="steading-improvement-group steading-panel-frame">
+	{{> "stonetop.panel-frame"}}
+	{{#if @root.editable}}
+		<button type="button" class="steading-improvement-remove stonetop-icon-btn"
+		        data-slug="{{slug}}" data-name="{{slug}}"
+		        title="{{localize 'stonetop.steading.improvementRemove'}}" aria-label="Remove">
+			<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+		</button>
+	{{/if}}
+	{{> "stonetop.improvement-group"}}
+</div>

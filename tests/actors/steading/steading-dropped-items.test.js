@@ -43,6 +43,22 @@ describe("StonetopSteading.applyDroppedItem", () => {
 		expect(addMove).toHaveBeenCalledWith(move);
 	});
 
+	// A wonder improvement gained in play: it joins the owned slug list, never the item collection.
+	it("grants a dropped improvement by slug and reports handled", async () => {
+		const { steading, actor } = make();
+		const crucible = { type: "improvement", name: "Aetherium Crucible", system: { slug: "aetherium-crucible" } };
+		expect(await steading.applyDroppedItem(crucible)).toBe(true);
+		expect(actor.system.improvements).toContain("aetherium-crucible");
+		expect(actor.items).toHaveLength(0);
+	});
+
+	it("re-dropping an improvement the steading already owns does not duplicate it", async () => {
+		const { steading, actor } = make();
+		const palisade = { type: "improvement", name: "Palisade", system: { slug: "palisade" } };
+		expect(await steading.applyDroppedItem(palisade)).toBe(true);
+		expect(actor.system.improvements.filter(s => s === "palisade")).toHaveLength(1);
+	});
+
 	it("reports any other item type unhandled (caller falls back to the default embed)", async () => {
 		const { steading } = make();
 		expect(await steading.applyDroppedItem({ type: "possession", name: "Cart" })).toBe(false);

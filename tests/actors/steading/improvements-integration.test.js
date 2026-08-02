@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { SteadingImprovements } from "../../../src/actors/steading/SteadingImprovements.js";
 import { FoundrySteadingImprovementRepository } from "../../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
+import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 // End-to-end: the REAL improvement repository (compendium + world) resolving a steading's OWNED slugs
 // through the REAL SteadingImprovements snapshot builder (real buildChoiceGroup). Only the
@@ -64,6 +65,36 @@ describe("Steading improvements — custom world improvement (integration)", () 
 		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
 		const snap = await improvements.buildSnapshot();
 
+		expect(snap[0].list[0].track.checks).toEqual([true, false]);
+	});
+
+	// The drop path end to end against the REAL catalog: a wonder improvement that exists only in the
+	// pack is granted by slug and immediately resolves to its content — the proof that a dropped
+	// improvement needs no embedded item to show up on the sheet.
+	it("renders an improvement granted by slug, resolved through the real catalog", async () => {
+		stubGame([packEntry("watchtower", 1, WATCHTOWER)], []);
+		const actor = new FakeActorBuilder().withSystem({ improvements: [], improvementValues: {} }).build();
+		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
+
+		await improvements.grant("watchtower");
+		const snap = await improvements.buildSnapshot();
+
+		expect(actor.system.improvements).toEqual(["watchtower"]);
+		expect(snap.map(g => g.slug)).toEqual(["watchtower"]);
+		expect(snap[0].list[0].content.title.raw).toBe("Watchtower");
+	});
+
+	it("track state set after a grant survives a revoke and re-grant", async () => {
+		stubGame([packEntry("watchtower", 1, WATCHTOWER)], []);
+		const actor = new FakeActorBuilder().withSystem({ improvements: [], improvementValues: {} }).build();
+		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
+
+		await improvements.grant("watchtower");
+		await improvements.setTrack("watchtower", "built", 1);
+		await improvements.revoke("watchtower");
+		await improvements.grant("watchtower");
+
+		const snap = await improvements.buildSnapshot();
 		expect(snap[0].list[0].track.checks).toEqual([true, false]);
 	});
 

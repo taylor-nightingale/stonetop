@@ -4,7 +4,7 @@ import { PlacesOfInterest } from "../actors/steading/PlacesOfInterest.js";
 import { NeighborPlaces } from "../actors/steading/NeighborPlaces.js";
 import { SteadingImprovements } from "../actors/steading/SteadingImprovements.js";
 import { SteadfastSnapshot } from "../model/snapshot/steading/SteadfastSnapshot.js";
-import { addImprovement, removeImprovement } from "./steadfastImprovements.js";
+import { addImprovement, removeImprovement } from "../model/data/steading/improvementSlugs.js";
 
 // The typed wrapper for a `steadfast` item — the definition of a place a steading begins from. It
 // composes the SAME profile controllers a live steading uses (attributes, assets, places, neighbor

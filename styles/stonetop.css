@@ -4152,6 +4152,14 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-improvement-group {
 	display: flex;
 	flex-direction: column;
+	position: relative;
+}
+
+.stonetop.sheet.steading .steading-improvement-remove {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 1;
 }
 
 /* ── Notes tab ───────────────────────────────────────────────────────────────── */

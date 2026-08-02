@@ -255,6 +255,12 @@ export function createStonetopSteadingSheetClass(Base) {
 				await s.placesOfInterest.unlinkDocument(parseInt(ev.currentTarget.dataset.index));
 			});
 
+			// Improvements — revoke (× / right-click); granting is drag-drop via _onDropItem. Track pips
+			// are wired once (delegated) in _onFirstRender.
+			bindConfirmedDeletes(root, ".steading-improvement-remove", async ev => {
+				await s.improvements.revoke(ev.currentTarget.dataset.slug);
+			});
+
 			// Homefront moves: the acquisition checkbox toggles the owned move. Resource pips/text are
 			// wired once (delegated) in _onFirstRender.
 			bindAll(root, ".stonetop-move-check", "change", async ev => {

@@ -69,7 +69,8 @@
 			"linkColumn": "Link",
 			"linkHint": "Drag a document onto an entry to link it.",
 			"linkDropTitle": "Drop an actor, journal, or item here to link it",
-			"unlink": "Unlink"
+			"unlink": "Unlink",
+			"improvementRemove": "Remove"
 		},
 		"followers": {
 			"empty": "Drag followers here from the Followers compendium.",

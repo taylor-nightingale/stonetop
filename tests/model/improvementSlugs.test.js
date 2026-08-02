@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { addImprovement, removeImprovement } from "../../src/item/steadfastImprovements.js";
+import { addImprovement, removeImprovement } from "../../src/model/data/steading/improvementSlugs.js";
 
 describe("addImprovement", () => {
 	it("appends a new slug", () => {

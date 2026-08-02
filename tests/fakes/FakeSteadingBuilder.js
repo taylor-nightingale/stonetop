@@ -18,10 +18,18 @@ function applyUpdate(obj, data) {
 // owned slug list. Mirrors what applySteadfast(stonetop) produces.
 export class FakeSteadingBuilder {
 	_steadfast = "stonetop";
+	_typedActorFactory = null;
 
 	// "" models a brand-new steading (no steadfast applied yet — the create-hook case).
 	withSteadfast(slug) {
 		this._steadfast = slug;
+		return this;
+	}
+
+	// Wire the typed-actor wrapper the sheet reads (`actor.typedActor`) without the caller mutating
+	// the actor after build() — the factory receives the finished actor. See [[no-direct-mutation-after-builder]].
+	withTypedActor(factory) {
+		this._typedActorFactory = factory;
 		return this;
 	}
 
@@ -154,6 +162,8 @@ export class FakeSteadingBuilder {
 		actor.chatDescriptions = [];
 		actor.sendItemToChat = async item => { actor.chatItems.push(item); };
 		actor.sendDescriptionToChat = async (label, description) => { actor.chatDescriptions.push({ label, description }); };
+
+		if (this._typedActorFactory) actor.typedActor = this._typedActorFactory(actor);
 		return actor;
 	}
 }

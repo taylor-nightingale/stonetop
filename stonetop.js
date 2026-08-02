@@ -246,6 +246,7 @@ Hooks.once("init", () => {
 		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",
 		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",
 		"stonetop.improvement-group": "systems/stonetop/templates/actor/partials/improvement-group.hbs",
+		"stonetop.steading-improvement-panel": "systems/stonetop/templates/actor/partials/steading-improvement-panel.hbs",
 		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
 		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",
 		"stonetop.panel-frame":              "systems/stonetop/templates/actor/partials/panel-frame.hbs",

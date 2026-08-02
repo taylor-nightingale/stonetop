@@ -1,39 +1,12 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
+import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
 
 // The sheet does NOT wire drop listeners — core ActorSheetV2 does (element.ondrop → _onDrop →
 // _onDropDocument → _onDropItem). The sheet only overrides _onDropItem, delegating the decision to
-// the typed steading. This fake base mimics core's wiring so the integration test below proves a
-// physical drop event reaches the route EXACTLY once (the double-handled-drop regression).
-class FakeCoreActorSheetBase {
-	constructor(actor) {
-		this.actor = actor;
-		this.element = document.createElement("form");
-		// Core binds in _onRender via DragDrop, which ASSIGNS element.ondrop (no stacking).
-		this.element.ondrop = ev => this._onDrop(ev);
-	}
-	tabGroups = {};
-	isEditable = true;
-	async _onFirstRender() {}
-	_onRender() {}
-	async _onDrop(event) {
-		await this._onDropDocument(event, event._testDroppedItem);
-	}
-	// Core resolves the drop to a Document, then routes by documentName (Actor → _onDropActor,
-	// everything else → _onDropItem here). JournalEntry has no core case — it falls through.
-	async _onDropDocument(event, document) {
-		if (document?.documentName === "Actor") return this._onDropActor(event, document);
-		return this._onDropItem(event, document);
-	}
-	async _onDropActor() { return null; }
-	// Core's default embed for items the subclass doesn't intercept.
-	async _onDropItem(event, item) {
-		await this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
-		return item;
-	}
-}
-
+// the typed steading. The shared core-faithful base mimics that wiring, so the integration test below
+// proves a physical drop event reaches the route EXACTLY once (the double-handled-drop regression).
 const StonetopSteadingSheet = createStonetopSteadingSheetClass(FakeCoreActorSheetBase);
 
 function makeSheet({ editable = true } = {}) {

@@ -1,6 +1,7 @@
 import {ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
 import {buildChoiceGroup} from "../../model/snapshot/character/buildChoiceGroup.js";
 import {FoundrySteadingImprovementRepository} from "./repositories/FoundrySteadingImprovementRepository.js";
+import {addImprovement, removeImprovement} from "../../model/data/steading/improvementSlugs.js";
 
 // A steading renders only the improvements it OWNS — the slugs in system.improvements (copied from its
 // steadfast on apply, plus any wonder improvements dropped later). The repository resolves each slug to
@@ -17,6 +18,20 @@ export class SteadingImprovements {
 
 	get _values() {
 		return new ChoiceValues(this._actor.system?.improvementValues ?? {});
+	}
+
+	// An improvement dropped onto the steading joins the owned list by slug — no embed, since the tab
+	// renders from these slugs. Re-dropping one it already owns is a no-op.
+	async grant(slug) {
+		const next = addImprovement(this._slugs, slug);
+		if (next.length !== this._slugs.length) await this._actor.update({ "system.improvements": next });
+	}
+
+	// Track/pick state for the group is deliberately left in improvementValues — orphaned but harmless,
+	// so an accidental revoke (or a re-grant later) doesn't lose the steading's progress. Re-applying a
+	// steadfast already replaces the slug list on the same terms.
+	async revoke(slug) {
+		await this._actor.update({ "system.improvements": removeImprovement(this._slugs, slug) });
 	}
 
 	async setTrack(groupSlug, optionSlug, count) {
