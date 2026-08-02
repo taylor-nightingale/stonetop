@@ -5028,7 +5028,7 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-fine);
 }
 
-/* ── Notes-style textareas (inventory "other items", and the character Notes tab) ── */
+/* ── Notes-style textareas (inventory "other items") ─────────────────────────── */
 .st-notes-textarea {
 	width: 100%;
 	min-height: 8em;
@@ -5036,10 +5036,31 @@ button.stonetop-xp-toggle {
 	font-family: var(--font-primary);
 	line-height: 1.4;
 }
-.stonetop-notes-tab .st-notes-textarea {
-	min-height: 14em;
+
+/* ── Character Notes tab: bio + notes as ProseMirror editors ─────────────────── */
+.stonetop-notes-editor {
+	display: block;
 	margin-bottom: 12px;
+	border: 1px solid var(--color-border-light-2, #c9c7b8);
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 0.5);
+	font-family: var(--font-primary);
+	line-height: 1.4;
 }
+.stonetop-notes-editor .editor-content {
+	min-height: 14em;
+	padding: 4px 6px;
+	overflow: auto;
+}
+/* Active ProseMirror: core pins .editor-content absolutely (inset: 0) inside the .editor-container
+   it injects, so the height (and the drag-resize) has to live on the container instead. */
+.stonetop-notes-editor .editor-container {
+	height: 16em;
+	min-height: 8em;
+	resize: vertical;
+	overflow: hidden;
+}
+.stonetop-notes-editor .editor-container .editor-content { min-height: 0; resize: none; }
 
 /* ── Hover ▲▼ stepper on number inputs (wrapper added by activateSteppers) ──────── */
 .stonetop-stepper {

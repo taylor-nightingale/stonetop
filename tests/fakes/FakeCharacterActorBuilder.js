@@ -60,6 +60,8 @@ export class FakeCharacterActorBuilder {
 	_xp = {value: 0, max: 8};
 	_hp = {value: 8, max: 8};
 	_statBuilder = new FakeStatBuilder();
+	_description = "";
+	_notes = "";
 	_debilities = {
 		weakened: {value: false},
 		dazed: {value: false},
@@ -109,6 +111,17 @@ export class FakeCharacterActorBuilder {
 		return this;
 	}
 
+	// The notes tab's two fields: bio (system.description) and session notes (system.notes).
+	withDescription(text) {
+		this._description = text;
+		return this;
+	}
+
+	withNotes(text) {
+		this._notes = text;
+		return this;
+	}
+
 	withRollMode(rollMode) {
 		this._rollMode = rollMode;
 		return this;
@@ -125,6 +138,8 @@ export class FakeCharacterActorBuilder {
 	buildSystem() {
 		return {
 			playbookSlug: this._playbookSlug ?? "",
+			description: this._description,
+			notes: this._notes,
 			stats: this._statBuilder.build(),
 			attributes: {
 				level: this._level,

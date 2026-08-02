@@ -10,6 +10,7 @@ import { ResourceController } from "../actors/character/ResourceController.js";
 import { migrateChoiceRow } from "./migrateChoices.js";
 import { ChoiceGroupDefs } from "../model/data/ChoiceGroupDefs.js";
 import { Selection } from "../model/data/Selection.js";
+import { richTextToHtml } from "./richTextToHtml.js";
 
 const SCOPE = "stonetop";
 
@@ -106,6 +107,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateChoiceValues(actor);
 	await migratePlaybookChoiceValues(actor);
 	_logArcanumFlipped(actor, "after migratePlaybookChoiceValues");
+	await migrateCharacterNotes(actor);
 }
 
 // ── A. Flag → system scalar copies ───────────────────────────────────────────
@@ -820,4 +822,19 @@ export async function migrateMovePackData(actor, moveRepo) {
 
 	info(`Refreshing ${updates.length} embedded move(s) from pack data.`);
 	await actor.updateEmbeddedDocuments("Item", updates);
+}
+
+// ── R. Notes tab bio/notes → ProseMirror HTML ─────────────────────────────────
+
+// The notes tab's plain textareas became ProseMirror editors, which read and write HTML. Convert
+// the text those textareas stored so its paragraphs and line breaks survive the switch; values a
+// ProseMirror editor has already saved are left alone.
+export async function migrateCharacterNotes(actor) {
+	const updates = {};
+	for (const field of ["description", "notes"]) {
+		const stored = actor.system?.[field] ?? "";
+		const html   = richTextToHtml(stored);
+		if (html !== stored) updates[`system.${field}`] = html;
+	}
+	if (Object.keys(updates).length) await actor.update(updates);
 }

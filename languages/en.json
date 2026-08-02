@@ -40,9 +40,7 @@
 			"collapseTop": "Collapse / expand header",
 			"notes": {
 				"bio": "Bio",
-				"bioPlaceholder": "Who is your character? Appearance, history, demeanor…",
-				"notes": "Notes",
-				"notesPlaceholder": "Session notes, reminders, goals…"
+				"notes": "Notes"
 			},
 			"playbook": {
 				"emptyHint": "Select or drag a playbook here to start.",

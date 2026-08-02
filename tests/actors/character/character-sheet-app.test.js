@@ -213,6 +213,22 @@ describe("StonetopCharacterSheet change routing", () => {
 		expect(char.setFollowerHp).toHaveBeenCalledWith("enfys", "12", "10");
 	});
 
+	// The notes tab's editors are <prose-mirror> elements: no `name`, so they never ride the form
+	// submit — the router reads the serialized HTML off `.value` like any other control.
+	it("routes the notes tab's rich editors to setBio / setNotes", async () => {
+		const { sheet, char } = makeSheet();
+		await mount(sheet, `
+			<prose-mirror data-change-action="bio"></prose-mirror>
+			<prose-mirror data-change-action="charNotes"></prose-mirror>`);
+		const [bio, notes] = sheet.element.querySelectorAll("prose-mirror");
+		bio.value = "<p>A wanderer.</p>";
+		notes.value = "<p>Ask Isadora.</p>";
+		change(bio);
+		change(notes);
+		expect(char.setBio).toHaveBeenCalledWith("<p>A wanderer.</p>");
+		expect(char.setNotes).toHaveBeenCalledWith("<p>Ask Isadora.</p>");
+	});
+
 	it("ignores every change when the sheet is not editable", async () => {
 		const { sheet, char } = makeSheet();
 		sheet._editable = false;

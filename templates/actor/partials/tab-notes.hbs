@@ -1,13 +1,16 @@
 <div class="tab notes {{tabs.notes.cssClass}}" data-group="primary" data-tab="notes">
 	<section class="sheet-tab stonetop-notes-tab">
 
+		{{!-- Nameless <prose-mirror>: the editor's change event carries the serialized HTML to the
+		      ChangeActionRouter, which saves it through a domain method — the character sheet keeps
+		      `name` (and the core form-submit path) for the fields core owns. --}}
 		{{> "stonetop.section-heading" title=(localize "stonetop.sheet.notes.bio")}}
-		<textarea class="st-notes-textarea stonetop-char-bio" data-change-action="bio"
-		          placeholder="{{localize 'stonetop.sheet.notes.bioPlaceholder'}}">{{stonetop.bio}}</textarea>
+		<prose-mirror class="stonetop-notes-editor" data-change-action="bio"
+		              value="{{stonetop.bio}}"></prose-mirror>
 
 		{{> "stonetop.section-heading" title=(localize "stonetop.sheet.notes.notes")}}
-		<textarea class="st-notes-textarea stonetop-char-notes" data-change-action="charNotes"
-		          placeholder="{{localize 'stonetop.sheet.notes.notesPlaceholder'}}">{{stonetop.notes}}</textarea>
+		<prose-mirror class="stonetop-notes-editor" data-change-action="charNotes"
+		              value="{{stonetop.notes}}"></prose-mirror>
 
 	</section>
 </div>
