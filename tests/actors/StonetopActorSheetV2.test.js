@@ -13,6 +13,10 @@ class FakeActorSheetV2Base {
 		document.body.appendChild(this.element);
 	}
 	get isEditable() { return this._editable; }
+	// Mirrors core DocumentSheetV2: disable every form element in the sheet.
+	_toggleDisabled(disabled) {
+		for (const el of this.element.querySelectorAll("button, input, select, textarea")) el.disabled = disabled;
+	}
 	async _onFirstRender(_context, _options) {}
 	_onRender(_context, _options) {}
 	_preSyncPartState(partId, newElement, priorElement, state) {
@@ -158,6 +162,32 @@ describe("StonetopActorSheetV2 base", () => {
 			sheet._editable = true;
 			click(sheet.element.querySelector(".rollable"));
 			expect(actor._onRoll).toHaveBeenCalledTimes(1);
+		});
+	});
+
+	describe("_toggleDisabled (observer-permission sheet)", () => {
+		function makeSheetWithElement() {
+			const { sheet } = makeSheet({ editable: false });
+			sheet.element.innerHTML = `
+				<button class="moves-filter" data-view-state></button>
+				<button class="delete-follower"></button>
+				<input class="hp">`;
+			return sheet;
+		}
+
+		it("keeps [data-view-state] controls clickable when the sheet is disabled", () => {
+			const sheet = makeSheetWithElement();
+			sheet._toggleDisabled(true);
+			expect(sheet.element.querySelector(".moves-filter").disabled).toBe(false);
+			expect(sheet.element.querySelector(".delete-follower").disabled).toBe(true);
+			expect(sheet.element.querySelector(".hp").disabled).toBe(true);
+		});
+
+		it("leaves everything enabled when the sheet is editable", () => {
+			const sheet = makeSheetWithElement();
+			sheet._toggleDisabled(false);
+			expect(sheet.element.querySelector(".moves-filter").disabled).toBe(false);
+			expect(sheet.element.querySelector(".delete-follower").disabled).toBe(false);
 		});
 	});
 });

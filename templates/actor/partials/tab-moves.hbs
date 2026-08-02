@@ -1,5 +1,16 @@
-<div class="tab moves {{tabs.moves.cssClass}}" data-group="primary" data-tab="moves">
+<div class="tab moves {{tabs.moves.cssClass}}{{#if hideUnselectedMoves}} hide-unselected{{/if}}" data-group="primary" data-tab="moves">
 	<section class="sheet-tab">
+
+		{{!-- Pure view state, so a <button> rather than a checkbox: the sheet is submitOnChange, and a
+		      checkbox's change event would drive a whole-form submit + re-render for a display filter. --}}
+		<div class="stonetop-moves-toolbar">
+			<button type="button" class="stonetop-moves-filter{{#if hideUnselectedMoves}} is-active{{/if}}"
+			        data-action="toggleUnselectedMoves" data-view-state
+			        title="{{localize 'stonetop.character.moves.selectedOnlyHint'}}">
+				<i class="fas fa-eye-slash"></i>
+				<span>{{localize "stonetop.character.moves.selectedOnly"}}</span>
+			</button>
+		</div>
 
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}

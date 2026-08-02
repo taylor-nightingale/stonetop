@@ -3,6 +3,7 @@ import { buildFocusSelector } from "./buildFocusSelector.js";
 import { activateEditToggles } from "../utils/editToggle.js";
 import { activateSteppers } from "../utils/stepper.js";
 import { activateComboBoxes } from "../utils/comboBox.js";
+import { reenableViewStateControls } from "../utils/viewStateControls.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop actor sheets: HandlebarsApplicationMixin over
@@ -71,6 +72,13 @@ export function createStonetopActorSheetV2Class() {
 				ev.stopPropagation();
 				await this.actor._onRoll(ev);
 			}, true);
+		}
+
+		// An observer-permission sheet is read-only, but collapsing the header or filtering the
+		// moves tab changes nothing on the actor — see reenableViewStateControls.
+		_toggleDisabled(disabled) {
+			super._toggleDisabled(disabled);
+			if (disabled) reenableViewStateControls(this.element);
 		}
 
 		// Per-element DOM decoration must re-run every render — the part content it decorated

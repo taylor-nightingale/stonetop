@@ -465,7 +465,9 @@
 				"removeMove": "Remove Move",
 				"sendToChat": "Send to Chat",
 				"requires": "Requires",
-				"notMet": "Not Met"
+				"notMet": "Not Met",
+				"selectedOnly": "Selected only",
+				"selectedOnlyHint": "Show only the moves this character has taken. Turn it off to take new ones."
 			},
 			"selection": {
 				"select": "Select",

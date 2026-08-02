@@ -45,13 +45,13 @@
 			{{#each tabs}}
 			<a class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</a>
 			{{/each}}
-			<button type="button" class="stonetop-top-toggle" data-action="toggleTop" title="{{localize 'stonetop.sheet.collapseTop'}}">
+			<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state title="{{localize 'stonetop.sheet.collapseTop'}}">
 				<i class="fas fa-chevron-up"></i>
 			</button>
 		</nav>
 
 		<div class="stonetop-sheet-layout">
-			<button type="button" class="stonetop-moves-toggle" data-action="toggleMovesOverlay" title="{{localize 'stonetop.sheet.tabs.moves'}}">
+			<button type="button" class="stonetop-moves-toggle" data-action="toggleMovesOverlay" data-view-state title="{{localize 'stonetop.sheet.tabs.moves'}}">
 				<i class="fas fa-bolt"></i>
 			</button>
 			<section class="sheet-body">

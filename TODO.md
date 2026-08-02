@@ -9,7 +9,6 @@
 
 
 == Nice to have
-* toggle to turn off non-selected character options
 * add descriptions to debilities for hover over (p 53)
 * add descriptions to stats for hover over (p 53)
 * Add hover over tool tip for armor, hp, and damage to show where the calculations came from

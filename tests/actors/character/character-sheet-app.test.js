@@ -151,6 +151,19 @@ describe("StonetopCharacterSheet._prepareContext (integration)", () => {
 	});
 });
 
+// -- Moves filter -------------------------------------------------------------------
+
+describe("StonetopCharacterSheet moves filter", () => {
+	beforeEach(() => new FakeGameBuilder().build());
+
+	it("carries the selected-only filter into the context so it survives a re-render", async () => {
+		const { sheet } = makeSheet();
+		expect((await sheet._prepareContext({})).hideUnselectedMoves).toBe(false);
+		sheet._setHideUnselectedMoves(true, null);
+		expect((await sheet._prepareContext({})).hideUnselectedMoves).toBe(true);
+	});
+});
+
 // -- Change router ------------------------------------------------------------------
 
 describe("StonetopCharacterSheet change routing", () => {
@@ -275,6 +288,31 @@ describe("StonetopCharacterSheet actions", () => {
 		const wrap = el(`<div class="sheet-wrapper"><button></button></div>`);
 		await fireAction(sheet, "toggleTop", wrap.querySelector("button"));
 		expect(wrap.classList.contains("top-collapsed")).toBe(true);
+	});
+
+	it("toggleUnselectedMoves flips the filter classes on the tab, without a re-render", async () => {
+		const { sheet } = makeSheet();
+		const tab = el(`<div class="tab moves"><button class="stonetop-moves-filter"></button></div>`);
+		const btn = tab.querySelector("button");
+
+		await fireAction(sheet, "toggleUnselectedMoves", btn);
+		expect(sheet._hideUnselectedMoves).toBe(true);
+		expect(tab.classList.contains("hide-unselected")).toBe(true);
+		expect(btn.classList.contains("is-active")).toBe(true);
+
+		await fireAction(sheet, "toggleUnselectedMoves", btn);
+		expect(sheet._hideUnselectedMoves).toBe(false);
+		expect(tab.classList.contains("hide-unselected")).toBe(false);
+		expect(btn.classList.contains("is-active")).toBe(false);
+		expect(sheet.render).not.toHaveBeenCalled();
+	});
+
+	it("toggleUnselectedMoves is NOT edit-gated — the filter only changes what is shown", async () => {
+		const { sheet } = makeSheet();
+		sheet._editable = false;
+		const tab = el(`<div class="tab moves"><button class="stonetop-moves-filter"></button></div>`);
+		await fireAction(sheet, "toggleUnselectedMoves", tab.querySelector("button"));
+		expect(tab.classList.contains("hide-unselected")).toBe(true);
 	});
 
 	it("toggleFollowerInventory tracks the open set and re-renders", async () => {
