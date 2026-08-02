@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { readFileSync } from "fs";
 import { ActorRolling } from "../../../src/actors/ActorRolling.js";
 import { RollRequest } from "../../../src/actors/RollRequest.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
@@ -76,5 +77,62 @@ describe("Steading roll — attribute bonus (integration)", () => {
 		await rolling._actor.typedActor.attributes.setValue("defenses", -1);
 		await rolling.execute(RollRequest.fromStat("defenses", "normal"));
 		expect(FakeRoll.lastInstance.formula).toBe("2d6 + -1");
+	});
+});
+
+// The book: while the steading is *diminished*, roll Deploy, Muster and Pull Together at
+// disadvantage. Driven off the REAL pack moves, so the rule keys off the slug those moves actually
+// ship with — a renamed or re-slugged move would fail here rather than silently stop being hindered.
+const homefrontMove = slug =>
+	JSON.parse(readFileSync(new URL(`../../../packs/src/moves/homefront/${slug}.json`, import.meta.url)));
+
+describe("Steading roll — diminished (integration)", () => {
+	async function diminishedRolling() {
+		const rolling = makeRolling();
+		await rolling._actor.typedActor.debilities.setDebility("diminished", true);
+		return rolling;
+	}
+
+	it("rolls Deploy at disadvantage", async () => {
+		const rolling = await diminishedRolling();
+		await rolling.execute(RollRequest.fromItem(homefrontMove("deploy"), null, "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("3d6kl2 + 0");
+	});
+
+	it("rolls Muster at disadvantage", async () => {
+		const rolling = await diminishedRolling();
+		await rolling.execute(RollRequest.fromItem(homefrontMove("muster"), null, "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("3d6kl2 + 0");
+	});
+
+	it("rolls Pull Together at disadvantage", async () => {
+		const rolling = await diminishedRolling();
+		await rolling.execute(RollRequest.fromItem(homefrontMove("pull-together"), null, "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("3d6kl2 + 0");
+	});
+
+	it("cancels advantage on Deploy instead of compounding it", async () => {
+		const rolling = await diminishedRolling();
+		await rolling.execute(RollRequest.fromItem(homefrontMove("deploy"), null, "adv"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 0");
+	});
+
+	it("leaves Trade & Barter alone — diminished names three moves, not a rating", async () => {
+		const rolling = await diminishedRolling();
+		await rolling.execute(RollRequest.fromItem(homefrontMove("trade-and-barter"), null, "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 0");
+	});
+
+	it("leaves a bare Population roll alone", async () => {
+		const rolling = await diminishedRolling();
+		await rolling.execute(RollRequest.fromStat("population", "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 0");
+	});
+
+	it("rolls Deploy normally once diminished is cleared", async () => {
+		const rolling = await diminishedRolling();
+		await rolling._actor.typedActor.debilities.setDebility("diminished", false);
+		await rolling.execute(RollRequest.fromItem(homefrontMove("deploy"), null, "normal"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 0");
 	});
 });

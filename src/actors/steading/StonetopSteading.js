@@ -12,6 +12,7 @@ import {SteadingImprovements} from "./SteadingImprovements.js";
 import {SteadingMoves} from "./SteadingMoves.js";
 import {startingAttributeNote} from "./startingAttributeNote.js";
 import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadfast.js";
+import {hinderRollMode} from "../hinderRollMode.js";
 
 export class StonetopSteading {
 	constructor(actor, improvementsRepo, movesRepo) {
@@ -59,8 +60,8 @@ export class StonetopSteading {
 		return rollStat === "prosperity" && this.isLacking ? stored - 1 : stored;
 	}
 
-	applyRollMode(rollStat, rollMode) {
-		return rollMode;
+	applyRollMode(rollStat, rollMode, moveSlug = null) {
+		return this.debilities.hindersMove(moveSlug) ? hinderRollMode(rollMode) : rollMode;
 	}
 
 	get prosperity() {

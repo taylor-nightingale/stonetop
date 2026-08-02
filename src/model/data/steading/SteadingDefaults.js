@@ -44,21 +44,27 @@ export const SteadingDefaults = {
 			],
 		},
 	},
+	// `hindersMoves` lists the move slugs an active debility rolls at disadvantage. The book scopes
+	// *diminished* to three named moves rather than to a rating, so a bare Population roll — or a
+	// future move that happens to roll +Population — is untouched.
 	debilities: [
 		{
-			slug:        "diminished",
-			description: "<em>diminished</em>, by injury/sickness/doubt",
-			note:        "disadvantage to Deploy, Muster, or Pull Together",
+			slug:         "diminished",
+			description:  "<em>diminished</em>, by injury/sickness/doubt",
+			note:         "disadvantage to Deploy, Muster, or Pull Together",
+			hindersMoves: ["deploy", "muster", "pull-together"],
 		},
 		{
-			slug:        "lacking",
-			description: "<em>lacking</em>, due to shortages/hoarding/distrust",
-			note:        "treat Prosperity as if it's 1 lower than it is",
+			slug:         "lacking",
+			description:  "<em>lacking</em>, due to shortages/hoarding/distrust",
+			note:         "treat Prosperity as if it's 1 lower than it is",
+			hindersMoves: [],
 		},
 		{
-			slug:        "malcontent",
-			description: "<em>malcontent</em>, from fear/anger/despair",
-			note:        "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual",
+			slug:         "malcontent",
+			description:  "<em>malcontent</em>, from fear/anger/despair",
+			note:         "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual",
+			hindersMoves: [],
 		},
 	],
 	content: {

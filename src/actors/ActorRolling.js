@@ -42,7 +42,7 @@ export class ActorRolling {
 			}
 		}
 
-		const effectiveMode = this._actor.typedActor.applyRollMode(statKey, rollMode);
+		const effectiveMode = this._actor.typedActor.applyRollMode(statKey, rollMode, request.moveSlug);
 		const formula = this._rollingFormula(effectiveMode, bonus);
 		const roll = await new Roll(formula).evaluate();
 		const total = roll.total;

@@ -169,10 +169,43 @@ describe("StonetopSteading.resolveBonus", () => {
 });
 
 describe("StonetopSteading.applyRollMode", () => {
-	it("passes rollMode through unchanged", () => {
+	it("passes rollMode through unchanged with no debility marked", () => {
 		expect(make().applyRollMode("population", "adv")).toBe("adv");
 		expect(make().applyRollMode("fortunes", "normal")).toBe("normal");
 		expect(make().applyRollMode("defenses", "dis")).toBe("dis");
+	});
+
+	async function diminished() {
+		const s = make();
+		await s.debilities.setDebility("diminished", true);
+		return s;
+	}
+
+	it("hinders each of the three moves diminished names", async () => {
+		const s = await diminished();
+		expect(s.applyRollMode("defenses", "normal", "deploy")).toBe("dis");
+		expect(s.applyRollMode("population", "normal", "muster")).toBe("dis");
+		expect(s.applyRollMode("population", "normal", "pull-together")).toBe("dis");
+	});
+
+	it("cancels advantage on a hindered move", async () => {
+		expect((await diminished()).applyRollMode("defenses", "adv", "deploy")).toBe("normal");
+	});
+
+	// Diminished is scoped to named moves, not to the ratings they happen to roll: Trade & Barter and
+	// a bare Population roll share their stats with hindered moves and must stay untouched.
+	it("leaves a move diminished does not name alone", async () => {
+		expect((await diminished()).applyRollMode("prosperity", "normal", "trade-barter")).toBe("normal");
+	});
+
+	it("leaves a bare rating roll alone", async () => {
+		expect((await diminished()).applyRollMode("population", "normal", null)).toBe("normal");
+	});
+
+	it("does not hinder moves while only lacking is marked", async () => {
+		const s = make();
+		await s.debilities.setDebility("lacking", true);
+		expect(s.applyRollMode("defenses", "normal", "deploy")).toBe("normal");
 	});
 });
 

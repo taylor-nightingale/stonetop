@@ -14,6 +14,13 @@ export class SteadingDebilities {
 		return this._state[slug] === true;
 	}
 
+	hindersMove(moveSlug) {
+		if (!moveSlug) return false;
+		return SteadingDefaults.debilities.some(
+			def => def.hindersMoves.includes(moveSlug) && this.isActive(def.slug),
+		);
+	}
+
 	async setDebility(slug, active) {
 		await this._actor.update({"system.debilities": {...this._state, [slug]: active}});
 	}

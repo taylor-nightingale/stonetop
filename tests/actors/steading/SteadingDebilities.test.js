@@ -50,6 +50,49 @@ describe("SteadingDebilities.isActive", () => {
 	});
 });
 
+describe("SteadingDebilities.hindersMove", () => {
+	it("is false for every move while nothing is marked", () => {
+		const d = make();
+		expect(d.hindersMove("deploy")).toBe(false);
+		expect(d.hindersMove("muster")).toBe(false);
+		expect(d.hindersMove("pull-together")).toBe(false);
+	});
+
+	it("is true for the three moves diminished names", async () => {
+		const d = make();
+		await d.setDebility("diminished", true);
+		expect(d.hindersMove("deploy")).toBe(true);
+		expect(d.hindersMove("muster")).toBe(true);
+		expect(d.hindersMove("pull-together")).toBe(true);
+	});
+
+	it("is false for a move diminished does not name", async () => {
+		const d = make();
+		await d.setDebility("diminished", true);
+		expect(d.hindersMove("trade-barter")).toBe(false);
+	});
+
+	it("is false for a bare rating roll, which carries no move slug", async () => {
+		const d = make();
+		await d.setDebility("diminished", true);
+		expect(d.hindersMove(null)).toBe(false);
+	});
+
+	it("is false while the marked debilities hinder no moves", async () => {
+		const d = make();
+		await d.setDebility("lacking", true);
+		await d.setDebility("malcontent", true);
+		expect(d.hindersMove("deploy")).toBe(false);
+	});
+
+	it("is false again once diminished is cleared", async () => {
+		const d = make();
+		await d.setDebility("diminished", true);
+		await d.setDebility("diminished", false);
+		expect(d.hindersMove("deploy")).toBe(false);
+	});
+});
+
 describe("SteadingDebilities.setDebility", () => {
 	it("marks a debility active", async () => {
 		const d = make();

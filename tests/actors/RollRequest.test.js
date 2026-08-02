@@ -3,10 +3,10 @@ import { RollRequest } from "../../src/actors/RollRequest.js";
 
 // -- helpers -------------------------------------------------------------------
 
-function fakeItem({ name = "Charm Someone", rollStat = "wis", description = "desc", moveResults = null } = {}) {
+function fakeItem({ name = "Charm Someone", rollStat = "wis", description = "desc", moveResults = null, slug = "charm-someone" } = {}) {
 	return {
 		name,
-		system: { rollStat, description, moveResults },
+		system: { rollStat, description, moveResults, slug },
 	};
 }
 
@@ -31,6 +31,10 @@ describe("RollRequest.fromStat", () => {
 
 	it("sets moveResults to null", () => {
 		expect(RollRequest.fromStat("wis", "normal").moveResults).toBeNull();
+	});
+
+	it("sets moveSlug to null — a bare rating roll is no move", () => {
+		expect(RollRequest.fromStat("wis", "normal").moveSlug).toBeNull();
 	});
 });
 
@@ -71,6 +75,16 @@ describe("RollRequest.fromItem", () => {
 	it("defaults moveResults to null when absent", () => {
 		const item = { name: "Test", system: { rollStat: "str" } };
 		expect(RollRequest.fromItem(item, null, "normal").moveResults).toBeNull();
+	});
+
+	it("carries the move's stored slug, for rules scoped to named moves", () => {
+		const req = RollRequest.fromItem(fakeItem({ slug: "deploy" }), "defenses", "normal");
+		expect(req.moveSlug).toBe("deploy");
+	});
+
+	it("defaults moveSlug to null when the item has no slug", () => {
+		const item = { name: "Test", system: { rollStat: "str" } };
+		expect(RollRequest.fromItem(item, null, "normal").moveSlug).toBeNull();
 	});
 });
 

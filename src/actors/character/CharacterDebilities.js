@@ -1,4 +1,5 @@
 import {DebilitySnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
+import {hinderRollMode} from "../hinderRollMode.js";
 
 const _DEBILITY_DEFS = [
 	{key: "weakened",  name: "Weakened",  stats: ["str", "dex"], descKey: "stonetop.character.debilities.desc.weakened"},
@@ -38,9 +39,8 @@ export class CharacterDebilities {
 			def => def.stats.includes(stat) && !!(debilityOptions[def.key]?.value)
 		);
 		if (!hasActiveDebility) return options;
-		if (options.rollMode === "adv") return {...options, rollMode: "normal"};
-		if (options.rollMode === "dis") return options;
-		return {...options, rollMode: "dis"};
+		const rollMode = hinderRollMode(options.rollMode);
+		return rollMode === options.rollMode ? options : {...options, rollMode};
 	}
 
 	applyRollMode(stat, rollMode) {
