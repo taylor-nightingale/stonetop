@@ -7,19 +7,37 @@ export class ValueMax {
 }
 
 /**
+ * Hover text explaining where each stored value came from. Derived on every render — nothing
+ * records a value's origin at write time, so these compare what's stored against the playbook
+ * and the checked gear.
+ * @property {string} hp
+ * @property {string} damage
+ * @property {string} armor
+ */
+export class VitalsSourcesSnapshot {
+	constructor(hp, damage, armor) {
+		this.hp     = hp;
+		this.damage = damage;
+		this.armor  = armor;
+	}
+}
+
+/**
  * @property {ValueMax} hp  - max = playbook.hp; both 0 if no playbook
  * @property {string|null} damage - e.g. "d10"; null if no playbook
  * @property {number} armor
  * @property {number} level
  * @property {ValueMax} xp  - max = 6 + level * 2
+ * @property {VitalsSourcesSnapshot} sources - tooltip text for hp, damage and armor
  */
 export class VitalsSnapshot {
 	constructor(b) {
-		this.hp     = b._hp;
-		this.damage = b._damage;
-		this.armor  = b._armor;
-		this.level  = b._level;
-		this.xp     = b._xp;
+		this.hp      = b._hp;
+		this.damage  = b._damage;
+		this.armor   = b._armor;
+		this.level   = b._level;
+		this.xp      = b._xp;
+		this.sources = b._sources;
 	}
 }
 
@@ -28,6 +46,7 @@ export class VitalsSnapshotBuilder {
 	withDamage(v) { this._damage = v; return this; }
 	withArmor(v)  { this._armor  = v; return this; }
 	withLevel(v)  { this._level  = v; return this; }
-	withXp(v)     { this._xp     = v; return this; }
-	build()       { return new VitalsSnapshot(this); }
+	withXp(v)      { this._xp      = v; return this; }
+	withSources(v) { this._sources = v; return this; }
+	build()        { return new VitalsSnapshot(this); }
 }

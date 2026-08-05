@@ -4,6 +4,8 @@ import {TestCharacterBuilder} from "../../fakes/TestCharacterBuilder.js";
 import {FakeCharacterActorBuilder} from "../../fakes/FakeCharacterActorBuilder.js";
 import {FakePossessionRepository} from "../../fakes/FakePossessionRepository.js";
 import {TestPossessionBuilder} from "../../fakes/TestPossessionBuilder.js";
+import {FakeInventoryRepository} from "../../fakes/FakeInventoryRepository.js";
+import {OutfitItemBuilder} from "../../../src/model/data/character/OutfitItem.js";
 
 // ── CharacterSnapshot class ───────────────────────────────────────────────────
 
@@ -47,6 +49,70 @@ describe("buildSnapshot — rollMode", () => {
 		const actor = new FakeCharacterActorBuilder().withRollMode("adv").build();
 		const snap = await new TestCharacterBuilder(actor).build().buildSnapshot();
 		expect(snap.rollMode).toBe("adv");
+	});
+});
+
+// ── vitals sources ────────────────────────────────────────────────────────────
+
+// End-to-end: the character has to hand its playbook item and its checked gear to the vitals
+// snapshot, or the provenance tooltips describe an empty character no matter what's on the sheet.
+describe("buildSnapshot — vitals.sources", () => {
+	const playbookItem = {
+		_id: "pb", type: "playbook", name: "The Blessed",
+		system: { slug: "the-blessed", hp: 18, damage: { value: "d6" } },
+	};
+
+	function armorItem(slug, name, armor) {
+		return new OutfitItemBuilder()
+			.withSlug(slug).withName(name).withWeight(1)
+			.withInventoryColumn("regular").withArmor(armor).build();
+	}
+
+	function makeCharacter({ hp = 18, die = "d6", items = [] } = {}) {
+		const actor = new FakeCharacterActorBuilder()
+			.withItems([playbookItem])
+			.withPlaybook("the-blessed")
+			.withHp(hp, hp)
+			.withDamage(die)
+			.build();
+		return new TestCharacterBuilder(actor)
+			.withInventoryRepo(new FakeInventoryRepository(items))
+			.build();
+	}
+
+	it("credits the playbook item on the actor for max HP and damage", async () => {
+		const snap = await makeCharacter().buildSnapshot();
+		expect(snap.vitals.sources.hp).toBe("Max HP 18 comes from your playbook, The Blessed.");
+		expect(snap.vitals.sources.damage).toContain("Damage die d6 comes from your playbook, The Blessed.");
+	});
+
+	it("flags a max HP that no longer matches the playbook as hand-set", async () => {
+		const snap = await makeCharacter({ hp: 22 }).buildSnapshot();
+		expect(snap.vitals.sources.hp).toBe("Manually set to 22. Your playbook, The Blessed, grants 18.");
+	});
+
+	it("names the checked gear behind Armor", async () => {
+		const character = makeCharacter({ items: [
+			armorItem("chain-mail", "Chain mail", { base: 2 }),
+			armorItem("shield", "Shield", { modifier: 1 }),
+		] });
+		await character.setInventoryItemChecked("chain-mail", true);
+		await character.setInventoryItemChecked("shield", true);
+
+		const snap = await character.buildSnapshot();
+		expect(snap.vitals.armor).toBe(3);
+		expect(snap.vitals.sources.armor)
+			.toBe("Armor 3 from your checked gear: Chain mail 2 (base), Shield +1. Only the highest base counts, plus every modifier.");
+	});
+
+	it("reports Armor typed over the gear's total as hand-set", async () => {
+		const character = makeCharacter({ items: [armorItem("chain-mail", "Chain mail", { base: 2 })] });
+		await character.setInventoryItemChecked("chain-mail", true);
+		await character.setArmor(4);
+
+		const snap = await character.buildSnapshot();
+		expect(snap.vitals.sources.armor)
+			.toBe("Manually set to 4. Your checked gear adds up to 2: Chain mail 2 (base).");
 	});
 });
 

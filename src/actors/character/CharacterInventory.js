@@ -7,6 +7,7 @@ import {
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutfitItem.js";
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
+import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
 import { ResourceController } from "./ResourceController.js";
 import { buildOutfitColumn } from "../../model/snapshot/character/outfitSections.js";
 
@@ -80,17 +81,20 @@ export class CharacterInventory {
 		await this._outfitItems.deleteById(itemId);
 	}
 
+	buildArmorBreakdown(allItems) {
+		return ArmorBreakdown.fromItems(allItems.filter(item => this.checked[item.slug]));
+	}
+
 	calculateArmor(allItems) {
-		const equipped = allItems.filter(item => this.checked[item.slug] && item.armor);
-		const bases = equipped.filter(i => i.armor.base != null).map(i => i.armor.base);
-		const modifiers = equipped.filter(i => i.armor.modifier != null).map(i => i.armor.modifier);
-		const base = bases.length > 0 ? Math.max(...bases) : 0;
-		return base + modifiers.reduce((s, m) => s + m, 0);
+		return this.buildArmorBreakdown(allItems).value;
+	}
+
+	async getArmorBreakdown() {
+		return this.buildArmorBreakdown(await this._repo.getAll());
 	}
 
 	async getArmor() {
-		const allItems = await this._repo.getAll();
-		return this.calculateArmor(allItems);
+		return (await this.getArmorBreakdown()).value;
 	}
 
 	async buildSnapshot(level) {

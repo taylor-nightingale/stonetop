@@ -107,16 +107,18 @@ export class StonetopCharacter {
 		const level = this._vitals.level;
 		const {checked} = this._inventory;
 		const actor = this._actor;
-		const [arcana, outfit, inserts, playbook, vitals, moves, possessions, followers] = await Promise.all([
+		const [arcana, outfit, inserts, playbook, playbookData, armorBreakdown, moves, possessions, followers] = await Promise.all([
 			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
 			this._inserts.buildSnapshot(),
 			this._playbook.buildPlaybookSnapshot(),
-			this._vitals.buildVitalsSnapshot(),
+			this._playbook.getData(),
+			this._inventory.getArmorBreakdown(),
 			this._moves.buildSnapshot(),
 			this._possessions.buildSnapshot(level),
 			this._followers.buildFollowersSnapshot()
 		]);
+		const vitals = await this._vitals.buildVitalsSnapshot(playbookData, armorBreakdown);
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
 			.withPlaybook(playbook)

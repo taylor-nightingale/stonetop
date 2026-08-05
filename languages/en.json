@@ -447,7 +447,23 @@
 				"damage": "Damage",
 				"armor": "Armor",
 				"xp": "XP",
-				"level": "Level"
+				"level": "Level",
+				"source": {
+					"hp": "Max HP {max} comes from your playbook, {playbook}.",
+					"hpManual": "Manually set to {max}. Your playbook, {playbook}, grants {playbookMax}.",
+					"hpNoPlaybook": "Manually set to {max}. Pick a playbook to inherit its max HP.",
+					"damage": "Damage die {die} comes from your playbook, {playbook}. It's rolled on its own — add anything moves or the fiction grant.",
+					"damageManual": "Manually set to {die}. Your playbook, {playbook}, grants {playbookDie}.",
+					"damageNoPlaybook": "Manually set to {die}. Pick a playbook to inherit its damage die.",
+					"damageUnsetWithPlaybook": "No damage die set. Your playbook, {playbook}, grants {playbookDie}.",
+					"damageUnset": "No damage die set. Pick a playbook to inherit its damage die.",
+					"armor": "Armor {value} from your checked gear: {items}. Only the highest base counts, plus every modifier.",
+					"armorManual": "Manually set to {armor}. Your checked gear adds up to {value}: {items}.",
+					"armorManualOnly": "Manually set to {armor}. No checked item grants armor.",
+					"armorNone": "No checked item grants armor.",
+					"armorBaseItem": "{name} {amount} (base)",
+					"armorModifierItem": "{name} {amount}"
+				}
 			},
 			"gear": {
 				"specialPossessions": "Special Possessions"

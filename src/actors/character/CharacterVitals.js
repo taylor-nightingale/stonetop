@@ -1,4 +1,6 @@
 import {ValueMax, VitalsSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
+import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
+import {VitalsProvenance} from "./VitalsProvenance.js";
 
 function toInt(v) {
 	const n = parseInt(v);
@@ -14,18 +16,22 @@ export class CharacterVitals {
 		return this._actor.system?.attributes?.level ?? 1;
 	}
 
-	async buildVitalsSnapshot() {
+	// `playbook` (its system data) and `armorBreakdown` are the sources the stored values are
+	// measured against for the provenance tooltips; the character supplies both.
+	async buildVitalsSnapshot(playbook = null, armorBreakdown = ArmorBreakdown.empty()) {
 		const attrs    = this._actor.system?.attributes ?? {};
 		const level    = attrs.level ?? 1;
 		const hpMax    = attrs.hp?.max ?? 0;
 		const dieVal   = attrs.damage?.value ?? null;
 		const damage   = dieVal ? { value: dieVal } : null;
+		const armor    = attrs.armor ?? 0;
 		return new VitalsSnapshotBuilder()
 			.withHp(new ValueMax(attrs.hp?.value ?? 0, hpMax))
 			.withDamage(damage)
-			.withArmor(attrs.armor ?? 0)
+			.withArmor(armor)
 			.withLevel(level)
 			.withXp(new ValueMax(attrs.xp?.value ?? 0, 6 + level * 2))
+			.withSources(new VitalsProvenance(playbook, armorBreakdown).build(hpMax, dieVal, armor))
 			.build();
 	}
 

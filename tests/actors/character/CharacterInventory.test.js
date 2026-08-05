@@ -7,6 +7,7 @@ import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js"
 import { FakeSteadingRepository } from "../../fakes/FakeSteadingRepository.js";
 import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 import { OutfitSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { ArmorBreakdown } from "../../../src/model/data/character/ArmorBreakdown.js";
 
 // -- Fake helpers ---------------------------------------------------------------
 
@@ -180,6 +181,46 @@ describe("CharacterInventory.calculateArmor", () => {
 	it("ignores items with no armor", () => {
 		const ci = makeCi({ checked: { "cloak": true } });
 		expect(ci.calculateArmor([makeArmorItem("cloak", null)])).toBe(0);
+	});
+});
+
+// -- CharacterInventory.buildArmorBreakdown -----------------------------------
+
+describe("CharacterInventory.buildArmorBreakdown", () => {
+	it("returns an ArmorBreakdown naming the equipped gear", () => {
+		const ci = makeCi({ checked: { "thick-hides": true, "shield": true } });
+		const items = [
+			makeArmorItem("thick-hides", { base: 1 }),
+			makeArmorItem("shield", { modifier: 1 }),
+		];
+		const breakdown = ci.buildArmorBreakdown(items);
+		expect(breakdown).toBeInstanceOf(ArmorBreakdown);
+		expect(breakdown.value).toBe(2);
+		expect(breakdown.contributions.map(c => c.name)).toEqual(["thick-hides", "shield"]);
+	});
+
+	it("leaves unchecked gear out of the contributions", () => {
+		const ci = makeCi({ checked: { "thick-hides": true, "shield": false } });
+		const items = [
+			makeArmorItem("thick-hides", { base: 1 }),
+			makeArmorItem("shield", { modifier: 1 }),
+		];
+		expect(ci.buildArmorBreakdown(items).contributions.map(c => c.name)).toEqual(["thick-hides"]);
+	});
+
+	it("is empty when nothing is checked", () => {
+		expect(makeCi().buildArmorBreakdown([makeArmorItem("shield", { base: 1 })]).isEmpty).toBe(true);
+	});
+});
+
+// -- CharacterInventory.getArmorBreakdown -------------------------------------
+
+describe("CharacterInventory.getArmorBreakdown", () => {
+	it("reads the equipped gear from the repository", async () => {
+		const ci = makeCi({ checked: { shield: true } }, makeRepo([makeArmorItem("shield", { base: 2 })]));
+		const breakdown = await ci.getArmorBreakdown();
+		expect(breakdown.value).toBe(2);
+		expect(breakdown.contributions.map(c => c.name)).toEqual(["shield"]);
 	});
 });
 

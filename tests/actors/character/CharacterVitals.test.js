@@ -1,6 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { CharacterVitals } from "../../../src/actors/character/CharacterVitals.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
+import { ArmorBreakdown } from "../../../src/model/data/character/ArmorBreakdown.js";
+import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
+import { VitalsSourcesSnapshot } from "../../../src/model/snapshot/character/VitalsSnapshot.js";
 
 function makeVitals({ hp, armor, level, xp } = {}) {
 	let b = new FakeCharacterActorBuilder();
@@ -84,6 +87,30 @@ describe("CharacterVitals.buildVitalsSnapshot", () => {
 		const snap = await makeVitals({ hp: { value: 0 } }).buildVitalsSnapshot();
 		expect(snap.hp).toMatchObject({ value: 0, max: 0 });
 		expect(snap.damage).toBeNull();
+	});
+});
+
+describe("CharacterVitals.buildVitalsSnapshot — sources", () => {
+	it("measures the stored values against the playbook it was given", async () => {
+		const vitals = makeVitals({ hp: { value: 18, max: 18 } });
+		await vitals.setDamage("d6");
+		const snap = await vitals.buildVitalsSnapshot({ name: "The Blessed", hp: 18, damage: { value: "d6" } });
+		expect(snap.sources).toBeInstanceOf(VitalsSourcesSnapshot);
+		expect(snap.sources.hp).toBe("Max HP 18 comes from your playbook, The Blessed.");
+		expect(snap.sources.damage).toContain("Damage die d6 comes from your playbook, The Blessed.");
+	});
+
+	it("measures armor against the breakdown it was given", async () => {
+		const shield = new OutfitItemBuilder().withSlug("shield").withName("Shield").withArmor({ base: 1 }).build();
+		const snap = await makeVitals({ armor: 1 })
+			.buildVitalsSnapshot(null, ArmorBreakdown.fromItems([shield]));
+		expect(snap.sources.armor).toContain("Shield 1 (base)");
+	});
+
+	it("falls back to no playbook and no gear when called without sources", async () => {
+		const snap = await makeVitals({ hp: { value: 8, max: 8 } }).buildVitalsSnapshot();
+		expect(snap.sources.hp).toBe("Manually set to 8. Pick a playbook to inherit its max HP.");
+		expect(snap.sources.armor).toBe("No checked item grants armor.");
 	});
 });
 

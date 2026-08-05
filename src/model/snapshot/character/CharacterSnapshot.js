@@ -2,7 +2,7 @@ import { FollowersSnapshot } from "./FollowerSnapshot.js";
 export { Resource } from "../../data/Resource.js";
 export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
 export { StatSnapshot } from "./StatSnapshot.js";
-export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder } from "./VitalsSnapshot.js";
+export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder, VitalsSourcesSnapshot } from "./VitalsSnapshot.js";
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
 	OriginOptionSnapshot, OriginSection,
