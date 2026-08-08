@@ -6,5 +6,3 @@
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * let the GM define what the basic moves list entails, perhaps _  all_ default move lists (playbook, special, steading, etc.)
 
-== Nice to have
-* add descriptions to stats for hover over (p 53)

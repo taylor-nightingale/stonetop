@@ -28,7 +28,10 @@
 	</div>
 
 	<div class="stonetop-resource stonetop-resource--wide">
-		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.xp"}}</span>
+		{{!-- A definition, not provenance: unlike HP/damage/armor above, XP has no playbook source to
+		      explain, so the hover carries what the book says XP is (Book I, p.53). --}}
+		<span class="stonetop-resource__label"
+		      data-tooltip="{{localize 'stonetop.character.attributes.desc.xp'}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.xp"}}</span>
 		<div class="stonetop-resource__split">
 			<input class="stonetop-resource__input stonetop-char-xp stonetop-step" type="number" data-change-action="xp"
 			       value="{{stonetop.vitals.xp.value}}" min="0">

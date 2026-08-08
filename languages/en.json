@@ -66,6 +66,10 @@
 		},
 		"steading": {
 			"startsAt": "Starts at {value}",
+			"colName": "Name",
+			"colOccupation": "Occupation",
+			"colTraits": "Traits",
+			"colHome": "Home",
 			"linkColumn": "Link",
 			"linkHint": "Drag a document onto an entry to link it.",
 			"linkDropTitle": "Drop an actor, journal, or item here to link it",
@@ -469,6 +473,9 @@
 				"damage": "Damage",
 				"armor": "Armor",
 				"xp": "XP",
+				"desc": {
+					"xp": "Short for “experience points.” You start with no XP. You mark XP when you roll for a move and get a 6- (unless the move says otherwise); as part of the End of Session move; and when another move says so."
+				},
 				"level": "Level",
 				"source": {
 					"hp": "Max HP {max} comes from your playbook, {playbook}.",

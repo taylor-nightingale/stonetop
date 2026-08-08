@@ -1,0 +1,27 @@
+{
+  "name": "Seek Insight",
+  "type": "move",
+  "system": {
+    "moveType": "basic",
+    "description": "When you **_study a situation or person_**, looking to the GM for insight, roll +WIS: **on a 10+**, ask the GM 3 questions from the list below; **on a 7-9**, ask 1; **either way**, take advantage on your next move to act on the answers\n\n- What happened here recently\n-What is about to happen?\nWhat should I be on the lookout for?\nWhat here is useful or valuable to me?\nWho or what is really in control here?\nWhat here is not what it appears to be?",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "ask the GM 3 questions from the list above"
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "ask the GM 1 question from the list above"
+      },
+      "failure": {
+        "label": "6-",
+        "value": "GM Move (**announce trouble, reveal an unwelcome truth, advance towards impending doom, use up their resources, turn their move back on them,** etc.)"
+      }
+    },
+    "rollStat": "wis",
+    "slug": "seek-insight"
+  },
+  "folder": "rWtHIVtDe1f0yP63",
+  "_id": "68E7jbfb3AvXJQtl",
+  "_key": "!items!68E7jbfb3AvXJQtl"
+}
