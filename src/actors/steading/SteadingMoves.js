@@ -2,6 +2,7 @@ import { FoundryMoveRepository } from "../character/repositories/FoundryMoveRepo
 import { ResourceController } from "../character/ResourceController.js";
 import { MoveCategorySnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
+import { SteadingMoveCategories } from "../../model/data/steading/SteadingMoveCategories.js";
 import {
 	withCategoryFields,
 	computeSelectable,
@@ -12,13 +13,12 @@ import {
 } from "../embeddedMoves.js";
 import { toSlug } from "../../utils/slug.js";
 
-const CATEGORY_KEY = "homefront";
-
-// Homefront moves are the steading's equivalent of a character's basic moves: reference moves that
-// live in the moves compendium and are seeded (acquired, checked by default) onto every steading as
-// embedded `move` items. Going through the standard embedded-move flow — rather than building
-// snapshots straight from the compendium — is what gives them an ownedId (so rolls resolve the item
-// and show 10+/7–9/6– tiers) and a live ResourceSnapshot (so resource boxes are clickable + persist).
+// A steading's moves are its equivalent of a character's basic moves: reference moves that live in
+// the moves compendium and are seeded (acquired, checked by default) onto every steading as embedded
+// `move` items, grouped into the categories SteadingMoveCategories names. Going through the standard
+// embedded-move flow — rather than building snapshots straight from the compendium — is what gives
+// them an ownedId (so rolls resolve the item and show 10+/7–9/6– tiers) and a live ResourceSnapshot
+// (so resource boxes are clickable + persist).
 export class SteadingMoves {
 	constructor(actor, moveRepo = new FoundryMoveRepository(), resourceController = new ResourceController(actor)) {
 		this._actor              = actor;
@@ -27,35 +27,62 @@ export class SteadingMoves {
 		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo);
 	}
 
-	// Seeds the homefront reference moves onto the steading as owned `move` items. Called once, at
+	// Seeds every category's reference moves onto the steading as owned `move` items. Called once, at
 	// actor creation (CreateActor hook) — NOT on render. After that the moves are ordinary owned
 	// items: the GM can edit, delete, or re-add them via drag-drop (addMove).
-	async seedHomefrontMoves() {
-		await this._seeder.seed(CATEGORY_KEY);
+	async seedReferenceMoves() {
+		for (const category of SteadingMoveCategories.all()) {
+			await this._seeder.seed(category.key);
+		}
 	}
 
-	// A move dropped onto the steading joins the homefront list — the only move list the steading
-	// renders — with the same category stamping the seed applies (a raw embed would be invisible:
-	// buildSnapshot reads by categoryKey). Dedupes by stored slug: re-dropping a move the steading
-	// already has is a no-op.
+	// Seeds only the categories this steading has nothing from — the backfill a migration wants, so a
+	// category added to the packs later reaches existing steadings without handing back individual
+	// moves their GM deleted on purpose. Mirrors migrateReferenceMoveCategories for characters.
+	async seedMissingCategories() {
+		for (const category of SteadingMoveCategories.all()) {
+			if (!this._movesIn(category.key).length) await this._seeder.seed(category.key);
+		}
+	}
+
+	// Re-files moves whose stored moveType disagrees with the category they were stamped into — what
+	// happens to already-seeded steadings when a move moves house in the packs. Must run BEFORE a
+	// re-seed: left in the old category, a move looks absent from the new one and seeds a duplicate.
+	async restampCategories() {
+		const updates = [...this._actor.items]
+			.filter(i => i.type === "move")
+			.filter(i => {
+				const moveType = i.system?.moveType;
+				return SteadingMoveCategories.byKey(moveType) && i.system?.categoryKey !== moveType;
+			})
+			.map(i => ({ _id: i._id, system: { categoryKey: i.system.moveType } }));
+		if (updates.length) await this._actor.updateEmbeddedDocuments("Item", updates);
+	}
+
+	// A move dropped onto the steading joins the category its own moveType names, or homefront when
+	// that isn't one of ours — with the same category stamping the seed applies (a raw embed would be
+	// invisible: buildSnapshot reads by categoryKey). Dedupes by stored slug across every category:
+	// re-dropping a move the steading already has is a no-op.
 	async addMove(item) {
-		const slug = item.system?.slug ?? toSlug(item.name);
-		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === CATEGORY_KEY);
-		if (existing.some(i => (i.system?.slug ?? toSlug(i.name)) === slug)) return;
+		const slug     = item.system?.slug ?? toSlug(item.name);
+		const owned    = [...this._actor.items]
+			.filter(i => i.type === "move" && SteadingMoveCategories.byKey(i.system?.categoryKey));
+		if (owned.some(i => (i.system?.slug ?? toSlug(i.name)) === slug)) return;
+		const category = SteadingMoveCategories.byKey(item.system?.moveType) ?? SteadingMoveCategories.defaultCategory();
 		await this._actor.createEmbeddedDocuments("Item", [
-			withCategoryFields(item.toObject(), CATEGORY_KEY, true, {
-				sortOrder:    existing.length,
+			withCategoryFields(item.toObject(), category.key, true, {
+				sortOrder:    owned.filter(i => i.system?.categoryKey === category.key).length,
 				compendiumId: item.pack ? item._id ?? null : null,
 			}),
 		]);
 	}
 
-	async incrementMove(moveSlug) {
-		await incrementMove(this._actor, CATEGORY_KEY, moveSlug);
+	async incrementMove(categoryKey, moveSlug) {
+		await incrementMove(this._actor, categoryKey, moveSlug);
 	}
 
-	async decrementMove(moveSlug) {
-		await decrementMove(this._actor, CATEGORY_KEY, moveSlug);
+	async decrementMove(categoryKey, moveSlug) {
+		await decrementMove(this._actor, categoryKey, moveSlug);
 	}
 
 	async setMoveResourceCurrent(moveSlug, current) {
@@ -73,32 +100,52 @@ export class SteadingMoves {
 		await this._resourceController.setText("moves", moveSlug, value);
 	}
 
+	// Whether this steading carries a given move. Callers that offer a shortcut to one named move
+	// (the first-session section's "post Seasons Change: Spring") ask first, so a steading whose GM
+	// deleted it doesn't get a button that silently does nothing.
+	has(moveSlug) {
+		return !!findMoveItemBySlug(this._actor, moveSlug);
+	}
+
 	// Post the move's full text (description + all result tiers) to chat, without rolling.
 	async sendToChat(moveSlug) {
 		const item = findMoveItemBySlug(this._actor, moveSlug);
 		if (item) await this._actor.sendItemToChat(item);
 	}
 
-	// Description is left as a RichText for the shared enrichRichTextTree pass (run in the sheet's
-	// getData) — buildMoveSnapshot wraps it, no bespoke enrichHTML here.
+	// One MoveCategorySnapshot per non-empty category, in SteadingMoveCategories order. Descriptions
+	// are left as RichText for the shared enrichRichTextTree pass (run in the sheet's getData) —
+	// buildMoveSnapshot wraps them, no bespoke enrichHTML here.
 	async buildSnapshot() {
-		// Alphabetical by name: homefront moves are a fixed reference set, so the seed/sortOrder is
-		// meaningless to the reader (and can get scrambled by reseeds) — an A–Z list is what the
-		// sheet wants.
-		const items = [...this._actor.items]
-			.filter(i => i.type === "move" && i.system?.categoryKey === CATEGORY_KEY)
-			.sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
-		if (!items.length) return null;
-		const moves = await Promise.all(items.map(item =>
-			buildMoveSnapshot(item, CATEGORY_KEY, computeSelectable(item), true, this._resourceController)
-		));
-		return new MoveCategorySnapshotBuilder()
-			.withKey(CATEGORY_KEY)
-			.withLabel("Homefront Moves")
-			.withRenderStyle("standard")
-			.withAllowAdditional(false)
-			.withNote(null)
-			.withMoves(moves)
-			.build();
+		const categories = [];
+		for (const category of SteadingMoveCategories.all()) {
+			const items = this._sortedMovesIn(category);
+			if (!items.length) continue;
+			const moves = await Promise.all(items.map(item =>
+				buildMoveSnapshot(item, category.key, computeSelectable(item), true, this._resourceController)
+			));
+			categories.push(new MoveCategorySnapshotBuilder()
+				.withKey(category.key)
+				.withLabel(category.label)
+				.withRenderStyle("standard")
+				.withAllowAdditional(false)
+				.withNote(null)
+				.withMoves(moves)
+				.build());
+		}
+		return categories;
+	}
+
+	// The category's own reading order first, then A–Z for whatever it doesn't name. The seed's
+	// sortOrder is deliberately ignored: it's meaningless to the reader and reseeds can scramble it.
+	_sortedMovesIn(category) {
+		return this._movesIn(category.key).sort((a, b) =>
+			category.rank(a.system?.slug ?? toSlug(a.name)) - category.rank(b.system?.slug ?? toSlug(b.name))
+			|| (a.name ?? "").localeCompare(b.name ?? "")
+		);
+	}
+
+	_movesIn(categoryKey) {
+		return [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === categoryKey);
 	}
 }

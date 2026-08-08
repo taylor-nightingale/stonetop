@@ -165,6 +165,12 @@
 
 			</div>
 
+			{{!-- GM-facing: it's the GM's session-zero prep, and its prompts spoil the reading of the
+			      roll for the table. --}}
+			{{#if isGM}}
+				{{> "stonetop.spring-section" spring=stonetop.firstSession}}
+			{{/if}}
+
 		</div>{{!-- /tab overview --}}
 
 		{{!-- Residents tab --}}
@@ -351,19 +357,19 @@
 		{{!-- Moves tab --}}
 		<div class="tab {{tabs.moves.cssClass}}" data-group="primary" data-tab="moves">
 			<section class="sheet-tab">
-				{{#if stonetop.moves}}
-					{{!-- alwaysShowResource: homefront moves are the steading's fixed set, so their
-					      resource pips show whether or not the move reads as "acquired". --}}
+				{{#each stonetop.moves}}
+					{{!-- alwaysShowResource: a steading's moves are its fixed set, so their resource
+					      pips show whether or not the move reads as "acquired". --}}
 					{{> "stonetop.move-group"
-					    title=stonetop.moves.label
-					    note=stonetop.moves.note
-					    moves=stonetop.moves.moves
-					    categoryKey=stonetop.moves.key
+					    title=label
+					    note=note
+					    moves=moves
+					    categoryKey=key
 					    allowAdditional=false
 					    alwaysShowResource=true}}
 				{{else}}
-					<p class="stonetop-moves-empty">No homefront moves assigned to this steading.</p>
-				{{/if}}
+					<p class="stonetop-moves-empty">No moves assigned to this steading.</p>
+				{{/each}}
 			</section>
 		</div>{{!-- /tab moves --}}
 

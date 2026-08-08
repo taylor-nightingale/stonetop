@@ -1,17 +1,20 @@
 // @vitest-environment happy-dom
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
+import { readFileSync } from "fs";
+import path from "path";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
+import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { fire } from "../../fakes/domEvents.js";
 
 // End-to-end for the homefront-move wiring: real StonetopSteading + SteadingMoves + ResourceController
 // behind the sheet's own V2 lifecycle. The move-check is a per-render direct binding (_onRender); the
 // resource pips/fill-in are delegated capture listeners wired once on the persistent root
 // (_onFirstRender). We render real DOM controls, run both lifecycle hooks, then fire native events and
 // assert the actor state the standard move flow produces.
-const fire = (el, type) => el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
 
 async function makeWiredSheet() {
 	const actor = new FakeSteadingBuilder().build();
@@ -20,20 +23,11 @@ async function makeWiredSheet() {
 			.withResource({ title: "Uses", labels: ["", "", ""] }).build()
 	);
 	actor.typedActor = new StonetopSteading(actor, { getBySlug: async () => null }, repo);
-	await actor.typedActor.moves.seedHomefrontMoves();   // create-time seed (no longer on render)
+	await actor.typedActor.moves.seedReferenceMoves();   // create-time seed (no longer on render)
 
-	const Base = class {
-		get actor() { return actor; }
-		get isEditable() { return true; }
-		tabGroups = {};
-		element = document.createElement("form");
-		async _onFirstRender() {}
-		_onRender() {}
-		render = vi.fn();
-	};
-	const sheet = new (createStonetopSteadingSheetClass(Base))(actor);
+	const sheet = new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
 	sheet.element.innerHTML = `
-		<input type="checkbox" class="stonetop-move-check" data-move-slug="trade" checked>
+		<input type="checkbox" class="stonetop-move-check" data-category-key="homefront" data-move-slug="trade" checked>
 		<button class="stonetop-item-resource-check" data-move-slug="trade" data-index="0"></button>
 		<input class="stonetop-resource-input" data-move-slug="trade" value="grain">`;
 	await sheet._onFirstRender({}, {});   // delegated resource listeners on the root
@@ -66,6 +60,16 @@ describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
 		fire(sheet.element.querySelector(".stonetop-resource-input"), "change");
 		await Promise.resolve();
 		expect(actor.system.resources.texts.moves.trade).toBe("grain");
+	});
+
+	// The steading now renders more than one category, so the checkbox's category is load-bearing:
+	// the handler routes the toggle by it, and a move-item that stopped stamping it would toggle
+	// nothing. Nothing renders .hbs here, so assert the template still emits what the handler reads.
+	it("reads the category the move-item template stamps on the check", () => {
+		const template = readFileSync(path.resolve(process.cwd(), "templates/actor/partials/move-item.hbs"), "utf8");
+		expect(template).toContain('data-category-key="{{categoryKey}}"');
+		expect(readFileSync(path.resolve(process.cwd(), "src/actors/steading/StonetopSteadingSheet.js"), "utf8"))
+			.toContain("s.moves.incrementMove(categoryKey, moveSlug)");
 	});
 
 	it("the moveToChat action hands the seeded homefront move to the actor's chat surface", async () => {

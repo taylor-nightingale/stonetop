@@ -10,6 +10,8 @@ import {SteadingContent} from "./SteadingContent.js";
 import {SteadingAssets} from "./SteadingAssets.js";
 import {SteadingImprovements} from "./SteadingImprovements.js";
 import {SteadingMoves} from "./SteadingMoves.js";
+import {SteadingChoices} from "./SteadingChoices.js";
+import {SteadingFirstSession, SPRING_MOVE_SLUG} from "./SteadingFirstSession.js";
 import {startingAttributeNote} from "./startingAttributeNote.js";
 import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadfast.js";
 import {hinderRollMode} from "../hinderRollMode.js";
@@ -27,6 +29,8 @@ export class StonetopSteading {
 		this.assets           = new SteadingAssets(actor);
 		this.improvements     = new SteadingImprovements(actor, improvementsRepo);
 		this.moves            = new SteadingMoves(actor, movesRepo);
+		this.choices          = new SteadingChoices(actor);
+		this.firstSession     = new SteadingFirstSession(actor, this.choices);
 	}
 
 	get type() {
@@ -112,7 +116,7 @@ export class StonetopSteading {
 			const steadfast = await loadSteadfast("stonetop");
 			if (steadfast) await applySteadfast(this._actor, steadfast);
 		}
-		await this.moves.seedHomefrontMoves();
+		await this.moves.seedReferenceMoves();
 	}
 
 	// Routing for an item dropped on the steading. A steadfast re-seeds the definition (never
@@ -152,7 +156,10 @@ export class StonetopSteading {
 		}
 	}
 
-	async buildSnapshot() {
+	// `isGM` gates the first-session section, which only a GM's sheet renders. Building it anyway
+	// would scan every actor in the world and hand a dozen more rich-text nodes to the enrich pass
+	// on every player's render, for markup they never see.
+	async buildSnapshot({ isGM = false } = {}) {
 		return new SteadingSnapshot({
 			fortunes: new FortunesSnapshot(
 				SteadingDefaults.fortunes.title, startingAttributeNote(this._actor, "fortunes"),
@@ -178,6 +185,7 @@ export class StonetopSteading {
 			residentTraits:     this._actor.system.residents?.traits ?? [],
 			moves:              await this.moves.buildSnapshot(),
 			rollMode:           this.rollMode,
+			firstSession:       isGM ? this.firstSession.buildSnapshot(this.moves.has(SPRING_MOVE_SLUG)) : null,
 		});
 	}
 }

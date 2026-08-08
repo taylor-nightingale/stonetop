@@ -3802,6 +3802,117 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 
+/* ── Let Spring Break Forth (first session) ───────────────────────────────────── */
+
+.stonetop.sheet.steading .steading-spring {
+	margin-top: 12px;
+}
+
+.stonetop.sheet.steading .steading-spring-title {
+	display: flex;
+	gap: 8px;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+.stonetop.sheet.steading .steading-spring-gm-only {
+	padding: 0 5px;
+	border: 1px solid rgba(0, 0, 0, 0.35);
+	border-radius: 8px;
+	font-weight: normal;
+	font-size: var(--fs-micro);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	white-space: nowrap;
+	opacity: 0.75;
+}
+
+.stonetop.sheet.steading .steading-spring-preamble,
+.stonetop.sheet.steading .steading-spring-wrap-up {
+	margin: 0 0 10px;
+	font-size: var(--fs-body);
+}
+
+.stonetop.sheet.steading .steading-spring-wrap-up {
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+
+
+
+.stonetop.sheet.steading .steading-spring-hopeful,
+.stonetop.sheet.steading .steading-spring-hook,
+.stonetop.sheet.steading .steading-spring-excites-answer {
+	width: 100%;
+	font-size: var(--fs-body);
+}
+
+.stonetop.sheet.steading .steading-spring-omens {
+	list-style: none;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.stonetop.sheet.steading .steading-spring-omens li {
+	display: flex;
+	gap: 8px;
+	align-items: baseline;
+	margin-bottom: 4px;
+	font-size: var(--fs-note);
+}
+
+.stonetop.sheet.steading .steading-spring-omen-tier {
+	flex: 0 0 2.6em;
+	font-weight: bold;
+}
+
+.stonetop.sheet.steading .steading-spring-gains-title {
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-size: var(--fs-note);
+}
+
+.stonetop.sheet.steading .steading-spring-hint {
+	display: block;
+	font-weight: normal;
+	text-transform: none;
+	letter-spacing: 0;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	opacity: 0.75;
+}
+
+.stonetop.sheet.steading .steading-spring-gains {
+	margin: 0 0 10px;
+}
+
+.stonetop.sheet.steading .steading-spring-hook-label,
+.stonetop.sheet.steading .steading-spring-excites-prompt {
+	display: block;
+	margin-bottom: 3px;
+	font-size: var(--fs-note);
+	font-weight: bold;
+}
+
+.stonetop.sheet.steading .steading-spring-excites {
+	list-style: none;
+	margin: 6px 0 0;
+	padding: 0;
+}
+
+.stonetop.sheet.steading .steading-spring-excites-row {
+	margin-bottom: 8px;
+}
+
+.stonetop.sheet.steading .steading-spring-empty {
+	font-size: var(--fs-note);
+	font-style: italic;
+	opacity: 0.75;
+}
+
 .stonetop.sheet.steading .steading-assets-column {
 	display: flex;
 	flex-direction: column;

@@ -2,6 +2,7 @@ import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { bindAll } from "../../utils/bindAll.js";
 import { bindConfirmedDeletes } from "../../utils/bindConfirmedDeletes.js";
 import { loadAllSteadfasts } from "./applySteadfast.js";
+import { ChoiceTarget } from "../character/ChoiceTarget.js";
 
 // View adapter only: every handler reads values off the event and calls ONE named method on the
 // typed steading (or a composed part of it) — parsing, matching, and routing decisions live there.
@@ -49,7 +50,11 @@ export function createStonetopSteadingSheetClass(Base) {
 			const ctx = await super._prepareContext(options);
 			ctx.actor    = this.actor;
 			ctx.editable = this.isEditable;
-			ctx.stonetop = await this._stonetopSteading.buildSnapshot();
+			// Who's looking, not what the steading is — so it belongs here rather than in the
+			// snapshot. Gates the first-session section, which is GM-facing prep, not player-facing.
+			// Hides only: the steading document itself syncs to every observer either way.
+			ctx.isGM = !!globalThis.game?.user?.isGM;
+			ctx.stonetop = await this._stonetopSteading.buildSnapshot({ isGM: ctx.isGM });
 			await enrichRichTextTree(ctx.stonetop, this.actor?.getRollData?.() ?? {});
 			// The steadfast picker at the top of the sheet: every steadfast + the one this steading uses.
 			// The list is stashed so the name combobox's change handler can resolve a picked/typed name.
@@ -100,6 +105,17 @@ export function createStonetopSteadingSheetClass(Base) {
 				if (!el || el.dataset.cgContext !== "improvement") return;
 				const { cgGroup, cgOption, cgIndex } = el.dataset;
 				await this._stonetopSteading.improvements.toggleTrack(cgGroup, cgOption, cgIndex, el.checked);
+			}, true);
+
+			// Choice-group picks (the seasonal gains). Capture for the same reason as the tracks
+			// above; a radio row arrives already checked and clears its siblings through the target.
+			// Guarded on the context: an embedded move's picks live in that ITEM's pickValues, so
+			// routing them to the steading's store would write somewhere nothing reads back.
+			root.addEventListener("change", async ev => {
+				if (!this.isEditable) return;
+				const el = ev.target.closest(".stonetop-cg-pick");
+				if (!el || el.dataset.cgContext !== "steading") return;
+				await this._stonetopSteading.choices.setPickFor(ChoiceTarget.fromElement(el), el.checked);
 			}, true);
 
 			// Homefront move resource pips (click) + free-text resource (change). Roll clicks
@@ -168,6 +184,19 @@ export function createStonetopSteadingSheetClass(Base) {
 			bindAll(root, ".steading-circle-input", "change", async ev => {
 				await s.debilities.setDebility(ev.currentTarget.dataset.slug, ev.currentTarget.checked);
 			});
+
+			// Let Spring Break Forth (first session)
+			bindAll(root, ".steading-spring-hopeful", "change", async ev => {
+				await s.firstSession.setHopeful(ev.currentTarget.value);
+			});
+			bindAll(root, ".steading-spring-hook", "change", async ev => {
+				await s.firstSession.setHook(ev.currentTarget.value);
+			});
+			bindAll(root, ".steading-spring-excites-answer", "change", async ev => {
+				await s.firstSession.setExcites(ev.currentTarget.dataset.actorId, ev.currentTarget.value);
+			});
+			bindAll(root, ".steading-spring-done", "click", async () => s.firstSession.markDone());
+			bindAll(root, ".steading-spring-reopen", "click", async () => s.firstSession.reopen());
 
 			// Notes
 			bindAll(root, ".stonetop-notes", "change", async ev => s.setNotes(ev.currentTarget.value));
@@ -261,12 +290,12 @@ export function createStonetopSteadingSheetClass(Base) {
 				await s.improvements.revoke(ev.currentTarget.dataset.slug);
 			});
 
-			// Homefront moves: the acquisition checkbox toggles the owned move. Resource pips/text are
-			// wired once (delegated) in _onFirstRender.
+			// The acquisition checkbox toggles the owned move. Resource pips/text are wired once
+			// (delegated) in _onFirstRender.
 			bindAll(root, ".stonetop-move-check", "change", async ev => {
-				const { moveSlug } = ev.currentTarget.dataset;
-				if (ev.currentTarget.checked) await s.moves.incrementMove(moveSlug);
-				else                          await s.moves.decrementMove(moveSlug);
+				const { categoryKey, moveSlug } = ev.currentTarget.dataset;
+				if (ev.currentTarget.checked) await s.moves.incrementMove(categoryKey, moveSlug);
+				else                          await s.moves.decrementMove(categoryKey, moveSlug);
 			});
 		}
 	};

@@ -1,5 +1,6 @@
 import {FakeFlags} from "./FakeFlags.js";
 import {migrateCreatureData} from "../../../src/data/creature.js";
+import { applyDotPath } from "./applyDocumentUpdate.js";
 
 export class FakeActor {
 	_createdDocs = [];
@@ -96,15 +97,7 @@ export class FakeActor {
 	}
 
 	_applyDotPath(target, path, value) {
-		const parts = path.split(".");
-		let obj = target;
-		for (let i = 0; i < parts.length - 1; i++) {
-			if (obj[parts[i]] === undefined || obj[parts[i]] === null) {
-				obj[parts[i]] = {};
-			}
-			obj = obj[parts[i]];
-		}
-		obj[parts[parts.length - 1]] = value;
+		applyDotPath(target, path, value);
 	}
 
 	getFlag(scope, key) {
@@ -127,14 +120,3 @@ function _systemPathAllowed(schema, parts) {
 	return field._schema ? _systemPathAllowed(field._schema, rest) : true;
 }
 
-function _deepAssign(target, source) {
-	for (const [key, value] of Object.entries(source)) {
-		if (value && typeof value === "object" && !Array.isArray(value)
-				&& Object.keys(value).length > 0
-				&& target[key] && typeof target[key] === "object") {
-			_deepAssign(target[key], value);
-		} else {
-			target[key] = value;
-		}
-	}
-}

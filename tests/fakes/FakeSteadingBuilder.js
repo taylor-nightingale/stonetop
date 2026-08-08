@@ -1,16 +1,4 @@
-function applyUpdate(obj, data) {
-	for (const [key, value] of Object.entries(data)) {
-		const parts = key.split(".");
-		let target = obj;
-		for (let i = 0; i < parts.length - 1; i++) {
-			if (typeof target[parts[i]] !== "object" || target[parts[i]] === null) {
-				target[parts[i]] = {};
-			}
-			target = target[parts[i]];
-		}
-		target[parts[parts.length - 1]] = value;
-	}
-}
+import { applyDocumentUpdate } from "./foundry/applyDocumentUpdate.js";
 
 // A fully-applied Stonetop steading in the NEW shape: ratings are actual game numbers, `size` is a
 // tier string, the Prosperity/Defenses source lists live under assets.resources/fortifications, the
@@ -126,7 +114,7 @@ export class FakeSteadingBuilder {
 			flags: {},
 			getFlag:                () => undefined,
 			setFlag:                () => Promise.resolve(),
-			update: (data) => { applyUpdate(actor, data); return Promise.resolve(); },
+			update: (data) => { applyDocumentUpdate(actor, data); return Promise.resolve(); },
 		};
 
 		// A working embedded-item collection so seeded homefront moves (and their toggling) behave like

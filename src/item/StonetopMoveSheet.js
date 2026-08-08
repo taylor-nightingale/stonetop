@@ -51,6 +51,7 @@ const MOVE_TYPE_CHOICES = {
 	basic:        "stonetop.item.move.moveType.basic",
 	expedition:   "stonetop.item.move.moveType.expedition",
 	homefront:    "stonetop.item.move.moveType.homefront",
+	seasons:      "stonetop.item.move.moveType.seasons",
 	special:      "stonetop.item.move.moveType.special",
 	follower:     "stonetop.item.move.moveType.follower",
 	other:        "stonetop.item.move.moveType.other",

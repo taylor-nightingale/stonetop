@@ -8,6 +8,7 @@ import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBa
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeSteadingImprovementRepository } from "../../fakes/FakeSteadingImprovementRepository.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
+import { fire, settle } from "../../fakes/domEvents.js";
 
 // End-to-end for gaining and losing an improvement in play: a real StonetopSteading + SteadingImprovements
 // + the real confirm-delete gate, behind the sheet's own V2 lifecycle. Only the Foundry boundary is
@@ -19,10 +20,8 @@ import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 
 const StonetopSteadingSheet = createStonetopSteadingSheetClass(FakeCoreActorSheetBase);
 
-const fire = (el, type) => el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
 
 // The handlers are async and the drop hooks are fired without awaiting; flush before asserting.
-const settle = () => new Promise(r => setTimeout(r));
 
 // Track state lives per improvement, so the catalog entries need a real trackable row.
 const trackRow = (slug, title) => ({

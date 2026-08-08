@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from "vitest";
 import { createStonetopNpcSheetClass } from "../../../src/actors/npc/StonetopNpcSheet.js";
 import { StonetopNpc } from "../../../src/actors/npc/StonetopNpc.js";
 import { FakeNpcActorBuilder } from "../../fakes/FakeNpcActorBuilder.js";
+import { fire } from "../../fakes/domEvents.js";
 
 // Drives the whole NPC sheet _prepareContext (real StonetopNpc + NpcSnapshot + RichText + the one
 // enrichRichTextTree pass) and proves a damage line's dice and a description's @UUID both come out
@@ -19,7 +20,6 @@ function makeSheet(actor, { editable = true } = {}) {
 	return new (createStonetopNpcSheetClass(Base))();
 }
 
-const fire = (el, type) => el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
 
 describe("StonetopNpcSheet._prepareContext — rich-text enrichment (integration)", () => {
 	it("auto-rolls damage dice and links a description @UUID through the one pass", async () => {

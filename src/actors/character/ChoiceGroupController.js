@@ -57,3 +57,17 @@ export class ChoiceGroupController {
 		for (const subscriber of this._subscribers) await subscriber.handle(change);
 	}
 }
+
+/**
+ * Apply a pick the way the rendered row describes it: a row that named siblings is a "pick N of
+ * these", so choosing releases the rest; a lone checkbox just sets or clears its own count.
+ *
+ * A free function rather than a method, because ChoiceGroupController is duck-typed — InstinctController
+ * stands in for it by answering the same three methods — and this is a composition of two of them, not
+ * a fourth thing every stand-in would have to reimplement identically.
+ */
+export async function applyPick(controller, target, checked = true) {
+	return target.siblingsCsv
+		? controller.selectOption(target.group, target.option, target.siblingsCsv)
+		: controller.setCount(target.group, target.option, checked ? 1 : 0);
+}

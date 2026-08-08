@@ -2,10 +2,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { bindConfirmedDeletes } from "../../src/utils/bindConfirmedDeletes.js";
 import { confirmDelete } from "../../src/utils/confirmDelete.js";
+import { fire, settle } from "../fakes/domEvents.js";
 
 vi.mock("../../src/utils/confirmDelete.js", () => ({ confirmDelete: vi.fn() }));
 
-const fire = (el, type) => el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
 
 function makeRoot() {
 	document.body.innerHTML = `<div id="root"><button class="del" data-name="Cloak"></button></div>`;
@@ -13,7 +13,6 @@ function makeRoot() {
 }
 
 // The handlers are async; flush the microtask queue before asserting.
-const settle = () => new Promise(r => setTimeout(r));
 
 describe("bindConfirmedDeletes", () => {
 	beforeEach(() => {

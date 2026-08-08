@@ -1,13 +1,14 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
+import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { fire } from "../../fakes/domEvents.js";
 
 // Routes native DOM events to the matching typed-steading method — one representative control per
 // tab, plus the delegated (improvement track / move resource) listeners. Mirrors the NPC sheet's
 // _onRender binding tests: the real controllers are exercised elsewhere, so a spy typed steading is
 // enough to prove the V2 lifecycle wires each control to the right call. Tab navigation is core's
 // built-in `tab` action (data-action="tab" in the template) — no sheet wiring to test here.
-const fire = (el, type) => el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
 
 function makeSpySteading() {
 	return {
@@ -29,14 +30,7 @@ function makeSpySteading() {
 async function renderSheet({ editable = true } = {}) {
 	const steading = makeSpySteading();
 	const actor = { typedActor: steading, name: "Stonetop" };
-	const Base = class {
-		get actor() { return actor; }
-		tabGroups = {};
-		element = document.createElement("form");
-		async _onFirstRender() {}
-		_onRender() {}
-	};
-	const sheet = new (createStonetopSteadingSheetClass(Base))(actor);
+	const sheet = new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
 	sheet.isEditable = editable;
 	sheet.element.innerHTML = `
 		<input class="steading-steadfast-input" value="Barrier Pass">

@@ -4,6 +4,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopFollowerSheetClass } from "../../src/item/StonetopFollowerSheet.js";
 import { FollowerSnapshot } from "../../src/model/snapshot/character/FollowerSnapshot.js";
+import { fire } from "../fakes/domEvents.js";
 
 // Drives the real sheet _prepareContext/_onRender (real buildFollowerSnapshot + helpers + the one
 // enrichRichTextTree pass). Only the V2 ItemSheet base + the item document are mocked.
@@ -38,7 +39,6 @@ function makeSheet(item, { editable = true } = {}) {
 	return new (createStonetopFollowerSheetClass(Base))();
 }
 
-const fire = (el, type) => el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
 
 describe("StonetopFollowerSheet._prepareContext", () => {
 	it("builds an enriched follower-card preview from the item (view mode for a content follower)", async () => {

@@ -1,6 +1,7 @@
 import { migrateCharacter } from "./migrateCharacter.js";
 import { migrateNpc } from "./migrateNpc.js";
 import { migrateSteading } from "./migrateSteading.js";
+import { migrateSteadingMoves } from "./migrateSteadingMoves.js";
 import { migrateWorldItems } from "./migrateWorldItems.js";
 import { FoundryInsertRepository } from "../actors/character/repositories/FoundryInsertRepository.js";
 import { error, info } from "../utils/logger.js";
@@ -24,6 +25,9 @@ export class MigrationRunner {
 					await migrateNpc(actor);
 				} else if (actor.type === "steading") {
 					await migrateSteading(actor, steadfastDefaults);
+					// Not gated on migrateSteading's legacy check: every steading, however new,
+					// needs homefront moves that were added since it was created.
+					await migrateSteadingMoves(actor);
 				}
 			} catch (err) {
 				error(`Migration failed for actor "${actor.name}": ${err.message}`);

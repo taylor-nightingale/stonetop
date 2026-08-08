@@ -18,6 +18,7 @@ import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
 import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
 import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
 import {ChoiceStores} from "./ChoiceStores.js";
+import {applyPick} from "./ChoiceGroupController.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -400,10 +401,7 @@ export class StonetopCharacter {
 	async setChoicePickFor(target, checked = true) {
 		if (!target.context) return;
 		const ctrl = this._choiceStores.resolve(target);
-		if (!ctrl) return;
-		return target.siblingsCsv
-			? ctrl.selectOption(target.group, target.option, target.siblingsCsv)
-			: ctrl.setCount(target.group, target.option, checked ? 1 : 0);
+		return ctrl ? applyPick(ctrl, target, checked) : undefined;
 	}
 
 	async setChoiceTextFor(target, text) {
