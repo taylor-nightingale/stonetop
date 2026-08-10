@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": "basic",
-    "description": "When you **_study a situation or person_**, looking to the GM for insight, roll +WIS: **on a 10+**, ask the GM 3 questions from the list below; **on a 7-9**, ask 1; **either way**, take advantage on your next move to act on the answers\n\n- What happened here recently\n-What is about to happen?\nWhat should I be on the lookout for?\nWhat here is useful or valuable to me?\nWho or what is really in control here?\nWhat here is not what it appears to be?",
+    "description": "When you **_study a situation or person_**, looking to the GM for insight, roll +WIS: **on a 10+**, ask the GM 3 questions from the list below; **on a 7-9**, ask 1; **either way**, take advantage on your next move to act on the answers\n\n- What happened here recently?\n- What is about to happen?\n- What should I be on the lookout for?\n- What here is useful or valuable to me?\n- Who or what is really in control here?\n- What here is not what it appears to be?",
     "moveResults": {
       "success": {
         "label": "10+",
