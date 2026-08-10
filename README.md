@@ -2,8 +2,6 @@
 
 An unofficial [Foundry VTT](https://foundryvtt.com) system for playing [Stonetop](https://plusoneexp.com/collections/stonetop) by Jeremy Strandberg.
 
-> This system is under active development and may be unstable.
-
 ## Prerequisites
 
 - Foundry VTT v13 or v14

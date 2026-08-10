@@ -66,6 +66,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateEmbeddedMoveSlugs(actor);
 	await migrateCharacterMoves(actor, repos.moves, insertRepo);
 	await migrateReferenceMoveCategories(actor, repos.moves);
+	await migrateAddedReferenceMoves(actor, repos.moves);
 	await migrateMovePackData(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookChoices(actor, repos.playbooks);
@@ -166,6 +167,22 @@ export async function migrateReferenceMoveCategories(actor, moveRepo) {
 	for (const categoryKey of CharacterMoves.REFERENCE_CATEGORIES) {
 		const present = [...actor.items].some(i => i.type === "move" && i.system?.categoryKey === categoryKey);
 		if (!present) await moves.seedReferenceCategory(categoryKey);
+	}
+}
+
+// ── B0.6. Reference moves added to a category the character already has ───────
+
+// Seek Insight was missed when the basic moves were first authored, so every character made before it
+// joined the pack has the other nine and not it. migrateReferenceMoveCategories above can't reach it:
+// basic moves ARE present, so the whole category is skipped. Listing the slug explicitly is what keeps
+// this narrow — a blanket top-up of the basic category would also resurrect any basic move a GM
+// deleted on purpose.
+const ADDED_REFERENCE_SLUGS = { basic: ["seek-insight"] };
+
+export async function migrateAddedReferenceMoves(actor, moveRepo) {
+	const moves = new CharacterMoves(moveRepo, actor, null, null);
+	for (const [categoryKey, slugs] of Object.entries(ADDED_REFERENCE_SLUGS)) {
+		await moves.seedReferenceSlugs(categoryKey, slugs);
 	}
 }
 

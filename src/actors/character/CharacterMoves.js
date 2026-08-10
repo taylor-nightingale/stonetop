@@ -41,6 +41,10 @@ export class CharacterMoves {
 		await this._seeder.seed(categoryKey);
 	}
 
+	async seedReferenceSlugs(categoryKey, slugs) {
+		await this._seeder.seedSlugs(categoryKey, slugs);
+	}
+
 	// A playbook owns its moves by slug (playbookData.moves) and marks a subset as starting
 	// (playbookData.startingMoves) — those seed acquired at character creation. Resolution + sort
 	// (by level + dependency) live here; the move items themselves carry no playbook back-reference.

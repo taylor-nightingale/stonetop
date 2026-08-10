@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { migrateCharacterMoves, migrateReferenceMoveCategories } from "../../src/migration/migrateCharacter.js";
+import { migrateAddedReferenceMoves, migrateCharacterMoves, migrateReferenceMoveCategories } from "../../src/migration/migrateCharacter.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakeMoveRepository } from "../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../fakes/FakeCompendiumMoveBuilder.js";
@@ -294,5 +294,62 @@ describe("migrateReferenceMoveCategories", () => {
 		await migrateReferenceMoveCategories(actor, makeRepo());
 		expect(createdNames(actor).sort())
 			.toEqual(["Chart a Course", "Death's Door", "Defy Danger", "Make Camp", "Order Followers"]);
+	});
+});
+
+// ── a move added to a category the character already has ──────────────────────
+
+// Seek Insight joined the basic moves after every existing character was made. The category-level
+// migration above skips them (they have basic moves), so this is what reaches them.
+describe("migrateAddedReferenceMoves", () => {
+	const REFERENCE_DOCS = [
+		new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").build(),
+		new FakeCompendiumMoveBuilder().withName("Seek Insight").withMoveType("basic").build(),
+		new FakeCompendiumMoveBuilder().withName("Know Things").withMoveType("basic").build(),
+	];
+
+	const makeRepo = () => new FakeMoveRepository([], [...REFERENCE_DOCS]);
+
+	// A pre-0.14.2 character: the basic moves as they were, minus Seek Insight.
+	function makeCharacterWithoutSeekInsight(extraItems = []) {
+		return makeActor({}, [
+			{ _id: "m-defy", type: "move", name: "Defy Danger", system: { slug: "defy-danger", categoryKey: "basic" } },
+			{ _id: "m-know", type: "move", name: "Know Things", system: { slug: "know-things", categoryKey: "basic" } },
+			...extraItems,
+		]);
+	}
+
+	const createdNames = (actor) => actor.createdDocs.map(d => d.name);
+
+	it("seeds Seek Insight into the basic category", async () => {
+		const actor = makeCharacterWithoutSeekInsight();
+		await migrateAddedReferenceMoves(actor, makeRepo());
+		expect(createdNames(actor)).toEqual(["Seek Insight"]);
+		expect(actor.createdDocs[0].system.categoryKey).toBe("basic");
+		expect(actor.createdDocs[0].system.acquired).toBe(true);
+	});
+
+	it("adds nothing on a second run", async () => {
+		const actor = makeCharacterWithoutSeekInsight();
+		await migrateAddedReferenceMoves(actor, makeRepo());
+		await migrateAddedReferenceMoves(actor, makeRepo());
+		expect(actor.createdDocs).toHaveLength(1);
+	});
+
+	// The GM deleted Defy Danger on purpose; only the named slug may come back.
+	it("does not restore other basic moves the character is missing", async () => {
+		const actor = makeActor({}, [
+			{ _id: "m-know", type: "move", name: "Know Things", system: { slug: "know-things", categoryKey: "basic" } },
+		]);
+		await migrateAddedReferenceMoves(actor, makeRepo());
+		expect(createdNames(actor)).not.toContain("Defy Danger");
+	});
+
+	it("does not duplicate a Seek Insight the player already dragged in", async () => {
+		const actor = makeCharacterWithoutSeekInsight([
+			{ _id: "m-dropped", type: "move", name: "Seek Insight", system: { slug: "seek-insight", categoryKey: "other" } },
+		]);
+		await migrateAddedReferenceMoves(actor, makeRepo());
+		expect(actor.createdDocs).toHaveLength(0);
 	});
 });

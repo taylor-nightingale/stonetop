@@ -3807,6 +3807,77 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 
+/* Coinage — one block per currency (Silver, Gold), each a rule-line heading over three equal
+   fields. The fields are a grid of `1fr` columns rather than inline flow, which is what keeps the
+   block identical at every sheet width: captions can never wrap away from the input they name. */
+
+.stonetop.sheet.steading .steading-coinage {
+	flex: 0 0 auto;
+	margin-top: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.stonetop.sheet.steading .steading-coinage-currency {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.stonetop.sheet.steading .steading-coinage-name {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: var(--fs-fine);
+	font-variant: small-caps;
+	letter-spacing: 0.5px;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+/* The hairline that trails the currency name out to the panel edge. */
+.stonetop.sheet.steading .steading-coinage-name::after {
+	content: '';
+	flex: 1;
+	height: 1px;
+	background: rgba(0,0,0,0.15);
+}
+
+.stonetop.sheet.steading .steading-coinage-fields {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6px;
+}
+
+.stonetop.sheet.steading .steading-coinage-field {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+}
+
+.stonetop.sheet.steading .steading-coinage-field > span {
+	font-size: var(--fs-micro);
+	text-align: center;
+	color: var(--color-text-dark-secondary, #555);
+}
+
+.stonetop.sheet.steading .steading-coinage-field input[type="number"] {
+	width: 100%;
+	min-width: 0;
+	text-align: center;
+	font-size: var(--fs-note);
+	font-family: var(--font-primary);
+	padding: 1px 2px;
+}
+
+/* activateSteppers wraps each input in an inline-flex span, which would otherwise size to the
+   input's intrinsic width and leave the grid column half empty. Same fix as the resource boxes. */
+.stonetop.sheet.steading .stonetop-stepper:has(> .stonetop-coinage-input) {
+	display: block;
+	width: 100%;
+}
+
 /* ── Residents tab ───────────────────────────────────────────────────────────── */
 
 .stonetop.sheet.steading .steading-residents-grid {

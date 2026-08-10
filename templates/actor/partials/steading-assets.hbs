@@ -1,6 +1,6 @@
-{{!-- The Assets panel — the general `items` list plus the coinage grid (purses/handfuls/coins per
-      currency). Shared by the steading overview and the steadfast sheet.
-      Params: items (array of strings), coinage (array of {title, purses, handfuls, coins}). --}}
+{{!-- The Assets panel — the general `items` list — plus a framed Coinage panel below it, grouped one
+      block per currency (purses/handfuls/coins). Shared by the steading overview and the steadfast sheet.
+      Params: items (array of strings), coinage (array of {title, label, purses, handfuls, coins}). --}}
 <div class="steading-overview-field steading-panel-frame">
 	{{> "stonetop.panel-frame"}}
 	<h2>Assets</h2>
@@ -19,22 +19,29 @@
 	</div>
 </div>
 
-<div class="steading-asset-currency-grid">
+<div class="steading-coinage steading-panel-frame">
+	{{> "stonetop.panel-frame"}}
+	<h2>Coinage</h2>
 	{{#each coinage}}
-		<label class="steading-asset-currency-frame">
-			<span>{{label}} Purses</span>
-			<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" min="0"
-			       data-title="{{title}}" value="{{purses}}">
-		</label>
-		<label class="steading-asset-currency-frame">
-			<span>{{label}} Handfuls</span>
-			<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" min="0"
-			       data-title="{{title}}" value="{{handfuls}}">
-		</label>
-		<label class="steading-asset-currency-frame">
-			<span>{{label}} Coins</span>
-			<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" min="0"
-			       data-title="{{title}}" value="{{coins}}">
-		</label>
+		<div class="steading-coinage-currency">
+			<span class="steading-coinage-name">{{label}}</span>
+			<div class="steading-coinage-fields">
+				<label class="steading-coinage-field">
+					<span>Purses</span>
+					<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" min="0"
+					       data-title="{{title}}" value="{{purses}}">
+				</label>
+				<label class="steading-coinage-field">
+					<span>Handfuls</span>
+					<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" min="0"
+					       data-title="{{title}}" value="{{handfuls}}">
+				</label>
+				<label class="steading-coinage-field">
+					<span>Coins</span>
+					<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" min="0"
+					       data-title="{{title}}" value="{{coins}}">
+				</label>
+			</div>
+		</div>
 	{{/each}}
 </div>
