@@ -17,7 +17,7 @@ import { loadOutline, articleRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractChrome, extractSwirls } from "./images.js";
 import { extractArcanaArt } from "./arcana-art.js";
-import { extractSteadingArt } from "./steading-art.js";
+import { extractSteadingArt, extractSeasonsArt } from "./steading-art.js";
 import { resolveBooks, requireTools } from "./books.js";
 import { execFileSync } from "child_process";
 import { toSlug } from "../../../src/utils/slug.js";
@@ -82,9 +82,13 @@ console.log(`\nextracted ${arc.written.length} major-arcana illustrations -> ${A
 
 // Steading illustrations (Book I) -> stonetop-art/steading/<name>.png. Skipped without Book I.
 const STEADING_DIR = "stonetop-art/steading";
+const SEASONS_DIR  = "assets/content/seasons";   // committed: trade-dress glyphs
 if (existsSync(BOOK_I)) {
 	const st = extractSteadingArt(BOOK_I, STEADING_DIR);
 	console.log(`extracted ${st.written.length} steading illustration(s) -> ${STEADING_DIR}/` + (st.missing.length ? `  (missing: ${st.missing.join(", ")})` : ""));
+	// Season glyphs are trade dress (committed); the harvest plate beside them is not.
+	const se = extractSeasonsArt(BOOK_I, { artDir: STEADING_DIR, iconsDir: SEASONS_DIR });
+	console.log(`extracted ${se.written.length} seasons image(s) -> ${SEASONS_DIR}/ + ${STEADING_DIR}/` + (se.missing.length ? `  (missing: ${se.missing.join(", ")})` : ""));
 } else {
 	console.log(`Book I not found (${BOOK_I}) — steading art skipped.`);
 }

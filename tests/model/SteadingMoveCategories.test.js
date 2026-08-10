@@ -3,20 +3,20 @@ import { SteadingMoveCategory, SteadingMoveCategories } from "../../src/model/da
 
 describe("SteadingMoveCategory", () => {
 	it("ranks the slugs it names in the order it names them", () => {
-		const category = new SteadingMoveCategory("seasons", "Seasons Change", ["a", "b", "c"]);
+		const category = new SteadingMoveCategory("seasons", "Seasons Change", { order: ["a", "b", "c"] });
 		expect(category.rank("a")).toBe(0);
 		expect(category.rank("c")).toBe(2);
 	});
 
 	it("ranks an unnamed slug behind every named one", () => {
-		const category = new SteadingMoveCategory("seasons", "Seasons Change", ["a", "b"]);
+		const category = new SteadingMoveCategory("seasons", "Seasons Change", { order: ["a", "b"] });
 		expect(category.rank("zzz")).toBeGreaterThan(category.rank("b"));
 	});
 
 	// Two unnamed slugs must tie rather than both read as Infinity, or a comparator subtracting
 	// their ranks gets NaN instead of 0 and never reaches its alphabetical tiebreak.
 	it("ties unnamed slugs with each other", () => {
-		const category = new SteadingMoveCategory("seasons", "Seasons Change", ["a"]);
+		const category = new SteadingMoveCategory("seasons", "Seasons Change", { order: ["a"] });
 		expect(category.rank("yyy") - category.rank("zzz")).toBe(0);
 	});
 
@@ -29,6 +29,14 @@ describe("SteadingMoveCategory", () => {
 describe("SteadingMoveCategories", () => {
 	it("lists homefront and seasons, in that reading order", () => {
 		expect(SteadingMoveCategories.all().map(c => c.key)).toEqual(["homefront", "seasons"]);
+	});
+
+	// The Moves tab lists only what hasn't claimed a tab of its own — which is how SteadingMoves
+	// partitions without anyone naming the seasons key.
+	it("keeps a category that owns a tab out of the Moves list", () => {
+		expect(SteadingMoveCategories.inMovesList().map(c => c.key)).toEqual(["homefront"]);
+		expect(SteadingMoveCategories.byKey("seasons").ownTab).toBe(true);
+		expect(SteadingMoveCategories.byKey("homefront").ownTab).toBe(false);
 	});
 
 	it("labels each category for the move group heading", () => {

@@ -18,8 +18,8 @@ export async function renderRollCard(data, rollData = {}) {
  * tiers when the move has them (a roll card shows only the rolled tier). The one entry point for
  * every "send to chat without rolling" path — sheet chat buttons, stat-less move posts.
  */
-export async function postDescriptionCard(speaker, { name, description, moveResults = null }, rollData = {}) {
-	const card = { name, description: rich(description), results: buildResultTiers(moveResults) };
+export async function postDescriptionCard(speaker, { name, icon = null, description, moveResults = null }, rollData = {}) {
+	const card = { name, icon, description: rich(description), results: buildResultTiers(moveResults) };
 	return ChatMessage.create({ speaker, content: await renderRollCard(card, rollData) });
 }
 

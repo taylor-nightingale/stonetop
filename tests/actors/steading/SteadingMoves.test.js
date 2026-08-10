@@ -173,12 +173,14 @@ describe("SteadingMoves.buildSnapshot", () => {
 		expect(move.selection.value).toBe(1);        // checked by default
 	});
 
-	it("builds one category per non-empty steading category, in reading order", async () => {
+	// The Moves tab lists only categories that haven't claimed a tab; the seasons have, so they are
+	// absent here and fetched by their own tab through categorySnapshot.
+	it("lists only the categories the Moves tab owns", async () => {
 		const { moves } = makeMoves(repoWith(homefront("Trade"), seasons("Seasons Change: Spring")));
 		await moves.seedReferenceMoves();
 		const snap = await moves.buildSnapshot();
-		expect(snap.map(c => c.key)).toEqual(["homefront", "seasons"]);
-		expect(snap.map(c => c.label)).toEqual(["Homefront Moves", "Seasons Change"]);
+		expect(snap.map(c => c.key)).toEqual(["homefront"]);
+		expect(snap.map(c => c.label)).toEqual(["Homefront Moves"]);
 	});
 
 	it("omits a category the steading carries no moves for", async () => {
@@ -203,7 +205,7 @@ describe("SteadingMoves.buildSnapshot", () => {
 			seasons("Seasons Change: Summer"),
 		));
 		await moves.seedReferenceMoves();
-		const names = categoryNamed(await moves.buildSnapshot(), "seasons").moves.map(m => m.name);
+		const names = (await moves.categorySnapshot("seasons")).moves.map(m => m.name);
 		expect(names).toEqual([
 			"Seasons Change: Spring",
 			"Seasons Change: Summer",
@@ -217,7 +219,7 @@ describe("SteadingMoves.buildSnapshot", () => {
 	it("sorts a move the category does not name behind the ones it does", async () => {
 		const { moves } = makeMoves(repoWith(seasons("Seasons Change: Spring"), seasons("A Homebrew Season")));
 		await moves.seedReferenceMoves();
-		const names = categoryNamed(await moves.buildSnapshot(), "seasons").moves.map(m => m.name);
+		const names = (await moves.categorySnapshot("seasons")).moves.map(m => m.name);
 		expect(names).toEqual(["Seasons Change: Spring", "A Homebrew Season"]);
 	});
 
@@ -309,29 +311,25 @@ describe("SteadingMoves.sendToChat", () => {
 	});
 });
 
-describe("SteadingMoves.has", () => {
-	it("is true for a seeded homefront move", async () => {
-		const { moves } = makeMoves(repoWith(homefront("Trade")));
-		await moves.seedReferenceMoves();
-		expect(moves.has("trade")).toBe(true);
-	});
-
-	// The spring section's shortcut asks about a seasons move, so `has` must span every category.
-	it("is true for a seeded move in any category", async () => {
+describe("SteadingMoves.categorySnapshot", () => {
+	it("builds the category a tab asks for by key", async () => {
 		const { moves } = makeMoves(repoWith(seasons("Seasons Change: Spring")));
 		await moves.seedReferenceMoves();
-		expect(moves.has("seasons-change-spring")).toBe(true);
+		const snap = await moves.categorySnapshot("seasons");
+		expect(snap.key).toBe("seasons");
+		expect(snap.moves).toHaveLength(1);
 	});
 
-	it("is false for a move this steading does not carry", async () => {
+	it("is null when the steading carries none of that category's moves", async () => {
 		const { moves } = makeMoves(repoWith(homefront("Trade")));
 		await moves.seedReferenceMoves();
-		expect(moves.has("seasons-change-spring")).toBe(false);
+		expect(await moves.categorySnapshot("seasons")).toBeNull();
 	});
 
-	it("is false before anything is seeded, and for a blank slug", () => {
+	it("is null for a key that is not a steading category at all", async () => {
 		const { moves } = makeMoves(repoWith(homefront("Trade")));
-		expect(moves.has("trade")).toBe(false);
-		expect(moves.has("")).toBe(false);
+		await moves.seedReferenceMoves();
+		expect(await moves.categorySnapshot("basic")).toBeNull();
 	});
 });
+

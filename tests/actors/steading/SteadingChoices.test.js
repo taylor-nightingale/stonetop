@@ -1,64 +1,40 @@
 import { describe, it, expect } from "vitest";
 import { SteadingChoices } from "../../../src/actors/steading/SteadingChoices.js";
-import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
+
+// SteadingChoices owns ONE thing: the steading's own choice values, in system.choiceValues. What a
+// pick MEANS (exclusive, releasable, announced to subscribers) belongs to ChoiceGroupController and
+// is tested there; what routes a context to this store belongs to StonetopSteading and is tested
+// there. This file is just the store — does it read and write the field it claims.
 
 function build() {
 	const actor = new FakeSteadingBuilder().build();
 	return { actor, choices: new SteadingChoices(actor) };
 }
 
-const target = fields => new ChoiceTarget({ context: "steading", group: "gains", ...fields });
-const raw    = actor => actor.system.choiceValues ?? {};
-
 describe("SteadingChoices", () => {
 	it("reads empty on a steading that has picked nothing", () => {
 		expect(build().choices.values.getCount("gains", "news")).toBe(0);
 	});
 
-	it("records a plain checkbox pick", async () => {
-		const { choices } = build();
-		await choices.setPickFor(target({ option: "news" }), true);
+	it("reads back what is stored in system.choiceValues", () => {
+		const { actor, choices } = build();
+		actor.system.choiceValues = { gains: { news: 1 } };
 		expect(choices.values.getCount("gains", "news")).toBe(1);
 	});
 
-	it("clears a plain checkbox pick when it is unchecked", async () => {
-		const { choices } = build();
-		await choices.setPickFor(target({ option: "news" }), true);
-		await choices.setPickFor(target({ option: "news" }), false);
-		expect(choices.values.getCount("gains", "news")).toBe(0);
-	});
-
-	// A "pick 1" row is radios: every option names its siblings, and picking one has to release
-	// whichever was picked before — a checkbox that can only ever be ticked was the original bug.
-	it("releases the previous pick when a sibling is chosen", async () => {
-		const { choices } = build();
-		await choices.setPickFor(target({ option: "tor", siblingsCsv: "tor,news" }));
-		await choices.setPickFor(target({ option: "news", siblingsCsv: "tor,news" }));
-		expect(choices.values.getCount("gains", "tor")).toBe(0);
-		expect(choices.values.getCount("gains", "news")).toBe(1);
-	});
-
-	// Foundry deep-merges updates, so a released sibling has to be written as 0 — dropping its key
-	// would leave the old value in the document.
-	it("writes a released sibling as zero rather than dropping its key", async () => {
+	it("writes through its controller into system.choiceValues", async () => {
 		const { actor, choices } = build();
-		await choices.setPickFor(target({ option: "tor", siblingsCsv: "tor,news" }));
-		await choices.setPickFor(target({ option: "news", siblingsCsv: "tor,news" }));
-		expect(raw(actor).gains.tor).toBe(0);
+		await choices.controller().setCount("gains", "news", 1);
+		expect(actor.system.choiceValues).toEqual({ gains: { news: 1 } });
 	});
 
-	it("keeps other groups' picks when one group is written", async () => {
-		const { choices } = build();
-		await choices.setPickFor(new ChoiceTarget({ context: "steading", group: "other", option: "x" }), true);
-		await choices.setPickFor(target({ option: "news" }), true);
-		expect(choices.values.getCount("other", "x")).toBe(1);
-	});
-
-	it("ignores a target with no group or option", async () => {
+	// Every context the steading resolves to this store shares it, so a write under one group must
+	// not disturb another.
+	it("keeps other groups intact when one is written", async () => {
 		const { actor, choices } = build();
-		await choices.setPickFor(new ChoiceTarget({ context: "steading" }), true);
-		await choices.setPickFor(target({}), true);
-		expect(raw(actor)).toEqual({});
+		await choices.controller().setCount("other", "x", 1);
+		await choices.controller().setCount("gains", "news", 1);
+		expect(actor.system.choiceValues.other.x).toBe(1);
 	});
 });

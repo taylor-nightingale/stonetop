@@ -75,27 +75,11 @@
 			"linkDropTitle": "Drop an actor, journal, or item here to link it",
 			"unlink": "Unlink",
 			"improvementRemove": "Remove",
-			"spring": {
-				"title": "Let Spring Break Forth",
-				"gmOnly": "Only visible to GM",
-				"preamble": "Tell them that <strong>spring has just broken forth upon the land</strong>, and ask them to <strong>roll +Fortunes</strong> (+1, in this case).",
-				"hopefulLabel": "Ask the players to decide <strong>whose character is the most hopeful</strong>.",
-				"hopefulPlaceholder": "The most hopeful character…",
-				"rollLabel": "Refer them to <strong>Seasons Change: Spring</strong> under the steading's moves.",
-				"rollButton": "Post Seasons Change: Spring to chat",
-				"omenSuccess": "Ask them to choose <strong>Interesting news</strong>, <strong>Valuable insight</strong>, or a <strong>Trade opportunity</strong>. You're looking for a plot hook, something to kick off the first adventure. The other choices (like Tor's blessing or unexpected bounty) don't provide such a hook.",
-				"omenPartial": "Have them choose whatever gain they like. You'll combine it with a <strong>threat</strong> to create your starting situation.",
-				"omenFailure": "Chuckle grimly and <strong>start thinking about threats</strong>.",
+			"seasons": {
+				"movesTitle": "Seasons Change",
+				"movesEmpty": "No seasonal moves assigned to this steading.",
 				"gainsTitle": "Seasonal gains",
-				"gainsHint": "Recording a pick doesn't change the steading's ratings.",
-				"hookLabel": "Plot hook",
-				"hookPlaceholder": "Opportunities or threats…",
-				"excitesPreamble": "Before you go, ask the players: <strong>what excites you the most about playing your character?</strong> Whatever they tell you, write it down. Try to work it into the first adventure.",
-				"excitesPlaceholder": "What they told you…",
-				"excitesEmpty": "No characters in this world yet — create them to record an answer each.",
-				"wrapUp": "Make a note of the result, and update the steading playbook if needed. Then start to wrap up. It'll be tempting to jump into character and start playing right away, but don't do it. You need time to think about everything the players have given you and prepare the first adventure.",
-				"done": "We're done — put this away",
-				"reopen": "Show the first-session steps again"
+				"gainsHint": "Recording a pick doesn't change the steading's ratings."
 			}
 		},
 		"followers": {

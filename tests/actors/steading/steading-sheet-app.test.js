@@ -6,6 +6,7 @@ import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
 import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // Drives the WHOLE steading sheet _prepareContext (real StonetopSteading + every steading snapshot +
 // RichText + the one enrichRichTextTree pass) and proves a homefront move's @UUID and a default
@@ -13,7 +14,7 @@ import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBa
 // mocked.
 function makeSheet(movesRepo) {
 	const actor = new FakeSteadingBuilder().build();
-	actor.typedActor = new StonetopSteading(actor, { getBySlug: async () => null }, movesRepo);
+	actor.typedActor = new StonetopSteading(actor, steadingRepos({ improvements: { getBySlug: async () => null }, moves: movesRepo }));
 
 	return new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
 }
@@ -28,7 +29,7 @@ describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integr
 				.build()
 		);
 		const sheet = makeSheet(movesRepo);
-		await sheet.actor.typedActor.moves.seedReferenceMoves();   // create-time seed (no longer on render)
+		await sheet.actor.typedActor.onCreate();   // create-time seed (no longer on render)
 
 		const orig = foundry.applications.ux.TextEditor.implementation.enrichHTML;
 		foundry.applications.ux.TextEditor.implementation.enrichHTML =
@@ -56,7 +57,7 @@ describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integr
 		const sheet = makeSheet(new FakeMoveRepository());
 
 		const first = await sheet._prepareContext({});
-		expect(Object.keys(first.tabs)).toEqual(["overview", "residents", "neighbors", "improvements", "moves", "notes"]);
+		expect(Object.keys(first.tabs)).toEqual(["overview", "residents", "neighbors", "improvements", "moves", "seasons", "notes"]);
 		expect(first.tabs.overview.active).toBe(true);
 		expect(first.tabs.overview.cssClass).toBe("active");
 		expect(first.tabs.residents.active).toBe(false);

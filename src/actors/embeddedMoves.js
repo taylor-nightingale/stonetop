@@ -103,5 +103,21 @@ export function buildMoveSnapshot(item, categoryKey, selectable, requirementsMet
 		.withRequiresLabel(requirement?.label ?? null)
 		.withResource(resource)
 		.withChoices(choices)
+		.withIcon(moveIcon(item))
 		.build();
+}
+
+// A move's icon is its item image — the field every move sheet already offers a picker for, so any
+// move (pack-authored or homebrew) can have one. Foundry gives every item a default image, though,
+// and rendering that would put the same placeholder on all ~93 moves; an icon only shows when
+// someone deliberately chose it.
+export function moveIcon(item) {
+	const img = item?.img ?? null;
+	return img && img !== defaultItemIcon() ? img : null;
+}
+
+function defaultItemIcon() {
+	return globalThis.Item?.implementation?.DEFAULT_ICON
+		?? globalThis.CONFIG?.Item?.documentClass?.DEFAULT_ICON
+		?? "icons/svg/item-bag.svg";
 }

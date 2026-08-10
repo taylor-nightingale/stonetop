@@ -408,6 +408,13 @@ export class StonetopCharacter {
 		return this._choiceStores.resolve(target)?.setText(target.group, target.option, text);
 	}
 
+	// Re-clicking the option a "pick 1" row already holds releases it — radios cannot be unticked, so
+	// without this a pick made by mistake is permanent. Zero rather than a dropped key: Foundry
+	// deep-merges an update, so omitting it would leave the old value in place.
+	async clearChoicePickFor(target) {
+		return this.setChoiceCountFor(target, 0);
+	}
+
 	// --- Pip and check toggles ----------------------------------------------------------------
 	// Resource pips: clicking the checked pip at `index` empties back to it, clicking an unchecked
 	// one fills through it. Sheets pass the raw dataset index and the pip's current checked state.

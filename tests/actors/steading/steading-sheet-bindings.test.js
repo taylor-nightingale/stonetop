@@ -10,21 +10,29 @@ import { fire } from "../../fakes/domEvents.js";
 // enough to prove the V2 lifecycle wires each control to the right call. Tab navigation is core's
 // built-in `tab` action (data-action="tab" in the template) — no sheet wiring to test here.
 
+// FLAT, deliberately: the sheet may only call named methods on the typed steading. A nested spy
+// here would mean the sheet was reaching through the steading into its collaborators — the thing
+// this shape exists to prevent.
+const FACADE_METHODS = [
+	"setFortunes", "setSurplus", "setRollMode", "setNotes", "renameOrApplySteadfast",
+	"setAttribute", "addAttributeItem", "removeAttributeItem", "updateAttributeItem",
+	"setDebility", "updateContentText",
+	"addAssetItem", "removeAssetItem", "updateAssetItem",
+	"updateCoinagePurses", "updateCoinageHandfuls", "updateCoinageCoins",
+	"addResident", "removeResident", "updateResidentName", "updateResidentOccupation",
+	"updateResidentTraits", "updateResidentTraitsSource", "unlinkResident", "linkResident",
+	"addNeighbor", "removeNeighbor", "updateNeighborName", "updateNeighborOccupation",
+	"updateNeighborTraits", "updateNeighborHome", "unlinkNeighbor", "linkNeighbor",
+	"updateNeighborPlaceNote",
+	"addPlace", "setPlaceValue", "unlinkPlace", "linkPlace",
+	"revokeImprovement",
+	"setChoiceTrackFor", "setChoicePickFor", "setChoiceTextFor", "clearChoicePickFor",
+	"setMoveChecked", "sendMoveToChat", "toggleMoveResourcePip", "setMoveResourceText",
+	"pickSeasonalGain",
+];
+
 function makeSpySteading() {
-	return {
-		setFortunes: vi.fn(), setSurplus: vi.fn(), setRollMode: vi.fn(), setNotes: vi.fn(),
-		renameOrApplySteadfast: vi.fn(),
-		attributes:  { setValue: vi.fn(), addNewItemToAttribute: vi.fn(), removeItemFromAttribute: vi.fn(), updateItemOnAttribute: vi.fn() },
-		debilities:  { setDebility: vi.fn() },
-		content:     { updateText: vi.fn() },
-		assets:      { addItem: vi.fn(), removeItem: vi.fn(), updateItem: vi.fn(), updatePurses: vi.fn(), updateHandfuls: vi.fn(), updateCoins: vi.fn() },
-		residents:   { add: vi.fn(), remove: vi.fn(), updateName: vi.fn(), updateOccupation: vi.fn(), updateTraits: vi.fn(), updateTraitsSource: vi.fn() },
-		neighborPeople: { add: vi.fn(), remove: vi.fn(), updateName: vi.fn(), updateOccupation: vi.fn(), updateTraits: vi.fn(), updateHome: vi.fn() },
-		neighborPlaces: { updateNote: vi.fn() },
-		placesOfInterest: { addBlankPlace: vi.fn(), setPlaceValue: vi.fn() },
-		improvements: { toggleTrack: vi.fn() },
-		moves:       { incrementMove: vi.fn(), decrementMove: vi.fn(), toggleResourcePip: vi.fn(), setMoveResourceText: vi.fn() },
-	};
+	return Object.fromEntries(FACADE_METHODS.map(name => [name, vi.fn()]));
 }
 
 async function renderSheet({ editable = true } = {}) {
@@ -40,7 +48,7 @@ async function renderSheet({ editable = true } = {}) {
 		<textarea class="steading-npc-traits-source">gruff
 curious</textarea>
 		<textarea class="stonetop-notes">a note</textarea>
-		<input type="checkbox" class="stonetop-cg-track" data-cg-context="improvement"
+		<input type="checkbox" class="stonetop-cg-track" data-change-action="cgTrack" data-cg-context="improvement"
 		       data-cg-group="fortifications" data-cg-option="palisade" data-cg-index="1" checked>
 		<button class="stonetop-item-resource-check is-checked" data-move-slug="trade" data-index="0"></button>`;
 	await sheet._onFirstRender({}, {});
@@ -57,10 +65,10 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 		expect(steading.setFortunes).toHaveBeenCalledWith(2);
 
 		fire(el(".stonetop-resident-name"), "change");
-		expect(steading.residents.updateName).toHaveBeenCalledWith("r1", "Cerdig");
+		expect(steading.updateResidentName).toHaveBeenCalledWith("r1", "Cerdig");
 
 		fire(el(".stonetop-neighbor-person-name"), "change");
-		expect(steading.neighborPeople.updateName).toHaveBeenCalledWith("n1", "Marock");
+		expect(steading.updateNeighborName).toHaveBeenCalledWith("n1", "Marock");
 
 		fire(el(".stonetop-notes"), "change");
 		expect(steading.setNotes).toHaveBeenCalledWith("a note");
@@ -77,17 +85,22 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 	it("routes the traits-source textarea to Residents.updateTraitsSource (raw text)", async () => {
 		const { sheet, steading } = await renderSheet();
 		fire(sheet.element.querySelector(".steading-npc-traits-source"), "change");
-		expect(steading.residents.updateTraitsSource).toHaveBeenCalledWith("gruff\ncurious");
+		expect(steading.updateResidentTraitsSource).toHaveBeenCalledWith("gruff\ncurious");
 	});
 
 	it("routes the delegated improvement track and move-resource pip", async () => {
 		const { sheet, steading } = await renderSheet();
 
 		fire(sheet.element.querySelector(".stonetop-cg-track"), "change");
-		expect(steading.improvements.toggleTrack).toHaveBeenCalledWith("fortifications", "palisade", "1", true);
+		// A ChoiceTarget, not raw dataset strings: the steading's own store routes on its context.
+		const [target, index, checked] = steading.setChoiceTrackFor.mock.calls[0];
+		expect(target.context).toBe("improvement");
+		expect(target.group).toBe("fortifications");
+		expect(target.option).toBe("palisade");
+		expect([index, checked]).toEqual(["1", true]);
 
 		fire(sheet.element.querySelector(".stonetop-item-resource-check"), "click");
-		expect(steading.moves.toggleResourcePip).toHaveBeenCalledWith("trade", "0", true);
+		expect(steading.toggleMoveResourcePip).toHaveBeenCalledWith("trade", "0", true);
 	});
 
 	it("ignores events while the sheet is not editable, then honors them once it becomes editable", async () => {
@@ -95,11 +108,11 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 		// a sheet that gains ownership mid-session must not need re-instantiation.
 		const { sheet, steading } = await renderSheet({ editable: false });
 		fire(sheet.element.querySelector(".stonetop-cg-track"), "change");
-		expect(steading.improvements.toggleTrack).not.toHaveBeenCalled();
+		expect(steading.setChoiceTrackFor).not.toHaveBeenCalled();
 
 		sheet.isEditable = true;
 		fire(sheet.element.querySelector(".stonetop-cg-track"), "change");
-		expect(steading.improvements.toggleTrack).toHaveBeenCalledTimes(1);
+		expect(steading.setChoiceTrackFor).toHaveBeenCalledTimes(1);
 	});
 
 	it("binds no direct controls when the sheet is not editable", async () => {

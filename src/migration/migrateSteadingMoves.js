@@ -7,8 +7,5 @@
 // homefront moveType carries those four in the wrong category, so `seasons` would read as empty and
 // seed a second copy of each.
 export async function migrateSteadingMoves(actor) {
-	const moves = actor.typedActor?.moves;
-	if (!moves) return;
-	await moves.restampCategories();
-	await moves.seedMissingCategories();
+	await actor.typedActor?.backfillMoves?.();
 }

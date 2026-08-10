@@ -3,12 +3,13 @@ import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 const fakeImprovementsRepo = {getBySlug: async () => null};
 const fakeMoves = new FakeMoveRepository();
 
 function make() {
-	return new StonetopSteading(new FakeSteadingBuilder().build(), fakeImprovementsRepo, fakeMoves);
+	return new StonetopSteading(new FakeSteadingBuilder().build(), steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves }));
 }
 
 describe("StonetopSteading.buildSnapshot", () => {
@@ -122,7 +123,7 @@ describe("StonetopSteading.getRollableStats", () => {
 
 	it("reflects a raised attribute value directly", async () => {
 		const s = make();
-		await s.attributes.setValue("population", 3); // +3
+		await s.setAttribute("population", 3); // +3
 		expect(s.getRollableStats().find(x => x.key === "population").value).toBe(3);
 	});
 });
@@ -147,13 +148,13 @@ describe("StonetopSteading.resolveBonus", () => {
 
 	it("returns a lowered attribute value (-1)", async () => {
 		const s = make();
-		await s.attributes.setValue("defenses", -1);
+		await s.setAttribute("defenses", -1);
 		expect(s.resolveBonus("defenses")).toBe(-1);
 	});
 
 	it("returns a raised attribute value (+3)", async () => {
 		const s = make();
-		await s.attributes.setValue("prosperity", 3);
+		await s.setAttribute("prosperity", 3);
 		expect(s.resolveBonus("prosperity")).toBe(3);
 	});
 
@@ -177,7 +178,7 @@ describe("StonetopSteading.applyRollMode", () => {
 
 	async function diminished() {
 		const s = make();
-		await s.debilities.setDebility("diminished", true);
+		await s.setDebility("diminished", true);
 		return s;
 	}
 
@@ -204,7 +205,7 @@ describe("StonetopSteading.applyRollMode", () => {
 
 	it("does not hinder moves while only lacking is marked", async () => {
 		const s = make();
-		await s.debilities.setDebility("lacking", true);
+		await s.setDebility("lacking", true);
 		expect(s.applyRollMode("defenses", "normal", "deploy")).toBe("normal");
 	});
 });
@@ -215,7 +216,7 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 	it("reports name and the stored rating as the bonus", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = 2;
-		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
+		const s = new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves }));
 		expect(s.name).toBe("Stonetop");
 		expect(s.prosperity).toBe(2);
 		expect(s.isLacking).toBe(false);
@@ -227,7 +228,7 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = 2;
 		actor.system.debilities.lacking = true;
-		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
+		const s = new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves }));
 		expect(s.prosperity).toBe(1);
 		expect(s.isLacking).toBe(true);
 	});
@@ -236,7 +237,7 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = 0;
 		actor.system.debilities.lacking = true;
-		expect(new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves).resolveBonus("prosperity")).toBe(-1);
+		expect(new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves })).resolveBonus("prosperity")).toBe(-1);
 	});
 
 	it("lacking leaves the other ratings alone", () => {
@@ -245,7 +246,7 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 		actor.system.attributes.defenses   = 2;
 		actor.system.attributes.population = 1;
 		actor.system.debilities.lacking    = true;
-		const s = new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves);
+		const s = new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves }));
 		expect(s.resolveBonus("fortunes")).toBe(1);
 		expect(s.resolveBonus("defenses")).toBe(2);
 		expect(s.resolveBonus("population")).toBe(1);
@@ -256,7 +257,7 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = 2;
 		actor.system.debilities.lacking = true;
-		new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves).prosperity;
+		new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves })).prosperity;
 		expect(actor.system.attributes.prosperity).toBe(2);
 	});
 
@@ -268,6 +269,6 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 	it("carries a negative rating through", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = -1;
-		expect(new StonetopSteading(actor, fakeImprovementsRepo, fakeMoves).prosperity).toBe(-1);
+		expect(new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves })).prosperity).toBe(-1);
 	});
 });

@@ -1,4 +1,5 @@
 import {ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
+import {ChoiceGroupController} from "../character/ChoiceGroupController.js";
 import {buildChoiceGroup} from "../../model/snapshot/character/buildChoiceGroup.js";
 import {FoundrySteadingImprovementRepository} from "./repositories/FoundrySteadingImprovementRepository.js";
 import {addImprovement, removeImprovement} from "../../model/data/steading/improvementSlugs.js";
@@ -10,6 +11,17 @@ export class SteadingImprovements {
 	constructor(actor, repo = new FoundrySteadingImprovementRepository()) {
 		this._actor = actor;
 		this._repo  = repo;
+		// Through a controller like every other choice store, so improvement rows route through the
+		// shared choice wiring rather than needing the sheet to know they are special.
+		this._controller = new ChoiceGroupController({
+			reader: () => this._actor.system?.improvementValues ?? {},
+			writer: raw => this._actor.update({ "system.improvementValues": raw }),
+		});
+	}
+
+	/** The store improvement choice rows write through — resolved per context by the steading's ChoiceStores. */
+	controller() {
+		return this._controller;
 	}
 
 	get _slugs() {
@@ -32,18 +44,6 @@ export class SteadingImprovements {
 	// steadfast already replaces the slug list on the same terms.
 	async revoke(slug) {
 		await this._actor.update({ "system.improvements": removeImprovement(this._slugs, slug) });
-	}
-
-	async setTrack(groupSlug, optionSlug, count) {
-		const cv = this._values.set(groupSlug, optionSlug, count);
-		await this._actor.update({ "system.improvementValues": cv.toRaw() });
-	}
-
-	// Track pip semantics: checking pip N fills the track up to and including it (count = N + 1);
-	// unchecking pip N — the highest lit one — leaves N filled.
-	async toggleTrack(groupSlug, optionSlug, index, checked) {
-		const i = parseInt(index);
-		await this.setTrack(groupSlug, optionSlug, checked ? i + 1 : i);
 	}
 
 	async buildSnapshot() {

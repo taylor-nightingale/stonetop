@@ -12,6 +12,7 @@ import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeRoll } from "../../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../../fakes/foundry/FakeChatMessage.js";
 import { FakeDialog } from "../../fakes/foundry/FakeDialog.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // End-to-end for the one move that rolls a stat the character doesn't own: the SHIPPED Requisition
 // pack item, a real StonetopCharacter, the real steading repository picking the world's steading,
@@ -50,7 +51,7 @@ function stubWorld(steadings) {
 
 function makeSteadingActor({ name = "Stonetop", fortunes = 1, lacking = false } = {}) {
 	const doc = { type: "steading", name, system: { attributes: { fortunes }, debilities: { lacking } } };
-	doc.typedActor = new StonetopSteading(doc, { getAll: async () => [] }, new FakeMoveRepository());
+	doc.typedActor = new StonetopSteading(doc, steadingRepos({ improvements: { getAll: async () => [] }, moves: new FakeMoveRepository() }));
 	return doc;
 }
 

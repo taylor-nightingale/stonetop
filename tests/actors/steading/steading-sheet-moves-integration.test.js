@@ -9,6 +9,7 @@ import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
 import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
 import { fire } from "../../fakes/domEvents.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // End-to-end for the homefront-move wiring: real StonetopSteading + SteadingMoves + ResourceController
 // behind the sheet's own V2 lifecycle. The move-check is a per-render direct binding (_onRender); the
@@ -22,8 +23,8 @@ async function makeWiredSheet() {
 		new FakeCompendiumMoveBuilder().withName("Trade").withMoveType("homefront")
 			.withResource({ title: "Uses", labels: ["", "", ""] }).build()
 	);
-	actor.typedActor = new StonetopSteading(actor, { getBySlug: async () => null }, repo);
-	await actor.typedActor.moves.seedReferenceMoves();   // create-time seed (no longer on render)
+	actor.typedActor = new StonetopSteading(actor, steadingRepos({ improvements: { getBySlug: async () => null }, moves: repo }));
+	await actor.typedActor.onCreate();   // create-time seed (no longer on render)
 
 	const sheet = new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
 	sheet.element.innerHTML = `
@@ -69,7 +70,7 @@ describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
 		const template = readFileSync(path.resolve(process.cwd(), "templates/actor/partials/move-item.hbs"), "utf8");
 		expect(template).toContain('data-category-key="{{categoryKey}}"');
 		expect(readFileSync(path.resolve(process.cwd(), "src/actors/steading/StonetopSteadingSheet.js"), "utf8"))
-			.toContain("s.moves.incrementMove(categoryKey, moveSlug)");
+			.toContain("s.setMoveChecked(categoryKey, moveSlug,");
 	});
 
 	it("the moveToChat action hands the seeded homefront move to the actor's chat surface", async () => {

@@ -15,6 +15,7 @@ import { applySteadfast, loadSteadfast } from "../../../src/actors/steading/appl
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // The steading's own creation logic (CreateActor hook → typedActor.onCreate): default steadfast
 // for a brand-new steading, then the homefront reference-move seed.
@@ -24,7 +25,7 @@ function make({ steadfast = "" } = {}) {
 	const repo  = new FakeMoveRepository().addBasic(
 		new FakeCompendiumMoveBuilder().withName("Trade").withMoveType("homefront").build()
 	);
-	return { steading: new StonetopSteading(actor, { getBySlug: async () => null }, repo), actor };
+	return { steading: new StonetopSteading(actor, steadingRepos({ improvements: { getBySlug: async () => null }, moves: repo })), actor };
 }
 
 const homefrontItems = actor => [...actor.items].filter(i => i.system?.categoryKey === "homefront");

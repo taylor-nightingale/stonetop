@@ -2,7 +2,8 @@
       dice = { diceGroups:[{kept,values}], modeLabel, mod, total, rollMode }. description/resultText are
       RichText (enriched by renderRollCard). results = [{ key, label, text }] — ALL tiers, for
       description-only cards (a roll card carries the single rolled tier as resultText instead). --}}
-<h3>{{name}}</h3>
+{{!-- Same icon the sheets show, from the same move data. --}}
+<h3>{{#if icon}}<img class="stonetop-move-icon" src="{{icon}}" alt="">{{/if}}{{name}}</h3>
 {{#if dice}}
 <div class="stonetop-roll-dice">
 	{{#if dice.modeLabel}}<span class="stonetop-roll-mode stonetop-roll-mode--{{dice.rollMode}}">{{dice.modeLabel}}</span>{{/if}}

@@ -47,17 +47,6 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			// "Starts at …" notes read, so they stay correct even after `attributes` are edited in play.
 			startingAttributes: new f.SchemaField(steadingRatingsSchema(f)),
 
-			// What the table recorded during "Let Spring Break Forth", the last beat of session zero
-			// (Book I, p.30). `gains` is a presence map of picked seasonal-gain keys; `excites` holds
-			// one answer per player character, keyed by actor id. `done` collapses the section once
-			// the first session is behind them.
-			firstSession: new f.SchemaField({
-				hopeful: new f.StringField({ initial: "" }),
-				hook:    new f.StringField({ initial: "" }),
-				excites: new f.ObjectField(),
-				done:    new f.BooleanField({ initial: false }),
-			}),
-
 			// Runtime-only instances + pick state (not part of the shared definition a steadfast holds).
 			residentPeople:    new f.ArrayField(new f.ObjectField()),  // the actual people (pool → residents)
 			neighborPeople:    new f.ArrayField(new f.ObjectField()),

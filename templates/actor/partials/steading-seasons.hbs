@@ -1,0 +1,39 @@
+{{!-- The Seasons Change spread (Book I, p.85): the four seasonal moves, each bulleted with its
+      glyph, and the Seasonal gains panel. Params: seasons (SeasonsSnapshot). --}}
+<div class="steading-seasons">
+
+	{{!-- Installer-provided (copyrighted), so absent in a world without Book I art. The frame is what
+	      the grid sizes; the image fills it absolutely, so the plate can never be what makes the row
+	      taller than the gains panel beside it. --}}
+	{{#if seasons.plate}}
+		<div class="steading-seasons-plate">
+			<img src="{{seasons.plate}}" alt="">
+		</div>
+	{{/if}}
+
+	<section class="steading-seasons-gains steading-panel-frame">
+		{{> "stonetop.panel-frame"}}
+		<h2>{{localize "stonetop.steading.seasons.gainsTitle"}}</h2>
+		<p class="steading-seasons-hint">{{localize "stonetop.steading.seasons.gainsHint"}}</p>
+		{{#with seasons.gains}}{{> "stonetop.choice-group" cgContext="steading"}}{{/with}}
+	</section>
+
+	<section class="steading-seasons-moves steading-panel-frame">
+		{{> "stonetop.panel-frame"}}
+		{{#if seasons.moves}}
+			{{!-- alwaysShowResource: the seasonal moves are a fixed set, so their resource pips show
+			      whether or not the move reads as "acquired". --}}
+			{{> "stonetop.move-group"
+			    title=seasons.moves.label
+			    note=seasons.moves.note
+			    moves=seasons.moves.moves
+			    categoryKey=seasons.moves.key
+			    allowAdditional=false
+			    alwaysShowResource=true}}
+		{{else}}
+			<h2>{{localize "stonetop.steading.seasons.movesTitle"}}</h2>
+			<p class="stonetop-moves-empty">{{localize "stonetop.steading.seasons.movesEmpty"}}</p>
+		{{/if}}
+	</section>
+
+</div>

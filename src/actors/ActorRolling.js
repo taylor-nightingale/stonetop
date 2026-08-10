@@ -62,6 +62,7 @@ export class ActorRolling {
 
 		const card = {
 			name: request.buildDisplayName(statKey, resultLabel, request.stat === "prompt"),
+			icon: request.icon,
 			dice: this._display.build(roll, {
 				rollMode: effectiveMode,
 				bonus:    request.stat !== "prompt" ? bonus : null,
@@ -89,7 +90,7 @@ export class ActorRolling {
 
 	async _postDescription(speaker, request) {
 		return postDescriptionCard(speaker,
-			{name: request.label, description: request.description, moveResults: request.moveResults},
+			{name: request.label, icon: request.icon, description: request.description, moveResults: request.moveResults},
 			this._rollData);
 	}
 

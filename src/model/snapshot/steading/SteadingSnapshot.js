@@ -66,27 +66,18 @@ export class ContentSection {
 	}
 }
 
-export class ExcitesRowSnapshot {
-	// One player character's answer to "what excites you most about playing them?" (Book I, p.30).
-	constructor(actorId, name, answer) {
-		this.actorId = actorId;
-		this.name = name;
-		this.answer = answer;      // edit-only (rendered into a textarea) — stays a raw string
-	}
-}
 
-export class FirstSessionSnapshot {
-	// Destructured like SteadingSnapshot below: `done` and `hasSpringMove` are adjacent booleans,
-	// and positionally there would be nothing to catch them being swapped.
-	constructor({ hopeful, hook, gains, excites, done, hasSpringMove = false }) {
-		this.hopeful = hopeful;    // edit-only — stays a raw string
-		this.hook = hook;          // edit-only — stays a raw string
-		this.gains = gains;        // a ChoiceGroup — the section renders it with the shared choice-row
-		this.excites = excites;
-		this.done = done;
-		// False when the GM has deleted the spring move from this steading — the section then drops
-		// its post-to-chat shortcut rather than offering a button that resolves nothing.
-		this.hasSpringMove = hasSpringMove;
+
+export class SeasonsSnapshot {
+	// `moves` is the ordinary MoveCategorySnapshot — the seasonal glyphs ride on each move's own
+	// icon, so this tab renders through the same move-group as the Moves tab.
+	constructor({ moves = null, gains = null, plate = null }) {
+		this.moves = moves;
+		this.gains = gains;
+		// The harvest plate from the book's Seasons Change spread — a copyrighted illustration, so
+		// null until the art installer has actually produced it. Referencing it regardless would 404
+		// on every render for everyone who hasn't installed (or who only owns Book II).
+		this.plate = plate;
 	}
 }
 
@@ -96,7 +87,7 @@ export class SteadingSnapshot {
 								placesOfInterest, notes, residents, neighbors,
 								contentDescription, content, assets, improvements,
 								residentNames, residentTraits,
-								moves, rollMode, firstSession,
+								moves, seasons, rollMode,
 							}) {
 		this.fortunes = fortunes;
 		this.surplus = surplus;
@@ -116,8 +107,8 @@ export class SteadingSnapshot {
 		this.residentTraitsText = (residentTraits ?? []).join("\n");
 		this.improvementColumns = splitIntoImprovementColumns(improvements ?? []);
 		this.moves    = moves    ?? [];
+		this.seasons  = seasons  ?? null;
 		this.rollMode = rollMode ?? "normal";
-		this.firstSession = firstSession ?? null;
 	}
 }
 

@@ -96,6 +96,52 @@ describe("StonetopCharacter — choice writes reach the right store", () => {
 		expect(valuesOf(actor, "fol1", "choiceValues").choices.she).toBeTruthy();
 	});
 
+	// Re-clicking the option a "pick 1" row already holds releases it — a radio cannot be unticked,
+	// so without this a pick made by mistake would be permanent.
+	describe("clearing a pick", () => {
+		const she = () => new ChoiceTarget({
+			context: "follower", followerSlug: "enfys", group: "choices", option: "she", siblingsCsv: "he,she",
+		});
+
+		it("releases the option through the same store the pick went to", async () => {
+			const { char, actor } = charWith([followerItem()]);
+			await char.setChoicePickFor(she(), true);
+
+			await char.clearChoicePickFor(she());
+
+			expect(valuesOf(actor, "fol1", "choiceValues").choices.she).toBeFalsy();
+		});
+
+		// Zero, not a dropped key: Foundry deep-merges an update, so omitting it leaves the old value.
+		it("writes zero rather than dropping the key", async () => {
+			const { char, actor } = charWith([followerItem()]);
+			await char.setChoicePickFor(she(), true);
+
+			await char.clearChoicePickFor(she());
+
+			expect(valuesOf(actor, "fol1", "choiceValues").choices.she).toBe(0);
+		});
+
+		// setChoicePickFor(target, false) cannot do this for a pick-1 row: siblings route it through
+		// selectOption, which re-selects instead of clearing.
+		it("succeeds where unchecking the pick would have re-selected it", async () => {
+			const { char, actor } = charWith([followerItem()]);
+			await char.setChoicePickFor(she(), true);
+
+			await char.setChoicePickFor(she(), false);
+			expect(valuesOf(actor, "fol1", "choiceValues").choices.she).toBe(1);
+
+			await char.clearChoicePickFor(she());
+			expect(valuesOf(actor, "fol1", "choiceValues").choices.she).toBe(0);
+		});
+
+		it("ignores a target whose context nothing registered", async () => {
+			const { char, actor } = charWith([followerItem()]);
+			await char.clearChoicePickFor(new ChoiceTarget({ context: "not-a-thing", group: "g", option: "o" }));
+			expect(valuesOf(actor, "fol1", "choiceValues")).toEqual({});
+		});
+	});
+
 	it("routes a move count to that move's pickValues, under the row's own group", async () => {
 		const { char, actor } = charWith([moveItem()]);
 

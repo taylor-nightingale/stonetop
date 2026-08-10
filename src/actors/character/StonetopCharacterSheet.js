@@ -2,6 +2,7 @@ import { FoundryPlaybookRepository } from "./repositories/FoundryPlaybookReposit
 import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { confirmDelete } from "../../utils/confirmDelete.js";
 import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
+import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 import { ChoiceTarget } from "./ChoiceTarget.js";
 import { takeTagInputValue } from "../../utils/takeTagInputValue.js";
 
@@ -221,6 +222,11 @@ export function createStonetopCharacterSheetClass(Base) {
 		async _onFirstRender(context, options) {
 			await super._onFirstRender(context, options);
 			this._buildChangeRouter().attach(this.element);
+			// Every choice row on the sheet, through the one shared description of how one behaves.
+			new ChoiceGroupWiring(this._stonetopCharacter, {
+				when:   () => this.isEditable,
+				onPick: el => this._syncInstinctBox(el),
+			}).attach(this.element);
 		}
 
 		// submitOnChange (from the actor base) makes core submit the WHOLE form on every change.
@@ -271,14 +277,6 @@ export function createStonetopCharacterSheetClass(Base) {
 				selectBackground: el => char.selectBackground(el.value),
 				selectOrigin:     el => char.origin.select(el.value),
 				instinctCustom:   el => char.selectCustomInstinct(el.value.trim()),
-
-				// choice groups (shared partial rows; the ChoiceTarget owns the container routing)
-				cgTrack: el => char.setChoiceTrackFor(ChoiceTarget.fromElement(el), el.dataset.cgIndex, el.checked),
-				cgPick:  el => {
-					this._syncInstinctBox(el);
-					return char.setChoicePickFor(ChoiceTarget.fromElement(el), el.checked);
-				},
-				cgText:        el => char.setChoiceTextFor(ChoiceTarget.fromElement(el), el.value),
 				arcanumBlank:  el => {
 					const card = el.closest(".stonetop-arcanum-card");
 					if (card) return char.setArcanumBlank(card.dataset.slug, el.dataset.blankKey, el.value);

@@ -2,10 +2,11 @@ import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { bindAll } from "../../utils/bindAll.js";
 import { bindConfirmedDeletes } from "../../utils/bindConfirmedDeletes.js";
 import { loadAllSteadfasts } from "./applySteadfast.js";
-import { ChoiceTarget } from "../character/ChoiceTarget.js";
+import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 
 // View adapter only: every handler reads values off the event and calls ONE named method on the
-// typed steading (or a composed part of it) — parsing, matching, and routing decisions live there.
+// typed steading — parsing, matching, and routing decisions live there. Never reach through it into
+// a composed part: the steading's composition is its own business.
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
 		constructor(...args) {
@@ -20,7 +21,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			actions: {
 				// Not edit-gated: posting a move's text to chat mutates nothing.
 				moveToChat(ev, target) {
-					return this._stonetopSteading.moves.sendToChat(target.dataset.moveSlug);
+					return this._stonetopSteading.sendMoveToChat(target.dataset.moveSlug);
 				},
 			},
 		};
@@ -32,7 +33,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			primary: {
 				tabs: [
 					{ id: "overview" }, { id: "residents" }, { id: "neighbors" },
-					{ id: "improvements" }, { id: "moves" }, { id: "notes" },
+					{ id: "improvements" }, { id: "moves" }, { id: "seasons" }, { id: "notes" },
 				],
 				initial: "overview",
 			},
@@ -50,11 +51,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			const ctx = await super._prepareContext(options);
 			ctx.actor    = this.actor;
 			ctx.editable = this.isEditable;
-			// Who's looking, not what the steading is — so it belongs here rather than in the
-			// snapshot. Gates the first-session section, which is GM-facing prep, not player-facing.
-			// Hides only: the steading document itself syncs to every observer either way.
-			ctx.isGM = !!globalThis.game?.user?.isGM;
-			ctx.stonetop = await this._stonetopSteading.buildSnapshot({ isGM: ctx.isGM });
+			ctx.stonetop = await this._stonetopSteading.buildSnapshot();
 			await enrichRichTextTree(ctx.stonetop, this.actor?.getRollData?.() ?? {});
 			// The steadfast picker at the top of the sheet: every steadfast + the one this steading uses.
 			// The list is stashed so the name combobox's change handler can resolve a picked/typed name.
@@ -82,11 +79,11 @@ export function createStonetopSteadingSheetClass(Base) {
 			if (this.isEditable && document?.uuid) {
 				const s = this._stonetopSteading;
 				const neighborRow = event.target.closest?.(".steading-neighbor-row");
-				if (neighborRow) return void await s.neighborPeople.linkDocument(neighborRow.dataset.id, document.uuid);
+				if (neighborRow) return void await s.linkNeighbor(neighborRow.dataset.id, document.uuid);
 				const residentRow = event.target.closest?.(".steading-resident-row");
-				if (residentRow) return void await s.residents.linkDocument(residentRow.dataset.id, document.uuid);
+				if (residentRow) return void await s.linkResident(residentRow.dataset.id, document.uuid);
 				const placeRow = event.target.closest?.(".stonetop-places-row");
-				if (placeRow) return void await s.placesOfInterest.linkDocument(Number(placeRow.dataset.index), document.uuid);
+				if (placeRow) return void await s.linkPlace(Number(placeRow.dataset.index), document.uuid);
 			}
 			return super._onDropDocument(event, document);
 		}
@@ -97,26 +94,9 @@ export function createStonetopSteadingSheetClass(Base) {
 			await super._onFirstRender(context, options);
 			const root = this.element;
 
-			// Improvements — the tracks are checkbox groups; capture so the group's own toggle logic
-			// doesn't swallow the change first.
-			root.addEventListener("change", async ev => {
-				if (!this.isEditable) return;
-				const el = ev.target.closest(".stonetop-cg-track");
-				if (!el || el.dataset.cgContext !== "improvement") return;
-				const { cgGroup, cgOption, cgIndex } = el.dataset;
-				await this._stonetopSteading.improvements.toggleTrack(cgGroup, cgOption, cgIndex, el.checked);
-			}, true);
-
-			// Choice-group picks (the seasonal gains). Capture for the same reason as the tracks
-			// above; a radio row arrives already checked and clears its siblings through the target.
-			// Guarded on the context: an embedded move's picks live in that ITEM's pickValues, so
-			// routing them to the steading's store would write somewhere nothing reads back.
-			root.addEventListener("change", async ev => {
-				if (!this.isEditable) return;
-				const el = ev.target.closest(".stonetop-cg-pick");
-				if (!el || el.dataset.cgContext !== "steading") return;
-				await this._stonetopSteading.choices.setPickFor(ChoiceTarget.fromElement(el), el.checked);
-			}, true);
+			// Every choice row on the sheet — improvement tracks, seasonal gains — through the one
+			// shared description of how a choice row behaves.
+			new ChoiceGroupWiring(this._stonetopSteading, { when: () => this.isEditable }).attach(root);
 
 			// Homefront move resource pips (click) + free-text resource (change). Roll clicks
 			// (.rollable) are handled by the base's delegated rollable listener.
@@ -126,14 +106,14 @@ export function createStonetopSteadingSheetClass(Base) {
 				if (!btn || btn.dataset.moveSlug === undefined) return;
 				ev.stopPropagation();
 				ev.stopImmediatePropagation();
-				await this._stonetopSteading.moves.toggleResourcePip(
+				await this._stonetopSteading.toggleMoveResourcePip(
 					btn.dataset.moveSlug, btn.dataset.index, btn.classList.contains("is-checked"));
 			}, true);
 			root.addEventListener("change", async ev => {
 				if (!this.isEditable) return;
 				const el = ev.target.closest(".stonetop-resource-input");
 				if (!el || el.dataset.moveSlug === undefined) return;
-				await this._stonetopSteading.moves.setMoveResourceText(el.dataset.moveSlug, el.value);
+				await this._stonetopSteading.setMoveResourceText(el.dataset.moveSlug, el.value);
 			}, true);
 		}
 
@@ -166,136 +146,123 @@ export function createStonetopSteadingSheetClass(Base) {
 			bindAll(root, ".steading-box-input[data-attr]", "change", async ev => {
 				const { attr } = ev.currentTarget.dataset;
 				const raw = ev.currentTarget.value;
-				await s.attributes.setValue(attr, attr === "size" ? raw : parseInt(raw));
+				await s.setAttribute(attr, attr === "size" ? raw : parseInt(raw));
 			});
 			bindAll(root, ".stonetop-attr-extra-add", "click", async ev => {
-				await s.attributes.addNewItemToAttribute(ev.currentTarget.dataset.attr);
+				await s.addAttributeItem(ev.currentTarget.dataset.attr);
 			});
 			bindConfirmedDeletes(root, ".stonetop-attr-extra-remove", async ev => {
 				const { attr, index } = ev.currentTarget.dataset;
-				await s.attributes.removeItemFromAttribute(attr, index);
+				await s.removeAttributeItem(attr, index);
 			});
 			bindAll(root, ".stonetop-attr-extra", "change", async ev => {
 				const { attr, index } = ev.currentTarget.dataset;
-				await s.attributes.updateItemOnAttribute(attr, index, ev.currentTarget.value);
+				await s.updateAttributeItem(attr, index, ev.currentTarget.value);
 			});
 
 			// Debilities
 			bindAll(root, ".steading-circle-input", "change", async ev => {
-				await s.debilities.setDebility(ev.currentTarget.dataset.slug, ev.currentTarget.checked);
+				await s.setDebility(ev.currentTarget.dataset.slug, ev.currentTarget.checked);
 			});
 
-			// Let Spring Break Forth (first session)
-			bindAll(root, ".steading-spring-hopeful", "change", async ev => {
-				await s.firstSession.setHopeful(ev.currentTarget.value);
-			});
-			bindAll(root, ".steading-spring-hook", "change", async ev => {
-				await s.firstSession.setHook(ev.currentTarget.value);
-			});
-			bindAll(root, ".steading-spring-excites-answer", "change", async ev => {
-				await s.firstSession.setExcites(ev.currentTarget.dataset.actorId, ev.currentTarget.value);
-			});
-			bindAll(root, ".steading-spring-done", "click", async () => s.firstSession.markDone());
-			bindAll(root, ".steading-spring-reopen", "click", async () => s.firstSession.reopen());
 
 			// Notes
 			bindAll(root, ".stonetop-notes", "change", async ev => s.setNotes(ev.currentTarget.value));
 
 			// Content (free-text textarea per category)
 			bindAll(root, ".stonetop-content-textarea", "change", async ev => {
-				await s.content.updateText(ev.currentTarget.dataset.type, ev.currentTarget.value);
+				await s.updateContentText(ev.currentTarget.dataset.type, ev.currentTarget.value);
 			});
 
 			// Asset items
-			bindAll(root, ".stonetop-asset-item-add", "click", async () => { await s.assets.addItem(); });
+			bindAll(root, ".stonetop-asset-item-add", "click", async () => { await s.addAssetItem(); });
 			bindConfirmedDeletes(root, ".stonetop-asset-item-remove", async ev => {
-				await s.assets.removeItem(parseInt(ev.currentTarget.dataset.index));
+				await s.removeAssetItem(parseInt(ev.currentTarget.dataset.index));
 			});
 			bindAll(root, ".stonetop-asset-item", "change", async ev => {
-				await s.assets.updateItem(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
+				await s.updateAssetItem(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
 			});
 
 			// Coinage
 			bindAll(root, ".stonetop-coinage-purses", "change", async ev => {
-				await s.assets.updatePurses(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
+				await s.updateCoinagePurses(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
 			});
 			bindAll(root, ".stonetop-coinage-handfuls", "change", async ev => {
-				await s.assets.updateHandfuls(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
+				await s.updateCoinageHandfuls(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
 			});
 			bindAll(root, ".stonetop-coinage-coins", "change", async ev => {
-				await s.assets.updateCoins(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
+				await s.updateCoinageCoins(ev.currentTarget.dataset.title, parseInt(ev.currentTarget.value) || 0);
 			});
 
 			// Residents
-			bindAll(root, ".stonetop-resident-add", "click", async () => { await s.residents.add(); });
+			bindAll(root, ".stonetop-resident-add", "click", async () => { await s.addResident(); });
 			bindConfirmedDeletes(root, ".stonetop-resident-remove", async ev => {
-				await s.residents.remove(ev.currentTarget.dataset.id);
+				await s.removeResident(ev.currentTarget.dataset.id);
 			});
 			bindAll(root, ".stonetop-resident-name", "change", async ev => {
-				await s.residents.updateName(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateResidentName(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-resident-occupation", "change", async ev => {
-				await s.residents.updateOccupation(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateResidentOccupation(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-resident-traits", "change", async ev => {
-				await s.residents.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateResidentTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-resident-unlink", "click", async ev => {
-				await s.residents.unlinkDocument(ev.currentTarget.dataset.id);
+				await s.unlinkResident(ev.currentTarget.dataset.id);
 			});
 
 			// Resident traits source textarea — Residents owns the one-per-line parse.
 			bindAll(root, ".steading-npc-traits-source", "change", async ev => {
-				await s.residents.updateTraitsSource(ev.currentTarget.value);
+				await s.updateResidentTraitsSource(ev.currentTarget.value);
 			});
 
 			// Neighbors — people
-			bindAll(root, ".stonetop-neighbor-person-add", "click", async () => { await s.neighborPeople.add(); });
+			bindAll(root, ".stonetop-neighbor-person-add", "click", async () => { await s.addNeighbor(); });
 			bindConfirmedDeletes(root, ".stonetop-neighbor-person-remove", async ev => {
-				await s.neighborPeople.remove(ev.currentTarget.dataset.id);
+				await s.removeNeighbor(ev.currentTarget.dataset.id);
 			});
 			bindAll(root, ".stonetop-neighbor-person-name", "change", async ev => {
-				await s.neighborPeople.updateName(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateNeighborName(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-neighbor-person-occupation", "change", async ev => {
-				await s.neighborPeople.updateOccupation(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateNeighborOccupation(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-neighbor-person-traits", "change", async ev => {
-				await s.neighborPeople.updateTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateNeighborTraits(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-neighbor-person-home", "change", async ev => {
-				await s.neighborPeople.updateHome(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateNeighborHome(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-neighbor-person-unlink", "click", async ev => {
-				await s.neighborPeople.unlinkDocument(ev.currentTarget.dataset.id);
+				await s.unlinkNeighbor(ev.currentTarget.dataset.id);
 			});
 
 			// Neighbors — places
 			bindAll(root, ".stonetop-neighbor-place-note", "change", async ev => {
-				await s.neighborPlaces.updateNote(ev.currentTarget.dataset.id, ev.currentTarget.value);
+				await s.updateNeighborPlaceNote(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 
 			// Places of Interest
-			bindAll(root, ".stonetop-place-add", "click", async () => { await s.placesOfInterest.addBlankPlace(); });
+			bindAll(root, ".stonetop-place-add", "click", async () => { await s.addPlace(); });
 			bindAll(root, ".stonetop-place-field", "change", async ev => {
-				await s.placesOfInterest.setPlaceValue(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
+				await s.setPlaceValue(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
 			});
 			bindAll(root, ".stonetop-place-unlink", "click", async ev => {
-				await s.placesOfInterest.unlinkDocument(parseInt(ev.currentTarget.dataset.index));
+				await s.unlinkPlace(parseInt(ev.currentTarget.dataset.index));
 			});
 
 			// Improvements — revoke (× / right-click); granting is drag-drop via _onDropItem. Track pips
 			// are wired once (delegated) in _onFirstRender.
 			bindConfirmedDeletes(root, ".steading-improvement-remove", async ev => {
-				await s.improvements.revoke(ev.currentTarget.dataset.slug);
+				await s.revokeImprovement(ev.currentTarget.dataset.slug);
 			});
 
 			// The acquisition checkbox toggles the owned move. Resource pips/text are wired once
 			// (delegated) in _onFirstRender.
 			bindAll(root, ".stonetop-move-check", "change", async ev => {
 				const { categoryKey, moveSlug } = ev.currentTarget.dataset;
-				if (ev.currentTarget.checked) await s.moves.incrementMove(categoryKey, moveSlug);
-				else                          await s.moves.decrementMove(categoryKey, moveSlug);
+				await s.setMoveChecked(categoryKey, moveSlug, ev.currentTarget.checked);
 			});
 		}
 	};

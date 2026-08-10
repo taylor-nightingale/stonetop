@@ -137,6 +137,7 @@
 		<a class="item {{tabs.neighbors.cssClass}}" data-action="tab" data-group="primary" data-tab="neighbors">Neighbors</a>
 		<a class="item {{tabs.improvements.cssClass}}" data-action="tab" data-group="primary" data-tab="improvements">Improvements</a>
 		<a class="item {{tabs.moves.cssClass}}" data-action="tab" data-group="primary" data-tab="moves">Moves</a>
+		<a class="item {{tabs.seasons.cssClass}}" data-action="tab" data-group="primary" data-tab="seasons">Seasons</a>
 		<a class="item {{tabs.notes.cssClass}}" data-action="tab" data-group="primary" data-tab="notes">Notes</a>
 	</nav>
 
@@ -165,11 +166,6 @@
 
 			</div>
 
-			{{!-- GM-facing: it's the GM's session-zero prep, and its prompts spoil the reading of the
-			      roll for the table. --}}
-			{{#if isGM}}
-				{{> "stonetop.spring-section" spring=stonetop.firstSession}}
-			{{/if}}
 
 		</div>{{!-- /tab overview --}}
 
@@ -372,6 +368,13 @@
 				{{/each}}
 			</section>
 		</div>{{!-- /tab moves --}}
+
+		{{!-- Seasons Change tab --}}
+		<div class="tab {{tabs.seasons.cssClass}}" data-group="primary" data-tab="seasons">
+			<section class="sheet-tab">
+				{{> "stonetop.steading-seasons" seasons=stonetop.seasons}}
+			</section>
+		</div>{{!-- /tab seasons --}}
 
 		{{!-- Notes tab --}}
 		<div class="tab {{tabs.notes.cssClass}}" data-group="primary" data-tab="notes">

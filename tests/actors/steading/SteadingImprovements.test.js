@@ -12,8 +12,10 @@ function makeRepo(improvements = []) {
 	return repo;
 }
 
-function makeActor(improvements = []) {
-	return new FakeActorBuilder().withSystem({ improvements, improvementValues: {} }).build();
+// `improvementValues` is the stored track/pick state — seeded directly, because these tests are
+// about what buildSnapshot makes of it, not about how it got written.
+function makeActor(improvements = [], improvementValues = {}) {
+	return new FakeActorBuilder().withSystem({ improvements, improvementValues }).build();
 }
 
 const PALISADE_CHOICES = {
@@ -135,56 +137,38 @@ describe("SteadingImprovements.revoke", () => {
 
 	// Progress is deliberately kept: an accidental revoke loses nothing, and a re-grant restores it.
 	it("leaves the improvement's track state in improvementValues", async () => {
-		const actor = makeActor(["palisade"]);
+		const actor = makeActor(["palisade"], { palisade: { done: 1 } });
 		const imp = new SteadingImprovements(actor, palisadeRepo());
-		await imp.setTrack("palisade", "done", 1);
+
 		await imp.revoke("palisade");
 		expect(actor.system.improvementValues).toEqual({ palisade: { done: 1 } });
 
 		await imp.grant("palisade");
-		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].track.checks[0]).toBe(true);
+		expect((await imp.buildSnapshot())[0].list[0].track.checks[0]).toBe(true);
 	});
 
 	it("does not disturb another improvement's track state", async () => {
-		const actor = makeActor(["palisade", "mill"]);
-		const imp = new SteadingImprovements(actor, palisadeRepo());
-		await imp.setTrack("mill", "done", 1);
-		await imp.revoke("palisade");
+		const actor = makeActor(["palisade", "mill"], { mill: { done: 1 } });
+		await new SteadingImprovements(actor, palisadeRepo()).revoke("palisade");
 		expect(actor.system.improvementValues).toEqual({ mill: { done: 1 } });
 	});
 });
 
-describe("SteadingImprovements.setTrack", () => {
-	it("checking a track is reflected in the snapshot", async () => {
-		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
-		await imp.setTrack("palisade", "done", 1);
-		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].track.checks[0]).toBe(true);
+// Writing track state is the steading's job now (setChoiceTrackFor → its ChoiceStores → this
+// improvement's controller); what belongs here is what the snapshot makes of what is stored.
+describe("SteadingImprovements.buildSnapshot — stored track state", () => {
+	const snapshotOf = values =>
+		new SteadingImprovements(makeActor(["palisade"], values), palisadeRepo()).buildSnapshot();
+
+	it("shows a filled track as checked", async () => {
+		expect((await snapshotOf({ palisade: { done: 1 } }))[0].list[0].track.checks[0]).toBe(true);
 	});
 
-	it("clearing a track sets it back to unchecked", async () => {
-		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
-		await imp.setTrack("palisade", "done", 1);
-		await imp.setTrack("palisade", "done", 0);
-		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].track.checks[0]).toBe(false);
-	});
-});
-
-describe("SteadingImprovements.toggleTrack", () => {
-	it("checking pip 0 fills the track to 1", async () => {
-		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
-		await imp.toggleTrack("palisade", "done", "0", true);
-		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].track.checks[0]).toBe(true);
+	it("shows an emptied track as unchecked", async () => {
+		expect((await snapshotOf({ palisade: { done: 0 } }))[0].list[0].track.checks[0]).toBe(false);
 	});
 
-	it("unchecking pip 0 empties the track", async () => {
-		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
-		await imp.toggleTrack("palisade", "done", "0", true);
-		await imp.toggleTrack("palisade", "done", "0", false);
-		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].track.checks[0]).toBe(false);
+	it("shows a track nothing has been stored for as unchecked", async () => {
+		expect((await snapshotOf({}))[0].list[0].track.checks[0]).toBe(false);
 	});
 });

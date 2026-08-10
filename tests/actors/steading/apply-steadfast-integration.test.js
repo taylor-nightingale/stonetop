@@ -5,6 +5,7 @@ import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // End-to-end (real code, mock only Foundry): apply the REAL Stonetop steadfast to a blank steading,
 // then drive the real snapshot + rolling. Catches wiring bugs that per-class unit tests (with
@@ -41,7 +42,7 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 	it("renders a snapshot at Stonetop's starting values", async () => {
 		const actor = blankSteading();
 		await applySteadfast(actor, stonetop);
-		const snap = await new StonetopSteading(actor, improvementsRepo, movesRepo).buildSnapshot();
+		const snap = await new StonetopSteading(actor, steadingRepos({ improvements: improvementsRepo, moves: movesRepo })).buildSnapshot();
 
 		expect(snap).toBeInstanceOf(SteadingSnapshot);
 		// Size is the village tier; its option is the one selected.
@@ -67,7 +68,7 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 	});
 
 	it("shows no 'Starts at …' notes on a blank steading (no steadfast applied)", async () => {
-		const snap = await new StonetopSteading(blankSteading(), improvementsRepo, movesRepo).buildSnapshot();
+		const snap = await new StonetopSteading(blankSteading(), steadingRepos({ improvements: improvementsRepo, moves: movesRepo })).buildSnapshot();
 		expect(snap.fortunes.note.raw).toBe("");
 		expect(snap.surplus.note.raw).toBe("");
 		expect(snap.attributes.size.note.raw).toBe("");
@@ -77,7 +78,7 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 	it("rolls the actual rating values", async () => {
 		const actor = blankSteading();
 		await applySteadfast(actor, stonetop);
-		const steading = new StonetopSteading(actor, improvementsRepo, movesRepo);
+		const steading = new StonetopSteading(actor, steadingRepos({ improvements: improvementsRepo, moves: movesRepo }));
 		expect(steading.resolveBonus("prosperity")).toBe(0);
 		expect(steading.resolveBonus("fortunes")).toBe(1);
 		expect(steading.resolveBonus("surplus")).toBe(1);

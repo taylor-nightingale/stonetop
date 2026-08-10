@@ -9,6 +9,8 @@ import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeSteadingImprovementRepository } from "../../fakes/FakeSteadingImprovementRepository.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { fire, settle } from "../../fakes/domEvents.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
+import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 
 // End-to-end for gaining and losing an improvement in play: a real StonetopSteading + SteadingImprovements
 // + the real confirm-delete gate, behind the sheet's own V2 lifecycle. Only the Foundry boundary is
@@ -37,7 +39,7 @@ const catalog = () => new FakeSteadingImprovementRepository()
 // owns "palisade"; "aetherium-crucible" is the Book II wonder improvement gained later.
 async function makeWiredSheet({ editable = true } = {}) {
 	const actor = new FakeSteadingBuilder()
-		.withTypedActor(a => new StonetopSteading(a, catalog(), new FakeMoveRepository()))
+		.withTypedActor(a => new StonetopSteading(a, steadingRepos({ improvements: catalog(), moves: new FakeMoveRepository() })))
 		.build();
 
 	const sheet = new StonetopSteadingSheet(actor);
@@ -51,7 +53,7 @@ async function makeWiredSheet({ editable = true } = {}) {
 		</div>`;
 	await sheet._onFirstRender({}, {});
 	sheet._onRender({}, {});
-	return { sheet, actor, improvements: actor.typedActor.improvements };
+	return { sheet, actor, steading: actor.typedActor };
 }
 
 // An improvement item as core hands it to the sheet: a resolved Document, hence documentName.
@@ -69,16 +71,18 @@ async function drop(sheet, item) {
 }
 
 const ownedSlugs = actor => actor.system.improvements;
-const renderedSlugs = async improvements => (await improvements.buildSnapshot()).map(g => g.slug);
+// Through the steading's own snapshot — its collaborators are private, and what the sheet
+// renders is what this test is about anyway.
+const renderedSlugs = async steading => (await steading.buildSnapshot()).improvements.map(g => g.slug);
 
 describe("StonetopSteadingSheet — dropping an improvement onto a steading", () => {
 	it("grants the slug and renders the improvement, without embedding an item", async () => {
-		const { sheet, actor, improvements } = await makeWiredSheet();
+		const { sheet, actor, steading } = await makeWiredSheet();
 
 		await drop(sheet, improvementItem("aetherium-crucible", "Aetherium Crucible"));
 
 		expect(ownedSlugs(actor)).toContain("aetherium-crucible");
-		expect(await renderedSlugs(improvements)).toContain("aetherium-crucible");
+		expect(await renderedSlugs(steading)).toContain("aetherium-crucible");
 		expect(actor.items).toHaveLength(0);
 	});
 
@@ -180,7 +184,7 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 	};
 
 	it("asks before removing, naming the improvement, then drops it from the owned list", async () => {
-		const { sheet, actor, improvements } = await makeWiredSheet();
+		const { sheet, actor, steading } = await makeWiredSheet();
 		expect(ownedSlugs(actor)).toContain("palisade");
 
 		await clickRemove(sheet);
@@ -188,7 +192,7 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 		expect(confirmCalls).toHaveLength(1);
 		expect(confirmCalls[0].content).toContain("palisade");
 		expect(ownedSlugs(actor)).not.toContain("palisade");
-		expect(await renderedSlugs(improvements)).not.toContain("palisade");
+		expect(await renderedSlugs(steading)).not.toContain("palisade");
 	});
 
 	it("keeps the improvement when the confirm is declined", async () => {
@@ -222,15 +226,17 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 	// Deliberate: an accidental × costs no progress, and re-granting the improvement restores it —
 	// the same terms on which re-applying a steadfast replaces the owned list.
 	it("keeps the improvement's track state, so a re-grant restores its ticks", async () => {
-		const { sheet, actor, improvements } = await makeWiredSheet();
-		await improvements.setTrack("palisade", "built", 2);
+		const { sheet, actor, steading } = await makeWiredSheet();
+		// Ticking pip 1 fills the track to 2 — the same call the sheet's own track handler makes.
+		await steading.setChoiceTrackFor(new ChoiceTarget({ context: "improvement", group: "palisade", option: "built" }), 1, true);
 
 		await rightClickRemove(sheet);
 		expect(actor.system.improvementValues).toEqual({ palisade: { built: 2 } });
 
-		await improvements.grant("palisade");
-		const snap = await improvements.buildSnapshot();
-		expect(snap.find(g => g.slug === "palisade").list[0].track.checks).toEqual([true, true]);
+		// Re-granted the way a drop does it, through the steading's public surface.
+		await steading.applyDroppedItem({ type: "improvement", system: { slug: "palisade" } });
+		const snap = await steading.buildSnapshot();
+		expect(snap.improvements.find(g => g.slug === "palisade").list[0].track.checks).toEqual([true, true]);
 	});
 
 	it("does not wire the × on a non-editable sheet", async () => {

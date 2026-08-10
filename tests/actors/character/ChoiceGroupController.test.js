@@ -4,6 +4,7 @@ import { FollowerSideEffectHandler } from "../../../src/actors/character/SideEff
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { FakeOutfitItems } from "../../fakes/FakeOutfitItems.js";
+import { ChoiceGroupController, applyPick } from "../../../src/actors/character/ChoiceGroupController.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 

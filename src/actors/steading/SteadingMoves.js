@@ -45,6 +45,7 @@ export class SteadingMoves {
 		}
 	}
 
+
 	// Re-files moves whose stored moveType disagrees with the category they were stamped into — what
 	// happens to already-seeded steadings when a move moves house in the packs. Must run BEFORE a
 	// re-seed: left in the old category, a move looks absent from the new one and seeds a duplicate.
@@ -100,12 +101,6 @@ export class SteadingMoves {
 		await this._resourceController.setText("moves", moveSlug, value);
 	}
 
-	// Whether this steading carries a given move. Callers that offer a shortcut to one named move
-	// (the first-session section's "post Seasons Change: Spring") ask first, so a steading whose GM
-	// deleted it doesn't get a button that silently does nothing.
-	has(moveSlug) {
-		return !!findMoveItemBySlug(this._actor, moveSlug);
-	}
 
 	// Post the move's full text (description + all result tiers) to chat, without rolling.
 	async sendToChat(moveSlug) {
@@ -113,27 +108,37 @@ export class SteadingMoves {
 		if (item) await this._actor.sendItemToChat(item);
 	}
 
-	// One MoveCategorySnapshot per non-empty category, in SteadingMoveCategories order. Descriptions
-	// are left as RichText for the shared enrichRichTextTree pass (run in the sheet's getData) —
-	// buildMoveSnapshot wraps them, no bespoke enrichHTML here.
+	// One MoveCategorySnapshot per non-empty category the Moves TAB lists. Categories that claim a
+	// tab of their own are excluded — their owner asks for them by name via categorySnapshot — so
+	// nothing here or above has to know which key that is.
+	//
+	// Descriptions are left as RichText for the shared enrichRichTextTree pass (run in the sheet's
+	// getData) — buildMoveSnapshot wraps them, no bespoke enrichHTML here.
 	async buildSnapshot() {
-		const categories = [];
-		for (const category of SteadingMoveCategories.all()) {
-			const items = this._sortedMovesIn(category);
-			if (!items.length) continue;
-			const moves = await Promise.all(items.map(item =>
-				buildMoveSnapshot(item, category.key, computeSelectable(item), true, this._resourceController)
-			));
-			categories.push(new MoveCategorySnapshotBuilder()
-				.withKey(category.key)
-				.withLabel(category.label)
-				.withRenderStyle("standard")
-				.withAllowAdditional(false)
-				.withNote(null)
-				.withMoves(moves)
-				.build());
-		}
-		return categories;
+		const built = await Promise.all(SteadingMoveCategories.inMovesList().map(c => this._buildCategory(c)));
+		return built.filter(Boolean);
+	}
+
+	/** One category by key, for the tab that owns it. Null when the steading carries none of its moves. */
+	async categorySnapshot(categoryKey) {
+		const category = SteadingMoveCategories.byKey(categoryKey);
+		return category ? this._buildCategory(category) : null;
+	}
+
+	async _buildCategory(category) {
+		const items = this._sortedMovesIn(category);
+		if (!items.length) return null;
+		const moves = await Promise.all(items.map(item =>
+			buildMoveSnapshot(item, category.key, computeSelectable(item), true, this._resourceController)
+		));
+		return new MoveCategorySnapshotBuilder()
+			.withKey(category.key)
+			.withLabel(category.label)
+			.withRenderStyle("standard")
+			.withAllowAdditional(false)
+			.withNote(null)
+			.withMoves(moves)
+			.build();
 	}
 
 	// The category's own reading order first, then A–Z for whatever it doesn't name. The seed's

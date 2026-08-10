@@ -71,3 +71,4 @@ export async function applyPick(controller, target, checked = true) {
 		? controller.selectOption(target.group, target.option, target.siblingsCsv)
 		: controller.setCount(target.group, target.option, checked ? 1 : 0);
 }
+

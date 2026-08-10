@@ -57,3 +57,29 @@ export async function isArtInstalled(picker = filePicker()) {
 		return false; // browse throws when the directory doesn't exist
 	}
 }
+
+// Whether one installed art file is actually present. `isArtInstalled` above answers "has the user
+// run the installer at all"; this answers "did THIS image come out of it" — Book I is optional, so a
+// world can have wonders art and no steading art. Cached per path: a sheet asks on every render, and
+// the answer only changes when the installer runs.
+const _artFileCache = new Map();
+
+export async function hasArtFile(relPath, picker = filePicker()) {
+	if (_artFileCache.has(relPath)) return _artFileCache.get(relPath);
+	const promise = (async () => {
+		const dir = relPath.slice(0, relPath.lastIndexOf("/"));
+		try {
+			const result = await picker.browse("data", dir);
+			return (result?.files ?? []).some(f => f.endsWith(relPath.slice(relPath.lastIndexOf("/") + 1)));
+		} catch {
+			return false; // browse throws when the directory doesn't exist
+		}
+	})();
+	_artFileCache.set(relPath, promise);
+	return promise;
+}
+
+/** Test seam: forget what has been probed (the installer having just run, say). */
+export function clearArtFileCache() {
+	_artFileCache.clear();
+}

@@ -1,5 +1,6 @@
+import { moveIcon } from "./embeddedMoves.js";
 export class RollRequest {
-	constructor({ stat, rollMode, label, description = "", moveResults = null, xpOnMiss = true, moveSlug = null }) {
+	constructor({ stat, rollMode, label, description = "", moveResults = null, xpOnMiss = true, moveSlug = null, icon = null }) {
 		this.stat = stat;
 		this.rollMode = rollMode;
 		this.label = label;
@@ -9,6 +10,9 @@ export class RollRequest {
 		// Which move is being rolled, for rules scoped to named moves rather than to a stat (the
 		// steading's *diminished* debility). Null for a bare stat roll.
 		this.moveSlug = moveSlug;
+		// The move's own icon, so a chat card shows the same glyph the sheet does. Null for a bare
+		// stat roll, or for a move whose image was never set.
+		this.icon = icon;
 	}
 
 	static fromItem(item, rollStat, rollMode) {
@@ -17,6 +21,7 @@ export class RollRequest {
 			rollMode,
 			label: item.name,
 			moveSlug: item.system?.slug ?? null,
+			icon: moveIcon(item),
 			description: item.system?.description ?? "",
 			moveResults: item.system?.moveResults ?? null,
 			// The book's XP rule applies "unless the move says otherwise" — a move says otherwise

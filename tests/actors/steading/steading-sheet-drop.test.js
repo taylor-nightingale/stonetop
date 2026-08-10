@@ -10,11 +10,12 @@ import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBa
 const StonetopSteadingSheet = createStonetopSteadingSheetClass(FakeCoreActorSheetBase);
 
 function makeSheet({ editable = true } = {}) {
+	// Flat: the sheet may only call named methods on the typed steading.
 	const typedSteading = {
 		applyDroppedItem: vi.fn(async () => false),
-		residents:        { linkDocument: vi.fn(async () => {}) },
-		neighborPeople:   { linkDocument: vi.fn(async () => {}) },
-		placesOfInterest: { linkDocument: vi.fn(async () => {}) },
+		linkResident:     vi.fn(async () => {}),
+		linkNeighbor:     vi.fn(async () => {}),
+		linkPlace:        vi.fn(async () => {}),
 	};
 	const actor = {
 		typedActor: typedSteading, name: "Stonetop", system: { steadfast: "" },
@@ -80,38 +81,38 @@ describe("StonetopSteadingSheet._onDropDocument — linking documents to rows", 
 	it("links an actor dropped on a resident row", async () => {
 		const { sheet, typedSteading } = makeSheet();
 		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), actorDoc);
-		expect(typedSteading.residents.linkDocument).toHaveBeenCalledWith("r1", "Actor.abc");
+		expect(typedSteading.linkResident).toHaveBeenCalledWith("r1", "Actor.abc");
 	});
 
 	it("links a journal dropped on a resident row (any document type)", async () => {
 		const { sheet, typedSteading } = makeSheet();
 		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), journalDoc);
-		expect(typedSteading.residents.linkDocument).toHaveBeenCalledWith("r1", "JournalEntry.j1");
+		expect(typedSteading.linkResident).toHaveBeenCalledWith("r1", "JournalEntry.j1");
 	});
 
 	it("links to the neighbor (not the resident) when the row is a neighbor row", async () => {
 		const { sheet, typedSteading } = makeSheet();
 		await sheet._onDropDocument(dropOnRow(neighborRow, ".stonetop-neighbor-person-name"), actorDoc);
-		expect(typedSteading.neighborPeople.linkDocument).toHaveBeenCalledWith("n1", "Actor.abc");
-		expect(typedSteading.residents.linkDocument).not.toHaveBeenCalled();
+		expect(typedSteading.linkNeighbor).toHaveBeenCalledWith("n1", "Actor.abc");
+		expect(typedSteading.linkResident).not.toHaveBeenCalled();
 	});
 
 	it("links a document dropped on a place-of-interest row", async () => {
 		const { sheet, typedSteading } = makeSheet();
 		await sheet._onDropDocument(dropOnRow(placeRow, ".stonetop-place-field"), journalDoc);
-		expect(typedSteading.placesOfInterest.linkDocument).toHaveBeenCalledWith(2, "JournalEntry.j1");
+		expect(typedSteading.linkPlace).toHaveBeenCalledWith(2, "JournalEntry.j1");
 	});
 
 	it("does not link when the sheet is not editable", async () => {
 		const { sheet, typedSteading } = makeSheet({ editable: false });
 		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), actorDoc);
-		expect(typedSteading.residents.linkDocument).not.toHaveBeenCalled();
+		expect(typedSteading.linkResident).not.toHaveBeenCalled();
 	});
 
 	it("passes a document dropped off any linkable row through to core routing (item embed)", async () => {
 		const { sheet, actor, typedSteading } = makeSheet();
 		await sheet._onDropDocument({ target: document.createElement("div") }, itemDoc);
-		expect(typedSteading.residents.linkDocument).not.toHaveBeenCalled();
+		expect(typedSteading.linkResident).not.toHaveBeenCalled();
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{ type: "possession" }]);
 	});
 });

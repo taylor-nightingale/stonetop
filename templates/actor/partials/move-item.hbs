@@ -25,6 +25,9 @@
 	       {{#if (or locked (and (not (gt selection.value 0)) (not selectable)))}}disabled{{/if}}>
 	{{/if}}
 	{{/if}}
+	{{!-- The one place a move icon renders: every surface that shows a move goes through this body,
+	      so the moves tab, side-bar, arcanum cards and the seasons tab all match. --}}
+	{{#if icon}}<img class="stonetop-move-icon" src="{{icon}}" alt="">{{/if}}
 	<strong class="stonetop-item-name">{{name}}</strong>
 	{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 	{{!-- Any move that rolls shows its die, ticked or not: the check marks what the character has

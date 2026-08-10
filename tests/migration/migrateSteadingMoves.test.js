@@ -4,6 +4,7 @@ import { StonetopSteading } from "../../src/actors/steading/StonetopSteading.js"
 import { FakeSteadingBuilder } from "../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../fakes/FakeCompendiumMoveBuilder.js";
+import { steadingRepos } from "../fakes/FakeSteadingRepos.js";
 
 const compendiumMove = (name, moveType) =>
 	new FakeCompendiumMoveBuilder().withName(name).withMoveType(moveType).build();
@@ -12,7 +13,7 @@ function steadingWith(...compendiumMoves) {
 	const repo = new FakeMoveRepository();
 	compendiumMoves.forEach(m => repo.addBasic(m));
 	const actor = new FakeSteadingBuilder()
-		.withTypedActor(a => new StonetopSteading(a, { getBySlug: async () => null }, repo))
+		.withTypedActor(a => new StonetopSteading(a, steadingRepos({ improvements: { getBySlug: async () => null }, moves: repo })))
 		.build();
 	return actor;
 }
@@ -42,7 +43,7 @@ describe("migrateSteadingMoves", () => {
 	// to happen first, or the backfill embeds a second copy of each.
 	it("re-files a move the packs moved to another category instead of duplicating it", async () => {
 		const actor = steadingWith(compendiumMove("Seasons Change: Spring", "seasons"));
-		await actor.typedActor.moves.addMove(compendiumMove("Seasons Change: Spring", "homefront"));
+		await actor.typedActor.applyDroppedItem(compendiumMove("Seasons Change: Spring", "homefront"));
 		actor.items[0].system.moveType = "seasons";   // the packs re-typed it
 
 		await migrateSteadingMoves(actor);

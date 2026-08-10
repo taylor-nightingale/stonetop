@@ -109,6 +109,7 @@ export class FakeSteadingBuilder {
 					"weapons-of-war", "well-trained-militia",
 				],
 				improvementValues: {},
+				choiceValues: {},
 				resources: { counts: {}, texts: {} },
 			},
 			flags: {},
@@ -133,7 +134,12 @@ export class FakeSteadingBuilder {
 			for (const update of updates) {
 				const item = items.get(update._id);
 				if (!item) continue;
-				if (update.name !== undefined) item.name = update.name;
+				// Every top-level field a real update can carry (name, img, …), not just the two the
+				// first caller happened to need.
+				for (const [key, value] of Object.entries(update)) {
+					if (key === "_id" || key === "system") continue;
+					item[key] = value;
+				}
 				if (update.system) for (const [key, value] of Object.entries(update.system)) item.system[key] = value;
 			}
 			return updates;

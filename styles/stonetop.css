@@ -3807,172 +3807,6 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 
-/* ── Let Spring Break Forth (first session) ───────────────────────────────────── */
-
-.stonetop.sheet.steading .steading-spring {
-	margin-top: 12px;
-}
-
-.stonetop.sheet.steading .steading-spring-title {
-	display: flex;
-	gap: 8px;
-	/* Centered, not baseline: the badge is a bordered box, and baseline-aligning it pushes its border
-	   above the title's cap height and into the panel's top edge. */
-	align-items: center;
-	flex-wrap: wrap;
-}
-
-.stonetop.sheet.steading .steading-spring-gm-only {
-	padding: 0 5px;
-	/* Keeps the bordered box shorter than the h2's own min-height (1.4em of --fs-note), so the pill
-	   can never be what makes the heading taller. */
-	line-height: 1.3;
-	border: 1px solid rgba(0, 0, 0, 0.35);
-	border-radius: 8px;
-	font-weight: normal;
-	font-size: var(--fs-micro);
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	white-space: nowrap;
-	opacity: 0.75;
-}
-
-.stonetop.sheet.steading .steading-spring-preamble,
-.stonetop.sheet.steading .steading-spring-wrap-up {
-	margin: 0 0 10px;
-	font-size: var(--fs-body);
-}
-
-.stonetop.sheet.steading .steading-spring-wrap-up {
-	margin-top: 10px;
-	padding-top: 8px;
-	border-top: 1px solid rgba(0,0,0,0.15);
-}
-
-
-
-
-.stonetop.sheet.steading .steading-spring-hopeful,
-.stonetop.sheet.steading .steading-spring-hook,
-.stonetop.sheet.steading .steading-spring-excites-answer {
-	width: 100%;
-	font-size: var(--fs-body);
-}
-
-.stonetop.sheet.steading .steading-spring-omens {
-	list-style: none;
-	margin: 0 0 10px;
-	padding: 0;
-}
-
-.stonetop.sheet.steading .steading-spring-omens li {
-	display: flex;
-	gap: 8px;
-	align-items: baseline;
-	margin-bottom: 4px;
-	font-size: var(--fs-note);
-}
-
-.stonetop.sheet.steading .steading-spring-omen-tier {
-	flex: 0 0 2.6em;
-	font-weight: bold;
-}
-
-.stonetop.sheet.steading .steading-spring-gains-title {
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	font-size: var(--fs-note);
-}
-
-.stonetop.sheet.steading .steading-spring-hint {
-	display: block;
-	font-weight: normal;
-	text-transform: none;
-	letter-spacing: 0;
-	font-size: var(--fs-fine);
-	font-style: italic;
-	opacity: 0.75;
-}
-
-.stonetop.sheet.steading .steading-spring-gains {
-	margin: 0 0 10px;
-}
-
-.stonetop.sheet.steading .steading-spring-hook-label,
-.stonetop.sheet.steading .steading-spring-excites-prompt {
-	display: block;
-	margin-bottom: 3px;
-	font-size: var(--fs-note);
-	font-weight: bold;
-}
-
-.stonetop.sheet.steading .steading-spring-excites {
-	list-style: none;
-	margin: 6px 0 0;
-	padding: 0;
-}
-
-.stonetop.sheet.steading .steading-spring-excites-row {
-	margin-bottom: 8px;
-}
-
-.stonetop.sheet.steading .steading-spring-empty {
-	font-size: var(--fs-note);
-	font-style: italic;
-	opacity: 0.75;
-}
-
-.stonetop.sheet.steading .steading-assets-column {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
-
-.stonetop.sheet.steading .steading-assets-text-field {
-	flex: 1;
-}
-
-.stonetop.sheet.steading .steading-assets-text-field textarea {
-	min-height: 80px;
-}
-
-.stonetop.sheet.steading .steading-asset-currency-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 4px;
-}
-
-.stonetop.sheet.steading .steading-asset-currency-frame {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2px;
-	border: 1px solid rgba(0,0,0,0.2);
-	border-radius: 3px;
-	padding: 4px 6px;
-	background: rgba(255,255,255,0.3);
-	font-size: var(--fs-micro);
-	cursor: default;
-}
-
-.stonetop.sheet.steading .steading-asset-currency-frame span {
-	font-size: var(--fs-micro);
-	color: var(--color-text-dark-secondary, #555);
-	white-space: nowrap;
-}
-
-.stonetop.sheet.steading .steading-asset-currency-frame input {
-	width: 100%;
-	text-align: center;
-	border: none;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-	background: transparent;
-	font-size: var(--fs-body);
-	font-family: var(--font-primary);
-	padding: 1px 2px;
-}
-
 /* ── Residents tab ───────────────────────────────────────────────────────────── */
 
 .stonetop.sheet.steading .steading-residents-grid {
@@ -4321,6 +4155,92 @@ button.stonetop-xp-toggle {
 	/* Above the panel's content (3), not just its edges — the choice rows below span the full width
 	   and would otherwise swallow the click in this corner. */
 	z-index: 4;
+}
+
+/* ── Seasons Change tab ──────────────────────────────────────────────────────── */
+
+/* Gains beside the plate, as the book prints them. `auto` on the art column lets it take only what
+   the image needs, so the gains keep the rest. */
+.stonetop.sheet.steading .steading-seasons {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(200px, 32%);
+	grid-template-areas:
+		"gains plate"
+		"moves moves";
+	gap: 10px;
+	align-items: start;
+}
+
+/* The seasons tab is the query container, so the layout below responds to the SHEET's width — a
+   viewport media query can't, since a Foundry sheet is resized inside a window that never changes
+   size. NAMED, so the query below can only ever resolve to this element: an unnamed one binds to
+   whatever the nearest container ancestor happens to be, which is a silent trap if another gets
+   added above it later. */
+.stonetop.sheet.steading .tab[data-tab="seasons"] {
+	container-type: inline-size;
+	container-name: steading-seasons;
+}
+
+.stonetop.sheet.steading .steading-seasons-gains { grid-area: gains; }
+.stonetop.sheet.steading .steading-seasons-moves { grid-area: moves; }
+
+/* The frame stretches to the row, which the gains panel beside it sizes. Its own content height is
+   zero (the image inside is absolutely positioned and so out of flow), so the plate can never push
+   the row taller than the gains — it matches that height exactly and stops there. `overflow: hidden`
+   is belt-and-braces: whatever the image does, it is clipped to the frame. */
+.stonetop.sheet.steading .steading-seasons-plate {
+	grid-area: plate;
+	align-self: stretch;
+	position: relative;
+	min-height: 0;
+	overflow: hidden;
+}
+
+/* Black line art on transparent, so it sits straight on the parchment. The plate is ~2:1 wide and
+   the frame is tall, so `cover` crops its sides rather than letterboxing it in the column. */
+.stonetop.sheet.steading .steading-seasons-plate img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	border: none;
+}
+
+/* Narrow sheet: one column, and the plate goes. It is decoration — the gains and moves are the
+   content, and squeezing the art would only steal width from them. The threshold is generous: below
+   this the art column is too slim to read as anything but a sliver. */
+@container steading-seasons (max-width: 1000px) {
+	.stonetop.sheet.steading .steading-seasons {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas: "gains" "moves";
+	}
+
+	.stonetop.sheet.steading .steading-seasons-plate {
+		display: none;
+	}
+}
+
+
+
+
+/* A move's icon, wherever a move renders — moves tab, side-bar, arcanum cards, seasons, chat. */
+.stonetop .stonetop-move-icon {
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+	object-fit: contain;
+	border: none;
+	vertical-align: text-bottom;
+	margin-right: 2px;
+}
+
+.stonetop.sheet.steading .steading-seasons-hint {
+	margin: 0 0 6px;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	opacity: 0.75;
 }
 
 /* ── Notes tab ───────────────────────────────────────────────────────────────── */
