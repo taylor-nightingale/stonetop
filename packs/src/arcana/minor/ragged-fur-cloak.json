@@ -6,9 +6,68 @@
 	"system": {
 		"slug": "ragged-fur-cloak",
 		"front": {
-			"item": null,
+			"item": {
+				"name": "A ragged fur cloak",
+				"weight": 1,
+				"tags": "warm, magical",
+				"note": null,
+				"inventoryColumn": "regular"
+			},
 			"tags": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "ragged-fur-cloak",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The hide of some unknown, black-furred beast. Its bristles are stiff and the air nearby is always chill."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_don the cloak_**, you can tolerate even the bitterest cold and can see in darkest shadow, but bright light hurts your eyes and the warmth of even a campfire is almost too much to bear.\n\nThere’s more to this ragged fur, to be sure. To unlock its secrets, you must…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… wear it continuously for seven days and seven nights."
+							},
+							"slug": "wear-continuously",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… stalk a warm-blooded beast on a moonless night, smearing its blood on the fur."
+							},
+							"slug": "stalk-warm",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… suffer (or self-inflict) a grievous wound while wearing the fur, drenching it in your own fresh blood."
+							},
+							"slug": "suffer-self",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Darkwalker Cloak",

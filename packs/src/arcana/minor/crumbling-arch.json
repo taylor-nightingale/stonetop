@@ -7,8 +7,61 @@
 		"slug": "crumbling-arch",
 		"front": {
 			"item": null,
-			"tags": null,
-			"choices": []
+			"tags": "magical",
+			"choices": [
+				{
+					"slug": "crumbling-arch",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "On a rare dry spot in Ferrier’s Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can learn the secrets of the sanctifying mark, but to do so you must…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… purify yourself in fresh, clean water."
+							},
+							"slug": "purify-yourself",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… calm your mind, gaze upon the sigil, and roll +WIS: **on a 10+**, the sigil becomes clear; **on a 7-9**, the sigil will become clear after a few more days in contemplation; **on a 6-**, the sigil is beyond your ability to learn."
+							},
+							"slug": "calm-mind",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend a few days memorizing and practicing the sigil."
+							},
+							"slug": "spend-few",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Sanctifying Mark",

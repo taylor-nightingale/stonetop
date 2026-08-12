@@ -86,19 +86,51 @@ export const MANUAL_EDITS = {
 	],
 };
 
+// The same treatment for the arcana pack source, keyed by arcanum slug and applied by build-arcana.js
+// to every string in the written `system` (front and back alike). Same guideline: parser bugs get
+// fixed in the parser — this is for the book's own text, which the parser must reproduce faithfully.
+export const ARCANA_EDITS = {
+	"cloak-richly-embroidered": [
+		{ find: "exquisitly", replace: "exquisitely", note: "book typo in the cloak's front description" },
+	],
+};
+
+function replaceAll(text, edits) {
+	let out = text, applied = [];
+	for (const e of edits) {
+		const next = e.find instanceof RegExp ? out.replace(e.find, e.replace) : out.split(e.find).join(e.replace);
+		if (next !== out) applied.push(e);
+		out = next;
+	}
+	return { text: out, applied };
+}
+
+const missedNotes = (edits, applied) => edits.filter((e) => !applied.includes(e)).map((e) => e.note || String(e.find));
+
 /**
  * Apply the manual edits for one article's rendered HTML. Returns `{ html, applied, misses }` where
  * `misses` lists edits whose `find` matched nothing (callers should surface these).
  */
 export function applyManualEdits(html, slug) {
 	const edits = MANUAL_EDITS[slug] || [];
-	let out = html, applied = 0;
-	const misses = [];
-	for (const e of edits) {
-		const next = e.find instanceof RegExp ? out.replace(e.find, e.replace) : out.split(e.find).join(e.replace);
-		if (next === out) misses.push(e.note || String(e.find));
-		else applied++;
-		out = next;
-	}
-	return { html: out, applied, misses };
+	const { text, applied } = replaceAll(html, edits);
+	return { html: text, applied: applied.length, misses: missedNotes(edits, applied) };
+}
+
+/**
+ * Apply one arcanum's edits to every string in its `system`, returning a corrected clone plus the
+ * `misses` whose `find` matched nothing. An edit may legitimately match in several places (the same
+ * wording on front and back), so an edit counts as applied if it hit anywhere.
+ */
+export function applyArcanaEdits(system, slug) {
+	const edits = ARCANA_EDITS[slug] || [];
+	if (!edits.length) return { system, misses: [] };
+	const hit = new Set();
+	const walk = (v) => {
+		if (typeof v === "string") { const { text, applied } = replaceAll(v, edits); applied.forEach((e) => hit.add(e)); return text; }
+		if (Array.isArray(v)) return v.map(walk);
+		if (v && typeof v === "object") return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x)]));
+		return v;
+	};
+	return { system: walk(system), misses: missedNotes(edits, [...hit]) };
 }

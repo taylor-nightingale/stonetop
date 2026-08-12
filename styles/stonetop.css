@@ -1412,10 +1412,27 @@ body,
 /* "Selected only" filter. Purely CSS: the sheet stamps .hide-unselected on the tab, the rows carry
    .move-unselected, so ticking a move never rebuilds the tab. A group whose rows all hide collapses
    with them — otherwise review mode is a column of empty headings. */
+/* Out of flow so the filter rides the first group's heading line: in flow it owned a row of its
+   own, leaving an empty band between the tab's top border and the heading. The heading it overlays
+   is a bare text line, shorter than the button, so the button's height is declared here and the
+   heading reserves exactly that — otherwise the button hangs over the divider beneath it. */
+.tab.moves .sheet-tab {
+	position: relative;
+	--moves-filter-height: 20px;
+}
+
 .stonetop-moves-toolbar {
-	display: flex;
-	justify-content: flex-end;
-	margin: 0 0 4px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+}
+
+/* Height clears the divider below the heading; padding keeps a long group note from running under
+   the button. */
+.stonetop-moves-toolbar + .stonetop-move-group .stonetop-move-group-title {
+	min-height: var(--moves-filter-height);
+	padding-right: 130px;
 }
 
 button.stonetop-moves-filter {
@@ -1423,9 +1440,10 @@ button.stonetop-moves-filter {
 	align-items: center;
 	gap: 6px;
 	width: auto;
-	padding: 1px 10px;
+	height: var(--moves-filter-height);
+	padding: 0 10px;
 	font-size: var(--fs-fine);
-	line-height: 1.7;
+	line-height: 1;
 	opacity: 0.7;
 	cursor: pointer;
 }
@@ -4240,6 +4258,15 @@ button.stonetop-xp-toggle {
 		"moves moves";
 	gap: 10px;
 	align-items: start;
+}
+
+/* No installed plate, no art column: the plate is absent from the DOM entirely in a world without
+   Book I art, and the gains panel should take the row rather than keep a third of it empty. */
+.stonetop.sheet.steading .steading-seasons:not(:has(.steading-seasons-plate)) {
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas:
+		"gains"
+		"moves";
 }
 
 /* The seasons tab is the query container, so the layout below responds to the SHEET's width — a

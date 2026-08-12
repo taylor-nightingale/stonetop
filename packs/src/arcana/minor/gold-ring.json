@@ -7,8 +7,61 @@
 		"slug": "gold-ring",
 		"front": {
 			"item": null,
-			"tags": null,
-			"choices": []
+			"tags": "magical",
+			"choices": [
+				{
+					"slug": "gold-ring",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can unlock the secrets of this ring, but must first…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… wear the ring continuously for 40 days, witnessing the sunrise each day."
+							},
+							"slug": "wear-ring",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… perform an act of charity while wearing the ring, one that changes the recipient’s life."
+							},
+							"slug": "perform-act",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… participate in the devout and proper worship of Helior."
+							},
+							"slug": "participate-in",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Helior’s Shining Ring",

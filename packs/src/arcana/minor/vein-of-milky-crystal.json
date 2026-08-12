@@ -7,8 +7,72 @@
 		"slug": "vein-of-milky-crystal",
 		"front": {
 			"item": null,
-			"tags": null,
-			"choices": []
+			"tags": "magical, beautiful, immobile",
+			"choices": [
+				{
+					"slug": "vein-of-milky-crystal",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must..."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… personally extract a large hunk of crystal (Value 1) from the vein."
+							},
+							"slug": "personally-extract",
+							"track": {
+								"max": 2
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… have a gemcutter shape and polish it into a perfect sphere (a Value 1 job)."
+							},
+							"slug": "have-gemcutter",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… learn the sacred words for imbuing a moonstone with light and then calling that light forth."
+							},
+							"slug": "learn-sacred",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… spend three nights under the full moon, speaking the sacred words, risking a mistake that ruins the moonstone or at least wastes your efforts this month."
+							},
+							"slug": "spend-three",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Moonstone",

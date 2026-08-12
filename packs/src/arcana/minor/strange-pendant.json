@@ -7,8 +7,61 @@
 		"slug": "strange-pendant",
 		"front": {
 			"item": null,
-			"tags": null,
-			"choices": []
+			"tags": "magical",
+			"choices": [
+				{
+					"slug": "strange-pendant",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A strange charm on a simple leather cord, like a scale of some shimmering material. It’s cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the secrets of the pendant…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… wear it ceaselessly for a lunar cycle, answering its questions honestly."
+							},
+							"slug": "wear-ceaselessly",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… hold yourself underwater until you risk drowning."
+							},
+							"slug": "hold-yourself",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… drown another person, and offer their last gasps to the pendant."
+							},
+							"slug": "drown-another",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "The Drowning Scale",

@@ -419,14 +419,17 @@ export function splitFrontFollower(blocks) {
 }
 
 /** Build the front side from its blocks (already bounded to one card's front). */
-export function parseFront(blocks, { name, slug }) {
+export function parseFront(blocks, { name, slug, major = false }) {
 	// No `title`: the arcanum's document name IS the front's heading (only the back carries its own title).
 	// `name` is still needed below, to name the front's ◇ item and its front-granted move.
 	const front = { item: null, tags: null, description: null, unlock: null };
 	// A card that prints its follower on the FRONT (the Ring of Daagon) carries a second stat-block
 	// heading + tags para inside the front span. Pull it out before parsing the unlock, and stash the
 	// raw follower lines on the front for build-arcana to turn into a follower doc + unlock entry.
-	const ff = splitFrontFollower(blocks);
+	// Majors only: no minor card has a front-resident follower, and the split's "second heading + tags
+	// para" signature matches an ordinary minor front whenever a stray heading precedes the card title,
+	// swallowing the whole front into `_frontFollower` (which is then dropped on write).
+	const ff = major ? splitFrontFollower(blocks) : { followerLines: null };
 	if (ff.followerLines) {
 		blocks = ff.blocks;
 		front._frontFollower = { lines: ff.followerLines, loyaltyMax: ff.loyaltyMax };

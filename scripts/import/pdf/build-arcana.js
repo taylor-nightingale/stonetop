@@ -26,6 +26,7 @@ import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveR
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
+import { applyArcanaEdits } from "./manual-edits.js";
 import { toRollTableDoc, TABLE_PACK } from "./tables.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
@@ -94,6 +95,16 @@ function emitFrontMove(front, resourceBySlug = new Map()) {
 function stripTransient(side) {
 	const out = {};
 	for (const [k, v] of Object.entries(side ?? {})) if (!k.startsWith("_")) out[k] = v;
+	return out;
+}
+
+// The parser reproduces the book faithfully, typos and all; ARCANA_EDITS carries the per-arcanum
+// corrections. Every write goes through here, and an edit that matches nothing is collected for the
+// review (so a correction that quietly stops applying surfaces instead of vanishing).
+const editMisses = [];
+function edited(system, slug) {
+	const { system: out, misses } = applyArcanaEdits(system, slug);
+	for (const m of misses) editMisses.push(`- \`${slug}\`: ${m}`);
 	return out;
 }
 
@@ -261,7 +272,7 @@ for (const range of ranges) {
 	// Fronts: anchored on arcanum names, bounded at the "front" label.
 	for (const { rec, blocks: bl } of segmentBy(blocks, byName, /^front$/i))
 		if (!parsedFront.has(rec.slug)) {
-			parsedFront.set(rec.slug, parseFront(bl, { name: rec.doc.name, slug: rec.slug }));
+			parsedFront.set(rec.slug, parseFront(bl, { name: rec.doc.name, slug: rec.slug, major: rec.tier === "major" }));
 		}
 	// Backs: majors are segmented by the front→back label span (robust to a missing/mis-placed
 	// "Mysteries of X" title); minors still anchor on the existing back.title, bounded at "back".
@@ -375,7 +386,7 @@ for (const rec of bySlug.values()) {
 		back = foldBackChoices(emitArcanaMoves(back, resourceBySlug), followerGroup);
 		// A front-granted move (the Codex's CAST A CODEX SPELL) → its move pack file; strips `_frontMove`.
 		const outFront = stripTransient(emitFrontMove(front, resourceBySlug));
-		const sys = { slug: rec.slug, front: outFront, back, major: true };
+		const sys = edited({ slug: rec.slug, front: outFront, back, major: true }, rec.slug);
 		const out = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
 			...(rec.doc.img ? { img: rec.doc.img } : {}), system: sys, flags: {}, folder: rec.doc.folder };
 		writeFileSync(rec.file, JSON.stringify(out, null, "\t") + "\n");
@@ -404,7 +415,7 @@ rmSync(iconStage, { recursive: true, force: true }); // after the review loop �
 // parse it geometrically and overwrite each minor arcanum's front + back, preserving its identity
 // (_id/_key/slug/folder). Back dice tables become wonder-tables RollTables (arcana- prefix so
 // build-tables leaves them) referenced inline by a player-rollable @DrawTable link.
-let minorWritten = 0, minorTables = 0; const minorUnmatched = []; const resItemReview = [];
+let minorWritten = 0, minorTables = 0; const minorUnmatched = [], minorEmptyFronts = [], resItemReview = [];
 // Backs whose item is implied by the front, not printed (manual pass — see the loop below).
 const BACK_ITEM_FROM_FRONT = new Set(["redwood-basin"]);
 if (WRITE_MINOR) {
@@ -441,8 +452,13 @@ if (WRITE_MINOR) {
 		});
 		delete back.rollTables;
 		back = foldBackChoices(back); // minors have only a follower group (no moves/consequences) → [followers?]
+		const system = edited({ slug: rec.slug, front: stripTransient(front), back }, rec.slug);
+		// A front with no content is always a parse failure — every card prints a description — and it
+		// used to ship silently (`diverge` compares against the doc we're about to overwrite, so an empty
+		// front matching an already-empty front looked clean).
+		if (!(system.front.choices ?? []).length) minorEmptyFronts.push(`${card.number}:${rec.slug}`);
 		const doc = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
-			...(rec.doc.img ? { img: rec.doc.img } : {}), system: { slug: rec.slug, front: stripTransient(front), back }, flags: {}, folder: rec.doc.folder };
+			...(rec.doc.img ? { img: rec.doc.img } : {}), system, flags: {}, folder: rec.doc.folder };
 		writeFileSync(rec.file, JSON.stringify(doc, null, "\t") + "\n");
 		minorWritten++;
 	}
@@ -466,6 +482,8 @@ if (WRITE_MINOR || WRITE_ARCANA) {
 
 const missing = [...bySlug.keys()].filter((s) => !parsedFront.has(s));
 review.push(`Parsed ${parsedCount}/${bySlug.size} fronts, ${parsedBack.size} backs; ${flagged} flagged${missing.length ? `; NO FRONT: ${missing.join(", ")}` : ""}.`, ``);
+if (minorEmptyFronts.length) review.push(`## EMPTY FRONTS (${minorEmptyFronts.length}) — parse failure, card number:slug`, ...minorEmptyFronts.map((s) => `- ${s}`), ``);
+if (editMisses.length) review.push(`## Manual edits that matched nothing (${editMisses.length})`, ...editMisses, ``);
 if (resItemReview.length) review.push(`## Back items & resource tracks (${resItemReview.length}) — verify vs book`, ...resItemReview.sort(), ``);
 review.push(`## Followers`, `Matched ${followersMatched} minor follower(s) to stat blocks:`, ...followerLines,
 	``, `Preserved hand-authored (major appendix, inlined format — not regenerated): ${preserved.length ? preserved.map((s) => `\`${s}\``).join(", ") : "none"}`, ``);
@@ -476,5 +494,6 @@ mkdirSync(path.dirname(REVIEW), { recursive: true });
 writeFileSync(REVIEW, review.join("\n"));
 const mode = [WRITE_ARCANA && "major arcana JSON", WRITE_MINOR && "minor arcana JSON", WRITE && "followers"].filter(Boolean);
 console.log(`fronts ${parsedCount}/${bySlug.size}, backs ${parsedBack.size}; ${flagged} flagged${missing.length ? `; ${missing.length} missing front` : ""}. followers ${followersMatched} matched${WRITE ? `, ${followersWritten} written` : ""}, ${preserved.length} preserved. -> ${REVIEW}  (${mode.length ? "WROTE " + mode.join(" + ") : "report only"})`);
-if (WRITE_MINOR) console.log(`minor arcana: wrote ${minorWritten} doc(s) + ${minorTables} RollTable(s)${minorUnmatched.length ? `; UNMATCHED: ${minorUnmatched.join(", ")}` : ""}`);
+if (WRITE_MINOR) console.log(`minor arcana: wrote ${minorWritten} doc(s) + ${minorTables} RollTable(s)${minorUnmatched.length ? `; UNMATCHED: ${minorUnmatched.join(", ")}` : ""}${minorEmptyFronts.length ? `; EMPTY FRONT: ${minorEmptyFronts.join(", ")}` : ""}`);
+if (editMisses.length) console.log(`manual edits: ${editMisses.length} matched nothing -> ${REVIEW}`);
 if (WRITE_MINOR || WRITE_ARCANA) console.log(`blanks: numbered ${blanksNumbered} write-in field(s) into @Blank[n] tokens`);

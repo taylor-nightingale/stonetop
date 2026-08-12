@@ -7,8 +7,83 @@
 		"slug": "sunken-tablet",
 		"front": {
 			"item": null,
-			"tags": null,
-			"choices": []
+			"tags": "immobile",
+			"choices": [
+				{
+					"slug": "sunken-tablet",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Makerrunes on it, barely visible. Runes for the earth, and spirits, and rejuvenation."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The tablet reveals the workings for a ritual, which you can learn if you…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… extract the tablet from the muck."
+							},
+							"slug": "extract-tablet",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… carefully clean it."
+							},
+							"slug": "carefully-clean",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… decipher the Maker-runes."
+							},
+							"slug": "decipher-maker",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… study the runes for a few weeks."
+							},
+							"slug": "study-runes",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth."
+							},
+							"slug": "practice-casting",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Convocation of the Soil",

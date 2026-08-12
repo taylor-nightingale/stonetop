@@ -7,8 +7,72 @@
 		"slug": "odd-conveyance",
 		"front": {
 			"item": null,
-			"tags": null,
-			"choices": []
+			"tags": "large, magical, fragile",
+			"choices": [
+				{
+					"slug": "odd-conveyance",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "It’s like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They’re linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You suspect this is some sort of vehicle, but to unlock its mysteries you…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… need a skilled carpetenter, good timber (Value 2), a new sail (Value 1), and a season spent on repairs."
+							},
+							"slug": "need-skilled",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… risk damaging it further, and/or having it/the aetherium float away."
+							},
+							"slug": "risk-damaging",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… must attune to the aetherium, so as to control how much it hovers."
+							},
+							"slug": "attune-aetherium",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft."
+							},
+							"slug": "another-spend",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Groundskimmer",

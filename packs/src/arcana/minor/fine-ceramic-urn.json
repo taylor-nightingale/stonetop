@@ -6,9 +6,79 @@
 	"system": {
 		"slug": "fine-ceramic-urn",
 		"front": {
-			"item": null,
+			"item": {
+				"name": "A fine ceramic urn",
+				"weight": 1,
+				"tags": "beautiful, fragile, magical",
+				"note": null,
+				"inventoryColumn": "regular"
+			},
 			"tags": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "fine-ceramic-urn",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it’s clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "To unlock the secrets of the urn, you must..."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… commune with the chthonic spirit that dwells within (**Instinct** to hoard secrets)."
+							},
+							"slug": "commune-chthonic",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… convince it to teach you both the secret recipe and song required to make its magic work."
+							},
+							"slug": "convince-teach",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… acquire the reagents required for the recipe (Value 1)."
+							},
+							"slug": "acquire-reagents",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… manage to sing the secret song for a day and night, without pause."
+							},
+							"slug": "manage-sing",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Plaster of Joining",

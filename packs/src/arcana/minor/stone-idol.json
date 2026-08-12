@@ -6,9 +6,68 @@
 	"system": {
 		"slug": "stone-idol",
 		"front": {
-			"item": null,
+			"item": {
+				"name": "A stone idol",
+				"weight": 1,
+				"tags": "crude, magical",
+				"note": null,
+				"inventoryColumn": "regular"
+			},
 			"tags": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "stone-idol",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Found at the back of some cave or grotto, obscured by roots and rubble, surrounded by desiccated, rotting offerings. A crude squat thing with a possum’s sneering face, a thorny tail, and flowers for its ears."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The idol is, in fact, a narcissistic little Fae, stuck (hiding? stubbornly ensconced?) in the form of a stone idol. To unlock its \"mysteries\" and benefit from its patronage, you must..."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… restore the shrine, while suffering the abuse of its angry little god."
+							},
+							"slug": "restore-shrine",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… extract the idol from the stone and rubble in which it’s embedded, at the risk of damaging/insulting it."
+							},
+							"slug": "extract-idol",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… trick the idol into accepting an offering that puts it in your lasting debt. A Surplus worth of food and/or whisky ought to be enough."
+							},
+							"slug": "trick-idol",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "The Angry Little God",

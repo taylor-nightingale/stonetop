@@ -41,3 +41,8 @@ jobs:
           files: |
             stonetop.zip
             system.json
+
+      - name: Publish release to Foundry
+        env:
+          FOUNDRY_PACKAGE_TOKEN: ${{ secrets.FOUNDRY_PACKAGE_TOKEN }}
+        run: npm run publish:foundry

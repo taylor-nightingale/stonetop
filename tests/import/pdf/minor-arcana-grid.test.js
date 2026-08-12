@@ -68,4 +68,16 @@ describe("gridCards", () => {
 		expect(c1.frontTitle).toBe("Front One");
 		expect(c1.backTitle).toBe("Back One");
 	});
+
+	// The page's running header sits at y≈47, x=36 — inside the top-left card's front box unless the
+	// top margin cuts below it. When it leaked in, it displaced that card's own title as the leading
+	// heading and the whole front was mis-parsed (every top-left card in the appendix came out empty).
+	it("excludes the running header from the top-left card", () => {
+		const p = page();
+		p.lines.unshift(fell("appendix c : minor arcana", 36, 47));
+		const c1 = gridCards(p).find((c) => c.number === 1);
+		expect(c1.frontTitle).toBe("Front One");
+		const text = c1.frontBlocks.flatMap((b) => b.line ? [b.line.text] : (b.lines ?? []).map((l) => l.text));
+		expect(text.join(" ")).not.toContain("appendix");
+	});
 });

@@ -6,9 +6,68 @@
 	"system": {
 		"slug": "richly-woven-rug",
 		"front": {
-			"item": null,
+			"item": {
+				"name": "A richly woven rug",
+				"weight": 2,
+				"tags": "magical",
+				"note": null,
+				"inventoryColumn": "regular"
+			},
 			"tags": null,
-			"choices": []
+			"choices": [
+				{
+					"slug": "richly-woven-rug",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "About 4 feet by 7 feet unfurled, woven with stylized patterns of fire and flame. Flickering Maker-runes can be seen in the weaving, always out of focus but hinting at power."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "You can unlock the secrets of this rug, but you must first…"
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… be marked by fire, losing yourself to the panic or pain of burning."
+							},
+							"slug": "marked-by",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… then, spend weeks in meditation upon the rug and studying the now-clear runes."
+							},
+							"slug": "then-spend",
+							"track": {
+								"max": 1
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear."
+							},
+							"slug": "allow-yourself",
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				}
+			]
 		},
 		"back": {
 			"title": "Fear of the Flame",

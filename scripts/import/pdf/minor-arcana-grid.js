@@ -14,7 +14,10 @@ import { linesToBlocks } from "./layout.js";
 // block builder classifies them as headings (body text is ACaslon, so only titles are Avara).
 const HEADING_SIZE = 11;
 const STRIP_PAD = 6;   // vertical gap kept clear of the front/back/number strip
-const TOP_MARGIN = 20; // below the running header, where the first card row starts
+// The first card row starts at y≈81; the running header ("appendix c : minor arcana") sits at y≈47
+// and its left copy starts at x=36, inside the top-left card's front box. Cut below it — a header
+// line inside a card reads as an extra leading heading and displaces the card's own title.
+const TOP_MARGIN = 64;
 
 /**
  * Detect the card footers on a page. Each is a `front … <N> … back` strip: a Fell "front" label, a

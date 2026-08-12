@@ -129,4 +129,7 @@ export class ArcanaSnapshot {
 		this.minor = minor;
 		this.major = major;
 	}
+
+	/** Owned in either section — what the tab's "drag arcana here" note is gated on. */
+	get hasOwned() { return this.minor.hasOwned || this.major.hasOwned; }
 }

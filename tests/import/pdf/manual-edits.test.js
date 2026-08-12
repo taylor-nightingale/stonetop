@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { applyManualEdits, MANUAL_EDITS } from "../../../scripts/import/pdf/manual-edits.js";
+import { applyManualEdits, applyArcanaEdits, MANUAL_EDITS, ARCANA_EDITS } from "../../../scripts/import/pdf/manual-edits.js";
 
 describe("applyManualEdits", () => {
 	it("returns the html unchanged for an article with no edits", () => {
@@ -23,6 +23,35 @@ describe("applyManualEdits", () => {
 			expect(misses).toEqual(["stale edit"]);
 		} finally {
 			delete MANUAL_EDITS[slug];
+		}
+	});
+});
+
+describe("applyArcanaEdits", () => {
+	it("returns the system untouched for an arcanum with no edits", () => {
+		const system = { front: { choices: [] } };
+		const { system: out, misses } = applyArcanaEdits(system, "no-edits-here");
+		expect(out).toBe(system);
+		expect(misses).toEqual([]);
+	});
+
+	it("corrects every string in the system and reports a find that matched nothing", () => {
+		const slug = "__test__";
+		ARCANA_EDITS[slug] = [
+			{ find: "exquisitly", replace: "exquisitely", note: "book typo" },
+			{ find: "NOPE", replace: "x", note: "stale edit" },
+		];
+		try {
+			const { system, misses } = applyArcanaEdits({
+				front: { choices: [{ list: [{ content: { title: null, text: "An exquisitly fine wool." } }] }] },
+				back: { title: "An exquisitly Cloak", resource: { max: 3 } },
+			}, slug);
+			expect(system.front.choices[0].list[0].content.text).toBe("An exquisitely fine wool.");
+			expect(system.back.title).toBe("An exquisitely Cloak");   // the same edit may hit front and back
+			expect(system.back.resource.max).toBe(3);                 // non-string values pass through
+			expect(misses).toEqual(["stale edit"]);
+		} finally {
+			delete ARCANA_EDITS[slug];
 		}
 	});
 });

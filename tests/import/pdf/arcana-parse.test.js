@@ -463,6 +463,30 @@ describe("parseFront — outfit item vs. disguise tags (the ◇ gate)", () => {
 	});
 });
 
+describe("parseFront — the front-follower split is major-only", () => {
+	// A stray heading before the card's own title (the appendix running header, which used to leak into
+	// the top-left card of every grid page) makes a minor front look exactly like the Ring of Daagon's
+	// front-resident follower: "second heading + tags para". Splitting it swallowed the entire front.
+	const blocks = () => [
+		_heading("appendix c : minor arcana"),
+		_heading("A gold ring"),
+		{ ..._para("magical"), tags: true },
+		_para("This simple, golden band catches the light and shines, even in darkness."),
+	];
+
+	it("keeps a minor front intact instead of reading it as a follower stat block", () => {
+		const f = parseFront(blocks(), { name: "A gold ring", slug: "gold-ring" });
+		expect(f._frontFollower).toBeUndefined();
+		expect(f.choices[0].list[0].content.text).toContain("golden band");
+	});
+
+	it("still splits the follower out of a major front", () => {
+		const f = parseFront(blocks(), { name: "A gold ring", slug: "gold-ring", major: true });
+		expect(f._frontFollower.lines[0].text).toBe("A gold ring");
+		expect(f.choices ?? []).toHaveLength(0);
+	});
+});
+
 describe("followerChoiceEntry", () => {
 	it("builds a checkbox entry that grants the follower inline (and on the tab)", () => {
 		expect(followerChoiceEntry("tulpa")).toEqual({

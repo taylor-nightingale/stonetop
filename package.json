@@ -13,7 +13,8 @@
     "build-arcana": "node scripts/import/pdf/build-arcana.js",
     "build-packs": "node scripts/build-packs.js",
     "art-manifest": "node scripts/art/build-art-manifest.js",
-    "pack:module": "node scripts/pack-module.js"
+    "pack:module": "node scripts/pack-module.js",
+    "publish:foundry": "node scripts/release/publish-to-foundry.js"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
