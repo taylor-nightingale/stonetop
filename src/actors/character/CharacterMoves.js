@@ -74,7 +74,7 @@ export class CharacterMoves {
 						compendiumId:  doc._id ?? null,
 						categoryLabel: playbookData.name,
 						categoryNote:  playbookData.startingMovesNote ?? null,
-					})))
+					}))),
 		);
 	}
 
@@ -84,12 +84,7 @@ export class CharacterMoves {
 	// (active on grant), arcana pass none (player ticks each mystery to unlock).
 	async addCategory(key, label, moveSlugs = [], startingSlugs = []) {
 		if (!moveSlugs.length) return;
-		const grants = await this.categoryGrants(key, label, moveSlugs, startingSlugs);
-		// Every slug failing to resolve means the pack isn't there (a compendium still loading, a module
-		// disabled) — not that the insert has stopped granting moves. Syncing an empty set on that would
-		// delete the moves the character has.
-		if (grants.isEmpty) return;
-		await this._grantedItems.sync(grants);
+		await this._grantedItems.sync(await this.categoryGrants(key, label, moveSlugs, startingSlugs));
 	}
 
 	/** The moves an insert or arcanum wants the character to own. Because this is a diff and not an
@@ -108,7 +103,7 @@ export class CharacterMoves {
 					compendiumId:  doc._id ?? null,
 					categoryLabel: label,
 				}))
-			)
+			),
 		);
 	}
 
@@ -127,11 +122,13 @@ export class CharacterMoves {
 		await decrementMove(this._actor, categoryKey, moveSlug);
 	}
 
+	// A move the player dropped in. Matched on the STORED slug, like every other move lookup — matching
+	// on the name alone let a renamed move in as a second copy of one already there.
 	async addMoveToOther(moveData) {
-		const moveSlug = toSlug(moveData.name);
+		const moveSlug = moveData.system?.slug ?? toSlug(moveData.name);
 		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === "other");
-		if (existing.some(i => toSlug(i.name) === moveSlug)) return false;
-		await this._actor.createEmbeddedDocuments("Item", [{
+		if (existing.some(i => (i.system?.slug ?? toSlug(i.name)) === moveSlug)) return false;
+		await this._grantedItems.addAuthored([{
 			...moveData,
 			name: moveData.name,
 			type: "move",

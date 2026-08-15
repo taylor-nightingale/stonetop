@@ -9,6 +9,7 @@ import {EmbeddedOutfitItemBuilder} from "../../model/data/character/EmbeddedOutf
 import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
 import { ResourceController } from "./ResourceController.js";
+import { GrantStamp } from "../../model/data/ItemGrant.js";
 import { buildOutfitColumn } from "../../model/snapshot/character/outfitSections.js";
 
 // The Prosperity gear table as the inventory insert prints it: fixed rungs, the steading's rating
@@ -102,8 +103,10 @@ export class CharacterInventory {
 		const resourceFn = oi => this._resourceController.buildSnapshot("inventory", oi.resource, oi.slug);
 
 		const embeddedItems = this._outfitItems.getAll().map(i => {
-			const sys    = i.system ?? {};
-			const source = sys.source ?? null;
+			const sys = i.system ?? {};
+			// Only gear the player added themselves is theirs to delete; a container's grant goes when the
+			// container says so, and an unstamped item is exactly the one nobody granted.
+			const granted = GrantStamp.of(i) !== null;
 			return new OutfitItemBuilder()
 				.withSlug(sys.slug ?? i._id)
 				.withName(i.name)
@@ -113,7 +116,7 @@ export class CharacterInventory {
 				.withInventoryColumn(sys.inventoryColumn ?? "regular")
 				.withResource(sys.resource ?? null)
 				.withTwoCol(sys.twoCol ?? false)
-				.withOwnedId(source == null ? i._id : null)
+				.withOwnedId(granted ? null : i._id)
 				.build();
 		});
 

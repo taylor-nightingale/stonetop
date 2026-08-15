@@ -30,6 +30,9 @@ export class GrantedItems {
 	/** Create what's missing, delete what this source no longer wants, leave the rest untouched.
 	 *  Returns the items it created. */
 	async sync(set) {
+		// Nothing to say — an unloaded pack resolves nothing, and that must not read as a source taking
+		// its grants back. Clearing a source outright is `revoke`.
+		if (set.isEmpty) return [];
 		const owned  = this.itemsFrom(set.source);
 		const wanted = new Set(set.keys);
 		const created = await this._create(set, this._missing(set));
@@ -39,6 +42,25 @@ export class GrantedItems {
 
 	async revoke(source) {
 		await this._delete(this.itemsFrom(source));
+	}
+
+	/**
+	 * Replace everything a source has with exactly this set. For grants that carry no player state and
+	 * are recomputed whole on every change — a container's outfit gear — where two identical items from
+	 * one source are two real items, so identity can't be a key. Everything else wants `sync`.
+	 */
+	async replace(set) {
+		if (set.isEmpty) return [];
+		await this._delete(this.itemsFrom(set.source));
+		return this._create(set, set.grants);
+	}
+
+	/** An item the player added themselves. Unkeyed and unstamped: no source owns it, so nothing
+	 *  reconciles or revokes it. Here so that every embedded-item write goes through one place. */
+	async addAuthored(itemsData) {
+		const items = Array.isArray(itemsData) ? itemsData : [itemsData];
+		if (!items.length) return [];
+		return await this._actor.createEmbeddedDocuments("Item", items) ?? [];
 	}
 
 	// What the character doesn't already hold. Presence is judged across EVERY item, not just this

@@ -63,7 +63,7 @@ function makeCharacter() {
 function embeddedGear(actor) {
 	return [...actor.items]
 		.filter(i => i.type === "outfitItem")
-		.map(i => `${i.system?.slug} @ ${i.system?.source ?? "custom"}`)
+		.map(i => `${i.system?.slug} @ ${i.flags?.stonetop?.grant?.source ?? "custom"}`)
 		.sort();
 }
 
@@ -82,8 +82,8 @@ describe("possession pick → inventory (integration)", () => {
 		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
 		expect(embeddedGear(actor)).toEqual([
-			"shield @ possession:weapons-of-war-heavy",
-			"sword @ possession:weapons-of-war-heavy",
+			"shield @ outfit:possession:weapons-of-war-heavy",
+			"sword @ outfit:possession:weapons-of-war-heavy",
 		]);
 	});
 
@@ -102,7 +102,7 @@ describe("possession pick → inventory (integration)", () => {
 
 		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 1);
 
-		expect(embeddedGear(actor)).not.toContain("sword @ possession:weapons-of-war-heavy");
+		expect(embeddedGear(actor)).not.toContain("sword @ outfit:possession:weapons-of-war-heavy");
 	});
 
 	it("the write path syncs the container — the host does not have to ask", async () => {
@@ -130,7 +130,7 @@ describe("possession pick → inventory (integration)", () => {
 
 		await character.setChoiceCountFor(new ChoiceTarget({ context: "possession", possessionSlug: "weapons-of-war-heavy", group: "weapons-of-war-heavy", option: "sword" }), 0);
 
-		expect(embeddedGear(actor)).toEqual(["shield @ possession:weapons-of-war-heavy"]);
+		expect(embeddedGear(actor)).toEqual(["shield @ outfit:possession:weapons-of-war-heavy"]);
 	});
 
 	it("deselecting the possession removes every item it granted", async () => {
@@ -150,8 +150,8 @@ describe("possession pick → inventory (integration)", () => {
 		await character.selectPossession("weapons-of-war-heavy");
 
 		expect(embeddedGear(actor)).toEqual([
-			"shield @ possession:weapons-of-war-heavy",
-			"sword @ possession:weapons-of-war-heavy",
+			"shield @ outfit:possession:weapons-of-war-heavy",
+			"sword @ outfit:possession:weapons-of-war-heavy",
 		]);
 	});
 });

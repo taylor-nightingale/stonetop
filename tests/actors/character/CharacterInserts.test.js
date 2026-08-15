@@ -237,15 +237,17 @@ describe("CharacterInserts.playbookGrants", () => {
 	});
 
 	it("removes an insert it granted that the playbook no longer lists", async () => {
-		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([]) });
-		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-lightbearer", []));
+		const REV = { name: "Revenant", type: "insert", img: null, system: { slug: "revenant" } };
+		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([REV]) });
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-lightbearer", ["revenant"]));
 		expect([...actor.items].some(i => i.system?.slug === "invoc")).toBe(false);
+		expect([...actor.items].some(i => i.system?.slug === "revenant")).toBe(true);
 	});
 
 	// Another playbook's inserts leave with that playbook item (revoke), not when the next is applied.
 	it("leaves another playbook's inserts to that playbook's revoke", async () => {
-		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([]) });
-		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-marshal", []));
+		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([INVOC]) });
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-marshal", ["invoc"]));
 		expect([...actor.items].some(i => i.system?.slug === "invoc")).toBe(true);
 	});
 

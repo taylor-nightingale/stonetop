@@ -158,34 +158,6 @@ describe("CharacterFollowers — ownership", () => {
 		expect(snap.hp).toBe(6);
 	});
 
-	it("removeByArcanum removes an embedded follower whose arcanaSlug matches", async () => {
-		const bronze = new Follower({ slug: "bronze-protector", name: "Bronze protector", hp: { value: 13, max: 13 }, arcanaSlug: "metal-man" });
-		const cf = makeCf(new FakeFollowerRepository([bronze]));
-		await cf.addFollower("bronze-protector"); // arcanum checkbox path → owned:true, arcanaSlug copied
-		await cf.removeByArcanum("metal-man");
-		expect(cf.ownedSlugs).not.toContain("bronze-protector");
-	});
-
-	it("removeByArcanum leaves a follower with a different arcanaSlug", async () => {
-		const bronze = new Follower({ slug: "bronze-protector", name: "Bronze protector", hp: { value: 13, max: 13 }, arcanaSlug: "metal-man" });
-		const cf = makeCf(new FakeFollowerRepository([bronze]));
-		await cf.addFollower("bronze-protector");
-		await cf.removeByArcanum("some-other-arcanum");
-		expect(cf.ownedSlugs).toContain("bronze-protector");
-	});
-
-	it("removeByArcanum leaves a follower with a null arcanaSlug (playbook/custom)", async () => {
-		const cf = makeCf(new FakeFollowerRepository([ENFYS])); // ENFYS has arcanaSlug null
-		await cf.addFollower("enfys");
-		await cf.removeByArcanum("metal-man");
-		expect(cf.ownedSlugs).toContain("enfys");
-	});
-
-	it("removeByArcanum is a no-op when nothing matches", async () => {
-		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
-		await cf.removeByArcanum("metal-man"); // must not throw
-		expect(cf.ownedSlugs).toEqual([]);
-	});
 });
 
 // -- Tests: state mutations ---------------------------------------------------
@@ -881,6 +853,51 @@ describe("CharacterFollowers — addFromNpcActor", () => {
 	});
 });
 
+// -- arcanumGrants ------------------------------------------------------------
+
+describe("CharacterFollowers.arcanumGrants", () => {
+	const ASTOR = new Follower({ slug: "astor", name: "Astor", hp: { value: 4, max: 4 }, armor: "0", damage: "d4" });
+
+	function setup(repoFollowers = []) {
+		const actor = makeActor();
+		const cf = new CharacterFollowers(
+			actor, new FakeFollowerRepository(repoFollowers), makeResourceController(),
+			new ChoiceGroupControllerFactory(actor),
+		);
+		return { actor, cf };
+	}
+
+	it("grants the card's followers owned but off the roster tab", async () => {
+		const { actor, cf } = setup([ASTOR]);
+		await new GrantedItems(actor).sync(await cf.arcanumGrants("blackwood", ["astor"]));
+		const item = actor.createdDocs.find(d => d.system?.slug === "astor");
+		expect(item.system.owned).toBe(true);
+		expect(item.system.showOnTab).toBe(false);
+	});
+
+	// The stamp is what lets removing the card take its followers back — it used to depend on
+	// `system.arcanaSlug` surviving in the pack data.
+	it("stamps them with the arcanum that granted them", async () => {
+		const { actor, cf } = setup([ASTOR]);
+		await new GrantedItems(actor).sync(await cf.arcanumGrants("blackwood", ["astor"]));
+		expect(actor.createdDocs[0].flags.stonetop.grant)
+			.toEqual({ source: "arcana:blackwood", key: "follower:astor" });
+	});
+
+	it("grants nothing for a card that references no followers", async () => {
+		const { cf } = setup([ASTOR]);
+		expect((await cf.arcanumGrants("blackwood", [])).isEmpty).toBe(true);
+		expect((await cf.arcanumGrants(null, ["astor"])).isEmpty).toBe(true);
+	});
+
+	it("yields to a follower the character already has", async () => {
+		const { actor, cf } = setup([ASTOR]);
+		actor.items.push(makeFollowerItem({ slug: "astor" }, { owned: true }));
+		await new GrantedItems(actor).sync(await cf.arcanumGrants("blackwood", ["astor"]));
+		expect(actor.createdDocs).toEqual([]);
+	});
+});
+
 // -- syncPlaybookFollowers ----------------------------------------------------
 
 describe("CharacterFollowers.playbookGrants", () => {
@@ -924,16 +941,18 @@ describe("CharacterFollowers.playbookGrants", () => {
 	// A follower this playbook no longer lists goes; the PREVIOUS playbook's followers go when that
 	// playbook item is deleted (revoke), not when the next one is applied.
 	it("removes a follower it granted that the playbook no longer lists", async () => {
-		const { actor, cf } = setup([]);
+		const ASTOR = new Follower({ slug: "astor", name: "Astor", hp: { value: 4, max: 4 }, armor: "0", damage: "d4" });
+		const { actor, cf } = setup([ASTOR]);
 		actor.items.push(grantedItem("crew", "the-marshal"));
-		await new GrantedItems(actor).sync(await cf.playbookGrants("the-marshal", []));
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-marshal", ["astor"]));
 		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(false);
+		expect([...actor.items].some(i => i.system?.slug === "astor")).toBe(true);
 	});
 
 	it("leaves another playbook's followers to that playbook's revoke", async () => {
-		const { actor, cf } = setup([]);
+		const { actor, cf } = setup([CREW]);
 		actor.items.push(grantedItem("crew", "the-marshal"));
-		await new GrantedItems(actor).sync(await cf.playbookGrants("the-blessed", []));
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-blessed", ["crew"]));
 		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(true);
 	});
 

@@ -32,7 +32,7 @@ export class StonetopCharacter {
 		this._origin = new CharacterOrigin(actor);
 		// The one writer of items something else owns. Every subsystem grants through this instance, so
 		// "which items exist because of X?" has a single answer.
-		const grantedItems = new GrantedItems(actor);
+		const grantedItems = this._grantedItems = new GrantedItems(actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
 		// The one writer of granted outfit items. Each container type registers how it computes its
@@ -53,7 +53,7 @@ export class StonetopCharacter {
 		this._inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController, repos.steading);
 		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
-		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, this._followers, factory, this._moves, outfitSync);
+		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, this._followers, factory, this._moves, outfitSync, grantedItems);
 		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts, grantedItems);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
@@ -88,8 +88,8 @@ export class StonetopCharacter {
 			})
 			.register("arcanum", {
 				source:  item => GrantSource.arcanum(item.system?.slug),
-				onApply: async item => this._arcana.onArcanumCreated(item),
-				grants:  async () => [],
+				onApply: async item => this._arcana.syncSideEffectsFor(item),
+				grants:  async item => this._arcana.arcanumGrants(item),
 			});
 
 		// Where a choice write goes, keyed by the context its row was rendered in. Each host owns how
@@ -300,7 +300,7 @@ export class StonetopCharacter {
 		const nonArcana = items.filter(i => i.type !== "arcanum");
 		const { others } = await this.onDropItems(nonArcana);
 		const toEmbed = [...newArcana, ...others];
-		if (toEmbed.length) await this._actor.createEmbeddedDocuments("Item", toEmbed);
+		if (toEmbed.length) await this._grantedItems.addAuthored(toEmbed);
 		return toEmbed;
 	}
 

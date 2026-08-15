@@ -23,6 +23,7 @@ export class ItemGrant {
 	static forFollower(slug, itemData)   { return new ItemGrant(`follower:${slug}`, itemData); }
 	static forInsert(slug, itemData)     { return new ItemGrant(`insert:${slug}`, itemData); }
 	static forPossession(slug, itemData) { return new ItemGrant(`possession:${slug}`, itemData); }
+	static forOutfitItem(slug, itemData) { return new ItemGrant(`outfitItem:${slug}`, itemData); }
 
 	/** The key an item on the actor already occupies — type + slug, the identity every find-by-slug in
 	 *  the sheet uses, so a grant can tell whether the character already has this thing. */
@@ -43,7 +44,14 @@ export class ItemGrant {
 	}
 }
 
-/** Everything one source wants to exist, recomputed whole rather than tracked incrementally. */
+/**
+ * Everything one source wants to exist, recomputed whole rather than tracked incrementally.
+ *
+ * An empty set means "nothing to say", NOT "delete everything": a compendium that is still loading (or
+ * a module switched off) resolves nothing, and reading that as a source revoking its grants would
+ * delete the character's moves. Taking a whole source back is `revoke`, which is something a caller
+ * asks for on purpose.
+ */
 export class ItemGrantSet {
 	constructor(source, grants = []) {
 		this.source = source;
@@ -80,6 +88,15 @@ export class GrantSource {
 	static insert(slug)       { return `insert:${slug}`; }
 	static arcanum(slug)      { return `arcana:${slug}`; }
 	static reference(category) { return `reference:${category}`; }
+
+	// The gear a container grants is a source of its own, distinct from the container's other grants:
+	// an arcanum's card items and the followers the same card grants both belong to "arcana:the-ring",
+	// and clearing one must not take the other with it.
+	static outfit(containerSource) { return `outfit:${containerSource}`; }
+
+	/** Whether a source is a playbook — what makes a possession one of the playbook's picks rather
+	 *  than something the player dropped in. */
+	static isPlaybook(source) { return typeof source === "string" && source.startsWith("playbook:"); }
 }
 
 /** The provenance stamp an item carries, or null when nobody granted it. */

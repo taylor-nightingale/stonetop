@@ -74,14 +74,16 @@ describe("GrantedItems.sync", () => {
 
 	it("never touches authored items", async () => {
 		const actor = makeActor(authored("c"));
-		await new GrantedItems(actor).sync(ItemGrantSet.empty(PLAYBOOK));
+		await new GrantedItems(actor).sync(new ItemGrantSet(PLAYBOOK, [grant("move:bulwark")]));
 		expect(actor.deletedIds).toEqual([]);
 	});
 
-	it("an empty set clears the source", async () => {
+	// An unloaded compendium resolves nothing. Reading that as "this playbook grants nothing now" would
+	// delete what the character has; taking a source back is `revoke`, asked for on purpose.
+	it("does nothing with an empty set", async () => {
 		const actor = makeActor(granted("a", PLAYBOOK, "move:bulwark"), granted("b", PLAYBOOK, "move:armored"));
 		await new GrantedItems(actor).sync(ItemGrantSet.empty(PLAYBOOK));
-		expect(actor.deletedIds.sort()).toEqual(["a", "b"]);
+		expect(actor.deletedIds).toEqual([]);
 	});
 
 	it("writes nothing when the source already has exactly what it wants", async () => {
@@ -170,6 +172,61 @@ describe("GrantedItems.seed", () => {
 		const actor = makeActor(granted("a", "reference:basic", "move:defy-danger"));
 		await new GrantedItems(actor).seed(ItemGrantSet.empty("reference:basic"));
 		expect(actor.deletedIds).toEqual([]);
+	});
+});
+
+describe("GrantedItems.replace", () => {
+	it("swaps the source's items for exactly the set", async () => {
+		const actor = makeActor(granted("a", PLAYBOOK, "outfitItem:rope"));
+		await new GrantedItems(actor).replace(new ItemGrantSet(PLAYBOOK, [grant("outfitItem:torch")]));
+		expect(actor.deletedIds).toEqual(["a"]);
+		expect(actor.createdDocs.map(i => i.system.slug)).toEqual(["torch"]);
+	});
+
+	// Two identical items from one source are two real items — a possession granting two rations.
+	it("keeps identical items from the same source", async () => {
+		const actor = makeActor();
+		await new GrantedItems(actor).replace(new ItemGrantSet(PLAYBOOK, [
+			grant("outfitItem:rations"), grant("outfitItem:rations"),
+		]));
+		expect(actor.createdDocs).toHaveLength(2);
+	});
+
+	it("does not yield to an item that is already there", async () => {
+		const actor = makeActor({ _id: "hand", name: "Rope", type: "outfitItem", system: { slug: "rope" } });
+		await new GrantedItems(actor).replace(new ItemGrantSet(PLAYBOOK, [grant("outfitItem:rope")]));
+		expect(actor.createdDocs).toHaveLength(1);
+		expect(actor.deletedIds).toEqual([]);
+	});
+
+	it("does nothing with an empty set — clearing gear is deleteBySource/revoke", async () => {
+		const actor = makeActor(granted("a", PLAYBOOK, "outfitItem:rope"));
+		await new GrantedItems(actor).replace(ItemGrantSet.empty(PLAYBOOK));
+		expect(actor.deletedIds).toEqual([]);
+	});
+});
+
+describe("GrantedItems.addAuthored", () => {
+	it("creates the item with no stamp — nobody granted it", async () => {
+		const actor = makeActor();
+		await new GrantedItems(actor).addAuthored({ name: "Torch", type: "outfitItem", system: { slug: "torch" } });
+		expect(actor.createdDocs[0].flags?.stonetop?.grant).toBeUndefined();
+	});
+
+	it("takes one item or many, and returns what it created", async () => {
+		const actor = makeActor();
+		const items = new GrantedItems(actor);
+		expect(await items.addAuthored([])).toEqual([]);
+		const created = await items.addAuthored([
+			{ name: "A", type: "move", system: {} }, { name: "B", type: "move", system: {} },
+		]);
+		expect(created.map(i => i.name)).toEqual(["A", "B"]);
+	});
+
+	it("adds a second copy of something the character already has — that is the point", async () => {
+		const actor = makeActor({ _id: "hand", name: "Bob", type: "follower", system: { slug: "custom-1" } });
+		await new GrantedItems(actor).addAuthored({ name: "Bob", type: "follower", system: { slug: "custom-1" } });
+		expect(actor.createdDocs).toHaveLength(1);
 	});
 });
 

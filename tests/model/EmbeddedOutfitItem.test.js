@@ -7,7 +7,6 @@ function makeItem(overrides = {}) {
 		.withName("Test Item")
 		.withWeight(2)
 		.withInventoryColumn("regular")
-		.withSource("arcana:test-slug");
 	for (const [k, v] of Object.entries(overrides)) b = b[`with${k[0].toUpperCase() + k.slice(1)}`](v);
 	return b.build();
 }
@@ -76,14 +75,7 @@ describe("EmbeddedOutfitItemBuilder", () => {
 		expect(makeItem().system.twoCol).toBe(false);
 	});
 
-	it("stores source in system.source", () => {
-		expect(makeItem({ source: "arcana:my-arcanum" }).system.source).toBe("arcana:my-arcanum");
-	});
 
-	it("defaults source to null", () => {
-		const item = new EmbeddedOutfitItemBuilder().withName("X").build();
-		expect(item.system.source).toBeNull();
-	});
 
 	it("stores name at top level", () => {
 		expect(makeItem().name).toBe("Test Item");

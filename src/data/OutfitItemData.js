@@ -14,6 +14,9 @@ export class OutfitItemData extends foundry.abstract.TypeDataModel {
 			twoCol:          new f.BooleanField({ initial: false }),
 			// Outfit rows render in compendium order (then world items) — there is no sort field.
 			armor:           new f.ObjectField({ nullable: true, initial: null }),
+			// Legacy provenance. Nothing writes it any more — a granted item carries its source in
+			// `flags.stonetop.grant` — but the grant-stamp migration reads it off worlds made before that,
+			// so it stays declared until those are all converted.
 			source:          new f.StringField({ nullable: true, initial: null }),
 		};
 	}

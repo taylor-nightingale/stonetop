@@ -85,12 +85,14 @@ describe("migrateGrantStamps — reading the legacy markers", () => {
 		expect(stampOf(actor, "p1")).toEqual({ source: "playbook:the-blessed", key: "possession:sacred-pouch" });
 	});
 
+	// Gear is stamped under its own namespace: an arcanum's card items and the followers the same card
+	// grants must not answer to one source, or clearing the gear would revoke the followers.
 	it("stamps an outfit item from the source it already carries", async () => {
 		const actor = makeActor([
 			{ _id: "o1", type: "outfitItem", name: "Bow", system: { slug: "bow", source: "possession:hunters-kit" } },
 		]);
 		await migrateGrantStamps(actor);
-		expect(stampOf(actor, "o1")).toEqual({ source: "possession:hunters-kit", key: "outfitItem:bow" });
+		expect(stampOf(actor, "o1")).toEqual({ source: "outfit:possession:hunters-kit", key: "outfitItem:bow" });
 	});
 
 	it("leaves items nobody granted alone", async () => {

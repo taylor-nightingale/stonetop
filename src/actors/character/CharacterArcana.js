@@ -2,10 +2,14 @@ import {
 	ArcanaSnapshot, ArcanaSectionSnapshot, ArcanumSnapshotBuilder, ArcanumRenderContext,
 } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { OwnedArcanum } from "./OwnedArcanum.js";
+import { GrantedItems } from "../GrantedItems.js";
+import { GrantSource } from "../../model/data/ItemGrant.js";
 
 export class CharacterArcana {
-	constructor(actor, arcanaRepo, stats = null, followers = null, factory = null, moves = null, containerOutfitSync = null) {
+	constructor(actor, arcanaRepo, stats = null, followers = null, factory = null, moves = null,
+	            containerOutfitSync = null, grantedItems = new GrantedItems(actor)) {
 		this._actor = actor;
+		this._grantedItems = grantedItems;
 		this._arcanaRepo = arcanaRepo;
 		this._stats = stats;
 		this._followers = followers;
@@ -54,7 +58,7 @@ export class CharacterArcana {
 		if (this.ownedSlugs.has(slug)) return;
 		const [arcanum] = await this._arcanaRepo.findBySlugs([slug]);
 		if (!arcanum) return;
-		const [created] = await this._actor.createEmbeddedDocuments("Item", [{
+		const [created] = await this._grantedItems.addAuthored([{
 			name: arcanum.name ?? arcanum.slug, img: arcanum.img ?? null, type: "arcanum",
 			system: {
 				slug: arcanum.slug, major: arcanum.major,
@@ -65,27 +69,39 @@ export class CharacterArcana {
 		await this.onArcanumCreated(created);
 	}
 
-	async onArcanumCreated(item) {
+	/**
+	 * Everything a card wants the character to own: the followers it references (off the roster tab
+	 * until a mark puts them there) and its moves as real, rollable move items. The moves are granted
+	 * ACQUIRED — the "unlocked" checkbox is the granting entry's ornamental track, not the move's
+	 * acquire state.
+	 */
+	async arcanumGrants(item) {
 		const arcanum = new OwnedArcanum(item, this._actor);
-		if (!arcanum.slug) return;
-		// Own every follower the card references, off the tab. A mark later toggles the tab placement.
-		for (const slug of arcanum.followerSlugs()) {
-			await this._followers?.addFollower(slug, { showOnTab: false });
-		}
-		await this._syncSideEffects(arcanum);
-		// Every move the card grants becomes a real, owned move item so it rolls. They're seeded ACQUIRED
-		// (startingSlugs = all): the "unlocked" checkbox is now the granting entry's ornamental choice track,
-		// not the move's acquire state.
-		if (arcanum.moveSlugs.length) {
-			await this._moves?.addCategory(`arcana-${arcanum.slug}`, arcanum.name ?? arcanum.slug, arcanum.moveSlugs, arcanum.moveSlugs);
-		}
+		if (!arcanum.slug) return [];
+		const label = arcanum.name ?? arcanum.slug;
+		return [
+			await this._followers?.arcanumGrants(arcanum.slug, arcanum.followerSlugs()),
+			await this._moves?.categoryGrants(`arcana-${arcanum.slug}`, label, arcanum.moveSlugs, arcanum.moveSlugs),
+		].filter(Boolean);
+	}
+
+	// What a card does beyond the items it grants (its gear, which the outfit sync owns).
+	async syncSideEffectsFor(item) {
+		const arcanum = new OwnedArcanum(item, this._actor);
+		if (arcanum.slug) await this._syncSideEffects(arcanum);
+	}
+
+	// For callers with no router behind them (the sheet's add, the migration replaying owned arcana):
+	// apply the card's grants and its side effects, exactly as the router would.
+	async onArcanumCreated(item) {
+		for (const set of await this.arcanumGrants(item)) await this._grantedItems.sync(set);
+		await this.syncSideEffectsFor(item);
 	}
 
 	async removeArcanum(slug) {
 		await OwnedArcanum.bySlug(this._actor, slug)?.delete();
-		await this._moves?.removeCategory(`arcana-${slug}`);
 		await this._outfitSync?.clear("arcana:" + slug);
-		await this._followers?.removeByArcanum(slug);
+		await this._grantedItems.revoke(GrantSource.arcanum(slug));
 	}
 
 	async flipArcanum(slug) {

@@ -40,6 +40,9 @@ function makeNpcItem(slug, overrides = {}) {
 		_id: slug + "-npc",
 		type: "follower",
 		name: slug,
+		...(overrides.grantedBy
+			? { flags: { stonetop: { grant: { source: `arcana:${overrides.grantedBy}`, key: `follower:${slug}` } } } }
+			: {}),
 		system: {
 			slug, owned: overrides.owned ?? false, tags: "",
 			hp: { value: 6, max: 6 }, armor: "",
@@ -505,7 +508,7 @@ describe("CharacterArcana — outfitItems sync", () => {
 		await arcana.addArcanum("bow-with-no-string");
 		expect(outfitItems.sync).toHaveBeenCalledWith(
 			"arcana:bow-with-no-string",
-			expect.arrayContaining([expect.objectContaining({ system: expect.objectContaining({ source: "arcana:bow-with-no-string" }) })]),
+			expect.arrayContaining([expect.objectContaining({ type: "outfitItem" })]),
 		);
 	});
 
@@ -627,7 +630,7 @@ describe("CharacterArcana — follower sync", () => {
 	it("removeArcanum removes a follower the arcanum added, even when owned via its checkbox", async () => {
 		const { actor, charArcana } = makeArcanaWithFollowers([
 			makeArcanumItem(CRACKED_FLUTE),
-			makeNpcItem("andalau-of-the-flute", { owned: true, arcanaSlug: "cracked-flute" }),
+			makeNpcItem("andalau-of-the-flute", { owned: true, arcanaSlug: "cracked-flute", grantedBy: "cracked-flute" }),
 		]);
 		await charArcana.removeArcanum("cracked-flute");
 		const followerItem = [...actor.items].find(i => i.type === "follower" && i.system?.slug === "andalau-of-the-flute");
@@ -860,7 +863,7 @@ function makeArcanaWithMoves(items = [], moves = new FakeMoves(), arcana = [AZUR
 }
 
 describe("CharacterArcana — granted moves", () => {
-	it("onArcanumCreated registers an arcana-<slug> move category from the card's move grants", async () => {
+	it("grants an arcana-<slug> move category from the card's move grants", async () => {
 		const { charArcana, moves } = makeArcanaWithMoves();
 		await charArcana.onArcanumCreated(makeArcanumItem(AZURE_HAND));
 		expect(moves.addedCategories).toEqual([
@@ -868,16 +871,22 @@ describe("CharacterArcana — granted moves", () => {
 		]);
 	});
 
-	it("onArcanumCreated registers nothing for an arcanum that grants no moves (minor/custom)", async () => {
+	it("grants no moves for an arcanum that has none (minor/custom)", async () => {
 		const { charArcana, moves } = makeArcanaWithMoves();
 		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
-		expect(moves.addedCategories).toEqual([]);
+		expect(moves.addedCategories).toEqual([
+			{ type: "arcana-huge-wooden-sphere", name: "A Huge Wooden Sphere", moveSlugs: [] },
+		]);
 	});
 
-	it("removeArcanum removes the arcana-<slug> move category", async () => {
-		const { charArcana, moves } = makeArcanaWithMoves([makeArcanumItem(AZURE_HAND)]);
+	// One revoke takes back everything the card granted — its moves and its followers — because they
+	// all carry its source. There is no separate per-type teardown to keep in step any more.
+	it("removeArcanum revokes everything stamped with the card", async () => {
+		const move = { _id: "m1", type: "move", name: "Battery", system: { slug: "battery", categoryKey: "arcana-azure-hand" },
+			flags: { stonetop: { grant: { source: "arcana:azure-hand", key: "move:battery" } } } };
+		const { actor, charArcana } = makeArcanaWithMoves([makeArcanumItem(AZURE_HAND), move]);
 		await charArcana.removeArcanum("azure-hand");
-		expect(moves.removedCategories).toContain("arcana-azure-hand");
+		expect(actor.deletedIds).toContain("m1");
 	});
 });
 

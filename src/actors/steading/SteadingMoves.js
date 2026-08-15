@@ -2,6 +2,7 @@ import { FoundryMoveRepository } from "../character/repositories/FoundryMoveRepo
 import { ResourceController } from "../character/ResourceController.js";
 import { MoveCategorySnapshotBuilder } from "../../model/snapshot/character/CharacterSnapshot.js";
 import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
+import { GrantedItems } from "../GrantedItems.js";
 import { SteadingMoveCategories } from "../../model/data/steading/SteadingMoveCategories.js";
 import {
 	withCategoryFields,
@@ -20,11 +21,13 @@ import { toSlug } from "../../utils/slug.js";
 // them an ownedId (so rolls resolve the item and show 10+/7–9/6– tiers) and a live ResourceSnapshot
 // (so resource boxes are clickable + persist).
 export class SteadingMoves {
-	constructor(actor, moveRepo = new FoundryMoveRepository(), resourceController = new ResourceController(actor)) {
+	constructor(actor, moveRepo = new FoundryMoveRepository(), resourceController = new ResourceController(actor),
+	            grantedItems = new GrantedItems(actor)) {
 		this._actor              = actor;
 		this._repo               = moveRepo;
 		this._resourceController = resourceController;
-		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo);
+		this._grantedItems       = grantedItems;
+		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo, grantedItems);
 	}
 
 	// Seeds every category's reference moves onto the steading as owned `move` items. Called once, at
@@ -70,7 +73,7 @@ export class SteadingMoves {
 			.filter(i => i.type === "move" && SteadingMoveCategories.byKey(i.system?.categoryKey));
 		if (owned.some(i => (i.system?.slug ?? toSlug(i.name)) === slug)) return;
 		const category = SteadingMoveCategories.byKey(item.system?.moveType) ?? SteadingMoveCategories.defaultCategory();
-		await this._actor.createEmbeddedDocuments("Item", [
+		await this._grantedItems.addAuthored([
 			withCategoryFields(item.toObject(), category.key, true, {
 				sortOrder:    owned.filter(i => i.system?.categoryKey === category.key).length,
 				compendiumId: item.pack ? item._id ?? null : null,

@@ -9,7 +9,7 @@ import { Possession } from "../../model/data/character/Possession.js";
 import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
 import { rich } from "../../model/snapshot/RichText.js";
 import { GrantedItems } from "../GrantedItems.js";
-import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
+import { GrantSource, GrantStamp, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 
 export class CharacterPossessions {
 	// `factory` is required: a locally-constructed one would carry no registered side-effect handlers,
@@ -97,7 +97,8 @@ export class CharacterPossessions {
 		await this.syncPossessionItems(item.system.slug);
 	}
 
-	/** Every possession this playbook wants the character to own, keyed by slug. */
+	/** Every possession this playbook wants the character to own, keyed by slug. Which of the character's
+	 *  possessions are the playbook's picks is the grant stamp's business, not a field of their own. */
 	async playbookGrants(sp, playbookSlug) {
 		const source = GrantSource.playbook(playbookSlug);
 		if (!sp || !this._possessionRepo) return ItemGrantSet.empty(source);
@@ -122,7 +123,6 @@ export class CharacterPossessions {
 					uses:         0,
 					pickValues:   {},
 					choiceUses:   {},
-					playbookSlug,
 				},
 			}));
 		}
@@ -177,10 +177,10 @@ export class CharacterPossessions {
 		const { pickNote, pickCount } = sp;
 
 		const possessionItems = [...this._actor.items].filter(i => i.type === "possession");
-		const playbookItems   = possessionItems.filter(i => i.system?.playbookSlug);
+		const playbookItems   = possessionItems.filter(i => GrantSource.isPlaybook(GrantStamp.of(i)?.source));
 		const playbookSlugSet = new Set(playbookItems.map(i => i.system?.slug).filter(Boolean));
 		const embeddedItems   = possessionItems.filter(
-			i => !i.system?.playbookSlug && !playbookSlugSet.has(i.system?.slug),
+			i => !playbookItems.includes(i) && !playbookSlugSet.has(i.system?.slug),
 		);
 
 		const possessions = playbookItems.map(item => new Possession(item.system));

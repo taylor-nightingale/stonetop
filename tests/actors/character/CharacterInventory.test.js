@@ -47,6 +47,10 @@ function makeRawEmbeddedItem(overrides = {}) {
 		_id:    overrides._id    ?? "emb-1",
 		type:   "outfitItem",
 		name:   overrides.name   ?? "Embedded Item",
+		// A granted item carries the stamp of whatever granted it; gear the player added has none.
+		...(overrides.source
+			? { flags: { stonetop: { grant: { source: `outfit:${overrides.source}`, key: `outfitItem:${overrides.slug}` } } } }
+			: {}),
 		system: {
 			slug:            overrides.slug            ?? null,
 			inventoryColumn: overrides.inventoryColumn ?? "regular",
@@ -55,7 +59,6 @@ function makeRawEmbeddedItem(overrides = {}) {
 			note:            overrides.note            ?? null,
 			resource:        overrides.resource        ?? null,
 			twoCol:          overrides.twoCol          ?? false,
-			source:          overrides.source          ?? null,
 		},
 	};
 }
@@ -332,7 +335,7 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(item.tags.raw).toBe("warm");
 	});
 
-	it("embedded item with source has isCustom=false and ownedId=null", async () => {
+	it("granted item has isCustom=false and ownedId=null", async () => {
 		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
 		const snap = await makeCi({}, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		const item = regularItems(snap).find(i => i.slug === "arcanum-1");
@@ -497,7 +500,7 @@ describe("CharacterInventory.addCustomItem", () => {
 			expect.objectContaining({
 				name: "Rope",
 				type: "outfitItem",
-				system: expect.objectContaining({ weight: 2, inventoryColumn: "regular", source: null }),
+				system: expect.objectContaining({ weight: 2, inventoryColumn: "regular" }),
 			}),
 		]);
 	});
@@ -523,7 +526,7 @@ describe("CharacterInventory.addCustomSmallItem", () => {
 			expect.objectContaining({
 				name: "Coin",
 				type: "outfitItem",
-				system: expect.objectContaining({ inventoryColumn: "small", source: null }),
+				system: expect.objectContaining({ inventoryColumn: "small" }),
 			}),
 		]);
 	});

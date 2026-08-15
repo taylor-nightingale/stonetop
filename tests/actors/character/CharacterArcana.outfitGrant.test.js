@@ -56,8 +56,9 @@ describe("CharacterArcana.outfitGrantFor", () => {
 			.toEqual(["Bow of the hunt", "Quiver"]);
 	});
 
-	it("stamps everything with the arcanum's own source", () => {
+	it("carries the arcanum's source on the grant, not on each item — the store stamps those", () => {
 		const grant = CharacterArcana.outfitGrantFor(arcanumItem({ flipped: true }));
-		expect(grant.items.every(i => i.system.source === "arcana:bow-with-no-string")).toBe(true);
+		expect(grant.source).toBe("arcana:bow-with-no-string");
+		expect(grant.items.every(i => i.system.source === undefined)).toBe(true);
 	});
 });

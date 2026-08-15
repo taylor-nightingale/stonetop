@@ -45,6 +45,19 @@ export class FakeMoves {
 	get addedCategories()   { return this._addedCategories; }
 
 	async addCategory(type, name, moveSlugs = []) { this._addedCategories.push({ type, name, moveSlugs }); }
+
+	// The grant set a source (insert/arcanum) asks for. Recorded like addCategory so a test can assert
+	// what was granted without knowing whether the caller applied it itself or handed it to the router.
+	async categoryGrants(type, name, moveSlugs = [], startingSlugs = []) {
+		this._addedCategories.push({ type, name, moveSlugs });
+		return {
+			source: type.startsWith("arcana-") ? `arcana:${type.slice("arcana-".length)}`
+				: type.startsWith("insert-") ? `insert:${type.slice("insert-".length)}` : `reference:${type}`,
+			grants: moveSlugs.map(slug => ({ key: `move:${slug}`, itemData: {}, stamped: () => ({}) })),
+			keys: moveSlugs.map(slug => `move:${slug}`),
+			isEmpty: !moveSlugs.length,
+		};
+	}
 	async removeCategory(type)          { this._removedCategories.push(type); }
 
 	setSnapshotsForCategory(category, snapshots) { this._snapshotsByCategory[category] = snapshots; }

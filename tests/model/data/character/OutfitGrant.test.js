@@ -69,11 +69,13 @@ describe("OutfitGrant.forContainer", () => {
 		expect(grant.items.map(i => i.system.slug)).toEqual(["shield", "sword"]);
 	});
 
-	it("stamps every item with the container's source", () => {
+	// The grant names its source once; the items themselves are plain payloads, stamped by the store
+	// that writes them.
+	it("names the container's source and builds outfitItem payloads", () => {
 		const grant = OutfitGrant.forContainer(
 			"possession:weapons-of-war", [shield], WEAPONS, values({ "weapons-of-war": { sword: 1 } }),
 		);
-		expect(grant.items.every(i => i.system.source === "possession:weapons-of-war")).toBe(true);
+		expect(grant.source).toBe("possession:weapons-of-war");
 		expect(grant.items.every(i => i.type === "outfitItem")).toBe(true);
 	});
 

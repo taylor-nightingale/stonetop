@@ -78,12 +78,13 @@ describe("migratePossessions — item creation", () => {
 		expect(possessions[0].system.slug).toBe("apiary");
 	});
 
-	it("sets playbookSlug on created items", async () => {
+	it("stamps created items with the playbook that granted them", async () => {
 		const options = [{ slug: "apiary", label: "Apiary" }];
 		const actor = makeActor({}, [makePlaybookItem(options)]);
 		const repo = makeRepo([makePossessionSpec()]);
 		await migratePossessions(actor, repo, new FakeMoves(), new FakeOutfitItems());
-		expect(actor.createdDocs[0].system.playbookSlug).toBe("blessed");
+		expect(actor.createdDocs[0].flags.stonetop.grant)
+			.toEqual({ source: "playbook:blessed", key: "possession:apiary" });
 	});
 });
 

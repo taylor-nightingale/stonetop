@@ -42,6 +42,7 @@ describe("ItemGrant type factories", () => {
 
 	it("keep the same slug distinct across item types", () => {
 		expect(ItemGrant.forMove("crew", {}).key).not.toBe(ItemGrant.forFollower("crew", {}).key);
+		expect(ItemGrant.forOutfitItem("rope", {}).key).toBe("outfitItem:rope");
 	});
 });
 
@@ -111,6 +112,19 @@ describe("GrantSource", () => {
 	it("keeps the same slug distinct across source kinds", () => {
 		expect(GrantSource.playbook("x")).not.toBe(GrantSource.insert("x"));
 	});
+
+	// A card's gear and the followers the same card grants would otherwise answer to one source, and
+	// clearing the gear on a flip would take the followers with it.
+	it("gives a container's gear a source of its own", () => {
+		expect(GrantSource.outfit("arcana:the-ring")).toBe("outfit:arcana:the-ring");
+		expect(GrantSource.outfit("arcana:the-ring")).not.toBe(GrantSource.arcanum("the-ring"));
+	});
+
+	it("recognises a playbook source — what makes a possession one of its picks", () => {
+		expect(GrantSource.isPlaybook(GrantSource.playbook("the-heavy"))).toBe(true);
+		expect(GrantSource.isPlaybook(GrantSource.arcanum("the-ring"))).toBe(false);
+		expect(GrantSource.isPlaybook(undefined)).toBe(false);
+	});
 });
 
 describe("ItemGrantSet", () => {
@@ -124,7 +138,7 @@ describe("ItemGrantSet", () => {
 		expect(set.isEmpty).toBe(false);
 	});
 
-	it("empty() is a set that grants nothing — the revoke-everything case", () => {
+	it("empty() is a set with nothing to say — not an instruction to delete", () => {
 		const set = ItemGrantSet.empty("playbook:the-heavy");
 		expect(set.source).toBe("playbook:the-heavy");
 		expect(set.grants).toEqual([]);

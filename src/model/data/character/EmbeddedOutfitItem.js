@@ -7,7 +7,6 @@ export class EmbeddedOutfitItemBuilder {
 	withInventoryColumn(v) { this._inventoryColumn = v; return this; }
 	withResource(v)        { this._resource        = v; return this; }
 	withTwoCol(v)          { this._twoCol          = v; return this; }
-	withSource(v)          { this._source          = v; return this; }
 
 	build() {
 		return {
@@ -21,8 +20,7 @@ export class EmbeddedOutfitItemBuilder {
 				note:            this._note            ?? null,
 				resource:        this._resource        ?? null,
 				twoCol:          this._twoCol          ?? false,
-				source:          this._source          ?? null,
-			},
+				},
 		};
 	}
 }

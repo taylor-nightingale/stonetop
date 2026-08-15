@@ -24,8 +24,8 @@ export class OutfitGrant {
 	 */
 	static forContainer(source, baseItems, system, values) {
 		return new OutfitGrant(source, [
-			...baseItems.map(oi => embeddedOutfitItem(oi, source)),
-			...this.choiceGranted(system, values).map(oi => embeddedOutfitItem(oi, source)),
+			...baseItems.map(oi => embeddedOutfitItem(oi)),
+			...this.choiceGranted(system, values).map(oi => embeddedOutfitItem(oi)),
 		]);
 	}
 
@@ -45,8 +45,9 @@ export class OutfitGrant {
 	}
 }
 
-/** Wrap a flat outfit-item definition as an embedded `outfitItem` Item payload. */
-export function embeddedOutfitItem(data, source) {
+/** Wrap a flat outfit-item definition as an embedded `outfitItem` Item payload. Provenance is not part
+ *  of the payload: the granted-item store stamps it when the gear is written. */
+export function embeddedOutfitItem(data) {
 	return new EmbeddedOutfitItemBuilder()
 		.withSlug(data.slug)
 		.withName(data.name)
@@ -56,6 +57,5 @@ export function embeddedOutfitItem(data, source) {
 		.withInventoryColumn(data.inventoryColumn ?? "regular")
 		.withResource(data.resource ?? null)
 		.withTwoCol(data.twoCol ?? false)
-		.withSource(source)
 		.build();
 }

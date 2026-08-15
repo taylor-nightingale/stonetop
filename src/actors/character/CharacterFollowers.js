@@ -93,7 +93,10 @@ export class CharacterFollowers {
 		}
 		const [follower] = await this._followerRepo.findBySlugs([slug]);
 		if (!follower) return;
-		await this._actor.createEmbeddedDocuments("Item", [{
+		// Unstamped: this is the follower a player dropped in, or one a ticked choice row hands them
+		// outright. Nothing reconciles it, and nothing takes it back on its own — only the roster's own
+		// remove does. A follower that a card owns arrives through arcanumGrants instead.
+		await this._grantedItems.addAuthored([{
 			name: follower.name, type: "follower",
 			...(follower.img ? { img: follower.img } : {}),
 			system: { ..._followerToSystemFields(follower), owned: true, showOnTab },
@@ -119,20 +122,24 @@ export class CharacterFollowers {
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
 	}
 
-	// Remove every follower an arcanum embedded. Arcana followers carry `system.arcanaSlug` (their
-	// source arcanum, from pack data); playbook/custom/independent followers have it null, so they
-	// never match. Mirrors the outfit-item `deleteBySource("arcana:" + slug)` provenance cleanup.
-	async removeByArcanum(arcanumSlug) {
-		const ids = [...this._actor.items]
-			.filter(i => i.type === "follower" && i.system?.arcanaSlug === arcanumSlug)
-			.map(i => i._id);
-		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
+	// The followers an arcanum's card grants: owned, but off the roster tab until a mark on the card
+	// puts them there. Provenance is the stamp, so removing the card takes them back — where it used to
+	// depend on `system.arcanaSlug` surviving in the pack data.
+	async arcanumGrants(arcanumSlug, followerSlugs = []) {
+		const source = GrantSource.arcanum(arcanumSlug);
+		if (!arcanumSlug || !followerSlugs?.length) return ItemGrantSet.empty(source);
+		const followers = await this._followerRepo.findBySlugs(followerSlugs);
+		return new ItemGrantSet(source, followers.map(follower => ItemGrant.forFollower(follower.slug, {
+			name: follower.name, type: "follower",
+			...(follower.img ? { img: follower.img } : {}),
+			system: { ..._followerToSystemFields(follower), owned: true, showOnTab: false },
+		})));
 	}
 
 	async addCustomFollower() {
 		const slug = `custom-${Date.now()}`;
 		const [blank] = await this._followerRepo.findBySlugs(["blank"]);
-		await this._actor.createEmbeddedDocuments("Item", [{
+		await this._grantedItems.addAuthored([{
 			name: blank?.name ?? "New Follower", type: "follower",
 			...(blank?.img ? { img: blank.img } : {}),
 			system: {
@@ -157,7 +164,7 @@ export class CharacterFollowers {
 		const { tags: selected, count } = normalizeGroupTags(tags.values);
 		const hpMax   = (sys.hp?.max || sys.hp?.value) ?? 0;
 		const members = count ? Array.from({ length: count }, () => newMember(hpMax)) : [];
-		await this._actor.createEmbeddedDocuments("Item", [{
+		await this._grantedItems.addAuthored([{
 			name: npcActor.name, type: "follower",
 			...(npcActor.img ? { img: npcActor.img } : {}),
 			system: {

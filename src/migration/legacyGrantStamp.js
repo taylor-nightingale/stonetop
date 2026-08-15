@@ -25,8 +25,9 @@ function _legacySource(item) {
 			?? _arcanum(system.arcanaSlug);
 		case "insert":     return _playbook(item.flags?.stonetop?.grantedByPlaybook);
 		case "possession": return _playbook(system.playbookSlug);
-		// Outfit sources are already written as "possession:<slug>" / "arcana:<slug>" — the same shape.
-		case "outfitItem": return system.source ?? null;
+		// A container's gear is its own source, so it can be cleared without touching what else that
+		// container granted.
+		case "outfitItem": return system.source ? GrantSource.outfit(system.source) : null;
 		default:           return null;
 	}
 }

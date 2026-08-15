@@ -33,6 +33,9 @@ function makeOutfitItems() { return new FakeOutfitItems(); }
 
 function makePossessionItem(p, opts = {}) {
 	return {
+		...(opts.playbookSlug
+			? { flags: { stonetop: { grant: { source: `playbook:${opts.playbookSlug}`, key: `possession:${p.slug}` } } } }
+			: {}),
 		_id:    p.slug + "-item",
 		type:   "possession",
 		name:   p.name ?? p.slug,
@@ -49,7 +52,6 @@ function makePossessionItem(p, opts = {}) {
 			uses:         opts.uses         ?? 0,
 			pickValues:   opts.pickValues   ?? {},
 			choiceUses:   opts.choiceUses   ?? {},
-			playbookSlug: opts.playbookSlug ?? null,
 		},
 	};
 }
@@ -814,12 +816,13 @@ describe("CharacterPossessions — addPossessionsFromPlaybook", () => {
 		expect(apiary.system.selected).toBe(false);
 	});
 
-	it("sets playbookSlug on all embedded possessions", async () => {
+	it("stamps every embedded possession with the playbook that granted it", async () => {
 		const actor = makeActor();
 		const cp = makeCharacterPossessions(actor, makeMoves(), null, new FakePossessionRepository(basePossessions()));
 		await cp.addPossessionsFromPlaybook(baseSp(), "the-blessed");
-		const slugs = [...actor.items].filter(i => i.type === "possession").map(i => i.system.playbookSlug);
-		expect(slugs.every(s => s === "the-blessed")).toBe(true);
+		const sources = [...actor.items].filter(i => i.type === "possession")
+			.map(i => i.flags?.stonetop?.grant?.source);
+		expect(sources.every(s => s === "playbook:the-blessed")).toBe(true);
 	});
 
 	it("skips a slug that is already in actor.items (drag-dropped)", async () => {

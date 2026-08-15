@@ -24,6 +24,7 @@ export class PossessionData extends foundry.abstract.TypeDataModel {
 			uses:         new f.NumberField({ initial: 0, integer: true }),
 			pickValues:   new f.ObjectField({ initial: {} }),
 			choiceUses:   new f.ObjectField({ initial: {} }),
+			// Legacy provenance, read only by the grant-stamp migration — see OutfitItemData.source.
 			playbookSlug: new f.StringField({ nullable: true, initial: null }),
 		};
 	}

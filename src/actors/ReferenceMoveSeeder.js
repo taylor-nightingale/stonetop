@@ -1,4 +1,6 @@
 import { findMoveItemBySlug, withCategoryFields } from "./embeddedMoves.js";
+import { GrantedItems } from "./GrantedItems.js";
+import { GrantSource, ItemGrant, ItemGrantSet } from "../model/data/ItemGrant.js";
 import { toSlug } from "../utils/slug.js";
 
 // Seeds one category of reference moves (character basic/special/follower; steading homefront) from
@@ -7,11 +9,15 @@ import { toSlug } from "../utils/slug.js";
 // fallback), so a re-seed can't duplicate and a renamed embedded move is still recognized as
 // already seeded. Seeded acquired — checked by default but toggleable, like starting moves.
 //
+// Seeded, not synced: a GM who deletes a reference move means it, so a move the packs still list but
+// the character no longer has stays gone. That is the one difference from every other grant.
+//
 // CharacterMoves and SteadingMoves COMPOSE this; the category vocabulary stays with them.
 export class ReferenceMoveSeeder {
-	constructor(actor, moveRepo) {
+	constructor(actor, moveRepo, grantedItems = new GrantedItems(actor)) {
 		this._actor = actor;
 		this._repo  = moveRepo;
+		this._grantedItems = grantedItems;
 	}
 
 	async seed(categoryKey) {
@@ -39,10 +45,10 @@ export class ReferenceMoveSeeder {
 		const newEntries = candidates.filter(m => !existingSlugs.has(m.slug));
 		if (!newEntries.length) return;
 		const docs = await Promise.all(newEntries.map(m => this._repo.getReferencedMoveDocument(m.id)));
-		await this._actor.createEmbeddedDocuments("Item",
-			docs.filter(Boolean).map((d, i) =>
-				withCategoryFields(d.toObject(), categoryKey, true, { sortOrder: existing.length + i, compendiumId: d._id ?? null })
-			)
-		);
+		await this._grantedItems.seed(new ItemGrantSet(
+			GrantSource.reference(categoryKey),
+			docs.filter(Boolean).map((d, i) => ItemGrant.forMove(d.system?.slug ?? toSlug(d.name),
+				withCategoryFields(d.toObject(), categoryKey, true, { sortOrder: existing.length + i, compendiumId: d._id ?? null }))),
+		));
 	}
 }
