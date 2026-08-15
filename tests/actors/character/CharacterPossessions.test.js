@@ -846,58 +846,44 @@ describe("CharacterPossessions — addPossessionsFromPlaybook", () => {
 	});
 });
 
-// -- removePossessionsFromPlaybook ─────────────────────────────────────────────
+// -- clearGrantedOutfit ────────────────────────────────────────────────────────
 
-describe("CharacterPossessions — removePossessionsFromPlaybook", () => {
-	it("removes all possession items with matching playbookSlug", async () => {
+// Deleting the possession items themselves is GrantedItems.revoke's job (the router calls it for
+// every type a playbook grants). What can't be deleted by source stamp is the gear those possessions
+// put in the outfit — that is keyed by the possession, so it has to be cleared first.
+function granted(item, source) {
+	return { ...item, flags: { stonetop: { grant: { source, key: `possession:${item.system.slug}` } } } };
+}
+
+describe("CharacterPossessions — clearGrantedOutfit", () => {
+	it("clears the outfit source of every possession the playbook granted", async () => {
 		const [pouch, apiary] = basePossessions();
 		const actor = makeActor([
-			makePossessionItem(pouch,  { playbookSlug: "the-blessed" }),
-			makePossessionItem(apiary, { playbookSlug: "the-blessed" }),
-		]);
-		const cp = makeCharacterPossessions(actor);
-		await cp.removePossessionsFromPlaybook("the-blessed");
-		expect([...actor.items].filter(i => i.type === "possession")).toHaveLength(0);
-	});
-
-	it("does not remove drag-dropped possessions (playbookSlug=null)", async () => {
-		const [, apiary] = basePossessions();
-		const actor = makeActor([
-			makePossessionItem(apiary, { playbookSlug: null }),
-		]);
-		const cp = makeCharacterPossessions(actor);
-		await cp.removePossessionsFromPlaybook("the-blessed");
-		expect([...actor.items].filter(i => i.type === "possession")).toHaveLength(1);
-	});
-
-	it("does not remove possessions from a different playbook", async () => {
-		const [pouch] = basePossessions();
-		const actor = makeActor([
-			makePossessionItem(pouch, { playbookSlug: "the-fox" }),
-		]);
-		const cp = makeCharacterPossessions(actor);
-		await cp.removePossessionsFromPlaybook("the-blessed");
-		expect([...actor.items].filter(i => i.type === "possession")).toHaveLength(1);
-	});
-
-	it("is a no-op when playbookSlug is null", async () => {
-		const [pouch] = basePossessions();
-		const actor = makeActor([makePossessionItem(pouch, { playbookSlug: "the-blessed" })]);
-		const cp = makeCharacterPossessions(actor);
-		await cp.removePossessionsFromPlaybook(null);
-		expect([...actor.items].filter(i => i.type === "possession")).toHaveLength(1);
-	});
-
-	it("calls deleteBySource for each removed possession's outfit items", async () => {
-		const [pouch, apiary] = basePossessions();
-		const actor = makeActor([
-			makePossessionItem(pouch,  { playbookSlug: "the-blessed" }),
-			makePossessionItem(apiary, { playbookSlug: "the-blessed" }),
+			granted(makePossessionItem(pouch),  "playbook:the-blessed"),
+			granted(makePossessionItem(apiary), "playbook:the-blessed"),
 		]);
 		const outfitItems = makeOutfitItems();
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
-		await cp.removePossessionsFromPlaybook("the-blessed");
+		await cp.clearGrantedOutfit("playbook:the-blessed");
 		expect(outfitItems.deletedSources).toContain("possession:sacred-pouch");
 		expect(outfitItems.deletedSources).toContain("possession:apiary");
+	});
+
+	it("leaves a hand-dropped possession's gear alone", async () => {
+		const [, apiary] = basePossessions();
+		const actor = makeActor([makePossessionItem(apiary)]);
+		const outfitItems = makeOutfitItems();
+		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
+		await cp.clearGrantedOutfit("playbook:the-blessed");
+		expect(outfitItems.deletedSources).toEqual([]);
+	});
+
+	it("leaves another playbook's possessions alone", async () => {
+		const [pouch] = basePossessions();
+		const actor = makeActor([granted(makePossessionItem(pouch), "playbook:the-fox")]);
+		const outfitItems = makeOutfitItems();
+		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
+		await cp.clearGrantedOutfit("playbook:the-blessed");
+		expect(outfitItems.deletedSources).toEqual([]);
 	});
 });

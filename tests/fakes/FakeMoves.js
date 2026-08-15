@@ -20,6 +20,16 @@ export class FakeMoves {
 	async decrementMove(catKey, moveSlug) { this._decremented.push([catKey, moveSlug]); }
 	async initPlaybookCategory(data)      { this._initialized = data; }
 
+	// The grant set CharacterPlaybook asks for; records the extra starting slugs it was told about
+	// (the chosen background's moves).
+	async playbookGrants(data, alsoStarting = []) {
+		this._initialized  = data;
+		this._alsoStarting = [...alsoStarting];
+		return { source: `playbook:${data.slug}`, grants: [], keys: [] };
+	}
+
+	alsoStarting() { return this._alsoStarting ?? []; }
+
 	wasIncremented(catKey, moveSlug) {
 		return this._incremented.some(([k, s]) => k === catKey && s === moveSlug);
 	}

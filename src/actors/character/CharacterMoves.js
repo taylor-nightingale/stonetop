@@ -11,14 +11,17 @@ import {
 	findMoveItemBySlug,
 } from "../embeddedMoves.js";
 import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
+import { GrantedItems } from "../GrantedItems.js";
+import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 import { toSlug } from "../../utils/slug.js";
 
 export class CharacterMoves {
-	constructor(moveRepo, actor, resourceController, factory = null) {
+	constructor(moveRepo, actor, resourceController, factory = null, grantedItems = new GrantedItems(actor)) {
 		this._moveRepo           = moveRepo;
 		this._actor              = actor;
 		this._resourceController = resourceController;
 		this._factory            = factory;
+		this._grantedItems       = grantedItems;
 		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo);
 	}
 
@@ -49,27 +52,29 @@ export class CharacterMoves {
 	// (playbookData.startingMoves) — those seed acquired at character creation. Resolution + sort
 	// (by level + dependency) live here; the move items themselves carry no playbook back-reference.
 	async initPlaybookCategory(playbookData) {
-		const existingPlaybook = [...this._actor.items]
-			.filter(i => i.type === "move" && i.system?.categoryKey?.startsWith("playbook-"));
-		if (existingPlaybook.length) {
-			await this._actor.deleteEmbeddedDocuments("Item", existingPlaybook.map(i => i._id));
-		}
+		await this._grantedItems.sync(await this.playbookGrants(playbookData));
+	}
+
+	/** Every move this playbook wants the character to own, keyed by slug. `alsoStarting` are the slugs
+	 *  something else about the character (its background) makes starting moves too. */
+	async playbookGrants(playbookData, alsoStarting = []) {
 		const resolved = await this._moveRepo.getMovesBySlugs(playbookData.moves ?? []);
 		const playbookMoves = this.sortPlaybookMoves(resolved);
-		const starting = new Set(playbookData.startingMoves ?? []);
+		const starting = new Set([...(playbookData.startingMoves ?? []), ...alsoStarting]);
 		const catKey = `playbook-${playbookData.slug}`;
 		const pairs = await Promise.all(
 			playbookMoves.map(async (m, i) => ({ move: m, doc: await this._moveRepo.getReferencedMoveDocument(m.id), index: i }))
 		);
-		await this._actor.createEmbeddedDocuments("Item",
+		return new ItemGrantSet(GrantSource.playbook(playbookData.slug),
 			pairs
 				.filter(({ doc }) => doc !== null)
-				.map(({ move, doc, index }) => withCategoryFields(doc.toObject(), catKey, starting.has(move.slug), {
-					sortOrder:     index,
-					compendiumId:  doc._id ?? null,
-					categoryLabel: playbookData.name,
-					categoryNote:  playbookData.startingMovesNote ?? null,
-				}))
+				.map(({ move, doc, index }) => ItemGrant.forMove(move.slug,
+					withCategoryFields(doc.toObject(), catKey, starting.has(move.slug), {
+						sortOrder:     index,
+						compendiumId:  doc._id ?? null,
+						categoryLabel: playbookData.name,
+						categoryNote:  playbookData.startingMovesNote ?? null,
+					})))
 		);
 	}
 

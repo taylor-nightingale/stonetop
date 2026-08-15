@@ -95,7 +95,8 @@ describe("StonetopCharacter._onDeleteDescendantDocuments", () => {
 	it("removes possession items belonging to the deleted playbook", async () => {
 		const possessionItem = {
 			_id: "pouch-item-id", type: "possession",
-			system: { slug: "sacred-pouch", playbookSlug: "the-blessed" },
+			system: { slug: "sacred-pouch" },
+			flags: { stonetop: { grant: { source: "playbook:the-blessed", key: "possession:sacred-pouch" } } },
 		};
 		const actor = new FakeCharacterActorBuilder().withItems([possessionItem]).build();
 		const char = new TestCharacterBuilder(actor).build();
@@ -110,7 +111,8 @@ describe("StonetopCharacter._onDeleteDescendantDocuments", () => {
 	it("does not remove possessions from a different playbook", async () => {
 		const possessionItem = {
 			_id: "pouch-item-id", type: "possession",
-			system: { slug: "sacred-pouch", playbookSlug: "the-fox" },
+			system: { slug: "sacred-pouch" },
+			flags: { stonetop: { grant: { source: "playbook:the-fox", key: "possession:sacred-pouch" } } },
 		};
 		const actor = new FakeCharacterActorBuilder().withItems([possessionItem]).build();
 		const char = new TestCharacterBuilder(actor).build();
@@ -125,7 +127,8 @@ describe("StonetopCharacter._onDeleteDescendantDocuments", () => {
 	it("is a no-op for non-playbook document types", async () => {
 		const possessionItem = {
 			_id: "pouch-item-id", type: "possession",
-			system: { slug: "sacred-pouch", playbookSlug: "the-blessed" },
+			system: { slug: "sacred-pouch" },
+			flags: { stonetop: { grant: { source: "playbook:the-blessed", key: "possession:sacred-pouch" } } },
 		};
 		const actor = new FakeCharacterActorBuilder().withItems([possessionItem]).build();
 		const char = new TestCharacterBuilder(actor).build();

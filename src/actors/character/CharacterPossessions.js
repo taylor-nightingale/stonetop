@@ -8,16 +8,20 @@ import { buildChoiceGroup } from "../../model/snapshot/character/buildChoiceGrou
 import { Possession } from "../../model/data/character/Possession.js";
 import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
 import { rich } from "../../model/snapshot/RichText.js";
+import { GrantedItems } from "../GrantedItems.js";
+import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 
 export class CharacterPossessions {
 	// `factory` is required: a locally-constructed one would carry no registered side-effect handlers,
 	// so every choice group on the sheet would silently stop granting.
-	constructor(actor, moves, possessionRepo = null, factory, containerOutfitSync = null) {
+	constructor(actor, moves, possessionRepo = null, factory, containerOutfitSync = null,
+	            grantedItems = new GrantedItems(actor)) {
 		this._actor          = actor;
 		this._moves          = moves;
 		this._possessionRepo = possessionRepo;
 		this._factory        = factory;
 		this._outfitSync     = containerOutfitSync;
+		this._grantedItems   = grantedItems;
 	}
 
 	// A possession's sub-choices ARE a choice group: values persist through the shared controller, and
@@ -81,14 +85,29 @@ export class CharacterPossessions {
 	}
 
 	async addPossessionsFromPlaybook(sp, playbookSlug) {
-		if (!sp || !this._possessionRepo) return;
+		const created = await this._grantedItems.sync(await this.playbookGrants(sp, playbookSlug));
+		for (const item of created) await this.onCreated(item);
+	}
+
+	// Only a possession that arrives already selected brings its gear with it; the rest grant theirs when
+	// the player ticks them. Ignores anything that isn't a possession, so a caller can hand it every item
+	// a grant created without sorting them first.
+	async onCreated(item) {
+		if (item?.type !== "possession" || !item.system?.preselected) return;
+		await this.syncPossessionItems(item.system.slug);
+	}
+
+	/** Every possession this playbook wants the character to own, keyed by slug. */
+	async playbookGrants(sp, playbookSlug) {
+		const source = GrantSource.playbook(playbookSlug);
+		if (!sp || !this._possessionRepo) return ItemGrantSet.empty(source);
 		const { preselected = [], slugs = [] } = sp;
 		const preselectedSet = new Set(preselected);
+		const grants = [];
 		for (const slug of slugs) {
-			if (_findPossessionItem(this._actor, slug)) continue;
 			const possession = await this._possessionRepo.findBySlug(slug);
 			if (!possession) continue;
-			await this._actor.createEmbeddedDocuments("Item", [{
+			grants.push(ItemGrant.forPossession(slug, {
 				name: possession.name, type: "possession",
 				system: {
 					slug:         possession.slug,
@@ -105,20 +124,18 @@ export class CharacterPossessions {
 					choiceUses:   {},
 					playbookSlug,
 				},
-			}]);
-			if (preselectedSet.has(slug)) await this.syncPossessionItems(slug);
+			}));
 		}
+		return new ItemGrantSet(source, grants);
 	}
 
-	async removePossessionsFromPlaybook(playbookSlug) {
-		if (!playbookSlug) return;
-		const possessions = [...this._actor.items]
-			.filter(i => i.type === "possession" && i.system?.playbookSlug === playbookSlug);
-		for (const p of possessions) {
-			await this._outfitSync?.clear("possession:" + p.system.slug);
+	// The gear a granted possession put in the outfit is keyed by the possession, not the playbook, so
+	// revoking the playbook has to clear each source by hand before the items themselves go.
+	async clearGrantedOutfit(source) {
+		for (const item of this._grantedItems.itemsFrom(source)) {
+			if (item.type !== "possession") continue;
+			await this._outfitSync?.clear("possession:" + item.system?.slug);
 		}
-		const ids = possessions.map(i => i._id);
-		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
 	}
 
 	/** What a possession grants right now: its own gear plus whatever its ticked choices grant. */

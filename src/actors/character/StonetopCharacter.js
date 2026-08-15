@@ -19,6 +19,9 @@ import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
 import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
 import {ChoiceStores} from "./ChoiceStores.js";
 import {applyPick} from "./ChoiceGroupController.js";
+import {GrantedItems} from "../GrantedItems.js";
+import {ItemGrantRouter} from "./ItemGrantRouter.js";
+import {GrantSource} from "../../model/data/ItemGrant.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -27,6 +30,9 @@ export class StonetopCharacter {
 		this._steadingRepo = repos.steading ?? null;
 		this._stats = new CharacterStats(actor);
 		this._origin = new CharacterOrigin(actor);
+		// The one writer of items something else owns. Every subsystem grants through this instance, so
+		// "which items exist because of X?" has a single answer.
+		const grantedItems = new GrantedItems(actor);
 		const outfitItems = new ActorOutfitItems(actor);
 		this._resourceController = new ResourceController(actor);
 		// The one writer of granted outfit items. Each container type registers how it computes its
@@ -35,23 +41,56 @@ export class StonetopCharacter {
 			.register("possession", CharacterPossessions.outfitGrantFor)
 			.register("arcanum",    CharacterArcana.outfitGrantFor);
 		const factory = new ChoiceGroupControllerFactory(actor);
-		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory, repos.inventory);
+		this._followers = new CharacterFollowers(actor, repos.followers, this._resourceController, factory, repos.inventory, grantedItems);
 		// Everything that reacts to a choice value changing, in one list. Each decides what it cares about.
 		factory.subscribe(new FollowerSideEffectHandler(this._followers))
 		       .subscribe(outfitSync);
 
 		this._background  = new CharacterBackgrounds(actor, factory, this._resourceController);
-		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory);
+		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory, grantedItems);
 		this._playbook    = new CharacterPlaybook(actor, this._background, factory, this._origin);
-		this._possessions = new CharacterPossessions(actor, this._moves, repos.possessions, factory, outfitSync);
+		this._possessions = new CharacterPossessions(actor, this._moves, repos.possessions, factory, outfitSync, grantedItems);
 		this._inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController, repos.steading);
 		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
 		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, this._followers, factory, this._moves, outfitSync);
-		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts);
+		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts, grantedItems);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
+
+		// Where an item that lands on the character turns into grants, and — off the same registration,
+		// so the two can't drift — what leaves when it goes. Each host still owns what its own type
+		// grants; only the applying is shared.
+		this._grantRouter = new ItemGrantRouter(grantedItems)
+			.register("playbook", {
+				source:  item => GrantSource.playbook(item.system?.slug),
+				onApply: async item => this._playbook.selectPlaybook(item.asPlaybook()),
+				grants:  async item => {
+					const playbook = item.asPlaybook();
+					return [
+						await this._playbook.moveGrants(playbook),
+						await this._followers.playbookGrants(playbook.slug, playbook.followers),
+						await this._inserts.playbookGrants(playbook.slug, playbook.inserts),
+						await this._possessions.playbookGrants(playbook.specialPossessions, playbook.slug),
+					];
+				},
+				onGranted: async created => {
+					for (const item of created) await this._onGrantedItemCreated(item);
+				},
+				onRevoke: async source => this._possessions.clearGrantedOutfit(source),
+			})
+			.register("insert", {
+				source:   item => GrantSource.insert(item.system?.slug),
+				onApply:  async item => this._inserts.onInsertDropped(item),
+				grants:   async () => [],
+				onRevoke: async (_source, item) => this._inserts.onInsertRemoved(item.system?.slug ?? null),
+			})
+			.register("arcanum", {
+				source:  item => GrantSource.arcanum(item.system?.slug),
+				onApply: async item => this._arcana.onArcanumCreated(item),
+				grants:  async () => [],
+			});
 
 		// Where a choice write goes, keyed by the context its row was rendered in. Each host owns how
 		// its own rows find their document; nothing here knows what an arcanum or an insert is. A new
@@ -286,35 +325,19 @@ export class StonetopCharacter {
 	}
 
 	async _onCreateDescendantDocuments(documents) {
-		const playbookItem = documents.find(d => d.type === "playbook");
-		if (playbookItem) {
-			const playbookData = playbookItem.asPlaybook();
-			await this._playbook.selectPlaybook(playbookData);
-			await this._followers.syncPlaybookFollowers(playbookData.slug, playbookData.followers);
-			await this._inserts.syncPlaybookInserts(playbookData.slug, playbookData.inserts);
-			await this._possessions.addPossessionsFromPlaybook(
-				playbookData.specialPossessions, playbookData.slug,
-			);
-		}
+		for (const item of documents) await this._grantRouter.apply(item);
+	}
 
-		const insertItem = documents.find(d => d.type === "insert");
-		if (insertItem) await this._inserts.onInsertDropped(insertItem);
-
-		for (const item of documents.filter(d => d.type === "arcanum")) {
-			await this._arcana.onArcanumCreated(item);
-		}
+	// A granted item can be a source in its own right — an insert a playbook hands you brings its moves —
+	// or need follow-up only a new item needs. Foundry fires the create hook for these too, so both paths
+	// have to be idempotent; they are, because every grant is a diff.
+	async _onGrantedItemCreated(item) {
+		await this._grantRouter.apply(item);
+		await this._possessions.onCreated(item);
 	}
 
 	async _onDeleteDescendantDocuments(documents) {
-		const playbookItem = documents.find(d => d.type === "playbook");
-		if (playbookItem) {
-			await this._possessions.removePossessionsFromPlaybook(
-				playbookItem.system?.slug ?? null,
-			);
-		}
-
-		const insertItem = documents.find(d => d.type === "insert");
-		if (insertItem) await this._inserts.onInsertRemoved(insertItem.system?.slug ?? null);
+		for (const item of documents) await this._grantRouter.revoke(item);
 	}
 
 	get rollMode() {

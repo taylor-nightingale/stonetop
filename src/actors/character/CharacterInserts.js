@@ -3,13 +3,16 @@ import { buildChoiceGroup } from "../../model/snapshot/character/buildChoiceGrou
 import { InsertSnapshotBuilder } from "../../model/snapshot/character/InsertSnapshot.js";
 import { InstinctController } from "./InstinctController.js";
 import { rich } from "../../model/snapshot/RichText.js";
+import { GrantedItems } from "../GrantedItems.js";
+import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 
 export class CharacterInserts {
-	constructor(actor, factory, moves, insertRepo = null) {
+	constructor(actor, factory, moves, insertRepo = null, grantedItems = new GrantedItems(actor)) {
 		this._actor   = actor;
 		this._factory = factory;
 		this._moves   = moves;
-		this._insertRepo = insertRepo;
+		this._insertRepo  = insertRepo;
+		this._grantedItems = grantedItems;
 	}
 
 	async onInsertDropped(item) {
@@ -17,30 +20,25 @@ export class CharacterInserts {
 		await this._moves.addCategory(`insert-${slug}`, item.name, item.system?.moves ?? [], item.system?.startingMoves ?? []);
 	}
 
-	// Grant the inserts a playbook declares (follower-data-architecture §4): remove the previous
-	// playbook's granted inserts, embed the listed ones (stamped with the grant flag) + register
-	// their move category. `addCategory` is idempotent, so the create-descendant hook re-firing for
-	// the new insert item (which also calls onInsertDropped) is a harmless no-op.
-	async syncPlaybookInserts(playbookSlug, insertSlugs = []) {
-		for (const item of [...this._actor.items]) {
-			if (item.type !== "insert") continue;
-			const grantedBy = item.flags?.stonetop?.grantedByPlaybook;
-			if (grantedBy && grantedBy !== playbookSlug) await this.removeInsert(item._id);
-		}
-		if (!playbookSlug || !insertSlugs?.length || !this._insertRepo) return;
+	// Every insert this playbook wants the character to own (follower-data-architecture §4), keyed by
+	// slug. The insert items are the playbook's grant, so they arrive and leave with it; a granted
+	// insert registers its own move category the same way a dropped one does — as a source in its own
+	// right, once the item exists.
+	async playbookGrants(playbookSlug, insertSlugs = []) {
+		const source = GrantSource.playbook(playbookSlug);
+		if (!playbookSlug || !insertSlugs?.length || !this._insertRepo) return ItemGrantSet.empty(source);
+		const grants = [];
 		for (const slug of insertSlugs) {
-			if ([...this._actor.items].some(i => i.type === "insert" && i.system?.slug === slug)) continue;
 			const doc = await this._insertRepo.findBySlug(slug);
 			if (!doc) continue;
 			const data = typeof doc.toObject === "function"
 				? doc.toObject()
 				: { name: doc.name, type: "insert", img: doc.img ?? null, system: doc.system };
 			delete data._id; delete data._key;
-			data.type  = "insert";
-			data.flags = { ...(data.flags ?? {}), stonetop: { ...(data.flags?.stonetop ?? {}), grantedByPlaybook: playbookSlug } };
-			await this._actor.createEmbeddedDocuments("Item", [data]);
-			await this._moves.addCategory(`insert-${slug}`, data.name, data.system?.moves ?? [], data.system?.startingMoves ?? []);
+			data.type = "insert";
+			grants.push(ItemGrant.forInsert(slug, data));
 		}
+		return new ItemGrantSet(source, grants);
 	}
 
 	async removeInsert(itemId) {

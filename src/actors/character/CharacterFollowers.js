@@ -6,14 +6,18 @@ import { normalizeGroupTags, hasGroupTag, GROUP_TAG } from "../../model/data/gro
 import { newMember } from "../../utils/followerMemberEdit.js";
 import { blankCompanion } from "../../utils/followerCompanionEdit.js";
 import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
+import { GrantedItems } from "../GrantedItems.js";
+import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 
 export class CharacterFollowers {
-	constructor(actor, followerRepo, resourceController, factory = null, inventoryRepo = null) {
+	constructor(actor, followerRepo, resourceController, factory = null, inventoryRepo = null,
+	            grantedItems = new GrantedItems(actor)) {
 		this._actor              = actor;
 		this._followerRepo       = followerRepo;
 		this._resourceController = resourceController;
 		this._factory            = factory;
 		this._inventoryRepo      = inventoryRepo; // shared outfit-item catalog (same as the character)
+		this._grantedItems       = grantedItems;
 		this._openInventories    = new Set();     // follower slugs whose inventory catalog is expanded
 	}
 
@@ -96,31 +100,17 @@ export class CharacterFollowers {
 		}]);
 	}
 
-	// Embed the followers tied to the active playbook (owned), and drop any left over from a
-	// previously-selected playbook. Called when the playbook is chosen/changed.
-	async syncPlaybookFollowers(playbookSlug, followerSlugs = []) {
-		// Remove the previous playbook's granted followers. The grant marker is the item flag
-		// `stonetop.grantedByPlaybook`; fall back to the legacy `system.playbookSlug` so followers
-		// embedded before Phase 4 are still cleaned up on swap.
-		for (const item of [...this._actor.items]) {
-			if (item.type !== "follower") continue;
-			const grantedBy = item.flags?.stonetop?.grantedByPlaybook ?? item.system?.playbookSlug;
-			if (grantedBy && grantedBy !== playbookSlug) {
-				await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
-			}
-		}
-		if (!playbookSlug || !followerSlugs?.length) return;
-		// The playbook lists its follower slugs; embed each (owned), stamped with the grant flag.
+	/** Every follower this playbook wants the character to own, keyed by slug. The previous playbook's
+	 *  followers leave with that playbook item, so this only ever speaks for the one it was given. */
+	async playbookGrants(playbookSlug, followerSlugs = []) {
+		const source = GrantSource.playbook(playbookSlug);
+		if (!playbookSlug || !followerSlugs?.length) return ItemGrantSet.empty(source);
 		const followers = await this._followerRepo.findBySlugs(followerSlugs);
-		for (const follower of followers) {
-			if (_findFollowerItem(this._actor, follower.slug)) continue;
-			await this._actor.createEmbeddedDocuments("Item", [{
-				name: follower.name, type: "follower",
-				...(follower.img ? { img: follower.img } : {}),
-				system: { ..._followerToSystemFields(follower), owned: true },
-				flags: { stonetop: { grantedByPlaybook: playbookSlug } },
-			}]);
-		}
+		return new ItemGrantSet(source, followers.map(follower => ItemGrant.forFollower(follower.slug, {
+			name: follower.name, type: "follower",
+			...(follower.img ? { img: follower.img } : {}),
+			system: { ..._followerToSystemFields(follower), owned: true },
+		})));
 	}
 
 	async removeFollower(slug) {

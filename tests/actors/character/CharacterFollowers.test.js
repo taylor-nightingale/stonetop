@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { GrantedItems } from "../../../src/actors/GrantedItems.js";
 import { CharacterFollowers } from "../../../src/actors/character/CharacterFollowers.js";
 import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
@@ -882,7 +883,7 @@ describe("CharacterFollowers — addFromNpcActor", () => {
 
 // -- syncPlaybookFollowers ----------------------------------------------------
 
-describe("CharacterFollowers.syncPlaybookFollowers", () => {
+describe("CharacterFollowers.playbookGrants", () => {
 	function setup(repoFollowers = []) {
 		const actor = makeActor();
 		const cf = new CharacterFollowers(
@@ -900,44 +901,46 @@ describe("CharacterFollowers.syncPlaybookFollowers", () => {
 	});
 	const grantedItem = (slug, by) => {
 		const it = makeFollowerItem({ slug }, { owned: true });
-		it.flags = { stonetop: { grantedByPlaybook: by } };
+		it.flags = { stonetop: { grant: { source: `playbook:${by}`, key: `follower:${slug}` } } };
 		return it;
 	};
 
-	it("embeds the playbook's listed followers as owned, stamped with the grant flag", async () => {
+	it("embeds the playbook's listed followers as owned, stamped with the playbook that granted them", async () => {
 		const { actor, cf } = setup([CREW]);
-		await cf.syncPlaybookFollowers("the-marshal", ["crew"]);
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-marshal", ["crew"]));
 		const item = actor.createdDocs.find(d => d.system?.slug === "crew");
 		expect(item).toBeDefined();
 		expect(item.system.owned).toBe(true);
-		expect(item.flags?.stonetop?.grantedByPlaybook).toBe("the-marshal");
+		expect(item.flags?.stonetop?.grant).toEqual({ source: "playbook:the-marshal", key: "follower:crew" });
 	});
 
 	it("does not duplicate an already-embedded granted follower", async () => {
 		const { actor, cf } = setup([CREW]);
 		actor.items.push(grantedItem("crew", "the-marshal"));
-		await cf.syncPlaybookFollowers("the-marshal", ["crew"]);
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-marshal", ["crew"]));
 		expect(actor.createdDocs.filter(d => d.system?.slug === "crew")).toHaveLength(0);
 	});
 
-	it("removes a follower granted by a different playbook on swap", async () => {
+	// A follower this playbook no longer lists goes; the PREVIOUS playbook's followers go when that
+	// playbook item is deleted (revoke), not when the next one is applied.
+	it("removes a follower it granted that the playbook no longer lists", async () => {
 		const { actor, cf } = setup([]);
 		actor.items.push(grantedItem("crew", "the-marshal"));
-		await cf.syncPlaybookFollowers("the-blessed", []);
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-marshal", []));
 		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(false);
 	});
 
-	it("still cleans up a legacy `system.playbookSlug` follower (back-compat)", async () => {
+	it("leaves another playbook's followers to that playbook's revoke", async () => {
 		const { actor, cf } = setup([]);
-		actor.items.push(makeFollowerItem({ slug: "crew", playbookSlug: "the-marshal" }, { owned: true }));
-		await cf.syncPlaybookFollowers("the-blessed", []);
-		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(false);
+		actor.items.push(grantedItem("crew", "the-marshal"));
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-blessed", []));
+		expect([...actor.items].some(i => i.system?.slug === "crew")).toBe(true);
 	});
 
 	it("leaves manual followers (no grant marker) untouched", async () => {
 		const { actor, cf } = setup([]);
 		actor.items.push(makeFollowerItem({ slug: "enfys" }, { owned: true }));
-		await cf.syncPlaybookFollowers("the-marshal", ["crew"]);
+		await new GrantedItems(actor).sync(await cf.playbookGrants("the-marshal", ["crew"]));
 		expect([...actor.items].some(i => i.system?.slug === "enfys")).toBe(true);
 	});
 });

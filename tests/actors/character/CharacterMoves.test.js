@@ -544,7 +544,10 @@ describe("CharacterMoves.initPlaybookCategory", () => {
 		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(0);
 	});
 
-	it("removes existing playbook-* category and deletes its owned docs", async () => {
+	// A grant only ever speaks for its own playbook. The previous playbook's moves go when that
+	// playbook item is deleted (revoke), which is what happens a moment earlier on every swap — so
+	// selecting a new playbook doesn't need, and mustn't have, the power to delete another's items.
+	it("leaves another playbook's moves to that playbook's revoke", async () => {
 		const repoFox = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Fox Move").asStarting().build()]);
 		const actor = makeActor();
 		const m = makeMoves({repo: repoFox, actor});
@@ -553,8 +556,15 @@ describe("CharacterMoves.initPlaybookCategory", () => {
 		const empty = new FakeMoveRepository();
 		m._moveRepo = empty;
 		await initPlaybook(m, empty);
-		expect(actor.deletedIds).toContain(foxDocId);
-		expect((await m.buildSnapshot()).categories.find(c => c.key === "playbook-the-fox")).toBeUndefined();
+		expect(actor.deletedIds).not.toContain(foxDocId);
+	});
+
+	it("stamps each move with the playbook that granted it", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Bulwark").asStarting().build()]);
+		const actor = makeActor();
+		await initPlaybook(makeMoves({repo, actor}), repo);
+		expect(actor.createdDocs[0].flags.stonetop.grant)
+			.toEqual({ source: "playbook:the-heavy", key: "move:bulwark" });
 	});
 });
 

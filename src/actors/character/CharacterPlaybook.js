@@ -51,19 +51,22 @@ export class CharacterPlaybook {
 		}
 	}
 
+	// What choosing a playbook does to the character itself. The items it grants are not here — those
+	// are the playbook's grant sets, applied by the router.
 	async selectPlaybook(stonetopPlaybook) {
 		await this._actor.update({"system.playbookSlug": stonetopPlaybook.slug});
-		const bgMoveNames = new Set(
-			stonetopPlaybook.backgrounds?.find(b => b.slug === this._background.selectedSlug)?.moves ?? []
-		);
-		const catKey = `playbook-${stonetopPlaybook.slug}`;
-		await Promise.all([
-			this._vitals.updateVitalsFromPlaybook(stonetopPlaybook),
-			this._moves.initPlaybookCategory(stonetopPlaybook),
-		]);
-		for (const name of bgMoveNames) {
-			await this._moves.incrementMove(catKey, name);
-		}
+		await this._vitals.updateVitalsFromPlaybook(stonetopPlaybook);
+	}
+
+	// The moves a playbook grants. The ones the chosen background hands you seed acquired alongside the
+	// playbook's own starting moves — a background is picked before the playbook is applied, so there is
+	// nothing to increment afterwards.
+	async moveGrants(stonetopPlaybook) {
+		return this._moves.playbookGrants(stonetopPlaybook, this._backgroundMoves(stonetopPlaybook));
+	}
+
+	_backgroundMoves(stonetopPlaybook) {
+		return stonetopPlaybook.backgrounds?.find(b => b.slug === this._background.selectedSlug)?.moves ?? [];
 	}
 
 	/** The controller for the playbook's choice values (lore, appearance, introductions, …). */

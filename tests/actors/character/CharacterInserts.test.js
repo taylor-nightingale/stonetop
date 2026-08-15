@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { GrantedItems } from "../../../src/actors/GrantedItems.js";
 import { CharacterInserts } from "../../../src/actors/character/CharacterInserts.js";
 import { ChoiceGroupControllerFactory } from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
@@ -212,38 +213,46 @@ describe("CharacterInserts interactions", () => {
 
 // ── syncPlaybookInserts (playbook grants, follower-data-architecture §4) ───────
 
-describe("CharacterInserts.syncPlaybookInserts", () => {
+describe("CharacterInserts.playbookGrants", () => {
 	const INVOC = { name: "Invocations", type: "insert", img: null, system: { slug: "invoc" } };
 	const grantedInsert = (slug, by) =>
-		({ _id: `${slug}-item`, type: "insert", name: slug, system: { slug }, flags: { stonetop: { grantedByPlaybook: by } } });
+		({ _id: `${slug}-item`, type: "insert", name: slug, system: { slug },
+		   flags: { stonetop: { grant: { source: `playbook:${by}`, key: `insert:${slug}` } } } });
 
-	it("embeds the listed insert (stamped) and registers its move category", async () => {
-		const moves = new FakeMoves();
-		const { actor, inserts } = makeInserts({ moves, repo: new FakeInsertRepository([INVOC]) });
-		await inserts.syncPlaybookInserts("the-lightbearer", ["invoc"]);
+	// The insert's own moves are not part of this set: a granted insert registers them once it exists,
+	// as a source in its own right (StonetopCharacter.playbookGrantsInsertMoves covers that end to end).
+	it("embeds the listed insert, stamped with the playbook that granted it", async () => {
+		const { actor, inserts } = makeInserts({ repo: new FakeInsertRepository([INVOC]) });
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-lightbearer", ["invoc"]));
 		const doc = actor.createdDocs.find(d => d.system?.slug === "invoc");
 		expect(doc).toBeDefined();
 		expect(doc.type).toBe("insert");
-		expect(doc.flags?.stonetop?.grantedByPlaybook).toBe("the-lightbearer");
-		expect(moves.addedCategories).toContainEqual({ type: "insert-invoc", name: "Invocations", moveSlugs: [] });
+		expect(doc.flags?.stonetop?.grant).toEqual({ source: "playbook:the-lightbearer", key: "insert:invoc" });
 	});
 
 	it("does not duplicate an already-embedded granted insert", async () => {
 		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([INVOC]) });
-		await inserts.syncPlaybookInserts("the-lightbearer", ["invoc"]);
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-lightbearer", ["invoc"]));
 		expect(actor.createdDocs.filter(d => d.system?.slug === "invoc")).toHaveLength(0);
 	});
 
-	it("removes an insert granted by a different playbook on swap", async () => {
+	it("removes an insert it granted that the playbook no longer lists", async () => {
 		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([]) });
-		await inserts.syncPlaybookInserts("the-marshal", []);
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-lightbearer", []));
 		expect([...actor.items].some(i => i.system?.slug === "invoc")).toBe(false);
+	});
+
+	// Another playbook's inserts leave with that playbook item (revoke), not when the next is applied.
+	it("leaves another playbook's inserts to that playbook's revoke", async () => {
+		const { actor, inserts } = makeInserts({ items: [grantedInsert("invoc", "the-lightbearer")], repo: new FakeInsertRepository([]) });
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-marshal", []));
+		expect([...actor.items].some(i => i.system?.slug === "invoc")).toBe(true);
 	});
 
 	it("leaves a manually-dropped insert (no grant flag) untouched", async () => {
 		const manual = { _id: "rev-item", type: "insert", name: "Revenant", system: { slug: "revenant" } };
 		const { actor, inserts } = makeInserts({ items: [manual], repo: new FakeInsertRepository([INVOC]) });
-		await inserts.syncPlaybookInserts("the-lightbearer", ["invoc"]);
+		await new GrantedItems(actor).sync(await inserts.playbookGrants("the-lightbearer", ["invoc"]));
 		expect([...actor.items].some(i => i.system?.slug === "revenant")).toBe(true);
 	});
 });

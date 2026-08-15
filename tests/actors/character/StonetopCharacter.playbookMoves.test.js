@@ -62,6 +62,79 @@ describe("StonetopCharacter — playbook moves auto-populate on the moves tab (i
 		expect(cat.moves.find(m => m.name === "Invoke the Gods").selection.value).toBe(0);
 	});
 
+	// The playbook grant is a diff, not a rebuild: a move the playbook still lists is left as it is, so
+	// the move a player advanced keeps its acquired state when the same playbook is applied again (a
+	// re-drop, a re-pick from the dropdown, a migration re-run).
+	it("re-applying the same playbook preserves a move the player acquired", async () => {
+		withMovesPack(move("Serenity"), move("Invoke the Gods"));
+		const character = new StonetopCharacter(new FakeCharacterActorBuilder().build(), new FoundryRepositoryFactory());
+		const pb = () => playbookItem({ moves: ["serenity", "invoke-the-gods"], startingMoves: ["serenity"] });
+
+		await character._onCreateDescendantDocuments([pb()]);
+		await character.incrementMove("playbook-the-blessed", "invoke-the-gods");
+		await character._onCreateDescendantDocuments([pb()]);
+
+		const cat = (await character.buildSnapshot()).moves.categories.find(c => c.key === "playbook-the-blessed");
+		expect(cat.moves.find(m => m.name === "Invoke the Gods").selection.value).toBe(1);
+		expect(cat.moves.find(m => m.name === "Serenity").selection.value).toBe(1);
+	});
+
+	it("re-applying the same playbook does not duplicate its moves", async () => {
+		withMovesPack(move("Serenity"), move("Invoke the Gods"));
+		const character = new StonetopCharacter(new FakeCharacterActorBuilder().build(), new FoundryRepositoryFactory());
+		const pb = () => playbookItem({ moves: ["serenity", "invoke-the-gods"], startingMoves: ["serenity"] });
+
+		await character._onCreateDescendantDocuments([pb()]);
+		await character._onCreateDescendantDocuments([pb()]);
+
+		const cat = (await character.buildSnapshot()).moves.categories.find(c => c.key === "playbook-the-blessed");
+		expect(cat.moves.map(m => m.name).sort()).toEqual(["Invoke the Gods", "Serenity"]);
+	});
+
+	// A playbook's grants arrive and leave together: the insert it hands you is a source in its own
+	// right, so its moves come with it, and deleting the playbook item takes the whole set back.
+	it("an insert a playbook grants brings its own moves", async () => {
+		const pack = FakePackBuilder.movesPack();
+		pack.withItem(move("Haunt"));
+		const inserts = new FakePackBuilder("inserts")
+			.withItem({ _id: "in1", name: "Revenant", type: "insert",
+				system: { slug: "revenant", moves: ["haunt"], startingMoves: ["haunt"], choices: [], instinct: null } });
+		new FakeGameBuilder().withPack(pack).withPack(inserts).build();
+		const character = new StonetopCharacter(new FakeCharacterActorBuilder().build(), new FoundryRepositoryFactory());
+
+		await character._onCreateDescendantDocuments([playbookItem({ inserts: ["revenant"] })]);
+
+		const cat = (await character.buildSnapshot()).moves.categories.find(c => c.key === "insert-revenant");
+		expect(cat?.moves.map(m => m.name)).toContain("Haunt");
+	});
+
+	it("deleting the playbook item takes back everything it granted", async () => {
+		withMovesPack(move("Serenity"));
+		const actor = new FakeCharacterActorBuilder().build();
+		const character = new StonetopCharacter(actor, new FoundryRepositoryFactory());
+		const item = playbookItem({ moves: ["serenity"], startingMoves: ["serenity"] });
+
+		await character._onCreateDescendantDocuments([item]);
+		expect([...actor.items].some(i => i.type === "move")).toBe(true);
+
+		await character._onDeleteDescendantDocuments([item]);
+		expect([...actor.items].some(i => i.type === "move")).toBe(false);
+	});
+
+	it("deleting the playbook item leaves what the player added by hand", async () => {
+		withMovesPack(move("Serenity"));
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({ _id: "own1", type: "move", name: "Hand Added", system: { slug: "hand-added", categoryKey: "other" } })
+			.build();
+		const character = new StonetopCharacter(actor, new FoundryRepositoryFactory());
+		const item = playbookItem({ moves: ["serenity"], startingMoves: ["serenity"] });
+
+		await character._onCreateDescendantDocuments([item]);
+		await character._onDeleteDescendantDocuments([item]);
+
+		expect([...actor.items].map(i => i._id)).toEqual(["own1"]);
+	});
+
 	it("inserts still add their moves to the moves tab", async () => {
 		withMovesPack(move("Haunt"));
 		const character = new StonetopCharacter(new FakeCharacterActorBuilder().build(), new FoundryRepositoryFactory());

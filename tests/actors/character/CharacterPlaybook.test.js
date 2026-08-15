@@ -327,35 +327,46 @@ describe("CharacterPlaybook.selectPlaybook", () => {
 		expect(vitals.playbookUpdatedWith()).toBe(PLAYBOOK_DATA);
 	});
 
-	it("initializes the playbook move category", async () => {
+	it("does not touch the moves — those are the playbook's grants, applied by the router", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
 		const pb = makePlaybook(makeActor());
 		pb.setVitals(vitals);
 		pb.setMoves(moves);
 		await pb.selectPlaybook(PLAYBOOK_DATA);
-		expect(moves.initializedWith()).toBe(PLAYBOOK_DATA);
-	});
-
-	it("increments bg moves after init when background is pre-selected", async () => {
-		const vitals = new FakeVitals();
-		const moves  = new FakeMoves();
-		const bg     = new FakeBackground("herbalist");
-		const pb = makePlaybook(makeActor(), { background: bg });
-		pb.setVitals(vitals);
-		pb.setMoves(moves);
-		await pb.selectPlaybook(PLAYBOOK_DATA);
-		expect(moves.wasIncremented("playbook-the-blessed", "healing-touch")).toBe(true);
-	});
-
-	it("does not increment moves when no background is selected", async () => {
-		const vitals = new FakeVitals();
-		const moves  = new FakeMoves();
-		const pb = makePlaybook(makeActor());
-		pb.setVitals(vitals);
-		pb.setMoves(moves);
-		await pb.selectPlaybook(PLAYBOOK_DATA);
+		expect(moves.initializedWith()).toBeNull();
 		expect(moves.incrementedCount()).toBe(0);
+	});
+});
+
+// ── moveGrants ────────────────────────────────────────────────────────────────
+
+describe("CharacterPlaybook.moveGrants", () => {
+	it("asks the moves for what this playbook grants", async () => {
+		const moves = new FakeMoves();
+		const pb = makePlaybook(makeActor());
+		pb.setMoves(moves);
+		const set = await pb.moveGrants(PLAYBOOK_DATA);
+		expect(moves.initializedWith()).toBe(PLAYBOOK_DATA);
+		expect(set.source).toBe("playbook:the-blessed");
+	});
+
+	// The background is chosen before the playbook is applied, so its moves seed acquired with the
+	// playbook's own starting moves rather than being incremented afterwards.
+	it("adds the chosen background's moves to the starting ones", async () => {
+		const moves = new FakeMoves();
+		const pb = makePlaybook(makeActor(), { background: new FakeBackground("herbalist") });
+		pb.setMoves(moves);
+		await pb.moveGrants(PLAYBOOK_DATA);
+		expect(moves.alsoStarting()).toEqual(["healing-touch"]);
+	});
+
+	it("adds nothing extra when no background is selected", async () => {
+		const moves = new FakeMoves();
+		const pb = makePlaybook(makeActor());
+		pb.setMoves(moves);
+		await pb.moveGrants(PLAYBOOK_DATA);
+		expect(moves.alsoStarting()).toEqual([]);
 	});
 });
 
