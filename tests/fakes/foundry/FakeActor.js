@@ -64,6 +64,13 @@ export class FakeActor {
 			const item = this.items.get(update._id);
 			if (!item) continue;
 			if (update.name !== undefined) item.name = update.name;
+			// Foundry merges a flags diff into what's stored rather than replacing the bag.
+			if (update.flags) {
+				item.flags ??= {};
+				for (const [scope, values] of Object.entries(update.flags)) {
+					item.flags[scope] = { ...(item.flags[scope] ?? {}), ...values };
+				}
+			}
 			if (update.system) {
 				// Faithful to Foundry: it re-runs the data model's migrateData on the partial
 				// {changed-keys} diff before merging it. A migration that default-injects an absent

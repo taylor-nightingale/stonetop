@@ -589,7 +589,7 @@ describe("CharacterMoves.addCategory", () => {
 		expect(actor.createdDocs.map(d => d.name)).toEqual(["Spirit Sight", "Haunt"]);
 	});
 
-	it("does nothing when category already exists", async () => {
+	it("adds nothing the second time round", async () => {
 		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
 		const actor = makeActor();
 		const m = makeMoves({repo, actor});
@@ -597,6 +597,57 @@ describe("CharacterMoves.addCategory", () => {
 		const countBefore = actor.createdDocs.length;
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
 		expect(actor.createdDocs.length).toBe(countBefore);
+	});
+
+	// The old all-or-nothing check ("does this category exist?") could never deliver a move the packs
+	// added later — the reason seedSlugs had to be invented for the basic list.
+	it("delivers a move the source gained after the character already had the category", async () => {
+		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
+		repo.addInsertMove(new FakeCompendiumMoveBuilder().withName("Spirit Sight").build());
+		await m.addCategory("insert-revenant", "Revenant", ["haunt", "spirit-sight"]);
+		expect(actor.createdDocs.map(d => d.name)).toEqual(["Haunt", "Spirit Sight"]);
+	});
+
+	it("leaves the state a player put on a move it already granted", async () => {
+		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
+		await m.incrementMove("insert-revenant", "haunt");
+		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
+		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
+	});
+
+	it("drops a move the source no longer grants", async () => {
+		const repo = new FakeMoveRepository()
+			.addInsertMove(haunt().build())
+			.addInsertMove(new FakeCompendiumMoveBuilder().withName("Spirit Sight").build());
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.addCategory("insert-revenant", "Revenant", ["haunt", "spirit-sight"]);
+		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
+		expect((await m.buildSnapshot()).categories[0].moves.map(mv => mv.name)).toEqual(["Haunt"]);
+	});
+
+	// A compendium still loading resolves nothing. That must not read as "this insert grants nothing".
+	it("keeps what it granted when not one slug resolves", async () => {
+		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
+		await m.addCategory("insert-revenant", "Revenant", ["haunt-but-the-pack-is-missing"]);
+		expect(actor.deletedIds).toEqual([]);
+	});
+
+	it("stamps each move with the source that granted it", async () => {
+		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
+		const actor = makeActor();
+		await makeMoves({repo, actor}).addCategory("insert-revenant", "Revenant", ["haunt"]);
+		expect(actor.createdDocs[0].flags.stonetop.grant)
+			.toEqual({ source: "insert:revenant", key: "move:haunt" });
 	});
 
 	it("creates embedded docs and assigns ownedId", async () => {

@@ -3,6 +3,7 @@ import { migrateNpc } from "./migrateNpc.js";
 import { migrateSteading } from "./migrateSteading.js";
 import { migrateSteadingMoves } from "./migrateSteadingMoves.js";
 import { migrateWorldItems } from "./migrateWorldItems.js";
+import { migrateGrantStamps } from "./migrateGrantStamps.js";
 import { FoundryInsertRepository } from "../actors/character/repositories/FoundryInsertRepository.js";
 import { error, info } from "../utils/logger.js";
 
@@ -28,6 +29,7 @@ export class MigrationRunner {
 					// Not gated on migrateSteading's legacy check: every steading, however new,
 					// needs homefront moves that were added since it was created.
 					await migrateSteadingMoves(actor);
+					await migrateGrantStamps(actor);
 				}
 			} catch (err) {
 				error(`Migration failed for actor "${actor.name}": ${err.message}`);

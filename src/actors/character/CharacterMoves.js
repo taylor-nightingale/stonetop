@@ -83,20 +83,31 @@ export class CharacterMoves {
 	// seeds acquired iff its slug is in `startingSlugs` — built-in inserts pass all their moves
 	// (active on grant), arcana pass none (player ticks each mystery to unlock).
 	async addCategory(key, label, moveSlugs = [], startingSlugs = []) {
-		const exists = [...this._actor.items].some(i => i.type === "move" && i.system?.categoryKey === key);
-		if (exists) return;
+		if (!moveSlugs.length) return;
+		const grants = await this.categoryGrants(key, label, moveSlugs, startingSlugs);
+		// Every slug failing to resolve means the pack isn't there (a compendium still loading, a module
+		// disabled) — not that the insert has stopped granting moves. Syncing an empty set on that would
+		// delete the moves the character has.
+		if (grants.isEmpty) return;
+		await this._grantedItems.sync(grants);
+	}
+
+	/** The moves an insert or arcanum wants the character to own. Because this is a diff and not an
+	 *  all-or-nothing "does the category exist" check, a move the packs add later reaches a character
+	 *  that already has the rest. */
+	async categoryGrants(key, label, moveSlugs = [], startingSlugs = []) {
 		const starting = new Set(startingSlugs);
 		const entries = await this._moveRepo.getMovesBySlugs(moveSlugs);
 		const pairs = await Promise.all(
 			entries.map(async move => ({ move, doc: await this._moveRepo.getReferencedMoveDocument(move.id) }))
 		);
-		await this._actor.createEmbeddedDocuments("Item",
+		return new ItemGrantSet(_categorySource(key),
 			pairs.filter(({ doc }) => doc).map(({ move, doc }, i) =>
-				withCategoryFields(doc.toObject(), key, starting.has(move.slug), {
+				ItemGrant.forMove(move.slug, withCategoryFields(doc.toObject(), key, starting.has(move.slug), {
 					sortOrder:     i,
 					compendiumId:  doc._id ?? null,
 					categoryLabel: label,
-				})
+				}))
 			)
 		);
 	}
@@ -276,6 +287,14 @@ export class CharacterMoves {
 }
 
 // ── Private helpers ───────────────────────────────────────────────────────────
+
+// Who granted a category of moves, read from the category key the caller passes. Inserts and arcana
+// name themselves in it; anything else is a reference list seeded from the packs.
+function _categorySource(categoryKey) {
+	if (categoryKey.startsWith("insert-")) return GrantSource.insert(categoryKey.slice("insert-".length));
+	if (categoryKey.startsWith("arcana-")) return GrantSource.arcanum(categoryKey.slice("arcana-".length));
+	return GrantSource.reference(categoryKey);
+}
 
 function _acquiredSlugs(moveItems) {
 	return new Set(

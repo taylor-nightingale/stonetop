@@ -11,6 +11,7 @@ import { migrateChoiceRow } from "./migrateChoices.js";
 import { ChoiceGroupDefs } from "../model/data/ChoiceGroupDefs.js";
 import { Selection } from "../model/data/Selection.js";
 import { richTextToHtml } from "./richTextToHtml.js";
+import { migrateGrantStamps } from "./migrateGrantStamps.js";
 
 const SCOPE = "stonetop";
 
@@ -109,6 +110,10 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migratePlaybookChoiceValues(actor);
 	_logArcanumFlipped(actor, "after migratePlaybookChoiceValues");
 	await migrateCharacterNotes(actor);
+
+	// Last: every pass above may still create items the old way, and the stamp has to describe what
+	// the character actually ended up with. Pruning duplicates needs those stamps to recognise them.
+	await migrateGrantStamps(actor);
 }
 
 // ── A. Flag → system scalar copies ───────────────────────────────────────────
