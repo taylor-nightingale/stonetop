@@ -39,13 +39,18 @@ export class ContainerOutfitSync {
 	async apply(grant) {
 		if (!this._outfitItems || !grant) return;
 		if (!grant.items.length) {
-			await this._outfitItems.deleteBySource(grant.source);
+			await this.clear(grant.source);
 			return;
 		}
 		await this._outfitItems.sync(grant.source, grant.items);
 	}
 
 	async clear(source) {
-		await this._outfitItems?.deleteBySource(source);
+		await this.clearAll([source]);
+	}
+
+	/** Clear several containers' gear in one write — a playbook swap takes back six or seven at once. */
+	async clearAll(sources) {
+		if (sources.length) await this._outfitItems?.deleteBySources(sources);
 	}
 }

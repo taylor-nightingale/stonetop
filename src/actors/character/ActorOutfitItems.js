@@ -24,16 +24,12 @@ export class ActorOutfitItems {
 		return this._all;
 	}
 
-	getBySource(source) {
-		return this._grantedItems.itemsFrom(GrantSource.outfit(source));
-	}
-
 	async create(itemsData) {
 		await this._grantedItems.addAuthored(itemsData);
 	}
 
-	async deleteBySource(source) {
-		await this._grantedItems.revoke(GrantSource.outfit(source));
+	async deleteBySources(sources) {
+		await this._grantedItems.revokeAll(sources.map(GrantSource.outfit));
 	}
 
 	async deleteById(id) {
@@ -43,7 +39,7 @@ export class ActorOutfitItems {
 	async sync(source, itemsData) {
 		await this._grantedItems.replace(new ItemGrantSet(
 			GrantSource.outfit(source),
-			itemsData.map(data => ItemGrant.forOutfitItem(data.system?.slug ?? data.name, data)),
+			itemsData.map(data => new ItemGrant(data)),
 		));
 	}
 }

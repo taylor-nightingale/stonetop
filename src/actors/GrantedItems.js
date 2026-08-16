@@ -3,14 +3,13 @@ import { GrantStamp, ItemGrant } from "../model/data/ItemGrant.js";
 /**
  * The one writer of granted items on an actor. Every item something else owns — a playbook's moves and
  * followers, an insert's move category, an arcanum's grants — is created here, carrying the stamp that
- * says which source it belongs to.
+ * says which source it belongs to (see ItemGrant).
  *
- * Applying a grant is a DIFF, never a rebuild. An item the source still wants is left exactly as it is,
- * so the player's acquired moves, a follower's loyalty and a possession's uses survive a re-grant; only
- * genuinely new keys are created and genuinely stale ones deleted. That is what makes `sync` safe to
- * call on every playbook select, every drop and every migration.
+ * Applying a grant is a DIFF, never a rebuild: an item the source still wants is left exactly as it is,
+ * so the player's acquired moves, a follower's loyalty and a possession's uses survive a re-grant. That
+ * is what makes `sync` safe to call on every playbook select, every drop and every migration.
  *
- * Items with no stamp are authored — the player added them by hand — and are never read or written here.
+ * Items with no stamp are authored — the player added them by hand — and are never reconciled here.
  */
 export class GrantedItems {
 	constructor(actor) {
@@ -30,9 +29,7 @@ export class GrantedItems {
 	/** Create what's missing, delete what this source no longer wants, leave the rest untouched.
 	 *  Returns the items it created. */
 	async sync(set) {
-		// Nothing to say — an unloaded pack resolves nothing, and that must not read as a source taking
-		// its grants back. Clearing a source outright is `revoke`.
-		if (set.isEmpty) return [];
+		if (set.isEmpty) return [];   // nothing to say — see ItemGrantSet
 		const owned  = this.itemsFrom(set.source);
 		const wanted = new Set(set.keys);
 		const created = await this._create(set, this._missing(set));
@@ -41,13 +38,19 @@ export class GrantedItems {
 	}
 
 	async revoke(source) {
-		await this._delete(this.itemsFrom(source));
+		await this.revokeAll([source]);
+	}
+
+	/** Take back several sources at once — one pass over the items, one delete. */
+	async revokeAll(sources) {
+		const wanted = new Set(sources);
+		await this._delete([...(this._actor.items ?? [])].filter(item => wanted.has(GrantStamp.of(item)?.source)));
 	}
 
 	/**
-	 * Replace everything a source has with exactly this set. For grants that carry no player state and
-	 * are recomputed whole on every change — a container's outfit gear — where two identical items from
-	 * one source are two real items, so identity can't be a key. Everything else wants `sync`.
+	 * Replace everything a source has with exactly this set. For grants with no player state to preserve,
+	 * recomputed whole on every change — a container's outfit gear, where two identical items from one
+	 * source are two real items, so identity can't be a key. Everything else wants `sync`.
 	 */
 	async replace(set) {
 		if (set.isEmpty) return [];

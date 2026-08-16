@@ -26,9 +26,7 @@ export class ItemGrantRouter {
 		return this;
 	}
 
-	get types() { return [...this._sources.keys()]; }
-
-	/** Apply every grant this item is the source of. No-ops for types nobody registered. */
+	/** No-ops for types nobody registered. */
 	async apply(item) {
 		const registration = this._sources.get(item?.type);
 		if (!registration) return;

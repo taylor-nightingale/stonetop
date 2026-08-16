@@ -96,24 +96,13 @@ export class CharacterFollowers {
 		// Unstamped: this is the follower a player dropped in, or one a ticked choice row hands them
 		// outright. Nothing reconciles it, and nothing takes it back on its own — only the roster's own
 		// remove does. A follower that a card owns arrives through arcanumGrants instead.
-		await this._grantedItems.addAuthored([{
-			name: follower.name, type: "follower",
-			...(follower.img ? { img: follower.img } : {}),
-			system: { ..._followerToSystemFields(follower), owned: true, showOnTab },
-		}]);
+		await this._grantedItems.addAuthored([_embeddedFollower(follower, { showOnTab })]);
 	}
 
 	/** Every follower this playbook wants the character to own, keyed by slug. The previous playbook's
 	 *  followers leave with that playbook item, so this only ever speaks for the one it was given. */
 	async playbookGrants(playbookSlug, followerSlugs = []) {
-		const source = GrantSource.playbook(playbookSlug);
-		if (!playbookSlug || !followerSlugs?.length) return ItemGrantSet.empty(source);
-		const followers = await this._followerRepo.findBySlugs(followerSlugs);
-		return new ItemGrantSet(source, followers.map(follower => ItemGrant.forFollower(follower.slug, {
-			name: follower.name, type: "follower",
-			...(follower.img ? { img: follower.img } : {}),
-			system: { ..._followerToSystemFields(follower), owned: true },
-		})));
+		return this._grantsFrom(GrantSource.playbook(playbookSlug), playbookSlug && followerSlugs);
 	}
 
 	async removeFollower(slug) {
@@ -126,14 +115,13 @@ export class CharacterFollowers {
 	// puts them there. Provenance is the stamp, so removing the card takes them back — where it used to
 	// depend on `system.arcanaSlug` surviving in the pack data.
 	async arcanumGrants(arcanumSlug, followerSlugs = []) {
-		const source = GrantSource.arcanum(arcanumSlug);
-		if (!arcanumSlug || !followerSlugs?.length) return ItemGrantSet.empty(source);
+		return this._grantsFrom(GrantSource.arcanum(arcanumSlug), arcanumSlug && followerSlugs, { showOnTab: false });
+	}
+
+	async _grantsFrom(source, followerSlugs, extraSystem = {}) {
+		if (!followerSlugs?.length) return ItemGrantSet.empty(source);
 		const followers = await this._followerRepo.findBySlugs(followerSlugs);
-		return new ItemGrantSet(source, followers.map(follower => ItemGrant.forFollower(follower.slug, {
-			name: follower.name, type: "follower",
-			...(follower.img ? { img: follower.img } : {}),
-			system: { ..._followerToSystemFields(follower), owned: true, showOnTab: false },
-		})));
+		return new ItemGrantSet(source, followers.map(f => new ItemGrant(_embeddedFollower(f, extraSystem))));
 	}
 
 	async addCustomFollower() {
@@ -456,6 +444,16 @@ function _companion(item) {
 		type:    { ...(c.type    ?? { selected: [], options: [], multi: false, allowCustom: true }) },
 		options: { ...(c.options ?? { selected: [], options: [], multi: true,  allowCustom: true }) },
 		catalog: Array.isArray(c.catalog) ? c.catalog.map(t => ({ ...t })) : [],
+	};
+}
+
+// The embed payload for a follower the character comes to own — the one shape, whether a card grants it,
+// a playbook does, or the player drops it in. `extraSystem` is the granting side's own placement.
+function _embeddedFollower(follower, extraSystem = {}) {
+	return {
+		name: follower.name, type: "follower",
+		...(follower.img ? { img: follower.img } : {}),
+		system: { ..._followerToSystemFields(follower), owned: true, ...extraSystem },
 	};
 }
 

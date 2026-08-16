@@ -19,7 +19,7 @@ export function legacyGrantStamp(item) {
 function _legacySource(item) {
 	const system = item?.system ?? {};
 	switch (item?.type) {
-		case "move":       return _moveSource(system.categoryKey ?? null);
+		case "move":       return GrantSource.forCategoryKey(system.categoryKey ?? null);
 		// `playbookSlug` on a follower predates the flag and is never written now; both mean the same thing.
 		case "follower":   return _playbook(item.flags?.stonetop?.grantedByPlaybook ?? system.playbookSlug)
 			?? _arcanum(system.arcanaSlug);
@@ -30,21 +30,6 @@ function _legacySource(item) {
 		case "outfitItem": return system.source ? GrantSource.outfit(system.source) : null;
 		default:           return null;
 	}
-}
-
-// A move's category says who gave it: the playbook/insert/arcanum prefixes name a source, "other" is
-// where a hand-dropped move lands, and every remaining category (basic, expedition, special, follower,
-// homefront, seasons) is a reference list seeded from the packs.
-function _moveSource(categoryKey) {
-	if (!categoryKey || categoryKey === "other") return null;
-	for (const [prefix, source] of [
-		["playbook-", GrantSource.playbook],
-		["insert-",   GrantSource.insert],
-		["arcana-",   GrantSource.arcanum],
-	]) {
-		if (categoryKey.startsWith(prefix)) return source(categoryKey.slice(prefix.length));
-	}
-	return GrantSource.reference(categoryKey);
 }
 
 function _playbook(slug) { return slug ? GrantSource.playbook(slug) : null; }

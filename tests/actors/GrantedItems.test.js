@@ -19,7 +19,7 @@ function authored(id, name = "Hand added") {
 
 function grant(key, name = key) {
 	const [type, slug] = key.split(":");
-	return new ItemGrant(key, { name, type, system: { slug } });
+	return new ItemGrant({ name, type, system: { slug } });
 }
 
 function makeActor(...items) {
@@ -121,7 +121,7 @@ describe("GrantedItems.sync", () => {
 	it("yields to an item another source granted", async () => {
 		const actor = makeActor(granted("b", ARCANA, "follower:the-ring"));
 		await new GrantedItems(actor).sync(new ItemGrantSet(PLAYBOOK, [
-			new ItemGrant("follower:the-ring", { name: "The Ring", type: "follower", system: { slug: "the-ring" } }),
+			new ItemGrant({ name: "The Ring", type: "follower", system: { slug: "the-ring" } }),
 		]));
 		expect(actor.createdDocs).toEqual([]);
 	});

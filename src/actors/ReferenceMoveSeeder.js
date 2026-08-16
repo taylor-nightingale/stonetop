@@ -47,7 +47,7 @@ export class ReferenceMoveSeeder {
 		const docs = await Promise.all(newEntries.map(m => this._repo.getReferencedMoveDocument(m.id)));
 		await this._grantedItems.seed(new ItemGrantSet(
 			GrantSource.reference(categoryKey),
-			docs.filter(Boolean).map((d, i) => ItemGrant.forMove(d.system?.slug ?? toSlug(d.name),
+			docs.filter(Boolean).map((d, i) => new ItemGrant(
 				withCategoryFields(d.toObject(), categoryKey, true, { sortOrder: existing.length + i, compendiumId: d._id ?? null }))),
 		));
 	}

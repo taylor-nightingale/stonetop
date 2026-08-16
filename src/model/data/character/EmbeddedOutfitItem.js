@@ -20,7 +20,7 @@ export class EmbeddedOutfitItemBuilder {
 				note:            this._note            ?? null,
 				resource:        this._resource        ?? null,
 				twoCol:          this._twoCol          ?? false,
-				},
+			},
 		};
 	}
 }

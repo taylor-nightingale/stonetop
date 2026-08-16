@@ -22,7 +22,7 @@ export class CharacterMoves {
 		this._resourceController = resourceController;
 		this._factory            = factory;
 		this._grantedItems       = grantedItems;
-		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo);
+		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo, this._grantedItems);
 	}
 
 	setVitals(vitals) { this._vitals = vitals; }
@@ -59,23 +59,11 @@ export class CharacterMoves {
 	 *  something else about the character (its background) makes starting moves too. */
 	async playbookGrants(playbookData, alsoStarting = []) {
 		const resolved = await this._moveRepo.getMovesBySlugs(playbookData.moves ?? []);
-		const playbookMoves = this.sortPlaybookMoves(resolved);
-		const starting = new Set([...(playbookData.startingMoves ?? []), ...alsoStarting]);
-		const catKey = `playbook-${playbookData.slug}`;
-		const pairs = await Promise.all(
-			playbookMoves.map(async (m, i) => ({ move: m, doc: await this._moveRepo.getReferencedMoveDocument(m.id), index: i }))
-		);
-		return new ItemGrantSet(GrantSource.playbook(playbookData.slug),
-			pairs
-				.filter(({ doc }) => doc !== null)
-				.map(({ move, doc, index }) => ItemGrant.forMove(move.slug,
-					withCategoryFields(doc.toObject(), catKey, starting.has(move.slug), {
-						sortOrder:     index,
-						compendiumId:  doc._id ?? null,
-						categoryLabel: playbookData.name,
-						categoryNote:  playbookData.startingMovesNote ?? null,
-					}))),
-		);
+		return this._grantsFor(`playbook-${playbookData.slug}`, this.sortPlaybookMoves(resolved), {
+			starting:      new Set([...(playbookData.startingMoves ?? []), ...alsoStarting]),
+			categoryLabel: playbookData.name,
+			categoryNote:  playbookData.startingMovesNote ?? null,
+		});
 	}
 
 	// Register a move category (insert or arcanum) from a list of move slugs. Inserts pass their
@@ -91,27 +79,32 @@ export class CharacterMoves {
 	 *  all-or-nothing "does the category exist" check, a move the packs add later reaches a character
 	 *  that already has the rest. */
 	async categoryGrants(key, label, moveSlugs = [], startingSlugs = []) {
-		const starting = new Set(startingSlugs);
 		const entries = await this._moveRepo.getMovesBySlugs(moveSlugs);
-		const pairs = await Promise.all(
-			entries.map(async move => ({ move, doc: await this._moveRepo.getReferencedMoveDocument(move.id) }))
-		);
-		return new ItemGrantSet(_categorySource(key),
-			pairs.filter(({ doc }) => doc).map(({ move, doc }, i) =>
-				ItemGrant.forMove(move.slug, withCategoryFields(doc.toObject(), key, starting.has(move.slug), {
-					sortOrder:     i,
-					compendiumId:  doc._id ?? null,
-					categoryLabel: label,
-				}))
-			),
+		return this._grantsFor(key, entries, { starting: new Set(startingSlugs), categoryLabel: label });
+	}
+
+	// Resolve a category's moves to their compendium documents and stamp each one for embedding. The one
+	// pipeline behind every move grant — a move that no longer resolves is dropped, not granted empty.
+	async _grantsFor(categoryKey, moves, { starting, categoryLabel, categoryNote = null }) {
+		const docs = await Promise.all(moves.map(m => this._moveRepo.getReferencedMoveDocument(m.id)));
+		return new ItemGrantSet(GrantSource.forCategoryKey(categoryKey),
+			moves
+				.map((move, i) => ({ move, doc: docs[i] }))
+				.filter(({ doc }) => doc)
+				.map(({ move, doc }, i) => new ItemGrant(
+					withCategoryFields(doc.toObject(), categoryKey, starting.has(move.slug), {
+						sortOrder:    i,
+						compendiumId: doc._id ?? null,
+						categoryLabel,
+						categoryNote,
+					}))),
 		);
 	}
 
+	// Un-grants by the same source the category was granted under, so the write and the unwrite read the
+	// same fact. `categoryKey` stays a display concern (which list a move renders in), not provenance.
 	async removeCategory(key) {
-		const ids = [...this._actor.items]
-			.filter(i => i.type === "move" && i.system?.categoryKey === key)
-			.map(i => i._id);
-		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
+		await this._grantedItems.revoke(GrantSource.forCategoryKey(key));
 	}
 
 	async incrementMove(categoryKey, moveSlug) {
@@ -144,7 +137,8 @@ export class CharacterMoves {
 
 	async deleteMove(moveSlug) {
 		const item = [...this._actor.items].find(
-			i => i.type === "move" && i.system?.categoryKey === "other" && toSlug(i.name) === moveSlug
+			i => i.type === "move" && i.system?.categoryKey === "other"
+				&& (i.system?.slug ?? toSlug(i.name)) === moveSlug
 		);
 		if (!item) return;
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
@@ -284,14 +278,6 @@ export class CharacterMoves {
 }
 
 // ── Private helpers ───────────────────────────────────────────────────────────
-
-// Who granted a category of moves, read from the category key the caller passes. Inserts and arcana
-// name themselves in it; anything else is a reference list seeded from the packs.
-function _categorySource(categoryKey) {
-	if (categoryKey.startsWith("insert-")) return GrantSource.insert(categoryKey.slice("insert-".length));
-	if (categoryKey.startsWith("arcana-")) return GrantSource.arcanum(categoryKey.slice("arcana-".length));
-	return GrantSource.reference(categoryKey);
-}
 
 function _acquiredSlugs(moveItems) {
 	return new Set(

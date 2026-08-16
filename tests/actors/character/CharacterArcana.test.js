@@ -91,7 +91,7 @@ function makeFakeStats(values = {}) {
 }
 
 function makeActorOutfitItems() {
-	return { sync: vi.fn(async () => {}), deleteBySource: vi.fn(async () => {}) };
+	return { sync: vi.fn(async () => {}), deleteBySources: vi.fn(async () => {}) };
 }
 
 function makeResourceController() {
@@ -516,14 +516,14 @@ describe("CharacterArcana — outfitItems sync", () => {
 		const outfitItems = makeActorOutfitItems();
 		const arcana = makeArcana([], [FFYRNIG_SPHERE], null, outfitItems);
 		await arcana.addArcanum("huge-wooden-sphere");
-		expect(outfitItems.deleteBySource).toHaveBeenCalledWith("arcana:huge-wooden-sphere");
+		expect(outfitItems.deleteBySources).toHaveBeenCalledWith(["arcana:huge-wooden-sphere"]);
 	});
 
 	it("removeArcanum deletes embedded item by source", async () => {
 		const outfitItems = makeActorOutfitItems();
 		const arcana = makeArcana([makeArcanumItem(BOW_WITH_NO_STRING)], [BOW_WITH_NO_STRING], null, outfitItems);
 		await arcana.removeArcanum("bow-with-no-string");
-		expect(outfitItems.deleteBySource).toHaveBeenCalledWith("arcana:bow-with-no-string");
+		expect(outfitItems.deleteBySources).toHaveBeenCalledWith(["arcana:bow-with-no-string"]);
 	});
 
 	it("flipArcanum syncs to the back item", async () => {
@@ -830,7 +830,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 		const actor = makeActor([makeArcanumItem(FFYRNIG_SPHERE)]);
 		const charArcana = new CharacterArcana(actor, new FakeArcanaRepository(), null, null, null, null, makeOutfitSync(outfitItems));
 		await charArcana.onArcanumCreated(makeArcanumItem(FFYRNIG_SPHERE));
-		expect(outfitItems.deleteBySource).toHaveBeenCalledWith("arcana:huge-wooden-sphere");
+		expect(outfitItems.deleteBySources).toHaveBeenCalledWith(["arcana:huge-wooden-sphere"]);
 	});
 
 	it("does nothing when slug is null", async () => {
@@ -838,7 +838,7 @@ describe("CharacterArcana.onArcanumCreated", () => {
 		const charArcana = new CharacterArcana(makeActor(), new FakeArcanaRepository(), null, null);
 		await charArcana.onArcanumCreated({ system: { slug: null, front: null, back: null } });
 		expect(outfitItems.sync).not.toHaveBeenCalled();
-		expect(outfitItems.deleteBySource).not.toHaveBeenCalled();
+		expect(outfitItems.deleteBySources).not.toHaveBeenCalled();
 	});
 });
 

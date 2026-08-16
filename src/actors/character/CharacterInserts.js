@@ -27,18 +27,15 @@ export class CharacterInserts {
 	async playbookGrants(playbookSlug, insertSlugs = []) {
 		const source = GrantSource.playbook(playbookSlug);
 		if (!playbookSlug || !insertSlugs?.length || !this._insertRepo) return ItemGrantSet.empty(source);
-		const grants = [];
-		for (const slug of insertSlugs) {
-			const doc = await this._insertRepo.findBySlug(slug);
-			if (!doc) continue;
+		const docs = await Promise.all(insertSlugs.map(slug => this._insertRepo.findBySlug(slug)));
+		return new ItemGrantSet(source, docs.filter(Boolean).map(doc => {
 			const data = typeof doc.toObject === "function"
 				? doc.toObject()
 				: { name: doc.name, type: "insert", img: doc.img ?? null, system: doc.system };
 			delete data._id; delete data._key;
 			data.type = "insert";
-			grants.push(ItemGrant.forInsert(slug, data));
-		}
-		return new ItemGrantSet(source, grants);
+			return new ItemGrant(data);
+		}));
 	}
 
 	async removeInsert(itemId) {
@@ -46,10 +43,6 @@ export class CharacterInserts {
 		if (!item) return;
 		await this._moves.removeCategory(`insert-${item.system?.slug}`);
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
-	}
-
-	async onInsertRemoved(slug) {
-		if (slug) await this._moves.removeCategory(`insert-${slug}`);
 	}
 
 	// A stat a move rolls that is none of the character's six: an insert's own track, like the

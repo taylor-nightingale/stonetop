@@ -69,9 +69,12 @@ export function createStonetopActorClass(BaseActor) {
 		// client that made the change alone, same as the CreateActor hook. Unguarded, a GM and a
 		// player both grant the dropped playbook and its moves land once per client. `super` still
 		// runs everywhere: that's core's own bookkeeping, not ours.
+		//
+		// A migration writes the state it has already decided on, so it opts out entirely: letting a
+		// pruned duplicate re-enter revoke would take the surviving copy's grants with it.
 		async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
 			await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
-			if (game.user?.id !== userId) return;
+			if (game.user?.id !== userId || options?.stonetopMigration) return;
 			if (this.typedActor.type === "character" && collection === "items") {
 				await this.typedActor._onCreateDescendantDocuments(documents);
 			}
@@ -79,7 +82,7 @@ export function createStonetopActorClass(BaseActor) {
 
 		async _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
 			await super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
-			if (game.user?.id !== userId) return;
+			if (game.user?.id !== userId || options?.stonetopMigration) return;
 			if (this.typedActor.type === "character" && collection === "items") {
 				await this.typedActor._onDeleteDescendantDocuments(documents);
 			}

@@ -14,19 +14,14 @@ import { toSlug } from "../../utils/slug.js";
  * purpose, and authored items carry no stamp at all.
  */
 export class ItemGrant {
-	constructor(key, itemData) {
-		this.key      = key;
+	constructor(itemData) {
 		this.itemData = itemData;
+		this.key      = ItemGrant.keyOf(itemData);
 	}
 
-	static forMove(slug, itemData)       { return new ItemGrant(`move:${slug}`, itemData); }
-	static forFollower(slug, itemData)   { return new ItemGrant(`follower:${slug}`, itemData); }
-	static forInsert(slug, itemData)     { return new ItemGrant(`insert:${slug}`, itemData); }
-	static forPossession(slug, itemData) { return new ItemGrant(`possession:${slug}`, itemData); }
-	static forOutfitItem(slug, itemData) { return new ItemGrant(`outfitItem:${slug}`, itemData); }
-
-	/** The key an item on the actor already occupies — type + slug, the identity every find-by-slug in
-	 *  the sheet uses, so a grant can tell whether the character already has this thing. */
+	/** What an item IS — type + slug, the identity every find-by-slug in the sheet already uses. A grant
+	 *  and an item on the actor are keyed the same way, which is how a grant can tell that the character
+	 *  already has this thing. */
 	static keyOf(item) {
 		if (!item?.type) return null;
 		const slug = item.system?.slug ?? toSlug(item.name ?? "");
@@ -93,6 +88,23 @@ export class GrantSource {
 	// an arcanum's card items and the followers the same card grants both belong to "arcana:the-ring",
 	// and clearing one must not take the other with it.
 	static outfit(containerSource) { return `outfit:${containerSource}`; }
+
+	/**
+	 * The source a move's category key names. Inserts and arcana name themselves in it; everything else
+	 * (basic, expedition, special, follower, homefront, seasons) is a reference list seeded from the
+	 * packs. Null for "other", where a hand-dropped move lands — nobody granted that.
+	 */
+	static forCategoryKey(categoryKey) {
+		if (!categoryKey || categoryKey === "other") return null;
+		for (const [prefix, source] of [
+			["playbook-", GrantSource.playbook],
+			["insert-",   GrantSource.insert],
+			["arcana-",   GrantSource.arcanum],
+		]) {
+			if (categoryKey.startsWith(prefix)) return source(categoryKey.slice(prefix.length));
+		}
+		return GrantSource.reference(categoryKey);
+	}
 
 	/** Whether a source is a playbook — what makes a possession one of the playbook's picks rather
 	 *  than something the player dropped in. */

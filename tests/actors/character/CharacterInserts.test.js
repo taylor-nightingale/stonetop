@@ -69,24 +69,6 @@ describe("CharacterInserts.removeInsert", () => {
 	});
 });
 
-// ── onInsertRemoved ───────────────────────────────────────────────────────────
-
-describe("CharacterInserts.onInsertRemoved", () => {
-	it("removes move category for slug", async () => {
-		const moves = new FakeMoves();
-		const { inserts } = makeInserts({ moves });
-		await inserts.onInsertRemoved("revenant");
-		expect(moves.removedCategories).toContain("insert-revenant");
-	});
-
-	it("does nothing when slug is null", async () => {
-		const moves = new FakeMoves();
-		const { inserts } = makeInserts({ moves });
-		await inserts.onInsertRemoved(null);
-		expect(moves.removedCategories).toHaveLength(0);
-	});
-});
-
 // ── buildSnapshot ─────────────────────────────────────────────────────────────
 
 describe("CharacterInserts.buildSnapshot", () => {

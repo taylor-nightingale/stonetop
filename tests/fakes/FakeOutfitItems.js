@@ -3,6 +3,10 @@ export class FakeOutfitItems {
 	_deletedSources = [];
 
 	async sync(source, items)    { this._store[source] = items; }
+	async deleteBySources(sources) {
+		for (const source of sources) await this.deleteBySource(source);
+	}
+
 	async deleteBySource(source) { this._deletedSources.push(source); delete this._store[source]; }
 
 	get deletedSources() { return this._deletedSources; }

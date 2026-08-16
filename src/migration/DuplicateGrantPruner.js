@@ -17,10 +17,11 @@ export class DuplicateGrantPruner {
 		this._actor = actor;
 	}
 
-	/** Returns the ids it deleted. */
 	async prune() {
 		const ids = this._duplicates().map(item => item._id);
-		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids);
+		// stonetopMigration: these deletes must not re-enter the grant router — revoking the source of a
+		// pruned duplicate would take the copy being kept with it.
+		if (ids.length) await this._actor.deleteEmbeddedDocuments("Item", ids, { stonetopMigration: true });
 		return ids;
 	}
 
@@ -50,7 +51,7 @@ function _playerState(item) {
 	const system = item.system ?? {};
 	switch (item.type) {
 		case "move":       return system.instanceCount ?? (system.acquired ? 1 : 0);
-		case "follower":   return _count(system.loyalty)
+		case "follower":   return _count(system.loyalty?.value)
 			+ (system.members ?? []).reduce((n, m) => n + _count(m?.hp?.value), 0)
 			+ _filled(system.choiceValues);
 		case "possession": return (system.selected ? 1 : 0) + _count(system.uses)

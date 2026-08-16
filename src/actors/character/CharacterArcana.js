@@ -79,10 +79,10 @@ export class CharacterArcana {
 		const arcanum = new OwnedArcanum(item, this._actor);
 		if (!arcanum.slug) return [];
 		const label = arcanum.name ?? arcanum.slug;
-		return [
-			await this._followers?.arcanumGrants(arcanum.slug, arcanum.followerSlugs()),
-			await this._moves?.categoryGrants(`arcana-${arcanum.slug}`, label, arcanum.moveSlugs, arcanum.moveSlugs),
-		].filter(Boolean);
+		return (await Promise.all([
+			this._followers?.arcanumGrants(arcanum.slug, arcanum.followerSlugs()),
+			this._moves?.categoryGrants(`arcana-${arcanum.slug}`, label, arcanum.moveSlugs, arcanum.moveSlugs),
+		])).filter(Boolean);
 	}
 
 	// What a card does beyond the items it grants (its gear, which the outfit sync owns).

@@ -33,7 +33,7 @@ export class StonetopCharacter {
 		// The one writer of items something else owns. Every subsystem grants through this instance, so
 		// "which items exist because of X?" has a single answer.
 		const grantedItems = this._grantedItems = new GrantedItems(actor);
-		const outfitItems = new ActorOutfitItems(actor);
+		const outfitItems = new ActorOutfitItems(actor, grantedItems);
 		this._resourceController = new ResourceController(actor);
 		// The one writer of granted outfit items. Each container type registers how it computes its
 		// grant; the factory re-syncs a container after every choice write.
@@ -66,14 +66,16 @@ export class StonetopCharacter {
 			.register("playbook", {
 				source:  item => GrantSource.playbook(item.system?.slug),
 				onApply: async item => this._playbook.selectPlaybook(item.asPlaybook()),
+				// Four independent compendium reads: resolved together, the drop costs the slowest rather
+				// than the sum.
 				grants:  async item => {
 					const playbook = item.asPlaybook();
-					return [
-						await this._playbook.moveGrants(playbook),
-						await this._followers.playbookGrants(playbook.slug, playbook.followers),
-						await this._inserts.playbookGrants(playbook.slug, playbook.inserts),
-						await this._possessions.playbookGrants(playbook.specialPossessions, playbook.slug),
-					];
+					return Promise.all([
+						this._playbook.moveGrants(playbook),
+						this._followers.playbookGrants(playbook.slug, playbook.followers),
+						this._inserts.playbookGrants(playbook.slug, playbook.inserts),
+						this._possessions.playbookGrants(playbook.specialPossessions, playbook.slug),
+					]);
 				},
 				onGranted: async created => {
 					for (const item of created) await this._onGrantedItemCreated(item);
@@ -81,10 +83,9 @@ export class StonetopCharacter {
 				onRevoke: async source => this._possessions.clearGrantedOutfit(source),
 			})
 			.register("insert", {
-				source:   item => GrantSource.insert(item.system?.slug),
-				onApply:  async item => this._inserts.onInsertDropped(item),
-				grants:   async () => [],
-				onRevoke: async (_source, item) => this._inserts.onInsertRemoved(item.system?.slug ?? null),
+				source:  item => GrantSource.insert(item.system?.slug),
+				onApply: async item => this._inserts.onInsertDropped(item),
+				grants:  async () => [],
 			})
 			.register("arcanum", {
 				source:  item => GrantSource.arcanum(item.system?.slug),

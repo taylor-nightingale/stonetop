@@ -62,6 +62,15 @@ describe("StonetopActor._onCreateDescendantDocuments — acting client only", ()
 		expect(actor.typedActor.created).toEqual([]);
 	});
 
+	// A migration has already decided what the actor should hold; re-entering the grant router from its
+	// writes would undo that decision (a pruned duplicate revoking the copy being kept).
+	it("does not dispatch for a migration's own writes", async () => {
+		stubGame("u1");
+		const actor = makeActor();
+		await actor._onCreateDescendantDocuments(actor, "items", DOCS, [], { stonetopMigration: true }, "u1");
+		expect(actor.typedActor.created).toEqual([]);
+	});
+
 	it("ignores actor types other than character", async () => {
 		stubGame("u1");
 		const actor = makeActor("steading");
@@ -92,5 +101,12 @@ describe("StonetopActor._onDeleteDescendantDocuments — acting client only", ()
 		const actor = makeActor();
 		await actor._onDeleteDescendantDocuments(actor, "items", DOCS, ["pb1"], {}, "someone-else");
 		expect(actor.superDeletes).toHaveLength(1);
+	});
+
+	it("does not dispatch for a migration's own deletes", async () => {
+		stubGame("u1");
+		const actor = makeActor();
+		await actor._onDeleteDescendantDocuments(actor, "items", DOCS, ["pb1"], { stonetopMigration: true }, "u1");
+		expect(actor.typedActor.deleted).toEqual([]);
 	});
 });

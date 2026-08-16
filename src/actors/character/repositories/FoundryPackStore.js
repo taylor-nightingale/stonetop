@@ -2,16 +2,16 @@ export class FoundryPackStore {
 	constructor(packName, fields) {
 		this._packName = packName;
 		this._fields   = fields;
-		this._indexed  = false;
+		this._indexing = null;
 	}
 
+	// Memoises the PROMISE, not a done flag: callers that batch their lookups arrive together, and a flag
+	// set after the await would let every one of them fetch the index.
 	async _ensureIndexed() {
 		const pack = game.packs.get(this._packName);
 		if (!pack) return null;
-		if (!this._indexed) {
-			await pack.getIndex({ fields: this._fields });
-			this._indexed = true;
-		}
+		this._indexing ??= pack.getIndex({ fields: this._fields });
+		await this._indexing;
 		return pack;
 	}
 

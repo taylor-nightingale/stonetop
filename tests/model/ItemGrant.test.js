@@ -2,23 +2,24 @@ import { describe, it, expect } from "vitest";
 import { GrantSource, GrantStamp, ItemGrant, ItemGrantSet } from "../../src/model/data/ItemGrant.js";
 
 describe("ItemGrant", () => {
-	it("carries the key and the item payload", () => {
-		const grant = new ItemGrant("move:bulwark", { name: "Bulwark", type: "move" });
+	it("keys itself from the payload it carries", () => {
+		const grant = new ItemGrant({ name: "Bulwark", type: "move", system: { slug: "bulwark" } });
 		expect(grant.key).toBe("move:bulwark");
-		expect(grant.itemData).toEqual({ name: "Bulwark", type: "move" });
+		expect(grant.itemData.name).toBe("Bulwark");
 	});
 
 	it("stamps its source and key onto a copy of the payload", () => {
-		const data  = { name: "Bulwark", type: "move" };
-		const grant = new ItemGrant("move:bulwark", data);
+		const data  = { name: "Bulwark", type: "move", system: { slug: "bulwark" } };
+		const grant = new ItemGrant(data);
 		expect(grant.stamped("playbook:the-heavy").flags.stonetop.grant)
 			.toEqual({ source: "playbook:the-heavy", key: "move:bulwark" });
 		expect(data.flags).toBeUndefined();
 	});
 
 	it("keeps flags the payload already carries", () => {
-		const grant = new ItemGrant("insert:revenant", {
-			name: "Revenant", type: "insert", flags: { core: { sourceId: "x" }, stonetop: { pinned: true } },
+		const grant = new ItemGrant({
+			name: "Revenant", type: "insert", system: { slug: "revenant" },
+			flags: { core: { sourceId: "x" }, stonetop: { pinned: true } },
 		});
 		const stamped = grant.stamped("playbook:the-blessed");
 		expect(stamped.flags.core).toEqual({ sourceId: "x" });
@@ -27,29 +28,17 @@ describe("ItemGrant", () => {
 	});
 });
 
-describe("ItemGrant type factories", () => {
-	it("key the grant by item type and slug", () => {
-		expect(ItemGrant.forMove("bulwark", {}).key).toBe("move:bulwark");
-		expect(ItemGrant.forFollower("animal-companion", {}).key).toBe("follower:animal-companion");
-		expect(ItemGrant.forInsert("revenant", {}).key).toBe("insert:revenant");
-		expect(ItemGrant.forPossession("bow", {}).key).toBe("possession:bow");
-	});
-
-	it("keep the payload they were given", () => {
-		const data = { name: "Bulwark", type: "move" };
-		expect(ItemGrant.forMove("bulwark", data).itemData).toBe(data);
-	});
-
-	it("keep the same slug distinct across item types", () => {
-		expect(ItemGrant.forMove("crew", {}).key).not.toBe(ItemGrant.forFollower("crew", {}).key);
-		expect(ItemGrant.forOutfitItem("rope", {}).key).toBe("outfitItem:rope");
-	});
-});
-
 describe("ItemGrant.keyOf", () => {
+	// One derivation for both sides: a grant and an item on the actor cannot disagree about what the
+	// same thing is called.
 	it("keys an item on the actor the same way a grant keys itself", () => {
-		expect(ItemGrant.keyOf({ type: "move", name: "Bulwark", system: { slug: "bulwark" } }))
-			.toBe(ItemGrant.forMove("bulwark", {}).key);
+		const item = { type: "move", name: "Bulwark", system: { slug: "bulwark" } };
+		expect(ItemGrant.keyOf(item)).toBe(new ItemGrant(item).key);
+	});
+
+	it("keeps the same slug distinct across item types", () => {
+		expect(ItemGrant.keyOf({ type: "move", name: "Crew", system: { slug: "crew" } }))
+			.not.toBe(ItemGrant.keyOf({ type: "follower", name: "Crew", system: { slug: "crew" } }));
 	});
 
 	it("falls back to the name when the item stores no slug", () => {
@@ -70,8 +59,8 @@ describe("ItemGrant.keyOf", () => {
 describe("ItemGrantSet.mergeBySource", () => {
 	it("merges every set that shares a source into one", () => {
 		const merged = ItemGrantSet.mergeBySource([
-			new ItemGrantSet("playbook:the-heavy", [ItemGrant.forMove("bulwark", {})]),
-			new ItemGrantSet("playbook:the-heavy", [ItemGrant.forFollower("crew", {})]),
+			new ItemGrantSet("playbook:the-heavy", [new ItemGrant({ type: "move", system: { slug: "bulwark" } })]),
+			new ItemGrantSet("playbook:the-heavy", [new ItemGrant({ type: "follower", system: { slug: "crew" } })]),
 		]);
 		expect(merged).toHaveLength(1);
 		expect(merged[0].keys).toEqual(["move:bulwark", "follower:crew"]);
@@ -81,7 +70,7 @@ describe("ItemGrantSet.mergeBySource", () => {
 	// nothing" and deletes what the set before it just granted.
 	it("does not let an empty set from the same source stand alone", () => {
 		const merged = ItemGrantSet.mergeBySource([
-			new ItemGrantSet("playbook:the-heavy", [ItemGrant.forMove("bulwark", {})]),
+			new ItemGrantSet("playbook:the-heavy", [new ItemGrant({ type: "move", system: { slug: "bulwark" } })]),
 			ItemGrantSet.empty("playbook:the-heavy"),
 		]);
 		expect(merged).toHaveLength(1);
@@ -90,8 +79,8 @@ describe("ItemGrantSet.mergeBySource", () => {
 
 	it("keeps different sources apart, in first-seen order", () => {
 		const merged = ItemGrantSet.mergeBySource([
-			new ItemGrantSet("arcana:the-ring", [ItemGrant.forMove("call-forth", {})]),
-			new ItemGrantSet("playbook:the-heavy", [ItemGrant.forMove("bulwark", {})]),
+			new ItemGrantSet("arcana:the-ring", [new ItemGrant({ type: "move", system: { slug: "call-forth" } })]),
+			new ItemGrantSet("playbook:the-heavy", [new ItemGrant({ type: "move", system: { slug: "bulwark" } })]),
 		]);
 		expect(merged.map(s => s.source)).toEqual(["arcana:the-ring", "playbook:the-heavy"]);
 	});
@@ -120,6 +109,18 @@ describe("GrantSource", () => {
 		expect(GrantSource.outfit("arcana:the-ring")).not.toBe(GrantSource.arcanum("the-ring"));
 	});
 
+	it("reads the source out of a move's category key", () => {
+		expect(GrantSource.forCategoryKey("playbook-the-heavy")).toBe("playbook:the-heavy");
+		expect(GrantSource.forCategoryKey("insert-revenant")).toBe("insert:revenant");
+		expect(GrantSource.forCategoryKey("arcana-the-ring")).toBe("arcana:the-ring");
+		expect(GrantSource.forCategoryKey("basic")).toBe("reference:basic");
+	});
+
+	it("gives no source for a move the player dropped in", () => {
+		expect(GrantSource.forCategoryKey("other")).toBeNull();
+		expect(GrantSource.forCategoryKey(null)).toBeNull();
+	});
+
 	it("recognises a playbook source — what makes a possession one of its picks", () => {
 		expect(GrantSource.isPlaybook(GrantSource.playbook("the-heavy"))).toBe(true);
 		expect(GrantSource.isPlaybook(GrantSource.arcanum("the-ring"))).toBe(false);
@@ -130,8 +131,8 @@ describe("GrantSource", () => {
 describe("ItemGrantSet", () => {
 	it("exposes its source, grants and keys", () => {
 		const set = new ItemGrantSet("playbook:the-heavy", [
-			new ItemGrant("move:bulwark", { name: "Bulwark" }),
-			new ItemGrant("move:armored", { name: "Armored" }),
+			new ItemGrant({ name: "Bulwark", type: "move", system: { slug: "bulwark" } }),
+			new ItemGrant({ name: "Armored", type: "move", system: { slug: "armored" } }),
 		]);
 		expect(set.source).toBe("playbook:the-heavy");
 		expect(set.keys).toEqual(["move:bulwark", "move:armored"]);

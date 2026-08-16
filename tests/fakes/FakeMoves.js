@@ -1,3 +1,5 @@
+import { GrantSource, ItemGrant, ItemGrantSet } from "../../src/model/data/ItemGrant.js";
+
 export class FakeMoves {
 	_counts      = {};
 	_incremented = [];
@@ -25,7 +27,7 @@ export class FakeMoves {
 	async playbookGrants(data, alsoStarting = []) {
 		this._initialized  = data;
 		this._alsoStarting = [...alsoStarting];
-		return { source: `playbook:${data.slug}`, grants: [], keys: [] };
+		return ItemGrantSet.empty(GrantSource.playbook(data.slug));
 	}
 
 	alsoStarting() { return this._alsoStarting ?? []; }
@@ -50,13 +52,10 @@ export class FakeMoves {
 	// what was granted without knowing whether the caller applied it itself or handed it to the router.
 	async categoryGrants(type, name, moveSlugs = [], startingSlugs = []) {
 		this._addedCategories.push({ type, name, moveSlugs });
-		return {
-			source: type.startsWith("arcana-") ? `arcana:${type.slice("arcana-".length)}`
-				: type.startsWith("insert-") ? `insert:${type.slice("insert-".length)}` : `reference:${type}`,
-			grants: moveSlugs.map(slug => ({ key: `move:${slug}`, itemData: {}, stamped: () => ({}) })),
-			keys: moveSlugs.map(slug => `move:${slug}`),
-			isEmpty: !moveSlugs.length,
-		};
+		return new ItemGrantSet(
+			GrantSource.forCategoryKey(type),
+			moveSlugs.map(slug => new ItemGrant({ name: slug, type: "move", system: { slug } })),
+		);
 	}
 	async removeCategory(type)          { this._removedCategories.push(type); }
 

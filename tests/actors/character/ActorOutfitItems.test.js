@@ -44,27 +44,6 @@ describe("ActorOutfitItems.getAll", () => {
 	});
 });
 
-describe("ActorOutfitItems.getBySource", () => {
-	it("returns items matching the given source", () => {
-		const aoi = make([
-			makeRawItem({ _id: "a", source: "arcana:sword" }),
-			makeRawItem({ _id: "b", source: "possession:smithy" }),
-		]);
-		expect(aoi.getBySource("arcana:sword")).toHaveLength(1);
-		expect(aoi.getBySource("arcana:sword")[0]._id).toBe("a");
-	});
-
-	it("returns empty array when no items match", () => {
-		const aoi = make([makeRawItem({ source: "arcana:sword" })]);
-		expect(aoi.getBySource("possession:smithy")).toHaveLength(0);
-	});
-
-	it("excludes items with no source when filtering by source", () => {
-		const aoi = make([makeRawItem({ source: null })]);
-		expect(aoi.getBySource("arcana:sword")).toHaveLength(0);
-	});
-});
-
 describe("ActorOutfitItems.create", () => {
 	it("creates the given items on the actor", async () => {
 		const actor = new FakeCharacterActorBuilder().withItems([]).build();
@@ -81,21 +60,21 @@ describe("ActorOutfitItems.create", () => {
 	});
 });
 
-describe("ActorOutfitItems.deleteBySource", () => {
+describe("ActorOutfitItems.deleteBySources", () => {
 	it("deletes all items with the matching source", async () => {
 		const actor = new FakeCharacterActorBuilder().withItems([
 			makeRawItem({_id: "a", source: "arcana:sword"}),
 			makeRawItem({_id: "b", source: "arcana:sword"}),
 		]).build();
 		const aoi = new ActorOutfitItems(actor);
-		await aoi.deleteBySource("arcana:sword");
+		await aoi.deleteBySources(["arcana:sword"]);
 		expect(actor.deletedIds).toEqual(["a", "b"]);
 	});
 
 	it("is a no-op when no items match", async () => {
 		const actor = new FakeCharacterActorBuilder().withItems([makeRawItem({source: "arcana:bow"})]).build();
 		const aoi = new ActorOutfitItems(actor);
-		await aoi.deleteBySource("arcana:sword");
+		await aoi.deleteBySources(["arcana:sword"]);
 		expect(actor.deletedIds).toHaveLength(0);
 	});
 });

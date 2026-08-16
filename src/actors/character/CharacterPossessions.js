@@ -104,11 +104,10 @@ export class CharacterPossessions {
 		if (!sp || !this._possessionRepo) return ItemGrantSet.empty(source);
 		const { preselected = [], slugs = [] } = sp;
 		const preselectedSet = new Set(preselected);
-		const grants = [];
-		for (const slug of slugs) {
-			const possession = await this._possessionRepo.findBySlug(slug);
-			if (!possession) continue;
-			grants.push(ItemGrant.forPossession(slug, {
+		const possessions = await this._possessionRepo.findBySlugs(slugs);
+		const grants = possessions.map(possession => {
+			const slug = possession.slug;
+			return new ItemGrant({
 				name: possession.name, type: "possession",
 				system: {
 					slug:         possession.slug,
@@ -124,18 +123,18 @@ export class CharacterPossessions {
 					pickValues:   {},
 					choiceUses:   {},
 				},
-			}));
-		}
+			});
+		});
 		return new ItemGrantSet(source, grants);
 	}
 
 	// The gear a granted possession put in the outfit is keyed by the possession, not the playbook, so
-	// revoking the playbook has to clear each source by hand before the items themselves go.
+	// revoking the playbook has to name each of those sources before the possessions themselves go.
 	async clearGrantedOutfit(source) {
-		for (const item of this._grantedItems.itemsFrom(source)) {
-			if (item.type !== "possession") continue;
-			await this._outfitSync?.clear("possession:" + item.system?.slug);
-		}
+		const gear = this._grantedItems.itemsFrom(source)
+			.filter(item => item.type === "possession")
+			.map(item => "possession:" + item.system?.slug);
+		await this._outfitSync?.clearAll(gear);
 	}
 
 	/** What a possession grants right now: its own gear plus whatever its ticked choices grant. */

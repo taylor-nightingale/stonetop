@@ -14,11 +14,11 @@ class FakeGrantedItems {
 const playbook = { type: "playbook", system: { slug: "the-heavy" } };
 
 function movesFor(item) {
-	return new ItemGrantSet(`playbook:${item.system.slug}`, [ItemGrant.forMove("bulwark", { name: "Bulwark" })]);
+	return new ItemGrantSet(`playbook:${item.system.slug}`, [new ItemGrant({ name: "Bulwark", type: "move", system: { slug: "bulwark" } })]);
 }
 
 function followersFor(item) {
-	return new ItemGrantSet(`playbook:${item.system.slug}`, [ItemGrant.forFollower("crew", { name: "Crew" })]);
+	return new ItemGrantSet(`playbook:${item.system.slug}`, [new ItemGrant({ name: "Crew", type: "follower", system: { slug: "crew" } })]);
 }
 
 function makeRouter(store, overrides = {}) {
@@ -105,11 +105,3 @@ describe("ItemGrantRouter.revoke", () => {
 	});
 });
 
-describe("ItemGrantRouter.register", () => {
-	it("chains and reports the types it knows", () => {
-		const router = new ItemGrantRouter(new FakeGrantedItems())
-			.register("playbook", { source: () => "playbook:x", grants: async () => [] })
-			.register("insert",   { source: () => "insert:y",   grants: async () => [] });
-		expect(router.types).toEqual(["playbook", "insert"]);
-	});
-});
