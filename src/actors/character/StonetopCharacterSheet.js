@@ -96,8 +96,13 @@ export function createStonetopCharacterSheetClass(Base) {
 					return this._stonetopCharacter.origin.selectName(target.textContent.trim());
 				}),
 				flipArcanum: editOnly(function (ev, target) {
-					return this._stonetopCharacter.toggleArcanumFlip(
-						target.dataset.slug, target.dataset.flipped === "true");
+					// A flip swaps the whole card body, and when the two sides grant different gear it
+					// writes twice — so the tab is rebuilt (more than once) around a card that just
+					// changed height. Pin the card across the whole action, or it drops to the top.
+					const slug = target.dataset.slug;
+					return this.keepAnchored(target.closest(".stonetop-arcanum-card"),
+						`.stonetop-arcanum-card[data-slug="${slug}"]`, ".sheet-body",
+						() => this._stonetopCharacter.toggleArcanumFlip(slug, target.dataset.flipped === "true"));
 				}),
 				removeInsert: editOnly(function (ev, target) {
 					return this._stonetopCharacter.removeInsert(target.dataset.insertItemId);

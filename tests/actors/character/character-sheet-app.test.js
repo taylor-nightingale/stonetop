@@ -17,6 +17,8 @@ function makeBase(actor) {
 		_editable = true;
 		superDrop = vi.fn(async () => "super-drop");
 		render = vi.fn();
+		// Mirrors StonetopActorSheetV2: capture, run the writes, release.
+		keepAnchored = vi.fn((element, anchorSelector, containerSelector, work) => work());
 
 		get actor() { return actor; }
 		get isEditable() { return this._editable; }
@@ -258,6 +260,23 @@ describe("StonetopCharacterSheet actions", () => {
 		const { sheet, char } = makeSheet();
 		await fireAction(sheet, "flipArcanum", el(`<button data-slug="eye" data-flipped="true"></button>`));
 		expect(char.toggleArcanumFlip).toHaveBeenCalledWith("eye", true);
+	});
+
+	// A flip rebuilds the tab around a card that just changed height, and an arcanum whose two sides
+	// grant different gear writes twice — so the write has to run INSIDE the anchor, not merely after
+	// a capture taken beforehand.
+	it("flipArcanum runs its write inside its own card's scroll anchor", async () => {
+		const { sheet, char } = makeSheet();
+		const card = el(`<div class="stonetop-arcanum-card" data-slug="eye">
+			<button data-slug="eye" data-flipped="false"></button></div>`);
+
+		await fireAction(sheet, "flipArcanum", card.querySelector("button"));
+
+		const [element, anchorSelector, containerSelector] = sheet.keepAnchored.mock.calls[0];
+		expect(element).toBe(card);
+		expect(anchorSelector).toBe(`.stonetop-arcanum-card[data-slug="eye"]`);
+		expect(containerSelector).toBe(".sheet-body");
+		expect(char.toggleArcanumFlip).toHaveBeenCalledWith("eye", false);
 	});
 
 	it("moveResourcePip passes the pip's current checked state", async () => {

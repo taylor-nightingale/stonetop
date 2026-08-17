@@ -4,6 +4,7 @@ import { activateEditToggles } from "../utils/editToggle.js";
 import { activateSteppers } from "../utils/stepper.js";
 import { activateComboBoxes } from "../utils/comboBox.js";
 import { reenableViewStateControls } from "../utils/viewStateControls.js";
+import { ScrollAnchor } from "../utils/ScrollAnchor.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop actor sheets: HandlebarsApplicationMixin over
@@ -56,6 +57,34 @@ export function createStonetopActorSheetV2Class() {
 				Object.assign(el, { scrollTop, scrollLeft });
 		}
 
+		// Set by an action whose writes are about to re-render the sheet; applied on each of those
+		// renders until the action releases it (see keepAnchored).
+		#scrollAnchor = null;
+
+		/**
+		 * Run `work` (an action's writes) while keeping `element` visually still, however many renders
+		 * those writes cause.
+		 *
+		 * One render is not enough to anchor against. An action that writes twice — flipping an arcanum
+		 * updates the card AND adds/removes the gear that side grants — renders twice, and the second
+		 * render can begin before the first has finished restoring: it then captures the mid-swap
+		 * scroll position (0, because a container that has not been laid out yet clamps the
+		 * assignment) and restores that instead. So the anchor is held for the whole action rather
+		 * than consumed by the first render. Re-applying is idempotent — once the element is back
+		 * where it was the correction is 0 — so the extra passes cost nothing.
+		 *
+		 * Released a tick after the writes settle, since the last render they trigger is not awaited
+		 * by the write itself.
+		 */
+		async keepAnchored(element, anchorSelector, containerSelector, work) {
+			this.#scrollAnchor = ScrollAnchor.capture(element, anchorSelector, containerSelector);
+			try {
+				return await work();
+			} finally {
+				setTimeout(() => { this.#scrollAnchor = null; }, 0);
+			}
+		}
+
 		// Root-delegated listeners go here: unlike V1, the V2 root element PERSISTS across
 		// re-renders (only part content is swapped), so wiring these per render would stack
 		// duplicate handlers (and editToggle's class *toggle* would cancel itself out).
@@ -86,6 +115,8 @@ export function createStonetopActorSheetV2Class() {
 		_onRender(context, options) {
 			super._onRender(context, options);
 			activateSteppers(this.element);
+			// Held, not consumed: see keepAnchored — a two-write action renders more than once.
+			this.#scrollAnchor?.restore(this.element);
 		}
 	};
 }

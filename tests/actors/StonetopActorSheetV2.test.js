@@ -106,6 +106,94 @@ describe("StonetopActorSheetV2 base", () => {
 				sheet._syncPartState("form", document.createElement("div"), document.createElement("div"), {}),
 			).not.toThrow();
 		});
+
+		// A render carries no scroll state of its own: core captures and restores in _syncPartState,
+		// and nothing re-applies it afterwards (only a held anchor does — see keepAnchored).
+		it("leaves scroll alone on a render with no state of its own", () => {
+			const { sheet } = makeSheet();
+			const scroller = document.createElement("div");
+			sheet._syncPartState("form", document.createElement("div"), document.createElement("div"),
+				{ scrollPositions: [[scroller, 120, 0]] });
+
+			scroller.scrollTop = 300; // the player scrolls after the render
+			sheet._onRender({}, {});
+
+			expect(scroller.scrollTop).toBe(300);
+		});
+	});
+
+	describe("keepAnchored (holding a card still across every render an action causes)", () => {
+		const SEL = `.stonetop-arcanum-card[data-slug="cloak"]`;
+
+		function sheetWithCard(scrollTop) {
+			const { sheet } = makeSheet();
+			sheet.element.innerHTML = `<section class="sheet-body">
+				<div class="stonetop-arcanum-card" data-slug="cloak"></div></section>`;
+			const body = sheet.element.querySelector(".sheet-body");
+			const card = sheet.element.querySelector(".stonetop-arcanum-card");
+			body.scrollTop = scrollTop;
+			body.getBoundingClientRect = () => ({ top: 0 });
+			card.getBoundingClientRect = () => ({ top: 40 - body.scrollTop });
+			return { sheet, body, card };
+		}
+
+		beforeEach(() => vi.useFakeTimers());
+		afterEach(() => vi.useRealTimers());
+
+		it("restores the anchored card's position on the render its write causes", async () => {
+			const { sheet, body, card } = sheetWithCard(180);
+
+			await sheet.keepAnchored(card, SEL, ".sheet-body", async () => {
+				body.scrollTop = 0;      // the re-render dropped the tab to the top
+				sheet._onRender({}, {});
+			});
+
+			expect(body.scrollTop).toBe(180);
+		});
+
+		// The actual bug: an arcanum whose two sides grant different gear writes twice, and the second
+		// render restores the mid-swap 0 that the first render's clamp left behind. A one-render
+		// anchor is already gone by then.
+		it("survives a second render, so a two-write action still lands where it started", async () => {
+			const { sheet, body, card } = sheetWithCard(180);
+
+			await sheet.keepAnchored(card, SEL, ".sheet-body", async () => {
+				body.scrollTop = 0;
+				sheet._onRender({}, {}); // render 1: the card's own update
+				body.scrollTop = 0;      // render 2 captured the clamped 0 and restored it
+				sheet._onRender({}, {}); // render 2: the granted gear being removed
+			});
+
+			expect(body.scrollTop).toBe(180);
+		});
+
+		it("releases the anchor once the writes settle, leaving later scrolling alone", async () => {
+			const { sheet, body, card } = sheetWithCard(180);
+			await sheet.keepAnchored(card, SEL, ".sheet-body", async () => {});
+			vi.runAllTimers();
+
+			body.scrollTop = 20; // the player scrolls, then something else re-renders the sheet
+			sheet._onRender({}, {});
+
+			expect(body.scrollTop).toBe(20);
+		});
+
+		it("releases the anchor even when the write throws, and returns the work's result", async () => {
+			const { sheet, card } = sheetWithCard(180);
+			await expect(sheet.keepAnchored(card, SEL, ".sheet-body", async () => { throw new Error("write failed"); }))
+				.rejects.toThrow("write failed");
+			vi.runAllTimers();
+
+			expect(await sheet.keepAnchored(card, SEL, ".sheet-body", async () => "done")).toBe("done");
+		});
+
+		it("still runs the write when there is nothing to anchor", async () => {
+			const { sheet } = makeSheet();
+			const orphan = document.createElement("div");
+			expect(await sheet.keepAnchored(orphan, SEL, ".sheet-body", async () => "done")).toBe("done");
+			expect(await sheet.keepAnchored(null, SEL, ".sheet-body", async () => "done")).toBe("done");
+			expect(() => sheet._onRender({}, {})).not.toThrow();
+		});
 	});
 
 	describe("listener wiring across the V2 render lifecycle", () => {
