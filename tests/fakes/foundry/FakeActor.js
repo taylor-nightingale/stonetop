@@ -1,6 +1,6 @@
 import {FakeFlags} from "./FakeFlags.js";
 import {migrateCreatureData} from "../../../src/data/creature.js";
-import { applyDotPath } from "./applyDocumentUpdate.js";
+import { applyDotPath, mergeValue } from "./applyDocumentUpdate.js";
 
 export class FakeActor {
 	_createdDocs = [];
@@ -78,8 +78,11 @@ export class FakeActor {
 				const diff = (item.type === "follower" || item.type === "npc")
 					? migrateCreatureData(JSON.parse(JSON.stringify(update.system)))
 					: update.system;
+				// Faithful to Foundry: an ObjectField update is MERGED into what is stored, not swapped for
+				// it (ObjectField#_updateDiff), so a key the update leaves out survives. A fake that replaced
+				// would let a stale-key bug pass here and ship. Clearing a field takes an explicit null.
 				for (const [key, value] of Object.entries(diff)) {
-					item.system[key] = value;
+					item.system[key] = mergeValue(item.system[key], value);
 				}
 			}
 		}

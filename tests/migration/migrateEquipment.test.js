@@ -59,6 +59,19 @@ describe("migrateEmbeddedEquipment — arcana conversion", () => {
 		expect(created.system.choiceValues).toEqual({});
 	});
 
+	it("carries the player's flip state and marked circles onto the new item", async () => {
+		const actor = makeActor([
+			{
+				_id: "eq1", type: "equipment", name: "Maw",
+				system: { slug: "maw", front: FRONT, back: BACK, flipped: true, choiceValues: { maw: { marks: 2 } } },
+			},
+		]);
+		await migrateEmbeddedEquipment(actor);
+		const created = actor.createdDocs[0];
+		expect(created.system.flipped).toBe(true);
+		expect(created.system.choiceValues).toEqual({ maw: { marks: 2 } });
+	});
+
 	it("deletes the old equipment item", async () => {
 		const actor = makeActor([
 			{ _id: "eq1", type: "equipment", name: "Maw", system: { slug: "maw", front: FRONT, back: BACK } },

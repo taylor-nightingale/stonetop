@@ -10,7 +10,11 @@ const isPlainObject = v => typeof v === "object" && v !== null && !Array.isArray
 export function mergeValue(existing, incoming) {
 	if (!isPlainObject(existing) || !isPlainObject(incoming)) return incoming;
 	const merged = { ...existing };
-	for (const [key, value] of Object.entries(incoming)) merged[key] = mergeValue(existing[key], value);
+	for (const [key, value] of Object.entries(incoming)) {
+		// `{-=key: null}` is how an update actually drops a key (Foundry merges with performDeletions).
+		if (key.startsWith("-=")) delete merged[key.slice(2)];
+		else merged[key] = mergeValue(existing[key], value);
+	}
 	return merged;
 }
 

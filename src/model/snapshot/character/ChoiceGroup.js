@@ -75,6 +75,13 @@ export class ChoiceValues {
 		});
 	}
 
+	/** Everything except one group — what the store holds once that group is cleared. */
+	without(groupSlug) {
+		const data = {...this._data};
+		delete data[groupSlug];
+		return new ChoiceValues(data);
+	}
+
 	toRaw() {
 		return this._data;
 	}

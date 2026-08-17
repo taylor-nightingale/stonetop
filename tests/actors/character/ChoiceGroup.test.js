@@ -222,3 +222,23 @@ describe("ChoiceGroup — rich-text enrichment (integration)", () => {
 		expect(content.text.render()).toContain('<a class="content-link">the Barrow</a>');
 	});
 });
+
+// ── ChoiceValues#without ─────────────────────────────────────────────────────
+
+describe("ChoiceValues#without", () => {
+	it("drops the named group", () => {
+		const values = new ChoiceValues({ ns: { opt: 1 }, other: { opt: 2 } });
+		expect(values.without("ns").toRaw()).toEqual({ other: { opt: 2 } });
+	});
+
+	it("leaves the original untouched", () => {
+		const values = new ChoiceValues({ ns: { opt: 1 } });
+		values.without("ns");
+		expect(values.toRaw()).toEqual({ ns: { opt: 1 } });
+	});
+
+	it("is a no-op for a group that was never set", () => {
+		const values = new ChoiceValues({ ns: { opt: 1 } });
+		expect(values.without("absent").toRaw()).toEqual({ ns: { opt: 1 } });
+	});
+});

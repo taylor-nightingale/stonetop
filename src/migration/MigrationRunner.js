@@ -14,10 +14,12 @@ export class MigrationRunner {
 		this._repos = repos;
 	}
 
+	/** @returns {string[]} the names of the actors whose migration threw — empty on a clean run. */
 	async run() {
-		info("Running world migration to 0.10.1…");
+		info(`Running world migration to ${game.system?.version ?? "an unknown version"}…`);
 		await _migrateResourceFlags();
 		const steadfastDefaults = await _stonetopDefaults();
+		const failed = [];
 		for (const actor of [...(game.actors ?? [])]) {
 			try {
 				if (actor.type === "character") {
@@ -32,11 +34,13 @@ export class MigrationRunner {
 					await migrateGrantStamps(actor);
 				}
 			} catch (err) {
+				failed.push(actor.name);
 				error(`Migration failed for actor "${actor.name}": ${err.message}`);
 			}
 		}
 		await migrateWorldItems();
-		info("Migration complete.");
+		info(failed.length ? `Migration finished with ${failed.length} failed actor(s).` : "Migration complete.");
+		return failed;
 	}
 }
 

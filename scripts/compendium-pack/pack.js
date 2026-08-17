@@ -1,7 +1,9 @@
 import { compilePack } from "@foundryvtt/foundryvtt-cli";
 import { promises as fs } from "fs";
 import path from "path";
+import { pathToFileURL } from "url";
 import { PACKS } from "./packs.js";
+import { PACK_VERSION_FLAG } from "../../src/migration/PackVersionCheck.js";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 function randomId() {
@@ -79,7 +81,24 @@ async function ensureIds(srcDir) {
 	}
 }
 
+// Every compiled document carries the version of the system that built it, so the running system can
+// tell that the compendium it is reading is older than its own code — an install where the packs were
+// left behind serves stale content silently, and that content gets copied onto characters. The stamp
+// lives only in the compiled pack: `packs/src` is the committed source and stays free of it, so a
+// version bump is not a diff across every pack file.
+export function stampPackVersion(version) {
+	return (doc) => {
+		doc.flags ??= {};
+		doc.flags.stonetop = { ...(doc.flags.stonetop ?? {}), [PACK_VERSION_FLAG]: version };
+	};
+}
+
+async function systemVersion() {
+	return JSON.parse(await fs.readFile("system.json", "utf8")).version;
+}
+
 async function main() {
+	const version = await systemVersion();
 	for (const pack of PACKS) {
 		const src = `packs/src/${pack}`;
 		try {
@@ -94,7 +113,7 @@ async function main() {
 		await fs.rm(dest, { recursive: true, force: true });
 		await fs.mkdir(dest, { recursive: true });
 		try {
-			await compilePack(src, dest, { nedb: false, log: true, recursive: true });
+			await compilePack(src, dest, { nedb: false, log: true, recursive: true, transformEntry: stampPackVersion(version) });
 		} catch (err) {
 			// Node v24 + abstract-level teardown race: iterator cleanup races with DB close.
 			// All files are written before this throws, so it's safe to ignore.
@@ -103,6 +122,10 @@ async function main() {
 	}
 }
 
+// Only when run as a script: importing this module (the stamp is tested) must not compile every pack
+// and take the importing process down with it.
 // process.exit prevents a Node v24 / abstract-level teardown race where open
 // iterators are garbage-collected after the DB closes, causing a spurious crash.
-main().then(() => process.exit(0)).catch(err => { console.error(err); process.exit(1); });
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+	main().then(() => process.exit(0)).catch(err => { console.error(err); process.exit(1); });
+}

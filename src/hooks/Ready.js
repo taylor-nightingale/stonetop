@@ -2,7 +2,8 @@ import { MigrationRunner } from "../migration/MigrationRunner.js";
 import { FoundryRepositoryFactory } from "../actors/character/repositories/FoundryRepositoryFactory.js";
 import { getSetting, setSetting } from "../settings.js";
 import { isArtInstalled } from "../art/foundryArt.js";
-import { info } from "../utils/logger.js";
+import { PackVersionCheck } from "../migration/PackVersionCheck.js";
+import { info, warn } from "../utils/logger.js";
 
 /**
  * Remind the GM (once per session, until dismissed or installed) that the book
@@ -30,6 +31,12 @@ async function ensureBookOrderSort() {
 	await game.settings.set("core", "collectionSortingModes", modes);
 }
 
+async function _packsAreStale(systemVersion) {
+	const stale = await new PackVersionCheck(PackVersionCheck.systemPacks(), systemVersion).stalePacks();
+	if (stale.length) warn(`Compendium packs were built by a different system version: ${stale.join(", ")}`);
+	return stale.length > 0;
+}
+
 export async function onReady() {
 	if (!game.user?.isGM) return;
 
@@ -39,9 +46,30 @@ export async function onReady() {
 	const stored  = getSetting("systemVersion");
 	const current = game.system?.version ?? "";
 
+	// Checked ahead of the version gate, and on every load: a world that already stamped this version
+	// still needs telling, and a stale compendium is a broken install rather than a pending migration.
+	// Migrating against one would write its out-of-date content onto every character — the refreshes
+	// copy the pack onto the sheet, so a stale pack becomes stale characters. Better to do nothing and
+	// say why; once the install is repaired the migration runs normally, with the version still unstamped.
+	if (current && await _packsAreStale(current)) {
+		ui.notifications.error(game.i18n.localize("stonetop.migration.stalePacks"), { permanent: true });
+		return;
+	}
+
 	if (!current || !foundry.utils.isNewerVersion(current, stored)) return;
 
 	info(`Migrating world from ${stored || "pre-0.9.1"} → ${current}`);
-	await new MigrationRunner(new FoundryRepositoryFactory()).run();
+	const failed = await new MigrationRunner(new FoundryRepositoryFactory()).run();
+
+	// Stamping the version is what says "this world is done". An actor that threw is NOT done, and every
+	// pass it missed is gated on this stamp — stamping anyway would skip it for good, leaving that sheet
+	// on whatever content it had when the error hit. Leave the old version so the next load retries.
+	if (failed.length) {
+		ui.notifications.error(
+			game.i18n.format("stonetop.migration.failed", { names: failed.join(", ") }),
+			{ permanent: true },
+		);
+		return;
+	}
 	await setSetting("systemVersion", current);
 }

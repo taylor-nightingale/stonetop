@@ -85,12 +85,25 @@ describe("migratePossessionPackData", () => {
 
 		await migratePossessionPackData(actor, repo, sync);
 
-		const update = actor.updatedDocs.find(d => d._id === "pos1");
-		for (const field of ["selected", "uses", "pickValues", "choiceUses", "preselected", "playbookSlug"]) {
-			expect(update.system, `refresh must not write ${field}`).not.toHaveProperty(field);
+		for (const update of actor.updatedDocs) {
+			for (const field of ["selected", "uses", "pickValues", "choiceUses", "preselected", "playbookSlug"]) {
+				expect(update.system, `refresh must not write ${field}`).not.toHaveProperty(field);
+			}
 		}
 		expect(itemIn(actor).system.pickValues).toEqual({ "weapons-of-war-heavy": { sword: 1 } });
 		expect(itemIn(actor).system.uses).toBe(2);
+	});
+
+	// Foundry merges an object-field update into what is stored, so a plain write leaves behind whatever
+	// the pack has since dropped — here, a group heading the possession no longer carries.
+	it("drops a choices key the pack removed instead of leaving it on the character", async () => {
+		const stale = staleItem();
+		stale.system.choices.title = "Heading the pack has since dropped";
+		const { actor, repo, sync } = setup([stale]);
+
+		await migratePossessionPackData(actor, repo, sync);
+
+		expect(itemIn(actor).system.choices).toEqual(PACK.choices);
 	});
 
 	// The point of the whole migration: the player already ticked "sword", so once the pack's gear

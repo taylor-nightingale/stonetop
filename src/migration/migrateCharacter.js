@@ -55,11 +55,6 @@ function _namespacedValues(groups, values) {
 	return { [namespace]: values[legacyKey] };
 }
 
-function _logArcanumFlipped(actor, label) {
-	const arcanums = [...actor.items].filter(i => i.type === "arcanum");
-	for (const a of arcanums) info(`  [${label}] ${a.system?.slug}: flipped=${a.system?.flipped}`);
-}
-
 export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateStaleItemTypes(actor);
 	await migrateFollowerItemType(actor);
@@ -81,34 +76,32 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 		.register("possession", CharacterPossessions.outfitGrantFor)
 		.register("arcanum",    CharacterArcana.outfitGrantFor);
 
+	// Before every arcana pass below: they all match on `type === "arcanum"` and a `system.slug`, so an
+	// arcanum still stored the legacy way (an `equipment` item, or one that never got a slug) is invisible
+	// to all of them — and stays invisible for good, since each pass only runs once per world migration.
+	await migrateEmbeddedEquipment(actor);
+	await migrateArcanumSlugs(actor);
+
 	await migrateArcana(actor, repos.arcana, repos.followers);
-	_logArcanumFlipped(actor, "after migrateArcana");
 	await migrateArcanumPackData(actor, repos.arcana, outfitSync);
-	_logArcanumFlipped(actor, "after migrateArcanumPackData");
 	await migrateArcanaMoves(actor, repos.arcana, repos.moves);
-	_logArcanumFlipped(actor, "after migrateArcanaMoves");
 	await migrateArcanumChoiceGroupSlugs(actor);
 	await migrateFollowers(actor, repos.followers, resourceController);
-	_logArcanumFlipped(actor, "after migrateFollowers");
 	await migrateArcanaFollowerPackData(actor, repos.followers);
 	await migrateArcanaOwnedFollowers(actor, repos.followers, resourceController);
 
 	const moves = new CharacterMoves(repos.moves, actor, null);
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
-	_logArcanumFlipped(actor, "after migratePossessions");
-	// Refresh authored fields before stamping the group slug: the refresh replaces `choices` wholesale
-	// (slug included), so the stamp has to run after it to correct a pack that ever drifts.
+	// Refresh authored fields before stamping the group slug: the refresh replaces `choices` (slug
+	// included), so the stamp has to run after it to correct a pack that ever drifts.
 	await migratePossessionPackData(actor, repos.possessions, outfitSync);
 	await migratePossessionChoiceSlugs(actor);
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
 	await migrateInsertMoveCategories(actor);
 	await migrateInsertChoiceValues(actor);
-	await migrateEmbeddedEquipment(actor);
-	_logArcanumFlipped(actor, "after migrateEmbeddedEquipment");
 	await migrateChoiceValues(actor);
 	await migratePlaybookChoiceValues(actor);
-	_logArcanumFlipped(actor, "after migratePlaybookChoiceValues");
 	await migrateCharacterNotes(actor);
 
 	// Last: every pass above may still create items the old way, and the stamp has to describe what
@@ -357,7 +350,6 @@ export async function migrateArcana(actor, arcanaRepo, followerRepo) {
 	for (const slug of ownedSlugs) {
 		await arcana.addArcanum(slug);
 		const item = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === slug);
-		info(`migrateArcana [${slug}]: item found=${!!item} id=${item?._id} currentFlipped=${item?.system?.flipped}`);
 		if (!item) continue;
 		// Unlock + back-choice groups are both namespaced by the arcanum slug, so they share the arcanum
 		// slug as their key in the single `choiceValues` store.
@@ -368,10 +360,7 @@ export async function migrateArcana(actor, arcanaRepo, followerRepo) {
 				choiceValues: { [slug]: { ...(unlockMap[slug] ?? {}), ...(backMap[slug] ?? {}) } },
 			},
 		};
-		info(`migrateArcana [${slug}]: sending update flipped=${update.system.flipped} choiceValues=${JSON.stringify(update.system.choiceValues)}`);
 		await actor.updateEmbeddedDocuments("Item", [update]);
-		const after = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === slug);
-		info(`migrateArcana [${slug}]: after update flipped=${after?.system?.flipped} choiceValues=${JSON.stringify(after?.system?.choiceValues)}`);
 	}
 }
 
@@ -514,13 +503,15 @@ export async function migrateEmbeddedEquipment(actor) {
 			name:   item.name,
 			img:    item.img ?? null,
 			type:   "arcanum",
+			// The card the player was looking at and the circles they marked are theirs — the type rename
+			// is not a reason to hand them back a pristine card.
 			system: {
 				slug:         sys.slug   ?? null,
 				major:        sys.major  ?? false,
 				front:        sys.front,
 				back:         sys.back,
-				flipped:      false,
-				choiceValues: {},
+				flipped:      sys.flipped      ?? false,
+				choiceValues: sys.choiceValues ?? {},
 			},
 		}]);
 		await actor.deleteEmbeddedDocuments("Item", [item._id]);
@@ -669,13 +660,33 @@ export async function migratePlaybookChoices(actor, playbookRepo) {
 	await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: { choices: compendiumChoices } }]);
 }
 
+// ── M0. Stamp stable slugs onto embedded arcanum items that lack one ─────────
+
+// Every arcana pass matches on `system.slug`, so a slugless arcanum (one converted from a legacy
+// `equipment` item that never carried one) is invisible to all of them — permanently, since each runs
+// once per world migration. The name is what the slug was always derived from, so recover it there.
+export async function migrateArcanumSlugs(actor) {
+	const updates = [...actor.items]
+		.filter(i => i.type === "arcanum" && !i.system?.slug && i.name)
+		.map(i => ({ _id: i._id, system: { slug: toSlug(i.name) } }));
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
+}
+
 // ── M. Refresh arcanum authored content (front/back) from the compendium ──────
 // An embedded arcanum is an independent copy — regenerating the pack doesn't reach it. Refresh every
 // arcanum's authored `front`/`back` from the repo (matched by slug) so pack fixes reach existing
 // characters: cleaned front/back text, the inline @DrawTableInline dice table, and the re-added
 // follower `back.choices`. Player state (`flipped` + `choiceValues`: marked circles, picks, follower
-// selections) lives outside front/back, so a front/back-only merge update preserves it. Idempotent —
-// runs once per world migration (also covers the old case of an item left with an empty front).
+// selections) lives outside front/back, so a front/back-only update preserves it. Idempotent — runs
+// once per world migration (also covers the old case of an item left with an empty front).
+//
+// Nulled first, then written, because Foundry MERGES an ObjectField update into what is stored rather
+// than replacing it (ObjectField#_updateDiff). A merge would leave the legacy `front.description`,
+// `front.unlock` and `back.consequences` sitting alongside the refreshed `choices` — and ArcanumData
+// .migrateData folds each of those into `choices` on every load, so the description would render twice
+// and the consequences would render as a second Consequences group, for good. Clearing the field first
+// makes the second write a replacement (Foundry's `==` forced-replacement key does the same thing, but
+// is deprecated in v14).
 export async function migrateArcanumPackData(actor, arcanaRepo, outfitSync = null) {
 	const items = [...actor.items].filter(i => i.type === "arcanum" && i.system?.slug);
 	const updates = [];
@@ -685,6 +696,7 @@ export async function migrateArcanumPackData(actor, arcanaRepo, outfitSync = nul
 		updates.push({ _id: item._id, system: { front: raw.front, back: raw.back } });
 	}
 	if (!updates.length) return;
+	await actor.updateEmbeddedDocuments("Item", updates.map(u => ({ _id: u._id, system: { front: null, back: null } })));
 	await actor.updateEmbeddedDocuments("Item", updates);
 
 	// Refreshing the card is not enough: the gear it granted is a SEPARATE embedded document, written
@@ -733,6 +745,10 @@ export async function migratePossessionPackData(actor, possessionRepo, outfitSyn
 	if (!updates.length) return;
 
 	info(`Refreshing ${updates.length} embedded possession(s) from pack data.`);
+	// Cleared first for the same reason the arcanum refresh does it: Foundry merges an object-field
+	// update, so a key the pack has since dropped would survive a plain write and go on rendering.
+	await actor.updateEmbeddedDocuments("Item", updates.map(u =>
+		({ _id: u._id, system: { choices: null, resource: null, scaling: null } })));
 	await actor.updateEmbeddedDocuments("Item", updates);
 
 	// Re-read each item AFTER the update so the grant is computed from the refreshed definition.

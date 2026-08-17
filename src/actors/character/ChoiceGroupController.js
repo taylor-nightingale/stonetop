@@ -44,11 +44,13 @@ export class ChoiceGroupController {
 		await this._publish({ namespace, optionSlug, values: newValues, kind: "text" });
 	}
 
+	// Written as a deletion key rather than as the map minus the namespace: Foundry MERGES an update into
+	// the stored object, so a key left out of the new map is not removed — it survives, and the cleared
+	// group comes back as if nothing happened.
 	async clearValues(namespace) {
-		const raw = { ...this._values.toRaw() };
-		delete raw[namespace];
-		await this._writer(raw);
-		await this._publish({ namespace, values: new ChoiceValues(raw), kind: "clear" });
+		const remaining = this._values.without(namespace);
+		await this._writer({ [`-=${namespace}`]: null });
+		await this._publish({ namespace, values: remaining, kind: "clear" });
 	}
 
 	async _publish(fields) {

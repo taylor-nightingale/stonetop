@@ -407,6 +407,10 @@
 			"dismissNudge": "Don't remind me",
 			"nudge": "Stonetop: the book illustrations aren't installed. If you own the PDFs, use Settings → Configure Settings → Stonetop → Install Artwork to add them."
 		},
+		"migration": {
+			"failed": "Stonetop: migration failed for {names}. Their sheets may show out-of-date content. See the console (F12) for the error; the migration will be retried the next time the world loads.",
+			"stalePacks": "Stonetop: Looks like the compendium didn't update. Please uninstall and reinstall the system for the latest compendium data."
+		},
 		"rollResults": {
 			"miss": "Miss",
 			"weakHit": "Weak Hit",

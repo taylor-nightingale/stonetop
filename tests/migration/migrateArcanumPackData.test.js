@@ -5,9 +5,7 @@ import { FakeArcanaRepository } from "../fakes/FakeArcanaRepository.js";
 import { FakeOutfitItems } from "../fakes/FakeOutfitItems.js";
 import { ContainerOutfitSync } from "../../src/actors/character/ContainerOutfitSync.js";
 import { CharacterArcana } from "../../src/actors/character/CharacterArcana.js";
-import { FakeOutfitItems } from "../fakes/FakeOutfitItems.js";
-import { ContainerOutfitSync } from "../../src/actors/character/ContainerOutfitSync.js";
-import { CharacterArcana } from "../../src/actors/character/CharacterArcana.js";
+import { ArcanumData } from "../../src/data/ArcanumData.js";
 
 const FRONT = { item: null, description: "desc", unlock: null };
 const BACK  = { title: "Back",  item: null, description: "", choices: null };
@@ -47,18 +45,16 @@ describe("migrateArcanumPackData", () => {
 		const STALE = { item: null, description: "stale", unlock: null };
 		const actor = makeActor([makeArcanumItem("maw", { front: STALE, back: { title: "Old back" } })]);
 		await migrateArcanumPackData(actor, makeRepo([{ slug: "maw", front: FRONT, back: BACK }]));
-		const updated = actor.updatedDocs.find(d => d._id === "maw");
-		expect(updated?.system?.front).toEqual(FRONT);
-		expect(updated?.system?.back).toEqual(BACK);
+		expect(actor.items.get("maw").system.front).toEqual(FRONT);
+		expect(actor.items.get("maw").system.back).toEqual(BACK);
 	});
 
 	it("updates front and back when front is empty object", async () => {
 		const actor = makeActor([makeArcanumItem("maw")]);
 		const repo  = makeRepo([{ slug: "maw", name: "Hungering Maw", front: FRONT, back: BACK }]);
 		await migrateArcanumPackData(actor, repo);
-		const updated = actor.updatedDocs.find(d => d._id === "maw");
-		expect(updated?.system?.front).toEqual(FRONT);
-		expect(updated?.system?.back).toEqual(BACK);
+		expect(actor.items.get("maw").system.front).toEqual(FRONT);
+		expect(actor.items.get("maw").system.back).toEqual(BACK);
 	});
 
 	it("preserves player state — the update touches only front/back, never flipped/choiceValues", async () => {
@@ -67,10 +63,9 @@ describe("migrateArcanumPackData", () => {
 		item.system.choiceValues = { maw: { "some-pick": { max: 3, value: 2 } } };
 		const actor = makeActor([item]);
 		await migrateArcanumPackData(actor, makeRepo([{ slug: "maw", front: FRONT, back: BACK }]));
-		const updated = actor.updatedDocs.find(d => d._id === "maw");
-		expect(Object.keys(updated.system)).toEqual(["front", "back"]);
-		expect(updated.system).not.toHaveProperty("flipped");
-		expect(updated.system).not.toHaveProperty("choiceValues");
+		for (const update of actor.updatedDocs) expect(Object.keys(update.system)).toEqual(["front", "back"]);
+		expect(actor.items.get("maw").system.flipped).toBe(true);
+		expect(actor.items.get("maw").system.choiceValues).toEqual({ maw: { "some-pick": { max: 3, value: 2 } } });
 	});
 
 	it("skips items with no slug", async () => {
@@ -86,14 +81,15 @@ describe("migrateArcanumPackData", () => {
 		expect(actor.updatedDocs).toHaveLength(0);
 	});
 
-	it("repairs multiple stale items in a single batch update", async () => {
+	it("repairs every stale item, not just the first", async () => {
 		const actor = makeActor([makeArcanumItem("maw"), makeArcanumItem("pelt")]);
 		const repo = makeRepo([
 			{ slug: "maw",  name: "Maw",  front: FRONT, back: BACK },
 			{ slug: "pelt", name: "Pelt", front: FRONT, back: BACK },
 		]);
 		await migrateArcanumPackData(actor, repo);
-		expect(actor.updatedDocs).toHaveLength(2);
+		expect(actor.items.get("maw").system.front).toEqual(FRONT);
+		expect(actor.items.get("pelt").system.front).toEqual(FRONT);
 	});
 });
 
@@ -218,5 +214,85 @@ describe("migrateArcanumPackData — regranting the card item", () => {
 		const actor = makeActor([flippedArcanum(POUCH)]);
 
 		await expect(migrateArcanumPackData(actor, repoWith(POUCH))).resolves.not.toThrow();
+	});
+});
+
+// A 0.14 character stores the arcanum shape of its day: a `front.description` string with the card's
+// prose, a `front.unlock` group, and a `back.consequences` group. Foundry MERGES an object-field
+// update into what is stored, so those keys survive the refresh — and ArcanumData.migrateData folds
+// each of them into `choices` on every load. Left merged, the description renders twice and the
+// consequences render as a second Consequences group, for as long as the character exists.
+describe("migrateArcanumPackData — legacy front/back keys", () => {
+	const DESCRIPTION = "A dozen copper plates, green with age.";
+
+	// What ArcanumData.migrateData leaves in the stored source the first time a 0.14 arcanum is loaded:
+	// the legacy keys are folded into `choices` in memory, but the DB record still carries them.
+	function legacyStoredSystem() {
+		return {
+			slug: "codex", major: true, flipped: true, choiceValues: {},
+			front: {
+				title: "Codex", item: null, tags: null,
+				description: DESCRIPTION,
+				unlock: { slug: "codex", list: [{ type: "entry", slug: "marks", content: { text: "Marks" }, track: { max: 4 } }] },
+			},
+			back: {
+				title: "Spells of the Codex", item: null, description: null, resource: null,
+				itemSameAsFront: true, choices: null, moveSlugs: ["darksome-vessel"], unlockAt: 4,
+				consequences: { slug: "consequences", list: [{ type: "entry", slug: "c1", content: { text: "Old scales" } }] },
+			},
+		};
+	}
+
+	// The current pack shape: both sides are an array of groups, and the description is authored as the
+	// leading entry of the front's first group.
+	const PACK_FRONT = { item: null, tags: null, choices: [{ slug: "codex", list: [
+		{ type: "entry", content: { title: null, text: DESCRIPTION } },
+		{ type: "entry", slug: "marks", content: { text: "Marks" }, track: { max: 4 } },
+	] }] };
+	const PACK_BACK = { title: "Mysteries of the Codex", item: null, resource: null, itemSameAsFront: true, choices: [
+		{ slug: "codex", title: "Spells of the Codex", list: [{ type: "entry", slug: "call-up-the-dead", content: { text: "Call Up the Dead." } }] },
+		{ slug: "consequences", title: "Consequences", list: [{ type: "entry", slug: "codex-c1", content: { text: "You lose all body hair." } }] },
+	] };
+
+	// What the next world load makes of whatever the migration left behind.
+	async function migrateThenReload() {
+		const item  = { _id: "codex", type: "arcanum", name: "Codex", system: legacyStoredSystem() };
+		const actor = makeActor([item]);
+		await migrateArcanumPackData(actor, makeRepo([{ slug: "codex", front: PACK_FRONT, back: PACK_BACK }]));
+		return ArcanumData.migrateData(structuredClone(actor.items.get("codex").system));
+	}
+
+	it("does not re-inject the legacy description as a second copy of the front's opening entry", async () => {
+		const system = await migrateThenReload();
+		const texts = system.front.choices[0].list.map(row => row.content?.text);
+		expect(texts.filter(t => t === DESCRIPTION)).toHaveLength(1);
+	});
+
+	it("does not re-append the legacy consequences as a second Consequences group", async () => {
+		const system = await migrateThenReload();
+		expect(system.back.choices.map(g => g.slug)).toEqual(["codex", "consequences"]);
+	});
+
+	it("leaves the back showing the pack's title and groups, not the 0.14 ones", async () => {
+		const system = await migrateThenReload();
+		expect(system.back.title).toBe("Mysteries of the Codex");
+		expect(system.back.choices[0].list).toHaveLength(1);
+	});
+
+	it("drops the legacy keys entirely rather than carrying them alongside the refreshed content", async () => {
+		const system = await migrateThenReload();
+		expect(system.front.unlock).toBeUndefined();
+		expect(system.front.description).toBeUndefined();
+		expect(system.back.moveSlugs).toBeUndefined();
+		expect(system.back.consequences).toBeUndefined();
+	});
+
+	it("keeps the player's flip state and marked circles across the refresh", async () => {
+		const item  = { _id: "codex", type: "arcanum", name: "Codex", system: legacyStoredSystem() };
+		item.system.choiceValues = { codex: { marks: 3 } };
+		const actor = makeActor([item]);
+		await migrateArcanumPackData(actor, makeRepo([{ slug: "codex", front: PACK_FRONT, back: PACK_BACK }]));
+		expect(actor.items.get("codex").system.flipped).toBe(true);
+		expect(actor.items.get("codex").system.choiceValues).toEqual({ codex: { marks: 3 } });
 	});
 });
