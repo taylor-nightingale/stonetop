@@ -301,6 +301,16 @@ for (const r of followerRoster.values()) {
 }
 const preserved = [...followerRoster.values()].filter((r) => !r.minor).map((r) => r.slug);
 
+// The roster, reversed: arcanaSlug -> [followerSlug]. Every arcanum's follower group is DERIVED from
+// this (minor and major alike) rather than carried over from the committed doc — a follower that named
+// its arcanum but was never granted by it (the Demonhide Cloak's the-cloak) could not be repaired by a
+// regen while the group was only ever preserved.
+const followersByArcana = new Map();
+for (const r of followerRoster.values()) {
+	if (!r.arcanaSlug) continue;
+	(followersByArcana.get(r.arcanaSlug) ?? followersByArcana.set(r.arcanaSlug, []).get(r.arcanaSlug)).push(r.slug);
+}
+
 // A card that prints its follower on the FRONT (the Ring of Daagon: "The ring itself becomes a
 // follower") has no back choice group to inline it. Parse the split-off stat block into a follower
 // doc, write it, and append a card-resident follower row (hidden from the followers tab) to the
@@ -346,13 +356,14 @@ for (const rec of bySlug.values()) {
 		// The parser is now authoritative for every major back (front→back span segmentation handles the
 		// cards that used to come up empty), so no hand-authored back fallback.
 		let back = parsed.back;
-		// The major follower cards (mindgem/blackwood) inline their followers via a hand-authored choice
-		// group — extract it from the existing doc (a single group pre-migration, or an array element after
-		// a prior regen) so the fold re-inserts it in canonical order. The parser stays authoritative for the
-		// rest (spells / moves / consequences).
+		// Inline the card's follower(s) from the roster, the same way minors do. A follower already
+		// emitted on the FRONT (the Ring itself) is excluded — it has its own card-resident row there and
+		// must not appear twice. The committed group is the fallback, for a follower group that was
+		// hand-authored without a roster entry to derive it from.
 		const existing = rec.doc.system.back?.choices;
 		const existingGroups = Array.isArray(existing) ? existing : (existing ? [existing] : []);
-		const followerGroup = existingGroups.find(isFollowerGroup) ?? null;
+		const backFollowers = (followersByArcana.get(rec.slug) ?? []).filter((s) => !frontEmittedSlugs.has(s));
+		const followerGroup = followerChoices(rec.slug, backFollowers) ?? existingGroups.find(isFollowerGroup) ?? null;
 		// Promote parsed inline moves → move pack files + `back.moveSlugs`, then fold every back section
 		// (spells / moves / followers / consequences) into the ordered `back.choices` array of groups.
 		back = foldBackChoices(emitArcanaMoves(back, resourceBySlug), followerGroup);
@@ -392,13 +403,6 @@ let minorWritten = 0, minorTables = 0; const minorUnmatched = [], minorEmptyFron
 const BACK_ITEM_FROM_FRONT = new Set(["redwood-basin"]);
 if (WRITE_MINOR) {
 	const minorRange = ranges.find((r) => r.tier === "minor");
-	// Reverse the follower roster to arcanaSlug -> [followerSlug] so a regenerated minor back can inline
-	// its follower(s) the way majors do (e.g. cracked-flute -> andalau-of-the-flute).
-	const followersByArcana = new Map();
-	for (const r of followerRoster.values()) {
-		if (!r.arcanaSlug) continue;
-		(followersByArcana.get(r.arcanaSlug) ?? followersByArcana.set(r.arcanaSlug, []).get(r.arcanaSlug)).push(r.slug);
-	}
 	const TABLE_OUT = `packs/src/${TABLE_PACK}`;
 	mkdirSync(TABLE_OUT, { recursive: true });
 	for (const f of readdirSync(TABLE_OUT).filter((n) => n.startsWith("arcana-"))) rmSync(path.join(TABLE_OUT, f));

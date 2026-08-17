@@ -122,9 +122,6 @@
 								"title": null,
 								"text": ""
 							},
-							"track": {
-								"max": 1
-							},
 							"grants": [
 								{
 									"type": "follower",
@@ -134,7 +131,10 @@
 										"tab"
 									]
 								}
-							]
+							],
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},

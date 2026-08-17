@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import { promises as fs } from "fs";
+import path from "path";
 import { migrateArcanumPackData } from "../../src/migration/migrateCharacter.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakeArcanaRepository } from "../fakes/FakeArcanaRepository.js";
@@ -79,6 +81,33 @@ describe("migrateArcanumPackData", () => {
 		const actor = makeActor([makeArcanumItem("unknown-arcanum")]);
 		await migrateArcanumPackData(actor, makeRepo());
 		expect(actor.updatedDocs).toHaveLength(0);
+	});
+
+	// The 1.0.3 cloak shipped with a one-group back (the spell text, with the card's "HP / Starts at 13"
+	// tracker glued onto it) and no follower group. A character who already owns that card carries the
+	// broken copy, so the pack fix only reaches them through this refresh — and only if a whole
+	// ARRAY-valued `back.choices` is replaced, not merged with what's already stored.
+	it("replaces a stale array-valued back.choices with the regenerated one (the cloak)", async () => {
+		const stored = { title: "Flying Cloak", item: null, resource: null, choices: [
+			{ slug: "intro", list: [{ type: "entry", content: { title: null,
+				text: "…obeys you as a follower.\n\n**HP**\n\nStarts at 13" } }] },
+		] };
+		const packed = JSON.parse(await fs.readFile(
+			path.resolve("packs/src/arcana/minor/cloak-richly-embroidered.json"), "utf8")).system;
+		const item = makeArcanumItem("cloak-richly-embroidered", { front: {}, back: stored });
+		item.system.flipped = true;
+		item.system.choiceValues = { "cloak-richly-embroidered": { "learn-name": { max: 1, value: 1 } } };
+		const actor = makeActor([item]);
+
+		await migrateArcanumPackData(actor, makeRepo([{ slug: "cloak-richly-embroidered", front: packed.front, back: packed.back }]));
+
+		const back = actor.items.get("cloak-richly-embroidered").system.back;
+		expect(back.choices.map(g => g.slug)).toEqual(["intro", "cloak-richly-embroidered"]);
+		expect(JSON.stringify(back)).not.toContain("Starts at");
+		// the player's own state rides through untouched
+		expect(actor.items.get("cloak-richly-embroidered").system.flipped).toBe(true);
+		expect(actor.items.get("cloak-richly-embroidered").system.choiceValues)
+			.toEqual({ "cloak-richly-embroidered": { "learn-name": { max: 1, value: 1 } } });
 	});
 
 	it("repairs every stale item, not just the first", async () => {

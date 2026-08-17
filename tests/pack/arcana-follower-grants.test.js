@@ -44,6 +44,37 @@ describe("Arcana follower grants resolve to real follower pack files", () => {
 		expect(missing).toEqual([]);
 	});
 
+	// The inverse of the check above, and the one that matters for a regen: a follower can name its
+	// arcanum while the arcanum has forgotten the follower. That is what a dropped follower group looks
+	// like in the data — build-arcana built the group and the back-choices fold discarded it — and it is
+	// invisible to every check that starts from the grant side, because there is no grant left to check.
+	it("every arcanum whose follower names it grants that follower back", () => {
+		const grantedBy = new Map(arcana.map(({ doc }) => [doc.system?.slug,
+			new Set(ChoiceGroupDefs.grants(doc.system ?? {}, "follower").map(g => g.slug))]));
+		const ungranted = arcanaFollowers
+			.map(f => f.doc.system)
+			.filter(sys => sys?.arcanaSlug && !grantedBy.get(sys.arcanaSlug)?.has(sys.slug))
+			.map(sys => `${sys.arcanaSlug}: never grants its follower "${sys.slug}"`);
+		expect(ungranted).toEqual([]);
+	});
+
+	// The Ring is the one follower printed on its card's FRONT. It must be granted exactly once — a
+	// build that derives the back group from the roster without excluding front-emitted followers would
+	// grant it on both sides, putting two Ring cards on one arcanum.
+	it("grants each follower from exactly one side of its card", () => {
+		const dupes = [];
+		for (const { doc } of arcana) {
+			const counts = new Map();
+			for (const side of ["front", "back"]) {
+				for (const g of ChoiceGroupDefs.grants(doc.system?.[side] ?? {}, "follower")) {
+					counts.set(g.slug, (counts.get(g.slug) ?? 0) + 1);
+				}
+			}
+			for (const [slug, n] of counts) if (n > 1) dupes.push(`${doc.system.slug}: grants "${slug}" ${n}×`);
+		}
+		expect(dupes).toEqual([]);
+	});
+
 	it("every arcana follower points back at an arcanum that exists", () => {
 		const arcanaSlugs = new Set(arcana.map(a => a.doc.system?.slug));
 		const orphans = arcanaFollowers

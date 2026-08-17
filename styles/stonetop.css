@@ -2504,9 +2504,12 @@ button.stonetop-xp-toggle {
 	text-align: center;
 }
 
+/* `minmax(0, 1fr)`, not `1fr`: a track's automatic minimum is min-content, so a card holding an
+   inline follower (its widest stat row) pushes the column past half the tab and spills over the
+   panel edge instead of the card shrinking. Same guard the followers grid uses. */
 .stonetop-arcana-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 10px;
 	padding: 8px;
 	align-items: start;
@@ -2516,6 +2519,7 @@ button.stonetop-xp-toggle {
 	display: flex;
 	flex-direction: column;
 	background: #fff;
+	min-width: 0; /* shrink with the track rather than overflowing it (see the grid above) */
 	min-height: 260px;
 	border-width: 28px;
 	border-style: solid;
@@ -2778,11 +2782,15 @@ button.stonetop-xp-toggle {
 	align-items: flex-start;
 	gap: 6px;
 	margin-top: 6px;
+	min-width: 0;
 }
 
+/* `min-width: 0` on the card too — a flex item defaults to min-width:auto, so without it the follower
+   card refuses to shrink below its widest row and overflows the arcanum card in the 2-column grid. */
 .stonetop-arcanum-follower .stonetop-follower-card {
 	box-shadow: none;
 	flex: 1;
+	min-width: 0;
 }
 
 /* A move granted by a choice entry: the ornamental checkbox sits INLINE to the left of the move-row

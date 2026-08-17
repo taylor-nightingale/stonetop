@@ -91,11 +91,8 @@
 					"slug": "mindgem",
 					"list": [
 						{
-							"slug": "the-mighty-servant",
-							"track": {
-								"max": 1
-							},
 							"type": "entry",
+							"slug": "the-mighty-servant",
 							"content": {
 								"title": null,
 								"text": ""
@@ -109,7 +106,10 @@
 										"tab"
 									]
 								}
-							]
+							],
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				},

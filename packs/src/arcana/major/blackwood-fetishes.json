@@ -105,11 +105,8 @@
 					"slug": "blackwood-fetishes",
 					"list": [
 						{
-							"slug": "astor",
-							"track": {
-								"max": 1
-							},
 							"type": "entry",
+							"slug": "astor",
 							"content": {
 								"title": null,
 								"text": ""
@@ -123,14 +120,14 @@
 										"tab"
 									]
 								}
-							]
-						},
-						{
-							"slug": "halix",
+							],
 							"track": {
 								"max": 1
-							},
+							}
+						},
+						{
 							"type": "entry",
+							"slug": "halix",
 							"content": {
 								"title": null,
 								"text": ""
@@ -144,7 +141,10 @@
 										"tab"
 									]
 								}
-							]
+							],
+							"track": {
+								"max": 1
+							}
 						}
 					]
 				}

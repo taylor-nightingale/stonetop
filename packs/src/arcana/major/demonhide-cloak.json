@@ -129,6 +129,32 @@
 					]
 				},
 				{
+					"slug": "demonhide-cloak",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "the-cloak",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "the-cloak",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
+							}
+						}
+					]
+				},
+				{
 					"slug": "consequences",
 					"list": [
 						{
