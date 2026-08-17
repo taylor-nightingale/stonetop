@@ -59,7 +59,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.\n\n**HP**\n\nStarts at 8"
+								"text": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free."
+							}
+						}
+					]
+				},
+				{
+					"slug": "cracked-flute",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "andalau-of-the-flute",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "andalau-of-the-flute",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]

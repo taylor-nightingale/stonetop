@@ -81,7 +81,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "When you **_put the idol in a prominent place and_** **_beseech it to attend its humble servant,_** it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.\n\n**HP**\n\nStarts at 15"
+								"text": "When you **_put the idol in a prominent place and_** **_beseech it to attend its humble servant,_** it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one."
+							}
+						}
+					]
+				},
+				{
+					"slug": "stone-idol",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "all-mighty-thistlewisk",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "all-mighty-thistlewisk",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]

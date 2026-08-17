@@ -150,6 +150,43 @@ export function followerChoices(arcanaSlug, followerSlugs) {
 	return { slug: arcanaSlug, list: followerSlugs.map(followerChoiceEntry) };
 }
 
+/** Does this choice group inline a follower? (Distinguishes a preserved hand-authored follower group
+ *  from a spell-picks group, which share the group shape.) */
+export function isFollowerGroup(group) {
+	return !!group?.list?.some((r) => Array.isArray(r.grants) && r.grants.some((x) => x.type === "follower"));
+}
+
+/**
+ * Fold a parsed back's separate sections into ONE ordered `back.choices` array of groups, dropping the
+ * sibling `moveSlugs`/`moves`/`consequences`/`description` fields. Canonical order: intro, spells,
+ * moves, followers, consequences. A move becomes a choice entry that grants the move inline (with an
+ * ornamental checkbox); the move's definition lives in the emitted move item. A back description
+ * becomes a leading content-only entry in an untitled intro group, so it renders above the titled
+ * sections (ArcanumBack has no separate `description` field).
+ *
+ * `back.choices` before the fold is a single group — the spells picks (Hec'tumel Codex) — and the
+ * follower group always arrives as the `followerGroup` argument, never on `back` (a follower group
+ * left on `back.choices` is NOT picked up; it would be read as spells and then discarded).
+ */
+export function foldBackChoices(back, followerGroup = null) {
+	const g = back.choices && !Array.isArray(back.choices) ? back.choices : null;
+	const spells = g && !isFollowerGroup(g) ? g : null;
+	const moves = (back.moveSlugs ?? []).length ? {
+		slug: "moves", title: "Moves",
+		list: back.moveSlugs.map((s) => ({
+			type: "entry", slug: s, content: { title: null, text: null }, track: { max: 1 },
+			grants: [{ type: "move", slug: s, locations: ["inline"] }],
+		})),
+	} : null;
+	const consequences = back.consequences ? { ...back.consequences, title: back.consequences.title ?? "Consequences" } : null;
+	const intro = back.description ? { slug: "intro", list: [{ type: "entry", content: { title: null, text: back.description } }] } : null;
+	const choices = [intro, spells, moves, followerGroup, consequences].filter(Boolean);
+	const out = {};
+	for (const [k, v] of Object.entries(back)) { if (!["choices", "moveSlugs", "moves", "consequences", "description", "unlockAt"].includes(k)) out[k] = v; }
+	out.choices = choices;
+	return out;
+}
+
 /** A real arcanum follower stat block carries a small creature marker icon (~15–18px); the card's
  *  border decoration (~42px) and icon-less fragments are false positives, as are numeric page-number
  *  "names". Used to filter `statblock` blocks before parsing followers. */
@@ -773,10 +810,29 @@ export function parseNameFirstItem(text) {
 		resource: { max, title: (m[3] || "").trim() || null, labels: [] } };
 }
 
+/** Index of the block that opens a minor card's follower section — the follower's own name heading,
+ *  which always precedes its stat block (the card's second heading; the first is the spell title).
+ *  Returns -1 when the card prints no follower. The section is more than the `statblock` block: the
+ *  parser also emits the tags line, the write-in pick list, and the "HP / Starts at N" tracker as
+ *  loose paras/lists around it, and all of that is the follower's, not the spell's. */
+export function followerSectionIndex(blocks) {
+	const title = (blocks ?? []).findIndex((b) => b.type === "heading" || b.type === "title");
+	if (title < 0) return -1;
+	for (let i = title + 1; i < blocks.length; i++) {
+		if (blocks[i].type !== "heading" && blocks[i].type !== "title") continue;
+		if (blocks.slice(i + 1).some((b) => b.type === "statblock")) return i;
+	}
+	return -1;
+}
+
 /** Build the back side (the spell / mysteries) from its blocks. Stat blocks (followers) are handled
  *  by build-arcana via toFollowerDoc; here we collect moves/consequences/resource. */
 export function parseBack(blocks, { slug, name, major } = {}) {
 	if (major) return parseMajorBack(blocks, { slug, name });
+	// The spell text ends where the follower's stat block begins — every field of it lives on the
+	// follower item, which the back's follower choice group shows inline.
+	const followerAt = followerSectionIndex(blocks);
+	if (followerAt > 0) blocks = blocks.slice(0, followerAt);
 	// A minor arcanum's back is the "spell": a title, an optional item tags line, and flowing
 	// description — no named moves or consequence tracks (those are major-only, kept null/[] for shape).
 	// A clean dice table is promoted to a RollTable (build-arcana writes the pack file) and referenced

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -7,6 +7,7 @@ const _para = (...t) => ({ type: "para", lines: t.map(_line) });
 const _list = (...items) => ({ type: "list", items: items.map((it) => it.map(_line)) });
 const _heading = (t) => ({ type: "heading", line: _line(t) });
 const _rule = () => ({ type: "rule" });
+const _statblock = (...t) => ({ type: "statblock", lines: t.map(_line) });
 
 describe("parseTrack", () => {
 	it("counts a single leading box as a max-1 track and strips it", () => {
@@ -688,6 +689,174 @@ describe("parseBack — minor spell (description + table → @DrawTable, no move
 		], { slug: "a-folktale", name: "A folktale", major: false });
 		expect(b.rollTables).toBeUndefined();
 		expect(b.description).not.toContain("@DrawTable");
+	});
+});
+
+// The 9 minor cards that print a follower lay it out the same way: spell text, a rule, the follower's
+// name heading, its stat block, then an "HP / Starts at N" tracker. Only the stat block itself is a
+// `statblock` block — the tracker, the tags line and the write-in picks come through as loose
+// paras/lists, so the cutoff has to be the heading, not the stat block.
+const cloakBack = () => [
+	_heading("Flying Cloak"),
+	_para("When you wear the cloak and speak the word of", "command, the storm-spirit in the cloak springs to",
+		"life and obeys you as a follower. It never wants to", "land; you must spend its Loyalty or Persuade it."),
+	_rule(),
+	_heading("  The Spirit in the Cloak"),
+	_statblock("     Spirit, magical, proud, mute", "HP 13; Armor 1 (amorphous)", "Instinct to “not hear” your commands"),
+	_para("HP"),
+	_para("Starts at 13"),
+];
+
+describe("followerSectionIndex (where a minor card's follower stat block starts)", () => {
+	it("finds the follower's name heading — the card's second heading", () => {
+		expect(followerSectionIndex(cloakBack())).toBe(3);
+	});
+	it("keeps spell content that sits between the spell text and the follower heading (the rusty cauldron)", () => {
+		const blocks = [
+			_heading("Unliving Chimera"),
+			_para("When you boil the bones of beasts in the cauldron, mark up to 3 debilities."),
+			_para("For each debility you marked, pick 1:"),
+			_list(["It is stable (else, it falls apart in a day)"], ["It is not clumsy"]),
+			_rule(),
+			_heading("  Unliving chimera"),
+			_statblock("     Undead, construct, terrifying, clumsy", "HP 3; Armor 4 (0 vs. bronze)"),
+		];
+		expect(followerSectionIndex(blocks)).toBe(5);
+	});
+	it("is -1 for a card with no follower", () => {
+		expect(followerSectionIndex([_heading("Satchel of Plenty"), _para("It provides 1 use of provisions each day.")])).toBe(-1);
+	});
+	it("is -1 for a second heading with no stat block under it (a heading is not enough on its own)", () => {
+		expect(followerSectionIndex([_heading("Sigil of Authority"), _para("When you Persuade, you have advantage."),
+			_heading("Moves"), _list(["□ CALL UP THE DEEP ONES"])])).toBe(-1);
+	});
+	it("is -1 when there is no heading at all, and for empty/missing blocks", () => {
+		expect(followerSectionIndex([_para("orphan text"), _statblock("HP 13")])).toBe(-1);
+		expect(followerSectionIndex([])).toBe(-1);
+		expect(followerSectionIndex(undefined)).toBe(-1);
+	});
+});
+
+describe("parseBack — minor spell whose card prints a follower (the cloak)", () => {
+	const back = parseBack(cloakBack(), { slug: "cloak-richly-embroidered", name: "Flying Cloak", major: false });
+
+	it("keeps the spell text and stops at the follower heading", () => {
+		expect(back.title).toBe("Flying Cloak");
+		expect(back.description).toBe("When you wear the cloak and speak the word of command, the storm-spirit"
+			+ " in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend"
+			+ " its Loyalty or Persuade it.");
+	});
+	it("drops the stat block's 'HP / Starts at N' tracker (the follower item owns its HP)", () => {
+		expect(back.description).not.toContain("HP");
+		expect(back.description).not.toContain("Starts at");
+	});
+	it("drops the follower's name and tags rather than reading them as the back's item", () => {
+		expect(back.description).not.toContain("The Spirit in the Cloak");
+		expect(back.item).toBeNull();
+		expect(back.resource).toBeNull();
+	});
+	it("drops a group follower's tags line and per-member HP note (the mantle wraiths)", () => {
+		const b = parseBack([
+			_heading("Mantle Wraiths"),
+			_para("When you let slip the wraiths tethered to the mantle, treat them as followers."),
+			_rule(),
+			_heading(" Mantle wraiths"),
+			_para("    Group (3), spirit, undead, terrifying, vicious"),
+			_statblock("HP 13; Armor 1 (amorphous)", "Instinct to run rampant"),
+			{ type: "image" },
+			_para("Starts at 13 each"),
+		], { slug: "tattered-mantle", name: "Mantle Wraiths", major: false });
+		expect(b.description).toBe("When you let slip the wraiths tethered to the mantle, treat them as followers.");
+		expect(b.item).toBeNull();
+	});
+	it("drops a write-in stat block's tag line and pick list (the tulpa)", () => {
+		const b = parseBack([
+			_heading("Little Friend"),
+			_para("You have created a tulpa, which you treat as a follower."),
+			_rule(),
+			_heading("  Tulpa"),
+			_para("     Spirit, construct, tiny, naive,  eager  □"),
+			_list(["□  fierce   kind   sly   timid   willful  □ □ □ □"]),
+			_statblock("HP 8; Armor 0", "Damage 1d4 (if that)"),
+			_para("HP"),
+			_para("Starts at 8"),
+		], { slug: "beautiful-scroll", name: "Little Friend", major: false });
+		expect(b.description).toBe("You have created a tulpa, which you treat as a follower.");
+	});
+	it("keeps spell content that precedes the follower heading (the rusty cauldron's debility picks)", () => {
+		const b = parseBack([
+			_heading("Unliving Chimera"),
+			_para("An unliving chimera rises from the cauldron."),
+			_para("For each debility you marked, pick 1:"),
+			_list(["It is stable (else, it falls apart in a day)"], ["It is not clumsy"]),
+			_rule(),
+			_heading("  Unliving chimera"),
+			_statblock("     Undead, construct, terrifying, clumsy", "HP 3; Armor 4 (0 vs. bronze)"),
+		], { slug: "rusty-cauldron", name: "Unliving Chimera", major: false });
+		expect(b.description).toBe("An unliving chimera rises from the cauldron.\n\nFor each debility you marked, pick 1:"
+			+ "\n\n- It is stable (else, it falls apart in a day)\n- It is not clumsy");
+	});
+});
+
+describe("isFollowerGroup", () => {
+	it("is true for a group whose row grants a follower", () => {
+		expect(isFollowerGroup(followerChoices("cloak-richly-embroidered", ["spirit-in-the-cloak"]))).toBe(true);
+	});
+	it("is false for a spell-picks group, an empty group, and nothing", () => {
+		expect(isFollowerGroup({ slug: "spells", list: [{ type: "entry", content: { title: null, text: "Pick 1" } }] })).toBe(false);
+		expect(isFollowerGroup({ slug: "spells", list: [] })).toBe(false);
+		expect(isFollowerGroup(null)).toBe(false);
+	});
+	it("is false for a group granting something other than a follower (a move)", () => {
+		expect(isFollowerGroup({ slug: "moves", list: [{ type: "entry", grants: [{ type: "move", slug: "x" }] }] })).toBe(false);
+	});
+});
+
+describe("foldBackChoices (back sections → one ordered choices array)", () => {
+	const followerGroup = followerChoices("cloak-richly-embroidered", ["spirit-in-the-cloak"]);
+
+	it("emits the follower group it is given — a minor back's whole reason to have choices", () => {
+		const out = foldBackChoices({ title: "Flying Cloak", description: "When you wear the cloak…" }, followerGroup);
+		expect(out.choices.map((g) => g.slug)).toEqual(["intro", "cloak-richly-embroidered"]);
+		expect(out.choices[1]).toBe(followerGroup);
+		expect(out.choices[1].list[0].grants).toEqual([{ type: "follower", slug: "spirit-in-the-cloak", locations: ["inline", "tab"] }]);
+	});
+	it("emits it with no description too (no intro group to lead with)", () => {
+		expect(foldBackChoices({ title: "Flying Cloak" }, followerGroup).choices.map((g) => g.slug)).toEqual(["cloak-richly-embroidered"]);
+	});
+	it("never mistakes a follower group left on back.choices for the spell picks (it must come in as the argument)", () => {
+		const out = foldBackChoices({ title: "Flying Cloak", choices: followerGroup });
+		expect(out.choices).toEqual([]);
+	});
+	it("orders the sections intro → spells → moves → followers → consequences", () => {
+		const spells = { slug: "spells", title: "Spells", list: [{ type: "entry", content: { title: null, text: "Pick 1" } }] };
+		const out = foldBackChoices({
+			title: "Mysteries", description: "The codex hungers.", choices: spells,
+			moveSlugs: ["cast-a-codex-spell"],
+			consequences: { slug: "consequences", list: [{ type: "entry", content: { title: null, text: "Your skin crawls." } }] },
+		}, followerGroup);
+		expect(out.choices.map((g) => g.slug)).toEqual(["intro", "spells", "moves", "cloak-richly-embroidered", "consequences"]);
+	});
+	it("turns each move slug into an inline move grant with an ornamental checkbox", () => {
+		const [moves] = foldBackChoices({ moveSlugs: ["call-up-the-deep-ones"] }).choices;
+		expect(moves).toEqual({ slug: "moves", title: "Moves", list: [{
+			type: "entry", slug: "call-up-the-deep-ones", content: { title: null, text: null }, track: { max: 1 },
+			grants: [{ type: "move", slug: "call-up-the-deep-ones", locations: ["inline"] }] }] });
+	});
+	it("titles an untitled consequences group", () => {
+		const back = foldBackChoices({ consequences: { slug: "consequences", list: [] } });
+		expect(back.choices[0].title).toBe("Consequences");
+		const kept = foldBackChoices({ consequences: { slug: "consequences", title: "The Price", list: [] } });
+		expect(kept.choices[0].title).toBe("The Price");
+	});
+	it("drops the folded-in sibling fields and keeps every other field", () => {
+		const out = foldBackChoices({ title: "Flying Cloak", item: { name: "a cloak" }, resource: { max: 3 },
+			description: "text", moves: [], moveSlugs: [], consequences: null, unlockAt: 2 }, null);
+		expect(out).toEqual({ title: "Flying Cloak", item: { name: "a cloak" }, resource: { max: 3 },
+			choices: [{ slug: "intro", list: [{ type: "entry", content: { title: null, text: "text" } }] }] });
+	});
+	it("yields an empty choices array for a back with no sections at all", () => {
+		expect(foldBackChoices({ title: "Darkwalker Cloak" }).choices).toEqual([]);
 	});
 });
 

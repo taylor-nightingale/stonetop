@@ -79,7 +79,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.\n\n**HP**\n\nStarts at 13"
+								"text": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower."
+							}
+						}
+					]
+				},
+				{
+					"slug": "metal-man",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "bronze-protector",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "bronze-protector",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]

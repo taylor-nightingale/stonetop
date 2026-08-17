@@ -103,7 +103,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.\n\n*Spirit, construct, tiny, naive,* *eager*\n\n- *fierce* *kind* *sly* *timid* *willful*\n\n**HP**\n\nStarts at 8"
+								"text": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost."
+							}
+						}
+					]
+				},
+				{
+					"slug": "beautiful-scroll",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "tulpa",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "tulpa",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]

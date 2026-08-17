@@ -70,7 +70,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "When you **_stand among dool trees and play the_** **_proper tune on a flute of a murderer’s bone_**, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.\n\n**HP**"
+								"text": "When you **_stand among dool trees and play the_** **_proper tune on a flute of a murderer’s bone_**, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time."
+							}
+						}
+					]
+				},
+				{
+					"slug": "scroll-and-bone-flute",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "dool-spirit",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "dool-spirit",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]

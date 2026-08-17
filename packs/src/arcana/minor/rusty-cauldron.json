@@ -90,6 +90,32 @@
 							}
 						}
 					]
+				},
+				{
+					"slug": "rusty-cauldron",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "unliving-chimera",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "unliving-chimera",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
+							}
+						}
+					]
 				}
 			]
 		}

@@ -81,7 +81,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "When you **_wear the cloak and speak the word of_** **_command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.\n\n**HP**\n\nStarts at 13"
+								"text": "When you **_wear the cloak and speak the word of_** **_command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it."
+							}
+						}
+					]
+				},
+				{
+					"slug": "cloak-richly-embroidered",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "spirit-in-the-cloak",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "spirit-in-the-cloak",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]

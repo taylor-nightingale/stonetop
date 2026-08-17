@@ -22,7 +22,7 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
-import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, numberBlanks } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, isFollowerGroup, foldBackChoices, numberBlanks } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
@@ -105,34 +105,6 @@ const editMisses = [];
 function edited(system, slug) {
 	const { system: out, misses } = applyArcanaEdits(system, slug);
 	for (const m of misses) editMisses.push(`- \`${slug}\`: ${m}`);
-	return out;
-}
-
-// Fold a major/minor back's separate sections into ONE ordered `back.choices` array of groups, dropping
-// the sibling `moveSlugs`/`moves`/`consequences` fields. Canonical order: spells, moves, followers,
-// consequences. A move becomes a choice entry that grants the move inline (with an ornamental checkbox);
-// the move's definition lives in the emitted move item. `back.choices` before the fold is a single group
-// — the spells picks (Hec'tumel Codex) OR the preserved hand-authored follower group (mindgem/blackwood).
-const isFollowerGroup = (grp) => grp?.list?.some((r) => Array.isArray(r.grants) && r.grants.some((x) => x.type === "follower"));
-function foldBackChoices(back, followerGroup = null) {
-	const g = back.choices && !Array.isArray(back.choices) ? back.choices : null;
-	const spells    = g && !isFollowerGroup(g) ? g : null;
-	const followers = followerGroup;
-	const moves = (back.moveSlugs ?? []).length ? {
-		slug: "moves", title: "Moves",
-		list: back.moveSlugs.map((s) => ({
-			type: "entry", slug: s, content: { title: null, text: null }, track: { max: 1 },
-			grants: [{ type: "move", slug: s, locations: ["inline"] }],
-		})),
-	} : null;
-	const consequences = back.consequences ? { ...back.consequences, title: back.consequences.title ?? "Consequences" } : null;
-	// A back description becomes a leading content-only entry in an untitled intro group, so it renders
-	// above the titled sections (ArcanumBack has no separate `description` field).
-	const intro = back.description ? { slug: "intro", list: [{ type: "entry", content: { title: null, text: back.description } }] } : null;
-	const choices = [intro, spells, moves, followers, consequences].filter(Boolean);
-	const out = {};
-	for (const [k, v] of Object.entries(back)) { if (!["choices", "moveSlugs", "moves", "consequences", "description", "unlockAt"].includes(k)) out[k] = v; }
-	out.choices = choices;
 	return out;
 }
 
@@ -440,7 +412,7 @@ if (WRITE_MINOR) {
 		if (!rec || rec.tier !== "minor") { minorUnmatched.push(`${card.number}:${card.frontTitle}`); continue; }
 		const front = parseFront(card.frontBlocks, { name: rec.doc.name, slug: rec.slug });
 		let back = parseBack(card.backBlocks, { name: card.backTitle, slug: rec.slug, major: false });
-		back.choices = followerChoices(rec.slug, followersByArcana.get(rec.slug)); // inline follower(s), major-style
+		const followerGroup = followerChoices(rec.slug, followersByArcana.get(rec.slug)); // inline follower(s), major-style
 		// Manual pass: a few backs don't print their own item — it's implied by the front (e.g. the
 		// redwood basin IS the bittersweet elixir's vessel). Copy the front item onto the back side.
 		if (BACK_ITEM_FROM_FRONT.has(rec.slug) && front.item && !back.item) back.item = structuredClone(front.item);
@@ -451,7 +423,7 @@ if (WRITE_MINOR) {
 			minorTables++;
 		});
 		delete back.rollTables;
-		back = foldBackChoices(back); // minors have only a follower group (no moves/consequences) → [followers?]
+		back = foldBackChoices(back, followerGroup); // minors have only a follower group (no moves/consequences) → [intro?, followers?]
 		const system = edited({ slug: rec.slug, front: stripTransient(front), back }, rec.slug);
 		// A front with no content is always a parse failure — every card prints a description — and it
 		// used to ship silently (`diverge` compares against the doc we're about to overwrite, so an empty

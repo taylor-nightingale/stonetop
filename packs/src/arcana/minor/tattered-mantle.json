@@ -70,7 +70,33 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "When you **_let slip the wraiths tethered to the_** **_mantle_**, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.\n\n*Group* (3), *spirit, undead, terrifying, vicious*\n\nStarts at 13 each"
+								"text": "When you **_let slip the wraiths tethered to the_** **_mantle_**, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them."
+							}
+						}
+					]
+				},
+				{
+					"slug": "tattered-mantle",
+					"list": [
+						{
+							"type": "entry",
+							"slug": "mantle-wraiths",
+							"content": {
+								"title": null,
+								"text": ""
+							},
+							"grants": [
+								{
+									"type": "follower",
+									"slug": "mantle-wraiths",
+									"locations": [
+										"inline",
+										"tab"
+									]
+								}
+							],
+							"track": {
+								"max": 1
 							}
 						}
 					]
