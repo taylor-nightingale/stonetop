@@ -52,13 +52,19 @@
 		<div class="stonetop-creature-hp">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 			<div class="stonetop-creature-hp__row">
-				<input class="stonetop-creature-hp__input stonetop-follower-hp stonetop-step"
-				       data-change-action="followerHp"
-				       type="number" min="0" value="{{hp}}" data-slug="{{slug}}">
+				<span class="stonetop-stepper">
+					<input class="stonetop-creature-hp__input stonetop-follower-hp stonetop-step"
+					       data-change-action="followerHp"
+					       type="number" min="0" value="{{hp}}" data-slug="{{slug}}">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 				<span>/</span>
-				<input class="stonetop-creature-hp__input stonetop-follower-hp-max stonetop-step"
-				       data-change-action="followerHpMax"
-				       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
+				<span class="stonetop-stepper">
+					<input class="stonetop-creature-hp__input stonetop-follower-hp-max stonetop-step"
+					       data-change-action="followerHpMax"
+					       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 			</div>
 		</div>
 		{{/unless}}{{/unless}}
@@ -89,11 +95,17 @@
 				       placeholder="{{localize 'stonetop.followers.memberName'}}">
 				<span class="stonetop-member-hp">
 					<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
-					<input type="number" min="0" class="stonetop-member-hp-value stonetop-step" data-change-action="memberHp"
-					       value="{{hp.value}}" data-slug="{{../slug}}" data-index="{{index}}">
+					<span class="stonetop-stepper">
+						<input type="number" min="0" class="stonetop-member-hp-value stonetop-step" data-change-action="memberHp"
+						       value="{{hp.value}}" data-slug="{{../slug}}" data-index="{{index}}">
+						{{> "stonetop.stepper-buttons"}}
+					</span>
 					<span>/</span>
-					<input type="number" min="0" class="stonetop-member-hp-max stonetop-step" data-change-action="memberHpMax"
-					       value="{{hp.max}}" data-slug="{{../slug}}" data-index="{{index}}">
+					<span class="stonetop-stepper">
+						<input type="number" min="0" class="stonetop-member-hp-max stonetop-step" data-change-action="memberHpMax"
+						       value="{{hp.max}}" data-slug="{{../slug}}" data-index="{{index}}">
+						{{> "stonetop.stepper-buttons"}}
+					</span>
 				</span>
 				<button type="button" class="stonetop-member-remove" data-action="removeFollowerMember" data-slug="{{../slug}}" data-index="{{index}}"
 				        title="{{localize 'stonetop.followers.removeMember'}}">

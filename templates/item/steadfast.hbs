@@ -20,15 +20,21 @@
 			<div class="steading-stat-panel steading-panel-frame steading-fortunes">
 				{{> "stonetop.panel-frame"}}
 				<h2>{{localize "stonetop.steadfast.fortunes"}}</h2>
-				<input class="stonetop-step" type="number" name="system.attributes.fortunes"
-				       value="{{stonetop.fortunes}}" step="1" {{#unless editable}}disabled{{/unless}}>
+				<span class="stonetop-stepper">
+					<input class="stonetop-step" type="number" name="system.attributes.fortunes"
+					       value="{{stonetop.fortunes}}" step="1" {{#unless editable}}disabled{{/unless}}>
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 			</div>
 
 			<div class="steading-stat-panel steading-panel-frame steading-surplus">
 				{{> "stonetop.panel-frame"}}
 				<h2>{{localize "stonetop.steadfast.surplus"}}</h2>
-				<input class="stonetop-step" type="number" name="system.attributes.surplus"
-				       value="{{stonetop.surplus}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+				<span class="stonetop-stepper">
+					<input class="stonetop-step" type="number" name="system.attributes.surplus"
+					       value="{{stonetop.surplus}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 			</div>
 
 			{{> "stonetop.steading-stat-panel" attr="size" title="Size" attrData=stonetop.attributes.size panelClass="steading-size"}}

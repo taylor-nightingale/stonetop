@@ -50,17 +50,21 @@ describe("withStonetopSheetChromeV2", () => {
 		expect(sheet.element.querySelector(".stonetop-editable").classList.contains("is-editing")).toBe(true);
 	});
 
-	// Part content is replaced wholesale each render, so per-element decoration has to re-run.
-	it("re-decorates steppers on every render", () => {
-		const sheet = makeSheet(`<input class="stonetop-step" type="number" value="1">`);
+	// The stepper markup comes from the templates now; the mixin only wires the delegated handler,
+	// once. Because it is delegated, it keeps driving buttons that arrive in later renders.
+	it("wires steppers once, and still drives content rendered afterwards", async () => {
+		const sheet = makeSheet();
+		await sheet._onFirstRender({}, {});
 
-		sheet._onRender({}, {});
-		expect(sheet.element.querySelector(".stonetop-stepper")).not.toBeNull();
+		sheet.element.innerHTML = `
+			<span class="stonetop-stepper">
+				<input class="stonetop-step" type="number" value="1">
+				<button class="stonetop-stepper-btn" data-step-dir="1"></button>
+			</span>`;
+		click(sheet.element.querySelector(".stonetop-stepper-btn"));
 
-		// A re-render swaps in fresh, undecorated content.
-		sheet.element.innerHTML = `<input class="stonetop-step" type="number" value="2">`;
-		sheet._onRender({}, {});
-		expect(sheet.element.querySelector(".stonetop-stepper")).not.toBeNull();
+		// One handler → one step. A second wiring would apply it twice.
+		expect(sheet.element.querySelector("input").value).toBe("2");
 	});
 
 	it("re-enables view-state controls when the sheet is disabled", () => {

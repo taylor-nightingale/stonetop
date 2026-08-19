@@ -27,18 +27,27 @@
 			<div class="steading-coinage-fields">
 				<label class="steading-coinage-field">
 					<span>Purses</span>
-					<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" data-change-action="coinagePurses" min="0"
-					       data-title="{{title}}" value="{{purses}}">
+					<span class="stonetop-stepper">
+						<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" data-change-action="coinagePurses" min="0"
+						       data-title="{{title}}" value="{{purses}}">
+						{{> "stonetop.stepper-buttons"}}
+					</span>
 				</label>
 				<label class="steading-coinage-field">
 					<span>Handfuls</span>
-					<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" data-change-action="coinageHandfuls" min="0"
-					       data-title="{{title}}" value="{{handfuls}}">
+					<span class="stonetop-stepper">
+						<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" data-change-action="coinageHandfuls" min="0"
+						       data-title="{{title}}" value="{{handfuls}}">
+						{{> "stonetop.stepper-buttons"}}
+					</span>
 				</label>
 				<label class="steading-coinage-field">
 					<span>Coins</span>
-					<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" data-change-action="coinageCoins" min="0"
-					       data-title="{{title}}" value="{{coins}}">
+					<span class="stonetop-stepper">
+						<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" data-change-action="coinageCoins" min="0"
+						       data-title="{{title}}" value="{{coins}}">
+						{{> "stonetop.stepper-buttons"}}
+					</span>
 				</label>
 			</div>
 		</div>

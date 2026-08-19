@@ -58,7 +58,10 @@
 					<button class="steading-stat-roll rollable" type="button" data-roll="surplus">Surplus</button>
 				</h2>
 				{{#if (hasText stonetop.surplus.note)}}<div class="steading-start-line">{{rich stonetop.surplus.note}}</div>{{/if}}
-				<input class="steading-surplus-input stonetop-step" data-change-action="surplus" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
+				<span class="stonetop-stepper">
+					<input class="steading-surplus-input stonetop-step" data-change-action="surplus" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 			</div>
 
 			{{!-- Size --}}
