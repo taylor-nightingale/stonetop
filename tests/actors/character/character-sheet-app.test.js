@@ -77,7 +77,7 @@ function spyChar() {
 	char.setOpenFollowerInventories = vi.fn();
 	char.buildSnapshot = vi.fn(async () => ({}));
 	char.listPlaybooks = vi.fn(async () => []);
-	char.getArcanumBlanks = vi.fn(() => ({}));
+	char.getAllArcanumBlanks = vi.fn(() => new Map());
 	return char;
 }
 
@@ -528,7 +528,7 @@ describe("StonetopCharacterSheet add-inventory dialog", () => {
 describe("StonetopCharacterSheet arcanum blanks", () => {
 	it("seeds blank inputs from storage on every render", async () => {
 		const { sheet, char } = makeSheet();
-		char.getArcanumBlanks = vi.fn(() => ({ "storm-die": "d8" }));
+		char.getAllArcanumBlanks = vi.fn(() => new Map([["azure-hand", { "storm-die": "d8" }]]));
 		sheet.element.innerHTML = `
 			<div class="stonetop-arcanum-card" data-slug="azure-hand">
 				<input class="stonetop-arcanum-blank" data-blank-key="storm-die">

@@ -2,6 +2,7 @@ import {Arcanum} from "../../model/data/character/Arcanum.js";
 import {ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
 import {ChoiceGroupDefs} from "../../model/data/ChoiceGroupDefs.js";
 import {OutfitGrant} from "../../model/data/character/OutfitGrant.js";
+import { itemsOfType, itemOfTypeBySlug } from "../actorItems.js";
 
 /**
  * One arcanum a character owns — the Foundry item wrapped so the rest of the code asks it questions and
@@ -15,12 +16,12 @@ export class OwnedArcanum {
 	}
 
 	static bySlug(actor, slug) {
-		const item = [...actor.items].find(i => i.type === "arcanum" && i.system?.slug === slug);
+		const item = itemOfTypeBySlug(actor, "arcanum", slug);
 		return item ? new OwnedArcanum(item, actor) : null;
 	}
 
 	static all(actor) {
-		return [...actor.items].filter(i => i.type === "arcanum").map(i => new OwnedArcanum(i, actor));
+		return itemsOfType(actor, "arcanum").map(i => new OwnedArcanum(i, actor));
 	}
 
 	get id() {
