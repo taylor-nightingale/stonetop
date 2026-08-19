@@ -7,13 +7,13 @@
 	<div class="steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
-				<input type="text" class="stonetop-attr-extra" data-attr="{{../attr}}" data-index="{{@index}}" value="{{this}}">
-				<button class="stonetop-attr-extra-remove stonetop-icon-btn" type="button" data-attr="{{../attr}}" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
+				<input type="text" class="stonetop-attr-extra" data-change-action="attributeItem" data-attr="{{../attr}}" data-index="{{@index}}" value="{{this}}">
+				<button class="stonetop-attr-extra-remove stonetop-icon-btn" data-action="removeAttributeItem" type="button" data-attr="{{../attr}}" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 				</button>
 			</div>
 		{{/each}}
-		<button class="stonetop-attr-extra-add stonetop-icon-btn" type="button" data-attr="{{attr}}" title="Add" aria-label="Add">
+		<button class="stonetop-attr-extra-add stonetop-icon-btn" data-action="addAttributeItem" type="button" data-attr="{{attr}}" title="Add" aria-label="Add">
 			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 		</button>
 	</div>

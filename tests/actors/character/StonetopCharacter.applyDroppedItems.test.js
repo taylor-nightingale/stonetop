@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { TestCharacterBuilder } from "../../fakes/TestCharacterBuilder.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
+import { StonetopCharacter } from "../../../src/actors/character/StonetopCharacter.js";
 
 describe("StonetopCharacter.applyDroppedItems", () => {
 	it("embeds a new arcanum", async () => {
@@ -48,6 +49,28 @@ describe("StonetopCharacter.applyDroppedItems", () => {
 
 		expect(toEmbed).toHaveLength(0);
 		expect(actor.createdDocs).toHaveLength(0);
+	});
+});
+
+describe("StonetopCharacter.listPlaybooks", () => {
+	// The sheet's picker asks the character rather than building a second repository, so the pack
+	// index and parsed-playbook cache are shared with applyPlaybookBySlug.
+	it("lists the playbooks its own repository knows", async () => {
+		const actor = new FakeCharacterActorBuilder().build();
+		const char = new TestCharacterBuilder(actor)
+			.addPlaybookItemData({ type: "playbook", name: "The Blessed", system: { slug: "the-blessed" } })
+			.build();
+
+		const list = await char.listPlaybooks();
+
+		expect(Array.isArray(list)).toBe(true);
+	});
+
+	it("answers an empty list when there is no playbook repository", async () => {
+		const actor = new FakeCharacterActorBuilder().build();
+		const char = new StonetopCharacter(actor, {});
+
+		expect(await char.listPlaybooks()).toEqual([]);
 	});
 });
 

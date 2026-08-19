@@ -232,6 +232,23 @@ describe("CharacterFollowers — state mutations", () => {
 		expect(snap.armor.raw).toBe("2 (resilience), 0 vs. bronze");
 	});
 
+	// The single-line fields normalize here rather than at the sheet, so every caller (sheet,
+	// drop pipeline, grant) stores the same thing — an untrimmed value would never match a
+	// picker option and would silently become a custom entry.
+	it("trims the single-line follower fields", async () => {
+		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
+		await cf.addFollower("enfys");
+		await cf.setArmor("enfys", "  1 (hide)  ");
+		await cf.setDamage("enfys", "  d6  ");
+		await cf.setInstinct("enfys", "  to protect  ");
+		await cf.setCost("enfys", "  a warm bed  ");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.armor.raw).toBe("1 (hide)");
+		expect(snap.damage.raw).toBe("d6");
+		expect(snap.instinct).toBe("to protect");
+		expect(snap.cost).toBe("a warm bed");
+	});
+
 	it("exposes instinct as selection text and moves as RichText (raw markdown)", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");

@@ -15,7 +15,6 @@ import * as SE from "../utils/followerSelectionEdit.js";
 import * as ME from "../utils/followerMemberEdit.js";
 import * as CE from "../utils/followerCompanionEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
-import { activateComboBoxes } from "../utils/comboBox.js";
 import { bindAll } from "../utils/bindAll.js";
 import { buildFollowerSnapshot } from "../model/snapshot/character/buildFollowerSnapshot.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
@@ -115,12 +114,6 @@ export function createStonetopFollowerSheetClass(Base) {
 		// Direct bindings to the current editor controls — re-run per render (part content is replaced).
 		_onRender(context, options) {
 			super._onRender(context, options);
-
-			// The preview pane renders follower-card.hbs, whose tag/instinct/cost combo dropdowns are
-			// driven by the global (document-delegated, idempotent) combobox handler. The actor sheet
-			// installs it, but a follower Item opened on its own never would — so install it here too.
-			activateComboBoxes();
-
 			if (!this.isEditable) return;
 			const root = this.element;
 			const item = this.item;

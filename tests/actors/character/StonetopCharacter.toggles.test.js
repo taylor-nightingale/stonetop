@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
 import { TestCharacterBuilder } from "../../fakes/TestCharacterBuilder.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
+import { InventoryOwner } from "../../../src/actors/character/InventoryOwner.js";
+import { NewInventoryItem } from "../../../src/actors/character/AddInventoryItemDialog.js";
 
 function makeChar() {
 	return new TestCharacterBuilder(new FakeCharacterActorBuilder().build()).build();
@@ -153,14 +155,14 @@ describe("StonetopCharacter shared-inventory routing", () => {
 	it("setInventoryItemCheckedFor routes to the follower when a slug is given", async () => {
 		const char = makeChar();
 		const follower = vi.spyOn(char, "setFollowerInvItemChecked").mockResolvedValue();
-		await char.setInventoryItemCheckedFor("enfys", "rope", true);
+		await char.setInventoryItemCheckedFor(InventoryOwner.follower("enfys"), "rope", true);
 		expect(follower).toHaveBeenCalledWith("enfys", "rope", true);
 	});
 
 	it("setInventoryItemCheckedFor routes to the character without a slug", async () => {
 		const char = makeChar();
 		const own = vi.spyOn(char, "setInventoryItemChecked").mockResolvedValue();
-		await char.setInventoryItemCheckedFor(null, "rope", false);
+		await char.setInventoryItemCheckedFor(InventoryOwner.character(), "rope", false);
 		expect(own).toHaveBeenCalledWith("rope", false);
 	});
 
@@ -168,8 +170,8 @@ describe("StonetopCharacter shared-inventory routing", () => {
 		const char = makeChar();
 		const follower = vi.spyOn(char, "setFollowerInvResource").mockResolvedValue();
 		const own = vi.spyOn(char, "setInventoryResource").mockResolvedValue();
-		await char.toggleInventoryResourcePipFor("enfys", "rations", "1", false);
-		await char.toggleInventoryResourcePipFor(null, "rations", "1", true);
+		await char.toggleInventoryResourcePipFor(InventoryOwner.follower("enfys"), "rations", "1", false);
+		await char.toggleInventoryResourcePipFor(InventoryOwner.character(), "rations", "1", true);
 		expect(follower).toHaveBeenCalledWith("enfys", "rations", 2);
 		expect(own).toHaveBeenCalledWith("rations", 1);
 	});
@@ -179,9 +181,9 @@ describe("StonetopCharacter shared-inventory routing", () => {
 		const follower = vi.spyOn(char, "addFollowerInvCustomItem").mockResolvedValue();
 		const regular = vi.spyOn(char, "addCustomInventoryItem").mockResolvedValue();
 		const small = vi.spyOn(char, "addCustomSmallItem").mockResolvedValue();
-		await char.addCustomInventoryItemFor("enfys", "Rope", 1, true);
-		await char.addCustomInventoryItemFor(null, "Tent", 2, true);
-		await char.addCustomInventoryItemFor(null, "Flint", 1, false);
+		await char.addCustomInventoryItemFor(InventoryOwner.follower("enfys"), NewInventoryItem.regular("Rope", 1));
+		await char.addCustomInventoryItemFor(InventoryOwner.character(), NewInventoryItem.regular("Tent", 2));
+		await char.addCustomInventoryItemFor(InventoryOwner.character(), NewInventoryItem.small("Flint"));
 		expect(follower).toHaveBeenCalledWith("enfys", "Rope", 1);
 		expect(regular).toHaveBeenCalledWith("Tent", 2);
 		expect(small).toHaveBeenCalledWith("Flint");
@@ -191,8 +193,8 @@ describe("StonetopCharacter shared-inventory routing", () => {
 		const char = makeChar();
 		const follower = vi.spyOn(char, "removeFollowerInvCustomItem").mockResolvedValue();
 		const own = vi.spyOn(char, "removeCustomInventoryItem").mockResolvedValue();
-		await char.removeCustomInventoryItemFor("enfys", "id1");
-		await char.removeCustomInventoryItemFor(null, "id2");
+		await char.removeCustomInventoryItemFor(InventoryOwner.follower("enfys"), "id1");
+		await char.removeCustomInventoryItemFor(InventoryOwner.character(), "id2");
 		expect(follower).toHaveBeenCalledWith("enfys", "id1");
 		expect(own).toHaveBeenCalledWith("id2");
 	});

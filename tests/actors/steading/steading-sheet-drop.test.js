@@ -1,13 +1,13 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
-import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 
 // The sheet does NOT wire drop listeners — core ActorSheetV2 does (element.ondrop → _onDrop →
 // _onDropDocument → _onDropItem). The sheet only overrides _onDropItem, delegating the decision to
 // the typed steading. The shared core-faithful base mimics that wiring, so the integration test below
 // proves a physical drop event reaches the route EXACTLY once (the double-handled-drop regression).
-const StonetopSteadingSheet = createStonetopSteadingSheetClass(FakeCoreActorSheetBase);
+const StonetopSteadingSheet = createStonetopSteadingSheetClass(stonetopActorSheetBase());
 
 function makeSheet({ editable = true } = {}) {
 	// Flat: the sheet may only call named methods on the typed steading.

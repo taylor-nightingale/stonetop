@@ -1,18 +1,19 @@
-import { enrichRichTextTree } from "../../utils/enrichRichText.js";
 import { bindAll } from "../../utils/bindAll.js";
-import { takeTagInputValue } from "../../utils/takeTagInputValue.js";
+import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
+import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../tagChips.js";
 
 export function createStonetopNpcSheetClass(Base) {
     return class StonetopNpcSheet extends Base {
-
-        constructor(...args) {
-            super(...args);
-            this._stonetopNpc = this.actor.typedActor;
+        get _stonetopNpc() {
+            return this.typedActor;
         }
 
         static DEFAULT_OPTIONS = {
             classes: ["npc"],
             position: { width: 315, height: 425 },
+            actions: {
+                ...TAG_CHIP_ACTIONS,
+            },
         };
 
         static PARTS = {
@@ -25,13 +26,16 @@ export function createStonetopNpcSheetClass(Base) {
             },
         };
 
-        async _prepareContext(options) {
-            const context = await super._prepareContext(options);
-            context.actor = this.actor;
-            context.editable = this.isEditable;
-            context.stonetop = await this._stonetopNpc.buildSnapshot();
-            await enrichRichTextTree(context.stonetop, this.actor?.getRollData?.() ?? {});
-            return context;
+        // An NPC's chips address a Selection field directly — it has no followers or members, so
+        // the wrap's field is the whole answer.
+        toggleTag(wrap, value) {
+            return this._stonetopNpc.toggleSelection(wrap.field, value);
+        }
+
+        async _onFirstRender(context, options) {
+            await super._onFirstRender(context, options);
+            new ChangeActionRouter(tagChipChangeHandlers(this), { when: () => this.isEditable })
+                .attach(this.element);
         }
 
         // Direct bindings to the card's controls — re-run per render (part content is replaced).
@@ -49,18 +53,7 @@ export function createStonetopNpcSheetClass(Base) {
             bindAll(root, "#npc-damage", "change", ev => npc.setDamage(ev.currentTarget.value));
             bindAll(root, "#npc-special-qualities", "change", ev => npc.setSpecialQuality(ev.currentTarget.value));
 
-            // Selection chips (tags) — toggle on click, add via free-text box.
-            bindAll(root, ".stonetop-tag-chip", "click", ev => {
-                const wrap = ev.currentTarget.closest(".stonetop-tags");
-                return npc.toggleSelection(wrap?.dataset.field, ev.currentTarget.dataset.tag);
-            });
-            bindAll(root, ".stonetop-tag-add", "change", ev => {
-                const input = ev.currentTarget;
-                const value = takeTagInputValue(input);
-                if (!value) return;
-                return npc.toggleSelection(input.dataset.field, value);
-            });
-            // Instinct (single-select input + dropdown, not chips)
+            // Instinct is a single-select input + dropdown, not chips.
             bindAll(root, ".stonetop-npc-instinct", "change", ev => npc.setInstinct(ev.currentTarget.value.trim()));
 
             // Moves + description

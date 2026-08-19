@@ -7,13 +7,13 @@
 	<div class="steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
-				<input type="text" class="stonetop-asset-item" data-index="{{@index}}" value="{{this}}">
-				<button class="stonetop-asset-item-remove stonetop-icon-btn" type="button" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
+				<input type="text" class="stonetop-asset-item" data-change-action="assetItem" data-index="{{@index}}" value="{{this}}">
+				<button class="stonetop-asset-item-remove stonetop-icon-btn" data-action="removeAssetItem" type="button" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 				</button>
 			</div>
 		{{/each}}
-		<button class="stonetop-asset-item-add stonetop-icon-btn" type="button" title="Add" aria-label="Add">
+		<button class="stonetop-asset-item-add stonetop-icon-btn" data-action="addAssetItem" type="button" title="Add" aria-label="Add">
 			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 		</button>
 	</div>
@@ -27,17 +27,17 @@
 			<div class="steading-coinage-fields">
 				<label class="steading-coinage-field">
 					<span>Purses</span>
-					<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" min="0"
+					<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" data-change-action="coinagePurses" min="0"
 					       data-title="{{title}}" value="{{purses}}">
 				</label>
 				<label class="steading-coinage-field">
 					<span>Handfuls</span>
-					<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" min="0"
+					<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" data-change-action="coinageHandfuls" min="0"
 					       data-title="{{title}}" value="{{handfuls}}">
 				</label>
 				<label class="steading-coinage-field">
 					<span>Coins</span>
-					<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" min="0"
+					<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" data-change-action="coinageCoins" min="0"
 					       data-title="{{title}}" value="{{coins}}">
 				</label>
 			</div>

@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
-import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeSteadingImprovementRepository } from "../../fakes/FakeSteadingImprovementRepository.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
@@ -20,7 +20,7 @@ import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 // never embedded as an item: an embedded improvement would look accepted (it lands in the actor's item
 // collection) while the improvements tab, which renders from slugs, showed nothing at all.
 
-const StonetopSteadingSheet = createStonetopSteadingSheetClass(FakeCoreActorSheetBase);
+const StonetopSteadingSheet = createStonetopSteadingSheetClass(stonetopActorSheetBase());
 
 
 // The handlers are async and the drop hooks are fired without awaiting; flush before asserting.
@@ -49,7 +49,7 @@ async function makeWiredSheet({ editable = true } = {}) {
 	sheet.element.innerHTML = `
 		<div class="steading-improvement-group steading-panel-frame">
 			<button type="button" class="steading-improvement-remove stonetop-icon-btn"
-			        data-slug="palisade" data-name="palisade"></button>
+			        data-action="revokeImprovement" data-slug="palisade" data-name="palisade"></button>
 		</div>`;
 	await sheet._onFirstRender({}, {});
 	sheet._onRender({}, {});
@@ -173,15 +173,15 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 
 	afterEach(() => { foundry.applications.api = savedApi; });
 
-	const clickRemove = async sheet => {
-		fire(sheet.element.querySelector(".steading-improvement-remove"), "click");
+	const fireRevoke = async (sheet, ev) => {
+		const target = sheet.element.querySelector(".steading-improvement-remove");
+		await sheet.constructor.DEFAULT_OPTIONS.actions.revokeImprovement.handler
+			.call(sheet, { preventDefault() {}, ...ev }, target);
 		await settle();
 	};
 
-	const rightClickRemove = async sheet => {
-		fire(sheet.element.querySelector(".steading-improvement-remove"), "contextmenu");
-		await settle();
-	};
+	const clickRemove      = sheet => fireRevoke(sheet, { type: "click", button: 0 });
+	const rightClickRemove = sheet => fireRevoke(sheet, { type: "contextmenu", button: 2 });
 
 	it("asks before removing, naming the improvement, then drops it from the owned list", async () => {
 		const { sheet, actor, steading } = await makeWiredSheet();
@@ -259,9 +259,9 @@ describe("steading-improvement-panel.hbs ↔ revoke handler contract", () => {
 	const template = read("templates/actor/partials/steading-improvement-panel.hbs");
 	const sheetSource = read("src/actors/steading/StonetopSteadingSheet.js");
 
-	it("emits the control the sheet binds to", () => {
-		expect(template).toContain("steading-improvement-remove");
-		expect(sheetSource).toContain(".steading-improvement-remove");
+	it("emits the action the sheet registers", () => {
+		expect(template).toContain('data-action="revokeImprovement"');
+		expect(sheetSource).toContain("revokeImprovement:");
 	});
 
 	it("passes the improvement's slug as the data the handler reads", () => {

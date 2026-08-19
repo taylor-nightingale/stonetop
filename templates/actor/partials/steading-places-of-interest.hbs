@@ -9,17 +9,17 @@
 		{{#each places}}
 			<div class="stonetop-places-row" data-index="{{index}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
 				<span class="stonetop-place-key">{{key}}.</span>
-				<input type="text" class="stonetop-place-field" data-index="{{index}}" value="{{value}}">
+				<input type="text" class="stonetop-place-field" data-change-action="placeField" data-index="{{index}}" value="{{value}}">
 				{{#if docLink}}
 					<span class="steading-doc-link">
 						{{rich docLink}}
-						<button class="stonetop-place-unlink" type="button" data-index="{{index}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
+						<button class="stonetop-place-unlink" data-action="unlinkPlace" type="button" data-index="{{index}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
 					</span>
 				{{/if}}
 			</div>
 		{{/each}}
 	</div>
-	<button type="button" class="stonetop-place-add stonetop-icon-btn" title="Add place" aria-label="Add place">
+	<button type="button" class="stonetop-place-add stonetop-icon-btn" data-action="addPlace" title="Add place" aria-label="Add place">
 		<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 	</button>
 	{{#if linkHint}}<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>{{/if}}

@@ -5,6 +5,8 @@ import { StonetopCharacter } from "../../../src/actors/character/StonetopCharact
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeRepositoryFactory } from "../../fakes/FakeRepositoryFactory.js";
 import { FakeGameBuilder } from "../../fakes/FakeGameBuilder.js";
+import { InventoryOwner } from "../../../src/actors/character/InventoryOwner.js";
+import { NewInventoryItem } from "../../../src/actors/character/AddInventoryItemDialog.js";
 
 // -- Fake V2 base ---------------------------------------------------------------
 // Mini-core: ApplicationV2 seeds tabGroups from the tabs config and routes _prepareTabs through
@@ -17,10 +19,9 @@ function makeBase(actor) {
 		_editable = true;
 		superDrop = vi.fn(async () => "super-drop");
 		render = vi.fn();
-		// Mirrors StonetopActorSheetV2: capture, run the writes, release.
-		keepAnchored = vi.fn((element, anchorSelector, containerSelector, work) => work());
 
 		get actor() { return actor; }
+		get typedActor() { return actor.typedActor; }
 		get isEditable() { return this._editable; }
 
 		_getTabsConfig(group) { return this.constructor.TABS[group] ?? null; }
@@ -37,7 +38,14 @@ function makeBase(actor) {
 			}, {});
 		}
 
-		async _prepareContext() { return { tabs: this._prepareTabs("primary") }; }
+		// Mirrors StonetopActorSheetV2's shared preamble, which the character sheet builds on.
+		async _prepareContext() {
+			const context = { tabs: this._prepareTabs("primary") };
+			context.actor    = this.actor;
+			context.editable = this.isEditable;
+			context.stonetop = await this.actor.typedActor.buildSnapshot();
+			return context;
+		}
 		async _onFirstRender() {}
 		_onRender() {}
 		async _onDropItem(event, item) { return this.superDrop(event, item); }
@@ -68,6 +76,7 @@ function spyChar() {
 	char.origin = { select: vi.fn(), selectName: vi.fn() };
 	char.setOpenFollowerInventories = vi.fn();
 	char.buildSnapshot = vi.fn(async () => ({}));
+	char.listPlaybooks = vi.fn(async () => []);
 	char.getArcanumBlanks = vi.fn(() => ({}));
 	return char;
 }
@@ -269,10 +278,11 @@ describe("StonetopCharacterSheet actions", () => {
 		const { sheet, char } = makeSheet();
 		const card = el(`<div class="stonetop-arcanum-card" data-slug="eye">
 			<button data-slug="eye" data-flipped="false"></button></div>`);
+		const hold = vi.spyOn(sheet._scrollAnchoring, "hold");
 
 		await fireAction(sheet, "flipArcanum", card.querySelector("button"));
 
-		const [element, anchorSelector, containerSelector] = sheet.keepAnchored.mock.calls[0];
+		const [element, anchorSelector, containerSelector] = hold.mock.calls[0];
 		expect(element).toBe(card);
 		expect(anchorSelector).toBe(`.stonetop-arcanum-card[data-slug="eye"]`);
 		expect(containerSelector).toBe(".sheet-body");
@@ -293,7 +303,8 @@ describe("StonetopCharacterSheet actions", () => {
 				<button data-slug="rations" data-index="0"></button>
 			</div>`);
 		await fireAction(sheet, "inventoryResourcePip", wrap.querySelector("button"));
-		expect(char.toggleInventoryResourcePipFor).toHaveBeenCalledWith("enfys", "rations", "0", false);
+		expect(char.toggleInventoryResourcePipFor).toHaveBeenCalledWith(
+			InventoryOwner.follower("enfys"), "rations", "0", false);
 	});
 
 	it("selectOriginName sends the trimmed name", async () => {
@@ -393,7 +404,8 @@ describe("StonetopCharacterSheet delete actions", () => {
 		["deletePossession", `<a data-slug="map" data-name="Map"></a>`, "deletePossession", ["map"]],
 		["deleteFollower", `<button data-slug="astor" data-name="Astor"></button>`, "removeFollower", ["astor"]],
 		["deleteOtherMove", `<a data-move-slug="cleave" data-name="Cleave"></a>`, "deleteMove", ["cleave"]],
-		["deleteInventoryItem", `<a data-owned-id="x1" data-name="Rope"></a>`, "removeCustomInventoryItemFor", [null, "x1"]],
+		["deleteInventoryItem", `<a data-owned-id="x1" data-name="Rope"></a>`, "removeCustomInventoryItemFor",
+			[InventoryOwner.character(), "x1"]],
 	];
 
 	for (const [action, markup, method, args] of cases) {
@@ -485,7 +497,8 @@ describe("StonetopCharacterSheet add-inventory dialog", () => {
 		stubPrompt({ name: "Rope", weight: 2 });
 		const { sheet, char } = makeSheet();
 		await fireAction(sheet, "addInventoryItem", el(`<button data-column="regular"></button>`));
-		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(null, "Rope", 2, true);
+		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(
+			InventoryOwner.character(), NewInventoryItem.regular("Rope", 2));
 	});
 
 	it("routes to the follower inventory when opened from its wrapper", async () => {
@@ -496,7 +509,8 @@ describe("StonetopCharacterSheet add-inventory dialog", () => {
 				<button data-column="regular"></button>
 			</div>`);
 		await fireAction(sheet, "addInventoryItem", wrap.querySelector("button"));
-		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith("enfys", "Rope", 1, true);
+		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(
+			InventoryOwner.follower("enfys"), NewInventoryItem.regular("Rope", 1));
 	});
 
 	it("does nothing when the dialog is dismissed or the name is blank", async () => {
@@ -507,30 +521,7 @@ describe("StonetopCharacterSheet add-inventory dialog", () => {
 	});
 });
 
-// -- Form-submit filtering -----------------------------------------------------------------
-
-describe("StonetopCharacterSheet._processFormData", () => {
-	it("keeps only name/img/system, dropping the router-managed radio-group fields", () => {
-		const { sheet } = makeSheet();
-		const expanded = {
-			name: "Brakken",
-			system: { stats: { str: { value: 2 } } },
-			"stonetop-roll-mode": "adv",
-			"stonetop-background": "vessel",
-			"stonetop-load-level": "light",
-			"stonetop-origin": "the-hills",
-		};
-		expect(sheet._processFormData(null, null, expanded)).toEqual({
-			name: "Brakken",
-			system: { stats: { str: { value: 2 } } },
-		});
-	});
-
-	it("omits keys that are absent rather than emitting undefined", () => {
-		const { sheet } = makeSheet();
-		expect(sheet._processFormData(null, null, { "stonetop-roll-mode": "dis" })).toEqual({});
-	});
-});
+// Form-submit filtering now lives on the shared actor base — see StonetopActorSheetV2.test.js.
 
 // -- Arcanum blank fill pass ---------------------------------------------------------------
 

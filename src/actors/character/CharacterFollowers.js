@@ -262,19 +262,19 @@ export class CharacterFollowers {
 	async setArmor(slug, armor) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { armor } }]);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { armor: _text(armor) } }]);
 	}
 
 	async setDamage(slug, damage) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { damage } }]);
+		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { damage: _text(damage) } }]);
 	}
 
 	async setInstinct(slug, instinct) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		const stored = Selection.fromStored(instinct, { multi: false, options: item.system?.instinct?.options ?? [] }).toRaw();
+		const stored = Selection.fromStored(_text(instinct), { multi: false, options: item.system?.instinct?.options ?? [] }).toRaw();
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { instinct: stored } }]);
 	}
 
@@ -287,7 +287,7 @@ export class CharacterFollowers {
 	async setCost(slug, cost) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
-		const stored = Selection.fromStored(cost, { multi: false, options: item.system?.cost?.options ?? [] }).toRaw();
+		const stored = Selection.fromStored(_text(cost), { multi: false, options: item.system?.cost?.options ?? [] }).toRaw();
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { cost: stored } }]);
 	}
 
@@ -319,7 +319,8 @@ export class CharacterFollowers {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
 		const companion = _companion(item);
-		const t = (companion.catalog ?? []).find(x => x.slug === typeSlug || x.name === typeSlug);
+		const wanted = _text(typeSlug);
+		const t = (companion.catalog ?? []).find(x => x.slug === wanted || x.name === wanted);
 		if (!t) return;
 		companion.type    = { selected: [t.name], options: (companion.catalog ?? []).map(x => x.name), multi: false, allowCustom: true };
 		companion.options = { selected: [...(t.defaults ?? [])], options: [...(t.options ?? [])], multi: true, allowCustom: true };
@@ -423,6 +424,13 @@ export class CharacterFollowers {
 
 function _findFollowerItem(actor, slug) {
 	return [...actor.items].find(i => i.type === "follower" && i.system?.slug === slug) ?? null;
+}
+
+// Single-line follower fields are stored trimmed, so a stored value round-trips equal to what a
+// picker offers — an untrimmed " Loyal" would never match the "Loyal" option and would silently
+// become a custom entry.
+function _text(value) {
+	return typeof value === "string" ? value.trim() : value;
 }
 
 // Plain-object clone of a follower's members (Foundry replaces arrays wholesale on update).
