@@ -80,6 +80,15 @@ export function createStonetopActorSheetV2Class() {
 			}, true);
 		}
 
+		// A control persisted by a domain method has nothing for core's submit to do, and that submit
+		// is not cheap: it builds a FormDataExtended over the WHOLE form, expands it, and runs a full
+		// document validate — then _processFormData throws almost all of it away and the diff comes
+		// back empty. Skip it for those, so only the fields core actually owns pay for it.
+		_onChangeForm(formConfig, event) {
+			if (event.target?.closest?.("[data-change-action]")) return;
+			super._onChangeForm(formConfig, event);
+		}
+
 		// submitOnChange makes core submit the WHOLE form on every change, but the only inputs core
 		// legitimately owns are `name` and `system.*`. Every other named input on a Stonetop sheet
 		// (roll-mode / background / origin / load-level / playbook-select, the choice-group radios,

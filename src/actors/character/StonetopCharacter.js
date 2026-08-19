@@ -398,8 +398,9 @@ export class StonetopCharacter {
 		await this._arcana.setBlankValue(arcanumSlug, key, text);
 	}
 
-	getArcanumBlanks(arcanumSlug) {
-		return this._arcana.getBlanks(arcanumSlug);
+	/** Map of arcanum slug → its write-in blanks, built in one pass. */
+	getAllArcanumBlanks() {
+		return this._arcana.allBlanks();
 	}
 
 	async setBackgroundResource(slug, count) {

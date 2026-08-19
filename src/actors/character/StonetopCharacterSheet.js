@@ -5,6 +5,7 @@ import { editOnly } from "../../utils/sheetActions.js";
 import { ScrollAnchoring } from "../../utils/ScrollAnchoring.js";
 import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
 import { InventoryOwner } from "./InventoryOwner.js";
+import { itemsOfType } from "../actorItems.js";
 import { characterChangeHandlers } from "./characterChangeHandlers.js";
 import { PIP_ACTIONS, DELETE_ACTIONS } from "./characterSheetActions.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
@@ -118,8 +119,8 @@ export function createStonetopCharacterSheetClass(Base) {
 		_getTabsConfig(group) {
 			const config = super._getTabsConfig(group);
 			if (group !== "primary" || !config) return config;
-			const insertTabs = [...this.actor.items]
-				.filter(i => i.type === "insert" && i.system?.slug)
+			const insertTabs = itemsOfType(this.actor, "insert")
+				.filter(i => i.system?.slug)
 				.map(i => ({ id: `insert-${i.system.slug}`, label: i.name }));
 			return { ...config, tabs: [...config.tabs, ...insertTabs] };
 		}
@@ -152,8 +153,11 @@ export function createStonetopCharacterSheetClass(Base) {
 			super._onRender(context, options);
 			// Held, not consumed: a two-write action renders more than once (see ScrollAnchoring).
 			this._scrollAnchoring.applyTo(this.element);
-			for (const card of this.element.querySelectorAll(".stonetop-arcanum-card")) {
-				const blanks = this._stonetopCharacter.getArcanumBlanks(card.dataset.slug);
+			const cards = this.element.querySelectorAll(".stonetop-arcanum-card");
+			if (!cards.length) return;
+			const blanksBySlug = this._stonetopCharacter.getAllArcanumBlanks();
+			for (const card of cards) {
+				const blanks = blanksBySlug.get(card.dataset.slug) ?? {};
 				for (const input of card.querySelectorAll("input.stonetop-arcanum-blank"))
 					input.value = blanks[input.dataset.blankKey] ?? "";
 			}

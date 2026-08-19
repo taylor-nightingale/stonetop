@@ -46,13 +46,35 @@ class FakeActorSheetV2Base {
 	// Core DocumentSheetV2 hands back the expanded form data; the base narrows it.
 	_processFormData(event, form, data) { return data; }
 	_onPosition(_position) {}
+
+	// Core's change→submit chain (application.mjs:1641 → :1617 → DocumentSheetV2's handler).
+	// submitOnChange makes EVERY change on the form run this, whatever changed.
+	_onChangeForm(formConfig, event) {
+		if (formConfig.submitOnChange) this._onSubmitForm(formConfig, event);
+	}
+
+	_onSubmitForm(formConfig, event) {
+		const form = event.currentTarget;
+		// Stands in for FormDataExtended + expandObject: named controls → a nested object.
+		const data = {};
+		for (const el of form.querySelectorAll("[name]")) {
+			if ((el.type === "radio" || el.type === "checkbox") && !el.checked) continue;
+			let node = data;
+			const parts = el.name.split(".");
+			for (const key of parts.slice(0, -1)) node = node[key] ??= {};
+			node[parts.at(-1)] = el.value;
+		}
+		this.document.update(this._processFormData(event, form, data));
+	}
 }
 
 function makeSheet({ editable = true, scrollEntry = "element" } = {}) {
-	const actor = { _onRoll: vi.fn() };
+	const actor = { _onRoll: vi.fn(), update: vi.fn() };
 	FakeActorSheetV2Base.scrollEntry = scrollEntry;
 	const Sheet = createStonetopActorSheetV2Class();
-	return { sheet: new Sheet({ actor, editable }), actor };
+	const sheet = new Sheet({ actor, editable });
+	sheet.document = actor;
+	return { sheet, actor };
 }
 
 const click = el => el.dispatchEvent(new Event("click", { bubbles: true, cancelable: true }));
@@ -242,6 +264,98 @@ describe("StonetopActorSheetV2 base", () => {
 			sheet._toggleDisabled(false);
 			expect(sheet.element.querySelector(".moves-filter").disabled).toBe(false);
 			expect(sheet.element.querySelector(".delete-follower").disabled).toBe(false);
+		});
+	});
+
+	// -- Form submit, end to end ---------------------------------------------------------------
+
+	// Characterization net for the deferred `_onChangeForm` short-circuit. That change will stop a
+	// data-change-action write from entering core's submit machinery at all; what must NOT change is
+	// either half asserted here — core keeps persisting the fields it owns, and never persists the
+	// ones a domain method owns.
+	describe("submitOnChange, end to end", () => {
+		const FORM_CONFIG = { submitOnChange: true };
+
+		function formSheet(html) {
+			const { sheet, actor } = makeSheet();
+			const form = document.createElement("form");
+			form.innerHTML = html;
+			document.body.appendChild(form);
+			return { sheet, actor, form };
+		}
+
+		const changeOn = (sheet, form, selector) =>
+			sheet._onChangeForm(FORM_CONFIG, { currentTarget: form, target: form.querySelector(selector) });
+
+		it("persists the stat inputs core legitimately owns", () => {
+			const { sheet, actor, form } = formSheet(`
+				<input name="name" value="Brakken">
+				<input name="system.stats.str.value" value="2">`);
+
+			changeOn(sheet, form, `[name="system.stats.str.value"]`);
+
+			expect(actor.update).toHaveBeenCalledWith({
+				name: "Brakken",
+				system: { stats: { str: { value: "2" } } },
+			});
+		});
+
+		// These carry a `name` only so the browser groups the radios; a domain method persists them.
+		it("never persists a router-managed field, whichever control changed", () => {
+			const { sheet, actor, form } = formSheet(`
+				<input name="name" value="Brakken">
+				<input type="radio" name="stonetop-roll-mode" value="adv" checked>
+				<input type="radio" name="stonetop-background" value="vessel" checked>`);
+
+			changeOn(sheet, form, `[name="stonetop-roll-mode"]`);
+
+			const [written] = actor.update.mock.calls[0];
+			expect(written).not.toHaveProperty("stonetop-roll-mode");
+			expect(written).not.toHaveProperty("stonetop-background");
+			expect(written).toEqual({ name: "Brakken" });
+		});
+
+		// The short-circuit itself: a control the ChangeActionRouter already persisted must not drag
+		// the whole form through FormDataExtended + expandObject + a document validate.
+		it("skips core's submit entirely for a router-managed control", () => {
+			const { sheet, actor, form } = formSheet(`
+				<input name="name" value="Brakken">
+				<input data-change-action="hp" value="7">`);
+			const submit = vi.spyOn(sheet, "_onSubmitForm");
+
+			changeOn(sheet, form, `[data-change-action="hp"]`);
+
+			expect(submit).not.toHaveBeenCalled();
+			expect(actor.update).not.toHaveBeenCalled();
+		});
+
+		it("still submits for a control core owns, even beside router-managed ones", () => {
+			const { sheet, actor, form } = formSheet(`
+				<input name="system.stats.str.value" value="2">
+				<input data-change-action="hp" value="7">`);
+
+			changeOn(sheet, form, `[name="system.stats.str.value"]`);
+
+			expect(actor.update).toHaveBeenCalledWith({ system: { stats: { str: { value: "2" } } } });
+		});
+
+		// The change can land on a child of the control (a combobox option, a chip inside a wrap).
+		it("skips the submit for a descendant of a router-managed control", () => {
+			const { sheet, actor, form } = formSheet(`
+				<div data-change-action="tagAdd"><input class="inner" value="sturdy"></div>`);
+
+			changeOn(sheet, form, ".inner");
+
+			expect(actor.update).not.toHaveBeenCalled();
+		});
+
+		it("writes nothing at all when the form holds only router-managed fields", () => {
+			const { sheet, actor, form } = formSheet(
+				`<input type="radio" name="stonetop-fortunes" value="3" checked>`);
+
+			changeOn(sheet, form, `[name="stonetop-fortunes"]`);
+
+			expect(actor.update).toHaveBeenCalledWith({});
 		});
 	});
 

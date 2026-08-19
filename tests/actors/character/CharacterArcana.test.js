@@ -362,12 +362,21 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(actor.updateOps).toEqual([{}, {}]);
 		});
 
-		it("getBlanks returns the stored write-in map (empty object when none)", async () => {
+		// One pass over the actor's items, keyed by slug — the sheet seeds every card from this rather
+		// than rescanning the collection once per card.
+		it("allBlanks maps each owned arcanum's slug to its stored write-ins", async () => {
 			const withBlanks = makeArcanumItem({ slug: "horn", front: {}, back: {} }, { choiceValues: { blanks: { "0": "4" } } });
-			expect(makeArcana([withBlanks], [{ slug: "horn" }]).getBlanks("horn")).toEqual({ "0": "4" });
-			const empty = makeArcanumItem({ slug: "bare", front: {}, back: {} });
-			expect(makeArcana([empty], [{ slug: "bare" }]).getBlanks("bare")).toEqual({});
-			expect(makeArcana([], []).getBlanks("missing")).toEqual({});
+			const empty      = makeArcanumItem({ slug: "bare", front: {}, back: {} });
+
+			const blanks = makeArcana([withBlanks, empty], [{ slug: "horn" }, { slug: "bare" }]).allBlanks();
+
+			expect(blanks.get("horn")).toEqual({ "0": "4" });
+			expect(blanks.get("bare")).toEqual({});
+			expect(blanks.get("missing")).toBeUndefined();
+		});
+
+		it("allBlanks is empty when the character owns no arcana", async () => {
+			expect(makeArcana([], []).allBlanks().size).toBe(0);
 		});
 	});
 });

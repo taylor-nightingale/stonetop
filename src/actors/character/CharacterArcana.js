@@ -143,8 +143,10 @@ export class CharacterArcana {
 		await this.controllerFor(arcanumSlug)?.setText("blanks", String(key), text);
 	}
 
-	getBlanks(arcanumSlug) {
-		return OwnedArcanum.bySlug(this._actor, arcanumSlug)?.blanks ?? {};
+	// Every owned arcanum's write-in blanks, from ONE pass over the actor's items. The sheet seeds
+	// its cards after each render; asking per card rescanned the whole collection each time.
+	allBlanks() {
+		return new Map(OwnedArcanum.all(this._actor).map(a => [a.slug, a.blanks]));
 	}
 
 	// Registered with ContainerOutfitSync, which calls it with a raw arcanum item.
