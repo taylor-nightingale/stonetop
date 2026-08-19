@@ -202,17 +202,26 @@ describe("StonetopActorSheetV2 base", () => {
 			expect(sheet.element.querySelector(".stonetop-editable").classList.contains("is-editing")).toBe(true);
 		});
 
-		it("re-decorates steppers on every render, because part content is replaced", async () => {
+		// Steppers are template markup driven by one delegated handler, so a part re-render swapping
+		// in fresh buttons needs no re-wiring.
+		it("keeps driving steppers through a part re-render, without re-wiring", async () => {
 			const { sheet } = makeSheet();
-			sheet.element.innerHTML = `<input class="stonetop-step" type="number" value="1">`;
 			await sheet._onFirstRender({}, {});
-			sheet._onRender({}, {});
-			expect(sheet.element.querySelector(".stonetop-stepper")).not.toBeNull();
 
-			// Simulate a part re-render: fresh, undecorated content.
-			sheet.element.innerHTML = `<input class="stonetop-step" type="number" value="2">`;
+			const stepper = value => `
+				<span class="stonetop-stepper">
+					<input class="stonetop-step" type="number" value="${value}">
+					<button class="stonetop-stepper-btn" data-step-dir="1"></button>
+				</span>`;
+
+			sheet.element.innerHTML = stepper(1);
+			click(sheet.element.querySelector(".stonetop-stepper-btn"));
+			expect(sheet.element.querySelector("input").value).toBe("2");
+
+			sheet.element.innerHTML = stepper(9); // fresh content from a later render
 			sheet._onRender({}, {});
-			expect(sheet.element.querySelector(".stonetop-stepper")).not.toBeNull();
+			click(sheet.element.querySelector(".stonetop-stepper-btn"));
+			expect(sheet.element.querySelector("input").value).toBe("10");
 		});
 
 		it("routes .rollable[data-roll] clicks to the actor's roll handler", async () => {

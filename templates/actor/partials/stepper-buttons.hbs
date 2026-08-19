@@ -1,0 +1,6 @@
+{{!-- The ▲▼ controls for a number input. The caller wraps its own `.stonetop-step` input and this
+      partial in a `<span class="stonetop-stepper">`, so the input keeps its own attributes and stays
+      a direct child (the CSS uses `:has(> …)`). One delegated handler drives every one of these —
+      see src/utils/stepper.js. --}}
+<button type="button" tabindex="-1" class="stonetop-stepper-btn stonetop-stepper-btn--up" data-step-dir="1">▲</button>
+<button type="button" tabindex="-1" class="stonetop-stepper-btn stonetop-stepper-btn--down" data-step-dir="-1">▼</button>

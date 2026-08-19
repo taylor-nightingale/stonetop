@@ -28,6 +28,7 @@ export function withStonetopSheetChromeV2(Base) {
 			await super._onFirstRender(context, options);
 			activateEditToggles(this.element);
 			activateComboBoxes(); // installs once on document; internally guarded
+			activateSteppers(this.element);
 		}
 
 		// An observer-permission sheet is read-only, but collapsing a header or filtering a list
@@ -37,11 +38,5 @@ export function withStonetopSheetChromeV2(Base) {
 			if (disabled) reenableViewStateControls(this.element);
 		}
 
-		// Per-element decoration must re-run every render — the part content it decorated was just
-		// replaced. activateSteppers is idempotent per input, so this is safe.
-		_onRender(context, options) {
-			super._onRender(context, options);
-			activateSteppers(this.element);
-		}
 	};
 }

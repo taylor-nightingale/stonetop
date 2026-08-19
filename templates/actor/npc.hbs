@@ -7,9 +7,15 @@
 		<div class="stonetop-creature-hp">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 			<div class="stonetop-creature-hp__row">
-				<input id="npc-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hp}}">
+				<span class="stonetop-stepper">
+					<input id="npc-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hp}}">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 				<span>/</span>
-				<input id="npc-max-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hpMax}}">
+				<span class="stonetop-stepper">
+					<input id="npc-max-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hpMax}}">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
 			</div>
 		</div>
 	</div>
