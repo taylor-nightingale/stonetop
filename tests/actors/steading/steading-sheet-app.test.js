@@ -5,7 +5,7 @@ import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
-import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // Drives the WHOLE steading sheet _prepareContext (real StonetopSteading + every steading snapshot +
@@ -16,7 +16,7 @@ function makeSheet(movesRepo) {
 	const actor = new FakeSteadingBuilder().build();
 	actor.typedActor = new StonetopSteading(actor, steadingRepos({ improvements: { getBySlug: async () => null }, moves: movesRepo }));
 
-	return new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
+	return new (createStonetopSteadingSheetClass(stonetopActorSheetBase()))(actor);
 }
 
 describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integration)", () => {

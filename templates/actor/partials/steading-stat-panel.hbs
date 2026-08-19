@@ -12,7 +12,7 @@
 	<div class="steading-rating-options{{#if wide}} steading-rating-options--wide{{/if}}">
 		{{#each attrData.options}}
 			<label class="steading-rating-option">
-				<input class="steading-box-input" type="radio" name="stonetop-attr-{{../attr}}" data-attr="{{../attr}}" value="{{value}}" {{#if selected}}checked{{/if}}>
+				<input class="steading-box-input" data-change-action="attribute" type="radio" name="stonetop-attr-{{../attr}}" data-attr="{{../attr}}" value="{{value}}" {{#if selected}}checked{{/if}}>
 				<span class="steading-box" aria-hidden="true"></span>
 				<span class="steading-option-text"><span>{{rich label}}</span></span>
 			</label>

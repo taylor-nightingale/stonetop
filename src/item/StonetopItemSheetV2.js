@@ -1,5 +1,4 @@
-import { withSheetSizeMemoryV2 } from "../utils/withSheetSizeMemoryV2.js";
-import { reenableViewStateControls } from "../utils/viewStateControls.js";
+import { withStonetopSheetChromeV2 } from "../utils/withStonetopSheetChromeV2.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop item sheets: HandlebarsApplicationMixin over
@@ -16,7 +15,7 @@ export function createStonetopItemSheetV2BaseClass() {
 	const { HandlebarsApplicationMixin } = foundry.applications.api;
 	const { ItemSheetV2 } = foundry.applications.sheets;
 
-	return class StonetopItemSheetV2 extends withSheetSizeMemoryV2(HandlebarsApplicationMixin(ItemSheetV2)) {
+	return class StonetopItemSheetV2 extends withStonetopSheetChromeV2(HandlebarsApplicationMixin(ItemSheetV2)) {
 		static DEFAULT_OPTIONS = {
 			// "themed theme-light": parchment sheets are always light. Core sees "themed" already
 			// present and skips imposing the client theme, and every core form/menu/prosemirror
@@ -26,10 +25,5 @@ export function createStonetopItemSheetV2BaseClass() {
 			form: { submitOnChange: true },
 		};
 
-		// V2 home of the old arcanum `_render` re-enable hack — see reenableViewStateControls.
-		_toggleDisabled(disabled) {
-			super._toggleDisabled(disabled);
-			if (disabled) reenableViewStateControls(this.element);
-		}
 	};
 }

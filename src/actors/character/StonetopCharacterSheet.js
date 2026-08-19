@@ -1,54 +1,29 @@
-import { FoundryPlaybookRepository } from "./repositories/FoundryPlaybookRepository.js";
-import { enrichRichTextTree } from "../../utils/enrichRichText.js";
-import { confirmDelete } from "../../utils/confirmDelete.js";
+import { FoundryMoveRepository } from "./repositories/FoundryMoveRepository.js";
 import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
-import { ChoiceTarget } from "./ChoiceTarget.js";
-import { takeTagInputValue } from "../../utils/takeTagInputValue.js";
+import { editOnly } from "../../utils/sheetActions.js";
+import { ScrollAnchoring } from "../../utils/ScrollAnchoring.js";
+import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
+import { InventoryOwner } from "./InventoryOwner.js";
+import { characterChangeHandlers } from "./characterChangeHandlers.js";
+import { PIP_ACTIONS, DELETE_ACTIONS } from "./characterSheetActions.js";
+import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
+import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../tagChips.js";
 
-const ADD_ITEM_DIALOG_TEMPLATE = "systems/stonetop/templates/actor/partials/add-inventory-item-dialog.hbs";
-
-// Actor-mutating actions are gated on per-event editability (core disables form controls on a
-// locked sheet, but <a> delete links and future actions shouldn't rely on that).
-function editOnly(handler) {
-	return function (ev, target) {
-		if (this.isEditable) return handler.call(this, ev, target);
-	};
-}
-
-// The click-confirms / right-click-skips delete convention as an action: core dispatches
-// contextmenu through the actions pipeline when the action declares buttons: [0, 2].
-function confirmedDelete(perform) {
-	return {
-		buttons: [0, 2],
-		async handler(ev, target) {
-			if (!this.isEditable) return;
-			ev.preventDefault(); // suppress the browser menu on the right-click path
-			const skipConfirm = ev.type === "contextmenu" || ev.button === 2;
-			if (!skipConfirm && !(await confirmDelete(target.dataset.name))) return;
-			await perform.call(this, target);
-		},
-	};
-}
-
-// View adapter only (the thin-sheet rule): every handler reads values off the event/DOM and calls
-// ONE named method on the typed character — routing, parsing, and pip math live on
-// StonetopCharacter, tested there. Clicks go through the V2 actions map (data-action), changes
-// through one ChangeActionRouter (data-change-action); nothing is hand-wired per render.
 export function createStonetopCharacterSheetClass(Base) {
 	return class StonetopCharacterSheet extends Base {
-		_stonetopCharacter;
-		_playbookRepository = new FoundryPlaybookRepository();
+		_moveRepository = new FoundryMoveRepository();
+		_addInventoryItemDialog = new AddInventoryItemDialog();
 		// Which follower inventory catalogs are expanded — sheet-instance state that survives
 		// re-render, so only the open follower renders the (large) outfit catalog.
 		_openFollowerInventories = new Set();
 		// Moves tab "selected only" filter. Held on the sheet because ticking a move re-renders the
 		// tab, which would otherwise drop the filter mid-review.
 		_hideUnselectedMoves = false;
+		_scrollAnchoring = new ScrollAnchoring();
 
-		constructor(...args) {
-			super(...args);
-			this._stonetopCharacter = this.actor.typedActor;
+		get _stonetopCharacter() {
+			return this.typedActor;
 		}
 
 		static DEFAULT_OPTIONS = {
@@ -71,15 +46,10 @@ export function createStonetopCharacterSheetClass(Base) {
 					target.closest(".stonetop-sheet-layout")?.classList.remove("moves-open");
 					const { compendiumId } = target.dataset;
 					if (!compendiumId) return;
-					const pack = game.packs.get("stonetop.moves");
-					const doc  = (pack ? await pack.getDocument(compendiumId) : null)
-						?? game.items?.get(compendiumId)
-						?? null;
-					if (doc) doc.sheet.render(true);
+					const doc = await this._moveRepository.getReferencedMoveDocument(compendiumId);
+					doc?.sheet.render(true);
 				},
 				toggleFollowerInventory(ev, target) {
-					// Server-side expand/collapse: only the open follower renders the (large)
-					// outfit catalog, and the open state survives update-triggered re-renders.
 					const slug = target.dataset.slug;
 					if (this._openFollowerInventories.has(slug)) this._openFollowerInventories.delete(slug);
 					else this._openFollowerInventories.add(slug);
@@ -87,11 +57,6 @@ export function createStonetopCharacterSheetClass(Base) {
 				},
 
 				// --- one-call domain actions ---
-				// Not edit-gated: posting a move's text to chat mutates nothing, so it works on a
-				// locked sheet too.
-				moveToChat(ev, target) {
-					return this._stonetopCharacter.sendMoveToChat(target.dataset.moveSlug);
-				},
 				selectOriginName: editOnly(function (ev, target) {
 					return this._stonetopCharacter.origin.selectName(target.textContent.trim());
 				}),
@@ -100,7 +65,7 @@ export function createStonetopCharacterSheetClass(Base) {
 					// writes twice — so the tab is rebuilt (more than once) around a card that just
 					// changed height. Pin the card across the whole action, or it drops to the top.
 					const slug = target.dataset.slug;
-					return this.keepAnchored(target.closest(".stonetop-arcanum-card"),
+					return this._scrollAnchoring.hold(target.closest(".stonetop-arcanum-card"),
 						`.stonetop-arcanum-card[data-slug="${slug}"]`, ".sheet-body",
 						() => this._stonetopCharacter.toggleArcanumFlip(slug, target.dataset.flipped === "true"));
 				}),
@@ -117,65 +82,20 @@ export function createStonetopCharacterSheetClass(Base) {
 					return this._stonetopCharacter.removeFollowerMember(
 						target.dataset.slug, Number(target.dataset.index));
 				}),
-				toggleTag: editOnly(function (ev, target) {
-					return this._toggleTagFromWrap(target.closest(".stonetop-tags"), target.dataset.tag);
-				}),
 				addInventoryItem: editOnly(function (ev, target) {
 					return this._onAddInventoryItem(target);
 				}),
 
-				// --- resource pips (current checked state → the domain does the ±1 math) ---
-				moveResourcePip: editOnly(function (ev, target) {
-					return this._stonetopCharacter.toggleMoveResourcePip(
-						target.dataset.moveSlug, target.dataset.index, target.classList.contains("is-checked"));
-				}),
-				possessionUsePip: editOnly(function (ev, target) {
-					return this._stonetopCharacter.togglePossessionUsePip(
-						target.dataset.possessionSlug, target.dataset.choiceSlug ?? null,
-						target.dataset.index, target.classList.contains("is-checked"));
-				}),
-				inventoryResourcePip: editOnly(function (ev, target) {
-					return this._stonetopCharacter.toggleInventoryResourcePipFor(
-						this._followerInvSlug(target), target.dataset.slug,
-						target.dataset.index, target.classList.contains("is-checked"));
-				}),
-				arcanumResourcePip: editOnly(function (ev, target) {
-					return this._stonetopCharacter.toggleArcanumResourcePip(
-						target.dataset.slug, target.dataset.index, target.classList.contains("is-checked"));
-				}),
-				backgroundResourcePip: editOnly(function (ev, target) {
-					return this._stonetopCharacter.toggleBackgroundResourcePip(
-						target.dataset.slug, target.dataset.index, target.classList.contains("is-checked"));
-				}),
-				followerLoyaltyPip: editOnly(function (ev, target) {
-					return this._stonetopCharacter.toggleFollowerLoyaltyPip(
-						target.dataset.slug, target.dataset.index, target.classList.contains("is-checked"));
-				}),
-
-				// --- deletes (click confirms, right-click skips) ---
-				deleteArcanum: confirmedDelete(function (target) {
-					return this._stonetopCharacter.removeArcanum(target.dataset.slug);
-				}),
-				deletePossession: confirmedDelete(function (target) {
-					return this._stonetopCharacter.deletePossession(target.dataset.slug);
-				}),
-				deleteFollower: confirmedDelete(function (target) {
-					return this._stonetopCharacter.removeFollower(target.dataset.slug);
-				}),
-				deleteOtherMove: confirmedDelete(function (target) {
-					return this._stonetopCharacter.deleteMove(target.dataset.moveSlug);
-				}),
-				deleteInventoryItem: confirmedDelete(function (target) {
-					return this._stonetopCharacter.removeCustomInventoryItemFor(
-						this._followerInvSlug(target), target.dataset.ownedId);
-				}),
+				...MOVE_ROW_ACTIONS,
+				...TAG_CHIP_ACTIONS,
+				...PIP_ACTIONS,
+				...DELETE_ACTIONS,
 			},
 		};
 
 		static PARTS = {
 			form: {
 				template: "systems/stonetop/templates/actor/character.hbs",
-				// The V1 sheet preserved exactly these two scroll containers across re-renders.
 				scrollable: [".sheet-body", ".stonetop-moves-sidebar"],
 			},
 		};
@@ -205,25 +125,17 @@ export function createStonetopCharacterSheetClass(Base) {
 		}
 
 		async _prepareContext(options) {
-			const context = await super._prepareContext(options);
-			context.actor    = this.actor;
-			context.editable = this.isEditable;
-			context.hideUnselectedMoves = this._hideUnselectedMoves;
+			// Which inventories are open has to be known before the snapshot is built, since only
+			// the open follower's (large) outfit catalog is rendered.
 			this._stonetopCharacter.setOpenFollowerInventories(this._openFollowerInventories);
-			// The playbook list is independent of the snapshot build — load them in parallel.
-			const [stonetop, availablePlaybooks] = await Promise.all([
-				this._stonetopCharacter.buildSnapshot(),
-				this._playbookRepository.getAllPlaybooks(),
-			]);
-			// Single rich-text pass: enrich every RichText in the snapshot in one go.
-			await enrichRichTextTree(stonetop, this.actor?.getRollData?.() ?? {});
-			context.stonetop = stonetop;
-			context.availablePlaybooks = availablePlaybooks;
+			// Independent of the snapshot, so it is started first and overlaps the base's build.
+			const playbooks = this._stonetopCharacter.listPlaybooks();
+			const context = await super._prepareContext(options);
+			context.hideUnselectedMoves = this._hideUnselectedMoves;
+			context.availablePlaybooks  = await playbooks;
 			return context;
 		}
 
-		// Root-delegated, one-time wiring — the V2 root persists across re-renders. Editability is
-		// gated per event inside the router, not at wiring time.
 		async _onFirstRender(context, options) {
 			await super._onFirstRender(context, options);
 			this._buildChangeRouter().attach(this.element);
@@ -234,27 +146,12 @@ export function createStonetopCharacterSheetClass(Base) {
 			}).attach(this.element);
 		}
 
-		// submitOnChange (from the actor base) makes core submit the WHOLE form on every change.
-		// Only `name` and the `system.stats.*` inputs actually need that path — every other named
-		// input (stonetop-roll-mode / -background / -origin / -load-level / -playbook-select, and
-		// the choice-group radios) carries a `name` purely for browser radio-grouping and is
-		// persisted by the ChangeActionRouter through a domain method. Left in, they'd drive a
-		// SECOND actor.update per change — a redundant re-render that races the click you're making
-		// (the "click after typing didn't take" glitch) and churns validation on junk top-level keys.
-		// Keep only the fields core legitimately owns.
-		_processFormData(event, form, formData) {
-			const data = super._processFormData(event, form, formData);
-			const clean = {};
-			for (const key of ["name", "img", "system"]) {
-				if (data[key] !== undefined) clean[key] = data[key];
-			}
-			return clean;
-		}
-
-		// Per-element DOM decoration re-runs every render (the part content was just replaced):
-		// seed the arcanum write-in blanks from storage (the @Blank enricher renders them empty).
+		// The @Blank enricher renders write-in blanks empty, so their stored values are seeded here
+		// on every render (the part content was just replaced).
 		_onRender(context, options) {
 			super._onRender(context, options);
+			// Held, not consumed: a two-write action renders more than once (see ScrollAnchoring).
+			this._scrollAnchoring.applyTo(this.element);
 			for (const card of this.element.querySelectorAll(".stonetop-arcanum-card")) {
 				const blanks = this._stonetopCharacter.getArcanumBlanks(card.dataset.slug);
 				for (const input of card.querySelectorAll("input.stonetop-arcanum-blank"))
@@ -262,72 +159,16 @@ export function createStonetopCharacterSheetClass(Base) {
 			}
 		}
 
-		// Every change action writes to the actor, so the whole router is gated on per-event
-		// editability (a sheet can gain or lose ownership mid-session).
 		_buildChangeRouter() {
-			const char = this._stonetopCharacter;
 			const handlers = {
-				// vitals + header
-				hp:       el => char.setHP(el.value),
-				maxHp:    el => char.setMaxHP(el.value),
-				damage:   el => char.setDamage(el.value),
-				armor:    el => char.setArmor(el.value),
-				xp:       el => char.setXP(el.value),
-				level:    el => char.setLevel(el.value),
-				debility: el => char.setDebility(el.dataset.slug, el.checked),
-				rollMode: el => char.setRollMode(el.value),
-
-				// playbook tab
-				selectPlaybook:   el => char.applyPlaybookBySlug(el.value),
-				selectBackground: el => char.selectBackground(el.value),
-				selectOrigin:     el => char.origin.select(el.value),
-				instinctCustom:   el => char.selectCustomInstinct(el.value.trim()),
-				arcanumBlank:  el => {
-					const card = el.closest(".stonetop-arcanum-card");
-					if (card) return char.setArcanumBlank(card.dataset.slug, el.dataset.blankKey, el.value);
-				},
-
-				// moves
-				moveCheck:        el => char.setMoveChecked(el.dataset.categoryKey, el.dataset.moveSlug, el.checked),
-				moveResourceText: el => char.setMoveResourceText(el.dataset.moveSlug, el.value),
-
-				// inventory (shared with follower inventories — the wrapper slug routes)
-				inventoryItemCheck: el => char.setInventoryItemCheckedFor(this._followerInvSlug(el), el.dataset.slug, el.checked),
-				outfitLoad:         el => char.setInventoryLoadLevel(el.value),
-				regularPool:        el => char.toggleInventoryRegularPool(el.dataset.index, el.checked),
-				smallPool:          el => char.toggleInventorySmallPool(el.dataset.index, el.checked),
-				inventoryOtherItems: el => char.setInventoryOtherItems(el.value),
-
-				// possessions
-				possessionCheck:    el => char.setPossessionSelected(el.dataset.slug, el.checked),
-
-				// notes
-				bio:       el => char.setBio(el.value),
-				charNotes: el => char.setNotes(el.value),
-
-				// followers
-				followerName:    el => char.setFollowerName(el.dataset.slug, el.value),
-				followerHp:      el => char.setFollowerHp(el.dataset.slug, el.value,
-					el.closest(".stonetop-follower-card")?.querySelector(".stonetop-follower-hp-max")?.value ?? el.max),
-				followerHpMax:   el => char.setFollowerHpMax(el.dataset.slug, Number(el.value)),
-				followerArmor:   el => char.setFollowerArmor(el.dataset.slug, el.value.trim()),
-				followerDamage:  el => char.setFollowerDamage(el.dataset.slug, el.value.trim()),
-				followerInstinct: el => char.setFollowerInstinct(el.dataset.slug, el.value.trim()),
-				companionType:   el => char.setFollowerCompanionType(el.dataset.slug, el.value.trim()),
-				followerMoves:   el => char.setFollowerMoves(el.dataset.slug, el.value),
-				followerCost:    el => char.setFollowerCost(el.dataset.slug, el.value.trim()),
-				followerNotes:   el => char.setFollowerNotes(el.dataset.slug, el.value),
-				followerSpecialQuality: el => char.setFollowerSpecialQuality(el.dataset.slug, el.value),
-				followerDescription:    el => char.setFollowerDescription(el.dataset.slug, el.value),
-				memberName:  el => char.setFollowerMemberName(el.dataset.slug, Number(el.dataset.index), el.value),
-				memberHp:    el => char.setFollowerMemberHp(el.dataset.slug, Number(el.dataset.index), el.value),
-				memberHpMax: el => char.setFollowerMemberHpMax(el.dataset.slug, Number(el.dataset.index), el.value),
-				tagAdd: el => {
-					const value = takeTagInputValue(el);
-					if (value) return this._toggleTagFromWrap(el.closest(".stonetop-tags"), value);
-				},
+				...moveRowChangeHandlers(this._stonetopCharacter),
+				...tagChipChangeHandlers(this),
+				...characterChangeHandlers(this._stonetopCharacter),
 			};
-			return new ChangeActionRouter(handlers, { when: () => this.isEditable });
+			return new ChangeActionRouter(handlers, {
+				when: () => this.isEditable,
+				ignore: ChoiceGroupWiring.CHANGE_ACTIONS,
+			});
 		}
 
 		// The picked option's label mirrors into the custom-instinct box immediately (the
@@ -343,12 +184,10 @@ export function createStonetopCharacterSheetClass(Base) {
 			}
 		}
 
-		// Tag chips/adders on a follower card, group member, or companion — the wrap's dataset
-		// says which; StonetopCharacter owns the routing.
-		_toggleTagFromWrap(wrap, value) {
-			if (!wrap || !value) return;
-			const { slug, field, memberIndex } = wrap.dataset;
-			return this._stonetopCharacter.toggleFollowerTag(slug, field, memberIndex ?? null, value);
+		// Tag chips on a follower card, group member, or companion — StonetopCharacter routes on
+		// which of the three the wrap describes.
+		toggleTag(wrap, value) {
+			return this._stonetopCharacter.toggleFollowerTag(wrap.slug, wrap.field, wrap.memberIndex, value);
 		}
 
 		// The moves-tab filter is CSS-only, so flipping it decorates the live tab rather than
@@ -358,12 +197,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			this._hideUnselectedMoves = hide;
 			tab?.classList.toggle("hide-unselected", hide);
 			tab?.querySelector(".stonetop-moves-filter")?.classList.toggle("is-active", hide);
-		}
-
-		// A shared outfit item lives in the character inventory tab OR inside a follower card's
-		// `.stonetop-follower-inventory` wrapper — the wrapper's data-slug routes to the follower path.
-		_followerInvSlug(el) {
-			return el.closest?.(".stonetop-follower-inventory")?.dataset.slug ?? null;
 		}
 
 		// Core ActorSheetV2 ships the whole drop pipeline (never wire `drop` manually here) —
@@ -385,26 +218,9 @@ export function createStonetopCharacterSheetClass(Base) {
 
 		async _onAddInventoryItem(target) {
 			const isRegular = target.dataset.column === "regular";
-			const followerSlug = this._followerInvSlug(target);
-			const content = await foundry.applications.handlebars.renderTemplate(
-				ADD_ITEM_DIALOG_TEMPLATE, { isRegular });
-			const result = await foundry.applications.api.DialogV2.prompt({
-				window: {
-					title: game.i18n.localize(isRegular ? "stonetop.inventory.addItem" : "stonetop.inventory.addSmallItem"),
-				},
-				content,
-				ok: {
-					label: game.i18n.localize("stonetop.inventory.addItemConfirm"),
-					callback: (_event, button) => ({
-						name:   button.form.elements.name.value.trim(),
-						weight: isRegular ? (parseInt(button.form.elements.weight?.value) || 1) : 1,
-					}),
-				},
-				rejectClose: false,
-			});
-			if (!result?.name) return; // dismissed or blank
-			await this._stonetopCharacter.addCustomInventoryItemFor(
-				followerSlug, result.name, result.weight, isRegular);
+			const item = await this._addInventoryItemDialog.show({ isRegular });
+			if (!item) return;
+			await this._stonetopCharacter.addCustomInventoryItemFor(InventoryOwner.fromElement(target), item);
 		}
 	};
 }

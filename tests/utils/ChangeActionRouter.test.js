@@ -14,7 +14,10 @@ function makeRoot(innerHTML) {
 }
 
 describe("ChangeActionRouter", () => {
-	beforeEach(() => { document.body.innerHTML = ""; });
+	beforeEach(() => {
+		document.body.innerHTML = "";
+		warn.mockClear(); // the spy is module-level, so call counts leak between tests otherwise
+	});
 
 	it("dispatches a change on a data-change-action element to its named handler", () => {
 		const setHp = vi.fn();
@@ -101,6 +104,26 @@ describe("ChangeActionRouter", () => {
 		expect(() => change(root.querySelector("input"))).not.toThrow();
 
 		expect(warn).toHaveBeenCalledTimes(1);
+		expect(warn.mock.calls[0].join(" ")).toContain("typoedAction");
+	});
+
+	// ChoiceGroupWiring attaches to the same root and owns the cg* actions. Without `ignore` every
+	// choice-row edit warns, which drowns the drift signal the warning exists to carry.
+	it("stays silent on actions declared as owned by another wiring", () => {
+		const root = makeRoot(`<input data-change-action="cgPick">`);
+		new ChangeActionRouter({}, { ignore: ["cgPick"] }).attach(root);
+
+		change(root.querySelector("input"));
+
+		expect(warn).not.toHaveBeenCalled();
+	});
+
+	it("still warns for an unknown action when other names are ignored", () => {
+		const root = makeRoot(`<input data-change-action="typoedAction">`);
+		new ChangeActionRouter({}, { ignore: ["cgPick"] }).attach(root);
+
+		change(root.querySelector("input"));
+
 		expect(warn.mock.calls[0].join(" ")).toContain("typoedAction");
 	});
 });

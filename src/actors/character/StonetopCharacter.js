@@ -313,6 +313,12 @@ export class StonetopCharacter {
 		if (data) await this.applyDroppedItems([data]);
 	}
 
+	// Every playbook the sheet's picker can offer. Served from the character's own repository so the
+	// pack index and parsed-playbook cache are shared with applyPlaybookBySlug.
+	async listPlaybooks() {
+		return this._playbookRepo?.getAllPlaybooks() ?? [];
+	}
+
 	async incrementMove(categoryKey, moveName) {
 		await this._moves.incrementMove(categoryKey, moveName);
 	}
@@ -494,29 +500,28 @@ export class StonetopCharacter {
 	}
 
 	// --- Shared-inventory routing ------------------------------------------------------------
-	// A shared outfit item lives in the character's inventory tab OR inside a follower card;
-	// the sheet reads the follower slug off the wrapper (null = the character's own inventory)
-	// and these route it.
+	// A shared outfit item lives in the character's inventory tab OR inside a follower card; the
+	// InventoryOwner the sheet read off the row says which, and these route on it.
 
-	async setInventoryItemCheckedFor(followerSlug, itemSlug, checked) {
-		if (followerSlug) return this.setFollowerInvItemChecked(followerSlug, itemSlug, checked);
+	async setInventoryItemCheckedFor(owner, itemSlug, checked) {
+		if (owner.isFollower) return this.setFollowerInvItemChecked(owner.followerSlug, itemSlug, checked);
 		return this.setInventoryItemChecked(itemSlug, checked);
 	}
 
-	async toggleInventoryResourcePipFor(followerSlug, itemSlug, index, isChecked) {
+	async toggleInventoryResourcePipFor(owner, itemSlug, index, isChecked) {
 		const count = this.#pipCount(index, isChecked);
-		if (followerSlug) return this.setFollowerInvResource(followerSlug, itemSlug, count);
+		if (owner.isFollower) return this.setFollowerInvResource(owner.followerSlug, itemSlug, count);
 		return this.setInventoryResource(itemSlug, count);
 	}
 
-	async addCustomInventoryItemFor(followerSlug, name, weight, isRegular) {
-		if (followerSlug) return this.addFollowerInvCustomItem(followerSlug, name, weight);
-		if (isRegular)    return this.addCustomInventoryItem(name, weight);
-		return this.addCustomSmallItem(name);
+	async addCustomInventoryItemFor(owner, item) {
+		if (owner.isFollower) return this.addFollowerInvCustomItem(owner.followerSlug, item.name, item.weight);
+		if (item.isRegular)   return this.addCustomInventoryItem(item.name, item.weight);
+		return this.addCustomSmallItem(item.name);
 	}
 
-	async removeCustomInventoryItemFor(followerSlug, itemId) {
-		if (followerSlug) return this.removeFollowerInvCustomItem(followerSlug, itemId);
+	async removeCustomInventoryItemFor(owner, itemId) {
+		if (owner.isFollower) return this.removeFollowerInvCustomItem(owner.followerSlug, itemId);
 		return this.removeCustomInventoryItem(itemId);
 	}
 

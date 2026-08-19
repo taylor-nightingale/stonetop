@@ -12,6 +12,10 @@ import { ChoiceTarget } from "../actors/character/ChoiceTarget.js";
  * (the lesson behind the steading's original track listener).
  */
 export class ChoiceGroupWiring {
+	// The change actions this wiring owns. A ChangeActionRouter sharing the same root is handed
+	// these as `ignore`, so choice rows don't read as template drift to it.
+	static CHANGE_ACTIONS = ["cgTrack", "cgPick", "cgText"];
+
 	#host;
 	#when;
 	#onPick;

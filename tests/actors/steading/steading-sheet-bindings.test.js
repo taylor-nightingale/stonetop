@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
-import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 import { fire } from "../../fakes/domEvents.js";
 
 // Routes native DOM events to the matching typed-steading method — one representative control per
@@ -38,19 +38,20 @@ function makeSpySteading() {
 async function renderSheet({ editable = true } = {}) {
 	const steading = makeSpySteading();
 	const actor = { typedActor: steading, name: "Stonetop" };
-	const sheet = new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
+	const sheet = new (createStonetopSteadingSheetClass(stonetopActorSheetBase()))(actor);
 	sheet.isEditable = editable;
 	sheet.element.innerHTML = `
-		<input class="steading-steadfast-input" value="Barrier Pass">
-		<input class="steading-box-input" name="stonetop-fortunes" value="2">
-		<input class="stonetop-resident-name" data-id="r1" value="Cerdig">
-		<input class="stonetop-neighbor-person-name" data-id="n1" value="Marock">
-		<textarea class="steading-npc-traits-source">gruff
+		<input class="steading-steadfast-input" data-change-action="steadfastName" value="Barrier Pass">
+		<input class="steading-box-input" data-change-action="fortunes" name="stonetop-fortunes" value="2">
+		<input class="stonetop-resident-name" data-change-action="residentName" data-id="r1" value="Cerdig">
+		<input class="stonetop-neighbor-person-name" data-change-action="neighborName" data-id="n1" value="Marock">
+		<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource">gruff
 curious</textarea>
-		<textarea class="stonetop-notes">a note</textarea>
+		<textarea class="stonetop-notes" data-change-action="notes">a note</textarea>
 		<input type="checkbox" class="stonetop-cg-track" data-change-action="cgTrack" data-cg-context="improvement"
 		       data-cg-group="fortifications" data-cg-option="palisade" data-cg-index="1" checked>
-		<button class="stonetop-item-resource-check is-checked" data-move-slug="trade" data-index="0"></button>`;
+		<button class="stonetop-item-resource-check is-checked" data-action="moveResourcePip"
+		        data-move-slug="trade" data-index="0"></button>`;
 	await sheet._onFirstRender({}, {});
 	sheet._onRender({}, {});
 	return { sheet, steading };
@@ -99,7 +100,10 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 		expect(target.option).toBe("palisade");
 		expect([index, checked]).toEqual(["1", true]);
 
-		fire(sheet.element.querySelector(".stonetop-item-resource-check"), "click");
+		// The pip is a data-action now, dispatched by core's actions pipeline.
+		const pip = sheet.element.querySelector(".stonetop-item-resource-check");
+		await sheet.constructor.DEFAULT_OPTIONS.actions.moveResourcePip
+			.call(sheet, { type: "click", button: 0 }, pip);
 		expect(steading.toggleMoveResourcePip).toHaveBeenCalledWith("trade", "0", true);
 	});
 

@@ -7,7 +7,7 @@ import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
-import { FakeCoreActorSheetBase } from "../../fakes/foundry/FakeCoreActorSheetBase.js";
+import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 import { fire } from "../../fakes/domEvents.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
@@ -26,13 +26,18 @@ async function makeWiredSheet() {
 	actor.typedActor = new StonetopSteading(actor, steadingRepos({ improvements: { getBySlug: async () => null }, moves: repo }));
 	await actor.typedActor.onCreate();   // create-time seed (no longer on render)
 
-	const sheet = new (createStonetopSteadingSheetClass(FakeCoreActorSheetBase))(actor);
+	const sheet = new (createStonetopSteadingSheetClass(stonetopActorSheetBase()))(actor);
+	// Mirrors what move-item.hbs / resource-input.hbs stamp — the action names are the contract
+	// between the shared partial and the sheet's handler maps.
 	sheet.element.innerHTML = `
-		<input type="checkbox" class="stonetop-move-check" data-category-key="homefront" data-move-slug="trade" checked>
-		<button class="stonetop-item-resource-check" data-move-slug="trade" data-index="0"></button>
-		<input class="stonetop-resource-input" data-move-slug="trade" value="grain">`;
-	await sheet._onFirstRender({}, {});   // delegated resource listeners on the root
-	sheet._onRender({}, {});              // direct move-check binding
+		<input type="checkbox" class="stonetop-move-check" data-change-action="moveCheck"
+		       data-category-key="homefront" data-move-slug="trade" checked>
+		<button class="stonetop-item-resource-check" data-action="moveResourcePip"
+		        data-move-slug="trade" data-index="0"></button>
+		<input class="stonetop-resource-input" data-change-action="moveResourceText"
+		       data-move-slug="trade" value="grain">`;
+	await sheet._onFirstRender({}, {});   // delegated routers on the persistent root
+	sheet._onRender({}, {});
 	return { actor, sheet };
 }
 
@@ -51,7 +56,9 @@ describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
 
 	it("clicking an unchecked resource pip persists the new current count", async () => {
 		const { actor, sheet } = await makeWiredSheet();
-		fire(sheet.element.querySelector(".stonetop-item-resource-check"), "click");
+		const pip = sheet.element.querySelector(".stonetop-item-resource-check");
+		await sheet.constructor.DEFAULT_OPTIONS.actions.moveResourcePip
+			.call(sheet, { type: "click", button: 0 }, pip);
 		await Promise.resolve();
 		expect(actor.system.resources.counts.moves.trade).toBe(1);
 	});
@@ -69,8 +76,8 @@ describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
 	it("reads the category the move-item template stamps on the check", () => {
 		const template = readFileSync(path.resolve(process.cwd(), "templates/actor/partials/move-item.hbs"), "utf8");
 		expect(template).toContain('data-category-key="{{categoryKey}}"');
-		expect(readFileSync(path.resolve(process.cwd(), "src/actors/steading/StonetopSteadingSheet.js"), "utf8"))
-			.toContain("s.setMoveChecked(categoryKey, moveSlug,");
+		expect(readFileSync(path.resolve(process.cwd(), "src/actors/moveRowHandlers.js"), "utf8"))
+			.toContain("el.dataset.categoryKey");
 	});
 
 	it("the moveToChat action hands the seeded homefront move to the actor's chat surface", async () => {

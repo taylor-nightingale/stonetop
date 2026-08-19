@@ -8,7 +8,7 @@
 			<h2>{{name}}{{#if subtitle}} <small>{{subtitle}}</small>{{/if}}</h2>
 			<label class="steading-neighbor-text-field">
 				<span>Notes</span>
-				<textarea class="stonetop-neighbor-place-note" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>
+				<textarea class="stonetop-neighbor-place-note" data-change-action="neighborPlaceNote" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>
 			</label>
 			{{#if names}}
 				<div class="steading-neighbor-text-field">

@@ -18,6 +18,7 @@ function makeWiredSheet(items) {
 		.build();
 	const Base = class {
 		get actor() { return actor; }
+		get typedActor() { return actor.typedActor; }
 		get isEditable() { return true; }
 		element = document.createElement("form");
 	};
