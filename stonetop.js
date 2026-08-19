@@ -23,8 +23,8 @@ import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
 import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
 import { onUpdateActor, onSteadingCreatedOrDeleted } from "./src/hooks/SteadingChanged.js";
 import { info } from "./src/utils/logger.js";
-import { rich, hasText } from "./src/model/snapshot/RichText.js";
-import { isGroupTag } from "./src/model/data/groupTag.js";
+import { registerStonetopHelpers } from "./src/handlebars/helpers.js";
+import { STONETOP_PARTIALS } from "./src/handlebars/partials.js";
 import { registerDrawTableEnricher } from "./src/journal/drawTableEnricher.js";
 import { registerBlankFieldEnricher } from "./src/journal/blankFieldEnricher.js";
 import { CharacterData } from "./src/data/CharacterData.js";
@@ -67,61 +67,7 @@ Hooks.once("init", () => {
 	registerDrawTableEnricher();
 	registerBlankFieldEnricher();
 
-	Handlebars.registerHelper("resourceChecks", resource => {
-		if (!resource) return [];
-		const { current, max, labels } = resource;
-		return Array.from({ length: max ?? 0 }, (_, i) => ({ checked: i < (current ?? 0), label: labels?.[i] || null }));
-	});
-
-	Handlebars.registerHelper("poolGroups", pool => {
-		if (!pool) return [];
-		const { current } = pool;
-		return [
-			Array.from({ length: 3 }, (_, i) => ({ checked: i < current, index: i })),
-			Array.from({ length: 3 }, (_, i) => ({ checked: (i + 3) < current, index: i + 3 })),
-			Array.from({ length: 3 }, (_, i) => ({ checked: (i + 6) < current, index: i + 6 })),
-		];
-	});
-
-	Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) => i));
-
-	Handlebars.registerHelper("outfitSegments", items => {
-		const segments = [];
-		let current = null;
-		for (const item of (items ?? [])) {
-			if (!current || current.isGrid !== item.twoCol) {
-				current = { isGrid: item.twoCol, items: [] };
-				segments.push(current);
-			}
-			current.items.push(item);
-		}
-		return segments;
-	});
-	Handlebars.registerHelper("gt", (a, b) => a > b);
-	Handlebars.registerHelper("eq", (a, b) => a === b);
-	Handlebars.registerHelper("join", (arr, sep) => (Array.isArray(arr) ? arr.join(typeof sep === "string" ? sep : ", ") : ""));
-	Handlebars.registerHelper("concat", (...args) => args.slice(0, -1).join(""));
-
-	// The single render path for game text. Accepts a RichText (enriched by enrichRichTextTree in
-	// getData) or a bare string (rendered as markdown). One way to render text: {{rich field}}.
-	Handlebars.registerHelper("rich", value => new Handlebars.SafeString(rich(value).render()));
-
-	// Truthiness for an optional text field that may arrive as a bare string OR a RichText — used to
-	// guard optional notes/subtitles in the shared heading partials: {{#if (hasText note)}}.
-	Handlebars.registerHelper("hasText", hasText);
-
-	// A tag chip that marks a creature as a group ("group" / "horde") carries the group tooltip
-	// instead of the plain "remove" one: {{#if (isGroupTag this)}}.
-	Handlebars.registerHelper("isGroupTag", isGroupTag);
-
-	Handlebars.registerHelper("repeatChecks", move => {
-		const sel = move?.selection;
-		if (!sel || sel.max <= 1) return [];
-		return Array.from({ length: sel.max }, (_, i) => ({
-			checked:  i < sel.value,
-			disabled: i < sel.value ? move.isStarting : (!move.selectable || i !== sel.value),
-		}));
-	});
+	registerStonetopHelpers(Handlebars);
 
 	CONFIG.Actor.documentClass = createStonetopActorClass(CONFIG.Actor.documentClass);
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
@@ -218,59 +164,7 @@ Hooks.once("init", () => {
 		label: "Stonetop Playbook Sheet",
 	});
 
-	foundry.applications.handlebars.loadTemplates({
-		"stonetop.chat-move-roll":   "systems/stonetop/templates/chat/move-roll.hbs",
-		"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
-		"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
-		"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",
-		"stonetop.tab-playbook":           "systems/stonetop/templates/actor/partials/tab-playbook.hbs",
-		"stonetop.introductions-section":  "systems/stonetop/templates/actor/partials/introductions-section.hbs",
-		"stonetop.tab-moves":        "systems/stonetop/templates/actor/partials/tab-moves.hbs",
-		"stonetop.tab-equipment":    "systems/stonetop/templates/actor/partials/tab-equipment.hbs",
-		"stonetop.tab-arcana":       "systems/stonetop/templates/actor/partials/tab-arcana.hbs",
-		"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
-		"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",
-		"stonetop.follower-card":    "systems/stonetop/templates/actor/partials/follower-card.hbs",
-		"stonetop.follower-inventory": "systems/stonetop/templates/actor/partials/follower-inventory.hbs",
-		"stonetop.outfit-items":       "systems/stonetop/templates/actor/partials/outfit-items.hbs",
-		"stonetop.editable-field":   "systems/stonetop/templates/actor/partials/editable-field.hbs",
-		"stonetop.editable-rich-block": "systems/stonetop/templates/actor/partials/editable-rich-block.hbs",
-		"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
-		"stonetop.tab-notes":         "systems/stonetop/templates/actor/partials/tab-notes.hbs",
-		"stonetop.selection-chips":   "systems/stonetop/templates/actor/partials/selection-chips.hbs",
-		"stonetop.selection-input":   "systems/stonetop/templates/actor/partials/selection-input.hbs",
-		"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
-		"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",
-		"stonetop.move-row":         "systems/stonetop/templates/actor/partials/move-row.hbs",
-		"stonetop.move-item":        "systems/stonetop/templates/actor/partials/move-item.hbs",
-		"stonetop.choice-group":     "systems/stonetop/templates/actor/partials/choice-group.hbs",
-		"stonetop.choice-row":       "systems/stonetop/templates/actor/partials/choice-row.hbs",
-		"stonetop.improvement-group": "systems/stonetop/templates/actor/partials/improvement-group.hbs",
-		"stonetop.steading-improvement-panel": "systems/stonetop/templates/actor/partials/steading-improvement-panel.hbs",
-		"stonetop.choice-section":   "systems/stonetop/templates/actor/partials/lore-section.hbs",
-		"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",
-		"stonetop.panel-frame":              "systems/stonetop/templates/actor/partials/panel-frame.hbs",
-		"stonetop.steading-stat-panel":      "systems/stonetop/templates/actor/partials/steading-stat-panel.hbs",
-		"stonetop.steading-ratings-list":    "systems/stonetop/templates/actor/partials/steading-ratings-list.hbs",
-		"stonetop.steading-seasons":         "systems/stonetop/templates/actor/partials/steading-seasons.hbs",
-		"stonetop.steading-assets":          "systems/stonetop/templates/actor/partials/steading-assets.hbs",
-		"stonetop.steading-places-of-interest": "systems/stonetop/templates/actor/partials/steading-places-of-interest.hbs",
-		"stonetop.steading-neighbor-places": "systems/stonetop/templates/actor/partials/steading-neighbor-places.hbs",
-		"stonetop.section-sub-heading":  "systems/stonetop/templates/actor/partials/section-sub-heading.hbs",
-		"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
-		"stonetop.resource-input":   "systems/stonetop/templates/actor/partials/resource-input.hbs",
-		"stonetop.outfit-item-row":  "systems/stonetop/templates/actor/partials/outfit-item-row.hbs",
-		"stonetop.steading":              "systems/stonetop/templates/actor/steading.hbs",
-		"stonetop.choices-entry-fields":  "systems/stonetop/templates/item/partials/choices-entry-fields.hbs",
-		"stonetop.choice-group-editor":   "systems/stonetop/templates/item/partials/choice-group-editor.hbs",
-		"stonetop.playbook-ref-row":      "systems/stonetop/templates/item/partials/playbook-ref-row.hbs",
-		"stonetop.arcanum-item-def":      "systems/stonetop/templates/item/partials/arcanum-item-def.hbs",
-		"stonetop.arcanum-resource":      "systems/stonetop/templates/item/partials/arcanum-resource.hbs",
-		"stonetop.string-list-editor":         "systems/stonetop/templates/item/partials/string-list-editor.hbs",
-		"stonetop.follower-selection-field":   "systems/stonetop/templates/item/partials/follower-selection-field.hbs",
-		"stonetop.follower-member-editor":     "systems/stonetop/templates/item/partials/follower-member-editor.hbs",
-		"stonetop.follower-companion-type":    "systems/stonetop/templates/item/partials/follower-companion-type.hbs",
-	});
+	foundry.applications.handlebars.loadTemplates(STONETOP_PARTIALS);
 });
 
 // -- RENDER PAUSE ----------------------------------------------

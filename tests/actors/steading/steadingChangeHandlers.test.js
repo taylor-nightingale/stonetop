@@ -1,13 +1,6 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { readFileSync } from "fs";
-import { globSync } from "fs";
-import path from "path";
 import { steadingChangeHandlers } from "../../../src/actors/steading/steadingChangeHandlers.js";
-import { moveRowChangeHandlers } from "../../../src/actors/moveRowHandlers.js";
-import { ChoiceGroupWiring } from "../../../src/utils/ChoiceGroupWiring.js";
-import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
-import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 
 function spySteading() {
 	return new Proxy({}, { get: (t, p) => t[p] ??= vi.fn(async () => {}) });
@@ -72,36 +65,7 @@ describe("steadingChangeHandlers", () => {
 	});
 });
 
-// The migration off per-render bindAll hand-mapped ~34 action names between the templates and the
-// sheet. A name stamped in a template with no handler registered only shows up as a console warning
-// at runtime, so assert the two sides agree.
-describe("steading templates ↔ handler maps", () => {
-	const files = [
-		"templates/actor/steading.hbs",
-		...globSync("templates/actor/partials/steading-*.hbs", { cwd: process.cwd() }),
-	];
-	const source = files.map(f => readFileSync(path.resolve(process.cwd(), f), "utf8")).join("\n");
-
-	const stamped = re => [...source.matchAll(re)].map(m => m[1]);
-
-	it("registers a change handler for every data-change-action the templates stamp", () => {
-		const registered = new Set([
-			...Object.keys(steadingChangeHandlers(spySteading(), { availableSteadfasts: () => [] })),
-			...Object.keys(moveRowChangeHandlers(spySteading())),
-			...ChoiceGroupWiring.CHANGE_ACTIONS, // owned by ChoiceGroupWiring, not the router
-		]);
-
-		const missing = stamped(/data-change-action="([a-zA-Z]+)"/g).filter(n => !registered.has(n));
-
-		expect(missing).toEqual([]);
-	});
-
-	it("registers a click action for every data-action the templates stamp", () => {
-		const Sheet = createStonetopSteadingSheetClass(stonetopActorSheetBase());
-		const registered = new Set([...Object.keys(Sheet.DEFAULT_OPTIONS.actions), "tab"]); // tab is core's
-
-		const missing = stamped(/data-action="([a-zA-Z]+)"/g).filter(n => !registered.has(n));
-
-		expect(missing).toEqual([]);
-	});
-});
+// The template ↔ handler vocabulary check that used to live here is now in
+// tests/actors/templateHandlerContract.test.js: it covers all three actor sheets, and pairs a text
+// scan with a real render so it catches names stamped inside loops AND names passed to a partial as
+// a parameter. This file keeps the per-handler behaviour tests above.
