@@ -10,7 +10,6 @@ export class LoadOptionSnapshot {
 }
 
 /**
- * @property {string} instruction
  * @property {string|null} selected
  * @property {boolean} loadLevelLight
  * @property {boolean} loadLevelNormal
@@ -19,7 +18,6 @@ export class LoadOptionSnapshot {
  */
 export class LoadSnapshot {
 	constructor(b) {
-		this.instruction     = b._instruction;
 		this.selected        = b._selected;
 		this.loadLevelLight  = b._loadLevelLight;
 		this.loadLevelNormal = b._loadLevelNormal;
@@ -29,7 +27,6 @@ export class LoadSnapshot {
 }
 
 export class LoadSnapshotBuilder {
-	withInstruction(v)     { this._instruction     = v; return this; }
 	withSelected(v)        { this._selected        = v; return this; }
 	withLoadLevelLight(v)  { this._loadLevelLight  = v; return this; }
 	withLoadLevelNormal(v) { this._loadLevelNormal = v; return this; }

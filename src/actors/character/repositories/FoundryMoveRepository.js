@@ -67,6 +67,13 @@ export class FoundryMoveRepository {
 		return doc ?? this._worldMoveStore.getDocument(id);
 	}
 
+	// Resolve a move to its full document by slug (compendium first, then world), so a sheet can open
+	// a move that a rule reference names by slug rather than by id.
+	async getMoveDocumentBySlug(slug) {
+		const [entry] = await this.getMoveEntriesBySlugs([slug]);
+		return entry ? this.getReferencedMoveDocument(entry._id) : null;
+	}
+
 	async buildSlugIndex() {
 		const [all, world] = await Promise.all([
 			this._moveStore.getAll(),
