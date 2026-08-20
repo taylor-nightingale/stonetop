@@ -1816,6 +1816,12 @@ button.stonetop-view-toggle.is-active {
 	flex-shrink: 0;
 }
 
+/* Every resource track lays its pips and labels out in one flex row (see resource-track.hbs), so a
+   label is a row item beside its pip. Nothing may break it onto a line of its own. */
+.stonetop-resource-label {
+	white-space: nowrap;
+}
+
 /* Resource pips are <button>s, and core v13 themes buttons with min-height/min-width: var(--button-size)
    (~2em) — our `height: 16px` alone leaves min-height winning, so the circles rendered as tall ovals.
    Pin the box model (min-*: 0, flex: none, box-sizing) so 16px is honoured. Our CSS is unlayered, so
