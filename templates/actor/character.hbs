@@ -61,7 +61,8 @@
 				{{> "stonetop.tab-arcana"}}
 				{{> "stonetop.tab-followers"}}
 				{{> "stonetop.tab-notes"}}
-				{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this tab=(lookup @root.tabs (concat "insert-" slug))}}{{/each}}
+				{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this tab=(lookup @root.tabs (concat "insert-" slug))
+				    viewFlag=(concat "insertLocked-" slug) locked=(lookup @root.viewFlags (concat "insertLocked-" slug))}}{{/each}}
 			</section>
 
 			<div class="stonetop-moves-sidebar">

@@ -101,6 +101,10 @@ img.stonetop-broken-img {
 	--fs-display:    1.6rem;   /* large display type                                */
 	--fs-name:       2rem;     /* actor / steading name heading (largest)           */
 
+	/* Every tab's view-state toggle (moves filter, playbook lock, insert locks) is one control at
+	   one size; the tabs that lay a toggle over their first line reserve exactly this. */
+	--view-toggle-height: 20px;
+
 	--stonetop-bg: hsl(30deg 20% 94%);
 	--color-border-highlight-alt: slategrey;
 	--color-shadow-highlight: slategrey;
@@ -876,6 +880,12 @@ body,
 	break-inside: auto;
 }
 
+/* …except the instinct section, which is a heading, a rule and a line or two: split, it strands its
+   divider (or its one chosen instinct) in the far column. */
+.stonetop-playbook-columns .stonetop-instinct-section {
+	break-inside: avoid;
+}
+
 .tab.insert .stonetop-playbook-columns .stonetop-choice-track {
 	break-inside: avoid;
 }
@@ -915,18 +925,37 @@ body,
 
 /* -- Playbook tab lock (condensed view) ----------------------- */
 
-/* In flow, unlike the moves filter: the playbook tab opens with the title image, not a heading, so
-   there is nothing to lay the button over. */
+/* Out of flow, like the moves filter: in flow it owned a row of its own above the playbook's title
+   image. The intro block it overlays reserves the button's width and height, which is what keeps a
+   playbook WITHOUT a title image from running its description under the button. */
+.tab.playbook .sheet-tab {
+	position: relative;
+}
+
 .stonetop-playbook-toolbar {
-	display: flex;
-	justify-content: flex-end;
-	margin-bottom: 4px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+}
+
+.stonetop-playbook-toolbar + .stonetop-playbook-intro {
+	min-height: var(--view-toggle-height);
+	padding-right: 130px;
+}
+
+/* Locked, a section the character put nothing in has nothing to show: the markers below are what a
+   rendered choice looks like in any of its shapes (line, card, chosen background, chosen origin) or
+   a group's own prose. Matching none of them means the heading would stand over empty space. */
+.tab.is-locked .details-section:not(:has(.stonetop-choice-track, .stonetop-item,
+    .stonetop-origin-option, .stonetop-choice-entry-title, .stonetop-choice-description)) {
+	display: none;
 }
 
 /* "(Choose 1)" and friends are instructions for filling the tab in — nothing to act on once it is
    locked. Scoped to the section headings: the same class carries a line's own aside ("(ongoing)"),
    which the locked view very much wants to keep. */
-.tab.playbook.is-locked .stonetop-move-group-title .stonetop-section-note {
+.tab.is-locked .stonetop-move-group-title .stonetop-section-note {
 	display: none;
 }
 
@@ -1424,10 +1453,15 @@ body,
 	.stonetop-sheet-layout.moves-open .stonetop-moves-sidebar {
 		transform: translateX(0);
 	}
-	/* Clear the sidebar toggle (top:2 right:2, 26px wide) so it doesn't cover the insert delete icon.
-	   Descendant selector raises specificity above the later base `.stonetop-insert-remove` rule so
-	   this wins regardless of source order. */
-	.stonetop-sheet-layout .stonetop-insert-remove {
+	/* Clear the sidebar toggle (top:2 right:2, 26px wide): everything else that lives in a tab's
+	   top-right corner has to step aside for it — the insert controls, and the tab toolbars that
+	   are pinned there. */
+	.stonetop-sheet-layout .stonetop-insert-actions {
+		padding-right: 32px;
+	}
+
+	.stonetop-sheet-layout .stonetop-moves-toolbar,
+	.stonetop-sheet-layout .stonetop-playbook-toolbar {
 		right: 32px;
 	}
 }
@@ -1457,7 +1491,6 @@ body,
    heading reserves exactly that — otherwise the button hangs over the divider beneath it. */
 .tab.moves .sheet-tab {
 	position: relative;
-	--moves-filter-height: 20px;
 }
 
 .stonetop-moves-toolbar {
@@ -1470,7 +1503,7 @@ body,
 /* Height clears the divider below the heading; padding keeps a long group note from running under
    the button. */
 .stonetop-moves-toolbar + .stonetop-move-group .stonetop-move-group-title {
-	min-height: var(--moves-filter-height);
+	min-height: var(--view-toggle-height);
 	padding-right: 130px;
 }
 
@@ -1481,6 +1514,7 @@ button.stonetop-view-toggle {
 	align-items: center;
 	gap: 6px;
 	width: auto;
+	height: var(--view-toggle-height);
 	padding: 0 10px;
 	font-size: var(--fs-fine);
 	line-height: 1;
@@ -1495,11 +1529,6 @@ button.stonetop-view-toggle:hover {
 button.stonetop-view-toggle.is-active {
 	opacity: 1;
 	background: rgba(0, 0, 0, 0.12);
-}
-
-/* The moves filter is the one toggle laid over a heading, so it alone carries the reserved height. */
-button.stonetop-moves-filter {
-	height: var(--moves-filter-height);
 }
 
 .tab.moves.hide-unselected .stonetop-item.move-unselected {
@@ -3326,7 +3355,7 @@ button.stonetop-xp-toggle {
 	border-radius: 0 !important;
 }
 
-/* Insert tab header: name on the left, delete icon pinned to the top-right (no button box). */
+/* Insert tab header: name on the left, its controls in one row on the right (no button boxes). */
 .stonetop-insert-header {
 	position: relative;
 	display: flex;
@@ -3343,13 +3372,19 @@ button.stonetop-xp-toggle {
 .stonetop-insert-heading {
 	flex: 1;
 	min-width: 0;
-	padding-right: 20px;
 }
-.stonetop-insert-remove {
-	position: absolute;
-	top: 0;
-	right: 0;
+
+/* The lock and the delete icon are peers on the head's right; in flow, so neither can land on top
+   of the other (which is what an absolutely-pinned delete icon did to the lock). */
+.stonetop-insert-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex: none;
 	z-index: 2;
+}
+
+.stonetop-insert-remove {
 	width: auto !important;
 	padding: 0;
 	line-height: 1;

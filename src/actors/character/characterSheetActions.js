@@ -53,6 +53,9 @@ export const DELETE_ACTIONS = {
 	deleteOtherMove: confirmedDelete(function (target) {
 		return this._stonetopCharacter.deleteMove(target.dataset.moveSlug);
 	}),
+	deleteInsert: confirmedDelete(function (target) {
+		return this._stonetopCharacter.removeInsert(target.dataset.insertItemId);
+	}),
 	deleteInventoryItem: confirmedDelete(function (target) {
 		return this._stonetopCharacter.removeCustomInventoryItemFor(
 			InventoryOwner.fromElement(target), target.dataset.ownedId);

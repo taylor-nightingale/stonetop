@@ -202,12 +202,13 @@ describe("character sheet wiring — tabs and the router (integration)", () => {
 		expect(ctx.tabs["insert-the-crew"].label).toBe("The Crew");
 	});
 
-	it("carries the moves filter into the context so it survives a re-render", async () => {
+	it("carries the view flags into the context so they survive a re-render", async () => {
 		const { sheet } = makeSheet();
 
-		expect((await sheet._prepareContext({})).hideUnselectedMoves).toBe(false);
-		sheet._setHideUnselectedMoves(true, null);
-		expect((await sheet._prepareContext({})).hideUnselectedMoves).toBe(true);
+		expect((await sheet._prepareContext({})).viewFlags)
+			.toEqual({ hideUnselectedMoves: false, playbookLocked: false });
+		sheet._viewFlags.toggle("hideUnselectedMoves");
+		expect((await sheet._prepareContext({})).viewFlags.hideUnselectedMoves).toBe(true);
 	});
 
 	// A stamped name with no handler behind it is silent in play except for this warning.

@@ -42,14 +42,15 @@
 				"bio": "Bio",
 				"notes": "Notes"
 			},
-			"playbook": {
-				"emptyHint": "Select or drag a playbook here to start.",
-				"selectPlaceholder": "Select a playbook",
+			"lock": {
 				"lock": "Lock",
 				"lockHint": "Collapse your choices into a read-only summary.",
 				"unlock": "Edit",
-				"unlockHint": "Go back to editing your playbook choices.",
-				"reviewEmpty": "Nothing chosen yet — unlock to fill in your playbook.",
+				"unlockHint": "Go back to editing your choices."
+			},
+			"playbook": {
+				"emptyHint": "Select or drag a playbook here to start.",
+				"selectPlaceholder": "Select a playbook",
 				"introductions": {
 					"title": "Introductions",
 					"preamble": "Wait here for everyone else. When everyone's ready, take turns introducing your characters. When <strong><em>someone reveals something and you want to know more</em></strong>, ask them about it. When <strong><em>someone asks you a question</em></strong>, answer it truthfully.",
@@ -504,8 +505,8 @@
 				"sendToChat": "Send to Chat",
 				"requires": "Requires",
 				"notMet": "Not Met",
-				"selectedOnly": "Selected only",
-				"selectedOnlyHint": "Show only the moves this character has taken. Turn it off to take new ones."
+				"lockHint": "Show only the moves this character has taken.",
+				"unlockHint": "Show every move again, to take new ones."
 			},
 			"selection": {
 				"select": "Select",

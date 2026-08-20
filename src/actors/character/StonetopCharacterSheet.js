@@ -3,6 +3,7 @@ import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 import { editOnly } from "../../utils/sheetActions.js";
 import { ScrollAnchoring } from "../../utils/ScrollAnchoring.js";
+import { TabViewFlags } from "../../utils/TabViewFlags.js";
 import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
 import { InventoryOwner } from "./InventoryOwner.js";
 import { itemsOfType } from "../actorItems.js";
@@ -18,13 +19,10 @@ export function createStonetopCharacterSheetClass(Base) {
 		// Which follower inventory catalogs are expanded — sheet-instance state that survives
 		// re-render, so only the open follower renders the (large) outfit catalog.
 		_openFollowerInventories = new Set();
-		// Moves tab "selected only" filter. Held on the sheet because ticking a move re-renders the
-		// tab, which would otherwise drop the filter mid-review.
-		_hideUnselectedMoves = false;
-		// Playbook tab lock. Locked renders the choices as a read-only summary instead of the
-		// editor, so unlike the moves filter this one has to re-render — there is different markup
-		// on the other side of it, not just hidden rows.
-		_playbookLocked = false;
+		// Every view-state toggle on the sheet: the moves tab's "selected only" filter, the playbook
+		// lock, one lock per insert tab. Held here because the controls they decorate are re-rendered
+		// constantly — ticking a move would otherwise drop the filter mid-review.
+		_viewFlags = new TabViewFlags(["hideUnselectedMoves", "playbookLocked"]);
 		_scrollAnchoring = new ScrollAnchoring();
 
 		get _stonetopCharacter() {
@@ -43,12 +41,10 @@ export function createStonetopCharacterSheetClass(Base) {
 				toggleMovesOverlay(ev, target) {
 					target.closest(".stonetop-sheet-layout")?.classList.toggle("moves-open");
 				},
-				toggleUnselectedMoves(ev, target) {
-					this._setHideUnselectedMoves(!this._hideUnselectedMoves, target.closest(".tab.moves"));
-				},
-				togglePlaybookLock() {
-					this._playbookLocked = !this._playbookLocked;
-					this.render();
+				// One toggle for every tab's view state: the button names its flag, and whether the
+				// tab is re-rendered or just decorated is the flag's business (see TabViewFlags).
+				toggleTabView(ev, target) {
+					if (this._viewFlags.toggleFrom(target)) this.render();
 				},
 				async openBasicMove(ev, target) {
 					// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.
@@ -77,9 +73,6 @@ export function createStonetopCharacterSheetClass(Base) {
 					return this._scrollAnchoring.hold(target.closest(".stonetop-arcanum-card"),
 						`.stonetop-arcanum-card[data-slug="${slug}"]`, ".sheet-body",
 						() => this._stonetopCharacter.toggleArcanumFlip(slug, target.dataset.flipped === "true"));
-				}),
-				removeInsert: editOnly(function (ev, target) {
-					return this._stonetopCharacter.removeInsert(target.dataset.insertItemId);
 				}),
 				addFollower: editOnly(function () {
 					return this._stonetopCharacter.addCustomFollower();
@@ -140,8 +133,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			// Independent of the snapshot, so it is started first and overlaps the base's build.
 			const playbooks = this._stonetopCharacter.listPlaybooks();
 			const context = await super._prepareContext(options);
-			context.hideUnselectedMoves = this._hideUnselectedMoves;
-			context.playbookLocked      = this._playbookLocked;
+			context.viewFlags           = this._viewFlags.toContext();
 			context.availablePlaybooks  = await playbooks;
 			return context;
 		}
@@ -201,15 +193,6 @@ export function createStonetopCharacterSheetClass(Base) {
 		// which of the three the wrap describes.
 		toggleTag(wrap, value) {
 			return this._stonetopCharacter.toggleFollowerTag(wrap.slug, wrap.field, wrap.memberIndex, value);
-		}
-
-		// The moves-tab filter is CSS-only, so flipping it decorates the live tab rather than
-		// re-rendering it (the tab is the sheet's largest part, and a rebuild would fight the
-		// scroll position). _prepareContext re-stamps both classes on the next render.
-		_setHideUnselectedMoves(hide, tab) {
-			this._hideUnselectedMoves = hide;
-			tab?.classList.toggle("hide-unselected", hide);
-			tab?.querySelector(".stonetop-moves-filter")?.classList.toggle("is-active", hide);
 		}
 
 		// Core ActorSheetV2 ships the whole drop pipeline (never wire `drop` manually here) —

@@ -1,10 +1,13 @@
 {{!-- A tab's view-state toggle: it writes nothing to the actor, so it is a <button> (a checkbox's
       change event would submit the whole form) and carries data-view-state, which keeps it live on
-      a non-editable sheet. Callers pass already-localized `label`/`title` so the localization sweep
-      still sees literal keys at the call site. --}}
+      a non-editable sheet. `flag` names the sheet-held flag it flips; `viewClass`, when given, is
+      the class the sheet drops straight onto the live tab instead of re-rendering (see
+      TabViewFlags). Callers pass already-localized `label`/`title` so the localization sweep still
+      sees literal keys at the call site. --}}
 <button type="button"
-        class="stonetop-view-toggle{{#if extraClass}} {{extraClass}}{{/if}}{{#if active}} is-active{{/if}}"
-        data-action="{{action}}" data-view-state title="{{title}}">
+        class="stonetop-view-toggle{{#if active}} is-active{{/if}}"
+        data-action="toggleTabView" data-view-flag="{{flag}}"{{#if viewClass}} data-view-class="{{viewClass}}"{{/if}}
+        data-view-state title="{{title}}">
 	<i class="fas {{icon}}"></i>
 	<span>{{label}}</span>
 </button>
