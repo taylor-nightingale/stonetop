@@ -1,0 +1,14 @@
+{{!-- A choice group on a locked sheet: the group's own prose, then one line per thing chosen. The
+      classes are the editor's, so a locked group sits at the same indent, weight and rhythm as the
+      rows it stands in for — only the checkbox is gone, replaced by the tick it was carrying. --}}
+{{#each blocks}}
+{{#if title}}<p class="stonetop-choice-entry-title">{{rich title}}{{#if titleNote}} <span class="stonetop-section-note">{{rich titleNote}}</span>{{/if}}</p>{{/if}}
+{{#if lead}}<div class="stonetop-choice-description">{{rich lead}}</div>{{/if}}
+{{#each lines}}
+<div class="stonetop-choice-track stonetop-row">
+	<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>
+	<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich text}}{{#if note}} <span class="stonetop-section-note">{{rich note}}</span>{{/if}}</span>
+</div>
+{{#if detail}}<div class="stonetop-item-description">{{rich detail}}</div>{{/if}}
+{{/each}}
+{{/each}}

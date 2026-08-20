@@ -45,6 +45,11 @@
 			"playbook": {
 				"emptyHint": "Select or drag a playbook here to start.",
 				"selectPlaceholder": "Select a playbook",
+				"lock": "Lock",
+				"lockHint": "Collapse your choices into a read-only summary.",
+				"unlock": "Edit",
+				"unlockHint": "Go back to editing your playbook choices.",
+				"reviewEmpty": "Nothing chosen yet — unlock to fill in your playbook.",
 				"introductions": {
 					"title": "Introductions",
 					"preamble": "Wait here for everyone else. When everyone's ready, take turns introducing your characters. When <strong><em>someone reveals something and you want to know more</em></strong>, ask them about it. When <strong><em>someone asks you a question</em></strong>, answer it truthfully.",

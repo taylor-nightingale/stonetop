@@ -2,6 +2,16 @@
 	{{> "stonetop.section-heading"
 	    title=(localize "stonetop.character.selection.instinct.label")
 	    note=(localize "stonetop.character.selection.chooseOne")}}
+	{{#if locked}}
+	{{!-- instinctSelected is the computed label — the picked option's or whatever was written in —
+	      so the locked section renders it directly rather than through the group. --}}
+	{{#if instinctSelected}}
+	<div class="stonetop-choice-track stonetop-row">
+		<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>
+		<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich instinctSelected}}</span>
+	</div>
+	{{/if}}
+	{{else}}
 	<input type="text" class="stonetop-instinct-custom" data-change-action="instinctCustom"
 	       value="{{instinctSelected}}"
 	       placeholder="{{localize "stonetop.character.selection.instinct.customPlaceholder"}}">
@@ -11,5 +21,6 @@
 		{{> "stonetop.choice-row" radio=true namePrefix=../namePrefix cgContext=../cgContext cgGroup=../instinctGroup.slug}}
 		{{/each}}
 	</div>
+	{{/if}}
 	{{/if}}
 </div>

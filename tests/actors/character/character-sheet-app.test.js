@@ -175,6 +175,38 @@ describe("StonetopCharacterSheet moves filter", () => {
 	});
 });
 
+// -- Playbook lock ------------------------------------------------------------------
+
+describe("StonetopCharacterSheet playbook lock", () => {
+	beforeEach(() => new FakeGameBuilder().build());
+
+	it("starts unlocked, so a new character lands in the editor", async () => {
+		const { sheet } = makeSheet();
+		expect(sheet._playbookLocked).toBe(false);
+		expect((await sheet._prepareContext({})).playbookLocked).toBe(false);
+	});
+
+	// Unlike the moves filter (a CSS class over the same rows), locking swaps the tab's body for the
+	// summary — so this one has to re-render, and the flag has to survive into the next context.
+	it("togglePlaybookLock flips the lock and re-renders", async () => {
+		const { sheet } = makeSheet();
+		await fireAction(sheet, "togglePlaybookLock", el(`<button></button>`));
+		expect(sheet._playbookLocked).toBe(true);
+		expect(sheet.render).toHaveBeenCalled();
+		expect((await sheet._prepareContext({})).playbookLocked).toBe(true);
+
+		await fireAction(sheet, "togglePlaybookLock", el(`<button></button>`));
+		expect(sheet._playbookLocked).toBe(false);
+	});
+
+	it("is NOT edit-gated — locking only changes what is shown", async () => {
+		const { sheet } = makeSheet();
+		sheet._editable = false;
+		await fireAction(sheet, "togglePlaybookLock", el(`<button></button>`));
+		expect(sheet._playbookLocked).toBe(true);
+	});
+});
+
 // -- Change router ------------------------------------------------------------------
 
 describe("StonetopCharacterSheet change routing", () => {

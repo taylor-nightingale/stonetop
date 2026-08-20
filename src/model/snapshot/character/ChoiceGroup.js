@@ -1,3 +1,4 @@
+import { condenseChoiceGroup } from "./ChoiceGroupReview.js";
 export class ChoiceOption {
 	constructor(slug, {text = null, description = null, checked = false, checks = null, requires = null, type = null, fillValue = ""} = {}) {
 		this.slug        = slug;
@@ -94,5 +95,11 @@ export class ChoiceGroup {
 		this.slug  = slug;
 		this.list  = list;
 		this.title = title; // optional section heading (e.g. the Hec'tumel Codex's "Spells of the Codex")
+		// The same group with everything nobody chose taken out — what a locked (read-only) sheet
+		// renders in place of the rows. A field rather than a getter on purpose: Handlebars refuses
+		// to read inherited properties (prototype-access protection), so a getter is invisible to
+		// every template that would want it. Built here, before the sheet's enrich pass, so the
+		// text it mints (joined picks, write-in answers) is enriched with the rest of the tree.
+		this.condensed = condenseChoiceGroup(this);
 	}
 }

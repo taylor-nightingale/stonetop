@@ -1,5 +1,11 @@
+{{!-- Locked: the group renders its condensed form (ChoiceGroup#condensed) instead of its rows.
+      Surfaces that never lock simply don't pass the flag. --}}
 <div class="stonetop-choice-entry" data-slug="{{slug}}">
+	{{#if locked}}
+	{{> "stonetop.choice-group-condensed" blocks=condensed}}
+	{{else}}
 	{{#each list}}
 	{{> "stonetop.choice-row" cgContext=../cgContext cgGroup=../slug}}
 	{{/each}}
+	{{/if}}
 </div>

@@ -42,6 +42,20 @@ describe("moves filter toolbar contract", () => {
 		expect(ruleBlock(".tab.moves .sheet-tab")).toContain("--moves-filter-height:");
 	});
 
+	// Both tabs' toggles are one button with one appearance; the moves filter only adds the height
+	// it reserves on the heading it overlays.
+	it("renders through the shared toolbar-toggle partial", () => {
+		expect(template).toContain('{{> "stonetop.tab-toolbar-toggle"');
+		expect(read("templates/actor/partials/tab-playbook.hbs")).toContain('{{> "stonetop.tab-toolbar-toggle"');
+	});
+
+	// Core's .window-app rule stretches a bare button to full width, and a non-editable sheet
+	// disables every button that is not marked as view state — both would break the toggle silently.
+	it("styles the shared toggle against core's button rules, and keeps it live when read-only", () => {
+		expect(ruleBlock("button.stonetop-view-toggle")).toContain("width: auto");
+		expect(read("templates/actor/partials/tab-toolbar-toggle.hbs")).toContain("data-view-state");
+	});
+
 	// The reservation rule is an adjacent-sibling selector, so nothing may render between the
 	// toolbar and the first group.
 	it("emits the toolbar as the first group's immediate previous sibling", () => {

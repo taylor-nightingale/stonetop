@@ -1,7 +1,7 @@
 {{#if groups.length}}
 <div class="details-section">
 	{{#each groups}}
-	{{> "stonetop.choice-group" cgContext=../cgContext}}
+	{{> "stonetop.choice-group" cgContext=../cgContext locked=../locked}}
 	{{/each}}
 </div>
 {{/if}}

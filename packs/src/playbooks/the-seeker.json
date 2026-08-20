@@ -128,7 +128,7 @@
             "type": "entry",
             "content": {
               "title": "Collection",
-              "text": "In your travels and investigations you have acquired arcana—artifacts of power and mystery. Your Background grants you 1 major arcanum. Answer at least 2 questions about it."
+              "text": "In your travels and investigations you have acquired arcana—artifacts of power and mystery."
             }
           }
         ]
@@ -192,7 +192,7 @@
             "slug": "when-unlocked",
             "content": {
               "title": null,
-              "text": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert.When and how did that happen?"
+              "text": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert. When and how did that happen?"
             },
             "input": {
               "type": "inline"
