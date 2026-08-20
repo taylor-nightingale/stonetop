@@ -26,6 +26,8 @@ function toDiskPath(servedPath) {
 	return path.resolve(process.cwd(), servedPath.replace(REPO_PREFIX, ""));
 }
 
+const PROTO_ACCESS = { allowProtoPropertiesByDefault: true, allowProtoMethodsByDefault: true };
+
 let ready = false;
 
 function ensureRegistered() {
@@ -51,7 +53,10 @@ export function renderTemplate(servedPath, context = {}) {
 	if (!compiled.has(servedPath)) {
 		compiled.set(servedPath, Handlebars.compile(readFileSync(toDiskPath(servedPath), "utf8")));
 	}
-	return compiled.get(servedPath)(context);
+	// Snapshots are class instances and the templates read their getters (FollowersSnapshot#tabCards,
+	// …). Handlebars blocks prototype access by default; Foundry renders with it allowed, so a
+	// harness without these options silently renders an empty block where the app renders content.
+	return compiled.get(servedPath)(context, PROTO_ACCESS);
 }
 
 /** Render a registered partial by its name, e.g. "stonetop.move-item". */

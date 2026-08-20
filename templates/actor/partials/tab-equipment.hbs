@@ -8,30 +8,30 @@
 			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.headingBefore"}}}<a
 					class="stonetop-move-link" data-action="openMoveBySlug" data-move-slug="outfit"
 					title="{{localize 'stonetop.character.moves.open'}}"><em><strong>{{localize "stonetop.inventory.outfit.moveName"}}</strong></em></a>{{{localize "stonetop.inventory.outfit.headingAfter"}}}</p>
-			<p class="stonetop-outfit-marked" data-tooltip="{{localize 'stonetop.inventory.outfit.markedHint'}}" data-tooltip-direction="UP">{{localize "stonetop.inventory.outfit.marked" count=stonetop.outfit.load.markedWeight}}</p>
+			{{!-- The rule text runs straight into the three load lines; the count rides the line the
+			      marks land in, and the reset tucks into the panel corner, so neither breaks the read. --}}
+			<button type="button" class="stonetop-icon-btn stonetop-outfit-reset" data-action="resetOutfit"
+			        data-tooltip="{{localize 'stonetop.inventory.outfit.resetHint'}}" data-tooltip-direction="UP"
+			        aria-label="{{localize 'stonetop.inventory.outfit.reset'}}">
+				<i class="fas fa-rotate-left"></i>
+			</button>
+			{{#with stonetop.outfit.load}}
 			<ul class="stonetop-outfit-loads">
+				{{#each options}}
 				<li>
-					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
+					<label class="stonetop-outfit-load-label{{#if active}} is-checked{{/if}}">
 						<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-						       value="light" {{#if stonetop.outfit.load.loadLevelLight}}checked{{/if}}>
-						<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
+						       value="{{slug}}" {{#if active}}checked{{/if}}>
+						<span>{{{note}}}</span>
 					</label>
+					{{#if active}}
+					<span class="stonetop-outfit-marked{{#if ../overCapacity}} is-over{{/if}}"
+					      data-tooltip="{{localize 'stonetop.inventory.outfit.markedHint'}}" data-tooltip-direction="UP">{{#if ../overCapacity}}<i class="fas fa-triangle-exclamation"></i> {{/if}}— {{localize "stonetop.inventory.outfit.marked" count=../markedWeight}}{{#if ../overCapacity}} {{localize "stonetop.inventory.outfit.markedOver" max=../capacity}}{{/if}}</span>
+					{{/if}}
 				</li>
-				<li>
-					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelNormal}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-						       value="normal" {{#if stonetop.outfit.load.loadLevelNormal}}checked{{/if}}>
-						<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
-					</label>
-				</li>
-				<li>
-					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
-						       value="heavy" {{#if stonetop.outfit.load.loadLevelHeavy}}checked{{/if}}>
-						<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
-					</label>
-				</li>
+				{{/each}}
 			</ul>
+			{{/with}}
 		</div>
 
 		{{#with stonetop.outfit.prosperity}}

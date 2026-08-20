@@ -8,7 +8,7 @@ import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
 import { InventoryOwner } from "./InventoryOwner.js";
 import { itemsOfType } from "../actorItems.js";
 import { characterChangeHandlers } from "./characterChangeHandlers.js";
-import { PIP_ACTIONS, DELETE_ACTIONS } from "./characterSheetActions.js";
+import { PIP_ACTIONS, DELETE_ACTIONS, OUTFIT_ACTIONS } from "./characterSheetActions.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../tagChips.js";
 
@@ -97,6 +97,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				...MOVE_ROW_ACTIONS,
 				...TAG_CHIP_ACTIONS,
 				...PIP_ACTIONS,
+				...OUTFIT_ACTIONS,
 				...DELETE_ACTIONS,
 			},
 		};

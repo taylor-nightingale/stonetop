@@ -6,6 +6,5 @@
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 
-* special possessions on another tab
 * add accessibility modes to increase font sizes
 * add accessibility mode to allow screen readers to work?

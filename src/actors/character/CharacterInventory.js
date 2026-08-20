@@ -10,7 +10,7 @@ import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
 import { ResourceController } from "./ResourceController.js";
 import { GrantStamp } from "../../model/data/ItemGrant.js";
-import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
+import { buildOutfitColumn, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
 
 // The Prosperity gear table as the inventory insert prints it: fixed rungs, the steading's rating
 // only decides which one the character is standing on. A rating past either end marks the nearest
@@ -21,6 +21,8 @@ const _PROSPERITY_ROWS = [
 	{ value:  1, noteKey: "stonetop.inventory.prosperityTable.piercing1" },
 	{ value:  2, noteKey: "stonetop.inventory.prosperityTable.piercing2" },
 ];
+const _LOAD_LEVELS = ["light", "normal", "heavy"];
+
 const _PROSPERITY_MIN = _PROSPERITY_ROWS[0].value;
 const _PROSPERITY_MAX = _PROSPERITY_ROWS.at(-1).value;
 
@@ -52,6 +54,20 @@ export class CharacterInventory {
 
 	async setSmallPool(count) {
 		await this._actor.update({ "system.inventory.smallPool": count });
+	}
+
+	// Back to an unmarked sheet: every ◇/□ cleared, both undefined pools emptied. Custom items, the
+	// "other items" note and item resources are not selections, so they stay.
+	//
+	// Each checked slug is written as its own deletion key: Foundry MERGES an object update, so
+	// storing an empty map would leave every mark exactly where it was.
+	async clearSelections() {
+		const cleared = Object.fromEntries(Object.keys(this.checked).map(slug => [`-=${slug}`, null]));
+		await this._actor.update({
+			"system.inventory.checked":     cleared,
+			"system.inventory.regularPool": 0,
+			"system.inventory.smallPool":   0,
+		});
 	}
 
 	async setOtherItems(value) {
@@ -156,14 +172,10 @@ export class CharacterInventory {
 		const band = loadBand(markedWeight);
 		return new LoadSnapshotBuilder()
 			.withMarkedWeight(markedWeight)
-			.withLoadLevelLight(band === "light")
-			.withLoadLevelNormal(band === "normal")
-			.withLoadLevelHeavy(band === "heavy")
-			.withOptions([
-				new LoadOptionSnapshot("light", "Light", _loc("stonetop.inventory.outfit.light")),
-				new LoadOptionSnapshot("normal", "Normal", _loc("stonetop.inventory.outfit.normal")),
-				new LoadOptionSnapshot("heavy", "Heavy", _loc("stonetop.inventory.outfit.heavy")),
-			])
+			.withCapacity(MAX_OUTFIT_MARKS)
+			.withOverCapacity(markedWeight > MAX_OUTFIT_MARKS)
+			.withOptions(_LOAD_LEVELS.map(slug =>
+				new LoadOptionSnapshot(slug, _loc(`stonetop.inventory.outfit.${slug}`), slug === band)))
 			.build();
 	}
 }

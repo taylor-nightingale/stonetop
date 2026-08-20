@@ -1,36 +1,33 @@
 // ── Load ──────────────────────────────────────────────────────────────────────
 
-/** One load level option (light / normal / heavy). */
+/** One load level row (light / normal / heavy): the printed line, and whether the marks land in it. */
 export class LoadOptionSnapshot {
-	constructor(slug, label, note) {
-		this.slug  = slug;
-		this.label = label;
-		this.note  = note;
+	constructor(slug, note, active) {
+		this.slug   = slug;
+		this.note   = note;
+		this.active = active;
 	}
 }
 
 /**
  * @property {number} markedWeight
- * @property {boolean} loadLevelLight
- * @property {boolean} loadLevelNormal
- * @property {boolean} loadLevelHeavy
+ * @property {number} capacity
+ * @property {boolean} overCapacity
  * @property {LoadOptionSnapshot[]} options
  */
 export class LoadSnapshot {
 	constructor(b) {
 		this.markedWeight    = b._markedWeight;
-		this.loadLevelLight  = b._loadLevelLight;
-		this.loadLevelNormal = b._loadLevelNormal;
-		this.loadLevelHeavy  = b._loadLevelHeavy;
+		this.capacity        = b._capacity;
+		this.overCapacity    = b._overCapacity;
 		this.options         = b._options;
 	}
 }
 
 export class LoadSnapshotBuilder {
 	withMarkedWeight(v)    { this._markedWeight    = v; return this; }
-	withLoadLevelLight(v)  { this._loadLevelLight  = v; return this; }
-	withLoadLevelNormal(v) { this._loadLevelNormal = v; return this; }
-	withLoadLevelHeavy(v)  { this._loadLevelHeavy  = v; return this; }
+	withCapacity(v)        { this._capacity        = v; return this; }
+	withOverCapacity(v)    { this._overCapacity    = v; return this; }
 	withOptions(v)         { this._options          = v; return this; }
 	build()                { return new LoadSnapshot(this); }
 }

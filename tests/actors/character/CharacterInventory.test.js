@@ -76,6 +76,9 @@ function makeResourceController() {
 	return new ResourceController(new FakeCharacterActorBuilder().build());
 }
 
+// Which of the three printed load lines the marked ◇ land in.
+const activeLoad = snap => snap.load.options.find(o => o.active)?.slug ?? null;
+
 function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null, steadingRepo = null) {
 	return new CharacterInventory(
 		makeActor(inventoryState),
@@ -374,12 +377,36 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(smallItems(snap)[0].twoCol).toBe(true);
 	});
 
+	it("clearSelections unmarks every item and empties both pools", async () => {
+		const ci = makeCi({ checked: { armor: true, rope: true }, regularPool: 5, smallPool: 4 });
+		await ci.clearSelections();
+		expect(ci.checked).toEqual({});
+		expect(ci.regularPool).toBe(0);
+		expect(ci.smallPool).toBe(0);
+	});
+
+	it("clearSelections writes each mark as a deletion key, since Foundry merges the update", async () => {
+		const actor = makeActor({ checked: { armor: true } });
+		const ci = new CharacterInventory(actor, makeRepo(), makeActorOutfitItems(), makeResourceController());
+		actor.update = vi.fn(async () => {});
+		await ci.clearSelections();
+		expect(actor.update).toHaveBeenCalledWith({
+			"system.inventory.checked":     { "-=armor": null },
+			"system.inventory.regularPool": 0,
+			"system.inventory.smallPool":   0,
+		});
+	});
+
+	it("clearSelections leaves the other-items note alone — it is not a selection", async () => {
+		const ci = makeCi({ checked: { armor: true }, otherItems: "a bag of teeth" });
+		await ci.clearSelections();
+		expect(ci.otherItems).toBe("a bag of teeth");
+	});
+
 	it("marks nothing and sits in the light band when no item is checked", async () => {
 		const snap = await makeCi({}, makeRepo([makeOutfitItem({ slug: "rope", weight: 2 })])).buildSnapshot(1);
 		expect(snap.load.markedWeight).toBe(0);
-		expect(snap.load.loadLevelLight).toBe(true);
-		expect(snap.load.loadLevelNormal).toBe(false);
-		expect(snap.load.loadLevelHeavy).toBe(false);
+		expect(activeLoad(snap)).toBe("light");
 	});
 
 	it("counts the weight of every checked regular item", async () => {
@@ -390,27 +417,48 @@ describe("CharacterInventory.buildSnapshot", () => {
 		]);
 		const snap = await makeCi({ checked: { armor: true, rope: true } }, repo).buildSnapshot(1);
 		expect(snap.load.markedWeight).toBe(4);
-		expect(snap.load.loadLevelNormal).toBe(true);
+		expect(activeLoad(snap)).toBe("normal");
 	});
 
 	it("counts the undefined pool's diamonds alongside the checked items", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "armor", weight: 3 })]);
 		const snap = await makeCi({ checked: { armor: true }, regularPool: 4 }, repo).buildSnapshot(1);
 		expect(snap.load.markedWeight).toBe(7);
-		expect(snap.load.loadLevelHeavy).toBe(true);
+		expect(activeLoad(snap)).toBe("heavy");
 	});
 
 	it("counts custom (embedded) items, which carry weight like any other", async () => {
 		const outfitItems = makeActorOutfitItems([makeRawEmbeddedItem({ slug: "idol", weight: 2 })]);
 		const snap = await makeCi({ checked: { idol: true } }, makeRepo(), outfitItems).buildSnapshot(1);
 		expect(snap.load.markedWeight).toBe(2);
-		expect(snap.load.loadLevelLight).toBe(true);
+		expect(activeLoad(snap)).toBe("light");
 	});
 
 	it("does not count small items — they are □ and carry no load", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "chalk", weight: 1, inventoryColumn: "small" })]);
 		const snap = await makeCi({ checked: { chalk: true } }, repo).buildSnapshot(1);
 		expect(snap.load.markedWeight).toBe(0);
+	});
+
+	it("offers the three printed load lines, with only the marked band active", async () => {
+		const snap = await makeCi({ regularPool: 5 }).buildSnapshot(1);
+		expect(snap.load.options.map(o => o.slug)).toEqual(["light", "normal", "heavy"]);
+		expect(snap.load.options.map(o => o.active)).toEqual([false, true, false]);
+		expect(snap.load.options[0].note).toBe("stonetop.inventory.outfit.light");
+	});
+
+	it("is not over capacity at the 9 ◇ the Outfit move allows", async () => {
+		const snap = await makeCi({ regularPool: 9 }).buildSnapshot(1);
+		expect(snap.load.capacity).toBe(9);
+		expect(snap.load.overCapacity).toBe(false);
+	});
+
+	it("flags marking more than the 9 ◇ allowed, without stopping it", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "tent", weight: 4 })]);
+		const snap = await makeCi({ checked: { tent: true }, regularPool: 7 }, repo).buildSnapshot(1);
+		expect(snap.load.markedWeight).toBe(11);
+		expect(snap.load.overCapacity).toBe(true);
+		expect(activeLoad(snap)).toBe("heavy");
 	});
 
 	it("regularPool.current reflects regularPool flag", async () => {
