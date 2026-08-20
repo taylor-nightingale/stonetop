@@ -885,6 +885,19 @@ body,
 	break-inside: avoid;
 }
 
+/* …unless it is the tab's ONLY group, which has nothing to balance against it: atomic, it runs down
+   one column and leaves the other empty (the Lightbearer's invocations). Tabs carrying several
+   groups keep them whole, which is what fills both columns on the ghost/revenant/thrall inserts.
+   Each row still holds together — see the .stonetop-choice-track rule above. */
+.tab.insert .details-section .stonetop-choice-entry:only-child {
+	break-inside: auto;
+}
+
+/* A group heading must not be left stranded at the foot of a column, away from its rows. */
+.tab.insert .stonetop-choice-entry-title {
+	break-after: avoid;
+}
+
 .stonetop-playbook-empty {
 	display: flex;
 	flex-direction: column;
