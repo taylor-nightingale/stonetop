@@ -869,42 +869,32 @@ body,
 	column-gap: 16px;
 }
 
-.stonetop-playbook-columns .details-section,
-.stonetop-playbook-columns .stonetop-choice-section {
+/* Two-column tabs (the playbook's and every insert's) lay out by what a thing IS, never by which
+   tab it is on — the tab-scoped exceptions this replaces are how the two drifted apart, one broken
+   screenshot at a time.
+
+   A fixed section (instinct, background, appearance, origin) is a heading, a rule and a line or
+   two: split, it strands its divider in the far column, so it stays whole. */
+.stonetop-playbook-columns .details-section {
 	break-inside: avoid;
 	margin-bottom: 12px;
 }
 
-/* Insert tabs: let the section flow across both columns; keep individual tracks together */
-.tab.insert .stonetop-playbook-columns .details-section {
+/* A block of authored choice groups is the opposite: it can be the whole tab (the Lightbearer's
+   invocations), and kept whole it runs down one column leaving the other empty. It flows, and so do
+   the groups inside it. */
+.stonetop-playbook-columns .stonetop-choice-section,
+.stonetop-playbook-columns .stonetop-choice-section .stonetop-choice-entry {
 	break-inside: auto;
 }
 
-/* …except the instinct section, which is a heading, a rule and a line or two: split, it strands its
-   divider (or its one chosen instinct) in the far column. */
-.stonetop-playbook-columns .stonetop-instinct-section {
+/* What flowing must never break: a row, and a heading away from the rows beneath it. */
+.stonetop-playbook-columns .stonetop-choice-track,
+.stonetop-playbook-columns .stonetop-item {
 	break-inside: avoid;
 }
 
-.tab.insert .stonetop-playbook-columns .stonetop-choice-track {
-	break-inside: avoid;
-}
-
-/* Keep a single entry whole — never split its title from its subtitle/track across columns */
-.tab.insert .stonetop-playbook-columns .stonetop-choice-entry {
-	break-inside: avoid;
-}
-
-/* …unless it is the tab's ONLY group, which has nothing to balance against it: atomic, it runs down
-   one column and leaves the other empty (the Lightbearer's invocations). Tabs carrying several
-   groups keep them whole, which is what fills both columns on the ghost/revenant/thrall inserts.
-   Each row still holds together — see the .stonetop-choice-track rule above. */
-.tab.insert .details-section .stonetop-choice-entry:only-child {
-	break-inside: auto;
-}
-
-/* A group heading must not be left stranded at the foot of a column, away from its rows. */
-.tab.insert .stonetop-choice-entry-title {
+.stonetop-playbook-columns .stonetop-choice-entry-title {
 	break-after: avoid;
 }
 

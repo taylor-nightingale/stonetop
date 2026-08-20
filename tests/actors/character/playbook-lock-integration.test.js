@@ -195,6 +195,20 @@ describe("playbook lock (integration)", () => {
 		expect(html).not.toContain("stonetop-intro-step");
 	});
 
+	// The eight steps are instructions; with nothing answered the section is a divider and a heading
+	// over empty space.
+	it("renders no introductions at all when none were answered", async () => {
+		const sheet = makeSheet();
+		const tab = await renderTab(sheet);
+		await tick(tab.querySelector(`input[data-change-action="selectBackground"][value="the-natural"]`));
+
+		const html = await lockedHtml(sheet);
+
+		expect(html).toContain("The Natural");
+		expect(html).not.toContain("introductions.title");
+		expect(html).not.toContain("stonetop-introductions-section");
+	});
+
 	it("keeps the toggle itself, so the summary can be unlocked again", async () => {
 		const sheet = makeSheet();
 		await renderTab(sheet);

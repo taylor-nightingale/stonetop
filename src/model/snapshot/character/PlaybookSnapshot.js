@@ -10,6 +10,10 @@ export class IntroductionsSnapshot {
 		this.step3    = step3;
 		this.npcGroup = npcGroup;
 		this.pcGroup  = pcGroup;
+		// Whether anyone has answered anything here. The eight steps are instructions, so a locked
+		// sheet with no answers has nothing to show — not even the heading. A field rather than a
+		// getter: Handlebars refuses to read inherited properties.
+		this.hasAnswers = [npcGroup, pcGroup].some(g => (g?.condensed?.length ?? 0) > 0);
 	}
 }
 
