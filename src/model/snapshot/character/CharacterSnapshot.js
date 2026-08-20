@@ -9,6 +9,7 @@ export {
 	BackgroundOptionSnapshot, BackgroundOptionSnapshotBuilder, BackgroundSection,
 	PlaybookSnapshot, PlaybookSnapshotBuilder,
 } from "./PlaybookSnapshot.js";
+export { ReviewBlock, ReviewLine, condenseChoiceGroup } from "./ChoiceGroupReview.js";
 export {
 	RequirementSnapshot,
 	MoveSnapshot, MoveSnapshotBuilder,

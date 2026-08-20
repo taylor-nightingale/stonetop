@@ -1,5 +1,11 @@
 <div class="stonetop-introductions-section">
 	<h3 class="stonetop-introductions-title">{{localize "stonetop.sheet.playbook.introductions.title"}}</h3>
+	{{#if @root.playbookLocked}}
+	{{!-- Locked, the eight steps are instructions you have already followed — what is worth keeping
+	      is the answers, so only those render. --}}
+	{{#with intro.npcGroup}}{{> "stonetop.choice-group-condensed" blocks=condensed}}{{/with}}
+	{{#with intro.pcGroup}}{{> "stonetop.choice-group-condensed" blocks=condensed}}{{/with}}
+	{{else}}
 	<p class="stonetop-introductions-preamble">{{{localize "stonetop.sheet.playbook.introductions.preamble"}}}</p>
 
 	<div class="stonetop-intro-step">
@@ -55,4 +61,5 @@
 		<span class="stonetop-intro-step-num">8</span>
 		<p>{{{localize "stonetop.sheet.playbook.introductions.step8"}}}</p>
 	</div>
+	{{/if}}
 </div>

@@ -900,6 +900,32 @@ body,
 	text-align: center;
 }
 
+/* -- Playbook tab lock (condensed view) ----------------------- */
+
+/* In flow, unlike the moves filter: the playbook tab opens with the title image, not a heading, so
+   there is nothing to lay the button over. */
+.stonetop-playbook-toolbar {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 4px;
+}
+
+/* "(Choose 1)" and friends are instructions for filling the tab in — nothing to act on once it is
+   locked. Scoped to the section headings: the same class carries a line's own aside ("(ongoing)"),
+   which the locked view very much wants to keep. */
+.tab.playbook.is-locked .stonetop-move-group-title .stonetop-section-note {
+	display: none;
+}
+
+/* Stands where the checkbox stood, so a condensed line keeps the row's indent and alignment. */
+.stonetop-choice-tick {
+	display: inline-block;
+	width: 14px;
+	text-align: center;
+	font-size: var(--fs-fine);
+	line-height: 1.3;
+}
+
 /* -- Introductions section ------------------------------------ */
 
 .stonetop-introductions-section {
@@ -1435,12 +1461,13 @@ body,
 	padding-right: 130px;
 }
 
-button.stonetop-moves-filter {
+/* Every tab's view-state toggle (moves "selected only", playbook lock) — one appearance, emitted
+   by tab-toolbar-toggle.hbs. `width: auto` is what stops core's .window-app rule stretching it. */
+button.stonetop-view-toggle {
 	display: flex;
 	align-items: center;
 	gap: 6px;
 	width: auto;
-	height: var(--moves-filter-height);
 	padding: 0 10px;
 	font-size: var(--fs-fine);
 	line-height: 1;
@@ -1448,13 +1475,18 @@ button.stonetop-moves-filter {
 	cursor: pointer;
 }
 
-button.stonetop-moves-filter:hover {
+button.stonetop-view-toggle:hover {
 	opacity: 1;
 }
 
-button.stonetop-moves-filter.is-active {
+button.stonetop-view-toggle.is-active {
 	opacity: 1;
 	background: rgba(0, 0, 0, 0.12);
+}
+
+/* The moves filter is the one toggle laid over a heading, so it alone carries the reserved height. */
+button.stonetop-moves-filter {
+	height: var(--moves-filter-height);
 }
 
 .tab.moves.hide-unselected .stonetop-item.move-unselected {
@@ -1657,11 +1689,19 @@ button.stonetop-moves-filter.is-active {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	gap: 6px;
 }
 
+/* All four sides: the inherited top margin (~2em) offset the sub-heading from the checkbox beside
+   it, which is what left every invocation's box floating above its name. */
 .stonetop-choice-header-wrapper h4 {
-	margin-bottom: 0px;
+	margin: 0;
 	font-size: var(--fs-subheading);
+}
+
+/* The separation between subtitled entries that the stray heading margin used to provide. */
+.stonetop-choice-track.stonetop-column + .stonetop-choice-track.stonetop-column {
+	margin-top: 10px;
 }
 
 .stonetop-choice-track-checks {

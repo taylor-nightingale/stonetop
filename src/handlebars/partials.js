@@ -11,6 +11,8 @@ export const STONETOP_PARTIALS = {
 	"stonetop.stepper-buttons":  "systems/stonetop/templates/actor/partials/stepper-buttons.hbs",
 	"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",
 	"stonetop.tab-playbook":           "systems/stonetop/templates/actor/partials/tab-playbook.hbs",
+	"stonetop.choice-group-condensed": "systems/stonetop/templates/actor/partials/choice-group-condensed.hbs",
+	"stonetop.tab-toolbar-toggle":     "systems/stonetop/templates/actor/partials/tab-toolbar-toggle.hbs",
 	"stonetop.introductions-section":  "systems/stonetop/templates/actor/partials/introductions-section.hbs",
 	"stonetop.tab-moves":        "systems/stonetop/templates/actor/partials/tab-moves.hbs",
 	"stonetop.tab-equipment":    "systems/stonetop/templates/actor/partials/tab-equipment.hbs",

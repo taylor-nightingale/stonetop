@@ -257,7 +257,7 @@
             "type": "entry",
             "content": {
               "title": "And You Ended Up…",
-              "text": "*(choose 1 or 2 per tale)*"
+              "titleNote": "(choose 1 or 2 per tale)"
             }
           },
           {

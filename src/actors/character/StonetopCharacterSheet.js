@@ -21,6 +21,10 @@ export function createStonetopCharacterSheetClass(Base) {
 		// Moves tab "selected only" filter. Held on the sheet because ticking a move re-renders the
 		// tab, which would otherwise drop the filter mid-review.
 		_hideUnselectedMoves = false;
+		// Playbook tab lock. Locked renders the choices as a read-only summary instead of the
+		// editor, so unlike the moves filter this one has to re-render — there is different markup
+		// on the other side of it, not just hidden rows.
+		_playbookLocked = false;
 		_scrollAnchoring = new ScrollAnchoring();
 
 		get _stonetopCharacter() {
@@ -41,6 +45,10 @@ export function createStonetopCharacterSheetClass(Base) {
 				},
 				toggleUnselectedMoves(ev, target) {
 					this._setHideUnselectedMoves(!this._hideUnselectedMoves, target.closest(".tab.moves"));
+				},
+				togglePlaybookLock() {
+					this._playbookLocked = !this._playbookLocked;
+					this.render();
 				},
 				async openBasicMove(ev, target) {
 					// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.
@@ -133,6 +141,7 @@ export function createStonetopCharacterSheetClass(Base) {
 			const playbooks = this._stonetopCharacter.listPlaybooks();
 			const context = await super._prepareContext(options);
 			context.hideUnselectedMoves = this._hideUnselectedMoves;
+			context.playbookLocked      = this._playbookLocked;
 			context.availablePlaybooks  = await playbooks;
 			return context;
 		}
