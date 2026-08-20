@@ -8,24 +8,25 @@
 			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.headingBefore"}}}<a
 					class="stonetop-move-link" data-action="openMoveBySlug" data-move-slug="outfit"
 					title="{{localize 'stonetop.character.moves.open'}}"><em><strong>{{localize "stonetop.inventory.outfit.moveName"}}</strong></em></a>{{{localize "stonetop.inventory.outfit.headingAfter"}}}</p>
+			<p class="stonetop-outfit-marked" data-tooltip="{{localize 'stonetop.inventory.outfit.markedHint'}}" data-tooltip-direction="UP">{{localize "stonetop.inventory.outfit.marked" count=stonetop.outfit.load.markedWeight}}</p>
 			<ul class="stonetop-outfit-loads">
 				<li>
 					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
+						<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
 						       value="light" {{#if stonetop.outfit.load.loadLevelLight}}checked{{/if}}>
 						<span>{{{localize "stonetop.inventory.outfit.light"}}}</span>
 					</label>
 				</li>
 				<li>
 					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelNormal}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
+						<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
 						       value="normal" {{#if stonetop.outfit.load.loadLevelNormal}}checked{{/if}}>
 						<span>{{{localize "stonetop.inventory.outfit.normal"}}}</span>
 					</label>
 				</li>
 				<li>
 					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelHeavy}} is-checked{{/if}}">
-						<input type="radio" class="stonetop-outfit-load-radio" data-change-action="outfitLoad" name="stonetop-load-level"
+						<input type="radio" class="stonetop-outfit-load-radio" name="stonetop-load-level"
 						       value="heavy" {{#if stonetop.outfit.load.loadLevelHeavy}}checked{{/if}}>
 						<span>{{{localize "stonetop.inventory.outfit.heavy"}}}</span>
 					</label>

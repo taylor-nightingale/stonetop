@@ -128,7 +128,6 @@ export async function migrateCharacterFlags(actor) {
 		"system.resources.counts":           f("resources.counts")          ?? {},
 		"system.moveResources.counts":       f("move-resources.counts")     ?? {},
 		"system.inventory.checked":          f("inventory.checked")         ?? {},
-		"system.inventory.loadLevel":        f("inventory.loadLevel")       ?? null,
 		"system.inventory.regularPool":      f("inventory.regularPool")     ?? 0,
 		"system.inventory.smallPool":        f("inventory.smallPool")       ?? 0,
 		"system.inventory.otherItems":       f("inventory.otherItems")      ?? "",

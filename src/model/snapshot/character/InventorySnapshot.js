@@ -10,7 +10,7 @@ export class LoadOptionSnapshot {
 }
 
 /**
- * @property {string|null} selected
+ * @property {number} markedWeight
  * @property {boolean} loadLevelLight
  * @property {boolean} loadLevelNormal
  * @property {boolean} loadLevelHeavy
@@ -18,7 +18,7 @@ export class LoadOptionSnapshot {
  */
 export class LoadSnapshot {
 	constructor(b) {
-		this.selected        = b._selected;
+		this.markedWeight    = b._markedWeight;
 		this.loadLevelLight  = b._loadLevelLight;
 		this.loadLevelNormal = b._loadLevelNormal;
 		this.loadLevelHeavy  = b._loadLevelHeavy;
@@ -27,7 +27,7 @@ export class LoadSnapshot {
 }
 
 export class LoadSnapshotBuilder {
-	withSelected(v)        { this._selected        = v; return this; }
+	withMarkedWeight(v)    { this._markedWeight    = v; return this; }
 	withLoadLevelLight(v)  { this._loadLevelLight  = v; return this; }
 	withLoadLevelNormal(v) { this._loadLevelNormal = v; return this; }
 	withLoadLevelHeavy(v)  { this._loadLevelHeavy  = v; return this; }

@@ -15,7 +15,6 @@ function makeActor(inventoryState = {}) {
 	const actor = new FakeCharacterActorBuilder().build();
 	actor.system.inventory = {
 		checked:     inventoryState.checked     ?? {},
-		loadLevel:   inventoryState.loadLevel   ?? null,
 		regularPool: inventoryState.regularPool ?? 0,
 		smallPool:   inventoryState.smallPool   ?? 0,
 		otherItems:  inventoryState.otherItems  ?? "",
@@ -375,16 +374,43 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(smallItems(snap)[0].twoCol).toBe(true);
 	});
 
-	it("load level is null when not set", async () => {
-		const snap = await makeCi().buildSnapshot(1);
-		expect(snap.load.selected).toBeNull();
-	});
-
-	it("load level reflects loadLevel flag", async () => {
-		const snap = await makeCi({ loadLevel: "light" }).buildSnapshot(1);
+	it("marks nothing and sits in the light band when no item is checked", async () => {
+		const snap = await makeCi({}, makeRepo([makeOutfitItem({ slug: "rope", weight: 2 })])).buildSnapshot(1);
+		expect(snap.load.markedWeight).toBe(0);
 		expect(snap.load.loadLevelLight).toBe(true);
 		expect(snap.load.loadLevelNormal).toBe(false);
 		expect(snap.load.loadLevelHeavy).toBe(false);
+	});
+
+	it("counts the weight of every checked regular item", async () => {
+		const repo = makeRepo([
+			makeOutfitItem({ slug: "armor", weight: 3 }),
+			makeOutfitItem({ slug: "rope",  weight: 1 }),
+			makeOutfitItem({ slug: "tent",  weight: 4 }),
+		]);
+		const snap = await makeCi({ checked: { armor: true, rope: true } }, repo).buildSnapshot(1);
+		expect(snap.load.markedWeight).toBe(4);
+		expect(snap.load.loadLevelNormal).toBe(true);
+	});
+
+	it("counts the undefined pool's diamonds alongside the checked items", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "armor", weight: 3 })]);
+		const snap = await makeCi({ checked: { armor: true }, regularPool: 4 }, repo).buildSnapshot(1);
+		expect(snap.load.markedWeight).toBe(7);
+		expect(snap.load.loadLevelHeavy).toBe(true);
+	});
+
+	it("counts custom (embedded) items, which carry weight like any other", async () => {
+		const outfitItems = makeActorOutfitItems([makeRawEmbeddedItem({ slug: "idol", weight: 2 })]);
+		const snap = await makeCi({ checked: { idol: true } }, makeRepo(), outfitItems).buildSnapshot(1);
+		expect(snap.load.markedWeight).toBe(2);
+		expect(snap.load.loadLevelLight).toBe(true);
+	});
+
+	it("does not count small items — they are □ and carry no load", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "chalk", weight: 1, inventoryColumn: "small" })]);
+		const snap = await makeCi({ checked: { chalk: true } }, repo).buildSnapshot(1);
+		expect(snap.load.markedWeight).toBe(0);
 	});
 
 	it("regularPool.current reflects regularPool flag", async () => {

@@ -7,7 +7,9 @@
  * exists to remove. Only the ones the templates reach for are here; add from the same source if a
  * template starts using another.
  *
- * `localize` is the one deliberate deviation: it returns the key, since no test asserts on copy.
+ * `localize` is the one deliberate deviation: with no hash args it returns the key, since no test
+ * asserts on copy. Core's `{{localize key arg=…}}` formats instead of localizing, and a test DOES
+ * care that the arg lands, so that path goes through game.i18n.format (FakeI18n reads en.json).
  */
 export function registerFoundryHelpers(Handlebars) {
 	Handlebars.registerHelper({
@@ -21,5 +23,9 @@ export function registerFoundryHelpers(Handlebars) {
 		and() { return Array.prototype.every.call(arguments, Boolean); },
 		or()  { return Array.prototype.slice.call(arguments, 0, -1).some(Boolean); },
 	});
-	Handlebars.registerHelper("localize", key => key);
+	Handlebars.registerHelper("localize", (key, options) => {
+		const data = options?.hash ?? {};
+		if (!Object.keys(data).length) return key;
+		return globalThis.game?.i18n?.format(key, data) ?? key;
+	});
 }

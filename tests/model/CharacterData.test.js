@@ -56,7 +56,6 @@ describe("CharacterData defaults", () => {
 	it("defaults inventory to zeroed state", () => {
 		const d = new CharacterData();
 		expect(d.inventory.checked).toEqual({});
-		expect(d.inventory.loadLevel).toBeNull();
 		expect(d.inventory.regularPool).toBe(0);
 		expect(d.inventory.smallPool).toBe(0);
 		expect(d.inventory.otherItems).toBe("");

@@ -194,10 +194,6 @@ export class StonetopCharacter {
 		await this._inventory.setResource(slug, count);
 	}
 
-	async setInventoryLoadLevel(level) {
-		await this._inventory.setLoadLevel(level);
-	}
-
 	async setInventoryRegularPool(count) {
 		await this._inventory.setRegularPool(count);
 	}
