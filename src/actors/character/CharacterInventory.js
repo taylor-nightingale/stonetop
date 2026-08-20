@@ -148,7 +148,6 @@ export class CharacterInventory {
 
 	buildLoadSnapshot(loadLevel) {
 		return new LoadSnapshotBuilder()
-			.withInstruction(_loc("stonetop.inventory.outfit.heading"))
 			.withSelected(loadLevel ?? null)
 			.withLoadLevelLight(loadLevel === "light")
 			.withLoadLevelNormal(loadLevel === "normal")

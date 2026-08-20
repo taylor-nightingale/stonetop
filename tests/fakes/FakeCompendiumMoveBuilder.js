@@ -84,7 +84,9 @@ export class FakeCompendiumMoveBuilder {
 			_starting: this._starting ?? false,   // test-only marker (see asStarting); not in system/toObject
 			system,
 			toObject() {
-				return {name, type: "move", system};
+				// Real Foundry documents keep their _id in toObject(); WorldItemStore hands these
+				// entries back as index rows, and callers look the document up again by that id.
+				return {_id: slug, name, type: "move", system};
 			},
 		};
 	}

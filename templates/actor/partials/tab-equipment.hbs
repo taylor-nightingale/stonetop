@@ -5,7 +5,9 @@
 	{{!-- Outfit header, with the steading's Prosperity gear table alongside it --}}
 	<div class="stonetop-outfit-headers">
 		<div class="stonetop-outfit-header">
-			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.heading"}}}</p>
+			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.headingBefore"}}}<a
+					class="stonetop-move-link" data-action="openMoveBySlug" data-move-slug="outfit"
+					title="{{localize 'stonetop.character.moves.open'}}"><em><strong>{{localize "stonetop.inventory.outfit.moveName"}}</strong></em></a>{{{localize "stonetop.inventory.outfit.headingAfter"}}}</p>
 			<ul class="stonetop-outfit-loads">
 				<li>
 					<label class="stonetop-outfit-load-label{{#if stonetop.outfit.load.loadLevelLight}} is-checked{{/if}}">

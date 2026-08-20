@@ -338,7 +338,9 @@
 			"smallUndefinedPoolLabel": "Undefined",
 			"smallUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to items below, or expend supplies to mark an additional ◇.",
 			"outfit": {
-				"heading": "When you <em><strong>Outfit</strong></em>, mark a number of ◇ below on specific items or as a group.",
+				"headingBefore": "When you ",
+				"moveName": "Outfit",
+				"headingAfter": ", mark a number of ◇ below on specific items or as a group.",
 				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
 				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
 				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
@@ -504,6 +506,7 @@
 				"addMove": "Add Move",
 				"removeMove": "Remove Move",
 				"sendToChat": "Send to Chat",
+				"open": "Open the move",
 				"requires": "Requires",
 				"notMet": "Not Met",
 				"lockHint": "Show only the moves this character has taken.",

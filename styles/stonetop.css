@@ -2213,6 +2213,18 @@ button.stonetop-view-toggle.is-active {
 	margin: 0 0 4px;
 }
 
+/* A move named inline in a rule blurb (the Outfit heading), clickable to open that move. */
+.stonetop-move-link {
+	cursor: pointer;
+	color: inherit;
+	text-decoration: underline dotted;
+	text-underline-offset: 2px;
+}
+
+.stonetop-move-link:hover {
+	text-decoration: underline solid;
+}
+
 .stonetop-prosperity-title {
 	font-size: var(--fs-heading);
 	margin: 0 0 4px;

@@ -87,4 +87,26 @@ describe("FoundryMoveRepository", () => {
 			expect(entries[1]).toBe(REVENANT_MOVE_A);
 		});
 	});
+
+	describe("getMoveDocumentBySlug", () => {
+		it("returns null for an unknown slug", async () => {
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.movesPack().withItem(REVENANT_MOVE_A))
+				.build();
+			expect(await new FoundryMoveRepository().getMoveDocumentBySlug("nope")).toBeNull();
+		});
+
+		it("returns the pack document for a compendium move", async () => {
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.movesPack().withItem(REVENANT_MOVE_A))
+				.build();
+			expect(await new FoundryMoveRepository().getMoveDocumentBySlug("unliving")).toEqual(REVENANT_MOVE_A);
+		});
+
+		it("falls back to a world move when the pack has no such slug", async () => {
+			const worldMove = new FakeCompendiumMoveBuilder().withName("Custom Move").build(); // slug: custom-move
+			new FakeGameBuilder().withWorldItem(worldMove).build();
+			expect(await new FoundryMoveRepository().getMoveDocumentBySlug("custom-move")).toEqual(worldMove);
+		});
+	});
 });

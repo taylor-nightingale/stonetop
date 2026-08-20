@@ -389,6 +389,22 @@ describe("StonetopCharacterSheet actions", () => {
 		expect(char.sendMoveToChat).toHaveBeenCalledWith("defend");
 	});
 
+	it("openMoveBySlug renders the sheet of the move the slug resolves to", async () => {
+		const { sheet } = makeSheet();
+		const doc = { sheet: { render: vi.fn() } };
+		sheet._moveRepository.getMoveDocumentBySlug = vi.fn(async () => doc);
+		sheet._editable = false;   // opening a move writes nothing, so a locked sheet still opens it
+		await fireAction(sheet, "openMoveBySlug", el(`<a data-move-slug="outfit"></a>`));
+		expect(sheet._moveRepository.getMoveDocumentBySlug).toHaveBeenCalledWith("outfit");
+		expect(doc.sheet.render).toHaveBeenCalledWith(true);
+	});
+
+	it("openMoveBySlug does nothing when the slug resolves to no move", async () => {
+		const { sheet } = makeSheet();
+		sheet._moveRepository.getMoveDocumentBySlug = vi.fn(async () => null);
+		await expect(fireAction(sheet, "openMoveBySlug", el(`<a data-move-slug="nope"></a>`))).resolves.not.toThrow();
+	});
+
 	it("mutating actions are blocked on a non-editable sheet", async () => {
 		const { sheet, char } = makeSheet();
 		sheet._editable = false;

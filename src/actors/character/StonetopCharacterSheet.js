@@ -54,6 +54,12 @@ export function createStonetopCharacterSheetClass(Base) {
 					const doc = await this._moveRepository.getReferencedMoveDocument(compendiumId);
 					doc?.sheet.render(true);
 				},
+				// A rule reference that names a move by slug (the Outfit heading, for one) opens that
+				// move's sheet. Not edit-gated: opening a sheet writes nothing.
+				async openMoveBySlug(ev, target) {
+					const doc = await this._moveRepository.getMoveDocumentBySlug(target.dataset.moveSlug);
+					doc?.sheet.render(true);
+				},
 				toggleFollowerInventory(ev, target) {
 					const slug = target.dataset.slug;
 					if (this._openFollowerInventories.has(slug)) this._openFollowerInventories.delete(slug);
