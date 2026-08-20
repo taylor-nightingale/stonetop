@@ -43,15 +43,11 @@
 	</a>
 	{{#if (and (or alwaysShowResource (gt selection.value 0)) resource)}}
 	<span class="stonetop-item-resources">
-		{{#each (resourceChecks resource)}}
-		<span class="stonetop-item-resource-entry">
-			<button type="button" class="stonetop-item-resource-check{{#if checked}} is-checked{{/if}}"
-			        data-action="moveResourcePip"
-			        data-move-slug="{{../slug}}"
-			        data-index="{{@index}}"></button>
-			{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
-		</span>
-		{{/each}}
+		{{!-- moveSlug is what the pip handler reads; slug is passed explicitly because a partial
+		      inherits the caller's context, and an attribute nobody asked for is worse than one
+		      that is spelled out. --}}
+		{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check"
+		    action="moveResourcePip" moveSlug=slug slug=slug}}
 		{{> "stonetop.resource-input" input=resource.input moveSlug=slug}}
 	</span>
 	{{/if}}
