@@ -16,6 +16,7 @@ export const STONETOP_PARTIALS = {
 	"stonetop.introductions-section":  "systems/stonetop/templates/actor/partials/introductions-section.hbs",
 	"stonetop.tab-moves":        "systems/stonetop/templates/actor/partials/tab-moves.hbs",
 	"stonetop.tab-equipment":    "systems/stonetop/templates/actor/partials/tab-equipment.hbs",
+	"stonetop.tab-possessions":  "systems/stonetop/templates/actor/partials/tab-possessions.hbs",
 	"stonetop.tab-arcana":       "systems/stonetop/templates/actor/partials/tab-arcana.hbs",
 	"stonetop.arcanum-cards":    "systems/stonetop/templates/actor/partials/arcanum-cards.hbs",
 	"stonetop.tab-followers":    "systems/stonetop/templates/actor/partials/tab-followers.hbs",

@@ -32,7 +32,8 @@
 			"tabs": {
 				"playbook": "Playbook",
 				"moves": "Moves",
-				"inventory": "Inventory",
+				"possessions": "Possessions",
+				"inventory": "Outfit",
 				"arcana": "Arcana",
 				"followers": "Followers",
 				"notes": "Notes"
