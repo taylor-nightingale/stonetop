@@ -115,9 +115,13 @@
 
 	</div>
 
+	{{!-- Locked, the introductions are worth the room only if something was answered — otherwise the
+	      divider and heading stand over nothing. --}}
+	{{#if (or (not viewFlags.playbookLocked) stonetop.playbook.introductions.hasAnswers)}}
 	{{#if stonetop.playbook.introductions}}
 	<div class="stonetop-panel-divider" aria-hidden="true"></div>
 	{{> "stonetop.introductions-section" intro=stonetop.playbook.introductions}}
+	{{/if}}
 	{{/if}}
 	{{/unless}}
 
