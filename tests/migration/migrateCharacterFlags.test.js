@@ -113,14 +113,12 @@ describe("migrateCharacterFlags — inventory", () => {
 		const actor = makeActor({
 			"vitals.maxHP": 16,
 			"inventory.checked":     { "sword": true },
-			"inventory.loadLevel":   "normal",
 			"inventory.regularPool": 3,
 			"inventory.smallPool":   1,
 			"inventory.otherItems":  "a coin",
 		});
 		await migrateCharacterFlags(actor);
 		expect(actor.system.inventory.checked).toEqual({ "sword": true });
-		expect(actor.system.inventory.loadLevel).toBe("normal");
 		expect(actor.system.inventory.regularPool).toBe(3);
 		expect(actor.system.inventory.smallPool).toBe(1);
 		expect(actor.system.inventory.otherItems).toBe("a coin");

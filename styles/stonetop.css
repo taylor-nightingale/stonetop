@@ -2213,6 +2213,18 @@ button.stonetop-view-toggle.is-active {
 	margin: 0 0 4px;
 }
 
+/* The load level is read off the marked ◇, so the radios report it rather than set it. */
+.stonetop-outfit-load-radio {
+	pointer-events: none;
+}
+
+.stonetop-outfit-marked {
+	font-size: var(--fs-note);
+	color: var(--color-text-dark-secondary, #666);
+	font-style: italic;
+	margin: 0 0 4px;
+}
+
 /* A move named inline in a rule blurb (the Outfit heading), clickable to open that move. */
 .stonetop-move-link {
 	cursor: pointer;

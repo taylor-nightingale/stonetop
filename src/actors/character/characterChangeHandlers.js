@@ -35,7 +35,6 @@ export function characterChangeHandlers(char) {
 
 		// inventory (the character's own tab and a follower's catalog render the same partial)
 		inventoryItemCheck: el => char.setInventoryItemCheckedFor(InventoryOwner.fromElement(el), el.dataset.slug, el.checked),
-		outfitLoad:         el => char.setInventoryLoadLevel(el.value),
 		regularPool:        el => char.toggleInventoryRegularPool(el.dataset.index, el.checked),
 		smallPool:          el => char.toggleInventorySmallPool(el.dataset.index, el.checked),
 		inventoryOtherItems: el => char.setInventoryOtherItems(el.value),

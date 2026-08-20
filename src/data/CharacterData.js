@@ -12,7 +12,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			playbookSlug: new f.StringField({ initial: "" }),
 			inventory: new f.SchemaField({
 				checked:     new f.ObjectField(),
-				loadLevel:   new f.StringField({ nullable: true, initial: null }),
 				regularPool: new f.NumberField({ initial: 0, integer: true }),
 				smallPool:   new f.NumberField({ initial: 0, integer: true }),
 				otherItems:  new f.StringField({ initial: "" }),

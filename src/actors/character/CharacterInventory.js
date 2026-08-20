@@ -10,7 +10,7 @@ import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
 import { ResourceController } from "./ResourceController.js";
 import { GrantStamp } from "../../model/data/ItemGrant.js";
-import { buildOutfitColumn } from "../../model/snapshot/character/outfitSections.js";
+import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
 
 // The Prosperity gear table as the inventory insert prints it: fixed rungs, the steading's rating
 // only decides which one the character is standing on. A rating past either end marks the nearest
@@ -34,7 +34,6 @@ export class CharacterInventory {
 	}
 
 	get checked()     { return this._actor.system?.inventory?.checked     ?? {}; }
-	get loadLevel()   { return this._actor.system?.inventory?.loadLevel   ?? null; }
 	get regularPool() { return this._actor.system?.inventory?.regularPool ?? 0; }
 	get smallPool()   { return this._actor.system?.inventory?.smallPool   ?? 0; }
 	get otherItems()  { return this._actor.system?.inventory?.otherItems  ?? ""; }
@@ -45,10 +44,6 @@ export class CharacterInventory {
 
 	async setResource(slug, count) {
 		await this._resourceController.set("inventory", slug, count);
-	}
-
-	async setLoadLevel(level) {
-		await this._actor.update({ "system.inventory.loadLevel": level });
 	}
 
 	async setRegularPool(count) {
@@ -123,7 +118,7 @@ export class CharacterInventory {
 		const repoItems = await this._repo.getAll();
 
 		return new OutfitSnapshotBuilder()
-			.withLoad(this.buildLoadSnapshot(this.loadLevel))
+			.withLoad(this.buildLoadSnapshot(this.markedWeight(repoItems, embeddedItems)))
 			.withRegularSections(buildOutfitColumn(repoItems, embeddedItems, checked, "regular", resourceFn))
 			.withRegularPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.regularPool))
 			.withSmallSections(buildOutfitColumn(repoItems, embeddedItems, checked, "small", resourceFn))
@@ -146,12 +141,24 @@ export class CharacterInventory {
 		);
 	}
 
-	buildLoadSnapshot(loadLevel) {
+	// The ◇ a character has marked: every checked regular item's weight, plus the diamonds marked in
+	// the "undefined" pool. Small items are □ and carry no load, so the small column is not counted.
+	markedWeight(repoItems, embeddedItems) {
+		const checked = this.checked;
+		return [...repoItems, ...embeddedItems]
+			.filter(i => i.inventoryColumn === "regular" && checked[i.slug])
+			.reduce((total, i) => total + (i.weight ?? 0), 0) + this.regularPool;
+	}
+
+	// Load is read off the sheet, not chosen: the marked ◇ decide the band (same rule the follower
+	// inventory uses). Guidance only — nothing here caps what a character may carry.
+	buildLoadSnapshot(markedWeight) {
+		const band = loadBand(markedWeight);
 		return new LoadSnapshotBuilder()
-			.withSelected(loadLevel ?? null)
-			.withLoadLevelLight(loadLevel === "light")
-			.withLoadLevelNormal(loadLevel === "normal")
-			.withLoadLevelHeavy(loadLevel === "heavy")
+			.withMarkedWeight(markedWeight)
+			.withLoadLevelLight(band === "light")
+			.withLoadLevelNormal(band === "normal")
+			.withLoadLevelHeavy(band === "heavy")
 			.withOptions([
 				new LoadOptionSnapshot("light", "Light", _loc("stonetop.inventory.outfit.light")),
 				new LoadOptionSnapshot("normal", "Normal", _loc("stonetop.inventory.outfit.normal")),

@@ -61,7 +61,7 @@ function spyChar() {
 		"setRollMode", "applyPlaybookBySlug", "selectBackground", "selectCustomInstinct",
 		"setChoiceTrackFor", "setChoicePickFor", "setChoiceTextFor", "setArcanumBlank",
 		"setMoveChecked", "setMoveResourceText", "setInventoryItemCheckedFor",
-		"setInventoryLoadLevel", "toggleInventoryRegularPool", "toggleInventorySmallPool",
+		"toggleInventoryRegularPool", "toggleInventorySmallPool",
 		"setInventoryOtherItems", "setPossessionSelected",
 		"setBio", "setNotes", "setFollowerName", "setFollowerHp",
 		"setFollowerHpMax", "toggleFollowerTag", "toggleArcanumFlip", "toggleMoveResourcePip",
