@@ -107,7 +107,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		static TABS = {
 			primary: {
 				tabs: [
-					{ id: "playbook" }, { id: "moves" }, { id: "inventory" },
+					{ id: "playbook" }, { id: "moves" }, { id: "possessions" }, { id: "inventory" },
 					{ id: "arcana" }, { id: "followers" }, { id: "notes" },
 				],
 				initial: "playbook",

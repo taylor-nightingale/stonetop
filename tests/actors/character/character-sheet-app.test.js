@@ -121,10 +121,10 @@ beforeEach(() => { document.body.innerHTML = ""; });
 describe("StonetopCharacterSheet tabs", () => {
 	beforeEach(() => new FakeGameBuilder().build());
 
-	it("prepares the six fixed tabs with the playbook active and localized labels", async () => {
+	it("prepares the seven fixed tabs with the playbook active and localized labels", async () => {
 		const { sheet } = makeSheet();
 		const ctx = await sheet._prepareContext({});
-		expect(Object.keys(ctx.tabs)).toEqual(["playbook", "moves", "inventory", "arcana", "followers", "notes"]);
+		expect(Object.keys(ctx.tabs)).toEqual(["playbook", "moves", "possessions", "inventory", "arcana", "followers", "notes"]);
 		expect(ctx.tabs.playbook.active).toBe(true);
 		expect(ctx.tabs.playbook.label).toBe("stonetop.sheet.tabs.playbook");
 	});
@@ -135,7 +135,7 @@ describe("StonetopCharacterSheet tabs", () => {
 		});
 		const ctx = await sheet._prepareContext({});
 		expect(ctx.tabs["insert-the-crew"]).toMatchObject({ id: "insert-the-crew", label: "The Crew" });
-		// insert tabs come after the fixed six
+		// insert tabs come after the fixed seven
 		expect(Object.keys(ctx.tabs).at(-1)).toBe("insert-the-crew");
 	});
 });

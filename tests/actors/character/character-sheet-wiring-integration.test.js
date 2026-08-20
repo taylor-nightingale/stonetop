@@ -191,13 +191,13 @@ describe("character sheet wiring — inventory and followers (integration)", () 
 });
 
 describe("character sheet wiring — tabs and the router (integration)", () => {
-	it("renders the six fixed tabs plus one per owned insert", async () => {
+	it("renders the seven fixed tabs plus one per owned insert", async () => {
 		const { sheet } = makeSheet({ items: [insertItem("the-crew", "The Crew")] });
 
 		const ctx = await sheet._prepareContext({});
 
 		expect(Object.keys(ctx.tabs)).toEqual([
-			"playbook", "moves", "inventory", "arcana", "followers", "notes", "insert-the-crew",
+			"playbook", "moves", "possessions", "inventory", "arcana", "followers", "notes", "insert-the-crew",
 		]);
 		expect(ctx.tabs["insert-the-crew"].label).toBe("The Crew");
 	});
