@@ -18,21 +18,16 @@ export class ChoiceGroupWiring {
 
 	#host;
 	#when;
-	#onPick;
 
 	/**
 	 * @param host  typed actor answering setChoiceTrackFor / setChoicePickFor / setChoiceTextFor /
 	 *              clearChoicePickFor.
 	 * @param when    predicate checked per event — the home for gates evaluated at event time rather
 	 *                than at wiring time (a sheet's isEditable, which can change mid-session).
-	 * @param onPick  optional view-only hook the host sheet uses to mirror a pick into its own DOM
-	 *                before the re-render lands (the character's custom-instinct box). Never
-	 *                persistence — that is the host's job.
 	 */
-	constructor(host, { when = () => true, onPick = null } = {}) {
+	constructor(host, { when = () => true } = {}) {
 		this.#host = host;
 		this.#when = when;
-		this.#onPick = onPick;
 	}
 
 	attach(root) {
@@ -47,9 +42,7 @@ export class ChoiceGroupWiring {
 		const target = ChoiceTarget.fromElement(el);
 		switch (el.dataset.changeAction) {
 			case "cgTrack": return void this.#host.setChoiceTrackFor(target, el.dataset.cgIndex, el.checked);
-			case "cgPick":
-				this.#onPick?.(el);
-				return void this.#host.setChoicePickFor(target, el.checked);
+			case "cgPick":  return void this.#host.setChoicePickFor(target, el.checked);
 			case "cgText":  return void this.#host.setChoiceTextFor(target, el.value);
 		}
 	}

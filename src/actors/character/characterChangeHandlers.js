@@ -26,7 +26,8 @@ export function characterChangeHandlers(char) {
 		selectPlaybook:   el => char.applyPlaybookBySlug(el.value),
 		selectBackground: el => char.selectBackground(el.value),
 		selectOrigin:     el => char.origin.select(el.value),
-		instinctCustom:   el => char.selectCustomInstinct(el.value.trim()),
+		instinctCustom:   el => char.selectCustomInstinct(el.value.trim(),
+			el.closest("[data-insert-item-id]")?.dataset.insertItemId ?? null),
 		arcanumBlank:  el => {
 			const card = el.closest(".stonetop-arcanum-card");
 			if (card) return char.setArcanumBlank(card.dataset.slug, el.dataset.blankKey, el.value);

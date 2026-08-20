@@ -142,10 +142,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			await super._onFirstRender(context, options);
 			this._buildChangeRouter().attach(this.element);
 			// Every choice row on the sheet, through the one shared description of how one behaves.
-			new ChoiceGroupWiring(this._stonetopCharacter, {
-				when:   () => this.isEditable,
-				onPick: el => this._syncInstinctBox(el),
-			}).attach(this.element);
+			new ChoiceGroupWiring(this._stonetopCharacter, { when: () => this.isEditable })
+				.attach(this.element);
 		}
 
 		// The @Blank enricher renders write-in blanks empty, so their stored values are seeded here
@@ -174,19 +172,6 @@ export function createStonetopCharacterSheetClass(Base) {
 				when: () => this.isEditable,
 				ignore: ChoiceGroupWiring.CHANGE_ACTIONS,
 			});
-		}
-
-		// The picked option's label mirrors into the custom-instinct box immediately (the
-		// re-render refreshes it authoritatively afterwards) — pure view sync.
-		_syncInstinctBox(el) {
-			const label = el.dataset.displayLabel ?? "";
-			const insertEl = el.closest("[data-insert-item-id]");
-			if (insertEl) {
-				const box = insertEl.querySelector(".stonetop-instinct-custom");
-				if (box) box.value = label;
-			} else if (el.dataset.cgContext === "instinct") {
-				for (const box of this.element.querySelectorAll(".stonetop-instinct-custom")) box.value = label;
-			}
 		}
 
 		// Tag chips on a follower card, group member, or companion — StonetopCharacter routes on

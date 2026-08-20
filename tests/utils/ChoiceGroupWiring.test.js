@@ -12,11 +12,11 @@ const host = () => ({
 	setChoiceTextFor: vi.fn(),  clearChoicePickFor: vi.fn(),
 });
 
-function mount(html, { editable = true, onPick = null } = {}) {
+function mount(html, { editable = true } = {}) {
 	const root = document.createElement("form");
 	root.innerHTML = html;
 	const h = host();
-	new ChoiceGroupWiring(h, { when: () => editable, onPick }).attach(root);
+	new ChoiceGroupWiring(h, { when: () => editable }).attach(root);
 	return { root, host: h, el: root.firstElementChild };
 }
 
@@ -97,13 +97,3 @@ describe("ChoiceGroupWiring pick clearing", () => {
 	});
 });
 
-describe("ChoiceGroupWiring view hook", () => {
-	// The host sheet mirrors a pick into its own DOM before the re-render (the custom-instinct box).
-	it("calls the host's onPick with the element, and still persists", () => {
-		const onPick = vi.fn();
-		const { el, host } = mount(pick(), { onPick });
-		fire(el, "change");
-		expect(onPick).toHaveBeenCalledWith(el);
-		expect(host.setChoicePickFor).toHaveBeenCalled();
-	});
-});
