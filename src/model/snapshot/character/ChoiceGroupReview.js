@@ -4,14 +4,30 @@ import { hasText, rich } from "../RichText.js";
 // are joined onto one line rather than listed.
 const INLINE_SEPARATOR = " · ";
 
-/** One reviewed line: what was chosen, the aside that qualifies it (an invocation's "(ongoing)"),
- *  and the text that belongs under it (a pick's description, a tracked entry's body). */
+/**
+ * One reviewed line: what was chosen, the aside that qualifies it (an invocation's "(ongoing)"),
+ * and the text that belongs under it.
+ *
+ * `form` is which of the editor's shapes the row was rendered in, carried through so the locked
+ * view can emit that same shape rather than flattening everything to one: a named entry keeps its
+ * sub-heading, a card pick keeps its card. Locking a tab must not restyle it.
+ */
 export class ReviewLine {
-	constructor(text, detail = null, note = null) {
+	constructor(form, text, detail, note) {
+		this.form   = form;
 		this.text   = text;
 		this.detail = detail;
 		this.note   = note;
 	}
+
+	/** A bare line — a ticked entry that is nothing but its own text. */
+	static row(text, note = null) { return new ReviewLine("row", text, null, note); }
+
+	/** A named entry with a body under it: the editor's sub-heading + description (an invocation). */
+	static section(text, note, body) { return new ReviewLine("section", text, body, note); }
+
+	/** A pick with a description: the editor's card. */
+	static card(text, description) { return new ReviewLine("card", text, description, null); }
 }
 
 /** A group's prose and the choices it introduces. Title and lead are the group's own words — the
@@ -77,9 +93,12 @@ class Condenser {
 			return;
 		}
 		this.#closeInline();
-		for (const option of picked)
-			this.#addLine(new ReviewLine(rich(optionText(option)),
-				hasText(option.description) ? option.description : null));
+		for (const option of picked) {
+			const text = rich(optionText(option));
+			this.#addLine(hasText(option.description)
+				? ReviewLine.card(text, option.description)
+				: ReviewLine.row(text));
+		}
 	}
 
 	#onEntry(row) {
@@ -88,13 +107,15 @@ class Condenser {
 			// A write-in is its own block: the row's own words are the question, the answer is the line.
 			this.#closeBlock();
 			this.#pending.push({ title: null, titleNote: null, lead: label.text });
-			this.#addLine(new ReviewLine(rich(row.input.value)));
+			this.#addLine(ReviewLine.row(rich(row.input.value)));
 			this.#closeBlock();
 			return;
 		}
 		if (!(row.track?.checks ?? []).some(Boolean)) return;
 		this.#closeInline();
-		this.#addLine(new ReviewLine(label.text ?? rich(""), label.body, label.note));
+		this.#addLine(label.body
+			? ReviewLine.section(label.text, label.note, label.body)
+			: ReviewLine.row(label.text ?? rich(""), label.note));
 	}
 
 	// Prose only earns its place once something under it is reviewed: the nearest prose opens this
@@ -112,7 +133,7 @@ class Condenser {
 		if (!this.#inline.length) return;
 		const joined = this.#inline.join(INLINE_SEPARATOR);
 		this.#inline = [];
-		this.#addLine(new ReviewLine(rich(joined)));
+		this.#addLine(ReviewLine.row(rich(joined)));
 	}
 
 	#closeBlock() {

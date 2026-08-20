@@ -162,48 +162,62 @@ describe("StonetopCharacterSheet._prepareContext (integration)", () => {
 	});
 });
 
-// -- Moves filter -------------------------------------------------------------------
+// -- Tab view toggles ---------------------------------------------------------------
 
-describe("StonetopCharacterSheet moves filter", () => {
+// The moves filter, the playbook lock and each insert's lock are one control with one action; what
+// separates them is what the button carries. TabViewFlags has the unit tests for the flag itself —
+// these are about the sheet wiring it up.
+
+describe("StonetopCharacterSheet view toggles", () => {
 	beforeEach(() => new FakeGameBuilder().build());
 
-	it("carries the selected-only filter into the context so it survives a re-render", async () => {
+	it("starts every declared flag off and carries them into the context", async () => {
 		const { sheet } = makeSheet();
-		expect((await sheet._prepareContext({})).hideUnselectedMoves).toBe(false);
-		sheet._setHideUnselectedMoves(true, null);
-		expect((await sheet._prepareContext({})).hideUnselectedMoves).toBe(true);
-	});
-});
-
-// -- Playbook lock ------------------------------------------------------------------
-
-describe("StonetopCharacterSheet playbook lock", () => {
-	beforeEach(() => new FakeGameBuilder().build());
-
-	it("starts unlocked, so a new character lands in the editor", async () => {
-		const { sheet } = makeSheet();
-		expect(sheet._playbookLocked).toBe(false);
-		expect((await sheet._prepareContext({})).playbookLocked).toBe(false);
+		expect((await sheet._prepareContext({})).viewFlags)
+			.toEqual({ hideUnselectedMoves: false, playbookLocked: false });
 	});
 
-	// Unlike the moves filter (a CSS class over the same rows), locking swaps the tab's body for the
-	// summary — so this one has to re-render, and the flag has to survive into the next context.
-	it("togglePlaybookLock flips the lock and re-renders", async () => {
+	// The playbook lock changes what the template emits, so the sheet has to rebuild the tab.
+	it("re-renders for a toggle that changes the markup", async () => {
 		const { sheet } = makeSheet();
-		await fireAction(sheet, "togglePlaybookLock", el(`<button></button>`));
-		expect(sheet._playbookLocked).toBe(true);
+		const btn = el(`<button data-view-flag="playbookLocked"></button>`);
+
+		await fireAction(sheet, "toggleTabView", btn);
 		expect(sheet.render).toHaveBeenCalled();
-		expect((await sheet._prepareContext({})).playbookLocked).toBe(true);
+		expect((await sheet._prepareContext({})).viewFlags.playbookLocked).toBe(true);
 
-		await fireAction(sheet, "togglePlaybookLock", el(`<button></button>`));
-		expect(sheet._playbookLocked).toBe(false);
+		await fireAction(sheet, "toggleTabView", btn);
+		expect((await sheet._prepareContext({})).viewFlags.playbookLocked).toBe(false);
 	});
 
-	it("is NOT edit-gated — locking only changes what is shown", async () => {
+	// The moves filter only hides rows, so it decorates the live tab — rebuilding the sheet's
+	// largest tab mid-review would fight the scroll position.
+	it("decorates the tab instead, for a toggle that names a class", async () => {
+		const { sheet } = makeSheet();
+		const tab = el(`<div class="tab moves"><button data-view-flag="hideUnselectedMoves" data-view-class="hide-unselected"></button></div>`);
+
+		await fireAction(sheet, "toggleTabView", tab.querySelector("button"));
+
+		expect(tab.classList.contains("hide-unselected")).toBe(true);
+		expect(sheet.render).not.toHaveBeenCalled();
+		expect((await sheet._prepareContext({})).viewFlags.hideUnselectedMoves).toBe(true);
+	});
+
+	// Insert tabs name a flag per slug — locking one insert must leave the others alone.
+	it("takes a flag the sheet never declared, so each insert locks on its own", async () => {
+		const { sheet } = makeSheet();
+		await fireAction(sheet, "toggleTabView", el(`<button data-view-flag="insertLocked-invocations"></button>`));
+
+		const { viewFlags } = await sheet._prepareContext({});
+		expect(viewFlags["insertLocked-invocations"]).toBe(true);
+		expect(viewFlags["insertLocked-ghost"]).toBeUndefined();
+	});
+
+	it("is NOT edit-gated — a view toggle only changes what is shown", async () => {
 		const { sheet } = makeSheet();
 		sheet._editable = false;
-		await fireAction(sheet, "togglePlaybookLock", el(`<button></button>`));
-		expect(sheet._playbookLocked).toBe(true);
+		await fireAction(sheet, "toggleTabView", el(`<button data-view-flag="playbookLocked"></button>`));
+		expect((await sheet._prepareContext({})).viewFlags.playbookLocked).toBe(true);
 	});
 });
 
@@ -352,31 +366,6 @@ describe("StonetopCharacterSheet actions", () => {
 		expect(wrap.classList.contains("top-collapsed")).toBe(true);
 	});
 
-	it("toggleUnselectedMoves flips the filter classes on the tab, without a re-render", async () => {
-		const { sheet } = makeSheet();
-		const tab = el(`<div class="tab moves"><button class="stonetop-moves-filter"></button></div>`);
-		const btn = tab.querySelector("button");
-
-		await fireAction(sheet, "toggleUnselectedMoves", btn);
-		expect(sheet._hideUnselectedMoves).toBe(true);
-		expect(tab.classList.contains("hide-unselected")).toBe(true);
-		expect(btn.classList.contains("is-active")).toBe(true);
-
-		await fireAction(sheet, "toggleUnselectedMoves", btn);
-		expect(sheet._hideUnselectedMoves).toBe(false);
-		expect(tab.classList.contains("hide-unselected")).toBe(false);
-		expect(btn.classList.contains("is-active")).toBe(false);
-		expect(sheet.render).not.toHaveBeenCalled();
-	});
-
-	it("toggleUnselectedMoves is NOT edit-gated — the filter only changes what is shown", async () => {
-		const { sheet } = makeSheet();
-		sheet._editable = false;
-		const tab = el(`<div class="tab moves"><button class="stonetop-moves-filter"></button></div>`);
-		await fireAction(sheet, "toggleUnselectedMoves", tab.querySelector("button"));
-		expect(tab.classList.contains("hide-unselected")).toBe(true);
-	});
-
 	it("toggleFollowerInventory tracks the open set and re-renders", async () => {
 		const { sheet } = makeSheet();
 		const btn = el(`<button data-slug="enfys"></button>`);
@@ -438,6 +427,7 @@ describe("StonetopCharacterSheet delete actions", () => {
 		["deleteOtherMove", `<a data-move-slug="cleave" data-name="Cleave"></a>`, "deleteMove", ["cleave"]],
 		["deleteInventoryItem", `<a data-owned-id="x1" data-name="Rope"></a>`, "removeCustomInventoryItemFor",
 			[InventoryOwner.character(), "x1"]],
+		["deleteInsert", `<button data-insert-item-id="i1" data-name="Revenant"></button>`, "removeInsert", ["i1"]],
 	];
 
 	for (const [action, markup, method, args] of cases) {

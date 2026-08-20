@@ -1,4 +1,4 @@
-<div class="tab playbook {{tabs.playbook.cssClass}}{{#if playbookLocked}} is-locked{{/if}}" data-group="primary" data-tab="playbook">
+<div class="tab playbook {{tabs.playbook.cssClass}}{{#if viewFlags.playbookLocked}} is-locked{{/if}}" data-group="primary" data-tab="playbook">
 	<section class="sheet-tab">
 
 	{{#unless stonetop.playbook}}
@@ -14,14 +14,14 @@
 	{{else}}
 	{{!-- The lock is the tab's own view state, so it rides the shared toolbar toggle. --}}
 	<div class="stonetop-playbook-toolbar">
-		{{#if playbookLocked}}
-		{{> "stonetop.tab-toolbar-toggle" action="togglePlaybookLock" icon="fa-lock" active=true
-		    label=(localize "stonetop.sheet.playbook.unlock")
-		    title=(localize "stonetop.sheet.playbook.unlockHint")}}
+		{{#if viewFlags.playbookLocked}}
+		{{> "stonetop.tab-toolbar-toggle" flag="playbookLocked" icon="fa-lock" active=true
+		    label=(localize "stonetop.sheet.lock.unlock")
+		    title=(localize "stonetop.sheet.lock.unlockHint")}}
 		{{else}}
-		{{> "stonetop.tab-toolbar-toggle" action="togglePlaybookLock" icon="fa-lock-open"
-		    label=(localize "stonetop.sheet.playbook.lock")
-		    title=(localize "stonetop.sheet.playbook.lockHint")}}
+		{{> "stonetop.tab-toolbar-toggle" flag="playbookLocked" icon="fa-lock-open"
+		    label=(localize "stonetop.sheet.lock.lock")
+		    title=(localize "stonetop.sheet.lock.lockHint")}}
 		{{/if}}
 	</div>
 	{{#if (or stonetop.playbook.titleImg stonetop.playbook.description.raw)}}
@@ -32,16 +32,16 @@
 	{{/if}}
 	<div class="stonetop-playbook-columns">
 
-		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore" locked=playbookLocked}}
+		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore" locked=viewFlags.playbookLocked}}
 
 		{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.background.label") note=(localize "stonetop.character.selection.chooseOne")}}
 			{{#each stonetop.playbook.background.options}}
-			{{#unless (and @root.playbookLocked (not selected))}}
+			{{#unless (and @root.viewFlags.playbookLocked (not selected))}}
 			<label class="stonetop-item{{#if selected}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
-					{{#unless @root.playbookLocked}}
+					{{#unless @root.viewFlags.playbookLocked}}
 					<input type="radio" class="stonetop-item-check" data-change-action="selectBackground" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
 					{{/unless}}
 					<strong class="stonetop-item-name">{{rich label}}</strong>
@@ -56,7 +56,7 @@
 				{{/if}}
 				{{#if choices}}
 				<div class="stonetop-bg-choices">
-					{{#if @root.playbookLocked}}
+					{{#if @root.viewFlags.playbookLocked}}
 					{{> "stonetop.choice-group-condensed" blocks=choices.condensed}}
 					{{else}}
 					{{#each choices.list}}
@@ -77,14 +77,14 @@
 		    instinctGroup=stonetop.playbook.instinctGroup
 		    namePrefix="stonetop-instinct"
 		    cgContext="instinct"
-		    locked=playbookLocked}}
+		    locked=viewFlags.playbookLocked}}
 		{{/if}}
 
 		{{#if stonetop.playbook.appearanceGroup}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.appearance.label") note=(localize "stonetop.character.selection.appearance.instruction")}}
 			{{#with stonetop.playbook.appearanceGroup}}
-			{{> "stonetop.choice-group" cgContext="appearance" locked=@root.playbookLocked}}
+			{{> "stonetop.choice-group" cgContext="appearance" locked=@root.viewFlags.playbookLocked}}
 			{{/with}}
 		</div>
 		{{/if}}
@@ -93,16 +93,16 @@
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.origin.label") note=(localize "stonetop.character.selection.origin.instruction")}}
 			{{#each stonetop.playbook.origin.options}}
-			{{#unless (and @root.playbookLocked (not selected))}}
+			{{#unless (and @root.viewFlags.playbookLocked (not selected))}}
 			<div class="stonetop-origin-option{{#if selected}} selected{{/if}}">
 				<label class="stonetop-origin-region">
-					{{#unless @root.playbookLocked}}
+					{{#unless @root.viewFlags.playbookLocked}}
 					<input type="radio" class="stonetop-item-check" data-change-action="selectOrigin" name="stonetop-origin"
 					       value="{{region}}"{{#if selected}} checked{{/if}}>
 					{{/unless}}
 					<strong>{{region}}</strong>
 				</label>
-				{{#unless @root.playbookLocked}}
+				{{#unless @root.viewFlags.playbookLocked}}
 				<div class="stonetop-origin-names">
 					{{#each names}}<span class="stonetop-origin-name" data-action="selectOriginName">{{this}}</span>{{#unless @last}}, {{/unless}}{{/each}}
 				</div>

@@ -132,6 +132,22 @@ describe("ChoiceGroup#condensed", () => {
 		expect(raw(block.lines[0].detail)).toBe("Your light blazes.");
 	});
 
+	// Locking a tab changes what it shows, not how it looks: each line remembers which of the
+	// editor's shapes its row was rendered in, so the partial can emit that same shape.
+	it("remembers the shape each line came from", () => {
+		const mixed = { slug: "mixed", list: [
+			{ type: "entry", slug: "named", track: { max: 1 },
+			  content: { subtitle: "Blinding Light", text: "Your light blazes." } },
+			{ type: "entry", slug: "bare", track: { max: 1 }, content: { text: "… got lost." } },
+			{ type: "pick", pickCount: 1, options: [
+				{ slug: "described", content: { title: "Fighting", text: "Dirty, if need be." } },
+				{ slug: "plain", text: "Reading" },
+			]},
+		]};
+		const blocks = group(mixed, { mixed: { named: 1, bare: 1, described: 1 } }).condensed;
+		expect(blocks.flatMap(b => b.lines).map(l => l.form)).toEqual(["section", "row", "card"]);
+	});
+
 	it("falls back to the body text when a row has no name of its own", () => {
 		const [block] = group(TALL_TALES, { "tall-tales": { "the-flats": 1 } }).condensed;
 		expect(raw(block.lines[0].text)).toBe("… got lost in the Flats.");

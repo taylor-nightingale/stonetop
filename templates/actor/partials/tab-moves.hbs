@@ -1,11 +1,20 @@
-<div class="tab moves {{tabs.moves.cssClass}}{{#if hideUnselectedMoves}} hide-unselected{{/if}}" data-group="primary" data-tab="moves">
+<div class="tab moves {{tabs.moves.cssClass}}{{#if viewFlags.hideUnselectedMoves}} hide-unselected{{/if}}" data-group="primary" data-tab="moves">
 	<section class="sheet-tab">
 
 		<div class="stonetop-moves-toolbar">
-			{{> "stonetop.tab-toolbar-toggle" action="toggleUnselectedMoves" extraClass="stonetop-moves-filter"
-			    icon="fa-eye-slash" active=hideUnselectedMoves
-			    label=(localize "stonetop.character.moves.selectedOnly")
-			    title=(localize "stonetop.character.moves.selectedOnlyHint")}}</div>
+			{{!-- Same control, same words as the playbook and insert locks; what is this tab's own is
+			      viewClass, which hides the unselected rows without a re-render. --}}
+			{{#if viewFlags.hideUnselectedMoves}}
+			{{> "stonetop.tab-toolbar-toggle" flag="hideUnselectedMoves" viewClass="hide-unselected"
+			    icon="fa-lock" active=true
+			    label=(localize "stonetop.sheet.lock.unlock")
+			    title=(localize "stonetop.character.moves.unlockHint")}}
+			{{else}}
+			{{> "stonetop.tab-toolbar-toggle" flag="hideUnselectedMoves" viewClass="hide-unselected"
+			    icon="fa-lock-open"
+			    label=(localize "stonetop.sheet.lock.lock")
+			    title=(localize "stonetop.character.moves.lockHint")}}
+			{{/if}}</div>
 
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}

@@ -84,8 +84,9 @@ const tick = async (el) => { el.checked = true; fire(el, "change"); await settle
 const write = async (el, value) => { el.value = value; fire(el, "change"); await settle(); };
 
 async function lockedHtml(sheet) {
-	const def = sheet.constructor.DEFAULT_OPTIONS.actions.togglePlaybookLock;
-	await def.call(sheet, { type: "click", button: 0 }, null);
+	const def = sheet.constructor.DEFAULT_OPTIONS.actions.toggleTabView;
+	const button = sheet.element.querySelector(`[data-view-flag="playbookLocked"]`);
+	await def.call(sheet, { type: "click", button: 0 }, button);
 	const context = await sheet._prepareContext({});
 	return renderPartial("stonetop.tab-playbook", context);
 }
@@ -198,7 +199,8 @@ describe("playbook lock (integration)", () => {
 		const sheet = makeSheet();
 		await renderTab(sheet);
 		const html = await lockedHtml(sheet);
-		expect(html).toContain(`data-action="togglePlaybookLock"`);
+		expect(html).toContain(`data-view-flag="playbookLocked"`);
+		expect(html).toContain(`data-action="toggleTabView"`);
 		expect(html).toContain("data-view-state");
 	});
 

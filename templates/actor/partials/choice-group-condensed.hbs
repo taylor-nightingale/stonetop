@@ -1,14 +1,34 @@
-{{!-- A choice group on a locked sheet: the group's own prose, then one line per thing chosen. The
-      classes are the editor's, so a locked group sits at the same indent, weight and rhythm as the
-      rows it stands in for — only the checkbox is gone, replaced by the tick it was carrying. --}}
+{{!-- A choice group on a locked sheet: the group's own prose, then one line per thing chosen. Each
+      line is emitted in the SHAPE the editor gave it (see ReviewLine#form) with the checkbox
+      replaced by the tick it was carrying — locking a tab changes what it shows, never how it is
+      styled. --}}
 {{#each blocks}}
 {{#if title}}<p class="stonetop-choice-entry-title">{{rich title}}{{#if titleNote}} <span class="stonetop-section-note">{{rich titleNote}}</span>{{/if}}</p>{{/if}}
 {{#if lead}}<div class="stonetop-choice-description">{{rich lead}}</div>{{/if}}
 {{#each lines}}
+{{#if (eq form "section")}}
+{{!-- A named entry with a body: the editor's sub-heading row (an invocation). --}}
+<div class="stonetop-choice-track stonetop-column">
+	<div class="stonetop-choice-header-wrapper">
+		<span class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></span>
+		{{> "stonetop.section-sub-heading" subtitle=text subtitleNote=note}}
+	</div>
+	<span class="stonetop-choice-track-desc">{{rich detail}}</span>
+</div>
+{{else if (eq form "card")}}
+{{!-- A pick with a description: the editor's card. --}}
+<div class="stonetop-item is-checked">
+	<div class="stonetop-item-header">
+		<span class="stonetop-choice-tick" aria-hidden="true">✓</span>
+		<strong class="stonetop-item-name">{{rich text}}</strong>
+	</div>
+	<div class="stonetop-item-description">{{rich detail}}</div>
+</div>
+{{else}}
 <div class="stonetop-choice-track stonetop-row">
 	<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>
 	<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich text}}{{#if note}} <span class="stonetop-section-note">{{rich note}}</span>{{/if}}</span>
 </div>
-{{#if detail}}<div class="stonetop-item-description">{{rich detail}}</div>{{/if}}
+{{/if}}
 {{/each}}
 {{/each}}

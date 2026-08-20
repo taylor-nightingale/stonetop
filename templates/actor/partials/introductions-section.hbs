@@ -1,6 +1,6 @@
 <div class="stonetop-introductions-section">
 	<h3 class="stonetop-introductions-title">{{localize "stonetop.sheet.playbook.introductions.title"}}</h3>
-	{{#if @root.playbookLocked}}
+	{{#if @root.viewFlags.playbookLocked}}
 	{{!-- Locked, the eight steps are instructions you have already followed — what is worth keeping
 	      is the answers, so only those render. --}}
 	{{#with intro.npcGroup}}{{> "stonetop.choice-group-condensed" blocks=condensed}}{{/with}}

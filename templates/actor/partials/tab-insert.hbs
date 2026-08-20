@@ -1,4 +1,4 @@
-<div class="tab insert insert-{{insert.slug}} {{tab.cssClass}}"
+<div class="tab insert insert-{{insert.slug}} {{tab.cssClass}}{{#if locked}} is-locked{{/if}}"
      data-group="primary" data-tab="insert-{{insert.slug}}"
      data-insert-item-id="{{insert.id}}">
 	<section class="sheet-tab">
@@ -10,11 +10,24 @@
 				<div class="stonetop-insert-description">{{rich insert.description}}</div>
 				{{/if}}
 			</div>
-			<button type="button" class="stonetop-insert-remove" data-action="removeInsert"
-			        data-insert-item-id="{{insert.id}}"
-			        title="{{localize 'stonetop.insert.remove'}}">
+			{{!-- One lock per insert, keyed by slug: locking Invocations must not lock the Ghost tab.
+			      Both controls sit in one row at the head's right, in flow — see .stonetop-insert-actions. --}}
+			<div class="stonetop-insert-actions">
+			{{#if locked}}
+			{{> "stonetop.tab-toolbar-toggle" flag=viewFlag icon="fa-lock" active=true
+			    label=(localize "stonetop.sheet.lock.unlock")
+			    title=(localize "stonetop.sheet.lock.unlockHint")}}
+			{{else}}
+			{{> "stonetop.tab-toolbar-toggle" flag=viewFlag icon="fa-lock-open"
+			    label=(localize "stonetop.sheet.lock.lock")
+			    title=(localize "stonetop.sheet.lock.lockHint")}}
+			{{/if}}
+			<button type="button" class="stonetop-insert-remove" data-action="deleteInsert"
+			        data-insert-item-id="{{insert.id}}" data-name="{{insert.name}}"
+			        title="{{localize 'stonetop.insert.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
 				<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.insert.remove'}}">
 			</button>
+			</div>
 		</div>
 		<div class="stonetop-playbook-columns">
 			{{#if insert.instinctGroup}}
@@ -22,9 +35,10 @@
 			    instinctSelected=insert.instinctSelected
 			    instinctGroup=insert.instinctGroup
 			    namePrefix=insert.id
-			    cgContext="insert-pick"}}
+			    cgContext="insert-pick"
+			    locked=locked}}
 			{{/if}}
-			{{> "stonetop.choice-section" groups=insert.choices cgContext="insert"}}
+			{{> "stonetop.choice-section" groups=insert.choices cgContext="insert" locked=locked}}
 		</div>
 	</section>
 </div>
