@@ -202,6 +202,10 @@ export class StonetopCharacter {
 		await this._inventory.setSmallPool(count);
 	}
 
+	async resetOutfit() {
+		await this._inventory.clearSelections();
+	}
+
 	async setInventoryOtherItems(value) {
 		await this._inventory.setOtherItems(value);
 	}
@@ -617,6 +621,10 @@ export class StonetopCharacter {
 
 	async setFollowerArmor(slug, armor) {
 		await this._followers.setArmor(slug, armor);
+	}
+
+	async setFollowerLoadCapacity(slug, capacity) {
+		await this._followers.setLoadCapacity(slug, capacity);
 	}
 
 	async setFollowerInstinct(slug, instinct) {

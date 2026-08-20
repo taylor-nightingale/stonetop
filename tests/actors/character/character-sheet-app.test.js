@@ -61,7 +61,7 @@ function spyChar() {
 		"setRollMode", "applyPlaybookBySlug", "selectBackground", "selectCustomInstinct",
 		"setChoiceTrackFor", "setChoicePickFor", "setChoiceTextFor", "setArcanumBlank",
 		"setMoveChecked", "setMoveResourceText", "setInventoryItemCheckedFor",
-		"toggleInventoryRegularPool", "toggleInventorySmallPool",
+		"toggleInventoryRegularPool", "toggleInventorySmallPool", "resetOutfit",
 		"setInventoryOtherItems", "setPossessionSelected",
 		"setBio", "setNotes", "setFollowerName", "setFollowerHp",
 		"setFollowerHpMax", "toggleFollowerTag", "toggleArcanumFlip", "toggleMoveResourcePip",
@@ -434,6 +434,28 @@ describe("StonetopCharacterSheet delete actions", () => {
 	}
 
 	const rightClick = () => ({ type: "contextmenu", button: 2, preventDefault: vi.fn() });
+
+	it("resetOutfit clears the outfit when confirmed", async () => {
+		stubConfirm(true);
+		const { sheet, char } = makeSheet();
+		await fireAction(sheet, "resetOutfit", el(`<button></button>`));
+		expect(char.resetOutfit).toHaveBeenCalled();
+	});
+
+	it("resetOutfit does nothing when cancelled", async () => {
+		stubConfirm(false);
+		const { sheet, char } = makeSheet();
+		await fireAction(sheet, "resetOutfit", el(`<button></button>`));
+		expect(char.resetOutfit).not.toHaveBeenCalled();
+	});
+
+	it("resetOutfit always asks — there is no right-click bypass", async () => {
+		const confirm = stubConfirm(false);
+		const { sheet, char } = makeSheet();
+		await fireAction(sheet, "resetOutfit", el(`<button></button>`), rightClick());
+		expect(confirm).toHaveBeenCalled();
+		expect(char.resetOutfit).not.toHaveBeenCalled();
+	});
 
 	// action name, target markup, spied domain method, expected args
 	const cases = [

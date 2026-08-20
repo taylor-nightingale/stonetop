@@ -54,6 +54,7 @@ export function characterChangeHandlers(char) {
 			el.closest(".stonetop-follower-card")?.querySelector(".stonetop-follower-hp-max")?.value ?? el.max),
 		followerHpMax:   el => char.setFollowerHpMax(el.dataset.slug, Number(el.value)),
 		followerArmor:   el => char.setFollowerArmor(el.dataset.slug, el.value),
+		followerLoadCapacity: el => char.setFollowerLoadCapacity(el.dataset.slug, el.value),
 		followerDamage:  el => char.setFollowerDamage(el.dataset.slug, el.value),
 		followerInstinct: el => char.setFollowerInstinct(el.dataset.slug, el.value),
 		companionType:   el => char.setFollowerCompanionType(el.dataset.slug, el.value),

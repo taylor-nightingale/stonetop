@@ -54,6 +54,10 @@ export function toOutfitItemSnapshot(oi, checked, resource) {
 		.build();
 }
 
+// The most ◇ the Outfit move lets a character mark: heavy tops out at 9. Advisory, like the band —
+// the sheet reports being over it, nothing enforces it. Followers default their own capacity to it.
+export const MAX_OUTFIT_MARKS = 9;
+
 // Informational load band from total checked weight. Guidance only — never a cap (see the
 // guide-don't-enforce principle): the UI highlights the band but lets you carry more.
 // Thresholds: ≤3 Light, 4–6 Normal, 7+ Heavy.

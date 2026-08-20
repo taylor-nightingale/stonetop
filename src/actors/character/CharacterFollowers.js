@@ -5,7 +5,7 @@ import { Selection } from "../../model/data/Selection.js";
 import { normalizeGroupTags, hasGroupTag, GROUP_TAG } from "../../model/data/groupTag.js";
 import { newMember } from "../../utils/followerMemberEdit.js";
 import { blankCompanion } from "../../utils/followerCompanionEdit.js";
-import { buildOutfitColumn, loadBand } from "../../model/snapshot/character/outfitSections.js";
+import { buildOutfitColumn, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
 import { GrantedItems } from "../GrantedItems.js";
 import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 import { FollowerItem } from "./FollowerItem.js";
@@ -266,6 +266,10 @@ export class CharacterFollowers {
 		await this._write(slug, f => f.withArmor(armor));
 	}
 
+	async setLoadCapacity(slug, capacity) {
+		await this._write(slug, f => f.withLoadCapacity(capacity));
+	}
+
 	async setDamage(slug, damage) {
 		await this._write(slug, f => f.withDamage(damage));
 	}
@@ -396,6 +400,7 @@ export class CharacterFollowers {
 		const owned       = [...regular, ...customItems].filter(i => checked[i.slug]);
 		const totalWeight = owned.reduce((s, i) => s + (i.weight ?? 0), 0);
 		const band        = loadBand(totalWeight);
+		const capacity    = this._loadCapacity(slug);
 		const hasAny      = owned.length > 0;
 
 		return {
@@ -406,10 +411,17 @@ export class CharacterFollowers {
 			sections:      editing ? buildOutfitColumn(repoItems, customItems, checked, "regular", resourceFn) : [],
 			totalWeight,
 			band,
+			capacity,
+			overCapacity: totalWeight > capacity,
 			loadLight:     band === "light",
 			loadNormal:    band === "normal",
 			loadHeavy:     band === "heavy",
 		};
+	}
+
+	// What this follower can carry. Advisory: the sheet says when they are over it, never stops it.
+	_loadCapacity(slug) {
+		return _findFollowerItem(this._actor, slug)?.system?.loadCapacity ?? MAX_OUTFIT_MARKS;
 	}
 }
 

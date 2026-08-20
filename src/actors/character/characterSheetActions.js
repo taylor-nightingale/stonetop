@@ -1,4 +1,5 @@
 import { editOnly, confirmedDelete } from "../../utils/sheetActions.js";
+import { confirmAction } from "../../utils/confirmAction.js";
 import { InventoryOwner } from "./InventoryOwner.js";
 
 /**
@@ -36,6 +37,17 @@ export const PIP_ACTIONS = {
 	followerLoyaltyPip: editOnly(function (ev, target) {
 		return this._stonetopCharacter.toggleFollowerLoyaltyPip(
 			target.dataset.slug, pipIndex(target), pipChecked(target));
+	}),
+};
+
+// Wiping every mark on the outfit is destructive and easy to hit by accident, so it always asks —
+// unlike the delete controls, which offer right-click as a bypass for repeated removals.
+export const OUTFIT_ACTIONS = {
+	resetOutfit: editOnly(async function () {
+		const body = game.i18n.localize("stonetop.inventory.outfit.resetConfirm");
+		if (await confirmAction("stonetop.inventory.outfit.resetTitle", body)) {
+			await this._stonetopCharacter.resetOutfit();
+		}
 	}),
 };
 

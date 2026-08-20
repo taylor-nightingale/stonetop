@@ -129,7 +129,8 @@
 			"loadTitle": "Load (total weight carried) — a guide, not a limit",
 			"loadLight": "Light",
 			"loadNormal": "Normal",
-			"loadHeavy": "Heavy"
+			"loadHeavy": "Heavy",
+			"loadCapacityHint": "◇ carried, against what this follower can reasonably manage — a guide, not a limit."
 		},
 		"insert": {
 			"remove": "Remove",
@@ -343,6 +344,11 @@
 				"headingAfter": ", mark a number of ◇ below on specific items or as a group.",
 				"marked": "{count} ◇ marked",
 				"markedHint": "Your load follows the ◇ you have marked — it is not chosen.",
+				"markedOver": "— more than the {max} ◇ Outfit allows",
+				"reset": "Reset",
+				"resetHint": "Unmark every ◇ and □ — your items and notes stay.",
+				"resetTitle": "Reset outfit",
+				"resetConfirm": "Clear your whole outfit? Every marked ◇ and □ goes back to unmarked.",
 				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
 				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
 				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"

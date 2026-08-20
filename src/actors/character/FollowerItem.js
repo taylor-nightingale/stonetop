@@ -42,6 +42,7 @@ export class FollowerItem {
 	withNotes(notes)                   { return this.#withSystem("notes", notes); }
 	withSpecialQuality(specialQuality) { return this.#withSystem("specialQuality", specialQuality); }
 	withDescription(description)       { return this.#withSystem("description", description); }
+	withLoadCapacity(capacity)         { return this.#withSystem("loadCapacity", Math.max(0, Number(capacity) || 0)); }
 
 	// HP current and max are written independently; Foundry merges, so naming one leaves the other.
 	withHp(value)   { return this.#withSystem("hp", { ...this._changes.system?.hp, value }); }

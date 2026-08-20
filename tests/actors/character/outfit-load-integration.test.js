@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import { describe, it, expect, beforeEach, vi } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { createStonetopCharacterSheetClass } from "../../../src/actors/character/StonetopCharacterSheet.js";
 import { StonetopCharacter } from "../../../src/actors/character/StonetopCharacter.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
@@ -50,10 +50,30 @@ async function render(sheet) {
 
 const checkedLevel = sheet =>
 	sheet.element.querySelector(".stonetop-outfit-load-radio:checked")?.value ?? null;
-const markedText = sheet =>
-	sheet.element.querySelector(".stonetop-outfit-marked")?.textContent.trim() ?? null;
+const marked = sheet => sheet.element.querySelector(".stonetop-outfit-marked");
+// The readout hangs off the active load line as "— N ◇ marked"; the dash is punctuation, not content.
+const markedText = sheet => marked(sheet)?.textContent.replace(/^—\s*/, "").trim() ?? null;
+
+// The reset button asks first; these tests answer the dialog for it.
+function stubConfirm(result) {
+	vi.stubGlobal("foundry", {
+		...globalThis.foundry,
+		applications: {
+			...globalThis.foundry?.applications,
+			api: { DialogV2: { confirm: async () => result } },
+		},
+	});
+}
+
+// Invoke a data-action handler the way core does: handler.call(app, event, target).
+function fireAction(sheet, name, target) {
+	const entry = sheet.constructor.DEFAULT_OPTIONS.actions[name];
+	const handler = typeof entry === "function" ? entry : entry.handler;
+	return handler.call(sheet, { type: "click", button: 0, preventDefault: vi.fn() }, target);
+}
 
 beforeEach(() => { document.body.innerHTML = ""; });
+afterEach(() => vi.unstubAllGlobals());
 
 describe("outfit load (integration)", () => {
 	it("starts light with nothing marked", async () => {
@@ -84,6 +104,53 @@ describe("outfit load (integration)", () => {
 		await render(sheet);
 		expect(checkedLevel(sheet)).toBe("heavy");   // 3 + 4 ◇
 		expect(markedText(sheet)).toBe("7 ◇ marked");
+	});
+
+	it("puts everything back to unmarked when the outfit is reset", async () => {
+		const { sheet, actor } = makeSheet();
+		await render(sheet);
+
+		for (const slug of ["armor", "tent"]) {
+			const diamond = sheet.element.querySelector(`.stonetop-inventory-item-check[data-slug="${slug}"]`);
+			diamond.checked = true;
+			fire(diamond, "change");
+			await settle();
+			await render(sheet);
+		}
+		expect(checkedLevel(sheet)).toBe("heavy");
+
+		stubConfirm(true);
+		await fireAction(sheet, "resetOutfit", sheet.element.querySelector(".stonetop-outfit-reset"));
+		await settle();
+
+		await render(sheet);
+		expect(checkedLevel(sheet)).toBe("light");
+		expect(markedText(sheet)).toBe("0 ◇ marked");
+		expect(actor.system.inventory.checked).toEqual({});
+	});
+
+	it("warns when more ◇ are marked than the move allows, and still marks them", async () => {
+		const { sheet } = makeSheet();
+		await render(sheet);
+
+		for (const slug of ["armor", "tent"]) {   // 7 ◇
+			const diamond = sheet.element.querySelector(`.stonetop-inventory-item-check[data-slug="${slug}"]`);
+			diamond.checked = true;
+			fire(diamond, "change");
+			await settle();
+			await render(sheet);
+		}
+		expect(marked(sheet).classList.contains("is-over")).toBe(false);
+
+		const pip = sheet.element.querySelectorAll(".stonetop-regular-pool-btn")[4]; // +5 → 12 ◇
+		pip.checked = true;
+		fire(pip, "change");
+		await settle();
+
+		await render(sheet);
+		expect(marked(sheet).classList.contains("is-over")).toBe(true);
+		expect(markedText(sheet)).toContain("12 ◇ marked");
+		expect(checkedLevel(sheet)).toBe("heavy");   // still a band, still no cap
 	});
 
 	it("counts the undefined pool's diamonds too", async () => {

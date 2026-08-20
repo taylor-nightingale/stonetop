@@ -2218,11 +2218,29 @@ button.stonetop-view-toggle.is-active {
 	pointer-events: none;
 }
 
+/* Rides the load line the marks land in, so the rule text and its three options stay unbroken. */
 .stonetop-outfit-marked {
+	margin: 0 0 0 6px;
 	font-size: var(--fs-note);
 	color: var(--color-text-dark-secondary, #666);
 	font-style: italic;
-	margin: 0 0 4px;
+	white-space: nowrap;
+}
+
+/* Over the ◇ the move allows — a warning, never a block (guide-don't-enforce). */
+.stonetop-outfit-marked.is-over {
+	color: var(--color-level-warning, #b45309);
+	font-style: normal;
+	font-weight: bold;
+	white-space: normal;
+}
+
+/* Out of the reading flow entirely: the panel's top-right corner. */
+.stonetop .stonetop-outfit-reset {
+	position: absolute;
+	top: 4px;
+	right: 6px;
+	font-size: var(--fs-note);
 }
 
 /* A move named inline in a rule blurb (the Outfit heading), clickable to open that move. */
@@ -3538,6 +3556,28 @@ button.stonetop-xp-toggle {
 .stonetop-follower-load-band.is-active {
 	opacity: 1;
 	font-weight: bold;
+}
+.stonetop-follower-capacity {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 2px;
+	font-size: var(--fs-fine);
+	color: var(--color-text-dark-secondary, #666);
+}
+.stonetop-follower-capacity.is-over {
+	color: var(--color-level-warning, #b45309);
+	font-weight: bold;
+}
+.stonetop-follower-capacity-input {
+	width: 2.5em;
+	min-width: 0;
+	padding: 0 2px;
+	text-align: center;
+	font-size: inherit;
+	color: inherit;
+	background: transparent;
+	border: none;
+	border-bottom: 1px dotted var(--color-border-light, #ccc);
 }
 .stonetop-follower-inventory-list,
 .stonetop-follower-inventory-catalog {
