@@ -17,6 +17,7 @@ import {ActorOutfitItems} from "./ActorOutfitItems.js";
 import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
 import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
 import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
+import {InstinctSideEffectHandler} from "./InstinctSideEffectHandler.js";
 import {ChoiceStores} from "./ChoiceStores.js";
 import {applyPick} from "./ChoiceGroupController.js";
 import {GrantedItems} from "../GrantedItems.js";
@@ -49,6 +50,7 @@ export class StonetopCharacter {
 		this._background  = new CharacterBackgrounds(actor, factory, this._resourceController);
 		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory, grantedItems);
 		this._playbook    = new CharacterPlaybook(actor, this._background, factory, this._origin);
+		factory.subscribe(new InstinctSideEffectHandler(this._playbook));
 		this._possessions = new CharacterPossessions(actor, this._moves, repos.possessions, factory, outfitSync, grantedItems);
 		this._inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController, repos.steading);
 		this._vitals      = new CharacterVitals(actor);
@@ -259,7 +261,13 @@ export class StonetopCharacter {
 		await this._playbook.selectBackground(slug);
 	}
 
-	async selectCustomInstinct(text) {
+	/**
+	 * The character's instinct, written in by hand. An insert has a box of its own: what is typed
+	 * there is saved on the insert AND becomes the character's instinct — the mirroring is the
+	 * insert's choice-write side effect, so a picked option travels the same road as a typed one.
+	 */
+	async selectCustomInstinct(text, insertItemId = null) {
+		if (insertItemId) return this._inserts.selectCustomInstinct(insertItemId, text);
 		await this._playbook.selectCustomInstinct(text);
 	}
 

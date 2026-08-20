@@ -30,7 +30,9 @@ describe("buildChoiceGroup pick rows — option labels are rich text", () => {
 		expect(options()[1].text.render()).toBe("◇ Battleaxe (<em>close, messy</em>)");
 	});
 
-	it("keeps the source markdown on `raw` — the display-label mirror writes raw into a text box", () => {
+	// `raw` is the stored markdown: what a write-in box shows, and what the condensed view joins
+	// into a line. Rendering is `render()`'s job.
+	it("keeps the source markdown on `raw`", () => {
 		expect(options()[0].text.raw).toBe("◇ Sword, iron (*close*, +1 damage)");
 	});
 
