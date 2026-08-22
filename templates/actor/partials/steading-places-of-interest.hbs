@@ -9,7 +9,8 @@
 		{{#each places}}
 			<div class="stonetop-places-row" data-index="{{index}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
 				<span class="stonetop-place-key">{{key}}.</span>
-				<input type="text" class="stonetop-place-field" data-change-action="placeField" data-index="{{index}}" value="{{value}}">
+				<input type="text" class="stonetop-place-field" data-change-action="placeField" data-index="{{index}}" value="{{value}}"
+				       aria-label="{{localize 'stonetop.a11y.placeField'}}">
 				{{#if docLink}}
 					<span class="steading-doc-link">
 						{{rich docLink}}

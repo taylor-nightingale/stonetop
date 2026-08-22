@@ -22,9 +22,10 @@
 {{else}}
 {{!-- ---- Editor ---- --}}
 <header class="stonetop-insert-sheet-header">
-	<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+	<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{item.name}}"><img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
 	<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
-	       placeholder="{{localize 'stonetop.outfitItem.namePlaceholder'}}">
+	       placeholder="{{localize 'stonetop.outfitItem.namePlaceholder'}}"
+		       aria-label="{{localize 'stonetop.outfitItem.namePlaceholder'}}">
 	<button type="button" class="outfit-item-edit-toggle" data-action="toggleEditMode" data-mode="view">{{localize "stonetop.outfitItem.done"}}</button>
 </header>
 
@@ -52,10 +53,12 @@
 	<section class="stonetop-insert-sheet-section">
 		<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.tags"}}</label>
 		<input type="text" name="system.tagList" value="{{system.tagList}}"
-		       placeholder="{{localize 'stonetop.outfitItem.tagsPlaceholder'}}">
+		       placeholder="{{localize 'stonetop.outfitItem.tagsPlaceholder'}}"
+			       aria-label="{{localize 'stonetop.outfitItem.tags'}}">
 		<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.note"}}</label>
 		<input type="text" name="system.note" value="{{system.note}}"
-		       placeholder="{{localize 'stonetop.outfitItem.notePlaceholder'}}">
+		       placeholder="{{localize 'stonetop.outfitItem.notePlaceholder'}}"
+			       aria-label="{{localize 'stonetop.outfitItem.note'}}">
 	</section>
 
 	<section class="stonetop-insert-sheet-section">

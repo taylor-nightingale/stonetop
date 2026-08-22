@@ -6,13 +6,16 @@
 	<div class="follower-member-top">
 		<input type="text" class="follower-member-field" data-index="{{index}}" data-field="name"
 		       value="{{member.name}}" placeholder="{{localize 'stonetop.followers.memberName'}}"
-		       {{#unless editable}}disabled{{/unless}}>
+		       {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.followers.memberName'}}">
 		<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 		<input type="number" min="0" class="follower-member-field" data-index="{{index}}" data-field="hp.value"
-		       value="{{member.hp.value}}" {{#unless editable}}disabled{{/unless}}>
+		       value="{{member.hp.value}}" {{#unless editable}}disabled{{/unless}}
+			       aria-label="{{localize 'stonetop.followers.hp'}}">
 		<span>/</span>
 		<input type="number" min="0" class="follower-member-field" data-index="{{index}}" data-field="hp.max"
-		       value="{{member.hp.max}}" {{#unless editable}}disabled{{/unless}}>
+		       value="{{member.hp.max}}" {{#unless editable}}disabled{{/unless}}
+		       aria-label="/">
 		{{#if editable}}
 		<button type="button" class="follower-member-up"     data-index="{{index}}" title="↑">↑</button>
 		<button type="button" class="follower-member-down"   data-index="{{index}}" title="↓">↓</button>

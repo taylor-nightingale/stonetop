@@ -4,6 +4,7 @@
 		<span class="stonetop-stat-roll rollable" data-roll="{{@key}}"
 		      data-tooltip="{{description}}" data-tooltip-direction="UP">{{name}}</span>
 		<input class="stonetop-stat-input" type="number"
+		       aria-label="{{localize 'stonetop.a11y.statValue' stat=name}}"
 		       name="system.stats.{{@key}}.value"
 		       value="{{value}}" min="-3" max="3"
 		       {{#unless ../editable}}disabled{{/unless}}>

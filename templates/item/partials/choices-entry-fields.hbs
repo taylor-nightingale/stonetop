@@ -34,7 +34,8 @@
 	<span>Followers</span>
 	<input type="text"
 	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers.slugs"
-	       value="{{followers.slugs}}" placeholder="e.g. enfys,rook">
+	       value="{{followers.slugs}}" placeholder="e.g. enfys,rook"
+		       aria-label="e.g. enfys,rook">
 	<label class="choices-field-inline-check">
 		<input type="checkbox"
 		       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="followers.inlineDisplay"
@@ -54,14 +55,18 @@
 	<div class="choices-outfit-item">
 		<input type="text" placeholder="slug"
 		       data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.slug"
-		       value="{{slug}}">
+		       value="{{slug}}"
+		       aria-label="slug">
 		<input type="text" placeholder="name"
 		       data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.name"
-		       value="{{name}}">
+		       value="{{name}}"
+		       aria-label="name">
 		<input type="number" placeholder="wt" min="0"
 		       data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.weight"
-		       value="{{weight}}">
-		<select data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.inventoryColumn">
+		       value="{{weight}}"
+		       aria-label="wt">
+		<select data-choices-target="{{../_target}}" data-choices-row-index="{{../_rowIndex}}" {{#if ../_hasOptionIndex}}data-choices-option-index="{{../_optionIndex}}"{{/if}} data-choices-field="outfitItems.{{@index}}.inventoryColumn"
+		        aria-label="{{localize 'stonetop.a11y.inventoryColumn'}}">
 			<option value="regular" {{#if (eq inventoryColumn "regular")}}selected{{/if}}>regular</option>
 			<option value="small"   {{#if (eq inventoryColumn "small")}}selected{{/if}}>small</option>
 		</select>

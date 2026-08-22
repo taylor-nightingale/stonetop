@@ -5,11 +5,12 @@
 	{{else}}
 	{{!-- data-edit: V1 core click binding; data-action: the V2 editImage action. Both present while
 	      the actor sheets straddle the migration. --}}
-	<img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" title="{{actor.name}}">
+	<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{actor.name}}"><img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" title="{{actor.name}}"></button>
 	{{/if}}
 	<div class="header-fields">
 		<h1 class="charname">
 			<input name="name" type="text" value="{{actor.name}}"
+			       aria-label="{{localize 'stonetop.a11y.actorName'}}"
 			       placeholder="Name"
 			       {{#unless editable}}disabled{{/unless}}>
 		</h1>

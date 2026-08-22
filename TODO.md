@@ -6,5 +6,5 @@
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 
-* add accessibility modes to increase font sizes
-* add accessibility mode to allow screen readers to work?
+* Defend should have a resource line in the basic moves section to hold up to 4 "readiness"
+* Remove the editable weight limit for inventory on the followers. Its really weird. Can you take a look at that feature in the ui and suggest edits there

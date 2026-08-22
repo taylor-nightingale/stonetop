@@ -39,8 +39,8 @@
 		</div>
 
 		<div class="stonetop-actor-portrait">
-			<img class="stonetop-actor-portrait-img" src="{{actor.img}}" data-edit="img" data-action="editImage"
-			     alt="{{actor.name}}" title="{{actor.name}}">
+			<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{actor.name}}"><img class="stonetop-actor-portrait-img" src="{{actor.img}}"
+			     alt="{{actor.name}}" title="{{actor.name}}"></button>
 		</div>
 	</section>
 
@@ -49,15 +49,15 @@
 		      already carries the per-insert tabs via the sheet's _getTabsConfig override. --}}
 		<nav class="sheet-tabs tabs" data-group="primary">
 			{{#each tabs}}
-			<a class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</a>
+			<button type="button" class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</button>
 			{{/each}}
-			<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state title="{{localize 'stonetop.sheet.collapseTop'}}">
+			<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state title="{{localize 'stonetop.sheet.collapseTop'}}" aria-label="{{localize 'stonetop.sheet.collapseTop'}}">
 				<i class="fas fa-chevron-up"></i>
 			</button>
 		</nav>
 
 		<div class="stonetop-sheet-layout">
-			<button type="button" class="stonetop-moves-toggle" data-action="toggleMovesOverlay" data-view-state title="{{localize 'stonetop.sheet.tabs.moves'}}">
+			<button type="button" class="stonetop-moves-toggle" data-action="toggleMovesOverlay" data-view-state title="{{localize 'stonetop.sheet.tabs.moves'}}" aria-label="{{localize 'stonetop.sheet.tabs.moves'}}">
 				<i class="fas fa-bolt"></i>
 			</button>
 			<section class="sheet-body">
@@ -119,12 +119,12 @@
 							<i class="fas fa-dice-d6"></i>
 						</span>
 						{{/if}}
-						<span class="stonetop-move-name stonetop-basic-move-open" data-action="openBasicMove"
-					      data-compendium-id="{{id}}">{{name}}</span>
-						<a class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
-						   title="{{localize 'stonetop.character.moves.sendToChat'}}">
+						<button type="button" class="stonetop-move-name stonetop-basic-move-open" data-action="openBasicMove"
+					      data-compendium-id="{{id}}">{{name}}</button>
+						<button type="button" class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
+						   title="{{localize 'stonetop.character.moves.sendToChat'}}" aria-label="{{localize 'stonetop.character.moves.sendToChat'}}">
 							<i class="fas fa-comment"></i>
-						</a>
+						</button>
 					</li>
 				{{/each}}
 				</ol>

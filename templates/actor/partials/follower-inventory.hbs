@@ -2,7 +2,8 @@
       (twoCol two-line rows, resources, custom-delete). The enclosing .stonetop-follower-inventory
       [data-slug] wrapper is how the inventory handlers route to the follower path. Compact view = what
       they HAVE; the full catalog (with "+ add") renders only when this follower is expanded
-      (server-side toggle). Load band is computed + highlighted but never a cap. Context = follower. --}}
+      (server-side toggle). Load band and the ◇ carried are computed + highlighted but never a cap;
+      a follower past the ◇ Outfit allows is flagged, not stopped. Context = follower. --}}
 {{#if hasInventory}}
 <div class="stonetop-follower-inventory{{#if inventory.editing}} is-editing{{/if}}" data-slug="{{slug}}">
 	<div class="stonetop-follower-inventory-head">
@@ -14,16 +15,14 @@
 			<span class="stonetop-follower-load-band{{#if inventory.loadHeavy}} is-active{{/if}}">{{localize "stonetop.followers.loadHeavy"}}</span>
 		</span>
 		<span class="stonetop-follower-capacity{{#if inventory.overCapacity}} is-over{{/if}}"
-		      data-tooltip="{{localize 'stonetop.followers.loadCapacityHint'}}" data-tooltip-direction="UP">
+		      data-tooltip="{{#if inventory.overCapacity}}{{localize 'stonetop.followers.loadOver' max=inventory.capacity}}{{else}}{{localize 'stonetop.followers.loadCarriedHint'}}{{/if}}" data-tooltip-direction="UP">
 			{{#if inventory.overCapacity}}<i class="fas fa-triangle-exclamation"></i>{{/if}}
-			<span class="stonetop-follower-capacity-carried">{{inventory.totalWeight}}</span> /
-			<input type="number" min="0" class="stonetop-follower-capacity-input" data-change-action="followerLoadCapacity"
-			       data-slug="{{slug}}" value="{{inventory.capacity}}">
+			<span class="stonetop-follower-capacity-carried">{{inventory.totalWeight}}</span>
 			<span class="stonetop-follower-capacity-unit">◇</span>
 		</span>
 		{{/if}}
 		<button type="button" class="stonetop-follower-inv-toggle" data-action="toggleFollowerInventory" data-slug="{{slug}}" data-view-state
-		        title="{{#if inventory.editing}}{{localize 'stonetop.followers.inventoryDone'}}{{else}}{{localize 'stonetop.followers.inventoryToggle'}}{{/if}}">
+		        title="{{#if inventory.editing}}{{localize 'stonetop.followers.inventoryDone'}}{{else}}{{localize 'stonetop.followers.inventoryToggle'}}{{/if}}" aria-label="{{#if inventory.editing}}{{localize 'stonetop.followers.inventoryDone'}}{{else}}{{localize 'stonetop.followers.inventoryToggle'}}{{/if}}">
 			<img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="{{localize 'stonetop.followers.inventoryToggle'}}">
 		</button>
 	</div>

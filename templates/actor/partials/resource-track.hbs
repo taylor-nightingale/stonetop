@@ -7,6 +7,10 @@
         {{#if ../slug}}data-slug="{{../slug}}"{{/if}}
         {{#if ../moveSlug}}data-move-slug="{{../moveSlug}}"{{/if}}
         {{#if ../choiceSlug}}data-choice-slug="{{../choiceSlug}}"{{/if}}
+        {{!-- A track is a row of identical buttons, so each states which pip it is and whether it
+              is filled; without this a screen reader reads N nameless controls and no state. --}}
+        aria-pressed="{{#if checked}}true{{else}}false{{/if}}"
+        aria-label="{{#if label}}{{label}}, {{/if}}{{#if ../resource.title}}{{localize 'stonetop.a11y.trackPip' name=../resource.title position=position total=total}}{{else}}{{localize 'stonetop.a11y.trackPip' name=(localize 'stonetop.a11y.track') position=position total=total}}{{/if}}"
         data-index="{{@index}}"></button>
 {{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
 {{/each}}

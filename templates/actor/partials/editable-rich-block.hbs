@@ -1,14 +1,15 @@
 {{!-- Titled editable rich block: a label header + pencil toggle, an enriched display, and a raw
       markdown textarea. Shared by moves / notes / description on the NPC and follower cards, so the
       pattern lives in one place. Params: label, field (a RichText — rendered for display, .raw for
-      the editor), textareaClass, textareaId (optional), slug, blockClass (optional extra container
+      the editor), textareaClass, textareaId (optional), label (the field's name for a screen
+      reader; a sibling heading is not an accessible name), slug, blockClass (optional extra container
       class, e.g. the notes grow-to-fill), changeAction (optional data-change-action for
       router-based sheets). --}}
 <div class="stonetop-creature-moves stonetop-editable{{#if blockClass}} {{blockClass}}{{/if}}">
 	<div class="stonetop-creature-moves-head">
 		<span class="stonetop-follower-label">{{label}}</span>
-		<button type="button" class="stonetop-edit-toggle" title="Edit"><img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="edit"></button>
+		<button type="button" class="stonetop-edit-toggle" title="{{localize 'stonetop.a11y.edit'}}" aria-label="{{localize 'stonetop.a11y.edit'}}"><img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="edit"></button>
 	</div>
 	<div class="stonetop-editable__display">{{rich field}}</div>
-	<textarea class="stonetop-editable__edit{{#if textareaClass}} {{textareaClass}}{{/if}}"{{#if textareaId}} id="{{textareaId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}}>{{field.raw}}</textarea>
+	<textarea class="stonetop-editable__edit{{#if textareaClass}} {{textareaClass}}{{/if}}"{{#if textareaId}} id="{{textareaId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} aria-label="{{#if label}}{{label}}{{else}}{{localize 'stonetop.a11y.notes'}}{{/if}}">{{field.raw}}</textarea>
 </div>

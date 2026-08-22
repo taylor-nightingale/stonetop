@@ -3,10 +3,11 @@
 <div class="stonetop-item-sheet-part">
 
 	<header class="stonetop-insert-sheet-header">
-		<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+		<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{item.name}}"><img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
 		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
 		       placeholder="{{localize 'stonetop.possession.namePlaceholder'}}"
-		       {{#unless editable}}disabled{{/unless}}>
+		       {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.possession.namePlaceholder'}}">
 	</header>
 
 	<div class="stonetop-insert-sheet-body">

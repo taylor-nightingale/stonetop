@@ -7,7 +7,8 @@
 	<div class="follower-companion-type-head">
 		<input type="text" class="follower-comp-field" data-index="{{index}}" data-field="name"
 		       value="{{type.name}}" placeholder="{{localize 'stonetop.follower.companionTypeName'}}"
-		       {{#unless editable}}disabled{{/unless}}>
+		       {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.follower.companionTypeName'}}">
 		{{#if editable}}
 		<button type="button" class="follower-companion-remove-type" data-index="{{index}}"
 		        title="{{localize 'stonetop.follower.remove'}}">✕</button>
@@ -20,7 +21,8 @@
 		</label>
 		<span>/</span>
 		<input type="number" min="0" class="follower-comp-field" data-index="{{index}}" data-field="hp.max"
-		       value="{{type.hp.max}}" title="{{localize 'stonetop.followers.hp'}} max" {{#unless editable}}disabled{{/unless}}>
+		       value="{{type.hp.max}}" title="{{localize 'stonetop.followers.hp'}} max" {{#unless editable}}disabled{{/unless}}
+		       aria-label="/">
 		<label>{{localize "stonetop.followers.armor"}}
 			<input type="text" class="follower-comp-field" data-index="{{index}}" data-field="armor"
 			       value="{{type.armor}}" {{#unless editable}}disabled{{/unless}}>

@@ -4,11 +4,12 @@
 <div class="stonetop-item-sheet-part">
 
 	<header class="stonetop-insert-sheet-header">
-		<img class="stonetop-insert-sheet-icon" src="{{stonetop.img}}" data-edit="img" data-action="editImage" title="{{stonetop.name}}" alt="">
+		<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{stonetop.name}}"><img class="stonetop-insert-sheet-icon" src="{{stonetop.img}}" title="{{stonetop.name}}" alt=""></button>
 		<h1 class="charname stonetop-insert-sheet-name">
 			<input type="text" name="name" value="{{stonetop.name}}"
 			       placeholder="{{localize 'stonetop.steadfast.namePlaceholder'}}"
-			       {{#unless editable}}disabled{{/unless}}>
+			       {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.steadfast.namePlaceholder'}}">
 		</h1>
 	</header>
 
@@ -22,6 +23,7 @@
 				<h2>{{localize "stonetop.steadfast.fortunes"}}</h2>
 				<span class="stonetop-stepper">
 					<input class="stonetop-step" type="number" name="system.attributes.fortunes"
+					       aria-label="{{localize 'stonetop.steadfast.fortunes'}}"
 					       value="{{stonetop.fortunes}}" step="1" {{#unless editable}}disabled{{/unless}}>
 					{{> "stonetop.stepper-buttons"}}
 				</span>
@@ -32,6 +34,7 @@
 				<h2>{{localize "stonetop.steadfast.surplus"}}</h2>
 				<span class="stonetop-stepper">
 					<input class="stonetop-step" type="number" name="system.attributes.surplus"
+					       aria-label="{{localize 'stonetop.a11y.surplus'}}"
 					       value="{{stonetop.surplus}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
 					{{> "stonetop.stepper-buttons"}}
 				</span>
@@ -80,7 +83,7 @@
 			<textarea id="steadfast-resident-names" class="stonetop-steadfast-resident-names" rows="2"
 			          {{#unless editable}}disabled{{/unless}}>{{stonetop.residentNames}}</textarea>
 			<label class="stonetop-insert-sheet-label">NPC Traits</label>
-			<textarea class="steading-npc-traits-source" {{#unless editable}}disabled{{/unless}}>{{stonetop.residentTraitsText}}</textarea>
+			<textarea class="steading-npc-traits-source" aria-label="{{localize 'stonetop.a11y.npcTraits'}}" {{#unless editable}}disabled{{/unless}}>{{stonetop.residentTraitsText}}</textarea>
 			<div class="steading-npc-traits-columns">
 				{{#each stonetop.npcTraitColumns}}
 					<div class="steading-npc-traits-column">

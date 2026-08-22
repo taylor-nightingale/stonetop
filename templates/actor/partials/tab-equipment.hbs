@@ -5,9 +5,9 @@
 	{{!-- Outfit header, with the steading's Prosperity gear table alongside it --}}
 	<div class="stonetop-outfit-headers">
 		<div class="stonetop-outfit-header">
-			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.headingBefore"}}}<a
+			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.headingBefore"}}}<button type="button"
 					class="stonetop-move-link" data-action="openMoveBySlug" data-move-slug="outfit"
-					title="{{localize 'stonetop.character.moves.open'}}"><em><strong>{{localize "stonetop.inventory.outfit.moveName"}}</strong></em></a>{{{localize "stonetop.inventory.outfit.headingAfter"}}}</p>
+					title="{{localize 'stonetop.character.moves.open'}}"><em><strong>{{localize "stonetop.inventory.outfit.moveName"}}</strong></em></button>{{{localize "stonetop.inventory.outfit.headingAfter"}}}</p>
 			{{!-- The rule text runs straight into the three load lines; the count rides the line the
 			      marks land in, and the reset tucks into the panel corner, so neither breaks the read. --}}
 			<button type="button" class="stonetop-icon-btn stonetop-outfit-reset" data-action="resetOutfit"
@@ -68,6 +68,7 @@
 					{{#each this}}
 					<input type="checkbox"
 					       class="stonetop-inv-diamond stonetop-regular-pool-btn{{#if checked}} is-checked{{/if}}"
+					       aria-label="{{localize 'stonetop.a11y.supplies' position=(inc index)}}"
 					       data-change-action="regularPool"
 					       data-index="{{index}}"
 					       {{#if checked}}checked{{/if}}>
@@ -95,6 +96,7 @@
 					{{#each this}}
 					<input type="checkbox"
 					       class="stonetop-inv-square stonetop-small-pool-btn{{#if checked}} is-checked{{/if}}"
+					       aria-label="{{localize 'stonetop.a11y.smallItems' position=(inc index)}}"
 					       data-change-action="smallPool"
 					       data-index="{{index}}"
 					       {{#if checked}}checked{{/if}}>
@@ -112,6 +114,7 @@
 				{{#each items}}
 				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
 					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square" data-change-action="inventoryItemCheck"
+					       aria-label="{{localize 'stonetop.a11y.carried'}}"
 					       data-slug="{{slug}}"
 					       {{#if checked}}checked{{/if}}>
 					<span class="stonetop-inv-label">{{name}}</span>
@@ -133,7 +136,7 @@
 				</span>
 				{{/if}}
 				{{#if isCustom}}
-				<a class="stonetop-inv-delete" data-action="deleteInventoryItem" data-owned-id="{{ownedId}}" data-name="{{name}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-times"></i></a>
+				<button type="button" class="stonetop-inv-delete" data-action="deleteInventoryItem" data-owned-id="{{ownedId}}" data-name="{{name}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-times"></i></button>
 				{{/if}}
 			</label>
 			{{/each}}
@@ -146,7 +149,8 @@
 			<div>
 				{{> "stonetop.section-heading" title=(localize "stonetop.inventory.otherItems")}}
 				<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.otherItemsNote"}}}</p>
-				<textarea class="stonetop-notes st-notes-textarea" data-change-action="inventoryOtherItems" type="text" placeholder="" >{{stonetop.outfit.otherItems}}</textarea>
+				<textarea class="stonetop-notes st-notes-textarea" data-change-action="inventoryOtherItems" type="text" placeholder=""
+				          aria-label="{{localize 'stonetop.a11y.otherItems'}}">{{stonetop.outfit.otherItems}}</textarea>
 			</div>
 		</div>
 

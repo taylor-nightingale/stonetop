@@ -6,6 +6,7 @@
       changeAction (optional data-change-action for router-based sheets). --}}
 <span class="stonetop-combo">
 	<input type="text" class="{{inputClass}} stonetop-combo-input" value="{{sel.text}}"
+	       aria-label="{{#if placeholder}}{{placeholder}}{{else}}{{localize 'stonetop.a11y.addTag'}}{{/if}}"
 	       data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}">
 	{{#if sel.options.length}}
 	<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>

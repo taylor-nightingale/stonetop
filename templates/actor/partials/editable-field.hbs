@@ -2,16 +2,17 @@
 	Single-slot rich field: enriched display + a raw-markdown editor revealed by the pencil.
 	Params: field (a RichText — rendered for display, .raw for the editor), inputClass, inputId,
 	slug, placeholder, multiline, changeAction (optional data-change-action for sheets that route
-	changes through a ChangeActionRouter).
+	changes through a ChangeActionRouter), label (the field's name, for callers whose visible label
+	is a sibling rather than a wrapper — an `id` alone names nothing without a <label for>).
 --}}
 <span class="stonetop-editable">
 	<span class="stonetop-editable__display">{{rich field}}</span>
 	{{#if multiline}}
-	<textarea class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}">{{field.raw}}</textarea>
+	<textarea class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}" aria-label="{{#if label}}{{label}}{{else}}{{placeholder}}{{/if}}">{{field.raw}}</textarea>
 	{{else}}
-	<input class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} type="text" value="{{field.raw}}" data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}">
+	<input class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} type="text" value="{{field.raw}}" data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}" aria-label="{{#if label}}{{label}}{{else}}{{placeholder}}{{/if}}">
 	{{/if}}
-	<button type="button" class="stonetop-edit-toggle" title="Edit">
+	<button type="button" class="stonetop-edit-toggle" title="{{localize 'stonetop.a11y.edit'}}" aria-label="{{localize 'stonetop.a11y.edit'}}">
 		<img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="edit">
 	</button>
 </span>

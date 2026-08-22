@@ -151,9 +151,10 @@ export class RenderProbe {
 	 * @param {string} [options.bodyClass] classes on <body> — this is how a theme is selected
 	 * @param {string} [options.rootAttrs] extra attributes on <html>
 	 * @param {Record<string,{selector: string, properties: string[], pseudo?: string}>} options.probes
+	 * @param {string[]} [options.chromeFlags] extra Chrome flags, e.g. --force-prefers-reduced-motion
 	 * @returns {Map<string, ProbedElement>}
 	 */
-	render({ bodyHtml, bodyClass = "", rootAttrs = "", probes }) {
+	render({ bodyHtml, bodyClass = "", rootAttrs = "", probes, chromeFlags = [] }) {
 		const collect = `
 const probes = ${JSON.stringify(probes)};
 for (const [name, spec] of Object.entries(probes)) {
@@ -166,7 +167,7 @@ for (const [name, spec] of Object.entries(probes)) {
   for (const prop of spec.properties) values[prop] = cs.getPropertyValue(prop).trim();
   out[name] = values;
 }`;
-		return this._collect({ bodyHtml, bodyClass, rootAttrs, collect, Element: ProbedElement });
+		return this._collect({ bodyHtml, bodyClass, rootAttrs, collect, chromeFlags, Element: ProbedElement });
 	}
 
 	/**
@@ -180,7 +181,7 @@ for (const [name, spec] of Object.entries(probes)) {
 	 * @param {Record<string,string>} options.targets name → selector
 	 * @returns {Map<string, MeasuredElement>}
 	 */
-	measure({ bodyHtml, bodyClass = "", rootAttrs = "", targets }) {
+	measure({ bodyHtml, bodyClass = "", rootAttrs = "", targets, chromeFlags = [] }) {
 		const collect = `
 const targets = ${JSON.stringify(targets)};
 for (const [name, selector] of Object.entries(targets)) {
@@ -210,7 +211,7 @@ for (const [name, selector] of Object.entries(targets)) {
     firstLineHeight: first ? first.height : content.height
   };
 }`;
-		return this._collect({ bodyHtml, bodyClass, rootAttrs, collect, Element: MeasuredElement });
+		return this._collect({ bodyHtml, bodyClass, rootAttrs, collect, chromeFlags, Element: MeasuredElement });
 	}
 
 	/**
@@ -220,7 +221,7 @@ for (const [name, selector] of Object.entries(targets)) {
 	 *
 	 * @returns {Map<string, ProbedElement|MeasuredElement>}
 	 */
-	_collect({ bodyHtml, bodyClass, rootAttrs, collect, Element }) {
+	_collect({ bodyHtml, bodyClass, rootAttrs, collect, Element, chromeFlags = [] }) {
 		const chrome = chromePath();
 		if (!chrome || !foundryCss) throw new Error("RenderProbe needs Chrome and a local Foundry install");
 
@@ -244,6 +245,9 @@ document.getElementById("probe-result").textContent = JSON.stringify(out);
 
 		const dom = execFileSync(chrome, [
 			"--headless", "--disable-gpu", "--no-sandbox", "--allow-file-access-from-files",
+			// Flags that put the BROWSER in a state the CSS reacts to — a media query cannot be
+			// reached from the page, so emulating it is the only way to assert on one.
+			...chromeFlags,
 			"--virtual-time-budget=4000", "--dump-dom", `file://${file}`
 		], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], timeout: 60000 });
 

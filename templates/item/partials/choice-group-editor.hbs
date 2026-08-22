@@ -20,7 +20,8 @@
 					{{#if track}}
 					<input type="number" min="1" max="10"
 					       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="track.max"
-					       value="{{track.max}}">
+					       value="{{track.max}}"
+		       aria-label="Track">
 					<button type="button" class="choices-row-toggle-track" data-row-index="{{_index}}">×</button>
 					{{else}}
 					<button type="button" class="choices-row-toggle-track" data-row-index="{{_index}}">+ Track</button>
@@ -31,7 +32,8 @@
 					{{#if input}}
 					<input type="text"
 					       data-choices-target="row" data-choices-row-index="{{_index}}" data-choices-field="input.placeholder"
-					       value="{{input.placeholder}}" placeholder="placeholder text">
+					       value="{{input.placeholder}}" placeholder="placeholder text"
+		       aria-label="placeholder text">
 					<button type="button" class="choices-row-toggle-input" data-row-index="{{_index}}">×</button>
 					{{else}}
 					<button type="button" class="choices-row-toggle-input" data-row-index="{{_index}}">+ Input</button>
@@ -64,7 +66,8 @@
 					<div class="choices-option-entry">
 						<div class="choices-option-row">
 							<span class="choices-option-index">{{_index}}</span>
-							<select data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="type">
+							<select data-choices-target="option" data-choices-row-index="{{_rowIndex}}" data-choices-option-index="{{_index}}" data-choices-field="type"
+							        aria-label="{{localize 'stonetop.a11y.optionType'}}">
 								<option value="" {{#unless type}}selected{{/unless}}>text</option>
 								<option value="input" {{#if (eq type "input")}}selected{{/if}}>fill-in</option>
 							</select>

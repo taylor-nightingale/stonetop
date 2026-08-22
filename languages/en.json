@@ -130,7 +130,8 @@
 			"loadLight": "Light",
 			"loadNormal": "Normal",
 			"loadHeavy": "Heavy",
-			"loadCapacityHint": "◇ carried, against what this follower can reasonably manage."
+			"loadCarriedHint": "Total ◇ this follower is carrying.",
+			"loadOver": "Carrying more than the {max} ◇ Outfit allows."
 		},
 		"insert": {
 			"remove": "Remove",
@@ -579,6 +580,52 @@
 					"repeatMax": "Checkboxes"
 				}
 			}
+		},
+		"a11y": {
+			"track": "Track",
+			"trackPip": "{name} {position} of {total}",
+			"actorName": "Name",
+			"statValue": "{stat} score",
+			"hpCurrent": "Current HP",
+			"hpMax": "Maximum HP",
+			"xpCurrent": "Current XP",
+			"xpMax": "XP needed to level",
+			"damageDie": "Damage die",
+			"notes": "Notes",
+			"carried": "Carried",
+			"addTag": "Add tag",
+			"followerName": "Follower name",
+			"memberName": "Member name",
+			"memberHp": "Member current HP",
+			"memberHpMax": "Member maximum HP",
+			"carriedDiamond": "Carried — mark to use",
+			"possessionTaken": "Taken",
+			"instinctCustom": "Custom instinct",
+			"otherItems": "Other items carried",
+			"choiceFill": "Fill in this choice",
+			"supplies": "Supplies {position}",
+			"smallItems": "Small item slot {position}",
+			"steadingName": "Steading name",
+			"surplus": "Surplus",
+			"npcTraits": "Traits",
+			"assetItem": "Asset",
+			"placeField": "Place of interest",
+			"ratingExtra": "Rating note",
+			"playbookSelect": "Playbook",
+			"optionType": "Option type",
+			"inventoryColumn": "Inventory column",
+			"moveType": "Move type",
+			"rollStat": "Roll stat",
+			"choiceText": "Choice text",
+			"choicePick": "Choose this option",
+			"listItem": "List item",
+			"contentText": "{section} text",
+			"moveTaken": "Taken",
+			"residentName": "Resident name",
+			"residentOccupation": "Occupation",
+			"residentTraits": "Traits",
+			"neighborHome": "Home",
+			"edit": "Edit"
 		}
 	}
 }

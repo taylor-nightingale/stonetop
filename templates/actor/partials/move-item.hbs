@@ -7,6 +7,7 @@
 	<span class="stonetop-repeat-checks">
 		{{#each (repeatChecks this)}}
 		<input type="checkbox" class="stonetop-item-check stonetop-repeat-check"
+		       aria-label="{{localize 'stonetop.a11y.trackPip' name=(localize 'stonetop.a11y.moveTaken') position=(inc @index) total=../selection.max}}"
 		       data-change-action="moveCheck"
 		       data-category-key="{{../categoryKey}}"
 		       data-move-slug="{{../slug}}"
@@ -17,6 +18,7 @@
 	</span>
 	{{else}}
 	<input type="checkbox" class="stonetop-item-check stonetop-move-check"
+	       aria-label="{{localize 'stonetop.a11y.moveTaken'}}"
 	       data-change-action="moveCheck"
 	       data-category-key="{{categoryKey}}"
 	       data-move-slug="{{slug}}"
@@ -37,10 +39,10 @@
 		<i class="fas fa-dice-d6"></i>
 	</span>
 	{{/if}}
-	<a class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
-	   title="{{localize 'stonetop.character.moves.sendToChat'}}">
+	<button type="button" class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
+	   title="{{localize 'stonetop.character.moves.sendToChat'}}" aria-label="{{localize 'stonetop.character.moves.sendToChat'}}">
 		<i class="fas fa-comment"></i>
-	</a>
+	</button>
 	{{#if (and (or alwaysShowResource (gt selection.value 0)) resource)}}
 	<span class="stonetop-item-resources">
 		{{!-- moveSlug is what the pip handler reads; slug is passed explicitly because a partial
@@ -52,9 +54,9 @@
 	</span>
 	{{/if}}
 	{{#if allowAdditional}}
-	<a class="stonetop-other-move-delete" data-action="deleteOtherMove" data-move-slug="{{slug}}" data-name="{{name}}" title="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
+	<button type="button" class="stonetop-other-move-delete" data-action="deleteOtherMove" data-move-slug="{{slug}}" data-name="{{name}}" title="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
 		<i class="fas fa-trash"></i>
-	</a>
+	</button>
 	{{/if}}
 </div>
 {{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}

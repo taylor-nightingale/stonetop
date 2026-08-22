@@ -5,6 +5,7 @@
 		        data-roll="damage"
 		        data-tooltip="{{stonetop.vitals.sources.damage}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.damage"}}</button>
 		<input class="stonetop-resource__input stonetop-char-damage" type="text" data-change-action="damage"
+			       aria-label="{{localize 'stonetop.a11y.damageDie'}}"
 		       value="{{stonetop.vitals.damage.value}}">
 	</div>
 
@@ -14,12 +15,14 @@
 		<div class="stonetop-resource__split">
 			<span class="stonetop-stepper">
 				<input class="stonetop-resource__input stonetop-char-hp stonetop-step" type="number" data-change-action="hp"
+			       aria-label="{{localize 'stonetop.a11y.hpCurrent'}}"
 				       value="{{stonetop.vitals.hp.value}}" min="0">
 				{{> "stonetop.stepper-buttons"}}
 			</span>
 			<span>/</span>
 			<span class="stonetop-stepper">
 				<input class="stonetop-resource__max stonetop-char-max-hp stonetop-step" type="number" data-change-action="maxHp"
+			       aria-label="{{localize 'stonetop.a11y.hpMax'}}"
 				       value="{{stonetop.vitals.hp.max}}" min="0">
 				{{> "stonetop.stepper-buttons"}}
 			</span>
@@ -31,6 +34,7 @@
 		      data-tooltip="{{stonetop.vitals.sources.armor}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.armor"}}</span>
 		<span class="stonetop-stepper">
 			<input class="stonetop-resource__input stonetop-char-armor stonetop-step" type="number" data-change-action="armor"
+			       aria-label="{{localize 'stonetop.character.attributes.armor'}}"
 			       value="{{stonetop.vitals.armor}}" min="0">
 			{{> "stonetop.stepper-buttons"}}
 		</span>
@@ -44,6 +48,7 @@
 		<div class="stonetop-resource__split">
 			<span class="stonetop-stepper">
 				<input class="stonetop-resource__input stonetop-char-xp stonetop-step" type="number" data-change-action="xp"
+			       aria-label="{{localize 'stonetop.a11y.xpCurrent'}}"
 				       value="{{stonetop.vitals.xp.value}}" min="0">
 				{{> "stonetop.stepper-buttons"}}
 			</span>
@@ -56,6 +61,7 @@
 		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.level"}}</span>
 		<span class="stonetop-stepper">
 			<input class="stonetop-resource__input stonetop-char-level stonetop-step" type="number" data-change-action="level"
+			       aria-label="{{localize 'stonetop.character.attributes.level'}}"
 			       value="{{stonetop.vitals.level}}" min="1">
 			{{> "stonetop.stepper-buttons"}}
 		</span>

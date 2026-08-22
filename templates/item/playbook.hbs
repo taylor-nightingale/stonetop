@@ -3,14 +3,15 @@
 <div class="stonetop-item-sheet-part playbook-sheet">
 
 	<header class="stonetop-insert-sheet-header">
-		<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+		<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{item.name}}"><img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
 		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
-		       placeholder="{{localize 'stonetop.playbook.namePlaceholder'}}" {{#unless editable}}disabled{{/unless}}>
+		       placeholder="{{localize 'stonetop.playbook.namePlaceholder'}}" {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.playbook.namePlaceholder'}}">
 	</header>
 
 	<nav class="sheet-tabs tabs" data-group="primary">
 		{{#each tabs}}
-		<a class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</a>
+		<button type="button" class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</button>
 		{{/each}}
 	</nav>
 
@@ -57,9 +58,11 @@
 			<div class="playbook-background">
 				<div class="playbook-background-head">
 					<input type="text" class="playbook-background-field" data-index="{{index}}" data-field="label"
-					       value="{{label}}" placeholder="{{localize 'stonetop.playbook.backgroundLabel'}}" {{#unless ../editable}}disabled{{/unless}}>
+					       value="{{label}}" placeholder="{{localize 'stonetop.playbook.backgroundLabel'}}" {{#unless ../editable}}disabled{{/unless}}
+			       aria-label="{{localize 'stonetop.playbook.backgrounds'}}">
 					<input type="text" class="playbook-background-field playbook-background-slug" data-index="{{index}}" data-field="slug"
-					       value="{{slug}}" placeholder="slug" {{#unless ../editable}}disabled{{/unless}}>
+					       value="{{slug}}" placeholder="slug" {{#unless ../editable}}disabled{{/unless}}
+		       aria-label="slug">
 					{{#if ../editable}}
 					<button type="button" class="playbook-background-up" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveUp'}}">↑</button>
 					<button type="button" class="playbook-background-down" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveDown'}}">↓</button>
@@ -67,7 +70,8 @@
 					{{/if}}
 				</div>
 				<textarea class="playbook-background-field" data-index="{{index}}" data-field="description" rows="3"
-				          placeholder="{{localize 'stonetop.playbook.backgroundDescription'}}" {{#unless ../editable}}disabled{{/unless}}>{{description}}</textarea>
+				          placeholder="{{localize 'stonetop.playbook.backgroundDescription'}}" {{#unless ../editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.playbook.backgroundDescription'}}">{{description}}</textarea>
 
 				<div class="playbook-subsection">
 					<div class="playbook-subsection-head">
@@ -107,7 +111,8 @@
 			<div class="playbook-origin">
 				<div class="playbook-origin-head">
 					<input type="text" class="playbook-origin-region" data-index="{{index}}" value="{{region}}"
-					       placeholder="{{localize 'stonetop.playbook.originRegion'}}" {{#unless ../editable}}disabled{{/unless}}>
+					       placeholder="{{localize 'stonetop.playbook.originRegion'}}" {{#unless ../editable}}disabled{{/unless}}
+			       aria-label="{{localize 'stonetop.playbook.origin'}}">
 					{{#if ../editable}}
 					<button type="button" class="playbook-origin-up" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveUp'}}">↑</button>
 					<button type="button" class="playbook-origin-down" data-index="{{index}}" title="{{localize 'stonetop.playbook.moveDown'}}">↓</button>
@@ -115,7 +120,8 @@
 					{{/if}}
 				</div>
 				<textarea class="playbook-origin-names" data-index="{{index}}" rows="3"
-				          placeholder="{{localize 'stonetop.playbook.originNames'}}" {{#unless ../editable}}disabled{{/unless}}>{{names}}</textarea>
+				          placeholder="{{localize 'stonetop.playbook.originNames'}}" {{#unless ../editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.playbook.originNames'}}">{{names}}</textarea>
 			</div>
 			{{/each}}
 		</section>
@@ -131,7 +137,8 @@
 			<ul class="playbook-string-list">
 				{{#each instinctStrings}}
 				<li class="playbook-string-row">
-					<input type="text" class="playbook-instinct-string" data-index="{{@index}}" value="{{this}}" {{#unless ../editable}}disabled{{/unless}}>
+					<input type="text" class="playbook-instinct-string" data-index="{{@index}}" value="{{this}}" {{#unless ../editable}}disabled{{/unless}}
+			       aria-label="{{localize 'stonetop.playbook.instinct'}}">
 					{{#if ../editable}}<button type="button" class="playbook-instinct-remove" data-index="{{@index}}" title="{{localize 'stonetop.playbook.remove'}}">✕</button>{{/if}}
 				</li>
 				{{/each}}

@@ -20,10 +20,11 @@
 {{else}}
 {{!-- ---- Editor ---- --}}
 <header class="stonetop-insert-sheet-header">
-	<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+	<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{item.name}}"><img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
 	<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
 	       placeholder="{{localize 'stonetop.improvement.namePlaceholder'}}"
-	       {{#unless editable}}disabled{{/unless}}>
+	       {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.improvement.namePlaceholder'}}">
 	<button type="button" class="improvement-edit-toggle" data-action="toggleEditMode" data-mode="view">{{localize "stonetop.improvement.done"}}</button>
 </header>
 
@@ -34,7 +35,8 @@
 			<label class="stonetop-insert-sheet-label">{{localize "stonetop.improvement.sortOrder"}}</label>
 			<input type="number" name="system.sortOrder" value="{{system.sortOrder}}"
 			       placeholder="{{localize 'stonetop.improvement.sortOrderPlaceholder'}}"
-			       {{#unless editable}}disabled{{/unless}}>
+			       {{#unless editable}}disabled{{/unless}}
+			       aria-label="{{localize 'stonetop.improvement.sortOrder'}}">
 		</div>
 	</section>
 

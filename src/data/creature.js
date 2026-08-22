@@ -104,10 +104,6 @@ export function followerFields() {
 		// `resources`: per-item resource counts (ammo etc.). Load is computed + informational (never a
 		// cap). PLAIN-object initial.
 		inventory: new f.ObjectField({ initial: { checked: {}, customItems: [], resources: {} } }),
-		// How much this follower can reasonably carry, in ◇. Advisory only — the sheet flags a heavier
-		// load, never blocks it. Defaults to the 9 ◇ the Outfit move tops out at for a character; the
-		// book gives followers no number of their own, so it is editable per follower.
-		loadCapacity: new f.NumberField({ initial: 9, integer: true, min: 0 }),
 	};
 }
 

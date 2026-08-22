@@ -4,7 +4,8 @@
 	{{#unless stonetop.playbook}}
 	<div class="stonetop-playbook-empty">
 		<p class="stonetop-playbook-empty-hint">{{localize "stonetop.sheet.playbook.emptyHint"}}</p>
-		<select class="stonetop-playbook-select" name="stonetop-playbook-select" data-change-action="selectPlaybook">
+		<select class="stonetop-playbook-select" name="stonetop-playbook-select" data-change-action="selectPlaybook"
+		        aria-label="{{localize 'stonetop.a11y.playbookSelect'}}">
 			<option value="">— {{localize "stonetop.sheet.playbook.selectPlaceholder"}} —</option>
 			{{#each availablePlaybooks}}
 			<option value="{{slug}}">{{name}}</option>
@@ -104,7 +105,7 @@
 				</label>
 				{{#unless @root.viewFlags.playbookLocked}}
 				<div class="stonetop-origin-names">
-					{{#each names}}<span class="stonetop-origin-name" data-action="selectOriginName">{{this}}</span>{{#unless @last}}, {{/unless}}{{/each}}
+					{{#each names}}<button type="button" class="stonetop-origin-name" data-action="selectOriginName">{{this}}</button>{{#unless @last}}, {{/unless}}{{/each}}
 				</div>
 				{{/unless}}
 			</div>

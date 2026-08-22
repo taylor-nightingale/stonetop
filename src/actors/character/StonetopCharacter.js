@@ -623,10 +623,6 @@ export class StonetopCharacter {
 		await this._followers.setArmor(slug, armor);
 	}
 
-	async setFollowerLoadCapacity(slug, capacity) {
-		await this._followers.setLoadCapacity(slug, capacity);
-	}
-
 	async setFollowerInstinct(slug, instinct) {
 		await this._followers.setInstinct(slug, instinct);
 	}

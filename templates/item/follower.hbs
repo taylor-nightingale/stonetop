@@ -2,10 +2,11 @@
 <div class="stonetop-item-sheet-part">
 
 	<header class="stonetop-insert-sheet-header">
-		<img class="stonetop-insert-sheet-icon" src="{{item.img}}" data-edit="img" data-action="editImage" title="{{item.name}}" alt="">
+		<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{item.name}}"><img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
 		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
 		       placeholder="{{localize 'stonetop.follower.namePlaceholder'}}"
-		       {{#unless editable}}disabled{{/unless}}>
+		       {{#unless editable}}disabled{{/unless}}
+		       aria-label="{{localize 'stonetop.follower.namePlaceholder'}}">
 	</header>
 
 	{{#unless editMode}}
@@ -32,7 +33,8 @@
 					label=(localize "stonetop.followers.tags") editable=editable}}
 
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.kind"}}</label>
-				<select name="system.kind" {{#unless editable}}disabled{{/unless}}>
+				<select name="system.kind" {{#unless editable}}disabled{{/unless}}
+			       aria-label="{{localize 'stonetop.followers.kind'}}">
 					<option value="creature" {{#unless (eq system.kind "object")}}selected{{/unless}}>{{localize "stonetop.followers.kindCreature"}}</option>
 					<option value="object" {{#if (eq system.kind "object")}}selected{{/if}}>{{localize "stonetop.followers.kindObject"}}</option>
 				</select>
@@ -63,20 +65,24 @@
 
 				{{#unless (eq system.kind "object")}}
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</label>
-				<input type="text" name="system.specialQuality" value="{{system.specialQuality}}">
+				<input type="text" name="system.specialQuality" value="{{system.specialQuality}}"
+			       aria-label="{{localize 'stonetop.followers.specialQuality'}}">
 				{{/unless}}
 
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.moves"}}</label>
-				<textarea name="system.moves" rows="3">{{system.moves}}</textarea>
+				<textarea name="system.moves" rows="3"
+			       aria-label="{{localize 'stonetop.followers.moves'}}">{{system.moves}}</textarea>
 
 				{{> "stonetop.follower-selection-field" sel=costSel field="cost"
 					label=(localize "stonetop.followers.cost") editable=editable}}
 
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.description"}}</label>
-				<textarea name="system.description" rows="3">{{system.description}}</textarea>
+				<textarea name="system.description" rows="3"
+			       aria-label="{{localize 'stonetop.followers.description'}}">{{system.description}}</textarea>
 
 				<label class="stonetop-follower-label">{{localize "stonetop.followers.notes"}}</label>
-				<textarea name="system.notes" rows="2">{{system.notes}}</textarea>
+				<textarea name="system.notes" rows="2"
+			       aria-label="{{localize 'stonetop.followers.notes'}}">{{system.notes}}</textarea>
 			</div>
 
 			{{!-- ── CHOICES (the Crew-style choice group) ──────────────── --}}
@@ -102,7 +108,8 @@
 				      all read as belonging to the group (mirrors the boxed Selection fields above). --}}
 				<div class="follower-members-body">
 					<label class="stonetop-follower-label">{{localize "stonetop.follower.membersNote"}}</label>
-					<textarea name="system.membersNote" rows="2">{{system.membersNote}}</textarea>
+					<textarea name="system.membersNote" rows="2"
+			       aria-label="{{localize 'stonetop.follower.membersNote'}}">{{system.membersNote}}</textarea>
 
 					<div class="follower-suggestions" data-suggest-key="names">
 						{{> "stonetop.string-list-editor" items=memberSuggestions.names editable=editable

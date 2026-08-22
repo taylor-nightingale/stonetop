@@ -11,8 +11,9 @@ import { renderTemplate } from "../../fakes/renderTemplate.js";
 import { fire, settle } from "../../fakes/domEvents.js";
 
 // A follower carrying more than they can manage has to SAY so on the sheet — the load bands alone
-// top out at "heavy" and never report the difference between a full pack and an absurd one. End to
-// end, through the real sheet wiring and the real templates.
+// top out at "heavy" and never report the difference between a full pack and an absurd one. The
+// limit is the same 9 ◇ Outfit gives a character, and it is not editable. End to end, through the
+// real sheet wiring and the real templates.
 
 const item = (slug, weight) => new OutfitItemBuilder()
 	.withSlug(slug).withName(slug).withWeight(weight).withInventoryColumn("regular").build();
@@ -21,12 +22,12 @@ const followerItem = () => ({
 	_id: "crew-item",
 	type: "follower",
 	name: "Crew",
-	system: { slug: "crew", owned: true, showOnTab: true, loadCapacity: 4, inventory: { checked: {} } },
+	system: { slug: "crew", owned: true, showOnTab: true, inventory: { checked: {} } },
 });
 
 function makeSheet() {
 	new FakeGameBuilder().build();
-	const inventory = new FakeInventoryRepository([item("pack", 3), item("shield", 2)]);
+	const inventory = new FakeInventoryRepository([item("pack", 3), item("shield", 2), item("anvil", 6)]);
 	const actor = new FakeCharacterActorBuilder()
 		.withItems([followerItem()])
 		.withTypedActor(a => new StonetopCharacter(a, new FakeRepositoryFactory({ inventory })))
@@ -67,7 +68,7 @@ async function open(sheet) {
 }
 
 const capacityBox = sheet => sheet.element.querySelector(".stonetop-follower-capacity");
-const capacityInput = sheet => sheet.element.querySelector(".stonetop-follower-capacity-input");
+const carried = sheet => capacityBox(sheet).textContent.replace(/\s+/g, " ").trim();
 const isOver = sheet => capacityBox(sheet).classList.contains("is-over");
 
 async function check(sheet, slug) {
@@ -80,50 +81,42 @@ async function check(sheet, slug) {
 
 beforeEach(() => { document.body.innerHTML = ""; });
 
-describe("follower load capacity (integration)", () => {
-	it("shows what the follower carries against their capacity", async () => {
+describe("follower load (integration)", () => {
+	it("shows the ◇ the follower is carrying, with nothing to edit", async () => {
 		const { sheet } = makeSheet();
 		await render(sheet);
 		await open(sheet);
-		expect(capacityBox(sheet).textContent.replace(/\s+/g, " ").trim()).toContain("0 /");
-		expect(capacityInput(sheet).value).toBe("4");
+		expect(carried(sheet)).toBe("0 ◇");
 		expect(isOver(sheet)).toBe(false);
 	});
 
-	it("flags the follower once the gear passes their capacity, and still holds it", async () => {
+	it("counts up as gear is taken, and never offers a limit to type into", async () => {
+		const { sheet } = makeSheet();
+		await render(sheet);
+		await open(sheet);
+
+		await check(sheet, "pack");
+		await render(sheet);
+		expect(carried(sheet)).toBe("3 ◇");
+		expect(capacityBox(sheet).querySelector("input")).toBeNull();
+	});
+
+	it("flags the follower once the gear passes the 9 ◇ Outfit allows, and still holds it", async () => {
 		const { sheet, actor } = makeSheet();
 		await render(sheet);
 		await open(sheet);
 
-		await check(sheet, "pack");                       // 3 of 4
+		await check(sheet, "pack");                       // 3
+		await check(sheet, "shield");                     // 5
 		await render(sheet);
 		expect(isOver(sheet)).toBe(false);
 
-		await check(sheet, "shield");                     // 5 of 4
+		await check(sheet, "anvil");                      // 11
 		await render(sheet);
 		expect(isOver(sheet)).toBe(true);
-		expect(capacityBox(sheet).textContent.replace(/\s+/g, " ").trim()).toContain("5 /");
-		// Guidance, not a cap: both items are still checked.
+		expect(carried(sheet)).toContain("11 ◇");
+		// Guidance, not a cap: every item is still checked.
 		const inv = [...actor.items].find(i => i._id === "crew-item").system.inventory;
-		expect(inv.checked).toMatchObject({ pack: true, shield: true });
-	});
-
-	it("raising the capacity on the sheet clears the flag", async () => {
-		const { sheet } = makeSheet();
-		await render(sheet);
-		await open(sheet);
-		await check(sheet, "pack");
-		await check(sheet, "shield");
-		await render(sheet);
-		expect(isOver(sheet)).toBe(true);
-
-		const box = capacityInput(sheet);
-		box.value = "9";
-		fire(box, "change");
-		await settle();
-
-		await render(sheet);
-		expect(capacityInput(sheet).value).toBe("9");
-		expect(isOver(sheet)).toBe(false);
+		expect(inv.checked).toMatchObject({ pack: true, shield: true, anvil: true });
 	});
 });

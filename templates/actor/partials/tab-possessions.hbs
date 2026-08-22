@@ -8,6 +8,7 @@
 			<li class="stonetop-item{{#if checked}} is-checked{{/if}}">
 				<div class="stonetop-item-header">
 					<input type="checkbox" class="stonetop-item-check stonetop-possession-check" data-change-action="possessionCheck"
+					       aria-label="{{localize 'stonetop.a11y.possessionTaken'}}"
 					       data-slug="{{slug}}"
 					       {{#if checked}}checked{{/if}}
 					       {{#if disabled}}disabled{{/if}}>
@@ -18,7 +19,7 @@
 						{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" action="possessionUsePip" possessionSlug=slug}}
 					</span>
 					{{/if}}
-					{{#if removable}}<a class="stonetop-possession-delete" data-action="deletePossession" data-slug="{{slug}}" data-name="{{label.raw}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-trash"></i></a>{{/if}}
+					{{#if removable}}<button type="button" class="stonetop-possession-delete" data-action="deletePossession" data-slug="{{slug}}" data-name="{{label.raw}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-trash"></i></button>{{/if}}
 				</div>
 				{{#if description}}
 				<div class="stonetop-item-description">{{rich description}}</div>

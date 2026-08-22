@@ -11,6 +11,7 @@
 	{{/each}}
 	<span class="stonetop-combo stonetop-combo--add">
 		<input type="text" class="stonetop-tag-add stonetop-combo-input" data-change-action="tagAdd"
+		       aria-label="{{#if placeholder}}{{placeholder}}{{else}}{{localize 'stonetop.a11y.addTag'}}{{/if}}"
 		       data-slug="{{slug}}" data-field="{{field}}" placeholder="{{placeholder}}">
 		{{#if sel.unselectedOptions.length}}
 		<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>

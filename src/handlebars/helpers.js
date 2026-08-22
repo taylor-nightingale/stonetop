@@ -10,10 +10,19 @@ import { isGroupTag } from "../model/data/groupTag.js";
  * a test fixture.
  */
 export function registerStonetopHelpers(Handlebars) {
+// `position`/`total` are what let a pip describe itself: a track renders as a row of identical
+// buttons, so without them a screen reader announces the same nameless control N times over and
+// gives no way to tell which one is which, or how full the track is.
 Handlebars.registerHelper("resourceChecks", resource => {
 	if (!resource) return [];
 	const { current, max, labels } = resource;
-	return Array.from({ length: max ?? 0 }, (_, i) => ({ checked: i < (current ?? 0), label: labels?.[i] || null }));
+	const total = max ?? 0;
+	return Array.from({ length: total }, (_, i) => ({
+		checked: i < (current ?? 0),
+		label: labels?.[i] || null,
+		position: i + 1,
+		total
+	}));
 });
 
 Handlebars.registerHelper("poolGroups", pool => {
@@ -27,6 +36,10 @@ Handlebars.registerHelper("poolGroups", pool => {
 });
 
 Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) => i));
+
+// `{{inc @index}}` — Handlebars indexes from 0 and people count from 1. Used where a control has to
+// say which of N it is out loud, e.g. "Track 2 of 5".
+Handlebars.registerHelper("inc", n => Number(n ?? 0) + 1);
 
 Handlebars.registerHelper("outfitSegments", items => {
 	const segments = [];

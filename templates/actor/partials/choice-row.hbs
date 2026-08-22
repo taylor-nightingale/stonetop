@@ -7,6 +7,7 @@
     data-cg-group="{{../cgGroup}}"
     data-cg-option="{{../track.slug}}"
     data-cg-index="{{@index}}"
+    aria-label="{{localize 'stonetop.a11y.trackPip' name=(localize 'stonetop.a11y.track') position=(inc @index) total=../track.checks.length}}"
     {{#if this}}checked{{/if}}>
 {{/each}}
 {{/inline}}
@@ -16,6 +17,9 @@
 <input type="{{#if row.radio}}radio{{else}}checkbox{{/if}}"
        class="stonetop-item-check{{#if row.cgContext}} stonetop-cg-pick{{/if}}{{#unless row.cgContext}} {{row.inputClass}}{{/unless}}"
        {{#if row.radio}}name="{{row.namePrefix}}-{{row.rowKey}}"{{/if}}
+       {{!-- Named for the option it picks where that text is in scope; the generic form covers the
+             rows that render the control on its own, away from any wrapping label. --}}
+       aria-label="{{#if opt.text.raw}}{{opt.text.raw}}{{else}}{{localize 'stonetop.a11y.choicePick'}}{{/if}}"
        {{#if row.cgContext}}
        data-change-action="cgPick"
        data-cg-context="{{row.cgContext}}"
@@ -93,6 +97,7 @@
     {{! Always-visible data-entry box. input.type "rich" → multiline; "inline" → single-line. }}
     {{#if (eq input.type "rich")}}
     <textarea class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--rich"
+              aria-label="{{localize 'stonetop.a11y.choiceText'}}"
               data-change-action="cgText"
               data-cg-context="{{cgContext}}"
               data-cg-group="{{cgGroup}}"
@@ -101,6 +106,7 @@
     {{else}}
     {{! Single-line to start, but grows downward as the answer wraps (field-sizing: content). }}
     <textarea rows="1" class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--inline"
+              aria-label="{{localize 'stonetop.a11y.choiceText'}}"
               data-change-action="cgText"
               data-cg-context="{{cgContext}}"
               data-cg-group="{{cgGroup}}"
@@ -150,6 +156,7 @@
         {{#if (eq type "input")}}
         <input type="text"
                class="stonetop-cg-text"
+               aria-label="{{localize 'stonetop.a11y.choiceFill'}}"
                data-change-action="cgText"
                data-cg-context="{{../cgContext}}"
                data-cg-group="{{../cgGroup}}"

@@ -8,12 +8,12 @@
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 			<div class="stonetop-creature-hp__row">
 				<span class="stonetop-stepper">
-					<input id="npc-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hp}}">
+					<input id="npc-hp" class="stonetop-creature-hp__input stonetop-step" aria-label="{{localize 'stonetop.a11y.hpCurrent'}}" type="number" min="0" value="{{stonetop.hp}}">
 					{{> "stonetop.stepper-buttons"}}
 				</span>
 				<span>/</span>
 				<span class="stonetop-stepper">
-					<input id="npc-max-hp" class="stonetop-creature-hp__input stonetop-step" type="number" min="0" value="{{stonetop.hpMax}}">
+					<input id="npc-max-hp" class="stonetop-creature-hp__input stonetop-step" aria-label="{{localize 'stonetop.a11y.hpMax'}}" type="number" min="0" value="{{stonetop.hpMax}}">
 					{{> "stonetop.stepper-buttons"}}
 				</span>
 			</div>
@@ -26,12 +26,12 @@
 		<div class="stonetop-creature-line">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.armor"}}</span>
 			{{> "stonetop.editable-field" field=stonetop.armor slug=slug
-				inputId="npc-armor" inputClass="stonetop-follower-armor"}}
+				inputId="npc-armor" inputClass="stonetop-follower-armor" label=(localize "stonetop.followers.armor")}}
 		</div>
 		<div class="stonetop-creature-line">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.damage"}}</span>
 			{{> "stonetop.editable-field" field=stonetop.damage slug=slug
-				inputId="npc-damage" inputClass="stonetop-follower-damage"}}
+				inputId="npc-damage" inputClass="stonetop-follower-damage" label=(localize "stonetop.followers.damage")}}
 		</div>
 		<div class="stonetop-creature-line">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span>
@@ -42,11 +42,11 @@
 	<div class="stonetop-creature-line">
 		<span class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</span>
 		{{> "stonetop.editable-field" field=stonetop.specialQuality slug=slug
-			inputId="npc-special-qualities" inputClass="stonetop-follower-special-quality"}}
+			inputId="npc-special-qualities" inputClass="stonetop-follower-special-quality" label=(localize "stonetop.followers.specialQuality")}}
 	</div>
 
 	{{> "stonetop.editable-rich-block" label=(localize "stonetop.followers.moves")
-		field=stonetop.moves textareaId="npc-moves" slug=slug}}
+		field=stonetop.moves textareaId="npc-moves" slug=slug label=(localize "stonetop.followers.specialQuality")}}
 
 	{{> "stonetop.editable-rich-block" label=(localize "stonetop.followers.description")
 		field=stonetop.description textareaClass="stonetop-follower-description-textarea" slug=slug}}

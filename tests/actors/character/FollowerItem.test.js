@@ -36,17 +36,6 @@ describe("FollowerItem with-methods", () => {
 		});
 	});
 
-	it("stores a load capacity as a number", () => {
-		expect(found("enfys").withLoadCapacity("12").toUpdate()).toEqual({
-			_id: "enfys-item", system: { loadCapacity: 12 },
-		});
-	});
-
-	it("floors a nonsense capacity at zero rather than storing NaN", () => {
-		expect(found("enfys").withLoadCapacity("-4").toUpdate().system.loadCapacity).toBe(0);
-		expect(found("enfys").withLoadCapacity("").toUpdate().system.loadCapacity).toBe(0);
-	});
-
 	it("puts name at the top level, not under system", () => {
 		expect(found("enfys").withName("Enfys the Bold").toUpdate()).toEqual({
 			_id: "enfys-item", name: "Enfys the Bold",

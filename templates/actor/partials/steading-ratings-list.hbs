@@ -7,7 +7,8 @@
 	<div class="steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
-				<input type="text" class="stonetop-attr-extra" data-change-action="attributeItem" data-attr="{{../attr}}" data-index="{{@index}}" value="{{this}}">
+				<input type="text" class="stonetop-attr-extra" data-change-action="attributeItem" data-attr="{{../attr}}" data-index="{{@index}}" value="{{this}}"
+				       aria-label="{{localize 'stonetop.a11y.ratingExtra'}}">
 				<button class="stonetop-attr-extra-remove stonetop-icon-btn" data-action="removeAttributeItem" type="button" data-attr="{{../attr}}" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 				</button>

@@ -266,10 +266,6 @@ export class CharacterFollowers {
 		await this._write(slug, f => f.withArmor(armor));
 	}
 
-	async setLoadCapacity(slug, capacity) {
-		await this._write(slug, f => f.withLoadCapacity(capacity));
-	}
-
 	async setDamage(slug, damage) {
 		await this._write(slug, f => f.withDamage(damage));
 	}
@@ -381,7 +377,8 @@ export class CharacterFollowers {
 
 	// Build the follower's inventory snapshot — parity with the character (twoCol grids, resources,
 	// custom items), via the shared buildOutfitColumn. Regular column only. Load is computed from total
-	// checked weight and is informational (highlighted band, never a cap — guide-don't-enforce).
+	// checked weight and is informational (highlighted band, never a cap — guide-don't-enforce); a
+	// follower is measured against the same MAX_OUTFIT_MARKS ◇ a character is.
 	// Returns null when there is nothing to show (no catalog loaded and no custom items).
 	//
 	// The full `sections` (catalog) is built ONLY when this follower's inventory is open — building it
@@ -400,7 +397,6 @@ export class CharacterFollowers {
 		const owned       = [...regular, ...customItems].filter(i => checked[i.slug]);
 		const totalWeight = owned.reduce((s, i) => s + (i.weight ?? 0), 0);
 		const band        = loadBand(totalWeight);
-		const capacity    = this._loadCapacity(slug);
 		const hasAny      = owned.length > 0;
 
 		return {
@@ -411,17 +407,12 @@ export class CharacterFollowers {
 			sections:      editing ? buildOutfitColumn(repoItems, customItems, checked, "regular", resourceFn) : [],
 			totalWeight,
 			band,
-			capacity,
-			overCapacity: totalWeight > capacity,
+			capacity:     MAX_OUTFIT_MARKS,
+			overCapacity: totalWeight > MAX_OUTFIT_MARKS,
 			loadLight:     band === "light",
 			loadNormal:    band === "normal",
 			loadHeavy:     band === "heavy",
 		};
-	}
-
-	// What this follower can carry. Advisory: the sheet says when they are over it, never stops it.
-	_loadCapacity(slug) {
-		return _findFollowerItem(this._actor, slug)?.system?.loadCapacity ?? MAX_OUTFIT_MARKS;
 	}
 }
 

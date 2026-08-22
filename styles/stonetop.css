@@ -142,6 +142,11 @@ img.stonetop-broken-img {
 	--item-header-gap: 0.375rem;  /* the gap between a row's control and its name (6px) */
 	--item-line: calc(var(--fs-body) * 1.3);  /* one line box of a row's name — the gutter height */
 
+	/* The keyboard focus ring. rem so it stays visible at a large font setting, and painted in the
+	   accent, which carries against both papers (5.1:1 light, and warm-1 on dark). */
+	--focus-ring-width: 0.125rem;
+	--focus-ring-offset: 0.0625rem;
+
 	/* The stat / vitals frames. Sized here rather than inline because the decor is a MASK at
 	   `mask-size: 100% 100%` — the art stretches to whatever box it is given, so scaling the box
 	   scales the frame with it exactly, and the numerals and labels inside stay in register. */
@@ -304,6 +309,21 @@ body,
 	-webkit-mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 }
 
+/* A portrait or icon that opens the file picker is a button, so it has to BE one: core binds only
+   `click` for [data-action] (no keydown anywhere), which leaves an <img> carrying one both
+   unreachable by Tab and unactivatable by Enter. The wrapper takes the action and nothing else —
+   every sizing rule still targets the image inside it, so no layout moves. */
+.stonetop-image-btn {
+	all: unset;
+	display: block;
+	/* Core's `.flexrow > * { flex: 1 }` would stretch this wrapper where the image it replaced was
+	   pinned; and `all: unset` has already cleared core's min-width/min-height button chrome. */
+	flex: 0 0 auto;
+	line-height: 0;
+	max-width: 100%;
+	cursor: pointer;
+}
+
 /* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
 
 .stonetop .stonetop-icon-btn {
@@ -368,6 +388,11 @@ body,
 	border-top: none;
 }
 
+/* A <button>, not core's <a class="item">. An anchor with no href cannot take focus at all, so the
+   tab strip — the sheet's primary navigation — was unreachable by keyboard. `data-action="tab"` is
+   core's own action and works from any element, so only the chrome needs neutralising here.
+   (Deliberately no role="tab"/tablist: that contract promises arrow-key navigation between tabs,
+   and claiming it without implementing it reads worse to a screen reader than plain buttons.) */
 .stonetop.sheet .sheet-tabs .item {
 	position: relative;
 	display: flex;
@@ -376,6 +401,10 @@ body,
 	min-height: 36px;
 	padding: 9px 18px 6px;
 	border: none;
+	background: none;
+	color: inherit;
+	min-width: 0;
+	width: auto;
 	box-shadow: none;
 	font-size: var(--fs-heading);
 	font-weight: bold;
@@ -564,6 +593,14 @@ body,
 	min-height: 0;
 	align-self: stretch;
 	position: relative;
+}
+
+/* The portrait image fills its panel from out of flow, so a shrink-wrapping wrapper around it
+   collapses to nothing — no click target and nowhere to draw a focus ring. The button takes over
+   the panel-filling box instead, and the image then fills the button. */
+.stonetop-actor-portrait > .stonetop-image-btn {
+	position: absolute;
+	inset: 0;
 }
 
 .stonetop-actor-portrait-img {
@@ -1395,8 +1432,14 @@ body,
 	line-height: 1.6;
 }
 
+/* A <button>, not a <span>: core binds only `click` for [data-action], so a span with one can be
+   neither reached nor activated from the keyboard. These read as inline prose in a comma-separated
+   run, so the button's own chrome is stripped back to text. */
 .stonetop-origin-name {
+	all: unset;
 	font-size: var(--fs-note);
+	font-family: inherit;
+	color: inherit;
 	cursor: pointer;
 }
 
@@ -1538,7 +1581,11 @@ body,
 	background: var(--st-paper-sunken-strong);
 }
 
+/* <button>, not <span>/<a>: core binds only `click` for [data-action], so neither was reachable by
+   Tab nor activatable by Enter. `all: unset` strips the button chrome so each still reads as the
+   inline text it replaced. */
 .stonetop-move-name {
+	all: unset;
 	cursor: pointer;
 }
 
@@ -1702,6 +1749,7 @@ button.stonetop-view-toggle.is-active {
 
 /* Per-move "send to chat" button (every move row: moves tab, side-bar, arcana, homefront). */
 .stonetop-move-chat {
+	all: unset;
 	color: var(--st-ink-soft);
 	cursor: pointer;
 	font-size: var(--fs-fine);
@@ -2363,6 +2411,7 @@ button.stonetop-view-toggle.is-active {
 
 /* A move named inline in a rule blurb (the Outfit heading), clickable to open that move. */
 .stonetop-move-link {
+	all: unset;
 	cursor: pointer;
 	color: inherit;
 	text-decoration: underline dotted;
@@ -3751,17 +3800,6 @@ button.stonetop-xp-toggle {
 .stonetop-follower-capacity.is-over {
 	color: var(--st-warning);
 	font-weight: bold;
-}
-.stonetop-follower-capacity-input {
-	width: 2.5em;
-	min-width: 0;
-	padding: 0 2px;
-	text-align: center;
-	font-size: inherit;
-	color: inherit;
-	background: transparent;
-	border: none;
-	border-bottom: 1px dotted var(--st-rule);
 }
 .stonetop-follower-inventory-list,
 .stonetop-follower-inventory-catalog {
@@ -6553,4 +6591,58 @@ button.stonetop-xp-toggle {
 	mask-image: url("../assets/ui/decor/frame-wide.png");
 	-webkit-mask-image: url("../assets/ui/decor/frame-wide.png");
 }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Focus visibility (WCAG 2.4.7)
+
+   Nineteen rules in the layer above suppress the browser's focus ring, and they are not wrong to: a
+   square ring around a round resource pip, or laid over the frame art, looks broken. What they get
+   wrong is suppressing it for the KEYBOARD as well as the mouse. Several put nothing back at all;
+   others replace it with --st-rule-veil, a 25%-alpha hairline that is close to invisible. A keyboard
+   user is then left with no way to tell where they are on the sheet.
+
+   `:focus-visible` is exactly the distinction those rules meant to draw: the browser matches it only
+   when focus arrived by keyboard — and always for text fields, where a bare caret is easy to lose.
+   So the suppressions keep working for the mouse, and this puts the ring back for the keyboard.
+
+   THIS BLOCK IS DELIBERATELY OUTSIDE `@layer system`, which closes just above. An unlayered
+   declaration outranks every layered one no matter how specific the layered selector is, and those
+   suppressions run up to (0,6,1) — one is even `!important`. Being unlayered is what lets this be a
+   plain rule rather than nineteen targeted overrides or an `!important` of its own. Moving it back
+   inside the layer silently disables it on exactly the controls that need it most, which is what
+   tests/styles/focus-visible.test.js exists to catch.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+.stonetop :focus-visible,
+.stonetop-roll-dialog :focus-visible,
+.stonetop-art-installer :focus-visible {
+	outline: var(--focus-ring-width) solid var(--st-accent);
+	outline-offset: var(--focus-ring-offset);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Reduced motion (WCAG 2.3.3)
+
+   Four transitions in the layer above: two opacity fades, and two chevrons that rotate as a section
+   collapses. None of them carries meaning — each is decoration over a state change that is already
+   visible without it — so honouring the reader's system preference costs the sheet nothing.
+
+   Not `animation: none`: cancelling outright can leave an element stuck at the start of a state it
+   was mid-way through. A near-zero duration lands it on the finished state immediately, which is
+   what someone asking for less motion wants. `!important` because the preference is the reader's,
+   not a suggestion, and it has to beat whatever declared the transition.
+
+   Outside `@layer system`, deliberately, for the same reason as the focus ring above. */
+@media (prefers-reduced-motion: reduce) {
+	.stonetop *,
+	.stonetop *::before,
+	.stonetop *::after,
+	.stonetop-roll-dialog *,
+	.stonetop-art-installer * {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }

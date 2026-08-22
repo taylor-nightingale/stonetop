@@ -2,7 +2,7 @@
 
 	{{#if showDelete}}
 	<button type="button" class="stonetop-follower-delete" data-action="deleteFollower" data-slug="{{slug}}" data-name="{{name}}"
-	        title="{{localize 'stonetop.followers.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
+	        title="{{localize 'stonetop.followers.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.followers.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
 		<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.followers.remove'}}">
 	</button>
 	{{/if}}
@@ -10,7 +10,8 @@
 	<div class="stonetop-follower-head">
 		{{#if img}}<img class="stonetop-follower-img" src="{{img}}" alt="{{name}}">{{/if}}
 		<div class="stonetop-follower-head-main">
-			<input type="text" class="stonetop-follower-name-input" data-change-action="followerName" value="{{name}}" data-slug="{{slug}}">
+			<input type="text" class="stonetop-follower-name-input" data-change-action="followerName" value="{{name}}" data-slug="{{slug}}"
+			       aria-label="{{localize 'stonetop.a11y.followerName'}}">
 			{{#if isCompanion}}
 			<div class="stonetop-companion">
 				<div class="stonetop-creature-line">
@@ -35,12 +36,12 @@
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.armor"}}</span>
 				{{> "stonetop.editable-field" field=armor slug=slug
-					inputClass="stonetop-follower-armor" changeAction="followerArmor"}}
+					inputClass="stonetop-follower-armor" changeAction="followerArmor" label=(localize "stonetop.followers.armor")}}
 			</div>
 			<div class="stonetop-creature-line">
 				<span class="stonetop-follower-label">{{localize "stonetop.followers.damage"}}</span>
 				{{> "stonetop.editable-field" field=damage slug=slug
-					inputClass="stonetop-follower-damage" changeAction="followerDamage"}}
+					inputClass="stonetop-follower-damage" changeAction="followerDamage" label=(localize "stonetop.followers.damage")}}
 			</div>
 			{{/unless}}
 			<div class="stonetop-creature-line">
@@ -54,6 +55,7 @@
 			<div class="stonetop-creature-hp__row">
 				<span class="stonetop-stepper">
 					<input class="stonetop-creature-hp__input stonetop-follower-hp stonetop-step"
+					       aria-label="{{localize 'stonetop.a11y.hpCurrent'}}"
 					       data-change-action="followerHp"
 					       type="number" min="0" value="{{hp}}" data-slug="{{slug}}">
 					{{> "stonetop.stepper-buttons"}}
@@ -61,6 +63,7 @@
 				<span>/</span>
 				<span class="stonetop-stepper">
 					<input class="stonetop-creature-hp__input stonetop-follower-hp-max stonetop-step"
+					       aria-label="{{localize 'stonetop.a11y.hpMax'}}"
 					       data-change-action="followerHpMax"
 					       type="number" min="0" value="{{hpMax}}" data-slug="{{slug}}">
 					{{> "stonetop.stepper-buttons"}}
@@ -73,7 +76,7 @@
 	{{#unless isObject}}
 	<div class="stonetop-creature-line">
 		<span class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</span>
-		{{> "stonetop.editable-field" field=specialQuality slug=slug inputClass="stonetop-follower-special-quality" changeAction="followerSpecialQuality"}}
+		{{> "stonetop.editable-field" field=specialQuality slug=slug inputClass="stonetop-follower-special-quality" changeAction="followerSpecialQuality" label=(localize "stonetop.followers.specialQuality")}}
 	</div>
 	{{/unless}}
 
@@ -82,7 +85,7 @@
 		<div class="stonetop-members-head">
 			<span class="stonetop-follower-label">{{localize "stonetop.followers.members"}}</span>
 			<button type="button" class="stonetop-member-add" data-action="addFollowerMember" data-slug="{{slug}}"
-			        title="{{localize 'stonetop.followers.addMember'}}">
+			        title="{{localize 'stonetop.followers.addMember'}}" aria-label="{{localize 'stonetop.followers.addMember'}}">
 				<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="{{localize 'stonetop.followers.addMember'}}">
 			</button>
 		</div>
@@ -91,24 +94,27 @@
 		<div class="stonetop-member" data-slug="{{../slug}}" data-index="{{index}}">
 			<div class="stonetop-member-top">
 				<input type="text" class="stonetop-member-name" data-change-action="memberName" value="{{name}}"
+				       aria-label="{{localize 'stonetop.a11y.memberName'}}"
 				       data-slug="{{../slug}}" data-index="{{index}}"
 				       placeholder="{{localize 'stonetop.followers.memberName'}}">
 				<span class="stonetop-member-hp">
 					<span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span>
 					<span class="stonetop-stepper">
 						<input type="number" min="0" class="stonetop-member-hp-value stonetop-step" data-change-action="memberHp"
+						       aria-label="{{localize 'stonetop.a11y.memberHp'}}"
 						       value="{{hp.value}}" data-slug="{{../slug}}" data-index="{{index}}">
 						{{> "stonetop.stepper-buttons"}}
 					</span>
 					<span>/</span>
 					<span class="stonetop-stepper">
 						<input type="number" min="0" class="stonetop-member-hp-max stonetop-step" data-change-action="memberHpMax"
+						       aria-label="{{localize 'stonetop.a11y.memberHpMax'}}"
 						       value="{{hp.max}}" data-slug="{{../slug}}" data-index="{{index}}">
 						{{> "stonetop.stepper-buttons"}}
 					</span>
 				</span>
 				<button type="button" class="stonetop-member-remove" data-action="removeFollowerMember" data-slug="{{../slug}}" data-index="{{index}}"
-				        title="{{localize 'stonetop.followers.removeMember'}}">
+				        title="{{localize 'stonetop.followers.removeMember'}}" aria-label="{{localize 'stonetop.followers.removeMember'}}">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="{{localize 'stonetop.followers.removeMember'}}">
 				</button>
 			</div>

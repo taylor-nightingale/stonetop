@@ -7,6 +7,7 @@
 			      seeds its profile and adopts its name). Dropping a steadfast onto the sheet does the same. --}}
 			<span class="stonetop-combo steading-steadfast-combo">
 				<input type="text" class="steading-steadfast-input stonetop-combo-input" data-change-action="steadfastName" value="{{actor.name}}"
+				       aria-label="{{localize 'stonetop.a11y.steadingName'}}"
 				       placeholder="{{localize 'stonetop.steadfast.namePlaceholder'}}" {{#unless editable}}disabled{{/unless}}>
 				{{#if availableSteadfasts.length}}
 				<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="Steadfasts">▾</button>
@@ -59,7 +60,7 @@
 				</h2>
 				{{#if (hasText stonetop.surplus.note)}}<div class="steading-start-line">{{rich stonetop.surplus.note}}</div>{{/if}}
 				<span class="stonetop-stepper">
-					<input class="steading-surplus-input stonetop-step" data-change-action="surplus" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
+					<input class="steading-surplus-input stonetop-step" data-change-action="surplus" aria-label="{{localize 'stonetop.a11y.surplus'}}" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
 					{{> "stonetop.stepper-buttons"}}
 				</span>
 			</div>
@@ -135,13 +136,13 @@
 	{{!-- data-action="tab" is core ApplicationV2's built-in action (→ changeTab); each anchor
 	      carries data-group because changeTab addresses `.tabs [data-group][data-tab]` directly. --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<a class="item {{tabs.overview.cssClass}}" data-action="tab" data-group="primary" data-tab="overview">Overview</a>
-		<a class="item {{tabs.residents.cssClass}}" data-action="tab" data-group="primary" data-tab="residents">Residents</a>
-		<a class="item {{tabs.neighbors.cssClass}}" data-action="tab" data-group="primary" data-tab="neighbors">Neighbors</a>
-		<a class="item {{tabs.improvements.cssClass}}" data-action="tab" data-group="primary" data-tab="improvements">Improvements</a>
-		<a class="item {{tabs.moves.cssClass}}" data-action="tab" data-group="primary" data-tab="moves">Moves</a>
-		<a class="item {{tabs.seasons.cssClass}}" data-action="tab" data-group="primary" data-tab="seasons">Seasons</a>
-		<a class="item {{tabs.notes.cssClass}}" data-action="tab" data-group="primary" data-tab="notes">Notes</a>
+		<button type="button" class="item {{tabs.overview.cssClass}}" data-action="tab" data-group="primary" data-tab="overview">Overview</button>
+		<button type="button" class="item {{tabs.residents.cssClass}}" data-action="tab" data-group="primary" data-tab="residents">Residents</button>
+		<button type="button" class="item {{tabs.neighbors.cssClass}}" data-action="tab" data-group="primary" data-tab="neighbors">Neighbors</button>
+		<button type="button" class="item {{tabs.improvements.cssClass}}" data-action="tab" data-group="primary" data-tab="improvements">Improvements</button>
+		<button type="button" class="item {{tabs.moves.cssClass}}" data-action="tab" data-group="primary" data-tab="moves">Moves</button>
+		<button type="button" class="item {{tabs.seasons.cssClass}}" data-action="tab" data-group="primary" data-tab="seasons">Seasons</button>
+		<button type="button" class="item {{tabs.notes.cssClass}}" data-action="tab" data-group="primary" data-tab="notes">Notes</button>
 	</nav>
 
 	<section class="sheet-body">
@@ -197,9 +198,9 @@
 						<div class="steading-residents-rows">
 							{{#each stonetop.residents}}
 								<div class="steading-resident-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
-									<input type="text" class="stonetop-resident-name" data-change-action="residentName" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
-									<input type="text" class="stonetop-resident-occupation" data-change-action="residentOccupation" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
-									<input type="text" class="stonetop-resident-traits" data-change-action="residentTraits" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
+									<input type="text" class="stonetop-resident-name" data-change-action="residentName" aria-label="{{localize 'stonetop.a11y.residentName'}}" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
+									<input type="text" class="stonetop-resident-occupation" data-change-action="residentOccupation" aria-label="{{localize 'stonetop.a11y.residentOccupation'}}" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
+									<input type="text" class="stonetop-resident-traits" data-change-action="residentTraits" aria-label="{{localize 'stonetop.a11y.residentTraits'}}" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
 									<span class="steading-doc-link">
 										{{#if docLink}}
 											{{rich docLink}}
@@ -251,7 +252,8 @@
 					<h2>NPC Traits</h2>
 					<span>Assign as needed; choose from this list or make up your own.</span>
 				</div>
-				<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource">{{stonetop.residentTraitsText}}</textarea>
+				<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource"
+				          aria-label="{{localize 'stonetop.a11y.npcTraits'}}">{{stonetop.residentTraitsText}}</textarea>
 				<div class="steading-npc-traits-columns">
 					{{#each stonetop.npcTraitColumns}}
 						<div class="steading-npc-traits-column">
@@ -291,10 +293,10 @@
 						<div class="steading-residents-rows">
 							{{#each stonetop.neighbors.people}}
 								<div class="steading-resident-row steading-neighbor-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
-									<input type="text" class="stonetop-neighbor-person-name" data-change-action="neighborName" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
-									<input type="text" class="stonetop-neighbor-person-occupation" data-change-action="neighborOccupation" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
-									<input type="text" class="stonetop-neighbor-person-traits" data-change-action="neighborTraits" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
-									<input type="text" class="stonetop-neighbor-person-home" data-change-action="neighborHome" data-id="{{id}}" value="{{home}}" placeholder="Home">
+									<input type="text" class="stonetop-neighbor-person-name" data-change-action="neighborName" aria-label="{{localize 'stonetop.a11y.residentName'}}" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
+									<input type="text" class="stonetop-neighbor-person-occupation" data-change-action="neighborOccupation" aria-label="{{localize 'stonetop.a11y.residentOccupation'}}" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
+									<input type="text" class="stonetop-neighbor-person-traits" data-change-action="neighborTraits" aria-label="{{localize 'stonetop.a11y.residentTraits'}}" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
+									<input type="text" class="stonetop-neighbor-person-home" data-change-action="neighborHome" aria-label="{{localize 'stonetop.a11y.neighborHome'}}" data-id="{{id}}" value="{{home}}" placeholder="Home">
 									<span class="steading-doc-link">
 										{{#if docLink}}
 											{{rich docLink}}
@@ -402,7 +404,8 @@
 							<span class="panel-edge panel-edge-bottom"></span>
 							<span class="panel-edge panel-edge-left"></span>
 							<h2>{{rich label}}{{#if note.raw}} <small>{{rich note}}</small>{{/if}}</h2>
-							<textarea class="stonetop-content-textarea" data-change-action="contentText" data-type="{{slug}}">{{text}}</textarea>
+							<textarea class="stonetop-content-textarea" data-change-action="contentText" data-type="{{slug}}"
+						          aria-label="{{localize 'stonetop.a11y.contentText' section=label.raw}}">{{text}}</textarea>
 						</div>
 					{{/each}}
 				</section>
@@ -420,7 +423,7 @@
 						<span class="panel-edge panel-edge-bottom"></span>
 						<span class="panel-edge panel-edge-left"></span>
 						<h2>Notes</h2>
-						<textarea class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>
+						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}" class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>
 					</div>
 				</section>
 

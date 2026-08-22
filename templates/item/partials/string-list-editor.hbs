@@ -19,6 +19,7 @@
 		{{#each items}}
 		<li class="follower-string-list-row">
 			<input type="text" class="{{../rowClass}}" data-owner-index="{{../ownerIndex}}" data-string-index="{{@index}}"
+			       aria-label="{{#if ../addLabel}}{{../addLabel}}{{else}}{{localize 'stonetop.a11y.listItem'}}{{/if}} {{inc @index}}"
 			       value="{{this}}" {{#unless ../editable}}disabled{{/unless}}>
 			{{#if ../editable}}
 			<button type="button" class="{{../removeClass}}" data-owner-index="{{../ownerIndex}}" data-string-index="{{@index}}"
