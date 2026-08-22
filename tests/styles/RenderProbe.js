@@ -98,6 +98,14 @@ export class MeasuredElement {
 		return visibleOverflow(this.values.contentWidth - this.values.boxWidth);
 	}
 
+	/**
+	 * Viewport x of the element's first glyph, not of its box — two elements whose boxes line up
+	 * still read as misaligned when one of them is indented, and it is the text a reader sees.
+	 */
+	get textLeft() {
+		return this.values.contentLeft;
+	}
+
 	/** Content taller than the box that holds it — the shape a clipped line of text takes. */
 	get overflowsY() {
 		return this.overflowY > 0;
@@ -176,7 +184,8 @@ for (const [name, selector] of Object.entries(targets)) {
   const box = el.getBoundingClientRect();
   out[name] = {
     contentWidth: content.width, contentHeight: content.height,
-    boxWidth: box.width, boxHeight: box.height
+    boxWidth: box.width, boxHeight: box.height,
+    contentLeft: content.left, boxLeft: box.left
   };
 }`;
 		return this._collect({ bodyHtml, bodyClass, rootAttrs, collect, Element: MeasuredElement });

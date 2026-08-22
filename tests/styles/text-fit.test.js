@@ -137,3 +137,49 @@ describe("MeasuredElement", () => {
 		expect(at(fitting).missing).toBe(false);
 	});
 });
+
+// The move row body is shared: move-row.hbs renders it for the moves tab AND for the moves an
+// arcanum card or a choice grants. The one intended difference between those surfaces is the
+// acquisition checkbox, so it is the only thing the layout may differ by — and the description,
+// which hangs under the move's NAME, has to follow that difference rather than assume it.
+const MOVE_ROW = check => `
+<div class="application stonetop sheet character themed theme-light"><div class="window-content">
+  <ol class="items-list stonetop-arcanum-moves"><li class="stonetop-item">
+    <div class="stonetop-item-header">
+      ${check ? '<input type="checkbox" class="stonetop-item-check" checked>' : ""}
+      <strong class="stonetop-item-name" id="m-name">Blood &amp; Bone</strong>
+    </div>
+    <div class="stonetop-item-requirement" id="m-req">Requires: the old power</div>
+    <div class="stonetop-item-description" id="m-desc"><p>When you draw on it, roll +CON.</p></div>
+  </li></ol>
+</div></div>`;
+
+describe.skipIf(!canProbe())("a move's description hangs under its name", () => {
+	const leftEdges = check => {
+		const m = probe.measure({
+			bodyHtml: MOVE_ROW(check),
+			bodyClass: "theme-light",
+			rootAttrs: 'style="font-size: 16px"',
+			targets: { name: "#m-name", requirement: "#m-req", description: "#m-desc" }
+		});
+		return m;
+	};
+
+	it.each([
+		["on an arcanum card, where the row has no checkbox", false],
+		["in the moves tab, where the row has one", true]
+	])("%s", (_label, check) => {
+		const m = leftEdges(check);
+		// Within a px: the name is bold display type and the description is prose, so their glyph
+		// bearings differ slightly even when both start at the same offset.
+		expect(m.get("description").textLeft).toBeCloseTo(m.get("name").textLeft, 0);
+		expect(m.get("requirement").textLeft).toBeCloseTo(m.get("name").textLeft, 0);
+	});
+
+	it("indents both surfaces by exactly the checkbox they do or do not have", () => {
+		const withCheck = leftEdges(true).get("description").textLeft;
+		const without = leftEdges(false).get("description").textLeft;
+		// 14px checkbox + the header's 6px gap.
+		expect(withCheck - without).toBeCloseTo(20, 0);
+	});
+});

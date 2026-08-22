@@ -126,11 +126,11 @@
 			"inventoryToggle": "Add/remove gear",
 			"inventoryDone": "Done",
 			"noGear": "No gear",
-			"loadTitle": "Load (total weight carried) — a guide, not a limit",
+			"loadTitle": "Load (total weight carried)",
 			"loadLight": "Light",
 			"loadNormal": "Normal",
 			"loadHeavy": "Heavy",
-			"loadCapacityHint": "◇ carried, against what this follower can reasonably manage — a guide, not a limit."
+			"loadCapacityHint": "◇ carried, against what this follower can reasonably manage."
 		},
 		"insert": {
 			"remove": "Remove",

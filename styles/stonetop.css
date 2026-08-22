@@ -132,9 +132,18 @@ img.stonetop-broken-img {
 	--fs-display:    1.7rem;     /* large display type                                */
 	--fs-name:       2.1rem;     /* actor / steading name heading (largest)           */
 
+	/* Control scale — the same unit as the type scale, for the same reason. A checkbox that stays
+	   px while the label beside it grows stops being a pair: at Foundry's largest font step the
+	   text doubles and the tick it belongs to does not move at all. Each value is the px it used
+	   to be, so nothing shifts at the default step. */
+	--control-check:  0.875rem;   /* acquisition checkbox, choice track   (14px) */
+	--control-pip:    1rem;       /* resource pips, follower loyalty      (16px) */
+	--control-marker: 0.6875rem;  /* inventory diamonds and squares       (11px) */
+	--item-header-gap: 0.375rem;  /* the gap between a row's control and its name (6px) */
+
 	/* Every tab's view-state toggle (moves filter, playbook lock, insert locks) is one control at
 	   one size; the tabs that lay a toggle over their first line reserve exactly this. */
-	--view-toggle-height: 20px;
+	--view-toggle-height: 1.25rem;
 }
 
 /* Use default font  */
@@ -1582,16 +1591,31 @@ button.stonetop-view-toggle.is-active {
 .stonetop-item-header {
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	gap: var(--item-header-gap);
+}
+
+/* The requirement and description lines hang under the item NAME, clearing whatever control the
+   header puts before it — a 14px check plus this row's 6px gap. One row body (move-item.hbs) renders
+   both WITH that control (moves tab, possessions, backgrounds) and WITHOUT it (arcanum cards, choice
+   grants), so the indent is keyed on the name actually coming first rather than assumed: a fixed
+   20px pushed every arcanum description past the title it is supposed to line up with.
+
+   The fallback on the consumers keeps the old indent for any description outside .stonetop-item. */
+.stonetop-item {
+	--item-name-indent: 20px;
+}
+
+.stonetop-item:has(> .stonetop-item-header > .stonetop-item-name:first-child) {
+	--item-name-indent: 0px;
 }
 
 .stonetop-item-check,
 .stonetop-cg-track {
 	appearance: none !important;
 	-webkit-appearance: none !important;
-	width: 14px !important;
-	height: 14px !important;
-	flex: 0 0 14px !important;
+	width: var(--control-check) !important;
+	height: var(--control-check) !important;
+	flex: 0 0 var(--control-check) !important;
 	border-radius: 2px !important;
 	border: 2px solid var(--st-ink) !important;
 	background: transparent !important;
@@ -1673,7 +1697,7 @@ button.stonetop-view-toggle.is-active {
 }
 
 .stonetop-item-description {
-	padding-left: 20px;
+	padding-left: var(--item-name-indent, 20px);
 	font-size: var(--fs-note);
 	font-weight: normal;
 	color: var(--st-ink-soft);
@@ -1700,9 +1724,11 @@ button.stonetop-view-toggle.is-active {
 	font-style: normal;
 }
 
+/* A move's (or background's) choice rows sit in the same row as its description and hang under the
+   same name, so they take the same derived indent. */
 .stonetop-bg-choices,
 .stonetop-move-choices {
-	padding-left: 20px;
+	padding-left: var(--item-name-indent, 20px);
 	margin-top: 4px;
 }
 
@@ -1789,7 +1815,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-item-requirement {
 	font-size: var(--fs-fine);
 	font-style: italic;
-	padding-left: 20px;
+	padding-left: var(--item-name-indent, 20px);
 	color: var(--st-ink-soft);
 }
 
@@ -1835,8 +1861,8 @@ button.stonetop-view-toggle.is-active {
 .stonetop-item-resource-check,
 .stonetop-background-resource-btn,
 .stonetop-follower-loyalty-btn {
-	width: 16px;
-	height: 16px;
+	width: var(--control-pip);
+	height: var(--control-pip);
 	min-width: 0;
 	min-height: 0;
 	flex: none;
@@ -1989,8 +2015,8 @@ button.stonetop-view-toggle.is-active {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	flex: none !important;
-	width: 11px !important;
-	height: 11px !important;
+	width: var(--control-marker) !important;
+	height: var(--control-marker) !important;
 	min-width: 0 !important;
 	min-height: 0 !important;
 	border: 1px solid currentColor;
@@ -2011,8 +2037,8 @@ button.stonetop-view-toggle.is-active {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	flex: none !important;
-	width: 11px !important;
-	height: 11px !important;
+	width: var(--control-marker) !important;
+	height: var(--control-marker) !important;
 	min-width: 0 !important;
 	min-height: 0 !important;
 	border: 1px solid currentColor;
