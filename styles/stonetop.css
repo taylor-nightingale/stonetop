@@ -109,17 +109,28 @@ img.stonetop-broken-img {
 	   Every flowing text element on a sheet picks one of these; never hand-pick a raw size.
 	   (Exceptions, by design: display numerals locked to fixed-px art frames — stat/resource
 	   badges, creature-HP, stepper controls — and the self-contained .stonetop-wonder journal
-	   article, which keeps its own em scale so it zooms as one unit.) */
-	--fs-micro:      0.65rem;  /* tiny meta: creature labels, dense counters       */
-	--fs-fine:       0.72rem;  /* source labels, page refs, fine print             */
-	--fs-note:       0.8rem;   /* notes, captions, move/choice/consequence prose    */
-	--fs-body:       0.85rem;  /* item names, primary descriptions, option labels   */
-	--fs-label:      0.9rem;   /* form labels, emphasised inline text               */
-	--fs-subheading: 0.95rem;  /* sub-headings                                      */
-	--fs-heading:    1rem;     /* section titles: "Moves" / "Consequences"          */
-	--fs-title:      1.2rem;   /* card / panel / arcanum titles                     */
-	--fs-display:    1.6rem;   /* large display type                                */
-	--fs-name:       2rem;     /* actor / steading name heading (largest)           */
+	   article, which keeps its own em scale so it zooms as one unit.)
+
+	   rem, not em or px, because that is the unit Foundry's own Font Size setting drives:
+	   `Game#configureUI` maps the setting's ten steps onto the px ladder [8, 10, 12, 14, 16, 18,
+	   20, 24, 28, 32] and writes the chosen one to the root element's font-size. Nothing else
+	   in core scales sheet text — `uiScale` is a `transform: scale()` on the #ui-* chrome and
+	   never touches an application window — so a token that leaves rem leaves the accessibility
+	   setting behind with it.
+
+	   --fs-body is core's own body size (--font-size-15) on purpose: a Stonetop sheet should
+	   read no smaller than the chrome around it. The steps below it are compressed rather than
+	   proportional, so "fine print" stays visibly finer without falling out of legibility. */
+	--fs-micro:      0.72rem;    /* tiny meta: creature labels, dense counters       */
+	--fs-fine:       0.8rem;     /* source labels, page refs, fine print             */
+	--fs-note:       0.875rem;   /* notes, captions, move/choice/consequence prose    */
+	--fs-body:       0.9375rem;  /* item names, primary descriptions, option labels   */
+	--fs-label:      1rem;       /* form labels, emphasised inline text               */
+	--fs-subheading: 1.0625rem;  /* sub-headings                                      */
+	--fs-heading:    1.125rem;   /* section titles: "Moves" / "Consequences"          */
+	--fs-title:      1.3rem;     /* card / panel / arcanum titles                     */
+	--fs-display:    1.7rem;     /* large display type                                */
+	--fs-name:       2.1rem;     /* actor / steading name heading (largest)           */
 
 	/* Every tab's view-state toggle (moves filter, playbook lock, insert locks) is one control at
 	   one size; the tabs that lay a toggle over their first line reserve exactly this. */
@@ -1060,8 +1071,9 @@ body,
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 28px;
-	height: 28px;
+	/* Square in em so the badge tracks the numeral inside it rather than cropping it. */
+	width: 1.45em;
+	height: 1.45em;
 	background: var(--st-chip-fill);
 	color: var(--st-chip-ink);
 	font-weight: bold;
@@ -1132,10 +1144,6 @@ body,
 	font-size: var(--fs-body);
 	color: var(--st-ink-soft);
 	margin-left: 4px;
-}
-
-.appearance-line {
-	width: 100%;
 }
 
 .creation-subchoices {
@@ -1252,61 +1260,6 @@ body,
 .instinct-custom-input {
 	width: 100%;
 	margin-bottom: 8px;
-}
-
-/* Appearance dialog */
-
-.appearance-instruction {
-	margin: 0 0 8px;
-	font-style: italic;
-	font-size: var(--fs-body);
-	color: var(--st-ink-soft);
-}
-
-.appearance-picker {
-	display: flex;
-	flex-direction: column;
-}
-
-.appearance-row {
-	display: flex;
-	align-items: flex-start;
-	gap: 8px;
-	padding: 8px 0;
-	border-bottom: 1px solid var(--st-rule);
-}
-
-.appearance-row:last-child {
-	border-bottom: none;
-}
-
-.appearance-row-num {
-	font-size: var(--fs-fine);
-	font-weight: bold;
-	color: var(--st-ink-soft);
-	background: var(--st-paper-sunken-strong);
-	border-radius: 50%;
-	width: 18px;
-	height: 18px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	margin-top: 2px;
-}
-
-.appearance-line {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 4px 12px;
-}
-
-.appearance-radio {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	cursor: pointer;
-	font-size: var(--fs-label);
 }
 
 /* Origin dialog */
@@ -5549,6 +5502,9 @@ button.stonetop-xp-toggle {
 	width: auto;
 	align-items: center;
 	padding: 0 7px;
+	/* Inert as written: core themes buttons with min-height: var(--button-size) (2em), which beats
+	   a plain `height` — see the pips at .stonetop-item-resource-check for the min-height: 0 that
+	   would make this honoured. Left as-is deliberately; 2em tracks the font, so the pill scales. */
 	height: 17px;
 	border: 1px solid var(--st-rule-strong);
 	border-radius: 999px;
