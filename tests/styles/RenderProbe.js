@@ -106,6 +106,20 @@ export class MeasuredElement {
 		return this.values.contentLeft;
 	}
 
+	/** Vertical centre of the element's own box, in viewport px. */
+	get boxMiddle() {
+		return this.values.boxTop + this.values.boxHeight / 2;
+	}
+
+	/**
+	 * Vertical centre of the element's FIRST line of text. What a control has to line up with:
+	 * centring against the whole element puts the tick in the middle of a wrapped block instead of
+	 * beside the words it ticks.
+	 */
+	get firstLineMiddle() {
+		return this.values.firstLineTop + this.values.firstLineHeight / 2;
+	}
+
 	/** Content taller than the box that holds it — the shape a clipped line of text takes. */
 	get overflowsY() {
 		return this.overflowY > 0;
@@ -136,7 +150,7 @@ export class RenderProbe {
 	 * @param {string} options.bodyHtml markup placed inside <body>
 	 * @param {string} [options.bodyClass] classes on <body> — this is how a theme is selected
 	 * @param {string} [options.rootAttrs] extra attributes on <html>
-	 * @param {Record<string,{selector: string, properties: string[]}>} options.probes
+	 * @param {Record<string,{selector: string, properties: string[], pseudo?: string}>} options.probes
 	 * @returns {Map<string, ProbedElement>}
 	 */
 	render({ bodyHtml, bodyClass = "", rootAttrs = "", probes }) {
@@ -145,7 +159,9 @@ const probes = ${JSON.stringify(probes)};
 for (const [name, spec] of Object.entries(probes)) {
   const el = document.querySelector(spec.selector);
   if (!el) { out[name] = { __missing: true }; continue; }
-  const cs = getComputedStyle(el);
+  // A pseudo-element has no node to query, but it does have a computed style — which is the only
+  // way to assert anything about a ::before marker.
+  const cs = getComputedStyle(el, spec.pseudo || null);
   const values = {};
   for (const prop of spec.properties) values[prop] = cs.getPropertyValue(prop).trim();
   out[name] = values;
@@ -182,10 +198,16 @@ for (const [name, selector] of Object.entries(targets)) {
   range.selectNodeContents(el);
   const content = range.getBoundingClientRect();
   const box = el.getBoundingClientRect();
+  // getClientRects()[0] is the FIRST line box specifically. A wrapped element's bounding rect
+  // spans every line, and "the control sits beside the first line" is not a claim about the block.
+  const first = range.getClientRects()[0];
   out[name] = {
     contentWidth: content.width, contentHeight: content.height,
     boxWidth: box.width, boxHeight: box.height,
-    contentLeft: content.left, boxLeft: box.left
+    contentLeft: content.left, boxLeft: box.left,
+    boxTop: box.top,
+    firstLineTop: first ? first.top : content.top,
+    firstLineHeight: first ? first.height : content.height
   };
 }`;
 		return this._collect({ bodyHtml, bodyClass, rootAttrs, collect, Element: MeasuredElement });

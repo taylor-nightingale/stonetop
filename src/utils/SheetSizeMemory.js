@@ -1,9 +1,9 @@
-import { SheetSize } from "./SheetSize.js";
+import { RememberedSize } from "./RememberedSize.js";
 import { getSetting, setSetting } from "../settings.js";
 
 /**
  * Persists the last window size of each sheet, keyed (per sheet type, e.g. "Actor.character"). Backed
- * by a client-scoped setting holding a `{ key -> {width, height} }` map. The backing is injected so
+ * by a client-scoped setting holding a `{ key -> {width, height, rootFontSizePx} }` map. The backing is injected so
  * the store can be unit-tested without a live `game.settings`.
  */
 export class SheetSizeMemory {
@@ -19,13 +19,13 @@ export class SheetSizeMemory {
 	/** The remembered size for a key, or null when nothing valid is stored. */
 	get(key) {
 		const map = this.#read() ?? {};
-		return SheetSize.fromObject(map[key]);
+		return RememberedSize.fromObject(map[key]);
 	}
 
-	/** Remember `size` (a SheetSize) for `key`, leaving other keys untouched. */
-	set(key, size) {
+	/** Remember `remembered` (a RememberedSize) for `key`, leaving other keys untouched. */
+	set(key, remembered) {
 		const map = { ...(this.#read() ?? {}) };
-		map[key] = size.toObject();
+		map[key] = remembered.toObject();
 		this.#write(map);
 	}
 

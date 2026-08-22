@@ -30,3 +30,38 @@ describe("SheetSize", () => {
 		expect(SheetSize.fromObject({ width: 1000, height: "auto" })).toBeNull();
 	});
 });
+
+describe("SheetSize#clampedTo", () => {
+	const size = () => new SheetSize(1000, 700);
+
+	it("returns the same instance when it already fits", () => {
+		const original = size();
+		expect(original.clampedTo(1200, 900)).toBe(original);
+	});
+
+	it("shrinks each dimension that exceeds its bound", () => {
+		expect(size().clampedTo(800, 600).toObject()).toEqual({ width: 800, height: 600 });
+	});
+
+	it("clamps only the dimension that overflows", () => {
+		expect(size().clampedTo(800, 900).toObject()).toEqual({ width: 800, height: 700 });
+		expect(size().clampedTo(1200, 600).toObject()).toEqual({ width: 1000, height: 600 });
+	});
+
+	it("rounds a fractional bound to whole pixels", () => {
+		expect(size().clampedTo(799.4, 700).toObject()).toEqual({ width: 799, height: 700 });
+	});
+
+	it("ignores bounds that are not usable dimensions", () => {
+		// A viewport that cannot be measured must not collapse the sheet to nothing.
+		for (const bound of [undefined, null, 0, -100, NaN, Infinity, "800"]) {
+			expect(size().clampedTo(bound, bound).toObject()).toEqual({ width: 1000, height: 700 });
+		}
+	});
+
+	it("does not mutate the original", () => {
+		const original = size();
+		original.clampedTo(500, 500);
+		expect(original.toObject()).toEqual({ width: 1000, height: 700 });
+	});
+});

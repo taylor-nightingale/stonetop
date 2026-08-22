@@ -21,6 +21,25 @@ export class SheetSize {
 		return typeof n === "number" && Number.isFinite(n) && n > 0;
 	}
 
+	/**
+	 * The same size, shrunk to fit within `maxWidth`/`maxHeight`. A `with`-method: returns a new
+	 * SheetSize rather than mutating, and returns this one when it already fits.
+	 *
+	 * Scaling a designed size by a large font setting can easily exceed the display — a window
+	 * wider than the screen is worse than a cramped one, because its controls are unreachable.
+	 * Non-finite or non-positive bounds are ignored rather than clamping to nothing.
+	 */
+	clampedTo(maxWidth, maxHeight) {
+		const width = SheetSize.#atMost(this.width, maxWidth);
+		const height = SheetSize.#atMost(this.height, maxHeight);
+		if (width === this.width && height === this.height) return this;
+		return new SheetSize(width, height);
+	}
+
+	static #atMost(value, bound) {
+		return SheetSize.#isValidDimension(bound) ? Math.min(value, Math.round(bound)) : value;
+	}
+
 	/** Plain object for persistence. */
 	toObject() {
 		return { width: this.width, height: this.height };

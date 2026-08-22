@@ -14,13 +14,19 @@
 			<div class="stonetop-debilities">
 				{{#each stonetop.debilities}}
 				<div class="stonetop-debility">
+					{{!-- Two groups, not four siblings: the divider art and the tick it frames belong
+					      to one band, and the name sits below it in normal flow. Everything used to
+					      be absolutely positioned against hand-measured pixel offsets, so the name
+					      climbed into the art as soon as Foundry's font setting grew it. --}}
 					<label class="stonetop-debility-control"
 					       data-tooltip="{{description}}" data-tooltip-direction="UP">
-						<span class="stonetop-debility-divider"></span>
-						<input type="checkbox" class="stonetop-debility-check"
-						       data-change-action="debility"
-						       data-slug="{{key}}"
-						       {{#if active}}checked{{/if}}>
+						<span class="stonetop-debility-band">
+							<span class="stonetop-debility-divider"></span>
+							<input type="checkbox" class="stonetop-debility-check"
+							       data-change-action="debility"
+							       data-slug="{{key}}"
+							       {{#if active}}checked{{/if}}>
+						</span>
 						<span class="stonetop-debility-label">{{key}}</span>
 					</label>
 				</div>
