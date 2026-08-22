@@ -1,0 +1,70 @@
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Parchment Light — Stonetop's names for Foundry's light theme.
+
+   The colours themselves live in styles/palette.css, which repaints Foundry's 22 base ramps. This
+   file only says which ramp each Stonetop role reads, so there is exactly one source of colour
+   truth and our sheets can never drift from the chrome around them.
+
+   Selected by Foundry's own Color Scheme setting, which puts `theme-light` on <body>.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+@layer system {
+	/* Keyed on each element's OWN theme class, exactly as core scopes its theme blocks. Foundry has
+	   two independent axes — `applications` themes <body>, `interface` stamps `themed theme-*` on
+	   #interface and each sidebar tab. Keying these on `body.theme-light .themed` instead made the
+	   interface axis inert: a sidebar marked theme-light still read the body's dark roles. The bare
+	   `body` keeps light as the fallback when core has stamped nothing at all. */
+	body,
+	body.theme-light,
+	.themed.theme-light,
+	.application.theme-light,
+	.sidebar-tab.theme-light {
+		--st-scheme: light;
+
+		/* ── Paper ──────────────────────────────────────────────────────────────────── */
+		--st-paper:        var(--color-light-1);
+		--st-paper-raised: #fffdf8;
+		--st-paper-blend:  normal;
+		--st-shadow:       rgba(26, 23, 18, 0.3);
+
+		/* ── Ink ────────────────────────────────────────────────────────────────────── */
+		--st-ink:       var(--color-dark-1);
+		--st-ink-soft:  var(--color-dark-3);
+		--st-ink-faint: var(--color-dark-4);
+		--st-ink-muted: var(--color-dark-5);
+
+		/* ── Chips: reversed against the page (die results, counters) ───────────────── */
+		--st-chip-fill: var(--color-dark-1);
+		--st-chip-ink:  var(--color-light-1);
+
+		/* Colour the sheet's decorative art is painted in. The PNGs are black on transparency
+		   and are used as a MASK, not an image, so the frame takes the theme's ink instead of
+		   staying black on dark paper. */
+		--st-decor: var(--color-dark-2);
+
+		/* ── Rules ──────────────────────────────────────────────────────────────────── */
+		--st-rule:        var(--color-light-4);
+		--st-rule-soft:   var(--color-light-3);
+		--st-rule-strong: var(--color-light-6);
+
+		/* ── Accent: the same sepia core now uses for its own highlights ────────────── */
+		--st-accent:    var(--color-warm-2);
+		--st-highlight: slategrey;
+
+		/* ── Semantics: the book's, not Foundry's ───────────────────────────────────── */
+		--st-danger:        #a00;
+		--st-danger-strong: #7a1414;
+		--st-positive:      #2d6a2d;
+		--st-warning:       hsl(32deg 88% 33%);
+		--st-info:          #2050a0;
+		--st-arcane:        #6a2d8a;
+
+		/* ── Image polarity ─────────────────────────────────────────────────────────────
+		   Ours is black on transparency and already right here; Foundry's own icons are white
+		   on transparency and need inverting. Solved numerically to land on rgb(58 52 42), the
+		   warm ink of the page — a plain invert(1) gives pure black, which reads as a hole
+		   punched in the parchment at portrait size. */
+		--st-art-filter:       none;
+		--st-core-icon-filter: invert(0.8) sepia(1) saturate(0.9) brightness(0.85);
+	}
+}

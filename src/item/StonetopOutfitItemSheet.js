@@ -72,7 +72,7 @@ export function createStonetopOutfitItemSheetClass(Base) {
 		}
 
 		// Bound directly to the current editor controls, which every render replaces — so this
-		// re-runs per render (NOT once in _onFirstRender; see docs/appv2-migration.md).
+		// re-runs per render
 		_onRender(context, options) {
 			super._onRender(context, options);
 			if (!this.isEditable) return;

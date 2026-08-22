@@ -1,19 +1,3 @@
-/* Custom CSS */
-
-/* Foundry core puts a 1px border on every <img> inside a sheet/app window
-   (.window-app img). We never want borders around icons/portraits, so strip them
-   once here authoritatively instead of adding per-element `border: none` overrides. */
-.stonetop.sheet img {
-	border: none;
-}
-
-/* Hide images that fail to load (tagged by installBrokenImageHider). Our copyrighted
-   illustrations live in the gitignored stonetop-art/ store; when it isn't populated those
-   refs would otherwise show Foundry's broken-image placeholder. */
-img.stonetop-broken-img {
-	display: none;
-}
-
 @font-face {
 	font-family: "StonetopUI";
 	src: url("../assets/fonts/Historical-FellTypeRomanSC.ttf") format("truetype");
@@ -41,6 +25,42 @@ img.stonetop-broken-img {
 	font-weight: normal;
 	font-style: normal;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Everything below is in Foundry's `system` cascade layer.
+
+   Core declares the order at foundry2.css:5 — `@layer reset, variables, elements, blocks,
+   applications, compatibility, layouts, system, modules, exceptions`. Two things follow, and they
+   are why this wrapper exists:
+
+     · Core's own theming lives in `variables.themes` (layer 2), so these rules beat it with plain
+       low-specificity selectors. That is what makes the Foundry bridge in styles/tokens.css work
+       without !important.
+     · `modules` (9) comes after `system` (8), so a module can restyle the system — including
+       shipping its own theme — without a specificity fight. Unlayered CSS beats every layer, so
+       staying unlayered would have made that impossible.
+
+   The contents are deliberately NOT re-indented: a 6000-line whitespace diff would bury the real
+   history. Read the layer as the file's scope, not as a block.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+@layer system {
+
+/* Custom CSS */
+
+/* Foundry core puts a 1px border on every <img> inside a sheet/app window
+   (.window-app img). We never want borders around icons/portraits, so strip them
+   once here authoritatively instead of adding per-element `border: none` overrides. */
+.stonetop.sheet img {
+	border: none;
+}
+
+/* Hide images that fail to load (tagged by installBrokenImageHider). Our copyrighted
+   illustrations live in the gitignored stonetop-art/ store; when it isn't populated those
+   refs would otherwise show Foundry's broken-image placeholder. */
+img.stonetop-broken-img {
+	display: none;
+}
+
 
 .stonetop.sheet .sheet-tabs,
 .stonetop.sheet .sheet-tabs .item,
@@ -104,16 +124,6 @@ img.stonetop-broken-img {
 	/* Every tab's view-state toggle (moves filter, playbook lock, insert locks) is one control at
 	   one size; the tabs that lay a toggle over their first line reserve exactly this. */
 	--view-toggle-height: 20px;
-
-	--stonetop-bg: hsl(30deg 20% 94%);
-	--color-border-highlight-alt: slategrey;
-	--color-shadow-highlight: slategrey;
-	--color-shadow-primary: slategrey;
-	--color-border-highlight: slategrey;
-	--color-ownership-none: slategrey;
-	--color-text-hyperlink: slategrey;
-
-	scrollbar-color: slategrey hsl(30deg 20% 94%);
 }
 
 /* Use default font  */
@@ -146,7 +156,7 @@ body,
 }
 
 #pause figcaption {
-	text-shadow: 3px 3px 4px var(--color-shadow-dark);
+	text-shadow: 3px 3px 4px var(--st-shadow);
 }
 
 .vtt .sidebar-tab,
@@ -156,31 +166,33 @@ body,
 }
 
 #navigation #scene-list .scene.gm {
-	border-color: slategrey;
-	background-color: hsl(308deg 6.5% 13%);
+	border-color: var(--st-highlight);
+	background-color: var(--st-chip-fill);
 }
 
 .vtt .window-header {
-	background-color: slategrey;
+	background-color: var(--st-highlight);
 }
 
 
 .vtt :not(.application,.image-popout,.journal-sheet,.sidebar-popout) .window-content {
-	background: var(--stonetop-bg) url(../assets/ui/decor/sheet-bg.png);
+	background: var(--st-paper) var(--st-paper-image);
+	background-blend-mode: var(--st-paper-blend);
 	background-position: center;
 	background-size: cover;
 	background-attachment: scroll;
 	scrollbar-width: none;
 }
 
-/* ApplicationV2 sheets (migration in progress — docs/appv2-migration.md): the rule above
+/* ApplicationV2 sheets: the rule above
    deliberately excludes `.application` so core V2 windows keep their native look; our own V2
    sheets opt back into the parchment here. Text/input/prosemirror colors come from core's own
    light theme: the V2 sheet bases declare `themed theme-light` in DEFAULT_OPTIONS.classes, which
    both blocks the client dark theme (core skips sheets already "themed") and resolves every
    core form variable to its light value. Only the parchment art is ours. */
 .application.stonetop.sheet .window-content {
-	background: var(--stonetop-bg) url(../assets/ui/decor/sheet-bg.png);
+	background: var(--st-paper) var(--st-paper-image);
+	background-blend-mode: var(--st-paper-blend);
 	background-position: center;
 	background-size: cover;
 	background-attachment: scroll;
@@ -192,9 +204,9 @@ body,
    write-in lines, secondary label text) drew nothing — the "invisible until clicked" controls. Pin
    the V1 values once, on our sheet root, and they all repaint. */
 .application.stonetop {
-	--color-text-dark-primary: #191813;
-	--color-text-dark-secondary: #4b4a44;
-	--color-border-light: #b5b3a4;
+	--color-text-dark-primary: var(--st-ink);
+	--color-text-dark-secondary: var(--st-ink-soft);
+	--color-border-light: var(--st-rule);
 }
 
 /* Core v13 repaints EVERY checkbox/radio with a Font Awesome glyph pseudo-element (`::before` =
@@ -216,7 +228,7 @@ body,
 .window-app,
 #controls ol.control-tools > li {
 	border-radius: 5px;
-	box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.4);
+	box-shadow: 2px 4px 8px 2px var(--st-shadow);
 }
 
 .vtt .dialog .window-content:has(.roll-dialog) .dialog-buttons {
@@ -251,7 +263,9 @@ body,
 	top: 0.28em;
 	width: 12px;
 	height: 12px;
-	background: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
+	background-color: var(--st-decor);
+	mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
+	-webkit-mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 }
 
 /* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
@@ -307,6 +321,7 @@ body,
 }
 
 .stonetop.sheet .sheet-tabs {
+	position: relative;
 	display: flex;
 	justify-content: flex-start;
 	gap: 6px;
@@ -315,23 +330,16 @@ body,
 	padding-bottom: 8px;
 	border-bottom: none;
 	border-top: none;
-	background-image: url("../assets/ui/decor/divider-horizontal.png");
-	background-repeat: repeat-x;
-	background-position: bottom left;
-	background-size: auto 7px;
 }
 
 .stonetop.sheet .sheet-tabs .item {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-height: 36px;
 	padding: 9px 18px 6px;
 	border: none;
-	background-color: transparent;
-	background-image: url("../assets/ui/decor/tab-half-frame.png");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
 	box-shadow: none;
 	font-size: var(--fs-heading);
 	font-weight: bold;
@@ -355,9 +363,9 @@ body,
 	flex: 0 0 auto;
 	padding: 0;
 	line-height: 1;
-	border: 1px solid var(--color-border-light-2);
+	border: 1px solid var(--st-rule);
 	border-radius: 4px;
-	background: var(--stonetop-bg, #f4ecd8);
+	background: var(--st-paper);
 	cursor: pointer;
 }
 
@@ -416,14 +424,14 @@ body,
 .stonetop-stat-abbr {
 	font-size: 10px;
 	font-variant: small-caps;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	line-height: 1;
 	position: absolute;
 	bottom: 0;
 	left: 50%;
 	transform: translate(-50%, 50%);
 	white-space: nowrap;
-	background: #fff;
+	background: var(--st-paper-raised);
 	padding: 0 5px;
 }
 
@@ -431,7 +439,7 @@ body,
 
 .stonetop-section-panel {
 	position: relative;
-	background: white;
+	background: var(--st-paper-raised);
 }
 
 .stonetop-section-panel::before {
@@ -440,7 +448,8 @@ body,
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
 	url("../assets/ui/decor/panel-corner-tr.png"),
 	url("../assets/ui/decor/panel-corner-bl.png"),
 	url("../assets/ui/decor/panel-corner-br.png"),
@@ -448,14 +457,34 @@ body,
 	url("../assets/ui/decor/panel-edge-bottom.png"),
 	url("../assets/ui/decor/panel-edge-left.png"),
 	url("../assets/ui/decor/panel-edge-right.png");
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	url("../assets/ui/decor/panel-corner-tr.png"),
+	url("../assets/ui/decor/panel-corner-bl.png"),
+	url("../assets/ui/decor/panel-corner-br.png"),
+	url("../assets/ui/decor/panel-edge-top.png"),
+	url("../assets/ui/decor/panel-edge-bottom.png"),
+	url("../assets/ui/decor/panel-edge-left.png"),
+	url("../assets/ui/decor/panel-edge-right.png");
+	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
-	background-position: left top, right top, left bottom, right bottom,
+	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-position: left top, right top, left bottom, right bottom,
 	left 16px top 0,
 	left 16px bottom 0,
 	left 0 top 16px,
 	right 0 top 16px;
-	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	-webkit-mask-position: left top, right top, left bottom, right bottom,
+	left 16px top 0,
+	left 16px bottom 0,
+	left 0 top 16px,
+	right 0 top 16px;
+	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	calc(100% - 32px) 8px,
+	calc(100% - 32px) 8px,
+	8px calc(100% - 32px),
+	8px calc(100% - 32px);
+	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
 	calc(100% - 32px) 8px,
 	calc(100% - 32px) 8px,
 	8px calc(100% - 32px),
@@ -524,15 +553,33 @@ body,
 	object-fit: contain;
 }
 
-/* Foundry's default actor icon (mystery-man.svg) is a near-white silhouette that
-   disappears against the white sheet. Give ONLY the placeholder a soft slategrey panel
-   so it stays visible; any real portrait (different src) is untouched. */
-.stonetop-actor-portrait-img[src$="mystery-man.svg"],
-.stonetop-header-playbook-icon[src$="mystery-man.svg"],
-.profile-img[src$="mystery-man.svg"] {
-	background: slategrey;
-	border-radius: 6px;
-	padding: 8px;
+/* ── Image polarity ───────────────────────────────────────────────────────────
+   Two populations of monochrome art, drawn opposite ways round, and every theme has to
+   flip them in opposite directions:
+
+     · Foundry's own defaults are WHITE on transparency — d20-grey, item-bag, village,
+       mystery-man, which our packs reference 462 times. They vanish on light parchment.
+     · Ours are BLACK on transparency: the UI decor, and the book art in stonetop-art/,
+       which is strictly bitonal (one colour, alpha 0 or 255, no anti-aliasing) so it
+       inverts losslessly. It vanishes on dark parchment.
+
+   Hence two tokens rather than one. This replaced a slategrey panel painted behind
+   mystery-man.svg specifically — the same problem, solved once instead of per file.
+
+   Only <img> elements: our decor is mostly background-image, where `filter` would repaint
+   the element's content too. Those follow the theme by swapping the asset instead. */
+.stonetop.sheet img[src*="icons/svg/"],
+.application.journal-entry img[src*="icons/svg/"],
+.application.compendium-directory img[src*="icons/svg/"] {
+	filter: var(--st-core-icon-filter);
+}
+
+.stonetop.sheet img[src*="stonetop-art/"],
+.stonetop.sheet img[src*="assets/ui/"],
+.stonetop.sheet img[src*="assets/content/"],
+.application.journal-entry img[src*="stonetop-art/"],
+.application.compendium-directory img[src*="stonetop-art/"] {
+	filter: var(--st-art-filter);
 }
 
 /* ── Stats row ──────────────────────────────────────────────────────────────── */
@@ -555,14 +602,11 @@ body,
 	width: 96px;
 	height: 76px;
 	padding: 6px;
-	background-image: url("../assets/ui/decor/frame-stat.png");
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
 }
 
 .stonetop-stat-roll {
 	border: none;
-	background: #fff;
+	background: var(--st-paper-raised);
 	font-weight: bold;
 	font-size: 10px;
 	height: 16px;
@@ -619,7 +663,7 @@ body,
 	width: auto;
 	margin: 0;
 	white-space: nowrap;
-	background: #fff;
+	background: var(--st-paper-raised);
 	padding: 0 5px;
 	font-size: 10px;
 	height: 16px;
@@ -645,17 +689,25 @@ body,
 	text-align: center;
 	height: 95px;
 	padding: 8px;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	color: #1a1a1a;
+	color: var(--st-ink);
+}
+
+/* The frame art is a mask on the ::before overlay, so its sizing lives with the mask. Leaving these
+   as background-size/repeat is what cropped the damage/HP/armour frames: an unsized mask falls back
+   to the image's natural size, anchored top-left and repeating. */
+.stonetop-resource::before {
+	mask-size: 100% 100%;
+	-webkit-mask-size: 100% 100%;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 }
 
 .stonetop-resource--small {
-	background-image: url("../assets/ui/decor/frame-stat.png");
+	position: relative;
 }
 
 .stonetop-resource--wide {
-	background-image: url("../assets/ui/decor/frame-wide.png");
+	position: relative;
 }
 
 .stonetop-resource__label,
@@ -693,7 +745,7 @@ body,
 	line-height: 36px;
 	width: 100%;
 	padding: 0;
-	color: #1a1a1a;
+	color: var(--st-ink);
 }
 
 .stonetop-resource__split {
@@ -755,7 +807,7 @@ body,
 .stonetop-playbook-description {
 	font-size: var(--fs-fine);
 	font-style: italic;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	margin: 0 0 4px;
 	line-height: 1.4;
 }
@@ -764,10 +816,15 @@ body,
 .stonetop-panel-divider {
 	height: 5px;
 	margin: 4px 0 8px;
-	background-image: url("../assets/ui/decor/divider-horizontal-thin.png");
-	background-repeat: repeat-x;
-	background-position: center;
-	background-size: auto 5px;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/divider-horizontal-thin.png");
+	-webkit-mask-image: url("../assets/ui/decor/divider-horizontal-thin.png");
+	mask-repeat: repeat-x;
+	-webkit-mask-repeat: repeat-x;
+	mask-position: center;
+	-webkit-mask-position: center;
+	mask-size: auto 5px;
+	-webkit-mask-size: auto 5px;
 }
 
 /* Card-section bars, as on the printed card: a thin rule between body sections (description |
@@ -777,7 +834,7 @@ body,
 	content: "";
 	display: block;
 	/* Foundry v13 no longer defines --color-border-dark; without the fallback the border vanishes. */
-	border-top: 1px solid var(--color-border-dark, #4b4a44);
+	border-top: 1px solid var(--st-rule-strong);
 	margin: 4px 0 8px;
 }
 
@@ -804,7 +861,7 @@ body,
 	font-size: var(--fs-fine);
 	font-style: italic;
 	font-weight: normal;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	text-align: center;
 }
 
@@ -815,11 +872,16 @@ body,
 	display: block;
 	width: 100%;
 	height: 18px;
-	background-image: url("../assets/ui/decor/divider-debility.png");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-position: center;
 	pointer-events: none;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/divider-debility.png");
+	-webkit-mask-image: url("../assets/ui/decor/divider-debility.png");
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+	mask-size: 100% 100%;
+	-webkit-mask-size: 100% 100%;
+	mask-position: center;
+	-webkit-mask-position: center;
 }
 
 .stonetop-debility input[type="checkbox"] {
@@ -832,14 +894,14 @@ body,
 	width: 12px !important;
 	height: 12px !important;
 	border-radius: 50% !important;
-	border: 1px solid #555 !important;
+	border: 1px solid var(--st-ink-soft) !important;
 	background: transparent !important;
 	cursor: pointer;
 	z-index: 3;
 }
 
 .stonetop-debility input[type="checkbox"]:checked {
-	background-color: #555 !important;
+	background-color: var(--st-ink-soft) !important;
 }
 
 .stonetop-debility-label {
@@ -909,7 +971,7 @@ body,
 
 .stonetop-playbook-empty-hint {
 	font-style: italic;
-	color: var(--color-text-light-7, #888);
+	color: var(--st-ink-muted);
 	text-align: center;
 }
 
@@ -991,7 +1053,7 @@ body,
 	left: 0;
 	right: 0;
 	height: 1px;
-	background: var(--color-border-dark, #4b4a44);
+	background: var(--st-rule-strong);
 }
 
 .stonetop-intro-step-num {
@@ -1000,8 +1062,8 @@ body,
 	left: 0;
 	width: 28px;
 	height: 28px;
-	background: #000;
-	color: #fff;
+	background: var(--st-chip-fill);
+	color: var(--st-chip-ink);
 	font-weight: bold;
 	font-size: var(--fs-title);
 	display: flex;
@@ -1034,13 +1096,13 @@ body,
 .creation-section h3 {
 	margin-bottom: 4px;
 	font-size: var(--fs-heading);
-	border-bottom: 1px solid var(--color-border-light-2);
+	border-bottom: 1px solid var(--st-rule);
 }
 
 .creation-choose {
 	font-size: var(--fs-fine);
 	font-weight: normal;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	margin-left: 4px;
 }
 
@@ -1068,7 +1130,7 @@ body,
 
 .creation-option__desc {
 	font-size: var(--fs-body);
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	margin-left: 4px;
 }
 
@@ -1079,7 +1141,7 @@ body,
 .creation-subchoices {
 	margin: 4px 0 8px 20px;
 	padding: 6px 8px;
-	border-left: 2px solid var(--color-border-light-2);
+	border-left: 2px solid var(--st-rule);
 }
 
 .creation-subchoices__label {
@@ -1089,7 +1151,7 @@ body,
 
 .creation-hint {
 	font-style: italic;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 }
 
 /* Selection fields row (background, instinct, appearance, origin) */
@@ -1112,13 +1174,13 @@ body,
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 }
 
 .stonetop-selection-value {
 	background: none;
 	border: none;
-	border-bottom: 1px solid var(--color-border-light-2);
+	border-bottom: 1px solid var(--st-rule);
 	padding: 1px 2px;
 	cursor: pointer;
 	font-family: inherit;
@@ -1128,11 +1190,11 @@ body,
 }
 
 .stonetop-selection-value:hover {
-	border-bottom-color: var(--color-text-dark-primary);
+	border-bottom-color: var(--st-ink);
 }
 
 .stonetop-selection-empty {
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	font-style: italic;
 }
 
@@ -1164,8 +1226,8 @@ body,
 
 .selection-option:hover,
 .selection-option.selected {
-	background: rgba(0, 0, 0, 0.05);
-	border-color: var(--color-border-light-2);
+	background: var(--st-paper-sunken);
+	border-color: var(--st-rule);
 }
 
 .selection-option-body > strong {
@@ -1176,7 +1238,7 @@ body,
 .selection-option-body p {
 	margin: 0;
 	font-size: var(--fs-body);
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	line-height: 1.4;
 }
 
@@ -1198,7 +1260,7 @@ body,
 	margin: 0 0 8px;
 	font-style: italic;
 	font-size: var(--fs-body);
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 }
 
 .appearance-picker {
@@ -1211,7 +1273,7 @@ body,
 	align-items: flex-start;
 	gap: 8px;
 	padding: 8px 0;
-	border-bottom: 1px solid var(--color-border-light-2);
+	border-bottom: 1px solid var(--st-rule);
 }
 
 .appearance-row:last-child {
@@ -1221,8 +1283,8 @@ body,
 .appearance-row-num {
 	font-size: var(--fs-fine);
 	font-weight: bold;
-	color: var(--color-text-dark-secondary);
-	background: rgba(0, 0, 0, 0.06);
+	color: var(--st-ink-soft);
+	background: var(--st-paper-sunken-strong);
 	border-radius: 50%;
 	width: 18px;
 	height: 18px;
@@ -1266,8 +1328,8 @@ body,
 
 .origin-option:hover,
 .origin-option.selected {
-	background: rgba(0, 0, 0, 0.04);
-	border-color: var(--color-border-light-2);
+	background: var(--st-paper-sunken);
+	border-color: var(--st-rule);
 }
 
 .origin-region {
@@ -1288,7 +1350,7 @@ body,
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	display: block;
 	margin-bottom: 4px;
 }
@@ -1301,7 +1363,7 @@ body,
 
 .origin-name {
 	background: none;
-	border: 1px solid var(--color-border-light-2);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	padding: 2px 6px;
 	font-size: var(--fs-note);
@@ -1310,12 +1372,12 @@ body,
 }
 
 .origin-name:hover {
-	background: rgba(0, 0, 0, 0.05);
+	background: var(--st-paper-sunken);
 }
 
 .origin-name.selected-name {
-	background: rgba(0, 0, 0, 0.08);
-	border-color: var(--color-text-dark-primary);
+	background: var(--st-paper-sunken-strong);
+	border-color: var(--st-ink);
 	font-weight: bold;
 }
 
@@ -1392,7 +1454,7 @@ body,
 	/* Override the layout's `align-items: flex-start` so the sidebar + its divider span the full
 	   sheet height instead of stopping at the current tab's content. */
 	align-self: stretch;
-	border-left: 1px solid var(--color-border-light-2);
+	border-left: 1px solid var(--st-rule);
 	padding-left: 12px;
 	overflow-y: auto;
 }
@@ -1415,9 +1477,9 @@ body,
 		height: 26px;
 		padding: 0;
 		line-height: 1;
-		border: 1px solid var(--color-border-light-2);
+		border: 1px solid var(--st-rule);
 		border-radius: 4px;
-		background: var(--stonetop-bg, #f4ecd8);
+		background: var(--st-paper);
 		cursor: pointer;
 	}
 	.stonetop-moves-toggle > i {
@@ -1435,8 +1497,9 @@ body,
 		z-index: 4;
 		margin: 0;
 		padding: 28px 12px 12px;
-		background: var(--stonetop-bg, #f4ecd8) url(../assets/ui/decor/sheet-bg.png);
-		box-shadow: -6px 0 14px rgba(0, 0, 0, 0.3);
+		background: var(--st-paper) var(--st-paper-image);
+		background-blend-mode: var(--st-paper-blend);
+		box-shadow: -6px 0 14px var(--st-shadow);
 		transform: translateX(100%);
 		transition: transform 0.2s ease;
 	}
@@ -1463,7 +1526,7 @@ body,
 }
 
 .stonetop-moves-sidebar li:hover {
-	background: rgba(0, 0, 0, 0.06);
+	background: var(--st-paper-sunken-strong);
 }
 
 .stonetop-move-name {
@@ -1518,7 +1581,7 @@ button.stonetop-view-toggle:hover {
 
 button.stonetop-view-toggle.is-active {
 	opacity: 1;
-	background: rgba(0, 0, 0, 0.12);
+	background: var(--st-paper-sunken-strong);
 }
 
 .tab.moves.hide-unselected .stonetop-item.move-unselected {
@@ -1532,7 +1595,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-moves-note {
 	font-size: var(--fs-fine);
 	font-style: italic;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	margin: 0 0 6px;
 }
 
@@ -1541,7 +1604,7 @@ button.stonetop-view-toggle.is-active {
 	font-style: italic;
 	font-weight: normal;
 	font-family: var(--font-primary);
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 }
 
 .stonetop-move-group .items-list {
@@ -1577,7 +1640,7 @@ button.stonetop-view-toggle.is-active {
 	height: 14px !important;
 	flex: 0 0 14px !important;
 	border-radius: 2px !important;
-	border: 2px solid var(--color-text-dark-primary) !important;
+	border: 2px solid var(--st-ink) !important;
 	background: transparent !important;
 	cursor: pointer;
 	margin: 0;
@@ -1585,7 +1648,7 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-item-check:checked,
 .stonetop-cg-track:checked {
-	background-color: var(--color-text-dark-primary) !important;
+	background-color: var(--st-ink) !important;
 }
 
 .stonetop-item-check:disabled,
@@ -1602,14 +1665,14 @@ button.stonetop-view-toggle.is-active {
 .stonetop-item-source {
 	font-size: var(--fs-fine);
 	font-style: italic;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	margin-left: 2px;
 	flex-shrink: 0;
 }
 
 /* Per-move "send to chat" button (every move row: moves tab, side-bar, arcana, homefront). */
 .stonetop-move-chat {
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	cursor: pointer;
 	font-size: var(--fs-fine);
 	flex-shrink: 0;
@@ -1617,14 +1680,14 @@ button.stonetop-view-toggle.is-active {
 }
 
 .stonetop-move-chat:hover {
-	color: var(--color-text-dark-primary);
+	color: var(--st-ink);
 	opacity: 1;
 }
 
 .stonetop-uses-label {
 	font-size: var(--fs-fine);
 	font-style: italic;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	margin-right: 2px;
 	flex-shrink: 0;
 }
@@ -1660,7 +1723,7 @@ button.stonetop-view-toggle.is-active {
 	padding-left: 20px;
 	font-size: var(--fs-note);
 	font-weight: normal;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	line-height: 1.4;
 	margin-top: 1px;
 }
@@ -1673,7 +1736,7 @@ button.stonetop-view-toggle.is-active {
 	font-size: var(--fs-note);
 	font-weight: normal;
 	font-style: normal;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	line-height: 1.4;
 	margin-bottom: 6px;
 }
@@ -1774,11 +1837,11 @@ button.stonetop-view-toggle.is-active {
 	font-size: var(--fs-fine);
 	font-style: italic;
 	padding-left: 20px;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 }
 
 .stonetop-item-requirement--unmet {
-	color: var(--color-level-warning, #b45309);
+	color: var(--st-warning);
 }
 
 .stonetop-item.move-locked {
@@ -1826,7 +1889,7 @@ button.stonetop-view-toggle.is-active {
 	flex: none;
 	box-sizing: border-box;
 	border-radius: 50% !important;
-	border: 2px solid var(--color-text-dark-primary) !important;
+	border: 2px solid var(--st-ink) !important;
 	background: none !important;
 	padding: 0;
 	cursor: pointer;
@@ -1835,7 +1898,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-item-resource-check.is-checked,
 .stonetop-background-resource-btn.is-checked,
 .stonetop-follower-loyalty-btn.is-checked {
-	background-color: var(--color-text-dark-primary) !important;
+	background-color: var(--st-ink) !important;
 }
 
 /* A resource's fill-in blank (the book's dotted write-in line beside a ○ track, e.g. Battery). */
@@ -1850,7 +1913,7 @@ button.stonetop-view-toggle.is-active {
 	height: 18px;
 	background: none;
 	border: none !important;
-	border-bottom: 1px dotted var(--color-text-dark-primary) !important;
+	border-bottom: 1px dotted var(--st-ink) !important;
 	border-radius: 0 !important;
 	padding: 0 2px;
 	font-style: italic;
@@ -1859,14 +1922,14 @@ button.stonetop-view-toggle.is-active {
 .stonetop-resource-input--rich {
 	min-height: 3em;
 	resize: vertical;
-	border: 1px dotted var(--color-text-dark-primary) !important;
+	border: 1px dotted var(--st-ink) !important;
 }
 
 /* -- attrLeft header row ---------------------------------- */
 
 .sheet-attributes-left {
 	padding: 4px 0 0;
-	border-top: 1px solid var(--color-border-light-2);
+	border-top: 1px solid var(--st-rule);
 	margin-top: 4px;
 }
 
@@ -1907,7 +1970,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-other-move-delete {
 	display: none;
 	margin-left: auto;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	cursor: pointer;
 	font-size: var(--fs-fine);
 }
@@ -1919,7 +1982,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-possession-delete {
 	visibility: hidden;
 	margin-left: auto;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	cursor: pointer;
 	font-size: var(--fs-fine);
 }
@@ -2038,7 +2101,7 @@ button.stonetop-view-toggle.is-active {
 }
 
 .stonetop-inv-resource-btn.stonetop-inventory-resource-btn.is-checked {
-	background-color: var(--color-text-dark-primary) !important;
+	background-color: var(--st-ink) !important;
 }
 
 .stonetop-inv-resource-label {
@@ -2047,7 +2110,7 @@ button.stonetop-view-toggle.is-active {
 }
 
 .stonetop-inv-note {
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	font-style: normal;
 }
 
@@ -2057,7 +2120,7 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-inv-divider {
 	height: 0;
-	border-top: 1px solid var(--color-border-light, #ccc);
+	border-top: 1px solid var(--st-rule);
 	margin: 4px 0;
 }
 
@@ -2070,7 +2133,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-inv-delete {
 	display: none;
 	margin-left: auto;
-	color: var(--color-text-dark-secondary);
+	color: var(--st-ink-soft);
 	cursor: pointer;
 	font-size: var(--fs-fine);
 }
@@ -2085,7 +2148,7 @@ button.stonetop-view-toggle.is-active {
 	margin-top: 4px;
 	cursor: pointer;
 	background: transparent;
-	border: 1px dashed var(--color-border-light, #ccc);
+	border: 1px dashed var(--st-rule);
 	width: 100%;
 }
 
@@ -2140,7 +2203,7 @@ button.stonetop-view-toggle.is-active {
 /* -- Section notes -------------------------------------------- */
 .stonetop-inv-section-note {
 	font-size: var(--fs-note);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	margin: 0 0 4px;
 	font-style: italic;
 }
@@ -2162,7 +2225,7 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-outfit-header {
 	position: relative;
-	background: white;
+	background: var(--st-paper-raised);
 	padding: 10px 12px;
 	font-size: var(--fs-label);
 	flex: 1 1 auto;
@@ -2171,7 +2234,7 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-prosperity-panel {
 	position: relative;
-	background: white;
+	background: var(--st-paper-raised);
 	padding: 10px 12px;
 	font-size: var(--fs-label);
 	flex: 0 0 auto;
@@ -2184,7 +2247,8 @@ button.stonetop-view-toggle.is-active {
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
 	url("../assets/ui/decor/panel-corner-tr.png"),
 	url("../assets/ui/decor/panel-corner-bl.png"),
 	url("../assets/ui/decor/panel-corner-br.png"),
@@ -2192,12 +2256,28 @@ button.stonetop-view-toggle.is-active {
 	url("../assets/ui/decor/panel-edge-bottom.png"),
 	url("../assets/ui/decor/panel-edge-left.png"),
 	url("../assets/ui/decor/panel-edge-right.png");
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	url("../assets/ui/decor/panel-corner-tr.png"),
+	url("../assets/ui/decor/panel-corner-bl.png"),
+	url("../assets/ui/decor/panel-corner-br.png"),
+	url("../assets/ui/decor/panel-edge-top.png"),
+	url("../assets/ui/decor/panel-edge-bottom.png"),
+	url("../assets/ui/decor/panel-edge-left.png"),
+	url("../assets/ui/decor/panel-edge-right.png");
+	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
-	background-position: left top, right top, left bottom, right bottom,
+	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-position: left top, right top, left bottom, right bottom,
 	left 16px top 0, left 16px bottom 0,
 	left 0 top 16px, right 0 top 16px;
-	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	-webkit-mask-position: left top, right top, left bottom, right bottom,
+	left 16px top 0, left 16px bottom 0,
+	left 0 top 16px, right 0 top 16px;
+	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+	8px calc(100% - 32px), 8px calc(100% - 32px);
+	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
 	calc(100% - 32px) 8px, calc(100% - 32px) 8px,
 	8px calc(100% - 32px), 8px calc(100% - 32px);
 }
@@ -2222,14 +2302,14 @@ button.stonetop-view-toggle.is-active {
 .stonetop-outfit-marked {
 	margin: 0 0 0 6px;
 	font-size: var(--fs-note);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	font-style: italic;
 	white-space: nowrap;
 }
 
 /* Over the ◇ the move allows — a warning, never a block (guide-don't-enforce). */
 .stonetop-outfit-marked.is-over {
-	color: var(--color-level-warning, #b45309);
+	color: var(--st-warning);
 	font-style: normal;
 	font-weight: bold;
 	white-space: normal;
@@ -2366,15 +2446,15 @@ button.stonetop-view-toggle.is-active {
 	justify-content: center;
 	min-width: 1.6em;
 	height: 1.6em;
-	background: #2a2a2a;
-	color: #f0f0f0;
+	background: var(--st-chip-fill);
+	color: var(--st-chip-ink);
 	border-radius: 3px;
 	font-weight: bold;
 }
 
 .stonetop-die--dropped {
 	opacity: 0.35;
-	background: #555;
+	background: var(--st-ink-soft);
 	text-decoration: line-through;
 }
 
@@ -2390,9 +2470,9 @@ button.stonetop-view-toggle.is-active {
 	font-style: italic;
 }
 
-.stonetop-move-result--success { color: #2d6a2d; border-color: #2d6a2d; }
-.stonetop-move-result--partial { color: #7a6000; border-color: #7a6000; }
-.stonetop-move-result--failure { color: #8b0000; border-color: #8b0000; }
+.stonetop-move-result--success { color: var(--st-positive); border-color: var(--st-positive); }
+.stonetop-move-result--partial { color: var(--st-warning); border-color: var(--st-warning); }
+.stonetop-move-result--failure { color: var(--st-danger-strong); border-color: var(--st-danger-strong); }
 
 /* Description-only cards list every tier; the label ("10+" / "7-9" / "6-") leads each one. */
 .stonetop-move-result-label { font-weight: bold; font-style: normal; }
@@ -2466,13 +2546,13 @@ button.stonetop-xp-toggle {
 
 .stonetop-roll-dialog .window-content {
 	padding: 8px;
-	background: var(--stonetop-bg);
+	background: var(--st-paper);
 	font-family: var(--font-primary);
 }
 
 .stonetop-roll-pick-content {
 	position: relative;
-	background: white;
+	background: var(--st-paper-raised);
 	padding: 10px 12px;
 	margin-bottom: 8px;
 	font-size: var(--fs-label);
@@ -2483,7 +2563,8 @@ button.stonetop-xp-toggle {
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
 		url("../assets/ui/decor/panel-corner-tr.png"),
 		url("../assets/ui/decor/panel-corner-bl.png"),
 		url("../assets/ui/decor/panel-corner-br.png"),
@@ -2491,12 +2572,28 @@ button.stonetop-xp-toggle {
 		url("../assets/ui/decor/panel-edge-bottom.png"),
 		url("../assets/ui/decor/panel-edge-left.png"),
 		url("../assets/ui/decor/panel-edge-right.png");
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
+		url("../assets/ui/decor/panel-corner-tr.png"),
+		url("../assets/ui/decor/panel-corner-bl.png"),
+		url("../assets/ui/decor/panel-corner-br.png"),
+		url("../assets/ui/decor/panel-edge-top.png"),
+		url("../assets/ui/decor/panel-edge-bottom.png"),
+		url("../assets/ui/decor/panel-edge-left.png"),
+		url("../assets/ui/decor/panel-edge-right.png");
+	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 		repeat-x, repeat-x, repeat-y, repeat-y;
-	background-position: left top, right top, left bottom, right bottom,
+	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-position: left top, right top, left bottom, right bottom,
 		left 16px top 0, left 16px bottom 0,
 		left 0 top 16px, right 0 top 16px;
-	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	-webkit-mask-position: left top, right top, left bottom, right bottom,
+		left 16px top 0, left 16px bottom 0,
+		left 0 top 16px, right 0 top 16px;
+	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+		8px calc(100% - 32px), 8px calc(100% - 32px);
+	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
 		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
 		8px calc(100% - 32px), 8px calc(100% - 32px);
 }
@@ -2527,7 +2624,7 @@ button.stonetop-xp-toggle {
 .stonetop-roll-dialog .dialog-button {
 	flex: 1 1 auto;
 	position: relative;
-	background-color: white;
+	background-color: var(--st-paper-raised);
 	border: none;
 	min-width: 70px;
 	height: 60px;
@@ -2547,7 +2644,8 @@ button.stonetop-xp-toggle {
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
 		url("../assets/ui/decor/panel-corner-tr.png"),
 		url("../assets/ui/decor/panel-corner-bl.png"),
 		url("../assets/ui/decor/panel-corner-br.png"),
@@ -2555,12 +2653,28 @@ button.stonetop-xp-toggle {
 		url("../assets/ui/decor/panel-edge-bottom.png"),
 		url("../assets/ui/decor/panel-edge-left.png"),
 		url("../assets/ui/decor/panel-edge-right.png");
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
+		url("../assets/ui/decor/panel-corner-tr.png"),
+		url("../assets/ui/decor/panel-corner-bl.png"),
+		url("../assets/ui/decor/panel-corner-br.png"),
+		url("../assets/ui/decor/panel-edge-top.png"),
+		url("../assets/ui/decor/panel-edge-bottom.png"),
+		url("../assets/ui/decor/panel-edge-left.png"),
+		url("../assets/ui/decor/panel-edge-right.png");
+	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 		repeat-x, repeat-x, repeat-y, repeat-y;
-	background-position: left top, right top, left bottom, right bottom,
+	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+		repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-position: left top, right top, left bottom, right bottom,
 		left 16px top 0, left 16px bottom 0,
 		left 0 top 16px, right 0 top 16px;
-	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	-webkit-mask-position: left top, right top, left bottom, right bottom,
+		left 16px top 0, left 16px bottom 0,
+		left 0 top 16px, right 0 top 16px;
+	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+		8px calc(100% - 32px), 8px calc(100% - 32px);
+	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
 		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
 		8px calc(100% - 32px), 8px calc(100% - 32px);
 }
@@ -2606,7 +2720,7 @@ button.stonetop-xp-toggle {
 
 .stonetop-supplies-pool-note {
 	font-size: var(--fs-body);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	font-style: italic;
 	margin: 0 0 4px;
 }
@@ -2619,7 +2733,7 @@ button.stonetop-xp-toggle {
 /* -- Arcana tab ----------------------------------------------- */
 .stonetop-arcana-empty {
 	padding: 16px;
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	font-style: italic;
 	text-align: center;
 }
@@ -2638,18 +2752,33 @@ button.stonetop-xp-toggle {
 .stonetop-arcanum-card {
 	display: flex;
 	flex-direction: column;
-	background: #fff;
+	background: var(--st-paper-raised);
 	min-width: 0; /* shrink with the track rather than overflowing it (see the grid above) */
 	min-height: 260px;
+	position: relative;
 	border-width: 28px;
 	border-style: solid;
-	border-image: url('../assets/ui/decor/arcana-card-border.png') 40 / 28px stretch;
+	border-color: transparent;
+}
+
+/* The card's chain border is 9-sliced, which a plain mask cannot express — mask-border is the
+   slicing equivalent, so the chain paints in --st-decor and follows the theme like the rest of the
+   sheet art. The element keeps its transparent border purely to reserve the 28px the art sits in. */
+.stonetop-arcanum-card::before {
+	content: "";
+	position: absolute;
+	inset: -28px;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask-border: url('../assets/ui/decor/arcana-card-border.png') 40 / 28px stretch;
+	-webkit-mask-box-image: url('../assets/ui/decor/arcana-card-border.png') 40 / 28px stretch;
 }
 
 .stonetop-arcanum-header {
-	background: var(--stonetop-bg);
+	background: var(--st-paper);
 	padding: 5px 8px;
-	border-bottom: 1px solid var(--color-border-dark);
+	border-bottom: 1px solid var(--st-rule-strong);
 	border-radius: 3px 3px 0 0;
 	display: flex;
 	justify-content: space-between;
@@ -2683,7 +2812,7 @@ button.stonetop-xp-toggle {
 	display: block;
 	font-size: var(--fs-note);
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 }
 
 .stonetop-arcanum-weight-note-row {
@@ -2695,7 +2824,7 @@ button.stonetop-xp-toggle {
 
 .stonetop-arcanum-note {
 	font-size: var(--fs-note);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 }
 
 .stonetop-arcanum-body {
@@ -2728,13 +2857,13 @@ button.stonetop-xp-toggle {
 	text-align: center;
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid var(--color-text-dark-secondary, #666);
+	border-bottom: 1px solid var(--st-ink-soft);
 	border-radius: 0;
 }
 
 .stonetop-arcanum-blank:focus {
 	outline: none;
-	border-bottom-color: var(--color-shadow-primary, #782e22);
+	border-bottom-color: var(--st-accent);
 	box-shadow: none;
 }
 
@@ -2754,7 +2883,7 @@ button.stonetop-xp-toggle {
 
 .stonetop-arcanum-footer {
 	padding: 4px 6px;
-	border-top: 1px solid var(--color-border-dark);
+	border-top: 1px solid var(--st-rule-strong);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -2851,19 +2980,19 @@ button.stonetop-xp-toggle {
 	flex: none;
 	box-sizing: border-box;
 	border-radius: 50%;
-	border: 2px solid var(--color-text-dark-primary);
+	border: 2px solid var(--st-ink);
 	background: none;
 	cursor: pointer;
 	padding: 0;
 }
 
 .stonetop-arcanum-resource-btn.is-checked {
-	background-color: var(--color-text-dark-primary) !important;
+	background-color: var(--st-ink) !important;
 }
 
 .stonetop-arcanum-resource-label {
 	font-size: var(--fs-note);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	margin-right: 4px;
 }
 
@@ -2889,7 +3018,7 @@ button.stonetop-xp-toggle {
 	letter-spacing: 0.03em;
 	margin: 8px 0 4px;
 	padding-bottom: 2px;
-	border-bottom: 1px solid var(--color-border-dark, #4b4a44);
+	border-bottom: 1px solid var(--st-rule-strong);
 }
 
 /* Inside a card section the divider above already provides the spacing. */
@@ -2979,14 +3108,14 @@ button.stonetop-xp-toggle {
 	height: 14px !important;
 	flex: 0 0 14px !important;
 	border-radius: 2px !important;
-	border: 2px solid var(--color-text-dark-primary) !important;
+	border: 2px solid var(--st-ink) !important;
 	background: transparent !important;
 	cursor: pointer;
 	margin: 0;
 }
 
 .stonetop-option-check:checked {
-	background-color: var(--color-text-dark-primary) !important;
+	background-color: var(--st-ink) !important;
 }
 
 .stonetop-option-desc {
@@ -3005,7 +3134,7 @@ button.stonetop-xp-toggle {
 
 .stonetop-followers-empty {
 	padding: 16px;
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	font-style: italic;
 	text-align: center;
 }
@@ -3048,7 +3177,7 @@ button.stonetop-xp-toggle {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
-	background: white;
+	background: var(--st-paper-raised);
 	padding: 12px;
 	font-size: var(--fs-body);
 }
@@ -3059,7 +3188,8 @@ button.stonetop-xp-toggle {
 	inset: 0;
 	pointer-events: none;
 	z-index: 0;
-	background-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
 	url("../assets/ui/decor/panel-corner-tr.png"),
 	url("../assets/ui/decor/panel-corner-bl.png"),
 	url("../assets/ui/decor/panel-corner-br.png"),
@@ -3067,12 +3197,28 @@ button.stonetop-xp-toggle {
 	url("../assets/ui/decor/panel-edge-bottom.png"),
 	url("../assets/ui/decor/panel-edge-left.png"),
 	url("../assets/ui/decor/panel-edge-right.png");
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
+	url("../assets/ui/decor/panel-corner-tr.png"),
+	url("../assets/ui/decor/panel-corner-bl.png"),
+	url("../assets/ui/decor/panel-corner-br.png"),
+	url("../assets/ui/decor/panel-edge-top.png"),
+	url("../assets/ui/decor/panel-edge-bottom.png"),
+	url("../assets/ui/decor/panel-edge-left.png"),
+	url("../assets/ui/decor/panel-edge-right.png");
+	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
 	repeat-x, repeat-x, repeat-y, repeat-y;
-	background-position: left top, right top, left bottom, right bottom,
+	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
+	repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-position: left top, right top, left bottom, right bottom,
 	left 16px top 0, left 16px bottom 0,
 	left 0 top 16px, right 0 top 16px;
-	background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	-webkit-mask-position: left top, right top, left bottom, right bottom,
+	left 16px top 0, left 16px bottom 0,
+	left 0 top 16px, right 0 top 16px;
+	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
+	calc(100% - 32px) 8px, calc(100% - 32px) 8px,
+	8px calc(100% - 32px), 8px calc(100% - 32px);
+	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
 	calc(100% - 32px) 8px, calc(100% - 32px) 8px,
 	8px calc(100% - 32px), 8px calc(100% - 32px);
 }
@@ -3120,7 +3266,7 @@ button.stonetop-xp-toggle {
 
 .stonetop-follower-name-input:hover,
 .stonetop-follower-name-input:focus {
-	border-bottom-color: var(--color-border-dark);
+	border-bottom-color: var(--st-rule-strong);
 }
 
 /* Group followers: a list of members, each owning its HP (the card's own HP box is hidden). */
@@ -3165,7 +3311,7 @@ button.stonetop-xp-toggle {
 	flex-direction: column;
 	gap: 2px;
 	padding: 4px 0;
-	border-top: 1px solid var(--color-border-light-2, rgba(0,0,0,0.1));
+	border-top: 1px solid var(--st-rule);
 }
 .stonetop-member-top {
 	display: flex;
@@ -3185,7 +3331,7 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 .stonetop-member-top .stonetop-member-name:hover,
-.stonetop-member-top .stonetop-member-name:focus { border-bottom-color: var(--color-border-dark); }
+.stonetop-member-top .stonetop-member-name:focus { border-bottom-color: var(--st-rule-strong); }
 .stonetop-member-row {
 	display: flex;
 	align-items: baseline;
@@ -3223,7 +3369,7 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 .stonetop-member-hp input:hover,
-.stonetop-member-hp input:focus { border-bottom-color: var(--color-border-dark); }
+.stonetop-member-hp input:focus { border-bottom-color: var(--st-rule-strong); }
 .stonetop-member-remove {
 	flex: 0 0 auto;
 	width: auto !important;
@@ -3271,7 +3417,7 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 .stonetop-combo-input:hover,
-.stonetop-combo-input:focus { border-bottom-color: var(--color-border-dark); }
+.stonetop-combo-input:focus { border-bottom-color: var(--st-rule-strong); }
 .stonetop-combo-toggle {
 	flex: 0 0 auto;
 	width: auto !important;
@@ -3294,13 +3440,13 @@ button.stonetop-xp-toggle {
 	list-style: none;
 	max-height: 220px;
 	overflow-y: auto;
-	background: var(--stonetop-bg, #f4ecd8);
+	background: var(--st-paper);
 	/* Portaled out of the sheet scope, so set the sheet's dark text color explicitly
 	   (otherwise it inherits Foundry's default link/yellow text from <body>). */
-	color: var(--color-text-dark-primary, #191813);
-	border: 1px solid var(--color-border-dark);
+	color: var(--st-ink);
+	border: 1px solid var(--st-rule-strong);
 	border-radius: 3px;
-	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+	box-shadow: 0 4px 14px var(--st-shadow);
 }
 .stonetop-combo-list[hidden] { display: none; }
 .stonetop-combo-option {
@@ -3311,7 +3457,7 @@ button.stonetop-xp-toggle {
 	cursor: pointer;
 	border-radius: 2px;
 }
-.stonetop-combo-option:hover { background: rgba(75, 74, 68, 0.16); }
+.stonetop-combo-option:hover { background: var(--st-paper-sunken-strong); }
 
 /* Inline fill-in-the-blank editor for `__` trait suggestions (comboBox.js). While filling, the
    add-combo takes its own full-width line in the tags row so the blanks can't run off the card. */
@@ -3335,7 +3481,7 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-body);
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid var(--color-border-dark);
+	border-bottom: 1px solid var(--st-rule-strong);
 	outline: none;
 }
 .stonetop-fill-confirm,
@@ -3350,8 +3496,8 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-note);
 	cursor: pointer;
 }
-.stonetop-fill-confirm { color: #2e7d32; }
-.stonetop-fill-cancel  { color: #b23b3b; }
+.stonetop-fill-confirm { color: var(--st-positive); }
+.stonetop-fill-cancel  { color: var(--st-danger); }
 .stonetop-fill-confirm:hover,
 .stonetop-fill-cancel:hover { opacity: 0.7; }
 
@@ -3444,7 +3590,7 @@ button.stonetop-xp-toggle {
 	padding-right: 24px;
 	font-size: var(--fs-body);
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 	background: transparent;
 	border: none;
 	border-bottom: 1px solid transparent;
@@ -3453,7 +3599,7 @@ button.stonetop-xp-toggle {
 
 .stonetop-follower-note-input:hover,
 .stonetop-follower-note-input:focus {
-	border-bottom-color: var(--color-border-dark);
+	border-bottom-color: var(--st-rule-strong);
 }
 
 .stonetop-follower-delete {
@@ -3496,7 +3642,7 @@ button.stonetop-xp-toggle {
 	font-weight: bold;
 	font-size: var(--fs-note);
 	text-transform: uppercase;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop-follower-loyalty-pips {
@@ -3508,14 +3654,14 @@ button.stonetop-xp-toggle {
 	width: 16px;
 	height: 16px;
 	border-radius: 2px;
-	border: 1px solid var(--color-border-dark);
+	border: 1px solid var(--st-rule-strong);
 	background: transparent;
 	cursor: pointer;
 	padding: 0;
 }
 
 .stonetop-follower-loyalty-pip.is-checked {
-	background: var(--color-text-dark-primary, #333);
+	background: var(--st-ink);
 }
 
 .stonetop-follower-choices {
@@ -3562,10 +3708,10 @@ button.stonetop-xp-toggle {
 	align-items: baseline;
 	gap: 2px;
 	font-size: var(--fs-fine);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 }
 .stonetop-follower-capacity.is-over {
-	color: var(--color-level-warning, #b45309);
+	color: var(--st-warning);
 	font-weight: bold;
 }
 .stonetop-follower-capacity-input {
@@ -3577,7 +3723,7 @@ button.stonetop-xp-toggle {
 	color: inherit;
 	background: transparent;
 	border: none;
-	border-bottom: 1px dotted var(--color-border-light, #ccc);
+	border-bottom: 1px dotted var(--st-rule);
 }
 .stonetop-follower-inventory-list,
 .stonetop-follower-inventory-catalog {
@@ -3599,7 +3745,7 @@ button.stonetop-xp-toggle {
 	width: 100%;
 	resize: vertical;
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	background: transparent;
 	border: 1px solid transparent;
 	border-radius: 2px;
@@ -3640,35 +3786,81 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .panel-corner {
 	width: 16px;
 	height: 16px;
-	background-repeat: no-repeat;
-	background-size: contain;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+	mask-size: contain;
+	-webkit-mask-size: contain;
 	z-index: 2;
 }
 
-.stonetop.sheet.steading .panel-corner-tl { top: 0; left: 0;  background-image: url("../assets/ui/decor/panel-corner-tl.png"); }
-.stonetop.sheet.steading .panel-corner-tr { top: 0; right: 0; background-image: url("../assets/ui/decor/panel-corner-tr.png"); }
-.stonetop.sheet.steading .panel-corner-bl { bottom: 0; left: 0;  background-image: url("../assets/ui/decor/panel-corner-bl.png"); }
-.stonetop.sheet.steading .panel-corner-br { bottom: 0; right: 0; background-image: url("../assets/ui/decor/panel-corner-br.png"); }
+.stonetop.sheet.steading .panel-corner-tl {
+	top: 0;
+	left: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tl.png");
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png");
+}
+.stonetop.sheet.steading .panel-corner-tr {
+	top: 0;
+	right: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-tr.png");
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tr.png");
+}
+.stonetop.sheet.steading .panel-corner-bl {
+	bottom: 0;
+	left: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-bl.png");
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-bl.png");
+}
+.stonetop.sheet.steading .panel-corner-br {
+	bottom: 0;
+	right: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/panel-corner-br.png");
+	-webkit-mask-image: url("../assets/ui/decor/panel-corner-br.png");
+}
 
 .stonetop.sheet.steading .panel-edge-top {
-	top: 0; left: 16px; right: 16px; height: 8px;
-	background: url("../assets/ui/decor/panel-edge-top.png") repeat-x top left / auto 8px;
+	top: 0;
+	left: 16px;
+	right: 16px;
+	height: 8px;
 	z-index: 1;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/panel-edge-top.png") repeat-x top left / auto 8px;
+	-webkit-mask: url("../assets/ui/decor/panel-edge-top.png") repeat-x top left / auto 8px;
 }
 .stonetop.sheet.steading .panel-edge-bottom {
-	bottom: 0; left: 16px; right: 16px; height: 8px;
-	background: url("../assets/ui/decor/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
+	bottom: 0;
+	left: 16px;
+	right: 16px;
+	height: 8px;
 	z-index: 1;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
+	-webkit-mask: url("../assets/ui/decor/panel-edge-bottom.png") repeat-x bottom left / auto 8px;
 }
 .stonetop.sheet.steading .panel-edge-left {
-	top: 16px; bottom: 16px; left: 0; width: 8px;
-	background: url("../assets/ui/decor/panel-edge-left.png") repeat-y top left / 8px auto;
+	top: 16px;
+	bottom: 16px;
+	left: 0;
+	width: 8px;
 	z-index: 1;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/panel-edge-left.png") repeat-y top left / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/panel-edge-left.png") repeat-y top left / 8px auto;
 }
 .stonetop.sheet.steading .panel-edge-right {
-	top: 16px; bottom: 16px; right: 0; width: 8px;
-	background: url("../assets/ui/decor/panel-edge-right.png") repeat-y top right / 8px auto;
+	top: 16px;
+	bottom: 16px;
+	right: 0;
+	width: 8px;
 	z-index: 1;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/panel-edge-right.png") repeat-y top right / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/panel-edge-right.png") repeat-y top right / 8px auto;
 }
 
 /* Lifts a panel's content above the decorative corners/edges (which are absolute, z-index 1-2).
@@ -3688,7 +3880,7 @@ button.stonetop-xp-toggle {
 	letter-spacing: 0.5px;
 	margin: 0 0 4px;
 	padding-bottom: 3px;
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid var(--st-rule-veil);
 	display: flex;
 	align-items: center;
 	min-height: 1.4em;
@@ -3760,7 +3952,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-start-line {
 	font-size: var(--fs-micro);
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	margin: 0 0 5px;
 	padding-bottom: 4px;
 	position: relative;
@@ -3772,7 +3964,7 @@ button.stonetop-xp-toggle {
 	position: absolute;
 	bottom: 0; left: 0; right: 0;
 	height: 1px;
-	background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+	background: linear-gradient(to right, var(--st-paper-inset), transparent);
 }
 
 /* ── Radio options ───────────────────────────────────────────────────────────── */
@@ -3808,8 +4000,11 @@ button.stonetop-xp-toggle {
 	width: 11px;
 	height: 11px;
 	margin-top: 2px;
-	border: 1px solid rgba(0,0,0,0.4);
-	background: rgba(255,255,255,0.5);
+	/* --st-rule-strong, not --st-shadow: a shadow is black in every theme by design, so an unchecked
+	   box outlined with it disappeared against dark paper. --st-paper-sunken is ink-derived, so the
+	   recess reads darker on light paper and lighter on dark. */
+	border: 1px solid var(--st-rule-strong);
+	background: var(--st-paper-sunken);
 }
 
 .stonetop.sheet.steading .steading-box {
@@ -3822,8 +4017,8 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-box-input:checked + .steading-box,
 .stonetop.sheet.steading .steading-circle-input:checked + .steading-circle {
-	background: rgba(80, 55, 30, 0.75);
-	border-color: rgba(80, 55, 30, 0.9);
+	background: var(--st-accent-fill);
+	border-color: var(--st-accent);
 }
 
 .stonetop.sheet.steading .steading-option-text {
@@ -3835,7 +4030,7 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-option-text small {
 	font-size: var(--fs-micro);
-	color: var(--color-text-dark-secondary, #666);
+	color: var(--st-ink-soft);
 }
 
 /* ── Surplus input ───────────────────────────────────────────────────────────── */
@@ -3845,10 +4040,10 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-display);
 	font-family: var(--font-primary);
 	text-align: center;
-	border: 1px solid rgba(0,0,0,0.25);
+	border: 1px solid var(--st-rule-veil);
 	border-radius: 3px;
 	padding: 2px 4px;
-	background: rgba(255,255,255,0.4);
+	background: var(--st-paper-veil-soft);
 	margin-top: 4px;
 }
 
@@ -3874,14 +4069,14 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop.sheet.steading .steading-stat-roll:hover {
-	color: var(--color-text-hyperlink, #4b4a44);
+	color: var(--st-highlight);
 	text-decoration: underline;
 }
 
 /* ── Debilities panel ────────────────────────────────────────────────────────── */
 
 .stonetop.sheet.steading .steading-debilities-panel h2 {
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid var(--st-rule-veil);
 }
 
 .stonetop.sheet.steading .steading-debility-list {
@@ -3898,7 +4093,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-debility-option small {
 	display: block;
 	font-size: var(--fs-micro);
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	font-style: italic;
 }
 
@@ -3920,8 +4115,10 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-overview-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
 .stonetop.sheet.steading .steading-overview-field {
@@ -3962,8 +4159,10 @@ button.stonetop-xp-toggle {
 	display: block;
 	width: 12px;
 	height: 12px;
-	background: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 	flex-shrink: 0;
+	background-color: var(--st-decor);
+	mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
+	-webkit-mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 }
 
 .stonetop.sheet.steading .steading-attr-row input[type="text"] {
@@ -3977,7 +4176,7 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop.sheet.steading .steading-attr-row input[type="text"]:focus {
-	border-bottom-color: rgba(0,0,0,0.3);
+	border-bottom-color: var(--st-rule-veil);
 	outline: none;
 }
 
@@ -4006,7 +4205,7 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-fine);
 	font-variant: small-caps;
 	letter-spacing: 0.5px;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 /* The hairline that trails the currency name out to the panel edge. */
@@ -4014,7 +4213,7 @@ button.stonetop-xp-toggle {
 	content: '';
 	flex: 1;
 	height: 1px;
-	background: rgba(0,0,0,0.15);
+	background: var(--st-paper-inset);
 }
 
 .stonetop.sheet.steading .steading-coinage-fields {
@@ -4033,7 +4232,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-coinage-field > span {
 	font-size: var(--fs-micro);
 	text-align: center;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .steading-coinage-field input[type="number"] {
@@ -4070,8 +4269,10 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-residents-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
 .stonetop.sheet.steading .steading-resident-names {
@@ -4083,7 +4284,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-names-text {
 	font-size: var(--fs-fine);
 	line-height: 1.5;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	margin: 0;
 	overflow-y: auto;
 }
@@ -4101,11 +4302,11 @@ button.stonetop-xp-toggle {
 	height: 14px !important;
 	flex: 0 0 14px !important;
 	border-radius: 2px !important;
-	border: 2px solid #1a1a1a !important;
+	border: 2px solid var(--st-ink) !important;
 	background: transparent !important;
 }
 .stonetop.sheet.steading .stonetop-item-check:checked {
-	background: #1a1a1a !important;
+	background: var(--st-ink) !important;
 }
 .stonetop.sheet.steading .stonetop-item-check::before,
 .stonetop.sheet.steading .stonetop-item-check::after {
@@ -4119,19 +4320,19 @@ button.stonetop-xp-toggle {
    core sets currentColor to: empty = red ring, used = solid red. */
 .stonetop.sheet.steading .stonetop-item-resource-check {
 	/* Set the FULL border, not just border-color: the shared rule above draws it via
-	   var(--color-text-dark-primary), which core leaves undefined on a V2 sheet, so that whole
+	   var(--st-ink), which core leaves undefined on a V2 sheet, so that whole
 	   `border` shorthand is invalid-at-computed-value → border-style collapses to `none` and an
 	   empty ring never paints (it only flickered on :hover). Pin width+style+color right here. */
-	border: 2px solid #1a1a1a !important;                  /* black ring when unfilled */
-	background-color: rgba(122, 20, 20, 0.14) !important;  /* faint red wash inside the ring */
+	border: 2px solid var(--st-ink) !important;                  /* black ring when unfilled */
+	background-color: var(--st-danger-wash) !important;  /* faint red wash inside the ring */
 }
 .stonetop.sheet.steading .stonetop-item-resource-check:hover {
-	border-color: #7a1414 !important;                      /* deep-red ring on hover */
-	background-color: rgba(122, 20, 20, 0.28) !important;
+	border-color: var(--st-danger-strong) !important;                      /* deep-red ring on hover */
+	background-color: var(--st-danger-wash) !important;
 }
 .stonetop.sheet.steading .stonetop-item-resource-check.is-checked {
-	background-color: #1a1a1a !important;                  /* black fill when selected */
-	border-color: #1a1a1a !important;
+	background-color: var(--st-ink) !important;                  /* black fill when selected */
+	border-color: var(--st-ink) !important;
 }
 
 .stonetop.sheet.steading .steading-residents-img {
@@ -4168,9 +4369,9 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-residents-header span {
 	font-size: var(--fs-micro);
 	font-weight: bold;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	padding-bottom: 3px;
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid var(--st-rule-veil);
 }
 
 .stonetop.sheet.steading .steading-resident-row input[type="text"] {
@@ -4184,7 +4385,7 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop.sheet.steading .steading-resident-row input[type="text"]:focus {
-	border-bottom-color: rgba(0,0,0,0.3);
+	border-bottom-color: var(--st-rule-veil);
 	outline: none;
 }
 
@@ -4212,7 +4413,7 @@ button.stonetop-xp-toggle {
 	margin: 2px 0 0;
 	font-size: var(--fs-micro);
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .stonetop-resident-unlink,
@@ -4226,13 +4427,13 @@ button.stonetop-xp-toggle {
 	padding: 0 2px;
 	line-height: 1;
 	font-size: var(--fs-micro);
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .stonetop-resident-unlink:hover,
 .stonetop.sheet.steading .stonetop-neighbor-person-unlink:hover,
 .stonetop.sheet.steading .stonetop-place-unlink:hover {
-	color: var(--color-text-dark-primary, #111);
+	color: var(--st-ink);
 }
 
 .stonetop.sheet.steading .steading-add-resident {
@@ -4261,7 +4462,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-npc-traits-heading span {
 	font-size: var(--fs-fine);
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .steading-npc-traits-source {
@@ -4283,7 +4484,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-npc-trait {
 	font-size: var(--fs-fine);
 	line-height: 1.5;
-	color: var(--color-text-dark-primary, #222);
+	color: var(--st-ink);
 }
 
 /* ── Neighbors tab ───────────────────────────────────────────────────────────── */
@@ -4303,8 +4504,10 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-neighbors-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
 .stonetop.sheet.steading .steading-neighbors-header,
@@ -4330,7 +4533,7 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-micro);
 	font-weight: normal;
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .steading-neighbor-text-field {
@@ -4342,7 +4545,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-neighbor-text-field span {
 	font-size: var(--fs-micro);
 	font-weight: bold;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	text-transform: uppercase;
 	letter-spacing: 0.3px;
 }
@@ -4350,7 +4553,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-neighbor-text-field textarea {
 	resize: none;
 	border: none;
-	border-bottom: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid var(--st-rule-veil);
 	background: transparent;
 	font-size: var(--fs-fine);
 	font-family: var(--font-primary);
@@ -4361,7 +4564,7 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-neighbor-text-field textarea:focus {
 	outline: none;
-	border-bottom-color: rgba(0,0,0,0.35);
+	border-bottom-color: var(--st-accent);
 }
 
 /* ── Improvements tab ────────────────────────────────────────────────────────── */
@@ -4383,8 +4586,10 @@ button.stonetop-xp-toggle {
 	width: 8px;
 	align-self: stretch;
 	flex-shrink: 0;
-	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
 .stonetop.sheet.steading .steading-improvement-group {
@@ -4514,8 +4719,10 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-notes-divider {
 	width: 8px;
 	flex-shrink: 0;
-	background: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 	margin: 0 4px;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
 .stonetop.sheet.steading .steading-notes-field {
@@ -4558,7 +4765,7 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-micro);
 	font-weight: normal;
 	font-style: italic;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .stonetop-steading-content-items {
@@ -4584,7 +4791,7 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop.sheet.steading .stonetop-steading-content-row input[type="text"]:focus {
-	border-bottom-color: rgba(0,0,0,0.3);
+	border-bottom-color: var(--st-rule-veil);
 	outline: none;
 }
 
@@ -4606,7 +4813,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .stonetop-place-key {
 	font-size: var(--fs-fine);
 	font-weight: bold;
-	color: var(--color-text-dark-secondary, #555);
+	color: var(--st-ink-soft);
 	flex-shrink: 0;
 	width: 16px;
 }
@@ -4622,7 +4829,7 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop.sheet.steading .stonetop-places-row input[type="text"]:focus {
-	border-bottom-color: rgba(0,0,0,0.3);
+	border-bottom-color: var(--st-rule-veil);
 	outline: none;
 }
 
@@ -4631,7 +4838,7 @@ button.stonetop-xp-toggle {
    ============================================================ */
 
 /* No background set — inherits the parchment window-content background
-   shared by all Stonetop sheets (var(--stonetop-bg)). */
+   shared by all Stonetop sheets (var(--st-paper)). */
 
 /* -- Header -------------------------------------------------- */
 
@@ -4640,7 +4847,7 @@ button.stonetop-xp-toggle {
 	align-items: center;
 	gap: 0.75rem;
 	padding: 0.75rem;
-	border-bottom: 2px solid #8b5c2a;
+	border-bottom: 2px solid var(--st-accent);
 }
 
 .move-sheet-icon {
@@ -4648,7 +4855,7 @@ button.stonetop-xp-toggle {
 	height: 48px;
 	object-fit: cover;
 	border-radius: 4px;
-	border: 1px solid #bbb;
+	border: 1px solid var(--st-rule);
 	cursor: pointer;
 	flex-shrink: 0;
 }
@@ -4664,7 +4871,7 @@ button.stonetop-xp-toggle {
 .move-sheet-name {
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid #bbb;
+	border-bottom: 1px solid var(--st-rule);
 	color: inherit;
 	font-size: var(--fs-title);
 	font-weight: bold;
@@ -4675,7 +4882,7 @@ button.stonetop-xp-toggle {
 
 .move-sheet-name:focus {
 	outline: none;
-	border-bottom-color: #8b5c2a;
+	border-bottom-color: var(--st-accent);
 }
 
 .move-sheet-name:disabled {
@@ -4689,8 +4896,8 @@ button.stonetop-xp-toggle {
 }
 
 .move-sheet-selects select {
-	background: rgba(255, 255, 255, 0.5);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil-soft);
+	border: 1px solid var(--st-rule);
 	color: inherit;
 	border-radius: 3px;
 	padding: 0.15rem 0.4rem;
@@ -4717,7 +4924,7 @@ button.stonetop-xp-toggle {
    results section. Size to content instead and let the body scroll. */
 .move-sheet-description {
 	padding: 0.75rem;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid var(--st-rule-soft);
 	flex: 0 0 auto;
 	min-height: 150px;
 	display: flex;
@@ -4743,13 +4950,13 @@ button.stonetop-xp-toggle {
 .move-sheet-results {
 	display: flex;
 	flex-direction: column;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid var(--st-rule-soft);
 }
 
 .move-sheet-result {
 	display: flex;
 	align-items: stretch;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid var(--st-rule-soft);
 }
 
 .move-sheet-result:first-child {
@@ -4769,25 +4976,25 @@ button.stonetop-xp-toggle {
 }
 
 .move-sheet-result-label--success {
-	background: #dff0df;
-	color: #2d6a2d;
+	background: var(--st-positive-veil);
+	color: var(--st-positive);
 }
 
 .move-sheet-result-label--partial {
-	background: #fdf3d0;
-	color: #7a5500;
+	background: var(--st-warning-veil);
+	color: var(--st-warning);
 }
 
 .move-sheet-result-label--failure {
-	background: #f0dfdf;
-	color: #6a2d2d;
+	background: var(--st-danger-veil);
+	color: var(--st-danger-strong);
 }
 
 .move-sheet-result textarea {
 	flex: 1;
 	background: transparent;
 	border: none;
-	border-left: 1px solid #ddd;
+	border-left: 1px solid var(--st-rule-soft);
 	color: inherit;
 	font-family: inherit;
 	font-size: var(--fs-body);
@@ -4798,11 +5005,11 @@ button.stonetop-xp-toggle {
 
 .move-sheet-result textarea:focus {
 	outline: none;
-	background: rgba(255, 255, 255, 0.4);
+	background: var(--st-paper-veil-soft);
 }
 
 .move-sheet-result textarea::placeholder {
-	color: #aaa;
+	color: var(--st-ink-muted);
 }
 
 .move-sheet-result-text {
@@ -4810,7 +5017,7 @@ button.stonetop-xp-toggle {
 	padding: 0.4rem 0.6rem;
 	font-size: var(--fs-body);
 	line-height: 1.4;
-	border-left: 1px solid #ddd;
+	border-left: 1px solid var(--st-rule-soft);
 }
 
 .move-sheet-result-text p {
@@ -4833,8 +5040,8 @@ button.stonetop-xp-toggle {
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	padding: 0.65rem 0.75rem;
-	background: rgba(0, 0, 0, 0.04);
-	border-top: 1px solid #ccc;
+	background: var(--st-paper-sunken);
+	border-top: 1px solid var(--st-rule-soft);
 	align-items: center;
 }
 
@@ -4859,7 +5066,7 @@ button.stonetop-xp-toggle {
 
 .move-sheet-detail-label {
 	font-size: var(--fs-fine);
-	color: #666;
+	color: var(--st-ink-faint);
 	white-space: nowrap;
 }
 
@@ -4867,8 +5074,8 @@ button.stonetop-xp-toggle {
 .move-sheet-detail input[type="number"],
 .move-sheet-detail select {
 	flex: 1;
-	background: rgba(255, 255, 255, 0.6);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	color: inherit;
 	font-family: inherit;
@@ -4886,7 +5093,7 @@ button.stonetop-xp-toggle {
 .move-sheet-detail input[type="number"]:focus,
 .move-sheet-detail select:focus {
 	outline: none;
-	border-color: #8b5c2a;
+	border-color: var(--st-accent);
 }
 
 .move-sheet-detail input:disabled,
@@ -4898,13 +5105,13 @@ button.stonetop-xp-toggle {
 	width: 1rem;
 	height: 1rem;
 	cursor: pointer;
-	accent-color: #8b5c2a;
+	accent-color: var(--st-accent);
 }
 
 /* ── Move Sheet — Choices Editor ─────────────────────────────────────────── */
 
 .move-sheet-choices {
-	border-top: 1px solid #ccc;
+	border-top: 1px solid var(--st-rule-soft);
 	padding: 0.75rem;
 }
 
@@ -4921,27 +5128,27 @@ button.stonetop-xp-toggle {
 
 .choices-remove-group {
 	background: none;
-	border: 1px solid #ccc;
+	border: 1px solid var(--st-rule-soft);
 	border-radius: 3px;
 	cursor: pointer;
 	font-size: var(--fs-fine);
 	padding: 0.15rem 0.5rem;
-	color: #a00;
+	color: var(--st-danger);
 	margin-left: auto;
 	white-space: nowrap;
 }
 
 .choices-remove-group:hover {
-	border-color: #a00;
-	background: rgba(170, 0, 0, 0.05);
+	border-color: var(--st-danger);
+	background: var(--st-danger-veil);
 }
 
 .choices-row {
-	border: 1px solid #ddd;
+	border: 1px solid var(--st-rule-soft);
 	border-radius: 4px;
 	padding: 0.5rem;
 	margin-bottom: 0.5rem;
-	background: rgba(255, 255, 255, 0.4);
+	background: var(--st-paper-veil-soft);
 }
 
 .choices-row-header {
@@ -4962,43 +5169,43 @@ button.stonetop-xp-toggle {
 }
 
 .choices-row-type--heading {
-	background: #dce8f5;
-	color: #2050a0;
+	background: var(--st-info-veil);
+	color: var(--st-info);
 }
 
 .choices-row-type--pick {
-	background: #dff0df;
-	color: #2d6a2d;
+	background: var(--st-positive-veil);
+	color: var(--st-positive);
 }
 
 .choices-row-type--follower {
-	background: #f0e0f5;
-	color: #6a2d8a;
+	background: var(--st-arcane-veil);
+	color: var(--st-arcane);
 }
 
 .choices-row-header button {
 	background: none;
-	border: 1px solid #bbb;
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	cursor: pointer;
 	font-size: var(--fs-note);
 	padding: 0.1rem 0.4rem;
-	color: #555;
+	color: var(--st-ink-soft);
 	line-height: 1;
 }
 
 .choices-row-header button:hover {
-	background: rgba(0, 0, 0, 0.06);
+	background: var(--st-paper-sunken-strong);
 }
 
 .choices-row-delete {
-	color: #a00 !important;
-	border-color: #dbb !important;
+	color: var(--st-danger) !important;
+	border-color: var(--st-danger-veil) !important;
 }
 
 .choices-row-delete:hover {
-	background: rgba(170, 0, 0, 0.06) !important;
-	border-color: #a00 !important;
+	background: var(--st-danger-veil) !important;
+	border-color: var(--st-danger) !important;
 }
 
 .choices-row-fields {
@@ -5017,7 +5224,7 @@ button.stonetop-xp-toggle {
 
 .choices-field > span:first-child {
 	min-width: 4.5rem;
-	color: #666;
+	color: var(--st-ink-faint);
 	font-size: var(--fs-fine);
 }
 
@@ -5025,8 +5232,8 @@ button.stonetop-xp-toggle {
 .choices-field input[type="number"],
 .choices-field select {
 	flex: 1;
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	font-family: inherit;
 	font-size: var(--fs-note);
@@ -5041,19 +5248,19 @@ button.stonetop-xp-toggle {
 .choices-field .choices-rich-text {
 	flex: 1;
 	min-width: 0;
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	padding: 0.15rem 0.35rem;
 }
 .choices-field .choices-rich-text .editor-content { min-height: 4rem; }
-.choices-field .choices-rich-text:focus-within { border-color: #8b5c2a; }
+.choices-field .choices-rich-text:focus-within { border-color: var(--st-accent); }
 
 .choices-field input[type="text"]:focus,
 .choices-field input[type="number"]:focus,
 .choices-field select:focus {
 	outline: none;
-	border-color: #8b5c2a;
+	border-color: var(--st-accent);
 }
 
 .choices-field--narrow input {
@@ -5071,7 +5278,7 @@ button.stonetop-xp-toggle {
 
 .choices-field--check input[type="checkbox"] {
 	margin: 0;
-	accent-color: #8b5c2a;
+	accent-color: var(--st-accent);
 	flex: none;
 	width: auto;
 	align-self: center;
@@ -5088,7 +5295,7 @@ button.stonetop-xp-toggle {
 
 .choices-field--toggle > span:first-child {
 	min-width: unset;
-	color: #666;
+	color: var(--st-ink-faint);
 	font-size: var(--fs-fine);
 }
 
@@ -5098,8 +5305,8 @@ button.stonetop-xp-toggle {
 	width: 100%;
 	min-width: 0;
 	box-sizing: border-box;
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	font-family: inherit;
 	font-size: var(--fs-note);
@@ -5112,13 +5319,13 @@ button.stonetop-xp-toggle {
 	grid-column: 3;
 	justify-self: start;
 	background: none;
-	border: 1px solid #bbb;
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	cursor: pointer;
 	font-size: var(--fs-fine);
 	padding: 0 0.35rem;
 	line-height: 1.6;
-	color: #555;
+	color: var(--st-ink-soft);
 	height: auto;
 	min-height: 0;
 	width: auto;
@@ -5126,7 +5333,7 @@ button.stonetop-xp-toggle {
 }
 
 .choices-field--toggle button:hover {
-	background: rgba(0, 0, 0, 0.06);
+	background: var(--st-paper-sunken-strong);
 }
 
 .choices-options-list {
@@ -5154,8 +5361,8 @@ button.stonetop-xp-toggle {
 .choices-option-row input[type="text"] {
 	width: 100%;
 	min-width: 0;
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	font-family: inherit;
 	font-size: var(--fs-fine);
@@ -5164,8 +5371,8 @@ button.stonetop-xp-toggle {
 }
 
 .choices-option-row select {
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	font-family: inherit;
 	font-size: var(--fs-fine);
@@ -5176,14 +5383,14 @@ button.stonetop-xp-toggle {
 .choices-option-row input[type="text"]:focus,
 .choices-option-row select:focus {
 	outline: none;
-	border-color: #8b5c2a;
+	border-color: var(--st-accent);
 }
 
 .choices-option-desc {
 	width: 100%;
 	box-sizing: border-box;
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid #bbb;
+	background: var(--st-paper-veil);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	font-family: inherit;
 	font-size: var(--fs-fine);
@@ -5195,7 +5402,7 @@ button.stonetop-xp-toggle {
 
 .choices-option-desc:focus {
 	outline: none;
-	border-color: #8b5c2a;
+	border-color: var(--st-accent);
 }
 
 .choices-option-desc:placeholder-shown {
@@ -5204,10 +5411,10 @@ button.stonetop-xp-toggle {
 
 .choices-option-delete {
 	background: none;
-	border: 1px solid #dbb;
+	border: 1px solid var(--st-danger-veil);
 	border-radius: 3px;
 	cursor: pointer;
-	color: #a00;
+	color: var(--st-danger);
 	font-size: var(--fs-fine);
 	padding: 0.1rem 0.35rem;
 	flex: none;
@@ -5215,25 +5422,25 @@ button.stonetop-xp-toggle {
 }
 
 .choices-option-delete:hover {
-	border-color: #a00;
-	background: rgba(170, 0, 0, 0.06);
+	border-color: var(--st-danger);
+	background: var(--st-danger-veil);
 }
 
 .choices-add-option {
 	background: none;
-	border: 1px dashed #bbb;
+	border: 1px dashed var(--st-rule);
 	border-radius: 3px;
 	cursor: pointer;
 	font-size: var(--fs-fine);
 	padding: 0.15rem 0.5rem;
-	color: #666;
+	color: var(--st-ink-faint);
 	align-self: flex-start;
 	margin-top: 0.15rem;
 }
 
 .choices-add-option:hover {
-	border-color: #8b5c2a;
-	color: #8b5c2a;
+	border-color: var(--st-accent);
+	color: var(--st-accent);
 }
 
 .choices-add-row-buttons {
@@ -5245,18 +5452,18 @@ button.stonetop-xp-toggle {
 .choices-add-row-buttons button,
 .choices-add-group {
 	background: none;
-	border: 1px dashed #bbb;
+	border: 1px dashed var(--st-rule);
 	border-radius: 3px;
 	cursor: pointer;
 	font-size: var(--fs-note);
 	padding: 0.25rem 0.75rem;
-	color: #555;
+	color: var(--st-ink-soft);
 }
 
 .choices-add-row-buttons button:hover,
 .choices-add-group:hover {
-	border-color: #8b5c2a;
-	color: #8b5c2a;
+	border-color: var(--st-accent);
+	color: var(--st-accent);
 }
 
 
@@ -5343,10 +5550,10 @@ button.stonetop-xp-toggle {
 	align-items: center;
 	padding: 0 7px;
 	height: 17px;
-	border: 1px solid var(--color-border-dark-3, #8a7b66);
+	border: 1px solid var(--st-rule-strong);
 	border-radius: 999px;
 	background: transparent;
-	color: var(--color-text-dark-secondary, #4b4a44);
+	color: var(--st-ink-soft);
 	font-size: var(--fs-fine);
 	line-height: 1;
 	white-space: nowrap;
@@ -5355,9 +5562,9 @@ button.stonetop-xp-toggle {
 }
 /* Selected: a soft parchment-toned fill (no stark black), in line with the sheet. */
 .stonetop-tag-chip.is-selected {
-	background: rgba(75, 74, 68, 0.14);
-	border-color: var(--color-border-dark, #4b4a44);
-	color: var(--color-text-dark-primary, #191813);
+	background: var(--st-paper-sunken-strong);
+	border-color: var(--st-rule-strong);
+	color: var(--st-ink);
 	font-weight: 600;
 	opacity: 1;
 }
@@ -5366,7 +5573,7 @@ button.stonetop-xp-toggle {
 	flex: 0 1 70px;
 	min-width: 48px;
 	border: none;
-	border-bottom: 1px dotted var(--color-border-dark-3, #8a7b66);
+	border-bottom: 1px dotted var(--st-rule-strong);
 	background: transparent;
 	font-size: var(--fs-fine);
 }
@@ -5384,9 +5591,9 @@ button.stonetop-xp-toggle {
 .stonetop-notes-editor {
 	display: block;
 	margin-bottom: 12px;
-	border: 1px solid var(--color-border-light-2, #c9c7b8);
+	border: 1px solid var(--st-rule);
 	border-radius: 3px;
-	background: rgba(255, 255, 255, 0.5);
+	background: var(--st-paper-veil-soft);
 	font-family: var(--font-primary);
 	line-height: 1.4;
 }
@@ -5432,8 +5639,8 @@ button.stonetop-xp-toggle {
 	padding: 0;
 	border: none;
 	border-radius: 2px;
-	background: rgba(0, 0, 0, 0.08);
-	color: var(--color-text-dark-primary, #191813);
+	background: var(--st-paper-sunken-strong);
+	color: var(--st-ink);
 	font-size: 7px;
 	line-height: 1;
 	cursor: pointer;
@@ -5444,7 +5651,7 @@ button.stonetop-xp-toggle {
 .stonetop-stepper-btn--up   { top: 2px; }
 .stonetop-stepper-btn--down { bottom: 2px; }
 .stonetop-stepper:hover .stonetop-stepper-btn { display: inline-flex; }
-.stonetop-stepper-btn:hover { background: rgba(0, 0, 0, 0.2); }
+.stonetop-stepper-btn:hover { background: var(--st-paper-inset); }
 /* Bordered/standalone inputs reserve room on hover so the value clears the buttons.
    (Framed resource/HP inputs centre their number with empty space at the edge, so they
    don't need this and would otherwise jiggle.) */
@@ -5484,10 +5691,23 @@ button.stonetop-xp-toggle {
 	width: 74px;
 	aspect-ratio: 74 / 58;
 	padding: 4px 8px;
-	background: url("../assets/ui/decor/frame-stat.png") no-repeat;
-	background-size: 100% 100%;
-	color: #1a1a1a;
+	color: var(--st-ink);
 	line-height: 1;
+	position: relative;
+}
+
+/* Overlay, not a mask on the element: the HP value lives inside this box and a mask would clip it. */
+.stonetop-creature-hp::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask: url("../assets/ui/decor/frame-stat.png") no-repeat;
+	-webkit-mask: url("../assets/ui/decor/frame-stat.png") no-repeat;
+	mask-size: 100% 100%;
+	-webkit-mask-size: 100% 100%;
 }
 .stonetop-creature-hp > .stonetop-follower-label { font-size: var(--fs-micro); }
 .stonetop-creature-hp__row {
@@ -5503,7 +5723,7 @@ button.stonetop-xp-toggle {
 	font-weight: bold;
 	font-size: 20px;
 	padding: 0;
-	color: #1a1a1a;
+	color: var(--st-ink);
 }
 
 /* ── NPC sheet (ApplicationV2) ──────────────────────────────────────────────
@@ -5578,9 +5798,9 @@ button.stonetop-xp-toggle {
 .stonetop-insert-sheet-body { display: flex; flex-direction: column; gap: 8px; }
 .stonetop-insert-sheet-label { font-weight: bold; font-size: var(--fs-note); text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; }
 .stonetop-insert-sheet-description { width: 100%; min-height: 120px; resize: vertical; }
-.stonetop-insert-sheet-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--color-border-light-2, #c9c7b8); padding-top: 8px; }
+.stonetop-insert-sheet-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--st-rule); padding-top: 8px; }
 .stonetop-insert-sheet-section-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.stonetop-insert-sheet-section .editor-content { min-height: 120px; border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 4px 6px; resize: vertical; overflow: auto; }
+.stonetop-insert-sheet-section .editor-content { min-height: 120px; border: 1px solid var(--st-rule); border-radius: 3px; padding: 4px 6px; resize: vertical; overflow: auto; }
 /* Active ProseMirror: core pins .editor-content absolutely (inset: 0) inside the
    .editor-container it injects, so the drag-resize must live on the container. */
 .stonetop-insert-sheet-section .editor-container { height: 220px; min-height: 120px; resize: vertical; overflow: hidden; }
@@ -5589,7 +5809,7 @@ button.stonetop-xp-toggle {
 .stonetop-insert-sheet-instinct-row { display: flex; align-items: center; gap: 6px; }
 .stonetop-insert-sheet-instinct-row .insert-instinct-string { flex: 1 1 auto; }
 .stonetop-insert-sheet-instinct-row .insert-instinct-remove-string { flex: 0 0 auto; }
-.stonetop-insert-sheet-choices-group { border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px; margin-bottom: 6px; }
+.stonetop-insert-sheet-choices-group { border: 1px solid var(--st-rule); border-radius: 3px; padding: 6px; margin-bottom: 6px; }
 .stonetop-insert-sheet-choices-group-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
 .stonetop-insert-sheet-choices-slug { font-size: var(--fs-note); opacity: 0.6; font-style: italic; }
 .stonetop-insert-sheet-move-list { list-style: none; margin: 0; padding: 0; }
@@ -5628,7 +5848,7 @@ button.stonetop-xp-toggle {
 .stonetop-possession-outfit-row,
 .stonetop-possession-scaling-move-row {
 	display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
-	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px;
+	border: 1px solid var(--st-rule); border-radius: 3px; padding: 6px;
 }
 .stonetop-possession-outfit-field { display: flex; align-items: center; gap: 6px; font-size: var(--fs-fine); }
 .stonetop-possession-outfit-field > span { flex: 0 0 auto; white-space: nowrap; }
@@ -5679,7 +5899,7 @@ button.stonetop-xp-toggle {
 
 /* Backgrounds */
 .playbook-background {
-	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px;
+	border: 1px solid var(--st-rule); border-radius: 3px;
 	padding: 8px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 6px;
 }
 .playbook-background-head { display: flex; align-items: center; gap: 6px; }
@@ -5690,7 +5910,7 @@ button.stonetop-xp-toggle {
 
 /* Origin */
 .playbook-origin {
-	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px;
+	border: 1px solid var(--st-rule); border-radius: 3px;
 	padding: 6px; margin-bottom: 6px; display: flex; flex-direction: column; gap: 4px;
 }
 .playbook-origin-head { display: flex; align-items: center; gap: 6px; }
@@ -5709,7 +5929,7 @@ button.stonetop-xp-toggle {
 .playbook-ref-row .playbook-ref-open:hover { text-decoration: underline; }
 .playbook-ref-flag { flex: 0 0 auto; display: flex; align-items: center; }
 .playbook-ref-row.is-missing .playbook-ref-open { opacity: 0.6; font-style: italic; }
-.playbook-ref-missing { flex: 0 0 auto; color: var(--color-level-error, #a33); font-weight: bold; cursor: help; }
+.playbook-ref-missing { flex: 0 0 auto; color: var(--st-danger); font-weight: bold; cursor: help; }
 
 /* -- Arcanum item sheet (StonetopArcanumSheet) — reuses .stonetop-insert-sheet-* layout ------- */
 .stonetop-arcanum-core { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
@@ -5724,7 +5944,7 @@ button.stonetop-xp-toggle {
 	margin: 8px 0 2px; font-size: var(--fs-note); text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7;
 }
 .stonetop-arcanum-item-def, .stonetop-arcanum-resource-editor {
-	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px; margin: 4px 0;
+	border: 1px solid var(--st-rule); border-radius: 3px; padding: 6px; margin: 4px 0;
 }
 .stonetop-arcanum-fields { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
 .stonetop-arcanum-fields label { display: flex; flex-direction: row; align-items: center; font-size: var(--fs-fine); gap: 6px; }
@@ -5738,7 +5958,7 @@ button.stonetop-xp-toggle {
 .stonetop-arcanum-field--check input { flex: 0 0 auto; width: auto; }
 .stonetop-arcanum-move-editor-list { display: flex; flex-direction: column; gap: 6px; }
 .stonetop-arcanum-move {
-	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px;
+	border: 1px solid var(--st-rule); border-radius: 3px; padding: 6px;
 	display: flex; flex-direction: column; gap: 4px;
 }
 .stonetop-arcanum-move-head { display: flex; align-items: center; gap: 4px; }
@@ -5798,7 +6018,7 @@ button.stonetop-xp-toggle {
 .stonetop-follower-fields { display: flex; flex-wrap: wrap; gap: 8px; }
 .stonetop-follower-fields label { display: flex; flex-direction: column; font-size: var(--fs-note); gap: 2px; }
 .stonetop-follower-fields input[type="number"] { width: 5em; }
-.stonetop-follower-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--color-border-light-2, #c9c7b8); padding-top: 8px; }
+.stonetop-follower-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--st-rule); padding-top: 8px; }
 .stonetop-follower-subhead {
 	display: flex; align-items: center; justify-content: space-between; gap: 8px;
 	font-weight: 600; text-transform: uppercase; font-size: var(--fs-note); letter-spacing: 0.04em;
@@ -5809,18 +6029,18 @@ button.stonetop-xp-toggle {
    (Tags / Instinct / Cost) named in the heading. */
 .stonetop-follower-core .follower-selection {
 	display: flex; flex-direction: column; gap: 4px;
-	border: 1px solid var(--color-border-light-2, #c9c7b8);
+	border: 1px solid var(--st-rule);
 	border-radius: 4px;
 	padding: 6px 8px;
 	margin: 4px 0;
-	background: rgba(0, 0, 0, 0.03);
+	background: var(--st-paper-sunken);
 }
 .stonetop-follower-core .follower-selection-head { margin-bottom: 2px; }
 /* Indent the body under the heading so Options + Default sit visibly inside the field. */
 .stonetop-follower-core .follower-selection-body {
 	display: flex; flex-direction: column; gap: 4px;
 	padding-left: 8px;
-	border-left: 2px solid var(--color-border-light-2, #c9c7b8);
+	border-left: 2px solid var(--st-rule);
 }
 .stonetop-follower-core .follower-selection-default { display: flex; align-items: center; gap: 6px; font-size: var(--fs-note); }
 .stonetop-follower-core .follower-selection-default input { flex: 1 1 auto; }
@@ -5828,15 +6048,15 @@ button.stonetop-xp-toggle {
 /* Members: one enclosing panel, styled like the boxed Selection fields above — the note, the
    name/tag/trait pools, and the member cards all read as a single group under the MEMBERS heading. */
 .follower-members-panel {
-	border: 1px solid var(--color-border-light-2, #c9c7b8);
+	border: 1px solid var(--st-rule);
 	border-radius: 4px;
 	padding: 6px 8px;
-	background: rgba(0, 0, 0, 0.03);
+	background: var(--st-paper-sunken);
 }
 .follower-members-body {
 	display: flex; flex-direction: column; gap: 6px;
 	padding-left: 8px;
-	border-left: 2px solid var(--color-border-light-2, #c9c7b8);
+	border-left: 2px solid var(--st-rule);
 }
 
 /* Shared string-list editor */
@@ -5850,7 +6070,7 @@ button.stonetop-xp-toggle {
 .follower-members-list, .follower-companion-catalog { display: flex; flex-direction: column; gap: 8px; }
 .follower-member-row, .follower-companion-type {
 	display: flex; flex-direction: column; gap: 4px;
-	border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; padding: 6px;
+	border: 1px solid var(--st-rule); border-radius: 3px; padding: 6px;
 }
 .follower-member-top, .follower-companion-type-head, .follower-companion-type-stats {
 	display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
@@ -5872,12 +6092,12 @@ button.stonetop-xp-toggle {
 .stonetop-arcanum-side { margin-top: 14px; }
 .stonetop-arcanum-side-title {
 	font-size: var(--fs-title); font-weight: bold; margin: 0 0 6px; padding-bottom: 4px;
-	border-bottom: 2px solid var(--color-border-dark, #7a7971); text-transform: uppercase; letter-spacing: 0.04em;
+	border-bottom: 2px solid var(--st-rule-strong); text-transform: uppercase; letter-spacing: 0.04em;
 }
 
 /* Description editor — a definite-height box whose content scrolls inside it, so the active
    ProseMirror editor (toolbar + content) can never overflow onto the unlock section below it. */
-.stonetop-arcanum-editor-box { position: relative; height: 200px; margin: 2px 0 12px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border-light-2, #c9c7b8); border-radius: 3px; }
+.stonetop-arcanum-editor-box { position: relative; height: 200px; margin: 2px 0 12px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--st-rule); border-radius: 3px; }
 .stonetop-arcanum-editor-box .editor-content { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 4px 6px; }
 /* When Foundry swaps in the active ProseMirror editor, keep its toolbar + scrolling container inside the box. */
 .stonetop-arcanum-editor-box.prosemirror { padding: 0; }
@@ -5888,16 +6108,16 @@ button.stonetop-xp-toggle {
    Class names mirror the dev HTML preview (scripts/import/pdf/render-html.js); here they're
    scoped to .stonetop-wonder so they only style our entries, and the bullet glyphs point at the
    shipped assets. */
-.stonetop-wonder .wonder-pageref { color: var(--color-text-dark-5, #888); font-style: italic; font-size: 0.85em; margin: 0 0 0.6em; }
+.stonetop-wonder .wonder-pageref { color: var(--st-ink-faint); font-style: italic; font-size: 0.85em; margin: 0 0 0.6em; }
 /* Page-number / cross-ref links are everywhere; Foundry's default content-link box is too loud.
    Render them as muted, boxless inline text (no icon) so they don't stand out. Targets only the
    journal-entry links (page refs / cross-refs); arcana item links keep the default link style. */
 .stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"] {
 	background: none !important; border: none !important; padding: 0 !important; border-radius: 0;
-	color: #7a7060 !important; text-decoration: underline; text-decoration-color: rgba(0, 0, 0, 0.18); white-space: normal;
+	color: var(--st-ink-faint) !important; text-decoration: underline; text-decoration-color: var(--st-rule-veil); white-space: normal;
 }
 .stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"] i { display: none; }
-.stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"]:hover { color: #1a1a1a; text-shadow: none; }
+.stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"]:hover { color: var(--st-ink); text-shadow: none; }
 /* each printed page folds to two side-by-side columns (A|B on top, C|D below) */
 .stonetop-wonder .page2col { display: flex; gap: 1.5em; align-items: flex-start; margin: 0.2em 0; }
 .stonetop-wonder .page2col > .col { flex: 1; min-width: 0; }
@@ -5911,22 +6131,42 @@ button.stonetop-xp-toggle {
 /* list bullets drawn as the book's swirl glyphs (plain spiral / pointing spiral) */
 .stonetop-wonder li.swirl,
 .stonetop-wonder li.swirl-point { list-style: none; }
-.stonetop-wonder li.swirl::before { content: ""; display: inline-block; width: 0.9em; height: 0.9em; margin: 0 0.35em 0 -1.3em; vertical-align: -0.12em; background: url(../assets/ui/decor/swirl.png) no-repeat left center / contain; }
-.stonetop-wonder li.swirl-point::before { content: ""; display: inline-block; width: 1.4em; height: 0.9em; margin: 0 0.35em 0 -1.7em; vertical-align: -0.12em; background: url(../assets/ui/decor/swirl-point.png) no-repeat left center / contain; }
+.stonetop-wonder li.swirl::before {
+	content: "";
+	display: inline-block;
+	width: 0.9em;
+	height: 0.9em;
+	margin: 0 0.35em 0 -1.3em;
+	vertical-align: -0.12em;
+	background-color: var(--st-decor);
+	mask: url(../assets/ui/decor/swirl.png) no-repeat left center / contain;
+	-webkit-mask: url(../assets/ui/decor/swirl.png) no-repeat left center / contain;
+}
+.stonetop-wonder li.swirl-point::before {
+	content: "";
+	display: inline-block;
+	width: 1.4em;
+	height: 0.9em;
+	margin: 0 0.35em 0 -1.7em;
+	vertical-align: -0.12em;
+	background-color: var(--st-decor);
+	mask: url(../assets/ui/decor/swirl-point.png) no-repeat left center / contain;
+	-webkit-mask: url(../assets/ui/decor/swirl-point.png) no-repeat left center / contain;
+}
 /* square pick/track checkboxes (the book's □ vector mark) — render an empty box bullet */
 .stonetop-wonder li.checkbox { list-style: none; }
 .stonetop-wonder li.checkbox::before {
 	content: ""; display: inline-block; width: 0.85em; height: 0.85em;
 	margin: 0 0.4em 0 -1.3em; vertical-align: -0.05em;
-	border: 1px solid var(--color-text-dark-3, #444);
+	border: 1px solid var(--st-ink-soft);
 }
 /* stylized arrow bullets (the book's "ä" dingbat) — stat-block moves and ä-lists */
 .stonetop-wonder ul.sb-moves,
 .stonetop-wonder li.arrow { list-style: none; }
 .stonetop-wonder ul.sb-moves > li::before,
-.stonetop-wonder li.arrow::before { content: "\27A4"; color: var(--color-text-dark-3, #444); margin: 0 0.35em 0 -1.1em; font-size: 0.85em; }
-.stonetop-wonder .box { border: 1px solid var(--color-border-dark, #888); border-radius: 3px; padding: 0.3em 0.7em; margin: 0.5em 0; }
-.stonetop-wonder aside.statblock { border: 1px solid var(--color-border-light-2, #ccc); background: rgba(0, 0, 0, 0.04); padding: 0.5em 0.8em; margin: 0.8em 0; font-size: 0.95em; }
+.stonetop-wonder li.arrow::before { content: "\27A4"; color: var(--st-ink-soft); margin: 0 0.35em 0 -1.1em; font-size: 0.85em; }
+.stonetop-wonder .box { border: 1px solid var(--st-rule-strong); border-radius: 3px; padding: 0.3em 0.7em; margin: 0.5em 0; }
+.stonetop-wonder aside.statblock { border: 1px solid var(--st-rule); background: var(--st-paper-sunken); padding: 0.5em 0.8em; margin: 0.8em 0; font-size: 0.95em; }
 .stonetop-wonder .sb-name { font-weight: bold; font-size: 1.1em; }
 .stonetop-wonder .sb-tags { font-style: italic; }
 /* chain band above the title / braided section dividers (shared chrome, left-aligned) */
@@ -5945,7 +6185,7 @@ button.stonetop-xp-toggle {
 .stonetop-wonder hr.rule { border: 0; border-top: 1px solid currentColor; width: 11em; margin: 0.2em 0 0.5em; opacity: 0.6; }
 .stonetop-wonder hr.braid,
 .stonetop-wonder hr.braid-wide { border: 0; border-top: 1px solid currentColor; opacity: 0.4; margin: 0.8em 0; }
-.stonetop-wonder .npc-box { border: 1px solid var(--color-border-light-2, #ccc); background: rgba(0, 0, 0, 0.04); padding: 0.5em 0.8em; margin: 0.8em 0; font-size: 0.95em; }
+.stonetop-wonder .npc-box { border: 1px solid var(--st-rule); background: var(--st-paper-sunken); padding: 0.5em 0.8em; margin: 0.8em 0; font-size: 0.95em; }
 .stonetop-wonder .npc-title { font-weight: bold; font-size: 1.1em; margin: 0.1em 0 0.4em; }
 .stonetop-wonder .npc-title img.icon { height: 1em; }
 /* Draw header above a dice table: "[🎲 1d12] Table Name". The bracketed icon+formula is the
@@ -5954,19 +6194,19 @@ button.stonetop-xp-toggle {
 .stonetop-wonder .wonder-table-name { font-family: "StonetopUI", serif; font-weight: bold; }
 .stonetop-wonder a.stonetop-draw-table {
 	display: inline-block; cursor: pointer; padding: 0.05em 0.55em; font-size: 0.9em;
-	border: 1px solid var(--color-border-dark, #6a6256); border-radius: 3px;
-	background: rgba(0, 0, 0, 0.05); color: #1a1a1a; text-decoration: none; white-space: nowrap;
+	border: 1px solid var(--st-rule-strong); border-radius: 3px;
+	background: var(--st-paper-sunken); color: var(--st-ink); text-decoration: none; white-space: nowrap;
 }
-.stonetop-wonder a.stonetop-draw-table:hover { background: rgba(0, 0, 0, 0.12); }
+.stonetop-wonder a.stonetop-draw-table:hover { background: var(--st-paper-sunken-strong); }
 .stonetop-wonder a.stonetop-draw-table i.fa-dice-d6 { margin-right: 0.25em; }
 
 /* Tables: Foundry's default journal table is dark-grey-on-dark, unreadable on our parchment.
    Render them as light ruled tables with dark ink to match the sheet. */
-.stonetop-wonder table { border-collapse: collapse; width: 100%; background: transparent; color: #1a1a1a; margin: 0.2em 0 0.9em; }
+.stonetop-wonder table { border-collapse: collapse; width: 100%; background: transparent; color: var(--st-ink); margin: 0.2em 0 0.9em; }
 .stonetop-wonder table th,
-.stonetop-wonder table td { border: 1px solid rgba(0, 0, 0, 0.25); padding: 0.2em 0.5em; text-align: left; vertical-align: top; }
-.stonetop-wonder table thead th { background: rgba(0, 0, 0, 0.06); font-family: "StonetopUI", serif; }
-.stonetop-wonder table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.03); }
+.stonetop-wonder table td { border: 1px solid var(--st-rule-veil); padding: 0.2em 0.5em; text-align: left; vertical-align: top; }
+.stonetop-wonder table thead th { background: var(--st-paper-sunken-strong); font-family: "StonetopUI", serif; }
+.stonetop-wonder table tbody tr:nth-child(even) { background: var(--st-paper-sunken); }
 
 /* Inline dice table on a player-facing arcanum back (the @DrawTableInline enricher): the roll button
    sits as a caption above the table's rows. Self-contained (not .stonetop-wonder-scoped) so it also
@@ -5975,15 +6215,15 @@ button.stonetop-xp-toggle {
 .stonetop-inline-table figcaption { margin-bottom: 0.3em; }
 .stonetop-inline-table a.stonetop-draw-table {
 	display: inline-flex; align-items: center; cursor: pointer; padding: 0.05em 0.55em; line-height: 1.4;
-	font-size: 0.9em; border: 1px solid var(--color-border-dark, #6a6256); border-radius: 3px;
-	background: rgba(0, 0, 0, 0.05); color: inherit; text-decoration: none; white-space: nowrap;
+	font-size: 0.9em; border: 1px solid var(--st-rule-strong); border-radius: 3px;
+	background: var(--st-paper-sunken); color: inherit; text-decoration: none; white-space: nowrap;
 }
-.stonetop-inline-table a.stonetop-draw-table:hover { background: rgba(0, 0, 0, 0.12); }
+.stonetop-inline-table a.stonetop-draw-table:hover { background: var(--st-paper-sunken-strong); }
 .stonetop-inline-table a.stonetop-draw-table i.fa-dice-d6 { margin-right: 0.35em; }
 .stonetop-inline-table table { border-collapse: collapse; width: 100%; background: transparent; margin: 0; }
-.stonetop-inline-table td { border: 1px solid rgba(0, 0, 0, 0.25); padding: 0.2em 0.5em; text-align: left; vertical-align: top; }
+.stonetop-inline-table td { border: 1px solid var(--st-rule-veil); padding: 0.2em 0.5em; text-align: left; vertical-align: top; }
 .stonetop-inline-table td.roll { width: 2.5em; text-align: center; font-weight: bold; white-space: nowrap; }
-.stonetop-inline-table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.03); }
+.stonetop-inline-table tbody tr:nth-child(even) { background: var(--st-paper-sunken); }
 
 /* ── bugs.md batch 1 (CSS) ─────────────────────────────────────────────────────────────────────
    #7 — no border/drop-shadow on journal images (Foundry adds one). */
@@ -5993,12 +6233,12 @@ button.stonetop-xp-toggle {
 /* #8 — one black underline under a section heading: keep the heading's own border (recolored black),
    and drop the extra rule line the book draws right under it. */
 .stonetop-wonder h1,
-.stonetop-wonder h2 { border-bottom: 1px solid #1a1a1a; }
+.stonetop-wonder h2 { border-bottom: 1px solid var(--st-ink); }
 .stonetop-wonder :is(h1, h2) + hr.rule { display: none; }
 
 /* #28 — section/sub-section rule dividers stretch the full column width and are solid black
    (was a short, faint grey line). */
-.stonetop-wonder hr.rule { border: 0; border-top: 1px solid #1a1a1a; width: 100%; margin: 0.3em 0 0.6em; opacity: 1; }
+.stonetop-wonder hr.rule { border: 0; border-top: 1px solid var(--st-ink); width: 100%; margin: 0.3em 0 0.6em; opacity: 1; }
 
 /* #10 — center the dice-roll button's icon+label vertically (was riding the top edge). */
 .stonetop-wonder a.stonetop-draw-table { display: inline-flex; align-items: center; line-height: 1.4; }
@@ -6016,23 +6256,42 @@ button.stonetop-xp-toggle {
 }
 .stonetop-wonder .callout-title { text-align: center; border-bottom: none; letter-spacing: 0.03em; }
 
-/* ── Parchment theme for journal entries + compendium windows ─────────────────────────────────
-   Foundry v13's journal & compendium chrome defaults to a dark theme; bring them in line with the
-   actor sheets (parchment + dark ink). The whole window is themed, so the in-sheet page sidebar
-   (table of contents) and the compendium entry list are covered, not just the page body. Applies
-   to all journals/compendiums so they read consistently. Core skips these (they're `.application`
-   / `.sidebar-popout`, both excluded from the sheet-bg rule above). */
+/* ── Core chrome the variables do not reach ───────────────────────────────────────────────────
+   Most of Foundry's chrome paints from named variables, which styles/tokens.css re-points at the
+   theme. A short tail does not: these rules name a core palette value directly, so they stay dark on
+   a light theme no matter what the bridge says. Each one has to be overridden by hand.
+
+   Found by reading core's stylesheet; expect more to surface from looking at a running client. */
+.scenes-sidebar .scene,
+.scenes-sidebar .directory-item.entry:hover {
+	background: var(--st-paper-sunken-strong);
+}
+
+.playlists-sidebar .global-control > header {
+	background: var(--st-paper-sunken-strong);
+	color: var(--st-ink);
+}
+
+/* ── Parchment for journal entries + compendium windows ───────────────────────────────────────
+   Journals and compendiums default to core's own chrome; bring them in line with the actor sheets.
+   The whole window is themed, so the in-sheet page sidebar (table of contents) and the compendium
+   entry list are covered, not just the page body.
+
+   These used to be pinned light unconditionally, which is half of why a dark client read as a
+   mish-mash. They now paint from the same tokens as everything else, so they follow the chosen
+   theme rather than overriding it. */
 .application.journal-entry .window-content,
 .application.compendium-directory .window-content {
-	background: var(--stonetop-bg, #f4ecd8) url(../assets/ui/decor/sheet-bg.png);
+	background: var(--st-paper) var(--st-paper-image);
+	background-blend-mode: var(--st-paper-blend);
 	background-position: center;
 	background-size: cover;
 	/* Recolor text via v13's theme vars so headings, prose, links and list rows all follow. */
-	--color-text-primary: #1a1a1a;
-	--color-text-secondary: #3a342b;
-	--color-text-subtle: #6a6256;
-	--color-text-emphatic: #000;
-	color: #1a1a1a;
+	--color-text-primary: var(--st-ink);
+	--color-text-secondary: var(--st-ink-soft);
+	--color-text-subtle: var(--st-ink-faint);
+	--color-text-emphatic: var(--st-ink);
+	color: var(--st-ink);
 }
 
 /* Let the parchment show through the inner panels rather than their own dark fills. */
@@ -6044,14 +6303,14 @@ button.stonetop-xp-toggle {
 
 /* The editable title input + TOC rows: dark ink on a faint parchment field. */
 .application.journal-entry :is(.journal-header input, .journal-entry-page input) {
-	color: #1a1a1a;
-	background: rgba(255, 255, 255, 0.35);
+	color: var(--st-ink);
+	background: var(--st-paper-veil-soft);
 }
 
 /* Keep hover/selection legible on parchment. */
 .application.compendium-directory .directory-item:hover,
 .application.journal-entry .toc .page-heading:hover {
-	background: rgba(0, 0, 0, 0.06);
+	background: var(--st-paper-sunken-strong);
 }
 
 /* Image popout: the extracted journal illustrations are black ink on transparency, so Foundry's
@@ -6059,7 +6318,8 @@ button.stonetop-xp-toggle {
    parchment so the art is visible and it matches the system look. (Harmless for opaque images — the
    backing sits behind them.) */
 .application.image-popout {
-	background: var(--stonetop-bg, #f4ecd8) url(../assets/ui/decor/sheet-bg.png) center / cover !important;
+	background: var(--st-paper) var(--st-paper-image) center / cover !important;
+	background-blend-mode: var(--st-paper-blend);
 }
 
 /* ── Steadfast item sheet ──────────────────────────────────────────────────────
@@ -6143,11 +6403,11 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop-art-installer .art-note-installed i {
-	color: var(--color-level-success, #2e7d32);
+	color: var(--st-positive);
 }
 
 .stonetop-art-installer .art-note-error i {
-	color: var(--color-level-error, #b71c1c);
+	color: var(--st-danger);
 }
 
 .stonetop-art-installer .art-actions {
@@ -6167,4 +6427,83 @@ button.stonetop-xp-toggle {
 }
 .stonetop-add-item-fields input[name="weight"] {
 	width: 60px;
+}
+
+
+
+
+/* ── Decorative art overlays ───────────────────────────────────────────────────────────────
+   These elements carry their own text, so the frame art cannot mask the element itself — it
+   would clip the content. The decor moves to an overlay behind the content instead.
+   Every decor PNG is black on transparency, so used as a MASK it paints in --st-decor and
+   follows the theme rather than staying black art on dark paper. */
+
+.stonetop.sheet .sheet-tabs::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/divider-horizontal.png");
+	-webkit-mask-image: url("../assets/ui/decor/divider-horizontal.png");
+	mask-repeat: repeat-x;
+	-webkit-mask-repeat: repeat-x;
+	mask-position: bottom left;
+	-webkit-mask-position: bottom left;
+	mask-size: auto 7px;
+	-webkit-mask-size: auto 7px;
+}
+
+.stonetop.sheet .sheet-tabs .item::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/tab-half-frame.png");
+	-webkit-mask-image: url("../assets/ui/decor/tab-half-frame.png");
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+	mask-size: 100% 100%;
+	-webkit-mask-size: 100% 100%;
+}
+
+.stonetop-stat::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/frame-stat.png");
+	-webkit-mask-image: url("../assets/ui/decor/frame-stat.png");
+	mask-size: 100% 100%;
+	-webkit-mask-size: 100% 100%;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+}
+
+.stonetop-resource--small::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/frame-stat.png");
+	-webkit-mask-image: url("../assets/ui/decor/frame-stat.png");
+}
+
+.stonetop-resource--wide::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-color: var(--st-decor);
+	mask-image: url("../assets/ui/decor/frame-wide.png");
+	-webkit-mask-image: url("../assets/ui/decor/frame-wide.png");
+}
 }

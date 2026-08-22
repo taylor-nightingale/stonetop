@@ -23,6 +23,9 @@ async function findFiles(dir, ext) {
 }
 
 function extractUrls(css) {
+	// Comments explain where a value came from and often quote core's own paths; those are prose,
+	// not assets we ship.
+	css = css.replace(/\/\*[\s\S]*?\*\//g, "");
 	const RE = /url\(\s*(['"]?)(.*?)\1\s*\)/g;
 	const urls = [];
 	let m;

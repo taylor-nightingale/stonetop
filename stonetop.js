@@ -64,6 +64,7 @@ Hooks.once("init", () => {
 	});
 
 	registerSettings();
+
 	registerDrawTableEnricher();
 	registerBlankFieldEnricher();
 
@@ -98,7 +99,6 @@ Hooks.once("init", () => {
 	});
 
 	// All item sheets share this ApplicationV2 base: size memory + submitOnChange + view-state
-	// handling (docs/appv2-migration.md). Actor sheets are still V1 pending Phases 3-5.
 	const ItemSheetV2Base = createStonetopItemSheetV2BaseClass();
 
 	const StonetopMoveSheet = createStonetopMoveSheetClass(ItemSheetV2Base);

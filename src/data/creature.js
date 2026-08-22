@@ -17,7 +17,7 @@ import { normalizeGroupTags } from "../model/data/groupTag.js";
  *      on every update; the same data inside an ObjectField (e.g. member tags) is not.
  *   3) An ObjectField with a FUNCTION `initial` is RESET to that initial on update when the item
  *      has a non-empty sibling ArrayField (e.g. `members`); a PLAIN-OBJECT initial survives.
- * So: ObjectField + plain-object initial + a non-reserved name. See follower-data-architecture.md.
+ * So: ObjectField + plain-object initial + a non-reserved name.
  */
 export function selectionField({ multi = false, allowCustom = true } = {}) {
 	const f = foundry.data.fields;
@@ -31,7 +31,6 @@ export function creatureFields() {
 		slug:           new f.StringField({ nullable: true, initial: null }),
 		reference:      new f.StringField({ nullable: true, initial: null }), // lore-entry slug
 		// NOT `tags`: Foundry reserves `system.tags` on items and wipes it on every update.
-		// Confirmed in-app (Quench) — see migrateCreatureData + follower-data-architecture.md.
 		tagList:   selectionField({ multi: true }),
 		hp:             new f.SchemaField({
 			value: new f.NumberField({ initial: 0, integer: true }),
@@ -40,7 +39,7 @@ export function creatureFields() {
 		armor:          new f.StringField({ initial: "" }), // prose, e.g. "4 (resilience), 0 vs. bronze"
 		damage:         new f.StringField({ initial: "" }), // prose; dice tokens are rolled inline
 		specialQuality: new f.StringField({ initial: "" }),
-		instinct:       selectionField({ multi: false }), // pick one (+ custom); see follower-data-architecture.md
+		instinct:       selectionField({ multi: false }), // pick one (+ custom);
 		moves:          new f.StringField({ initial: "" }), // newline-separated; rendered as a bullet list
 		description:    new f.StringField({ initial: "" }),
 		notes:          new f.StringField({ initial: "" }),
@@ -76,7 +75,7 @@ export function followerFields() {
 		// follower's `group` tag). Encapsulating in an ObjectField means members have no schema
 		// subfields, so nothing can collide. Member tags/traits store only the selected strings;
 		// their options come from `memberSuggestions` at snapshot time. (Same reasoning as
-		// `choices`, which is also ArrayField(ObjectField).) See follower-data-architecture.md.
+		// `choices`, which is also ArrayField(ObjectField).)
 		members:           new f.ArrayField(new f.ObjectField(), { initial: [] }),
 		// Suggested names / tags / traits for individual members (reference + dropdown options).
 		// Opaque object for the same anti-collision reason (its `tags` key must not shadow the
@@ -90,7 +89,7 @@ export function followerFields() {
 		// migrate-on-diff landmine). PLAIN-object initial (a function initial is reset on update).
 		// Atomic: writers read-modify-write the WHOLE object (see CharacterFollowers.setCompanionType
 		// / toggleCompanionOption). `catalog` = the selectable types (each a stat template + its own
-		// "pick N more" pool). See follower-data-architecture.md §3.
+		// "pick N more" pool).
 		companion: new f.ObjectField({ initial: {
 			enabled: false,
 			type:    { selected: [], options: [], multi: false, allowCustom: true },
@@ -103,7 +102,7 @@ export function followerFields() {
 		// migrate-on-diff landmine). `checked`: which items (shared-catalog + custom) are held;
 		// `customItems`: the follower's own gear defs {slug,name,weight,tags,note,inventoryColumn,twoCol};
 		// `resources`: per-item resource counts (ammo etc.). Load is computed + informational (never a
-		// cap). PLAIN-object initial. See follower-data-architecture.md.
+		// cap). PLAIN-object initial.
 		inventory: new f.ObjectField({ initial: { checked: {}, customItems: [], resources: {} } }),
 		// How much this follower can reasonably carry, in ◇. Advisory only — the sheet flags a heavier
 		// load, never blocks it. Defaults to the 9 ◇ the Outfit move tops out at for a character; the

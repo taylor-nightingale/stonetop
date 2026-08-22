@@ -30,7 +30,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		}
 
 		static DEFAULT_OPTIONS = {
-			// The base supplies `stonetop sheet actor themed theme-light`.
+			// The base supplies `stonetop sheet actor`.
 			classes: ["pbta", "character"],
 			position: { width: 1160, height: 900 },
 			actions: {

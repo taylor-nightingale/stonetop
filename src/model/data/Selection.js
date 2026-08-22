@@ -1,6 +1,6 @@
 // First-class "pick from a list (+ optional custom entry)" value, used by tags (multi-select)
 // and instinct / cost (single-select). Queryable (e.g. tags.has("group")) and consistent
-// across playbook, follower, NPC, and companion. See follower-data-architecture.md.
+// across playbook, follower, NPC, and companion.
 // Immutable: toggle() returns a new Selection.
 export class Selection {
 	constructor({ selected = [], options = [], multi = false, allowCustom = true } = {}) {

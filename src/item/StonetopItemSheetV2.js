@@ -17,10 +17,7 @@ export function createStonetopItemSheetV2BaseClass() {
 
 	return class StonetopItemSheetV2 extends withStonetopSheetChromeV2(HandlebarsApplicationMixin(ItemSheetV2)) {
 		static DEFAULT_OPTIONS = {
-			// "themed theme-light": parchment sheets are always light. Core sees "themed" already
-			// present and skips imposing the client theme, and every core form/menu/prosemirror
-			// variable resolves to its light value — no per-variable pinning needed.
-			classes: ["stonetop", "sheet", "item", "themed", "theme-light"],
+			classes: ["stonetop", "sheet", "item"],
 			window: { resizable: true },
 			form: { submitOnChange: true },
 		};

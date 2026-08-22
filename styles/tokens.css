@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Derived Stonetop tokens, and the short list of core values the palette cannot reach.
+
+   Almost all theming happens in styles/palette.css, which repaints Foundry's 22 base colour ramps.
+   927 of core's declarations resolve back to those ramps, so they follow without being named here.
+
+   This file holds only the two things that cannot:
+
+     1. DERIVED tokens — "the same colour, weaker". Washes, veils and translucent rules, built with
+        color-mix() from whatever the theme set. Deriving them from ink rather than from black is
+        what makes a dark theme correct for free: `rgba(0, 0, 0, 0.05)` is a *lighter* surface on
+        dark paper and a darker one on light paper, whereas ink-derived always means "recede".
+
+     2. CORE LITERALS — the places core hard-codes a colour in a theme block instead of reading a
+        ramp. These were enumerated from core's stylesheet rather than guessed; the big ones are
+        Foundry's own `parchment.jpg` behind windows and the sidebar, and the palette of colours
+        behind chat messages, which sits outside any theme block and so was identical in both.
+
+   Each override targets the element core targets. Cascade layers only arbitrate between
+   declarations on the SAME element — an element's own declaration always beats an inherited one —
+   so declaring these on :root would silently do nothing.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+@layer system {
+
+	/* ── Derived tokens ──────────────────────────────────────────────────────────────────────── */
+	body,
+	.themed,
+	.sidebar-tab,
+	.application {
+		/* A relative url() in a custom property resolves against the stylesheet that DECLARES it,
+		   so this sits at the same depth as the rules that consume it. */
+		--st-paper-image: url(../assets/ui/decor/sheet-bg.png);
+
+		--st-paper-veil:          color-mix(in srgb, var(--st-paper-raised) 70%, transparent);
+		--st-paper-veil-soft:     color-mix(in srgb, var(--st-paper-raised) 40%, transparent);
+		--st-paper-sunken:        color-mix(in srgb, var(--st-ink) 4%, transparent);
+		--st-paper-sunken-strong: color-mix(in srgb, var(--st-ink) 8%, transparent);
+		--st-paper-inset:         color-mix(in srgb, var(--st-ink) 20%, transparent);
+		--st-rule-veil:           color-mix(in srgb, var(--st-ink) 25%, transparent);
+
+		--st-accent-veil:   color-mix(in srgb, var(--st-accent) 20%, transparent);
+		--st-accent-fill:   color-mix(in srgb, var(--st-accent) 75%, transparent);
+		--st-danger-veil:   color-mix(in srgb, var(--st-danger) 8%, transparent);
+		--st-danger-wash:   color-mix(in srgb, var(--st-danger) 16%, transparent);
+		--st-warning-veil:  color-mix(in srgb, var(--st-warning) 16%, transparent);
+		--st-positive-veil: color-mix(in srgb, var(--st-positive) 14%, transparent);
+		--st-info-veil:     color-mix(in srgb, var(--st-info) 14%, transparent);
+		--st-arcane-veil:   color-mix(in srgb, var(--st-arcane) 14%, transparent);
+	}
+
+	:root {
+		color-scheme: var(--st-scheme);
+	}
+
+	/* Body's own background stays core's black: the canvas covers it, and core's `body { color:
+	   var(--color-light-3) }` is the text of UI floating over that canvas, which is dark in every
+	   theme. Repainting body parchment puts light text on light paper. */
+	body {
+		scrollbar-color: var(--st-rule) var(--st-paper);
+	}
+
+	/* ── Core literals: Foundry's own parchment ──────────────────────────────────────────────────
+	   Core backs light-theme windows and the sidebar with `url("../ui/parchment.jpg")`. It is a
+	   perfectly good parchment — it is just not ours, and it cannot follow a theme. */
+	body,
+	.themed,
+	.sidebar-tab {
+		--sidebar-background:      var(--st-paper);
+		--sidebar-entry-hover-bg:  var(--st-paper-sunken-strong);
+		--sidebar-folder-color:    var(--st-rule);
+		--content-link-background: var(--st-paper-sunken-strong);
+		--table-header-bg-color:   var(--st-paper-sunken-strong);
+		--table-row-color-even:    var(--st-paper-sunken);
+		--color-code-bg:           var(--st-paper-sunken-strong);
+	}
+
+	.application {
+		--background:            var(--st-paper);
+		--color-data-background: var(--st-paper-sunken);
+	}
+
+	/* ── Core literals: chat ─────────────────────────────────────────────────────────────────────
+	   `.chat-message` declares its own colours outside any theme block, so they were identical in
+	   light and dark and none of them come from a ramp. This is why chat stayed unthemed. */
+	.chat-message {
+		/* Core paints message text from --color-dark-1 directly, because it assumes its own light
+		   parchment is behind every message in both themes. Once the background follows the theme,
+		   the text has to as well or a dark theme is dark ink on dark paper. */
+		color: var(--st-ink);
+
+		--chat-message-background:   var(--st-paper-veil);
+		--chat-message-border-color: var(--st-rule);
+		--color-blind-background:    var(--st-arcane-veil);
+		--color-blind-border:        var(--st-arcane);
+		--color-emote-background:    var(--st-paper-sunken-strong);
+		--color-emote-border:        var(--st-rule-strong);
+		--color-whisper-background:  var(--st-info-veil);
+		--color-whisper-border:      var(--st-info);
+	}
+
+	/* Same again for the header and table-draw captions, which core paints from --color-dark-4. */
+	.chat-message .message-header,
+	.chat-message .table-draw .table-description {
+		color: var(--st-ink-soft);
+	}
+
+	/* ── Core literals: menus and popouts ───────────────────────────────────────────────────────
+	   Light theme hard-codes #d9d8c8 / #999 here; #autocomplete uses literal white and black. */
+	#context-menu {
+		--background-color:       var(--st-paper-raised);
+		--border-color:           var(--st-rule);
+		--group-separator:        var(--st-rule-soft);
+		--hover-entry-border:     var(--st-accent);
+		--hover-entry-background: var(--st-paper-sunken-strong);
+	}
+
+	#autocomplete {
+		--background-color:        var(--st-paper-raised);
+		--border-color:            var(--st-rule);
+		--active-background-color: var(--st-accent-veil);
+		--active-color:            var(--st-ink);
+	}
+
+	.prosemirror,
+	prose-mirror,
+	#prosemirror-dropdown,
+	.menu-dialog.prosemirror {
+		--color-control-hover: var(--st-paper-sunken-strong);
+		--menu-background:     var(--st-paper-sunken-strong);
+		--dropdown-background: var(--st-paper-raised);
+		--dropdown-border:     var(--st-rule);
+		--dialog-background:   var(--st-paper-raised);
+	}
+
+	/* ── Core literals: translucent-white chrome ─────────────────────────────────────────────────
+	   The light theme paints these with rgba(255,255,255,·) — a white veil rather than a parchment
+	   one — and both themes use the blue #5252d7 for toggles. */
+	.ui-control,
+	.placeable-hud {
+		--control-bg-color:           var(--st-paper-veil);
+		--control-border-color:       var(--st-rule);
+		--control-hover-bg-color:     var(--st-paper-raised);
+		--control-hover-border-color: var(--st-rule-strong);
+		--toggle-bg-color:            var(--st-paper-sunken);
+		--toggle-border-color:        var(--st-rule);
+		--toggle-active-bg-color:     var(--st-accent-veil);
+		--toggle-active-border-color: var(--st-accent);
+	}
+
+	#hotbar {
+		--slot-color:         var(--st-paper-sunken-strong);
+		--key-bg-color-full:  var(--st-paper-sunken-strong);
+		--page-control-color: var(--st-ink-faint);
+	}
+
+	#chat-message,
+	#players {
+		--background-color: var(--st-paper-veil);
+		--border-color:     var(--st-rule);
+	}
+
+	.combat-tracker {
+		--active-input-bg-color: var(--st-paper-raised);
+		--entry-hover-bg:        var(--st-paper-sunken);
+		--entry-active-bg:       var(--st-paper-sunken-strong);
+	}
+}

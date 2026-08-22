@@ -1,0 +1,71 @@
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   The Stonetop palette — Foundry's own colour ramps, repainted as parchment and ink.
+
+   This is the whole theming mechanism, and it is deliberately small.
+
+   Core builds its entire chrome from 22 base ramp variables: `--color-light-1..6` (light surfaces
+   and light text), `--color-dark-1..6` (dark text and dark surfaces), `--color-cool-3..5` (the dark
+   grounds), `--color-warm-1..3` (accents). Those 22 names account for **927 usages** across core's
+   stylesheet — every button, input, menu, sidebar row, chat message and dialog resolves back to
+   them. Core declares them once in `@layer variables.base` and does NOT vary them by theme: its
+   light and dark blocks simply choose which ramp to read.
+
+   So repainting the 22 is enough. Nothing here says what is a background and what is text — core
+   already knows, in both themes, for every surface. That is the point:
+
+     · No surface can be "missed", because we never enumerate surfaces.
+     · No variable's meaning can be guessed wrong, because we never touch a semantic name. An
+       earlier attempt mapped ~150 of them by hand and got `--sidebar-folder-color` backwards, which
+       painted every folder row bright orange.
+     · Core rules that reach PAST the semantic layer straight into a ramp still follow. `body`
+       itself is one: `body { background: black; color: var(--color-light-3) }`. Semantic bridging
+       could never reach it.
+
+   Each ramp keeps its lightness role and shifts only in hue and saturation — light stays light,
+   dark stays dark. That is what preserves core's contrast pairings in both themes without us
+   re-deciding any of them.
+
+   Declared on `body` because that is where core's theme blocks land, and a declaration on an
+   element always beats one inherited from an ancestor regardless of cascade layers.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+@layer system {
+	body,
+	.themed,
+	.sidebar-tab,
+	.application {
+		/* ── Light ramp: parchment surfaces, and light ink on a dark ground ─────────────
+		   Core's own values were already warm (#f7f3e8 … #816b66); these only settle them
+		   onto the book's paper. */
+		--color-light-1: #f6f2ea;
+		--color-light-2: #ece5d6;
+		--color-light-3: #ddd2bd;
+		--color-light-4: #c9bca4;
+		--color-light-5: #a5977f;
+		--color-light-6: #877a66;
+
+		/* ── Dark ramp: ink. Core's was neutral grey (#111 … #666); the book's is warm. ── */
+		--color-dark-1: #1a1712;
+		--color-dark-2: #262119;
+		--color-dark-3: #3a332a;
+		--color-dark-4: #4e4539;
+		--color-dark-5: #675c4c;
+		--color-dark-6: #82755f;
+
+		/* ── Cool ramp: the dark grounds. Core's are blue-black (#584a75 … #0b0a13); a
+		      Stonetop dark theme is lamplight on paper, so these go brown-black. ───────── */
+		--color-cool-3: #4a3f33;
+		--color-cool-4: #2e2721;
+		--color-cool-5: #17130f;
+		--color-cool-5-25: rgba(23, 19, 15, 0.25);
+		--color-cool-5-50: rgba(23, 19, 15, 0.5);
+		--color-cool-5-75: rgba(23, 19, 15, 0.75);
+		--color-cool-5-90: rgba(23, 19, 15, 0.9);
+
+		/* ── Warm ramp: accents. warm-2 is the sepia the sheets already use for focus and
+		      selection, so core's highlights and ours are finally the same colour. ─────── */
+		--color-warm-1: #d9963f;
+		--color-warm-2: #8b5c2a;
+		--color-warm-3: #5a3218;
+	}
+}

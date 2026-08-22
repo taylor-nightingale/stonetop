@@ -42,8 +42,7 @@ describe("StonetopItemSheetV2 base", () => {
 		// V2 defaults submitOnChange AND closeOnSubmit to false — without this opt-in,
 		// name="system.x" inputs would never save.
 		expect(Sheet.DEFAULT_OPTIONS.form.submitOnChange).toBe(true);
-		// "themed theme-light" keeps core from imposing the client dark theme on the parchment.
-		expect(Sheet.DEFAULT_OPTIONS.classes).toEqual(["stonetop", "sheet", "item", "themed", "theme-light"]);
+		expect(Sheet.DEFAULT_OPTIONS.classes).toEqual(["stonetop", "sheet", "item"]);
 		expect(Sheet.DEFAULT_OPTIONS.window.resizable).toBe(true);
 	});
 

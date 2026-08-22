@@ -1,0 +1,69 @@
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Parchment Dark — the same printed page, read by lamplight.
+
+   Like the light theme, this only maps Stonetop roles onto the ramps in styles/palette.css. Because
+   both themes read the same palette, a colour is defined once and the two can never drift.
+
+   Selected by core's own Color Scheme setting putting `theme-dark` on <body>.
+
+   Two values do not simply flip and so are stated outright:
+     · --st-shadow — a cast shadow is dark in every theme; derived from ink it would glow.
+     · --st-paper-blend — the shipped parchment texture is opaque and near-white (luminance
+       249-252), so on dark paper it must multiply rather than cover it. No second asset needed.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+@layer system {
+	/* Keyed on each element's own theme class — see the note in parchment-light.css. This is what
+	   makes Foundry's `interface` axis work independently of `applications`. */
+	body.theme-dark,
+	.themed.theme-dark,
+	.application.theme-dark,
+	.sidebar-tab.theme-dark {
+		--st-scheme: dark;
+
+		/* ── Paper ──────────────────────────────────────────────────────────────────── */
+		--st-paper:        var(--color-cool-5);
+		--st-paper-raised: var(--color-cool-4);
+		--st-paper-blend:  multiply;
+		--st-shadow:       rgba(0, 0, 0, 0.55);
+
+		/* ── Ink: warm off-white, never pure white — #fff on a warm dark ground reads as
+		      glare, and the book's ink was never pure black either. ──────────────────── */
+		--st-ink:       var(--color-light-2);
+		--st-ink-soft:  var(--color-light-3);
+		--st-ink-faint: var(--color-light-4);
+		--st-ink-muted: var(--color-light-5);
+
+		/* ── Chips: reversed against the page, so here they are the light ones ──────── */
+		--st-chip-fill: var(--color-light-2);
+		--st-chip-ink:  var(--color-cool-5);
+
+		/* See parchment-light.css. On dark paper the same frames are drawn in soft parchment. */
+		--st-decor: var(--color-light-4);
+
+		/* ── Rules ──────────────────────────────────────────────────────────────────── */
+		--st-rule:        var(--color-cool-3);
+		--st-rule-soft:   var(--color-cool-4);
+		--st-rule-strong: var(--color-light-6);
+
+		/* ── Accent: the sepia lifted until it carries against a dark ground ────────── */
+		--st-accent:    var(--color-warm-1);
+		--st-highlight: lightslategrey;
+
+		/* ── Semantics: lifted for contrast; the light theme's #a00 is unreadable here ── */
+		--st-danger:        hsl(0deg 62% 71%);
+		--st-danger-strong: hsl(0deg 58% 80%);
+		--st-positive:      hsl(120deg 32% 62%);
+		--st-warning:       hsl(35deg 72% 64%);
+		--st-info:          hsl(215deg 58% 72%);
+		--st-arcane:        hsl(285deg 42% 74%);
+
+		/* ── Image polarity, both toned to parchment rather than flipped to white ───────
+		   Ours is black on transparency and now needs lightening; Foundry's own icons are
+		   already white and need dimming. Both land on the same soft parchment tone
+		   (rgb 196 187 170) — stark white on dark paper reads as a hole. The book art
+		   inverts losslessly: it is strictly bitonal, alpha 0 or 255, no anti-aliasing. */
+		--st-art-filter:       invert(1) brightness(0.69) sepia(0.3) saturate(1.2);
+		--st-core-icon-filter: brightness(0.69) sepia(0.3) saturate(1.2);
+	}
+}

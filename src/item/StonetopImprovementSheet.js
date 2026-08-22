@@ -9,7 +9,7 @@
 // choiceGroupEdit helpers + choiceGroupEditorMixin + choice-group-editor partial. The V2 form's
 // submitOnChange auto-saves `name`/`system.*` form fields.
 //
-// First sheet on ApplicationV2 (the migration pilot — see docs/appv2-migration.md). Expects the
+// First sheet on ApplicationV2. Expects the
 // createStonetopItemSheetV2BaseClass() base, not the V1 ItemSheetBase.
 
 import * as CG from "../utils/choiceGroupEdit.js";
@@ -70,7 +70,7 @@ export function createStonetopImprovementSheetClass(Base) {
 		}
 
 		// Bound directly to the current editor controls, which every render replaces — so this
-		// re-runs per render (NOT once in _onFirstRender; see docs/appv2-migration.md).
+		// re-runs per render (NOT once in _onFirstRender).
 		_onRender(context, options) {
 			super._onRender(context, options);
 			if (!this.isEditable) return;

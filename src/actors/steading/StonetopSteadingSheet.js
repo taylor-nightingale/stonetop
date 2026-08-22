@@ -12,7 +12,7 @@ export function createStonetopSteadingSheetClass(Base) {
 		}
 
 		static DEFAULT_OPTIONS = {
-			// The base supplies `stonetop sheet actor themed theme-light`; add the steading class.
+			// The base supplies `stonetop sheet actor`; add the steading class.
 			classes: ["steading"],
 			position: { width: 1180, height: 760 },
 			actions: {
