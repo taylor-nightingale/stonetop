@@ -125,6 +125,15 @@
 						   title="{{localize 'stonetop.character.moves.sendToChat'}}" aria-label="{{localize 'stonetop.character.moves.sendToChat'}}">
 							<i class="fas fa-comment"></i>
 						</button>
+						{{!-- A reference move that holds something (Defend's Readiness) tracks it here: the
+						      sidebar is the only surface these moves render on, and the track is the shared
+						      one the moves tab draws, so a pip behaves the same wherever it appears. --}}
+						{{#if resource}}
+						<span class="stonetop-item-resources">
+							{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check"
+							    action="moveResourcePip" moveSlug=slug slug=slug}}
+						</span>
+						{{/if}}
 					</li>
 				{{/each}}
 				</ol>

@@ -41,6 +41,9 @@ describe("resource track rendering", () => {
 		const callers = hbsFiles("templates").filter(f => read(f).includes('{{> "stonetop.resource-track"'));
 		expect(callers.length).toBeGreaterThanOrEqual(6);
 		expect(callers).toContain("templates/actor/partials/move-item.hbs");
+		// The sidebar's reference moves (Defend's Readiness) are the one move surface that does NOT go
+		// through move-item: it renders its own compact row, so it has to call the track itself.
+		expect(callers).toContain("templates/actor/character.hbs");
 	});
 
 	// The move row's handler reads data-move-slug, so the shared track has to be able to stamp it.

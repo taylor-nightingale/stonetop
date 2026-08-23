@@ -1581,6 +1581,13 @@ body,
 	background: var(--st-paper-sunken-strong);
 }
 
+/* A sidebar row is one line of text, so a move that holds something (Defend's Readiness) is the only
+   one with a second line: the track is a flex container, which breaks below the name on its own. All
+   it needs is the same gap the row already puts between its parts, so the two lines stay one row. */
+.stonetop-moves-sidebar .stonetop-item-resources {
+	margin-top: var(--item-header-gap);
+}
+
 /* <button>, not <span>/<a>: core binds only `click` for [data-action], so neither was reachable by
    Tab nor activatable by Enter. `all: unset` strips the button chrome so each still reads as the
    inline text it replaced. */

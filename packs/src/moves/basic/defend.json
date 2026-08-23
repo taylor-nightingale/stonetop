@@ -19,7 +19,10 @@
       }
     },
     "rollStat": "con",
-    "slug": "defend"
+    "slug": "defend",
+    "resource": {
+      "max": 4
+    }
   },
   "_id": "ZmGI9G0EiVXqtpP3",
   "_key": "!items!ZmGI9G0EiVXqtpP3",
