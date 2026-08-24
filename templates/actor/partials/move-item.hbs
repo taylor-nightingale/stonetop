@@ -30,7 +30,12 @@
 	{{!-- The one place a move icon renders: every surface that shows a move goes through this body,
 	      so the moves tab, side-bar, arcanum cards and the seasons tab all match. --}}
 	{{#if icon}}<img class="stonetop-move-icon" src="{{icon}}" alt="">{{/if}}
-	<strong class="stonetop-item-name">{{name}}</strong>
+	{{!-- The name opens the move's own item sheet, the way the Items sidebar does. A <button>, not a
+	      <strong>: core binds click only for [data-action], so anything else is keyboard-dead.
+	      data-view-state keeps it live on a locked sheet — reading a move mutates nothing. --}}
+	<button type="button" class="stonetop-item-name stonetop-item-name--open" data-action="openMove"
+	        data-view-state data-move-slug="{{slug}}"
+	        title="{{localize 'stonetop.character.moves.openSource'}}">{{name}}</button>
 	{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 	{{!-- Any move that rolls shows its die, ticked or not: the check marks what the character has
 	      taken, not what the table is allowed to roll. --}}

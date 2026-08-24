@@ -1,0 +1,29 @@
+{
+	"_id": "gSsukHN8Hzy3kciO",
+	"_key": "!items!gSsukHN8Hzy3kciO",
+	"name": "Hauberk/cuirass/scale, iron or bronze",
+	"type": "outfitItem",
+	"system": {
+		"slug": "hauberk-cuirass-scale-iron-or-bronze",
+		"inventoryColumn": "regular",
+		"weight": 2,
+		"value": 2,
+		"note": "2 armor",
+		"resource": null,
+		"twoCol": false,
+		"armor": {
+			"base": 2
+		},
+		"source": null,
+		"tagList": [
+			"warm",
+			"cumbersome"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "u7lpKQQCOAdKLPZV"
+}

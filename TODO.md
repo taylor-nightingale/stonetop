@@ -10,3 +10,6 @@
 * Little button or something by fortunes, surplus, defenses, population, prosperity, coins, arcana, and followers that explain how to gain those things. See "if you want to..." pg 50 of the book 1 pdf
 * deleting a link in residents should have a confirmation
 * level up move
+* move background, instinct, appearance, origin before the lore section. lore section should be separate like the introductions
+* names in the origin section should not be bolded
+*

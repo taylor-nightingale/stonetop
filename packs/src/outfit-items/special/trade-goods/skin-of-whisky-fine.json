@@ -1,0 +1,31 @@
+{
+	"_id": "L4Pl5uCQnBg7U2x1",
+	"_key": "!items!L4Pl5uCQnBg7U2x1",
+	"name": "Skin of whisky, fine",
+	"type": "outfitItem",
+	"system": {
+		"slug": "skin-of-whisky-fine",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 0,
+		"note": "",
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"",
+				"uses; share a use with someone to get advantage on Persuade"
+			]
+		},
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

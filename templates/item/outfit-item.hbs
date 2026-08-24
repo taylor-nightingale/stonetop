@@ -36,6 +36,10 @@
 			<label>{{localize "stonetop.outfitItem.weight"}}
 				<input type="number" min="0" name="system.weight" value="{{system.weight}}">
 			</label>
+			<label>{{localize "stonetop.outfitItem.value"}}
+				<input type="number" min="0" name="system.value" value="{{system.value}}"
+				       placeholder="{{localize 'stonetop.outfitItem.valueNone'}}">
+			</label>
 			<label>{{localize "stonetop.outfitItem.column"}}
 				<select name="system.inventoryColumn">
 					<option value="regular" {{#if (eq system.inventoryColumn "regular")}}selected{{/if}}>{{localize "stonetop.outfitItem.columnRegular"}}</option>

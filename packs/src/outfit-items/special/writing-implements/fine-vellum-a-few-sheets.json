@@ -1,0 +1,26 @@
+{
+	"_id": "2Zvd5Gnj00vTi0wH",
+	"_key": "!items!2Zvd5Gnj00vTi0wH",
+	"name": "Fine vellum., a few sheets",
+	"type": "outfitItem",
+	"system": {
+		"slug": "fine-vellum-a-few-sheets",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 2,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"fragile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "N4O1CtVBr67xmakb"
+}

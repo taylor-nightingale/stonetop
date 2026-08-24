@@ -1,0 +1,24 @@
+{
+	"_id": "WOvKFzJTprBx4arm",
+	"_key": "!items!WOvKFzJTprBx4arm",
+	"name": "Slate and chalk",
+	"type": "outfitItem",
+	"system": {
+		"slug": "slate-and-chalk",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 0,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "N4O1CtVBr67xmakb"
+}

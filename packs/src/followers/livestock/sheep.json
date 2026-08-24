@@ -1,0 +1,58 @@
+{
+	"_id": "3Xc7bjN0nOWRIJB2",
+	"_key": "!items!3Xc7bjN0nOWRIJB2",
+	"name": "Sheep",
+	"type": "follower",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "sheep",
+		"reference": null,
+		"arcanaSlug": null,
+		"tagList": [
+			"timid",
+			"hardy",
+			"wooly"
+		],
+		"tagOptions": [],
+		"hp": {
+			"value": 0,
+			"max": 3
+		},
+		"armor": "",
+		"damage": "[[/r d4]] (_hand_)",
+		"specialQuality": "butcher for ◇ provisions (○○○○○○ uses)",
+		"instinct": {
+			"selected": [
+				"to follow the herd"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"moves": "",
+		"description": "",
+		"notes": ""
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "CzTzMm4VEWIuqyG3"
+}

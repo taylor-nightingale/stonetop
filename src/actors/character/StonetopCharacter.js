@@ -217,6 +217,11 @@ export class StonetopCharacter {
 		await this._arcana.sendArcanumMoveToChat(moveSlug);
 	}
 
+	/** Open the move's item sheet — its own copy when taken, else the compendium source. */
+	async openMoveSheet(moveSlug) {
+		await this._moves.openSheet(moveSlug);
+	}
+
 	async setMoveResourceCurrent(moveSlug, current) {
 		await this._moves.setMoveResourceCurrent(moveSlug, current);
 	}

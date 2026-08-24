@@ -1,0 +1,36 @@
+{
+	"_id": "7Axtx0FcFBxyeABr",
+	"_key": "!items!7Axtx0FcFBxyeABr",
+	"name": "Naphtha",
+	"type": "outfitItem",
+	"system": {
+		"slug": "naphtha",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "burns hot & sticky; damage d8, ignores armor",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"uses"
+			]
+		},
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"thrown",
+			"area",
+			"dangerous"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "U9FEeGwXFSN4XTSR"
+}

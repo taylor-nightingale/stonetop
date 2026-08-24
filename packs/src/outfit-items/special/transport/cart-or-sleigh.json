@@ -1,0 +1,24 @@
+{
+	"_id": "DGARUH1RiOhXCbrF",
+	"_key": "!items!DGARUH1RiOhXCbrF",
+	"name": "Cart or sleigh",
+	"type": "outfitItem",
+	"system": {
+		"slug": "cart-or-sleigh",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 2,
+		"note": "requires donkey/mule/horse",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "guY34f76HpUIeR0j"
+}

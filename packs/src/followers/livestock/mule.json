@@ -1,0 +1,63 @@
+{
+	"_id": "ZPYLPsexv1e6ZLxy",
+	"_key": "!items!ZPYLPsexv1e6ZLxy",
+	"name": "Mule",
+	"type": "follower",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "mule",
+		"reference": null,
+		"arcanaSlug": null,
+		"tagList": [
+			"large",
+			"hardy",
+			"sure-footed",
+			"cautious",
+			"keen-nosed",
+			"sterile"
+		],
+		"tagOptions": [],
+		"hp": {
+			"value": 0,
+			"max": 14
+		},
+		"armor": "",
+		"damage": "[[/r d6+1]] (_hand_, _close_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to avoid danger"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [
+				"care & grooming"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"moves": "",
+		"description": "",
+		"notes": ""
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "CzTzMm4VEWIuqyG3"
+}

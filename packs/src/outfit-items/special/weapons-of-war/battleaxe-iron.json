@@ -1,0 +1,27 @@
+{
+	"_id": "IDPT95xUoS0Av6ak",
+	"_key": "!items!IDPT95xUoS0Av6ak",
+	"name": "Battleaxe, iron",
+	"type": "outfitItem",
+	"system": {
+		"slug": "battleaxe-iron",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"close",
+			"messy"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "9BRzyUc2e8yFa7ao"
+}

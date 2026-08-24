@@ -1,0 +1,26 @@
+{
+	"_id": "m63FlzovluhWf9a2",
+	"_key": "!items!m63FlzovluhWf9a2",
+	"name": "Sword, iron",
+	"type": "outfitItem",
+	"system": {
+		"slug": "sword-iron",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "+1 damage",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"close"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "9BRzyUc2e8yFa7ao"
+}

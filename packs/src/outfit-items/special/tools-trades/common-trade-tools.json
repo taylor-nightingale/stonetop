@@ -1,0 +1,24 @@
+{
+	"_id": "NJD76GOW4wCzUd8e",
+	"_key": "!items!NJD76GOW4wCzUd8e",
+	"name": "Common trade tools",
+	"type": "outfitItem",
+	"system": {
+		"slug": "common-trade-tools",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 1,
+		"note": "for pottery, weaving, distilling, etc.; immobile",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

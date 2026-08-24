@@ -1,0 +1,24 @@
+{
+	"_id": "Rre7DI25bhhmONYI",
+	"_key": "!items!Rre7DI25bhhmONYI",
+	"name": "Purse of silvers",
+	"type": "outfitItem",
+	"system": {
+		"slug": "purse-of-silvers",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 2,
+		"note": "~10 handfuls",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

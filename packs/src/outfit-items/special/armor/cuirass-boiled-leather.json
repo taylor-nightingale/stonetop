@@ -1,0 +1,26 @@
+{
+	"_id": "RbgzW1CrfhG0e415",
+	"_key": "!items!RbgzW1CrfhG0e415",
+	"name": "Cuirass, boiled leather",
+	"type": "outfitItem",
+	"system": {
+		"slug": "cuirass-boiled-leather",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "1 armor",
+		"resource": null,
+		"twoCol": false,
+		"armor": {
+			"base": 1
+		},
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "u7lpKQQCOAdKLPZV"
+}

@@ -1,0 +1,24 @@
+{
+	"_id": "hgkF8lQ7LtYbMPcg",
+	"_key": "!items!hgkF8lQ7LtYbMPcg",
+	"name": "Salt",
+	"type": "outfitItem",
+	"system": {
+		"slug": "salt",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 0,
+		"note": "a little box",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

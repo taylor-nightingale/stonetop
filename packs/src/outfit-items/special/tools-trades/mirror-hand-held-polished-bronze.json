@@ -1,0 +1,24 @@
+{
+	"_id": "OdRz8BbSxrA7JNUL",
+	"_key": "!items!OdRz8BbSxrA7JNUL",
+	"name": "Mirror, hand-held, polished bronze",
+	"type": "outfitItem",
+	"system": {
+		"slug": "mirror-hand-held-polished-bronze",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

@@ -1,0 +1,24 @@
+{
+	"_id": "uwB9tD4Ub72V0P69",
+	"_key": "!items!uwB9tD4Ub72V0P69",
+	"name": "Block & tackle",
+	"type": "outfitItem",
+	"system": {
+		"slug": "block-tackle",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 0,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

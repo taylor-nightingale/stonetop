@@ -1,0 +1,36 @@
+{
+	"_id": "2ubGxHrwBX2WGLzy",
+	"_key": "!items!2ubGxHrwBX2WGLzy",
+	"name": "Bullseye lantern",
+	"type": "outfitItem",
+	"system": {
+		"slug": "bullseye-lantern",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": {
+			"max": 5,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"",
+				"",
+				"hours"
+			]
+		},
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"near"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "Erz36P0Uki23Q4ep"
+}

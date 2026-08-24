@@ -39,7 +39,7 @@ const randomPx = (n, seed = 7) => {
 };
 
 describe("Raster PNG round-trip", () => {
-	for (const channels of [1, 3, 4]) {
+	for (const channels of [1, 2, 3, 4]) {
 		it(`preserves a ${channels}-channel image through toPng/fromPng`, () => {
 			const r = new Raster(5, 4, channels, randomPx(5 * 4 * channels, channels));
 			const back = Raster.fromPng(r.toPng());
@@ -103,6 +103,16 @@ describe("Raster.fromPng scanline filters", () => {
 		expect([...Raster.fromPng(png).px]).toEqual([...px]);
 	});
 
+	it("decodes gray+alpha (color type 4), the layout the UI mask art is authored in", () => {
+		const width = 2, height = 2, channels = 2, stride = width * channels;
+		const px = new Uint8Array([10, 255, 20, 0, 30, 128, 40, 255]);
+		const raw = new Uint8Array(height * (stride + 1));
+		for (let y = 0; y < height; y++) raw.set(px.subarray(y * stride, (y + 1) * stride), y * (stride + 1) + 1);
+		const r = Raster.fromPng(buildPng({ width, height, depth: 8, colorType: 4, raw }));
+		expect(r.channels).toBe(2);
+		expect([...r.px]).toEqual([...px]);
+	});
+
 	it("rejects non-PNG bytes and unsupported formats", () => {
 		expect(() => Raster.fromPng(new Uint8Array([1, 2, 3]))).toThrow(/not a PNG/);
 		const raw = new Uint8Array(2 * (1 + 1)); // 1×2, 1 byte/px
@@ -114,6 +124,12 @@ describe("Raster.thumb8", () => {
 	it("is flat for a uniform image", () => {
 		const r = new Raster(16, 16, 1, new Uint8Array(256).fill(100));
 		expect(r.thumb8()).toEqual(Array(64).fill(100));
+	});
+	it("reads gray+alpha luminance from the gray sample, not the alpha", () => {
+		// Uniform mid-gray under an alpha ramp: only the gray sample may reach the signature.
+		const px = new Uint8Array(16 * 16 * 2);
+		for (let i = 0; i < 16 * 16; i++) { px[i * 2] = 100; px[i * 2 + 1] = i & 255; }
+		expect(new Raster(16, 16, 2, px).thumb8()).toEqual(Array(64).fill(100));
 	});
 	it("separates a light half from a dark half", () => {
 		const px = new Uint8Array(16 * 16);
@@ -145,5 +161,48 @@ describe("Raster.toGray", () => {
 	it("returns null when samples disagree or input is not RGB", () => {
 		expect(new Raster(1, 1, 3, new Uint8Array([1, 2, 3])).toGray()).toBeNull();
 		expect(new Raster(1, 1, 1, new Uint8Array([1])).toGray()).toBeNull();
+	});
+});
+
+describe("Raster.crop", () => {
+	// 4×3 gray ramp, one distinct sample per pixel, so a wrong stride shows up as wrong values.
+	const ramp = () => new Raster(4, 3, 1, new Uint8Array([
+		0, 1, 2, 3,
+		10, 11, 12, 13,
+		20, 21, 22, 23,
+	]));
+
+	it("lifts an interior region row by row", () => {
+		const c = ramp().crop(1, 1, 2, 2);
+		expect({ width: c.width, height: c.height, channels: c.channels }).toEqual({ width: 2, height: 2, channels: 1 });
+		expect([...c.px]).toEqual([11, 12, 21, 22]);
+	});
+
+	it("keeps every sample of a multi-channel pixel together", () => {
+		const rgba = new Raster(2, 2, 4, new Uint8Array([
+			1, 2, 3, 4, 5, 6, 7, 8,
+			9, 10, 11, 12, 13, 14, 15, 16,
+		]));
+		expect([...rgba.crop(1, 0, 1, 2).px]).toEqual([5, 6, 7, 8, 13, 14, 15, 16]);
+	});
+
+	it("returns an independent buffer", () => {
+		const src = ramp();
+		src.crop(0, 0, 1, 1).px[0] = 99;
+		expect(src.px[0]).toBe(0);
+	});
+
+	it("accepts the whole image", () => {
+		expect([...ramp().crop(0, 0, 4, 3).px]).toEqual([0, 1, 2, 3, 10, 11, 12, 13, 20, 21, 22, 23]);
+	});
+
+	it("rejects a region reaching past an edge", () => {
+		expect(() => ramp().crop(2, 0, 3, 1)).toThrow(/outside 4×3/);
+		expect(() => ramp().crop(0, 2, 1, 2)).toThrow(/outside 4×3/);
+		expect(() => ramp().crop(-1, 0, 1, 1)).toThrow(/outside 4×3/);
+	});
+
+	it("rejects an empty region", () => {
+		expect(() => ramp().crop(0, 0, 0, 2)).toThrow(/must be positive/);
 	});
 });

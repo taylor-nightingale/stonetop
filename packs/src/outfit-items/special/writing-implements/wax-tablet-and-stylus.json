@@ -1,0 +1,24 @@
+{
+	"_id": "JEBE08NZ6bBRKWuL",
+	"_key": "!items!JEBE08NZ6bBRKWuL",
+	"name": "Wax tablet and stylus",
+	"type": "outfitItem",
+	"system": {
+		"slug": "wax-tablet-and-stylus",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 0,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "N4O1CtVBr67xmakb"
+}

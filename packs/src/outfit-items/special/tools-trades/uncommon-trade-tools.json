@@ -1,0 +1,24 @@
+{
+	"_id": "BxQUZUC3tnotwaFm",
+	"_key": "!items!BxQUZUC3tnotwaFm",
+	"name": "Uncommon trade tools",
+	"type": "outfitItem",
+	"system": {
+		"slug": "uncommon-trade-tools",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 2,
+		"note": "for carpentry, chandlery, beekeeping, etc.; immobile",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

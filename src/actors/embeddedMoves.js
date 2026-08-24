@@ -48,6 +48,21 @@ export function findMoveItemBySlug(actor, moveSlug) {
 	) ?? null;
 }
 
+/**
+ * Open the item behind a rendered move row: the actor's own copy when they have taken the move,
+ * otherwise the compendium move it was rendered from — the same document the Items sidebar opens.
+ *
+ * Shared by CharacterMoves and SteadingMoves because a move row behaves the same on every sheet that
+ * shows one. Returns false when there is nothing to open: an arcanum's inline move is text on the
+ * arcanum, not an item of its own.
+ */
+export async function openMoveSheet(actor, moveSlug, moveRepo) {
+	const doc = findMoveItemBySlug(actor, moveSlug) ?? await moveRepo?.getMoveDocumentBySlug(moveSlug) ?? null;
+	if (!doc) return false;
+	doc.sheet.render(true);
+	return true;
+}
+
 export function computeSelectable(item) {
 	return (item?.system?.instanceCount ?? 0) < (item?.system?.repeatMax ?? 1);
 }

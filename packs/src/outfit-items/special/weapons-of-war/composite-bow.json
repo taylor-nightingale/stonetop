@@ -1,0 +1,33 @@
+{
+	"_id": "FbCdssjW7Thlhjb7",
+	"_key": "!items!FbCdssjW7Thlhjb7",
+	"name": "Composite bow",
+	"type": "outfitItem",
+	"system": {
+		"slug": "composite-bow",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "+1 damage, x piercing",
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"low ammo",
+				"all out"
+			]
+		},
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"far"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "9BRzyUc2e8yFa7ao"
+}

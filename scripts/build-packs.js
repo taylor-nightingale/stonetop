@@ -20,6 +20,9 @@ export const BUILDERS = [
 	"scripts/import/pdf/build-tables.js",
 	"scripts/import/pdf/build-improvements.js",
 	"scripts/import/pdf/build-steadfasts.js",
+	// Book I's value tables: the gear the pack is missing, the livestock followers, and the
+	// "Common & Special Items" reference page (which links the items it just resolved).
+	"scripts/import/build-items.js",
 	// Not a pack: writes the tag definitions into languages/en.json. Listed here so a reprint
 	// refreshes them along with everything else derived from the books.
 	"scripts/import/pdf/build-tag-glossary.js",

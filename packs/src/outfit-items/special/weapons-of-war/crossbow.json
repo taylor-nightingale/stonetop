@@ -1,0 +1,34 @@
+{
+	"_id": "PGOw7pD6xxtlDQ9y",
+	"_key": "!items!PGOw7pD6xxtlDQ9y",
+	"name": "Crossbow",
+	"type": "outfitItem",
+	"system": {
+		"slug": "crossbow",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "+1 damage, x piercing",
+		"resource": {
+			"max": 2,
+			"title": null,
+			"labels": [
+				"low ammo",
+				"all out"
+			]
+		},
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"far",
+			"reload"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "9BRzyUc2e8yFa7ao"
+}

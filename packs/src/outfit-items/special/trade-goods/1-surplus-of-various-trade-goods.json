@@ -1,0 +1,26 @@
+{
+	"_id": "diBDnKBxtglmKmi4",
+	"_key": "!items!diBDnKBxtglmKmi4",
+	"name": "1 Surplus of various trade goods",
+	"type": "outfitItem",
+	"system": {
+		"slug": "1-surplus-of-various-trade-goods",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 2,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"immobile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

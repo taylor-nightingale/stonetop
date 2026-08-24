@@ -1,0 +1,16 @@
+{
+	"name": "Special items",
+	"type": "Item",
+	"description": "",
+	"folder": null,
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"_id": "RPEvdNQq7kMxUHFD",
+	"_key": "!folders!RPEvdNQq7kMxUHFD"
+}

@@ -1,0 +1,24 @@
+{
+	"_id": "VUr1IF8sGwIitaC8",
+	"_key": "!items!VUr1IF8sGwIitaC8",
+	"name": "Bezoar",
+	"type": "outfitItem",
+	"system": {
+		"slug": "bezoar",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 1,
+		"note": "swallow to cure any poison",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "U9FEeGwXFSN4XTSR"
+}

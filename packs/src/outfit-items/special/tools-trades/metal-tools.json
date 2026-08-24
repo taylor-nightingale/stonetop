@@ -1,0 +1,24 @@
+{
+	"_id": "w8LTelCIDouXJP01",
+	"_key": "!items!w8LTelCIDouXJP01",
+	"name": "Metal tools",
+	"type": "outfitItem",
+	"system": {
+		"slug": "metal-tools",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 0,
+		"note": "drill, prybar, saw, etc.",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

@@ -1,0 +1,28 @@
+{
+	"_id": "sQ4lAlnbGEABAg6X",
+	"_key": "!items!sQ4lAlnbGEABAg6X",
+	"name": "Maul, iron",
+	"type": "outfitItem",
+	"system": {
+		"slug": "maul-iron",
+		"inventoryColumn": "regular",
+		"weight": 2,
+		"value": 0,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"close",
+			"forceful",
+			"awkward"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "StOnEtOpWpn0001X"
+}

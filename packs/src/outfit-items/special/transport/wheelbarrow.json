@@ -1,0 +1,24 @@
+{
+	"_id": "ZBaq8zorcTbrNcsE",
+	"_key": "!items!ZBaq8zorcTbrNcsE",
+	"name": "Wheelbarrow",
+	"type": "outfitItem",
+	"system": {
+		"slug": "wheelbarrow",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "guY34f76HpUIeR0j"
+}

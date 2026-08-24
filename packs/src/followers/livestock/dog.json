@@ -1,0 +1,58 @@
+{
+	"_id": "KICFGN0PsCV67e8w",
+	"_key": "!items!KICFGN0PsCV67e8w",
+	"name": "Dog",
+	"type": "follower",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "dog",
+		"reference": null,
+		"arcanaSlug": null,
+		"tagList": [
+			"keen-nosed"
+		],
+		"tagOptions": [],
+		"hp": {
+			"value": 0,
+			"max": 6
+		},
+		"armor": "",
+		"damage": "[[/r d6]] (_hand_, _grabby_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to get distracted"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [
+				"training"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"moves": "",
+		"description": "",
+		"notes": ""
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "CzTzMm4VEWIuqyG3"
+}

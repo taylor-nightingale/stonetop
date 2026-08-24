@@ -82,7 +82,11 @@ export function parseMarkers(xml) {
 		const curves = (body.match(/curveto/g) || []).length;
 		const lines = (body.match(/lineto/g) || []).length;
 		let kind;
-		if (curves >= 3 && lines === 0) kind = hullArea(pts) / (w * h) < 0.7 ? "diamond" : "circle"; // curved outline
+		// Curved outline. The books draw the SAME ◇ three different ways — all curves (Book II), three
+		// curves closed by a `lineto` (Book I's item tables), and two curves with two straight sides
+		// (Book I's inline prose diamond) — so the test is "mostly curved, closed" rather than a
+		// segment count that only one of them satisfies. The hull ratio still decides ◇ from ○.
+		if (curves >= 2 && curves + lines >= 3) kind = hullArea(pts) / (w * h) < 0.7 ? "diamond" : "circle";
 		else if (lines >= 3 && Math.abs(w - h) <= Math.max(w, h) * 0.35)                             // straight-sided box
 			kind = hullArea(pts) / (w * h) < 0.7 ? "diamond" : "square";                             // upright □ vs rotated ◇
 		else continue;

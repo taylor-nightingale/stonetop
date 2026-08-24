@@ -1,0 +1,26 @@
+{
+	"_id": "q5jApbFshpOkh8cg",
+	"_key": "!items!q5jApbFshpOkh8cg",
+	"name": "Glass vial",
+	"type": "outfitItem",
+	"system": {
+		"slug": "glass-vial",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 0,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"fragile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

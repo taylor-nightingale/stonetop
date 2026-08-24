@@ -1,0 +1,27 @@
+{
+	"_id": "Z6GDfFuhqELTWqDq",
+	"_key": "!items!Z6GDfFuhqELTWqDq",
+	"name": "Bendis root",
+	"type": "outfitItem",
+	"system": {
+		"slug": "bendis-root",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 1,
+		"note": "fumes repel perversions of nature; lasts ~1 hour",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"reach",
+			"area"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "U9FEeGwXFSN4XTSR"
+}

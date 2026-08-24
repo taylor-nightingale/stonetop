@@ -1,0 +1,16 @@
+{
+	"name": "Light Sources",
+	"type": "Item",
+	"description": "",
+	"folder": "RPEvdNQq7kMxUHFD",
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"_id": "Erz36P0Uki23Q4ep",
+	"_key": "!folders!Erz36P0Uki23Q4ep"
+}

@@ -9,6 +9,7 @@ import {
 	decrementMove,
 	buildMoveSnapshot,
 	findMoveItemBySlug,
+	openMoveSheet,
 } from "../embeddedMoves.js";
 import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
 import { GrantedItems } from "../GrantedItems.js";
@@ -151,6 +152,11 @@ export class CharacterMoves {
 		if (!item) return false;
 		await this._actor.sendItemToChat(item);
 		return true;
+	}
+
+	/** Open this move's own item sheet — see embeddedMoves.openMoveSheet. */
+	async openSheet(moveSlug) {
+		return openMoveSheet(this._actor, moveSlug, this._moveRepo);
 	}
 
 	/** The controller for one move's picks, or null when the move is absent or has no choice group. */

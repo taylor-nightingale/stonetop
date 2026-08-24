@@ -1,0 +1,26 @@
+{
+	"_id": "pIHAAaq5nODqDYd2",
+	"_key": "!items!pIHAAaq5nODqDYd2",
+	"name": "Silver-alloy dagger",
+	"type": "outfitItem",
+	"system": {
+		"slug": "silver-alloy-dagger",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 2,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"hand"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "U9FEeGwXFSN4XTSR"
+}

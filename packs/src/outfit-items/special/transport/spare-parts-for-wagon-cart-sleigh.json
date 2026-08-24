@@ -1,0 +1,34 @@
+{
+	"_id": "f3XGiRQ32RGWeepH",
+	"_key": "!items!f3XGiRQ32RGWeepH",
+	"name": "Spare parts for wagon/cart/sleigh",
+	"type": "outfitItem",
+	"system": {
+		"slug": "spare-parts-for-wagon-cart-sleigh",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 2,
+		"note": "axles, wheels, etc.",
+		"resource": {
+			"max": 3,
+			"title": null,
+			"labels": [
+				"",
+				"",
+				"uses"
+			]
+		},
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"immobile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "guY34f76HpUIeR0j"
+}

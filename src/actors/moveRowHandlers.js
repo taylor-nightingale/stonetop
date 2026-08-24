@@ -17,6 +17,11 @@ export const MOVE_ROW_ACTIONS = {
 	moveToChat(ev, target) {
 		return this.typedActor.sendMoveToChat(target.dataset.moveSlug);
 	},
+	// Also not edit-gated: opening the move's own sheet is how a player reads the full text, and a
+	// locked sheet is exactly when they want to.
+	openMove(ev, target) {
+		return this.typedActor.openMoveSheet(target.dataset.moveSlug);
+	},
 	moveResourcePip: editOnly(function (ev, target) {
 		return this.typedActor.toggleMoveResourcePip(
 			target.dataset.moveSlug, target.dataset.index, target.classList.contains("is-checked"));

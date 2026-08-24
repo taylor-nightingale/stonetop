@@ -1,0 +1,24 @@
+{
+	"_id": "BlEXQ9eP9JVI99kf",
+	"_key": "!items!BlEXQ9eP9JVI99kf",
+	"name": "Small metal tool",
+	"type": "outfitItem",
+	"system": {
+		"slug": "small-metal-tool",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 0,
+		"note": "chisel, file, shears, etc.",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

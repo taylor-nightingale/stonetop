@@ -1,0 +1,24 @@
+{
+	"_id": "YKQnRGy6kCfrCoKF",
+	"_key": "!items!YKQnRGy6kCfrCoKF",
+	"name": "Wagon",
+	"type": "outfitItem",
+	"system": {
+		"slug": "wagon",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 3,
+		"note": "requires mule/horse",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "guY34f76HpUIeR0j"
+}

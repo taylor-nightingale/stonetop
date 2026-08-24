@@ -16,6 +16,10 @@ export class OutfitItemData extends foundry.abstract.TypeDataModel {
 			slug:            new f.StringField({ nullable: true, initial: null }),
 			inventoryColumn: new f.StringField({ nullable: true, initial: null }),
 			weight:          new f.NumberField({ initial: 1, integer: true }),
+			// The Value the book prints beside the item in its Common/Special items table (p. 94-97)
+			// — what Trade & Barter subtracts from the roll. Null for an item the book never priced
+			// (anything authored in-world), which is why it is nullable rather than defaulting to 0.
+			value:           new f.NumberField({ nullable: true, initial: null, integer: true, min: 0 }),
 			// One tag model across gear, creatures and group members: an ordered list of tokens.
 			// `tagList`, not `tags` — Foundry reserves the item field `system.tags` (tagFields.js).
 			tagList:         tagListField(),

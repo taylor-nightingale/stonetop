@@ -1,0 +1,26 @@
+{
+	"_id": "JHybrtIQVpwP5vIy",
+	"_key": "!items!JHybrtIQVpwP5vIy",
+	"name": "Warhammer, iron",
+	"type": "outfitItem",
+	"system": {
+		"slug": "warhammer-iron",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "2 piercing",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"close"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "9BRzyUc2e8yFa7ao"
+}

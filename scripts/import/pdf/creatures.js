@@ -251,7 +251,7 @@ export function toNpcDoc(creature, { article, img = "systems/stonetop/assets/con
 /** Build an arcanum-follower Item doc (src/data/creature.js schema) from a parsed stat block. Cost is
  *  the key follower field; its "(Loyalty ◯◯◯)" is dropped (loyalty is always max 3). `_id`/`_key`/
  *  `img`/`folder` come from the existing follower (preserved by build-arcana) when present. */
-export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img = "icons/svg/item-bag.svg", folder = null } = {}) {
+export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img = "icons/svg/item-bag.svg", folder = null, flags = {} } = {}) {
 	// The canonical slug (filename + arcana back-ref) is passed in; it can differ from toSlug(name)
 	// when the book name carries a leading "The" the slug drops (e.g. "The Andalau of the Flute").
 	const followerSlug = slug ?? toSlug(creature.name);
@@ -310,7 +310,7 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 			description: creature.description,
 			notes: "",
 		},
-		flags: {},
+		flags,
 		folder,
 	};
 }

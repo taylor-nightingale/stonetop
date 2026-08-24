@@ -1,0 +1,26 @@
+{
+	"_id": "VXszC5OnyVfBRHBK",
+	"_key": "!items!VXszC5OnyVfBRHBK",
+	"name": "Parchment, a few sheets",
+	"type": "outfitItem",
+	"system": {
+		"slug": "parchment-a-few-sheets",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"fragile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "N4O1CtVBr67xmakb"
+}

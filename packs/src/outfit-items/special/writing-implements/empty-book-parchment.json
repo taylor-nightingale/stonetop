@@ -1,0 +1,26 @@
+{
+	"_id": "EtCmwNI35lGTNMVj",
+	"_key": "!items!EtCmwNI35lGTNMVj",
+	"name": "Empty book, parchment",
+	"type": "outfitItem",
+	"system": {
+		"slug": "empty-book-parchment",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"fragile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "N4O1CtVBr67xmakb"
+}

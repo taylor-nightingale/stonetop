@@ -1,0 +1,24 @@
+{
+	"_id": "Vjs125eYIrjEDVNS",
+	"_key": "!items!Vjs125eYIrjEDVNS",
+	"name": "Instrument",
+	"type": "outfitItem",
+	"system": {
+		"slug": "instrument",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 1,
+		"note": "harp, lute, fiddle, etc.",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

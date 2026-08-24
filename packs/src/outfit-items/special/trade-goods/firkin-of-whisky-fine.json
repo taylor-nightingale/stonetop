@@ -1,0 +1,24 @@
+{
+	"_id": "xc3jJwRNvHVWAcOi",
+	"_key": "!items!xc3jJwRNvHVWAcOi",
+	"name": "Firkin of whisky, fine",
+	"type": "outfitItem",
+	"system": {
+		"slug": "firkin-of-whisky-fine",
+		"inventoryColumn": "regular",
+		"weight": 2,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

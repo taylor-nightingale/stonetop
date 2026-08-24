@@ -14,6 +14,7 @@
     "tag-glossary": "node scripts/import/pdf/build-tag-glossary.js",
     "build-packs": "node scripts/build-packs.js",
     "art-manifest": "node scripts/art/build-art-manifest.js",
+    "slice-arcana-border": "node scripts/art/slice-arcana-border.js",
     "pack:module": "node scripts/pack-module.js",
     "publish:foundry": "node scripts/release/publish-to-foundry.js"
   },

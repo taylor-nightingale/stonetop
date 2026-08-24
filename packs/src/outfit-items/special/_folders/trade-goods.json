@@ -1,0 +1,16 @@
+{
+	"name": "Trade Goods",
+	"type": "Item",
+	"description": "",
+	"folder": "RPEvdNQq7kMxUHFD",
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"_id": "EkSCEOjTVcKJi5Vw",
+	"_key": "!folders!EkSCEOjTVcKJi5Vw"
+}

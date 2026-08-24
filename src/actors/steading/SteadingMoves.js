@@ -11,6 +11,7 @@ import {
 	decrementMove,
 	buildMoveSnapshot,
 	findMoveItemBySlug,
+	openMoveSheet,
 } from "../embeddedMoves.js";
 import { toSlug } from "../../utils/slug.js";
 
@@ -28,6 +29,12 @@ export class SteadingMoves {
 		this._resourceController = resourceController;
 		this._grantedItems       = grantedItems;
 		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo, grantedItems);
+	}
+
+
+	/** Open this move's own item sheet — see embeddedMoves.openMoveSheet. */
+	async openSheet(moveSlug) {
+		return openMoveSheet(this._actor, moveSlug, this._repo);
 	}
 
 	// Seeds every category's reference moves onto the steading as owned `move` items. Called once, at

@@ -1,0 +1,24 @@
+{
+	"_id": "RGSyATyqouidcEHE",
+	"_key": "!items!RGSyATyqouidcEHE",
+	"name": "Specialized trade tools",
+	"type": "outfitItem",
+	"system": {
+		"slug": "specialized-trade-tools",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 3,
+		"note": "for smithing, glassblowing, scribing, etc.; immobile",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "NRwOuBxGCieS8dHN"
+}

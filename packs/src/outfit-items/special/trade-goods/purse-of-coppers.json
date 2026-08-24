@@ -1,0 +1,24 @@
+{
+	"_id": "V0RrdDfaP7ahTqEb",
+	"_key": "!items!V0RrdDfaP7ahTqEb",
+	"name": "Purse of coppers",
+	"type": "outfitItem",
+	"system": {
+		"slug": "purse-of-coppers",
+		"inventoryColumn": "regular",
+		"weight": 1,
+		"value": 0,
+		"note": "~10 handfuls",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": []
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

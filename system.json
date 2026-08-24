@@ -169,6 +169,17 @@
 				"PLAYER": "OBSERVER",
 				"ASSISTANT": "OWNER"
 			}
+		},
+		{
+			"name": "reference",
+			"label": "Reference",
+			"path": "packs/reference",
+			"type": "JournalEntry",
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
 		}
 	],
 	"url": "https://github.com/taylor-nightingale/stonetop",

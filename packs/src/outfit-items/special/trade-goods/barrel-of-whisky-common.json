@@ -1,0 +1,26 @@
+{
+	"_id": "bDKeVb1ipiDmTimz",
+	"_key": "!items!bDKeVb1ipiDmTimz",
+	"name": "Barrel of whisky, common",
+	"type": "outfitItem",
+	"system": {
+		"slug": "barrel-of-whisky-common",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 1,
+		"note": "",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"immobile"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "EkSCEOjTVcKJi5Vw"
+}

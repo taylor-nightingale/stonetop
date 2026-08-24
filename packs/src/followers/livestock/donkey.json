@@ -1,0 +1,59 @@
+{
+	"_id": "YA0ok6MKiHeFmenr",
+	"_key": "!items!YA0ok6MKiHeFmenr",
+	"name": "Donkey",
+	"type": "follower",
+	"img": "icons/svg/item-bag.svg",
+	"system": {
+		"slug": "donkey",
+		"reference": null,
+		"arcanaSlug": null,
+		"tagList": [
+			"hardy",
+			"sure-footed",
+			"cautious",
+			"slow"
+		],
+		"tagOptions": [],
+		"hp": {
+			"value": 0,
+			"max": 10
+		},
+		"armor": "",
+		"damage": "[[/r d4+2]] (_hand_, _forceful_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to be stubborn"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [
+			{
+				"slug": "choices",
+				"list": []
+			}
+		],
+		"moves": "",
+		"description": "",
+		"notes": ""
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "CzTzMm4VEWIuqyG3"
+}

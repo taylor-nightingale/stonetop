@@ -57,6 +57,29 @@ describe("parseMarkers", () => {
 		expect(parseMarkers(pip)[0].kind).toBe("diamond");
 	});
 
+	// Book I draws the Common-items load diamond as three curves closed by a `lineto` back to the
+	// start — Book II's is all curves. Both are the same ◇, so both must read as one.
+	it("reads a curved diamond closed by a single lineto as a diamond", () => {
+		const bookI = `<stroke_path color="0 0 0" transform="1 0 0 -1 600 106">` +
+			`<moveto x="0" y="0"/>` +
+			`<curveto x1=".985" y1="-.985" x2="1.97" y2="-1.97" x3="2.956" y3="-2.956"/>` +
+			`<curveto x1="3.941" y1="-1.97" x2="4.926" y2="-.985" x3="5.911" y3="0"/>` +
+			`<curveto x1="4.926" y1=".985" x2="3.941" y2="1.97" x3="2.956" y3="2.956"/>` +
+			`<lineto x="0" y="0"/></stroke_path>`;
+		expect(parseMarkers(bookI)[0].kind).toBe("diamond");
+	});
+
+	// …and a third construction: two curves with two straight sides, the ◇ Book I sets inline in prose
+	// ("A ◇ purse of copper coins").
+	it("reads a two-curve, two-line diamond as a diamond", () => {
+		const inline = `<stroke_path color="0 0 0" transform="1 0 0 -1 226.7 324.5">` +
+			`<moveto x="0" y="0"/><lineto x="3.353" y="-3.353"/>` +
+			`<curveto x1="4.47" y1="-2.235" x2="5.588" y2="-1.118" x3="6.706" y3="0"/>` +
+			`<lineto x="3.353" y="3.353"/>` +
+			`<curveto x1="2.235" y1="2.235" x2="1.118" y2="1.118" x3="0" y3="0"/></stroke_path>`;
+		expect(parseMarkers(inline)[0].kind).toBe("diamond");
+	});
+
 	it("ignores white markers and oblong (non-square) straight shapes", () => {
 		expect(parseMarkers(square.replace('color="0 0 0"', 'color="1 1 1"'))).toEqual([]);
 		const oblong = `<stroke_path color="0 0 0" transform="1 0 0 -1 600 313">` +

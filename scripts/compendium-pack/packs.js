@@ -12,4 +12,5 @@ export const PACKS = [
 	"wider-world-npcs",
 	"wider-world-and-other-wonders",
 	"wonder-tables",
+	"reference",
 ];

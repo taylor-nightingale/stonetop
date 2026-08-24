@@ -21,14 +21,14 @@ const crc32 = (bytes) => {
 	return (c ^ 0xFFFFFFFF) >>> 0;
 };
 
-const CHANNELS_BY_COLOR_TYPE = { 0: 1, 2: 3, 6: 4 };
-const COLOR_TYPE_BY_CHANNELS = { 1: 0, 3: 2, 4: 6 };
+const CHANNELS_BY_COLOR_TYPE = { 0: 1, 2: 3, 4: 2, 6: 4 };
+const COLOR_TYPE_BY_CHANNELS = { 1: 0, 2: 4, 3: 2, 4: 6 };
 
 export class Raster {
 	/**
 	 * @param {number} width
 	 * @param {number} height
-	 * @param {number} channels 1 (gray), 3 (RGB) or 4 (RGBA)
+	 * @param {number} channels 1 (gray), 2 (gray+alpha), 3 (RGB) or 4 (RGBA)
 	 * @param {Uint8Array} px interleaved samples, row-major
 	 */
 	constructor(width, height, channels, px) {
@@ -69,7 +69,7 @@ export class Raster {
 		return new Raster(width, height, 4, new Uint8Array(data.buffer ?? data, data.byteOffset ?? 0, width * height * 4));
 	}
 
-	/** Decode an 8-bit gray/RGB/RGBA non-interlaced PNG (all scanline filters). */
+	/** Decode an 8-bit gray/gray+alpha/RGB/RGBA non-interlaced PNG (all scanline filters). */
 	static fromPng(bytes) {
 		for (let i = 0; i < 8; i++) if (bytes[i] !== PNG_SIG[i]) throw new Error("not a PNG");
 		const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
@@ -165,7 +165,7 @@ export class Raster {
 			for (let x = 0; x < this.width; x++) {
 				const gx = Math.min(7, (x * 8 / this.width) | 0);
 				const p = (y * this.width + x) * this.channels;
-				const lum = this.channels === 1 ? this.px[p] : this.px[p] * 0.299 + this.px[p + 1] * 0.587 + this.px[p + 2] * 0.114;
+				const lum = this.channels <= 2 ? this.px[p] : this.px[p] * 0.299 + this.px[p + 1] * 0.587 + this.px[p + 2] * 0.114;
 				sum[gy * 8 + gx] += lum; cnt[gy * 8 + gx]++;
 			}
 		}
@@ -181,6 +181,21 @@ export class Raster {
 			if (a !== 0 && a !== 255) return false;
 		}
 		return true;
+	}
+
+	/** A rectangular region as its own raster, same channel layout. */
+	crop(x, y, width, height) {
+		if (width <= 0 || height <= 0) throw new Error(`crop size must be positive, got ${width}×${height}`);
+		if (x < 0 || y < 0 || x + width > this.width || y + height > this.height) {
+			throw new Error(`crop ${width}×${height}+${x}+${y} falls outside ${this.width}×${this.height}`);
+		}
+		const c = this.channels;
+		const px = new Uint8Array(width * height * c);
+		for (let row = 0; row < height; row++) {
+			const from = ((y + row) * this.width + x) * c;
+			px.set(this.px.subarray(from, from + width * c), row * width * c);
+		}
+		return new Raster(width, height, c, px);
 	}
 
 	/** Collapse RGB whose three samples agree everywhere to 1-channel gray, else null. */

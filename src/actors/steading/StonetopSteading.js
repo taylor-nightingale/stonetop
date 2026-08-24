@@ -198,6 +198,7 @@ export class StonetopSteading {
 	}
 
 	async sendMoveToChat(moveSlug)                          { await this.#moves.sendToChat(moveSlug); }
+	async openMoveSheet(moveSlug)                            { await this.#moves.openSheet(moveSlug); }
 	async toggleMoveResourcePip(moveSlug, index, wasChecked) { await this.#moves.toggleResourcePip(moveSlug, index, wasChecked); }
 	async setMoveResourceText(moveSlug, value)              { await this.#moves.setMoveResourceText(moveSlug, value); }
 

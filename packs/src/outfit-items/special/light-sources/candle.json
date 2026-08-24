@@ -1,0 +1,27 @@
+{
+	"_id": "IJRS0s6mWs0EO6s0",
+	"_key": "!items!IJRS0s6mWs0EO6s0",
+	"name": "Candle",
+	"type": "outfitItem",
+	"system": {
+		"slug": "candle",
+		"inventoryColumn": "small",
+		"weight": 1,
+		"value": 0,
+		"note": "lasts ~1 hour",
+		"resource": null,
+		"twoCol": false,
+		"armor": null,
+		"source": null,
+		"tagList": [
+			"close",
+			"area"
+		]
+	},
+	"flags": {
+		"stonetop": {
+			"generated": "book-items"
+		}
+	},
+	"folder": "Erz36P0Uki23Q4ep"
+}
