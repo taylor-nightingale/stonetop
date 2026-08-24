@@ -1,9 +1,15 @@
 import {PersonList} from "./PersonList.js";
 import {Person} from "./Person.js";
+import {PersonActors} from "./PersonActors.js";
 
 export class NeighborPeople {
-	constructor(actor) {
-		this._list = new PersonList(actor, "neighborPeople");
+	/** Where a neighbour with no home written down is filed. */
+	static ELSEWHERE = "Neighbors";
+
+	constructor(actor, npcs = null) {
+		this._actor  = actor;
+		this._list   = new PersonList(actor, "neighborPeople");
+		this._actors = npcs ? new PersonActors(actor, npcs) : null;
 	}
 
 	async add() {
@@ -36,6 +42,33 @@ export class NeighborPeople {
 
 	async unlinkDocument(id) {
 		await this._list.update(this._list.findById(id).withoutLink());
+	}
+
+	linksDocument(uuid) {
+		return this._list.linksDocument(uuid);
+	}
+
+	// A neighbour is filed under the home written on their row — `NPCs/Marshedge` — so changing where
+	// someone lives moves their actor with them.
+	async syncActors(ids = null) {
+		if (!this._actors) return;
+		for (const person of this._selected(ids)) {
+			const updated = await this._actors.sync(person, NeighborPeople._locationOf(person));
+			if (updated) await this._list.update(updated);
+		}
+	}
+
+	async previewActors() {
+		if (!this._actors) return [];
+		return Promise.all(this._list.all().map(p => this._actors.preview(p, NeighborPeople._locationOf(p))));
+	}
+
+	static _locationOf(person) {
+		return person.home?.trim() || NeighborPeople.ELSEWHERE;
+	}
+
+	_selected(ids) {
+		return ids === null ? this._list.all() : this._list.all().filter(p => ids.includes(p.id));
 	}
 
 	buildSnapshot() {

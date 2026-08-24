@@ -17,6 +17,7 @@ import {SteadingDropRouter} from "./SteadingDropRouter.js";
 import {ChoiceStores} from "../character/ChoiceStores.js";
 import {applyPick} from "../character/ChoiceGroupController.js";
 import {FoundrySteadingRepositoryFactory} from "./repositories/FoundrySteadingRepositoryFactory.js";
+import {SteadingPeopleDelta} from "./SteadingPeopleDelta.js";
 import {startingAttributeNote} from "./startingAttributeNote.js";
 import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadfast.js";
 
@@ -37,8 +38,8 @@ export class StonetopSteading {
 		this.#places         = new PlacesOfInterest(actor);
 		this.#attributes     = new SteadingAttributes(actor);
 		this.#debilities     = new SteadingDebilities(actor);
-		this.#residents      = new Residents(actor);
-		this.#neighborPeople = new NeighborPeople(actor);
+		this.#residents      = new Residents(actor, repos.npcs);
+		this.#neighborPeople = new NeighborPeople(actor, repos.npcs);
 		this.#neighborPlaces = new NeighborPlaces(actor);
 		this.#content        = new SteadingContent(actor);
 		this.#assets         = new SteadingAssets(actor);
@@ -127,6 +128,28 @@ export class StonetopSteading {
 	async unlinkNeighbor(id)                   { await this.#neighborPeople.unlinkDocument(id); }
 	async linkNeighbor(id, uuid)               { await this.#neighborPeople.linkDocument(id, uuid); }
 	async updateNeighborPlaceNote(id, value)   { await this.#neighborPlaces.updateNote(id, value); }
+
+	// ── Linked NPC actors ──────────────────────────────────────────────────────
+	// Creating actors and folders is privileged work, so these run on the active GM's client (see
+	// hooks/SteadingPeopleChanged) even when a player made the edit.
+
+	/** Bring the rows named in `delta` — and only those — in step with their NPC actors. */
+	async syncLinkedActors(delta) {
+		await this.#residents.syncActors(delta?.residents ?? []);
+		await this.#neighborPeople.syncActors(delta?.neighbors ?? []);
+	}
+
+	async createMissingResidentActors()  { await this.#residents.syncActors(); }
+	async createMissingNeighborActors()  { await this.#neighborPeople.syncActors(); }
+	async previewResidentActors()        { return this.#residents.previewActors(); }
+	async previewNeighborActors()        { return this.#neighborPeople.previewActors(); }
+
+	/** Whether anything on this steading points at that document — asked when it changes or dies. */
+	linksDocument(uuid) {
+		return this.#residents.linksDocument(uuid)
+			|| this.#neighborPeople.linksDocument(uuid)
+			|| this.#places.linksDocument(uuid);
+	}
 
 	// ── Places of interest ─────────────────────────────────────────────────────
 

@@ -82,6 +82,15 @@
 			"linkDropTitle": "Drop an actor, journal, or item here to link it",
 			"unlink": "Unlink",
 			"improvementRemove": "Remove",
+			"createActors": {
+				"residents": "Create actors for residents",
+				"neighbors": "Create actors for neighbors",
+				"title": "Create NPC actors",
+				"creating": "Create {count} new NPC actor(s): {names}.",
+				"linking": "Link {count} row(s) to actors that already exist: {names}.",
+				"proceed": "Proceed?",
+				"nothing": "Every named row already has a linked document."
+			},
 			"seasons": {
 				"movesTitle": "Seasons Change",
 				"movesEmpty": "No seasonal moves assigned to this steading.",
@@ -385,6 +394,10 @@
 			"done": "Done"
 		},
 		"settings": {
+			"autoCreateResidentActors": {
+				"name": "Create NPC Actors For The Roster",
+				"hint": "When a resident or neighbor is given a name, create an NPC actor for them under NPCs/<location> and link it. The actors are created by the GM's client, so nothing happens while no GM is connected — use the buttons on the steading sheet to catch up."
+			},
 			"hideRollMode": {
 				"name": "Hide Roll Mode",
 				"hint": "Hide the roll mode selector (advantage/disadvantage) from character sheets."

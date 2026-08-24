@@ -15,7 +15,7 @@
 				"name": "A boiled leather cuirass",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"note": "(1 armor)",
+				"note": "1 armor",
 				"armor": {
 					"value": 1
 				}

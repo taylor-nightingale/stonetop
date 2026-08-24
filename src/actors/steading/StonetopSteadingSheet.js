@@ -1,6 +1,7 @@
 import { loadAllSteadfasts } from "./applySteadfast.js";
 import { editOnly, confirmedDelete } from "../../utils/sheetActions.js";
 import { steadingChangeHandlers } from "./steadingChangeHandlers.js";
+import { RosterActorCreation } from "./RosterActorCreation.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
@@ -25,6 +26,14 @@ export function createStonetopSteadingSheetClass(Base) {
 				addAssetItem:     editOnly(function () { return this._stonetopSteading.addAssetItem(); }),
 				addAttributeItem: editOnly(function (ev, target) {
 					return this._stonetopSteading.addAttributeItem(target.dataset.attr);
+				}),
+
+				// --- NPC actors for the roster (GM-only controls; the automatic path is a hook) ---
+				createResidentActors: editOnly(function () {
+					return RosterActorCreation.forResidents(this._stonetopSteading).run();
+				}),
+				createNeighborActors: editOnly(function () {
+					return RosterActorCreation.forNeighbors(this._stonetopSteading).run();
 				}),
 
 				// --- unlinks (drop the linked document, keep the row) ---
@@ -87,6 +96,8 @@ export function createStonetopSteadingSheetClass(Base) {
 			// The list is stashed so the name combobox's change handler can resolve a picked/typed name.
 			ctx.availableSteadfasts = this._availableSteadfasts = await steadfasts;
 			ctx.currentSteadfast    = this.actor.system.steadfast;
+			// Creating actors and folders is GM work, so the controls that do it only render for one.
+			ctx.isGM                = globalThis.game?.user?.isGM ?? false;
 			return ctx;
 		}
 

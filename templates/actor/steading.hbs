@@ -216,6 +216,9 @@
 						<button class="stonetop-resident-add stonetop-icon-btn" data-action="addResident" type="button" title="Add resident" aria-label="Add resident">
 							<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 						</button>
+						{{#if isGM}}
+							<button class="stonetop-create-actors" data-action="createResidentActors" type="button">{{localize "stonetop.steading.createActors.residents"}}</button>
+						{{/if}}
 						<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
 					</div>
 				</section>
@@ -312,6 +315,9 @@
 						<button class="stonetop-neighbor-person-add stonetop-icon-btn" data-action="addNeighbor" type="button" title="Add neighbor" aria-label="Add neighbor">
 							<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
 						</button>
+						{{#if isGM}}
+							<button class="stonetop-create-actors" data-action="createNeighborActors" type="button">{{localize "stonetop.steading.createActors.neighbors"}}</button>
+						{{/if}}
 						<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
 					</div>
 				</section>

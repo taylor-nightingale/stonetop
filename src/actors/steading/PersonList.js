@@ -15,8 +15,18 @@ export class PersonList {
 		await this._actor.update({ [`system.${this._key}`]: list.map(p => ({...p})) });
 	}
 
+	/** The people, as entities. */
+	all() {
+		return this._list;
+	}
+
 	findById(id) {
 		return this._list.find(p => p.id === id) ?? null;
+	}
+
+	/** Whether any of these people point at that document — asked when it is renamed or deleted. */
+	linksDocument(uuid) {
+		return this._list.some(p => p.linkUuid === uuid);
 	}
 
 	async add(person) {

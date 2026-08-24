@@ -1,6 +1,7 @@
 import { FoundryMoveRepository } from "../../character/repositories/FoundryMoveRepository.js";
 import { FoundrySteadingImprovementRepository } from "./FoundrySteadingImprovementRepository.js";
 import { FoundrySteadingArtRepository } from "./FoundrySteadingArtRepository.js";
+import { FoundryNpcRepository } from "./FoundryNpcRepository.js";
 
 // The Foundry-backed repositories a steading composes with, in one place — the steading's answer to
 // the character's FoundryRepositoryFactory. Passing a bag lets a test supply only what it needs, and
@@ -11,6 +12,7 @@ export class FoundrySteadingRepositoryFactory {
 			moves:        new FoundryMoveRepository(),
 			improvements: new FoundrySteadingImprovementRepository(),
 			art:          new FoundrySteadingArtRepository(),
+			npcs:         new FoundryNpcRepository(),
 		};
 	}
 }

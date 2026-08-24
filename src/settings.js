@@ -23,6 +23,19 @@ export function registerSettings() {
 		default: false
 	});
 
+	// Whether a resident/neighbour whose name is filled in gets an NPC actor under NPCs/<location>,
+	// created by the active GM's client. Off means the roster is data only, and the "create missing
+	// actors" buttons stay the only way to make them.
+	game.settings.register("stonetop", "autoCreateResidentActors", {
+		name: "stonetop.settings.autoCreateResidentActors.name",
+		hint: "stonetop.settings.autoCreateResidentActors.hint",
+		scope: "world",
+		config: true,
+		type: Boolean,
+		default: true,
+		restricted: true
+	});
+
 	// Tracks the last loaded system version.
 	// Used to detect when migrations need to run.
 	game.settings.register("stonetop", "systemVersion", {

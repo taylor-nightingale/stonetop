@@ -25,6 +25,10 @@ export class PlacesOfInterest {
 		await this._actor.update({"system.placesOfInterest": places});
 	}
 
+	linksDocument(uuid) {
+		return this._places.some(place => place.linkUuid === uuid);
+	}
+
 	async unlinkDocument(index) {
 		const places  = [...this._places];
 		places[index] = {...places[index], linkUuid: ""};

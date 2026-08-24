@@ -4498,6 +4498,22 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-note);
 }
 
+/* The GM's "create actors for the roster" control, beside each list's add button. `width: auto` is
+   what stops core's .window-app rule stretching it across the panel. */
+.stonetop.sheet.steading button.stonetop-create-actors {
+	width: auto;
+	margin-top: 4px;
+	padding: 2px 8px;
+	font-size: var(--fs-micro);
+	line-height: 1.4;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.stonetop.sheet.steading button.stonetop-create-actors:hover {
+	opacity: 1;
+}
+
 /* Muted one-line hint under each linkable list. */
 .stonetop.sheet.steading .steading-link-hint {
 	margin: 2px 0 0;

@@ -19,6 +19,8 @@ import { onReady } from "./src/hooks/Ready.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
 import { onCreateActor } from "./src/hooks/CreateActor.js";
+import { onPreUpdateSteadingPeople, onUpdateSteadingPeople } from "./src/hooks/SteadingPeopleChanged.js";
+import { onUpdateLinkedActor, onDeleteLinkedActor } from "./src/hooks/LinkedActorChanged.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
 import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
 import { onUpdateActor, onSteadingCreatedOrDeleted } from "./src/hooks/SteadingChanged.js";
@@ -200,3 +202,13 @@ Hooks.on("renderChatMessageHTML", onRenderChatMessage);
 Hooks.on("updateActor", onUpdateActor);
 Hooks.on("createActor", onSteadingCreatedOrDeleted);
 Hooks.on("deleteActor", onSteadingCreatedOrDeleted);
+
+// -- STEADING PEOPLE -> NPC ACTORS -----------------------------
+// A player may edit the roster but not create actors; the active GM's client does that work.
+Hooks.on("preUpdateActor", onPreUpdateSteadingPeople);
+Hooks.on("updateActor", onUpdateSteadingPeople);
+
+// -- LINKED DOCUMENTS ------------------------------------------
+// Steading rows show linked documents by live content link; redraw when one is renamed or deleted.
+Hooks.on("updateActor", onUpdateLinkedActor);
+Hooks.on("deleteActor", onDeleteLinkedActor);

@@ -25,6 +25,9 @@ export class FakeSteadingBuilder {
 		const actor = {
 			name: "Stonetop",
 			type: "steading",
+			uuid: "Actor.stonetop",
+			// A GM-only steading: created villager actors are visible to players regardless.
+			ownership: { default: 0 },
 			system: {
 				steadfast: this._steadfast,
 				description: "",
