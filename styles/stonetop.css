@@ -2946,56 +2946,94 @@ button.stonetop-xp-toggle {
 	border-color: transparent;
 }
 
-/* The card's chain border is 9-sliced: notched corners that must not scale, straight runs that
-   stretch to the card's size, painted in --st-decor so the chain follows the theme like the rest of
-   the sheet art. The element keeps its transparent border purely to reserve the 28px the art sits in.
+/* The card's chain frame. It is drawn as a nine-slice — notched corners that must not scale,
+   straight chain runs along the sides — and painted in --st-decor so it follows the theme like the
+   rest of the sheet art. The card keeps its transparent 28px border purely to reserve the space the
+   frame sits in.
    `mask-border` says all of that in one declaration, but Firefox implements neither it nor
-   `-webkit-mask-box-image`, so there the whole declaration is dropped, nothing masks this
-   pseudo-element, and it paints as a solid --st-decor slab over every child of the card. Eight plain
-   mask layers are the same nine-slice in CSS every engine supports: corners pinned unscaled, edges
-   sized `calc(100% - 56px)` so a stretched run stops at the corners instead of filling their notch.
+   `-webkit-mask-box-image`: there the whole declaration is dropped, nothing masks the element, and
+   it paints as a solid --st-decor slab over every child of the card. Plain mask layers work in every
+   engine.
+   The runs REPEAT a fixed-size tile rather than stretching one long slice, because a stretched run
+   scales with the card: mask-border's `stretch` squeezed the tall side art into a short card at
+   0.26x while the horizontal ran near 0.81x, visibly crushing the uprights. `round` trims the tile
+   to fit a whole number of links, so no half-link is clipped off at a corner — on a chain that reads
+   as a break.
    Slices come from the source frame via `npm run slice-arcana-border`. */
-.stonetop-arcanum-card::before {
+.stonetop-arcanum-card::before,
+.stonetop-arcanum-frame::before,
+.stonetop-arcanum-frame::after {
 	content: "";
 	position: absolute;
-	inset: -28px;
 	pointer-events: none;
 	z-index: 0;
 	background-color: var(--st-decor);
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+}
+
+/* A repeating layer tiles across its whole box, so each run needs a box that already stops at the
+   corners — three boxes in all, and an element only has two pseudo-elements. Hence this span, which
+   carries no mask of its own: a mask clips the element's ENTIRE subtree, so a masked span would trim
+   its own runs away to whatever it was masked to. It is only a positioning box for the two runs; the
+   corners sit on the card's own ::before, which masks nothing else. */
+.stonetop-arcanum-frame {
+	position: absolute;
+	inset: -28px;
+	pointer-events: none;
+}
+
+/* Corners: pinned unscaled at the four outer squares. */
+.stonetop-arcanum-card::before {
+	inset: -28px;
 	mask-image:
 		url('../assets/ui/decor/arcana-border-tl.png'),
 		url('../assets/ui/decor/arcana-border-tr.png'),
 		url('../assets/ui/decor/arcana-border-bl.png'),
-		url('../assets/ui/decor/arcana-border-br.png'),
-		url('../assets/ui/decor/arcana-border-top.png'),
-		url('../assets/ui/decor/arcana-border-bottom.png'),
-		url('../assets/ui/decor/arcana-border-left.png'),
-		url('../assets/ui/decor/arcana-border-right.png');
-	mask-repeat: no-repeat;
-	mask-position:
-		left top, right top, left bottom, right bottom,
-		center top, center bottom, left center, right center;
-	mask-size:
-		28px 28px, 28px 28px, 28px 28px, 28px 28px,
-		calc(100% - 56px) 28px, calc(100% - 56px) 28px,
-		28px calc(100% - 56px), 28px calc(100% - 56px);
+		url('../assets/ui/decor/arcana-border-br.png');
+	mask-position: left top, right top, left bottom, right bottom;
+	mask-size: 28px 28px;
 	-webkit-mask-image:
 		url('../assets/ui/decor/arcana-border-tl.png'),
 		url('../assets/ui/decor/arcana-border-tr.png'),
 		url('../assets/ui/decor/arcana-border-bl.png'),
-		url('../assets/ui/decor/arcana-border-br.png'),
+		url('../assets/ui/decor/arcana-border-br.png');
+	-webkit-mask-position: left top, right top, left bottom, right bottom;
+	-webkit-mask-size: 28px 28px;
+}
+
+/* Top and bottom runs, in a box inset to the card's own width so they stop at the corners. */
+.stonetop-arcanum-frame::before {
+	inset: 0 28px;
+	mask-image:
 		url('../assets/ui/decor/arcana-border-top.png'),
-		url('../assets/ui/decor/arcana-border-bottom.png'),
+		url('../assets/ui/decor/arcana-border-bottom.png');
+	mask-position: left top, left bottom;
+	mask-size: 14px 28px;
+	mask-repeat: round no-repeat;
+	-webkit-mask-image:
+		url('../assets/ui/decor/arcana-border-top.png'),
+		url('../assets/ui/decor/arcana-border-bottom.png');
+	-webkit-mask-position: left top, left bottom;
+	-webkit-mask-size: 14px 28px;
+	-webkit-mask-repeat: round no-repeat;
+}
+
+/* Left and right runs, in a box inset to the card's own height, same reason. */
+.stonetop-arcanum-frame::after {
+	inset: 28px 0;
+	mask-image:
 		url('../assets/ui/decor/arcana-border-left.png'),
 		url('../assets/ui/decor/arcana-border-right.png');
-	-webkit-mask-repeat: no-repeat;
-	-webkit-mask-position:
-		left top, right top, left bottom, right bottom,
-		center top, center bottom, left center, right center;
-	-webkit-mask-size:
-		28px 28px, 28px 28px, 28px 28px, 28px 28px,
-		calc(100% - 56px) 28px, calc(100% - 56px) 28px,
-		28px calc(100% - 56px), 28px calc(100% - 56px);
+	mask-position: left top, right top;
+	mask-size: 28px 14px;
+	mask-repeat: no-repeat round;
+	-webkit-mask-image:
+		url('../assets/ui/decor/arcana-border-left.png'),
+		url('../assets/ui/decor/arcana-border-right.png');
+	-webkit-mask-position: left top, right top;
+	-webkit-mask-size: 28px 14px;
+	-webkit-mask-repeat: no-repeat round;
 }
 
 .stonetop-arcanum-header {

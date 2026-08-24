@@ -2,6 +2,11 @@
 {{#if owned}}
 <div class="stonetop-arcanum-card{{#if flipped}} is-flipped{{/if}}" data-slug="{{slug}}">
 
+	{{!-- The chain frame. Decorative only; its three boxes (the span and its two
+	      pseudo-elements) each bound one part of the frame so the repeating runs stop
+	      at the corners instead of tiling through their notch. --}}
+	<span class="stonetop-arcanum-frame"></span>
+
 	{{#if img}}
 	<img class="stonetop-arcanum-img" src="{{img}}" alt="{{name}}">
 	{{/if}}
