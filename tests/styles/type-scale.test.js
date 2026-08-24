@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 
@@ -56,7 +56,9 @@ function scaleAt(rootPx) {
 }
 
 describe.skipIf(!canProbe())("type scale", () => {
-	const atDefault = scaleAt(FOUNDRY_DEFAULT_PX);
+	// In a hook, not the suite body: skipIf still runs the body, and the probe throws with no Foundry.
+	let atDefault;
+	beforeAll(() => { atDefault = scaleAt(FOUNDRY_DEFAULT_PX); });
 
 	it("resolves every role to a real size", () => {
 		for (const role of ROLES) expect(atDefault.get(role), role).toBeGreaterThan(0);

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 
@@ -63,7 +63,9 @@ const measureAt = rootPx => probe.measure({
 const bottom = el => el.values.boxTop + el.values.boxHeight;
 
 describe.skipIf(!canProbe())("a sidebar move's resource track", () => {
-	const measured = measureAt(16);
+	// In a hook, not the suite body: skipIf still runs the body, and the probe throws with no Foundry.
+	let measured;
+	beforeAll(() => { measured = measureAt(16); });
 	const el = name => measured.get(name);
 
 	it("renders", () => {

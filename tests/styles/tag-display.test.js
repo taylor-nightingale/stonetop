@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 
@@ -45,23 +45,27 @@ const BOX = [
 ];
 
 describe.skipIf(!canProbe())("a displayed tag renders as italic text, not a control", () => {
-	const probed = probe.render({
-		bodyHtml: ROW,
-		bodyClass: "theme-light",
-		rootAttrs: 'style="font-size: 16px"',
-		probes: {
-			tag:   { selector: "#probe-tag", properties: BOX },
-			label: { selector: "#probe-label", properties: BOX },
-			plain: { selector: "#probe-plain", properties: BOX },
-			note:  { selector: "#probe-note", properties: BOX },
-			parens: { selector: "#probe-parens", properties: BOX },
-		},
+	// In a hook, not the suite body: skipIf still runs the body, and the probe throws with no Foundry.
+	let tag, plain, note, label, parens;
+	beforeAll(() => {
+		const probed = probe.render({
+			bodyHtml: ROW,
+			bodyClass: "theme-light",
+			rootAttrs: 'style="font-size: 16px"',
+			probes: {
+				tag:   { selector: "#probe-tag", properties: BOX },
+				label: { selector: "#probe-label", properties: BOX },
+				plain: { selector: "#probe-plain", properties: BOX },
+				note:  { selector: "#probe-note", properties: BOX },
+				parens: { selector: "#probe-parens", properties: BOX },
+			},
+		});
+		tag = probed.get("tag");
+		plain = probed.get("plain");
+		note = probed.get("note");
+		label = probed.get("label");
+		parens = probed.get("parens");
 	});
-	const tag = probed.get("tag");
-	const plain = probed.get("plain");
-	const note = probed.get("note");
-	const label = probed.get("label");
-	const parens = probed.get("parens");
 
 	it("finds the tag in the rendered row", () => {
 		expect(tag.missing).toBe(false);
@@ -126,11 +130,15 @@ describe.skipIf(!canProbe())("a displayed tag renders as italic text, not a cont
 // part of the line. A button that stretched to the row, or dropped to its own line, would pass every
 // assertion above.
 describe.skipIf(!canProbe())("a displayed tag sits in the line, not beside it", () => {
-	const measured = probe.measure({
-		bodyHtml: ROW,
-		bodyClass: "theme-light",
-		rootAttrs: 'style="font-size: 16px"',
-		targets: { tag: "#probe-tag", plain: "#probe-plain", note: "#probe-note", label: "#probe-label" },
+	// In a hook, not the suite body: skipIf still runs the body, and the probe throws with no Foundry.
+	let measured;
+	beforeAll(() => {
+		measured = probe.measure({
+			bodyHtml: ROW,
+			bodyClass: "theme-light",
+			rootAttrs: 'style="font-size: 16px"',
+			targets: { tag: "#probe-tag", plain: "#probe-plain", note: "#probe-note", label: "#probe-label" },
+		});
 	});
 	const box = (name) => measured.get(name);
 

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 import { CssColor } from "./cssColor.js";
@@ -94,7 +94,11 @@ const BEHIND = {
 describe.runIf(canProbe())("rendered theme", () => {
 	for (const theme of THEMES) {
 		describe(theme.name, () => {
-			const results = probe.render({ bodyHtml: FIXTURE, bodyClass: theme.bodyClass, rootAttrs: theme.rootAttrs, probes: PROBES });
+			// In a hook, not the suite body: runIf still runs the body, and the probe throws with no Foundry.
+			let results;
+			beforeAll(() => {
+				results = probe.render({ bodyHtml: FIXTURE, bodyClass: theme.bodyClass, rootAttrs: theme.rootAttrs, probes: PROBES });
+			});
 
 			it.each(Object.keys(PROBES).filter(n => !["app", "chat"].includes(n)))("%s is legible against what is behind it", name => {
 				const element = results.get(name);
