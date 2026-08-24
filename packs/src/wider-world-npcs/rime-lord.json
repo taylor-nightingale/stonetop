@@ -7,20 +7,15 @@
   "system": {
     "slug": "rime-lord",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "cautious",
-        "cunning",
-        "magical",
-        "organized",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "cautious",
+      "cunning",
+      "magical",
+      "organized",
+      "terrifying"
+    ],
     "hp": {
       "value": 26,
       "max": 26

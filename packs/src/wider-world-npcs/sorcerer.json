@@ -7,18 +7,13 @@
   "system": {
     "slug": "sorcerer",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "cunning",
-        "magical",
-        "cautious",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "cunning",
+      "magical",
+      "cautious",
+      "corrupted"
+    ],
     "hp": {
       "value": 14,
       "max": 14

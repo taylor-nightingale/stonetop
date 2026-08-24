@@ -14,7 +14,10 @@
 				"name": "Aetherium urn",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical, dangerous",
+				"tagList": [
+					"magical",
+					"dangerous"
+				],
 				"note": ""
 			}
 		],

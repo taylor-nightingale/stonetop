@@ -44,20 +44,15 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"undead",
-				"spirit",
-				"hunter",
-				"cunning",
-				"jealous",
-				"sarcastic",
-				"warrior"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"undead",
+			"spirit",
+			"hunter",
+			"cunning",
+			"jealous",
+			"sarcastic",
+			"warrior"
+		]
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

@@ -7,19 +7,14 @@
   "system": {
     "slug": "draventao",
     "reference": "forge-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "hoarder",
-        "paranoid",
-        "terrifying",
-        "fierce"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "hoarder",
+      "paranoid",
+      "terrifying",
+      "fierce"
+    ],
     "hp": {
       "value": 22,
       "max": 22

@@ -7,19 +7,14 @@
   "system": {
     "slug": "barrow-wight",
     "reference": "barrow-builders",
-    "tagList": {
-      "selected": [
-        "group",
-        "undead",
-        "corrupted",
-        "terrifying",
-        "hardy",
-        "hoarder"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "undead",
+      "corrupted",
+      "terrifying",
+      "hardy",
+      "hoarder"
+    ],
     "hp": {
       "value": 14,
       "max": 14

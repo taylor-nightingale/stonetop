@@ -24,7 +24,7 @@ function arcanumWithFrontItem() {
 			slug: "azure-hand", major: true, flipped: false,
 			front: {
 				title: "Azure Hand", description: null, unlock: null,
-				item: { name: "Azure Hand", weight: 1, tags: "close, magical, awkward", note: null, inventoryColumn: "regular" },
+				item: { name: "Azure Hand", weight: 1, tagList: { selected: ["close", "magical", "awkward"], options: [], multi: true, allowCustom: true }, note: null, inventoryColumn: "regular" },
 			},
 			back: { title: "Mysteries", description: "the back", moveSlugs: [] },
 			choiceValues: {},
@@ -57,7 +57,7 @@ describe("StonetopCharacter — arcanum inventory item carries tags + note (inte
 		const item = await inventoryItem(character, "azure-hand");
 		expect(item).toBeDefined();
 		expect(item.name).toBe("Azure Hand");
-		expect(item.tags.raw).toBe("close, magical, awkward"); // the bug: this was empty
+		expect(item.tags.map((t) => t.label)).toEqual(["close", "magical", "awkward"]); // the bug: this was empty
 		expect(item.note.raw).toBe("");                         // null note → empty RichText
 	});
 
@@ -66,14 +66,14 @@ describe("StonetopCharacter — arcanum inventory item carries tags + note (inte
 		const arcanum = arcanumWithFrontItem();
 		arcanum.system.front.item = {
 			name: "Blood-quenched Sword", weight: 1,
-			tags: "close, messy, magical", note: "+1 damage, 1 piercing", inventoryColumn: "regular",
+			tagList: { selected: ["close", "messy", "magical"], options: [], multi: true, allowCustom: true }, note: "+1 damage, 1 piercing", inventoryColumn: "regular",
 		};
 		const character = characterWithArcanum(arcanum);
 
 		await character._onCreateDescendantDocuments([arcanum]);
 
 		const item = await inventoryItem(character, "azure-hand");
-		expect(item.tags.raw).toBe("close, messy, magical");
+		expect(item.tags.map((t) => t.label)).toEqual(["close", "messy", "magical"]);
 		expect(item.note.raw).toBe("+1 damage, 1 piercing");
 	});
 });

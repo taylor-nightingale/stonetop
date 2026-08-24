@@ -7,17 +7,12 @@
   "system": {
     "slug": "chosen-shield",
     "reference": "north-manmarch",
-    "tagList": {
-      "selected": [
-        "group",
-        "organized",
-        "brave",
-        "vicious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "organized",
+      "brave",
+      "vicious"
+    ],
     "hp": {
       "value": 6,
       "max": 6

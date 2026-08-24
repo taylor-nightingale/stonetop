@@ -1,0 +1,29 @@
+{{!-- Tags as the book prints them: italic text, comma-separated, inline in the row. Context:
+      `tags` = a ResolvedTag[] (see src/model/data/Tags.js). Used wherever tags are DISPLAYED —
+      inventory rows, arcanum cards, follower and NPC cards; the editable chip picker is
+      selection-chips.hbs.
+
+      A defined tag is a real <button> because core binds click for [data-action] only, so a
+      clickable span would be keyboard-dead — but it is styled back down to plain italic text
+      (.stonetop-tag), because a control in the middle of a sentence is not what the book shows.
+      `data-tooltip` is pointer-only and invisible to assistive tech, so the definition also rides on
+      aria-label. `data-view-state` keeps the button live on a non-editable sheet, which otherwise
+      disables every button it renders.
+
+      The comma sits BETWEEN the elements, never inside the button — it is punctuation, not part of
+      the tag, and it must not be clickable or underlined.
+
+      NO trailing newline: a partial renders its whole file, so one would land as a space inside the
+      caller's parenthetical ("close , x piercing"). --}}
+<span class="stonetop-tag-list">
+	{{~#each tags~}}
+		{{~#if hasDefinition~}}
+			<button type="button" class="stonetop-tag is-defined" data-action="showTagDefinition"
+			        data-view-state data-tag="{{slug}}" data-definition="{{definition}}"
+			        data-tooltip="{{definition}}"
+			        aria-label="{{label}} — {{definition}}">{{label}}</button>
+		{{~else~}}
+			<span class="stonetop-tag">{{label}}</span>
+		{{~/if~}}
+		{{~#unless @last}}, {{/unless~}}
+	{{~/each~}}</span>

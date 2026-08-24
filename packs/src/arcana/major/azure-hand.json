@@ -10,11 +10,14 @@
 			"item": {
 				"name": "Azure Hand",
 				"weight": 1,
-				"tags": "close, magical, awkward",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"close",
+					"magical",
+					"awkward"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "azure-hand",

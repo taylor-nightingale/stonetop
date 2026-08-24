@@ -7,17 +7,12 @@
   "system": {
     "slug": "monk",
     "reference": "barrier-pass",
-    "tagList": {
-      "selected": [
-        "group",
-        "cautious",
-        "disciplined",
-        "hardy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "cautious",
+      "disciplined",
+      "hardy"
+    ],
     "hp": {
       "value": 10,
       "max": 10

@@ -7,18 +7,13 @@
   "system": {
     "slug": "thrall",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "undead",
-        "hardy",
-        "magical",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "undead",
+      "hardy",
+      "magical",
+      "corrupted"
+    ],
     "hp": {
       "value": 16,
       "max": 16

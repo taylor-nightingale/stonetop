@@ -14,7 +14,10 @@
 				"name": "Two mirrors",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "beautiful, magical",
+				"tagList": [
+					"beautiful",
+					"magical"
+				],
 				"note": "Value 4"
 			}
 		],

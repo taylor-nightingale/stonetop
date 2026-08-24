@@ -7,16 +7,11 @@
   "system": {
     "slug": "grochslon",
     "reference": "the-steplands",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "patient",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "patient",
+      "stealthy"
+    ],
     "hp": {
       "value": 12,
       "max": 12

@@ -7,18 +7,13 @@
   "system": {
     "slug": "gwyllgi",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "cautious",
-        "stealthy",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "cautious",
+      "stealthy",
+      "terrifying"
+    ],
     "hp": {
       "value": 16,
       "max": 16

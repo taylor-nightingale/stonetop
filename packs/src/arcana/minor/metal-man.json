@@ -7,7 +7,6 @@
 		"slug": "metal-man",
 		"front": {
 			"item": null,
-			"tags": "magical, fragile",
 			"choices": [
 				{
 					"slug": "metal-man",
@@ -61,6 +60,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical",
+				"fragile"
 			]
 		},
 		"back": {

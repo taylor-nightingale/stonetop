@@ -16,9 +16,11 @@
 		<label class="stonetop-arcanum-field--narrow"><span>{{localize "stonetop.arcanum.itemWeight"}}</span>
 			<input type="number" min="0" name="{{path}}.weight" value="{{item.weight}}">
 		</label>
-		<label class="stonetop-arcanum-field--wide"><span>{{localize "stonetop.arcanum.itemTags"}}</span>
-			<input type="text" name="{{path}}.tags" value="{{item.tags}}">
-		</label>
+		<div class="stonetop-arcanum-field--wide"><span>{{localize "stonetop.arcanum.itemTags"}}</span>
+			{{!-- The shared chip picker; `field` is the document path toggleTag writes back to. --}}
+			{{> "stonetop.selection-chips" sel=tagSelection slug=path field=(concat path ".tagList")
+			    placeholder=(localize "stonetop.outfitItem.tagsPlaceholder")}}
+		</div>
 		<label class="stonetop-arcanum-field--wide"><span>{{localize "stonetop.arcanum.itemNote"}}</span>
 			<input type="text" name="{{path}}.note" value="{{item.note}}">
 		</label>

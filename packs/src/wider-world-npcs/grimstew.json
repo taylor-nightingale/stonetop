@@ -7,21 +7,16 @@
   "system": {
     "slug": "grimstew",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "small",
-        "fae",
-        "magical",
-        "tough",
-        "stealthy",
-        "cautious",
-        "ugly"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "small",
+      "fae",
+      "magical",
+      "tough",
+      "stealthy",
+      "cautious",
+      "ugly"
+    ],
     "hp": {
       "value": 16,
       "max": 16

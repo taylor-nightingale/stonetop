@@ -7,19 +7,14 @@
   "system": {
     "slug": "birdwaig",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "spirit",
-        "cautious",
-        "clever",
-        "magical"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "spirit",
+      "cautious",
+      "clever",
+      "magical"
+    ],
     "hp": {
       "value": 23,
       "max": 23

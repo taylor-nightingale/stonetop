@@ -77,6 +77,18 @@ describe("Selection.fromStored + text", () => {
 		expect(s.options).toEqual(["group", "archers"]);
 	});
 
+	// Group-follower member tags store a bare array; without this it reads as a Selection object
+	// with no `selected` key and every member silently loses its tags.
+	it("parses a bare array as the selected values", () => {
+		const s = Selection.fromStored(["big", "old"]);
+		expect(s.values).toEqual(["big", "old"]);
+		expect(s.multi).toBe(true);
+	});
+
+	it("keeps the caller's options when parsing a bare array", () => {
+		expect(Selection.fromStored(["big"], { options: ["big", "little"] }).options).toEqual(["big", "little"]);
+	});
+
 	it("returns an empty selection for null/undefined", () => {
 		expect(Selection.fromStored(null).isEmpty).toBe(true);
 		expect(Selection.fromStored(undefined).values).toEqual([]);

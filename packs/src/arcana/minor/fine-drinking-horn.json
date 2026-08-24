@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A fine drinking horn",
 				"weight": 1,
-				"tags": "beautiful, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"beautiful",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "fine-drinking-horn",

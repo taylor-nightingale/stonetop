@@ -14,7 +14,10 @@
 				"name": "Pale metal gauntlets",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "fireproof, magical",
+				"tagList": [
+					"fireproof",
+					"magical"
+				],
 				"note": "Value 3"
 			}
 		],

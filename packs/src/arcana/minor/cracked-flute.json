@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A cracked flute",
 				"weight": 1,
-				"tags": "crude, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"crude",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "cracked-flute",

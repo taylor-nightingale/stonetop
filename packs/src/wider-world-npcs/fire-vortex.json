@@ -7,20 +7,15 @@
   "system": {
     "slug": "fire-vortex",
     "reference": "tempest-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "size by HP",
-        "spirit",
-        "construct",
-        "amorphous",
-        "intense",
-        "aggressive"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "size by HP",
+      "spirit",
+      "construct",
+      "amorphous",
+      "intense",
+      "aggressive"
+    ],
     "hp": {
       "value": 0,
       "max": 0

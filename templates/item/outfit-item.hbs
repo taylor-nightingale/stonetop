@@ -52,9 +52,9 @@
 
 	<section class="stonetop-insert-sheet-section">
 		<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.tags"}}</label>
-		<input type="text" name="system.tagList" value="{{system.tagList}}"
-		       placeholder="{{localize 'stonetop.outfitItem.tagsPlaceholder'}}"
-			       aria-label="{{localize 'stonetop.outfitItem.tags'}}">
+		{{!-- The same chip picker NPCs and followers use; its options come from the book's glossary. --}}
+		{{> "stonetop.selection-chips" sel=tagSelection slug=system.slug field="tagList"
+		    placeholder=(localize "stonetop.outfitItem.tagsPlaceholder")}}
 		<label class="stonetop-insert-sheet-label">{{localize "stonetop.outfitItem.note"}}</label>
 		<input type="text" name="system.note" value="{{system.note}}"
 		       placeholder="{{localize 'stonetop.outfitItem.notePlaceholder'}}"

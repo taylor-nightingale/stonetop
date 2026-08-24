@@ -7,18 +7,13 @@
   "system": {
     "slug": "suarachan-hunters",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "group",
-        "stealthy",
-        "cautious",
-        "organized",
-        "amphibious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "stealthy",
+      "cautious",
+      "organized",
+      "amphibious"
+    ],
     "hp": {
       "value": 6,
       "max": 6

@@ -8,17 +8,12 @@
 		"slug": "spirit-in-the-cloak",
 		"reference": null,
 		"arcanaSlug": "cloak-richly-embroidered",
-		"tagList": {
-			"selected": [
-				"Spirit",
-				"magical",
-				"proud",
-				"mute"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Spirit",
+			"magical",
+			"proud",
+			"mute"
+		],
 		"hp": {
 			"value": 0,
 			"max": 13

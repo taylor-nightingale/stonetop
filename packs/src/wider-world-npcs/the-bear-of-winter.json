@@ -7,21 +7,16 @@
   "system": {
     "slug": "the-bear-of-winter",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "fae",
-        "magical",
-        "hoarder",
-        "devious",
-        "fierce",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "fae",
+      "magical",
+      "hoarder",
+      "devious",
+      "fierce",
+      "terrifying"
+    ],
     "hp": {
       "value": 26,
       "max": 26

@@ -7,17 +7,12 @@
   "system": {
     "slug": "caralandrao",
     "reference": "huffel-peaks",
-    "tagList": {
-      "selected": [
-        "horde",
-        "small",
-        "stealthy",
-        "hoarder"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "small",
+      "stealthy",
+      "hoarder"
+    ],
     "hp": {
       "value": 3,
       "max": 3

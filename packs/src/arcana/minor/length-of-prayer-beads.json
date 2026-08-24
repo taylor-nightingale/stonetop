@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A length of prayer beads",
 				"weight": 1,
-				"tags": "magical, beautiful",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"beautiful"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "length-of-prayer-beads",

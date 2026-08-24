@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A scroll & a bone flute",
 				"weight": 1,
-				"tags": "magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "scroll-and-bone-flute",

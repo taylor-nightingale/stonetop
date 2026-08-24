@@ -7,19 +7,14 @@
   "system": {
     "slug": "llamudwr",
     "reference": "green-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "construct",
-        "corrupted",
-        "cautious",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "construct",
+      "corrupted",
+      "cautious",
+      "stealthy"
+    ],
     "hp": {
       "value": 16,
       "max": 16

@@ -7,15 +7,10 @@
   "system": {
     "slug": "laborers",
     "reference": "gordins-delve",
-    "tagList": {
-      "selected": [
-        "horde",
-        "hardy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "hardy"
+    ],
     "hp": {
       "value": 7,
       "max": 7

@@ -7,16 +7,11 @@
   "system": {
     "slug": "war-chariot",
     "reference": "north-manmarch",
-    "tagList": {
-      "selected": [
-        "group",
-        "large",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "large",
+      "terrifying"
+    ],
     "hp": {
       "value": 13,
       "max": 13

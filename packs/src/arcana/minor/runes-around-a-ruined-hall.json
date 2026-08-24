@@ -7,7 +7,6 @@
 		"slug": "runes-around-a-ruined-hall",
 		"front": {
 			"item": null,
-			"tags": "magical",
 			"choices": [
 				{
 					"slug": "runes-around-a-ruined-hall",
@@ -50,6 +49,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical"
 			]
 		},
 		"back": {

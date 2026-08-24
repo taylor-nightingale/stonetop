@@ -7,16 +7,11 @@
   "system": {
     "slug": "klezln",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "stealthy"
+    ],
     "hp": {
       "value": 16,
       "max": 16

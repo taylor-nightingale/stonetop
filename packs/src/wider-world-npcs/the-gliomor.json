@@ -7,18 +7,13 @@
   "system": {
     "slug": "the-gliomor",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "cautious",
-        "terrifying",
-        "ancient"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "cautious",
+      "terrifying",
+      "ancient"
+    ],
     "hp": {
       "value": 22,
       "max": 22

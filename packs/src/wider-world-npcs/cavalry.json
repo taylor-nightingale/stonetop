@@ -7,17 +7,12 @@
   "system": {
     "slug": "cavalry",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "horde",
-        "large",
-        "organized",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "large",
+      "organized",
+      "terrifying"
+    ],
     "hp": {
       "value": 10,
       "max": 10

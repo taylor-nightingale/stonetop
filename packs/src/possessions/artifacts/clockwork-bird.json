@@ -14,7 +14,10 @@
 				"name": "Clockwork bird",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "fragile, magical",
+				"tagList": [
+					"fragile",
+					"magical"
+				],
 				"note": "Value 3"
 			}
 		],

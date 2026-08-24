@@ -10,11 +10,13 @@
 			"item": {
 				"name": "Mindgem",
 				"weight": 2,
-				"tags": "slow, indestructible",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"slow",
+					"indestructible"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "mindgem",

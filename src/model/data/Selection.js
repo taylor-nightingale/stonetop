@@ -32,6 +32,10 @@ export class Selection {
 				: (raw.trim() ? [raw.trim()] : []);
 			return new Selection({ selected, options, multi, allowCustom });
 		}
+		// A bare array is a list of selected values (group-follower member tags store this shape) —
+		// it must not fall through to the object branch, which would read it as a Selection and
+		// find no `selected` key at all.
+		if (Array.isArray(raw)) return new Selection({ selected: raw, options, multi, allowCustom });
 		if (raw && typeof raw === "object") return new Selection(raw);
 		return new Selection({ options, multi, allowCustom });
 	}

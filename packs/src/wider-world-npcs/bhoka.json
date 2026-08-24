@@ -7,18 +7,13 @@
   "system": {
     "slug": "bhoka",
     "reference": "the-whitefang-mountains",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "cautious",
-        "magical",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "cautious",
+      "magical",
+      "corrupted"
+    ],
     "hp": {
       "value": 16,
       "max": 16

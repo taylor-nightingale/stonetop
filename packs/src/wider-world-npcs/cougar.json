@@ -7,17 +7,12 @@
   "system": {
     "slug": "cougar",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "stealthy",
-        "cautious",
-        "athletic"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "stealthy",
+      "cautious",
+      "athletic"
+    ],
     "hp": {
       "value": 12,
       "max": 12

@@ -7,20 +7,15 @@
   "system": {
     "slug": "base-archon",
     "reference": "primordial-powers",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "primordial",
-        "spirit",
-        "construct",
-        "magical",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "primordial",
+      "spirit",
+      "construct",
+      "magical",
+      "terrifying"
+    ],
     "hp": {
       "value": 23,
       "max": 23

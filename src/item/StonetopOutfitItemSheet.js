@@ -18,6 +18,9 @@ import { OutfitItem } from "../model/data/character/OutfitItem.js";
 import { ResourceController } from "../actors/character/ResourceController.js";
 import { toOutfitItemSnapshot } from "../model/snapshot/character/outfitSections.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
+import { Tags } from "../model/data/Tags.js";
+import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../actors/tagChips.js";
+import { ChangeActionRouter } from "../utils/ChangeActionRouter.js";
 
 const BLANK_RESOURCE = () => ({ max: 1, maxStat: null, title: null, labels: [] });
 const BLANK_ARMOR    = () => ({ base: null, modifier: null });
@@ -29,6 +32,7 @@ export function createStonetopOutfitItemSheetClass(Base) {
 			position: { width: 520, height: 620 },
 			actions: {
 				toggleEditMode: StonetopOutfitItemSheet.#onToggleEditMode,
+				...TAG_CHIP_ACTIONS,
 			},
 		};
 
@@ -53,6 +57,8 @@ export function createStonetopOutfitItemSheetClass(Base) {
 			context.item     = this.item;
 			context.system   = sys;
 			context.editable = this.isEditable;
+			// The same chip picker creatures use, widened by the book's glossary — one tag UI.
+			context.tagSelection = Tags.gear(sys.tagList).picker;
 
 			// Rendered view — the same snapshot + partial the inventory renders. Unchecked with an
 			// empty resource track: a catalog item carries no per-character state of its own.
@@ -69,6 +75,20 @@ export function createStonetopOutfitItemSheetClass(Base) {
 			if (!this.isEditable) this._editMode = false;
 			context.editMode = this._editMode;
 			return context;
+		}
+
+		// An outfit item's tags address `system.tagList` directly — there is only one Selection on
+		// the sheet, so the wrap's field is the whole answer.
+		toggleTag(wrap, value) {
+			if (!value) return;
+			const tags = Tags.gear(this.item.system?.tagList).toggle(value);
+			return this.item.update({ "system.tagList": tags.toRaw() });
+		}
+
+		async _onFirstRender(context, options) {
+			await super._onFirstRender(context, options);
+			new ChangeActionRouter(tagChipChangeHandlers(this), { when: () => this.isEditable })
+				.attach(this.element);
 		}
 
 		// Bound directly to the current editor controls, which every render replaces — so this

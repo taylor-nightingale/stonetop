@@ -12,7 +12,9 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "hand"
+		"tagList": [
+			"hand"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

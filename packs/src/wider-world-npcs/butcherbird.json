@@ -7,16 +7,11 @@
   "system": {
     "slug": "butcherbird",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "horde",
-        "tiny",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "tiny",
+      "organized"
+    ],
     "hp": {
       "value": 1,
       "max": 1

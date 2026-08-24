@@ -7,17 +7,12 @@
   "system": {
     "slug": "shade",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "undead",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "undead",
+      "cautious"
+    ],
     "hp": {
       "value": 19,
       "max": 19

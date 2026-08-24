@@ -63,17 +63,17 @@ describe("FoundryOutfitItemRepository", () => {
 	});
 
 	it("maps system.tagList to item.tags", async () => {
-		stubGame(makePack([makeEntry("knife", { tagList: "hand, thrown" })]));
+		stubGame(makePack([makeEntry("knife", { tagList: { selected: ["hand", "thrown"], options: [], multi: true, allowCustom: true } })]));
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
-		expect(items[0].tags).toBe("hand, thrown");
+		expect(items[0].tags.values).toEqual(["hand", "thrown"]);
 	});
 
 	it("leaves item.tags empty when the reserved system.tags is used instead of tagList", async () => {
-		stubGame(makePack([makeEntry("knife", { tags: "hand, thrown", tagList: "" })]));
+		stubGame(makePack([makeEntry("knife", { tags: "hand, thrown", tagList: null })]));
 		const repo = new FoundryOutfitItemRepository();
 		const items = await repo.getAll();
-		expect(items[0].tags).toBe("");
+		expect(items[0].tags.isEmpty).toBe(true);
 	});
 
 	it("maps system.note to item.note", async () => {

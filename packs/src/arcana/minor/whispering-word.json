@@ -7,7 +7,6 @@
 		"slug": "whispering-word",
 		"front": {
 			"item": null,
-			"tags": "magical, immobile, terrifying",
 			"choices": [
 				{
 					"slug": "whispering-word",
@@ -72,6 +71,11 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical",
+				"immobile",
+				"terrifying"
 			]
 		},
 		"back": {

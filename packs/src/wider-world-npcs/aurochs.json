@@ -7,17 +7,12 @@
   "system": {
     "slug": "aurochs",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "group",
-        "large",
-        "ornery",
-        "powerful"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "large",
+      "ornery",
+      "powerful"
+    ],
     "hp": {
       "value": 14,
       "max": 14

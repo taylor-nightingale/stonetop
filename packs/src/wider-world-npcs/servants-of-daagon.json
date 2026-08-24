@@ -7,19 +7,14 @@
   "system": {
     "slug": "servants-of-daagon",
     "reference": "blackwater-lake",
-    "tagList": {
-      "selected": [
-        "Terrifying",
-        "violent",
-        "wretched",
-        "either",
-        "corrupted or emanation",
-        "see below"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Terrifying",
+      "violent",
+      "wretched",
+      "either",
+      "corrupted or emanation",
+      "see below"
+    ],
     "hp": {
       "value": 0,
       "max": 0

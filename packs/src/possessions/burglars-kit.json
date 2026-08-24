@@ -27,7 +27,6 @@
 				"name": "Lantern",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tags": "close, area",
 				"resource": {
 					"max": 5,
 					"labels": [
@@ -37,7 +36,11 @@
 						"",
 						"hours"
 					]
-				}
+				},
+				"tagList": [
+					"close",
+					"area"
+				]
 			},
 			{
 				"slug": "burglar-grappling-hook",

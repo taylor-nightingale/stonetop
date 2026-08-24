@@ -14,7 +14,9 @@
 				"name": "A sturdy, banded box",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical",
+				"tagList": [
+					"magical"
+				],
 				"note": ""
 			}
 		],

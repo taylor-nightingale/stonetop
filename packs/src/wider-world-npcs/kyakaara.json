@@ -7,20 +7,15 @@
   "system": {
     "slug": "kyakaara",
     "reference": "the-whitefang-mountains",
-    "tagList": {
-      "selected": [
-        "horde",
-        "hardy",
-        "organized",
-        "fearless",
-        "sadistic",
-        "terrifying",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "hardy",
+      "organized",
+      "fearless",
+      "sadistic",
+      "terrifying",
+      "corrupted"
+    ],
     "hp": {
       "value": 10,
       "max": 10

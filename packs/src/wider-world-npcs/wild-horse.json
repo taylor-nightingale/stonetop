@@ -7,17 +7,12 @@
   "system": {
     "slug": "wild-horse",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "group",
-        "large",
-        "cautious",
-        "swift"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "large",
+      "cautious",
+      "swift"
+    ],
     "hp": {
       "value": 10,
       "max": 10

@@ -12,7 +12,9 @@
 		"twoCol": true,
 		"armor": null,
 		"source": null,
-		"tagList": "warm"
+		"tagList": [
+			"warm"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpTrv0001X"

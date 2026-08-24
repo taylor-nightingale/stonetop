@@ -14,7 +14,10 @@
 				"name": "A sealed amphora",
 				"weight": 2,
 				"inventoryColumn": "regular",
-				"tagList": "fragile, magical",
+				"tagList": [
+					"fragile",
+					"magical"
+				],
 				"note": "3 uses"
 			}
 		],

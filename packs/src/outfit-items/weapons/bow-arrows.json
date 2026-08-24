@@ -19,7 +19,9 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "near"
+		"tagList": [
+			"near"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

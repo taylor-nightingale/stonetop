@@ -7,19 +7,14 @@
   "system": {
     "slug": "iron-hound",
     "reference": "forge-lords",
-    "tagList": {
-      "selected": [
-        "horde",
-        "construct",
-        "undead",
-        "corrupted",
-        "tireless",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "construct",
+      "undead",
+      "corrupted",
+      "tireless",
+      "terrifying"
+    ],
     "hp": {
       "value": 10,
       "max": 10

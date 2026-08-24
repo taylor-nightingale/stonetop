@@ -9,11 +9,14 @@
 			"item": {
 				"name": "A fine ceramic urn",
 				"weight": 1,
-				"tags": "beautiful, fragile, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"beautiful",
+					"fragile",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "fine-ceramic-urn",

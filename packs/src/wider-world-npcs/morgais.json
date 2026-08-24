@@ -7,20 +7,15 @@
   "system": {
     "slug": "morgais",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "hoarder",
-        "devious",
-        "watery",
-        "beautiful",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "hoarder",
+      "devious",
+      "watery",
+      "beautiful",
+      "corrupted"
+    ],
     "hp": {
       "value": 19,
       "max": 19

@@ -7,7 +7,6 @@
 		"slug": "huge-wooden-sphere",
 		"front": {
 			"item": null,
-			"tags": "immobile",
 			"choices": [
 				{
 					"slug": "huge-wooden-sphere",
@@ -83,6 +82,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"immobile"
 			]
 		},
 		"back": {

@@ -7,15 +7,10 @@
   "system": {
     "slug": "tal-gerdwyr",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "group",
-        "huge"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "huge"
+    ],
     "hp": {
       "value": 14,
       "max": 14

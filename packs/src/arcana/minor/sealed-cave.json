@@ -7,7 +7,6 @@
 		"slug": "sealed-cave",
 		"front": {
 			"item": null,
-			"tags": "magical",
 			"choices": [
 				{
 					"slug": "sealed-cave",
@@ -50,6 +49,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical"
 			]
 		},
 		"back": {

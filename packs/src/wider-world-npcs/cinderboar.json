@@ -7,18 +7,13 @@
   "system": {
     "slug": "cinderboar",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "group",
-        "gluttonous",
-        "hardy",
-        "vicious",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "gluttonous",
+      "hardy",
+      "vicious",
+      "corrupted"
+    ],
     "hp": {
       "value": 14,
       "max": 14

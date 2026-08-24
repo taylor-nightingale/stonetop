@@ -12,7 +12,10 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "hand, thrown"
+		"tagList": [
+			"hand",
+			"thrown"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

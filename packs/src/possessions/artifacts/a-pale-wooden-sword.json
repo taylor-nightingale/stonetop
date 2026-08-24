@@ -14,7 +14,11 @@
 				"name": "A pale wooden sword",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "close, crude, magical",
+				"tagList": [
+					"close",
+					"crude",
+					"magical"
+				],
 				"note": ""
 			}
 		],

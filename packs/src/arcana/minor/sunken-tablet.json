@@ -7,7 +7,6 @@
 		"slug": "sunken-tablet",
 		"front": {
 			"item": null,
-			"tags": "immobile",
 			"choices": [
 				{
 					"slug": "sunken-tablet",
@@ -83,6 +82,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"immobile"
 			]
 		},
 		"back": {

@@ -7,18 +7,13 @@
   "system": {
     "slug": "mammoth-herder",
     "reference": "the-frozen-wastes",
-    "tagList": {
-      "selected": [
-        "horde",
-        "hardy",
-        "cautious",
-        "organized",
-        "clever"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "hardy",
+      "cautious",
+      "organized",
+      "clever"
+    ],
     "hp": {
       "value": 7,
       "max": 7

@@ -136,18 +136,13 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"Herb-wise",
-				"gossipy",
-				"tireless",
-				"healer",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"Herb-wise",
+			"gossipy",
+			"tireless",
+			"healer",
+			"magical"
+		]
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

@@ -7,20 +7,15 @@
   "system": {
     "slug": "zrajedak",
     "reference": "green-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "construct",
-        "corrupted",
-        "devious",
-        "terrifying",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "construct",
+      "corrupted",
+      "devious",
+      "terrifying",
+      "stealthy"
+    ],
     "hp": {
       "value": 16,
       "max": 16

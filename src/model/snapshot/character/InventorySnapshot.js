@@ -37,7 +37,7 @@ export class LoadSnapshotBuilder {
 /**
  * @property {string}      slug
  * @property {string}      name
- * @property {string}      tags      — plain text DW tags, e.g. "hand, thrown"
+ * @property {ResolvedTag[]} tags     — one entry per tag, each with its book definition when there is one
  * @property {string|null} note      — parenthetical annotation, e.g. "x piercing"
  * @property {number}      weight
  * @property {boolean}     checked

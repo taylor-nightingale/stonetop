@@ -10,11 +10,14 @@
 			"item": {
 				"name": "Staff of the Lidless Orb",
 				"weight": 1,
-				"tags": "close, magical, awkward",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"close",
+					"magical",
+					"awkward"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "staff-of-the-lidless-orb",

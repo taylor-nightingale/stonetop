@@ -7,7 +7,6 @@
 		"slug": "strange-skull-and-antlers",
 		"front": {
 			"item": null,
-			"tags": "immobile, magical",
 			"choices": [
 				{
 					"slug": "strange-skull-and-antlers",
@@ -65,6 +64,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"immobile",
+				"magical"
 			]
 		},
 		"back": {

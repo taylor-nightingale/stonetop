@@ -14,7 +14,9 @@
 				"name": "A hunk of amber",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical",
+				"tagList": [
+					"magical"
+				],
 				"note": "Value 2"
 			}
 		],

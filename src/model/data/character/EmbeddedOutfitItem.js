@@ -1,3 +1,5 @@
+import { Tags } from "../Tags.js";
+
 export class EmbeddedOutfitItemBuilder {
 	withSlug(v)            { this._slug            = v; return this; }
 	withName(v)            { this._name            = v; return this; }
@@ -16,7 +18,7 @@ export class EmbeddedOutfitItemBuilder {
 				slug:            this._slug            ?? null,
 				inventoryColumn: this._inventoryColumn ?? "regular",
 				weight:          this._weight          ?? 0,
-				tagList:         this._tags            ?? "",
+				tagList:         Tags.gear(this._tags).toRaw(),
 				note:            this._note            ?? null,
 				resource:        this._resource        ?? null,
 				twoCol:          this._twoCol          ?? false,

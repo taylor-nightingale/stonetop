@@ -10,11 +10,13 @@
 			"item": {
 				"name": "Demonhide Cloak",
 				"weight": 1,
-				"tags": "warm, magical",
 				"note": "1 armor",
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"warm",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "demonhide-cloak",

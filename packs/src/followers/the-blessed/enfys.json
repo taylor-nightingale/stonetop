@@ -136,17 +136,12 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"Bird-wise",
-				"innocent",
-				"magical",
-				"well-informed"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"Bird-wise",
+			"innocent",
+			"magical",
+			"well-informed"
+		]
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

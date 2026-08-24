@@ -8,18 +8,13 @@
 		"slug": "mantle-wraiths",
 		"reference": null,
 		"arcanaSlug": "tattered-mantle",
-		"tagList": {
-			"selected": [
-				"group",
-				"spirit",
-				"undead",
-				"terrifying",
-				"vicious"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"group",
+			"spirit",
+			"undead",
+			"terrifying",
+			"vicious"
+		],
 		"members": [
 			{
 				"name": "",
@@ -27,18 +22,8 @@
 					"value": 13,
 					"max": 13
 				},
-				"tags": {
-					"selected": [],
-					"options": [],
-					"multi": true,
-					"allowCustom": true
-				},
-				"traits": {
-					"selected": [],
-					"options": [],
-					"multi": true,
-					"allowCustom": true
-				}
+				"tags": [],
+				"traits": []
 			},
 			{
 				"name": "",
@@ -46,18 +31,8 @@
 					"value": 13,
 					"max": 13
 				},
-				"tags": {
-					"selected": [],
-					"options": [],
-					"multi": true,
-					"allowCustom": true
-				},
-				"traits": {
-					"selected": [],
-					"options": [],
-					"multi": true,
-					"allowCustom": true
-				}
+				"tags": [],
+				"traits": []
 			},
 			{
 				"name": "",
@@ -65,18 +40,8 @@
 					"value": 13,
 					"max": 13
 				},
-				"tags": {
-					"selected": [],
-					"options": [],
-					"multi": true,
-					"allowCustom": true
-				},
-				"traits": {
-					"selected": [],
-					"options": [],
-					"multi": true,
-					"allowCustom": true
-				}
+				"tags": [],
+				"traits": []
 			}
 		],
 		"hp": {

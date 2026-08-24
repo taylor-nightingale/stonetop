@@ -23,7 +23,9 @@
                   "name": "Sword, iron",
                   "weight": 1,
                   "inventoryColumn": "regular",
-                  "tagList": "close",
+                  "tagList": [
+                    "close"
+                  ],
                   "note": "+1 damage"
                 }
               ],
@@ -37,7 +39,9 @@
                   "name": "Long spear, fine steel",
                   "weight": 2,
                   "inventoryColumn": "regular",
-                  "tagList": "reach",
+                  "tagList": [
+                    "reach"
+                  ],
                   "note": "2 piercing"
                 }
               ],
@@ -64,7 +68,9 @@
                   "name": "Composite Bow",
                   "weight": 1,
                   "inventoryColumn": "regular",
-                  "tagList": "far",
+                  "tagList": [
+                    "far"
+                  ],
                   "note": "+1 damage, _x_ piercing",
                   "resource": {
                     "max": 2,

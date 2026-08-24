@@ -7,18 +7,13 @@
   "system": {
     "slug": "crinwin",
     "reference": "crinwin",
-    "tagList": {
-      "selected": [
-        "horde",
-        "small",
-        "hoarder",
-        "cautious",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "small",
+      "hoarder",
+      "cautious",
+      "stealthy"
+    ],
     "hp": {
       "value": 3,
       "max": 3

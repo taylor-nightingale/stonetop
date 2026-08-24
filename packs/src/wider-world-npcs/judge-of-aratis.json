@@ -7,16 +7,11 @@
   "system": {
     "slug": "judge-of-aratis",
     "reference": "aratis-the-lawkeeper",
-    "tagList": {
-      "selected": [
-        "group",
-        "leader",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "leader",
+      "organized"
+    ],
     "hp": {
       "value": 8,
       "max": 8

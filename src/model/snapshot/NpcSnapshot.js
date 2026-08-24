@@ -1,3 +1,4 @@
+import { Tags } from "../data/Tags.js";
 import { Selection } from "../data/Selection.js";
 import { hasGroupTag } from "../data/groupTag.js";
 import { rich } from "./RichText.js";
@@ -10,9 +11,10 @@ export class NpcSnapshot {
 		// specialQuality carry stat dice, so roll:true turns a bare `d6` into a roll button.
 		this.armor            = rich(b._armor);
 		this.damage           = rich(b._damage, { roll: true });
-		this.tagSelection     = Selection.fromStored(b._tags);
-		this.tags             = this.tagSelection.text;
-		this.isGroup          = hasGroupTag(this.tagSelection);
+		this.tagSelection     = Tags.fromStored(b._tags).picker;
+		this.tagList          = Tags.fromStored(b._tags);
+		this.tags             = this.tagList.text;
+		this.isGroup          = hasGroupTag(this.tagList);
 		this.specialQuality   = rich(b._specialQuality ?? "", { roll: true });
 		this.instinctSelection = Selection.fromStored(b._instinct);
 		this.instinct         = this.instinctSelection.text;

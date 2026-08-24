@@ -7,16 +7,11 @@
   "system": {
     "slug": "mammoth",
     "reference": "the-frozen-wastes",
-    "tagList": {
-      "selected": [
-        "horde",
-        "huge",
-        "hardy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "huge",
+      "hardy"
+    ],
     "hp": {
       "value": 15,
       "max": 15

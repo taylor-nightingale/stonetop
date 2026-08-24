@@ -7,19 +7,14 @@
   "system": {
     "slug": "blue-magpie",
     "reference": "the-ruined-tower",
-    "tagList": {
-      "selected": [
-        "horde",
-        "tiny",
-        "devious",
-        "organized",
-        "hoarder",
-        "magical"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "tiny",
+      "devious",
+      "organized",
+      "hoarder",
+      "magical"
+    ],
     "hp": {
       "value": 1,
       "max": 1

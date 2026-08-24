@@ -7,16 +7,11 @@
   "system": {
     "slug": "lightning-sconce",
     "reference": "the-ruined-tower",
-    "tagList": {
-      "selected": [
-        "Magical",
-        "construct",
-        "immobile"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Magical",
+      "construct",
+      "immobile"
+    ],
     "hp": {
       "value": 1,
       "max": 1

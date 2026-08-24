@@ -7,20 +7,15 @@
   "system": {
     "slug": "myghal-deathless-sorcerer",
     "reference": "barrow-builders",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "undead",
-        "corrupted",
-        "paranoid",
-        "magical",
-        "hoarder",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "undead",
+      "corrupted",
+      "paranoid",
+      "magical",
+      "hoarder",
+      "terrifying"
+    ],
     "hp": {
       "value": 16,
       "max": 16

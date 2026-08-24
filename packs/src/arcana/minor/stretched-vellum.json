@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A stretched vellum",
 				"weight": 2,
-				"tags": "fragile",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"fragile"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "stretched-vellum",

@@ -7,7 +7,6 @@
 		"slug": "strange-pendant",
 		"front": {
 			"item": null,
-			"tags": "magical",
 			"choices": [
 				{
 					"slug": "strange-pendant",
@@ -61,6 +60,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical"
 			]
 		},
 		"back": {

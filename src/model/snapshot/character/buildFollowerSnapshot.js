@@ -11,6 +11,7 @@ import { FollowerSnapshotBuilder } from "./FollowerSnapshot.js";
 import { ChoiceValues } from "./ChoiceGroup.js";
 import { buildChoiceGroup } from "./buildChoiceGroup.js";
 import { ResourceController } from "../../../actors/character/ResourceController.js";
+import { Tags } from "../../data/Tags.js";
 
 export function buildFollowerSnapshot(item, { loyaltyCurrent = 0, inventory = null } = {}) {
 	const sys    = item.system ?? {};
@@ -20,7 +21,7 @@ export function buildFollowerSnapshot(item, { loyaltyCurrent = 0, inventory = nu
 		.withName(item.name)
 		.withImg(item.img ?? null)
 		.withKind(sys.kind ?? "creature")
-		.withTags(sys.tagList ?? null)
+		.withTags(Tags.creature(sys.tagList, sys.tagOptions ?? []))
 		.withHp(sys.hp?.value ?? 0)
 		.withHpMax(sys.hp?.max ?? 0)
 		.withArmor(sys.armor ?? "")

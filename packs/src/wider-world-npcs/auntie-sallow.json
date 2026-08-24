@@ -7,20 +7,15 @@
   "system": {
     "slug": "auntie-sallow",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "fae",
-        "magical",
-        "stealthy",
-        "corrupted",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "fae",
+      "magical",
+      "stealthy",
+      "corrupted",
+      "terrifying"
+    ],
     "hp": {
       "value": 16,
       "max": 16

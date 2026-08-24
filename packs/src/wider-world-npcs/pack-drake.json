@@ -7,18 +7,13 @@
   "system": {
     "slug": "pack-drake",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "horde",
-        "small",
-        "stealthy",
-        "organized",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "small",
+      "stealthy",
+      "organized",
+      "cautious"
+    ],
     "hp": {
       "value": 3,
       "max": 3

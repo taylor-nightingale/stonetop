@@ -7,15 +7,10 @@
   "system": {
     "slug": "suarachan-singers",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "horde",
-        "amphibious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "amphibious"
+    ],
     "hp": {
       "value": 3,
       "max": 3

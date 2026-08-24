@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A mummified hand",
 				"weight": 1,
-				"tags": "magical, fragile",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"fragile"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "mummified-hand",

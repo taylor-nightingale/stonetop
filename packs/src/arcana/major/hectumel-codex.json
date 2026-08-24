@@ -10,11 +10,14 @@
 			"item": {
 				"name": "Hec'tumel Codex",
 				"weight": 1,
-				"tags": "crude, slow, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"crude",
+					"slow",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "hectumel-codex",

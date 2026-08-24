@@ -7,17 +7,12 @@
   "system": {
     "slug": "ice-drake",
     "reference": "the-whitefang-mountains",
-    "tagList": {
-      "selected": [
-        "horde",
-        "small",
-        "cautious",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "small",
+      "cautious",
+      "stealthy"
+    ],
     "hp": {
       "value": 3,
       "max": 3

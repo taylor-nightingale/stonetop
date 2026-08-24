@@ -7,16 +7,11 @@
   "system": {
     "slug": "beznpol",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "cautious",
-        "fierce"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "cautious",
+      "fierce"
+    ],
     "hp": {
       "value": 12,
       "max": 12

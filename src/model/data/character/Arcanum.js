@@ -1,10 +1,11 @@
 import { Resource } from "../Resource.js";
+import { Tags } from "../Tags.js";
 
 export class ArcanumItem {
 	constructor(data) {
 		this.name            = data.name;
 		this.weight          = data.weight          ?? null;
-		this.tags            = data.tags            ?? null;
+		this.tags            = Tags.gear(data.tagList);
 		this.note            = data.note            ?? null;
 		this.inventoryColumn = data.inventoryColumn ?? null;
 		this.twoCol          = data.twoCol          ?? false;
@@ -27,7 +28,7 @@ export class ArcanumFront {
 	constructor(data) {
 		const d = data ?? {};
 		this.item     = d.item ? new ArcanumItem(d.item) : null;
-		this.tags     = d.tags ?? null; // disguise tags for a front with no ◇ outfit item
+		this.tags     = Tags.gear(d.tagList); // disguise tags for a front with no ◇ outfit item
 		this.resource = d.resource ? new Resource(d.resource) : null;
 		this.choices  = toChoiceGroups(d.choices);
 	}
@@ -43,7 +44,7 @@ export class ArcanumBack {
 		const itemData = d.itemSameAsFront ? frontItemData : d.item;
 		this.title    = d.title ?? null;
 		this.item     = itemData ? new ArcanumItem(itemData) : null;
-		this.tags     = d.tags ?? null;
+		this.tags     = Tags.gear(d.tagList);
 		this.resource = d.resource ? new Resource(d.resource) : null;
 		this.choices  = toChoiceGroups(d.choices);
 	}

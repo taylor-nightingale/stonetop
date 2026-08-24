@@ -7,18 +7,13 @@
   "system": {
     "slug": "skittering-horror",
     "reference": "the-ruined-tower",
-    "tagList": {
-      "selected": [
-        "horde",
-        "emanation",
-        "terrifying",
-        "sadistic",
-        "aggressive"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "emanation",
+      "terrifying",
+      "sadistic",
+      "aggressive"
+    ],
     "hp": {
       "value": 7,
       "max": 7

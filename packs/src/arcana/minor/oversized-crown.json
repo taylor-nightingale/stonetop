@@ -9,11 +9,14 @@
 			"item": {
 				"name": "An oversized crown",
 				"weight": 1,
-				"tags": "beautiful, magical, fireproof",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"beautiful",
+					"magical",
+					"fireproof"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "oversized-crown",

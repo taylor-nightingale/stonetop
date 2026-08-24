@@ -7,19 +7,14 @@
   "system": {
     "slug": "the-suileach",
     "reference": "the-dread-river",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "magical",
-        "terrifying",
-        "aquatic",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "magical",
+      "terrifying",
+      "aquatic",
+      "corrupted"
+    ],
     "hp": {
       "value": 26,
       "max": 26

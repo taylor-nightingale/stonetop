@@ -14,7 +14,10 @@
 				"name": "Power-crystal",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical, dangerous",
+				"tagList": [
+					"magical",
+					"dangerous"
+				],
 				"note": ""
 			}
 		],

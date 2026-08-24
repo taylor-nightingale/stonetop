@@ -8,18 +8,13 @@
 		"slug": "the-ring",
 		"reference": null,
 		"arcanaSlug": "ring-of-daagon",
-		"tagList": {
-			"selected": [
-				"deep-wise",
-				"greedy",
-				"patient",
-				"knowledgeable",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"deep-wise",
+			"greedy",
+			"patient",
+			"knowledgeable",
+			"magical"
+		],
 		"hp": {
 			"value": 0,
 			"max": 0

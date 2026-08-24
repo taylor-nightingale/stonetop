@@ -7,18 +7,13 @@
   "system": {
     "slug": "andalau",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "horde",
-        "tiny",
-        "spirit",
-        "stealthy",
-        "mischievous"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "tiny",
+      "spirit",
+      "stealthy",
+      "mischievous"
+    ],
     "hp": {
       "value": 8,
       "max": 8

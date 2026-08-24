@@ -7,22 +7,17 @@
   "system": {
     "slug": "ferocedes-ogran-ghostly",
     "reference": "the-ruined-tower",
-    "tagList": {
-      "selected": [
-        "Forge Lord",
-        "Solitary",
-        "large",
-        "spirit",
-        "undead",
-        "magical",
-        "organized",
-        "obsessive",
-        "absentminded"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Forge Lord",
+      "Solitary",
+      "large",
+      "spirit",
+      "undead",
+      "magical",
+      "organized",
+      "obsessive",
+      "absentminded"
+    ],
     "hp": {
       "value": 23,
       "max": 23

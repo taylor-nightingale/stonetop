@@ -40,15 +40,11 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [],
-			"options": [
-				"group",
-				"exceptional"
-			],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [],
+		"tagOptions": [
+			"group",
+			"exceptional"
+		]
 	},
 	"flags": {},
 	"folder": null

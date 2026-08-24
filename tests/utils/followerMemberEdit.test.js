@@ -2,20 +2,19 @@ import { describe, it, expect } from "vitest";
 import * as ME from "../../src/utils/followerMemberEdit.js";
 
 describe("followerMemberEdit", () => {
-	it("newMember starts at the group's shared max HP with empty tag/trait Selections", () => {
+	it("newMember starts at the group's shared max HP with empty tag/trait lists", () => {
 		const m = ME.newMember(6);
 		expect(m).toMatchObject({ name: "", hp: { value: 6, max: 6 } });
-		// tags/traits are multi Selection raws — same shape CharacterFollowers stores.
-		expect(m.tags).toEqual({ selected: [], options: [], multi: true, allowCustom: true });
-		expect(m.traits).toEqual({ selected: [], options: [], multi: true, allowCustom: true });
+		// tags/traits are token lists — same shape CharacterFollowers stores.
+		expect(m.tags).toEqual([]);
+		expect(m.traits).toEqual([]);
 	});
 
-	it("setMemberListField stores tags/traits as a multi Selection raw parsed from CSV", () => {
+	it("setMemberListField stores tags/traits as a token list parsed from CSV", () => {
 		const list = [ME.newMember(6)];
 		const next = ME.setMemberListField(list, { index: 0, field: "tags", csv: "big, brave" });
-		expect(next[0].tags.selected).toEqual(["big", "brave"]);
-		expect(next[0].tags.multi).toBe(true);
-		expect(list[0].tags.selected).toEqual([]); // input untouched
+		expect(next[0].tags).toEqual(["big", "brave"]);
+		expect(list[0].tags).toEqual([]); // input untouched
 	});
 
 	it("addMember appends a new member without mutating the input", () => {

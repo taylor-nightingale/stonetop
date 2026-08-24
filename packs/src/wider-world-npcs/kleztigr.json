@@ -7,19 +7,14 @@
   "system": {
     "slug": "kleztigr",
     "reference": "the-steplands",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "cagey",
-        "stealthy",
-        "agile",
-        "powerful"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "cagey",
+      "stealthy",
+      "agile",
+      "powerful"
+    ],
     "hp": {
       "value": 16,
       "max": 16

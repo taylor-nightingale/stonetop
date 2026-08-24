@@ -7,19 +7,14 @@
   "system": {
     "slug": "the-quiet-twins",
     "reference": "the-stream",
-    "tagList": {
-      "selected": [
-        "group",
-        "small",
-        "spirit",
-        "undead",
-        "cautious",
-        "unnerving"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "small",
+      "spirit",
+      "undead",
+      "cautious",
+      "unnerving"
+    ],
     "hp": {
       "value": 13,
       "max": 13

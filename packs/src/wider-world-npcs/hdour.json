@@ -7,19 +7,14 @@
   "system": {
     "slug": "hdour",
     "reference": "hillfolk",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "cautious",
-        "devious",
-        "hoarder",
-        "magical",
-        "spirit-wise"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "cautious",
+      "devious",
+      "hoarder",
+      "magical",
+      "spirit-wise"
+    ],
     "hp": {
       "value": 14,
       "max": 14

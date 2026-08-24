@@ -7,21 +7,16 @@
   "system": {
     "slug": "ceffylwraig",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "spirit",
-        "swift",
-        "tireless",
-        "cautious",
-        "magical",
-        "beautiful"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "spirit",
+      "swift",
+      "tireless",
+      "cautious",
+      "magical",
+      "beautiful"
+    ],
     "hp": {
       "value": 24,
       "max": 24

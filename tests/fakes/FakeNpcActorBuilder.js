@@ -13,6 +13,7 @@ export class FakeNpcActorBuilder {
 	_description = "";
 	_moves = "";
 	_tagList = "";
+	_tagOptions = [];
 
 	// Shared plumbing — delegated to the scaffold.
 	withName(name)  { this._scaffold.setName(name); return this; }
@@ -31,6 +32,7 @@ export class FakeNpcActorBuilder {
 	withDescription(desc) { this._description = desc; return this; }
 	withMoves(moves)      { this._moves = moves; return this; }
 	withTagList(tagList)  { this._tagList = tagList; return this; }
+	withTagOptions(opts)  { this._tagOptions = opts; return this; }
 
 	buildSystem() {
 		return {
@@ -42,6 +44,7 @@ export class FakeNpcActorBuilder {
 			description:    this._description,
 			moves:          this._moves,
 			tagList:        this._tagList,
+			tagOptions:     this._tagOptions,
 		};
 	}
 

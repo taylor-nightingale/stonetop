@@ -8,28 +8,12 @@
 		"slug": "tulpa",
 		"reference": null,
 		"arcanaSlug": "beautiful-scroll",
-		"tagList": {
-			"selected": [
-				"Spirit",
-				"construct",
-				"tiny",
-				"naive"
-			],
-			"options": [
-				"Spirit",
-				"construct",
-				"tiny",
-				"naive",
-				"eager",
-				"fierce",
-				"kind",
-				"sly",
-				"timid",
-				"willful"
-			],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Spirit",
+			"construct",
+			"tiny",
+			"naive"
+		],
 		"hp": {
 			"value": 0,
 			"max": 8
@@ -114,7 +98,19 @@
 		],
 		"moves": "- Manifest a form of dust/snow/vapor",
 		"description": "",
-		"notes": ""
+		"notes": "",
+		"tagOptions": [
+			"Spirit",
+			"construct",
+			"tiny",
+			"naive",
+			"eager",
+			"fierce",
+			"kind",
+			"sly",
+			"timid",
+			"willful"
+		]
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

@@ -626,6 +626,39 @@
 			"residentTraits": "Traits",
 			"neighborHome": "Home",
 			"edit": "Edit"
+		},
+		"tagGlossary": {
+			"general": {
+				"area": "affects everything in an area.",
+				"awkward": "unwieldy, requires space, gets stuck.",
+				"crude": "prone to break, wear out, stop working, etc.",
+				"cumbersome": "you’re noisy, slow, hot, and quick to tire while carrying it, even without a heavy load (and if you have a heavy load, it’s worse).",
+				"dangerous": "causes trouble and collateral damage if you aren’t careful (and maybe if you are).",
+				"forceful": "can knock someone around, maybe even off their feet.",
+				"fragile": "easy to break/ruin; pack it carefully.",
+				"immobile": "you can’t really carry it on your person; you need a beast or vehicle to transport it.",
+				"messy": "does particularly destructive damage, ripping people and things apart.",
+				"reload": "after it’s used, it takes time/effort to reset.",
+				"slow": "takes minutes or more to use; unlikely to be useful in a fight.",
+				"thrown": "you can Let Fly with it (at near range).",
+				"warm": "will keep you warm in cold weather, but it’s uncomfortable and exhausting (and possibly dangerous) in hot weather."
+			},
+			"range": {
+				"hand": "tight quarters; up close and personal.",
+				"close": "melee range, 1-2 steps away.",
+				"reach": "3-4 steps away.",
+				"near": "up to 30 or so steps away.",
+				"far": "quite the distance; up to 100 steps, maybe more."
+			},
+			"artifact": {
+				"beautiful": "draws attention, makes some people want it",
+				"fireproof": "unharmed by heat or flame",
+				"implanted": "it’s part of you, or must become so before you can use it",
+				"indestructible": "can’t be broken or marred by mundane force or art",
+				"loud": "makes a lot of noise",
+				"magical": "imbued with unnatural power",
+				"terrifying": "people and beasts freak out in its presence"
+			}
 		}
 	}
 }

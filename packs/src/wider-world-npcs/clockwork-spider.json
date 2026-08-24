@@ -7,17 +7,12 @@
   "system": {
     "slug": "clockwork-spider",
     "reference": "forge-lords",
-    "tagList": {
-      "selected": [
-        "horde",
-        "small",
-        "construct",
-        "creepy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "small",
+      "construct",
+      "creepy"
+    ],
     "hp": {
       "value": 7,
       "max": 7

@@ -7,16 +7,11 @@
   "system": {
     "slug": "manmarcher-veteran",
     "reference": "north-manmarch",
-    "tagList": {
-      "selected": [
-        "horde",
-        "organized",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "organized",
+      "cautious"
+    ],
     "hp": {
       "value": 3,
       "max": 3

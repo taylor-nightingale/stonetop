@@ -8,17 +8,12 @@
 		"slug": "unliving-chimera",
 		"reference": null,
 		"arcanaSlug": "rusty-cauldron",
-		"tagList": {
-			"selected": [
-				"Undead",
-				"construct",
-				"terrifying",
-				"clumsy"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Undead",
+			"construct",
+			"terrifying",
+			"clumsy"
+		],
 		"hp": {
 			"value": 0,
 			"max": 3

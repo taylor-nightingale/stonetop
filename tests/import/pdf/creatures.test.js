@@ -169,7 +169,7 @@ describe("toFollowerDoc", () => {
 		expect(doc.system.loyalty).toEqual({ value: 0, max: 3 });
 	});
 	it("builds Selection shapes + a bullet moves string + empty choices", () => {
-		expect(doc.system.tagList).toEqual({ selected: ["large", "construct"], options: [], multi: true, allowCustom: true });
+		expect(doc.system.tagList).toEqual(["large", "construct"]);
 		expect(doc.system.instinct.selected).toEqual(["to misunderstand"]);
 		expect(doc.system.moves).toBe("- living stone, tireless");
 		expect(doc.system.choices).toEqual([{ slug: "choices", list: [] }]);
@@ -182,18 +182,16 @@ describe("toFollowerDoc — group tag", () => {
 			name: "Mantle wraiths", tagList: ["Group (3)", "spirit", "undead"],
 			hp: { value: 0, max: 13 }, moves: [],
 		}, { slug: "mantle-wraiths" });
-		expect(doc.system.tagList.selected).toEqual(["group", "spirit", "undead"]);
+		expect(doc.system.tagList).toEqual(["group", "spirit", "undead"]);
 		expect(doc.system.members).toHaveLength(3);
 		expect(doc.system.members[0]).toEqual({
-			name: "", hp: { value: 13, max: 13 },
-			tags:   { selected: [], options: [], multi: true, allowCustom: true },
-			traits: { selected: [], options: [], multi: true, allowCustom: true },
+			name: "", hp: { value: 13, max: 13 }, tags: [], traits: [],
 		});
 	});
 
 	it("canonicalizes a bare 'Group' tag but seeds no members without a count", () => {
 		const doc = toFollowerDoc({ name: "Pack", tagList: ["Group", "beast"], hp: { value: 0, max: 6 }, moves: [] }, {});
-		expect(doc.system.tagList.selected).toEqual(["group", "beast"]);
+		expect(doc.system.tagList).toEqual(["group", "beast"]);
 		expect(doc.system.members).toBeUndefined();
 	});
 });
@@ -218,7 +216,7 @@ describe("toNpcDoc", () => {
 
 	it("canonicalizes a capitalized 'Group' tag to 'group' so a dragged-in follower detects it", () => {
 		const doc = toNpcDoc({ ...creature, tagList: ["Group", "large", "beast"] });
-		expect(doc.system.tagList.selected).toEqual(["group", "large", "beast"]);
+		expect(doc.system.tagList).toEqual(["group", "large", "beast"]);
 	});
 });
 
@@ -276,7 +274,7 @@ describe("arcana followers — real fixtures (pp 263/264/267) parse + toFollower
 		expect(f.hp).toEqual({ value: 0, max: 3 });
 		expect(f.armor).toBe("4 (0 vs. bronze)");
 		expect(f.damage).toBe("varies [[/r d6]] (_hand_, maybe others)");
-		expect(f.tagList.selected).toEqual(["Undead", "construct", "terrifying", "clumsy"]);
+		expect(f.tagList).toEqual(["Undead", "construct", "terrifying", "clumsy"]);
 		expect(f.instinct.selected).toEqual(["to get confused and lash out"]);
 		expect(f.cost.selected).toEqual(["lots of fresh blood"]); // (Loyalty) + furniture stripped
 		expect(f.loyalty).toEqual({ value: 0, max: 3 });
@@ -284,7 +282,7 @@ describe("arcana followers — real fixtures (pp 263/264/267) parse + toFollower
 	it("parses the tulpa, dropping the personality line and the HP sidebar", () => {
 		const f = minor["tulpa"];
 		expect(f.hp).toEqual({ value: 0, max: 8 });
-		expect(f.tagList.selected).toEqual(["Spirit", "construct", "tiny", "naive", "eager"]);
+		expect(f.tagList).toEqual(["Spirit", "construct", "tiny", "naive", "eager"]);
 		expect(f.cost.selected).toEqual(["respect given new experiences comfort/compassion"]);
 	});
 	it("parses the bronze protector, keeping Special qualities as its own field (with its ;)", () => {
@@ -369,7 +367,9 @@ describe("toFollowerDoc — pick-list options carry into the selection fields", 
 			moves: [], description: "",
 		};
 		const doc = toFollowerDoc(creature, { slug: "tulpa", arcanaSlug: "beautiful-scroll" });
-		expect(doc.system.tagList).toMatchObject({ selected: ["Spirit", "construct"], options: ["Spirit", "construct", "eager", "fierce"], multi: true });
+		// The value is the token list; the stat block's printed choices are the sibling field.
+		expect(doc.system.tagList).toEqual(["Spirit", "construct"]);
+		expect(doc.system.tagOptions).toEqual(["Spirit", "construct", "eager", "fierce"]);
 		expect(doc.system.instinct).toMatchObject({ selected: [], options: ["to play", "to learn"], multi: false });
 		expect(doc.system.cost).toMatchObject({ selected: [], options: ["respect given", "comfort"], multi: false });
 	});
@@ -413,7 +413,8 @@ describe("toFollowerDoc — pick-list options carry into the selection fields", 
 			moves: [], description: "",
 		};
 		const doc = toFollowerDoc(creature, { slug: "andalau-of-the-flute" });
-		expect(doc.system.tagList).toMatchObject({ selected: ["Spirit", "tiny"], options: [] });
+		expect(doc.system.tagList).toEqual(["Spirit", "tiny"]);
+		expect(doc.system.tagOptions).toEqual([]);
 		expect(doc.system.instinct).toMatchObject({ selected: ["to play and frolic"], options: [] });
 		expect(doc.system.cost).toMatchObject({ selected: ["entertainment"], options: [] });
 	});

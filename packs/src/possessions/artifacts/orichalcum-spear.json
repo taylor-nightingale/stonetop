@@ -14,7 +14,12 @@
 				"name": "Orichalcum spear",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "close, thrown, magical, beautiful",
+				"tagList": [
+					"close",
+					"thrown",
+					"magical",
+					"beautiful"
+				],
 				"note": ""
 			}
 		],

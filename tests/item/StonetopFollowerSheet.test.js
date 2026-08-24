@@ -68,15 +68,18 @@ describe("StonetopFollowerSheet._prepareContext", () => {
 		expect(item.update).toHaveBeenCalledWith(expect.objectContaining({ "system.slug": expect.stringMatching(/^custom-follower-/) }));
 	});
 
+	// Tags come from two stored fields — the token list and the stat block's printed choices — and
+	// are composed into one Selection for the shared options editor.
 	it("normalizes the three Selection fields with the right multi + builds choiceRows", async () => {
 		const item = makeItem({
 			slug: "crew",
-			tagList: { selected: ["group"], options: ["group", "brave"], multi: true, allowCustom: true },
+			tagList: ["group"], tagOptions: ["group", "brave"],
 			instinct: { selected: [], options: ["To lord over others"], multi: false, allowCustom: true },
 			choices: [{ slug: "choices", list: [{ type: "pick", pickCount: 1, options: [{ slug: "a", text: "A" }] }] }],
 		});
 		const ctx = await makeSheet(item)._prepareContext({});
 		expect(ctx.tagListSel.multi).toBe(true);
+		expect(ctx.tagListSel.selected).toEqual(["group"]);
 		expect(ctx.tagListSel.options).toEqual(["group", "brave"]);
 		expect(ctx.instinctSel.multi).toBe(false);
 		expect(ctx.hasChoices).toBe(true);
@@ -103,7 +106,7 @@ describe("StonetopFollowerSheet._onRender wiring", () => {
 		fire(root.querySelector(".follower-member-add"), "click");
 		expect(item.update).toHaveBeenCalledWith({
 			"system.members": [expect.objectContaining({ hp: { value: 6, max: 6 } })],
-			"system.tagList": expect.objectContaining({ selected: ["group"], multi: true }),
+			"system.tagList": ["group"],
 		});
 	});
 

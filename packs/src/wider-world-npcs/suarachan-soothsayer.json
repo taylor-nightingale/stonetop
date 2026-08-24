@@ -7,18 +7,13 @@
   "system": {
     "slug": "suarachan-soothsayer",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "corrupted",
-        "cunning",
-        "magical",
-        "amphibious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "corrupted",
+      "cunning",
+      "magical",
+      "amphibious"
+    ],
     "hp": {
       "value": 12,
       "max": 12

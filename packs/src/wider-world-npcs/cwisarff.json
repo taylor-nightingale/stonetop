@@ -7,17 +7,12 @@
   "system": {
     "slug": "cwisarff",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "small",
-        "stealthy",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "small",
+      "stealthy",
+      "cautious"
+    ],
     "hp": {
       "value": 10,
       "max": 10

@@ -7,19 +7,14 @@
   "system": {
     "slug": "fen-troll",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "corrupted",
-        "hoarder",
-        "gluttonous",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "corrupted",
+      "hoarder",
+      "gluttonous",
+      "stealthy"
+    ],
     "hp": {
       "value": 16,
       "max": 16

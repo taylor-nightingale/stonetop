@@ -14,7 +14,9 @@
 				"name": "A vine in a rune-carved pot",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical",
+				"tagList": [
+					"magical"
+				],
 				"note": ""
 			}
 		],

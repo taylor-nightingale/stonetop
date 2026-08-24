@@ -7,17 +7,12 @@
   "system": {
     "slug": "the-gwraig-wen",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "undead",
-        "forlorn"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "undead",
+      "forlorn"
+    ],
     "hp": {
       "value": 19,
       "max": 19

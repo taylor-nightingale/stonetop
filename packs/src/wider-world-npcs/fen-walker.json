@@ -7,17 +7,12 @@
   "system": {
     "slug": "fen-walker",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "Fen-wise",
-        "cautious",
-        "stealthy",
-        "observant"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Fen-wise",
+      "cautious",
+      "stealthy",
+      "observant"
+    ],
     "hp": {
       "value": 8,
       "max": 8

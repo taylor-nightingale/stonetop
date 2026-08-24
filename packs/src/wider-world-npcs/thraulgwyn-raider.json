@@ -7,18 +7,13 @@
   "system": {
     "slug": "thraulgwyn-raider",
     "reference": "the-labyrinth",
-    "tagList": {
-      "selected": [
-        "group",
-        "corrupted",
-        "stealthy",
-        "organized",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "corrupted",
+      "stealthy",
+      "organized",
+      "cautious"
+    ],
     "hp": {
       "value": 6,
       "max": 6

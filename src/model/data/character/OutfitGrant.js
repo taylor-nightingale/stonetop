@@ -52,7 +52,7 @@ export function embeddedOutfitItem(data) {
 		.withSlug(data.slug)
 		.withName(data.name)
 		.withWeight(data.weight ?? 1)
-		.withTags(data.tags ?? "")
+		.withTags(data.tagList)
 		.withNote(data.note ?? null)
 		.withInventoryColumn(data.inventoryColumn ?? "regular")
 		.withResource(data.resource ?? null)

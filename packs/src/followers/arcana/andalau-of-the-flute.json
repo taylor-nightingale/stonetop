@@ -8,17 +8,12 @@
 		"slug": "andalau-of-the-flute",
 		"reference": null,
 		"arcanaSlug": "cracked-flute",
-		"tagList": {
-			"selected": [
-				"Spirit",
-				"tiny",
-				"stealthy",
-				"mischievous"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Spirit",
+			"tiny",
+			"stealthy",
+			"mischievous"
+		],
 		"hp": {
 			"value": 0,
 			"max": 8

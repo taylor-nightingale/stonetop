@@ -7,17 +7,12 @@
   "system": {
     "slug": "tomb-bog-spirit",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "terrifying",
-        "implacable"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "terrifying",
+      "implacable"
+    ],
     "hp": {
       "value": 19,
       "max": 19

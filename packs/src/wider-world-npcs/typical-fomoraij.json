@@ -7,19 +7,14 @@
   "system": {
     "slug": "typical-fomoraij",
     "reference": "fomoraij",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "magical",
-        "cunning",
-        "cautious",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "magical",
+      "cunning",
+      "cautious",
+      "terrifying"
+    ],
     "hp": {
       "value": 26,
       "max": 26

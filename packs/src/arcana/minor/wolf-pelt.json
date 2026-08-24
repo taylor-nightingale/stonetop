@@ -7,7 +7,6 @@
 		"slug": "wolf-pelt",
 		"front": {
 			"item": null,
-			"tags": "magical, warm",
 			"choices": [
 				{
 					"slug": "wolf-pelt",
@@ -50,6 +49,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical",
+				"warm"
 			]
 		},
 		"back": {

@@ -7,15 +7,10 @@
   "system": {
     "slug": "manmarcher-recruit",
     "reference": "north-manmarch",
-    "tagList": {
-      "selected": [
-        "horde",
-        "young"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "young"
+    ],
     "hp": {
       "value": 3,
       "max": 3

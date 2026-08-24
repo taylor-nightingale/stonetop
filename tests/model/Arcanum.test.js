@@ -78,11 +78,14 @@ describe("ArcanumFront", () => {
 		expect(new ArcanumFront({ ...FRONT_DATA, title: "A bow with no string" }).title).toBeUndefined();
 	});
 
-	it("wraps item, carries disguise tags (default null)", () => {
+	// Stored as `tagList` (Foundry wipes a top-level `system.tags` on items); the entity speaks
+	// domain vocabulary — `front.tags` — and answers with a Tags, never a raw string.
+	it("wraps item, carries disguise tags (empty by default)", () => {
 		const front = new ArcanumFront(FRONT_DATA);
 		expect(front.item).toBeInstanceOf(ArcanumItem);
-		expect(front.tags).toBeNull();
-		expect(new ArcanumFront({ ...FRONT_DATA, item: null, tags: "magical, terrifying" }).tags).toBe("magical, terrifying");
+		expect(front.tags.isEmpty).toBe(true);
+		expect(new ArcanumFront({ ...FRONT_DATA, item: null, tagList: ["magical", "terrifying"] }).tags.values)
+			.toEqual(["magical", "terrifying"]);
 	});
 
 	it("item is null when absent; resource wraps when present", () => {
@@ -111,9 +114,9 @@ describe("ArcanumBack", () => {
 		expect(back.item).toBeInstanceOf(ArcanumItem);
 		expect(back.item.resource).toBeInstanceOf(Resource);
 		expect(back.resource).toBeNull();
-		expect(back.tags).toBeNull();
-		const withRes = new ArcanumBack({ ...BACK_DATA, tags: "eerie", resource: { max: 3, maxStat: null, title: "Tonic", labels: [] } });
-		expect(withRes.tags).toBe("eerie");
+		expect(back.tags.isEmpty).toBe(true);
+		const withRes = new ArcanumBack({ ...BACK_DATA, tagList: ["eerie"], resource: { max: 3, maxStat: null, title: "Tonic", labels: [] } });
+		expect(withRes.tags.values).toEqual(["eerie"]);
 		expect(withRes.resource).toBeInstanceOf(Resource);
 		expect(withRes.resource.title).toBe("Tonic");
 	});

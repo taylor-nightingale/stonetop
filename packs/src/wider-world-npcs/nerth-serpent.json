@@ -7,17 +7,12 @@
   "system": {
     "slug": "nerth-serpent",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "spirit",
-        "fearless"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "spirit",
+      "fearless"
+    ],
     "hp": {
       "value": 20,
       "max": 20

@@ -1,5 +1,6 @@
 import { OutfitSection, OutfitItemSnapshotBuilder } from "./InventorySnapshot.js";
 import { rich } from "../RichText.js";
+import { Tags } from "../../data/Tags.js";
 
 // Group outfit items into render sections for one inventory column ("regular" | "small").
 // Repo (pack/world) items are grouped by their folder-derived `group`, preserving encounter order;
@@ -43,7 +44,7 @@ export function toOutfitItemSnapshot(oi, checked, resource) {
 	return new OutfitItemSnapshotBuilder()
 		.withSlug(oi.slug)
 		.withName(oi.name)
-		.withTags(rich(oi.tags))
+		.withTags(Tags.gear(oi.tags).resolved)
 		.withNote(rich(oi.note))
 		.withWeight(oi.weight)
 		.withChecked(checked)

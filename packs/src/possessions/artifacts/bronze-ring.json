@@ -14,7 +14,10 @@
 				"name": "Bronze ring",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical, fireproof",
+				"tagList": [
+					"magical",
+					"fireproof"
+				],
 				"note": "hours"
 			}
 		],

@@ -15,7 +15,9 @@
 				"name": "Composite Bow",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "far",
+				"tagList": [
+					"far"
+				],
 				"note": "+1 damage, _x_ piercing",
 				"resource": {
 					"max": 2,

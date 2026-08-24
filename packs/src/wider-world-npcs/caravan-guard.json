@@ -7,17 +7,12 @@
   "system": {
     "slug": "caravan-guard",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "horde",
-        "organized",
-        "cautious",
-        "alert"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "organized",
+      "cautious",
+      "alert"
+    ],
     "hp": {
       "value": 3,
       "max": 3

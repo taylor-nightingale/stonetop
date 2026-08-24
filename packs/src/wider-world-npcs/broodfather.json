@@ -7,16 +7,11 @@
   "system": {
     "slug": "broodfather",
     "reference": "crinwin",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "stealthy",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "stealthy",
+      "terrifying"
+    ],
     "hp": {
       "value": 12,
       "max": 12

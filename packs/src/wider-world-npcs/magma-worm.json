@@ -7,17 +7,12 @@
   "system": {
     "slug": "magma-worm",
     "reference": "the-labyrinth",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "primordial",
-        "large",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "primordial",
+      "large",
+      "terrifying"
+    ],
     "hp": {
       "value": 19,
       "max": 19

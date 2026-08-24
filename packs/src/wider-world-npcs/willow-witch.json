@@ -7,20 +7,15 @@
   "system": {
     "slug": "willow-witch",
     "reference": "ferriers-fen",
-    "tagList": {
-      "selected": [
-        "group",
-        "primordial",
-        "cautious",
-        "devious",
-        "organized",
-        "magical",
-        "all-wise"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "primordial",
+      "cautious",
+      "devious",
+      "organized",
+      "magical",
+      "all-wise"
+    ],
     "hp": {
       "value": 16,
       "max": 16

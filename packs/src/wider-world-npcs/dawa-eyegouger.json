@@ -7,17 +7,12 @@
   "system": {
     "slug": "dawa-eyegouger",
     "reference": "gordins-delve",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "brutal",
-        "fearless",
-        "drunkard"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "brutal",
+      "fearless",
+      "drunkard"
+    ],
     "hp": {
       "value": 16,
       "max": 16

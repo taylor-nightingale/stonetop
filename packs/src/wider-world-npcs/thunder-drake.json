@@ -7,15 +7,10 @@
   "system": {
     "slug": "thunder-drake",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large"
+    ],
     "hp": {
       "value": 20,
       "max": 20

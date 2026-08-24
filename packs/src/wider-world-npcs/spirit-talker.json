@@ -7,18 +7,13 @@
   "system": {
     "slug": "spirit-talker",
     "reference": "hillfolk",
-    "tagList": {
-      "selected": [
-        "group",
-        "cautious",
-        "cunning",
-        "magical",
-        "spirit-wise"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "cautious",
+      "cunning",
+      "magical",
+      "spirit-wise"
+    ],
     "hp": {
       "value": 8,
       "max": 8

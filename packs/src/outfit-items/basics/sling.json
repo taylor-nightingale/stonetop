@@ -19,7 +19,11 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "near, reload, awkward"
+		"tagList": [
+			"near",
+			"reload",
+			"awkward"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

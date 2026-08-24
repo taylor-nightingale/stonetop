@@ -7,18 +7,13 @@
   "system": {
     "slug": "ulliam-unlucky",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "undead",
-        "stealthy",
-        "terrifying",
-        "loyal"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "undead",
+      "stealthy",
+      "terrifying",
+      "loyal"
+    ],
     "hp": {
       "value": 16,
       "max": 16

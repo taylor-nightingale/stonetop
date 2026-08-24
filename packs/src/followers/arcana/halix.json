@@ -44,21 +44,16 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"undead",
-				"spirit",
-				"magical",
-				"hedonistic",
-				"cautious",
-				"devious",
-				"stealthy",
-				"exceptional"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"undead",
+			"spirit",
+			"magical",
+			"hedonistic",
+			"cautious",
+			"devious",
+			"stealthy",
+			"exceptional"
+		]
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

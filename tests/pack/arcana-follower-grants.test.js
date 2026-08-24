@@ -112,7 +112,7 @@ describe("Ring of Daagon — the Servant of Daagon and its summoning builder", (
 	});
 
 	it("gives the servant the book's printed stat line", () => {
-		expect(servant.system.tagList.selected).toEqual(["terrifying", "violent", "wretched"]);
+		expect(servant.system.tagList).toEqual(["terrifying", "violent", "wretched"]);
 		expect(servant.system.instinct.selected).toEqual(["to devour"]);
 		expect(servant.system.arcanaSlug).toBe("ring-of-daagon");
 	});

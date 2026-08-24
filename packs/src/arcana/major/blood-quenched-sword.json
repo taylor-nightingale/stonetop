@@ -10,11 +10,14 @@
 			"item": {
 				"name": "Blood-quenched Sword",
 				"weight": 1,
-				"tags": "close, messy, magical",
 				"note": "+1 damage, 1 piercing",
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"close",
+					"messy",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "blood-quenched-sword",

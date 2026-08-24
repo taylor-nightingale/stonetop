@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A half-buried plaque",
 				"weight": 2,
-				"tags": "cumbersome, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"cumbersome",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "half-buried-plaque",

@@ -13,6 +13,7 @@ const SETTERS = {
 	description:    (b, v) => b.withDescription(v),
 	moves:          (b, v) => b.withMoves(v),
 	tagList:        (b, v) => b.withTagList(v),
+	tagOptions:     (b, v) => b.withTagOptions(v),
 };
 
 function makeActor(overrides = {}) {
@@ -54,14 +55,22 @@ describe("StonetopNpc — moves and tags in the snapshot", () => {
 		expect(snap.moves.raw).toBe("- Bite d6\n- Vanish");
 	});
 
-	// Parity with the follower card: the snapshot must carry the stored Selection's options
-	// through to tagSelection so the chip UI offers the same "add from list" dropdown.
-	it("preserves tag options/multi for the pill UI (same as followers)", async () => {
-		const tagList = { selected: ["group"], options: ["group", "intelligent", "large"], multi: true, allowCustom: true };
-		const snap = await makeNpc({ tagList }).buildSnapshot();
+	// Parity with the follower card: the stat block's printed choices reach tagSelection so the chip
+	// UI offers the same "add from list" dropdown. They live in `tagOptions` — the value is the
+	// token list alone.
+	it("offers the stat block's printed choices in the pill UI (same as followers)", async () => {
+		const snap = await makeNpc({ tagList: ["group"], tagOptions: ["group", "intelligent", "large"] }).buildSnapshot();
 		expect(snap.tagSelection.multi).toBe(true);
 		expect(snap.tagSelection.values).toEqual(["group"]);
 		expect(snap.tagSelection.unselectedOptions).toEqual(["intelligent", "large"]);
+		expect(snap.isGroup).toBe(true);
+	});
+
+	// A world saved before the conversion still holds the Selection blob; its value must still read.
+	it("still reads a legacy Selection blob's tags", async () => {
+		const tagList = { selected: ["group", "large"], options: [], multi: true, allowCustom: true };
+		const snap = await makeNpc({ tagList }).buildSnapshot();
+		expect(snap.tagSelection.values).toEqual(["group", "large"]);
 		expect(snap.isGroup).toBe(true);
 	});
 

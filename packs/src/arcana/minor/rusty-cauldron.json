@@ -7,7 +7,6 @@
 		"slug": "rusty-cauldron",
 		"front": {
 			"item": null,
-			"tags": "immobile, magical",
 			"choices": [
 				{
 					"slug": "rusty-cauldron",
@@ -72,6 +71,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"immobile",
+				"magical"
 			]
 		},
 		"back": {

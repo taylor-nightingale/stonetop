@@ -5,7 +5,10 @@ export class Follower {
 		this.img              = data.img              ?? null;
 		// "creature" (full combat stats) vs "object" (the Ring: loyalty/instinct/cost/moves, no HP).
 		this.kind             = data.kind             ?? "creature";
+		// The tag VALUE and the choices this stat block prints for itself are separate fields —
+		// `tagOptions` is authored data, but it is not part of the value (src/data/tagFields.js).
 		this.tags             = data.tagList     ?? data.tags ?? null;
+		this.tagOptions       = data.tagOptions  ?? [];
 		this.hp               = data.hp               ?? { value: 0, max: 0 };
 		this.armor            = data.armor            ?? "";
 		this.damage           = data.damage           ?? "";

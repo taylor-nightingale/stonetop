@@ -7,19 +7,14 @@
   "system": {
     "slug": "nine-fingered-stranger",
     "reference": "tor-the-rain-maker",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "magical",
-        "enigmatic",
-        "moody",
-        "curious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "magical",
+      "enigmatic",
+      "moody",
+      "curious"
+    ],
     "hp": {
       "value": 22,
       "max": 22

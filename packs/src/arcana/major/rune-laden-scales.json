@@ -10,11 +10,12 @@
 			"item": {
 				"name": "Rune-laden Scales",
 				"weight": 2,
-				"tags": "magical",
 				"note": "2 armor",
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "rune-laden-scales",

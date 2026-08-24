@@ -7,17 +7,12 @@
   "system": {
     "slug": "bandit",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "group",
-        "stealthy",
-        "cautious",
-        "devious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "stealthy",
+      "cautious",
+      "devious"
+    ],
     "hp": {
       "value": 6,
       "max": 6

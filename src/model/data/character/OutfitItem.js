@@ -1,3 +1,5 @@
+import { Tags } from "../Tags.js";
+
 export class OutfitItem {
 	// Map a raw `outfitItem` document (pack entry, world item, or the item sheet's own document)
 	// onto the entity. `group` is the folder-derived section name — only pack entries have one.
@@ -7,7 +9,7 @@ export class OutfitItem {
 			.withSlug(sys.slug)
 			.withName(item.name)
 			.withWeight(sys.weight ?? 0)
-			.withTags(sys.tagList ?? "")
+			.withTags(Tags.gear(sys.tagList))
 			.withNote(sys.note ?? null)
 			.withInventoryColumn(sys.inventoryColumn ?? null)
 			.withResource(sys.resource ?? null)
@@ -21,7 +23,7 @@ export class OutfitItem {
 		this.slug            = b._slug;
 		this.name            = b._name;
 		this.weight          = b._weight;
-		this.tags            = b._tags            ?? "";
+		this.tags            = b._tags            ?? Tags.gear(null);
 		this.note            = b._note;
 		this.inventoryColumn = b._inventoryColumn;
 		this.resource        = b._resource;

@@ -7,16 +7,11 @@
   "system": {
     "slug": "hagr",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "terrifying"
+    ],
     "hp": {
       "value": 16,
       "max": 16

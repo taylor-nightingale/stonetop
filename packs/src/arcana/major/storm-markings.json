@@ -8,7 +8,6 @@
 		"slug": "storm-markings",
 		"front": {
 			"item": null,
-			"tags": "implanted, magical",
 			"choices": [
 				{
 					"slug": "storm-markings",
@@ -61,6 +60,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"implanted",
+				"magical"
 			]
 		},
 		"back": {

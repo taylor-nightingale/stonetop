@@ -73,7 +73,7 @@ describe("StonetopOutfitItemSheet._prepareContext", () => {
 		expect(ctx.preview.slug).toBe("shield");
 		expect(ctx.preview.name).toBe("Shield");
 		expect(ctx.preview.weight).toBe(2);
-		expect(ctx.preview.tags.raw).toBe("close, area");
+		expect(ctx.preview.tags.map((t) => t.label)).toEqual(["close", "area"]);
 		expect(ctx.preview.note.raw).toBe("+1 armor, +1 Readiness on 7+ to Defend");
 		// A catalog item carries no per-character state: unchecked, and not deletable-as-custom.
 		expect(ctx.preview.checked).toBe(false);
@@ -218,6 +218,46 @@ describe("StonetopOutfitItemSheet._onRender — armor wiring", () => {
 		sheet._onRender({}, {});
 
 		sheet.element.querySelector(".outfit-armor-toggle").click();
+		expect(item.update).not.toHaveBeenCalled();
+	});
+});
+
+describe("StonetopOutfitItemSheet — tags", () => {
+	it("offers the tag chips as a picker widened by the book's glossary", async () => {
+		const item = makeItem({ ...SHIELD, tagList: ["close"] });
+		const ctx  = await makeSheet(item)._prepareContext({});
+		expect(ctx.tagSelection.values).toEqual(["close"]);
+		// Chips cover the stored tag plus the glossary's suggestions, which is what makes the
+		// picker offer the book's vocabulary rather than a blank box.
+		expect(ctx.tagSelection.chips.find((c) => c.value === "close").selected).toBe(true);
+	});
+
+	it("adds a tag by toggling it, writing the shared stored shape", async () => {
+		const item  = makeItem({ ...SHIELD, tagList: ["close"] });
+		const sheet = makeSheet(item);
+		await sheet.toggleTag({ field: "tagList" }, "thrown");
+		expect(item.update).toHaveBeenCalledWith({ "system.tagList": ["close", "thrown"] });
+	});
+
+	it("removes a tag that is already selected", async () => {
+		const item  = makeItem({ ...SHIELD, tagList: ["close", "thrown"] });
+		const sheet = makeSheet(item);
+		await sheet.toggleTag({ field: "tagList" }, "close");
+		expect(item.update).toHaveBeenCalledWith({ "system.tagList": ["thrown"] });
+	});
+
+	// A world written before the conversion still holds a comma string; toggling must not lose it.
+	it("converts a legacy comma string on the first toggle", async () => {
+		const item  = makeItem({ ...SHIELD, tagList: "close, thrown" });
+		const sheet = makeSheet(item);
+		await sheet.toggleTag({ field: "tagList" }, "warm");
+		expect(item.update).toHaveBeenCalledWith({ "system.tagList": ["close", "thrown", "warm"] });
+	});
+
+	it("ignores an empty value rather than storing a blank tag", async () => {
+		const item  = makeItem({ ...SHIELD, tagList: [] });
+		const sheet = makeSheet(item);
+		await sheet.toggleTag({ field: "tagList" }, "");
 		expect(item.update).not.toHaveBeenCalled();
 	});
 });

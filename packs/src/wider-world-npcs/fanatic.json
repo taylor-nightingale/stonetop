@@ -7,16 +7,11 @@
   "system": {
     "slug": "fanatic",
     "reference": "helior-the-daybringer",
-    "tagList": {
-      "selected": [
-        "group",
-        "organized",
-        "devoted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "organized",
+      "devoted"
+    ],
     "hp": {
       "value": 10,
       "max": 10

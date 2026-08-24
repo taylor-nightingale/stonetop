@@ -22,6 +22,7 @@ import path from "path";
 import { pathToFileURL } from "url";
 import { deterministicId, documentKey } from "./ids.js";
 import { toSlug } from "../../src/utils/slug.js";
+import { toStoredTags } from "../../src/migration/migrateTags.js";
 
 const WONDERS_SRC = "packs/src/wider-world-and-other-wonders";
 const OUT_DIR = "packs/src/possessions/artifacts";
@@ -136,7 +137,7 @@ function main() {
 						resource: null,
 						outfitItems: pips ? [{
 							slug, name, weight: pips, inventoryColumn: "regular",
-							tagList: quals.map((t) => t.replace(/^\*|\*$/g, "")).join(", "),
+							tagList: toStoredTags(quals.map((t) => t.replace(/^\*|\*$/g, "")).join(", ")),
 							note: extras.join(", "),
 						}] : [],
 						choices: null,

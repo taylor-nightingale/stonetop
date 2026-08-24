@@ -7,17 +7,12 @@
   "system": {
     "slug": "thieves",
     "reference": "marshedge",
-    "tagList": {
-      "selected": [
-        "group",
-        "devious",
-        "stealthy",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "devious",
+      "stealthy",
+      "cautious"
+    ],
     "hp": {
       "value": 6,
       "max": 6

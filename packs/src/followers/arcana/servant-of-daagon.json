@@ -8,30 +8,11 @@
 		"slug": "servant-of-daagon",
 		"reference": null,
 		"arcanaSlug": "ring-of-daagon",
-		"tagList": {
-			"selected": [
-				"terrifying",
-				"violent",
-				"wretched"
-			],
-			"options": [
-				"craven",
-				"ravenous",
-				"cunning",
-				"exceptional",
-				"horde",
-				"group",
-				"small",
-				"large",
-				"stealthy",
-				"cautious",
-				"powerful",
-				"grabby",
-				"messy"
-			],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"terrifying",
+			"violent",
+			"wretched"
+		],
 		"hp": {
 			"value": 0,
 			"max": 0
@@ -236,7 +217,22 @@
 		],
 		"moves": "",
 		"description": "Summoned by Call Up the Deep Ones. They share a pool of Loyalty with the Ring itself.",
-		"notes": ""
+		"notes": "",
+		"tagOptions": [
+			"craven",
+			"ravenous",
+			"cunning",
+			"exceptional",
+			"horde",
+			"group",
+			"small",
+			"large",
+			"stealthy",
+			"cautious",
+			"powerful",
+			"grabby",
+			"messy"
+		]
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

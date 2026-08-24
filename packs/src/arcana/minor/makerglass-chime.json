@@ -9,11 +9,15 @@
 			"item": {
 				"name": "A makerglass chime",
 				"weight": 2,
-				"tags": "indestructible, magical, loud, dangerous",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"indestructible",
+					"magical",
+					"loud",
+					"dangerous"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "makerglass-chime",

@@ -7,19 +7,14 @@
   "system": {
     "slug": "prenysbyrd",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "spirit",
-        "magical",
-        "stubborn",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "spirit",
+      "magical",
+      "stubborn",
+      "terrifying"
+    ],
     "hp": {
       "value": 23,
       "max": 23

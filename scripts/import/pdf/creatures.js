@@ -204,7 +204,8 @@ export function parseStatBlock(lines) {
 // Make a follower's damage dice rollable on the sheet: "d6", "1d8", "d12+7" → "[[/r d6]]" etc.
 const rollableDice = (s) => (s || "").replace(/\b(\d*d\d+(?:\s*[+-]\s*\d+)?)\b/gi, (m) => `[[/r ${m.replace(/\s+/g, "")}]]`);
 
-// A pick-list (Selection) field's stored raw shape — see src/data/creature.js selectionField().
+// A pick-list (Selection) field's stored raw shape — see src/data/selectionField.js. Used for the
+// single-select instinct/cost, which keep their per-creature printed options inside the value.
 const selection = (selected, multi, options = []) => ({ selected, options, multi, allowCustom: true });
 
 /**
@@ -229,7 +230,7 @@ export function toNpcDoc(creature, { article, img = "systems/stonetop/assets/con
 			reference: article?.slug ?? null,
 			// Canonicalize the group tags ("Group"/"Group (N)" -> "group", "Horde" -> "horde") so
 			// isGroup detects them and a follower dragged from this NPC inherits the working token.
-			tagList: selection(normalizeGroupTags(creature.tagList).tags, true),
+			tagList: normalizeGroupTags(creature.tagList).tags,
 			hp: creature.hp,
 			armor: creature.armor,
 			damage: creature.damage,
@@ -285,7 +286,10 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 			slug: followerSlug,
 			reference: null,
 			arcanaSlug,
-			tagList: selection(tagList, true, tagOptions),
+			// The value is the token list; the choices this stat block prints for itself are the
+			// sibling `tagOptions` (src/data/tagFields.js).
+			tagList,
+			tagOptions,
 			...(members ? { members } : {}),
 			hp,
 			armor: creature.armor,

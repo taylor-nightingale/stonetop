@@ -22,6 +22,7 @@ import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
+import { migrateTagsOn } from "../../../src/migration/migrateTags.js";
 import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, isFollowerGroup, foldBackChoices, numberBlanks } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
@@ -96,6 +97,16 @@ function stripTransient(side) {
 	const out = {};
 	for (const [k, v] of Object.entries(side ?? {})) if (!k.startsWith("_")) out[k] = v;
 	return out;
+}
+
+// The parse reads the book's text; the stored shape is this builder's business. A side carries two
+// tag lists — the card's own and those of the item it is — and both take the shape every other
+// document stores tags in (src/migration/migrateTags.js), so a regen matches the committed data.
+function storedTags(side) {
+	if (!side) return side;
+	migrateTagsOn(side);
+	migrateTagsOn(side.item);
+	return side;
 }
 
 // The parser reproduces the book faithfully, typos and all; ARCANA_EDITS carries the per-arcanum
@@ -368,8 +379,8 @@ for (const rec of bySlug.values()) {
 		// (spells / moves / followers / consequences) into the ordered `back.choices` array of groups.
 		back = foldBackChoices(emitArcanaMoves(back, resourceBySlug), followerGroup);
 		// A front-granted move (the Codex's CAST A CODEX SPELL) → its move pack file; strips `_frontMove`.
-		const outFront = stripTransient(emitFrontMove(front, resourceBySlug));
-		const sys = edited({ slug: rec.slug, front: outFront, back, major: true }, rec.slug);
+		const outFront = storedTags(stripTransient(emitFrontMove(front, resourceBySlug)));
+		const sys = edited({ slug: rec.slug, front: outFront, back: storedTags(back), major: true }, rec.slug);
 		const out = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
 			...(rec.doc.img ? { img: rec.doc.img } : {}), system: sys, flags: {}, folder: rec.doc.folder };
 		writeFileSync(rec.file, JSON.stringify(out, null, "\t") + "\n");
@@ -428,7 +439,7 @@ if (WRITE_MINOR) {
 		});
 		delete back.rollTables;
 		back = foldBackChoices(back, followerGroup); // minors have only a follower group (no moves/consequences) → [intro?, followers?]
-		const system = edited({ slug: rec.slug, front: stripTransient(front), back }, rec.slug);
+		const system = edited({ slug: rec.slug, front: storedTags(stripTransient(front)), back: storedTags(back) }, rec.slug);
 		// A front with no content is always a parse failure — every card prints a description — and it
 		// used to ship silently (`diverge` compares against the doc we're about to overwrite, so an empty
 		// front matching an already-empty front looked clean).

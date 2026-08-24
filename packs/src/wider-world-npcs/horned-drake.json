@@ -7,16 +7,11 @@
   "system": {
     "slug": "horned-drake",
     "reference": "south-manmarch",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "hardy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "hardy"
+    ],
     "hp": {
       "value": 24,
       "max": 24

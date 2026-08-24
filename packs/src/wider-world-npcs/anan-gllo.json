@@ -7,19 +7,14 @@
   "system": {
     "slug": "anan-gllo",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "horde",
-        "undead",
-        "corrupted",
-        "tireless",
-        "fearless",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "undead",
+      "corrupted",
+      "tireless",
+      "fearless",
+      "terrifying"
+    ],
     "hp": {
       "value": 11,
       "max": 11

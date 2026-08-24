@@ -9,11 +9,14 @@
 			"item": {
 				"name": "A large wooden jar",
 				"weight": 2,
-				"tags": "cumbersome, fragile, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"cumbersome",
+					"fragile",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "large-wooden-jar",

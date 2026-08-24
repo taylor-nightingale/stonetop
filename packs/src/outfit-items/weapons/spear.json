@@ -12,7 +12,10 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "close, thrown"
+		"tagList": [
+			"close",
+			"thrown"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

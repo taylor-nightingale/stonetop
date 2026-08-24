@@ -9,11 +9,12 @@
 			"item": {
 				"name": "An old scroll case",
 				"weight": 1,
-				"tags": "fragile",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"fragile"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "old-scroll-case",

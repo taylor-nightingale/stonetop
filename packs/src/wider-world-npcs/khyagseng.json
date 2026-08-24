@@ -7,19 +7,14 @@
   "system": {
     "slug": "khyagseng",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "group",
-        "spirit",
-        "construct",
-        "resolute",
-        "observant",
-        "fierce"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "spirit",
+      "construct",
+      "resolute",
+      "observant",
+      "fierce"
+    ],
     "hp": {
       "value": 13,
       "max": 13

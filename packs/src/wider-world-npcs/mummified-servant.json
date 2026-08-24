@@ -7,18 +7,13 @@
   "system": {
     "slug": "mummified-servant",
     "reference": "green-lords",
-    "tagList": {
-      "selected": [
-        "horde",
-        "spirit",
-        "undead",
-        "organized",
-        "relentless"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "spirit",
+      "undead",
+      "organized",
+      "relentless"
+    ],
     "hp": {
       "value": 11,
       "max": 11

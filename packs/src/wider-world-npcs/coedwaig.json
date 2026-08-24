@@ -7,17 +7,12 @@
   "system": {
     "slug": "coedwaig",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "horde",
-        "tiny",
-        "spirit",
-        "magical"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "tiny",
+      "spirit",
+      "magical"
+    ],
     "hp": {
       "value": 5,
       "max": 5

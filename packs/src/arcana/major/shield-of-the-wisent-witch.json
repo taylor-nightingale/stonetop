@@ -10,11 +10,14 @@
 			"item": {
 				"name": "Shield of the Wisent Witch",
 				"weight": 2,
-				"tags": "close, forceful, magical",
 				"note": "+1 armor",
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"close",
+					"forceful",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "shield-of-the-wisent-witch",

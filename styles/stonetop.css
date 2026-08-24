@@ -2202,6 +2202,13 @@ button.stonetop-view-toggle.is-active {
 	margin-left: 1px;
 }
 
+/* The book's parenthetical after an item name — italic tags then the roman note, in ONE group
+   (see outfit-item-row.hbs). The brackets themselves are roman, like the note. */
+.stonetop-inv-parens {
+	color: var(--st-ink-soft);
+	font-style: normal;
+}
+
 .stonetop-inv-note {
 	color: var(--st-ink-soft);
 	font-style: normal;
@@ -6652,4 +6659,62 @@ button.stonetop-xp-toggle {
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
 	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Outside `@layer system`, deliberately, for the same reason as the focus ring above.
+
+   A DISPLAYED tag (tag-list.hbs) is the book's own presentation: italic text in the flow of the
+   item's line, not a control. It stays a <button> so a keyboard can reach its definition — core
+   binds click for [data-action] on buttons, so a clickable span would be keyboard-dead — which
+   means core's entire button treatment has to come back off: a background, a border, padding,
+   `min-height: var(--button-size)`, its own font, and .window-app's stretch to full width.
+
+   Unlayered is what makes these PLAIN rules work. `!important` inside the layer does NOT win here:
+   for important declarations the layer order inverts, so core's important button rules in an
+   earlier layer outrank ours — which is exactly what left `display: inline !important` computing
+   to `inline-block`. tests/styles/tag-display.test.js renders one against core's stylesheet and
+   reads the values back, so moving this inside the layer fails there rather than in the app.
+
+   The editable chip picker is .stonetop-tag-chip — that one IS a control, and looks like one.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+.stonetop-tag-list {
+	font-style: italic;
+}
+
+.stonetop-tag-list .stonetop-tag {
+	/* Core sets `display: flex` on every button, which is what this overrides. Blink then blockifies
+	   `inline` to `inline-block` for form controls — unavoidable, and harmless: with width, padding
+	   and border reset the box hugs the word and sits on the text's own baseline. */
+	display: inline;
+	width: auto;
+	min-width: 0;
+	height: auto;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	font: inherit;
+	font-style: italic;
+	color: inherit;
+	line-height: inherit;
+	text-align: left;
+	white-space: normal;
+}
+
+/* There is something to read here — hinted without drawing a box mid-sentence. */
+.stonetop-tag-list .stonetop-tag.is-defined {
+	cursor: help;
+	text-decoration: underline dotted;
+	text-underline-offset: 2px;
+	text-decoration-color: var(--st-rule-strong);
+}
+
+.stonetop-tag-list .stonetop-tag.is-defined:hover,
+.stonetop-tag-list .stonetop-tag.is-defined:focus-visible {
+	text-decoration-color: currentColor;
 }

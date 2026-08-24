@@ -7,19 +7,14 @@
   "system": {
     "slug": "cinderwraith",
     "reference": "forge-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "spirit",
-        "undead",
-        "fiery",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "spirit",
+      "undead",
+      "fiery",
+      "terrifying"
+    ],
     "hp": {
       "value": 23,
       "max": 23

@@ -7,7 +7,6 @@
 		"slug": "vein-of-milky-crystal",
 		"front": {
 			"item": null,
-			"tags": "magical, beautiful, immobile",
 			"choices": [
 				{
 					"slug": "vein-of-milky-crystal",
@@ -72,6 +71,11 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical",
+				"beautiful",
+				"immobile"
 			]
 		},
 		"back": {
@@ -79,14 +83,18 @@
 			"item": {
 				"name": "Moonstone",
 				"weight": 1,
-				"tags": "beautiful, magical, fragile",
 				"note": null,
 				"inventoryColumn": "regular",
 				"resource": {
 					"max": 5,
 					"title": "hours",
 					"labels": []
-				}
+				},
+				"tagList": [
+					"beautiful",
+					"magical",
+					"fragile"
+				]
 			},
 			"resource": null,
 			"choices": [

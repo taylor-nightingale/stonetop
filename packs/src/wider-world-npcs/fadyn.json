@@ -7,21 +7,16 @@
   "system": {
     "slug": "fadyn",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "magical",
-        "stealthy",
-        "devious",
-        "audacious",
-        "cautious",
-        "beautiful"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "magical",
+      "stealthy",
+      "devious",
+      "audacious",
+      "cautious",
+      "beautiful"
+    ],
     "hp": {
       "value": 16,
       "max": 16

@@ -8,17 +8,12 @@
 		"slug": "the-cloak",
 		"reference": null,
 		"arcanaSlug": "demonhide-cloak",
-		"tagList": {
-			"selected": [
-				"bloodthirsty",
-				"demon-wise",
-				"extraordinary",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"bloodthirsty",
+			"demon-wise",
+			"extraordinary",
+			"magical"
+		],
 		"hp": {
 			"value": 0,
 			"max": 0

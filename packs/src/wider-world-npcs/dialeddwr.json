@@ -7,17 +7,12 @@
   "system": {
     "slug": "dialeddwr",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "undead",
-        "terrifying",
-        "implacable"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "undead",
+      "terrifying",
+      "implacable"
+    ],
     "hp": {
       "value": 20,
       "max": 20

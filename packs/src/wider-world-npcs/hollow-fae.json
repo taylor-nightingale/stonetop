@@ -7,19 +7,14 @@
   "system": {
     "slug": "hollow-fae",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "fae",
-        "undead",
-        "confused",
-        "terrifying",
-        "see below"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "fae",
+      "undead",
+      "confused",
+      "terrifying",
+      "see below"
+    ],
     "hp": {
       "value": 19,
       "max": 19

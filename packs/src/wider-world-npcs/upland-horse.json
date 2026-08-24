@@ -7,19 +7,14 @@
   "system": {
     "slug": "upland-horse",
     "reference": "hillfolk",
-    "tagList": {
-      "selected": [
-        "group",
-        "large",
-        "powerful",
-        "keen-nosed",
-        "agile",
-        "brave"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "large",
+      "powerful",
+      "keen-nosed",
+      "agile",
+      "brave"
+    ],
     "hp": {
       "value": 14,
       "max": 14

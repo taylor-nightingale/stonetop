@@ -12,7 +12,9 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "reach"
+		"tagList": [
+			"reach"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

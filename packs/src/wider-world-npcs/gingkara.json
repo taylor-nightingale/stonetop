@@ -7,17 +7,12 @@
   "system": {
     "slug": "gingkara",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "horde",
-        "spirit",
-        "construct",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "spirit",
+      "construct",
+      "organized"
+    ],
     "hp": {
       "value": 10,
       "max": 10

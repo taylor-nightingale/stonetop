@@ -7,20 +7,15 @@
   "system": {
     "slug": "the-ghostly-legion",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "horde",
-        "spirit",
-        "undead",
-        "organized",
-        "terrifying",
-        "hoarder",
-        "violent"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "spirit",
+      "undead",
+      "organized",
+      "terrifying",
+      "hoarder",
+      "violent"
+    ],
     "hp": {
       "value": 10,
       "max": 10

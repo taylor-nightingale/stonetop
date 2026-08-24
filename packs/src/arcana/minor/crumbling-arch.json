@@ -7,7 +7,6 @@
 		"slug": "crumbling-arch",
 		"front": {
 			"item": null,
-			"tags": "magical",
 			"choices": [
 				{
 					"slug": "crumbling-arch",
@@ -61,6 +60,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical"
 			]
 		},
 		"back": {

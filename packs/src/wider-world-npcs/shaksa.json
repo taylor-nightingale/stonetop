@@ -7,19 +7,14 @@
   "system": {
     "slug": "shaksa",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "construct",
-        "hoarder",
-        "magical",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "construct",
+      "hoarder",
+      "magical",
+      "terrifying"
+    ],
     "hp": {
       "value": 19,
       "max": 19

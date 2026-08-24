@@ -7,15 +7,10 @@
   "system": {
     "slug": "raselbaedd",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large"
+    ],
     "hp": {
       "value": 20,
       "max": 20

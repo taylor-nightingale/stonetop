@@ -9,11 +9,15 @@
 			"item": {
 				"name": "A gold butter lamp",
 				"weight": 2,
-				"tags": "magical, beautiful, reach, area",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"beautiful",
+					"reach",
+					"area"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "gold-butter-lamp",
@@ -74,7 +78,6 @@
 			"item": {
 				"name": "When you spend a day preparing the special ingredients",
 				"weight": 1,
-				"tags": null,
 				"note": "Value 1",
 				"inventoryColumn": "regular",
 				"resource": {

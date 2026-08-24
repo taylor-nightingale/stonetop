@@ -44,22 +44,17 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"large",
-				"construct",
-				"Maker-wise",
-				"beautiful",
-				"meek",
-				"hardy",
-				"slow",
-				"strong",
-				"exceptional"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"large",
+			"construct",
+			"Maker-wise",
+			"beautiful",
+			"meek",
+			"hardy",
+			"slow",
+			"strong",
+			"exceptional"
+		]
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

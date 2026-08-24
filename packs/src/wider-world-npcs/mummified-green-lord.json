@@ -7,22 +7,17 @@
   "system": {
     "slug": "mummified-green-lord",
     "reference": "green-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "spirit",
-        "undead",
-        "magical",
-        "cunning",
-        "cautious",
-        "organized",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "spirit",
+      "undead",
+      "magical",
+      "cunning",
+      "cautious",
+      "organized",
+      "terrifying"
+    ],
     "hp": {
       "value": 24,
       "max": 24

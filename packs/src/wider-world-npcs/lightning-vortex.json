@@ -7,20 +7,15 @@
   "system": {
     "slug": "lightning-vortex",
     "reference": "tempest-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "size by HP",
-        "spirit",
-        "construct",
-        "amorphous",
-        "brash",
-        "arrogant"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "size by HP",
+      "spirit",
+      "construct",
+      "amorphous",
+      "brash",
+      "arrogant"
+    ],
     "hp": {
       "value": 0,
       "max": 0

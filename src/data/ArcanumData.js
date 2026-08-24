@@ -1,4 +1,5 @@
 import { migrateChoicesField } from "../migration/migrateChoices.js";
+import { migrateTagsOn, migrateEmbeddedOutfitTags } from "../migration/migrateTags.js";
 
 export class ArcanumData extends foundry.abstract.TypeDataModel {
 	// Legacy arcana kept two per-group value stores (`unlockValues`, `backChoiceValues`), both keyed by
@@ -19,6 +20,10 @@ export class ArcanumData extends foundry.abstract.TypeDataModel {
 		}
 		for (const side of [source?.front, source?.back]) {
 			if (!side || typeof side !== "object") continue;
+			// A card carries tags twice over: the arcanum's own descriptive tags, and those of the
+			// item it is (when it is a carried thing). Both take the shared stored shape.
+			migrateTagsOn(side);
+			migrateTagsOn(side.item);
 			// Legacy single `unlock` group (front) → become `choices`.
 			if (side.unlock && side.choices == null) { side.choices = side.unlock; delete side.unlock; }
 			// Wrap a stray single-group `choices` object into an array.
@@ -35,6 +40,7 @@ export class ArcanumData extends foundry.abstract.TypeDataModel {
 			// Normalize row shapes (row types, follower→grants wiring) across the groups.
 			if (side.choices) migrateChoicesField(side.choices);
 		}
+		migrateEmbeddedOutfitTags(source);
 		if (source && (source.unlockValues !== undefined || source.backChoiceValues !== undefined)) {
 			const merged = { ...(source.choiceValues ?? {}) };
 			for (const store of [source.unlockValues, source.backChoiceValues]) {

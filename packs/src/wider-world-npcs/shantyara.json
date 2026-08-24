@@ -7,20 +7,15 @@
   "system": {
     "slug": "shantyara",
     "reference": "the-whitefang-mountains",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "emotionless",
-        "clever",
-        "stealthy",
-        "hardy",
-        "skilled",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "emotionless",
+      "clever",
+      "stealthy",
+      "hardy",
+      "skilled",
+      "terrifying"
+    ],
     "hp": {
       "value": 18,
       "max": 18

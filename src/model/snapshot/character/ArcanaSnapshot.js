@@ -1,4 +1,5 @@
 import { rich } from "../RichText.js";
+import { Tags } from "../../data/Tags.js";
 
 // An arcanum side's inline ◇ item, shaped like an OutfitItemSnapshot so it renders through the shared
 // outfit-item-row partial. `slug` is the ARCANUM slug (the checkbox/resource toggle keyed by it), and
@@ -10,7 +11,7 @@ export function arcanumOutfitItemSnapshot(slug, itemData, resolvedResource = und
 		slug,
 		name:            itemData.name,
 		weight:          itemData.weight ?? null,
-		tags:            rich(itemData.tags ?? null),
+		tags:            Tags.gear(itemData.tags).resolved,
 		note:            rich(itemData.note ?? null),
 		inventoryColumn: itemData.inventoryColumn ?? null,
 		twoCol:          itemData.twoCol ?? false,
@@ -31,7 +32,7 @@ export class ArcanumSideSnapshot {
 	constructor(b) {
 		this.title    = b._title;
 		this.item     = b._item;
-		this.tags     = b._tags ?? null;
+		this.tags     = b._tags ?? [];
 		this.resource = b._resource;
 		this.choices  = b._choices ?? [];   // ChoiceGroup[]
 	}
@@ -61,7 +62,7 @@ export class ArcanumSideSnapshotBuilder {
 		return new ArcanumSideSnapshotBuilder()
 			.withTitle(title)
 			.withItem(arcanumOutfitItemSnapshot(slug, side.item, ctx.resource(side.item?.resource ?? null), ctx.checked))
-			.withTags(side.tags)
+			.withTags(Tags.gear(side.tags).resolved)
 			.withResource(ctx.resource(side.resource ?? null))
 			.withChoices((side.choices ?? []).map(g => ctx.group(g)))
 			.build();

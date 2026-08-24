@@ -7,18 +7,13 @@
   "system": {
     "slug": "blush-of-dawn",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "fae",
-        "magical",
-        "beautiful",
-        "passionate"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "fae",
+      "magical",
+      "beautiful",
+      "passionate"
+    ],
     "hp": {
       "value": 12,
       "max": 12

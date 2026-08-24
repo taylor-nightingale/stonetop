@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A rusty steel blade",
 				"weight": 1,
-				"tags": "close, crude",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"close",
+					"crude"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "rusty-steel-blade",
@@ -74,7 +76,6 @@
 			"item": {
 				"name": "Flaming Sword",
 				"weight": 1,
-				"tags": "close, beautiful",
 				"note": "+1 damage, 1 piercing",
 				"inventoryColumn": "regular",
 				"resource": {
@@ -87,7 +88,11 @@
 						"1d8",
 						"1d10"
 					]
-				}
+				},
+				"tagList": [
+					"close",
+					"beautiful"
+				]
 			},
 			"resource": null,
 			"choices": [

@@ -136,18 +136,13 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"Exceptional",
-				"story-wise",
-				"insightful",
-				"frail",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"Exceptional",
+			"story-wise",
+			"insightful",
+			"frail",
+			"magical"
+		]
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

@@ -7,18 +7,13 @@
   "system": {
     "slug": "the-crombil-awakened",
     "reference": "the-crombil",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "terrifying",
-        "fearless",
-        "fireproof"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "terrifying",
+      "fearless",
+      "fireproof"
+    ],
     "hp": {
       "value": 26,
       "max": 26

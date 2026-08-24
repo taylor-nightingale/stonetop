@@ -233,20 +233,27 @@ describe("migrateCreatureData — renames", () => {
 // their tags under `tagList`. (Confirmed in-app via Quench: any update to an npc item
 // clears system.tags.selected, while a sibling selectionField named `cost` survives.)
 describe("migrateCreatureData — tags → tagList", () => {
-	it("moves a legacy Selection-shaped `tags` to `tagList` and drops `tags`", () => {
+	// The value is the token list; the choices a stat block printed for itself are authored data, but
+	// they are not part of the value — they move to the sibling `tagOptions`.
+	it("moves a legacy Selection-shaped `tags` to `tagList` and lifts its options to tagOptions", () => {
 		const s = { tags: { selected: ["group"], options: ["group", "brave"], multi: true, allowCustom: true } };
 		migrateCreatureData(s);
 		expect(s.tags).toBeUndefined();
-		expect(s.tagList.selected).toEqual(["group"]);
-		expect(s.tagList.options).toEqual(["group", "brave"]);
+		expect(s.tagList).toEqual(["group"]);
+		expect(s.tagOptions).toEqual(["group", "brave"]);
 	});
 
-	it("converts a legacy free-string `tags` to a tagList Selection", () => {
+	it("converts a legacy free-string `tags` to a tagList array", () => {
 		const s = { tags: "brave, bold" };
 		migrateCreatureData(s);
 		expect(s.tags).toBeUndefined();
-		expect(s.tagList.selected).toEqual(["brave", "bold"]);
-		expect(s.tagList.multi).toBe(true);
+		expect(s.tagList).toEqual(["brave", "bold"]);
+	});
+
+	it("adds no tagOptions for a blob that printed no choices", () => {
+		const s = { tags: { selected: ["brave"], options: [], multi: true, allowCustom: true } };
+		migrateCreatureData(s);
+		expect(s.tagOptions).toBeUndefined();
 	});
 
 	it("leaves an absent tagList absent (the schema field's initial supplies the default)", () => {
@@ -265,10 +272,10 @@ describe("migrateCreatureData — tags → tagList", () => {
 		expect(s.cost).toBeUndefined();
 	});
 
-	it("leaves an existing tagList Selection untouched", () => {
-		const s = { tagList: { selected: ["x"], options: [], multi: true, allowCustom: true } };
+	it("leaves an already converted tagList untouched", () => {
+		const s = { tagList: ["x"] };
 		migrateCreatureData(s);
-		expect(s.tagList.selected).toEqual(["x"]);
+		expect(s.tagList).toEqual(["x"]);
 		expect(s.tags).toBeUndefined();
 	});
 
@@ -277,8 +284,8 @@ describe("migrateCreatureData — tags → tagList", () => {
 		// isGroup must detect it, so migrateData conforms the casing (and strips the count) on load.
 		const s = { tagList: { selected: ["Group (3)", "spirit"], options: ["Group"], multi: true, allowCustom: true } };
 		migrateCreatureData(s);
-		expect(s.tagList.selected).toEqual(["group", "spirit"]);
-		expect(s.tagList.options).toEqual(["group"]);
+		expect(s.tagList).toEqual(["group", "spirit"]);
+		expect(s.tagOptions).toEqual(["group"]);
 	});
 
 	it("normalizes a saved 'Horde' the same way — it is a group tag, and keeps its own word", () => {
@@ -286,7 +293,7 @@ describe("migrateCreatureData — tags → tagList", () => {
 		// on every construction, so they conform on load with no separate world migration.
 		const s = { tagList: { selected: ["Horde", "tiny"], options: ["Horde (6)"], multi: true, allowCustom: true } };
 		migrateCreatureData(s);
-		expect(s.tagList.selected).toEqual(["horde", "tiny"]);
-		expect(s.tagList.options).toEqual(["horde"]);
+		expect(s.tagList).toEqual(["horde", "tiny"]);
+		expect(s.tagOptions).toEqual(["horde"]);
 	});
 });

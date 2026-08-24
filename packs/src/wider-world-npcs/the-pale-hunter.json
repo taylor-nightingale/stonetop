@@ -7,21 +7,16 @@
   "system": {
     "slug": "the-pale-hunter",
     "reference": "the-pale-hunter",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "athletic",
-        "cunning",
-        "hoarder",
-        "magical",
-        "terrifying",
-        "tireless"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "athletic",
+      "cunning",
+      "hoarder",
+      "magical",
+      "terrifying",
+      "tireless"
+    ],
     "hp": {
       "value": 26,
       "max": 26

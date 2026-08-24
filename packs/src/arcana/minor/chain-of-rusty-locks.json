@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A chain of rusty locks",
 				"weight": 1,
-				"tags": "magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "chain-of-rusty-locks",

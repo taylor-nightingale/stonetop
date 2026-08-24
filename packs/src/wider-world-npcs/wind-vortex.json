@@ -7,20 +7,15 @@
   "system": {
     "slug": "wind-vortex",
     "reference": "tempest-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "size by HP",
-        "spirit",
-        "construct",
-        "amorphous",
-        "restless",
-        "fickle"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "size by HP",
+      "spirit",
+      "construct",
+      "amorphous",
+      "restless",
+      "fickle"
+    ],
     "hp": {
       "value": 0,
       "max": 0

@@ -8,17 +8,12 @@
 		"slug": "dool-spirit",
 		"reference": null,
 		"arcanaSlug": "scroll-and-bone-flute",
-		"tagList": {
-			"selected": [
-				"Spirit",
-				"terrifying",
-				"stealthy",
-				"devious"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Spirit",
+			"terrifying",
+			"stealthy",
+			"devious"
+		],
 		"hp": {
 			"value": 0,
 			"max": 13

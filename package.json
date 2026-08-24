@@ -11,6 +11,7 @@
     "unpack": "node scripts/compendium-pack/unpack.js",
     "extract-art": "node scripts/import/pdf/extract-art.js",
     "build-arcana": "node scripts/import/pdf/build-arcana.js",
+    "tag-glossary": "node scripts/import/pdf/build-tag-glossary.js",
     "build-packs": "node scripts/build-packs.js",
     "art-manifest": "node scripts/art/build-art-manifest.js",
     "pack:module": "node scripts/pack-module.js",

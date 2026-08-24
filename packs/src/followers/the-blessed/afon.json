@@ -132,18 +132,13 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"Fae-wise",
-				"devious",
-				"magical",
-				"self-sufficient",
-				"stealthy"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"Fae-wise",
+			"devious",
+			"magical",
+			"self-sufficient",
+			"stealthy"
+		]
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

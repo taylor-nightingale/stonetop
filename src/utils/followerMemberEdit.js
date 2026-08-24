@@ -1,19 +1,19 @@
 // Pure edit helpers for a group follower's `members` list (the Crew). Each member is
-// `{ name, hp:{value,max}, tags, traits }` where tags/traits are multi-select Selection raws — the
-// SAME shape CharacterFollowers stores, so a member authored on this sheet matches one added on the
-// character card. Every helper clones the list and returns a NEW one so the sheet can
+// `{ name, hp:{value,max}, tags, traits }` where tags/traits are token lists — the SAME shape
+// CharacterFollowers stores, so a member authored on this sheet matches one added on the character
+// card. (Nested `tags` is safe from Foundry's `system.tags` reservation, and it is half of a matched
+// tags/traits pair, so it keeps its name where the top-level field is `tagList`.) Every helper clones the list and returns a NEW one so the sheet can
 // `item.update({ "system.members": list })` (ArrayFields are atomic — whole-array writes). Mirrors
 // arcanumMoveEdit.js.
 
-import { Selection } from "../model/data/Selection.js";
 import { parseCsv } from "./followerSelectionEdit.js";
 
 const clone = list => foundry.utils.deepClone(list ?? []);
-const blankSelection = () => Selection.multi([]).toRaw();
+const blankTags = () => [];
 
 // A new member starts at the group's shared max HP (same as CharacterFollowers.addMember).
 export function newMember(hpMax = 0) {
-	return { name: "", hp: { value: hpMax, max: hpMax }, tags: blankSelection(), traits: blankSelection() };
+	return { name: "", hp: { value: hpMax, max: hpMax }, tags: blankTags(), traits: blankTags() };
 }
 
 export function addMember(list, hpMax = 0) {
@@ -43,8 +43,8 @@ export function setMemberField(list, { index, field, value }) {
 	return l;
 }
 
-// Set a member's `tags` or `traits` from comma-separated text — stored as a multi Selection raw
-// (the field's canonical shape), so the list editor and the character card agree.
+// Set a member's `tags` or `traits` from comma-separated text — stored as the token list (the
+// field's canonical shape), so the list editor and the character card agree.
 export function setMemberListField(list, { index, field, csv }) {
-	return setMemberField(list, { index, field, value: Selection.multi(parseCsv(csv)).toRaw() });
+	return setMemberField(list, { index, field, value: parseCsv(csv) });
 }

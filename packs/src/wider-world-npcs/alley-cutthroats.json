@@ -7,17 +7,12 @@
   "system": {
     "slug": "alley-cutthroats",
     "reference": "gordins-delve",
-    "tagList": {
-      "selected": [
-        "group",
-        "stealthy",
-        "cautious",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "stealthy",
+      "cautious",
+      "organized"
+    ],
     "hp": {
       "value": 6,
       "max": 6

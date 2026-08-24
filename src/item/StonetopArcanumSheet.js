@@ -17,8 +17,11 @@ import { Arcanum } from "../model/data/character/Arcanum.js";
 import { ArcanumSnapshotBuilder, ArcanumRenderContext } from "../model/snapshot/character/CharacterSnapshot.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { GrantRegistry } from "./GrantRegistry.js";
+import { Tags } from "../model/data/Tags.js";
+import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../actors/tagChips.js";
+import { ChangeActionRouter } from "../utils/ChangeActionRouter.js";
 
-const BLANK_ITEM     = () => ({ name: "", weight: 1, tags: null, note: null, inventoryColumn: null, twoCol: false, resource: null });
+const BLANK_ITEM     = () => ({ name: "", weight: 1, tagList: Tags.gear(null).toRaw(), note: null, inventoryColumn: null, twoCol: false, resource: null });
 const BLANK_RESOURCE = () => ({ max: 1, maxStat: null, title: null, labels: [] });
 
 // "Entirely blank" = no authored content on either side (name is ignored — a freshly created item
@@ -61,6 +64,7 @@ export function createStonetopArcanumSheetClass(Base) {
 				// data-view-state, which the base's _toggleDisabled keeps enabled.
 				flipPreview:    StonetopArcanumSheet.#onFlipPreview,
 				toggleEditMode: StonetopArcanumSheet.#onToggleEditMode,
+				...TAG_CHIP_ACTIONS,
 			},
 		};
 
@@ -104,6 +108,10 @@ export function createStonetopArcanumSheetClass(Base) {
 			context.back     = back;
 			context.frontItem = front.item ?? null;
 			context.backItem  = back.item  ?? null;
+			// Chip pickers for the two item tag lists, keyed by the path each writes back to — the
+			// same picker the inventory and creature sheets use.
+			context.frontItemTags = Tags.gear(front.item?.tagList).picker;
+			context.backItemTags  = Tags.gear(back.item?.tagList).picker;
 			// Both sides are an ordered ARRAY of choice groups, each edited via the shared choice-group editor
 			// (mirrors the Insert sheet). A freshly-added, still-empty group must still render its editor.
 			const sideGroups = (sideKey, groups) => (groups ?? []).map((grp, i) => ({
@@ -142,6 +150,21 @@ export function createStonetopArcanumSheetClass(Base) {
 
 		// Direct bindings to the current editor controls — re-run per render (part content is replaced).
 		// (Flip + edit/view toggle are data-action buttons — see DEFAULT_OPTIONS.actions.)
+		// A card has two tag lists (front item, back item), so the chip wrap carries the document path
+		// it writes back to rather than a bare field name.
+		toggleTag(wrap, value) {
+			const path = wrap?.field;
+			if (!value || !path) return;
+			const tags = Tags.gear(foundry.utils.getProperty(this.item, path)).toggle(value);
+			return this.item.update({ [path]: tags.toRaw() });
+		}
+
+		async _onFirstRender(context, options) {
+			await super._onFirstRender(context, options);
+			new ChangeActionRouter(tagChipChangeHandlers(this), { when: () => this.isEditable })
+				.attach(this.element);
+		}
+
 		_onRender(context, options) {
 			super._onRender(context, options);
 			if (!this.isEditable) return;

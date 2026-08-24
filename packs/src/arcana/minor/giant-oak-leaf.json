@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A giant oak leaf",
 				"weight": 1,
-				"tags": "magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "giant-oak-leaf",
@@ -74,9 +75,12 @@
 			"item": {
 				"name": "Goldleaf Cloak",
 				"weight": 1,
-				"tags": "warm, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"warm",
+					"magical"
+				]
 			},
 			"resource": null,
 			"choices": [

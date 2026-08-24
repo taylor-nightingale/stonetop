@@ -7,7 +7,6 @@
 		"slug": "small-strange-book",
 		"front": {
 			"item": null,
-			"tags": "fragile",
 			"choices": [
 				{
 					"slug": "small-strange-book",
@@ -50,6 +49,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"fragile"
 			]
 		},
 		"back": {

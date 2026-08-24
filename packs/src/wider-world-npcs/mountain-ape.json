@@ -7,17 +7,12 @@
   "system": {
     "slug": "mountain-ape",
     "reference": "the-whitefang-mountains",
-    "tagList": {
-      "selected": [
-        "group",
-        "cautious",
-        "stealthy",
-        "hoarder"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "cautious",
+      "stealthy",
+      "hoarder"
+    ],
     "hp": {
       "value": 6,
       "max": 6

@@ -8,20 +8,15 @@
 		"slug": "bronze-protector",
 		"reference": null,
 		"arcanaSlug": "metal-man",
-		"tagList": {
-			"selected": [
-				"Construct",
-				"spirit",
-				"durable",
-				"vigilant",
-				"overbearing",
-				"mute",
-				"gullible"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Construct",
+			"spirit",
+			"durable",
+			"vigilant",
+			"overbearing",
+			"mute",
+			"gullible"
+		],
 		"hp": {
 			"value": 0,
 			"max": 13

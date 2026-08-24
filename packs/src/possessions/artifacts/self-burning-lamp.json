@@ -14,7 +14,10 @@
 				"name": "Self-burning lamp",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "reach, area",
+				"tagList": [
+					"reach",
+					"area"
+				],
 				"note": "hours, Value 2"
 			}
 		],

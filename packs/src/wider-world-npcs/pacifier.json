@@ -7,17 +7,12 @@
   "system": {
     "slug": "pacifier",
     "reference": "stone-lords",
-    "tagList": {
-      "selected": [
-        "group",
-        "small",
-        "construct",
-        "amorphous"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "small",
+      "construct",
+      "amorphous"
+    ],
     "hp": {
       "value": 10,
       "max": 10

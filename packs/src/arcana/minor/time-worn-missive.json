@@ -7,7 +7,6 @@
 		"slug": "time-worn-missive",
 		"front": {
 			"item": null,
-			"tags": "fragile",
 			"choices": [
 				{
 					"slug": "time-worn-missive",
@@ -83,6 +82,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"fragile"
 			]
 		},
 		"back": {
@@ -90,7 +92,6 @@
 			"item": {
 				"name": "pouch of powdered cinnabar",
 				"weight": 1,
-				"tags": null,
 				"note": "Value 2",
 				"inventoryColumn": "regular",
 				"resource": {

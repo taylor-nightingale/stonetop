@@ -4,25 +4,9 @@
 import { migrateChoicesField } from "../migration/migrateChoices.js";
 import { Selection } from "../model/data/Selection.js";
 import { normalizeGroupTags } from "../model/data/groupTag.js";
-
-/**
- * A first-class "pick from a list (+ optional custom)" field, used for tagList (multi) and
- * instinct / cost (single). Stored shape mirrors Selection.toRaw().
- *
- * Stored as an OPAQUE ObjectField with a PLAIN-OBJECT initial, and the field MUST NOT be named
- * `tags`/`keywords`. Three Foundry V13 landmines, all confirmed in-app via Quench:
- *   1) The exact top-level item field names `tags` and `keywords` are reserved (core item search
- *      indexes them) and wiped on every update — use `tagList` etc. instead.
- *   2) A typed multi-select selection *SchemaField* (`selected` ArrayField + multi:true) is wiped
- *      on every update; the same data inside an ObjectField (e.g. member tags) is not.
- *   3) An ObjectField with a FUNCTION `initial` is RESET to that initial on update when the item
- *      has a non-empty sibling ArrayField (e.g. `members`); a PLAIN-OBJECT initial survives.
- * So: ObjectField + plain-object initial + a non-reserved name.
- */
-export function selectionField({ multi = false, allowCustom = true } = {}) {
-	const f = foundry.data.fields;
-	return new f.ObjectField({ initial: { selected: [], options: [], multi, allowCustom } });
-}
+import { selectionField } from "./selectionField.js";
+import { toStoredTags, toStoredTagOptions } from "../migration/migrateTags.js";
+import { tagListField, tagOptionsField } from "./tagFields.js";
 
 /** The stat block shared by NPCs and followers. Copied wholesale when dragging an NPC. */
 export function creatureFields() {
@@ -31,7 +15,10 @@ export function creatureFields() {
 		slug:           new f.StringField({ nullable: true, initial: null }),
 		reference:      new f.StringField({ nullable: true, initial: null }), // lore-entry slug
 		// NOT `tags`: Foundry reserves `system.tags` on items and wipes it on every update.
-		tagList:   selectionField({ multi: true }),
+		// The value is the token list; the choices this stat block prints for itself are `tagOptions`
+		// — authored data, but not part of the value (see tagFields.js).
+		tagList:   tagListField(),
+		tagOptions: tagOptionsField(),
 		hp:             new f.SchemaField({
 			value: new f.NumberField({ initial: 0, integer: true }),
 			max:   new f.NumberField({ initial: 0, integer: true }),
@@ -141,18 +128,21 @@ export function migrateCreatureData(source) {
 	delete source.tags;
 	delete source.keywords;
 	delete source.creatureTags;
-	if (typeof source.tagList === "string") {
-		source.tagList = Selection.fromStored(source.tagList, { multi: true }).toRaw();
-	}
+	// Legacy free string "a, b, c" and legacy Selection blob {selected,options,...} both become the
+	// stored shape: the token list. Options a stat block printed for itself move to `tagOptions` —
+	// authored data, but not part of the value.
+	// Read the options off the blob BEFORE replacing it — converting first would discard them.
+	const liftedOptions = toStoredTagOptions(source.tagList);
+	const converted     = toStoredTags(source.tagList);
+	if (converted !== undefined) source.tagList = converted;
+	if (liftedOptions !== undefined && !source.tagOptions?.length) source.tagOptions = liftedOptions;
 	// Normalize the group tag to its canonical lowercase token ("Group"/"Group (3)" -> "group") so
 	// isGroup detection works regardless of the source's casing (book NPCs print "Group"; a follower
 	// dragged from one inherits it). Tag-only: never seeds members here (this runs on partial update
 	// diffs — see the tagList caveat above; member seeding happens at creation, not migration). Only
 	// touches tagList when it is already present, so an absent tagList stays absent.
-	if (source.tagList && typeof source.tagList === "object" && !Array.isArray(source.tagList)) {
-		if (Array.isArray(source.tagList.selected)) source.tagList.selected = normalizeGroupTags(source.tagList.selected).tags;
-		if (Array.isArray(source.tagList.options))  source.tagList.options  = normalizeGroupTags(source.tagList.options).tags;
-	}
+	if (Array.isArray(source.tagList))    source.tagList    = normalizeGroupTags(source.tagList).tags;
+	if (Array.isArray(source.tagOptions)) source.tagOptions = normalizeGroupTags(source.tagOptions).tags;
 
 	// statless flag -> kind. Only when the legacy flag is actually present (never on a partial diff that
 	// omits it), so an ordinary edit can't retro-flag a creature as an object.

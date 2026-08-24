@@ -14,7 +14,9 @@
 				"name": "A fossilized horn",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical",
+				"tagList": [
+					"magical"
+				],
 				"note": ""
 			}
 		],

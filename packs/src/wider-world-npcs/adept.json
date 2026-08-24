@@ -7,17 +7,12 @@
   "system": {
     "slug": "adept",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "cautious",
-        "cunning",
-        "magical"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "cautious",
+      "cunning",
+      "magical"
+    ],
     "hp": {
       "value": 16,
       "max": 16

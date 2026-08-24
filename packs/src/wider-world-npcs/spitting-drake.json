@@ -7,16 +7,11 @@
   "system": {
     "slug": "spitting-drake",
     "reference": "the-steplands",
-    "tagList": {
-      "selected": [
-        "group",
-        "stealthy",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "stealthy",
+      "organized"
+    ],
     "hp": {
       "value": 6,
       "max": 6

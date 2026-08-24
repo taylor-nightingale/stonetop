@@ -330,11 +330,13 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(item.ownedId).toBe("custom-1");
 	});
 
+	// A legacy comma string, as a world written before the tag conversion still holds it: the read
+	// path parses it, so the row renders correctly whether or not the world has been migrated yet.
 	it("embedded item surfaces system.tagList as the snapshot tags", async () => {
 		const embedded = makeRawEmbeddedItem({ _id: "custom-1", slug: "custom-1", tagList: "warm" });
 		const snap = await makeCi({}, null, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		const item = regularItems(snap).find(i => i.slug === "custom-1");
-		expect(item.tags.raw).toBe("warm");
+		expect(item.tags.map((t) => t.label)).toEqual(["warm"]);
 	});
 
 	it("granted item has isCustom=false and ownedId=null", async () => {

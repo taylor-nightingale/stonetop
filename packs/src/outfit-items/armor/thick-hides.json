@@ -14,7 +14,9 @@
 			"base": 1
 		},
 		"source": null,
-		"tagList": "warm"
+		"tagList": [
+			"warm"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpAmr0001X"

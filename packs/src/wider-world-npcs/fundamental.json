@@ -7,16 +7,11 @@
   "system": {
     "slug": "fundamental",
     "reference": "primordial-powers",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "primordial"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "primordial"
+    ],
     "hp": {
       "value": 19,
       "max": 19

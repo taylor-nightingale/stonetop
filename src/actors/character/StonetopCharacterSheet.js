@@ -11,6 +11,7 @@ import { characterChangeHandlers } from "./characterChangeHandlers.js";
 import { PIP_ACTIONS, DELETE_ACTIONS, OUTFIT_ACTIONS } from "./characterSheetActions.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../tagChips.js";
+import { TAG_DEFINITION_ACTIONS } from "../tagDefinitions.js";
 
 export function createStonetopCharacterSheetClass(Base) {
 	return class StonetopCharacterSheet extends Base {
@@ -96,6 +97,7 @@ export function createStonetopCharacterSheetClass(Base) {
 
 				...MOVE_ROW_ACTIONS,
 				...TAG_CHIP_ACTIONS,
+				...TAG_DEFINITION_ACTIONS,
 				...PIP_ACTIONS,
 				...OUTFIT_ACTIONS,
 				...DELETE_ACTIONS,

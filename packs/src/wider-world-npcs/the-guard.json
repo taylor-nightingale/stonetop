@@ -7,15 +7,10 @@
   "system": {
     "slug": "the-guard",
     "reference": "marshedge",
-    "tagList": {
-      "selected": [
-        "group",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "organized"
+    ],
     "hp": {
       "value": 6,
       "max": 6

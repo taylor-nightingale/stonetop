@@ -7,19 +7,14 @@
   "system": {
     "slug": "thornthumb",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "small",
-        "fae",
-        "stealthy",
-        "magical",
-        "devious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "small",
+      "fae",
+      "stealthy",
+      "magical",
+      "devious"
+    ],
     "hp": {
       "value": 12,
       "max": 12

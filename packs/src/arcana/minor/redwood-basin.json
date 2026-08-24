@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A redwood basin",
 				"weight": 2,
-				"tags": "magical, beautiful",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"beautiful"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "redwood-basin",
@@ -74,9 +76,12 @@
 			"item": {
 				"name": "A redwood basin",
 				"weight": 2,
-				"tags": "magical, beautiful",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"beautiful"
+				]
 			},
 			"resource": {
 				"max": 3,

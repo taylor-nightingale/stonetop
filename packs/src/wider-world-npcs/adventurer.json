@@ -7,17 +7,12 @@
   "system": {
     "slug": "adventurer",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "group",
-        "hoarder",
-        "devious",
-        "[pick 1 more]"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "hoarder",
+      "devious",
+      "[pick 1 more]"
+    ],
     "hp": {
       "value": 8,
       "max": 8

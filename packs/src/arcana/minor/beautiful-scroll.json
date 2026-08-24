@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A beautiful scroll",
 				"weight": 1,
-				"tags": "beautiful, fragile",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"beautiful",
+					"fragile"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "beautiful-scroll",

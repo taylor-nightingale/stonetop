@@ -8,7 +8,6 @@
 		"slug": "ineffable-words",
 		"front": {
 			"item": null,
-			"tags": "implanted, magical",
 			"choices": [
 				{
 					"slug": "ineffable-words",
@@ -54,6 +53,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"implanted",
+				"magical"
 			]
 		},
 		"back": {

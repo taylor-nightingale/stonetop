@@ -1,14 +1,24 @@
+import { tagListField } from "./tagFields.js";
+import { migrateTagsOn } from "../migration/migrateTags.js";
+
 export class OutfitItemData extends foundry.abstract.TypeDataModel {
+	// Tags used to be a comma string here and a nested `tags` key on arcana/possessions. They are one
+	// concept in the book, so they are one stored shape now — see src/migration/migrateTags.js.
+	// Guarded on the key being present: migrateData also runs on the partial update diff.
+	static migrateData(source) {
+		migrateTagsOn(source);
+		return super.migrateData(source);
+	}
+
 	static defineSchema() {
 		const f = foundry.data.fields;
 		return {
 			slug:            new f.StringField({ nullable: true, initial: null }),
 			inventoryColumn: new f.StringField({ nullable: true, initial: null }),
 			weight:          new f.NumberField({ initial: 1, integer: true }),
-			// `tagList`, not `tags`: Foundry reserves the item field `system.tags` and wipes it on
-			// every update (see creature.js / follower-data-architecture). Outfit tags are display-
-			// only markdown, so a plain StringField is enough (unlike the editable Selection on NPCs).
-			tagList:         new f.StringField({ initial: "" }),
+			// One tag model across gear, creatures and group members: an ordered list of tokens.
+			// `tagList`, not `tags` — Foundry reserves the item field `system.tags` (tagFields.js).
+			tagList:         tagListField(),
 			note:            new f.StringField({ initial: "" }),
 			resource:        new f.ObjectField({ nullable: true, initial: null }),
 			twoCol:          new f.BooleanField({ initial: false }),

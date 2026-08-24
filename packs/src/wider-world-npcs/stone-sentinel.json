@@ -7,17 +7,12 @@
   "system": {
     "slug": "stone-sentinel",
     "reference": "stone-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "construct",
-        "implacable"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "construct",
+      "implacable"
+    ],
     "hp": {
       "value": 24,
       "max": 24

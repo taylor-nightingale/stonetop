@@ -17,6 +17,7 @@
 import { Selection } from "../../data/Selection.js";
 import { hasGroupTag } from "../../data/groupTag.js";
 import { rich } from "../RichText.js";
+import { Tags } from "../../data/Tags.js";
 
 export class FollowerSnapshot {
 	constructor(b) {
@@ -27,9 +28,10 @@ export class FollowerSnapshot {
 		// quality/inventory). The follower-card partial branches on `isObject`.
 		this.kind           = b._kind ?? "creature";
 		this.isObject       = this.kind === "object";
-		this.tagSelection   = Selection.fromStored(b._tags);
-		this.tags           = this.tagSelection.text;   // display string (back-compat)
-		this.isGroup        = hasGroupTag(this.tagSelection);
+		this.tagList        = Tags.fromStored(b._tags);
+		this.tagSelection   = this.tagList.picker;
+		this.tags           = this.tagList.text;       // display string (back-compat)
+		this.isGroup        = hasGroupTag(this.tagList);
 		this.hp             = b._hp;
 		this.hpMax          = b._hpMax;
 		// Rendered game text → RichText (enriched by the character sheet's enrichRichTextTree pass).

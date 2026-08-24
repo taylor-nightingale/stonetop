@@ -7,16 +7,11 @@
   "system": {
     "slug": "rhagedn",
     "reference": "green-lords",
-    "tagList": {
-      "selected": [
-        "horde",
-        "construct",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "construct",
+      "stealthy"
+    ],
     "hp": {
       "value": 3,
       "max": 3

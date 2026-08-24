@@ -1,8 +1,12 @@
 import { migrateChoicesField } from "../migration/migrateChoices.js";
+import { migrateEmbeddedOutfitTags } from "../migration/migrateTags.js";
 
 export class PossessionData extends foundry.abstract.TypeDataModel {
 	static migrateData(source) {
 		migrateChoicesField(source.choices);
+		// Gear embedded in a possession (and in its choice options) carries tags in the same stored
+		// shape as everything else — see src/migration/migrateTags.js.
+		migrateEmbeddedOutfitTags(source);
 		// `label` was a redundant duplicate of the item name — the item `name` is now the single
 		// source of truth, so drop any stored copy.
 		delete source.label;

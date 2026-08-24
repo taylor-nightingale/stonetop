@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A bow with no string",
 				"weight": 1,
-				"tags": "magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "bow-with-no-string",
@@ -85,7 +86,6 @@
 			"item": {
 				"name": "Thunderbolt Bow",
 				"weight": 1,
-				"tags": "far, forceful, magical, loud, reload",
 				"note": "ignores armor",
 				"inventoryColumn": "regular",
 				"resource": {
@@ -96,7 +96,14 @@
 						"low ammo",
 						"all out"
 					]
-				}
+				},
+				"tagList": [
+					"far",
+					"forceful",
+					"magical",
+					"loud",
+					"reload"
+				]
 			},
 			"resource": null,
 			"choices": [

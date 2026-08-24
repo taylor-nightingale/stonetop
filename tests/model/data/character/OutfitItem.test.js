@@ -7,7 +7,7 @@ import { OutfitItem } from "../../../../src/model/data/character/OutfitItem.js";
 const SHIELD_DOC = {
 	name: "Shield",
 	system: {
-		slug: "shield", inventoryColumn: "regular", weight: 2, tagList: "",
+		slug: "shield", inventoryColumn: "regular", weight: 2, tagList: { selected: [], options: [], multi: true, allowCustom: true },
 		note: "+1 armor", resource: null, twoCol: false, armor: { modifier: 1 },
 	},
 };
@@ -18,7 +18,7 @@ describe("OutfitItem.fromDocument", () => {
 		expect(oi.slug).toBe("shield");
 		expect(oi.name).toBe("Shield");           // the document name, not a system field
 		expect(oi.weight).toBe(2);
-		expect(oi.tags).toBe("");                 // system.tagList, not system.tags (Foundry reserves that)
+		expect(oi.tags.values).toEqual([]);       // system.tagList, not system.tags (Foundry reserves that)
 		expect(oi.note).toBe("+1 armor");
 		expect(oi.inventoryColumn).toBe("regular");
 		expect(oi.armor).toEqual({ modifier: 1 });
@@ -35,7 +35,7 @@ describe("OutfitItem.fromDocument", () => {
 	it("fills defaults for a document with an empty system", () => {
 		const oi = OutfitItem.fromDocument({ name: "Odd thing", system: {} });
 		expect(oi.weight).toBe(0);
-		expect(oi.tags).toBe("");
+		expect(oi.tags.isEmpty).toBe(true);
 		expect(oi.note).toBeNull();
 		expect(oi.inventoryColumn).toBeNull();
 		expect(oi.resource).toBeNull();

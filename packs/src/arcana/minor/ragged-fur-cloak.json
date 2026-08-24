@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A ragged fur cloak",
 				"weight": 1,
-				"tags": "warm, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"warm",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "ragged-fur-cloak",

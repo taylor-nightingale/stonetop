@@ -7,15 +7,10 @@
   "system": {
     "slug": "infantry",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "horde",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "organized"
+    ],
     "hp": {
       "value": 3,
       "max": 3

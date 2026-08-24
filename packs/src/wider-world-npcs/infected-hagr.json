@@ -7,18 +7,13 @@
   "system": {
     "slug": "infected-hagr",
     "reference": "fomoraij",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "terrifying",
-        "hardy",
-        "magical"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "terrifying",
+      "hardy",
+      "magical"
+    ],
     "hp": {
       "value": 20,
       "max": 20

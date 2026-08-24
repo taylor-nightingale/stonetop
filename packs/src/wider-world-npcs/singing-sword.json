@@ -7,18 +7,13 @@
   "system": {
     "slug": "singing-sword",
     "reference": "forge-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "small",
-        "construct",
-        "lonely",
-        "dutiful"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "small",
+      "construct",
+      "lonely",
+      "dutiful"
+    ],
     "hp": {
       "value": 19,
       "max": 19

@@ -7,17 +7,12 @@
   "system": {
     "slug": "cultist",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "group",
-        "cautious",
-        "magical",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "cautious",
+      "magical",
+      "corrupted"
+    ],
     "hp": {
       "value": 6,
       "max": 6

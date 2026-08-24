@@ -7,17 +7,12 @@
   "system": {
     "slug": "luglfsk",
     "reference": "the-dread-river",
-    "tagList": {
-      "selected": [
-        "horde",
-        "small",
-        "amphibious",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "small",
+      "amphibious",
+      "corrupted"
+    ],
     "hp": {
       "value": 3,
       "max": 3

@@ -155,29 +155,9 @@
 		},
 		"notes": null,
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"group"
-			],
-			"options": [
-				"group",
-				"archers",
-				"athletic",
-				"brave",
-				"cunning",
-				"devoted",
-				"hardy",
-				"intimidating",
-				"observant",
-				"patient",
-				"respected",
-				"stealthy",
-				"warriors",
-				"exceptional (requires Heroes to the Last)"
-			],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"group"
+		],
 		"inventory": {
 			"checked": {
 				"hatchet": true,
@@ -188,7 +168,23 @@
 				"cloak": true,
 				"supplies": true
 			}
-		}
+		},
+		"tagOptions": [
+			"group",
+			"archers",
+			"athletic",
+			"brave",
+			"cunning",
+			"devoted",
+			"hardy",
+			"intimidating",
+			"observant",
+			"patient",
+			"respected",
+			"stealthy",
+			"warriors",
+			"exceptional (requires Heroes to the Last)"
+		]
 	},
 	"flags": {},
 	"_id": "r6ywYcOmBxqhQ5Xg",

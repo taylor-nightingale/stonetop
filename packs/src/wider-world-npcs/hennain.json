@@ -7,21 +7,16 @@
   "system": {
     "slug": "hennain",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "spirit",
-        "cautious",
-        "clever",
-        "magical",
-        "ancient",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "spirit",
+      "cautious",
+      "clever",
+      "magical",
+      "ancient",
+      "terrifying"
+    ],
     "hp": {
       "value": 31,
       "max": 31

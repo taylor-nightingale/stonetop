@@ -10,9 +10,18 @@
 		       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
 		{{/each}}
 	</span>
+	{{!-- The book prints an item as `Spear, iron (close, thrown, x piercing)`: ONE parenthetical
+	      holding the italic tags and then the roman note, not a group each. The two branches differ
+	      only in whether the tags come first — deliberately spelled out rather than adding a generic
+	      `or` helper for one row. --}}
+	{{!-- Each branch opens with its own literal space: the separator belongs to the parenthetical, so
+	      an item with neither tags nor note ends cleanly at its name. --}}
 	<span class="stonetop-inv-label">{{name}}
-		{{#if tags.raw}}<span class="stonetop-inv-tags">{{rich tags}}</span>{{/if}}
-		{{#if note.raw}}<span class="stonetop-inv-note">({{rich note}})</span>{{/if}}
+		{{~#if tags.length~}}
+			<span class="stonetop-inv-parens"> ({{> "stonetop.tag-list" tags=tags}}{{#if (hasText note)}}, <span class="stonetop-inv-note">{{rich note}}</span>{{/if}})</span>
+		{{~else if (hasText note)~}}
+			<span class="stonetop-inv-parens"> (<span class="stonetop-inv-note">{{rich note}}</span>)</span>
+		{{~/if~}}
 	</span>
 	{{#if resource}}
 	<span class="stonetop-inv-resources">

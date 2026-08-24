@@ -7,18 +7,13 @@
   "system": {
     "slug": "nemurvojak",
     "reference": "vor-svetelik",
-    "tagList": {
-      "selected": [
-        "horde",
-        "construct",
-        "undead",
-        "corrupted",
-        "fearless"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "construct",
+      "undead",
+      "corrupted",
+      "fearless"
+    ],
     "hp": {
       "value": 11,
       "max": 11

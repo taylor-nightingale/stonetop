@@ -7,17 +7,12 @@
   "system": {
     "slug": "hillfolk-rider",
     "reference": "hillfolk",
-    "tagList": {
-      "selected": [
-        "group",
-        "stealthy",
-        "organized",
-        "horse-wise"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "stealthy",
+      "organized",
+      "horse-wise"
+    ],
     "hp": {
       "value": 6,
       "max": 6

@@ -7,15 +7,10 @@
   "system": {
     "slug": "boar",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "group",
-        "gluttonous"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "gluttonous"
+    ],
     "hp": {
       "value": 10,
       "max": 10

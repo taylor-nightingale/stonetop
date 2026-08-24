@@ -7,16 +7,11 @@
   "system": {
     "slug": "patchwork-construct",
     "reference": "the-ruined-tower",
-    "tagList": {
-      "selected": [
-        "group",
-        "construct",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "construct",
+      "cautious"
+    ],
     "hp": {
       "value": 14,
       "max": 14

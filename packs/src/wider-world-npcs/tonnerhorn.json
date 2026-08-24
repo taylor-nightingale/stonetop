@@ -7,18 +7,13 @@
   "system": {
     "slug": "tonnerhorn",
     "reference": "north-manmarch",
-    "tagList": {
-      "selected": [
-        "horde",
-        "hardy",
-        "powerful",
-        "grumpy",
-        "loyal"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "hardy",
+      "powerful",
+      "grumpy",
+      "loyal"
+    ],
     "hp": {
       "value": 7,
       "max": 7

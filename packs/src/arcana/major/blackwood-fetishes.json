@@ -10,11 +10,13 @@
 			"item": {
 				"name": "Blackwood Fetishes",
 				"weight": 1,
-				"tags": "magical, indestructible",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"indestructible"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "blackwood-fetishes",

@@ -7,18 +7,13 @@
   "system": {
     "slug": "bronze-colossus",
     "reference": "forge-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "construct",
-        "plodding",
-        "implacable"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "construct",
+      "plodding",
+      "implacable"
+    ],
     "hp": {
       "value": 31,
       "max": 31

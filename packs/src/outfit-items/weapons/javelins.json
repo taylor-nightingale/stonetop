@@ -18,7 +18,9 @@
 		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": "thrown"
+		"tagList": [
+			"thrown"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpWpn0001X"

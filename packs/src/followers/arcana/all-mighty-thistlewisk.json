@@ -8,18 +8,13 @@
 		"slug": "all-mighty-thistlewisk",
 		"reference": null,
 		"arcanaSlug": "stone-idol",
-		"tagList": {
-			"selected": [
-				"Fae",
-				"tiny",
-				"magical",
-				"devious",
-				"arrogant"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Fae",
+			"tiny",
+			"magical",
+			"devious",
+			"arrogant"
+		],
 		"hp": {
 			"value": 0,
 			"max": 15

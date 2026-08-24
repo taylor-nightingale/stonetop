@@ -28,6 +28,7 @@ export const STONETOP_PARTIALS = {
 	"stonetop.tab-insert":        "systems/stonetop/templates/actor/partials/tab-insert.hbs",
 	"stonetop.tab-notes":         "systems/stonetop/templates/actor/partials/tab-notes.hbs",
 	"stonetop.selection-chips":   "systems/stonetop/templates/actor/partials/selection-chips.hbs",
+	"stonetop.tag-list":         "systems/stonetop/templates/actor/partials/tag-list.hbs",
 	"stonetop.selection-input":   "systems/stonetop/templates/actor/partials/selection-input.hbs",
 	"stonetop.instinct-section":  "systems/stonetop/templates/actor/partials/instinct-section.hbs",
 	"stonetop.move-group":       "systems/stonetop/templates/actor/partials/move-group.hbs",

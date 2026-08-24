@@ -105,7 +105,30 @@ describe("ArcanumData.migrateData — front title and transient import fields", 
 	it("drops the front's redundant title (the document name is the front's heading)", () => {
 		const out = ArcanumData.migrateData({ front: { title: "A wolf pelt", tags: "warm" } });
 		expect(out.front.title).toBeUndefined();
-		expect(out.front.tags).toBe("warm");
+		expect(out.front.tagList).toEqual(["warm"]);
+	});
+
+	// The card's own descriptive tags and the tags of the item it is are separate lists, and both
+	// move to the one stored shape under the canonical `tagList` name.
+	it("converts the front's own tags and its item's tags", () => {
+		const out = ArcanumData.migrateData({
+			front: { tags: "magical, immobile", item: { name: "Rune-laden Scales", tags: "magical" } },
+		});
+		expect(out.front.tagList).toEqual(["magical", "immobile"]);
+		expect(out.front.item.tagList).toEqual(["magical"]);
+		expect("tags" in out.front).toBe(false);
+		expect("tags" in out.front.item).toBe(false);
+	});
+
+	it("converts the back item's tags too", () => {
+		const out = ArcanumData.migrateData({ back: { item: { tags: "close, messy" } } });
+		expect(out.back.item.tagList).toEqual(["close", "messy"]);
+	});
+
+	it("drops a null tags key rather than storing an empty selection for it", () => {
+		const out = ArcanumData.migrateData({ front: { tags: null } });
+		expect("tags" in out.front).toBe(false);
+		expect(out.front.tagList).toBeUndefined();
 	});
 
 	it("keeps the back's own title (the mystery's name)", () => {

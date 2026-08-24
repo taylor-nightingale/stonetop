@@ -7,16 +7,11 @@
   "system": {
     "slug": "cave-bear",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "cautious"
+    ],
     "hp": {
       "value": 16,
       "max": 16

@@ -7,17 +7,12 @@
   "system": {
     "slug": "pyped",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "undead",
-        "terrifying",
-        "craven"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "undead",
+      "terrifying",
+      "craven"
+    ],
     "hp": {
       "value": 16,
       "max": 16

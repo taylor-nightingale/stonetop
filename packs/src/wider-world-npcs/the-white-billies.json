@@ -7,17 +7,12 @@
   "system": {
     "slug": "the-white-billies",
     "reference": "fae",
-    "tagList": {
-      "selected": [
-        "horde",
-        "fae",
-        "athletic",
-        "raucous"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "fae",
+      "athletic",
+      "raucous"
+    ],
     "hp": {
       "value": 7,
       "max": 7

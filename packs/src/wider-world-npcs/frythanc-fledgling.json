@@ -7,15 +7,10 @@
   "system": {
     "slug": "frythanc-fledgling",
     "reference": "huffel-peaks",
-    "tagList": {
-      "selected": [
-        "group",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "stealthy"
+    ],
     "hp": {
       "value": 6,
       "max": 6

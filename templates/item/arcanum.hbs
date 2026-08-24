@@ -61,7 +61,7 @@
 				</label>
 				{{/if}}
 				{{#unless itemSameAsFront}}
-				{{> "stonetop.arcanum-item-def" item=itemDef path=(concat "system." side ".item")}}
+				{{> "stonetop.arcanum-item-def" item=itemDef tagSelection=itemTags path=(concat "system." side ".item")}}
 				{{/unless}}
 
 				{{> "stonetop.arcanum-resource" resource=resource path=(concat "system." side ".resource")}}
@@ -85,8 +85,8 @@
 			</section>
 			{{/inline}}
 
-			{{> arcanum-side-editor side="front" label="stonetop.arcanum.front" isBack=false itemDef=frontItem itemSameAsFront=false resource=front.resource groups=frontChoiceGroups}}
-			{{> arcanum-side-editor side="back"  label="stonetop.arcanum.back"  isBack=true  title=back.title itemDef=backItem itemSameAsFront=back.itemSameAsFront resource=back.resource groups=backChoiceGroups}}
+			{{> arcanum-side-editor side="front" label="stonetop.arcanum.front" isBack=false itemDef=frontItem itemTags=frontItemTags itemSameAsFront=false resource=front.resource groups=frontChoiceGroups}}
+			{{> arcanum-side-editor side="back"  label="stonetop.arcanum.back"  isBack=true  title=back.title itemDef=backItem itemTags=backItemTags itemSameAsFront=back.itemSameAsFront resource=back.resource groups=backChoiceGroups}}
 
 		</div>
 

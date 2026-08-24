@@ -9,10 +9,10 @@ describe("FollowerData defaults (creature core + follower fields)", () => {
 		expect(d.reference).toBeNull();
 	});
 
-	it("defaults tags to an empty multi-selection and the rest to empty string", () => {
+	it("defaults tags to an empty list and the rest to empty string", () => {
 		const d = new FollowerData();
-		expect(d.tagList.selected).toEqual([]);
-		expect(d.tagList.multi).toBe(true);
+		expect(d.tagList).toEqual([]);
+		expect(d.tagOptions).toEqual([]);
 		expect(d.instinct.selected).toEqual([]);
 		expect(d.cost.selected).toEqual([]);
 		expect(d.specialQuality).toBe("");

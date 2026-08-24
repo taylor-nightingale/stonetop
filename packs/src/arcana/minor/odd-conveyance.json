@@ -7,7 +7,6 @@
 		"slug": "odd-conveyance",
 		"front": {
 			"item": null,
-			"tags": "large, magical, fragile",
 			"choices": [
 				{
 					"slug": "odd-conveyance",
@@ -72,6 +71,11 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"large",
+				"magical",
+				"fragile"
 			]
 		},
 		"back": {
@@ -79,9 +83,13 @@
 			"item": {
 				"name": "Groundskimmer",
 				"weight": 1,
-				"tags": "large, magical, dangerous",
 				"note": "requires a crew of 2",
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"large",
+					"magical",
+					"dangerous"
+				]
 			},
 			"resource": null,
 			"choices": [

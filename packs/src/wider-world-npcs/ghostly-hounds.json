@@ -7,18 +7,13 @@
   "system": {
     "slug": "ghostly-hounds",
     "reference": "the-pale-hunter",
-    "tagList": {
-      "selected": [
-        "horde",
-        "spirit",
-        "terrifying",
-        "fierce",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "spirit",
+      "terrifying",
+      "fierce",
+      "organized"
+    ],
     "hp": {
       "value": 10,
       "max": 10

@@ -14,7 +14,10 @@
 				"name": "The Three-star Crown",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical, beautiful",
+				"tagList": [
+					"magical",
+					"beautiful"
+				],
 				"note": "Value 4"
 			}
 		],

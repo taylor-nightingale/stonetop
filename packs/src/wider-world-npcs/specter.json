@@ -7,19 +7,14 @@
   "system": {
     "slug": "specter",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "undead",
-        "stealthy",
-        "terrifying",
-        "cruel"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "undead",
+      "stealthy",
+      "terrifying",
+      "cruel"
+    ],
     "hp": {
       "value": 23,
       "max": 23

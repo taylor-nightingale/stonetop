@@ -7,18 +7,13 @@
   "system": {
     "slug": "antiquarian",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "hoarder",
-        "cautious",
-        "cunning",
-        "magical"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "hoarder",
+      "cautious",
+      "cunning",
+      "magical"
+    ],
     "hp": {
       "value": 12,
       "max": 12

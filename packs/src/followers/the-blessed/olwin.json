@@ -140,17 +140,12 @@
 		},
 		"notes": "",
 		"reference": null,
-		"tagList": {
-			"selected": [
-				"Fates-wise",
-				"beautiful",
-				"passionate",
-				"magical"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		}
+		"tagList": [
+			"Fates-wise",
+			"beautiful",
+			"passionate",
+			"magical"
+		]
 	},
 	"flags": {},
 	"folder": "L8MaIYwGZ0HOUZzG"

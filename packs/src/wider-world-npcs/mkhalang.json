@@ -7,19 +7,14 @@
   "system": {
     "slug": "mkhalang",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "spirit",
-        "construct",
-        "cautious",
-        "devious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "spirit",
+      "construct",
+      "cautious",
+      "devious"
+    ],
     "hp": {
       "value": 27,
       "max": 27

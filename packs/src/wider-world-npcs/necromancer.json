@@ -7,18 +7,13 @@
   "system": {
     "slug": "necromancer",
     "reference": "death-and-the-undying",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "cautious",
-        "cunning",
-        "magical",
-        "death-wise"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "cautious",
+      "cunning",
+      "magical",
+      "death-wise"
+    ],
     "hp": {
       "value": 12,
       "max": 12

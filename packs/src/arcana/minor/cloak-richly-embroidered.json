@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A cloak, richly embroidered",
 				"weight": 1,
-				"tags": "magical, warm",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"warm"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "cloak-richly-embroidered",

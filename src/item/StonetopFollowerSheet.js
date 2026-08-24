@@ -20,18 +20,28 @@ import { buildFollowerSnapshot } from "../model/snapshot/character/buildFollower
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { GrantRegistry } from "./GrantRegistry.js";
 import { Selection } from "../model/data/Selection.js";
+import { Tags } from "../model/data/Tags.js";
 import { hasGroupTag, GROUP_TAG } from "../model/data/groupTag.js";
 
 // tagList is multi-select; instinct + cost are single-select.
 const SELECTION_MULTI = { tagList: true, instinct: false, cost: false };
 
+// Tags are stored as two fields — the token list and the choices this stat block prints for itself
+// — while instinct/cost keep their options inside one Selection. The options editor is generic over
+// all three, so tags are composed into a Selection for it and split apart again on save.
+const tagsAsSelection = (sys) =>
+	({ selected: [...(sys.tagList ?? [])], options: [...(sys.tagOptions ?? [])], multi: true, allowCustom: true });
+const tagsFromSelection = (raw) =>
+	({ "system.tagList": [...(raw.selected ?? [])], "system.tagOptions": [...(raw.options ?? [])] });
+
 // "Blank" = a freshly-created follower with no authored content (name is ignored — it always has a
 // default). A blank follower opens straight in the editor; anything with content opens as a card.
 function isFollowerBlank(sys) {
-	const sel = s => (s?.options?.length ?? 0) > 0 || (s?.selected?.length ?? 0) > 0;
+	const sel  = s => (s?.options?.length ?? 0) > 0 || (s?.selected?.length ?? 0) > 0;
+	const list = a => (a?.length ?? 0) > 0;
 	const has = v => v != null && v !== "";
 	return !(
-		sel(sys.tagList) || sel(sys.instinct) || sel(sys.cost) ||
+		list(sys.tagList) || list(sys.tagOptions) || sel(sys.instinct) || sel(sys.cost) ||
 		has(sys.armor) || has(sys.damage) || has(sys.specialQuality) || has(sys.moves) ||
 		has(sys.description) || has(sys.notes) || (sys.hp?.max) ||
 		(sys.choices?.length) || (sys.members?.length) ||
@@ -75,7 +85,7 @@ export function createStonetopFollowerSheetClass(Base) {
 			context.system = sys;
 
 			// Selection fields — normalized to raws with their fixed multi, for the string-list editors.
-			context.tagListSel  = SE.toSelectionRaw(sys.tagList,  SELECTION_MULTI.tagList);
+			context.tagListSel  = tagsAsSelection(sys);
 			context.instinctSel = SE.toSelectionRaw(sys.instinct, SELECTION_MULTI.instinct);
 			context.costSel     = SE.toSelectionRaw(sys.cost,     SELECTION_MULTI.cost);
 
@@ -126,8 +136,9 @@ export function createStonetopFollowerSheetClass(Base) {
 
 			// ── Selection fields (tagList/instinct/cost): options list + default → Selection raw ──
 			const multiOf  = field => !!SELECTION_MULTI[field];
-			const selOf    = field => item.system[field];
-			const saveSel  = (field, raw) => item.update({ [`system.${field}`]: raw });
+			const selOf    = field => (field === "tagList" ? tagsAsSelection(item.system) : item.system[field]);
+			const saveSel  = (field, raw) => item.update(
+				field === "tagList" ? tagsFromSelection(raw) : { [`system.${field}`]: raw });
 			const selField = el => el.closest("[data-selection-field]")?.dataset.selectionField;
 			const strIdx   = el => numAttr(el, "stringIndex");
 			bindAll(root, ".follower-option-add", "click", ev => {
@@ -169,7 +180,7 @@ export function createStonetopFollowerSheetClass(Base) {
 			// tag is set on tagList (FollowerSnapshot derives isGroup from it). One already tagged
 			// "horde" IS a group, so it keeps its own word rather than gaining both.
 			const groupTagList = () => {
-				const tags = Selection.fromStored(item.system.tagList, { multi: true });
+				const tags = Tags.creature(item.system.tagList);
 				return (hasGroupTag(tags) ? tags : tags.select(GROUP_TAG)).toRaw();
 			};
 			bindAll(root, ".follower-member-add", "click", () => item.update({

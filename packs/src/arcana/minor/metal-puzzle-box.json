@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A metal puzzle box",
 				"weight": 1,
-				"tags": "indestructible",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"indestructible"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "metal-puzzle-box",

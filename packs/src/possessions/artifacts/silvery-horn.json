@@ -14,7 +14,10 @@
 				"name": "Silvery horn",
 				"weight": 1,
 				"inventoryColumn": "regular",
-				"tagList": "magical, loud",
+				"tagList": [
+					"magical",
+					"loud"
+				],
 				"note": ""
 			}
 		],

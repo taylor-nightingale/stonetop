@@ -7,17 +7,12 @@
   "system": {
     "slug": "cynddaraig",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "terrifying",
-        "fearless"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "terrifying",
+      "fearless"
+    ],
     "hp": {
       "value": 20,
       "max": 20

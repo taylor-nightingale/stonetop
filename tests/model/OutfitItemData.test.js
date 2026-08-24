@@ -15,10 +15,48 @@ describe("OutfitItemData defaults", () => {
 		expect(d.twoCol).toBe(false);
 	});
 
-	it("defaults tagList and note to empty string", () => {
-		const d = new OutfitItemData();
-		expect(d.tagList).toBe("");
-		expect(d.note).toBe("");
+	it("defaults note to empty string", () => {
+		expect(new OutfitItemData().note).toBe("");
+	});
+
+	// Gear tags are the same stored shape as creature tags — one tag model, one schema.
+	it("defaults tagList to an empty list", () => {
+		expect(new OutfitItemData().tagList).toEqual([]);
+	});
+});
+
+describe("OutfitItemData.migrateData", () => {
+	it("converts a legacy comma string", () => {
+		const source = { slug: "spear", tagList: "close, thrown" };
+		OutfitItemData.migrateData(source);
+		expect(source.tagList).toEqual(["close", "thrown"]);
+	});
+
+	it("converts a legacy Selection blob", () => {
+		const source = { slug: "spear", tagList: { selected: ["close"], options: [], multi: true, allowCustom: true } };
+		OutfitItemData.migrateData(source);
+		expect(source.tagList).toEqual(["close"]);
+	});
+
+	it("folds a legacy nested `tags` key onto tagList", () => {
+		const source = { slug: "lantern", tags: "close, area" };
+		OutfitItemData.migrateData(source);
+		expect(source.tagList).toEqual(["close", "area"]);
+		expect("tags" in source).toBe(false);
+	});
+
+	// migrateData also runs on the partial update diff — injecting a default there would clobber the
+	// stored tags on every unrelated edit.
+	it("leaves an update diff that carries no tags alone", () => {
+		const diff = { weight: 2 };
+		OutfitItemData.migrateData(diff);
+		expect(diff).toEqual({ weight: 2 });
+	});
+
+	it("is idempotent", () => {
+		const source = { tagList: ["close"] };
+		OutfitItemData.migrateData(source);
+		expect(source.tagList).toEqual(["close"]);
 	});
 
 	it("defaults resource and armor to null", () => {

@@ -7,17 +7,12 @@
   "system": {
     "slug": "legionary",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "horde",
-        "organized",
-        "hardy",
-        "disciplined"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "organized",
+      "hardy",
+      "disciplined"
+    ],
     "hp": {
       "value": 7,
       "max": 7

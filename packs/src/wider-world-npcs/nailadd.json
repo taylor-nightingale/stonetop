@@ -7,16 +7,11 @@
   "system": {
     "slug": "nailadd",
     "reference": "the-great-wood",
-    "tagList": {
-      "selected": [
-        "group",
-        "cunning",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "cunning",
+      "stealthy"
+    ],
     "hp": {
       "value": 6,
       "max": 6

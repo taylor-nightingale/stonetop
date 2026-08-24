@@ -7,19 +7,14 @@
   "system": {
     "slug": "hand-of-daagon",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "emanation",
-        "terrifying",
-        "cautious",
-        "curious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "emanation",
+      "terrifying",
+      "cautious",
+      "curious"
+    ],
     "hp": {
       "value": 23,
       "max": 23

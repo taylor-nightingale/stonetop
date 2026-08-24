@@ -55,7 +55,7 @@ describe("buildOutfitColumn", () => {
 		expect(coin.ownedId).toBe("lucky-coin");
 		expect(coin.twoCol).toBe(true);
 		expect(hatchet.note.raw).toBe("x");          // note wrapped as RichText
-		expect(hatchet.tags.raw).toBe("hand");       // tags wrapped as RichText
+		expect(hatchet.tags.map((t) => t.label)).toEqual(["hand"]); // one entry per tag, not one blob
 	});
 
 	it("defaults resource to null when no resourceFn is given", () => {
@@ -68,12 +68,12 @@ describe("toOutfitItemSnapshot", () => {
 	// The one mapping behind every rendered outfit row (both inventories + the item sheet preview).
 	const hatchet = { slug: "hatchet", name: "Hatchet", weight: 1, tags: "hand", note: "x", twoCol: false };
 
-	it("wraps tags and note as RichText and carries the caller's checked/resource decisions", () => {
+	it("resolves tags, wraps the note as RichText, and carries the caller's checked/resource decisions", () => {
 		const snap = toOutfitItemSnapshot(hatchet, true, { max: 2 });
 		expect(snap.slug).toBe("hatchet");
 		expect(snap.name).toBe("Hatchet");
 		expect(snap.weight).toBe(1);
-		expect(snap.tags.raw).toBe("hand");
+		expect(snap.tags.map((t) => t.label)).toEqual(["hand"]);
 		expect(snap.note.raw).toBe("x");
 		expect(snap.checked).toBe(true);
 		expect(snap.resource).toEqual({ max: 2 });

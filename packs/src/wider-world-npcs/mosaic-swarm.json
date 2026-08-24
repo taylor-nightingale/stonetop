@@ -7,18 +7,13 @@
   "system": {
     "slug": "mosaic-swarm",
     "reference": "stone-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "construct",
-        "amorphous",
-        "stealthy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "construct",
+      "amorphous",
+      "stealthy"
+    ],
     "hp": {
       "value": 24,
       "max": 24

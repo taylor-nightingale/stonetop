@@ -7,18 +7,13 @@
   "system": {
     "slug": "soithech",
     "reference": "the-labyrinth",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "corrupted",
-        "devious",
-        "magical",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "corrupted",
+      "devious",
+      "magical",
+      "cautious"
+    ],
     "hp": {
       "value": 18,
       "max": 18

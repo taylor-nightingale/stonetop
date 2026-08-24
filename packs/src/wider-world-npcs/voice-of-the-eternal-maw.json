@@ -7,19 +7,14 @@
   "system": {
     "slug": "voice-of-the-eternal-maw",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "emanation",
-        "devious",
-        "terrifying",
-        "hungry"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "emanation",
+      "devious",
+      "terrifying",
+      "hungry"
+    ],
     "hp": {
       "value": 19,
       "max": 19

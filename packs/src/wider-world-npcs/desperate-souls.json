@@ -7,17 +7,12 @@
   "system": {
     "slug": "desperate-souls",
     "reference": "gordins-delve",
-    "tagList": {
-      "selected": [
-        "group",
-        "craven",
-        "meek",
-        "opportunistic"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "craven",
+      "meek",
+      "opportunistic"
+    ],
     "hp": {
       "value": 6,
       "max": 6

@@ -7,20 +7,15 @@
   "system": {
     "slug": "tcaventes-shackle-and-key",
     "reference": "the-labyrinth",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "primordial",
-        "construct",
-        "magical",
-        "terrifying",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "primordial",
+      "construct",
+      "magical",
+      "terrifying",
+      "corrupted"
+    ],
     "hp": {
       "value": 25,
       "max": 25

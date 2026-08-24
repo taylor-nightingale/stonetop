@@ -7,17 +7,12 @@
   "system": {
     "slug": "frythanc",
     "reference": "the-flats",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "stealthy",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "stealthy",
+      "terrifying"
+    ],
     "hp": {
       "value": 16,
       "max": 16

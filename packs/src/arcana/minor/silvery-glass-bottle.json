@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A silvery glass bottle",
 				"weight": 1,
-				"tags": "fragile, magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"fragile",
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "silvery-glass-bottle",

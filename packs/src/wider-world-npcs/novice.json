@@ -7,17 +7,12 @@
   "system": {
     "slug": "novice",
     "reference": "barrier-pass",
-    "tagList": {
-      "selected": [
-        "group",
-        "cautious",
-        "disciplined",
-        "meek"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "cautious",
+      "disciplined",
+      "meek"
+    ],
     "hp": {
       "value": 6,
       "max": 6

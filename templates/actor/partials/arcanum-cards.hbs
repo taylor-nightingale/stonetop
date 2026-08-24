@@ -17,7 +17,7 @@
 		<div class="stonetop-arcanum-header-left">
 			<span class="stonetop-arcanum-title">{{rich title}}</span>
 			{{#if item}}{{> "stonetop.outfit-item-row" item}}{{/if}}
-			{{#if tags}}<span class="stonetop-arcanum-tags">{{tags}}</span>{{/if}}
+			{{#if tags.length}}<span class="stonetop-arcanum-tags">{{> "stonetop.tag-list" tags=tags}}</span>{{/if}}
 		</div>
 		{{#if resource}}
 		<div class="stonetop-arcanum-header-resource">

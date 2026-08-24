@@ -7,20 +7,15 @@
   "system": {
     "slug": "water-vortex",
     "reference": "tempest-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "size by HP",
-        "spirit",
-        "construct",
-        "amorphous",
-        "relentless",
-        "callous"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "size by HP",
+      "spirit",
+      "construct",
+      "amorphous",
+      "relentless",
+      "callous"
+    ],
     "hp": {
       "value": 0,
       "max": 0

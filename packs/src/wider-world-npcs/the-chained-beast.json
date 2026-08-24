@@ -7,18 +7,13 @@
   "system": {
     "slug": "the-chained-beast",
     "reference": "three-coven-lake",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "corrupted",
-        "aquatic",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "corrupted",
+      "aquatic",
+      "terrifying"
+    ],
     "hp": {
       "value": 20,
       "max": 20

@@ -7,7 +7,6 @@
 		"slug": "patch-of-rainbow-moss",
 		"front": {
 			"item": null,
-			"tags": "magical",
 			"choices": [
 				{
 					"slug": "patch-of-rainbow-moss",
@@ -61,6 +60,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical"
 			]
 		},
 		"back": {

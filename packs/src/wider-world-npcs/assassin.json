@@ -7,16 +7,11 @@
   "system": {
     "slug": "assassin",
     "reference": "lygos-and-the-south",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "stealthy",
-        "devious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "stealthy",
+      "devious"
+    ],
     "hp": {
       "value": 12,
       "max": 12

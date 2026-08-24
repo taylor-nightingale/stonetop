@@ -7,18 +7,13 @@
   "system": {
     "slug": "gouzadn",
     "reference": "the-steplands",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "magical",
-        "cautious",
-        "stealthy",
-        "shapeshifter"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "magical",
+      "cautious",
+      "stealthy",
+      "shapeshifter"
+    ],
     "hp": {
       "value": 16,
       "max": 16

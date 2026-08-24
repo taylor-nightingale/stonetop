@@ -7,19 +7,14 @@
   "system": {
     "slug": "false-adept",
     "reference": "rime-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "undead",
-        "magical",
-        "devious",
-        "organized"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "undead",
+      "magical",
+      "devious",
+      "organized"
+    ],
     "hp": {
       "value": 19,
       "max": 19

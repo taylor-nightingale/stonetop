@@ -9,11 +9,13 @@
 			"item": {
 				"name": "A humble broom",
 				"weight": 1,
-				"tags": "magical, crude",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"crude"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "humble-broom",
@@ -85,9 +87,13 @@
 			"item": {
 				"name": "The Broom’s Lullaby",
 				"weight": 1,
-				"tags": "magical, area, near",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"area",
+					"near"
+				]
 			},
 			"resource": null,
 			"choices": [

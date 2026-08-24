@@ -7,7 +7,6 @@
 		"slug": "timeless-vault",
 		"front": {
 			"item": null,
-			"tags": "magical",
 			"choices": [
 				{
 					"slug": "timeless-vault",
@@ -61,6 +60,9 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical"
 			]
 		},
 		"back": {

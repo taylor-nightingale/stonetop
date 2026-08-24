@@ -9,11 +9,12 @@
 			"item": {
 				"name": "A corroded spearhead",
 				"weight": 1,
-				"tags": "magical",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "corroded-spearhead",
@@ -96,9 +97,13 @@
 			"item": {
 				"name": "Aetherium Spear",
 				"weight": 1,
-				"tags": "close, thrown, magical",
 				"note": "+1 damage",
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"close",
+					"thrown",
+					"magical"
+				]
 			},
 			"resource": null,
 			"choices": [

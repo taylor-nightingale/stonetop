@@ -7,7 +7,6 @@
 		"slug": "oversized-codex",
 		"front": {
 			"item": null,
-			"tags": "immobile, fragile",
 			"choices": [
 				{
 					"slug": "oversized-codex",
@@ -61,6 +60,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"immobile",
+				"fragile"
 			]
 		},
 		"back": {

@@ -7,7 +7,6 @@
 		"slug": "silvery-signet-ring",
 		"front": {
 			"item": null,
-			"tags": "magical, beautiful",
 			"choices": [
 				{
 					"slug": "silvery-signet-ring",
@@ -72,6 +71,10 @@
 						}
 					]
 				}
+			],
+			"tagList": [
+				"magical",
+				"beautiful"
 			]
 		},
 		"back": {

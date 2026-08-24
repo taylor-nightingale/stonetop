@@ -7,18 +7,13 @@
   "system": {
     "slug": "plasmic-horror",
     "reference": "vor-svetelik",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "construct",
-        "amorphous",
-        "terrifying"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "construct",
+      "amorphous",
+      "terrifying"
+    ],
     "hp": {
       "value": 19,
       "max": 19

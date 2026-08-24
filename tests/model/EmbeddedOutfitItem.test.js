@@ -42,12 +42,13 @@ describe("EmbeddedOutfitItemBuilder", () => {
 		expect(item.system.inventoryColumn).toBe("regular");
 	});
 
-	it("stores tags in system.tagList", () => {
-		expect(makeItem({ tags: "hand, thrown" }).system.tagList).toBe("hand, thrown");
+	// The stored shape gear, creatures and members all share — not the comma string it used to be.
+	it("stores tags in system.tagList as a token list", () => {
+		expect(makeItem({ tags: "hand, thrown" }).system.tagList).toEqual(["hand", "thrown"]);
 	});
 
-	it("defaults tagList to empty string", () => {
-		expect(makeItem().system.tagList).toBe("");
+	it("defaults tagList to an empty list", () => {
+		expect(makeItem().system.tagList).toEqual([]);
 	});
 
 	it("stores note in system.note", () => {

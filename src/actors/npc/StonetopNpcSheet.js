@@ -1,6 +1,7 @@
 import { bindAll } from "../../utils/bindAll.js";
 import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
 import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../tagChips.js";
+import { TAG_DEFINITION_ACTIONS } from "../tagDefinitions.js";
 
 export function createStonetopNpcSheetClass(Base) {
     return class StonetopNpcSheet extends Base {
@@ -13,6 +14,7 @@ export function createStonetopNpcSheetClass(Base) {
             position: { width: 315, height: 425 },
             actions: {
                 ...TAG_CHIP_ACTIONS,
+                ...TAG_DEFINITION_ACTIONS,
             },
         };
 

@@ -56,10 +56,10 @@ describe("ArcanumSnapshotBuilder.fromArcanum", () => {
 	});
 
 	it("carries a diamond-less front's disguise tags through to the snapshot (item stays null)", () => {
-		const a = new Arcanum({ slug: "the-key", name: "A... key?", front: { tags: "magical, terrifying", description: "a white thing" }, back: {} });
+		const a = new Arcanum({ slug: "the-key", name: "A... key?", front: { tagList: ["magical", "terrifying"], description: "a white thing" }, back: {} });
 		const s = snap(a);
 		expect(s.front.item).toBeNull();
-		expect(s.front.tags).toBe("magical, terrifying");
+		expect(s.front.tags.map((t) => t.label)).toEqual(["magical", "terrifying"]);
 	});
 
 	it("builds a front header resource track the same way the back's is built", () => {

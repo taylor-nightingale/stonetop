@@ -10,11 +10,13 @@
 			"item": {
 				"name": "Noruba's Ice Sphere",
 				"weight": 1,
-				"tags": "magical, awkward",
 				"note": null,
-				"inventoryColumn": "regular"
+				"inventoryColumn": "regular",
+				"tagList": [
+					"magical",
+					"awkward"
+				]
 			},
-			"tags": null,
 			"choices": [
 				{
 					"slug": "norubas-ice-sphere",

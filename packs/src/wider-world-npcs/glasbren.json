@@ -7,19 +7,14 @@
   "system": {
     "slug": "glasbren",
     "reference": "spirits-of-the-wild",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "spirit",
-        "clever",
-        "magical",
-        "stealthy",
-        "beautiful"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "spirit",
+      "clever",
+      "magical",
+      "stealthy",
+      "beautiful"
+    ],
     "hp": {
       "value": 19,
       "max": 19

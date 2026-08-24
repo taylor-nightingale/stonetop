@@ -8,17 +8,12 @@
 		"slug": "void-elemental",
 		"reference": null,
 		"arcanaSlug": "oversized-crown",
-		"tagList": {
-			"selected": [
-				"Spirit",
-				"primordial",
-				"confused",
-				"angry"
-			],
-			"options": [],
-			"multi": true,
-			"allowCustom": true
-		},
+		"tagList": [
+			"Spirit",
+			"primordial",
+			"confused",
+			"angry"
+		],
 		"hp": {
 			"value": 0,
 			"max": 15

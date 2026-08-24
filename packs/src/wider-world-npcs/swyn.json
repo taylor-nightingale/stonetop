@@ -7,22 +7,17 @@
   "system": {
     "slug": "swyn",
     "reference": "green-lords",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "large",
-        "construct",
-        "corrupted",
-        "stealthy",
-        "magical",
-        "devious",
-        "cautious",
-        "hoarder"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "large",
+      "construct",
+      "corrupted",
+      "stealthy",
+      "magical",
+      "devious",
+      "cautious",
+      "hoarder"
+    ],
     "hp": {
       "value": 20,
       "max": 20

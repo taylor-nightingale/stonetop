@@ -7,17 +7,12 @@
   "system": {
     "slug": "wretch",
     "reference": "the-things-below",
-    "tagList": {
-      "selected": [
-        "horde",
-        "hardy",
-        "terrifying",
-        "corrupted"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "hardy",
+      "terrifying",
+      "corrupted"
+    ],
     "hp": {
       "value": 7,
       "max": 7

@@ -7,17 +7,12 @@
   "system": {
     "slug": "brawzbedr",
     "reference": "the-steplands",
-    "tagList": {
-      "selected": [
-        "Solitary",
-        "huge",
-        "stubborn",
-        "grumpy"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "Solitary",
+      "huge",
+      "stubborn",
+      "grumpy"
+    ],
     "hp": {
       "value": 24,
       "max": 24

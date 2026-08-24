@@ -7,19 +7,14 @@
   "system": {
     "slug": "voidblight",
     "reference": "primordial-powers",
-    "tagList": {
-      "selected": [
-        "horde",
-        "spirit",
-        "primordial",
-        "stealthy",
-        "hungry",
-        "cautious"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "horde",
+      "spirit",
+      "primordial",
+      "stealthy",
+      "hungry",
+      "cautious"
+    ],
     "hp": {
       "value": 10,
       "max": 10

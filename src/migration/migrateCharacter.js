@@ -12,6 +12,7 @@ import { ChoiceGroupDefs } from "../model/data/ChoiceGroupDefs.js";
 import { Selection } from "../model/data/Selection.js";
 import { richTextToHtml } from "./richTextToHtml.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
+import { Tags } from "../model/data/Tags.js";
 
 const SCOPE = "stonetop";
 
@@ -777,7 +778,8 @@ export async function migrateArcanaFollowerPackData(actor, followerRepo) {
 			_id: item._id,
 			...(f.img ? { img: f.img } : {}),
 			system: {
-				tagList:        Selection.fromStored(f.tags,     { multi: true  }).toRaw(),
+				tagList:        Tags.creature(f.tags).toRaw(),
+				tagOptions:     f.tagOptions ?? [],
 				instinct:       Selection.fromStored(f.instinct, { multi: false }).toRaw(),
 				cost:           Selection.fromStored(f.cost,     { multi: false }).toRaw(),
 				moves:          f.moves ?? "",

@@ -7,16 +7,11 @@
   "system": {
     "slug": "guardian",
     "reference": "barrier-pass",
-    "tagList": {
-      "selected": [
-        "group",
-        "organized",
-        "skilled"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "organized",
+      "skilled"
+    ],
     "hp": {
       "value": 6,
       "max": 6

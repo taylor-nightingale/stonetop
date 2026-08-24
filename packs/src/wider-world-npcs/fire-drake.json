@@ -7,16 +7,11 @@
   "system": {
     "slug": "fire-drake",
     "reference": "huffel-peaks",
-    "tagList": {
-      "selected": [
-        "group",
-        "aggressive",
-        "tough"
-      ],
-      "options": [],
-      "multi": true,
-      "allowCustom": true
-    },
+    "tagList": [
+      "group",
+      "aggressive",
+      "tough"
+    ],
     "hp": {
       "value": 10,
       "max": 10
