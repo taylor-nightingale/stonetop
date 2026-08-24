@@ -22,8 +22,27 @@ const probe = new RenderProbe([
 	sheet("stonetop.css")
 ]);
 
+// The four ways core paints a message. They are probed separately because core gives each its own
+// background, and only the plain one was ever checked — a whisper is the shape that reached the user
+// as an unreadable message, since core's new-user tips are whispered to GMs.
+const CHAT_KINDS = ["plain", "whisper", "emote", "blind"];
+
+// Core's new-user-experience markup, `.nue` footer included: core paints that hint line from a
+// literal grey declared on `body.game .app` rather than from a ramp, so the palette cannot reach it.
+const chatMessage = kind => `
+        <li class="chat-message message flexcol ${kind === "plain" ? "" : kind}" id="p-${kind}">
+          <header class="message-header flexrow"><h4 class="message-sender">Foundry Virtual Tabletop</h4></header>
+          <div class="message-content">
+            <p class="nue" id="p-${kind}-body">Invite your players by sharing this link.</p>
+            <footer class="nue" id="p-${kind}-hint">You can dismiss this message.</footer>
+          </div>
+        </li>`;
+
 // A cut-down stand-in for the parts of Foundry's DOM that broke. Class names and nesting mirror what
-// core actually emits, because the bugs lived in which element a declaration landed on.
+// core actually emits, because the bugs lived in which element a declaration landed on. The chat
+// nesting is exact for the same reason: core hard-codes `themed theme-light` on the log, and paints
+// `.chat-sidebar:not(.sidebar-popout)` transparent, so a message is force-lit AND floating over the
+// canvas rather than over the sidebar.
 const FIXTURE = `
 <div id="interface" class="themed">
   <section class="sidebar-tab directory" id="p-sidebar">
@@ -44,7 +63,11 @@ const FIXTURE = `
   </section>
 </div>
 <section class="chat-sidebar sidebar-tab" id="p-chat">
-    <ol id="chat-log"><li class="chat-message" id="p-message"><p>A chat message.</p></li></ol>
+    <div class="chat-scroll" id="p-chat-scroll">
+      <ol class="chat-log plain themed theme-light" id="p-chat-log">
+${CHAT_KINDS.map(chatMessage).join("\n")}
+      </ol>
+    </div>
   </section>
 `;
 
@@ -62,9 +85,19 @@ const PROBES = {
 	button:    { selector: "#p-button",     properties: COLOUR_PROPS },
 	input:     { selector: "#p-input",      properties: COLOUR_PROPS },
 	link:      { selector: "#p-link",       properties: COLOUR_PROPS },
-	chat:      { selector: "#p-chat",       properties: COLOUR_PROPS },
-	message:   { selector: "#p-message",    properties: [...COLOUR_PROPS, "--chat-message-background"] }
+	chat:      { selector: "#p-chat",        properties: COLOUR_PROPS },
+	chatScroll:{ selector: "#p-chat-scroll", properties: COLOUR_PROPS },
+	chatLog:   { selector: "#p-chat-log",    properties: COLOUR_PROPS }
 };
+
+for (const kind of CHAT_KINDS) {
+	PROBES[kind] = { selector: `#p-${kind}`, properties: [...COLOUR_PROPS, "--chat-message-background"] };
+	PROBES[`${kind}Body`] = { selector: `#p-${kind}-body`, properties: COLOUR_PROPS };
+	PROBES[`${kind}Hint`] = { selector: `#p-${kind}-hint`, properties: COLOUR_PROPS };
+}
+
+// Probes for surfaces only — nothing here carries text of its own to be legible against.
+const STRUCTURAL = ["app", "chat", "chatScroll", "chatLog"];
 
 const THEMES = [
 	{ name: "light", bodyClass: "game vtt theme-light", rootAttrs: "" },
@@ -88,8 +121,15 @@ function effectiveBackground(results, name, chain) {
 const BEHIND = {
 	folder: ["sidebar", "body"], entry: ["sidebar", "body"], search: ["sidebar", "body"],
 	sidebar: ["body"], heading: ["app", "body"], text: ["app", "body"], button: ["app", "body"],
-	input: ["app", "body"], link: ["app", "body"], message: ["chat", "body"], chat: ["body"], app: ["body"], body: []
+	input: ["app", "body"], link: ["app", "body"], chat: ["body"], app: ["body"], body: []
 };
+
+const BEHIND_CHAT = ["chatLog", "chatScroll", "chat", "body"];
+for (const kind of CHAT_KINDS) {
+	BEHIND[kind] = BEHIND_CHAT;
+	BEHIND[`${kind}Body`] = [kind, ...BEHIND_CHAT];
+	BEHIND[`${kind}Hint`] = [kind, ...BEHIND_CHAT];
+}
 
 describe.runIf(canProbe())("rendered theme", () => {
 	for (const theme of THEMES) {
@@ -100,7 +140,7 @@ describe.runIf(canProbe())("rendered theme", () => {
 				results = probe.render({ bodyHtml: FIXTURE, bodyClass: theme.bodyClass, rootAttrs: theme.rootAttrs, probes: PROBES });
 			});
 
-			it.each(Object.keys(PROBES).filter(n => !["app", "chat"].includes(n)))("%s is legible against what is behind it", name => {
+			it.each(Object.keys(PROBES).filter(n => !STRUCTURAL.includes(n)))("%s is legible against what is behind it", name => {
 				const element = results.get(name);
 				expect(element.missing).toBe(false);
 
@@ -116,7 +156,23 @@ describe.runIf(canProbe())("rendered theme", () => {
 			// Core backs chat messages with its own parchment image. Ours must win, or every message
 			// carries Foundry's paper into a Stonetop theme.
 			it("does not leave core's parchment behind chat messages", () => {
-				expect(results.get("message").get("--chat-message-background")).not.toMatch(/parchment\.jpg/);
+				expect(results.get("plain").get("--chat-message-background")).not.toMatch(/parchment\.jpg/);
+			});
+
+			// The invariant the veils broke, stated where it localises the fix rather than only as a
+			// contrast ratio: nothing is painted behind a chat message, so it IS its own backdrop.
+			it.each(CHAT_KINDS)("gives a %s message a fully opaque background", kind => {
+				const bg = CssColor.parse(results.get(kind).get("background-color"));
+				expect(bg).toBeTruthy();
+				expect(`${kind} alpha: ${bg.alpha ?? 1}`).toBe(`${kind} alpha: 1`);
+			});
+
+			// Guards the fixture's own premise. Core paints `.chat-sidebar:not(.sidebar-popout)`
+			// transparent deliberately; if that ever stopped being true here, the tests above would
+			// still pass while no longer testing the case that broke.
+			it.each(["chat", "chatScroll", "chatLog"])("leaves %s transparent, as core does", step => {
+				const bg = CssColor.parse(results.get(step).get("background-color"));
+				expect(`${step} alpha: ${bg?.alpha ?? 1}`).toBe(`${step} alpha: 0`);
 			});
 
 			// `body { color: var(--color-light-3) }` — core reaches straight past the semantic layer

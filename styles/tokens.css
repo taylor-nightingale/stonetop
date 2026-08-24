@@ -82,21 +82,42 @@
 
 	/* ── Core literals: chat ─────────────────────────────────────────────────────────────────────
 	   `.chat-message` declares its own colours outside any theme block, so they were identical in
-	   light and dark and none of them come from a ramp. This is why chat stayed unthemed. */
+	   light and dark and none of them come from a ramp.
+
+	   Two of core's decisions make chat the one place a translucent surface is not allowed:
+
+	     · `log.hbs` hard-codes `<ol class="chat-log plain themed theme-light">`, so a message is
+	       force-lit whatever the client's theme is. Its ink is the LIGHT theme's near-black.
+	     · `.chat-sidebar:not(.sidebar-popout) { background: transparent }` — messages float over
+	       the canvas, not over the sidebar. There is no parchment behind them to show through.
+
+	   So the veils used everywhere else composite onto the map, or onto black in a world with no
+	   scene, and near-black ink lands on it. Core's own four backgrounds are opaque for exactly
+	   this reason; ours mix the same tints INTO paper rather than into transparency. */
 	.chat-message {
 		/* Core paints message text from --color-dark-1 directly, because it assumes its own light
 		   parchment is behind every message in both themes. Once the background follows the theme,
 		   the text has to as well or a dark theme is dark ink on dark paper. */
 		color: var(--st-ink);
 
-		--chat-message-background:   var(--st-paper-veil);
+		--chat-message-background:   var(--st-paper);
 		--chat-message-border-color: var(--st-rule);
-		--color-blind-background:    var(--st-arcane-veil);
+		--color-blind-background:    color-mix(in srgb, var(--st-arcane) 14%, var(--st-paper));
 		--color-blind-border:        var(--st-arcane);
-		--color-emote-background:    var(--st-paper-sunken-strong);
+		--color-emote-background:    color-mix(in srgb, var(--st-ink) 8%, var(--st-paper));
 		--color-emote-border:        var(--st-rule-strong);
-		--color-whisper-background:  var(--st-info-veil);
+		--color-whisper-background:  color-mix(in srgb, var(--st-info) 14%, var(--st-paper));
 		--color-whisper-border:      var(--st-info);
+
+		/* Core's new-user messages ("Getting Started", "Inviting Your Players") are the only thing
+		   in chat that reads these, via its `.nue` hint footer and the groove rules around it.
+		   Core declares them on `body.game .app` — a V1 selector the frameless `aside#sidebar`
+		   never matches — so in chat they are not merely unthemed, they are undefined, and both
+		   properties fall back to currentColor: a hint line at full body ink, and a groove rule
+		   drawn in ink rather than in parchment. Naming them restores the de-emphasis core
+		   intended and puts the rules back on the palette. */
+		--color-text-dark-inactive:     var(--st-ink-faint);
+		--color-border-light-highlight: var(--st-rule);
 	}
 
 	/* Same again for the header and table-draw captions, which core paints from --color-dark-4. */
