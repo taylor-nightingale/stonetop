@@ -109,21 +109,19 @@ describe("RollRequest.resultText", () => {
 	});
 });
 
-// -- buildDisplayName ----------------------------------------------------------
+// -- titleFor ------------------------------------------------------------------
 
-describe("RollRequest.buildDisplayName", () => {
-	it("item roll: includes item name and stat label", () => {
+describe("RollRequest.titleFor", () => {
+	it("item roll: the move's own name, with no stat or outcome baked in", () => {
 		const req = RollRequest.fromItem(fakeItem({ name: "Charm Someone", moveResults: {} }), "cha", "normal");
-		expect(req.buildDisplayName("cha", "Strong Hit")).toBe("Charm Someone (+CHA) — Strong Hit");
+		expect(req.titleFor("cha")).toBe("Charm Someone");
 	});
 
-	it("item roll with isPrompt=true: omits stat label", () => {
-		const req = RollRequest.fromItem(fakeItem({ name: "Custom Move", moveResults: {} }), "prompt", "normal");
-		expect(req.buildDisplayName("prompt", "Weak Hit", true)).toBe("Custom Move — Weak Hit");
+	it("stat roll (no item): the uppercased stat, the only name it has", () => {
+		expect(RollRequest.fromStat("wis", "normal").titleFor("wis")).toBe("WIS");
 	});
 
-	it("stat roll (no item): uses stat name only", () => {
-		const req = RollRequest.fromStat("wis", "normal");
-		expect(req.buildDisplayName("wis", "Miss")).toBe("WIS — Miss");
+	it("stat roll: names the stat actually rolled, not the one requested", () => {
+		expect(RollRequest.fromStat("ask", "normal").titleFor("str")).toBe("STR");
 	});
 });

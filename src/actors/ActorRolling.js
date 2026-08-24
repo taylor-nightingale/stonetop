@@ -1,7 +1,11 @@
 import {RollDisplay} from "../utils/rollDisplay.js";
+import {RollOutcome} from "./RollOutcome.js";
+import {RollModes} from "./RollModes.js";
 import {renderRollCard, postDescriptionCard} from "../utils/rollCard.js";
 import {rich} from "../model/snapshot/RichText.js";
 import {buildXpLine} from "../chat/xpMarkControl.js";
+
+const PICK_STAT_TEMPLATE = "systems/stonetop/templates/apps/roll-pick.hbs";
 
 export class ActorRolling {
 	constructor(actor) {
@@ -45,32 +49,28 @@ export class ActorRolling {
 		const effectiveMode = this._actor.typedActor.applyRollMode(statKey, rollMode, request.moveSlug);
 		const formula = this._rollingFormula(effectiveMode, bonus);
 		const roll = await new Roll(formula).evaluate();
-		const total = roll.total;
-		const resultKey = total >= 10 ? "success" : total >= 7 ? "partial" : "failure";
-		const resultLabel = game.i18n.localize(
-			resultKey === "success" ? "stonetop.rollResults.strongHit" :
-				resultKey === "partial" ? "stonetop.rollResults.weakHit" :
-					"stonetop.rollResults.miss"
-		);
+		const outcome = RollOutcome.fromTotal(roll.total, k => game.i18n.localize(k));
 
 		// The book's XP rule — mark XP on a 6-, unless the move says otherwise (request.xpOnMiss) —
 		// is offered, not automated: players roll moves for fun or by accident, so the card carries
 		// a Mark XP button instead of ticking the track on its own. Only actors with an XP track
 		// (characters) get the offer.
-		const xpOffer = resultKey === "failure" && request.xpOnMiss
+		const xpOffer = outcome.isMiss && request.xpOnMiss
 			&& typeof this._actor.typedActor.markXp === "function";
 
+		// The card carries name, outcome and dice as three separate facts, so the template can put
+		// the outcome where it reads — a badge on the dice line — instead of in the headline.
 		const card = {
-			name: request.buildDisplayName(statKey, resultLabel, request.stat === "prompt"),
+			name: request.titleFor(statKey),
 			icon: request.icon,
 			dice: this._display.build(roll, {
 				rollMode: effectiveMode,
 				bonus:    request.stat !== "prompt" ? bonus : null,
 				statKey:  request.stat !== "prompt" ? statKey : null,
 			}),
-			resultKey,
+			outcome,
 			description: rich(request.description),
-			resultText:  rich(request.resultText(resultKey)),
+			resultText:  rich(request.resultText(outcome.key)),
 			xpLine: xpOffer ? buildXpLine(false, k => game.i18n.localize(k)) : null,
 		};
 		return ChatMessage.create({
@@ -115,24 +115,13 @@ export class ActorRolling {
 	}
 
 	static async _pickStat(title, stats, initialRollMode = "normal") {
-		return new Promise(resolve => {
-			const modes = [
-				{key: "adv", labelKey: "stonetop.rollMode.adv"},
-				{key: "normal", labelKey: "stonetop.rollMode.normal"},
-				{key: "dis", labelKey: "stonetop.rollMode.dis"},
-			];
-			const modeHtml = modes.map(m =>
-				`<li><label class="stonetop-outfit-load-label">` +
-				`<input type="radio" class="stonetop-roll-mode-radio" name="rollMode" value="${m.key}"${m.key === initialRollMode ? " checked" : ""}>` +
-				`${game.i18n.localize(m.labelKey)}</label></li>`
-			).join("");
-			const content =
-				`<div class="stonetop-roll-pick-content">` +
-				`<div class="stonetop-roll-mode-header">` +
-				`<p class="stonetop-outfit-heading">${game.i18n.localize("stonetop.rollMode.label")}</p>` +
-				`<ul class="stonetop-outfit-loads">${modeHtml}</ul>` +
-				`</div></div>`;
+		// The radios come from the same partial the sheet's side-bar renders — the two used to be
+		// hand-copied markup and had already drifted apart.
+		const content = await foundry.applications.handlebars.renderTemplate(PICK_STAT_TEMPLATE, {
+			modes: RollModes.options(initialRollMode),
+		});
 
+		return new Promise(resolve => {
 			const buttons = {};
 			for (const s of stats) {
 				const sign = s.value >= 0 ? "+" : "";

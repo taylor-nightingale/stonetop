@@ -30,7 +30,8 @@ beforeEach(async () => {
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
 	vi.stubGlobal("Dialog", FakeDialog);
 	vi.stubGlobal("game", { i18n: { localize: k => k } });
-	foundry.applications.handlebars.renderTemplate = async (_p, d) => d.name ?? "";
+	foundry.applications.handlebars.renderTemplate = async (_p, d) =>
+		`${d.name ?? ""} | ${d.dice?.mod ?? ""}`;
 });
 
 afterEach(() => {
@@ -78,7 +79,9 @@ describe("Dark Succor roll (integration)", () => {
 
 	it("names the track on the chat card", async () => {
 		await rollDarkSuccor(makeRolling());
-		expect(FakeChatMessage.lastCreated.content).toContain("Dark Succor (+FAVOR)");
+		const content = FakeChatMessage.lastCreated.content;
+		expect(content).toContain("Dark Succor");
+		expect(content).toContain("(FAVOR)");
 	});
 
 	// Without the insert nothing owns the track, so the move posts as text instead of rolling +0.

@@ -1,0 +1,22 @@
+{{!-- The roll-mode radios. Rendered on the character sheet's move side-bar and in the stat-pick
+      dialog, which had hand-copied versions of this markup that had already drifted.
+
+      Parameters: `modes` (RollModes.options — [{key, labelKey, checked}]), `name` scoping the radio
+      group, and `changeAction` for the sheet's change router. The dialog passes no changeAction: its
+      value is read once on submit rather than written back as you click.
+
+      The steading sheet's roll-mode control is deliberately NOT this partial — it draws the
+      steading's box glyph rather than the circle radio, and orders the modes differently. --}}
+<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
+<ul class="stonetop-outfit-loads">
+	{{#each modes}}
+	<li>
+		<label class="stonetop-outfit-load-label{{#if checked}} is-checked{{/if}}">
+			<input type="radio" class="stonetop-roll-mode-radio" name="{{../name}}"
+			       {{#if ../changeAction}}data-change-action="{{../changeAction}}"{{/if}}
+			       value="{{key}}" {{#if checked}}checked{{/if}}>
+			<span>{{localize labelKey}}</span>
+		</label>
+	</li>
+	{{/each}}
+</ul>

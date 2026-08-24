@@ -2530,15 +2530,71 @@ button.stonetop-view-toggle.is-active {
 	background: currentColor;
 }
 
-/* ── Chat card: dice + results (globally scoped — used in chat, not just sheets) ── */
+/* ── Chat card: dice + results (globally scoped — used in chat, not just sheets) ──────────────
+   The card states three separate facts — the move's name, how the roll landed, what that means —
+   and gives each its own line, so none of them has to be read out of a wrapping headline.
 
+   One `--tier-color` per outcome carries the tier colour down to the total, the badge and the result
+   rule; the tier is named once instead of once per element. */
+
+.stonetop-roll-title {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	line-height: 1.25;
+}
+
+.stonetop-roll-line {
+	--tier-color: var(--st-ink-soft);
+	display: flex;
+	align-items: center;
+	gap: 0.6em;
+	margin-bottom: 0.5em;
+}
+
+.stonetop-roll-line--success { --tier-color: var(--st-positive); }
+.stonetop-roll-line--partial { --tier-color: var(--st-warning); }
+.stonetop-roll-line--failure { --tier-color: var(--st-danger-strong); }
+
+/* The total is the one number the card exists to report, so it gets the plate and the size. */
+.stonetop-roll-total {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	min-width: 1.9em;
+	padding: 0.05em 0.15em;
+	border: 2px solid var(--tier-color);
+	border-radius: 4px;
+	color: var(--tier-color);
+	font-size: var(--fs-display);
+	font-weight: bold;
+	line-height: 1.25;
+}
+
+.stonetop-roll-readout {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1em;
+	min-width: 0;
+}
+
+.stonetop-roll-outcome {
+	color: var(--tier-color);
+	font-size: var(--fs-subheading);
+	font-weight: bold;
+	font-variant: small-caps;
+	letter-spacing: 0.03em;
+	line-height: 1.2;
+}
+
+/* The dice are the receipt for the total, not the headline — a step down the scale. */
 .stonetop-roll-dice {
 	display: flex;
 	align-items: center;
-	gap: 0.35em;
+	gap: 0.3em;
 	flex-wrap: wrap;
-	margin-bottom: 0.5em;
-	font-size: var(--fs-heading);
+	font-size: var(--fs-fine);
 }
 
 .stonetop-die {
@@ -2561,22 +2617,31 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-dice-separator { opacity: 0.4; }
 
-.stonetop-roll-mod   { font-weight: bold; }
-.stonetop-roll-total { font-weight: bold; }
+.stonetop-roll-mod { font-weight: bold; }
 
 .stonetop-move-result {
 	margin-top: 0.5em;
 	padding: 0.4em 0.6em;
-	border-left: 3px solid currentColor;
+	border-left: 3px solid var(--tier-color, currentColor);
+	color: var(--tier-color, inherit);
 	font-style: italic;
 }
 
-.stonetop-move-result--success { color: var(--st-positive); border-color: var(--st-positive); }
-.stonetop-move-result--partial { color: var(--st-warning); border-color: var(--st-warning); }
-.stonetop-move-result--failure { color: var(--st-danger-strong); border-color: var(--st-danger-strong); }
+/* A rolled card sets --tier-color on the roll line, which is a SIBLING — so the rolled tier's result
+   restates it, and the description-only card's list of every tier sets its own per row. */
+.stonetop-move-result--success { --tier-color: var(--st-positive); }
+.stonetop-move-result--partial { --tier-color: var(--st-warning); }
+.stonetop-move-result--failure { --tier-color: var(--st-danger-strong); }
 
 /* Description-only cards list every tier; the label ("10+" / "7-9" / "6-") leads each one. */
 .stonetop-move-result-label { font-weight: bold; font-style: normal; }
+
+/* On a roll card the move's full text is reference under the answer, not the answer. */
+.stonetop-move-description--secondary {
+	margin-top: 0.5em;
+	color: var(--st-ink-soft);
+	font-size: var(--fs-note);
+}
 
 .stonetop-roll-xp {
 	margin-top: 0.4em;
@@ -4790,8 +4855,10 @@ button.stonetop-xp-toggle {
 
 
 
-/* A move's icon, wherever a move renders — moves tab, side-bar, arcanum cards, seasons, chat. */
-.stonetop .stonetop-move-icon {
+/* A move's icon, wherever a move renders — moves tab, side-bar, arcanum cards, seasons, chat.
+   A chat message is outside any .stonetop root, so it names that context rather than inheriting. */
+.stonetop .stonetop-move-icon,
+.chat-message .stonetop-move-icon {
 	width: 20px;
 	height: 20px;
 	flex: 0 0 20px;

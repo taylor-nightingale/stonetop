@@ -6,6 +6,7 @@ import { FakeStonetopCharacter } from "../fakes/FakeStonetopCharacter.js";
 import { FakeRoll } from "../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../fakes/foundry/FakeChatMessage.js";
 import { FakeDialog } from "../fakes/foundry/FakeDialog.js";
+import { renderTemplate as renderRealTemplate } from "../fakes/renderTemplate.js";
 
 // -- helpers -------------------------------------------------------------------
 
@@ -188,40 +189,72 @@ describe("ActorRolling.execute — rich-text chat card", () => {
 
 // -- _pickStat -----------------------------------------------------------------
 
+// The stat-pick dialog renders its body from a template, so it appears an await later than the
+// call. Tests drive it through this rather than each racing the render.
+const dialogShown = () => vi.waitUntil(() => FakeDialog.lastConfig);
+
 describe("ActorRolling._pickStat", () => {
-	it("creates one button per stat", () => {
-		const stats = [{key: "str", name: "STR", value: 2}, {key: "dex", name: "DEX", value: 0}];
-		ActorRolling._pickStat("Roll", stats, "normal");
+	// The dialog body is a real template now, so these render it for real — a stub returning a
+	// hand-written string would only prove the stub contains what the stub was told to contain.
+	beforeEach(() => {
+		foundry.applications.handlebars.renderTemplate = async (path, data) => renderRealTemplate(path, data);
+	});
+
+	// _pickStat's promise settles only on click or close, so these await the dialog, never the call.
+	// It comes back BOXED because an async function unwraps a returned promise recursively — handing
+	// `picked` straight back would make `await openPicker(...)` wait on the very thing it must not.
+	async function openPicker(stats, initialRollMode = "normal") {
+		const picked = ActorRolling._pickStat("Roll", stats, initialRollMode);
+		await dialogShown();
+		return { picked };
+	}
+
+	const oneStat = [{key: "str", name: "STR", value: 2}];
+
+	it("creates one button per stat", async () => {
+		await openPicker([{key: "str", name: "STR", value: 2}, {key: "dex", name: "DEX", value: 0}]);
 		expect(Object.keys(FakeDialog.lastConfig.buttons)).toEqual(["str", "dex"]);
 	});
 
 	it("resolves {stat, rollMode} when a button is clicked", async () => {
-		const promise = ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "normal");
+		const { picked } = await openPicker(oneStat);
 		FakeDialog.clickButton("str", "adv");
-		expect(await promise).toEqual({stat: "str", rollMode: "adv"});
+		expect(await picked).toEqual({stat: "str", rollMode: "adv"});
 	});
 
 	it("resolves null when the dialog is closed", async () => {
-		const promise = ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "normal");
+		const { picked } = await openPicker(oneStat);
 		FakeDialog.close();
-		expect(await promise).toBeNull();
+		expect(await picked).toBeNull();
 	});
 
-	it("content includes all three roll mode options", () => {
-		ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "normal");
+	it("offers all three roll modes", async () => {
+		await openPicker(oneStat);
 		const content = FakeDialog.lastConfig.content;
 		expect(content).toContain('value="adv"');
 		expect(content).toContain('value="normal"');
 		expect(content).toContain('value="dis"');
 	});
 
-	it("pre-selects the supplied initialRollMode", () => {
-		ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "adv");
+	it("pre-selects the supplied initialRollMode", async () => {
+		await openPicker(oneStat, "adv");
 		expect(FakeDialog.lastConfig.content).toMatch(/value="adv"[^>]*checked/);
 	});
 
-	it("adds stonetop-roll-dialog class via dialog options", () => {
-		ActorRolling._pickStat("Roll", [{key: "str", name: "STR", value: 2}], "normal");
+	// The dialog reads its radios once, on submit; the sheet's copy of this partial writes back
+	// through the change router as you click. Only the sheet passes a change action.
+	it("leaves the radios out of the sheet's change router", async () => {
+		await openPicker(oneStat);
+		expect(FakeDialog.lastConfig.content).not.toContain("data-change-action");
+	});
+
+	it("names the radio group so the callback can read it back", async () => {
+		await openPicker(oneStat);
+		expect(FakeDialog.lastConfig.content).toContain('name="rollMode"');
+	});
+
+	it("adds stonetop-roll-dialog class via dialog options", async () => {
+		await openPicker(oneStat);
 		expect(FakeDialog.lastOptions.classes).toContain("stonetop-roll-dialog");
 	});
 });
@@ -239,6 +272,7 @@ describe("ActorRolling.execute — ask stat", () => {
 	it("uses the stat returned by _pickStat", async () => {
 		const rolling = makeAskRolling({str: 1});
 		const p = rolling.execute(RollRequest.fromStat("ask", "normal"));
+		await dialogShown();
 		FakeDialog.clickButton("str", "normal");
 		await p;
 		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
@@ -247,6 +281,7 @@ describe("ActorRolling.execute — ask stat", () => {
 	it("uses the rollMode from dialog, overriding request.rollMode", async () => {
 		const rolling = makeAskRolling({str: 1});
 		const p = rolling.execute(RollRequest.fromStat("ask", "normal"));
+		await dialogShown();
 		FakeDialog.clickButton("str", "adv");
 		await p;
 		expect(FakeRoll.lastInstance.formula).toBe("3d6kh2 + 1");
@@ -255,6 +290,7 @@ describe("ActorRolling.execute — ask stat", () => {
 	it("aborts without rolling when the dialog is closed", async () => {
 		const rolling = makeAskRolling({str: 1});
 		const p = rolling.execute(RollRequest.fromStat("ask", "normal"));
+		await dialogShown();
 		FakeDialog.close();
 		await p;
 		expect(FakeRoll.lastInstance).toBeNull();

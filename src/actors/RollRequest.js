@@ -38,10 +38,9 @@ export class RollRequest {
 		return this.moveResults?.[resultKey]?.value ?? "";
 	}
 
-	buildDisplayName(statKey, resultLabel, isPrompt = false) {
-		const statLabel = isPrompt ? "" : ` (+${statKey.toUpperCase()})`;
-		return this.moveResults !== null
-			? `${this.label}${statLabel} — ${resultLabel}`
-			: `${statKey.toUpperCase()} — ${resultLabel}`;
+	// A move roll is titled by the move; a bare rating roll has no move behind it, so the stat is
+	// the only name it has.
+	titleFor(statKey) {
+		return this.moveResults !== null ? this.label : statKey.toUpperCase();
 	}
 }

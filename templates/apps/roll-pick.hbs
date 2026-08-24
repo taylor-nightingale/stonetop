@@ -1,0 +1,8 @@
+{{!-- Body of the stat-pick dialog: the roll-mode radios, above the stat buttons Dialog draws
+      itself. The radios are unnamed by a change action — the dialog reads the checked value once,
+      on submit, rather than writing back as you click. --}}
+<div class="stonetop-roll-pick-content">
+	<div class="stonetop-roll-mode-header">
+		{{> "stonetop.roll-mode-picker" modes=modes name="rollMode"}}
+	</div>
+</div>

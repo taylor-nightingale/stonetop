@@ -7,6 +7,8 @@
 export const STONETOP_PARTIALS = {
 	"stonetop.chat-move-roll":   "systems/stonetop/templates/chat/move-roll.hbs",
 	"stonetop.actor-header":     "systems/stonetop/templates/actor/partials/actor-header.hbs",
+	"stonetop.roll-mode-picker": "systems/stonetop/templates/actor/partials/roll-mode-picker.hbs",
+	"stonetop.roll-pick":        "systems/stonetop/templates/apps/roll-pick.hbs",
 	"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
 	"stonetop.stepper-buttons":  "systems/stonetop/templates/actor/partials/stepper-buttons.hbs",
 	"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",

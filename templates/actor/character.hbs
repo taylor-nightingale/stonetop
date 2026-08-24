@@ -75,33 +75,7 @@
 			<div class="stonetop-moves-sidebar">
 				{{!-- Roll Mode --}}
 				<div class="stonetop-outfit-header">
-					<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
-					<ul class="stonetop-outfit-loads">
-						<li>
-							<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "adv")}} is-checked{{/if}}">
-								<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-								       data-change-action="rollMode"
-								       value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
-								<span>{{localize "stonetop.rollMode.adv"}}</span>
-							</label>
-						</li>
-						<li>
-							<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "normal")}} is-checked{{/if}}">
-								<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-								       data-change-action="rollMode"
-								       value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
-								<span>{{localize "stonetop.rollMode.normal"}}</span>
-							</label>
-						</li>
-						<li>
-							<label class="stonetop-outfit-load-label{{#if (eq stonetop.rollMode "dis")}} is-checked{{/if}}">
-								<input type="radio" class="stonetop-roll-mode-radio" name="stonetop-roll-mode"
-								       data-change-action="rollMode"
-								       value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
-								<span>{{localize "stonetop.rollMode.dis"}}</span>
-							</label>
-						</li>
-					</ul>
+					{{> "stonetop.roll-mode-picker" modes=stonetop.rollModes name="stonetop-roll-mode" changeAction="rollMode"}}
 				</div>
 
 				{{#each stonetop.moves.categories}}

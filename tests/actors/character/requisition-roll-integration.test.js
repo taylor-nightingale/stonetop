@@ -33,7 +33,8 @@ beforeEach(async () => {
 	vi.stubGlobal("Roll", FakeRoll);
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
 	vi.stubGlobal("Dialog", FakeDialog);
-	foundry.applications.handlebars.renderTemplate = async (_p, d) => d.name ?? "";
+	foundry.applications.handlebars.renderTemplate = async (_p, d) =>
+		`${d.name ?? ""} | ${d.dice?.mod ?? ""}`;
 });
 
 afterEach(() => {
@@ -90,7 +91,9 @@ describe("Requisition roll (integration)", () => {
 	it("names the stat on the chat card", async () => {
 		stubWorld([makeSteadingActor()]);
 		await rollRequisition(makeRolling());
-		expect(FakeChatMessage.lastCreated.content).toContain("Requisition (+FORTUNES)");
+		const content = FakeChatMessage.lastCreated.content;
+		expect(content).toContain("Requisition");
+		expect(content).toContain("(FORTUNES)");
 	});
 
 	it("rolls against the primary steading when strays are in the world", async () => {

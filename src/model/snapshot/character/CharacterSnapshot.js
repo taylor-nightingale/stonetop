@@ -1,4 +1,5 @@
 import { FollowersSnapshot } from "./FollowerSnapshot.js";
+import { RollModes } from "../../../actors/RollModes.js";
 export { Resource } from "../../data/Resource.js";
 export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
 export { StatSnapshot } from "./StatSnapshot.js";
@@ -74,6 +75,11 @@ export class CharacterSnapshot {
 		this.rollMode        = b._rollMode;
 		this.bio             = b._bio   ?? "";
 		this.notes           = b._notes ?? "";
+	}
+
+	/** The side-bar's radio list, ticked to the mode this character is set to. */
+	get rollModes() {
+		return RollModes.options(this.rollMode);
 	}
 }
 

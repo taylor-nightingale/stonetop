@@ -1,24 +1,37 @@
-{{!-- Move-roll / description chat card. Data object: { name, dice?, resultKey?, description?, resultText?, results? }.
-      dice = { diceGroups:[{kept,values}], modeLabel, mod, total, rollMode }. description/resultText are
-      RichText (enriched by renderRollCard). results = [{ key, label, text }] — ALL tiers, for
-      description-only cards (a roll card carries the single rolled tier as resultText instead). --}}
+{{!-- Move-roll / description chat card. Data object: { name, icon?, dice?, outcome?, description?,
+      resultText?, results?, xpLine? }.
+      dice = { diceGroups:[{kept,values}], modeLabel, mod, total, rollMode }. outcome = RollOutcome
+      ({key, label}) — the tier the roll landed in, shown as a badge beside the total rather than
+      appended to the name, so the headline stays the move's own name and wraps once at most.
+      description/resultText are RichText (enriched by renderRollCard). results = [{ key, label,
+      text }] — ALL tiers, for description-only cards (a roll card carries the single rolled tier
+      as resultText instead).
+
+      Order is result-then-description: on a roll card the tier text is the answer, and the move's
+      full text is reference you have usually just read on the sheet. A description-only card has
+      no resultText, so it still reads name → description → every tier. --}}
 {{!-- Same icon the sheets show, from the same move data. --}}
-<h3>{{#if icon}}<img class="stonetop-move-icon" src="{{icon}}" alt="">{{/if}}{{name}}</h3>
+<h3 class="stonetop-roll-title">{{#if icon}}<img class="stonetop-move-icon" src="{{icon}}" alt="">{{/if}}{{name}}</h3>
 {{#if dice}}
-<div class="stonetop-roll-dice">
-	{{#if dice.modeLabel}}<span class="stonetop-roll-mode stonetop-roll-mode--{{dice.rollMode}}">{{dice.modeLabel}}</span>{{/if}}
-	{{#each dice.diceGroups}}
-	{{#unless kept}}<span class="stonetop-dice-separator">|</span>{{/unless}}
-	<span class="stonetop-dice-group{{#unless kept}} stonetop-dice-group--dropped{{/unless}}">
-		{{#each values}}<span class="stonetop-die{{#unless ../kept}} stonetop-die--dropped{{/unless}}">{{this}}</span>{{/each}}
-	</span>
-	{{/each}}
-	{{#if dice.mod}}<span class="stonetop-roll-mod">{{dice.mod}}</span>{{/if}}
-	<span class="stonetop-roll-total">= {{dice.total}}</span>
+<div class="stonetop-roll-line{{#if outcome}} stonetop-roll-line--{{outcome.key}}{{/if}}">
+	<span class="stonetop-roll-total">{{dice.total}}</span>
+	<div class="stonetop-roll-readout">
+		{{#if outcome}}<span class="stonetop-roll-outcome">{{outcome.label}}</span>{{/if}}
+		<div class="stonetop-roll-dice">
+			{{#each dice.diceGroups}}
+			{{#unless kept}}<span class="stonetop-dice-separator">|</span>{{/unless}}
+			<span class="stonetop-dice-group{{#unless kept}} stonetop-dice-group--dropped{{/unless}}">
+				{{#each values}}<span class="stonetop-die{{#unless ../kept}} stonetop-die--dropped{{/unless}}">{{this}}</span>{{/each}}
+			</span>
+			{{/each}}
+			{{#if dice.mod}}<span class="stonetop-roll-mod">{{dice.mod}}</span>{{/if}}
+			{{#if dice.modeLabel}}<span class="stonetop-roll-mode stonetop-roll-mode--{{dice.rollMode}}">{{dice.modeLabel}}</span>{{/if}}
+		</div>
+	</div>
 </div>
 {{/if}}
-{{#if description.raw}}{{rich description}}{{/if}}
-{{#if resultText.raw}}<div class="stonetop-move-result stonetop-move-result--{{resultKey}}">{{rich resultText}}</div>{{/if}}
+{{#if resultText.raw}}<div class="stonetop-move-result stonetop-move-result--{{outcome.key}}">{{rich resultText}}</div>{{/if}}
+{{#if description.raw}}<div class="stonetop-move-description{{#if dice}} stonetop-move-description--secondary{{/if}}">{{rich description}}</div>{{/if}}
 {{#each results}}
 <div class="stonetop-move-result stonetop-move-result--{{key}}"><span class="stonetop-move-result-label">{{label}}</span> {{rich text}}</div>
 {{/each}}
