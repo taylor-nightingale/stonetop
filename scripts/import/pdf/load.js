@@ -48,7 +48,15 @@ export function articleBoundaries(pdf, r) {
 	return { startPage: r.pdfPage, endPage, startRight, endLeft };
 }
 
-export function loadArticlePages(pdf, r, { imgDir, imgPrefix = "art", mapFile = (f) => f, dedup } = {}) {
+/**
+ * @param {object} [opts]
+ * @param {boolean} [opts.markers=true] Splice the vector ◇/○/□ marks into the text.
+ *   Book II draws its inline load diamonds as vector art, so it needs this. Book I does NOT — it
+ *   sets them as font glyphs (see glyphs.js), and its vector marks belong to FIGURES: the sample
+ *   inventory insert printed on "Gear and possessions" carries 117 of them, which this would scatter
+ *   through the prose around it. Book I therefore loads with markers off.
+ */
+export function loadArticlePages(pdf, r, { imgDir, imgPrefix = "art", mapFile = (f) => f, dedup, markers = true } = {}) {
 	const { startPage, endPage, startRight, endLeft } = articleBoundaries(pdf, r);
 	const pages = [], pageRules = [], pageImages = [];
 	for (let p = startPage; p <= endPage; p++) {
@@ -75,7 +83,7 @@ export function loadArticlePages(pdf, r, { imgDir, imgPrefix = "art", mapFile = 
 		// spliced into the text at its exact character position (a pseudo-line can only sort between
 		// mutool cells, which put it at the wrong spot). Circles can be inline (potency dots inside
 		// "(○○○ uses)"), so they keep the wider match.
-		for (const mk of loadMarkers(pdf, p)) {
+		for (const mk of (markers ? loadMarkers(pdf, p) : [])) {
 			const mid = (l) => (l.bbox[1] + l.bbox[3]) / 2;
 			let line;
 			if (mk.kind === "square") {

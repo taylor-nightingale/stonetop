@@ -2795,6 +2795,28 @@ button.stonetop-xp-toggle {
 	margin-top: 4px;
 }
 
+/* The reference sidebar shown under a topic's advice: a different question from a different page of
+   the book, so it is set off by a rule and its own heading rather than running on from the advice. */
+.stonetop-advice-reference {
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 1px solid var(--st-rule);
+}
+
+.stonetop-advice-reference h3 {
+	margin: 0 0 6px;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-note);
+	font-variant: small-caps;
+	letter-spacing: 0.5px;
+	color: var(--st-ink-soft);
+	border: none;
+}
+
+.stonetop-advice-reference > :last-child {
+	margin-bottom: 0;
+}
+
 .stonetop-roll-pick-content {
 	position: relative;
 	background: var(--st-paper-raised);

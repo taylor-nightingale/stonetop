@@ -1,0 +1,12 @@
+{{!-- The book's prose as the advice window renders it: paragraphs and bulleted options, each already
+      enriched, so the moves, improvements and pages it cites are content links. Shared by a topic's
+      advice and by the reference sidebar shown with it, so the two always read the same. --}}
+{{#each blocks}}
+	{{#if (eq type "list")}}
+	<ul class="stonetop-advice-options">
+		{{#each items}}<li>{{rich this}}</li>{{/each}}
+	</ul>
+	{{else}}
+	<p>{{rich text}}</p>
+	{{/if}}
+{{/each}}

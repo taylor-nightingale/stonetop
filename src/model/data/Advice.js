@@ -34,6 +34,14 @@ export class AdviceList {
 
 const BLOCK_TYPES = { para: AdviceParagraph, list: AdviceList };
 
+/** Parse a stored `blocks` array — the one shape the book's prose takes, shared by an advice topic
+ *  and by a reference sidebar (src/model/data/Reference.js), so the two cannot drift. */
+export function blocksFromStored(raw) {
+	return (raw?.blocks ?? [])
+		.map(b => BLOCK_TYPES[b?.type]?.fromStored(b))
+		.filter(Boolean);
+}
+
 /** One topic: the heading the book prints, and the blocks under it. */
 export class AdviceTopic {
 	constructor(key, title, blocks = []) {
@@ -43,10 +51,7 @@ export class AdviceTopic {
 	}
 
 	static fromStored(key, raw) {
-		const blocks = (raw?.blocks ?? [])
-			.map(b => BLOCK_TYPES[b?.type]?.fromStored(b))
-			.filter(Boolean);
-		return new AdviceTopic(key, String(raw?.title ?? ""), blocks);
+		return new AdviceTopic(key, String(raw?.title ?? ""), blocksFromStored(raw));
 	}
 }
 

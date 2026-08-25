@@ -42,6 +42,51 @@ export const INSERT_ALIASES = new Map([
 	["Snowshoes",                   "Snow-shoes"],
 ]);
 
+/**
+ * Coin phrases the Value ladder and the Coins sidebar print, and the pack item each one names.
+ *
+ * The book writes them in prose ("a ◇ purse of copper coins") rather than as the item is titled
+ * ("Purse of coppers"), so the pairing is spelled out instead of matched — and only where an item
+ * really exists: the book prices a purse of GOLD but the pack has no such item, so that phrase stays
+ * plain text rather than pointing at something near enough.
+ *
+ * The generic definitions ("a handful of coins contains about 10") are deliberately absent: they
+ * define the unit, they do not name a thing you could carry.
+ */
+export const COIN_PHRASES = [
+	{ match: /\bpurses? of copper(?: coins)?\b/gi,   slug: "purse-of-coppers" },
+	{ match: /\bpurses? of coppers\b/gi,             slug: "purse-of-coppers" },
+	{ match: /\bpurses? of silver(?: coins)?\b/gi,   slug: "purse-of-silvers" },
+	{ match: /\bpurses? of silvers\b/gi,             slug: "purse-of-silvers" },
+	{ match: /\bhandfuls? of silver(?: coins)?\b/gi, slug: "handful-of-silvers" },
+	{ match: /\bhandfuls? of silvers\b/gi,           slug: "handful-of-silvers" },
+	{ match: /\bhandfuls? of copper(?: coins)?\b/gi, slug: "coppers" },
+	{ match: /\bhandfuls? of coppers\b/gi,           slug: "coppers" },
+];
+
+/**
+ * Turn the coin phrases in a run of book prose into content links, so "a ◇ purse of coppers" is the
+ * item itself — clickable, and draggable onto a sheet — rather than a description of one.
+ *
+ * `idBySlug` maps an outfit-item slug to its pack id; a phrase whose item is missing is left alone.
+ * Text already inside a @UUID link is skipped, so this can run over prose the builder has linked.
+ */
+export function linkCoinPhrases(text, idBySlug) {
+	if (!text) return text;
+	// Split on existing links and rewrite only the gaps between them.
+	const parts = String(text).split(/(@UUID\[[^\]]*\]\{[^}]*\})/g);
+	return parts.map((part, i) => {
+		if (i % 2) return part;                                   // an existing link — leave it
+		let out = part;
+		for (const { match, slug } of COIN_PHRASES) {
+			const id = idBySlug.get(slug);
+			if (!id) continue;
+			out = out.replace(match, (phrase) => `@UUID[Compendium.stonetop.${OUTFIT_PACK}.Item.${id}]{${phrase}}`);
+		}
+		return out;
+	}).join("");
+}
+
 /** Compare printed names loosely enough to see through the two lists' punctuation and "and/or". */
 export const normalizeName = (name) => String(name).toLowerCase()
 	.replace(/\band\/or\b/g, " or ")
@@ -85,6 +130,19 @@ export function resolveRow(item, section, byName) {
 		id: existing?._id ?? deterministicId(OUTFIT_PACK, toSlug(item.name)),
 		pack: OUTFIT_PACK, existing: !!existing, kind: "outfitItem",
 	});
+}
+
+/**
+ * Resolve every row of every parsed table against the items already in the pack, keyed by BookItem.
+ * Pure over `byName`, so the page builder and the item builder agree on what each row points at
+ * without one of them having to tell the other.
+ */
+export function resolveTableRows(tables, byName) {
+	const resolved = new Map();
+	for (const table of tables)
+		for (const section of table.sections)
+			for (const item of section.items) resolved.set(item, resolveRow(item, section, byName));
+	return resolved;
 }
 
 /** A livestock row's slug. The book's ", follower" / ", follower?" is a note about which pack the

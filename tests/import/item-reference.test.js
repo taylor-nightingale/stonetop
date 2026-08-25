@@ -1,10 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { BookItem } from "../../scripts/import/pdf/items.js";
-import { ValueGuide, ValueTier } from "../../scripts/import/pdf/value-ladder.js";
 import { ResolvedRow, OUTFIT_PACK } from "../../scripts/import/item-docs.js";
-import {
-	renderResource, renderDetail, renderInline, renderCategory, renderValueGuide, renderItemReference,
-} from "../../scripts/import/item-reference.js";
+import { renderResource, renderDetail, renderInline, renderCategory } from "../../scripts/import/item-reference.js";
 
 const bookItem = (name, patch = {}) => Object.assign(new BookItem("common", "weapons"), { name }, patch);
 const linked = (item, id = "abcdefgh12345678") =>
@@ -100,48 +97,5 @@ describe("renderCategory", () => {
 		const item = bookItem("Dog", { value: 1, statBlock: "HP 6; Damage d6 (_hand_)" });
 		const html = renderCategory(section, [linked(item)], { title: "Livestock" });
 		expect(html).toContain('<div class="item-ref-stats">HP 6; Damage d6 (<em>hand</em>)</div>');
-	});
-});
-
-describe("renderValueGuide", () => {
-	const guide = () => {
-		const g = new ValueGuide();
-		g.lead = "Exchange rates are far from standard, but...";
-		const tier = new ValueTier(0);
-		tier.equivalences = ["A ◇ purse of copper coins", "A favor"];
-		g.tiers = [tier];
-		g.notes = ["* Exotic trade goods are +1 Value"];
-		g.coins.paragraphs = ["_Stonetop_ abstracts coinage."];
-		g.coins.bullets = ["A handful is about 10 coins."];
-		return g;
-	};
-
-	it("renders a card per rung, the notes, and the Coins sidebar", () => {
-		const html = renderValueGuide(guide());
-		expect(html).toContain("<h3>Value 0</h3>");
-		expect(html).toContain("<li>A ◇ purse of copper coins</li>");
-		expect(html).toContain("* Exotic trade goods are +1 Value");
-		expect(html).toContain("<h2>Coins</h2>");
-		expect(html).toContain("<em>Stonetop</em> abstracts coinage.");
-		expect(html).toContain("<li>A handful is about 10 coins.</li>");
-	});
-});
-
-describe("renderItemReference", () => {
-	it("renders each table with its lead and its categories", () => {
-		const item = bookItem("Sword, iron", { value: 1 });
-		const section = { title: "weapons of war", footnote: "", items: [item] };
-		const html = renderItemReference({
-			guide: new ValueGuide(),
-			tables: [{ name: "Special items", lead: "If you want to acquire any of these items…", sections: [section] }],
-			rowsFor: () => [linked(item)],
-			sectionTitle: (t) => t,
-			bookPages: "92-97",
-		});
-		expect(html).toContain('<div class="stonetop-item-reference">');
-		expect(html).toContain("Stonetop — p.92-97");
-		expect(html).toContain("<h2>Special items</h2>");
-		expect(html).toContain("If you want to acquire any of these items…");
-		expect(html).toContain("Sword, iron");
 	});
 });

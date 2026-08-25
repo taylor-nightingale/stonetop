@@ -20,22 +20,15 @@ import { toSlug } from "../../src/utils/slug.js";
 import { deterministicId, documentKey } from "./ids.js";
 import { resolveBooks, requireTools } from "./pdf/books.js";
 import { parseItemTables, knownTagSlugs, parseStatBlock } from "./pdf/items.js";
-import { loadValueGuide } from "./pdf/value-ladder.js";
 import { toFollowerDoc } from "./pdf/creatures.js";
 import {
 	OUTFIT_PACK, FOLLOWER_PACK, resolveRow, toOutfitItemDoc, toFolderDoc,
 	normalizeName, sectionTitle, followerName, followerSlug, generatedFlags, isGenerated,
 } from "./item-docs.js";
-import { renderItemReference } from "./item-reference.js";
 
 const OUTFIT_DIR    = `packs/src/${OUTFIT_PACK}`;
 const FOLLOWER_DIR  = `packs/src/${FOLLOWER_PACK}`;
 const SPECIAL_DIR   = `${OUTFIT_DIR}/special`;
-const REFERENCE_DIR = "packs/src/reference";
-const REFERENCE_PACK = "reference";
-const PAGE_SLUG = "common-and-special-items";
-const PAGE_NAME = "Common & Special Items";
-const BOOK_PAGES = "92-97";
 
 const readJson = (f) => JSON.parse(readFileSync(f, "utf8"));
 const writeJson = (f, doc) => writeFileSync(f, JSON.stringify(doc, null, "\t") + "\n");
@@ -72,7 +65,6 @@ function main() {
 	const known = knownTagSlugs(readJson("languages/en.json"));
 
 	const tables = parseItemTables(bookI, known);
-	const { guide } = loadValueGuide(bookI);
 
 	const cleared = clearGenerated(OUTFIT_DIR) + clearGenerated(FOLLOWER_DIR);
 	const existing = loadPack(OUTFIT_DIR);
@@ -144,46 +136,13 @@ function main() {
 	}
 	if (usedLivestock) writeJson(join(FOLLOWER_DIR, "_folders", "livestock.json"), livestockFolder);
 
-	// The reference page.
-	const html = renderItemReference({
-		guide, tables, sectionTitle, bookPages: BOOK_PAGES,
-		rowsFor: (section) => section.items.map((i) => resolved.get(i)),
-	});
-	const entryId = deterministicId(REFERENCE_PACK, PAGE_SLUG);
-	const pageId = deterministicId(REFERENCE_PACK, `${PAGE_SLUG}#page`);
-	mkdirSync(REFERENCE_DIR, { recursive: true });
-	writeJson(join(REFERENCE_DIR, `${PAGE_SLUG}.json`), {
-		_id: entryId,
-		_key: documentKey("JournalEntry", entryId),
-		name: PAGE_NAME,
-		pages: [{
-			_id: pageId,
-			_key: `!journal.pages!${entryId}.${pageId}`,
-			name: PAGE_NAME,
-			type: "text",
-			title: { show: false, level: 1 },
-			image: {},
-			src: null,
-			text: { format: 1, content: html, markdown: undefined },
-			video: { controls: true, volume: 0.5 },
-			system: {},
-			sort: 0,
-			ownership: { default: -1 },
-			flags: {},
-		}],
-		folder: null,
-		sort: 100000,
-		ownership: { default: 2 },
-		flags: { stonetop: { bookPages: BOOK_PAGES, slug: PAGE_SLUG } },
-	});
-
 	const rows = [...resolved.values()];
 	console.log(`\nparsed ${rows.length} rows from ${bookI} (cleared ${cleared} previously generated doc(s))`);
 	console.log(`  ${rows.filter((r) => r.existing).length} already in ${OUTFIT_PACK}`);
 	console.log(`  ${newItems.length} new outfit item(s), ${newFollowers.length} new follower(s), ${newFolders.length} new folder(s)`);
 	console.log(`  ${rows.filter((r) => r.kind === "category").length} category row(s) with no item (rendered as text)`);
-	console.log(`\nwrote ${REFERENCE_DIR}/${PAGE_SLUG}.json (${html.length} chars)`);
-	console.log(`\nReview \`git diff packs/src/\`, then compile with \`npm run pack\`.`);
+	console.log(`\nThe reference PAGE that links these is built by build-book-one.js, which runs next.`);
+	console.log(`Review \`git diff packs/src/\`, then compile with \`npm run pack\`.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

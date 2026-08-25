@@ -11,6 +11,7 @@ export const STONETOP_PARTIALS = {
 	"stonetop.roll-pick":        "systems/stonetop/templates/apps/roll-pick.hbs",
 	"stonetop.advice":           "systems/stonetop/templates/apps/advice.hbs",
 	"stonetop.advice-button":    "systems/stonetop/templates/actor/partials/advice-button.hbs",
+	"stonetop.prose-blocks":     "systems/stonetop/templates/apps/partials/prose-blocks.hbs",
 	"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
 	"stonetop.stepper-buttons":  "systems/stonetop/templates/actor/partials/stepper-buttons.hbs",
 	"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",

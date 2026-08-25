@@ -37,3 +37,21 @@ export class AdviceSnapshot {
 		return new AdviceSnapshot(topic.key, topic.title, blocks);
 	}
 }
+
+/**
+ * Render shape for a reference sidebar. Identical blocks to an advice topic — it is the same kind of
+ * book prose — so it reuses the block builders and the same partial renders both.
+ */
+export class ReferenceSnapshot {
+	constructor(key, title, blocks) {
+		this.key    = key;
+		this.title  = title;
+		this.blocks = blocks;
+	}
+
+	/** @param {import("../data/Reference.js").ReferenceSidebar} sidebar */
+	static of(sidebar) {
+		const blocks = sidebar.blocks.map(b => BLOCK_BUILDERS.get(b.constructor)?.(b)).filter(Boolean);
+		return new ReferenceSnapshot(sidebar.key, sidebar.title, blocks);
+	}
+}

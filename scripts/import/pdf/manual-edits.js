@@ -84,18 +84,6 @@ export const MANUAL_EDITS = {
 			note: "bugs.md 14b: service/favor — split 'Weeks of guided study' from the guide sub-header",
 		},
 	],
-	// The book sets an inline load diamond as a dingbat glyph — ZapfDingbats in Book I, ITCDINGMedium
-	// in Book II — and neither is matched by fonts.js isDingbat(), so it is dropped from the rendered
-	// text. Each of these livestock rows prints "butcher for ◇ provisions" (verified against the
-	// glyph AND the vector diamond beside it on the page).
-	"hillfolk": [
-		{
-			find: /can butcher for provisions/g,
-			replace: "can butcher for ◇ provisions",
-			note: "livestock rows — restore the dropped ◇ load diamond before 'provisions'",
-		},
-	],
-
 	// A hyphen that ends a line is usually the book breaking a word ("aethe-" + "rium"), and the
 	// renderer heals it by dropping the hyphen. These two are real compounds that happen to break at
 	// their own hyphen, so healing them fuses a word that should keep it.

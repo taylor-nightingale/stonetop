@@ -20,15 +20,23 @@ export const BUILDERS = [
 	"scripts/import/pdf/build-tables.js",
 	"scripts/import/pdf/build-improvements.js",
 	"scripts/import/pdf/build-steadfasts.js",
-	// Book I's value tables: the gear the pack is missing, the livestock followers, and the
-	// "Common & Special Items" reference page (which links the items it just resolved).
-	"scripts/import/build-items.js",
 	// Not a pack: writes the tag definitions into languages/en.json. Listed here so a reprint
 	// refreshes them along with everything else derived from the books.
 	"scripts/import/pdf/build-tag-glossary.js",
-	// Also languages/en.json: Book I's "If you want to…" advice. Last, because it links the moves
+	// Also languages/en.json: Book I's "If you want to…" advice. Late, because it links the moves
 	// and improvements it cites by reading their ids out of the packs the builders above wrote.
 	"scripts/import/pdf/build-advice.js",
+	// Book I's value tables: the gear the pack is missing, the livestock followers, the
+	// "Common & Special Items" reference page (which links the items it just resolved), and the
+	// Coins sidebar written into languages/en.json beside the advice.
+	//
+	// AFTER build-advice: the sidebar hangs off the same topic key as the advice it is shown with, so
+	// running it last lets it check that pairing against freshly generated advice and fail loudly
+	// rather than leaving a ? button that quietly shows only half of what it should.
+	"scripts/import/build-items.js",
+	// Book I's reference articles — "Gear & Possessions" and "If You Want To…" — into the reference
+	// pack. LAST: its value tables link the items build-items.js has just written.
+	"scripts/import/build-book-one.js",
 ];
 
 function main() {

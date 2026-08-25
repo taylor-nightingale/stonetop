@@ -1,5 +1,6 @@
 import { Advice, adviceLabel } from "../model/data/Advice.js";
-import { AdviceSnapshot } from "../model/snapshot/AdviceSnapshot.js";
+import { Reference } from "../model/data/Reference.js";
+import { AdviceSnapshot, ReferenceSnapshot } from "../model/snapshot/AdviceSnapshot.js";
 import { enrichRichTextTree } from "./enrichRichText.js";
 
 const TEMPLATE = "systems/stonetop/templates/apps/advice.hbs";
@@ -17,9 +18,11 @@ const TEMPLATE = "systems/stonetop/templates/apps/advice.hbs";
  * time because the language file only lands at i18nInit.
  */
 export class AdviceDialog {
-	constructor({ advice, renderTemplate, prompt, localize, format, enrich } = {}) {
+	constructor({ advice, reference, renderTemplate, prompt, localize, format, enrich } = {}) {
 		this._advice = advice
 			?? (() => Advice.current);
+		this._reference = reference
+			?? (() => Reference.current);
 		this._renderTemplate = renderTemplate
 			?? ((path, data) => foundry.applications.handlebars.renderTemplate(path, data));
 		this._prompt = prompt
@@ -37,8 +40,14 @@ export class AdviceDialog {
 		const topic = this._advice().lookup(key);
 		if (!topic) return false;
 
-		const snapshot = await this._enrich(AdviceSnapshot.of(topic));
-		const content = await this._renderTemplate(TEMPLATE, { advice: snapshot });
+		// The sidebar that answers "what IS this" for the same key, when the book has one — shown in
+		// this window rather than behind a second control, so one ? covers both questions.
+		const sidebar = this._reference().lookup(key);
+		const snapshot = await this._enrich({
+			advice: AdviceSnapshot.of(topic),
+			reference: sidebar ? ReferenceSnapshot.of(sidebar) : null,
+		});
+		const content = await this._renderTemplate(TEMPLATE, snapshot);
 		await this._prompt({
 			// The same words the ? button carries — the window confirms what was clicked.
 			window: { title: adviceLabel(topic, this._format) },

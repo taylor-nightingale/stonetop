@@ -1,5 +1,6 @@
 import { escapeHtml } from "../html.js";
-import { isAvara, isItalic, isBoldBody, isDingbat } from "./fonts.js";
+import { isAvara, isItalic, isBoldBody } from "./fonts.js";
+import { isGlyphFont, glyphText } from "./glyphs.js";
 import { segmentSettlement } from "./settlement.js";
 
 // Renders the structured article document produced by `extractArticle` (layout.js) to HTML. The
@@ -33,7 +34,19 @@ export const MARKDOWN_EMPHASIS = {
 function renderSpans(spans, style = HTML_EMPHASIS) {
 	const toks = [];
 	for (const s of spans) {
-		if (isDingbat(s.font)) continue;
+		// A glyph span is a mark the book draws with a font — the inline load ◇ — not decoration to
+		// drop and not a character to print raw. Translate it; an unmapped glyph yields "" and is
+		// skipped exactly as before.
+		if (isGlyphFont(s.font)) {
+			const g = glyphText(s);
+			if (!g) continue;
+			// Unemphasized, so it merges with the surrounding prose and is escaped by the caller's
+			// style — the same glyph has to come out right for HTML and for markdown.
+			const prev = toks[toks.length - 1];
+			if (prev && prev.emph === "") prev.text += g;
+			else toks.push({ emph: "", text: g });
+			continue;
+		}
 		const emph = emphOf(s.font);
 		const last = toks[toks.length - 1];
 		if (last && last.emph === emph) last.text += s.text;

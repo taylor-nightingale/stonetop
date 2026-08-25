@@ -1,0 +1,43 @@
+{
+	"_id": "wxUhAV6x1Qc9eTmk",
+	"_key": "!journal!wxUhAV6x1Qc9eTmk",
+	"name": "If You Want To…",
+	"pages": [
+		{
+			"_id": "gsmhRNd9YQOQNfDs",
+			"_key": "!journal.pages!wxUhAV6x1Qc9eTmk.gsmhRNd9YQOQNfDs",
+			"name": "If You Want To…",
+			"type": "text",
+			"title": {
+				"show": false,
+				"level": 1
+			},
+			"image": {},
+			"src": null,
+			"text": {
+				"format": 1,
+				"content": "<div class=\"stonetop-wonder\"><div class=\"page2col\"><div class=\"col\"><p>Here are some things you might want to do, and how you might go about them.</p>\n<h2>… increase Fortunes</h2>\n<p>The main ways are:</p>\n<ul><li class=\"swirl\">Undertake an expedition on behalf of the village and <strong>Return Triumphant</strong> (page 79).</li><li class=\"swirl\">Complete a steading improvement that increases Fortunes.</li></ul>\n<figure class=\"art\"><img src=\"stonetop-art/book-one/226750c8c3e6a6446c949d4928e643d096e4e5726fe5f344e7d47975f567a659.png\"></figure></div><div class=\"col\"><h2>… gain Surplus</h2>\n<p>The village generates Surplus each summer and at the end of autumn when the harvest is complete. If you want more:</p>\n<ul><li class=\"swirl\">Choose “unexpected bounty” when you get a <strong>seasonal gain</strong> (page 85).</li><li class=\"swirl\">Choose “trade opportunity” when you get a seasonal gain, and suggest that you’d like to trade for extra Surplus.</li><li class=\"swirl\">Undertake an expedition to hunt big game: elk, wisents, cave bears, ceirwmawr, etc.</li><li class=\"swirl\">Buy some! Surplus isn’t commonly available, so you’ll need to <strong>Trade &amp;</strong> <strong>Barter</strong> (page 83) to see if it’s available from a passing merchant. If it’s not, you’ll need to travel to a neighboring steading. Surplus is Value 2, so expect to pay a @UUID[Compendium.stonetop.outfit-items.Item.Rre7DI25bhhmONYI]{purse of silvers}, a donkey, a barrel of fine whisky, or so forth.</li></ul>\n<p>If you want to increase the amount of Surplus that the village generates, look to</p></div></div><hr class=\"braid-wide\"><div class=\"page2col\"><div class=\"col\"><h2>…improve Defenses</h2>\n<p>You can temporarily boost Defenses via the <strong>Muster</strong> move (page 82), but it will usually cost you Fortunes to do so. Other options include:</p>\n<ul><li class=\"swirl\">Build a <strong>Palisade</strong> (page 158) or a <strong>Stone Wall</strong> (page 159). They grant advantage to Deploy rolls when you take advantage of them.</li><li class=\"swirl\">Establish a <strong>Standing Watch</strong> (page 159). They add +1 to your Defenses when they’re involved.</li><li class=\"swirl\">Spend time drilling the villagers, turning them into a <strong>Well-Trained</strong> <strong>Militia</strong> (page 159). If you train the militia in 2 or more tactics, Defenses increases by 1.</li><li class=\"swirl\">Furnish the village with <strong>Weapons</strong> <strong>of War</strong> (page 159) and teach folks to use them. This increases Defenses by 1 and gives PCs access to better weaponry.</li></ul></div><div class=\"col\"><h2>… increase Population</h2>\n<p>Choose “population boom” when you get a <strong>seasonal gain</strong> (page 85).</p>\n<p>Alternatively, go out and save or recruit or capture a bunch of people and bring them back to live in your village.</p>\n<p>Careful: higher Population makes it easier to <strong>Muster</strong> (page 82) and <strong>Pull Together</strong> (page 83), but it also means more mouths to feed in winter when <strong>Seasons</strong> <strong>Change</strong> (page 84).</p>\n<h2>… improve Prosperity</h2>\n<p>Pursue the <strong>Expanded Trades</strong> (page 157) and/or the <strong>Market</strong> (page 158) improvement. Each of these increase Prosperity by 1, as long as they’re maintained.</p>\n<p>Also, the <strong>Township</strong> improvement (page 159) grants advantage when you <strong>Trade &amp;</strong> <strong>Barter</strong> (page 83).</p></div></div>\n<hr class=\"braid-wide\">\n<div class=\"page2col\"><div class=\"col\"><h2>… unlock a steading improvement</h2>\n<p>Look at the requirements and choose one to pursue. If you don’t know how to pursue it, <strong>Know Things</strong> (page 72) and/or <strong>Make</strong> <strong>a Plan</strong> (page 81).</p>\n<p>If you want to make an improvement to the steading that isn’t listed, tell the GM what you have in mind. They’ll either Make a Plan with you or add it to the list of Other Improvements (along with the requirements and potential benefits), whichever is more appropriate.</p></div><div class=\"col\"><h2>… get some coin</h2>\n<p>You can <strong>Outfit</strong> (page 77) or <strong>Have</strong> <strong>What You Need</strong> (page 78) to produce a @UUID[Compendium.stonetop.outfit-items.Item.VxUZpfbH9vOWOU6m]{handful of coppers}, but if you want more significant quantities, or any quantity of silver or gold coins, then you’ll need to roll <strong>Trade &amp; Barter</strong> (page 83) to see if they’re even available. Even if they are, you’ll need to trade something of an appropriate Value.</p>\n<p>Other options include:</p>\n<ul><li class=\"swirl\">If you need more coin than what’s available in town, you can undertake a trade mission. Take some of the steading’s Surplus to Marshedge, Gordin’s Delve, or maybe the Hillfolk, and find someone to buy it. A purse or two of silvers is a fair trade for 1 Surplus (Value 2).</li><li class=\"swirl\">Go explore the Ruined Tower or someplace like it and dig up some sweet loot. Then roll Trade &amp; Barter to sell it to a passing merchant or head to Marshedge or Gordin’s Delve and try to sell it there for more.</li></ul></div></div><hr class=\"braid-wide\"><div class=\"page2col\"><div class=\"col\"><h2>… find new arcana</h2>\n<p><strong>Know Things</strong> (page 72)! Maybe you know where something like that might be found. If you don’t, try something else:</p>\n<ul><li class=\"swirl\">Ask around, dig through the Chronicle (if there is one), consult the spirits (if you can), pray for guidance (if that’s your thing), eat some mushrooms and hope for a vision, etc.</li><li class=\"swirl\">Explore dangerous, mysterious places: old Maker-ruins, barrow mounds, Fae circles, strange groves, caves, or lakes (if you dare).</li><li class=\"swirl\">Put the word out. Let merchants and other contacts know that you’re interested in that sort of thing, then choose “trade opportunity” or “interesting news” when you get a <strong>seasonal gain</strong> (page 85).</li></ul>\n<h2>… unlock the mysteries of an arcanum</h2>\n<p>Do what the requirements say! If you’re not sure how to meet a requirement, roll to <strong>Know Things</strong> (page 72) and/or talk to the GM and <strong>Make a Plan</strong> (page 81).</p></div><div class=\"col\"><h2>… recruit followers</h2>\n<p>If you have someone in mind, ask them to join you on an expedition. <strong>Persuade</strong> them if necessary (page 73).</p>\n<p>If you don’t have someone in mind, tell the GM what sort of follower you’re looking for (“a skilled tracker,” “a knowledgeable guide,” “someone who can handle themselves in a fight,” etc.). They’ll either tell you who in town fits the bill, or ask you to make someone up, or suggest that you <strong>Know Things</strong> (page 72).</p>\n<p>Alternatively:</p>\n<ul><li class=\"swirl\"><strong>Muster</strong> (page 82) and pick “1 or 2 individuals show real potential.” Let the GM know that you’re hoping for a follower, and they’ll probably work with you.</li><li class=\"swirl\">Go to a bigger town and find a public place, like the Swap in Gordin’s Delve or Edgemarket in Marshedge. Announce that you’re looking to hire help. Say what the job is and what you’re offering. Those towns each have a special player move for Recruiting.</li></ul></div></div>\n<hr class=\"braid-wide\">\n<figure class=\"art\"><img src=\"stonetop-art/book-one/3b3e66f5d4b18a9dc52b3421e6863b50e345fdfec240ad641d6c0bd18f958ad8.png\"></figure></div>"
+			},
+			"video": {
+				"controls": true,
+				"volume": 0.5
+			},
+			"system": {},
+			"sort": 0,
+			"ownership": {
+				"default": -1
+			},
+			"flags": {}
+		}
+	],
+	"folder": null,
+	"sort": 200000,
+	"ownership": {
+		"default": 2
+	},
+	"flags": {
+		"stonetop": {
+			"slug": "if-you-want-to"
+		}
+	}
+}

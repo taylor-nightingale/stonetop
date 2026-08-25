@@ -10,6 +10,8 @@
 * deleting a link in residents should have a confirmation
 * level up move
 * names in the origin section should not be bolded
+* compendium folders have styling (light mode) of light text on light background
+* add a stonetop image to the game system in foundry like the delta green one has
 * After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this
 * did we break the drawing tools?
 * Rework the stonetop sheet UI
