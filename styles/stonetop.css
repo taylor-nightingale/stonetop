@@ -82,6 +82,7 @@ img.stonetop-broken-img {
 .stonetop.sheet .stonetop-introductions-title,
 .stonetop.sheet.steading .steading-steadfast-input,
 .stonetop-roll-dialog .window-title,
+.stonetop-advice-dialog .window-title,
 .stonetop-roll-dialog .stonetop-roll-mode-header,
 .stonetop-roll-dialog .dialog-button {
 	font-family: "StonetopUI", serif;
@@ -279,7 +280,10 @@ body,
 
 /* ── Generic bullet icons (applies to all rich-text ul lists) ───────────────── */
 
-.stonetop.sheet ul:not(.stonetop-outfit-loads) {
+/* `.stonetop-advice` is the advice dialog's body — not a sheet, but the same book prose, so it
+   takes the same swirls rather than a second bullet treatment of its own. */
+.stonetop.sheet ul:not(.stonetop-outfit-loads),
+.stonetop-advice ul {
 	/* The swirl and the gap it sits in, sized in em so the marker tracks the text it marks. One
 	   declaration for both, so the list's indent and the marker's offset cannot drift apart. */
 	--bullet: 0.8em;
@@ -289,11 +293,13 @@ body,
 	padding-left: calc(var(--bullet) + var(--bullet-gap));
 }
 
-.stonetop.sheet ul:not(.stonetop-outfit-loads) li {
+.stonetop.sheet ul:not(.stonetop-outfit-loads) li,
+.stonetop-advice ul li {
 	position: relative;
 }
 
-.stonetop.sheet ul:not(.stonetop-outfit-loads) li::before {
+.stonetop.sheet ul:not(.stonetop-outfit-loads) li::before,
+.stonetop-advice ul li::before {
 	content: '';
 	position: absolute;
 	left: calc(-1 * (var(--bullet) + var(--bullet-gap)));
@@ -332,6 +338,11 @@ body,
 	justify-content: center;
 	background: none;
 	border: none;
+	/* Core's `button:hover` (layer elements.forms) repaints background and text together. This
+	   button suppresses the background, so taking core's hover TEXT colour alone would paint the
+	   glyph in the page's own paper colour — the icon vanishes under the cursor. An <img> icon never
+	   showed this because it ignores `color`; a font glyph inherits it. */
+	color: inherit;
 	cursor: pointer;
 	padding: 2px;
 	opacity: 0.5;
@@ -1649,6 +1660,25 @@ button.stonetop-view-toggle.is-active {
 	background: var(--st-paper-sunken-strong);
 }
 
+/* ── "If you want to…" advice ────────────────────────────────────────────────── */
+
+/* One control, two placements: at the far end of a heading row's flex line, or spelled out in a
+   tab's toolbar (where it borrows the view toggles' look, so the two read as the same kind of
+   control). */
+.stonetop .stonetop-advice-btn--inline {
+	margin-left: auto;
+	font-size: var(--fs-note);
+}
+
+/* A tab's advice sits above its content, aligned with the view toggles on the tabs that have them. */
+.stonetop-advice-toolbar {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 0 0 6px;
+}
+
 .tab.moves.hide-unselected .stonetop-item.move-unselected {
 	display: none;
 }
@@ -2735,6 +2765,30 @@ button.stonetop-xp-toggle {
 	padding: 8px;
 	background: var(--st-paper);
 	font-family: var(--font-primary);
+}
+
+/* ── "If you want to…" advice dialog ─────────────────────────────────────────── */
+
+.stonetop-advice-dialog .window-content {
+	padding: 10px 12px;
+	background: var(--st-paper);
+	font-family: var(--font-primary);
+}
+
+.stonetop-advice p {
+	margin: 0 0 8px;
+}
+
+.stonetop-advice > :last-child {
+	margin-bottom: 0;
+}
+
+.stonetop-advice-options {
+	margin: 0 0 8px;
+}
+
+.stonetop-advice-options li + li {
+	margin-top: 4px;
 }
 
 .stonetop-roll-pick-content {
@@ -4466,6 +4520,13 @@ button.stonetop-xp-toggle {
 	flex: 1;
 	height: 1px;
 	background: var(--st-paper-inset);
+}
+
+/* This panel has no heading, so the first currency's name row carries the advice ?. Generated
+   content is always the last box, so without this the hairline would trail PAST the button and run
+   straight through the glyph; ordering the button past the hairline ends the line at it instead. */
+.stonetop.sheet.steading .steading-coinage-name .stonetop-advice-btn {
+	order: 1;
 }
 
 .stonetop.sheet.steading .steading-coinage-fields {

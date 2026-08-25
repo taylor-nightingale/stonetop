@@ -1,0 +1,20 @@
+{{!-- The ? control that opens Book I's "If you want to…" advice for one topic (see
+      src/model/data/Advice.js). It writes nothing, so it carries data-view-state and stays live on
+      a non-editable sheet — a player who can only read the sheet is exactly who asks how to get
+      more of something.
+
+      It names itself from the topic alone, so a caller cannot label a button with one topic and
+      wire it to another; a topic the book has no advice for yields no label, and so no button.
+
+      Params: topic (the advice key), and variant:
+        inline   — icon only, last flex item of a heading row
+        labelled — icon + text, in a tab's toolbar (same look as the view toggles beside it) --}}
+{{#if (adviceLabel topic)}}
+<button type="button" data-action="showAdvice" data-topic="{{topic}}" data-view-state
+        title="{{adviceLabel topic}}" aria-label="{{adviceLabel topic}}"
+        class="stonetop-advice-btn stonetop-advice-btn--{{variant}}
+               {{~#if (eq variant "labelled")}} stonetop-view-toggle{{else}} stonetop-icon-btn{{/if}}">
+	<i class="fas fa-circle-question" aria-hidden="true"></i>
+	{{#if (eq variant "labelled")}}<span>{{adviceLabel topic}}</span>{{/if}}
+</button>
+{{/if}}

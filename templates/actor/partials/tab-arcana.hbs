@@ -1,5 +1,11 @@
 <div class="tab arcana {{tabs.arcana.cssClass}}" data-group="primary" data-tab="arcana">
 
+	{{!-- Both of the book's arcana topics: how to come by one, and how to unlock what it can do. --}}
+	<div class="stonetop-advice-toolbar">
+		{{> "stonetop.advice-button" variant="labelled" topic="arcana"}}
+		{{> "stonetop.advice-button" variant="labelled" topic="arcanumMystery"}}
+	</div>
+
 	{{#unless stonetop.arcana.hasOwned}}
 	<p class="stonetop-arcana-empty">{{localize "stonetop.arcana.empty"}}</p>
 	{{/unless}}

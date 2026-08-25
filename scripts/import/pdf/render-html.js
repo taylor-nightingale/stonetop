@@ -9,11 +9,28 @@ import { segmentSettlement } from "./settlement.js";
 
 // ─── inline emphasis ─────────────────────────────────────────────────────────
 const emphOf = (f) => (isItalic(f) && isBoldBody(f) ? "bi" : isItalic(f) ? "i" : isBoldBody(f) ? "b" : "");
-const WRAP = { b: ["<strong>", "</strong>"], i: ["<em>", "</em>"], bi: ["<strong><em>", "</em></strong>"] };
 const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-/** Render a line's spans to HTML, merging adjacent same-emphasis runs, ws outside tags. */
-function renderSpans(spans) {
+/**
+ * How a run of emphasized text is written out. The book's own bold/italic split is the same
+ * wherever the text lands; only the notation differs — tags for the journal pack and the HTML
+ * preview, markdown for text bound for the language file (see advice.js). `closers` is what a
+ * de-hyphenation has to reach back through to find the hyphen inside a closed run.
+ */
+export const HTML_EMPHASIS = {
+	wrap:    { b: ["<strong>", "</strong>"], i: ["<em>", "</em>"], bi: ["<strong><em>", "</em></strong>"] },
+	closers: /-((?:<\/(?:strong|em)>)*)$/,
+	escape:  escapeHtml,
+};
+
+export const MARKDOWN_EMPHASIS = {
+	wrap:    { b: ["**", "**"], i: ["*", "*"], bi: ["***", "***"] },
+	closers: /-(\**)$/,
+	escape:  (s) => s,
+};
+
+/** Render a line's spans, merging adjacent same-emphasis runs, ws outside the wrappers. */
+function renderSpans(spans, style = HTML_EMPHASIS) {
 	const toks = [];
 	for (const s of spans) {
 		if (isDingbat(s.font)) continue;
@@ -24,19 +41,19 @@ function renderSpans(spans) {
 	}
 	let html = "";
 	for (const t of toks) {
-		const raw = escapeHtml(t.text);
+		const raw = style.escape(t.text);
 		if (!t.emph) { html += raw; continue; }
 		const [, lead, core, trail] = raw.match(/^(\s*)(.*?)(\s*)$/s);
-		html += core ? `${lead}${WRAP[t.emph][0]}${core}${WRAP[t.emph][1]}${trail}` : raw;
+		html += core ? `${lead}${style.wrap[t.emph][0]}${core}${style.wrap[t.emph][1]}${trail}` : raw;
 	}
 	return html;
 }
 
-/** Join lines into one HTML string, de-hyphenating words split across line ends. */
-export function joinLines(lines) {
+/** Join lines into one string, de-hyphenating words split across line ends. */
+export function joinLines(lines, style = HTML_EMPHASIS) {
 	let html = "", prevRaw = null;
 	for (const l of lines) {
-		const h = renderSpans(l.spans).trim();
+		const h = renderSpans(l.spans, style).trim();
 		const raw = l.text.trim();
 		if (prevRaw == null) html = h;
 		// An ellipsis-led line is a pick-list / trade option: keep the lead-in and put it on its own
@@ -44,7 +61,7 @@ export function joinLines(lines) {
 		else if (/^(?:…|\.\.\.)/.test(raw)) html += "<br>" + h;
 		// De-hyphenate a word split across lines — even when the word is emphasized, so the
 		// trailing hyphen sits just inside a closing tag (e.g. "<strong>Dan-</strong>" + "gers").
-		else if (/[A-Za-z]-$/.test(prevRaw) && /^[a-z]/.test(raw)) html = html.replace(/-((?:<\/(?:strong|em)>)*)$/, "$1") + h;
+		else if (/[A-Za-z]-$/.test(prevRaw) && /^[a-z]/.test(raw)) html = html.replace(style.closers, "$1") + h;
 		else html += " " + h;
 		prevRaw = raw;
 	}

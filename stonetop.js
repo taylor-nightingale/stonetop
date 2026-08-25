@@ -42,14 +42,16 @@ import { FollowerData }    from "./src/data/FollowerData.js";
 import { OutfitItemData }  from "./src/data/OutfitItemData.js";
 import { PossessionData }  from "./src/data/PossessionData.js";
 import { TagGlossary }     from "./src/model/data/TagGlossary.js";
+import { Advice }          from "./src/model/data/Advice.js";
 import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no-op unless Quench is installed)
 
 // -- I18N INIT -------------------------------------------------
-// Fires once translations are loaded, before init. The tag definitions a tooltip shows are ordinary
-// localized strings, so the glossary is read straight off them — no fetch, and no async race with
-// the first sheet render.
+// Fires once translations are loaded, before init. The tag definitions a tooltip shows, and the
+// "If you want to…" advice behind the sheets' ? buttons, are ordinary localized strings — so both
+// are read straight off them: no fetch, and no async race with the first sheet render.
 Hooks.once("i18nInit", () => {
 	TagGlossary.current = TagGlossary.fromTranslations(game.i18n?.translations?.stonetop?.tagGlossary);
+	Advice.current      = Advice.fromTranslations(game.i18n?.translations?.stonetop?.advice);
 });
 
 // -- INIT ------------------------------------------------------

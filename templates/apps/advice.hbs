@@ -1,0 +1,14 @@
+{{!-- One "If you want to…" topic (AdviceSnapshot) as the advice dialog shows it. The topic's own
+      heading is the window title, so the body is just the book's prose and its bulleted options —
+      each already enriched, so the moves and improvements it cites are content links. --}}
+<div class="stonetop-advice">
+	{{#each advice.blocks}}
+		{{#if (eq type "list")}}
+		<ul class="stonetop-advice-options">
+			{{#each items}}<li>{{rich this}}</li>{{/each}}
+		</ul>
+		{{else}}
+		<p>{{rich text}}</p>
+		{{/if}}
+	{{/each}}
+</div>

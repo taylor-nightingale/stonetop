@@ -26,6 +26,9 @@ export const BUILDERS = [
 	// Not a pack: writes the tag definitions into languages/en.json. Listed here so a reprint
 	// refreshes them along with everything else derived from the books.
 	"scripts/import/pdf/build-tag-glossary.js",
+	// Also languages/en.json: Book I's "If you want to…" advice. Last, because it links the moves
+	// and improvements it cites by reading their ids out of the packs the builders above wrote.
+	"scripts/import/pdf/build-advice.js",
 ];
 
 function main() {

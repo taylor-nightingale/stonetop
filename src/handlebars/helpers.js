@@ -1,5 +1,6 @@
 import { rich, hasText } from "../model/snapshot/RichText.js";
 import { isGroupTag } from "../model/data/groupTag.js";
+import { Advice, adviceLabel } from "../model/data/Advice.js";
 
 /**
  * Every Handlebars helper the Stonetop templates use, in one place.
@@ -69,6 +70,14 @@ Handlebars.registerHelper("hasText", hasText);
 // A tag chip that marks a creature as a group ("group" / "horde") carries the group tooltip
 // instead of the plain "remove" one: {{#if (isGroupTag this)}}.
 Handlebars.registerHelper("isGroupTag", isGroupTag);
+
+// What a ? button calls itself, from the topic key alone: {{adviceLabel "prosperity"}}. Derived
+// rather than passed in, so the ten book headings live in the language file once (as the advice's
+// own titles) instead of again as button labels. Reaches for game.i18n exactly as core's own
+// `localize` helper does. Empty for a topic the book has no advice for — the partial renders no
+// button at all rather than a nameless one.
+Handlebars.registerHelper("adviceLabel", key =>
+	adviceLabel(Advice.current.lookup(key), (k, data) => game.i18n.format(k, data)));
 
 Handlebars.registerHelper("repeatChecks", move => {
 	const sel = move?.selection;

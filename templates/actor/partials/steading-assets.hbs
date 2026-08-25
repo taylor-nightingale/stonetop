@@ -1,6 +1,7 @@
 {{!-- The Assets panel — the general `items` list — plus a framed Coinage panel below it, grouped one
       block per currency (purses/handfuls/coins). Shared by the steading overview and the steadfast sheet.
-      Params: items (array of strings), coinage (array of {title, label, purses, handfuls, coins}). --}}
+      Params: items (array of strings), coinage (array of {title, label, purses, handfuls, coins}),
+      and optionally advice (an "If you want to…" topic key). --}}
 <div class="steading-overview-field steading-panel-frame">
 	{{> "stonetop.panel-frame"}}
 	<h2>Assets</h2>
@@ -24,7 +25,10 @@
 	{{> "stonetop.panel-frame"}}
 	{{#each coinage}}
 		<div class="steading-coinage-currency">
-			<span class="steading-coinage-name">{{label}}</span>
+			{{!-- This panel has no heading of its own, so the first currency's name row is the row the
+			      reader takes for one. The ? rides its end, after the hairline — which is a flex item,
+			      so it simply stops at the button instead of running underneath it. --}}
+			<span class="steading-coinage-name">{{label}}{{#if @first}}{{#if ../advice}}{{> "stonetop.advice-button" variant="inline" topic=../advice}}{{/if}}{{/if}}</span>
 			<div class="steading-coinage-fields">
 				<label class="steading-coinage-field">
 					<span>Purses</span>

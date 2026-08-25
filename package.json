@@ -12,6 +12,7 @@
     "extract-art": "node scripts/import/pdf/extract-art.js",
     "build-arcana": "node scripts/import/pdf/build-arcana.js",
     "tag-glossary": "node scripts/import/pdf/build-tag-glossary.js",
+    "advice": "node scripts/import/pdf/build-advice.js",
     "build-packs": "node scripts/build-packs.js",
     "art-manifest": "node scripts/art/build-art-manifest.js",
     "slice-arcana-border": "node scripts/art/slice-arcana-border.js",

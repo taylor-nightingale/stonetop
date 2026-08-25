@@ -4,9 +4,11 @@
 // links to the target journal entry. Verbatim text is preserved — only the digits become links.
 // linkNpcs does the same for rendered stat-block names: they become links to the generated
 // wider-world-npcs actors (whose descriptions carry the matching back-link).
-import { readdirSync } from "fs";
+import { readdirSync, readFileSync } from "fs";
+import path from "path";
 import { journalUuid, npcUuid, MONSTER_PACK } from "./creatures.js";
 import { unescapeHtml } from "../html.js";
+import { ourSrc } from "../config.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
 /**
@@ -43,6 +45,40 @@ export function linkPageRefs(html, pageMap, { selfSlug } = {}) {
 		return `${word}${ws}${rebuilt}`;
 	});
 	return { html: out, linked };
+}
+
+/** Every `*.json` under `dir`, recursively — pack sources nest documents in folder directories. */
+function packFiles(dir) {
+	const out = [];
+	for (const e of readdirSync(dir, { withFileTypes: true })) {
+		const full = path.join(dir, e.name);
+		if (e.isDirectory()) out.push(...packFiles(full));
+		else if (e.name.endsWith(".json")) out.push(full);
+	}
+	return out;
+}
+
+/**
+ * Index a pack's source documents by authored slug → compendium UUID, for prose that cites a move
+ * or an improvement by name. The ids are read from the files rather than derived, because the
+ * hand-authored packs carry ids that predate deterministicId. Documents without a `system.slug`
+ * (folder records) are skipped, and a slug claimed by two documents is dropped rather than
+ * arbitrarily resolved — an ambiguous name is better left as plain text. A missing pack directory
+ * yields an empty map, so a build degrades to "no links" rather than failing.
+ */
+export function loadItemUuidsBySlug(pack, dir = ourSrc(pack)) {
+	const uuids = new Map(), ambiguous = new Set();
+	let files;
+	try { files = packFiles(dir); } catch { return uuids; }
+	for (const file of files) {
+		const doc = JSON.parse(readFileSync(file, "utf8"));
+		const slug = doc?.system?.slug;
+		if (!slug || !doc._id) continue;
+		if (uuids.has(slug)) { ambiguous.add(slug); continue; }
+		uuids.set(slug, `Compendium.stonetop.${pack}.Item.${doc._id}`);
+	}
+	for (const slug of ambiguous) uuids.delete(slug);
+	return uuids;
 }
 
 /** The slugs of the generated wider-world NPC actors (one file per creature). Missing pack

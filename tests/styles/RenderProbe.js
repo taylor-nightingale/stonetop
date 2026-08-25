@@ -1,5 +1,5 @@
 import { execFileSync } from "child_process";
-import { writeFileSync, mkdtempSync, existsSync, readdirSync } from "fs";
+import { writeFileSync, readFileSync, mkdtempSync, existsSync, readdirSync } from "fs";
 import { tmpdir } from "os";
 import path from "path";
 
@@ -135,12 +135,47 @@ export class MeasuredElement {
 	}
 }
 
+/**
+ * A `transformCss` that turns a pseudo-class into a plain class of the same name, so a state Chrome
+ * will not enter on its own can still be probed: headless Chrome has no cursor, and there is no way
+ * to force :hover through the screenshot/dump interface.
+ *
+ * Sound because a pseudo-class and a class have identical specificity, and the rewrite leaves every
+ * rule inside its own @layer — so the cascade the probe resolves is the real one. It must be applied
+ * to core's stylesheet as well as ours, which is the whole reason it lives on the probe: a rewrite
+ * of our sheets alone silently stops core's rules from applying at all, and the probe then reports
+ * that everything is fine.
+ */
+export const pseudoAsClass = pseudo => css => css.replaceAll(`:${pseudo}`, `.is-${pseudo}`);
+
 export class RenderProbe {
 	/**
 	 * @param {string[]} stylesheets absolute paths, applied in order after core's
+	 * @param {object} [options]
+	 * @param {(css: string) => string} [options.transformCss] rewrites EVERY stylesheet, core's
+	 *   included, before the page loads them. See {@link pseudoAsClass}.
 	 */
-	constructor(stylesheets) {
+	constructor(stylesheets, { transformCss } = {}) {
 		this._stylesheets = stylesheets;
+		this._transformCss = transformCss;
+		this._transformed = null;
+	}
+
+	/** The stylesheet paths to link, applying `transformCss` to copies on first use. */
+	_sheetPaths() {
+		const all = [foundryCss, ...this._stylesheets];
+		if (!this._transformCss) return all;
+		if (!this._transformed) {
+			const dir = mkdtempSync(path.join(tmpdir(), "stonetop-probe-css-"));
+			this._transformed = all.map((f, i) => {
+				// Flat names keep url(../assets/…) from resolving, which is fine: a transformed probe
+				// asks about the cascade (colour, layout), never about which image loaded.
+				const out = path.join(dir, `${String(i).padStart(2, "0")}-${path.basename(f)}`);
+				writeFileSync(out, this._transformCss(readFileSync(f, "utf8")));
+				return out;
+			});
+		}
+		return this._transformed;
 	}
 
 	/**
@@ -225,7 +260,7 @@ for (const [name, selector] of Object.entries(targets)) {
 		const chrome = chromePath();
 		if (!chrome || !foundryCss) throw new Error("RenderProbe needs Chrome and a local Foundry install");
 
-		const links = [foundryCss, ...this._stylesheets]
+		const links = this._sheetPaths()
 			.map(f => `<link rel="stylesheet" href="file://${f}">`).join("\n");
 
 		const html = `<!doctype html><html ${rootAttrs}><head><meta charset="utf-8">${links}</head>

@@ -32,6 +32,7 @@
 				<span class="panel-edge panel-edge-left"></span>
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="fortunes">Fortunes</button>
+					{{> "stonetop.advice-button" variant="inline" topic="fortunes"}}
 				</h2>
 				{{#if (hasText stonetop.fortunes.note)}}<div class="steading-start-line">{{rich stonetop.fortunes.note}}</div>{{/if}}
 				<div class="steading-rating-options">
@@ -57,6 +58,7 @@
 				<span class="panel-edge panel-edge-left"></span>
 				<h2>
 					<button class="steading-stat-roll rollable" type="button" data-roll="surplus">Surplus</button>
+					{{> "stonetop.advice-button" variant="inline" topic="surplus"}}
 				</h2>
 				{{#if (hasText stonetop.surplus.note)}}<div class="steading-start-line">{{rich stonetop.surplus.note}}</div>{{/if}}
 				<span class="stonetop-stepper">
@@ -69,13 +71,13 @@
 			{{> "stonetop.steading-stat-panel" attr="size" title="Size" attrData=stonetop.attributes.size panelClass="steading-size"}}
 
 			{{!-- Population --}}
-			{{> "stonetop.steading-stat-panel" attr="population" title="Population" attrData=stonetop.attributes.population rollable=true panelClass="steading-population"}}
+			{{> "stonetop.steading-stat-panel" attr="population" title="Population" attrData=stonetop.attributes.population rollable=true panelClass="steading-population" advice="population"}}
 
 			{{!-- Prosperity --}}
-			{{> "stonetop.steading-stat-panel" attr="prosperity" title="Prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity"}}
+			{{> "stonetop.steading-stat-panel" attr="prosperity" title="Prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity" advice="prosperity"}}
 
 			{{!-- Defenses --}}
-			{{> "stonetop.steading-stat-panel" attr="defenses" title="Defenses" attrData=stonetop.attributes.defenses rollable=true wide=true panelClass="steading-defenses"}}
+			{{> "stonetop.steading-stat-panel" attr="defenses" title="Defenses" attrData=stonetop.attributes.defenses rollable=true wide=true panelClass="steading-defenses" advice="defenses"}}
 
 			{{!-- Debilities --}}
 			<div class="steading-debilities-panel steading-panel-frame">
@@ -165,7 +167,7 @@
 				<div class="steading-overview-divider" aria-hidden="true"></div>
 
 				<section class="steading-overview-column steading-assets-column">
-					{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage}}
+					{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage advice="coin"}}
 				</section>
 
 			</div>
@@ -332,6 +334,10 @@
 
 		{{!-- Improvements tab --}}
 		<div class="tab {{tabs.improvements.cssClass}}" data-group="primary" data-tab="improvements">
+
+			<div class="stonetop-advice-toolbar">
+				{{> "stonetop.advice-button" variant="labelled" topic="steadingImprovement"}}
+			</div>
 
 			<div class="steading-improvements-grid">
 

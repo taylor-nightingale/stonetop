@@ -13,6 +13,7 @@ import { characterChangeHandlers } from "../../src/actors/character/characterCha
 import { moveRowChangeHandlers } from "../../src/actors/moveRowHandlers.js";
 import { tagChipChangeHandlers } from "../../src/actors/tagChips.js";
 import { ChoiceGroupWiring } from "../../src/utils/ChoiceGroupWiring.js";
+import { ADVICE_ACTIONS } from "../../src/utils/adviceAction.js";
 
 // The actor templates and the actor sheets share a vocabulary of `data-action` /
 // `data-change-action` names. A name emitted with nothing behind it is silent in play except for a
@@ -90,6 +91,9 @@ describe("actor templates ↔ sheet handler vocabulary", () => {
 	it("every data-action an actor template emits is registered by some actor sheet", () => {
 		const registered = new Set([
 			...CORE_ACTIONS,
+			// Registered on the shared actor-sheet base, which merges into every concrete sheet's
+			// options in play — but the fake base these classes are built on here doesn't carry it.
+			...Object.keys(ADVICE_ACTIONS),
 			...Object.keys(createStonetopCharacterSheetClass(stonetopActorSheetBase()).DEFAULT_OPTIONS.actions ?? {}),
 			...Object.keys(createStonetopSteadingSheetClass(stonetopActorSheetBase()).DEFAULT_OPTIONS.actions ?? {}),
 			...Object.keys(createStonetopNpcSheetClass(stonetopActorSheetBase()).DEFAULT_OPTIONS.actions ?? {}),

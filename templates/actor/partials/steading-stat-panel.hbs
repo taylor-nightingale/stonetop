@@ -2,11 +2,12 @@
       "Starts at …" note, and the ±N / tier option radios. Shared by the steading header (rollable
       ratings, "Starts at" notes) and the steadfast sheet (a template — no rolls, no notes).
       Params: attr (slug), title, attrData (AttributeSnapshot: .note + .options), rollable, wide,
-      panelClass. --}}
+      panelClass, and optionally advice (an "If you want to…" topic key). --}}
 <div class="steading-stat-panel steading-panel-frame {{panelClass}}">
 	{{> "stonetop.panel-frame"}}
 	<h2>
 		{{#if rollable}}<button class="steading-stat-roll rollable" type="button" data-roll="{{attr}}">{{title}}</button>{{else}}{{title}}{{/if}}
+		{{#if advice}}{{> "stonetop.advice-button" variant="inline" topic=advice}}{{/if}}
 	</h2>
 	{{#if (hasText attrData.note)}}<div class="steading-start-line">{{rich attrData.note}}</div>{{/if}}
 	<div class="steading-rating-options{{#if wide}} steading-rating-options--wide{{/if}}">

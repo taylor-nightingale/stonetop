@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest";
-import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
-import { buildPageMap, linkPageRefs, linkNpcs, loadNpcSlugs } from "../../../scripts/import/pdf/crossref.js";
+import { dirname, join } from "node:path";
+import { buildPageMap, linkPageRefs, linkNpcs, loadNpcSlugs, loadItemUuidsBySlug } from "../../../scripts/import/pdf/crossref.js";
 import { journalUuid, npcUuid } from "../../../scripts/import/pdf/creatures.js";
 import { deterministicId } from "../../../scripts/import/ids.js";
 
@@ -106,5 +106,47 @@ describe("linkNpcs", () => {
 		const twice = linkNpcs(once.html, slugs);
 		expect(twice.linked).toBe(0);
 		expect(twice.html).toBe(once.html);
+	});
+});
+
+describe("loadItemUuidsBySlug", () => {
+	let dir;
+
+	const write = (rel, doc) => {
+		const full = join(dir, rel);
+		mkdirSync(dirname(full), { recursive: true });
+		writeFileSync(full, JSON.stringify(doc));
+	};
+
+	beforeEach(() => { dir = mkdtempSync(join(tmpdir(), "stonetop-pack-")); });
+	afterEach(() => rmSync(dir, { recursive: true, force: true }));
+
+	it("indexes a pack's documents by their authored slug", () => {
+		write("homefront/muster.json", { _id: "aaaaaaaaaaaaaaaa", name: "Muster", system: { slug: "muster" } });
+		expect(loadItemUuidsBySlug("moves", dir).get("muster"))
+			.toBe("Compendium.stonetop.moves.Item.aaaaaaaaaaaaaaaa");
+	});
+
+	it("walks the folder directories a pack source nests documents in", () => {
+		write("playbook/the-heavy/seasoned-warrior.json",
+			{ _id: "bbbbbbbbbbbbbbbb", system: { slug: "seasoned-warrior" } });
+		expect(loadItemUuidsBySlug("moves", dir).has("seasoned-warrior")).toBe(true);
+	});
+
+	// Folder records sit alongside the documents and carry no slug.
+	it("skips documents with no slug", () => {
+		write("_folders/basic.json", { _id: "cccccccccccccccc", name: "Basic" });
+		expect([...loadItemUuidsBySlug("moves", dir).keys()]).toEqual([]);
+	});
+
+	// An ambiguous name is better left as plain prose than linked to one of two documents.
+	it("drops a slug two documents both claim", () => {
+		write("a/persuade.json", { _id: "dddddddddddddddd", system: { slug: "persuade" } });
+		write("b/persuade.json", { _id: "eeeeeeeeeeeeeeee", system: { slug: "persuade" } });
+		expect(loadItemUuidsBySlug("moves", dir).has("persuade")).toBe(false);
+	});
+
+	it("yields nothing for a pack that hasn't been built", () => {
+		expect([...loadItemUuidsBySlug("moves", join(dir, "absent")).keys()]).toEqual([]);
 	});
 });
