@@ -134,7 +134,8 @@ describe("playbook lock (integration)", () => {
 		// The tab's own sections still render, in the order the editor puts them in.
 		for (const heading of ["background.label", "instinct.label", "appearance.label", "origin.label"])
 			expect(html).toContain(heading);
-		expect(html.indexOf("There Was That Time You…")).toBeLessThan(html.indexOf("background.label"));
+		// The lore groups come after the picks, in their own block below the columns.
+		expect(html.indexOf("There Was That Time You…")).toBeGreaterThan(html.indexOf("origin.label"));
 		expect(unlocked).toContain(`class="stonetop-playbook-columns"`);
 		expect(html).toContain(`class="stonetop-playbook-columns"`);
 

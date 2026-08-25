@@ -33,8 +33,6 @@
 	{{/if}}
 	<div class="stonetop-playbook-columns">
 
-		{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore" locked=viewFlags.playbookLocked}}
-
 		{{#if stonetop.playbook.background.options.length}}
 		<div class="details-section">
 			{{> "stonetop.section-heading" title=(localize "stonetop.character.selection.background.label") note=(localize "stonetop.character.selection.chooseOne")}}
@@ -115,6 +113,15 @@
 		{{/if}}
 
 	</div>
+
+	{{#if stonetop.playbook.loreGroups.length}}
+	<div class="stonetop-playbook-lore">
+		<div class="stonetop-panel-divider" aria-hidden="true"></div>
+		<div class="stonetop-playbook-columns">
+			{{> "stonetop.choice-section" groups=stonetop.playbook.loreGroups cgContext="lore" locked=viewFlags.playbookLocked}}
+		</div>
+	</div>
+	{{/if}}
 
 	{{!-- Locked, the introductions are worth the room only if something was answered — otherwise the
 	      divider and heading stand over nothing. --}}

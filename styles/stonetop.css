@@ -1102,9 +1102,11 @@ body,
 
 /* Locked, a section the character put nothing in has nothing to show: the markers below are what a
    rendered choice looks like in any of its shapes (line, card, chosen background, chosen origin) or
-   a group's own prose. Matching none of them means the heading would stand over empty space. */
-.tab.is-locked .details-section:not(:has(.stonetop-choice-track, .stonetop-item,
-    .stonetop-origin-option, .stonetop-choice-entry-title, .stonetop-choice-description)) {
+   a group's own prose. Matching none of them means the heading would stand over empty space. The
+   lore block carries its own divider, so it goes when the section inside it does. */
+.tab.is-locked :is(.details-section, .stonetop-playbook-lore):not(:has(.stonetop-choice-track,
+    .stonetop-item, .stonetop-origin-option, .stonetop-choice-entry-title,
+    .stonetop-choice-description)) {
 	display: none;
 }
 
