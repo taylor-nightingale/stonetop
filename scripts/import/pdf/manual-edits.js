@@ -128,6 +128,32 @@ const missedNotes = (edits, applied) => edits.filter((e) => !applied.includes(e)
  * Apply the manual edits for one article's rendered HTML. Returns `{ html, applied, misses }` where
  * `misses` lists edits whose `find` matched nothing (callers should surface these).
  */
+/**
+ * The same thing for Book I's reference articles (scripts/import/build-book-one.js), keyed by
+ * article slug. Separate from MANUAL_EDITS because the two books' slugs are their own namespaces —
+ * an edit meant for one must not silently match an article in the other.
+ */
+export const BOOK_ONE_EDITS = {
+	"gear-and-possessions": [
+		{
+			// layout.js treats any line opening with a mark as a list item — right for Book II, whose
+			// gear lists lead each entry with its load ◇. Here the marks are the ammo STATUSES
+			// themselves, printed as one standalone line, so the line is unwrapped back into prose.
+			// Fixing isItemStart instead would change how every Book II list is read.
+			find: /<ul><li>(○ plenty left,[\s\S]*?)<\/li><\/ul>/,
+			replace: '<p class="ammo-statuses">$1</p>',
+			note: "ammo statuses — a standalone line, not a bulleted item",
+		},
+	],
+};
+
+/** Apply one Book I article's edits. Same contract as applyManualEdits. */
+export function applyBookOneEdits(html, slug) {
+	const edits = BOOK_ONE_EDITS[slug] || [];
+	const { text, applied } = replaceAll(html, edits);
+	return { html: text, applied: applied.length, misses: missedNotes(edits, applied) };
+}
+
 export function applyManualEdits(html, slug) {
 	const edits = MANUAL_EDITS[slug] || [];
 	const { text, applied } = replaceAll(html, edits);

@@ -21,7 +21,8 @@ import { extractImprovements, improvementUuid } from "./improvements.js";
 import { applyManualEdits } from "./manual-edits.js";
 import { extractChrome, extractSwirls } from "./images.js";
 import { formatPageRange } from "./pages.js";
-import { deterministicId, documentKey } from "../ids.js";
+import { deterministicId } from "../ids.js";
+import { textPage, journalEntry, entryId } from "../journal-docs.js";
 import { toSlug } from "../../../src/utils/slug.js";
 import { JOURNAL_PACK } from "./creatures.js";
 
@@ -44,27 +45,6 @@ const SHARED_URL = "stonetop-art/wonders";
 function totalPages() {
 	const out = execFileSync("mutool", ["info", PDF], { encoding: "utf8" });
 	return Number((out.match(/Pages:\s*(\d+)/) || [])[1] || 302);
-}
-
-/** A text JournalEntryPage embedded in `entry`. Needs its own `_key` so the CLI packs it under
- *  `!journal.pages!<entryId>.<pageId>` (the parent stores only the page id). */
-function textPage(entryId, slug, name, content) {
-	const id = deterministicId(JOURNAL_PACK, `${slug}#page`);
-	return {
-		_id: id,
-		_key: `!journal.pages!${entryId}.${id}`,
-		name,
-		type: "text",
-		title: { show: false, level: 1 },
-		image: {},
-		src: null,
-		text: { format: 1, content, markdown: undefined },
-		video: { controls: true, volume: 0.5 },
-		system: {},
-		sort: 0,
-		ownership: { default: -1 },
-		flags: {},
-	};
 }
 
 const ranges = articleRanges(loadOutline(PDF), totalPages());
@@ -138,7 +118,7 @@ if (!npcSlugs.size) flags.push("? no wider-world-npcs sources found — stat-blo
 // verbatim text they were authored against.
 let written = 0, links = 0, arcanaLinks = 0, npcLinks = 0, artifactLinks = 0;
 for (const { i, r, slug, body, page } of built) {
-	const id = deterministicId(JOURNAL_PACK, slug);
+	const id = entryId(JOURNAL_PACK, slug);
 	const pageLinked = linkPageRefs(body, pageMap, { selfSlug: slug });
 	const arc = linkArcana(pageLinked.html, arcanaIndex);
 	const edited = applyManualEdits(arc.html, slug); // one-off per-article corrections (see manual-edits.js)
@@ -152,16 +132,12 @@ for (const { i, r, slug, body, page } of built) {
 	const ref = page ? `<p class="wonder-pageref">Book of the Wider World — p.${page}</p>` : "";
 	const content = `<div class="stonetop-wonder">${ref}${artifacts.html}</div>`;
 
-	const entry = {
-		_id: id,
-		_key: documentKey("JournalEntry", id),
+	const entry = journalEntry(JOURNAL_PACK, slug, {
 		name: r.title,
-		pages: [textPage(id, slug, r.title, content)],
-		folder: null,
+		pages: [textPage(JOURNAL_PACK, id, `${slug}#page`, r.title, content)],
 		sort: (i + 1) * 100000,
-		ownership: { default: 0 },
 		flags: { stonetop: { bookPages: page, slug } },
-	};
+	});
 	writeFileSync(path.join(OUT, `${slug}.json`), JSON.stringify(entry, null, 2) + "\n");
 	written++;
 }

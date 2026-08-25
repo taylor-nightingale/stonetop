@@ -116,7 +116,8 @@ const hpAhead = (rows, i) => {
 };
 const looksStatStart = (rows, i) => {
 	const r = rows[i];
-	if (r.cells.length !== 1) return false;
+	// Callers probe the row AFTER an image, which may not exist — an icon can be a column's last row.
+	if (!r || r.cells.length !== 1) return false;
 	const l = r.cells[0];
 	return (isStatName(l) || isItalicLine(l) || isFieldLine(l)) && (isHpLine(l) || hpAhead(rows, i));
 };

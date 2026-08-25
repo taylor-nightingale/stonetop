@@ -2,9 +2,9 @@ import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync } from "fs";
 import path from "path";
 
-// Three builders now write languages/en.json — the tag glossary, the "If you want to…" advice, and
-// the Coins sidebar — and every other string in that file is hand-authored. They can only coexist
-// because each one replaces exactly its OWN subtree and leaves the rest of the tree alone.
+// Two builders write languages/en.json — the tag glossary and the "If you want to…" topic titles —
+// and every other string in that file is hand-authored. They can only coexist because each one
+// replaces exactly its OWN subtree and leaves the rest of the tree alone.
 //
 // That invariant is invisible at the point of the bug: a builder that assigned `strings.stonetop`
 // wholesale would silently drop its siblings, and the only symptom would be a ? button that quietly
@@ -28,9 +28,7 @@ const writers = scripts("scripts")
 describe("languages/en.json writers", () => {
 	it("finds the builders that write it", () => {
 		const names = writers.map(w => path.basename(w.file));
-		expect(names).toEqual(expect.arrayContaining([
-			"build-tag-glossary.js", "build-advice.js", "build-items.js",
-		]));
+		expect(names).toEqual(expect.arrayContaining(["build-tag-glossary.js", "build-advice.js"]));
 	});
 
 	it("each replaces one named subtree, never the whole stonetop tree", () => {

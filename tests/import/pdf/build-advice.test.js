@@ -21,7 +21,7 @@ describe("adviceRange", () => {
 
 	// A reprint that drops or renames the section should stop the build, not write a partial page.
 	it("refuses an outline without the article", () => {
-		expect(() => adviceRange([OUTLINE[0]])).toThrow(/no "If you want to…" entry/);
+		expect(() => adviceRange([OUTLINE[0]])).toThrow(/outline has no entry starting "if you want to"/);
 	});
 
 	it("refuses an article it cannot bound", () => {

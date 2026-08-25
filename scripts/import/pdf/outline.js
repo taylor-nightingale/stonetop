@@ -56,6 +56,21 @@ export function arcanaAppendixRanges(entries, totalPages) {
 }
 
 /** Run mutool and parse the outline. */
+/**
+ * One outline entry's page range, bounded by whatever the outline lists next.
+ *
+ * For a section that sits BELOW a chapter — Book I's "Gear and possessions" and "If you want to…"
+ * are sections of "Playing the Game" — which `articleRanges` does not walk. `title` is matched as a
+ * prefix, case-insensitively, because the outline spells an entry the way the page does.
+ */
+export function entryRange(entries, title) {
+	const at = entries.findIndex((e) => new RegExp(`^${title}`, "i").test(e.title));
+	if (at < 0) throw new Error(`outline has no entry starting "${title}"`);
+	const next = entries.slice(at + 1).find((e) => e.pdfPage > entries[at].pdfPage);
+	if (!next) throw new Error(`"${entries[at].title}" is the last outline entry — cannot bound it`);
+	return { title: entries[at].title, pdfPage: entries[at].pdfPage, endPage: next.pdfPage - 1 };
+}
+
 export function loadOutline(pdfPath) {
 	const raw = execFileSync("mutool", ["show", pdfPath, "outline"], { encoding: "utf8", maxBuffer: 1 << 24 });
 	return parseOutline(raw);

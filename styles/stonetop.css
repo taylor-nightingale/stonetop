@@ -6485,8 +6485,12 @@ button.stonetop-xp-toggle {
 .stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"] i { display: none; }
 .stonetop-wonder a.content-link[data-uuid*="wider-world-and-other-wonders"]:hover { color: var(--st-ink); text-shadow: none; }
 /* each printed page folds to two side-by-side columns (A|B on top, C|D below) */
-.stonetop-wonder .page2col { display: flex; gap: 1.5em; align-items: flex-start; margin: 0.2em 0; }
-.stonetop-wonder .page2col > .col { flex: 1; min-width: 0; }
+/* The book's two-column spread. It WRAPS: a journal window can be dragged narrower than two columns
+   of tables, and a flex row that refuses to wrap does not shrink past its contents' intrinsic width
+   — it overlaps them, so the columns end up printed on top of each other. A flex-basis is what
+   decides when to stack; min-width:0 alone only stops a column pushing its own siblings out. */
+.stonetop-wonder .page2col { display: flex; flex-wrap: wrap; gap: 1.5em; align-items: flex-start; margin: 0.2em 0; }
+.stonetop-wonder .page2col > .col { flex: 1 1 20em; min-width: min(20em, 100%); }
 .stonetop-wonder figure.art { margin: 1em 0; text-align: center; }
 .stonetop-wonder figure.art img { max-width: 100%; border: none; }
 .stonetop-wonder figure.icon { margin: 0.2em 0; text-align: left; }
@@ -6623,7 +6627,11 @@ button.stonetop-xp-toggle {
 .stonetop-item-reference .item-ref-table {
 	border-collapse: collapse; width: 100%; background: transparent;
 	color: var(--st-ink); margin: 0.2em 0 0.9em;
+	/* Fixed layout so the name column WRAPS in a narrow column instead of forcing the table wider
+	   than the column that holds it. The Load/Value widths below are what it lays out against. */
+	table-layout: fixed;
 }
+.stonetop-item-reference .item-ref-table td { overflow-wrap: anywhere; }
 .stonetop-item-reference .item-ref-table th,
 .stonetop-item-reference .item-ref-table td {
 	border: 1px solid var(--st-rule-veil); padding: 0.2em 0.5em; text-align: left; vertical-align: top;
@@ -6635,6 +6643,13 @@ button.stonetop-xp-toggle {
 .stonetop-item-reference .item-ref-table td.item-ref-load,
 .stonetop-item-reference .item-ref-table th.item-ref-value,
 .stonetop-item-reference .item-ref-table td.item-ref-value { width: 3.5em; text-align: center; white-space: nowrap; }
+
+/* Book I's Value ladder: "A Value 2 item is generally worth:" heads the list under it rather than
+   being an item in it, and the ammo statuses are one standalone line. Both are set as paragraphs by
+   the Book I build (scripts/import/pdf/book-one.js), so they only need spacing here. */
+.stonetop-wonder .value-tier { margin: 0.8em 0 0.2em; }
+.stonetop-wonder .value-tier + ul { margin-top: 0; }
+.stonetop-wonder .ammo-statuses { margin: 0.4em 0 0.8em; }
 
 .stonetop-item-reference .item-ref-detail { color: var(--st-ink-soft); font-size: 0.92em; }
 /* A livestock row's stat block sits under its name rather than inline — it is a whole creature. */

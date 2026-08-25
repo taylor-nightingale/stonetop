@@ -28,6 +28,54 @@ export function spliceGlyph(line, x, g) {
 	return false;
 }
 
+// Drop the resource/outfit check markers (small vector circles/diamonds) inline as glyphs.
+// Align each to the text line it overlaps and merge it into that row; ordering by x then
+// places it. Match by the nearest vertical centre (a marker sits between two rows, so the
+// closest baseline wins, not the closest left-edge). A diamond either leads its item (a
+// bullet) or sits inline within a sentence as an item-weight marker ("Retrieve an ◇◇ acorn",
+// "A ◇ sack full of rhoillyg seeds") — an inline diamond that falls INSIDE a line's span is
+// spliced into the text at its exact character position (a pseudo-line can only sort between
+// mutool cells, which put it at the wrong spot). Circles can be inline (potency dots inside
+// "(○○○ uses)"), so they keep the wider match.
+//
+// Pure over `markers`, so a caller can supply its own — Book I's articles pass the page's marks
+// minus any belonging to a figure, because the sample insert printed on "Gear and possessions"
+// carries 117 of its own that would otherwise scatter through the prose around it.
+export function attachMarkers(pg, markers) {
+	for (const mk of markers) {
+		const mid = (l) => (l.bbox[1] + l.bbox[3]) / 2;
+		let line;
+		if (mk.kind === "square") {
+			// A square checkbox's origin (mk.y) sits at the *top* of its (item-first) line — so it
+			// must attach there by line-top proximity, not line-center, or a 2-line wrapped item gets
+			// the box on its second line and is split. Only leading lines (starting at/right of it).
+			const cand = pg.lines.filter((l) => l.font !== "marker" && l.text.trim() && l.bbox[0] >= mk.x - 2 && Math.abs(l.bbox[1] - mk.y) < 8);
+			line = cand.sort((a, b) => Math.abs(a.bbox[1] - mk.y) - Math.abs(b.bbox[1] - mk.y))[0];
+		} else {
+			// Circle ○ / diamond ◇: match by vertical center. A diamond either leads its line (the
+			// text starts just right of it) or sits inline within it (the line spans across its x) —
+			// both are column-local, so a nearer-centred line in the neighbouring column never wins.
+			// A circle can be inline anywhere on the row ("(○○○ uses)"), so it keeps the wider match.
+			const cy = mk.y - mk.h / 2;
+			const cand = pg.lines.filter((l) => l.font !== "marker" && l.text.trim() && l.bbox[1] - 3 <= cy && l.bbox[3] + 3 >= cy && Math.abs(l.bbox[0] - mk.x) < 200);
+			const pool = mk.kind === "diamond"
+				? cand.filter((l) => (l.bbox[0] >= mk.x - 2 && l.bbox[0] < mk.x + 60) || (l.bbox[0] <= mk.x && mk.x <= l.bbox[2]))
+				: cand;
+			line = (mk.kind === "diamond" ? pool : (pool.length ? pool : cand)).sort((a, b) => Math.abs(mid(a) - cy) - Math.abs(mid(b) - cy))[0];
+		}
+		const y0 = line ? line.bbox[1] : mk.y;
+		const g = mk.kind === "circle" ? "○" : mk.kind === "square" ? "□" : "◇";
+		// Splice a mark that falls inside a line at its exact character position — circles as well as
+		// diamonds. A pseudo-line can only sort by its x against the line's LEFT edge, so a circle
+		// sitting within a cell lands outside it entirely: "(○ plenty left, low ammo, all out ○ ○)"
+		// instead of "(○ plenty left, ○ low ammo, ○ all out)". Splicing also keeps a run together,
+		// since the glyphs join one span rather than becoming separate lines joined with spaces.
+		if (mk.kind !== "square" && line && mk.x > line.bbox[0] + 1 && spliceGlyph(line, mk.x, g)) continue;
+		pg.lines.push({ bbox: [mk.x, y0, mk.x + mk.w, y0 + 8], text: g, font: "marker", size: 7, spans: [{ font: "marker", size: 7, text: g }] });
+	}
+	return pg;
+}
+
 /** Position of an article title (largest Avara line) on a page, to detect spreads shared by two
  *  articles (one printed page each). */
 export function titleHalf(pdf, pdfPage) {
@@ -74,41 +122,7 @@ export function loadArticlePages(pdf, r, { imgDir, imgPrefix = "art", mapFile = 
 			const font = sw.kind === "point" ? "swirl-point" : "swirl";
 			pg.lines.push({ bbox: [sw.x - 3, y0, sw.x, y0 + 8], text: "", font, size: 7, spans: [{ font, size: 7, text: "" }] });
 		}
-		// Drop the resource/outfit check markers (small vector circles/diamonds) inline as glyphs.
-		// Align each to the text line it overlaps and merge it into that row; ordering by x then
-		// places it. Match by the nearest vertical centre (a marker sits between two rows, so the
-		// closest baseline wins, not the closest left-edge). A diamond either leads its item (a
-		// bullet) or sits inline within a sentence as an item-weight marker ("Retrieve an ◇◇ acorn",
-		// "A ◇ sack full of rhoillyg seeds") — an inline diamond that falls INSIDE a line's span is
-		// spliced into the text at its exact character position (a pseudo-line can only sort between
-		// mutool cells, which put it at the wrong spot). Circles can be inline (potency dots inside
-		// "(○○○ uses)"), so they keep the wider match.
-		for (const mk of (markers ? loadMarkers(pdf, p) : [])) {
-			const mid = (l) => (l.bbox[1] + l.bbox[3]) / 2;
-			let line;
-			if (mk.kind === "square") {
-				// A square checkbox's origin (mk.y) sits at the *top* of its (item-first) line — so it
-				// must attach there by line-top proximity, not line-center, or a 2-line wrapped item gets
-				// the box on its second line and is split. Only leading lines (starting at/right of it).
-				const cand = pg.lines.filter((l) => l.font !== "marker" && l.text.trim() && l.bbox[0] >= mk.x - 2 && Math.abs(l.bbox[1] - mk.y) < 8);
-				line = cand.sort((a, b) => Math.abs(a.bbox[1] - mk.y) - Math.abs(b.bbox[1] - mk.y))[0];
-			} else {
-				// Circle ○ / diamond ◇: match by vertical center. A diamond either leads its line (the
-				// text starts just right of it) or sits inline within it (the line spans across its x) —
-				// both are column-local, so a nearer-centred line in the neighbouring column never wins.
-				// A circle can be inline anywhere on the row ("(○○○ uses)"), so it keeps the wider match.
-				const cy = mk.y - mk.h / 2;
-				const cand = pg.lines.filter((l) => l.font !== "marker" && l.text.trim() && l.bbox[1] - 3 <= cy && l.bbox[3] + 3 >= cy && Math.abs(l.bbox[0] - mk.x) < 200);
-				const pool = mk.kind === "diamond"
-					? cand.filter((l) => (l.bbox[0] >= mk.x - 2 && l.bbox[0] < mk.x + 60) || (l.bbox[0] <= mk.x && mk.x <= l.bbox[2]))
-					: cand;
-				line = (mk.kind === "diamond" ? pool : (pool.length ? pool : cand)).sort((a, b) => Math.abs(mid(a) - cy) - Math.abs(mid(b) - cy))[0];
-			}
-			const y0 = line ? line.bbox[1] : mk.y;
-			const g = mk.kind === "circle" ? "○" : mk.kind === "square" ? "□" : "◇";
-			if (mk.kind === "diamond" && line && mk.x > line.bbox[0] + 1 && spliceGlyph(line, mk.x, g)) continue;
-			pg.lines.push({ bbox: [mk.x, y0, mk.x + mk.w, y0 + 8], text: g, font: "marker", size: 7, spans: [{ font: "marker", size: 7, text: g }] });
-		}
+		attachMarkers(pg, markers ? loadMarkers(pdf, p) : []);
 		let rules = loadDividers(pdf, p);
 		let imgs = extractPageArt(pdf, p, imgDir, `${imgPrefix}-p${p}`, { dedup }).map((im) => ({ ...im, file: mapFile(im.file) }));
 		const mid = pg.width / 2;

@@ -8,50 +8,19 @@
  * what a sheet's ? button carries; the book's own heading is the `title`.
  */
 
-/** A run of prose. */
-export class AdviceParagraph {
-	constructor(text) {
-		this.type = "para";
-		this.text = text;
-	}
 
-	static fromStored(raw) {
-		return new AdviceParagraph(String(raw?.text ?? ""));
-	}
-}
 
-/** A bulleted list of ways to go about it. */
-export class AdviceList {
-	constructor(items) {
-		this.type  = "list";
-		this.items = items;
-	}
-
-	static fromStored(raw) {
-		return new AdviceList((raw?.items ?? []).filter(i => typeof i === "string"));
-	}
-}
-
-const BLOCK_TYPES = { para: AdviceParagraph, list: AdviceList };
-
-/** Parse a stored `blocks` array — the one shape the book's prose takes, shared by an advice topic
- *  and by a reference sidebar (src/model/data/Reference.js), so the two cannot drift. */
-export function blocksFromStored(raw) {
-	return (raw?.blocks ?? [])
-		.map(b => BLOCK_TYPES[b?.type]?.fromStored(b))
-		.filter(Boolean);
-}
-
-/** One topic: the heading the book prints, and the blocks under it. */
+/** One topic, as a sheet needs it: the key its ? button carries and the heading the book prints.
+ *  The advice ITSELF is a page in the reference pack (src/model/data/ReferenceTopics.js) — only the
+ *  title lives in the language file, because the button has to label itself before any pack loads. */
 export class AdviceTopic {
-	constructor(key, title, blocks = []) {
-		this.key    = key;
-		this.title  = title;
-		this.blocks = blocks;
+	constructor(key, title) {
+		this.key   = key;
+		this.title = title;
 	}
 
 	static fromStored(key, raw) {
-		return new AdviceTopic(key, String(raw?.title ?? ""), blocksFromStored(raw));
+		return new AdviceTopic(key, String(raw?.title ?? ""));
 	}
 }
 

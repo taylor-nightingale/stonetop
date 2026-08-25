@@ -683,206 +683,34 @@
 		},
 		"advice": {
 			"fortunes": {
-				"title": "increase Fortunes",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "The main ways are:"
-					},
-					{
-						"type": "list",
-						"items": [
-							"Undertake an expedition on behalf of the village and @UUID[Compendium.stonetop.moves.Item.ouWNVhpMTEujq8Rq]{Return Triumphant} (page 79).",
-							"Complete a steading improvement that increases Fortunes."
-						]
-					}
-				]
+				"title": "increase Fortunes"
 			},
 			"surplus": {
-				"title": "gain Surplus",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "The village generates Surplus each summer and at the end of autumn when the harvest is complete. If you want more:"
-					},
-					{
-						"type": "list",
-						"items": [
-							"Choose “unexpected bounty” when you get a **seasonal gain** (page 85).",
-							"Choose “trade opportunity” when you get a seasonal gain, and suggest that you’d like to trade for extra Surplus.",
-							"Undertake an expedition to hunt big game: elk, wisents, cave bears, ceirwmawr, etc.",
-							"Buy some! Surplus isn’t commonly available, so you’ll need to @UUID[Compendium.stonetop.moves.Item.wD977p9y0wwZFXvn]{Trade & Barter} (page 83) to see if it’s available from a passing merchant. If it’s not, you’ll need to travel to a neighboring steading. Surplus is Value 2, so expect to pay a purse of silvers, a donkey, a barrel of fine whisky, or so forth."
-						]
-					},
-					{
-						"type": "para",
-						"text": "If you want to increase the amount of Surplus that the village generates, look to the steading improvements."
-					}
-				]
+				"title": "gain Surplus"
 			},
 			"defenses": {
-				"title": "improve Defenses",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "You can temporarily boost Defenses via the @UUID[Compendium.stonetop.moves.Item.n78YcxUY5nTWnN8h]{Muster} move (page 82), but it will usually cost you Fortunes to do so. Other options include:"
-					},
-					{
-						"type": "list",
-						"items": [
-							"Build a @UUID[Compendium.stonetop.steading-improvements.Item.nuIJXiG6zisn95MG]{Palisade} (page 158) or a @UUID[Compendium.stonetop.steading-improvements.Item.DAnVjHBZDg9VPkFg]{Stone Wall} (page 159). They grant advantage to Deploy rolls when you take advantage of them.",
-							"Establish a @UUID[Compendium.stonetop.steading-improvements.Item.v0ygB3sfvACkWFZr]{Standing Watch} (page 159). They add +1 to your Defenses when they’re involved.",
-							"Spend time drilling the villagers, turning them into a @UUID[Compendium.stonetop.steading-improvements.Item.FmFFyXlR2adDPOqR]{Well-Trained Militia} (page 159). If you train the militia in 2 or more tactics, Defenses increases by 1.",
-							"Furnish the village with @UUID[Compendium.stonetop.steading-improvements.Item.ox68P1JkXbJuGj9f]{Weapons of War} (page 159) and teach folks to use them. This increases Defenses by 1 and gives PCs access to better weaponry."
-						]
-					}
-				]
+				"title": "improve Defenses"
 			},
 			"population": {
-				"title": "increase Population",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "Choose “population boom” when you get a **seasonal gain** (page 85)."
-					},
-					{
-						"type": "para",
-						"text": "Alternatively, go out and save or recruit or capture a bunch of people and bring them back to live in your village."
-					},
-					{
-						"type": "para",
-						"text": "Careful: higher Population makes it easier to @UUID[Compendium.stonetop.moves.Item.n78YcxUY5nTWnN8h]{Muster} (page 82) and @UUID[Compendium.stonetop.moves.Item.mNKPrUHV2KbTkJTL]{Pull Together} (page 83), but it also means more mouths to feed in winter when **Seasons Change** (page 84)."
-					}
-				]
+				"title": "increase Population"
 			},
 			"prosperity": {
-				"title": "improve Prosperity",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "Pursue the @UUID[Compendium.stonetop.steading-improvements.Item.Rbctcz2sMbc9wGLB]{Expanded Trades} (page 157) and/or the @UUID[Compendium.stonetop.steading-improvements.Item.BqPBZ9ExSPulTLPn]{Market} (page 158) improvement. Each of these increase Prosperity by 1, as long as they’re maintained."
-					},
-					{
-						"type": "para",
-						"text": "Also, the @UUID[Compendium.stonetop.steading-improvements.Item.bDHGwo8FMAtirOKw]{Township} improvement (page 159) grants advantage when you @UUID[Compendium.stonetop.moves.Item.wD977p9y0wwZFXvn]{Trade & Barter} (page 83)."
-					}
-				]
+				"title": "improve Prosperity"
 			},
 			"steadingImprovement": {
-				"title": "unlock a steading improvement",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "Look at the requirements and choose one to pursue. If you don’t know how to pursue it, @UUID[Compendium.stonetop.moves.Item.tLTyWFFkpaiArJLS]{Know Things} (page 72) and/or @UUID[Compendium.stonetop.moves.Item.xbV33Dh9P0JQlbYK]{Make a Plan} (page 81)."
-					},
-					{
-						"type": "para",
-						"text": "If you want to make an improvement to the steading that isn’t listed, tell the GM what you have in mind. They’ll either Make a Plan with you or add it to the list of Other Improvements (along with the requirements and potential benefits), whichever is more appropriate."
-					}
-				]
+				"title": "unlock a steading improvement"
 			},
 			"coin": {
-				"title": "get some coin",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "You can @UUID[Compendium.stonetop.moves.Item.bymwk3ionmxDWb1W]{Outfit} (page 77) or @UUID[Compendium.stonetop.moves.Item.2Bm31H0cvKRFSux3]{Have What You Need} (page 78) to produce a handful of coppers, but if you want more significant quantities, or any quantity of silver or gold coins, then you’ll need to roll @UUID[Compendium.stonetop.moves.Item.wD977p9y0wwZFXvn]{Trade & Barter} (page 83) to see if they’re even available. Even if they are, you’ll need to trade something of an appropriate Value."
-					},
-					{
-						"type": "para",
-						"text": "Other options include:"
-					},
-					{
-						"type": "list",
-						"items": [
-							"If you need more coin than what’s available in town, you can undertake a trade mission. Take some of the steading’s Surplus to Marshedge, Gordin’s Delve, or maybe the Hillfolk, and find someone to buy it. A purse or two of silvers is a fair trade for 1 Surplus (Value 2).",
-							"Go explore the Ruined Tower or someplace like it and dig up some sweet loot. Then roll Trade & Barter to sell it to a passing merchant or head to Marshedge or Gordin’s Delve and try to sell it there for more."
-						]
-					}
-				]
+				"title": "get some coin"
 			},
 			"arcana": {
-				"title": "find new arcana",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "@UUID[Compendium.stonetop.moves.Item.tLTyWFFkpaiArJLS]{Know Things} (page 72)! Maybe you know where something like that might be found. If you don’t, try something else:"
-					},
-					{
-						"type": "list",
-						"items": [
-							"Ask around, dig through the Chronicle (if there is one), consult the spirits (if you can), pray for guidance (if that’s your thing), eat some mushrooms and hope for a vision, etc.",
-							"Explore dangerous, mysterious places: old Maker-ruins, barrow mounds, Fae circles, strange groves, caves, or lakes (if you dare).",
-							"Put the word out. Let merchants and other contacts know that you’re interested in that sort of thing, then choose “trade opportunity” or “interesting news” when you get a **seasonal gain** (page 85)."
-						]
-					}
-				]
+				"title": "find new arcana"
 			},
 			"arcanumMystery": {
-				"title": "unlock the mysteries of an arcanum",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "Do what the requirements say! If you’re not sure how to meet a requirement, roll to @UUID[Compendium.stonetop.moves.Item.tLTyWFFkpaiArJLS]{Know Things} (page 72) and/or talk to the GM and @UUID[Compendium.stonetop.moves.Item.xbV33Dh9P0JQlbYK]{Make a Plan} (page 81)."
-					}
-				]
+				"title": "unlock the mysteries of an arcanum"
 			},
 			"followers": {
-				"title": "recruit followers",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "If you have someone in mind, ask them to join you on an expedition. **Persuade** them if necessary (page 73)."
-					},
-					{
-						"type": "para",
-						"text": "If you don’t have someone in mind, tell the GM what sort of follower you’re looking for (“a skilled tracker,” “a knowledgeable guide,” “someone who can handle themselves in a fight,” etc.). They’ll either tell you who in town fits the bill, or ask you to make someone up, or suggest that you @UUID[Compendium.stonetop.moves.Item.tLTyWFFkpaiArJLS]{Know Things} (page 72)."
-					},
-					{
-						"type": "para",
-						"text": "Alternatively:"
-					},
-					{
-						"type": "list",
-						"items": [
-							"@UUID[Compendium.stonetop.moves.Item.n78YcxUY5nTWnN8h]{Muster} (page 82) and pick “1 or 2 individuals show real potential.” Let the GM know that you’re hoping for a follower, and they’ll probably work with you.",
-							"Go to a bigger town and find a public place, like the Swap in Gordin’s Delve or Edgemarket in Marshedge. Announce that you’re looking to hire help. Say what the job is and what you’re offering. Those towns each have a special player move for Recruiting."
-						]
-					}
-				]
-			}
-		},
-		"reference": {
-			"coin": {
-				"title": "Coins",
-				"blocks": [
-					{
-						"type": "para",
-						"text": "Stonetop doesn’t mint coins, and folks don’t use them day-to-day. The local economy runs on trade, gifts and favors, debt and honor. Coin is used almost exclusively when trading with outsiders."
-					},
-					{
-						"type": "para",
-						"text": "Even then, coin is worth only what folks will trade for it. There’s no government to set or enforce prices or exchange rates. Coins vary greatly in size, weight, and purity. Coins minted in Gordin’s Delve might be worth more to locals than to outsiders. A Lygosi merchant might prefer southern currency to old Maker coins, but an antiquarian might consider those ancient coins to be priceless."
-					},
-					{
-						"type": "para",
-						"text": "_Stonetop_ abstracts coinage into individual coins, handfuls, and ◇ purses. Coins are most often copper, silver, or gold."
-					},
-					{
-						"type": "list",
-						"items": [
-							"An individual coin is quite small, ranging in size from a that of a modern penny to a silver dollar.",
-							"A handful of coins contains about 10 individual coins.",
-							"A ◇ purse of coins contains about 10 handfuls of coins, or around 100 individual coins.",
-							"One silver coin is roughly worth a ◇ purse of coppers (around 100 copper coins, Value 0).",
-							"One gold coin is roughly worth a ◇ purse of silvers (around 100 silver coins, or an absolute pile of coppers, Value 2)."
-						]
-					},
-					{
-						"type": "para",
-						"text": "See @UUID[Compendium.stonetop.reference.JournalEntry.YtD7j5PutvcvOHC6.JournalEntryPage.96v6UhrjmP0UfmIw]{Gear & Possessions} for what everything is worth."
-					}
-				]
+				"title": "recruit followers"
 			}
 		}
 	}

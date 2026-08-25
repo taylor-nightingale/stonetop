@@ -13,8 +13,18 @@ export const isGlyphFont = (font) => /Dingbat|ITCDING/i.test(String(font ?? ""))
 
 // Glyph code → the character it draws. Anything unmapped is dropped: an unrecognised dingbat is
 // decoration, and printing its code would be worse than printing nothing.
+//
+// "4" is the MARKED load diamond — the one the book draws with a tick inside it. That is the whole
+// reason it is a font glyph: an UNMARKED ◇ is vector art (rules.js parseMarkers), so the two are
+// encoded differently and the split is what tells them apart. Compare, on the same spread, "then
+// bring ◇ supplies" (vector, empty — you have yet to mark it) with "up to 3 ◆, then you have a light
+// load" and "you marked ◆ supplies, a ◆ shovel" (glyph, marked).
+//
+// Rendered filled rather than ticked, because that is what a checked load slot already looks like on
+// the character sheet (.stonetop-inv-diamond.is-checked fills with currentColor) — one meaning, one
+// appearance, wherever it is drawn.
 export const GLYPH_CHARS = {
-	"4": "◇",
+	"4": "◆",
 };
 
 /** A span's text with glyph codes translated; "" for a glyph span carrying nothing we render. */
