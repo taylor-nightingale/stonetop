@@ -1447,16 +1447,20 @@ body,
 
 /* A <button>, not a <span>: core binds only `click` for [data-action], so a span with one can be
    neither reached nor activated from the keyboard. These read as inline prose in a comma-separated
-   run, so the button's own chrome is stripped back to text. */
-.stonetop-origin-name {
+   run, so the button's own chrome is stripped back to text.
+
+   The sheet and element parts are what make `all: unset` bite: the display-font rule at the top of
+   this sheet matches `.stonetop.sheet button:not(.header-control):not(.control)` at (0,2,1), which
+   outranks a lone class and leaves the names bold, in the display face, and tracked — while the
+   commas between them stay body text. Anything less specific than this loses to it. */
+.stonetop.sheet.character button.stonetop-origin-name {
 	all: unset;
 	font-size: var(--fs-note);
-	font-family: inherit;
 	color: inherit;
 	cursor: pointer;
 }
 
-.stonetop-origin-name:hover {
+.stonetop.sheet.character button.stonetop-origin-name:hover {
 	text-decoration: underline;
 }
 
