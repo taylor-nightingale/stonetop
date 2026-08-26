@@ -2,6 +2,7 @@ import { withStonetopSheetChromeV2 } from "../utils/withStonetopSheetChromeV2.js
 import { buildFocusSelector } from "./buildFocusSelector.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { ADVICE_ACTIONS } from "../utils/adviceAction.js";
+import { EDIT_IMAGE_ACTIONS } from "../utils/editImageAction.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop actor sheets: HandlebarsApplicationMixin over
@@ -21,7 +22,7 @@ export function createStonetopActorSheetV2Class() {
 			classes: ["stonetop", "sheet", "actor"],
 			window: { resizable: true },
 			form: { submitOnChange: true },
-			actions: { ...ADVICE_ACTIONS },
+			actions: { ...ADVICE_ACTIONS, ...EDIT_IMAGE_ACTIONS },
 		};
 
 		// The actor's domain object. Named generically so shared sheet code (move rows, tag chips)

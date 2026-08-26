@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "trapping-gear",
 		"label": "Trapping gear",
-		"description": "nares, pelts, musk, bait, etc. When you Forage, get +1 use of provisions.",
+		"description": "snares, pelts, musk, bait, etc. When you _**Forage**_, get +1 use of provisions.",
 		"resource": null,
 		"outfitItems": [],
 		"choices": null,

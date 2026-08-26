@@ -3,9 +3,10 @@
 	<img class="profile-img stonetop-header-playbook-icon" src="{{stonetop.playbook.img}}"
 	     alt="{{stonetop.playbook.name}}" title="{{stonetop.playbook.name}}">
 	{{else}}
-	{{!-- data-edit: V1 core click binding; data-action: the V2 editImage action. Both present while
-	      the actor sheets straddle the migration. --}}
-	<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{actor.name}}"><img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" title="{{actor.name}}"></button>
+	{{!-- data-edit belongs on the <img>, never on the button: FormDataExtended reads [data-edit]
+	      elements into the submit payload, taking an IMG's src but any other element's innerHTML —
+	      which the img FilePathField then rejects, blocking every submit (including a rename). --}}
+	<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{actor.name}}"><img data-edit="img" class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" title="{{actor.name}}"></button>
 	{{/if}}
 	<div class="header-fields">
 		<h1 class="charname">

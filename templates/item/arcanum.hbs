@@ -2,7 +2,7 @@
 <div class="stonetop-item-sheet-part">
 
 	<header class="stonetop-insert-sheet-header">
-		<button type="button" class="stonetop-image-btn" data-edit="img" data-action="editImage" aria-label="{{item.name}}"><img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
+		<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{item.name}}"><img data-edit="img" class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
 		<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
 		       placeholder="{{localize 'stonetop.arcanum.namePlaceholder'}}"
 		       {{#unless editable}}disabled{{/unless}}

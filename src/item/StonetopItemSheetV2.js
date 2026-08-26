@@ -1,4 +1,5 @@
 import { withStonetopSheetChromeV2 } from "../utils/withStonetopSheetChromeV2.js";
+import { EDIT_IMAGE_ACTIONS } from "../utils/editImageAction.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop item sheets: HandlebarsApplicationMixin over
@@ -20,6 +21,7 @@ export function createStonetopItemSheetV2BaseClass() {
 			classes: ["stonetop", "sheet", "item"],
 			window: { resizable: true },
 			form: { submitOnChange: true },
+			actions: { ...EDIT_IMAGE_ACTIONS },
 		};
 
 	};

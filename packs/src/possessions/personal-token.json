@@ -7,7 +7,7 @@
 	"system": {
 		"slug": "personal-token",
 		"label": "Personal token, fraught with meaning",
-		"description": "",
+		"description": "(pick 1)",
 		"resource": null,
 		"outfitItems": [],
 		"choices": {
