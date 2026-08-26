@@ -33,6 +33,23 @@ export class CharacterBackgrounds {
 		await this._resourceController.set("backgrounds", slug, count);
 	}
 
+	// A background's own track, rolled by the move it grants (the Destined background's Omens). The
+	// background names the track (resource.title), so nothing here needs a second place to declare the
+	// stat. Null when the chosen background has no track by that name.
+	resolveBonus(stat) {
+		const background = this.selectedBackground(_findPlaybookItem(this._actor)?.system);
+		const title      = background?.resource?.title;
+		if (!title || toSlug(title) !== stat) return null;
+		return this._resourceController.getCurrent("backgrounds", background.slug);
+	}
+
+	/** The chosen background's own definition, out of the playbook data that carries them all. */
+	selectedBackground(playbookData) {
+		const slug = this.selectedSlug;
+		if (!slug) return null;
+		return (playbookData?.backgrounds ?? []).find(b => b.slug === slug) ?? null;
+	}
+
 	async buildSnapshot(backgroundsData) {
 		const savedSlug = this.selectedSlug || null;
 		const pbItem    = _findPlaybookItem(this._actor);
@@ -59,3 +76,4 @@ export class CharacterBackgrounds {
 function _findPlaybookItem(actor) {
 	return [...actor.items].find(i => i.type === "playbook") ?? null;
 }
+

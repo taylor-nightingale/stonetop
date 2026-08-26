@@ -580,7 +580,8 @@
 					"prosperity": "Prosperity (steading)",
 					"population": "Population (steading)",
 					"defenses": "Defenses (steading)",
-					"favor": "Favor (Thrall)"
+					"favor": "Favor (Thrall)",
+					"omens": "Omens (Destined)"
 				},
 				"moveType": {
 					"none": "— Type —",

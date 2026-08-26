@@ -36,10 +36,12 @@ export const ROLL_STAT_CHOICES = {
 	prosperity: "stonetop.item.move.rollStat.prosperity",
 	population: "stonetop.item.move.rollStat.population",
 	defenses:   "stonetop.item.move.rollStat.defenses",
-	// An insert's own track. Listing it here is a stopgap: the key belongs to the Thrall, not to
-	// every move in the system, and the list can't grow a line per insert. Better would be building
-	// the choices from the same sources resolveBonus consults.
+	// A container's own track: the Thrall insert's Favor, the Destined background's Omens. Listing
+	// them here is a stopgap: each key belongs to its container, not to every move in the system, and
+	// the list can't grow a line per insert or background. Better would be building the choices from
+	// the same sources resolveBonus consults.
 	favor:      "stonetop.item.move.rollStat.favor",
+	omens:      "stonetop.item.move.rollStat.omens",
 	ask:        "stonetop.item.move.rollStat.ask",
 	prompt:     "stonetop.item.move.rollStat.prompt",
 };

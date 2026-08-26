@@ -102,16 +102,26 @@
       {
         "slug": "mighty-hunter",
         "label": "Mighty Hunter",
+        "moves": [
+          "expert-tracker",
+          "stalker"
+        ],
         "description": "You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.\n\nYou start with both the **Expert Tracker** move and the **Stalker** move. Go mark them now."
       },
       {
         "slug": "wide-wanderer",
         "label": "Wide Wanderer",
+        "moves": [
+          "mental-map"
+        ],
         "description": "You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:\n\n- **Ennis** (from Marshedge)\n- **Shahar** (from Gordin's Delve)\n- **Yannic** (from the Hillfolk)>/li>**Tovia** (from Lygos)\n- **Sasca** (from the northern Manmarch)\n\nYou start with the **Mental Map** move. Mark it now.\n\nWhen you *Know Things about the wider world*, you can roll +WIS instead of +INT. When you *arrive somewhere you've visited before* (your call), tell the GM when you were last here, and the GM will tell you how it's changed."
       },
       {
         "slug": "beast-bonded",
         "label": "Beast-Bonded",
+        "moves": [
+          "animal-companion"
+        ],
         "description": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.\n\nWhen you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th."
       }
     ],

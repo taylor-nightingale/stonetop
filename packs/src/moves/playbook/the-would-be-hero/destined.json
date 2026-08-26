@@ -1,0 +1,28 @@
+{
+  "_id": "tGelyaosKlgHogyB",
+  "_key": "!items!tGelyaosKlgHogyB",
+  "name": "Destined",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "At the **_start of a session_**, roll +Omens: **on a 7+**, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, **on a 10+**, ask the GM a follow-up question and get a clear, helpful answer; **on a 6-**, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.\n\n**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, ask the GM a follow-up question and get a clear, helpful answer."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them."
+      }
+    },
+    "rollStat": "omens",
+    "slug": "destined",
+    "xpOnMiss": false
+  },
+  "folder": "dgktpzqUfX5DWqqE"
+}

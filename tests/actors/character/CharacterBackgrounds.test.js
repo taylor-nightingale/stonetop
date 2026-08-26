@@ -203,6 +203,37 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 
 // -- setResource --------------------------------------------------------------
 
+// A background can carry a track of its own (the Destined Would-Be Hero's Omens) and grant a move
+// that rolls +it. The background names the track, so the move's rollStat is all that has to line up.
+describe("CharacterBackgrounds.resolveBonus", () => {
+	const DESTINED = [
+		{ slug: "destined", label: "Destined", resource: { max: 3, title: "Omens" } },
+		{ slug: "driven",   label: "Driven" },
+	];
+
+	it("answers the chosen background's named track with its current count", async () => {
+		const resourceCtrl = makeResourceController();
+		await resourceCtrl.set("backgrounds", "destined", 2);
+		expect(makeBg("destined", {}, null, resourceCtrl, DESTINED).resolveBonus("omens")).toBe(2);
+	});
+
+	it("answers 0 for a track nobody has marked yet", () => {
+		expect(makeBg("destined", {}, null, null, DESTINED).resolveBonus("omens")).toBe(0);
+	});
+
+	it("answers nothing for a stat the chosen background does not name", () => {
+		expect(makeBg("destined", {}, null, null, DESTINED).resolveBonus("favor")).toBeNull();
+	});
+
+	it("answers nothing when the background carrying that track is not the chosen one", () => {
+		expect(makeBg("driven", {}, null, null, DESTINED).resolveBonus("omens")).toBeNull();
+	});
+
+	it("answers nothing when no background is chosen", () => {
+		expect(makeBg("", {}, null, null, DESTINED).resolveBonus("omens")).toBeNull();
+	});
+});
+
 describe("CharacterBackgrounds.setResource", () => {
 	it("persists count in the backgrounds namespace of ResourceController", async () => {
 		const resourceCtrl = makeResourceController();

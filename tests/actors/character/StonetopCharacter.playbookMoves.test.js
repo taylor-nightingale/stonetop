@@ -148,3 +148,84 @@ describe("StonetopCharacter — playbook moves auto-populate on the moves tab (i
 		expect(cat?.moves.map(m => m.name)).toContain("Haunt");
 	});
 });
+
+// A background can hand you a move of its own — one the playbook does not otherwise offer. The link
+// lives on a row of the background's choice group (the same grant an arcanum's card carries), so the
+// move renders there, on the background, and is kept off the moves tab.
+describe("StonetopCharacter — a background's own moves (integration)", () => {
+	afterEach(() => vi.unstubAllGlobals());
+
+	const DESTINED = {
+		slug: "destined", label: "Destined", resource: { max: 3, title: "Omens" },
+		choices: { slug: "destined", list: [
+			{ type: "entry", slug: "marked", content: { text: "marked at birth" }, track: { max: 1 } },
+			{ type: "entry", grants: [{ type: "move", slug: "destined", locations: ["inline"] }] },
+		]},
+	};
+	const BACKGROUNDS = [{ slug: "impetuous-youth", label: "Impetuous Youth" }, DESTINED];
+
+	// Faithful to the real drop: Foundry embeds the playbook item, THEN fires the create hook with that
+	// same document — and the background lookups read the embedded item, not the one passed in.
+	function characterWithBackground(selected) {
+		const item  = playbookItem({ moves: ["serenity"], startingMoves: [], backgrounds: BACKGROUNDS });
+		const actor = new FakeCharacterActorBuilder().addItem(item).build();
+		actor.system.background = { selected };
+		return { actor, item, character: new StonetopCharacter(actor, new FoundryRepositoryFactory()) };
+	}
+
+	it("grants the linked move as an owned move item when the playbook lands", async () => {
+		withMovesPack(move("Serenity"), new FakeCompendiumMoveBuilder().withName("Destined").withRollStat("omens").build());
+		const { character, item } = characterWithBackground("destined");
+
+		await character._onCreateDescendantDocuments([item]);
+
+		const snap = await character.buildSnapshot();
+		expect(snap.moves.bySlug["destined"]?.ownedId).toBeTruthy();
+		expect(snap.moves.bySlug["destined"].rollStat).toBe("omens");
+		expect(snap.moves.bySlug["destined"].selection.value).toBe(1);   // yours already, not tick-to-unlock
+	});
+
+	it("keeps that move off the moves tab — it is reached on the background", async () => {
+		withMovesPack(move("Serenity"), move("Destined"));
+		const { character, item } = characterWithBackground("destined");
+
+		await character._onCreateDescendantDocuments([item]);
+
+		const snap = await character.buildSnapshot();
+		expect(snap.moves.categories.find(c => c.key === "background-destined")).toBeUndefined();
+		expect(snap.moves.categories.flatMap(c => c.moves.map(m => m.name))).not.toContain("Destined");
+		expect(snap.moves.categories.flatMap(c => c.moves.map(m => m.name))).toContain("Serenity");
+	});
+
+	it("grants nothing for a background that links no moves", async () => {
+		withMovesPack(move("Serenity"), move("Destined"));
+		const { character, item } = characterWithBackground("impetuous-youth");
+
+		await character._onCreateDescendantDocuments([item]);
+
+		expect((await character.buildSnapshot()).moves.bySlug["destined"]).toBeUndefined();
+	});
+
+	it("hands the move over on choosing that background, and back on leaving it", async () => {
+		withMovesPack(move("Serenity"), move("Destined"));
+		const { character, item } = characterWithBackground("impetuous-youth");
+		await character._onCreateDescendantDocuments([item]);
+
+		await character.selectBackground("destined");
+		expect((await character.buildSnapshot()).moves.bySlug["destined"]?.ownedId).toBeTruthy();
+
+		await character.selectBackground("impetuous-youth");
+		expect((await character.buildSnapshot()).moves.bySlug["destined"]).toBeUndefined();
+	});
+
+	// The background names its own track, so the move it grants can roll +it.
+	it("rolls the granted move against the background's track", async () => {
+		withMovesPack(move("Serenity"), move("Destined"));
+		const { character, item } = characterWithBackground("destined");
+		await character._onCreateDescendantDocuments([item]);
+
+		await character.setBackgroundResource("destined", 2);
+
+		expect(character.resolveBonus("omens")).toBe(2);
+	});
+});

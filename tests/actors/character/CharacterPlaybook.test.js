@@ -21,6 +21,9 @@ class FakeBackground {
 	get selectedSlug()              { return this._selectedSlug; }
 	async selectBackground(slug)    { this._selectedSlug = slug; }
 	async buildSnapshot()           { return null; }
+	selectedBackground(playbookData) {
+		return (playbookData?.backgrounds ?? []).find(b => b.slug === this._selectedSlug) ?? null;
+	}
 }
 
 class FakeOrigin {
@@ -67,6 +70,9 @@ const PLAYBOOK_ITEM = new TestPlaybookItemBuilder()
 	.withBackgrounds([
 		{ slug: "herbalist", moves: ["healing-touch"] },
 		{ slug: "vessel",    moves: ["channel"] },
+		{ slug: "destined",  label: "Destined", choices: { slug: "destined", list: [
+			{ type: "entry", grants: [{ type: "move", slug: "omens", locations: ["inline"] }] },
+		]}},
 	])
 	.withInstinct(INSTINCT_GROUP)
 	.withAppearance(APPEARANCE_GROUP)
@@ -428,5 +434,63 @@ describe("CharacterPlaybook.selectBackground", () => {
 		pb.setMoves(moves);
 		await pb.selectBackground("herbalist");
 		expect(moves.incrementedCount()).toBe(0);
+	});
+
+	// A background's own move is an item only that background grants, so the switch has to take the
+	// old one's back and hand out the new one's — nothing else owns them.
+	it("hands back the old background's own moves and grants the new one's", async () => {
+		const bg    = new FakeBackground("destined");
+		const moves = new FakeMoves();
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
+		pb.setMoves(moves);
+
+		await pb.selectBackground("herbalist");
+
+		expect(moves.removedCategories).toContain("background-destined");
+		expect(moves.addedCategories.find(c => c.moveSlugs.length)).toBeUndefined();
+	});
+
+	it("grants the moves the newly chosen background links", async () => {
+		const bg    = new FakeBackground("herbalist");
+		const moves = new FakeMoves();
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
+		pb.setMoves(moves);
+
+		await pb.selectBackground("destined");
+
+		expect(moves.addedCategories)
+			.toContainEqual({ type: "background-destined", name: "Destined", moveSlugs: ["omens"] });
+	});
+});
+
+// ── backgroundMoveGrants ──────────────────────────────────────────────────────
+
+describe("CharacterPlaybook.backgroundMoveGrants", () => {
+	it("asks for the moves the chosen background's choice group links, in a category of its own", async () => {
+		const moves = new FakeMoves();
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]),
+			{ background: new FakeBackground("destined") });
+		pb.setMoves(moves);
+
+		const set = await pb.backgroundMoveGrants(PLAYBOOK_DATA);
+
+		expect(moves.addedCategories)
+			.toContainEqual({ type: "background-destined", name: "Destined", moveSlugs: ["omens"] });
+		expect(set.keys).toHaveLength(1);
+	});
+
+	// The moves a background merely names (a playbook move it starts you with) are the playbook's to
+	// grant — this one only speaks for the moves the background itself hands over.
+	it("grants nothing for a background that links no moves", async () => {
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]),
+			{ background: new FakeBackground("herbalist") });
+		pb.setMoves(new FakeMoves());
+		expect((await pb.backgroundMoveGrants(PLAYBOOK_DATA)).isEmpty).toBe(true);
+	});
+
+	it("grants nothing when no background is chosen", async () => {
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]));
+		pb.setMoves(new FakeMoves());
+		expect((await pb.backgroundMoveGrants(PLAYBOOK_DATA)).isEmpty).toBe(true);
 	});
 });

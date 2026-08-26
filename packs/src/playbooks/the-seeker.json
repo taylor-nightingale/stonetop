@@ -91,16 +91,25 @@
       {
         "slug": "patriot",
         "label": "Patriot",
+        "moves": [
+          "lets-make-a-deal"
+        ],
         "description": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum."
       },
       {
         "slug": "antiquarian",
         "label": "Antiquarian",
+        "moves": [
+          "polyglot"
+        ],
         "description": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum."
       },
       {
         "slug": "witch-hunter",
         "label": "Witch Hunter",
+        "moves": [
+          "everything-bleeds"
+        ],
         "description": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum."
       }
     ],

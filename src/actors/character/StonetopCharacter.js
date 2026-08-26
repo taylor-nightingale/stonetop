@@ -68,12 +68,13 @@ export class StonetopCharacter {
 			.register("playbook", {
 				source:  item => GrantSource.playbook(item.system?.slug),
 				onApply: async item => this._playbook.selectPlaybook(item.asPlaybook()),
-				// Four independent compendium reads: resolved together, the drop costs the slowest rather
+				// Five independent compendium reads: resolved together, the drop costs the slowest rather
 				// than the sum.
 				grants:  async item => {
 					const playbook = item.asPlaybook();
 					return Promise.all([
 						this._playbook.moveGrants(playbook),
+						this._playbook.backgroundMoveGrants(playbook),
 						this._followers.playbookGrants(playbook.slug, playbook.followers),
 						this._inserts.playbookGrants(playbook.slug, playbook.inserts),
 						this._possessions.playbookGrants(playbook.specialPossessions, playbook.slug),
@@ -374,11 +375,13 @@ export class StonetopCharacter {
 
 	// A character rolls its own six stats. Anything else belongs to something the character is tied
 	// to, so the lookup falls down the chain: an insert's own track (the Thrall's Favor, rolled by
-	// Dark Succor), then the steading it calls home (Requisition's +Fortunes). Null when nothing
-	// answers — ActorRolling reads that as "can't roll this" and posts the move's text instead.
+	// Dark Succor), the chosen background's (a Destined Would-Be Hero's Omens), then the steading it
+	// calls home (Requisition's +Fortunes). Null when nothing answers — ActorRolling reads that as
+	// "can't roll this" and posts the move's text instead.
 	resolveBonus(stat) {
 		return this._stats.resolveBonus(stat)
 			?? this._inserts.resolveBonus(stat)
+			?? this._background.resolveBonus(stat)
 			?? this._homeSteading?.resolveBonus(stat)
 			?? null;
 	}

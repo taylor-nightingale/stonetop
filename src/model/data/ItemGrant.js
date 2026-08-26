@@ -82,6 +82,7 @@ export class GrantSource {
 	static playbook(slug)     { return `playbook:${slug}`; }
 	static insert(slug)       { return `insert:${slug}`; }
 	static arcanum(slug)      { return `arcana:${slug}`; }
+	static background(slug)   { return `background:${slug}`; }
 	static reference(category) { return `reference:${category}`; }
 
 	// The gear a container grants is a source of its own, distinct from the container's other grants:
@@ -90,16 +91,17 @@ export class GrantSource {
 	static outfit(containerSource) { return `outfit:${containerSource}`; }
 
 	/**
-	 * The source a move's category key names. Inserts and arcana name themselves in it; everything else
-	 * (basic, expedition, special, follower, homefront, seasons) is a reference list seeded from the
-	 * packs. Null for "other", where a hand-dropped move lands — nobody granted that.
+	 * The source a move's category key names. Inserts, arcana and backgrounds name themselves in it;
+	 * everything else (basic, expedition, special, follower, homefront, seasons) is a reference list
+	 * seeded from the packs. Null for "other", where a hand-dropped move lands — nobody granted that.
 	 */
 	static forCategoryKey(categoryKey) {
 		if (!categoryKey || categoryKey === "other") return null;
 		for (const [prefix, source] of [
-			["playbook-", GrantSource.playbook],
-			["insert-",   GrantSource.insert],
-			["arcana-",   GrantSource.arcanum],
+			["playbook-",   GrantSource.playbook],
+			["insert-",     GrantSource.insert],
+			["arcana-",     GrantSource.arcanum],
+			["background-", GrantSource.background],
 		]) {
 			if (categoryKey.startsWith(prefix)) return source(categoryKey.slice(prefix.length));
 		}

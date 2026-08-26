@@ -13,11 +13,12 @@ const INLINE_SEPARATOR = " · ";
  * sub-heading, a card pick keeps its card. Locking a tab must not restyle it.
  */
 export class ReviewLine {
-	constructor(form, text, detail, note) {
+	constructor(form, text, detail, note, moves = null) {
 		this.form   = form;
 		this.text   = text;
 		this.detail = detail;
 		this.note   = note;
+		this.moves  = moves;   // EntryRowMoves | null — the row's inline move grant, resolved at render
 	}
 
 	/** A bare line — a ticked entry that is nothing but its own text. */
@@ -28,6 +29,9 @@ export class ReviewLine {
 
 	/** A pick with a description: the editor's card. */
 	static card(text, description) { return new ReviewLine("card", text, description, null); }
+
+	/** The move(s) a row grants: the editor's inline move-row, which is where they are rolled. */
+	static grantedMoves(moves) { return new ReviewLine("moves", null, null, null, moves); }
 }
 
 /** A group's prose and the choices it introduces. Title and lead are the group's own words — the
@@ -61,27 +65,33 @@ class Condenser {
 	#head    = null; // the prose this block opened with
 	#lines   = [];
 	#inline  = [];   // picked words from a run of inline rows, still being collected
+	#closingFrom;    // index from which a prose row is the group's closing words, not a question
 
 	constructor(group) {
 		this.rows = group?.list ?? [];
+		// Prose below the last row that can record anything has no question left to ask: it is what the
+		// group closes on. Prose above one is a question, and stands only if something under it was chosen.
+		this.#closingFrom = this.rows.findLastIndex(row => !isProse(row)) + 1;
 	}
 
 	run() {
-		for (const row of this.rows) {
-			if (isProse(row)) this.#onProse(row);
+		for (const [index, row] of this.rows.entries()) {
+			if (isProse(row)) this.#onProse(row, index);
 			else if (row.type === "choice") this.#onPick(row);
 			else this.#onEntry(row);
 		}
 		this.#closeBlock();
+		this.#closeProse();
 		return this.#blocks;
 	}
 
-	#onProse(row) {
+	#onProse(row, index) {
 		this.#closeBlock();
 		this.#pending.push({
 			title:     textOrNull(row.content?.title),
 			titleNote: textOrNull(row.content?.titleNote),
 			lead:      textOrNull(row.content?.text),
+			closing:   index >= this.#closingFrom,
 		});
 	}
 
@@ -106,20 +116,28 @@ class Condenser {
 		if (row.input && hasText(row.input.value)) {
 			// A write-in is its own block: the row's own words are the question, the answer is the line.
 			this.#closeBlock();
-			this.#pending.push({ title: null, titleNote: null, lead: label.text });
+			this.#pending.push({ title: null, titleNote: null, lead: label.text, closing: false });
 			this.#addLine(ReviewLine.row(rich(row.input.value)));
 			this.#closeBlock();
 			return;
 		}
-		if (!(row.track?.checks ?? []).some(Boolean)) return;
+		const granted = row.moves;
+		const ticked  = (row.track?.checks ?? []).some(Boolean);
+		// A row with a track records a choice: what it says, and any move it grants, stand once it is
+		// ticked. A row that is nothing but a grant has nothing to tick — the move is simply yours.
+		if (!ticked && !(granted && !row.track)) return;
 		this.#closeInline();
-		this.#addLine(label.body
-			? ReviewLine.section(label.text, label.note, label.body)
-			: ReviewLine.row(label.text ?? rich(""), label.note));
+		if (!granted || hasText(label.text)) {
+			this.#addLine(label.body
+				? ReviewLine.section(label.text, label.note, label.body)
+				: ReviewLine.row(label.text ?? rich(""), label.note));
+		}
+		if (granted) this.#addLine(ReviewLine.grantedMoves(granted));
 	}
 
-	// Prose only earns its place once something under it is reviewed: the nearest prose opens this
-	// block, anything above it stands alone (a group heading over a question that got skipped).
+	// Prose earns its place from a line below it: the nearest prose opens this block, anything above
+	// it stands alone (a group heading over a question that got skipped). Prose with nothing below it
+	// is the group's closing words — see #closeProse.
 	#addLine(line) {
 		if (!this.#lines.length) {
 			this.#head = this.#pending.pop() ?? null;
@@ -127,6 +145,15 @@ class Condenser {
 			this.#pending = [];
 		}
 		this.#lines.push(line);
+	}
+
+	// The prose a group closes on states what answering it did — the rules the chosen lines now play
+	// by, not a question anybody skipped — so it stands under them. A group nobody answered still
+	// condenses to nothing.
+	#closeProse() {
+		if (!this.#blocks.length) return;
+		for (const prose of this.#pending) if (prose.closing) this.#blocks.push(blockOf(prose, []));
+		this.#pending = [];
 	}
 
 	#closeInline() {

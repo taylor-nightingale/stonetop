@@ -24,6 +24,13 @@
 	</div>
 	<div class="stonetop-item-description">{{rich detail}}</div>
 </div>
+{{else if (eq form "moves")}}
+{{!-- A row that is nothing but a move grant: the move itself, rendered as the editor renders it. --}}
+<div class="stonetop-arcanum-move-grant">
+	<ol class="items-list stonetop-arcanum-moves">
+		{{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" showCheck=false alwaysShowResource=true}}{{/with}}{{/each}}
+	</ol>
+</div>
 {{else}}
 <div class="stonetop-choice-track stonetop-row">
 	<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>

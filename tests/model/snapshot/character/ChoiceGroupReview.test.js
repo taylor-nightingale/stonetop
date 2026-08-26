@@ -79,6 +79,30 @@ describe("ChoiceGroup#condensed", () => {
 		]);
 	});
 
+	// The rules a background closes on ("At the start of a session, roll +Omens…") apply to whoever
+	// chose the lines above them — they are not a question anybody skipped, so they survive the lock.
+	it("keeps the prose a group closes on under the lines it follows", () => {
+		const destined = { slug: "destined", list: [
+			{ type: "entry", content: { text: "Choose 3-4 items to describe your destiny:" } },
+			{ type: "entry", slug: "marked", content: { text: "marked at birth" }, track: { max: 1 } },
+			{ type: "entry", content: { text: "At the start of a session, roll +Omens." } },
+		]};
+
+		expect(shape(group(destined, { destined: { marked: 1 } }).condensed)).toEqual([
+			{ title: "", lead: "Choose 3-4 items to describe your destiny:", lines: ["marked at birth"] },
+			{ title: "", lead: "At the start of a session, roll +Omens.",    lines: [] },
+		]);
+	});
+
+	it("drops the closing prose of a group nobody answered", () => {
+		const destined = { slug: "destined", list: [
+			{ type: "entry", slug: "marked", content: { text: "marked at birth" }, track: { max: 1 } },
+			{ type: "entry", content: { text: "At the start of a session, roll +Omens." } },
+		]};
+
+		expect(group(destined).condensed).toEqual([]);
+	});
+
 	// The editor shows an entry title's note beside it ("(choose 1 or 2 per tale)"); the condensed
 	// heading is the same heading, so it keeps its aside.
 	it("keeps a heading's note with the heading", () => {
@@ -130,6 +154,32 @@ describe("ChoiceGroup#condensed", () => {
 		expect(raw(block.lines[0].text)).toBe("Blinding Light");
 		expect(raw(block.lines[0].note)).toBe("(ongoing)");
 		expect(raw(block.lines[0].detail)).toBe("Your light blazes.");
+	});
+
+	// A move linked on a row is reached through that row, so locking the tab must not take it away.
+	// A row that is nothing but the grant has nothing to tick — the move is simply yours.
+	it("keeps the move a row grants, ticked or untickable", () => {
+		const granting = { slug: "destined", list: [
+			{ type: "entry", content: { text: "Fate has laid her hand upon you." } },
+			{ type: "entry", slug: "marked", content: { text: "marked at birth" }, track: { max: 1 } },
+			{ type: "entry", grants: [{ type: "move", slug: "destined", locations: ["inline"] }] },
+		]};
+
+		const blocks = group(granting, { destined: { marked: 1 } }).condensed;
+		expect(blocks.flatMap(b => b.lines).map(l => l.form)).toEqual(["row", "moves"]);
+		expect(blocks.at(-1).lines.at(-1).moves.slugs).toEqual(["destined"]);
+	});
+
+	it("holds back the move a row grants until that row is ticked", () => {
+		const unlockable = { slug: "mysteries", list: [
+			{ type: "entry", slug: "storms-fury", track: { max: 1 },
+			  grants: [{ type: "move", slug: "storms-fury", locations: ["inline"] }] },
+		]};
+
+		expect(group(unlockable).condensed).toEqual([]);
+		const [block] = group(unlockable, { mysteries: { "storms-fury": 1 } }).condensed;
+		expect(block.lines.map(l => l.form)).toEqual(["moves"]);
+		expect(block.lines[0].moves.slugs).toEqual(["storms-fury"]);
 	});
 
 	// Locking a tab changes what it shows, not how it looks: each line remembers which of the

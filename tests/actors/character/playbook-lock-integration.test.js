@@ -21,7 +21,11 @@ const playbookItem = () => new TestPlaybookItemBuilder()
 	.withName("The Fox")
 	.withBackgrounds([
 		{ slug: "the-natural",   label: "The Natural",   description: "You grew up around here." },
-		{ slug: "the-scoundrel", label: "The Scoundrel", description: "You never fit in." },
+		{ slug: "the-scoundrel", label: "The Scoundrel", description: "You never fit in.",
+		  choices: { slug: "the-scoundrel", list: [
+			{ type: "entry", slug: "cut-loose", content: { text: "You cut loose from your kin." }, track: { max: 1 } },
+			{ type: "entry", grants: [{ type: "move", slug: "light-fingers", locations: ["inline"] }] },
+		  ]}},
 	])
 	.withInstinct({ slug: "instinct", list: [
 		{ type: "pick", pickCount: 1, options: [
@@ -47,11 +51,19 @@ const playbookItem = () => new TestPlaybookItemBuilder()
 	]}})
 	.build();
 
+// The move the Scoundrel background links, owned in a category of that background's — what the grant
+// puts on the character, so the row's slug reference resolves against moves.bySlug.
+const grantedMove = () => ({
+	_id: "m-light-fingers", type: "move", name: "Light Fingers",
+	system: { slug: "light-fingers", categoryKey: "background-the-scoundrel", acquired: true, instanceCount: 1,
+		description: "When you **_palm something small_**, roll +DEX.", rollStat: "dex" },
+});
+
 function makeSheet() {
 	new FakeGameBuilder().build();
 	const actor = new FakeCharacterActorBuilder()
 		.withPlaybook("the-fox")
-		.withItems([playbookItem()])
+		.withItems([playbookItem(), grantedMove()])
 		.withTypedActor(a => new StonetopCharacter(a, new FakeRepositoryFactory()))
 		.build();
 	const Base = class {
@@ -226,5 +238,24 @@ describe("playbook lock (integration)", () => {
 		const html = await lockedHtml(sheet);
 		expect(html).toContain("stonetop-cg-track");
 		expect(html).not.toContain("stonetop-choice-tick");
+	});
+
+	// A move linked on a background's row is reached through that row and nowhere else, so the lock
+	// must not take it away — it just stops being editable.
+	it("keeps a move linked on a background under that background when locked", async () => {
+		const sheet = makeSheet();
+		const tab = await renderTab(sheet);
+
+		await tick(tab.querySelector(`input[data-change-action="selectBackground"][value="the-scoundrel"]`));
+		await tick(tab.querySelector(`.stonetop-cg-track[data-cg-option="cut-loose"]`));
+
+		const unlocked = renderPartial("stonetop.tab-playbook", await sheet._prepareContext({}));
+		expect(unlocked).toContain("Light Fingers");
+
+		const html = await lockedHtml(sheet);
+		expect(html).toContain("The Scoundrel");
+		expect(html).toContain("You cut loose from your kin.");
+		expect(html).toContain("Light Fingers");
+		expect(html).toContain("stonetop-arcanum-move-grant");
 	});
 });

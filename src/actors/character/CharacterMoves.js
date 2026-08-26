@@ -190,7 +190,7 @@ export class CharacterMoves {
 
 		// One MoveSnapshot per move item, keyed by slug — the `bySlug` registry an inline move grant (in
 		// any choice row) resolves against, so it renders rollable with its resource. Built for EVERY move,
-		// including arcana-<slug> moves that are kept off the tab below.
+		// including the categories kept off the tab below.
 		const snapById = new Map();
 		const bySlug   = {};
 		for (const item of allMoveItems) {
@@ -202,9 +202,10 @@ export class CharacterMoves {
 			if (snap.slug) bySlug[snap.slug] = snap;
 		}
 
-		// Arcana moves live in `arcana-<slug>` categories; they render on their arcanum card, not the moves
-		// tab. They still count toward acquiredSlugs above (for other moves' requirements) and stay in bySlug.
-		const tabMoveItems = allMoveItems.filter(i => !(i.system?.categoryKey ?? "").startsWith("arcana-"));
+		// A move whose category renders somewhere else — an arcanum's card, a background's box on the
+		// playbook tab — is not listed again here. It still counts toward acquiredSlugs above (for other
+		// moves' requirements) and stays in bySlug, so its inline row rolls.
+		const tabMoveItems = allMoveItems.filter(_rendersOnMovesTab);
 
 		const byCatKey = new Map();
 		for (const item of tabMoveItems) {
@@ -313,6 +314,15 @@ function _categoryMetadata(catKey, catItems) {
 	const label = catItems[0]?.system?.categoryLabel ?? catKey;
 	const note  = catItems[0]?.system?.categoryNote  ?? null;
 	return { key: catKey, label, renderStyle: "standard", allowAdditional: false, note };
+}
+
+// The categories that render on a surface of their own: an arcanum's card, a background's box. Their
+// moves are reached there, so the moves tab leaves them out.
+const OWN_SURFACE_PREFIXES = ["arcana-", "background-"];
+
+function _rendersOnMovesTab(item) {
+	const key = item.system?.categoryKey ?? "";
+	return !OWN_SURFACE_PREFIXES.some(prefix => key.startsWith(prefix));
 }
 
 function _requirementsMet(move, level, acquiredSlugs) {

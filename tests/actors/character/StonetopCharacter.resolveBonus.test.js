@@ -9,11 +9,21 @@ import { FakeSteadingRepository } from "../../fakes/FakeSteadingRepository.js";
 // calls home. Both typed actors answer resolveBonus the same way, so the character hands the lookup
 // down the chain rather than knowing which keys belong to a steading.
 
-function makeCharacter({ stats = new FakeStatBuilder(), steading = null, items = [] } = {}) {
+function makeCharacter({ stats = new FakeStatBuilder(), steading = null, items = [], background = null } = {}) {
 	const actor = new FakeCharacterActorBuilder().withStats(stats).withItems(items).build();
+	if (background) actor.system.background = { selected: background };
 	return new StonetopCharacter(actor, new FakeRepositoryFactory({
 		steading: steading ?? new FakeSteadingRepository(),
 	}));
+}
+
+// A Would-Be Hero playbook whose Destined background carries the Omens track that its move rolls.
+function wouldBeHero() {
+	return [{ _id: "pb-1", type: "playbook", name: "The Would-Be Hero", system: { slug: "the-would-be-hero",
+		backgrounds: [
+			{ slug: "impetuous-youth", label: "Impetuous Youth" },
+			{ slug: "destined", label: "Destined", resource: { max: 3, title: "Omens" } },
+		] } }];
 }
 
 // A Thrall insert plus the Favor move it grants. Real items on a real character, so the chain is
@@ -98,5 +108,37 @@ describe("StonetopCharacter.resolveBonus — the insert link", () => {
 		items[0].system.moves = ["wis"];
 		const character = makeCharacter({ stats: new FakeStatBuilder().withWis(3), items });
 		expect(character.resolveBonus("wis")).toBe(3);
+	});
+});
+
+// The chosen background's own track sits between the inserts and the steading: a Destined Would-Be
+// Hero rolls +Omens, and nobody else can.
+describe("StonetopCharacter.resolveBonus — the background link", () => {
+	it("resolves the chosen background's own track", () => {
+		expect(makeCharacter({ items: wouldBeHero(), background: "destined" }).resolveBonus("omens")).toBe(0);
+	});
+
+	it("reads the track's current value", async () => {
+		const character = makeCharacter({ items: wouldBeHero(), background: "destined" });
+		await character.setBackgroundResource("destined", 3);
+		expect(character.resolveBonus("omens")).toBe(3);
+	});
+
+	it("is null for a track the chosen background does not carry", () => {
+		expect(makeCharacter({ items: wouldBeHero(), background: "impetuous-youth" }).resolveBonus("omens"))
+			.toBeNull();
+	});
+
+	it("asks the steading only after the background comes up empty", () => {
+		const character = makeCharacter({
+			items: wouldBeHero(), background: "destined", steading: stonetop({ fortunes: 1 }),
+		});
+		expect(character.resolveBonus("omens")).toBe(0);
+		expect(character.resolveBonus("fortunes")).toBe(1);
+	});
+
+	it("does not offer a background track among the rollable stats", () => {
+		const character = makeCharacter({ items: wouldBeHero(), background: "destined" });
+		expect(character.getRollableStats().map(s => s.key)).not.toContain("omens");
 	});
 });

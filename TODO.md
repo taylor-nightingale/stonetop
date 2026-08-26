@@ -14,4 +14,20 @@
 * add a stonetop image to the game system in foundry like the delta green one has
 * After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this?
 * Rework the stonetop sheet UI
-* Error: StonetopActor [Actor.X5sPeqAc5yu01K7h] validation errors: SchemaField#_updateDiff img: does not have a valid file extension when trying to rename a character
+
+* tabs ono the playbook compendium items are broken
+* /li> dangling on ranger "wide wander"
+* choices possessions aren't displaying when not checked. always show them.
+* lore section on playbook has questions split from their input boxes on certain screen widths
+* bug: the seeker backgrounds should have selectable arcanum. selecting that should add that major arcana to the sheet
+* feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
+* bug: anger is a gift should have a resource to hold 2 resolve
+* bug: Noruba's ice sphere doesnt detect the <> correctly on "manipulate an unattended item (small or <>, no bigger)"
+* feature: ranger special possession Hounds should add a group follower (3), also for would be hero
+* bug: weapons of war selection get added to the outfit section but don't get removed when they're unchecked. this is a regression. why didn't our integration tests catch this?
+* feature: the move that modifies shield carrying capacity doesn't do anything for the heavy
+* bug: the bio/notes sections have the save button, etc but the bar is not tall enough to accommodate them and they're hard to click
+* bug: see img_2 the check boxes get split sometimes
+* bug: would-be-hero background, in destined. checking protect also checks restore
+* allow copy paste of names and text for names/neighbors
+* we need to remove that generic on hover change text to the exact color of the background. damage has it too. I want all of our on hover clickables to be the same formatting
