@@ -6585,6 +6585,12 @@ button.stonetop-xp-toggle {
 .stonetop-wonder .gear-terms dt:first-child { margin-top: 0; }
 .stonetop-wonder .gear-terms dd { margin: 0 0 0 1.25em; }
 
+/* Core dresses every <dt> for its dark UI (`dl dt`): a black text-shadow, which on parchment smears
+   the term instead of lifting it off a dark ground. The colour goes with it because v13 sets that
+   shadow under `--color-light-2` — cream on our paper — where v14 uses `--color-text-emphatic`,
+   which the journal block above has already re-inked. */
+.stonetop-wonder dl dt { color: inherit; text-shadow: none; }
+
 /* Tables: Foundry's default journal table is dark-grey-on-dark, unreadable on our parchment.
    Render them as light ruled tables with dark ink to match the sheet. */
 .stonetop-wonder table { border-collapse: collapse; width: 100%; background: transparent; color: var(--st-ink); margin: 0.2em 0 0.9em; }

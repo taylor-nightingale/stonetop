@@ -15,8 +15,6 @@
 * After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this?
 * Rework the stonetop sheet UI
 
-* tabs ono the playbook compendium items are broken
-* choices possessions aren't displaying when not checked. always show them.
 * lore section on playbook has questions split from their input boxes on certain screen widths
 * bug: the seeker backgrounds should have selectable arcanum. selecting that should add that major arcana to the sheet
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___

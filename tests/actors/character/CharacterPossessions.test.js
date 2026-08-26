@@ -455,9 +455,9 @@ describe("CharacterPossessions — buildSnapshot — choices", () => {
 		expect(snap.items.find(i => i.slug === "apiary").choices).toBeNull();
 	});
 
-	it("choices is null when possession is not selected", async () => {
+	it("choices render even when the possession is not selected", async () => {
 		const snap = await makeCp().buildSnapshot(1);
-		expect(snap.items.find(i => i.slug === "weapons-of-war").choices).toBeNull();
+		expect(snap.items.find(i => i.slug === "weapons-of-war").choices).not.toBeNull();
 	});
 
 	it("choices is non-null when possession is selected", async () => {

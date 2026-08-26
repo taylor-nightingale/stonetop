@@ -213,7 +213,7 @@ export class CharacterPossessions {
 				.withPreselectedSource(isPre ? "Starting" : null)
 				.withResource(resource)
 				.withUsesLabel(resourceDef?.title ?? null)
-				.withChoices(isSelected && p.choices ? buildChoiceGroup({ ...p.choices, slug: p.slug }, pickValues) : null)
+				.withChoices(p.choices ? buildChoiceGroup({ ...p.choices, slug: p.slug }, pickValues) : null)
 				.build();
 		});
 
