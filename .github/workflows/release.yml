@@ -31,8 +31,9 @@ jobs:
       - name: Create zip
         run: |
           zip -r stonetop.zip \
-            system.json template.json stonetop.js LICENSE art-manifest.json src/ styles/ languages/ assets/ templates/ packs/ lib/ \
-            --exclude "packs/src/*"
+            system.json template.json stonetop.js LICENSE art-manifest.json src/ styles/ languages/ assets/ templates/ packs/ lib/ babele/ \
+            --exclude "packs/src/*" \
+            --exclude "languages/compendium/*"
 
       - name: Create release
         uses: softprops/action-gh-release@v3

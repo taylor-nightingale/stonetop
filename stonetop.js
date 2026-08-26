@@ -43,7 +43,7 @@ import { OutfitItemData }  from "./src/data/OutfitItemData.js";
 import { PossessionData }  from "./src/data/PossessionData.js";
 import { TagGlossary }     from "./src/model/data/TagGlossary.js";
 import { Advice }          from "./src/model/data/Advice.js";
-import { TranslationCatalog } from "./src/i18n/TranslationCatalog.js";
+import { CONVERTER_NAME, stonetopStringsConverter } from "./src/i18n/babeleConverter.js";
 import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no-op unless Quench is installed)
 
 // -- I18N INIT -------------------------------------------------
@@ -53,9 +53,16 @@ import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no
 Hooks.once("i18nInit", () => {
 	TagGlossary.current = TagGlossary.fromTranslations(game.i18n?.translations?.stonetop?.tagGlossary);
 	Advice.current      = Advice.fromTranslations(game.i18n?.translations?.stonetop?.advice);
-	// Compendium prose for the active language, read the same way and for the same reason: a sheet
-	// rendered before this point shows the English the packs ship with rather than failing.
-	TranslationCatalog.current = TranslationCatalog.fromTranslations(game.i18n?.translations?.stonetop?.compendium);
+});
+
+// -- BABELE ----------------------------------------------------
+// Compendium prose is translated by Babele, from babele/<lang>/stonetop.<pack>.json. Two things are
+// declared here: where our own translation files live, and the converter that handles everything
+// under `system` — Babele's built-in array handling matches by index, and our choice-group rows are
+// reordered whenever the books are re-parsed, so those are addressed by slug instead.
+Hooks.once("babele.init", (babele) => {
+	babele.setSystemTranslationsDir("babele");
+	babele.registerConverters({ [CONVERTER_NAME]: stonetopStringsConverter });
 });
 
 // -- INIT ------------------------------------------------------

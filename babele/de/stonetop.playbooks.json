@@ -1,0 +1,11 @@
+{
+  "label": "Playbooks",
+  "mapping": {
+    "name": "name",
+    "stonetop": {
+      "path": "system",
+      "converter": "stonetopStrings"
+    }
+  },
+  "entries": {}
+}

@@ -52,13 +52,17 @@
 			"lang": "en",
 			"name": "English",
 			"path": "languages/en.json"
-		},
-		{
-			"lang": "de",
-			"name": "Deutsch",
-			"path": "languages/de.json"
 		}
 	],
+	"relationships": {
+		"recommends": [
+			{
+				"id": "babele",
+				"type": "module",
+				"reason": "Translates the compendiums. The system is fully playable in English without it."
+			}
+		]
+	},
 	"documentTypes": {
 		"Actor": {
 			"character": {},

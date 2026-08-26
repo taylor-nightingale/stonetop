@@ -1,8 +1,11 @@
 # Translating the compendiums
 
 Compendium prose — playbook descriptions, backgrounds, the questions on a sheet — is translated
-here. You never edit `packs/src/`, and you never need Babele or any other module: the system loads
-these translations itself.
+here. You never edit `packs/src/`.
+
+These are the *authoring* files. `npm run pack` compiles them into the Babele translation files the
+system ships, in `babele/<lang>/`. Players need the [Babele](https://foundryvtt.com/packages/babele)
+module installed to see translations; the system itself is fully playable in English without it.
 
 ## Starting a language
 
@@ -12,7 +15,7 @@ npm run i18n:extract -- --lang <lang>
 ```
 
 That writes one file per pack — today only `playbooks.json` — containing every translatable string.
-Then add the language to `"languages"` in `system.json` so Foundry offers it.
+Nothing else needs registering: Babele finds a language by its directory here.
 
 ## Translating
 
@@ -49,8 +52,15 @@ a player — they see English instead.
 
 ## Shipping
 
-`npm run pack` compiles these files into `languages/<lang>.json`, which is what the system loads.
-There is no separate build step to remember.
+`npm run pack` compiles these files into `babele/<lang>/stonetop.<pack>.json`. There is no separate
+build step to remember.
+
+Entries are keyed by document id rather than by name, which is Babele's default — so renaming a
+playbook in English cannot silently detach its translation.
+
+One Babele behaviour worth knowing: it translates compendium documents, not the copies already
+embedded on a character. A player whose character was built before the translation existed uses the
+globe button in their sheet header ("Translate actor") to bring it across; that pass is reversible.
 
 ## What is not translated here
 

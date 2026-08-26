@@ -11,7 +11,7 @@
     "unpack": "node scripts/compendium-pack/unpack.js",
     "i18n:extract": "node scripts/i18n/extract.js",
     "i18n:check": "node scripts/i18n/check.js",
-    "i18n:build": "node scripts/i18n/buildLanguages.js",
+    "i18n:build": "node scripts/i18n/buildBabele.js",
     "extract-art": "node scripts/import/pdf/extract-art.js",
     "build-arcana": "node scripts/import/pdf/build-arcana.js",
     "tag-glossary": "node scripts/import/pdf/build-tag-glossary.js",

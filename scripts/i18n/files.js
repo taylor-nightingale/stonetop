@@ -13,7 +13,6 @@ export const TRANSLATED_PACKS = ["playbooks"];
 export const compendiumDir = (root = ".") => path.join(root, "languages", "compendium");
 export const languageDir    = (lang, root = ".") => path.join(compendiumDir(root), lang);
 export const authoringPath  = (lang, pack, root = ".") => path.join(languageDir(lang, root), `${pack}.json`);
-export const languageFilePath = (lang, root = ".") => path.join(root, "languages", `${lang}.json`);
 
 export async function listLanguages(root = ".") {
 	let entries;
@@ -41,9 +40,3 @@ export async function writeJson(file, data) {
 
 export const readAuthoring  = (lang, pack, root = ".") => readJson(authoringPath(lang, pack, root), {});
 export const writeAuthoring = (lang, pack, data, root = ".") => writeJson(authoringPath(lang, pack, root), data);
-
-/** The languages system.json declares, which is what Foundry will actually offer in its settings. */
-export async function registeredLanguages(root = ".") {
-	const manifest = await readJson(path.join(root, "system.json"), {});
-	return (manifest.languages ?? []).map(l => l.lang);
-}

@@ -7,7 +7,7 @@
 import { pathToFileURL } from "url";
 import { englishCatalogForPack } from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
-import { TRANSLATED_PACKS, listLanguages, readAuthoring, registeredLanguages } from "./files.js";
+import { TRANSLATED_PACKS, listLanguages, readAuthoring } from "./files.js";
 import { detail, summarise } from "./report.js";
 
 export async function check({ root = "." } = {}) {
@@ -16,14 +16,8 @@ export async function check({ root = "." } = {}) {
 		console.log("No compendium translations.");
 		return true;
 	}
-	const registered = new Set(await registeredLanguages(root));
-
 	let clean = true;
 	for (const lang of languages) {
-		if (!registered.has(lang)) {
-			console.warn(`${lang}: not listed in system.json "languages" — Foundry will not offer it.`);
-			clean = false;
-		}
 		for (const pack of TRANSLATED_PACKS) {
 			const english = await englishCatalogForPack(pack, root);
 			const result  = reconcile(lang, pack, english, await readAuthoring(lang, pack, root));
