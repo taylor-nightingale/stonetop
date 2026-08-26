@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { BookItem } from "../../scripts/import/pdf/items.js";
 import {
-	normalizeName, resolveRow, toOutfitItemDoc, toFolderDoc, sectionTitle,
+	normalizeName, InsertList, resolveRow, toOutfitItemDoc, toFolderDoc, sectionTitle,
 	followerName, followerSlug, isGenerated, CATEGORY_ROWS, OUTFIT_PACK, FOLLOWER_PACK,
 } from "../../scripts/import/item-docs.js";
 
@@ -17,40 +17,85 @@ describe("normalizeName", () => {
 	});
 });
 
+describe("InsertList", () => {
+	// The two printed lists word the same object differently, and only some of those differences are
+	// real: a trailing parenthetical belongs to the insert's name, never to the value table's.
+	it("matches a name whose insert form carries a trailing parenthetical", () => {
+		expect(new InsertList(["Sack (empty)"]).has("Sack")).toBe(true);
+	});
+
+	it("does not match an object the insert never prints", () => {
+		expect(new InsertList(["Sack (empty)"]).has("Naphtha")).toBe(false);
+	});
+
+	it("reports the insert rows a set of pack names fails to cover", () => {
+		const insert = new InsertList(["Sack (empty)", "Maul, iron", "Whistle"]);
+		expect(insert.missingFrom(["Sack", "Whistle"])).toEqual(["Maul, iron"]);
+	});
+});
+
 describe("resolveRow", () => {
 	const byName = new Map([[normalizeName("Sack (empty)"), { _id: "existingSackId00" }]]);
+	const insert = new InsertList(["Sack (empty)", "Maul, iron"]);
 
 	it("points a row at the item that already ships, under either list's name", () => {
-		const row = resolveRow(bookItem("Sack"), section("travel gear"), byName);
+		const row = resolveRow(bookItem("Sack"), section("travel gear"), byName, insert);
 		expect(row.existing).toBe(true);
 		expect(row.id).toBe("existingSackId00");
 		expect(row.uuid).toBe(`Compendium.stonetop.${OUTFIT_PACK}.Item.existingSackId00`);
 	});
 
-	it("mints a deterministic id for a row the pack doesn't have", () => {
-		const a = resolveRow(bookItem("Sword, iron"), section("weapons of war"), byName);
-		const b = resolveRow(bookItem("Sword, iron"), section("weapons of war"), byName);
+	it("mints a deterministic id for an insert row the pack doesn't have", () => {
+		const a = resolveRow(bookItem("Maul, iron"), section("common weapons"), byName, insert);
+		const b = resolveRow(bookItem("Maul, iron"), section("common weapons"), byName, insert);
 		expect(a.existing).toBe(false);
 		expect(a.id).toMatch(/^[A-Za-z0-9]{16}$/);
 		expect(a.id).toBe(b.id);
 	});
 
+	// Everything the value tables price SHIPS — the reference page links it and a GM drags it onto a
+	// sheet. What the insert decides is where it is FILED: only its own rows belong in the pack's
+	// "Default" folder, which a character sheet draws in full. Getting that backwards once put 46 rows
+	// of special gear on every character in the world.
+	it("marks a row the insert prints as belonging in Default", () => {
+		expect(resolveRow(bookItem("Maul, iron"), section("common weapons"), byName, insert).onInsert).toBe(true);
+		expect(resolveRow(bookItem("Sack"), section("travel gear"), byName, insert).onInsert).toBe(true);
+	});
+
+	it("still makes an item for a row the insert doesn't print, filed outside Default", () => {
+		const row = resolveRow(bookItem("Sword, iron"), section("weapons of war"), byName, insert);
+		expect(row.kind).toBe("outfitItem");
+		expect(row.onInsert).toBe(false);
+		expect(row.uuid).toBe(`Compendium.stonetop.${OUTFIT_PACK}.Item.${row.id}`);
+	});
+
 	it("makes a livestock row a follower, not gear", () => {
-		const row = resolveRow(bookItem("Mule, follower?"), section("livestock & other beasts"), byName);
+		const row = resolveRow(bookItem("Mule, follower?"), section("livestock & other beasts"), byName, insert);
 		expect(row.kind).toBe("follower");
 		expect(row.pack).toBe(FOLLOWER_PACK);
 	});
 
 	it("leaves a bronze-weapons cross-reference row with nothing to link", () => {
-		const row = resolveRow(bookItem("Weapons of war"), section("bronze weapons*"), byName);
+		const row = resolveRow(bookItem("Weapons of war"), section("bronze weapons*"), byName, insert);
 		expect(row.kind).toBe("category");
 		expect(row.uuid).toBeNull();
 	});
 
-	it("still makes an item for a real row that happens to share a category row's name", () => {
+	// The category rule is scoped to the bronze section, where the book prices whole CATEGORIES; the
+	// same words elsewhere name a row like any other, and must not be swallowed by it.
+	it("treats a real row sharing a category row's name as a row, not a category", () => {
 		expect(CATEGORY_ROWS.has("Weapons of war")).toBe(true);
-		const row = resolveRow(bookItem("Weapons of war"), section("weapons of war"), byName);
+		const row = resolveRow(bookItem("Weapons of war"), section("weapons of war"), byName, insert);
+		expect(row.kind).not.toBe("category");
+	});
+
+	// An item the pack already holds keeps its id whatever the insert calls it — the row contributes
+	// only that id, so hand-authored weights, columns and slugs are never rewritten.
+	it("points at an item that ships without minting a second one", () => {
+		const row = resolveRow(bookItem("Sack"), section("travel gear"), byName, new InsertList([]));
 		expect(row.kind).toBe("outfitItem");
+		expect(row.existing).toBe(true);
+		expect(row.id).toBe("existingSackId00");
 	});
 });
 

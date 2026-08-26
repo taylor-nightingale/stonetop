@@ -1,7 +1,19 @@
-{{!-- One outfit-item row (shared by the inventory tab, follower inventory, and arcanum cards).
-      Context = an OutfitItemSnapshot-like { slug, name, weight, tags, note, checked, resource,
-      isCustom, ownedId }. The weight diamonds + resource toggle the character's inventory keyed by
-      `slug`. --}}
+{{!-- One outfit-item row (shared by the inventory tab's BOTH columns, the follower inventory, and
+      arcanum cards). Context = an OutfitItemSnapshot-like { slug, name, weight, tags, note, checked,
+      resource, isCustom, ownedId }.
+
+      `square` picks the mark the book prints: a load item carries its weight in ◇, one checkbox each,
+      while a small item — a pocket, pouch or boot — carries a single □ and no load. That mark is the
+      ONLY difference between the two columns; everything else (name, tags, note, resource, the
+      custom-item delete) is one description, so the small column can't quietly drift out of step
+      again. A square row wraps in a <label> so clicking the name toggles it; a ◇ row can't, since a
+      label targets only the first of its several diamonds. --}}
+{{#if square}}
+<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
+	<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square" data-change-action="inventoryItemCheck"
+	       aria-label="{{localize 'stonetop.a11y.carried'}}"
+	       data-slug="{{slug}}" {{#if checked}}checked{{/if}}>
+{{else}}
 <div class="stonetop-inv-item{{#if checked}} is-checked{{/if}}">
 	<span class="stonetop-inv-diamonds">
 		{{#each (times weight)}}
@@ -10,6 +22,7 @@
 		       data-slug="{{../slug}}" {{#if ../checked}}checked{{/if}}>
 		{{/each}}
 	</span>
+{{/if}}
 	{{!-- The book prints an item as `Spear, iron (close, thrown, x piercing)`: ONE parenthetical
 	      holding the italic tags and then the roman note, not a group each. The two branches differ
 	      only in whether the tags come first — deliberately spelled out rather than adding a generic
@@ -31,4 +44,4 @@
 	{{#if isCustom}}
 	<button type="button" class="stonetop-inv-delete" data-action="deleteInventoryItem" data-owned-id="{{ownedId}}" data-name="{{name}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-times"></i></button>
 	{{/if}}
-</div>
+{{#if square}}</label>{{else}}</div>{{/if}}

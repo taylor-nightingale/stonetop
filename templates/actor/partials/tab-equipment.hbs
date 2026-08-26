@@ -112,46 +112,7 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
 			<div class="stonetop-inv-divider" aria-hidden="true"></div>
-			{{#each stonetop.outfit.smallSections}}
-			{{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
-			{{#each (outfitSegments items)}}
-		{{#if isGrid}}
-			<div class="stonetop-inv-grid">
-				{{#each items}}
-				<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
-					<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square" data-change-action="inventoryItemCheck"
-					       aria-label="{{localize 'stonetop.a11y.carried'}}"
-					       data-slug="{{slug}}"
-					       {{#if checked}}checked{{/if}}>
-					<span class="stonetop-inv-label">{{name}}</span>
-				</label>
-				{{/each}}
-			</div>
-			{{else}}
-			{{#each items}}
-			<label class="stonetop-inv-item stonetop-inv-small{{#if checked}} is-checked{{/if}}">
-				<input type="checkbox" class="stonetop-inventory-item-check stonetop-inv-square" data-change-action="inventoryItemCheck"
-				       data-slug="{{slug}}"
-				       {{#if checked}}checked{{/if}}>
-				<span class="stonetop-inv-label">{{name}}
-					{{#if note.raw}}<span class="stonetop-inv-note">({{rich note}})</span>{{/if}}
-				</span>
-				{{#if resource}}
-				<span class="stonetop-inv-resources">
-					{{> "stonetop.resource-track" resource=resource btnClass="stonetop-inv-resource-btn stonetop-inventory-resource-btn" action="inventoryResourcePip" slug=slug}}
-				</span>
-				{{/if}}
-				{{#if isCustom}}
-				<button type="button" class="stonetop-inv-delete" data-action="deleteInventoryItem" data-owned-id="{{ownedId}}" data-name="{{name}}" title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"><i class="fas fa-times"></i></button>
-				{{/if}}
-			</label>
-			{{/each}}
-			{{/if}}
-			{{/each}}
-			{{/each}}
-			<button type="button" class="stonetop-inv-add-btn" data-action="addInventoryItem" data-column="small">
-				<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addSmallItem"}}
-			</button>
+			{{> "stonetop.outfit-items" sections=stonetop.outfit.smallSections addColumn="small" addLabel="stonetop.inventory.addSmallItem" square=true}}
 			<div>
 				{{> "stonetop.section-heading" title=(localize "stonetop.inventory.otherItems")}}
 				<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.otherItemsNote"}}}</p>

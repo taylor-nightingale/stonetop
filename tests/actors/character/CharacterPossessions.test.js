@@ -557,7 +557,7 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 
 	it("syncs possession-level outfit items under 'possession:smithy'", async () => {
 		const outfitItems = makeOutfitItems();
-		const actor = makeActor([makePossessionItem(smithy)]);
+		const actor = makeActor([makePossessionItem(smithy, { selected: true })]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
 		await cp.syncPossessionItems("smithy");
 		expect(outfitItems.getSlugs("possession:smithy"))
@@ -566,7 +566,7 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 
 	it("syncs choice outfit item when the sub-choice is selected", async () => {
 		const outfitItems = makeOutfitItems();
-		const actor = makeActor([makePossessionItem(wow)]);
+		const actor = makeActor([makePossessionItem(wow, { selected: true })]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
 		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 1);
 		await cp.syncPossessionItems("weapons-of-war");
@@ -575,7 +575,7 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 
 	it("does not include choice outfit item when sub-choice is not selected", async () => {
 		const outfitItems = makeOutfitItems();
-		const actor = makeActor([makePossessionItem(wow)]);
+		const actor = makeActor([makePossessionItem(wow, { selected: true })]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
 		await cp.syncPossessionItems("weapons-of-war");
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toHaveLength(0);
@@ -583,12 +583,38 @@ describe("CharacterPossessions — syncPossessionItems", () => {
 
 	it("syncs an empty array when possession has no outfit items", async () => {
 		const outfitItems = makeOutfitItems();
-		const actor = makeActor([makePossessionItem(apiary)]);
+		const actor = makeActor([makePossessionItem(apiary, { selected: true })]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
 		await cp.syncPossessionItems("apiary");
 		// An empty grant clears the source rather than writing an empty array — same outcome, one less document.
 		expect(outfitItems.getSlugs("possession:apiary")).toHaveLength(0);
 		expect(outfitItems.hasSource("possession:apiary")).toBe(false);
+	});
+
+	// A possession the player has not taken owns nothing, whatever its pack data says — the gate every
+	// caller of the sync relies on. Without it a pack refresh handed every character the gear of every
+	// possession on their playbook, selected or not.
+	it("grants nothing while the possession is unselected", async () => {
+		const outfitItems = makeOutfitItems();
+		const actor = makeActor([makePossessionItem(smithy)]);
+		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
+
+		await cp.syncPossessionItems("smithy");
+
+		expect(outfitItems.hasSource("possession:smithy")).toBe(false);
+	});
+
+	// …not even gear hung off a pick the player ticked while it WAS selected: the ticks are remembered
+	// so re-selecting restores them, but they grant nothing in the meantime.
+	it("grants nothing while unselected even with sub-choices still ticked", async () => {
+		const outfitItems = makeOutfitItems();
+		const actor = makeActor([makePossessionItem(wow, { selected: true })]);
+		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
+		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 1);
+
+		await cp.deselect("weapons-of-war");
+
+		expect(outfitItems.hasSource("possession:weapons-of-war")).toBe(false);
 	});
 });
 
@@ -617,7 +643,7 @@ describe("CharacterPossessions — outfit item integration", () => {
 
 	it("ticking a sub-choice syncs with the newly selected choice item", async () => {
 		const outfitItems = makeOutfitItems();
-		const actor = makeActor([makePossessionItem(wow)]);
+		const actor = makeActor([makePossessionItem(wow, { selected: true })]);
 		const cp = makeCharacterPossessions(actor, makeMoves(), outfitItems);
 		await cp.controllerFor("weapons-of-war")?.setCount("weapons-of-war", "mace", 1);
 		expect(outfitItems.getSlugs("possession:weapons-of-war")).toContain("mace");

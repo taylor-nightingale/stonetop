@@ -19,15 +19,19 @@ import { pathToFileURL } from "url";
 import { toSlug } from "../../src/utils/slug.js";
 import { deterministicId, documentKey } from "./ids.js";
 import { resolveBooks, requireTools } from "./pdf/books.js";
-import { parseItemTables, knownTagSlugs, parseStatBlock } from "./pdf/items.js";
+import { parseItemTables, parseInsertItems, knownTagSlugs, parseStatBlock } from "./pdf/items.js";
 import { toFollowerDoc } from "./pdf/creatures.js";
 import {
-	OUTFIT_PACK, FOLLOWER_PACK, resolveRow, toOutfitItemDoc, toFolderDoc,
+	OUTFIT_PACK, FOLLOWER_PACK, InsertList, resolveRow, toOutfitItemDoc, toFolderDoc,
 	normalizeName, sectionTitle, followerName, followerSlug, generatedFlags, isGenerated,
 } from "./item-docs.js";
 
 const OUTFIT_DIR    = `packs/src/${OUTFIT_PACK}`;
 const FOLLOWER_DIR  = `packs/src/${FOLLOWER_PACK}`;
+// Where a row is filed is what it IS to a character sheet: "Default" is the Inventory insert's
+// checklist, which every sheet draws in full, and "Special items" is the catalog behind it that a GM
+// drags from. Both ship; only the first is on anybody's sheet by default.
+const DEFAULT_DIR   = `${OUTFIT_DIR}/default`;
 const SPECIAL_DIR   = `${OUTFIT_DIR}/special`;
 
 const readJson = (f) => JSON.parse(readFileSync(f, "utf8"));
@@ -59,33 +63,57 @@ function clearGenerated(dir) {
 	return removed;
 }
 
+/**
+ * The Default folder holds the Inventory insert and nothing else — a character sheet renders every
+ * item in it, so a row filed there that the printed insert doesn't list becomes a permanent row on
+ * every character in the world. Drift either way is a data bug to fix in `packs/src`, never
+ * something to paper over.
+ */
+function reconcileWithInsert(insert, defaultNames) {
+	const missing = insert.missingFrom(defaultNames);
+	const extra   = defaultNames.filter((name) => !insert.has(name));
+	if (!missing.length && !extra.length) return;
+	const lines = [
+		`${OUTFIT_PACK}/default does not match the Inventory insert (printed p. 142):`,
+		...missing.map((n) => `  on the insert, missing from Default: ${n}`),
+		...extra.map((n) => `  in Default, not on the insert: ${n}`),
+	];
+	throw new Error(lines.join("\n"));
+}
+
 function main() {
 	requireTools(["mutool"]);
 	const { bookI } = resolveBooks(process.argv.slice(2), process.env);
 	const known = knownTagSlugs(readJson("languages/en.json"));
 
 	const tables = parseItemTables(bookI, known);
+	// What the printed sheet actually lists. Only these rows may become pack items — see resolveRow.
+	const insert = new InsertList(parseInsertItems(bookI));
 
 	const cleared = clearGenerated(OUTFIT_DIR) + clearGenerated(FOLLOWER_DIR);
 	const existing = loadPack(OUTFIT_DIR);
 	const byName = new Map(existing.map((e) => [normalizeName(e.doc.name), e.doc]));
-	// The book's own folder names, so a new item lands beside the ones already filed under it.
-	const folders = readdirSync(join(OUTFIT_DIR, "_folders")).map((n) => readJson(join(OUTFIT_DIR, "_folders", n)));
+	// The insert's own printed groups, so a new insert row lands beside the ones already filed under it.
+	const folders = readdirSync(join(DEFAULT_DIR, "_folders")).map((n) => readJson(join(DEFAULT_DIR, "_folders", n)));
 	const folderByName = new Map(folders.map((f) => [f.name.toLowerCase(), f]));
-	const dirs = new Set(readdirSync(OUTFIT_DIR).filter((n) => statSync(join(OUTFIT_DIR, n)).isDirectory()));
+	const dirs = new Set(readdirSync(DEFAULT_DIR).filter((n) => statSync(join(DEFAULT_DIR, n)).isDirectory()));
 
 	const resolved = new Map();   // BookItem -> ResolvedRow
 	const newItems = [], newFollowers = [], newFolders = [];   // newFolders: { file, doc }
+	let usedSpecialParent = false;
+	// Generated, like everything under it: clearGenerated has just removed the previous run's copy, so
+	// it is rebuilt from the same deterministic key rather than read back off disk.
 	const specialParent = toFolderDoc("Special items", { pack: OUTFIT_PACK, key: "special" });
 	const livestockFolder = toFolderDoc("Livestock", { pack: FOLLOWER_PACK, key: "livestock" });
-	let usedSpecialParent = false, usedLivestock = false;
+	let usedLivestock = false;
 
 	for (const table of tables) {
 		for (const section of table.sections) {
 			for (const item of section.items) {
-				const row = resolveRow(item, section, byName);
+				const row = resolveRow(item, section, byName, insert);
 				resolved.set(item, row);
-				if (row.kind === "category" || row.existing) continue;
+				// A category row names no object, and `existing` is already in the pack.
+				if (!row.id || row.existing) continue;
 
 				if (row.kind === "follower") {
 					usedLivestock = true;
@@ -99,15 +127,18 @@ function main() {
 					continue;
 				}
 
-				// A brand-new COMMON row files into the folder the book already has for its category
-				// (only "Maul, iron" is one); a SPECIAL row gets a category folder of its own, nested
-				// under "Special items" so the insert's folders keep their meaning.
+				// An insert row joins the printed group it belongs to (only "Maul, iron" has ever been
+				// a new one); everything else gets a category folder under "Special items", so the
+				// insert's own groups keep meaning exactly what the printed sheet says they mean.
 				const catSlug = toSlug(section.title.replace(/\*+$/, ""));
-				const isCommon = table.availability === "common";
 				let folder, dir;
-				if (isCommon && folderByName.has(section.title.toLowerCase()) && dirs.has(catSlug)) {
+				if (row.onInsert) {
 					folder = folderByName.get(section.title.toLowerCase());
-					dir = join(OUTFIT_DIR, catSlug);
+					if (!folder || !dirs.has(catSlug)) {
+						throw new Error(`${item.name}: the insert prints it, but ${OUTFIT_PACK}/default has `
+							+ `no "${section.title}" group to file it under.`);
+					}
+					dir = join(DEFAULT_DIR, catSlug);
 				} else {
 					usedSpecialParent = true;
 					folder = toFolderDoc(sectionTitle(section.title), {
@@ -136,11 +167,17 @@ function main() {
 	}
 	if (usedLivestock) writeJson(join(FOLLOWER_DIR, "_folders", "livestock.json"), livestockFolder);
 
+	reconcileWithInsert(insert, [
+		...existing.filter((e) => e.file.startsWith(`${DEFAULT_DIR}/`)).map((e) => e.doc.name),
+		...newItems.filter((n) => n.dir.startsWith(DEFAULT_DIR)).map((n) => n.doc.name),
+	]);
+
 	const rows = [...resolved.values()];
 	console.log(`\nparsed ${rows.length} rows from ${bookI} (cleared ${cleared} previously generated doc(s))`);
 	console.log(`  ${rows.filter((r) => r.existing).length} already in ${OUTFIT_PACK}`);
 	console.log(`  ${newItems.length} new outfit item(s), ${newFollowers.length} new follower(s), ${newFolders.length} new folder(s)`);
 	console.log(`  ${rows.filter((r) => r.kind === "category").length} category row(s) with no item (rendered as text)`);
+	console.log(`  ${rows.filter((r) => r.kind === "outfitItem" && !r.onInsert).length} row(s) filed under Special items (not on the printed insert)`);
 	console.log(`\nThe reference PAGE that links these is built by build-book-one.js, which runs next.`);
 	console.log(`Review \`git diff packs/src/\`, then compile with \`npm run pack\`.`);
 }

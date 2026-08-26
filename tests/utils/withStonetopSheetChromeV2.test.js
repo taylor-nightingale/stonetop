@@ -78,6 +78,19 @@ describe("withStonetopSheetChromeV2", () => {
 		expect(sheet.element.querySelector("#view").disabled).toBe(false);
 	});
 
+	// The bug this guards: a locked compendium playbook's tab bar is <button data-action="tab">,
+	// which _toggleDisabled disables along with the edit fields, so no tab could be clicked.
+	it("keeps tab navigation clickable on a disabled sheet", () => {
+		const sheet = makeSheet(`
+			<nav data-group="primary"><button id="tab" data-action="tab" data-tab="moves"></button></nav>
+			<button id="write" data-action="deleteThing"></button>`);
+
+		sheet._toggleDisabled(true);
+
+		expect(sheet.element.querySelector("#tab").disabled).toBe(false);
+		expect(sheet.element.querySelector("#write").disabled).toBe(true);
+	});
+
 	it("leaves everything enabled on an editable sheet", () => {
 		const sheet = makeSheet(`<button id="write"></button><button id="view" data-view-state></button>`);
 

@@ -404,3 +404,69 @@ export function parseItemTables(pdf, knownTags = new Set()) {
 		return { ...t, pdfPage, sections, lead: tableLead(page, sections) };
 	});
 }
+
+// ── The Inventory insert (printed p. 142) ─────────────────────────────────────
+//
+// The insert is the printed character sheet's gear checklist, and it — not the value tables — is what
+// `packs/outfit-items` holds: the fixed list of rows every sheet renders. The value tables price the
+// whole world's goods (pp. 92-97); only the subset the insert prints is an item a character carries.
+//
+// A row is identified by its MARK, not by its text: the book gives every markable row a leading ◇ (a
+// load item) or □ (a small item) in the vector layer, and gives prose none. Reading the mark is what
+// separates "Blanket (warm)" from "For a light load (quick & quiet), mark up to 3 ◇" without a
+// hand-maintained list of the sentences to ignore.
+
+/** Printed p. 142. The insert shares its spread with the Ranger's Animal Companion sheet, so
+ *  everything here is bounded to the left page. */
+export const INSERT = { name: "Inventory insert", window: "68-76", anchor: /^inventory for/i };
+
+// A checklist column's marks all sit at one x, and enough rows hang off it to tell that gutter from
+// the loose ○ pips a row sets inline ("Oil lamp (○○ hours…)"), which never line up with anything.
+// Derived from the page rather than hard-coded, so a reprint that moves the columns still parses.
+const GUTTER_ROWS = 4;
+const MARK_GAP    = 10;   // a row's text starts within this of its own gutter mark
+
+/**
+ * The item names the Inventory insert prints, in printed order.
+ *
+ * Names come back exactly as the book sets them, minus the parenthetical — "Rope, ~25 ft", not
+ * "Rope". `INSERT_ALIASES` is what pairs them with the value tables' own wording for the same
+ * object; nothing here tries to reconcile the two lists. The insert's blank write-in rows carry a
+ * mark and no text, so they fall out on their own.
+ */
+export function parseInsertItems(pdf) {
+	const { page, pdfPage } = findTablePage(pdf, INSERT);
+	const names = insertItemNames(page, loadMarkers(pdf, pdfPage));
+	if (!names.length) throw new Error(`${INSERT.name}: page ${pdfPage} matched but no marked rows parsed`);
+	return names;
+}
+
+/** The marked rows of the insert page, in printed order. Pure over a parsed page and its markers. */
+export function insertItemNames(page, markers) {
+	const midpoint = page.width / 2;
+	const marks = gutterMarks(markers.filter((m) => m.x < midpoint));
+	return page.lines
+		.filter((l) => l.bbox[2] <= midpoint && l.text.trim() && leadingMark(l, marks))
+		.sort((a, b) => a.bbox[1] - b.bbox[1] || a.bbox[0] - b.bbox[0])
+		.map((l) => insertItemName(l.text))
+		.filter(Boolean);
+}
+
+/** Only the marks standing in a checklist gutter — a column x that at least GUTTER_ROWS rows share. */
+function gutterMarks(marks) {
+	const counts = new Map();
+	for (const m of marks) counts.set(Math.round(m.x), (counts.get(Math.round(m.x)) ?? 0) + 1);
+	return marks.filter((m) => counts.get(Math.round(m.x)) >= GUTTER_ROWS);
+}
+
+/** The gutter mark this line hangs off, or null — which is how prose, a wrapped continuation
+ *  ("hours, close, area, crude)") and a heading are all excluded without naming any of them. */
+function leadingMark(line, marks) {
+	const [x0, y0, , y1] = line.bbox;
+	return marks.find((m) => m.y >= y0 && m.y <= y1 && m.x < x0 && x0 - m.x <= MARK_GAP) ?? null;
+}
+
+/** A row's item name: what the book sets before the parenthetical. */
+function insertItemName(text) {
+	return text.split("(")[0].replace(/\s+/g, " ").trim().replace(/[,\s]+$/, "");
+}

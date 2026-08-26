@@ -124,6 +124,31 @@ describe("migratePossessionPackData", () => {
 		expect(outfit.getSlugs("possession:weapons-of-war-heavy")).not.toContain("axe");
 	});
 
+	// The refresh recomputes every possession's grant, so it is the one caller most able to hand a
+	// character gear they never took: it runs over the whole playbook's worth of possessions on world
+	// load, with nobody having clicked anything. A possession the player has not selected grants
+	// nothing here, ticked picks and all.
+	it("grants nothing for a possession the player has not selected", async () => {
+		const { actor, repo, sync, outfit } = setup([staleItem({ selected: false, preselected: false })]);
+
+		await migratePossessionPackData(actor, repo, sync);
+
+		expect(outfit.hasSource("possession:weapons-of-war-heavy")).toBe(false);
+	});
+
+	// …and takes back what an earlier build wrongly handed out. Worlds migrated before the selection
+	// gate carry gear for possessions nobody ever ticked; the refresh recomputes every possession, so
+	// this pass is what clears them — no separate repair pass, one code path.
+	it("clears gear an earlier build granted for an unselected possession", async () => {
+		const { actor, repo, sync, outfit } = setup([staleItem({ selected: false, preselected: false })]);
+		await outfit.sync("possession:weapons-of-war-heavy", [{ system: { slug: "sword" } }]);
+
+		await migratePossessionPackData(actor, repo, sync);
+
+		expect(outfit.hasSource("possession:weapons-of-war-heavy")).toBe(false);
+		expect(outfit.deletedSources).toContain("possession:weapons-of-war-heavy");
+	});
+
 	it("leaves the item's name alone, so a rename survives", async () => {
 		const { actor, repo, sync } = setup([staleItem()].map(i => ({ ...i, name: "My renamed kit" })));
 

@@ -1,3 +1,5 @@
+import { PackFolders } from "./PackFolders.js";
+
 export class FoundryPackStore {
 	constructor(packName, fields) {
 		this._packName = packName;
@@ -39,9 +41,9 @@ export class FoundryPackStore {
 		return pack.getDocument(id);
 	}
 
+	/** The pack's folder tree, which knows both a folder's name and what it is filed under. */
 	async getFolders() {
 		const pack = await this._ensureIndexed();
-		if (!pack) return new Map();
-		return new Map([...pack.folders].map(f => [f._id, f.name]));
+		return new PackFolders(pack ? [...pack.folders] : []);
 	}
 }

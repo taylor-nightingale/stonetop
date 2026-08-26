@@ -1,0 +1,12 @@
+{
+	"name": "Default",
+	"type": "Item",
+	"description": "The gear the Inventory insert prints (Book I, p. 142) — the checklist every character sheet lays out. Items filed here appear on every character's Outfit tab; everything else in this compendium is a catalog to drag from.",
+	"folder": null,
+	"sorting": "a",
+	"sort": 0,
+	"color": null,
+	"flags": {},
+	"_id": "StOnEtOpDef0001X",
+	"_key": "!folders!StOnEtOpDef0001X"
+}

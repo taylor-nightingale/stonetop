@@ -102,7 +102,7 @@ export class CharacterInventory {
 	}
 
 	async getArmorBreakdown() {
-		return this.buildArmorBreakdown(await this._repo.getAll());
+		return this.buildArmorBreakdown(await this._repo.getInsertItems());
 	}
 
 	async getArmor() {
@@ -131,7 +131,7 @@ export class CharacterInventory {
 				.build();
 		});
 
-		const repoItems = await this._repo.getAll();
+		const repoItems = await this._repo.getInsertItems();
 
 		return new OutfitSnapshotBuilder()
 			.withLoad(this.buildLoadSnapshot(this.markedWeight(repoItems, embeddedItems)))

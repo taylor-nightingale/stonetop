@@ -1,6 +1,8 @@
 {{!-- Shared outfit-item rendering for a single inventory column. Params:
        sections   — OutfitSection[] (each {name, items})
        addColumn  — when set, render the "+ add item" button with this data-column (omit for read-only)
+       addLabel   — localization key for that button (defaults to the load column's wording)
+       square     — mark rows with a single □ (the small-items column) instead of their weight in ◇
      Item checkboxes carry data-slug = item slug (same for character + follower); the follower path is
      distinguished by the enclosing .stonetop-follower-inventory[data-slug] wrapper, so the handlers
      branch without per-element follower attributes. Sections are split into two-line twoCol grids vs
@@ -12,18 +14,18 @@
 {{#if isGrid}}
 <div class="stonetop-inv-twocol-grid">
 	{{#each items}}
-	{{> "stonetop.outfit-item-row"}}
+	{{> "stonetop.outfit-item-row" square=../../../square}}
 	{{/each}}
 </div>
 {{else}}
 {{#each items}}
-{{> "stonetop.outfit-item-row"}}
+{{> "stonetop.outfit-item-row" square=../../../square}}
 {{/each}}
 {{/if}}
 {{/each}}
 {{/each}}
 {{#if addColumn}}
 <button type="button" class="stonetop-inv-add-btn" data-action="addInventoryItem" data-column="{{addColumn}}">
-	<i class="fas fa-plus"></i> {{localize "stonetop.inventory.addItem"}}
+	<i class="fas fa-plus"></i> {{#if addLabel}}{{localize addLabel}}{{else}}{{localize "stonetop.inventory.addItem"}}{{/if}}
 </button>
 {{/if}}

@@ -47,11 +47,13 @@ export class CharacterPossessions {
 		await this.syncPossessionItems(slug);
 	}
 
+	// Deselecting takes the gear back through the same sync a tick uses: an unselected possession
+	// grants nothing, so recomputing IS the clear. One path, so the two can never disagree.
 	async deselect(slug) {
 		const item = _findPossessionItem(this._actor, slug);
 		if (!item) return;
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { selected: false } }]);
-		await this._outfitSync?.clear("possession:" + slug);
+		await this.syncPossessionItems(slug);
 	}
 
 	// Remove a drag-dropped (non-playbook) possession entirely, along with any outfit items it granted.
@@ -137,12 +139,16 @@ export class CharacterPossessions {
 		await this._outfitSync?.clearAll(gear);
 	}
 
-	/** What a possession grants right now: its own gear plus whatever its ticked choices grant. */
+	/** What a possession grants right now: its own gear plus whatever its ticked choices grant — and
+	 *  nothing at all until the player has taken it. The gate lives here rather than in the callers
+	 *  because every one of them (a tick, a selection, a pack refresh, a migration) has to honour it,
+	 *  and a migration that didn't once handed every character the gear of possessions nobody picked. */
 	static outfitGrantFor(item) {
-		const slug = item.system?.slug;
 		const possession = new Possession(item.system);
+		const source     = "possession:" + possession.slug;
+		if (!possession.selected) return OutfitGrant.empty(source);
 		return OutfitGrant.forContainer(
-			"possession:" + slug,
+			source,
 			possession.outfitItems ?? [],
 			item.system,
 			item.system?.pickValues ?? {},

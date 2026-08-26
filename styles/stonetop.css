@@ -2289,12 +2289,6 @@ button.stonetop-view-toggle.is-active {
 	margin: 4px 0;
 }
 
-.stonetop-inv-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0 8px;
-}
-
 .stonetop-inv-delete {
 	display: none;
 	margin-left: auto;

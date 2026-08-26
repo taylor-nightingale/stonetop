@@ -1,13 +1,13 @@
 // Turn the rows parsed off Book I's value tables (scripts/import/pdf/items.js) into the pack
 // documents the reference page links to.
 //
-// Most Common-items rows ALREADY ship: packs/src/outfit-items holds the Inventory insert's gear
-// (printed p. 142), which is a near-duplicate of the Common items table (printed pp. 94-95). The two
-// lists name several of the same objects differently — the insert's "Mattock, iron and/or wood" is
-// the table's "Mattock, iron" — so a row resolves against the existing items first and only becomes
-// a NEW document when the book is genuinely printing something the pack doesn't have yet. Nothing
-// here rewrites an item that already exists; a resolved row contributes only its id, so hand-authored
-// weights, columns and slugs stay exactly as they are.
+// packs/src/outfit-items holds the Inventory insert's gear (printed p. 142) — the printed sheet's
+// checklist, which every character sheet renders in full. The Common items table (printed pp. 94-95)
+// is a near-duplicate of it, and the two lists name several of the same objects differently (the
+// insert's "Snow-shoes" is the table's "Snowshoes"), so a row resolves against the existing items
+// first, through INSERT_ALIASES. A row the insert does NOT print stays a reference-page row and
+// never becomes an item — see resolveRow. Nothing here rewrites an item that already exists; a
+// resolved row contributes only its id, so hand-authored weights, columns and slugs stay as they are.
 
 import { deterministicId, documentKey } from "./ids.js";
 import { toSlug } from "../../src/utils/slug.js";
@@ -34,7 +34,6 @@ export const isGenerated = (doc) => doc?.flags?.stonetop?.generated === GENERATE
  * rather than hiding inside a fuzzy match.
  */
 export const INSERT_ALIASES = new Map([
-	["Mattock, iron",               "Mattock, iron and/or wood"],
 	["Extra oil, for lamp/lantern", "Extra oil"],
 	["Bowstring, spare",            "Bowstring"],
 	["Handful of copper coins",     "Handful of coppers"],
@@ -94,28 +93,64 @@ export const normalizeName = (name) => String(name).toLowerCase()
 	.replace(/[^a-z0-9]+/g, " ")
 	.trim();
 
-/** What a resolved row points at: an item that already ships, or one this build has to create. */
+/** What a resolved row points at: an item that already ships, one this build has to create, or
+ *  nothing at all. */
 export class ResolvedRow {
-	constructor(item, { id, pack, existing, kind }) {
+	constructor(item, { id, pack, existing, kind, onInsert = false }) {
 		this.item     = item;      // the BookItem the table printed
 		this.id       = id;        // null for a category row — nothing to link
 		this.pack     = pack;
 		this.existing = existing;  // true when the pack already had it
 		this.kind     = kind;      // "outfitItem" | "follower" | "category"
+		this.onInsert = onInsert;  // printed on the Inventory insert → the pack's "Default" folder
 	}
 
 	get uuid() { return this.id ? `Compendium.stonetop.${this.pack}.Item.${this.id}` : null; }
 }
+
+/**
+ * The rows the Inventory insert prints — the list `packs/outfit-items` exists to hold, parsed off
+ * printed p. 142 rather than kept by hand (see parseInsertItems).
+ *
+ * The two printed lists word the same object differently ("Sack" on one, "Sack (empty)" on the
+ * other), and only one of those differences is a real one: a trailing parenthetical is part of the
+ * insert's name, never part of the value table's. Membership therefore compares the names with that
+ * parenthetical off, so `INSERT_ALIASES` stays the table of genuine wording differences.
+ */
+export class InsertList {
+	constructor(names = []) {
+		this.names = names;                                   // as printed, in printed order
+		this._keys = new Set(names.map(insertKey));
+	}
+
+	has(name) { return this._keys.has(insertKey(name)); }
+
+	/** The insert rows none of `names` covers — the gear the printed sheet lists and the pack lacks. */
+	missingFrom(names) {
+		const have = new Set(names.map(insertKey));
+		return this.names.filter((name) => !have.has(insertKey(name)));
+	}
+
+	get size() { return this._keys.size; }
+}
+
+const insertKey = (name) => normalizeName(String(name).replace(/\s*\([^)]*\)\s*$/, ""));
 
 const isLivestock = (section) => /livestock/i.test(section.title);
 
 /**
  * Resolve one table row against the items already in the pack.
  *
- * `byName` maps a normalized item name → the existing document. Livestock rows become followers
- * (they are stat blocks, not gear); category rows resolve to nothing.
+ * `byName` maps a normalized item name → the existing document; `insert` is what p. 142 prints.
+ * Livestock rows become followers (they are stat blocks, not gear); category rows resolve to
+ * nothing.
+ *
+ * `onInsert` says WHERE the item is filed, not whether it exists. Everything the value tables price
+ * ships, so the reference page can link it and a GM can drag it onto a sheet — but only the rows the
+ * insert prints belong in the pack's "Default" folder, which is the checklist a character sheet
+ * draws. File the rest under "Special items" and no character carries them until someone says so.
  */
-export function resolveRow(item, section, byName) {
+export function resolveRow(item, section, byName, insert) {
 	if (CATEGORY_ROWS.has(item.name) && /bronze/i.test(section.title)) {
 		return new ResolvedRow(item, { id: null, pack: null, existing: false, kind: "category" });
 	}
@@ -125,10 +160,12 @@ export function resolveRow(item, section, byName) {
 			existing: false, kind: "follower",
 		});
 	}
-	const existing = byName.get(normalizeName(INSERT_ALIASES.get(item.name) ?? item.name));
+	const insertName = INSERT_ALIASES.get(item.name) ?? item.name;
+	const existing   = byName.get(normalizeName(insertName));
 	return new ResolvedRow(item, {
 		id: existing?._id ?? deterministicId(OUTFIT_PACK, toSlug(item.name)),
 		pack: OUTFIT_PACK, existing: !!existing, kind: "outfitItem",
+		onInsert: insert.has(insertName),
 	});
 }
 
@@ -137,11 +174,11 @@ export function resolveRow(item, section, byName) {
  * Pure over `byName`, so the page builder and the item builder agree on what each row points at
  * without one of them having to tell the other.
  */
-export function resolveTableRows(tables, byName) {
+export function resolveTableRows(tables, byName, insert) {
 	const resolved = new Map();
 	for (const table of tables)
 		for (const section of table.sections)
-			for (const item of section.items) resolved.set(item, resolveRow(item, section, byName));
+			for (const item of section.items) resolved.set(item, resolveRow(item, section, byName, insert));
 	return resolved;
 }
 

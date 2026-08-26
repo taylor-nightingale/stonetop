@@ -4,6 +4,9 @@ export class Possession {
 	// (outfit-item / choice syncing) can omit it.
 	constructor(data, name = "") {
 		this.slug        = data.slug        ?? null;
+		// Whether the character has taken it. A possession the player has not ticked grants nothing —
+		// only an embedded item carries this; one built from pack data is not owned by anyone yet.
+		this.selected    = data.selected    ?? false;
 		this.name        = name             ?? "";
 		this.description = data.description ?? "";
 		this.resource    = data.resource    ?? null;

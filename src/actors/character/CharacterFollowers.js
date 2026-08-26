@@ -348,7 +348,7 @@ export class CharacterFollowers {
 		const ownedItems = [...this._actor.items].filter(i => i.type === "follower" && i.system?.owned === true);
 		if (!ownedItems.length) return [];
 		// Fetch the shared outfit-item catalog once (async) and pass it into each follower's snapshot.
-		const repoItems = this._inventoryRepo ? await this._inventoryRepo.getAll() : [];
+		const repoItems = this._inventoryRepo ? await this._inventoryRepo.getInsertItems() : [];
 		return ownedItems.map(item => this._buildFollowerSnapshotFromItem(item, repoItems));
 	}
 

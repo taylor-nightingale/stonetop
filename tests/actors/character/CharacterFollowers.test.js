@@ -1145,7 +1145,8 @@ function makeCfInv(invItems = OUTFIT) {
 	const actor = makeActor();
 	const cf = new CharacterFollowers(
 		actor, new FakeFollowerRepository([FOLLOWER_TMPL, FOLLOWER_TMPL_2]), makeResourceController(),
-		new ChoiceGroupControllerFactory(actor), { getAll: async () => invItems },
+		// A follower's inventory draws the same printed checklist the character's does.
+		new ChoiceGroupControllerFactory(actor), { getInsertItems: async () => invItems },
 	);
 	return cf;
 }

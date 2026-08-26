@@ -21,11 +21,11 @@ import { deterministicId } from "./ids.js";
 import { textPage, journalEntry, entryId } from "./journal-docs.js";
 import { resolveBooks, requireTools } from "./pdf/books.js";
 import { loadBookOneOutline, articleRange, renderArticle, replaceValueTables, splitTopicPages, linkBoldNames, collapseMarkRuns, restructureValueLadder, dropMarkOnlyBlocks, mergeCheckedCircles, dropFigures, replaceGlossary } from "./pdf/book-one.js";
-import { parseItemTables, knownTagSlugs } from "./pdf/items.js";
+import { parseItemTables, parseInsertItems, knownTagSlugs } from "./pdf/items.js";
 import { loadItemUuidsBySlug } from "./pdf/crossref.js";
 import { parseGearTerms } from "./pdf/tag-glossary.js";
 import { applyBookOneEdits } from "./pdf/manual-edits.js";
-import { normalizeName, resolveTableRows, sectionTitle, linkCoinPhrases, OUTFIT_PACK } from "./item-docs.js";
+import { normalizeName, InsertList, resolveTableRows, sectionTitle, linkCoinPhrases, OUTFIT_PACK } from "./item-docs.js";
 import { renderCategory } from "./item-reference.js";
 
 const REFERENCE_PACK = "reference";
@@ -79,7 +79,7 @@ function main() {
 
 	// Item links: the same resolution build-items.js used to decide which rows already ship.
 	const tables = parseItemTables(bookI, known);
-	const resolved = resolveTableRows(tables, outfitItemsByName());
+	const resolved = resolveTableRows(tables, outfitItemsByName(), new InsertList(parseInsertItems(bookI)));
 	// Bold names the books cite → the pack documents they name, so a page links on to the rules.
 	const citedUuids = new Map();
 	for (const pack of CITED_PACKS)

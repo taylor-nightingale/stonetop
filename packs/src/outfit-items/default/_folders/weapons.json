@@ -2,7 +2,7 @@
 	"name": "Weapons",
 	"type": "Item",
 	"description": "",
-	"folder": null,
+	"folder": "StOnEtOpDef0001X",
 	"sorting": "a",
 	"sort": 0,
 	"color": null,

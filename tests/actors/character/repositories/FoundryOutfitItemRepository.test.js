@@ -109,6 +109,51 @@ describe("FoundryOutfitItemRepository", () => {
 		expect(items.map(i => i.slug)).toEqual(["cloak"]);
 	});
 
+	// The pack ships two things: the Inventory insert's checklist, filed under "Default", and the
+	// catalog Book I prices behind it. A character sheet draws the first IN FULL, so an item filed
+	// anywhere else must never reach it — it would be a row on every character that nobody granted and
+	// nobody can remove. Membership is the folder walk, so a nested group has to resolve too.
+	describe("Default folder membership", () => {
+		const DEFAULT = "StOnEtOpDef0001X";
+		const packWithFolders = () => makePack(
+			[
+				{ ...makeEntry("cloak"), folder: "warmth" },
+				{ ...makeEntry("sword-iron"), folder: "weapons-of-war" },
+				{ ...makeEntry("loose"), folder: null },
+			],
+			[
+				{ _id: DEFAULT, name: "Default", folder: null },
+				{ _id: "warmth", name: "Warmth", folder: DEFAULT },
+				{ _id: "special", name: "Special items", folder: null },
+				{ _id: "weapons-of-war", name: "Weapons of War", folder: "special" },
+			],
+		);
+
+		it("gives the sheet only what is filed under Default", async () => {
+			stubGame(packWithFolders());
+			const repo = new FoundryOutfitItemRepository();
+			expect((await repo.getInsertItems()).map(i => i.slug)).toEqual(["cloak"]);
+		});
+
+		it("still offers the whole catalog to anything that asks for it", async () => {
+			stubGame(packWithFolders());
+			const repo = new FoundryOutfitItemRepository();
+			expect((await repo.getAll()).map(i => i.slug)).toEqual(["cloak", "sword-iron", "loose"]);
+		});
+
+		it("keeps each item's own group as its section heading, not the root's", async () => {
+			stubGame(packWithFolders());
+			const repo = new FoundryOutfitItemRepository();
+			expect((await repo.getInsertItems())[0].group).toBe("Warmth");
+		});
+
+		it("leaves an unfiled item off the sheet", async () => {
+			stubGame(packWithFolders());
+			const repo = new FoundryOutfitItemRepository();
+			expect((await repo.getInsertItems()).map(i => i.slug)).not.toContain("loose");
+		});
+	});
+
 	it("caches results — getIndex is not called a second time", async () => {
 		const pack = makePack([makeEntry("cloak")]);
 		stubGame(pack);
