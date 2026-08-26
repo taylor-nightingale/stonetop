@@ -1,0 +1,2884 @@
+{
+  "the-blessed": {
+    "name": {
+      "source": "The Blessed",
+      "text": ""
+    },
+    "description": {
+      "source": "Danu, the Great Mother, provides. We neked only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2, in addition to your sacred pouch",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "The Steplands",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "The Wild",
+      "text": ""
+    },
+    "backgrounds/initiate/label": {
+      "source": "Initiate",
+      "text": ""
+    },
+    "backgrounds/initiate/description": {
+      "source": "Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the **Rites of the Land** move.\n\nThere are other initiates in Stonetop, serving the goddess and the village. They aid you as followers — see the Initiates of Danu insert. Who are they? Pick 2 or 3:",
+      "text": ""
+    },
+    "backgrounds/raised-by-wolves/label": {
+      "source": "Raised by Wolves",
+      "text": ""
+    },
+    "backgrounds/raised-by-wolves/description": {
+      "source": "Maybe not by *wolves*, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?\n\nRegardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.\n\nFor some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP.",
+      "text": ""
+    },
+    "backgrounds/vessel/label": {
+      "source": "Vessel",
+      "text": ""
+    },
+    "backgrounds/vessel/description": {
+      "source": "A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the **Danu's Grasp** move. When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead.",
+      "text": ""
+    },
+    "backgrounds/initiate/choices/enfys/text": {
+      "source": "Enfys, your acolyte, beloved by birds",
+      "text": ""
+    },
+    "backgrounds/initiate/choices/afon/text": {
+      "source": "Afon, strange and Fae-touched",
+      "text": ""
+    },
+    "backgrounds/initiate/choices/gwendyl/text": {
+      "source": "Gwendyl, your mentor, a talented healer",
+      "text": ""
+    },
+    "backgrounds/initiate/choices/olwin/text": {
+      "source": "Olwin, your anointed lover, seer of fates",
+      "text": ""
+    },
+    "backgrounds/initiate/choices/seren-the-eldest/text": {
+      "source": "Seren the Eldest, wise and hard as winter",
+      "text": ""
+    },
+    "choices/sacred-pouch/0/title": {
+      "source": "Sacred Pouch",
+      "text": ""
+    },
+    "choices/sacred-pouch/0/text": {
+      "source": "Your sacred pouch (*magical*) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When **_anyone but you looks inside your sacred pouch and touches the materials therein_**, the Stock is ruined.\n\nWhen you **_have a few days of downtime in familiar terrain_**, you may replenish your Stock.\n\n When you **_Forage_**, you can produce Stock instead of provisions.",
+      "text": ""
+    },
+    "choices/the-earth-mother/0/title": {
+      "source": "The Earth Mother",
+      "text": ""
+    },
+    "choices/the-earth-mother/0/text": {
+      "source": "Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... *(choose 1)*",
+      "text": ""
+    },
+    "choices/sacred-pouch/1/titleNote": {
+      "source": "choose 1 on each line",
+      "text": ""
+    },
+    "choices/sacred-pouch/1/text": {
+      "source": "Your sacred pouch is...",
+      "text": ""
+    },
+    "choices/sacred-pouch/5/titleNote": {
+      "source": "choose 1",
+      "text": ""
+    },
+    "choices/sacred-pouch/5/text": {
+      "source": "What remarkable trait does it possess?",
+      "text": ""
+    },
+    "choices/the-earth-mother/shrine-loved/text": {
+      "source": "... loved, well-used, dripping with offerings and petitions.",
+      "text": ""
+    },
+    "choices/the-earth-mother/shrine-token/text": {
+      "source": "... little more than a token of respect, for her holy places are anywhere but here.",
+      "text": ""
+    },
+    "choices/the-earth-mother/shrine-berth/text": {
+      "source": "... given wide berth by most, and approached only with care and propitiation.",
+      "text": ""
+    },
+    "choices/the-earth-mother/shrine-neglected/text": {
+      "source": "... neglected and all but forgotten, except by a few.",
+      "text": ""
+    },
+    "choices/the-earth-mother/5/text": {
+      "source": "What do the folk of Stonetop leave as offerings? *(choose 2–3)*",
+      "text": ""
+    },
+    "choices/the-earth-mother/fruits-of-harvest/text": {
+      "source": "Fruits of harvest",
+      "text": ""
+    },
+    "choices/the-earth-mother/figurines/text": {
+      "source": "Figurines/effigies",
+      "text": ""
+    },
+    "choices/the-earth-mother/whisky/text": {
+      "source": "Whisky/spirits",
+      "text": ""
+    },
+    "choices/the-earth-mother/salt/text": {
+      "source": "Salt/crystals",
+      "text": ""
+    },
+    "choices/the-earth-mother/rain-water/text": {
+      "source": "Pure rain water",
+      "text": ""
+    },
+    "choices/the-earth-mother/metal-nails/text": {
+      "source": "Metal nails/tools",
+      "text": ""
+    },
+    "choices/the-earth-mother/blood/text": {
+      "source": "Blood/burnt flesh",
+      "text": ""
+    },
+    "choices/the-earth-mother/incense/text": {
+      "source": "Incense/sage bark",
+      "text": ""
+    },
+    "choices/sacred-pouch/2/options/origin-heirloom/text": {
+      "source": "an heirloom made just for you",
+      "text": ""
+    },
+    "choices/sacred-pouch/2/options/origin-made-just-for-you/text": {
+      "source": "made just for you",
+      "text": ""
+    },
+    "choices/sacred-pouch/2/options/origin-own-work/text": {
+      "source": "your own work",
+      "text": ""
+    },
+    "choices/sacred-pouch/3/options/material-fur/text": {
+      "source": "fur",
+      "text": ""
+    },
+    "choices/sacred-pouch/3/options/material-drakescale/text": {
+      "source": "drakescale",
+      "text": ""
+    },
+    "choices/sacred-pouch/3/options/material-leather/text": {
+      "source": "leather",
+      "text": ""
+    },
+    "choices/sacred-pouch/3/options/material-woven/text": {
+      "source": "woven",
+      "text": ""
+    },
+    "choices/sacred-pouch/3/options/material-demonflesh/text": {
+      "source": "demonflesh",
+      "text": ""
+    },
+    "choices/sacred-pouch/4/options/decor-unadorned/text": {
+      "source": "unadorned",
+      "text": ""
+    },
+    "choices/sacred-pouch/4/options/decor-beadwork/text": {
+      "source": "beadwork",
+      "text": ""
+    },
+    "choices/sacred-pouch/4/options/decor-rich-dyes/text": {
+      "source": "rich dyes",
+      "text": ""
+    },
+    "choices/sacred-pouch/4/options/decor-runes/text": {
+      "source": "runes",
+      "text": ""
+    },
+    "choices/sacred-pouch/6/options/trait-indestructible/text": {
+      "source": "It cannot be cut, torn, or burned by any natural means.",
+      "text": ""
+    },
+    "choices/sacred-pouch/6/options/trait-unnoticed/text": {
+      "source": "Unless someone is specifically searching for your pouch, they will ignore its presence.",
+      "text": ""
+    },
+    "choices/sacred-pouch/6/options/trait-sealed/text": {
+      "source": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world.",
+      "text": ""
+    },
+    "choices/sacred-pouch/6/options/trait-unclean/text": {
+      "source": "Unnatural and unclean creatures cannot bear to touch it.",
+      "text": ""
+    },
+    "instinct/0/options/delight/text": {
+      "source": "Delight",
+      "text": ""
+    },
+    "instinct/0/options/delight/description": {
+      "source": "To find beauty, in even the ugliest things.",
+      "text": ""
+    },
+    "instinct/0/options/detachment/text": {
+      "source": "Detachment",
+      "text": ""
+    },
+    "instinct/0/options/detachment/description": {
+      "source": "To remain unmoved, to be cold as winter.",
+      "text": ""
+    },
+    "instinct/0/options/nurture/text": {
+      "source": "Nurture",
+      "text": ""
+    },
+    "instinct/0/options/nurture/description": {
+      "source": "To help others grow, learn, or improve.",
+      "text": ""
+    },
+    "instinct/0/options/preservation/text": {
+      "source": "Preservation",
+      "text": ""
+    },
+    "instinct/0/options/preservation/description": {
+      "source": "To protect the natural world.",
+      "text": ""
+    },
+    "instinct/0/options/reverence/text": {
+      "source": "Reverence",
+      "text": ""
+    },
+    "instinct/0/options/reverence/description": {
+      "source": "To honor the spirits and give them their due.",
+      "text": ""
+    },
+    "appearance/0/options/fresh-faced/text": {
+      "source": "fresh-faced",
+      "text": ""
+    },
+    "appearance/0/options/hale-and-hearty/text": {
+      "source": "hale & hearty",
+      "text": ""
+    },
+    "appearance/0/options/gray-and-wizened/text": {
+      "source": "gray & wizened",
+      "text": ""
+    },
+    "appearance/1/options/imperious-voice/text": {
+      "source": "imperious voice",
+      "text": ""
+    },
+    "appearance/1/options/raspy-voice/text": {
+      "source": "raspy voice",
+      "text": ""
+    },
+    "appearance/1/options/soothing-voice/text": {
+      "source": "soothing voice",
+      "text": ""
+    },
+    "appearance/2/options/curvy/text": {
+      "source": "curvy",
+      "text": ""
+    },
+    "appearance/2/options/strapping/text": {
+      "source": "strapping",
+      "text": ""
+    },
+    "appearance/2/options/rail-thin/text": {
+      "source": "rail-thin",
+      "text": ""
+    },
+    "appearance/2/options/solid/text": {
+      "source": "solid",
+      "text": ""
+    },
+    "appearance/2/options/willowy/text": {
+      "source": "willowy",
+      "text": ""
+    },
+    "appearance/3/options/ceremonial-robes/text": {
+      "source": "ceremonial robes",
+      "text": ""
+    },
+    "appearance/3/options/furs-leather/text": {
+      "source": "furs, leather",
+      "text": ""
+    },
+    "appearance/3/options/work-clothes/text": {
+      "source": "work clothes",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **describe your sacred pouch** and its remarkable trait. Then, **tell us about Danu's shrine** in Stonetop and how she is worshipped.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/heart-soul-entwined/text": {
+      "source": "Whose heart & soul is entwined with yours?",
+      "text": ""
+    },
+    "introductions/step4/secret-ways/text": {
+      "source": "Who taught you the secret ways?",
+      "text": ""
+    },
+    "introductions/step4/beloved-goddess/text": {
+      "source": "Who is beloved by the goddess, your charge to nurture/guide/protect/heal?",
+      "text": ""
+    },
+    "introductions/step6/spirits-whisper/text": {
+      "source": "Which one of you do the spirits whisper of?",
+      "text": ""
+    },
+    "introductions/step6/sacred-rite/text": {
+      "source": "Which one of you has joined me in a sacred rite?",
+      "text": ""
+    },
+    "introductions/step6/blood-oath/text": {
+      "source": "Which of you has made a blood-oath with me?",
+      "text": ""
+    },
+    "introductions/step6/doubts-danu/text": {
+      "source": "Which one of you doubts the power of Danu?",
+      "text": ""
+    }
+  },
+  "the-fox": {
+    "name": {
+      "source": "The Fox",
+      "text": ""
+    },
+    "description": {
+      "source": "The elders tell a story about Fox, who knows lots of tricks, and Hedgehog, who knows one: how to curl up into a ball when there's danger. Fox can't eat Hedgehog when he's all curled up, so in the story Fox goes hungry. But you're not that Fox, and this is no story. You want that Hedgehog? Go get a knife.",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Ambush OR Skill at Arms; Danger Sense OR Perceptive; and 1 of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/the-natural/label": {
+      "source": "The Natural",
+      "text": ""
+    },
+    "backgrounds/the-natural/description": {
+      "source": "You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.\n\nSure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.\n\nWhen you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.",
+      "text": ""
+    },
+    "backgrounds/a-life-of-crime/label": {
+      "source": "A Life of Crime",
+      "text": ""
+    },
+    "backgrounds/a-life-of-crime/description": {
+      "source": "You're new to Stonetop, having left behind a... *colorful* past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?\n\nRegardless, these people have taken you in. Time to lead an honest life, right?\n\nYou start with either **Burgle** or **Light Fingers** (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.",
+      "text": ""
+    },
+    "backgrounds/the-prodigal-returned/label": {
+      "source": "The Prodigal Returned",
+      "text": ""
+    },
+    "backgrounds/the-prodigal-returned/description": {
+      "source": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.\n\nWhen you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/0/title": {
+      "source": "There Was That Time You…",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/0/text": {
+      "source": "Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. *(choose 1 per tale)*",
+      "text": ""
+    },
+    "choices/tall-tales-ending/0/title": {
+      "source": "And You Ended Up…",
+      "text": ""
+    },
+    "choices/tall-tales-ending/0/titleNote": {
+      "source": "(choose 1 or 2 per tale)",
+      "text": ""
+    },
+    "choices/tall-tales-legacy/0/title": {
+      "source": "But All You've Got Left to Show for It Is…",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/lost-great-wood/text": {
+      "source": "… got lost in the Great Wood.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/lost-flats/text": {
+      "source": "… got lost in the Flats.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/lost-steplands/text": {
+      "source": "… got lost in the Steplands.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/lost-ferrers-fen/text": {
+      "source": "… got lost in Ferrier's Fen.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/lost-foothills/text": {
+      "source": "… got lost in the Foothills.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/lost-huffel-peaks/text": {
+      "source": "… got lost in the Huffel Peaks.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/crinwin-raid/text": {
+      "source": "… were on watch when the crinwin raided.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/ruined-tower/text": {
+      "source": "… dared each other to explore the Ruined Tower.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/hillfolk/text": {
+      "source": "… managed to rile up a small band of Hillfolk.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/labyrinth/text": {
+      "source": "… braved the Labyrinth, just a little.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/old-mans-book/text": {
+      "source": "… stole that crazy old man's book.",
+      "text": ""
+    },
+    "choices/tall-tales-beginning/barrow-mounds/text": {
+      "source": "… went poking about the old Barrow Mounds.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/running/text": {
+      "source": "… running for your life from something.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/well-placed-blow/text": {
+      "source": "… landing a well-placed blow.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/strange-gather/text": {
+      "source": "… interrupting a strange, creepy gathering.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/big-beast/text": {
+      "source": "… stumbling on a beast, bigger'n anything.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/treasure/text": {
+      "source": "… with a sack full of treasure.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/someone-fight/text": {
+      "source": "… getting someone to fight them for you.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/ghost/text": {
+      "source": "… face to face with a ghost/Fae/demon.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/strange-runes/text": {
+      "source": "… finding those strange old runes.",
+      "text": ""
+    },
+    "choices/tall-tales-ending/fine-looking/text": {
+      "source": "… getting to know that fine-looking fellow/lady/person/couple.",
+      "text": ""
+    },
+    "choices/tall-tales-legacy/story-no-one-believes/text": {
+      "source": "… a story no one believes.",
+      "text": ""
+    },
+    "choices/tall-tales-legacy/nasty-scar/text": {
+      "source": "… a nasty scar; wanna see?",
+      "text": ""
+    },
+    "choices/tall-tales-legacy/nightmares/text": {
+      "source": "… the occasional nightmare.",
+      "text": ""
+    },
+    "choices/tall-tales-legacy/map-with-runes/text": {
+      "source": "… this map with runes no one can read.",
+      "text": ""
+    },
+    "choices/tall-tales-legacy/mystery-key/text": {
+      "source": "… this key that opens who-knows-what.",
+      "text": ""
+    },
+    "instinct/0/options/conscience/text": {
+      "source": "Conscience",
+      "text": ""
+    },
+    "instinct/0/options/conscience/description": {
+      "source": "To feel guilty, to try to do right.",
+      "text": ""
+    },
+    "instinct/0/options/freedom/text": {
+      "source": "Freedom",
+      "text": ""
+    },
+    "instinct/0/options/freedom/description": {
+      "source": "To chafe against rules, expectations, obligations.",
+      "text": ""
+    },
+    "instinct/0/options/comfort/text": {
+      "source": "Comfort",
+      "text": ""
+    },
+    "instinct/0/options/comfort/description": {
+      "source": "To enjoy yourself and avoid hardship.",
+      "text": ""
+    },
+    "instinct/0/options/prestige/text": {
+      "source": "Prestige",
+      "text": ""
+    },
+    "instinct/0/options/prestige/description": {
+      "source": "To impress others, to build a name for yourself.",
+      "text": ""
+    },
+    "instinct/0/options/trickery/text": {
+      "source": "Trickery",
+      "text": ""
+    },
+    "instinct/0/options/trickery/description": {
+      "source": "To deceive, misdirect, outthink.",
+      "text": ""
+    },
+    "appearance/0/options/young-pup/text": {
+      "source": "young pup",
+      "text": ""
+    },
+    "appearance/0/options/responsible-adult/text": {
+      "source": "\"responsible\" adult",
+      "text": ""
+    },
+    "appearance/0/options/cagey-old-timer/text": {
+      "source": "cagey old-timer",
+      "text": ""
+    },
+    "appearance/1/options/a-pleasant-voice/text": {
+      "source": "a pleasant voice",
+      "text": ""
+    },
+    "appearance/1/options/sharp-and-nasally/text": {
+      "source": "sharp & nasally",
+      "text": ""
+    },
+    "appearance/1/options/well-spoken/text": {
+      "source": "well-spoken",
+      "text": ""
+    },
+    "appearance/2/options/lithe/text": {
+      "source": "lithe",
+      "text": ""
+    },
+    "appearance/2/options/heavyset/text": {
+      "source": "heavyset",
+      "text": ""
+    },
+    "appearance/2/options/gangly/text": {
+      "source": "gangly",
+      "text": ""
+    },
+    "appearance/2/options/like-a-whippin-stick/text": {
+      "source": "like a whippin' stick",
+      "text": ""
+    },
+    "appearance/3/options/a-light-step/text": {
+      "source": "a light step",
+      "text": ""
+    },
+    "appearance/3/options/a-brisk-stride/text": {
+      "source": "a brisk stride",
+      "text": ""
+    },
+    "appearance/3/options/more-like-a-strut/text": {
+      "source": "more like a strut",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **tell us your tall tales**. Feel free to embellish and exaggerate to the other players, but always answer the GM truthfully.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/heart-reins/text": {
+      "source": "Who holds the reins to your heart?",
+      "text": ""
+    },
+    "introductions/step4/respect-world/text": {
+      "source": "Whose respect means the world to you?",
+      "text": ""
+    },
+    "introductions/step4/unpayable-debt/text": {
+      "source": "To whom do you owe a debt that cannot be repaid?",
+      "text": ""
+    },
+    "introductions/step6/hijinx/text": {
+      "source": "Which one of you joined me in my latest hijinx?",
+      "text": ""
+    },
+    "introductions/step6/brings-problems/text": {
+      "source": "Which one of you brings your problems to me?",
+      "text": ""
+    },
+    "introductions/step6/saved-bacon/text": {
+      "source": "Which one of you saved my bacon, mor'n once?",
+      "text": ""
+    },
+    "introductions/step6/trusts-not/text": {
+      "source": "Which one of you trusts me not one bit?",
+      "text": ""
+    }
+  },
+  "the-heavy": {
+    "name": {
+      "source": "The Heavy",
+      "text": ""
+    },
+    "description": {
+      "source": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "The Steplands (Hillfolk)",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "The Manmarch",
+      "text": ""
+    },
+    "origin/5/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/sheriff/label": {
+      "source": "Sheriff",
+      "text": ""
+    },
+    "backgrounds/sheriff/description": {
+      "source": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.\n\nWhen you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do.",
+      "text": ""
+    },
+    "backgrounds/blood-soaked-past/label": {
+      "source": "Blood-Soaked Past",
+      "text": ""
+    },
+    "backgrounds/blood-soaked-past/description": {
+      "source": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.\n\nWhen you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.\n\nWhen you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage.",
+      "text": ""
+    },
+    "backgrounds/storm-marked/label": {
+      "source": "Storm-Marked",
+      "text": ""
+    },
+    "backgrounds/storm-marked/description": {
+      "source": "You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?\n\nYou start with the **Storm Markings** major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.",
+      "text": ""
+    },
+    "choices/violence-fame/0/title": {
+      "source": "Just About Everyone Here Talks About the Time You…",
+      "text": ""
+    },
+    "choices/violence-fame/0/text": {
+      "source": "*(pick 1 or 2)*",
+      "text": ""
+    },
+    "choices/violence-shadows/0/title": {
+      "source": "But Folks Are Less Keen to Discuss…",
+      "text": ""
+    },
+    "choices/violence-shadows/0/text": {
+      "source": "*(pick 1 or 2)*",
+      "text": ""
+    },
+    "choices/violence-fears/0/title": {
+      "source": "What Keeps You Up at Night?",
+      "text": ""
+    },
+    "choices/violence-fears/0/text": {
+      "source": "*(pick 1 or 2)*",
+      "text": ""
+    },
+    "choices/violence-fame/thunder-drake/text": {
+      "source": "… drove off a thunder drake that got too close to town.",
+      "text": ""
+    },
+    "choices/violence-fame/hagr/text": {
+      "source": "… killed that hagr in the Foothills.",
+      "text": ""
+    },
+    "choices/violence-fame/crinwin-dozen/text": {
+      "source": "… slew a dozen crinwin in one battle.",
+      "text": ""
+    },
+    "choices/violence-fame/adventurers/text": {
+      "source": "… tossed those adventurers out of town.",
+      "text": ""
+    },
+    "choices/violence-fame/ivan/text": {
+      "source": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws.",
+      "text": ""
+    },
+    "choices/violence-fame/bleeding/text": {
+      "source": "… dragged yourself (and another?) into town, bleeding from a dozen wounds.",
+      "text": ""
+    },
+    "choices/violence-fame/lightning/text": {
+      "source": "… were struck by lightning and woke up covered in these marks.",
+      "text": ""
+    },
+    "choices/violence-shadows/blood-look/text": {
+      "source": "… the look in your eye when you spilled all that blood.",
+      "text": ""
+    },
+    "choices/violence-shadows/hard-cases/text": {
+      "source": "… those hard cases who showed up looking for you.",
+      "text": ""
+    },
+    "choices/violence-shadows/shouting/text": {
+      "source": "… the shouting matches between you and your love.",
+      "text": ""
+    },
+    "choices/violence-shadows/claws/text": {
+      "source": "… the time you spent as one of Brennan's Claws.",
+      "text": ""
+    },
+    "choices/violence-shadows/urbgen/text": {
+      "source": "… what happened to Urbgen, even if he did have it coming.",
+      "text": ""
+    },
+    "choices/violence-shadows/seizures/text": {
+      "source": "… your uncontrollable seizures, where you claw those weird marks in the dirt.",
+      "text": ""
+    },
+    "choices/violence-fears/temper/text": {
+      "source": "That thrice-damned temper of yours.",
+      "text": ""
+    },
+    "choices/violence-fears/someone-coming/text": {
+      "source": "The worry that someone's coming after you.",
+      "text": ""
+    },
+    "choices/violence-fears/crinwin-bolder/text": {
+      "source": "The feeling that the crinwin are getting bolder.",
+      "text": ""
+    },
+    "choices/violence-fears/brennan/text": {
+      "source": "Wondering what Brennan's up to, now that he's the marshal of Marshedge.",
+      "text": ""
+    },
+    "choices/violence-fears/dark-visions/text": {
+      "source": "Dark visions of things moving in the earth, restless, whispering, and hungry.",
+      "text": ""
+    },
+    "choices/violence-fears/family/text": {
+      "source": "The question of who'll look after your family when you get yourself killed.",
+      "text": ""
+    },
+    "choices/violence-fears/truth/text": {
+      "source": "The worry that they'll all learn the truth about you, sooner or later.",
+      "text": ""
+    },
+    "instinct/0/options/peace/text": {
+      "source": "Peace",
+      "text": ""
+    },
+    "instinct/0/options/peace/description": {
+      "source": "To avoid (further) bloodshed or violence.",
+      "text": ""
+    },
+    "instinct/0/options/pride/text": {
+      "source": "Pride",
+      "text": ""
+    },
+    "instinct/0/options/pride/description": {
+      "source": "To maintain your dignity, to demand respect.",
+      "text": ""
+    },
+    "instinct/0/options/recklessness/text": {
+      "source": "Recklessness",
+      "text": ""
+    },
+    "instinct/0/options/recklessness/description": {
+      "source": "To act without thought to the consequences.",
+      "text": ""
+    },
+    "instinct/0/options/trouble/text": {
+      "source": "Trouble",
+      "text": ""
+    },
+    "instinct/0/options/trouble/description": {
+      "source": "To stick your nose in where it's unwelcome.",
+      "text": ""
+    },
+    "instinct/0/options/violence/text": {
+      "source": "Violence",
+      "text": ""
+    },
+    "instinct/0/options/violence/description": {
+      "source": "To solve problems by force.",
+      "text": ""
+    },
+    "appearance/0/options/young-and-brash/text": {
+      "source": "young & brash",
+      "text": ""
+    },
+    "appearance/0/options/in-my-prime/text": {
+      "source": "in my prime",
+      "text": ""
+    },
+    "appearance/0/options/old-and-leathery/text": {
+      "source": "old & leathery",
+      "text": ""
+    },
+    "appearance/1/options/gravelly-voice/text": {
+      "source": "gravelly voice",
+      "text": ""
+    },
+    "appearance/1/options/hearty-voice/text": {
+      "source": "hearty voice",
+      "text": ""
+    },
+    "appearance/1/options/soft-spoken/text": {
+      "source": "soft-spoken",
+      "text": ""
+    },
+    "appearance/2/options/giant-frame/text": {
+      "source": "giant frame",
+      "text": ""
+    },
+    "appearance/2/options/just-ripped/text": {
+      "source": "just ripped",
+      "text": ""
+    },
+    "appearance/2/options/stocky/text": {
+      "source": "stocky",
+      "text": ""
+    },
+    "appearance/2/options/wiry/text": {
+      "source": "wiry",
+      "text": ""
+    },
+    "appearance/3/options/distinctive-scars/text": {
+      "source": "distinctive scars",
+      "text": ""
+    },
+    "appearance/3/options/off-broken-nose/text": {
+      "source": "off-broken nose",
+      "text": ""
+    },
+    "appearance/3/options/missing-bits/text": {
+      "source": "missing bits",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **tell us about your history of violence**, and what keeps you up at night.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/lover-spouse/text": {
+      "source": "Who is your lover/spouse/betrothed?",
+      "text": ""
+    },
+    "introductions/step4/needs-protection/text": {
+      "source": "Who most needs/deserves your protection?",
+      "text": ""
+    },
+    "introductions/step4/earn-forgiveness/text": {
+      "source": "Whose forgiveness do you strive to earn?",
+      "text": ""
+    },
+    "introductions/step6/dragged-home/text": {
+      "source": "Which one of you once dragged me home, bleeding and unconscious?",
+      "text": ""
+    },
+    "introductions/step6/have-my-back/text": {
+      "source": "Which one of you can I trust to always have my back?",
+      "text": ""
+    },
+    "introductions/step6/stayed-hand/text": {
+      "source": "Which one of you has stayed my hand?",
+      "text": ""
+    },
+    "introductions/step6/traded-blows/text": {
+      "source": "Which one of you has traded blows with me?",
+      "text": ""
+    }
+  },
+  "the-judge": {
+    "name": {
+      "source": "The Judge",
+      "text": ""
+    },
+    "description": {
+      "source": "Look here at this little town, this candleflame in the darkness. Its very existence is an act of courage and faith. And Aratis has charged you to keep it: to settle its disputes; to chronicle its tales; to defend it from darkness and ruin. Take up your hammer, Judge. Your town needs you.",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Censure, Chronicler of Stonetop, plus 2 more of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 1, in addition to your symbol of authority and scribe's tools",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "Lygos or some other southern town",
+      "text": ""
+    },
+    "backgrounds/legacy/label": {
+      "source": "Legacy",
+      "text": ""
+    },
+    "backgrounds/legacy/description": {
+      "source": "You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.\n\nWhen you **_Know Things about the people or history of Stonetop_**, you have advantage.\n\nWhen you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time.",
+      "text": ""
+    },
+    "backgrounds/missionary/label": {
+      "source": "Missionary",
+      "text": ""
+    },
+    "backgrounds/missionary/description": {
+      "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.\n\nWhen you **_call upon the Judge of another steading for aid or information_**, they are oathbound to give it. You are likewise oathbound to support them.\n\nYou have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
+      "text": ""
+    },
+    "backgrounds/prophet/label": {
+      "source": "Prophet",
+      "text": ""
+    },
+    "backgrounds/prophet/description": {
+      "source": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.\n\nWhen you **_spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole_**, roll +WIS: **on a 7+**, Aratis reveals the course of action she would have you take; **on a 10+**, you also hold 2 Sanction. While **_acting on her orders_**, spend 1 Sanction to add +1 to a roll you just made.",
+      "text": ""
+    },
+    "choices/chronicle-plus/0/title": {
+      "source": "The Chronicle",
+      "text": ""
+    },
+    "choices/chronicle-plus/0/text": {
+      "source": "The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… *(choose 3)*",
+      "text": ""
+    },
+    "choices/chronicle-minus/0/title": {
+      "source": "But Alas, It…",
+      "text": ""
+    },
+    "choices/chronicle-minus/0/text": {
+      "source": "*(choose 2)*",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/0/title": {
+      "source": "The Lawkeeper",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/0/text": {
+      "source": "Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… *(pick 1)*",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/0/title": {
+      "source": "Of Her True Disciples, Aratis Demands…",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/0/text": {
+      "source": "*(choose 3)*",
+      "text": ""
+    },
+    "choices/chronicle-plus/sturdy-vault/text": {
+      "source": "… is a sturdy vault from the time of the Makers.",
+      "text": ""
+    },
+    "choices/chronicle-plus/room-to-grow/text": {
+      "source": "… has plenty of room to grow.",
+      "text": ""
+    },
+    "choices/chronicle-plus/hidden-underground/text": {
+      "source": "… is hidden underground.",
+      "text": ""
+    },
+    "choices/chronicle-plus/one-entrance/text": {
+      "source": "… has but one entrance, magically sealed.",
+      "text": ""
+    },
+    "choices/chronicle-plus/minor-magics/text": {
+      "source": "… bears minor magics to preserve its contents.",
+      "text": ""
+    },
+    "choices/chronicle-plus/warded/text": {
+      "source": "… is warded against spirits and magic.",
+      "text": ""
+    },
+    "choices/chronicle-plus/living-quarters/text": {
+      "source": "… includes your living quarters & office.",
+      "text": ""
+    },
+    "choices/chronicle-minus/outskirts/text": {
+      "source": "… sits on the outskirts, near the Old Wall.",
+      "text": ""
+    },
+    "choices/chronicle-minus/cramped/text": {
+      "source": "… is cramped, chaotic, and overflowing.",
+      "text": ""
+    },
+    "choices/chronicle-minus/crude-cellar/text": {
+      "source": "… is little more than a crude cellar.",
+      "text": ""
+    },
+    "choices/chronicle-minus/haunted/text": {
+      "source": "… seems to be haunted.",
+      "text": ""
+    },
+    "choices/chronicle-minus/dangerous-artifacts/text": {
+      "source": "… contains a few dangerous artifacts.",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/shrine-hub/text": {
+      "source": "… a hub of the community, a place of frequent rites, petitions, and celebrations.",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/shrine-high-holiday/text": {
+      "source": "… used only on high holidays, for each home keeps its own shrine above the hearth.",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/shrine-neglected/text": {
+      "source": "… neglected by most, tended only by you and a handful of believers.",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/shrine-grim/text": {
+      "source": "… a grim place of judgement and punishment, shunned by all but her chosen.",
+      "text": ""
+    },
+    "choices/lawkeeper-shrine/shrine-new/text": {
+      "source": "… newly established, cramped and spare.",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/truth/text": {
+      "source": "… truth, honesty, and forthrightness.",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/hospitality/text": {
+      "source": "… hospitality, freely given to all who ask for it.",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/punishment/text": {
+      "source": "… the punishment of thieves & oathbreakers.",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/diet-dress/text": {
+      "source": "… adherence to strict rules of diet and dress.",
+      "text": ""
+    },
+    "choices/lawkeeper-demands/authority/text": {
+      "source": "… respect for authority, property, and rank.",
+      "text": ""
+    },
+    "instinct/0/options/ambition/text": {
+      "source": "Ambition",
+      "text": ""
+    },
+    "instinct/0/options/ambition/description": {
+      "source": "To increase your status or influence.",
+      "text": ""
+    },
+    "instinct/0/options/dispassion/text": {
+      "source": "Dispassion",
+      "text": ""
+    },
+    "instinct/0/options/dispassion/description": {
+      "source": "To disregard emotion or sentiment.",
+      "text": ""
+    },
+    "instinct/0/options/harmony/text": {
+      "source": "Harmony",
+      "text": ""
+    },
+    "instinct/0/options/harmony/description": {
+      "source": "To seek a path that makes everyone happy.",
+      "text": ""
+    },
+    "instinct/0/options/orthodoxy/text": {
+      "source": "Orthodoxy",
+      "text": ""
+    },
+    "instinct/0/options/orthodoxy/description": {
+      "source": "To strictly adhere to rules and traditions.",
+      "text": ""
+    },
+    "instinct/0/options/zeal/text": {
+      "source": "Zeal",
+      "text": ""
+    },
+    "instinct/0/options/zeal/description": {
+      "source": "To judge quickly and without doubt.",
+      "text": ""
+    },
+    "appearance/0/options/eager-youth/text": {
+      "source": "eager youth",
+      "text": ""
+    },
+    "appearance/0/options/in-my-prime/text": {
+      "source": "in my prime",
+      "text": ""
+    },
+    "appearance/0/options/showing-my-years/text": {
+      "source": "showing my years",
+      "text": ""
+    },
+    "appearance/1/options/calm-voice/text": {
+      "source": "calm voice",
+      "text": ""
+    },
+    "appearance/1/options/booming-voice/text": {
+      "source": "booming voice",
+      "text": ""
+    },
+    "appearance/1/options/a-voice-that-carries/text": {
+      "source": "a voice that carries",
+      "text": ""
+    },
+    "appearance/2/options/hard-body/text": {
+      "source": "hard body",
+      "text": ""
+    },
+    "appearance/2/options/powerful-frame/text": {
+      "source": "powerful frame",
+      "text": ""
+    },
+    "appearance/2/options/slim/text": {
+      "source": "slim",
+      "text": ""
+    },
+    "appearance/2/options/well-fed/text": {
+      "source": "well-fed",
+      "text": ""
+    },
+    "appearance/3/options/polished-gear/text": {
+      "source": "polished gear",
+      "text": ""
+    },
+    "appearance/3/options/robes-of-office/text": {
+      "source": "robes of office",
+      "text": ""
+    },
+    "appearance/3/options/modest-clothes/text": {
+      "source": "modest clothes",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **describe the Chronicle**. Then, **tell us about Aratis and her shrine**, and what she demands of her true disciples.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/lover-spouse/text": {
+      "source": "Who is your lover/spouse/betrothed?",
+      "text": ""
+    },
+    "introductions/step4/apprentice/text": {
+      "source": "Who is your apprentice?",
+      "text": ""
+    },
+    "introductions/step4/wisest-elder/text": {
+      "source": "Who is the wisest of the town elders?",
+      "text": ""
+    },
+    "introductions/step6/disciple-aratis/text": {
+      "source": "Which one of you is a true disciple of Aratis?",
+      "text": ""
+    },
+    "introductions/step6/closest-confidant/text": {
+      "source": "Which one of you is my closest confidant?",
+      "text": ""
+    },
+    "introductions/step6/unnatural-chaos/text": {
+      "source": "Which one of you has stood beside me in battle against unnatural chaos?",
+      "text": ""
+    },
+    "introductions/step6/passed-judgement/text": {
+      "source": "Against which of you have I passed judgement?",
+      "text": ""
+    }
+  },
+  "the-lightbearer": {
+    "name": {
+      "source": "The Lightbearer",
+      "text": ""
+    },
+    "description": {
+      "source": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/auspicious-birth/label": {
+      "source": "Auspicious Birth",
+      "text": ""
+    },
+    "backgrounds/auspicious-birth/description": {
+      "source": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
+      "text": ""
+    },
+    "backgrounds/itinerant-mystic/label": {
+      "source": "Itinerant Mystic",
+      "text": ""
+    },
+    "backgrounds/itinerant-mystic/description": {
+      "source": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.",
+      "text": ""
+    },
+    "backgrounds/soul-on-fire/label": {
+      "source": "Soul on Fire",
+      "text": ""
+    },
+    "backgrounds/soul-on-fire/description": {
+      "source": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
+      "text": ""
+    },
+    "choices/helior-worship-spread/0/title": {
+      "source": "The Worship of Helior Is…",
+      "text": ""
+    },
+    "choices/helior-worship-spread/0/text": {
+      "source": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. *(choose 1)*",
+      "text": ""
+    },
+    "choices/helior-worship-practice/0/title": {
+      "source": "He Is Worshipped Through…",
+      "text": ""
+    },
+    "choices/helior-worship-practice/0/text": {
+      "source": "*(choose 1 or 2)*",
+      "text": ""
+    },
+    "choices/helior-shrine/0/title": {
+      "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
+      "text": ""
+    },
+    "choices/helior-shrine/0/text": {
+      "source": "*(choose 1)*",
+      "text": ""
+    },
+    "choices/helior-predecessor/0/title": {
+      "source": "Your Predecessor, the Previous Lightbearer…",
+      "text": ""
+    },
+    "choices/helior-predecessor/0/text": {
+      "source": "*(choose 2 or 3)*",
+      "text": ""
+    },
+    "choices/helior-powers-origin/0/title": {
+      "source": "You Came Into Your Powers…",
+      "text": ""
+    },
+    "choices/helior-powers-origin/0/text": {
+      "source": "*(choose 1)*",
+      "text": ""
+    },
+    "choices/helior-worship-spread/ancient-widespread/text": {
+      "source": "… ancient, widespread, and well-known.",
+      "text": ""
+    },
+    "choices/helior-worship-spread/lygos-south/text": {
+      "source": "… most common in Lygos and the south.",
+      "text": ""
+    },
+    "choices/helior-worship-spread/new-thing/text": {
+      "source": "… a new thing, still unheard of by many.",
+      "text": ""
+    },
+    "choices/helior-worship-spread/old-forgotten/text": {
+      "source": "… an old thing, forgotten by most.",
+      "text": ""
+    },
+    "choices/helior-worship-spread/persecuted/text": {
+      "source": "… widely persecuted.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/solemn-hymns/text": {
+      "source": "… solemn hymns.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/meditation/text": {
+      "source": "… serene meditation.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/joyful-song/text": {
+      "source": "… joyful song.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/ascetic-denial/text": {
+      "source": "… ascetic denial.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/dancing/text": {
+      "source": "… fervent dancing.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/ceremonies/text": {
+      "source": "… formal ceremonies.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/drugs/text": {
+      "source": "… drugs & intoxicants.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/pain-sacrifice/text": {
+      "source": "… pain & sacrifice.",
+      "text": ""
+    },
+    "choices/helior-shrine/highest-honor/text": {
+      "source": "… the place of highest honor, even if Tor is more popular.",
+      "text": ""
+    },
+    "choices/helior-shrine/well-tended/text": {
+      "source": "… been well-tended and given due respect.",
+      "text": ""
+    },
+    "choices/helior-shrine/recently-restored/text": {
+      "source": "… recently been restored/established, perhaps by you.",
+      "text": ""
+    },
+    "choices/helior-shrine/seen-better-days/text": {
+      "source": "… seen better days, for certain.",
+      "text": ""
+    },
+    "choices/helior-predecessor/lived-long-ago/text": {
+      "source": "… lived long ago, a figure of legend.",
+      "text": ""
+    },
+    "choices/helior-predecessor/martyred/text": {
+      "source": "… was martyred for their faith.",
+      "text": ""
+    },
+    "choices/helior-predecessor/died-facing/text": {
+      "source": "… died facing a mighty sorcerer or demon.",
+      "text": ""
+    },
+    "choices/helior-predecessor/wrote-works/text": {
+      "source": "… wrote many works of sublime beauty.",
+      "text": ""
+    },
+    "choices/helior-predecessor/things-below/text": {
+      "source": "… faced one of the Things Below.",
+      "text": ""
+    },
+    "choices/helior-predecessor/died-peacefully/text": {
+      "source": "… died in their bed, peacefully.",
+      "text": ""
+    },
+    "choices/helior-predecessor/ascended/text": {
+      "source": "… ascended bodily into the heavens.",
+      "text": ""
+    },
+    "choices/helior-predecessor/reincarnated/text": {
+      "source": "… was reincarnated—as you.",
+      "text": ""
+    },
+    "choices/helior-powers-origin/years-study/text": {
+      "source": "… through years of study and devotion.",
+      "text": ""
+    },
+    "choices/helior-powers-origin/predecessor/text": {
+      "source": "… when your predecessor passed them on.",
+      "text": ""
+    },
+    "choices/helior-powers-origin/sudden/text": {
+      "source": "… suddenly, at a moment of great need.",
+      "text": ""
+    },
+    "choices/helior-powers-origin/visitation/text": {
+      "source": "… after a visitation from Helior or one of his servants.",
+      "text": ""
+    },
+    "choices/helior-powers-origin/first-sight/text": {
+      "source": "… when you first laid eyes upon the _______.",
+      "text": ""
+    },
+    "instinct/0/options/charity/text": {
+      "source": "Charity",
+      "text": ""
+    },
+    "instinct/0/options/charity/description": {
+      "source": "To go without so that others are better off.",
+      "text": ""
+    },
+    "instinct/0/options/hope/text": {
+      "source": "Hope",
+      "text": ""
+    },
+    "instinct/0/options/hope/description": {
+      "source": "To inspire others in the face of adversity.",
+      "text": ""
+    },
+    "instinct/0/options/mercy/text": {
+      "source": "Mercy",
+      "text": ""
+    },
+    "instinct/0/options/mercy/description": {
+      "source": "To bring relief or comfort, to give second chances.",
+      "text": ""
+    },
+    "instinct/0/options/praise/text": {
+      "source": "Praise",
+      "text": ""
+    },
+    "instinct/0/options/praise/description": {
+      "source": "To spread the glory and worship of Helior.",
+      "text": ""
+    },
+    "instinct/0/options/righteousness/text": {
+      "source": "Righteousness",
+      "text": ""
+    },
+    "instinct/0/options/righteousness/description": {
+      "source": "To refuse to suffer an injustice or a lesser evil.",
+      "text": ""
+    },
+    "appearance/0/options/a-youthful-glow/text": {
+      "source": "a youthful glow",
+      "text": ""
+    },
+    "appearance/0/options/well-weathered/text": {
+      "source": "well-weathered",
+      "text": ""
+    },
+    "appearance/0/options/old-and-merry/text": {
+      "source": "old & merry",
+      "text": ""
+    },
+    "appearance/1/options/a-lifting-voice/text": {
+      "source": "a lifting voice",
+      "text": ""
+    },
+    "appearance/1/options/a-melodious-voice/text": {
+      "source": "a melodious voice",
+      "text": ""
+    },
+    "appearance/1/options/a-soft-voice/text": {
+      "source": "a soft voice",
+      "text": ""
+    },
+    "appearance/2/options/beatific/text": {
+      "source": "beatific",
+      "text": ""
+    },
+    "appearance/2/options/ethereal/text": {
+      "source": "ethereal",
+      "text": ""
+    },
+    "appearance/2/options/intense/text": {
+      "source": "intense",
+      "text": ""
+    },
+    "appearance/2/options/jovial/text": {
+      "source": "jovial",
+      "text": ""
+    },
+    "appearance/2/options/serene/text": {
+      "source": "serene",
+      "text": ""
+    },
+    "appearance/3/options/fine-robes/text": {
+      "source": "fine robes",
+      "text": ""
+    },
+    "appearance/3/options/threadbare-cloak/text": {
+      "source": "threadbare cloak",
+      "text": ""
+    },
+    "appearance/3/options/working-clothes/text": {
+      "source": "working clothes",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, praise the day! **Tell us of Helior**, his worship and his shrine. **Tell us, too, of the prior Lightbearer** and how you gained your powers.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/heart-flames/text": {
+      "source": "Who fans the flames of your heart?",
+      "text": ""
+    },
+    "introductions/step4/kindness-generosity/text": {
+      "source": "Whose kindness and generosity warm your soul?",
+      "text": ""
+    },
+    "introductions/step4/needs-light/text": {
+      "source": "Who needs Helior's light, badly?",
+      "text": ""
+    },
+    "introductions/step6/old-dear-friend/text": {
+      "source": "Which one of you is an old and dear friend?",
+      "text": ""
+    },
+    "introductions/step6/shares-faith/text": {
+      "source": "Which one of you shares my faith?",
+      "text": ""
+    },
+    "introductions/step6/scoffs-mercy/text": {
+      "source": "Which one of you scoffs at mercy and hope?",
+      "text": ""
+    },
+    "introductions/step6/needs-guidance/text": {
+      "source": "Which one of you will need my guidance soon?",
+      "text": ""
+    }
+  },
+  "the-marshal": {
+    "name": {
+      "source": "The Marshal",
+      "text": ""
+    },
+    "description": {
+      "source": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "The Steplands (Hillfolk)",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "The Manmarch",
+      "text": ""
+    },
+    "origin/5/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/scion/label": {
+      "source": "Scion",
+      "text": ""
+    },
+    "backgrounds/scion/description": {
+      "source": "You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.\n\nYou start with the **Veteran Crew** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew).",
+      "text": ""
+    },
+    "backgrounds/penitent/label": {
+      "source": "Penitent",
+      "text": ""
+    },
+    "backgrounds/penitent/description": {
+      "source": "Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.\n\nWhen you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.\n\nWhen you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks).",
+      "text": ""
+    },
+    "backgrounds/luminary/label": {
+      "source": "Luminary",
+      "text": ""
+    },
+    "backgrounds/luminary/description": {
+      "source": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
+      "text": ""
+    },
+    "choices/war-stories-action/0/title": {
+      "source": "The Last Time the Militia Saw Serious Action, It Was…",
+      "text": ""
+    },
+    "choices/war-stories-action/0/text": {
+      "source": "*(pick 1)*",
+      "text": ""
+    },
+    "choices/war-stories-questions/0/title": {
+      "source": "Answer At Least 3 of the Following",
+      "text": ""
+    },
+    "choices/war-stories-action/crinwin-raid/text": {
+      "source": "… to repel a nighttime raid by crinwin from the Great Wood.",
+      "text": ""
+    },
+    "choices/war-stories-action/bandits/text": {
+      "source": "… to drive off bandits who'd taken up near the Ruined Tower.",
+      "text": ""
+    },
+    "choices/war-stories-action/hillfolk/text": {
+      "source": "… to fend off Hillfolk pursuing a blood feud.",
+      "text": ""
+    },
+    "choices/war-stories-action/brennan-claws/text": {
+      "source": "… against Brennan and his Claws, before they settled in Marshedge.",
+      "text": ""
+    },
+    "choices/war-stories-action/hagr/text": {
+      "source": "… to face a brutish hagr, come down from the Foothills to wreak havoc.",
+      "text": ""
+    },
+    "choices/war-stories-action/beasts/text": {
+      "source": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
+      "text": ""
+    },
+    "choices/war-stories-questions/when/text": {
+      "source": "When exactly did it happen?",
+      "text": ""
+    },
+    "choices/war-stories-questions/who-died/text": {
+      "source": "Who lost their life, and who mourns them?",
+      "text": ""
+    },
+    "choices/war-stories-questions/who-maimed/text": {
+      "source": "Who from Stonetop was maimed, and how?",
+      "text": ""
+    },
+    "choices/war-stories-questions/saved-day/text": {
+      "source": "Who saved the day, and how?",
+      "text": ""
+    },
+    "choices/war-stories-questions/enemy-away/text": {
+      "source": "How did the enemy get away, and whom do you still blame for it?",
+      "text": ""
+    },
+    "choices/war-stories-questions/honor/text": {
+      "source": "Who comported themselves with honor?",
+      "text": ""
+    },
+    "choices/war-stories-questions/bugging/text": {
+      "source": "What's been bugging you about it ever since?",
+      "text": ""
+    },
+    "choices/war-stories-questions/worried/text": {
+      "source": "What's got you even more worried now?",
+      "text": ""
+    },
+    "instinct/0/options/authority/text": {
+      "source": "Authority",
+      "text": ""
+    },
+    "instinct/0/options/authority/description": {
+      "source": "To take charge and throw your weight around.",
+      "text": ""
+    },
+    "instinct/0/options/caution/text": {
+      "source": "Caution",
+      "text": ""
+    },
+    "instinct/0/options/caution/description": {
+      "source": "To keep everyone safe, to agonize over decisions.",
+      "text": ""
+    },
+    "instinct/0/options/drive/text": {
+      "source": "Drive",
+      "text": ""
+    },
+    "instinct/0/options/drive/description": {
+      "source": "To take on ever more responsibility.",
+      "text": ""
+    },
+    "instinct/0/options/honor/text": {
+      "source": "Honor",
+      "text": ""
+    },
+    "instinct/0/options/honor/description": {
+      "source": "To keep your word, to follow a moral code.",
+      "text": ""
+    },
+    "instinct/0/options/ruthlessness/text": {
+      "source": "Ruthlessness",
+      "text": ""
+    },
+    "instinct/0/options/ruthlessness/description": {
+      "source": "To do whatever it takes to win or survive.",
+      "text": ""
+    },
+    "appearance/0/options/upstart-youth/text": {
+      "source": "upstart youth",
+      "text": ""
+    },
+    "appearance/0/options/experienced-and-sober/text": {
+      "source": "experienced & sober",
+      "text": ""
+    },
+    "appearance/0/options/grizzled/text": {
+      "source": "grizzled",
+      "text": ""
+    },
+    "appearance/1/options/clear-voice/text": {
+      "source": "clear voice",
+      "text": ""
+    },
+    "appearance/1/options/resonant-voice/text": {
+      "source": "resonant voice",
+      "text": ""
+    },
+    "appearance/1/options/rumbling-voice/text": {
+      "source": "rumbling voice",
+      "text": ""
+    },
+    "appearance/2/options/stern-frown/text": {
+      "source": "stern frown",
+      "text": ""
+    },
+    "appearance/2/options/grim-set-jaw/text": {
+      "source": "grim-set jaw",
+      "text": ""
+    },
+    "appearance/2/options/knowing-smirk/text": {
+      "source": "knowing smirk",
+      "text": ""
+    },
+    "appearance/3/options/badge-of-office/text": {
+      "source": "badge of office",
+      "text": ""
+    },
+    "appearance/3/options/spit-and-polish/text": {
+      "source": "spit & polish",
+      "text": ""
+    },
+    "appearance/3/options/timeworn-gear/text": {
+      "source": "timeworn gear",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **tell us the town's war stories**, plus the answers to the questions you chose.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/lover-spouse/text": {
+      "source": "Who is your lover/spouse/betrothed?",
+      "text": ""
+    },
+    "introductions/step4/lieutenant/text": {
+      "source": "Who is your lieutenant?",
+      "text": ""
+    },
+    "introductions/step4/kin-dead-decisions/text": {
+      "source": "Whose kin is dead because of your decisions?",
+      "text": ""
+    },
+    "introductions/step6/part-of-crew/text": {
+      "source": "Which one of you is or was part of my crew?",
+      "text": ""
+    },
+    "introductions/step6/promised-safe/text": {
+      "source": "Which one of you have I promised to keep safe?",
+      "text": ""
+    },
+    "introductions/step6/still-doubts/text": {
+      "source": "Which one of you do I still have doubts about?",
+      "text": ""
+    },
+    "introductions/step6/ignored-orders/text": {
+      "source": "Which one of you ignored my orders and got someone killed?",
+      "text": ""
+    }
+  },
+  "the-ranger": {
+    "name": {
+      "source": "The Ranger",
+      "text": ""
+    },
+    "description": {
+      "source": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Home on the Range, any moves from your Background, plus 1 of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2, in addition to your composite bow",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "The Steplands (Hillfolk)",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "The Manmarch",
+      "text": ""
+    },
+    "origin/5/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/mighty-hunter/label": {
+      "source": "Mighty Hunter",
+      "text": ""
+    },
+    "backgrounds/mighty-hunter/description": {
+      "source": "You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.\n\nYou start with both the **Expert Tracker** move and the **Stalker** move. Go mark them now.",
+      "text": ""
+    },
+    "backgrounds/wide-wanderer/label": {
+      "source": "Wide Wanderer",
+      "text": ""
+    },
+    "backgrounds/wide-wanderer/description": {
+      "source": "You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:\n\n- **Ennis** (from Marshedge)\n- **Shahar** (from Gordin's Delve)\n- **Yannic** (from the Hillfolk)\n- **Tovia** (from Lygos)\n- **Sasca** (from the northern Manmarch)\n\nYou start with the **Mental Map** move. Mark it now.\n\nWhen you *Know Things about the wider world*, you can roll +WIS instead of +INT. When you *arrive somewhere you've visited before* (your call), tell the GM when you were last here, and the GM will tell you how it's changed.",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/label": {
+      "source": "Beast-Bonded",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/description": {
+      "source": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.\n\nWhen you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
+      "text": ""
+    },
+    "choices/wicked-threat/0/title": {
+      "source": "Something Wicked This Way Comes",
+      "text": ""
+    },
+    "choices/wicked-threat/0/text": {
+      "source": "You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? *(choose 1)*",
+      "text": ""
+    },
+    "choices/wicked-questions/0/title": {
+      "source": "Answer At Least 3 of the Following",
+      "text": ""
+    },
+    "choices/wicked-threat/great-wood/text": {
+      "source": "A dark, unwholesome presence lurking in the Great Wood.",
+      "text": ""
+    },
+    "choices/wicked-threat/ruined-tower/text": {
+      "source": "A strange, furtive figure seen near the Ruined Tower.",
+      "text": ""
+    },
+    "choices/wicked-threat/foothills/text": {
+      "source": "Something big & savage stalking the northern foothills.",
+      "text": ""
+    },
+    "choices/wicked-threat/suarachan/text": {
+      "source": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
+      "text": ""
+    },
+    "choices/wicked-threat/hillfolk/text": {
+      "source": "That of which the Hillfolk refuse to speak.",
+      "text": ""
+    },
+    "choices/wicked-questions/what-is-it/text": {
+      "source": "What, exactly, do you think it is?",
+      "text": ""
+    },
+    "choices/wicked-questions/what-saw/text": {
+      "source": "What did you see, and how close did you have to get to see it?",
+      "text": ""
+    },
+    "choices/wicked-questions/what-lost/text": {
+      "source": "Whom or what have you lost to it?",
+      "text": ""
+    },
+    "choices/wicked-questions/left-behind/text": {
+      "source": "What did it leave behind?",
+      "text": ""
+    },
+    "choices/wicked-questions/what-wants/text": {
+      "source": "What do you think it wants?",
+      "text": ""
+    },
+    "choices/wicked-questions/disbeliever/text": {
+      "source": "Who refuses to believe you?",
+      "text": ""
+    },
+    "choices/wicked-questions/who-knows-more/text": {
+      "source": "Who can tell you more, if you can only convince them?",
+      "text": ""
+    },
+    "instinct/0/options/adventure/text": {
+      "source": "Adventure",
+      "text": ""
+    },
+    "instinct/0/options/adventure/description": {
+      "source": "To test yourself, to experience new things.",
+      "text": ""
+    },
+    "instinct/0/options/independence/text": {
+      "source": "Independence",
+      "text": ""
+    },
+    "instinct/0/options/independence/description": {
+      "source": "To refuse help and push others away.",
+      "text": ""
+    },
+    "instinct/0/options/stewardship/text": {
+      "source": "Stewardship",
+      "text": ""
+    },
+    "instinct/0/options/stewardship/description": {
+      "source": "To value beasts and natural places over people.",
+      "text": ""
+    },
+    "instinct/0/options/tenacity/text": {
+      "source": "Tenacity",
+      "text": ""
+    },
+    "instinct/0/options/tenacity/description": {
+      "source": "To be stubborn, to persist.",
+      "text": ""
+    },
+    "instinct/0/options/wonder/text": {
+      "source": "Wonder",
+      "text": ""
+    },
+    "instinct/0/options/wonder/description": {
+      "source": "To marvel at beauty, magnificence, splendor.",
+      "text": ""
+    },
+    "appearance/0/options/fledgling/text": {
+      "source": "fledgling",
+      "text": ""
+    },
+    "appearance/0/options/prime-specimen/text": {
+      "source": "prime specimen",
+      "text": ""
+    },
+    "appearance/0/options/long-in-the-tooth/text": {
+      "source": "long in the tooth",
+      "text": ""
+    },
+    "appearance/1/options/barking-voice/text": {
+      "source": "barking voice",
+      "text": ""
+    },
+    "appearance/1/options/growling-voice/text": {
+      "source": "growling voice",
+      "text": ""
+    },
+    "appearance/1/options/sing-song-voice/text": {
+      "source": "sing-song voice",
+      "text": ""
+    },
+    "appearance/2/options/compact-and-sturdy/text": {
+      "source": "compact & sturdy",
+      "text": ""
+    },
+    "appearance/2/options/long-and-lean/text": {
+      "source": "long & lean",
+      "text": ""
+    },
+    "appearance/2/options/wolfish/text": {
+      "source": "wolfish",
+      "text": ""
+    },
+    "appearance/3/options/shaggy/text": {
+      "source": "shaggy",
+      "text": ""
+    },
+    "appearance/3/options/threadbare/text": {
+      "source": "threadbare",
+      "text": ""
+    },
+    "appearance/3/options/well-groomed/text": {
+      "source": "well-groomed",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **tell us what you're worried about** (see \"Something wicked this way comes\").",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/always-return-home/text": {
+      "source": "To whom do you always return home?",
+      "text": ""
+    },
+    "introductions/step4/lost-without-you/text": {
+      "source": "Who would be lost without you?",
+      "text": ""
+    },
+    "introductions/step4/learn-from-you/text": {
+      "source": "Who has much to learn from you?",
+      "text": ""
+    },
+    "introductions/step6/fears-wider-world/text": {
+      "source": "Which one of you fears the wider world?",
+      "text": ""
+    },
+    "introductions/step6/great-beauty/text": {
+      "source": "Which one of you has shown me great beauty?",
+      "text": ""
+    },
+    "introductions/step6/staring-horizon/text": {
+      "source": "Which one of you have I caught sometimes staring out at the horizon?",
+      "text": ""
+    },
+    "introductions/step6/lacked-stomach/text": {
+      "source": "Which one of you lacked the stomach to put something out of its misery?",
+      "text": ""
+    }
+  },
+  "the-seeker": {
+    "name": {
+      "source": "The Seeker",
+      "text": ""
+    },
+    "description": {
+      "source": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2, in addition to your scribe's tools",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "The Steplands (Hillfolk)",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/5/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/patriot/label": {
+      "source": "Patriot",
+      "text": ""
+    },
+    "backgrounds/patriot/description": {
+      "source": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.",
+      "text": ""
+    },
+    "backgrounds/antiquarian/label": {
+      "source": "Antiquarian",
+      "text": ""
+    },
+    "backgrounds/antiquarian/description": {
+      "source": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.",
+      "text": ""
+    },
+    "backgrounds/witch-hunter/label": {
+      "source": "Witch Hunter",
+      "text": ""
+    },
+    "backgrounds/witch-hunter/description": {
+      "source": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.",
+      "text": ""
+    },
+    "backgrounds/patriot/choices/hectumel-codex/text": {
+      "source": "The Hec'tumel Codex",
+      "text": ""
+    },
+    "backgrounds/patriot/choices/red-scepter/text": {
+      "source": "The Red Scepter",
+      "text": ""
+    },
+    "backgrounds/patriot/choices/staff-of-the-lidless-orb/text": {
+      "source": "The Staff of the Lidless Orb",
+      "text": ""
+    },
+    "backgrounds/antiquarian/choices/norubas-ice-sphere/text": {
+      "source": "Noruba's Ice Sphere",
+      "text": ""
+    },
+    "backgrounds/antiquarian/choices/azure-hand/text": {
+      "source": "The Azure Hand",
+      "text": ""
+    },
+    "backgrounds/antiquarian/choices/mindgem/text": {
+      "source": "The Mindgem",
+      "text": ""
+    },
+    "backgrounds/witch-hunter/choices/demonhide-cloak/text": {
+      "source": "The Demonhide Cloak",
+      "text": ""
+    },
+    "backgrounds/witch-hunter/choices/redwood-effigy/text": {
+      "source": "The Redwood Effigy",
+      "text": ""
+    },
+    "backgrounds/witch-hunter/choices/twisted-spear/text": {
+      "source": "The Twisted Spear",
+      "text": ""
+    },
+    "choices/collection/0/title": {
+      "source": "Collection",
+      "text": ""
+    },
+    "choices/collection/0/text": {
+      "source": "In your travels and investigations you have acquired arcana—artifacts of power and mystery.",
+      "text": ""
+    },
+    "choices/arcana-major/0/title": {
+      "source": "Major Arcanum",
+      "text": ""
+    },
+    "choices/arcana-major/0/text": {
+      "source": "Your Background grants you 1 major arcanum.\n\nAnswer at least 2 questions about it:",
+      "text": ""
+    },
+    "choices/arcana-minor/0/title": {
+      "source": "Minor Arcana",
+      "text": ""
+    },
+    "choices/arcana-minor/0/text": {
+      "source": "Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.",
+      "text": ""
+    },
+    "choices/arcana-major/where-acquired/text": {
+      "source": "Where did you acquire it?",
+      "text": ""
+    },
+    "choices/arcana-major/wrested-from/text": {
+      "source": "From whose grasp did you wrest it?",
+      "text": ""
+    },
+    "choices/arcana-major/who-else-wants/text": {
+      "source": "Who else wants it?",
+      "text": ""
+    },
+    "choices/arcana-major/what-cost/text": {
+      "source": "What did it cost you?",
+      "text": ""
+    },
+    "choices/arcana-major/when-unlocked/text": {
+      "source": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert. When and how did that happen?",
+      "text": ""
+    },
+    "choices/arcana-minor/mastered-location/text": {
+      "source": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?",
+      "text": ""
+    },
+    "choices/arcana-minor/found-location/text": {
+      "source": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?",
+      "text": ""
+    },
+    "choices/arcana-minor/sought-notes/text": {
+      "source": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?",
+      "text": ""
+    },
+    "instinct/0/options/cunning/text": {
+      "source": "Cunning",
+      "text": ""
+    },
+    "instinct/0/options/cunning/description": {
+      "source": "To scheme, manipulate, and plot.",
+      "text": ""
+    },
+    "instinct/0/options/curiosity/text": {
+      "source": "Curiosity",
+      "text": ""
+    },
+    "instinct/0/options/curiosity/description": {
+      "source": "To seek answers that maybe you oughtn't.",
+      "text": ""
+    },
+    "instinct/0/options/hubris/text": {
+      "source": "Hubris",
+      "text": ""
+    },
+    "instinct/0/options/hubris/description": {
+      "source": "To assume you know best, that you can't fail.",
+      "text": ""
+    },
+    "instinct/0/options/mystery/text": {
+      "source": "Mystery",
+      "text": ""
+    },
+    "instinct/0/options/mystery/description": {
+      "source": "To avoid straight answers; to keep secrets.",
+      "text": ""
+    },
+    "instinct/0/options/vision/text": {
+      "source": "Vision",
+      "text": ""
+    },
+    "instinct/0/options/vision/description": {
+      "source": "To think big and pursue grandiose goals.",
+      "text": ""
+    },
+    "appearance/0/options/curiously-young/text": {
+      "source": "curiously young",
+      "text": ""
+    },
+    "appearance/0/options/world-weary/text": {
+      "source": "world-weary",
+      "text": ""
+    },
+    "appearance/0/options/bent-with-years/text": {
+      "source": "bent with years",
+      "text": ""
+    },
+    "appearance/1/options/haunted-voice/text": {
+      "source": "haunted voice",
+      "text": ""
+    },
+    "appearance/1/options/rich-voice/text": {
+      "source": "rich voice",
+      "text": ""
+    },
+    "appearance/1/options/whispery/text": {
+      "source": "whispery",
+      "text": ""
+    },
+    "appearance/2/options/ink-stained-fingers/text": {
+      "source": "ink-stained fingers",
+      "text": ""
+    },
+    "appearance/2/options/sinewy-hands/text": {
+      "source": "sinewy hands",
+      "text": ""
+    },
+    "appearance/2/options/soft-hands/text": {
+      "source": "soft hands",
+      "text": ""
+    },
+    "appearance/3/options/bony-limbed/text": {
+      "source": "bony limbed",
+      "text": ""
+    },
+    "appearance/3/options/lean-and-lanky/text": {
+      "source": "lean & lanky",
+      "text": ""
+    },
+    "appearance/3/options/short/text": {
+      "source": "short",
+      "text": ""
+    },
+    "appearance/3/options/thick-set/text": {
+      "source": "thick-set",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **describe your major arcana**. Tell us your answers to the questions you chose. then, **tell us about your minor arcana**, too.",
+      "text": ""
+    },
+    "introductions/step4/closest-kin/text": {
+      "source": "Who is your closest kin?",
+      "text": ""
+    },
+    "introductions/step4/spouse-lover-betrothed/text": {
+      "source": "Who is your spouse/lover/betrothed?",
+      "text": ""
+    },
+    "introductions/step4/trust-more/text": {
+      "source": "Whom do you trust, even more than yourself?",
+      "text": ""
+    },
+    "introductions/step4/secretly-watch/text": {
+      "source": "Whom do you secretly watch over, and why?",
+      "text": ""
+    },
+    "introductions/step6/key-discovery/text": {
+      "source": "Which one of you led me to a key discovery?",
+      "text": ""
+    },
+    "introductions/step6/been-at-my-side/text": {
+      "source": "Which one of you has been at my side the entire way?",
+      "text": ""
+    },
+    "introductions/step6/fears-path/text": {
+      "source": "Which one of you most fears the path I tread?",
+      "text": ""
+    },
+    "introductions/step6/keeping-secrets/text": {
+      "source": "Which one of you is keeping secrets from me?",
+      "text": ""
+    }
+  },
+  "the-would-be-hero": {
+    "name": {
+      "source": "The Would-Be Hero",
+      "text": ""
+    },
+    "description": {
+      "source": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
+      "text": ""
+    },
+    "statsNote": {
+      "source": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
+      "text": ""
+    },
+    "startingMovesNote": {
+      "source": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
+      "text": ""
+    },
+    "specialPossessions/pickNote": {
+      "source": "Pick 2",
+      "text": ""
+    },
+    "origin/0/region": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "origin/1/region": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "origin/2/region": {
+      "source": "The Steplands (Hillfolk)",
+      "text": ""
+    },
+    "origin/3/region": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "origin/4/region": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "origin/5/region": {
+      "source": "Lygos or some other point south",
+      "text": ""
+    },
+    "backgrounds/impetuous-youth/label": {
+      "source": "Impetuous Youth",
+      "text": ""
+    },
+    "backgrounds/impetuous-youth/description": {
+      "source": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!\n\nWhen you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.",
+      "text": ""
+    },
+    "backgrounds/driven/label": {
+      "source": "Driven",
+      "text": ""
+    },
+    "backgrounds/destined/label": {
+      "source": "Destined",
+      "text": ""
+    },
+    "backgrounds/destined/resource/title": {
+      "source": "Omens",
+      "text": ""
+    },
+    "backgrounds/driven/choices/0/text": {
+      "source": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:",
+      "text": ""
+    },
+    "backgrounds/driven/choices/loved-one/text": {
+      "source": "A loved one was killed or abducted",
+      "text": ""
+    },
+    "backgrounds/driven/choices/gave-life/text": {
+      "source": "Someone gave their life to save you",
+      "text": ""
+    },
+    "backgrounds/driven/choices/idol/text": {
+      "source": "Your idol sacrificed themselves to save many",
+      "text": ""
+    },
+    "backgrounds/driven/choices/dark-mystery/text": {
+      "source": "You stumbled upon a dark mystery",
+      "text": ""
+    },
+    "backgrounds/driven/choices/mistake/text": {
+      "source": "You must make amends for a terrible mistake",
+      "text": ""
+    },
+    "backgrounds/driven/choices/6/text": {
+      "source": "You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.",
+      "text": ""
+    },
+    "backgrounds/destined/choices/0/text": {
+      "source": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:",
+      "text": ""
+    },
+    "backgrounds/destined/choices/1/options/anointed/text": {
+      "source": "anointed",
+      "text": ""
+    },
+    "backgrounds/destined/choices/1/options/marked/text": {
+      "source": "marked at birth",
+      "text": ""
+    },
+    "backgrounds/destined/choices/1/options/coming/text": {
+      "source": "your coming foretold",
+      "text": ""
+    },
+    "backgrounds/destined/choices/2/options/destroy/text": {
+      "source": "destroy",
+      "text": ""
+    },
+    "backgrounds/destined/choices/2/options/discover/text": {
+      "source": "discover",
+      "text": ""
+    },
+    "backgrounds/destined/choices/2/options/free/text": {
+      "source": "free",
+      "text": ""
+    },
+    "backgrounds/destined/choices/2/options/protect/text": {
+      "source": "protect",
+      "text": ""
+    },
+    "backgrounds/destined/choices/2/options/restore/text": {
+      "source": "restore",
+      "text": ""
+    },
+    "backgrounds/destined/choices/3/options/unify/text": {
+      "source": "unify",
+      "text": ""
+    },
+    "backgrounds/destined/choices/3/options/blood/text": {
+      "source": "blood",
+      "text": ""
+    },
+    "backgrounds/destined/choices/3/options/civilization/text": {
+      "source": "civilization",
+      "text": ""
+    },
+    "backgrounds/destined/choices/3/options/darkness/text": {
+      "source": "darkness",
+      "text": ""
+    },
+    "backgrounds/destined/choices/4/options/earth/text": {
+      "source": "earth & stone",
+      "text": ""
+    },
+    "backgrounds/destined/choices/4/options/fire/text": {
+      "source": "fire",
+      "text": ""
+    },
+    "backgrounds/destined/choices/4/options/ice/text": {
+      "source": "ice",
+      "text": ""
+    },
+    "backgrounds/destined/choices/4/options/light/text": {
+      "source": "light",
+      "text": ""
+    },
+    "backgrounds/destined/choices/4/options/life/text": {
+      "source": "life",
+      "text": ""
+    },
+    "backgrounds/destined/choices/4/options/storms/text": {
+      "source": "storms",
+      "text": ""
+    },
+    "backgrounds/destined/choices/5/options/war/text": {
+      "source": "war",
+      "text": ""
+    },
+    "backgrounds/destined/choices/5/options/water/text": {
+      "source": "water",
+      "text": ""
+    },
+    "backgrounds/destined/choices/5/options/fae/text": {
+      "source": "the Fae",
+      "text": ""
+    },
+    "backgrounds/destined/choices/5/options/gods/text": {
+      "source": " the gods",
+      "text": ""
+    },
+    "backgrounds/destined/choices/5/options/makers/text": {
+      "source": " the Makers",
+      "text": ""
+    },
+    "backgrounds/destined/choices/6/options/stone/text": {
+      "source": "the Stone",
+      "text": ""
+    },
+    "backgrounds/destined/choices/6/options/things/text": {
+      "source": "the Things Below",
+      "text": ""
+    },
+    "choices/fear-and-anger/0/title": {
+      "source": "Fear & anger",
+      "text": ""
+    },
+    "choices/fear-and-anger/0/text": {
+      "source": "What Do You Fear Most? *(choose 1, maybe 2)*",
+      "text": ""
+    },
+    "choices/fear-and-anger/fire/text": {
+      "source": "Fire, burning, the smell of charred flesh",
+      "text": ""
+    },
+    "choices/fear-and-anger/not-serious/text": {
+      "source": "That they won't take you seriously",
+      "text": ""
+    },
+    "choices/fear-and-anger/not-cut-out/text": {
+      "source": "That you really aren't cut out for this",
+      "text": ""
+    },
+    "choices/fear-and-anger/death-loved-ones/text": {
+      "source": "The death of your family or loved ones",
+      "text": ""
+    },
+    "choices/fear-and-anger/alone/text": {
+      "source": "Being alone and helpless",
+      "text": ""
+    },
+    "choices/fear-and-anger/violence/text": {
+      "source": "Violence, bloodshed, and pain",
+      "text": ""
+    },
+    "choices/fear-and-anger/monsters/text": {
+      "source": "Monsters",
+      "text": ""
+    },
+    "choices/fear-and-anger/capable-of/text": {
+      "source": "What you're capable of",
+      "text": ""
+    },
+    "choices/fear-and-anger/must-do/text": {
+      "source": "What you must do",
+      "text": ""
+    },
+    "choices/fear-and-anger/10/text": {
+      "source": "What Makes You Burn with Righteous Anger? *(choose 2, maybe 3)*",
+      "text": ""
+    },
+    "choices/fear-and-anger/bullying/text": {
+      "source": "Bullying, slavery, and oppression",
+      "text": ""
+    },
+    "choices/fear-and-anger/cruelty/text": {
+      "source": "Wanton cruelty and unnecessary suffering",
+      "text": ""
+    },
+    "choices/fear-and-anger/injustice/text": {
+      "source": "Injustice and inequality",
+      "text": ""
+    },
+    "choices/fear-and-anger/cowardice/text": {
+      "source": "Cowardice, treachery, and selfishness",
+      "text": ""
+    },
+    "choices/fear-and-anger/despoiling/text": {
+      "source": "The despoiling of beauty and innocence",
+      "text": ""
+    },
+    "choices/fear-and-anger/threats-loved-ones/text": {
+      "source": "Threats to your loved ones",
+      "text": ""
+    },
+    "choices/fear-and-anger/innocents/text": {
+      "source": "Violence to children, animals, the innocent",
+      "text": ""
+    },
+    "choices/fear-and-anger/perversions/text": {
+      "source": "Perversions of nature",
+      "text": ""
+    },
+    "choices/fear-and-anger/when-trouble/text": {
+      "source": "When did your fear or anger last cause you trouble?",
+      "text": ""
+    },
+    "choices/fear-and-anger/what-did/text": {
+      "source": "What did you do?",
+      "text": ""
+    },
+    "choices/fear-and-anger/how-turned/text": {
+      "source": "How did it turn out?",
+      "text": ""
+    },
+    "instinct/0/options/defiance/text": {
+      "source": "Defiance",
+      "text": ""
+    },
+    "instinct/0/options/defiance/description": {
+      "source": "To refuse to back down, give up, give in.",
+      "text": ""
+    },
+    "instinct/0/options/doubt/text": {
+      "source": "Doubt",
+      "text": ""
+    },
+    "instinct/0/options/doubt/description": {
+      "source": "To question yourself, your actions, your worth.",
+      "text": ""
+    },
+    "instinct/0/options/earnestness/text": {
+      "source": "Earnestness",
+      "text": ""
+    },
+    "instinct/0/options/earnestness/description": {
+      "source": "To prove yourself, to yourself and others.",
+      "text": ""
+    },
+    "instinct/0/options/optimism/text": {
+      "source": "Optimism",
+      "text": ""
+    },
+    "instinct/0/options/optimism/description": {
+      "source": "To assume the best, and that things are simple.",
+      "text": ""
+    },
+    "instinct/0/options/sacrifice/text": {
+      "source": "Sacrifice",
+      "text": ""
+    },
+    "instinct/0/options/sacrifice/description": {
+      "source": "To put the needs/wants of others above your own.",
+      "text": ""
+    },
+    "appearance/0/options/still-a-child/text": {
+      "source": "still a child",
+      "text": ""
+    },
+    "appearance/0/options/young-and-beautiful/text": {
+      "source": "young & beautiful",
+      "text": ""
+    },
+    "appearance/0/options/all-grown-up/text": {
+      "source": "all grown up",
+      "text": ""
+    },
+    "appearance/1/options/quiet-voice/text": {
+      "source": "quiet voice",
+      "text": ""
+    },
+    "appearance/1/options/earnest-voice/text": {
+      "source": "earnest voice",
+      "text": ""
+    },
+    "appearance/1/options/soft-voice/text": {
+      "source": "soft voice",
+      "text": ""
+    },
+    "appearance/2/options/big/text": {
+      "source": "big",
+      "text": ""
+    },
+    "appearance/2/options/scrawny/text": {
+      "source": "scrawny",
+      "text": ""
+    },
+    "appearance/2/options/sinewy/text": {
+      "source": "sinewy",
+      "text": ""
+    },
+    "appearance/2/options/slender/text": {
+      "source": "slender",
+      "text": ""
+    },
+    "appearance/2/options/thick/text": {
+      "source": "thick",
+      "text": ""
+    },
+    "appearance/3/options/back-unbowed/text": {
+      "source": "back unbowed",
+      "text": ""
+    },
+    "appearance/3/options/jaw-firmly-set/text": {
+      "source": "jaw firmly set",
+      "text": ""
+    },
+    "appearance/3/options/soulful-eyes/text": {
+      "source": "soulful eyes",
+      "text": ""
+    },
+    "introductions/step3": {
+      "source": "On your third turn, **tell us of your fear & anger**, and of the last time they caused you trouble.",
+      "text": ""
+    },
+    "introductions/step4/heart-to-win/text": {
+      "source": "Whose heart do you hope to win?",
+      "text": ""
+    },
+    "introductions/step4/counting-on-you/text": {
+      "source": "Who is counting on you?",
+      "text": ""
+    },
+    "introductions/step4/understands-path/text": {
+      "source": "Who quietly understands the path you are on?",
+      "text": ""
+    },
+    "introductions/step4/prove-wrong/text": {
+      "source": "Who do you intend to prove wrong?",
+      "text": ""
+    },
+    "introductions/step6/closest-truest-friend/text": {
+      "source": "Which one of you is my closest, truest friend?",
+      "text": ""
+    },
+    "introductions/step6/believes-in-me/text": {
+      "source": "Which one of you believes in me, despite it all?",
+      "text": ""
+    },
+    "introductions/step6/promised-teach/text": {
+      "source": "Which one of you has promised to teach me?",
+      "text": ""
+    },
+    "introductions/step6/have-i-hurt/text": {
+      "source": "Which one of you have I hurt, through what I have done or what I've failed to do?",
+      "text": ""
+    }
+  }
+}

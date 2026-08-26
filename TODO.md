@@ -16,7 +16,6 @@
 * Rework the stonetop sheet UI
 
 * lore section on playbook has questions split from their input boxes on certain screen widths
-* bug: the seeker backgrounds should have selectable arcanum. selecting that should add that major arcana to the sheet
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
 * bug: Noruba's ice sphere doesnt detect the <> correctly on "manipulate an unattended item (small or <>, no bigger)"
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero

@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { FoundryPackStore } from "../../../../src/actors/character/repositories/FoundryPackStore.js";
+import { TranslationCatalog } from "../../../../src/i18n/TranslationCatalog.js";
 
 // -- Helpers ------------------------------------------------------------------
 
@@ -117,5 +118,48 @@ describe("FoundryPackStore", () => {
 			await store.getAll();
 			expect(pack.getIndex).toHaveBeenCalledTimes(1);
 		});
+	});
+});
+
+describe("FoundryPackStore and the active language", () => {
+	const PLAYBOOK_ENTRY = { _id: "id003", type: "playbook", name: "The Seeker", system: { slug: "the-seeker" } };
+	const german = () => TranslationCatalog.fromTranslations({ playbook: { "the-seeker": { name: "Der Sucher" } } });
+
+	afterEach(() => { TranslationCatalog.current = new TranslationCatalog(); });
+
+	function storeWith(entries) {
+		stubGame(makePack(entries, {}));
+		return new FoundryPackStore("stonetop.playbooks", ["system.slug"]);
+	}
+
+	// A compendium index is not a document, so it never sees prepareBaseData. Without translating it
+	// here, every picker built from the index stays English while the sheets it opens are translated.
+	it("translates names on entries handed out by getAll, findEntry and filterEntries", async () => {
+		TranslationCatalog.current = german();
+		const store = storeWith([PLAYBOOK_ENTRY]);
+
+		expect((await store.getAll())[0].name).toBe("Der Sucher");
+		expect((await store.findEntry(e => e.system?.slug === "the-seeker")).name).toBe("Der Sucher");
+		expect((await store.filterEntries(() => true))[0].name).toBe("Der Sucher");
+	});
+
+	it("leaves core's own index entry untouched", async () => {
+		TranslationCatalog.current = german();
+		const entry = { ...PLAYBOOK_ENTRY };
+		const store = storeWith([entry]);
+
+		await store.getAll();
+		expect(entry.name).toBe("The Seeker");
+	});
+
+	it("keeps the fields a caller looks entries up by", async () => {
+		TranslationCatalog.current = german();
+		const [entry] = await storeWith([PLAYBOOK_ENTRY]).getAll();
+		expect(entry._id).toBe("id003");
+		expect(entry.system.slug).toBe("the-seeker");
+	});
+
+	it("hands out English when no translation is loaded", async () => {
+		expect((await storeWith([PLAYBOOK_ENTRY]).getAll())[0].name).toBe("The Seeker");
 	});
 });

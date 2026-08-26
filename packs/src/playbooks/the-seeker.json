@@ -1,536 +1,731 @@
 {
-  "_id": "66InktII1QKAPInQ",
-  "_key": "!items!66InktII1QKAPInQ",
-  "img": "systems/stonetop/assets/content/playbooks/the-seeker.png",
-  "name": "The Seeker",
-  "type": "playbook",
-  "flags": {},
-  "system": {
-    "slug": "the-seeker",
-    "description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
-    "startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
-    "damage": {
-      "value": "d6"
-    },
-    "hp": 16,
-    "statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-    "origin": [
-      {
-        "region": "Stonetop",
-        "names": [
-          "Ania",
-          "Dylan",
-          "Eilwen",
-          "Gelt",
-          "Gwenda",
-          "Macsen",
-          "Mirgan",
-          "Owena",
-          "Taliesyn",
-          "Twymor"
-        ]
-      },
-      {
-        "region": "Barrier Pass",
-        "names": [
-          "Bayanaganengri",
-          "Chakha",
-          "Jetei",
-          "Moog",
-          "Narengawa",
-          "Ogul",
-          "Ozbeg",
-          "Solongo"
-        ]
-      },
-      {
-        "region": "The Steplands (Hillfolk)",
-        "names": [
-          "Anook",
-          "Anxo",
-          "Dors",
-          "Jory",
-          "Mari",
-          "Padg",
-          "Pons",
-          "Silf"
-        ]
-      },
-      {
-        "region": "Gordin's Delve",
-        "names": []
-      },
-      {
-        "region": "Marshedge",
-        "names": [
-          "Aiden",
-          "Barrfind",
-          "Caolan",
-          "Ciara",
-          "Deirbhile",
-          "Moirin",
-          "Tiern",
-          "Reamann"
-        ]
-      },
-      {
-        "region": "Lygos or some other point south",
-        "names": [
-          "Dana",
-          "Eliana",
-          "Erez",
-          "Fikri",
-          "Isra",
-          "Persefoni",
-          "Spiro",
-          "Vahid"
-        ]
-      }
-    ],
-    "backgrounds": [
-      {
-        "slug": "patriot",
-        "label": "Patriot",
-        "moves": [
-          "lets-make-a-deal"
-        ],
-        "description": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum."
-      },
-      {
-        "slug": "antiquarian",
-        "label": "Antiquarian",
-        "moves": [
-          "polyglot"
-        ],
-        "description": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum."
-      },
-      {
-        "slug": "witch-hunter",
-        "label": "Witch Hunter",
-        "moves": [
-          "everything-bleeds"
-        ],
-        "description": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum."
-      }
-    ],
-    "specialPossessions": {
-      "pickNote": "Pick 2, in addition to your scribe's tools",
-      "pickCount": 2,
-      "preselected": [
-        "scribes-tools"
-      ],
-      "slugs": [
-        "scribes-tools",
-        "books-and-scrolls",
-        "distillery",
-        "engineers-tools",
-        "laboratory",
-        "paraphernalia",
-        "trade-contacts"
-      ]
-    },
-    "choices": [
-      {
-        "slug": "collection",
-        "list": [
-          {
-            "type": "entry",
-            "content": {
-              "title": "Collection",
-              "text": "In your travels and investigations you have acquired arcana—artifacts of power and mystery."
-            }
-          }
-        ]
-      },
-      {
-        "slug": "arcana-major",
-        "list": [
-          {
-            "type": "entry",
-            "content": {
-              "title": "Major Arcanum",
-              "text": "Your Background grants you 1 major arcanum.\n\nAnswer at least 2 questions about it:"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "where-acquired",
-            "content": {
-              "title": null,
-              "text": "Where did you acquire it?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "wrested-from",
-            "content": {
-              "title": null,
-              "text": "From whose grasp did you wrest it?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "who-else-wants",
-            "content": {
-              "title": null,
-              "text": "Who else wants it?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "what-cost",
-            "content": {
-              "title": null,
-              "text": "What did it cost you?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "when-unlocked",
-            "content": {
-              "title": null,
-              "text": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert. When and how did that happen?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          }
-        ]
-      },
-      {
-        "slug": "arcana-minor",
-        "list": [
-          {
-            "type": "entry",
-            "content": {
-              "title": "Minor Arcana",
-              "text": "Ask the GM for the minor arcana cards. Draw 3 at random and review both sides."
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "mastered-location",
-            "content": {
-              "title": null,
-              "text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "found-location",
-            "content": {
-              "title": null,
-              "text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "type": "entry",
-            "slug": "sought-notes",
-            "content": {
-              "title": null,
-              "text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
-            },
-            "input": {
-              "type": "inline"
-            }
-          }
-        ]
-      }
-    ],
-    "introductions": {
-      "step3": "On your third turn, **describe your major arcana**. Tell us your answers to the questions you chose. then, **tell us about your minor arcana**, too.",
-      "step4": {
-        "slug": "intro-npc",
-        "list": [
-          {
-            "slug": "closest-kin",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Who is your closest kin?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "slug": "spouse-lover-betrothed",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Who is your spouse/lover/betrothed?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "slug": "trust-more",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Whom do you trust, even more than yourself?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "slug": "secretly-watch",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Whom do you secretly watch over, and why?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          }
-        ]
-      },
-      "step6": {
-        "slug": "intro-pc",
-        "list": [
-          {
-            "slug": "key-discovery",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Which one of you led me to a key discovery?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "slug": "been-at-my-side",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Which one of you has been at my side the entire way?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "slug": "fears-path",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Which one of you most fears the path I tread?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          },
-          {
-            "slug": "keeping-secrets",
-            "type": "entry",
-            "content": {
-              "title": null,
-              "text": "Which one of you is keeping secrets from me?"
-            },
-            "track": {
-              "max": 1
-            },
-            "input": {
-              "type": "inline"
-            }
-          }
-        ]
-      }
-    },
-    "appearance": {
-      "slug": "appearance",
-      "list": [
-        {
-          "type": "pick",
-          "pickCount": 1,
-          "inline": true,
-          "options": [
-            {
-              "slug": "curiously-young",
-              "text": "curiously young"
-            },
-            {
-              "slug": "world-weary",
-              "text": "world-weary"
-            },
-            {
-              "slug": "bent-with-years",
-              "text": "bent with years"
-            }
-          ]
-        },
-        {
-          "type": "pick",
-          "pickCount": 1,
-          "inline": true,
-          "options": [
-            {
-              "slug": "haunted-voice",
-              "text": "haunted voice"
-            },
-            {
-              "slug": "rich-voice",
-              "text": "rich voice"
-            },
-            {
-              "slug": "whispery",
-              "text": "whispery"
-            }
-          ]
-        },
-        {
-          "type": "pick",
-          "pickCount": 1,
-          "inline": true,
-          "options": [
-            {
-              "slug": "ink-stained-fingers",
-              "text": "ink-stained fingers"
-            },
-            {
-              "slug": "sinewy-hands",
-              "text": "sinewy hands"
-            },
-            {
-              "slug": "soft-hands",
-              "text": "soft hands"
-            }
-          ]
-        },
-        {
-          "type": "pick",
-          "pickCount": 1,
-          "inline": true,
-          "options": [
-            {
-              "slug": "bony-limbed",
-              "text": "bony limbed"
-            },
-            {
-              "slug": "lean-and-lanky",
-              "text": "lean & lanky"
-            },
-            {
-              "slug": "short",
-              "text": "short"
-            },
-            {
-              "slug": "thick-set",
-              "text": "thick-set"
-            }
-          ]
-        }
-      ]
-    },
-    "instinct": {
-      "slug": "instinct",
-      "list": [
-        {
-          "type": "pick",
-          "pickCount": 1,
-          "options": [
-            {
-              "slug": "cunning",
-              "description": "To scheme, manipulate, and plot.",
-              "text": "Cunning"
-            },
-            {
-              "slug": "curiosity",
-              "description": "To seek answers that maybe you oughtn't.",
-              "text": "Curiosity"
-            },
-            {
-              "slug": "hubris",
-              "description": "To assume you know best, that you can't fail.",
-              "text": "Hubris"
-            },
-            {
-              "slug": "mystery",
-              "description": "To avoid straight answers; to keep secrets.",
-              "text": "Mystery"
-            },
-            {
-              "slug": "vision",
-              "description": "To think big and pursue grandiose goals.",
-              "text": "Vision"
-            }
-          ]
-        }
-      ]
-    },
-    "moves": [
-      "arcane-adept",
-      "attuned",
-      "conduit-of-power",
-      "countermeasures",
-      "cryptologist",
-      "deep-insight",
-      "everything-bleeds",
-      "everything-burns",
-      "improved-stat",
-      "improvise",
-      "initiate-of-the-secret-arts",
-      "lets-make-a-deal",
-      "logbook",
-      "magpie",
-      "mind-over-magic",
-      "never-at-a-loss",
-      "overchannel",
-      "polyglot",
-      "proof-against-detection",
-      "quick-study",
-      "safety-first",
-      "sage-advice",
-      "superior-stat",
-      "well-versed",
-      "work-with-what-youve-got"
-    ],
-    "startingMoves": [
-      "well-versed",
-      "work-with-what-youve-got"
-    ]
-  }
+	"_id": "66InktII1QKAPInQ",
+	"_key": "!items!66InktII1QKAPInQ",
+	"img": "systems/stonetop/assets/content/playbooks/the-seeker.png",
+	"name": "The Seeker",
+	"type": "playbook",
+	"flags": {},
+	"system": {
+		"slug": "the-seeker",
+		"description": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
+		"startingMovesNote": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
+		"damage": {
+			"value": "d6"
+		},
+		"hp": 16,
+		"statsNote": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
+		"origin": [
+			{
+				"region": "Stonetop",
+				"names": [
+					"Ania",
+					"Dylan",
+					"Eilwen",
+					"Gelt",
+					"Gwenda",
+					"Macsen",
+					"Mirgan",
+					"Owena",
+					"Taliesyn",
+					"Twymor"
+				]
+			},
+			{
+				"region": "Barrier Pass",
+				"names": [
+					"Bayanaganengri",
+					"Chakha",
+					"Jetei",
+					"Moog",
+					"Narengawa",
+					"Ogul",
+					"Ozbeg",
+					"Solongo"
+				]
+			},
+			{
+				"region": "The Steplands (Hillfolk)",
+				"names": [
+					"Anook",
+					"Anxo",
+					"Dors",
+					"Jory",
+					"Mari",
+					"Padg",
+					"Pons",
+					"Silf"
+				]
+			},
+			{
+				"region": "Gordin's Delve",
+				"names": []
+			},
+			{
+				"region": "Marshedge",
+				"names": [
+					"Aiden",
+					"Barrfind",
+					"Caolan",
+					"Ciara",
+					"Deirbhile",
+					"Moirin",
+					"Tiern",
+					"Reamann"
+				]
+			},
+			{
+				"region": "Lygos or some other point south",
+				"names": [
+					"Dana",
+					"Eliana",
+					"Erez",
+					"Fikri",
+					"Isra",
+					"Persefoni",
+					"Spiro",
+					"Vahid"
+				]
+			}
+		],
+		"backgrounds": [
+			{
+				"slug": "patriot",
+				"label": "Patriot",
+				"moves": [
+					"lets-make-a-deal"
+				],
+				"description": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.",
+				"choices": {
+					"slug": "patriot",
+					"list": [
+						{
+							"slug": "hectumel-codex",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Hec'tumel Codex"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "hectumel-codex",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						},
+						{
+							"slug": "red-scepter",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Red Scepter"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "red-scepter",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						},
+						{
+							"slug": "staff-of-the-lidless-orb",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Staff of the Lidless Orb"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "staff-of-the-lidless-orb",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"slug": "antiquarian",
+				"label": "Antiquarian",
+				"moves": [
+					"polyglot"
+				],
+				"description": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.",
+				"choices": {
+					"slug": "antiquarian",
+					"list": [
+						{
+							"slug": "norubas-ice-sphere",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Noruba's Ice Sphere"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "norubas-ice-sphere",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						},
+						{
+							"slug": "azure-hand",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Azure Hand"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "azure-hand",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						},
+						{
+							"slug": "mindgem",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Mindgem"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "mindgem",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"slug": "witch-hunter",
+				"label": "Witch Hunter",
+				"moves": [
+					"everything-bleeds"
+				],
+				"description": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.",
+				"choices": {
+					"slug": "witch-hunter",
+					"list": [
+						{
+							"slug": "demonhide-cloak",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Demonhide Cloak"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "demonhide-cloak",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						},
+						{
+							"slug": "redwood-effigy",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Redwood Effigy"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "redwood-effigy",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						},
+						{
+							"slug": "twisted-spear",
+							"track": {
+								"max": 1
+							},
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Twisted Spear"
+							},
+							"grants": [
+								{
+									"type": "arcanum",
+									"slug": "twisted-spear",
+									"locations": [
+										"tab"
+									]
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"specialPossessions": {
+			"pickNote": "Pick 2, in addition to your scribe's tools",
+			"pickCount": 2,
+			"preselected": [
+				"scribes-tools"
+			],
+			"slugs": [
+				"scribes-tools",
+				"books-and-scrolls",
+				"distillery",
+				"engineers-tools",
+				"laboratory",
+				"paraphernalia",
+				"trade-contacts"
+			]
+		},
+		"choices": [
+			{
+				"slug": "collection",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Collection",
+							"text": "In your travels and investigations you have acquired arcana—artifacts of power and mystery."
+						}
+					}
+				]
+			},
+			{
+				"slug": "arcana-major",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Major Arcanum",
+							"text": "Your Background grants you 1 major arcanum.\n\nAnswer at least 2 questions about it:"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "where-acquired",
+						"content": {
+							"title": null,
+							"text": "Where did you acquire it?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "wrested-from",
+						"content": {
+							"title": null,
+							"text": "From whose grasp did you wrest it?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "who-else-wants",
+						"content": {
+							"title": null,
+							"text": "Who else wants it?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "what-cost",
+						"content": {
+							"title": null,
+							"text": "What did it cost you?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "when-unlocked",
+						"content": {
+							"title": null,
+							"text": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert. When and how did that happen?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					}
+				]
+			},
+			{
+				"slug": "arcana-minor",
+				"list": [
+					{
+						"type": "entry",
+						"content": {
+							"title": "Minor Arcana",
+							"text": "Ask the GM for the minor arcana cards. Draw 3 at random and review both sides."
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "mastered-location",
+						"content": {
+							"title": null,
+							"text": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "found-location",
+						"content": {
+							"title": null,
+							"text": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"type": "entry",
+						"slug": "sought-notes",
+						"content": {
+							"title": null,
+							"text": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?"
+						},
+						"input": {
+							"type": "inline"
+						}
+					}
+				]
+			}
+		],
+		"introductions": {
+			"step3": "On your third turn, **describe your major arcana**. Tell us your answers to the questions you chose. then, **tell us about your minor arcana**, too.",
+			"step4": {
+				"slug": "intro-npc",
+				"list": [
+					{
+						"slug": "closest-kin",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Who is your closest kin?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"slug": "spouse-lover-betrothed",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Who is your spouse/lover/betrothed?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"slug": "trust-more",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Whom do you trust, even more than yourself?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"slug": "secretly-watch",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Whom do you secretly watch over, and why?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					}
+				]
+			},
+			"step6": {
+				"slug": "intro-pc",
+				"list": [
+					{
+						"slug": "key-discovery",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Which one of you led me to a key discovery?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"slug": "been-at-my-side",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Which one of you has been at my side the entire way?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"slug": "fears-path",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Which one of you most fears the path I tread?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					},
+					{
+						"slug": "keeping-secrets",
+						"type": "entry",
+						"content": {
+							"title": null,
+							"text": "Which one of you is keeping secrets from me?"
+						},
+						"track": {
+							"max": 1
+						},
+						"input": {
+							"type": "inline"
+						}
+					}
+				]
+			}
+		},
+		"appearance": {
+			"slug": "appearance",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"inline": true,
+					"options": [
+						{
+							"slug": "curiously-young",
+							"text": "curiously young"
+						},
+						{
+							"slug": "world-weary",
+							"text": "world-weary"
+						},
+						{
+							"slug": "bent-with-years",
+							"text": "bent with years"
+						}
+					]
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"inline": true,
+					"options": [
+						{
+							"slug": "haunted-voice",
+							"text": "haunted voice"
+						},
+						{
+							"slug": "rich-voice",
+							"text": "rich voice"
+						},
+						{
+							"slug": "whispery",
+							"text": "whispery"
+						}
+					]
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"inline": true,
+					"options": [
+						{
+							"slug": "ink-stained-fingers",
+							"text": "ink-stained fingers"
+						},
+						{
+							"slug": "sinewy-hands",
+							"text": "sinewy hands"
+						},
+						{
+							"slug": "soft-hands",
+							"text": "soft hands"
+						}
+					]
+				},
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"inline": true,
+					"options": [
+						{
+							"slug": "bony-limbed",
+							"text": "bony limbed"
+						},
+						{
+							"slug": "lean-and-lanky",
+							"text": "lean & lanky"
+						},
+						{
+							"slug": "short",
+							"text": "short"
+						},
+						{
+							"slug": "thick-set",
+							"text": "thick-set"
+						}
+					]
+				}
+			]
+		},
+		"instinct": {
+			"slug": "instinct",
+			"list": [
+				{
+					"type": "pick",
+					"pickCount": 1,
+					"options": [
+						{
+							"slug": "cunning",
+							"description": "To scheme, manipulate, and plot.",
+							"text": "Cunning"
+						},
+						{
+							"slug": "curiosity",
+							"description": "To seek answers that maybe you oughtn't.",
+							"text": "Curiosity"
+						},
+						{
+							"slug": "hubris",
+							"description": "To assume you know best, that you can't fail.",
+							"text": "Hubris"
+						},
+						{
+							"slug": "mystery",
+							"description": "To avoid straight answers; to keep secrets.",
+							"text": "Mystery"
+						},
+						{
+							"slug": "vision",
+							"description": "To think big and pursue grandiose goals.",
+							"text": "Vision"
+						}
+					]
+				}
+			]
+		},
+		"moves": [
+			"arcane-adept",
+			"attuned",
+			"conduit-of-power",
+			"countermeasures",
+			"cryptologist",
+			"deep-insight",
+			"everything-bleeds",
+			"everything-burns",
+			"improved-stat",
+			"improvise",
+			"initiate-of-the-secret-arts",
+			"lets-make-a-deal",
+			"logbook",
+			"magpie",
+			"mind-over-magic",
+			"never-at-a-loss",
+			"overchannel",
+			"polyglot",
+			"proof-against-detection",
+			"quick-study",
+			"safety-first",
+			"sage-advice",
+			"superior-stat",
+			"well-versed",
+			"work-with-what-youve-got"
+		],
+		"startingMoves": [
+			"well-versed",
+			"work-with-what-youve-got"
+		]
+	}
 }

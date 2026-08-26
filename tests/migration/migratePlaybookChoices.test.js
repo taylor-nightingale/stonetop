@@ -57,3 +57,18 @@ describe("migratePlaybookChoices", () => {
 		expect(actor.updatedDocs).toHaveLength(0);
 	});
 });
+
+describe("migratePlaybookChoices and the world's language", () => {
+	const GERMAN_GROUP_A = { slug: "group-a", list: [{ slug: "opt-a", type: "entry", content: { title: null, text: "Möglichkeit A" } }] };
+
+	it("copies the untranslated source onto the actor, not the translated prepared data", async () => {
+		const repo = new FakePlaybookRepository();
+		repo.add({ slug: "the-blessed", name: "Der Gesegnete", choices: [GERMAN_GROUP_A] });
+		repo.addSource({ slug: "the-blessed", name: "The Blessed", choices: [GROUP_A] });
+
+		const actor = makeActor([]);
+		await migratePlaybookChoices(actor, repo);
+
+		expect(actor.updatedDocs[0].system.choices).toEqual([GROUP_A]);
+	});
+});

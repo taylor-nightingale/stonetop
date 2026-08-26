@@ -75,3 +75,24 @@ describe("migratePlaybookIntroductions", () => {
 		expect(actor.updatedDocs[0].system.introductions).toEqual(INTRO);
 	});
 });
+
+describe("migratePlaybookIntroductions and the world's language", () => {
+	const GERMAN_INTRO = {
+		step3: "Beschreibe in deinem dritten Zug deinen heiligen Beutel.",
+		step4: { slug: "intro-npc", list: [{ slug: "closest-kin", type: "entry", content: { title: null, text: "Wer sind deine nächsten Verwandten?" }, track: { max: 1 }, input: {} }] },
+		step6: { slug: "intro-pc",  list: [{ slug: "hijinx",      type: "entry", content: { title: null, text: "Wer von euch hat bei meinen Streichen mitgemacht?" }, track: { max: 1 }, input: {} }] },
+	};
+
+	// The prepared playbook carries the world's language; only its source is the English the pack was
+	// built from. Copying the prepared form would bake German into the character for good.
+	it("copies the untranslated source onto the actor, not the translated prepared data", async () => {
+		const repo = new FakePlaybookRepository();
+		repo.add({ slug: "the-blessed", name: "Der Gesegnete", introductions: GERMAN_INTRO });
+		repo.addSource({ slug: "the-blessed", name: "The Blessed", introductions: INTRO });
+
+		const actor = makeActor(null);
+		await migratePlaybookIntroductions(actor, repo);
+
+		expect(actor.updatedDocs[0].system.introductions).toEqual(INTRO);
+	});
+});

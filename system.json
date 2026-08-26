@@ -3,7 +3,7 @@
 	"id": "stonetop",
 	"title": "Stonetop",
 	"description": "An unofficial system for playing Stonetop in Foundry VTT.",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"compatibility": {
 		"minimum": "13",
 		"verified": "14"
@@ -52,6 +52,11 @@
 			"lang": "en",
 			"name": "English",
 			"path": "languages/en.json"
+		},
+		{
+			"lang": "de",
+			"name": "Deutsch",
+			"path": "languages/de.json"
 		}
 	],
 	"documentTypes": {

@@ -24,6 +24,18 @@ export class FakePlaybookRepository {
 		return this._itemData?.[slug] ?? null;
 	}
 
+	// Untranslated pack data, as FoundryPlaybookRepository.findSourceBySlug returns it. Defaults to
+	// the prepared playbook so a test only has to register one unless it cares about the difference.
+	addSource(playbook) {
+		this._sources ??= {};
+		this._sources[playbook.slug] = playbook;
+		return this;
+	}
+
+	async findSourceBySlug(slug) {
+		return this._sources?.[slug] ?? await this.findBySlug(slug);
+	}
+
 	async findBySlug(slug) {
 		return this._playbooks[slug]
 		    ?? await this._worldStore.findEntry(e => e.system?.slug === slug)

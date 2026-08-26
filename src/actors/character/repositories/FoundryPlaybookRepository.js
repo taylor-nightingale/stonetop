@@ -1,5 +1,6 @@
 import { FoundryPackStore } from "./FoundryPackStore.js";
 import { PlaybookSummary } from "./PlaybookSummary.js";
+import { StonetopPlaybook } from "../../../item/StonetopPlaybook.js";
 
 export class FoundryPlaybookRepository {
 	constructor() {
@@ -38,6 +39,14 @@ export class FoundryPlaybookRepository {
 			i => i.type === "playbook" && i.system?.slug === slug
 		);
 		return worldDoc ? worldDoc.toObject() : null;
+	}
+
+	// The playbook as the pack ships it, untranslated. `findBySlug` reads a prepared document, whose
+	// prose is in the world's language — copy that onto an actor and the character is stuck with
+	// whatever language the copy happened in. Anything writing compendium data to an actor uses this.
+	async findSourceBySlug(slug) {
+		const data = await this.findItemDataBySlug(slug);
+		return data ? new StonetopPlaybook(data) : null;
 	}
 
 	async getAllPlaybooks() {

@@ -633,7 +633,7 @@ export async function migratePlaybookIntroductions(actor, playbookRepo) {
 	const slug = pbItem.system?.slug;
 	if (!slug) return;
 
-	const compendium = await playbookRepo.findBySlug(slug);
+	const compendium = await playbookRepo.findSourceBySlug(slug);
 	const newIntro = compendium?.introductions ?? null;
 	if (!newIntro) return;
 
@@ -649,7 +649,7 @@ export async function migratePlaybookChoices(actor, playbookRepo) {
 	const slug = pbItem.system?.slug;
 	if (!slug) return;
 
-	const compendium = await playbookRepo.findBySlug(slug);
+	const compendium = await playbookRepo.findSourceBySlug(slug);
 	const compendiumChoices = compendium?.choices ?? [];
 	if (!compendiumChoices.length) return;
 

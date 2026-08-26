@@ -40,6 +40,35 @@ describe("FoundryPlaybookRepository", () => {
 		});
 	});
 
+	describe("findSourceBySlug", () => {
+		// The pack document is English; its prepared form is whatever the world's language made of it.
+		// Anything copied onto an actor has to come from the former.
+		function withTranslatedPreparedData(item) {
+			return {
+				...item,
+				name: "Der Gesegnete",
+				system: { ...item.system, description: "Danu, die Große Mutter, sorgt für uns." },
+				toObject: () => ({ name: item.name, type: item.type, system: item.system }),
+			};
+		}
+
+		it("returns the untranslated pack source, not the prepared document", async () => {
+			const english = new TestPlaybookItemBuilder().withDescription("Danu, the Great Mother, provides.").build();
+			new FakeGameBuilder()
+				.withPack(FakePackBuilder.playbooksPack().withItem(withTranslatedPreparedData(english)))
+				.build();
+
+			const playbook = await new FoundryPlaybookRepository().findSourceBySlug("the-blessed");
+			expect(playbook.name).toBe(english.name);
+			expect(playbook.description).toBe("Danu, the Great Mother, provides.");
+		});
+
+		it("returns null when the slug is nowhere", async () => {
+			new FakeGameBuilder().build();
+			expect(await new FoundryPlaybookRepository().findSourceBySlug("nope")).toBeNull();
+		});
+	});
+
 	describe("getAllPlaybooks", () => {
 		it("returns [] when no pack and no world items", async () => {
 			new FakeGameBuilder().build();

@@ -98,10 +98,14 @@ export class CharacterArcana {
 		await this.syncSideEffectsFor(item);
 	}
 
+	// Grants first, card last. Deleting the card is what fires Foundry's delete-descendant hook, and that
+	// hook revokes this very source — un-awaited, so it races anything that comes after. Revoking here
+	// first leaves the hook nothing to find; the other order had both paths compute the same granted
+	// items and both issue the delete, and the loser threw `Item "…" does not exist!`.
 	async removeArcanum(slug) {
-		await OwnedArcanum.bySlug(this._actor, slug)?.delete();
 		await this._outfitSync?.clear("arcana:" + slug);
 		await this._grantedItems.revoke(GrantSource.arcanum(slug));
+		await OwnedArcanum.bySlug(this._actor, slug)?.delete();
 	}
 
 	async flipArcanum(slug) {

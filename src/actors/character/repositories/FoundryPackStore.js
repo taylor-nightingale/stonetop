@@ -1,4 +1,5 @@
 import { PackFolders } from "./PackFolders.js";
+import { TranslationCatalog } from "../../../i18n/TranslationCatalog.js";
 
 export class FoundryPackStore {
 	constructor(packName, fields) {
@@ -17,22 +18,30 @@ export class FoundryPackStore {
 		return pack;
 	}
 
+	// Every index entry leaves here through the active language. A compendium index is not a document,
+	// so it never sees prepareBaseData — without this, pickers built from the index (the playbook list,
+	// among others) would stay English while the sheets they open are translated.
+	_localized(entry) {
+		return TranslationCatalog.current.localizedIndexEntry(entry);
+	}
+
 	async findEntry(predicate) {
 		const pack = await this._ensureIndexed();
 		if (!pack) return null;
-		return pack.index.find(predicate) ?? null;
+		const entry = pack.index.find(predicate) ?? null;
+		return entry ? this._localized(entry) : null;
 	}
 
 	async filterEntries(predicate) {
 		const pack = await this._ensureIndexed();
 		if (!pack) return [];
-		return [...pack.index].filter(predicate);
+		return [...pack.index].filter(predicate).map(entry => this._localized(entry));
 	}
 
 	async getAll() {
 		const pack = await this._ensureIndexed();
 		if (!pack) return [];
-		return [...pack.index];
+		return [...pack.index].map(entry => this._localized(entry));
 	}
 
 	async getDocument(id) {

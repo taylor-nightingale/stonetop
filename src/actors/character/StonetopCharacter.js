@@ -18,6 +18,7 @@ import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
 import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
 import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
 import {InstinctSideEffectHandler} from "./InstinctSideEffectHandler.js";
+import {ArcanumSideEffectHandler} from "./ArcanumSideEffectHandler.js";
 import {ChoiceStores} from "./ChoiceStores.js";
 import {applyPick} from "./ChoiceGroupController.js";
 import {GrantedItems} from "../GrantedItems.js";
@@ -56,6 +57,7 @@ export class StonetopCharacter {
 		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
 		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, this._followers, factory, this._moves, outfitSync, grantedItems);
+		factory.subscribe(new ArcanumSideEffectHandler(this._arcana));
 		this._inserts     = new CharacterInserts(actor, factory, this._moves, repos.inserts, grantedItems);
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
