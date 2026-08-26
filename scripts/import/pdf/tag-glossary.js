@@ -26,7 +26,7 @@ const joinWrapped = (definition, text) =>
  * tagged with until a heading in `sections` switches it; any OTHER heading ends the region, which is
  * how "Ammo" stops the gear-terms sidebar without needing to know what follows it.
  */
-export function parseGlossary(lines, { start, category, sections = {} }) {
+export function parseGlossary(lines, { start, category, sections = {}, includeModifiers = false } = {}) {
 	const entries = [];
 	let current = null;
 	let started = false;
@@ -53,7 +53,9 @@ export function parseGlossary(lines, { start, category, sections = {} }) {
 		if (entry && (isTag(font) || isModifier(font))) {
 			// A modifier is tracked exactly like a tag so its own wrapped lines are attributed to it
 			// and cannot leak into the tag above — it is simply never emitted.
-			current = { term: entry[1].trim(), definition: entry[2].trim(), category: cat, x: line.bbox[0], keep: isTag(font) };
+			const kind = isTag(font) ? "tag" : "modifier";
+			current = { term: entry[1].trim(), definition: entry[2].trim(), category: cat, x: line.bbox[0],
+			            kind, keep: kind === "tag" || includeModifiers };
 			if (current.keep) entries.push(current);
 			continue;
 		}
@@ -66,20 +68,29 @@ export function parseGlossary(lines, { start, category, sections = {} }) {
 		current = null;
 	}
 
-	return entries.map(({ term, definition, category: c }) => ({
+	return entries.map(({ term, definition, category: c, kind }) => ({
 		slug: toSlug(term),
 		label: term,
 		definition,
 		category: c,
+		kind,
 	}));
 }
 
-/** The "Gear terms & tags" sidebar — general tags, then the "Range Tags" sub-list. */
-export function parseGearTerms(lines) {
+/**
+ * The "Gear terms & tags" sidebar — general tags, then the "Range Tags" sub-list.
+ *
+ * `includeModifiers` keeps the mechanical terms the book lists alongside the tags ([n] armor, +[n]
+ * damage, hours, uses…). The tag glossary in the language file wants tags ALONE — a modifier is not
+ * a tag and must never be offered as one — but the reference page reproduces the sidebar as printed,
+ * which is both.
+ */
+export function parseGearTerms(lines, { includeModifiers = false } = {}) {
 	return parseGlossary(lines, {
 		start: (l) => /^gear terms & tags$/i.test(l.text.trim()),
 		category: "general",
 		sections: { "range tags": "range" },
+		includeModifiers,
 	});
 }
 

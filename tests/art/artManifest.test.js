@@ -13,7 +13,7 @@ describe("ManifestEntry JSON round-trip", () => {
 	});
 });
 
-describe("ArtManifest.pathForKey", () => {
+describe("ArtManifest.pathsForKey", () => {
 	const manifest = ArtManifest.fromJson({
 		entries: [
 			{ path: "wonders/abc.png", key: "abc" },
@@ -21,14 +21,26 @@ describe("ArtManifest.pathForKey", () => {
 		],
 	});
 	it("resolves a known key to its store path", () => {
-		expect(manifest.pathForKey("m1")).toBe("arcana/mindgem.png");
+		expect(manifest.pathsForKey("m1")).toEqual(["arcana/mindgem.png"]);
 	});
 	it("returns null for an unknown key", () => {
-		expect(manifest.pathForKey("nope")).toBeNull();
+		expect(manifest.pathsForKey("nope")).toEqual([]);
 	});
 	it("reports size and paths", () => {
 		expect(manifest.size).toBe(2);
 		expect(manifest.paths()).toEqual(["wonders/abc.png", "arcana/mindgem.png"]);
+	});
+});
+
+// The same illustration is legitimately wanted at two paths — the outfit tab's figure is also a
+// figure on the reference page — and both have to be written, or one is reported missing forever.
+describe("ArtManifest.pathsForKey with a shared key", () => {
+	it("returns every path a key names", () => {
+		const manifest = new ArtManifest([
+			new ManifestEntry("book-one/abc.png", "k1"),
+			new ManifestEntry("book-one/outfitting.png", "k1"),
+		]);
+		expect(manifest.pathsForKey("k1")).toEqual(["book-one/abc.png", "book-one/outfitting.png"]);
 	});
 });
 

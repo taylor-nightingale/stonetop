@@ -52,7 +52,7 @@ describe("buildManifest", () => {
 		const manifest = await buildManifest(root, collectArtRefs(root));
 		expect(manifest.size).toBe(2);
 
-		expect(manifest.pathForKey(stencilKey)).toBe(`wonders/${stencilKey}.png`);
+		expect(manifest.pathsForKey(stencilKey)).toEqual([`wonders/${stencilKey}.png`]);
 		const stencilEntry = manifest.entries.find((e) => e.path.startsWith("wonders/"));
 		expect(stencilEntry.match).toBeNull();
 

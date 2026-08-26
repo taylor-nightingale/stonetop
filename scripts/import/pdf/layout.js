@@ -76,9 +76,14 @@ const firstValueRow = (rows, from) => {
 const leadSpaces = (l) => (l.text.match(/^ */)[0].length);
 // Note: "…" is NOT a bullet — a "…"-led line is a pick-list option that renders on its own line
 // (see joinLines), kept under its prompt rather than turned into a separate <li>.
-const isItemStart = (l) =>
-	(l.spans.length > 0 && (isDingbat(l.spans[0].font) || /^swirl/.test(l.spans[0].font)))
-	|| /^[•◦‣▪○◇●◆□◻]/.test(l.text.trim()) || /^ä\s/.test(l.text.trim()) || leadSpaces(l) === 2;
+// `markBullets: false` drops the "opens with a mark" test. Book II leads each entry of a gear list
+// with its load ◇, so there a mark IS the bullet. Book I writes those marks INTO its sentences —
+// "◆◆ firewood. You're down to 4 ◆ total", "○ plenty left, ○ low ammo, ○ all out" — and reading each
+// as a list item turns its prose into bullets the page does not have.
+const isItemStart = (l, { markBullets = true } = {}) =>
+	(l.spans.length > 0 && ((markBullets && isDingbat(l.spans[0].font)) || /^swirl/.test(l.spans[0].font)))
+	|| (markBullets && /^[•◦‣▪○◇●◆□◻]/.test(l.text.trim()))
+	|| /^ä\s/.test(l.text.trim()) || leadSpaces(l) === 2;
 // A short, fully-AVARA line standing alone is a run-in sub-heading, e.g. "Various treasures" or the
 // Impressions seasons ("Spring"). The display (Avara) face is the signal: a bold BODY line
 // (ACaslonPro-Bold) is a lead-in label or a bolded sentence, not a heading — e.g. Barrow's "Everyone
@@ -246,7 +251,7 @@ function insertRuleRows(rows, rules, images) {
 }
 
 // ─── segmentation ────────────────────────────────────────────────────────────
-function segmentColumn(rows, base) {
+function segmentColumn(rows, base, opts = {}) {
 	const blocks = [];
 	const isHead = (l) => headingLevel(l) && !isTableHeader(l);
 	for (let i = 0; i < rows.length; ) {
@@ -400,14 +405,14 @@ function segmentColumn(rows, base) {
 		}
 		// LIST — item starts plus their continuation lines (either hanging-indented, as in the
 		// Questions lists, or just vertically tight under the item, as in dingbat-bulleted lists).
-		if (row.cells.length === 1 && isItemStart(c0)) {
+		if (row.cells.length === 1 && isItemStart(c0, opts)) {
 			const items = [];
 			let prevY = row.y0;
 			while (i < rows.length && rows[i].cells.length === 1) {
 				const l = rows[i].cells[0];
 				const gap = rows[i].y0 - prevY;
 				if (l.rule || l.image || l.boxStart || l.boxEnd || isHead(l) || isBoldRunIn(l) || isFellRunIn(l)) break;
-				if (isItemStart(l)) items.push([l]);
+				if (isItemStart(l, opts)) items.push([l]);
 				// A continuation hangs under its item — it may be indented past the base or just tight
 				// under it, but it is never far LEFT of the item's own start. A flush body line below an
 				// *indented* bullet (e.g. an arcanum's "◇ tags" line sitting above flush description
@@ -424,7 +429,7 @@ function segmentColumn(rows, base) {
 			const lines = [c0]; let prevY = row.y0; i++;
 			while (i < rows.length && rows[i].cells.length === 1) {
 				const l = rows[i].cells[0];
-				if (l.rule || l.image || l.boxStart || l.boxEnd || isHead(l) || isItemStart(l) || isBoldRunIn(l) || isFellRunIn(l)) break;
+				if (l.rule || l.image || l.boxStart || l.boxEnd || isHead(l) || isItemStart(l, opts) || isBoldRunIn(l) || isFellRunIn(l)) break;
 				if (rows[i].y0 - prevY > l.size * 1.7) break;
 				lines.push(l); prevY = rows[i].y0; i++;
 			}
@@ -462,9 +467,9 @@ function segmentColumn(rows, base) {
  * the generic column clusterer can't see). `base` seeds settlement-block indentation; it defaults to
  * the region's left edge.
  */
-export function linesToBlocks(lines, { rules = [], images = [], base } = {}) {
+export function linesToBlocks(lines, { rules = [], images = [], base, markBullets = true } = {}) {
 	const b = base ?? (lines.length ? Math.min(...lines.map((l) => l.bbox[0])) : 0);
-	return segmentColumn(insertRuleRows(groupRows(lines), rules, images), b);
+	return segmentColumn(insertRuleRows(groupRows(lines), rules, images), b, { markBullets });
 }
 
 /**
@@ -496,7 +501,7 @@ function mergeSplitTables(cols) {
  * (from mutool trace). Blocks are the typed objects from `segmentColumn`; assets are referenced by
  * the position object (carrying `.file`) and resolved at render time.
  */
-export function extractArticle(pages, { title, pageRules = [], pageImages = [] } = {}) {
+export function extractArticle(pages, { title, pageRules = [], pageImages = [], markBullets = true } = {}) {
 	const pageNumbers = [];
 	let bookTitle = "";
 	const byY = (a, b) => a.y - b.y;
@@ -515,7 +520,7 @@ export function extractArticle(pages, { title, pageRules = [], pageImages = [] }
 
 		const cols = columns.map((col) => ({
 			base: col.base,
-			blocks: segmentColumn(insertRuleRows(groupRows(col.lines), col.rules, col.images), col.base),
+			blocks: segmentColumn(insertRuleRows(groupRows(col.lines), col.rules, col.images), col.base, { markBullets }),
 		}));
 		mergeSplitTables(cols);
 

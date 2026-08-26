@@ -82,8 +82,10 @@ export class BookArtExtractor {
 					imagesSeen++;
 					const raster = await this._toRaster(page, img);
 					if (!raster) continue;
-					const path = await this._identify(raster);
-					if (path && !found.has(path)) found.set(path, new FoundArt(path, raster.toPng()));
+					const paths = await this._identify(raster);
+					if (!paths.length) continue;
+					const png = raster.toPng();
+					for (const path of paths) if (!found.has(path)) found.set(path, new FoundArt(path, png));
 				}
 				page.cleanup();
 				onProgress?.({ page: pageNumber, pages: doc.numPages, found: found.size });
@@ -114,18 +116,23 @@ export class BookArtExtractor {
 		return null;
 	}
 
-	/** Match a raster against the manifest: exact key, gray-collapsed key, then perceptual. */
+	/**
+	 * Match a raster against the manifest: exact key, gray-collapsed key, then perceptual.
+	 * @returns {Promise<string[]>} every store path this image satisfies — one image can be wanted
+	 *   at more than one path, and writing only the first leaves the rest reported as missing.
+	 */
 	async _identify(raster) {
-		const exact = this._manifest.pathForKey(await raster.key());
-		if (exact) return exact;
+		const exact = this._manifest.pathsForKey(await raster.key());
+		if (exact.length) return exact;
 		// pdf.js expands 8-bit grayscale to RGB; the pipeline keys it as one channel.
 		const gray = raster.toGray();
 		if (gray) {
-			const grayMatch = this._manifest.pathForKey(await gray.key());
-			if (grayMatch) return grayMatch;
+			const grayMatch = this._manifest.pathsForKey(await gray.key());
+			if (grayMatch.length) return grayMatch;
 		}
-		if (raster.isStencil()) return null; // stencils are exact or nothing
-		return this._manifest.identifyLossy(raster);
+		if (raster.isStencil()) return []; // stencils are exact or nothing
+		const lossy = this._manifest.identifyLossy(raster);
+		return lossy ? [lossy] : [];
 	}
 
 	/**

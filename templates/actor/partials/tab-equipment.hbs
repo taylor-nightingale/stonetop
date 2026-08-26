@@ -5,6 +5,12 @@
 	{{!-- Outfit header, with the steading's Prosperity gear table alongside it --}}
 	<div class="stonetop-outfit-headers">
 		<div class="stonetop-outfit-header">
+			{{!-- The book's own figure for these rules: the pack-laden adventurer printed beside them
+			      on p. 86. It floats inside this panel, so the load lines set around it. Decorative —
+			      alt="" and aria-hidden — and CSS drops it once the panel is too narrow to spare the
+			      width. Its file comes from the gitignored art store, so a world that has not
+			      installed the artwork simply shows nothing (see HideBrokenImages.js). --}}
+			<img class="stonetop-outfit-art" src="stonetop-art/book-one/outfitting.png" alt="" aria-hidden="true">
 			<p class="stonetop-outfit-heading">{{{localize "stonetop.inventory.outfit.headingBefore"}}}<button type="button"
 					class="stonetop-move-link" data-action="openMoveBySlug" data-move-slug="outfit"
 					title="{{localize 'stonetop.character.moves.open'}}"><em><strong>{{localize "stonetop.inventory.outfit.moveName"}}</strong></em></button>{{{localize "stonetop.inventory.outfit.headingAfter"}}}</p>

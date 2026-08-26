@@ -61,6 +61,16 @@ img.stonetop-broken-img {
 	display: none;
 }
 
+/* …and take the figure with it. Hiding the <img> alone leaves the wrapper and its margins behind —
+   a gap in the prose where a picture would have been, which reads as something missing rather than
+   as nothing at all. Only a figure whose image is the broken one: a caption on its own still counts
+   as content worth keeping. */
+figure:has(> img.stonetop-broken-img:only-child),
+figure.icon:has(> img.stonetop-broken-img),
+figure.art:has(> img.stonetop-broken-img) {
+	display: none;
+}
+
 
 .stonetop.sheet .sheet-tabs,
 .stonetop.sheet .sheet-tabs .item,
@@ -2372,6 +2382,9 @@ button.stonetop-view-toggle.is-active {
 /* Outfit instructions and the steading's Prosperity table sit side by side, each in its own frame.
    They stretch to a shared height so the two frames line up. */
 .stonetop-outfit-headers {
+	/* A container so the figure can drop out on a narrow SHEET rather than a narrow viewport — a
+	   journal or actor window is resized independently of the browser. */
+	container-type: inline-size;
 	display: flex;
 	align-items: stretch;
 	gap: 8px;
@@ -6570,6 +6583,14 @@ button.stonetop-xp-toggle {
 .stonetop-wonder a.stonetop-draw-table:hover { background: var(--st-paper-sunken-strong); }
 .stonetop-wonder a.stonetop-draw-table i.fa-dice-d6 { margin-right: 0.25em; }
 
+/* The "Gear terms & tags" glossary, set as the book sets it: the term on its own line, its
+   definition indented beneath. A definition list, so the pairing is in the markup and not just the
+   spacing — a screen reader reads term-then-definition rather than one long run of prose. */
+.stonetop-wonder .gear-terms { margin: 0.3em 0 0.9em; }
+.stonetop-wonder .gear-terms dt { font-weight: bold; margin-top: 0.35em; }
+.stonetop-wonder .gear-terms dt:first-child { margin-top: 0; }
+.stonetop-wonder .gear-terms dd { margin: 0 0 0 1.25em; }
+
 /* Tables: Foundry's default journal table is dark-grey-on-dark, unreadable on our parchment.
    Render them as light ruled tables with dark ink to match the sheet. */
 .stonetop-wonder table { border-collapse: collapse; width: 100%; background: transparent; color: var(--st-ink); margin: 0.2em 0 0.9em; }
@@ -6599,50 +6620,52 @@ button.stonetop-xp-toggle {
    The page scripts/import/build-items.js renders from Book I's value tables. Same parchment
    treatment as .stonetop-wonder above, but the content is a reference grid rather than an article:
    the Value ladder is a set of cards, and each category is a ruled table whose name cell carries a
-   draggable @UUID chip. Scoped to .stonetop-item-reference so it can't reach other journals. */
-.stonetop-item-reference { color: var(--st-ink); }
-.stonetop-item-reference .item-ref-pageref { color: var(--st-ink-faint); font-style: italic; font-size: 0.85em; margin: 0 0 0.6em; }
-.stonetop-item-reference .item-ref-lead { margin: 0 0 0.8em; }
-.stonetop-item-reference .item-ref-note,
-.stonetop-item-reference .item-ref-footnote { font-size: 0.9em; color: var(--st-ink-soft); margin: 0.4em 0; }
-.stonetop-item-reference h2 { border-bottom: 1px solid var(--st-ink); margin: 1.2em 0 0.5em; }
-.stonetop-item-reference h3 { margin: 0.9em 0 0.3em; font-family: "StonetopUI", serif; }
+   draggable @UUID chip.
+   Scoped to .stonetop-wonder — the wrapper the built page actually carries. These rules were written
+   against an earlier wrapper (.stonetop-item-reference) that the page no longer has, so none of them
+   applied: the tables fell back to the generic journal table styling, which has no fixed layout and
+   no width for the Load/Value columns, and they overran their column. The `item-ref-` prefix is
+   unique to these tables, so the journal scope is all the containment they need. */
+.stonetop-wonder .item-ref-pageref { color: var(--st-ink-faint); font-style: italic; font-size: 0.85em; margin: 0 0 0.6em; }
+.stonetop-wonder .item-ref-lead { margin: 0 0 0.8em; }
+.stonetop-wonder .item-ref-note,
+.stonetop-wonder .item-ref-footnote { font-size: 0.9em; color: var(--st-ink-soft); margin: 0.4em 0; }
 
 /* The Value ladder: one card per rung, laid out as many-across as the sheet is wide. */
-.stonetop-item-reference .item-ref-tiers {
+.stonetop-wonder .item-ref-tiers {
 	display: grid; grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
 	gap: 0.6em; margin: 0.5em 0 0.8em;
 }
-.stonetop-item-reference .item-ref-tier {
+.stonetop-wonder .item-ref-tier {
 	border: 1px solid var(--st-rule); background: var(--st-paper-sunken);
 	padding: 0.3em 0.8em 0.5em; border-radius: 3px;
 }
-.stonetop-item-reference .item-ref-tier h3 { margin: 0.3em 0 0.2em; }
-.stonetop-item-reference .item-ref-tier ul { margin: 0; padding-left: 1.1em; }
-.stonetop-item-reference .item-ref-tier li { font-size: 0.92em; }
+.stonetop-wonder .item-ref-tier h3 { margin: 0.3em 0 0.2em; }
+.stonetop-wonder .item-ref-tier ul { margin: 0; padding-left: 1.1em; }
+.stonetop-wonder .item-ref-tier li { font-size: 0.92em; }
 
-.stonetop-item-reference .item-ref-coins ul { padding-left: 1.1em; }
+.stonetop-wonder .item-ref-coins ul { padding-left: 1.1em; }
 
 /* Category tables, matching the journal table treatment (Foundry's default is unreadable here). */
-.stonetop-item-reference .item-ref-table {
+.stonetop-wonder .item-ref-table {
 	border-collapse: collapse; width: 100%; background: transparent;
 	color: var(--st-ink); margin: 0.2em 0 0.9em;
 	/* Fixed layout so the name column WRAPS in a narrow column instead of forcing the table wider
 	   than the column that holds it. The Load/Value widths below are what it lays out against. */
 	table-layout: fixed;
 }
-.stonetop-item-reference .item-ref-table td { overflow-wrap: anywhere; }
-.stonetop-item-reference .item-ref-table th,
-.stonetop-item-reference .item-ref-table td {
+.stonetop-wonder .item-ref-table td { overflow-wrap: anywhere; }
+.stonetop-wonder .item-ref-table th,
+.stonetop-wonder .item-ref-table td {
 	border: 1px solid var(--st-rule-veil); padding: 0.2em 0.5em; text-align: left; vertical-align: top;
 }
-.stonetop-item-reference .item-ref-table thead th { background: var(--st-paper-sunken-strong); font-family: "StonetopUI", serif; }
-.stonetop-item-reference .item-ref-table tbody tr:nth-child(even) { background: var(--st-paper-sunken); }
+.stonetop-wonder .item-ref-table thead th { background: var(--st-paper-sunken-strong); font-family: "StonetopUI", serif; }
+.stonetop-wonder .item-ref-table tbody tr:nth-child(even) { background: var(--st-paper-sunken); }
 /* Load and Value are single glyphs/digits — keep them off the name column's width. */
-.stonetop-item-reference .item-ref-table th.item-ref-load,
-.stonetop-item-reference .item-ref-table td.item-ref-load,
-.stonetop-item-reference .item-ref-table th.item-ref-value,
-.stonetop-item-reference .item-ref-table td.item-ref-value { width: 3.5em; text-align: center; white-space: nowrap; }
+.stonetop-wonder .item-ref-table th.item-ref-load,
+.stonetop-wonder .item-ref-table td.item-ref-load,
+.stonetop-wonder .item-ref-table th.item-ref-value,
+.stonetop-wonder .item-ref-table td.item-ref-value { width: 3.5em; text-align: center; white-space: nowrap; }
 
 /* Book I's Value ladder: "A Value 2 item is generally worth:" heads the list under it rather than
    being an item in it, and the ammo statuses are one standalone line. Both are set as paragraphs by
@@ -6651,9 +6674,9 @@ button.stonetop-xp-toggle {
 .stonetop-wonder .value-tier + ul { margin-top: 0; }
 .stonetop-wonder .ammo-statuses { margin: 0.4em 0 0.8em; }
 
-.stonetop-item-reference .item-ref-detail { color: var(--st-ink-soft); font-size: 0.92em; }
+.stonetop-wonder .item-ref-detail { color: var(--st-ink-soft); font-size: 0.92em; }
 /* A livestock row's stat block sits under its name rather than inline — it is a whole creature. */
-.stonetop-item-reference .item-ref-stats { display: block; font-size: 0.88em; color: var(--st-ink-soft); margin-top: 0.15em; }
+.stonetop-wonder .item-ref-stats { display: block; font-size: 0.88em; color: var(--st-ink-soft); margin-top: 0.15em; }
 
 /* ── bugs.md batch 1 (CSS) ─────────────────────────────────────────────────────────────────────
    #7 — no border/drop-shadow on journal images (Foundry adds one). */
@@ -7048,4 +7071,46 @@ button.stonetop-xp-toggle {
 .stonetop-tag-list .stonetop-tag.is-defined:hover,
 .stonetop-tag-list .stonetop-tag.is-defined:focus-visible {
 	text-decoration-color: currentColor;
+}
+
+/* ── Outfit figure ─────────────────────────────────────────────────────────────
+   OUTSIDE `@layer system`, deliberately. Core's own rules are unlayered, so they outrank anything
+   in our layer however specific it is — a layered `position: absolute` on this image loses to core
+   and computes `relative`, which silently parks the figure in the flow instead of against the
+   panel's edge. Unlayered, it wins. */
+/* The outfitting figure, inside the Outfit panel with the rules it illustrates: parked against the
+   panel's right edge and centred on its height, so it reads as part of the panel rather than as
+   something wedged into a corner.
+   Absolute, not floated — a float hangs from the top and would collide with the reset control that
+   sits there. The panel reserves its width with padding-right instead, so the rules never run under
+   it. Decoration, so it is the first thing to go when the panel has no width to spare. */
+.stonetop-outfit-art {
+	position: absolute;
+	/* Clear of the reset control's column (top: 4px; right: 6px). Centred on the panel's height, the
+	   figure is taller than the panel itself, so it reaches the top corner — moving it left of that
+	   control is what keeps the two apart, rather than shrinking it. */
+	right: 2.25rem;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 6.5rem;
+	width: auto;
+	border: none;
+	object-fit: contain;
+	pointer-events: none;
+}
+
+/* Reserve the figure's column so the rules set beside it, not under it. Dropped with the figure. */
+@container (min-width: 58.01rem) {
+	.stonetop-outfit-header { padding-right: 9rem; }
+}
+
+
+/* Below this the panel has no width to spare — dropping the figure is better than squeezing the
+   rules it decorates.
+   The threshold is set against what this row can actually BE: `.character` has a 813px floor, which
+   leaves the row 48.7rem, and the default 1160px sheet gives it 70.4rem. So anything under ~46rem
+   never fires, and the figure would never drop. At 58rem it is gone at the floor and at a 900px
+   sheet, and present from about 1000px up. */
+@container (max-width: 58rem) {
+	.stonetop-outfit-art { display: none; }
 }

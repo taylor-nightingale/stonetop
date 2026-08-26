@@ -52,6 +52,25 @@ describe("BookArtExtractor", () => {
 		expect(await Raster.fromPng(result.found[0].bytes).key()).toBe(await stencil.key());
 	});
 
+	// The same illustration can be wanted at more than one path — the outfit tab's figure is also a
+	// figure on the reference page. Writing only the first leaves the other reported missing forever,
+	// which is what a key-to-one-entry lookup did.
+	it("delivers one image to every path its key names", async () => {
+		const key = await stencil.key();
+		const manifest = await manifestFor([
+			(async () => ({ path: `book-one/${key}.png`, key }))(),
+			(async () => ({ path: "book-one/outfitting.png", key }))(),
+		]);
+		const pages = [page({
+			ops: { fnArray: [OPS.paintImageMaskXObject], argsArray: [[{ width: maskWidth, height: maskHeight, data: "mask_p0_1" }]] },
+			objs: { mask_p0_1: { data: maskBits } },
+		})];
+		const result = await extractor(pages, manifest).extract(new Uint8Array());
+		expect(result.found.map((f) => f.path).sort()).toEqual([`book-one/${key}.png`, "book-one/outfitting.png"]);
+		// Both carry the same decoded bytes — it is one image written twice, not two decodes.
+		expect(result.found[0].bytes).toBe(result.found[1].bytes);
+	});
+
 	it("resolves image ids from commonObjs and matches RGB by exact key", async () => {
 		const manifest = await manifestFor([
 			(async () => ({ path: "wonders/color.png", key: await rgb.key() }))(),

@@ -3,10 +3,14 @@ import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 import { CssColor } from "./cssColor.js";
 
-// The Common & Special Items page is rendered by Foundry's journal sheet, which v13 paints dark by
-// default — the same trap the .stonetop-wonder table rules exist for. Whether OUR table rules
-// actually reach it through core's cascade layers is not something a text scan of the stylesheet can
-// answer, so the page is rendered in real Chrome, in both themes, and read back.
+// The gear page is rendered by Foundry's journal sheet, which v13 paints dark by default — the same
+// trap the .stonetop-wonder table rules exist for. Whether OUR table rules actually reach it through
+// core's cascade layers is not something a text scan of the stylesheet can answer, so the page is
+// rendered in real Chrome, in both themes, and read back.
+//
+// The wrapper is `.stonetop-wonder`, because that is what scripts/import/build-book-one.js wraps the
+// page in. Getting that wrong is not cosmetic: these rules were once scoped to a wrapper the page
+// did not carry, so none of them applied and every value table overran its column.
 
 const STYLES = path.resolve("styles");
 const sheet = (f) => path.join(STYLES, f);
@@ -24,7 +28,7 @@ const FIXTURE = `
 <div class="application journal-entry" id="p-journal" style="width: 900px">
   <div class="window-content" id="p-paper">
     <div class="journal-entry-page">
-      <div class="stonetop-item-reference" id="p-root">
+      <div class="stonetop-wonder" id="p-root">
         <p class="item-ref-pageref" id="p-pageref">Stonetop — p.92-97</p>
         <section class="item-ref-values">
           <h2 id="p-h2">What a Value is worth</h2>

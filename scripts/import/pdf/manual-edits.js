@@ -136,13 +136,21 @@ const missedNotes = (edits, applied) => edits.filter((e) => !applied.includes(e)
 export const BOOK_ONE_EDITS = {
 	"gear-and-possessions": [
 		{
-			// layout.js treats any line opening with a mark as a list item — right for Book II, whose
-			// gear lists lead each entry with its load ◇. Here the marks are the ammo STATUSES
-			// themselves, printed as one standalone line, so the line is unwrapped back into prose.
-			// Fixing isItemStart instead would change how every Book II list is read.
-			find: /<ul><li>(○ plenty left,[\s\S]*?)<\/li><\/ul>/,
-			replace: '<p class="ammo-statuses">$1</p>',
-			note: "ammo statuses — a standalone line, not a bulleted item",
+			// The row "Mark the ◇, ◇◇, or □ next to an item to" is set as four cells with the marks
+			// between them, and its ", " cell sits ~5pt below its neighbours — far enough that
+			// groupRows treats it as a row of its own and orders it after the rest, which lands the
+			// comma at the end and runs the marks together. Repairing the row grouping is a change to
+			// how EVERY Book II column is read, so this one sentence is corrected instead.
+			find: /Mark the ◇◇◇, or next to an item to , indicate you are carrying it\./,
+			replace: "Mark the ◇, ◇◇, or □ next to an item to indicate you are carrying it.",
+			note: "Inventory: 'Mark the ◇, ◇◇, or □' — cells reordered by row grouping",
+		},
+		{
+			// A mark from the sample-insert illustration, which reaches above the bounds its extracted
+			// image reports, spliced into the middle of a word.
+			find: /fill out you○r Inventory insert/,
+			replace: "fill out your Inventory insert",
+			note: "Inventory: stray figure mark inside 'your'",
 		},
 	],
 };

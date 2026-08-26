@@ -44,7 +44,11 @@ export class ArtManifest {
 	/** @param {ManifestEntry[]} entries */
 	constructor(entries) {
 		this.entries = entries;
-		this._byKey = new Map(entries.map((e) => [e.key, e]));
+		// A key maps to MANY entries: the same illustration is legitimately wanted at more than one
+		// path — the outfit tab's figure is also a figure on the reference page, and both must be
+		// written or the installer reports one of them missing forever.
+		this._byKey = new Map();
+		for (const e of entries) this._byKey.set(e.key, [...(this._byKey.get(e.key) ?? []), e]);
 	}
 
 	static fromJson({ entries }) {
@@ -64,9 +68,9 @@ export class ArtManifest {
 		return this.entries.map((e) => e.path);
 	}
 
-	/** Exact identification by content key. */
-	pathForKey(key) {
-		return this._byKey.get(key)?.path ?? null;
+	/** Every store path an exact content key identifies. */
+	pathsForKey(key) {
+		return (this._byKey.get(key) ?? []).map((e) => e.path);
 	}
 
 	/**

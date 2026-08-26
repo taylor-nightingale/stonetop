@@ -5,6 +5,7 @@ import path from "path";
 import { renderPartial } from "../fakes/renderTemplate.js";
 import { ADVICE_ACTIONS } from "../../src/utils/adviceAction.js";
 import { TOPICS_SLUG } from "../../src/model/data/ReferenceTopics.js";
+
 import { Advice } from "../../src/model/data/Advice.js";
 
 // End to end over the real code, with only Foundry mocked: a ? button rendered by the real partial,
@@ -60,13 +61,12 @@ function adviceButton(topic = "prosperity") {
 const opened = () => render.mock.calls[0][1];
 const article = () => entrySource.pages[0].text.content;
 
-/** The article's text under one heading anchor — what the reader lands on. */
+/** The article's text under one heading anchor — what the reader lands on. Found by the heading's
+ *  own id, which is exactly how Foundry resolves it. */
 function sectionAt(anchor) {
 	const html = article();
-	const heads = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)];
-	const slug = (h) => h.replace(/<[^>]+>/g, "").replace(/^[…\s.]+/, "").trim()
-		.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-	const at = heads.findIndex(h => slug(h[1]) === anchor);
+	const heads = [...html.matchAll(/<h2[^>]*>/g)];
+	const at = heads.findIndex(h => h[0].includes(`id="${anchor}"`));
 	if (at < 0) return "";
 	return html.slice(heads[at].index, at + 1 < heads.length ? heads[at + 1].index : html.length);
 }
@@ -77,7 +77,7 @@ describe("the ? button on a sheet", () => {
 		expect(render).toHaveBeenCalledOnce();
 		expect(render.mock.calls[0][0]).toBe(true);
 		expect(opened().pageId).toBe(entrySource.pages[0]._id);
-		expect(opened().anchor).toBe("improve-prosperity");
+		expect(opened().anchor).toBe("topic-prosperity");
 	});
 
 	it("lands where the book actually says what the button asked about", async () => {
@@ -95,7 +95,7 @@ describe("the ? button on a sheet", () => {
 
 	it("reaches a different topic from a different button", async () => {
 		await ADVICE_ACTIONS.showAdvice(new Event("click"), adviceButton("defenses"));
-		expect(opened().anchor).toBe("improve-defenses");
+		expect(opened().anchor).toBe("topic-defenses");
 		expect(sectionAt(opened().anchor)).toContain("Stone Wall");
 	});
 

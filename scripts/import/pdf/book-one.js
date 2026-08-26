@@ -11,6 +11,7 @@
 
 import { loadOutline, entryRange } from "./outline.js";
 import { loadArticlePages, attachMarkers } from "./load.js";
+import { isGlyphFont } from "./glyphs.js";
 import { loadMarkers } from "./rules.js";
 import { extractArticle } from "./layout.js";
 import { renderHtml } from "./render-html.js";
@@ -51,6 +52,33 @@ export function dropFigureText(page, images = [], { pad = 10 } = {}) {
 	return { ...page, lines: page.lines.filter((l) => !drop(l)) };
 }
 
+// A marked slot is drawn TWICE: the dingbat glyph draws the ticked diamond, and the vector layer
+// draws its outline a couple of points to the left of it. Attaching both puts a phantom empty ◇ in
+// front of every filled one — "◇◆◆ firewood" where the book prints "◆◆ firewood".
+const GLYPH_OFFSET = 6;
+
+/** The x of every glyph character on `page`, by the row it sits on. */
+function glyphPositions(page) {
+	const out = [];
+	for (const l of page.lines)
+		for (const sp of l.spans ?? []) {
+			if (!isGlyphFont(sp.font)) continue;
+			(sp.xs ?? []).forEach((x, i) => { if ((sp.text[i] ?? "").trim()) out.push({ x, top: l.bbox[1], bottom: l.bbox[3] }); });
+		}
+	return out;
+}
+
+/** Drop vector marks that merely outline a glyph already in the text. */
+export function dropGlyphDuplicates(page, markers) {
+	const glyphs = glyphPositions(page);
+	if (!glyphs.length) return markers;
+	return markers.filter((mk) => {
+		const cy = mk.y - mk.h / 2;
+		return !glyphs.some((g) => g.top - 3 <= cy && g.bottom + 3 >= cy
+			&& g.x >= mk.x && g.x <= mk.x + GLYPH_OFFSET);
+	});
+}
+
 /**
  * Render one Book I article to HTML, with its images extracted into `imgDir`.
  *
@@ -64,13 +92,17 @@ export function renderArticle(pdf, range, { imgDir, imgPrefix, mapFile, dedup, f
 	const { pages, pageRules, pageImages, startPage } =
 		loadArticlePages(pdf, range, { imgDir, imgPrefix, mapFile, dedup, markers: false });
 	pages.forEach((pg, i) => {
-		const marks = loadMarkers(pdf, (startPage ?? range.pdfPage) + i)
-			.filter((mk) => !inFigure(mk.x, mk.y - mk.h / 2, pageImages[i] ?? [], FIGURE_PAD));
+		const marks = dropGlyphDuplicates(pg, loadMarkers(pdf, (startPage ?? range.pdfPage) + i)
+			.filter((mk) => !inFigure(mk.x, mk.y - mk.h / 2, pageImages[i] ?? [], FIGURE_PAD)));
 		attachMarkers(pg, marks);
 	});
 	const clean = figureText ? pages : pages.map((pg, i) => dropFigureText(pg, pageImages[i] ?? []));
-	const article = extractArticle(clean, { title: range.title, pageRules, pageImages });
-	return { article, html: renderHtml(article), pageNumbers: article.pageNumbers };
+	// markBullets off: Book I writes its marks INTO sentences, so a mark-led line is prose, not a
+	// bulleted item (see layout.js isItemStart).
+	const article = extractArticle(clean, { title: range.title, pageRules, pageImages, markBullets: false });
+	// `pages` are the cleaned stext pages, so a caller can read structure the renderer flattened —
+	// the gear-terms glossary is rebuilt from the lines rather than from the prose it became.
+	return { article, pages: clean, html: renderHtml(article), pageNumbers: article.pageNumbers };
 }
 
 export const loadBookOneOutline = (pdf) => loadOutline(pdf);
@@ -129,17 +161,114 @@ const headingText = (h) => h.replace(/<[^>]+>/g, "").replace(/^[…\s.]+/, "").t
  * silently renaming a key. A heading matching no topic is returned with `key: null` for the caller
  * to report rather than dropped.
  */
+/**
+ * The anchor a topic's heading is addressed by.
+ *
+ * Foundry builds a page's table of contents with `slug: heading.id || slugifyHeading(heading)` — so
+ * giving the heading an explicit id settles the anchor outright, rather than us having to predict
+ * how it would slug the text. That prediction is genuinely hard to get right: slugify runs the
+ * heading through a CHAR_MAP first, which rewrites "…" to "..." before lowercasing and collapsing
+ * whitespace, so "… improve Prosperity" becomes "...-improve-prosperity" — three literal dots, and
+ * nothing about the heading says so.
+ */
+export const topicAnchor = (key) => `topic-${key}`;
+
+/** Stamp a heading with the id its anchor names, so Foundry's TOC uses it verbatim. */
+export function withHeadingId(headingHtml, anchor) {
+	return headingHtml.replace(/^<h(\d)\b/, `<h$1 id="${anchor}"`);
+}
+
 export function splitTopicPages(html, topics = ADVICE_TOPICS) {
 	const heads = [...html.matchAll(TOPIC_HEAD)];
 	return heads.map((h, i) => {
 		const title = headingText(h[1]);
+
 		const end = i + 1 < heads.length ? heads[i + 1].index : html.length;
+		const key = topics.find((t) => t.match.test(title))?.key ?? null;
+		const section = html.slice(h.index, end);
 		return {
-			key: topics.find((t) => t.match.test(title))?.key ?? null,
+			key,
 			title,
-			html: html.slice(h.index, end),
+			anchor: key ? topicAnchor(key) : null,
+			// The heading carries the id its anchor names, so the link cannot miss.
+			html: key ? withHeadingId(section, topicAnchor(key)) : section,
 		};
 	});
+}
+
+// ─── gear terms & tags ───────────────────────────────────────────────────────
+
+// The book sets this sidebar as a glossary: each term on its own line, its definition indented under
+// it. The column parser has no reason to know that, so it runs the lot together into one paragraph
+// — twenty-five terms and definitions in a single block of prose. The terms are rebuilt from
+// pdf/tag-glossary.js, which already reads the term/definition split off the book's own typeface.
+const TERM_RUN = /<p>(?:(?!<\/p>)[\s\S])*?<\/p>/g;
+const isTermRun = (p) => (p.match(/<\/strong>\s*:/g) ?? []).length >= 2;
+
+const escapeText = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** One glossary as a definition list. A tag is set in italics, as the book sets it. */
+export function renderGlossary(entries) {
+	if (!entries.length) return "";
+	const rows = entries.map((e) => {
+		const term = e.kind === "tag" ? `<em>${escapeText(e.label)}</em>` : escapeText(e.label);
+		return `<dt>${term}</dt><dd>${escapeText(e.definition)}</dd>`;
+	}).join("");
+	return `<dl class="gear-terms">${rows}</dl>`;
+}
+
+/**
+ * Swap the run-together term paragraphs for proper glossaries — the general terms, then the range
+ * tags under their own heading.
+ *
+ * The lead sentence of the first block explains the load slots ("◇ or ◇◇: it takes up one of
+ * these…"). It is not a term/definition pair, so the parser does not carry it; it is lifted out and
+ * kept as the paragraph it is rather than lost with the block it sits in.
+ */
+export function replaceGlossary(html, entries) {
+	const at = html.indexOf("<h3>Range Tags</h3>");
+	const [head, tail] = at === -1 ? [html, ""] : [html.slice(0, at), html.slice(at)];
+	const byCategory = (c) => entries.filter((e) => e.category === c);
+
+	let seen = 0;
+	const general = head.replace(TERM_RUN, (p) => {
+		if (!isTermRun(p)) return p;
+		if (seen++) return "";                                   // a later column of the same run
+		const lead = p.slice(3, p.search(/<strong>/)).trim();    // the ◇/□ load-slot sentence
+		return (lead ? `<p>${lead}</p>` : "") + renderGlossary(byCategory("general"));
+	});
+
+	let seenRange = 0;
+	const range = tail.replace(TERM_RUN, (p) => {
+		if (!isTermRun(p)) return p;
+		return seenRange++ ? "" : renderGlossary(byCategory("range"));
+	});
+	return general + range;
+}
+
+// ─── figures ─────────────────────────────────────────────────────────────────
+
+const FIGURE = /<figure\b[^>]*>[\s\S]*?<\/figure>/g;
+
+/**
+ * Drop figures by position — `0` the first, `-1` the last.
+ *
+ * The article pipeline extracts every illustration a spread carries, including ones that do not
+ * belong on a reference page: a chapter's opening plate, or the decorative tailpiece that closes it.
+ * Which those are is a judgement about the page, not something the extractor can infer, so the
+ * article says which to leave out.
+ */
+export function dropFigures(html, positions = []) {
+	if (!positions.length) return html;
+	const figures = [...html.matchAll(FIGURE)];
+	const drop = new Set(positions.map((n) => (n < 0 ? figures.length + n : n)));
+	let out = html, removed = 0;
+	figures.forEach((m, i) => {
+		if (!drop.has(i)) return;
+		out = out.slice(0, m.index - removed) + out.slice(m.index - removed + m[0].length);
+		removed += m[0].length;
+	});
+	return out;
 }
 
 // ─── mark runs ───────────────────────────────────────────────────────────────
@@ -154,6 +283,27 @@ const TAGS = "(?:</?[a-zA-Z][^>]*>)*";
 const RUN = new RegExp(`([${MARKS}])(${TAGS})[ \\t]+(?=${TAGS}[${MARKS}])`, "g");
 const AFTER_OPEN = new RegExp(`([(\\[])(${TAGS})[ \\t]+(?=${TAGS}[${MARKS}])`, "g");
 const BEFORE_CLOSE = new RegExp(`([${MARKS}])(${TAGS})[ \\t]+(?=${TAGS}[),\\].;])`, "g");
+
+// A paragraph or list item of nothing but marks is never content: it is what is left when a mark
+// from a figure attaches to no text of its own. The sample insert on "Gear and possessions" reaches
+// above the bounds its extracted image reports, so a few of its marks escape the figure filter and
+// land as a stray "○○○" of their own.
+const MARK_ONLY = new RegExp(`<(p|li)\\b[^>]*>(?:\\s|${TAGS}|[${MARKS}])*</\\1>`, "g");
+
+// A marked slot and the mark it fills are drawn as two things: the dingbat glyph supplies the tick,
+// the vector layer supplies the SHAPE. Where that shape is a circle the pair means one checked
+// circle — the ammo track's "mark ● all out" — not a checked diamond beside an empty circle.
+const CHECKED_CIRCLE = new RegExp(`◆(${TAGS})○|○(${TAGS})◆`, "g");
+
+/** Fold a checked mark and the circle it fills into the single mark the book prints. */
+export function mergeCheckedCircles(html) {
+	return String(html).replace(CHECKED_CIRCLE, (_, a, b) => `${a ?? b ?? ""}●`);
+}
+
+/** Drop paragraphs and items that carry no text — only stray marks. */
+export function dropMarkOnlyBlocks(html) {
+	return String(html).replace(MARK_ONLY, "").replace(/<ul>\s*<\/ul>/g, "");
+}
 
 /** Close up the whitespace inside a run of marks, and around the brackets a run sits in. */
 export function collapseMarkRuns(html) {

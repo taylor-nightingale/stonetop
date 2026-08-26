@@ -13,17 +13,17 @@
 //
 // Runs AFTER build-items.js, which is what creates the items those links point at.
 
-import { mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "fs";
+import { copyFileSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "fs";
 import os from "os";
 import path from "path";
 import { pathToFileURL } from "url";
 import { deterministicId } from "./ids.js";
-import { toSlug } from "../../src/utils/slug.js";
 import { textPage, journalEntry, entryId } from "./journal-docs.js";
 import { resolveBooks, requireTools } from "./pdf/books.js";
-import { loadBookOneOutline, articleRange, renderArticle, replaceValueTables, splitTopicPages, linkBoldNames, collapseMarkRuns, restructureValueLadder } from "./pdf/book-one.js";
+import { loadBookOneOutline, articleRange, renderArticle, replaceValueTables, splitTopicPages, linkBoldNames, collapseMarkRuns, restructureValueLadder, dropMarkOnlyBlocks, mergeCheckedCircles, dropFigures, replaceGlossary } from "./pdf/book-one.js";
 import { parseItemTables, knownTagSlugs } from "./pdf/items.js";
 import { loadItemUuidsBySlug } from "./pdf/crossref.js";
+import { parseGearTerms } from "./pdf/tag-glossary.js";
 import { applyBookOneEdits } from "./pdf/manual-edits.js";
 import { normalizeName, resolveTableRows, sectionTitle, linkCoinPhrases, OUTFIT_PACK } from "./item-docs.js";
 import { renderCategory } from "./item-reference.js";
@@ -34,14 +34,21 @@ const OUTFIT_DIR = `packs/src/${OUTFIT_PACK}`;
 // Book I's illustrations are copyrighted: they go to the gitignored external root, never committed.
 const ART_DIR = "stonetop-art/book-one";
 const ART_URL = "stonetop-art/book-one";
+// The article's one ICON-sized figure — the pack-laden adventurer beside the Inventory rules — is
+// also shown on the character sheet's outfit tab, so it gets a stable name there rather than the
+// content-addressed one every other extracted image keeps. See OUTFITTING_ART in
+// src/actors/character/outfitArt.js, which is what the sheet references.
+const OUTFITTING_ART = "outfitting.png";
 // The advice topic the Coins sidebar is shown beside — the key the steading's coinage ? carries.
 const COINS_ADVICE_KEY = "coin";
 // Every pack these articles cite a document from by name.
 const CITED_PACKS = ["moves", "steading-improvements"];
 
 const ARTICLES = [
-	{ outline: "Gear and possessions", name: "Gear & Possessions", slug: "gear-and-possessions", tables: true },
-	{ outline: "If you want to",       name: "If You Want To…",    slug: "if-you-want-to",       topics: true },
+	// `dropFigures` names the illustrations that do not belong on a reference page: the chapter plate
+	// this spread opens with, and the tailpiece the topics article closes with.
+	{ outline: "Gear and possessions", name: "Gear & Possessions", slug: "gear-and-possessions", tables: true, glossary: true, dropFigures: [0] },
+	{ outline: "If you want to",       name: "If You Want To…",    slug: "if-you-want-to",       topics: true, dropFigures: [-1] },
 ];
 
 const readJson = (f) => JSON.parse(readFileSync(f, "utf8"));
@@ -90,12 +97,19 @@ function main() {
 
 	for (const [i, spec] of ARTICLES.entries()) {
 		const range = articleRange(outline, spec.outline);
-		const { html: raw } = renderArticle(bookI, range, {
+		const { html: raw, pages: stextPages } = renderArticle(bookI, range, {
 			imgDir: scratch, imgPrefix: spec.slug, dedup: { index: dedup, dir: ART_DIR },
 			mapFile: (f) => `${ART_URL}/${path.relative(ART_DIR, f)}`,
 		});
 
 		let html = raw;
+		if (spec.glossary) {
+			// The sidebar reads off the same page the article does; the modifiers come too, because the
+			// page reproduces the sidebar as printed rather than the tag list the language file wants.
+			const terms = stextPages.flatMap((pg) => parseGearTerms(pg.lines, { includeModifiers: true }));
+			if (!terms.length) flags.push(`! ${spec.name}: no gear terms parsed — the glossary is still run-together prose`);
+			else html = replaceGlossary(html, terms);
+		}
 		if (spec.tables) {
 			const sections = tables.flatMap((t) => t.sections);
 			const swap = replaceValueTables(html, sections, (section) =>
@@ -104,7 +118,7 @@ function main() {
 			for (const m of swap.missing) flags.push(`? ${spec.name}: parsed section "${m}" matched no table in the article`);
 			if (!swap.replaced.length) flags.push(`! ${spec.name}: no value table was replaced — links and ◇ are missing`);
 		}
-		html = collapseMarkRuns(html);
+		html = dropFigures(dropMarkOnlyBlocks(mergeCheckedCircles(collapseMarkRuns(html))), spec.dropFigures);
 		if (spec.tables) html = restructureValueLadder(html);
 
 		// One-off corrections to what the parser made of this article, before anything is linked — the
@@ -131,7 +145,7 @@ function main() {
 			// page, so that section ends by naming it rather than the sidebar being duplicated.
 			html = split.map((t) => (t.key === COINS_ADVICE_KEY ? t.html + seeAlso() : t.html)).join("");
 			entryFlags.stonetop.topics = Object.fromEntries(
-				split.filter((t) => t.key).map((t) => [t.key, toSlug(t.title)]));
+				split.filter((t) => t.key).map((t) => [t.key, t.anchor]));
 		}
 		pages = [textPage(REFERENCE_PACK, id, `${spec.slug}#page`, spec.name,
 			`<div class="stonetop-wonder">${html}</div>`)];
@@ -145,6 +159,14 @@ function main() {
 		written++;
 		console.log(`  ${spec.name}: pp. ${range.pdfPage}-${range.endPage}, ${html.length} chars`);
 	}
+
+	// Copy the icon figure to its stable name. Content-addressed images are right for a journal page
+	// (the reference IS the identity), but a sheet template naming a hash would break the moment the
+	// extraction changed by a pixel.
+	const gearHtml = readFileSync(path.join(OUT, `${ARTICLES.find((a) => a.tables).slug}.json`), "utf8");
+	const icon = gearHtml.match(/<figure class=\\"icon\\">\s*<img[^>]*src=\\"[^\\"]*?\/([^\/\\"]+\.png)\\"/);
+	if (icon) copyFileSync(path.join(ART_DIR, icon[1]), path.join(ART_DIR, OUTFITTING_ART));
+	else flags.push(`? no icon figure found — ${OUTFITTING_ART} not refreshed (the outfit tab's art)`);
 
 	rmSync(scratch, { recursive: true, force: true });
 	console.log(`\nwrote ${written} entr${written === 1 ? "y" : "ies"} to ${OUT}/ (${dedup.size} images in ${ART_DIR})`);
