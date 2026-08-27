@@ -1,0 +1,1424 @@
+{
+  "afon": {
+    "name": {
+      "source": "Afon, a Fellow Initiate",
+      "text": ""
+    },
+    "damage": {
+      "source": "bronze hatchet [[/r 1d6]] (_hand_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "2",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Weave a minor glamor\n- Appear or disappear unexpectedly\n- Speak an uncomfortable truth",
+      "text": ""
+    },
+    "instinct/selected/to-act-impulsively": {
+      "source": "to act impulsively",
+      "text": ""
+    },
+    "cost/selected/wonder-joy": {
+      "source": "wonder, joy",
+      "text": ""
+    },
+    "choices/choices/0/title": {
+      "source": "Pick 1 on each line",
+      "text": ""
+    },
+    "choices/choices/1/options/he/text": {
+      "source": "he",
+      "text": ""
+    },
+    "choices/choices/1/options/she/text": {
+      "source": "she",
+      "text": ""
+    },
+    "choices/choices/1/options/they/text": {
+      "source": "they",
+      "text": ""
+    },
+    "choices/choices/2/options/comes-and-goes/text": {
+      "source": "comes and goes",
+      "text": ""
+    },
+    "choices/choices/2/options/in-the-wood/text": {
+      "source": "in the Wood",
+      "text": ""
+    },
+    "choices/choices/2/options/a-hut-near-town/text": {
+      "source": "a hut near town",
+      "text": ""
+    },
+    "choices/choices/3/options/aloof/text": {
+      "source": "aloof",
+      "text": ""
+    },
+    "choices/choices/3/options/bawdy-and-lewd/text": {
+      "source": "bawdy and lewd",
+      "text": ""
+    },
+    "choices/choices/3/options/unnerving/text": {
+      "source": "unnerving",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-ecstasy/text": {
+      "source": "rites of ecstasy",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-intoxication/text": {
+      "source": "rites of intoxication",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-moonlight/text": {
+      "source": "rites of moonlight",
+      "text": ""
+    }
+  },
+  "all-mighty-thistlewisk": {
+    "name": {
+      "source": "All-mighty Thistlewisk",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "inert; disembodied voice",
+      "text": ""
+    },
+    "armor": {
+      "source": "6 (stone, resilience), 2 vs. iron",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Make unreasonable demands\n- Consume the essence of foodstuffs\n- Sense one’s idle thoughts/memories\n- Weave powerful illusions and hallucinations (near, area)\n- Grow bored/huffy and go to sleep",
+      "text": ""
+    },
+    "instinct/selected/to-heap-abuse-on-its-worshippers": {
+      "source": "to heap abuse on its worshippers",
+      "text": ""
+    },
+    "cost/selected/obeisance-and-ever-larger-offerings-of-food": {
+      "source": "obeisance and ever-larger offerings of food",
+      "text": ""
+    }
+  },
+  "andalau-of-the-flute": {
+    "name": {
+      "source": "The Andalau of the Flute",
+      "text": ""
+    },
+    "damage": {
+      "source": "none",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Manifest as a fluttering gust of wind (harmed only by salt)\n- Deliver a whispery message\n- Flit things about (dust, leaves, etc.)\n- Annoy or spook someone",
+      "text": ""
+    },
+    "instinct/selected/to-play-and-frolic": {
+      "source": "to play and frolic",
+      "text": ""
+    },
+    "cost/selected/entertainment": {
+      "source": "entertainment",
+      "text": ""
+    }
+  },
+  "animal-companion": {
+    "name": {
+      "source": "Animal Companion",
+      "text": ""
+    },
+    "instinct/options/to-bully-and-threaten": {
+      "source": "To bully and threaten",
+      "text": ""
+    },
+    "instinct/options/to-fill-its-belly": {
+      "source": "To fill its belly",
+      "text": ""
+    },
+    "instinct/options/to-get-distracted": {
+      "source": "To get distracted",
+      "text": ""
+    },
+    "instinct/options/to-give-chase": {
+      "source": "To give chase",
+      "text": ""
+    },
+    "instinct/options/to-make-mischief": {
+      "source": "To make mischief",
+      "text": ""
+    },
+    "instinct/options/to-startle-and-panic": {
+      "source": "To startle and panic",
+      "text": ""
+    },
+    "instinct/options/to-run-rampant": {
+      "source": "to run rampant",
+      "text": ""
+    },
+    "cost/options/play-grooming-training-affection": {
+      "source": "Play, grooming, training, affection",
+      "text": ""
+    },
+    "cost/options/time-off-on-its-own-free-to-roam": {
+      "source": "Time off on its own, free to roam",
+      "text": ""
+    },
+    "cost/options/cozy-quarters-comfort-ample-food": {
+      "source": "Cozy quarters, comfort, ample food",
+      "text": ""
+    },
+    "companion/catalog/bird/damage": {
+      "source": "[[/r 1d4]] (hand)",
+      "text": ""
+    },
+    "companion/catalog/bird/armor": {
+      "source": "1 (size)",
+      "text": ""
+    },
+    "companion/catalog/critter/damage": {
+      "source": "[[/r 1d4]] (hand)",
+      "text": ""
+    },
+    "companion/catalog/critter/armor": {
+      "source": "1 (size)",
+      "text": ""
+    },
+    "companion/catalog/brute/damage": {
+      "source": "[[/r 1d6]] (hand)",
+      "text": ""
+    },
+    "companion/catalog/brute/armor": {
+      "source": "0",
+      "text": ""
+    },
+    "companion/catalog/predator/damage": {
+      "source": "[[/r 1d8]] (hand, grabby)",
+      "text": ""
+    },
+    "companion/catalog/predator/armor": {
+      "source": "0",
+      "text": ""
+    },
+    "companion/catalog/steed/damage": {
+      "source": "[[/r 1d6+1]] (hand, close)",
+      "text": ""
+    },
+    "companion/catalog/steed/armor": {
+      "source": "0",
+      "text": ""
+    },
+    "companion/catalog/bird/variants/falcon": {
+      "source": "falcon",
+      "text": ""
+    },
+    "companion/catalog/bird/variants/eagle": {
+      "source": "eagle",
+      "text": ""
+    },
+    "companion/catalog/bird/variants/owl": {
+      "source": "owl",
+      "text": ""
+    },
+    "companion/catalog/bird/variants/buzzard": {
+      "source": "buzzard",
+      "text": ""
+    },
+    "companion/catalog/bird/variants/magpie": {
+      "source": "magpie",
+      "text": ""
+    },
+    "companion/catalog/critter/variants/cat": {
+      "source": "cat",
+      "text": ""
+    },
+    "companion/catalog/critter/variants/fox": {
+      "source": "fox",
+      "text": ""
+    },
+    "companion/catalog/critter/variants/possum": {
+      "source": "possum",
+      "text": ""
+    },
+    "companion/catalog/critter/variants/raccoon": {
+      "source": "raccoon",
+      "text": ""
+    },
+    "companion/catalog/critter/variants/weasel": {
+      "source": "weasel",
+      "text": ""
+    },
+    "companion/catalog/brute/variants/bear": {
+      "source": "bear",
+      "text": ""
+    },
+    "companion/catalog/brute/variants/boar": {
+      "source": "boar",
+      "text": ""
+    },
+    "companion/catalog/brute/variants/wolverine": {
+      "source": "wolverine",
+      "text": ""
+    },
+    "companion/catalog/brute/variants/aurochs": {
+      "source": "aurochs",
+      "text": ""
+    },
+    "companion/catalog/brute/variants/drake": {
+      "source": "drake",
+      "text": ""
+    },
+    "companion/catalog/predator/variants/hound": {
+      "source": "hound",
+      "text": ""
+    },
+    "companion/catalog/predator/variants/wolf": {
+      "source": "wolf",
+      "text": ""
+    },
+    "companion/catalog/predator/variants/cougar": {
+      "source": "cougar",
+      "text": ""
+    },
+    "companion/catalog/predator/variants/drake": {
+      "source": "drake",
+      "text": ""
+    },
+    "companion/catalog/steed/variants/horse": {
+      "source": "horse",
+      "text": ""
+    },
+    "companion/catalog/steed/variants/mule": {
+      "source": "mule",
+      "text": ""
+    }
+  },
+  "astor": {
+    "name": {
+      "source": "Astor",
+      "text": ""
+    },
+    "damage": {
+      "source": "ghostly spear d8 (reach, ignores armor)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1 lacks organs",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Stalk assigned prey\n- Manifest a ghostly presence (harmed only by silver or salt)\n- Make a pessimistic observation",
+      "text": ""
+    },
+    "instinct/selected/to-comply-maliciously": {
+      "source": "to comply maliciously",
+      "text": ""
+    },
+    "cost/selected/proof-of-honor-nobility": {
+      "source": "proof of honor, nobility",
+      "text": ""
+    }
+  },
+  "blank": {
+    "name": {
+      "source": "New Follower",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r 1d6]]",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    }
+  },
+  "bronze-protector": {
+    "name": {
+      "source": "Bronze protector",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP",
+      "text": ""
+    },
+    "damage": {
+      "source": "pummel [[/r 1d8]] (_hand_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "3 (metal)",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Loom menacingly, belching smoke\n- Start fires, cause collateral damage\n- Run low on fuel",
+      "text": ""
+    },
+    "instinct/selected/to-be-overzealous-in-guarding-you": {
+      "source": "to be overzealous in guarding you",
+      "text": ""
+    },
+    "cost/selected/profuse-gratitude": {
+      "source": "profuse gratitude",
+      "text": ""
+    }
+  },
+  "crew": {
+    "name": {
+      "source": "Crew",
+      "text": ""
+    },
+    "description": {
+      "source": "Marshal, your Crew is a half-dozen strong by default. Treat them as a follower with the group tag. All starting values here are subject to change in play.",
+      "text": ""
+    },
+    "damage": {
+      "source": "d6",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    },
+    "membersNote": {
+      "source": "When one stands out, give them a name, a tag, and one or more traits.",
+      "text": ""
+    },
+    "memberSuggestions/traits/s-kid-sibling-parent-cousin": {
+      "source": "__'s kid/sibling/parent/cousin/__",
+      "text": ""
+    },
+    "memberSuggestions/traits/bald": {
+      "source": "bald",
+      "text": ""
+    },
+    "memberSuggestions/traits/crush-on": {
+      "source": "crush on __",
+      "text": ""
+    },
+    "memberSuggestions/traits/grudge-against": {
+      "source": "grudge against __",
+      "text": ""
+    },
+    "memberSuggestions/traits/hates": {
+      "source": "hates __",
+      "text": ""
+    },
+    "memberSuggestions/traits/idolizes": {
+      "source": "idolizes __",
+      "text": ""
+    },
+    "memberSuggestions/traits/jokes": {
+      "source": "jokes",
+      "text": ""
+    },
+    "memberSuggestions/traits/messy": {
+      "source": "messy",
+      "text": ""
+    },
+    "memberSuggestions/traits/missing-eye-finger-hand": {
+      "source": "missing eye/finger/hand/__",
+      "text": ""
+    },
+    "memberSuggestions/traits/misses-their-kids": {
+      "source": "misses their kids",
+      "text": ""
+    },
+    "memberSuggestions/traits/nightmares": {
+      "source": "nightmares",
+      "text": ""
+    },
+    "memberSuggestions/traits/recently-married": {
+      "source": "recently married",
+      "text": ""
+    },
+    "memberSuggestions/traits/religious": {
+      "source": "religious",
+      "text": ""
+    },
+    "memberSuggestions/traits/scars": {
+      "source": "scars",
+      "text": ""
+    },
+    "memberSuggestions/traits/skinny": {
+      "source": "skinny",
+      "text": ""
+    },
+    "memberSuggestions/traits/sharp-tongued": {
+      "source": "sharp-tongued",
+      "text": ""
+    },
+    "memberSuggestions/traits/sings": {
+      "source": "sings",
+      "text": ""
+    },
+    "memberSuggestions/traits/snores": {
+      "source": "snores",
+      "text": ""
+    },
+    "memberSuggestions/traits/tells-tall-tales": {
+      "source": "tells tall tales",
+      "text": ""
+    },
+    "memberSuggestions/traits/too-serious": {
+      "source": "too serious",
+      "text": ""
+    },
+    "memberSuggestions/traits/troubles-at-home": {
+      "source": "troubles at home",
+      "text": ""
+    },
+    "memberSuggestions/traits/whistles": {
+      "source": "whistles",
+      "text": ""
+    },
+    "memberSuggestions/traits/whittler": {
+      "source": "whittler",
+      "text": ""
+    },
+    "instinct/options/to-bicker-infight-and-hold-grudges": {
+      "source": "To bicker, infight, and hold grudges",
+      "text": ""
+    },
+    "instinct/options/to-hew-to-tradition-and-superstition": {
+      "source": "To hew to tradition and superstition",
+      "text": ""
+    },
+    "instinct/options/to-indulge-their-baser-instincts": {
+      "source": "To indulge their baser instincts",
+      "text": ""
+    },
+    "instinct/options/to-lord-over-others": {
+      "source": "To lord over others",
+      "text": ""
+    },
+    "instinct/options/to-take-needless-risks": {
+      "source": "To take needless risks",
+      "text": ""
+    },
+    "instinct/options/to-take-things-too-far": {
+      "source": "To take things too far",
+      "text": ""
+    },
+    "cost/options/merry-making-as-a-group": {
+      "source": "Merry-making, as a group",
+      "text": ""
+    },
+    "cost/options/public-recognition-and-respect-honor": {
+      "source": "Public recognition and respect, honor",
+      "text": ""
+    },
+    "cost/options/risks-taken-by-you-to-help-them": {
+      "source": "Risks taken, by you, to help them",
+      "text": ""
+    },
+    "cost/options/victories-won-against-worthy-foes": {
+      "source": "Victories won against worthy foes",
+      "text": ""
+    },
+    "cost/options/wealth-gained-for-themselves-or-stonetop": {
+      "source": "Wealth gained for themselves or Stonetop",
+      "text": ""
+    }
+  },
+  "dog": {
+    "name": {
+      "source": "Dog",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d6]] (_hand_, _grabby_)",
+      "text": ""
+    },
+    "instinct/selected/to-get-distracted": {
+      "source": "to get distracted",
+      "text": ""
+    },
+    "cost/selected/training": {
+      "source": "training",
+      "text": ""
+    }
+  },
+  "donkey": {
+    "name": {
+      "source": "Donkey",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d4+2]] (_hand_, _forceful_)",
+      "text": ""
+    },
+    "instinct/selected/to-be-stubborn": {
+      "source": "to be stubborn",
+      "text": ""
+    }
+  },
+  "dool-spirit": {
+    "name": {
+      "source": "Dool spirit",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "powerless in bright light",
+      "text": ""
+    },
+    "damage": {
+      "source": "feast on fear [[/r d6]] (_hand_, _close_, ignores armor, disadvantage)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1 (amorphous)",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Sense a victim’s doubt and worries\n- Shape sound and shadow to unnerve and frighten\n- Manifest as its victim’s fears (harmed only by one who masters their fear)",
+      "text": ""
+    },
+    "instinct/selected/to-take-things-too-far": {
+      "source": "to take things too far",
+      "text": ""
+    },
+    "cost/selected/new-exquisite-fears": {
+      "source": "new, exquisite fears",
+      "text": ""
+    }
+  },
+  "enfys": {
+    "name": {
+      "source": "Enfys, the Acolyte",
+      "text": ""
+    },
+    "damage": {
+      "source": "bronze knife [[/r 1d4]] (_hand_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Speak with birds\n- Ask a difficult question\n- Wander off",
+      "text": ""
+    },
+    "instinct/selected/to-get-distracted": {
+      "source": "to get distracted",
+      "text": ""
+    },
+    "cost/selected/knowledge-secret-lore": {
+      "source": "knowledge, secret lore",
+      "text": ""
+    },
+    "choices/choices/0/title": {
+      "source": "Pick 1 on each line",
+      "text": ""
+    },
+    "choices/choices/1/options/he/text": {
+      "source": "he",
+      "text": ""
+    },
+    "choices/choices/1/options/she/text": {
+      "source": "she",
+      "text": ""
+    },
+    "choices/choices/1/options/they/text": {
+      "source": "they",
+      "text": ""
+    },
+    "choices/choices/2/options/just-a-child/text": {
+      "source": "just a child",
+      "text": ""
+    },
+    "choices/choices/2/options/on-the-cusp/text": {
+      "source": "on the cusp",
+      "text": ""
+    },
+    "choices/choices/2/options/a-young-adult/text": {
+      "source": "a young adult",
+      "text": ""
+    },
+    "choices/choices/3/options/carefully-chosen/text": {
+      "source": "carefully chosen",
+      "text": ""
+    },
+    "choices/choices/3/options/marked-by-danu/text": {
+      "source": "marked by Danu",
+      "text": ""
+    },
+    "choices/choices/3/options/orphaned/text": {
+      "source": "orphaned",
+      "text": ""
+    },
+    "choices/choices/4/options/carefree/text": {
+      "source": "carefree",
+      "text": ""
+    },
+    "choices/choices/4/options/curious/text": {
+      "source": "curious",
+      "text": ""
+    },
+    "choices/choices/4/options/moody/text": {
+      "source": "moody",
+      "text": ""
+    },
+    "choices/choices/4/options/secretive/text": {
+      "source": "secretive",
+      "text": ""
+    }
+  },
+  "goat": {
+    "name": {
+      "source": "Goat",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "butcher for ◇ provisions (○○○○○○ uses)",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d4]] (_hand_)",
+      "text": ""
+    },
+    "instinct/selected/to-explore": {
+      "source": "to explore",
+      "text": ""
+    }
+  },
+  "gwendyl": {
+    "name": {
+      "source": "Gwendyl, Your Mentor",
+      "text": ""
+    },
+    "damage": {
+      "source": "iron knife [[/r 1d6]] (_hand_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Tend to the sick, injured, women in labor\n- Weave a talisman of fertility or good luck\n- Point out a flaw in a person or plan",
+      "text": ""
+    },
+    "instinct/selected/to-take-offense": {
+      "source": "to take offense",
+      "text": ""
+    },
+    "cost/selected/consideration-affection": {
+      "source": "consideration, affection",
+      "text": ""
+    },
+    "choices/choices/0/title": {
+      "source": "Pick 1 on each line",
+      "text": ""
+    },
+    "choices/choices/1/options/he/text": {
+      "source": "he",
+      "text": ""
+    },
+    "choices/choices/1/options/she/text": {
+      "source": "she",
+      "text": ""
+    },
+    "choices/choices/1/options/they/text": {
+      "source": "they",
+      "text": ""
+    },
+    "choices/choices/2/options/a-big-family/text": {
+      "source": "a big family",
+      "text": ""
+    },
+    "choices/choices/2/options/has-taken-you-in/text": {
+      "source": "has taken you in",
+      "text": ""
+    },
+    "choices/choices/2/options/lives-alone/text": {
+      "source": "lives alone",
+      "text": ""
+    },
+    "choices/choices/3/options/blunt/text": {
+      "source": "blunt",
+      "text": ""
+    },
+    "choices/choices/3/options/demanding/text": {
+      "source": "demanding",
+      "text": ""
+    },
+    "choices/choices/3/options/put-upon/text": {
+      "source": "put upon",
+      "text": ""
+    },
+    "choices/choices/3/options/suffers-no-fools/text": {
+      "source": "suffers no fools",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-earth-and-soil/text": {
+      "source": "rites of earth & soil",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-mourning/text": {
+      "source": "rites of mourning",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-petition/text": {
+      "source": "rites of petition",
+      "text": ""
+    }
+  },
+  "halix": {
+    "name": {
+      "source": "Halix",
+      "text": ""
+    },
+    "damage": {
+      "source": "ghostly touch d4 (band, ignores armor) or host's weapon d6 (tags vary)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1 lacks organs",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Manifest a ghostly presence (harmed only by silver or salt)\n- Possess an inebriated victim\n- Spot a weakness, want, or fear\n- Spin plots and falsehoods",
+      "text": ""
+    },
+    "instinct/selected/to-second-guess-your-decisions": {
+      "source": "to second-guess your decisions",
+      "text": ""
+    },
+    "cost/selected/pleasures-of-the-flesh": {
+      "source": "pleasures of the flesh",
+      "text": ""
+    }
+  },
+  "horse": {
+    "name": {
+      "source": "Horse",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d6+3]] (_hand_, _close_, _forceful_)",
+      "text": ""
+    },
+    "instinct/selected/to-panic": {
+      "source": "to panic",
+      "text": ""
+    },
+    "cost/selected/care-grooming": {
+      "source": "care & grooming",
+      "text": ""
+    }
+  },
+  "mantle-wraiths": {
+    "name": {
+      "source": "Mantle wraiths",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "powerless in daylight",
+      "text": ""
+    },
+    "damage": {
+      "source": "life drain [[/r d8]] (_hand_, ignores armor)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1 (amorphous)",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Whisper their longings to the wearer\n- Manifest a form of shadow and cold (harmed only by silver and salt)\n- Hurl themselves at the living\n- Suck the vitality from their prey",
+      "text": ""
+    },
+    "instinct/selected/to-run-rampant": {
+      "source": "to run rampant",
+      "text": ""
+    },
+    "cost/selected/souls-feasted-upon": {
+      "source": "souls feasted upon",
+      "text": ""
+    }
+  },
+  "mule": {
+    "name": {
+      "source": "Mule",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d6+1]] (_hand_, _close_)",
+      "text": ""
+    },
+    "instinct/selected/to-avoid-danger": {
+      "source": "to avoid danger",
+      "text": ""
+    },
+    "cost/selected/care-grooming": {
+      "source": "care & grooming",
+      "text": ""
+    }
+  },
+  "olwin": {
+    "name": {
+      "source": "Olwin, Your Anointed Lover",
+      "text": ""
+    },
+    "damage": {
+      "source": "iron spear [[/r 1d6]] (_close, thrown_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Perform a divination\n- Speak a (dire) prophecy\n- Make a big deal about something",
+      "text": ""
+    },
+    "instinct/selected/to-lack-discretion": {
+      "source": "to lack discretion",
+      "text": ""
+    },
+    "cost/selected/tenderness-respect": {
+      "source": "tenderness, respect",
+      "text": ""
+    },
+    "choices/choices/0/title": {
+      "source": "Pick 1 on each line",
+      "text": ""
+    },
+    "choices/choices/1/options/he/text": {
+      "source": "he",
+      "text": ""
+    },
+    "choices/choices/1/options/she/text": {
+      "source": "she",
+      "text": ""
+    },
+    "choices/choices/1/options/they/text": {
+      "source": "they",
+      "text": ""
+    },
+    "choices/choices/2/options/betrothed/text": {
+      "source": "betrothed",
+      "text": ""
+    },
+    "choices/choices/2/options/true-love/text": {
+      "source": "true love",
+      "text": ""
+    },
+    "choices/choices/2/options/ceremonial/text": {
+      "source": "ceremonial",
+      "text": ""
+    },
+    "choices/choices/2/options/complicated/text": {
+      "source": "complicated",
+      "text": ""
+    },
+    "choices/choices/3/options/contrary/text": {
+      "source": "contrary",
+      "text": ""
+    },
+    "choices/choices/3/options/dramatic/text": {
+      "source": "dramatic",
+      "text": ""
+    },
+    "choices/choices/3/options/passionate/text": {
+      "source": "passionate",
+      "text": ""
+    },
+    "choices/choices/3/options/tormented/text": {
+      "source": "tormented",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-blood/text": {
+      "source": "rites of blood",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-fire/text": {
+      "source": "rites of fire",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-sacred-union/text": {
+      "source": "rites of sacred union",
+      "text": ""
+    }
+  },
+  "pig": {
+    "name": {
+      "source": "Pig",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "butcher for ◇ provisions (d6+10 uses)",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d4]] (_hand_)",
+      "text": ""
+    },
+    "instinct/selected/to-eat-anything": {
+      "source": "to eat anything",
+      "text": ""
+    }
+  },
+  "seren-the-eldest": {
+    "name": {
+      "source": "Seren the Eldest",
+      "text": ""
+    },
+    "damage": {
+      "source": "walking stick [[/r 1d4]] (_close_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Consult the spirits, or abjure them\n- Spin a tale to make a point\n- Use shame and guilt as leverage",
+      "text": ""
+    },
+    "instinct/selected/to-hew-to-tradition": {
+      "source": "to hew to tradition",
+      "text": ""
+    },
+    "cost/selected/deference-good-sense-shown": {
+      "source": "deference, good sense shown",
+      "text": ""
+    },
+    "choices/choices/0/title": {
+      "source": "Pick 1 on each line",
+      "text": ""
+    },
+    "choices/choices/1/options/he/text": {
+      "source": "he",
+      "text": ""
+    },
+    "choices/choices/1/options/she/text": {
+      "source": "she",
+      "text": ""
+    },
+    "choices/choices/1/options/they/text": {
+      "source": "they",
+      "text": ""
+    },
+    "choices/choices/2/options/dismissed/text": {
+      "source": "dismissed",
+      "text": ""
+    },
+    "choices/choices/2/options/pitied/text": {
+      "source": "pitied",
+      "text": ""
+    },
+    "choices/choices/2/options/feared/text": {
+      "source": "feared",
+      "text": ""
+    },
+    "choices/choices/2/options/venerated/text": {
+      "source": "venerated",
+      "text": ""
+    },
+    "choices/choices/3/options/cagey/text": {
+      "source": "cagey",
+      "text": ""
+    },
+    "choices/choices/3/options/friendly-but-firm/text": {
+      "source": "friendly but firm",
+      "text": ""
+    },
+    "choices/choices/3/options/imperious/text": {
+      "source": "imperious",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-iron/text": {
+      "source": "rites of iron",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-secret-naming/text": {
+      "source": "rites of secret naming",
+      "text": ""
+    },
+    "choices/choices/4/options/rites-of-winter/text": {
+      "source": "rites of winter",
+      "text": ""
+    }
+  },
+  "servant-of-daagon": {
+    "name": {
+      "source": "Servant of Daagon",
+      "text": ""
+    },
+    "description": {
+      "source": "Summoned by Call Up the Deep Ones. They share a pool of Loyalty with the Ring itself.",
+      "text": ""
+    },
+    "instinct/selected/to-devour": {
+      "source": "to devour",
+      "text": ""
+    },
+    "choices/servant-of-daagon/1/subtitle": {
+      "source": "Tags",
+      "text": ""
+    },
+    "choices/servant-of-daagon/3/subtitle": {
+      "source": "No. Appearing",
+      "text": ""
+    },
+    "choices/servant-of-daagon/5/subtitle": {
+      "source": "Size",
+      "text": ""
+    },
+    "choices/servant-of-daagon/7/subtitle": {
+      "source": "Traits",
+      "text": ""
+    },
+    "choices/servant-of-daagon/7/text": {
+      "source": "Choose a number equal to the assigned die.",
+      "text": ""
+    },
+    "choices/servant-of-daagon/9/subtitle": {
+      "source": "Moves",
+      "text": ""
+    },
+    "choices/servant-of-daagon/9/text": {
+      "source": "Choose a number equal to the assigned die.",
+      "text": ""
+    },
+    "choices/servant-of-daagon/0/text": {
+      "source": "Each time you **_Call Up the Deep Ones_**, roll five d4s and assign each to a different aspect, then set this card's HP, damage and tags to match.",
+      "text": ""
+    },
+    "choices/servant-of-daagon/2/options/tags-craven/text": {
+      "source": "1 = *+craven*",
+      "text": ""
+    },
+    "choices/servant-of-daagon/2/options/tags-ravenous/text": {
+      "source": "2 = *+ravenous*",
+      "text": ""
+    },
+    "choices/servant-of-daagon/2/options/tags-cunning/text": {
+      "source": "3 = *+cunning*",
+      "text": ""
+    },
+    "choices/servant-of-daagon/2/options/tags-exceptional/text": {
+      "source": "4 = *+exceptional* (roll +2 for moves instead of +1)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/4/options/number-horde/text": {
+      "source": "1 = horde (quantity 2d6, HP 3, damage 1d6)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/4/options/number-group/text": {
+      "source": "2-3 = group (quantity 1d6+1, HP 6, damage 1d8)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/4/options/number-solitary/text": {
+      "source": "4 = solitary (HP 12, damage 1d10)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/6/options/size-small/text": {
+      "source": "1 = small (-2 HP, -2 damage, *hand*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/6/options/size-medium/text": {
+      "source": "2-3 = medium (*close*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/6/options/size-large/text": {
+      "source": "4 = large (+4 HP, +1 damage, *close*, *reach*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/8/options/trait-hide/text": {
+      "source": "blubbery/scaly hide (2 armor)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/8/options/trait-stealthy/text": {
+      "source": "*+stealthy* and *+cautious*",
+      "text": ""
+    },
+    "choices/servant-of-daagon/8/options/trait-powerful/text": {
+      "source": "powerful (+2 damage, *forceful*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/8/options/trait-tentacles/text": {
+      "source": "tentacles/pincers, etc. (*reach*, *grabby*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/8/options/trait-claws/text": {
+      "source": "big claws/fangs (1 piercing, *messy*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/8/options/trait-projectiles/text": {
+      "source": "projectiles (*+near*)",
+      "text": ""
+    },
+    "choices/servant-of-daagon/10/options/move-wriggle/text": {
+      "source": "Wriggle free of danger/restraint",
+      "text": ""
+    },
+    "choices/servant-of-daagon/10/options/move-heal/text": {
+      "source": "Heal at a prodigious rate",
+      "text": ""
+    },
+    "choices/servant-of-daagon/10/options/move-smother/text": {
+      "source": "Smother/constrict/engulf them",
+      "text": ""
+    },
+    "choices/servant-of-daagon/10/options/move-dissolve/text": {
+      "source": "Dissolve organic material",
+      "text": ""
+    },
+    "choices/servant-of-daagon/10/options/move-mesmerize/text": {
+      "source": "Mesmerize the weak-willed",
+      "text": ""
+    },
+    "choices/servant-of-daagon/10/options/move-paralyze/text": {
+      "source": "Paralyze them with venom",
+      "text": ""
+    }
+  },
+  "sheep": {
+    "name": {
+      "source": "Sheep",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "butcher for ◇ provisions (○○○○○○ uses)",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r d4]] (_hand_)",
+      "text": ""
+    },
+    "instinct/selected/to-follow-the-herd": {
+      "source": "to follow the herd",
+      "text": ""
+    }
+  },
+  "spirit-in-the-cloak": {
+    "name": {
+      "source": "The Spirit in the Cloak",
+      "text": ""
+    },
+    "damage": {
+      "source": "lashing wind, rain, debris [[/r d6]] (_near, area_)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1 (amorphous)",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Bear its master aloft on a cushion of swirling winds\n- Manifest a storm as it flies\n- Wreak havoc on its surroundings\n- Fling lightning from a raging storm, d10+3 (far, forceful, reload)",
+      "text": ""
+    },
+    "instinct/selected/to-not-hear-your-commands": {
+      "source": "to \"not hear\" your commands",
+      "text": ""
+    },
+    "cost/selected/flying-about-for-hours": {
+      "source": "flying about for hours",
+      "text": ""
+    }
+  },
+  "the-cloak": {
+    "name": {
+      "source": "The Cloak",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Reveal a dark and terrible secret, or part of one\n- Manifest a minor demonic effect\n- Possess you in your sleep",
+      "text": ""
+    },
+    "instinct/selected/to-bicker-and-argue-with-you-with-itself": {
+      "source": "to bicker and argue (with you, with itself)",
+      "text": ""
+    },
+    "cost/selected/chaos-and-wanton-destruction": {
+      "source": "chaos and wanton destruction",
+      "text": ""
+    }
+  },
+  "the-mighty-servant": {
+    "name": {
+      "source": "The Mighty Servant",
+      "text": ""
+    },
+    "damage": {
+      "source": "stone fists d10+1 (hand, close, disadvantage)",
+      "text": ""
+    },
+    "armor": {
+      "source": "4",
+      "text": ""
+    },
+    "moves": {
+      "source": "- living stone, tireless",
+      "text": ""
+    },
+    "instinct/selected/to-misunderstand": {
+      "source": "to misunderstand",
+      "text": ""
+    },
+    "cost/selected/wonder-excitement-joy-discovery": {
+      "source": "wonder, excitement, joy, discovery",
+      "text": ""
+    }
+  },
+  "the-ring": {
+    "name": {
+      "source": "The Ring",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Speak mind-to-mind\n- Reveal a secret, for a price\n- Know someone’s desires",
+      "text": ""
+    },
+    "instinct/selected/to-give-nothing-not-even-secrets-or-info-away": {
+      "source": "to give nothing (not even secrets or info) away",
+      "text": ""
+    },
+    "cost/selected/devouring-fallen-named-creatures": {
+      "source": "devouring fallen, named creatures",
+      "text": ""
+    }
+  },
+  "tulpa": {
+    "name": {
+      "source": "Tulpa",
+      "text": ""
+    },
+    "damage": {
+      "source": "[[/r 1d4]] (if that)",
+      "text": ""
+    },
+    "armor": {
+      "source": "0",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Manifest a form of dust/snow/vapor",
+      "text": ""
+    },
+    "instinct/options/to-play": {
+      "source": "to play",
+      "text": ""
+    },
+    "instinct/options/to-learn": {
+      "source": "to learn",
+      "text": ""
+    },
+    "instinct/options/to-flaunt": {
+      "source": "to flaunt",
+      "text": ""
+    },
+    "cost/options/respect-given": {
+      "source": "respect given",
+      "text": ""
+    },
+    "cost/options/new-experiences": {
+      "source": "new experiences",
+      "text": ""
+    },
+    "cost/options/comfort-compassion": {
+      "source": "comfort/compassion",
+      "text": ""
+    },
+    "choices/choices/produce-light-area-reach/text": {
+      "source": "Produce light (area, reach)",
+      "text": ""
+    },
+    "choices/choices/carry-manipulate-a-item/text": {
+      "source": "Carry/manipulate a item",
+      "text": ""
+    },
+    "choices/choices/deliver-a-message/text": {
+      "source": "Deliver a message",
+      "text": ""
+    },
+    "choices/choices/spy-on-someone-something/text": {
+      "source": "Spy on someone/something",
+      "text": ""
+    }
+  },
+  "unliving-chimera": {
+    "name": {
+      "source": "Unliving chimera",
+      "text": ""
+    },
+    "damage": {
+      "source": "varies [[/r d6]] (_hand_, maybe others)",
+      "text": ""
+    },
+    "armor": {
+      "source": "4 (0 vs. bronze)",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Do something one of its component beasts could do\n- Moan, wretchedly and disturbingly",
+      "text": ""
+    },
+    "instinct/selected/to-get-confused-and-lash-out": {
+      "source": "to get confused and lash out",
+      "text": ""
+    },
+    "cost/selected/lots-of-fresh-blood": {
+      "source": "lots of fresh blood",
+      "text": ""
+    }
+  },
+  "void-elemental": {
+    "name": {
+      "source": "Void elemental",
+      "text": ""
+    },
+    "specialQuality": {
+      "source": "immune to most harm",
+      "text": ""
+    },
+    "damage": {
+      "source": "void touch [[/r 1d10]] w/advantage (_hand_, _grabby_, ignores armor)",
+      "text": ""
+    },
+    "armor": {
+      "source": "1 (lacks organs)",
+      "text": ""
+    },
+    "moves": {
+      "source": "- Manifest as a black hole in reality\n- Snuff out a source of energy\n- Become confused, unsure what to do",
+      "text": ""
+    },
+    "instinct/selected/to-rage-at-all-the-noise-and-chaos": {
+      "source": "to rage at all the noise and chaos",
+      "text": ""
+    }
+  },
+  "_folders": {
+    "arcana": {
+      "source": "arcana",
+      "text": ""
+    },
+    "livestock": {
+      "source": "Livestock",
+      "text": ""
+    },
+    "the-blessed": {
+      "source": "The Blessed",
+      "text": ""
+    },
+    "the-marshal": {
+      "source": "The Marshal",
+      "text": ""
+    },
+    "the-ranger": {
+      "source": "The Ranger",
+      "text": ""
+    }
+  }
+}

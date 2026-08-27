@@ -4,10 +4,21 @@ import { WorldItemStore } from "../../character/repositories/WorldItemStore.js";
 const FIELDS = ["system.slug", "system.sortOrder", "system.choices"];
 
 export class SteadingImprovement {
-	constructor(slug, choices, sortOrder = 0) {
+	constructor(slug, name, choices, sortOrder = 0) {
 		this.slug      = slug;
+		this.name      = name;
 		this.choices   = choices;
 		this.sortOrder = sortOrder;
+	}
+
+	/**
+	 * The choice-group data to render, carrying the improvement's own name as the group title. The
+	 * panels that show an improvement — the steading sheet's columns and a steadfast's granted list —
+	 * have nowhere else to name it, and the name used to be repeated into the first row's title to
+	 * cover that.
+	 */
+	get titledChoices() {
+		return this.choices ? { ...this.choices, title: this.name } : null;
 	}
 }
 
@@ -33,6 +44,7 @@ export class FoundrySteadingImprovementRepository {
 			.filter(e => e.type === "improvement")
 			.map(entry => new SteadingImprovement(
 				entry.system?.slug,
+				entry.name,
 				entry.system?.choices ?? null,
 				entry.system?.sortOrder ?? 0,
 			))

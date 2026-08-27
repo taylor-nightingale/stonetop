@@ -1,0 +1,932 @@
+{
+  "additional-housing": {
+    "name": {
+      "source": "Additional Housing",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "It's getting crowded! We need more room to live.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** either one of these:",
+      "text": ""
+    },
+    "choices/engineer-foreman/text": {
+      "source": "An *exceptional* engineer/foreman, to design much roomier houses on the current land",
+      "text": ""
+    },
+    "choices/build-on-fields/text": {
+      "source": "Building on parts of the fields, resulting in -1 Surplus generated with each autumn's harvest",
+      "text": ""
+    },
+    "choices/4/text": {
+      "source": "And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is.",
+      "text": ""
+    }
+  },
+  "aetherium-crucible": {
+    "name": {
+      "source": "Aetherium Crucible",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Requires all of the following:",
+      "text": ""
+    },
+    "choices/learning-process/text": {
+      "source": "Learning the process of **making** **aetherium** (at left)",
+      "text": ""
+    },
+    "choices/learning-imbue/text": {
+      "source": "Learning to imbue aetherium with at least one special characteristic",
+      "text": ""
+    },
+    "choices/reliable-means/text": {
+      "source": "A reliable means of capturing, storing, and directing lightning that strikes the Stone",
+      "text": ""
+    },
+    "choices/securing-steady/text": {
+      "source": "Securing a steady supply of the chemics needed to make aetherium",
+      "text": ""
+    },
+    "choices/securing-steady-2/text": {
+      "source": "Securing a steady supply of copper",
+      "text": ""
+    },
+    "choices/exceptional-smith/text": {
+      "source": "An exceptional smith who knows the secrets of aetherium",
+      "text": ""
+    },
+    "choices/7/text": {
+      "source": "When you **_mark all the requirements_**, add \"Aetherium Crucible\" to the Resources list and the map. As long as you trade aetherium to the outside world, increase Prosperity by 1.",
+      "text": ""
+    },
+    "choices/8/text": {
+      "source": "Henceforth, small amounts of raw aetherium (*magical*, Value 1) are commonly available in Stonetop, and you have advantage to **Trade &** **Barter** for the aetherium items with special characteristics (+2 Value).",
+      "text": ""
+    }
+  },
+  "aurochs-hunting": {
+    "name": {
+      "source": "Aurochs Hunting",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** 2 of the following:",
+      "text": ""
+    },
+    "choices/herd-of-horses/text": {
+      "source": "A Herd of Horses (and hunters to ride them)",
+      "text": ""
+    },
+    "choices/cooperating-hillfolk/text": {
+      "source": "Cooperating with the Hillfolk",
+      "text": ""
+    },
+    "choices/cunning-plan/text": {
+      "source": "A cunning plan",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "And then:",
+      "text": ""
+    },
+    "choices/successful-hunt/text": {
+      "source": "A successful first hunt (played out in detail)",
+      "text": ""
+    },
+    "choices/7/text": {
+      "source": "When you **_meet the requirements_**, add \"Aurochs hunting (meat, hide, horn)\" to the Resources list.\n\nHenceforth, when you **_lead the aurochs hunt in spring,_** roll +Defenses: **on a 10+**, gain 1d4 Surplus; **on a 7-9**, gain 1d4 Surplus but pick 1 from the list below; **on a 6-**, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town's horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they'll be wiped out",
+      "text": ""
+    }
+  },
+  "expanded-trades": {
+    "name": {
+      "source": "Expanded Trades",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Specialization is the key to prosperity!",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** one of the following improvements, to free up enough time to support more tradesfolk:",
+      "text": ""
+    },
+    "choices/req-harnessing-stream/text": {
+      "source": "Harnessing the Stream",
+      "text": ""
+    },
+    "choices/req-raincatching/text": {
+      "source": "Raincatching",
+      "text": ""
+    },
+    "choices/req-mill/text": {
+      "source": "Mill",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "And establishing at least 3 of the following:",
+      "text": ""
+    },
+    "choices/chandler/text": {
+      "source": "A chandler with extensive tools and supplies (Value 3)",
+      "text": ""
+    },
+    "choices/glassblower/text": {
+      "source": "A glassblower with a full glassworks (Value 3)",
+      "text": ""
+    },
+    "choices/weaver/text": {
+      "source": "An *exceptional* weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
+      "text": ""
+    },
+    "choices/potter/text": {
+      "source": "An *exceptional* potter with good tools (Value 2) and a reliable source of excellent clay",
+      "text": ""
+    },
+    "choices/smith/text": {
+      "source": "An *exceptional* smith with a newer, hotter forge (Value 3)",
+      "text": ""
+    },
+    "choices/other-tradesperson/text": {
+      "source": "Some other *exceptional* tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
+      "text": ""
+    },
+    "choices/12/text": {
+      "source": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1.",
+      "text": ""
+    }
+  },
+  "golden-sapling": {
+    "name": {
+      "source": "Golden Sapling",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Requires all of the following, in order:",
+      "text": ""
+    },
+    "choices/retrieve-acorn/text": {
+      "source": "Retrieve an ◇◇ acorn from the boughs of the Golden Oak in late autumn",
+      "text": ""
+    },
+    "choices/plant-acorn/text": {
+      "source": "Plant the acorn in the fields near Stonetop, watering it with the lifeblood of a great virile beast, like an aurochs bull",
+      "text": ""
+    },
+    "choices/nurture-protect/text": {
+      "source": "Nurture and protect the sapling through 4 years of growth",
+      "text": ""
+    },
+    "choices/4/text": {
+      "source": "When you **_mark all the requirements_**, add \"Golden Sapling\" to the Resources list and automatically mark the **Greater Harvest** improvement.",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus.",
+      "text": ""
+    }
+  },
+  "great-wood-timber": {
+    "name": {
+      "source": "Great Wood Timber",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Requires all of the following:",
+      "text": ""
+    },
+    "choices/proof-that/text": {
+      "source": "Proof that trees can be felled without dire consequence",
+      "text": ""
+    },
+    "choices/crew-brave/text": {
+      "source": "A crew of brave lumberjacks",
+      "text": ""
+    },
+    "choices/skilled-carpenter/text": {
+      "source": "A skilled carpenter, working full time",
+      "text": ""
+    },
+    "choices/pulling-together/text": {
+      "source": "Pulling Together once, over a course of a few weeks, to generate the first load of timber.",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Timber from the Great Wood\" to the Resources list.",
+      "text": ""
+    },
+    "choices/6/text": {
+      "source": "Henceforth, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter.",
+      "text": ""
+    }
+  },
+  "greater-harvest": {
+    "name": {
+      "source": "Greater Harvest",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** 1 of the following:",
+      "text": ""
+    },
+    "choices/double-yield/text": {
+      "source": "Doubling the yield of crops inside the Old Wall",
+      "text": ""
+    },
+    "choices/clear-fields/text": {
+      "source": "Clearing/taming new fields beyond the Old Wall",
+      "text": ""
+    },
+    "choices/4/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1. Henceforth, when **_the autumn harvest is complete_**, gain +1d4 Surplus.",
+      "text": ""
+    }
+  },
+  "harnessing-the-stream": {
+    "name": {
+      "source": "Harnessing the Stream",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "A shallow creek flows just below the town. If only it could be harnessed!",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** 2 of the following:",
+      "text": ""
+    },
+    "choices/reservoir/text": {
+      "source": "A reservoir for the Stream to pool in, and some way for water to flow uphill",
+      "text": ""
+    },
+    "choices/aqueducts/text": {
+      "source": "A series of aqueducts, from the Stream's source to Stonetop",
+      "text": ""
+    },
+    "choices/4/text": {
+      "source": "When you **_meet the requirements_**, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.",
+      "text": ""
+    }
+  },
+  "herd-of-horses": {
+    "name": {
+      "source": "Herd of Horses",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Imagine what we could do with a dozen fine steeds.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following:",
+      "text": ""
+    },
+    "choices/stable-site/text": {
+      "source": "A site for a proper stable and corral",
+      "text": ""
+    },
+    "choices/build-stable/text": {
+      "source": "Pulling Together to build the stable and corral, which requires a month and a wagonload of timber (Value 2). Add them to the map.",
+      "text": ""
+    },
+    "choices/skilled-rider/text": {
+      "source": "Someone skilled in riding and training horses",
+      "text": ""
+    },
+    "choices/acquire-horses/text": {
+      "source": "Acquiring a small herd of horses, about a dozen (through trade or by catching wild ones)",
+      "text": ""
+    },
+    "choices/training-horses/text": {
+      "source": "Training/breaking them to the saddle and plow",
+      "text": ""
+    },
+    "choices/saddles-equipment/text": {
+      "source": "Additional saddles, harness, plows, etc. (Value 2)",
+      "text": ""
+    },
+    "choices/learn-to-ride/text": {
+      "source": "Pulling Together to have a couple dozen villagers learn to ride, requiring a season and 1 Surplus.",
+      "text": ""
+    },
+    "choices/9/text": {
+      "source": "Someone to mind the herd and stable, full time.",
+      "text": ""
+    },
+    "choices/10/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1 and replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size.\n\nHenceforth: When you leverage the horses to Pull Together, it takes half as long and costs half as much. When you Requisition half the herd or less, treat a 6- as a 7-9. When the Seasons Change to summer, any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0). When winter grips the land, the herd consumes 1 Surplus per 6 grown or yearling horses. For every Surplus not consumed, 1d6 horses are lost.",
+      "text": ""
+    }
+  },
+  "heroic-reputation": {
+    "name": {
+      "source": "Heroic Reputation",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Few have heard of Stonetop's heroes. Yet.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** any 3 of the following:",
+      "text": ""
+    },
+    "choices/impress-hillfolk/text": {
+      "source": "Impressing a band of Hillfolk",
+      "text": ""
+    },
+    "choices/brave-lake/text": {
+      "source": "Braving a lake and coming back with proof",
+      "text": ""
+    },
+    "choices/save-marshedge/text": {
+      "source": "Saving many Marshedge residents' lives",
+      "text": ""
+    },
+    "choices/save-gordins-delve/text": {
+      "source": "Saving many Gordin's Delve residents' lives",
+      "text": ""
+    },
+    "choices/save-beyond-marshedge/text": {
+      "source": "Saving someone from beyond Marshedge",
+      "text": ""
+    },
+    "choices/hire-minstrel/text": {
+      "source": "Hiring a minstrel to tell your tales (Value 2)",
+      "text": ""
+    },
+    "choices/8/text": {
+      "source": "When you **_meet the requirements_**, gain the following move:\n\nWhen you first meet someone from beyond Stonetop, roll +Fortunes: **on a 10+**, say what they've heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they've heard; **on a 6-**, the GM decides what they've heard.",
+      "text": ""
+    }
+  },
+  "inn": {
+    "name": {
+      "source": "Inn",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "The public house offers a common room and shelter for a few horses, but it's hardly a proper inn.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following, in order:",
+      "text": ""
+    },
+    "choices/building-site/text": {
+      "source": "A designated building site",
+      "text": ""
+    },
+    "choices/engineer-foreman/text": {
+      "source": "A competent engineer/foreman",
+      "text": ""
+    },
+    "choices/furnishings/text": {
+      "source": "Furnishings, equipment, and material (Value 3)",
+      "text": ""
+    },
+    "choices/pull-together/text": {
+      "source": "Pulling Together 2 times, each requiring 1 season, 1 Surplus, and timber/supplies (Value 2)",
+      "text": ""
+    },
+    "choices/staff/text": {
+      "source": "A small, devoted staff (innkeep, cook, ostler, etc.)",
+      "text": ""
+    },
+    "choices/7/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1. Name the inn, add it to both the Resources list and map.\n\nHenceforth, when the seasons change, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.\n\nOnce per season, when you expend 1 Surplus and bring folks together at the inn (to talk, to celebrate, to recuperate), clear one of the steading's debilities.",
+      "text": ""
+    }
+  },
+  "market": {
+    "name": {
+      "source": "Market",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Stonetop is at most an afterthought for traders in the region. We need to change that.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** 1 of the following:",
+      "text": ""
+    },
+    "choices/compelling-good/text": {
+      "source": "A compelling good/service, exclusive to Stonetop",
+      "text": ""
+    },
+    "choices/other-reason/text": {
+      "source": "Establishing some other reason to visit Stonetop (place of pilgrimage, etc.)",
+      "text": ""
+    },
+    "choices/4/text": {
+      "source": "And these:",
+      "text": ""
+    },
+    "choices/market-site/text": {
+      "source": "A dedicated market site (add it to the map)",
+      "text": ""
+    },
+    "choices/arbiter/text": {
+      "source": "A trusted arbiter, able to enforce their own rulings on matters of trade",
+      "text": ""
+    },
+    "choices/four-seasons/text": {
+      "source": "Four seasons in operation without notable incidents of violence, banditry, theft, etc.",
+      "text": ""
+    },
+    "choices/8/text": {
+      "source": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1.\n\nWhen the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus.",
+      "text": ""
+    }
+  },
+  "mill": {
+    "name": {
+      "source": "Mill",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following:",
+      "text": ""
+    },
+    "choices/engineer-foreman/text": {
+      "source": "An *exceptional* engineer/foreman",
+      "text": ""
+    },
+    "choices/power-source/text": {
+      "source": "A convenient, consistent power source (wind on a hill, a waterwheel, a Herd of Horses, magic, etc.)",
+      "text": ""
+    },
+    "choices/building-site/text": {
+      "source": "A building site able to harness that power source",
+      "text": ""
+    },
+    "choices/pull-together/text": {
+      "source": "Pulling Together 2 times, each requiring a season, 1 Surplus, a wagonload of timber (Value 2), and a bunch of rope and supplies (Value 2)",
+      "text": ""
+    },
+    "choices/full-time-miller/text": {
+      "source": "A full-time miller",
+      "text": ""
+    },
+    "choices/7/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.",
+      "text": ""
+    }
+  },
+  "palisade": {
+    "name": {
+      "source": "Palisade",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "A wall of sharpened logs, 10' tall, to keep evil at bay.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following, in order:",
+      "text": ""
+    },
+    "choices/timber/text": {
+      "source": "Lots of timber (~20-25 wagonloads, Value 3)",
+      "text": ""
+    },
+    "choices/engineer-foreman/text": {
+      "source": "A competent engineer/foreman",
+      "text": ""
+    },
+    "choices/rope-nails-pitch/text": {
+      "source": "Lots of rope, nails, pitch, etc. (Value 2)",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "Pulling Together, costing a month and 1 Surplus.",
+      "text": ""
+    },
+    "choices/6/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.\n\nHenceforth, when you take advantage of the palisade, you have advantage to Deploy.",
+      "text": ""
+    }
+  },
+  "permanent-logging-camp": {
+    "name": {
+      "source": "Permanent Logging Camp",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Suppose we built a few cabins and kept loggers up there year-round?",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "Requires all of the following:",
+      "text": ""
+    },
+    "choices/two-three/text": {
+      "source": "Two or three permanent dwellings, just off the Highway",
+      "text": ""
+    },
+    "choices/supplies-furnishings/text": {
+      "source": "Supplies, furnishings, and tools for those dwellings (Value 2)",
+      "text": ""
+    },
+    "choices/5-6/text": {
+      "source": "5-6 capable adults, willing and able to relocate and log year-round",
+      "text": ""
+    },
+    "choices/extra-wagon/text": {
+      "source": "An extra wagon (Value 3) and extra horse or mule (Value 3) to",
+      "text": ""
+    },
+    "choices/haul-timber/text": {
+      "source": "haul timber to and from Stonetop",
+      "text": ""
+    },
+    "choices/four-seasons/text": {
+      "source": "Four seasons of operation, each generating a wagonload of timber (Value 2)",
+      "text": ""
+    },
+    "choices/8/text": {
+      "source": "When you **_mark all the requirements_**, add \"Logging: timber, wood\" to the resources list and increase Fortunes by 1.",
+      "text": ""
+    },
+    "choices/9/text": {
+      "source": "Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation.",
+      "text": ""
+    }
+  },
+  "raincatching": {
+    "name": {
+      "source": "Raincatching",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Filling the cistern takes so much work. Surely, we can do better!",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following, in order:",
+      "text": ""
+    },
+    "choices/engineer-foreman/text": {
+      "source": "An *exceptional* engineer/foreman, to design a cunning system of roofs, gutters, and conduits",
+      "text": ""
+    },
+    "choices/slate-terracotta/text": {
+      "source": "Enough slate/terracotta to roof all the buildings and construct the gutters and conduits (Value 3)",
+      "text": ""
+    },
+    "choices/pull-together/text": {
+      "source": "Pulling Together 3 times, each requiring 1 season and 1 Surplus",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Raincatching\" to the Resources list.\n\nHenceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus.",
+      "text": ""
+    }
+  },
+  "rhoillyg-orchard": {
+    "name": {
+      "source": "Rhoillyg Orchard",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Requires both:",
+      "text": ""
+    },
+    "choices/sack-full/text": {
+      "source": "A ◇ sack full of rhoillyg seeds",
+      "text": ""
+    },
+    "choices/herbalist-considerable/text": {
+      "source": "An herbalist of considerable skill and patience And either of these, to germinate the seeds:",
+      "text": ""
+    },
+    "choices/year-so/text": {
+      "source": "A year or so of experimentation",
+      "text": ""
+    },
+    "choices/advice-knowledgeable/text": {
+      "source": "Advice from a knowledgeable source And then each of these:",
+      "text": ""
+    },
+    "choices/full-spring/text": {
+      "source": "A full spring, to sprout and cultivate saplings",
+      "text": ""
+    },
+    "choices/pulling-together/text": {
+      "source": "Pulling Together once, over the course of a summer, to clear and plant the orchard",
+      "text": ""
+    },
+    "choices/protecting-orchard/text": {
+      "source": "Protecting the orchard through two more summers When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Rhoillyg Orchard\" to both the Resources list and the steading map. Henceforth, the steading generates +1 Surplus in summer and another +1 Surplus when the autumn harvest is complete.",
+      "text": ""
+    }
+  },
+  "roadbuilding": {
+    "name": {
+      "source": "Roadbuilding",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Requires all of the following:",
+      "text": ""
+    },
+    "choices/unlock-secrets/text": {
+      "source": "Unlock the secrets of **runic calligraphy**",
+      "text": ""
+    },
+    "choices/teach-runes/text": {
+      "source": "Teach the runes to at least 2 full-time artisans of quick mind and steady hand",
+      "text": ""
+    },
+    "choices/secure-nigh/text": {
+      "source": "Secure a nigh-unlimited source of basalt blocks",
+      "text": ""
+    },
+    "choices/recruit-foreman/text": {
+      "source": "Recruit a foreman of considerable skill, who has studied construction of the Roads",
+      "text": ""
+    },
+    "choices/recruit-maintain/text": {
+      "source": "Recruit and maintain a crew of ~50 skilled laborers and masons",
+      "text": ""
+    },
+    "choices/6/text": {
+      "source": "When you **_mark all the require_****_ments_**, you can expand or repair the Makers’ Roads. Every ~25 miles of road requires **Pulling Together**, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies.",
+      "text": ""
+    }
+  },
+  "standing-watch": {
+    "name": {
+      "source": "Standing Watch",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Some full-time warriors would make us all safer, no?",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following:",
+      "text": ""
+    },
+    "choices/veteran-warrior/text": {
+      "source": "A veteran warrior, able to command a crowd",
+      "text": ""
+    },
+    "choices/six-warriors/text": {
+      "source": "At least 6 warriors, well-equipped and willing",
+      "text": ""
+    },
+    "choices/village-leaders/text": {
+      "source": "The village leaders agreeing to support warriors who train and keep watch full-time",
+      "text": ""
+    },
+    "choices/5/text": {
+      "source": "When you **_meet the requirements_**, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.\n\nWhen you specifically involve the watch in a move, treat Defenses as 1 higher than they are.",
+      "text": ""
+    }
+  },
+  "stone-wall": {
+    "name": {
+      "source": "Stone Wall",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "No mere palisade of wood, but a mighty rampart. We have the stone, after all...",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following, in order:",
+      "text": ""
+    },
+    "choices/engineer-foreman/text": {
+      "source": "An *exceptional* engineer/foreman",
+      "text": ""
+    },
+    "choices/stonecutter/text": {
+      "source": "A stonecutter with an able crew",
+      "text": ""
+    },
+    "choices/equipment-tools/text": {
+      "source": "Equipment, tools, and material (Value 3)",
+      "text": ""
+    },
+    "choices/pull-together/text": {
+      "source": "Pulling Together 4 times, each costing 1 season, 1 Surplus, and supplies (Value 2)",
+      "text": ""
+    },
+    "choices/6/text": {
+      "source": "When you **_meet the requirements_**, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.\n\nHenceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.",
+      "text": ""
+    }
+  },
+  "township": {
+    "name": {
+      "source": "Township",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Will this ever be more than a backwater village?",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** all of the following:",
+      "text": ""
+    },
+    "choices/population-plus3/text": {
+      "source": "Population +3 for 4 consecutive seasons",
+      "text": ""
+    },
+    "choices/additional-housing/text": {
+      "source": "Additional Housing",
+      "text": ""
+    },
+    "choices/water-source/text": {
+      "source": "Raincatching OR Harnessing the Stream",
+      "text": ""
+    },
+    "choices/other-improvements/text": {
+      "source": "At least 4 other improvements",
+      "text": ""
+    },
+    "choices/formal-government/text": {
+      "source": "A formal government of some sort",
+      "text": ""
+    },
+    "choices/7/text": {
+      "source": "When you mark all of the requirements, change Size to town and its Population to +0.\n\nHenceforth: When you Muster, Pull Together, or Trade & Barter, you have advantage. When the seasons change to spring or summer, the town generates Surplus equal to Population+1. But, when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population.",
+      "text": ""
+    }
+  },
+  "trade-with-barrier-pass": {
+    "name": {
+      "source": "Trade with Barrier Pass",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Surely it would benefit both communities were we to trade with each other!",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "Requires getting them to talk to you in the first place, which requires 1 of these:",
+      "text": ""
+    },
+    "choices/bringing-them/text": {
+      "source": "Bringing them a valuable artifact of the Rime Lords, as a gift or to trade",
+      "text": ""
+    },
+    "choices/resident-in/text": {
+      "source": "A resident in good standing, vouching for you",
+      "text": ""
+    },
+    "choices/4/text": {
+      "source": "And then, all of the following:",
+      "text": ""
+    },
+    "choices/making-compelling/text": {
+      "source": "Making a compelling offer",
+      "text": ""
+    },
+    "choices/convincing-least/text": {
+      "source": "Convincing at least two of the Honored Sages to accept",
+      "text": ""
+    },
+    "choices/two-successful/text": {
+      "source": "Two successful trade missions, each in a different season",
+      "text": ""
+    },
+    "choices/8/text": {
+      "source": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\".",
+      "text": ""
+    },
+    "choices/9/text": {
+      "source": "Henceforth, when **_spring bursts forth_** **_and Stonetop has at least 1 Surplus_**, Stonetop gains +1 Surplus from trade. Also, when you **_Trade & Barter_** **_for timber, ivory, fine wool, goats,_** **_sheep, parchment, vellum, or ink_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "weapons-of-war": {
+    "name": {
+      "source": "Weapons of War",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Spears are great, but how about axes, picks, swords?",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** either this:",
+      "text": ""
+    },
+    "choices/buy-weapons/text": {
+      "source": "Acquiring a few dozen good swords, battleaxes, maces, flails, warhammers, etc. (Value 3)",
+      "text": ""
+    },
+    "choices/3/text": {
+      "source": "Or all of these:",
+      "text": ""
+    },
+    "choices/smith-staff/text": {
+      "source": "A smith, with a full staff and upgraded tools (Value 2)",
+      "text": ""
+    },
+    "choices/iron-ore/text": {
+      "source": "A cartload of good iron ore (Value 2)",
+      "text": ""
+    },
+    "choices/smith-seasons/text": {
+      "source": "4 seasons of work by the smith",
+      "text": ""
+    },
+    "choices/7/text": {
+      "source": "And then:",
+      "text": ""
+    },
+    "choices/veteran-warrior/text": {
+      "source": "A veteran warrior, able to command a crowd",
+      "text": ""
+    },
+    "choices/train-militia/text": {
+      "source": "Pulling Together to train the militia with these new weapons, requiring a season and 1 Surplus",
+      "text": ""
+    },
+    "choices/10/text": {
+      "source": "When you **_meet the requirements_**, increase Defenses by 1 and add \"Weapons of War\" to the Fortifications list. Each spring, the village must expend 1 Surplus to maintain and replace the town's weapons.\n\nHenceforth, when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items, as if they were already on the inventory inserts. Battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity.",
+      "text": ""
+    }
+  },
+  "well-trained-militia": {
+    "name": {
+      "source": "Well-Trained Militia",
+      "text": ""
+    },
+    "choices/0/text": {
+      "source": "Everyone can use a spear and shield, but some hard drilling could make us a force to be reckoned with.",
+      "text": ""
+    },
+    "choices/1/text": {
+      "source": "**Requires** one of the following:",
+      "text": ""
+    },
+    "choices/veteran-warrior/text": {
+      "source": "A veteran warrior, able to command a crowd",
+      "text": ""
+    },
+    "choices/3/text": {
+      "source": "For each tactic below, you must then Pull Together, requiring a season of drills and 1 Surplus.",
+      "text": ""
+    },
+    "choices/archery/text": {
+      "source": "Archery: barrages, ranged ambushes, sniping, etc.",
+      "text": ""
+    },
+    "choices/cavalry/text": {
+      "source": "Cavalry (requires a Herd of Horses): fighting from horseback, charges",
+      "text": ""
+    },
+    "choices/formations/text": {
+      "source": "Formations: shield walls, wedges, phalanx, etc.",
+      "text": ""
+    },
+    "choices/readiness/text": {
+      "source": "Readiness: patrolling, reacting quickly to alarms",
+      "text": ""
+    },
+    "choices/skirmishing/text": {
+      "source": "Skirmishing: ambushes, harassing, hit-and-run",
+      "text": ""
+    },
+    "choices/9/text": {
+      "source": "When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence **on a 7-9**, not the GM).\n\nWhen the militia has trained in 2+ tactics, increase Defenses by 1.\n\nEach summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic.",
+      "text": ""
+    }
+  },
+  "_folders": {
+    "additional": {
+      "source": "additional",
+      "text": ""
+    },
+    "stonetop": {
+      "source": "stonetop",
+      "text": ""
+    }
+  }
+}

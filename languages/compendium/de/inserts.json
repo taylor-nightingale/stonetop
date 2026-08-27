@@ -1,0 +1,522 @@
+{
+  "ghost": {
+    "name": {
+      "source": "Ghost",
+      "text": ""
+    },
+    "description": {
+      "source": "When you *die but your soul lingers*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/0/title": {
+      "source": "Terrible Purpose",
+      "text": ""
+    },
+    "choices/terrible-purpose/0/text": {
+      "source": "Choose 1:",
+      "text": ""
+    },
+    "choices/consequences/0/title": {
+      "source": "Consequences",
+      "text": ""
+    },
+    "choices/consequences/0/text": {
+      "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
+      "text": ""
+    },
+    "choices/terrible-purpose/longing/text": {
+      "source": "**LONGING** — Name the person or persons you refuse to let go of.\n\nWhen you *spend the night watching them*, regain all your HP or clear all your debilities.\n\nWhen they *genuinely return your affections*, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *rebuff you or recoil from you*, mark a consequence.\n\nWhen they *die peacefully and pass through the Last Door*, so do you.\n\nShould they be *taken from you violently*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/vengeance/text": {
+      "source": "**VENGEANCE** — Name the person or persons who must pay.\n\nWhen you *spend the night wailing, howling, and raging in a lonely place*, regain all your HP or clear all your debilities.\n\nWhen you *make one of them pay and ensure they know why*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *defeat or escape you*, mark a consequence.\n\nWhen you *kill the last of them*, pass through the Last Door.\n\nShould they *die before you're finished with them*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/duty/text": {
+      "source": "**DUTY** — Name the task you refuse to leave undone.\n\nWhen you *spend the night working on your task*, regain all your HP or clear all your debilities.\n\nWhen you *achieve a significant milestone towards your task*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen you *fail to perform your task or suffer a material setback*, mark a consequence.\n\nWhen the *task is finally complete*, pass through the Last Door.\n\nShould the *task become impossible to perform*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/consequences/breakdown/text": {
+      "source": "**BREAKDOWN** — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.",
+      "text": ""
+    },
+    "choices/consequences/unstable/text": {
+      "source": "**UNSTABLE** *(Requires Breakdown)* — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you *roll a 6-*, the GM can choose to have you enter such a rage.",
+      "text": ""
+    },
+    "choices/consequences/carrion-stench/text": {
+      "source": "**CARRION STENCH** — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.",
+      "text": ""
+    },
+    "choices/consequences/deathly-visage/text": {
+      "source": "**DEATHLY VISAGE** — It's clear to all who look upon you that you are dead. When you *use intimidation and your sinister appearance to Persuade*, you have advantage.",
+      "text": ""
+    },
+    "choices/consequences/home-to-vermin/text": {
+      "source": "**HOME TO VERMIN** — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: *group, tiny, gross, meek, stealthy*; HP 1 each; Instinct: to get distracted; Cost: genuine affection.",
+      "text": ""
+    },
+    "choices/consequences/nightkin/text": {
+      "source": "**NIGHTKIN** — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.",
+      "text": ""
+    },
+    "choices/consequences/quarry/text": {
+      "source": "**QUARRY** — The Pale Hunter has caught your scent. Expect a visit, soon.",
+      "text": ""
+    },
+    "choices/consequences/strange-appetites/text": {
+      "source": "**STRANGE APPETITES** — Pick 1: *still-warm blood* / *dying breaths* / *brains* / *bone & marrow* / *rotting meat* / *eyes*\n\nWhen you *consume your special fare*, heal damage equal to half your max HP or clear a debility.",
+      "text": ""
+    },
+    "choices/consequences/insatiable/text": {
+      "source": "**INSATIABLE** *(Requires Strange Appetites)* — When you *have the opportunity to indulge your Strange Appetites*, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).",
+      "text": ""
+    },
+    "choices/consequences/final-consequence/text": {
+      "source": "**THE FINAL CONSEQUENCE** — Your tenuous connection to humanity is lost and you become a monster under the GM's control.",
+      "text": ""
+    },
+    "instinct/0/options/denial/text": {
+      "source": "Denial",
+      "text": ""
+    },
+    "instinct/0/options/denial/description": {
+      "source": "To refuse to accept that you are dead.",
+      "text": ""
+    },
+    "instinct/0/options/obsession/text": {
+      "source": "Obsession",
+      "text": ""
+    },
+    "instinct/0/options/obsession/description": {
+      "source": "To pursue your Terrible Purpose no matter what.",
+      "text": ""
+    },
+    "instinct/0/options/ennui/text": {
+      "source": "Ennui",
+      "text": ""
+    },
+    "instinct/0/options/ennui/description": {
+      "source": "To bemoan your condition, to wish for release.",
+      "text": ""
+    }
+  },
+  "lightbearer-invocations-insert": {
+    "name": {
+      "source": "Invocations",
+      "text": ""
+    },
+    "description": {
+      "source": "Lightbearer, you start knowing 2 Invocations. Each time you reach an even-numbered level, learn 1 new Invocation.\n\nWhile one Invocation is *ongoing*, you can't use another. You can end an Invocation whenever you wish, and it will end immediately if your holy light is extinguished. An invocation's range is equal to that of its light source.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/bath-of-healing-light/subtitle": {
+      "source": "Bath of Healing Light",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/bath-of-healing-light/text": {
+      "source": "Cup your hands around your light and focus it. Your patient... (pick 2):\n\n- Regains 5 HP (can pick this twice)\n- Clears a debility (can pick this twice)\n- Has one of their problematic wounds stabilized\n- Recovers from a minor condition (drunk, etc.)\n **Reduced:** pick only 1 (instead of 2).\n **Empowered:** add these to your possible choices:\n\n- Regains 10 HP (can pick this twice)\n- Fully recovers from a problematic wound\n- Is cured of a dire affliction, poison, or disease",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/blinding-light/subtitle": {
+      "source": "Blinding Light",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/blinding-light/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/blinding-light/text": {
+      "source": "Your light blazes. Any in range who look at it are temporarily blinded. Those not looking at it directly must avert their eyes. You are unaffected.\n\n**Reduced:** the light flares only for a moment.\n**Empowered:** if you wish, your allies are unaffected.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/cleansing-light/subtitle": {
+      "source": "Cleansing Light",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/cleansing-light/text": {
+      "source": "Your light flares, dispelling magical effects within range. Potent, lasting magics are merely suppressed, and slowly return to power once removed from your light.\n\n**Reduced:** potent, lasting magics are unaffected; other magical effects are merely suppressed.\n**Empowered:** the invocation is *ongoing*; while it lasts, any magical effects created in or brought into range are dispelled/suppressed.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/cold-light-of-day/subtitle": {
+      "source": "Cold Light of Day",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/cold-light-of-day/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/cold-light-of-day/text": {
+      "source": "All in your light appears as it really is, without the benefit of illusion, shapeshifting, or disguise.\n\n**Reduced:** it lasts only a few moments, just long enough to glimpse the truth.\n**Empowered:** illusions in the light are dispelled and shapeshifters in the light are momentarily stunned.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/dancing-light/subtitle": {
+      "source": "Dancing Light",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/dancing-light/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/dancing-light/text": {
+      "source": "Your light takes to the air, floating as you direct it, untethered from its fuel. You can move it anywhere that you can see it, and even change its shape or color.\n\n**Reduced:** it dims, reducing its range by one step.\n**Empowered:** you can use another Invocation through the Dancing Light while it is *ongoing*.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/go-back-to-the-shadow/subtitle": {
+      "source": "Go Back to the Shadow",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/go-back-to-the-shadow/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/go-back-to-the-shadow/text": {
+      "source": "Spirits of darkness in your light take 2d8 damage (ignores armor). Roll damage for each spirit separately. A spirit reduced to 0 HP is either banished from this world or back to whatever tethers it here.\n\n**Reduced:** affected spirits take only 1d8 damage.\n**Empowered:** a spirit reduced to 0 HP is either utterly destroyed OR it's banished from the world and anything tethering it here is destroyed (GM's choice).",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/hold-back-the-darkness/subtitle": {
+      "source": "Hold Back the Darkness",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/hold-back-the-darkness/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/hold-back-the-darkness/text": {
+      "source": "Spirits and creatures of darkness are repelled by your light and cannot approach. The cowardly or mindless flee outright. Those forced into range of your light deal damage with disadvantage.\n\n**Reduced:** you must maintain an unbroken litany of prayers in order to maintain the effect.\n**Empowered:** affected entities that are forced into range of your light are vulnerable to mundane weapons, their supernatural defenses suppressed.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/moth-to-a-flame/subtitle": {
+      "source": "Moth to a Flame",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/moth-to-a-flame/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/moth-to-a-flame/text": {
+      "source": "Name an individual or type of mortal creature. They gaze raptly at your light and will follow it, slowly. The effect ends if they take damage.\n\n**Reduced:** it lasts only briefly OR only some of the named creatures are affected (GM's choice).\n**Empowered:** the effect continues for a few moments after they first take damage. Taking damage a second time ends the effect immediately.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/terrible-as-the-dawn/subtitle": {
+      "source": "Terrible as the Dawn",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/terrible-as-the-dawn/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/terrible-as-the-dawn/text": {
+      "source": "Name an individual or type of mortal creature. Your light fills them with dread, causing them to recoil and back away. The cowardly flee outright.\n\n**Reduced:** all mortal creatures but you are affected, including your allies.\n**Empowered:** even the brave must cower or flee.",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/warmth-of-the-sun/subtitle": {
+      "source": "Dancing Light",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/warmth-of-the-sun/subtitleNote": {
+      "source": "(ongoing)",
+      "text": ""
+    },
+    "choices/lightbearer-invocations/warmth-of-the-sun/text": {
+      "source": "While in your light, you and your allies are free of fear and doubt, and unharmed by extreme cold.\n\n**Reduced:** only one person in the light is protected.\n**Empowered:** the light also protects from necromantic and life-draining effects.",
+      "text": ""
+    }
+  },
+  "revenant": {
+    "name": {
+      "source": "Revenant",
+      "text": ""
+    },
+    "description": {
+      "source": "When you *die but cling stubbornly to your body*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/0/title": {
+      "source": "Terrible Purpose",
+      "text": ""
+    },
+    "choices/terrible-purpose/0/text": {
+      "source": "Choose 1:",
+      "text": ""
+    },
+    "choices/consequences/0/title": {
+      "source": "Consequences",
+      "text": ""
+    },
+    "choices/consequences/0/text": {
+      "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
+      "text": ""
+    },
+    "choices/terrible-purpose/longing/text": {
+      "source": "**LONGING** — Name the person or persons you refuse to let go of.\n\nWhen you *spend the night watching them*, regain all your HP or clear all your debilities.\n\nWhen they *genuinely return your affections*, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *rebuff you or recoil from you*, mark a consequence.\n\nWhen they *die peacefully and pass through the Last Door*, so do you.\n\nShould they be *taken from you violently*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/vengeance/text": {
+      "source": "**VENGEANCE** — Name the person or persons who must pay.\n\nWhen you *spend the night wailing, howling, and raging in a lonely place*, regain all your HP or clear all your debilities.\n\nWhen you *make one of them pay and ensure they know why*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *defeat or escape you*, mark a consequence.\n\nWhen you *kill the last of them*, pass through the Last Door.\n\nShould they *die before you're finished with them*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/duty/text": {
+      "source": "**DUTY** — Name the task you refuse to leave undone.\n\nWhen you *spend the night working on your task*, regain all your HP or clear all your debilities.\n\nWhen you *achieve a significant milestone towards your task*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen you *fail to perform your task or suffer a material setback*, mark a consequence.\n\nWhen the *task is finally complete*, pass through the Last Door.\n\nShould the *task become impossible to perform*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/consequences/breakdown/text": {
+      "source": "**BREAKDOWN** — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.",
+      "text": ""
+    },
+    "choices/consequences/unstable/text": {
+      "source": "**UNSTABLE** *(Requires Breakdown)* — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you *roll a 6-*, the GM can choose to have you enter such a rage.",
+      "text": ""
+    },
+    "choices/consequences/carrion-stench/text": {
+      "source": "**CARRION STENCH** — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.",
+      "text": ""
+    },
+    "choices/consequences/deathly-visage/text": {
+      "source": "**DEATHLY VISAGE** — It's clear to all who look upon you that you are dead. When you *use intimidation and your sinister appearance to Persuade*, you have advantage.",
+      "text": ""
+    },
+    "choices/consequences/home-to-vermin/text": {
+      "source": "**HOME TO VERMIN** — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: *group, tiny, gross, meek, stealthy*; HP 1 each; Instinct: to get distracted; Cost: genuine affection.",
+      "text": ""
+    },
+    "choices/consequences/nightkin/text": {
+      "source": "**NIGHTKIN** — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.",
+      "text": ""
+    },
+    "choices/consequences/quarry/text": {
+      "source": "**QUARRY** — The Pale Hunter has caught your scent. Expect a visit, soon.",
+      "text": ""
+    },
+    "choices/consequences/strange-appetites/text": {
+      "source": "**STRANGE APPETITES** — Pick 1: *still-warm blood* / *dying breaths* / *brains* / *bone & marrow* / *rotting meat* / *eyes*\n\nWhen you *consume your special fare*, heal damage equal to half your max HP or clear a debility.",
+      "text": ""
+    },
+    "choices/consequences/insatiable/text": {
+      "source": "**INSATIABLE** *(Requires Strange Appetites)* — When you *have the opportunity to indulge your Strange Appetites*, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).",
+      "text": ""
+    },
+    "choices/consequences/final-consequence/text": {
+      "source": "**THE FINAL CONSEQUENCE** — Your tenuous connection to humanity is lost and you become a monster under the GM's control.",
+      "text": ""
+    },
+    "instinct/0/options/denial/text": {
+      "source": "Denial",
+      "text": ""
+    },
+    "instinct/0/options/denial/description": {
+      "source": "To refuse to accept that you are dead.",
+      "text": ""
+    },
+    "instinct/0/options/obsession/text": {
+      "source": "Obsession",
+      "text": ""
+    },
+    "instinct/0/options/obsession/description": {
+      "source": "To pursue your Terrible Purpose no matter what.",
+      "text": ""
+    },
+    "instinct/0/options/ennui/text": {
+      "source": "Ennui",
+      "text": ""
+    },
+    "instinct/0/options/ennui/description": {
+      "source": "To bemoan your condition, to wish for release.",
+      "text": ""
+    }
+  },
+  "thrall": {
+    "name": {
+      "source": "Thrall",
+      "text": ""
+    },
+    "description": {
+      "source": "When you *die but call one of the Things Below by name and beseech them to intercede*, they do. Death is averted, but you gain this insert and 1 Mark.",
+      "text": ""
+    },
+    "choices/your-master/0/title": {
+      "source": "Your Master",
+      "text": ""
+    },
+    "choices/your-master/0/text": {
+      "source": "The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.",
+      "text": ""
+    },
+    "choices/impulse/0/title": {
+      "source": "Impulse",
+      "text": ""
+    },
+    "choices/impulse/0/text": {
+      "source": "Ask the GM to choose 1, to represent your master's nature and will:",
+      "text": ""
+    },
+    "choices/terrible-purpose/0/title": {
+      "source": "Terrible Purpose",
+      "text": ""
+    },
+    "choices/terrible-purpose/0/text": {
+      "source": "Choose 1:",
+      "text": ""
+    },
+    "choices/consequences/0/title": {
+      "source": "Consequences",
+      "text": ""
+    },
+    "choices/consequences/0/text": {
+      "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
+      "text": ""
+    },
+    "choices/marks/0/title": {
+      "source": "Marks",
+      "text": ""
+    },
+    "choices/marks/0/text": {
+      "source": "When you first gain this insert, the GM will choose 1 Mark based on your master's nature. Gain more when a move tells you to do so.",
+      "text": ""
+    },
+    "choices/your-master/name/text": {
+      "source": "Name your master here, along with any titles that you know:",
+      "text": ""
+    },
+    "choices/impulse/stoke-conflict/text": {
+      "source": "Stoke conflict, confusion, distrust",
+      "text": ""
+    },
+    "choices/impulse/erode-hope/text": {
+      "source": "Erode hope/faith/honor/self-image",
+      "text": ""
+    },
+    "choices/impulse/hide-bury/text": {
+      "source": "Hide/bury/smother things or ideas",
+      "text": ""
+    },
+    "choices/impulse/deprive/text": {
+      "source": "Deprive others of what they need",
+      "text": ""
+    },
+    "choices/impulse/inflict-harm/text": {
+      "source": "Inflict harm, cruelly and unnecessarily",
+      "text": ""
+    },
+    "choices/impulse/desecrate/text": {
+      "source": "Desecrate/mutilate/ruin things of value",
+      "text": ""
+    },
+    "choices/impulse/shock-terrify/text": {
+      "source": "Shock/terrify/horrify others",
+      "text": ""
+    },
+    "choices/terrible-purpose/longing/text": {
+      "source": "**LONGING** — Name the person or persons you refuse to let go of.\n\nWhen you *spend the night watching them*, regain all your HP or clear all your debilities.\n\nWhen they *genuinely return your affections*, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *rebuff you or recoil from you*, mark a consequence.\n\nWhen they *die peacefully and pass through the Last Door*, so do you.\n\nShould they be *taken from you violently*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/vengeance/text": {
+      "source": "**VENGEANCE** — Name the person or persons who must pay.\n\nWhen you *spend the night wailing, howling, and raging in a lonely place*, regain all your HP or clear all your debilities.\n\nWhen you *make one of them pay and ensure they know why*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *defeat or escape you*, mark a consequence.\n\nWhen you *kill the last of them*, pass through the Last Door.\n\nShould they *die before you're finished with them*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/terrible-purpose/duty/text": {
+      "source": "**DUTY** — Name the task you refuse to leave undone.\n\nWhen you *spend the night working on your task*, regain all your HP or clear all your debilities.\n\nWhen you *achieve a significant milestone towards your task*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen you *fail to perform your task or suffer a material setback*, mark a consequence.\n\nWhen the *task is finally complete*, pass through the Last Door.\n\nShould the *task become impossible to perform*, mark the Final Consequence.",
+      "text": ""
+    },
+    "choices/consequences/breakdown/text": {
+      "source": "**BREAKDOWN** — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.",
+      "text": ""
+    },
+    "choices/consequences/unstable/text": {
+      "source": "**UNSTABLE** *(Requires Breakdown)* — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you *roll a 6-*, the GM can choose to have you enter such a rage.",
+      "text": ""
+    },
+    "choices/consequences/carrion-stench/text": {
+      "source": "**CARRION STENCH** — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.",
+      "text": ""
+    },
+    "choices/consequences/deathly-visage/text": {
+      "source": "**DEATHLY VISAGE** — It's clear to all who look upon you that you are dead. When you *use intimidation and your sinister appearance to Persuade*, you have advantage.",
+      "text": ""
+    },
+    "choices/consequences/home-to-vermin/text": {
+      "source": "**HOME TO VERMIN** — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: *group, tiny, gross, meek, stealthy*; HP 1 each; Instinct: to get distracted; Cost: genuine affection.",
+      "text": ""
+    },
+    "choices/consequences/nightkin/text": {
+      "source": "**NIGHTKIN** — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.",
+      "text": ""
+    },
+    "choices/consequences/quarry/text": {
+      "source": "**QUARRY** — The Pale Hunter has caught your scent. Expect a visit, soon.",
+      "text": ""
+    },
+    "choices/consequences/strange-appetites/text": {
+      "source": "**STRANGE APPETITES** — Pick 1: *still-warm blood* / *dying breaths* / *brains* / *bone & marrow* / *rotting meat* / *eyes*\n\nWhen you *consume your special fare*, heal damage equal to half your max HP or clear a debility.",
+      "text": ""
+    },
+    "choices/consequences/insatiable/text": {
+      "source": "**INSATIABLE** *(Requires Strange Appetites)* — When you *have the opportunity to indulge your Strange Appetites*, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).",
+      "text": ""
+    },
+    "choices/consequences/final-consequence/text": {
+      "source": "**THE FINAL CONSEQUENCE** — Your tenuous connection to humanity is lost and you become a monster under the GM's control.",
+      "text": ""
+    },
+    "choices/marks/festering-rot/text": {
+      "source": "**A FESTERING ROT** — You are unharmed by poison, disease, caustic substances, and vermin bites. Things in your presence rot, crack, corrode, and spoil.\n\nWhen you roll doubles, something on your person is ruined. The GM will tell you what, and how.",
+      "text": ""
+    },
+    "choices/marks/child-of-the-deeps/text": {
+      "source": "**CHILD OF THE DEEPS** — Reduce your max HP by 2.\n\nYou can breathe water and suffer no harm from cold or pressure. Your skin becomes squamous. When you go a day without bathing, mark a debility.\n\nWhile near a body of water, you can spend 1 Favor to call forth a slimy tentacle to do your bidding. Treat it as a follower: *stealthy, relentless*; HP 6; Damage d10 (*reach, forceful, grabby*); Instinct: to squeeze the life from things; Cost: lives drowned.",
+      "text": ""
+    },
+    "choices/marks/death-mask/text": {
+      "source": "**DEATH MASK** — You find or craft a horrid mask. When you do not wear your mask, you have disadvantage on all rolls. When you wear your mask, undead treat you as one of their own.\n\nWhen you wear your mask, you can spend 1 Favor to fill any living thing that sees you with dread. They must choose: flee, cower, or stand fast. If they stand fast, you have advantage on your first roll against them.",
+      "text": ""
+    },
+    "choices/marks/quicksilver-dreams/text": {
+      "source": "**QUICKSILVER DREAMS** — Reduce your max HP by 2.\n\nWhen you Make Camp, everyone with you suffers nightmares and has disadvantage on their next roll.\n\nYou can spend 1 Favor to inflict false sensations upon someone, as long as you can see them.",
+      "text": ""
+    },
+    "choices/marks/ravenous/text": {
+      "source": "**RAVENOUS** — You are filled with unending hunger. Gain an extra impulse: \"Wantonly devour flesh.\"\n\nWhen you Make Camp, consume an extra 1d4 provisions or uses of supplies.\n\nYou can spend 1 Favor to:\n\n- Touch something. For as long as you hold it, everyone who sees it desires it.\n- Gain a horrid, iron-rending maw (*hand, 3 piercing, messy*) for as long as you wish, and with it the ability to eat and digest anything.",
+      "text": ""
+    },
+    "choices/marks/red-wrath/text": {
+      "source": "**RED WRATH** — Reduce your max HP by 2. When the GM compels you to violence, you have disadvantage to resist.\n\nWhen you let your fury fly and lash out at someone (*hand, close*), spend 1–3 Favor and roll +Favor spent: **on a 10+**, deal 2d8 damage (*messy, forceful*) and shock, terrify, or impress any onlookers; on a 7–9, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.",
+      "text": ""
+    },
+    "choices/marks/shadows-cold-embrace/text": {
+      "source": "**SHADOW'S COLD EMBRACE** — Reduce your max HP by 2. You cast no shadow and no reflection.\n\nWhen you are exposed to sunlight or holy light, you cannot spend Favor (for any reason).\n\nOtherwise you can spend 1 Favor to:\n\n- Remain unnoticed, even when under scrutiny or after doing something to draw attention.\n- Leave no trace of your comings or goings.\n- Pass off a lie as an obvious, evident truth.",
+      "text": ""
+    },
+    "choices/marks/speak-truth/text": {
+      "source": "**SPEAK TRUTH, WHISPER SECRETS** — Reduce your max HP by 2. Your tongue grows unusually long and your teeth become stained and jagged.\n\nYou can spend 1 Favor to look someone in the eye and learn (pick 1):\n\n- What do they desire above all else?\n- What secret shame do they bear?\n- What is their greatest fear?\n- What is their worst memory?\nWhen you use the answer against them, you have advantage.",
+      "text": ""
+    },
+    "choices/marks/torments-blessing/text": {
+      "source": "**TORMENT'S BLESSING** — Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.\n\nWhen you speak a word of torment, name someone nearby, spend 1–3 Favor, and roll +Favor spent: **on a 10+**, they take 2d4 damage and are wracked with pain—lesser victims are incapacitated, and mighty foes are momentarily stunned; on a 7–9, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.",
+      "text": ""
+    },
+    "instinct/0/options/fascination/text": {
+      "source": "Fascination",
+      "text": ""
+    },
+    "instinct/0/options/fascination/description": {
+      "source": "To explore your powers, your master, your new existence.",
+      "text": ""
+    },
+    "instinct/0/options/resistance/text": {
+      "source": "Resistance",
+      "text": ""
+    },
+    "instinct/0/options/resistance/description": {
+      "source": "To struggle against your master and cling to your humanity.",
+      "text": ""
+    },
+    "instinct/0/options/shame/text": {
+      "source": "Shame",
+      "text": ""
+    },
+    "instinct/0/options/shame/description": {
+      "source": "To hide and deny your true nature.",
+      "text": ""
+    }
+  }
+}

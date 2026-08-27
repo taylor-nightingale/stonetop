@@ -1,7 +1,11 @@
-{{!-- Renders one steading improvement (a ChoiceGroup: .slug + .list) as its choice rows. Shared by
+{{!-- Renders one steading improvement (a ChoiceGroup: .slug + .list) as its title and choice rows.
+      The title is the improvement's own name, supplied by SteadingImprovement#titledChoices — these
+      panels have nowhere else to name it. The improvement ITEM sheet passes no title, since its
+      window header already says the name. Shared by
       the steading sheet's improvements tab and the improvement item sheet's rendered view, so both
       render an improvement identically. Context = the ChoiceGroup. --}}
 <div class="stonetop-choice-entry" data-slug="{{slug}}">
+	{{#if (hasText title)}}<p class="stonetop-choice-entry-title">{{rich title}}</p>{{/if}}
 	{{#each list}}
 		{{> "stonetop.choice-row" cgContext="improvement" cgGroup=../slug}}
 	{{/each}}

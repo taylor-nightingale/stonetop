@@ -43,6 +43,7 @@ import { OutfitItemData }  from "./src/data/OutfitItemData.js";
 import { PossessionData }  from "./src/data/PossessionData.js";
 import { TagGlossary }     from "./src/model/data/TagGlossary.js";
 import { Advice }          from "./src/model/data/Advice.js";
+import { TagLabels }       from "./src/model/data/TagLabels.js";
 import { CONVERTER_NAME, stonetopStringsConverter } from "./src/i18n/babeleConverter.js";
 import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no-op unless Quench is installed)
 
@@ -53,6 +54,9 @@ import "./src/dev/quenchTests.js"; // registers in-Foundry integration tests (no
 Hooks.once("i18nInit", () => {
 	TagGlossary.current = TagGlossary.fromTranslations(game.i18n?.translations?.stonetop?.tagGlossary);
 	Advice.current      = Advice.fromTranslations(game.i18n?.translations?.stonetop?.advice);
+	// What a tag chip reads. The stored token stays English so `hasGroupTag` and the glossary keep
+	// working; only the rendered text is localized.
+	TagLabels.current   = TagLabels.fromTranslations(game.i18n?.translations?.stonetop?.tagLabels);
 });
 
 // -- BABELE ----------------------------------------------------

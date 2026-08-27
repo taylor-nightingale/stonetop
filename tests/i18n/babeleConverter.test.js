@@ -81,8 +81,8 @@ describe("stonetopStringsConverter", () => {
 	});
 
 	it("leaves a document of an untranslated type untouched", () => {
-		const move = { _id: "x", type: "move", name: "Defy Danger", system: { slug: "defy-danger", description: "When you..." } };
-		expect(translate(move, { description: "Wenn du..." }).description).toBe("When you...");
+		const npc = { _id: "x", type: "npc", name: "Nerth serpent", system: { slug: "nerth-serpent", description: "A great serpent." } };
+		expect(translate(npc, { description: "Eine große Schlange." }).description).toBe("A great serpent.");
 	});
 });
 

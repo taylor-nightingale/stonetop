@@ -19,7 +19,7 @@
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
 * bug: Noruba's ice sphere doesnt detect the <> correctly on "manipulate an unattended item (small or <>, no bigger)"
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero
-* feature: the move that modifies shield carrying capacity doesn't do anything for the heavy
+* feature: the move that modi  fies shield carrying capacity doesn't do anything for the heavy
 * bug: the bio/notes sections have the save button, etc but the bar is not tall enough to accommodate them and they're hard to click
 * bug: see img_2 the check boxes get split sometimes
 * allow copy paste of names and text for names/neighbors

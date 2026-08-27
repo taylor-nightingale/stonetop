@@ -23,7 +23,7 @@ const PALISADE_CHOICES = {
 	list: [{ type: "heading", slug: "done", description: "Completed", track: { max: 1 } }],
 };
 
-const palisadeRepo = () => makeRepo([new SteadingImprovement("palisade", PALISADE_CHOICES)]);
+const palisadeRepo = () => makeRepo([new SteadingImprovement("palisade", "Palisade", PALISADE_CHOICES)]);
 
 describe("SteadingImprovements.buildSnapshot", () => {
 	it("returns empty when the steading owns no improvements", async () => {
@@ -33,8 +33,8 @@ describe("SteadingImprovements.buildSnapshot", () => {
 
 	it("renders only the improvements the steading owns, resolved by slug", async () => {
 		const repo = makeRepo([
-			new SteadingImprovement("inn", { slug: "inn", list: [] }),
-			new SteadingImprovement("palisade", PALISADE_CHOICES),
+			new SteadingImprovement("inn", "Inn", { slug: "inn", list: [] }),
+			new SteadingImprovement("palisade", "Palisade", PALISADE_CHOICES),
 		]);
 		const imp = new SteadingImprovements(makeActor(["palisade"]), repo);
 		const snap = await imp.buildSnapshot();
@@ -43,7 +43,7 @@ describe("SteadingImprovements.buildSnapshot", () => {
 	});
 
 	it("skips an owned slug the repo can't resolve or whose choices are null", async () => {
-		const repo = makeRepo([new SteadingImprovement("mill", null)]);
+		const repo = makeRepo([new SteadingImprovement("mill", "Mill", null)]);
 		const imp = new SteadingImprovements(makeActor(["mill", "ghost"]), repo);
 		expect(await imp.buildSnapshot()).toEqual([]);
 	});
@@ -73,7 +73,7 @@ describe("SteadingImprovements.grant", () => {
 	});
 
 	it("renders the granted improvement", async () => {
-		const repo = makeRepo([new SteadingImprovement("palisade", PALISADE_CHOICES)]);
+		const repo = makeRepo([new SteadingImprovement("palisade", "Palisade", PALISADE_CHOICES)]);
 		const imp = new SteadingImprovements(makeActor([]), repo);
 		await imp.grant("palisade");
 		const snap = await imp.buildSnapshot();

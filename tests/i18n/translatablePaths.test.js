@@ -93,14 +93,20 @@ describe("translatableEntries", () => {
 
 	it("returns nothing for an unknown or absent allowlist", () => {
 		expect(translatableEntries({ name: "x" }, undefined)).toEqual([]);
-		expect(translatableEntriesForType("move", { name: "x" })).toEqual([]);
+		expect(translatableEntriesForType("npc", { name: "x" })).toEqual([]);
 	});
 });
 
 describe("the playbook allowlist", () => {
-	it("covers playbooks and nothing else yet", () => {
-		expect(isTranslatableType("playbook")).toBe(true);
-		expect(isTranslatableType("move")).toBe(false);
+	it("covers every item type a translator can reach, and nothing beyond it", () => {
+		for (const type of ["playbook", "move", "arcanum", "possession", "follower",
+			"outfitItem", "insert", "improvement", "steadfast"]) {
+			expect(isTranslatableType(type), type).toBe(true);
+		}
+		// Actors and journals are a later pass and have no allowlist yet.
+		for (const type of ["npc", "character", "steading"]) {
+			expect(isTranslatableType(type), type).toBe(false);
+		}
 	});
 
 	it("never exposes a slug, id or cross-pack reference", () => {
@@ -130,5 +136,50 @@ describe("the playbook allowlist", () => {
 		};
 		const found = keys(translatableEntriesForType("playbook", source));
 		expect(found.length).toBe(new Set(found).size);
+	});
+});
+
+describe("keys for array elements with no slug", () => {
+	const labels = source => translatableEntries(source, ["system.resource.labels[]"]);
+
+	it("keys a bare string by its own content", () => {
+		const entries = labels({ system: { resource: { labels: ["low ammo", "fresh"] } } });
+		expect(keys(entries)).toEqual(["resource/labels/low-ammo", "resource/labels/fresh"]);
+	});
+
+	// The whole point of content keys: an index moves when the list does, and every translation
+	// below an insertion would slide onto the wrong string.
+	it("keeps content keys stable across reordering and insertion", () => {
+		const before = labels({ system: { resource: { labels: ["low ammo", "fresh"] } } });
+		const after  = labels({ system: { resource: { labels: ["spent", "fresh", "low ammo"] } } });
+		expect(keys(after)).toContain("resource/labels/low-ammo");
+		expect(byKey(after, "resource/labels/fresh").path).toBe("system.resource.labels.1");
+		expect(byKey(before, "resource/labels/fresh").path).toBe("system.resource.labels.1");
+	});
+
+	it("disambiguates two identical strings by position", () => {
+		const entries = labels({ system: { resource: { labels: ["fresh", "spent", "fresh"] } } });
+		expect(keys(entries)).toEqual([
+			"resource/labels/fresh/0", "resource/labels/spent", "resource/labels/fresh/1",
+		]);
+	});
+
+	it("still keys objects by slug, and falls back to index only for slugless objects", () => {
+		const source = { system: { choices: [{ slug: "g", list: [
+			{ slug: "row-a", content: { text: "A" } },
+			{ content: { text: "B" } },
+		] }] } };
+		expect(keys(translatableEntries(source, ["system.choices[].list[].content.text"])))
+			.toEqual(["choices/g/row-a/text", "choices/g/1/text"]);
+	});
+
+	// Two rows sharing a slug is a data bug; letting the key collide is how the extractor reports it.
+	it("does not disambiguate duplicate slugs", () => {
+		const source = { system: { choices: [{ slug: "g", list: [
+			{ slug: "same", content: { text: "A" } },
+			{ slug: "same", content: { text: "B" } },
+		] }] } };
+		expect(keys(translatableEntries(source, ["system.choices[].list[].content.text"])))
+			.toEqual(["choices/g/same/text", "choices/g/same/text"]);
 	});
 });

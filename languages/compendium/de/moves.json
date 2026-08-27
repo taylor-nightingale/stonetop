@@ -1,0 +1,4120 @@
+{
+  "a-bundle-of-sticks-unbroken": {
+    "name": {
+      "source": "A Bundle of Sticks Unbroken",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Struggle as One_**, you and one ally of your choice have advantage.",
+      "text": ""
+    }
+  },
+  "a-candle-against-the-dark": {
+    "name": {
+      "source": "A Candle Against the Dark",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wield a holy light but go otherwise unarmed_**, you have 2 Armor.",
+      "text": ""
+    }
+  },
+  "a-flickering-flame": {
+    "name": {
+      "source": "A Flickering Flame",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wield the Blood-quenched Blade and leap headlong into battle against multiple foes_**, roll +CON: **on a 10+**, hold 3 Speed; **on a 7-9**, hold 2 Speed; **on a 6-**, hold 2 Speed, and mark a consequence. During this battle, you may spend Speed, 1-for-1 to do the following:\n- Attack any number of foes within your reach; roll Clash once and apply the result to all of them, but roll damage separately for each foe\n- Strike a weak point, ignoring your foe’s armor\n- Disengage from a foe you are fighting\n- Name a foe on the scene but out of your reach; you cross the distance to them before any can react When you stop fighting, lose all Speed.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "hold 3 Speed",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "hold 2 Speed",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "hold 2 Speed, and mark a consequence. During this battle, you may spend Speed, 1-for-1 to do the following:",
+      "text": ""
+    }
+  },
+  "a-force-to-be-reckoned-with": {
+    "name": {
+      "source": "A Force to Be Reckoned With",
+      "text": ""
+    },
+    "description": {
+      "source": "Any intelligent creature who looks you in the eye or hears the steel in your voice instinctively knows that you are a force to be reckoned with, and treats you appropriately.\n\nWhen you **_Defy Danger against something trying to harm or constrain you_**, on a 12+ you turn the tables on them (the GM will say how, or ask you to). (Replaces Underestimated. First use crosses off \"Would-be\" on the front page.)",
+      "text": ""
+    }
+  },
+  "a-mighty-rampart": {
+    "name": {
+      "source": "A Mighty Rampart",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_hold Readiness (from Defend)_**, you cannot be forced from your position. Also, you can spend 1 Readiness to completely ignore the effects/damage of an attack that you suffer. (Replaces Bulwark.)",
+      "text": ""
+    }
+  },
+  "a-mighty-will": {
+    "name": {
+      "source": "A Mighty Will",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mindwalk_**, hold +1 Power.",
+      "text": ""
+    }
+  },
+  "a-safe-place": {
+    "name": {
+      "source": "A Safe Place",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_select and prepare the party's camp site_**, hold 1 Precaution, or 2 Precaution if you are well-versed with this area and its dangers.\n\nIf trouble finds your camp site, you can spend 1 Precaution to reveal a simple defense, warning, or trick that you prepared in advance. If you do, tell us how you knew to make that specific preparation.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Precaution",
+      "text": ""
+    }
+  },
+  "advantage-disadvantage": {
+    "name": {
+      "source": "Advantage/Disadvantage",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_make a roll with advantage_**, roll an extra die and discard the lowest result.\n\nWhen you **_make a roll with disadvantage_**, roll an extra die and discard the highest result.\n\nWhen you **_make a roll with both advantage and disadvantage_**, they cancel each other out.\n\nIf you **_have advantage/disadvantage on a damage roll_**, roll the main dice twice and discard the lower/higher result. Then add any bonus dice that apply.",
+      "text": ""
+    }
+  },
+  "aegis-of-faith": {
+    "name": {
+      "source": "Aegis of Faith",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wield a shield_**, it can turn away spells, magical effects, and insubstantial attacks as if they were physical blows.",
+      "text": ""
+    }
+  },
+  "aid": {
+    "name": {
+      "source": "Aid",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_help someone who has not yet rolled_**, the GM picks 1:\n\n- They can accomplish more than they could alone\n- They gain advantage on their roll\n\nEither way, you are exposed to any risk, cost, or consequence associated with their roll.",
+      "text": ""
+    }
+  },
+  "all-in-the-wrist": {
+    "name": {
+      "source": "All in the Wrist",
+      "text": ""
+    },
+    "description": {
+      "source": "Any knife or dagger gets the thrown tag in your hands. Also, you keep a few iron throwing blades (near) on you; they don't take up space in your inventory. Reset your ammo whenever you Outfit.",
+      "text": ""
+    },
+    "resource/labels/a-few-left": {
+      "source": "a few left",
+      "text": ""
+    },
+    "resource/labels/out": {
+      "source": "out",
+      "text": ""
+    }
+  },
+  "all-is-illuminated": {
+    "name": {
+      "source": "All is Illuminated",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_look closely on another and see their soul laid bare_**, roll +WIS: **on a 10+**, ask their player 1 question from the list below, plus \"And what would make them feel loved, beautiful, or worthy?\"; **_on a 7-9_**, ask them 1 question from the list. In any case, they must answer truthfully.\n\n- Of what are they most ashamed?\n- What do they most desire or covet?\n- What hope have they abandoned?\n- Who or what is most precious to them?",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Ask 1 question from the list plus “What would make them feel loved, beautiful, or worthy?”.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Ask 1 question from the list.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "alpha": {
+    "name": {
+      "source": "Alpha",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_assert dominance over another (beast, spirit, Fae, or person)_**, roll +WIS: **_on a 7+_**, they must pick 1 from the list below; **on a 10+**, you also have advantage on your next roll against them.\n\n- Accept your authority, at least for now\n- Slink away or flee, then avoid you\n- Fight you for dominance",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They pick 1 from the list and you have advantage on your next roll against them.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They pick 1 from the list.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "ambush": {
+    "name": {
+      "source": "Ambush",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_get the drop on a nearby foe_**, you can deal your damage or opt to roll +DEX: **on a 10+**, deal your damage and pick 2; **_on a 7-9_**, deal damage and pick 1:\n\n- Deal +1d4 damage\n- Stop them from making noise/raising an alarm\n- Slip away before they can react\n- Create an opportunity; you or an ally gains advantage on the next move to act on it",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Deal your damage and pick 2 from the list.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Deal your damage and pick 1 from the list.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "amulets-talismans": {
+    "name": {
+      "source": "Amulets & Talismans",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_craft a protective charm for someone_**, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When **_they would suffer such harm while bearing your charm_**, roll +INT: **on a 10+**, they ignore the harm entirely; **_on a 7-9_**, they suffer only half the damage or effect; **on a 6-**, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They ignore the harm entirely.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They suffer only half the damage or effect.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "They suffer the harm normally.",
+      "text": ""
+    }
+  },
+  "and-behold-a-pale-horse": {
+    "name": {
+      "source": "And Behold a Pale Horse",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend the night gazing into a flame_**, ask the GM to reveal an impending doom or grim portent that will come to pass unless you intervene, and how you might yet do so.",
+      "text": ""
+    }
+  },
+  "anger-is-a-gift": {
+    "name": {
+      "source": "Anger is a Gift",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_burn with righteous anger (see Fear & Anger on back of playbook)_**, hold 2 Resolve. You can spend your Resolve 1-for-1 to:\n\n- Set aside fear and doubt to do what must be done\n- Act suddenly, catching them off-guard\n- Inspire allies or bystanders to follow your lead\n- Strike hard (+1d4 damage, forceful)\n- Keep your footing, position, and/or your course despite what befalls you",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Resolve",
+      "text": ""
+    }
+  },
+  "animal-companion": {
+    "name": {
+      "source": "Animal Companion",
+      "text": ""
+    },
+    "description": {
+      "source": "You are accompanied by a beast of uncommon loyalty and cleverness. See the Animal Companion insert for details.",
+      "text": ""
+    }
+  },
+  "arcane-adept": {
+    "name": {
+      "source": "Arcane Adept",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wish to invent a spell or magical effect_**, detail its workings with the GM and Make a Plan to invent it. If you like, pick one requirement and ask the GM to provide an alternative.",
+      "text": ""
+    }
+  },
+  "armistice": {
+    "name": {
+      "source": "Armistice",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_approach an enemy to negotiate in good faith_**, they will at least hear you out. Even the most debased and savage foe will delay violence until you've had your say.",
+      "text": ""
+    }
+  },
+  "armored": {
+    "name": {
+      "source": "Armored",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_carry a shield_**, mark only ◆ (instead of ◆◆). Also, you can ignore the *cumbersome* tag on any armor you wear.\n\nIf you take this move at the start of play, add an ◇◇ iron hauberk, ◇◇ bronze cuirass, or ◇◇ scale coat to your inventory (all are 2 armor, warm, cumbersome).",
+      "text": ""
+    }
+  },
+  "arts-of-war": {
+    "name": {
+      "source": "Arts of War",
+      "text": ""
+    },
+    "description": {
+      "source": "Take a move from the Fox, Heavy, Judge, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.",
+      "text": ""
+    }
+  },
+  "attuned": {
+    "name": {
+      "source": "Attuned",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, you can always ask, \"What here is infused with magic?\" for free, even **on a 6-**.",
+      "text": ""
+    }
+  },
+  "barkskin": {
+    "name": {
+      "source": "Barkskin",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are touching the earth_**, you have 2 armor. When you **_mark another with 1 Stock_**, they gain this benefit so long as the mark remains.",
+      "text": ""
+    }
+  },
+  "battery": {
+    "name": {
+      "source": "Battery",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_gather elemental power about the Azure Hand_**, you can choose to store the energy in the staff itself. It no longer requires your touch or focus to maintain. You cannot do this again until you use up the energy contained within (see reverse).",
+      "text": ""
+    }
+  },
+  "battle-dancer": {
+    "name": {
+      "source": "Battle Dancer",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_roll +DEX to Clash_**, on a 12+ you deal your damage, avoid your enemy's attack, and impress/embarrass/overawe your foes.",
+      "text": ""
+    }
+  },
+  "battle-joy": {
+    "name": {
+      "source": "Battle Joy",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spill blood—yours or another's—and lose yourself in battle_**, you ignore fear, pain, mind-control, and the effects of debilities as long as you keep fighting.\n\nWhen **_the action stops_**, roll +CON: **on a 10+**, that was a rush, regain 1d4 HP; **_on a 7-9_**, you're winded and out of it, but you'll be fine with a few minutes' rest; **on a 6-**, mark a debility but don't mark XP.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "That was a rush — regain 1d4 HP.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You're winded and out of it, but you'll be fine with a few minutes' rest.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Mark a debility but don't mark XP.",
+      "text": ""
+    }
+  },
+  "battlefield-grace": {
+    "name": {
+      "source": "Battlefield Grace",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take damage while leading your allies in battle_**, the damage roll has disadvantage.",
+      "text": ""
+    }
+  },
+  "bear-witness": {
+    "name": {
+      "source": "Bear Witness",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_speak the truth with conviction and candor_**, none can doubt you. They might deny what you say, but in their hearts they recognize the truth.",
+      "text": ""
+    }
+  },
+  "beast-of-legend": {
+    "name": {
+      "source": "Beast of Legend",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, pick 1:\n\n- They are *exceptional* (and roll +2 instead of +1)\n- They get +4 HP and +1 armor\n- They develop some unique ability or trait",
+      "text": ""
+    }
+  },
+  "berserker": {
+    "name": {
+      "source": "Berserker",
+      "text": ""
+    },
+    "description": {
+      "source": "While in your Battle Joy, add the area tag to your melee attacks, lashing out at anyone nearby (friend and foe alike). Roll damage separately for each target.",
+      "text": ""
+    }
+  },
+  "better-part-of-valor": {
+    "name": {
+      "source": "Better Part of Valor",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are outnumbered or facing a foe bigger than you_**, you have advantage to hide from, escape from, or sneak past them.",
+      "text": ""
+    }
+  },
+  "big-damn-hero": {
+    "name": {
+      "source": "Big Damn Hero",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_first leap into danger to protect someone_**, don't roll to Defend. Instead, treat it as though you rolled a 10+.\n\nWhen you **_Defend_**, you can spend 1 Readiness to lock eyes with an attacker; they have disadvantage on damage rolls against you and your ward for the rest of the fight. (Replaces In Over Your Head. First use crosses off \"Would-be\" on the front page.)",
+      "text": ""
+    }
+  },
+  "big-game-hunter": {
+    "name": {
+      "source": "Big Game Hunter",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_strike at the weak spot of a large or huge creature_**, you deal +2 damage.",
+      "text": ""
+    }
+  },
+  "big-magic": {
+    "name": {
+      "source": "Big Magic",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, choose an additional remarkable trait for your sacred pouch and increase your max Stock by 2.",
+      "text": ""
+    }
+  },
+  "binding-arbitration": {
+    "name": {
+      "source": "Binding Arbitration",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_bear witness to someone's promise or oath_**, henceforth you may ask their player if they have kept their word. They must answer honestly. The character need not be present. If they have broken their word, you gain advantage on all rolls against them until they admit their wrong and suffer an appropriate consequence (your call).",
+      "text": ""
+    }
+  },
+  "blot-out-the-sun": {
+    "name": {
+      "source": "Blot Out the Sun",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Let Fly with a bow_**, you can deplete your ammunition (mark the next ammo status after your weapon) before you roll. If you do, choose 1:\n\n- Gain advantage on your damage roll\n- Add the area tag to your attack; roll damage separately for each target",
+      "text": ""
+    }
+  },
+  "bolster": {
+    "name": {
+      "source": "Bolster",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_prepare for what's coming or seek the favor of the gods_**, say how and answer the GM's questions. Then, hold Preperation based on the amount of time you devote:\n\n- A week or so: 1 Preperation\n- A month or so: 2 Preperation\n- The better part of a season: 3 Preperation\n When you **_make any roll to which your efforts might apply_**, you may spend 1 Preperation to add +1 to that roll, after it is made (maximum +1 per roll).",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Preparation",
+      "text": ""
+    }
+  },
+  "borrow-power": {
+    "name": {
+      "source": "Borrow Power",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_a spirit or beast loans you power_**, ask the GM for one of its tags or moves. Store it in your pouch in place of 1 Stock. When you **_use the borrowed tag or move_**, roll +WIS.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You do it and can use the power again.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You do it, but lose the power.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "break-bread": {
+    "name": {
+      "source": "Break Bread",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_share a proper meal with someone and each of you eats their fill_**, each of you recovers 1d8 (extra) HP.",
+      "text": ""
+    }
+  },
+  "bringer-of-ruin": {
+    "name": {
+      "source": "Bringer of Ruin",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_roll a 12+ to Clash and your foe survives_**, name something they possess (like their sword, their position, a limb, their dignity, etc.), but nothing that would kill them outright. Whatever you name, it is broken, shattered, lost. Tell us how.",
+      "text": ""
+    }
+  },
+  "bulwark": {
+    "name": {
+      "source": "Bulwark",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defend_**, you can spend 1 Readiness to stand fast, holding your position despite what befalls you.",
+      "text": ""
+    }
+  },
+  "burgle": {
+    "name": {
+      "source": "Burgle",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_sneak off on your own into a dangerous place_**, roll +INT: **_on a 7+_**, you make it back, and the GM says where you got to and what you learned. Then, **on a 10+**, also pick 2; **_on a 7-9_**, also pick 1:\n\n- You got away clean, rousing no suspicion\n- You swiped something valuable (GM's choice)\n- You set something up to exploit on your return\n- Ask a Seek Insight question about what you saw\nOn a 6-, you either make it back but with trouble in tow, or you're missing in action (your call).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You make it back. Pick 2 from the list.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You make it back. Pick 1 from the list.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "You either make it back but with trouble in tow, or you're missing in action (your call).",
+      "text": ""
+    }
+  },
+  "burn-brightly": {
+    "name": {
+      "source": "Burn Brightly",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have enough XP to Level Up_** (6 + twice your current level), you may spend 2 XP after any roll you make to add +1 to that roll (max +1 per roll).",
+      "text": ""
+    }
+  },
+  "burn-twice-as-bright": {
+    "name": {
+      "source": "Burn Twice as Bright",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Invoke the Sun God_**, you may mark a debility to use 2 Invocations at once. Roll once, and apply any consequences to both Invocations.",
+      "text": ""
+    }
+  },
+  "burning-hatred": {
+    "name": {
+      "source": "Burning Hatred",
+      "text": ""
+    },
+    "description": {
+      "source": "(near, magical, reload) When you **_point the Red Scepter at an object of your hatred and erase 1 charge_**, roll +CHA: **on a 10+**, the Scepter deals 2d4 damage (*messy*, ignores armor), manifested as blistering burns; **on a 7-9**, as a 10+ but pick 1:\n- Mark a consequence\n- Spend a few seconds chanting and muttering before dealing damage\n- Cause any exposed, combustible items in range to burst into flames\n\n**On a 6-**, the GM says what happens (which may or may not involve marking a consequence).\n\nWhen you **_mark 3 Consequences_**, you gain Fanning the Flames.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the Scepter deals 2d4 damage (*messy*, ignores armor), manifested as blistering burns",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "as a 10+ but pick 1:",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "the GM says what happens (which may or may not involve marking a consequence).",
+      "text": ""
+    }
+  },
+  "but-i-get-up-again": {
+    "name": {
+      "source": "But I Get Up Again",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_use I Get Knocked Down_**, you have advantage on your next roll against whatever dealt the damage and your next blow against them does +1d4 damage.",
+      "text": ""
+    }
+  },
+  "call-forth-and-command": {
+    "name": {
+      "source": "Call Forth and Command",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mark both figurines with your own blood and call both Astor and Halix by name_**, their ghosts manifest before you. Treat them as followers. They are bound to obey your direct commands and can take no overt action against you, but you might need to Persuade them to do anything other than follow your orders to the letter. When you **_dismiss either Astor or Halix_**, both return to their figurines until you call them forth again.\n\nWhen e**_ither Astor or Halix is banished or reduced to 0 HP_**, they both return to their respective fetish. They cannot be called forth again until the next new moon.\n\n*In life, Astor was a hunter, low-born but handsome and proud. Halix was the lordly heir of Astor’s people:* *spoiled, manipulative, vain. Halix took Astor as one of many furtive lovers, making an insincere blood-oath* *that one day they would wed.* *Their clan fell under the sway of a sorcerer. Astor snuck away to warn the Makers of rebellion, but Halix* *sided with the sorcerer. The sorcerer used the blood-oath between them to work foul magic, wrenching Astor’s* *soul from their body and binding it. To their surprise, Halix’s soul was likewise bound. The sorcerer used* *them as spies and assassins, leaving Astor’s once-noble soul bitter and distrustful. Halix, though, revels in* *immortality and delights in the opportunities afforded by this undead state.*",
+      "text": ""
+    }
+  },
+  "call-the-shot": {
+    "name": {
+      "source": "Call the Shot",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take your time and calmly line up the perfect shot_**, either deal your damage or roll +DEX: **on a 10+**, deal your damage and pick 2; **_on a 7-9_**, deal your damage and pick 1.\n\n- Ignore armor or deal +1d4 damage (your call)\n- Stun, hobble, or hinder them\n- Make them trip or drop what they're holding\n- Do no harm; don't deal your damage after all",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Deal your damage and pick 2.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Deal your damage and pick 1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "call-the-spirits": {
+    "name": {
+      "source": "Call the Spirits",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend 1 Stock and perform a short rite_**, the spirit(s) of a place or object manifest and hear you out. What they do next is up to them.",
+      "text": ""
+    }
+  },
+  "call-up-the-deep-ones": {
+    "name": {
+      "source": "Call Up the Deep Ones",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_stand in heavy fog or before deep water and call on the servants of Daagon to serve you_**, spend 1 Loyalty or mark a consequence and they appear. Treat them as followers, sharing a pool of Loyalty with the Ring itself. You can always choose to mark a consequence in lieu of spending their Loyalty.\n\nWhen you **_send them back whence they came_**, roll +CHA: **on a 10+**, they go, now; **on a 7-9**, they go, but take their time and likely do some harm on their way; **on a 6-**, spend their Loyalty or mark a consequence and they’ll eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "they go, now",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "they go, but take their time and likely do some harm on their way",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "spend their Loyalty or mark a consequence and they’ll eventually go (as on a 7-9); otherwise, this batch breaks free of your control and are no longer followers.",
+      "text": ""
+    }
+  },
+  "carved-out-of-wood": {
+    "name": {
+      "source": "Carved Out of Wood",
+      "text": ""
+    },
+    "description": {
+      "source": "Increase your max HP by 4.",
+      "text": ""
+    }
+  },
+  "cast-a-codex-spell": {
+    "name": {
+      "source": "Cast a Codex Spell",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_cast a spell learned from the Hec’tumel Codex_**, roll +INT: **on a 10+**, the spell works as described; **on a 7-9**, the spell works, but choose 1 from the list below; **on a 6-**, mark a consequence (see reverse) in addition to whatever the GM says.\n- You draw unwelcome attention or put yourself in a spot (ask the GM how)\n- Something shifts in your mind; take a -1 penalty to Cast a Codex Spell until you get Hec’tumel to show you what you’re doing wrong (the penalty is cumulative)",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the spell works as described",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the spell works, but choose 1 from the list below",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "mark a consequence (see reverse) in addition to whatever the GM says.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Casting penalty",
+      "text": ""
+    }
+  },
+  "castigate": {
+    "name": {
+      "source": "Castigate",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Censure someone_**, your voice deals 1d4 damage to them (near, loud, ignores armor).",
+      "text": ""
+    }
+  },
+  "catlike": {
+    "name": {
+      "source": "Catlike",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_carry a light load and act with care_**, you move silently. When you **_hide in shadows or darkness_**, you remain unseen until you draw attention to yourself, move positions, or attack.",
+      "text": ""
+    }
+  },
+  "censure": {
+    "name": {
+      "source": "Censure",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_first denounce an individual in your presence as an agent of chaos or anathema to civilization_**, they pick 1:\n\n- They are ashamed, and act accordingly\n- They are doubtful, and hesitate, pause\n- They are afraid, and seek to escape\n- They are enraged, and lash out predictably (the next roll against them has advantage)",
+      "text": ""
+    }
+  },
+  "chart-a-course": {
+    "name": {
+      "source": "Chart a Course",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wish to travel to a distant place_**, name or describe your destination. If the route is unclear, tell the GM how you intend to reach it. The GM will then tell you what's required, the risks, and how long it will likely take.\n\nWhen you **_set out on the journey_**, the GM will present each of the challenges one at a time—plus any surprises that you couldn't have seen coming—in whatever order makes the most sense. Address them all and reach your destination.",
+      "text": ""
+    }
+  },
+  "cheap-shot": {
+    "name": {
+      "source": "Cheap Shot",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Ambush with a hand weapon_**, you have advantage on your damage roll.",
+      "text": ""
+    }
+  },
+  "chosen-of-the-storm-bringer": {
+    "name": {
+      "source": "Chosen of the Storm-bringer",
+      "text": ""
+    },
+    "description": {
+      "source": "Add these to the list of potential manifestations granted by Storm’s Fury:\n- Roll +CON to Let Fly with a bolt of lightning (2d6 damage, *thrown*, *forceful*, *loud*, *dangerous*, ignores armor)\n- Make a prodigious leap, buoyed by the wind\n- Summon a powerful gale with you at its center—dirt and debris swirl about, the wind is deafening, people must brace themselves to keep from getting bowled over, projectiles careen off course—and take disadvantage on all rolls as long as you sustain it",
+      "text": ""
+    }
+  },
+  "chronicler-of-stonetop": {
+    "name": {
+      "source": "Chronicler of Stonetop",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_write up detailed session notes and share them with the other players_**, hold +1 Diligence. You can spend 1 Diligence at any time to add +1 to a roll that you or a fellow player just made.",
+      "text": ""
+    }
+  },
+  "clash": {
+    "name": {
+      "source": "Clash",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_fight in melee or close quarters_**, roll +STR: **on a 10+**, your maneuver works as expected (deal your damage) and pick 1:\n\n- Avoid, prevent, or counter your enemy's attack\n- Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack\n**_On a 7-9_**, your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Your maneuver works as expected (deal your damage) and pick 1:\n\n- Avoid, prevent, or counter your enemy's attack\n- Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)",
+      "text": ""
+    }
+  },
+  "condemn": {
+    "name": {
+      "source": "Condemn",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Censure someone_**, they are marked with a mystical brand that cannot be removed or hidden until you dismiss it. Any intelligent creature who sees the mark recognizes the bearer as an agent of chaos and anathema to civilization.",
+      "text": ""
+    }
+  },
+  "conduit-of-power": {
+    "name": {
+      "source": "Conduit of Power",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_would mark a Consequence from a major arcanum_**, you can mark 1 box here instead, with no negative effect. (These marks never clear.)",
+      "text": ""
+    }
+  },
+  "consecrated-flame": {
+    "name": {
+      "source": "Consecrated Flame",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_whisper words of consecration to a flame_**, the flame casts a holy light. Holy light is uncomfortable for creatures of darkness to look upon, but does no true harm. The holy light lasts until the flame goes out or until you consecrate another flame, whichever comes first.",
+      "text": ""
+    }
+  },
+  "constant-vigilance": {
+    "name": {
+      "source": "Constant Vigilance",
+      "text": ""
+    },
+    "description": {
+      "source": "Unless you're dazed, you're never caught off guard—not even when asleep or if you roll a 6-. When you **_intercept a sudden threat (to yourself or an ally)_**, you have advantage on whatever move you make.",
+      "text": ""
+    }
+  },
+  "convalesce": {
+    "name": {
+      "source": "Convalesce",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_rest for a few days, in safety and comfort_**, recover all your HP and clear all your debilities. When you **_rest for a few weeks under the care of a healer_**, heal any problematic wounds that can heal. If you **_have suffered a permanent injury or impairment_**, either retire or Make a Plan to adapt to it.",
+      "text": ""
+    }
+  },
+  "countermeasures": {
+    "name": {
+      "source": "Countermeasures",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_witness a magical effect_**, you may ask the GM, \"How can this be countered or interrupted?\" and get an honest answer. You or an ally gain advantage on your next roll to act on the answer.",
+      "text": ""
+    }
+  },
+  "crew": {
+    "name": {
+      "source": "Crew",
+      "text": ""
+    },
+    "description": {
+      "source": "You've got a crew of stalwarts, six or so residents of Stonetop with some steel to them. See the Crew insert for details.",
+      "text": ""
+    }
+  },
+  "cryptologist": {
+    "name": {
+      "source": "Cryptologist",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_study encoded, forgotten, or arcane marks or writing_**, roll +INT: **on a 10+**, you can fully decipher them in just a few minutes; **_on a 7-9_**, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Fully decipher them in just a few minutes.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Get the gist in a few minutes; full deciphering takes an hour or so.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "cut-from-granite": {
+    "name": {
+      "source": "Cut from Granite",
+      "text": ""
+    },
+    "description": {
+      "source": "Gain +1 armor (stacks with other sources) and increase your max HP by another 2 (+6 HP total from both moves).",
+      "text": ""
+    }
+  },
+  "dabbler": {
+    "name": {
+      "source": "Dabbler",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, choose a move from the Heavy, Marshal, Ranger, or Seeker playbooks for which you otherwise qualify. (You can't take Improved Stat or Superior Stat.)",
+      "text": ""
+    }
+  },
+  "danger-sense": {
+    "name": {
+      "source": "Danger Sense",
+      "text": ""
+    },
+    "description": {
+      "source": "You can always ask the GM, \"Is there an ambush or trap here?\" If they say \"yes,\" roll +INT: **on a 10+**, ask the GM both of the questions below; **_on a 7-9_**, ask 1; either way, gain advantage on your next roll to act on the answer(s).\n\n- What will trigger the ambush or trap?\n- What will happen once it's triggered?\nOn a 6-, don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Ask both questions.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Ask 1 question.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Don't mark XP; you know there's a trap or ambush, but nothing bad happens just yet.",
+      "text": ""
+    }
+  },
+  "dangerous": {
+    "name": {
+      "source": "Dangerous",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_deal your damage_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "danus-grasp": {
+    "name": {
+      "source": "Danu's Grasp",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **_on a 7+_**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.\n\n- They're restrained, unable to act freely until your focus slips or they tear their way free\n- They take 2d4 damage (ignores armor)\nIf this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "As 7-9, but both apply.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Roots, vines, and earth pull at them, and they pick 1: restrained until your focus slips or they tear free; OR they take 2d4 damage (ignores armor).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "dark-succor": {
+    "name": {
+      "source": "Dark Succor",
+      "text": ""
+    },
+    "description": {
+      "source": "When you are dying or killed outright, your master intercedes on your behalf. You will recover, here and now or at a time and place of the GM's choosing. Then, roll +Favor: **on a 10+**, choose 1; **on a 7–9**, choose 2; **on a 6–**, all 3 apply.\n\n- Gain a new Mark of the GM's choice\n- Cross off a Mark that you don't have—you can never gain it\n- Your master gives you a task; until you complete it, your Favor stays at 0.\nRegardless, reset your Favor to 0.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Choose 1: Gain a new Mark of the GM's choice; Cross off a Mark that you don't have—you can never gain it; Your master gives you a task; until you complete it, your Favor stays at 0.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Choose 2 from the list above.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "All 3 apply.",
+      "text": ""
+    }
+  },
+  "darkness-lingers": {
+    "name": {
+      "source": "Darkness Lingers",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_strike down a spirit or demon_**, ask the GM for one of its moves and write it down; it is held in the Twisted Spear. When you **_use the stolen move_**, roll +CON: **on a 10+**, you do it, just like that; **on a 7-9**, you do it, but choose 1:\n- The move is lost, bleeding away from the Spear\n- Mark a consequence",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "you do it, just like that",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "you do it, but choose 1:",
+      "text": ""
+    }
+  },
+  "darksome-vessel": {
+    "name": {
+      "source": "Darksome Vessel",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_cast a Codex spell_**, on a 12+ you can choose the Empowered effect. When you **_choose to_** **_mark a consequence before casting a spell_**, don’t roll; you get a 12+.",
+      "text": ""
+    }
+  },
+  "deaths-door": {
+    "name": {
+      "source": "Deaths Door",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The Lady waves you off—you're no longer dying but you're out of the action.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
+      "text": ""
+    }
+  },
+  "deep-insight": {
+    "name": {
+      "source": "Deep Insight",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight about something magical_**, you may ask one additional question, not limited to the list. Even **on a 6-**, you get to ask this question.",
+      "text": ""
+    }
+  },
+  "defend": {
+    "name": {
+      "source": "Defend",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take up a defensive stance or jump in to protect others_**,  roll +CON: **on a 10+**, hold 3 Readiness (or 4 if you bear a shield); **_On a 7-9_**, hold 1 Readiness (or 2 with a shield). You can spend Readiness 1-for-1 to:\n\n- Suffer an attack's damage/effects instead of your ward\n- Halve an attack's effect or damage\n- Draw all attention from your ward to yourself\n- Strike back at an attacker (deal your damage, with disadvantage)\nWhen you go on the offense, cease to focus on defense, or the threat passes, lose any Readiness that you hold.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Hold 3 Readiness (or 4 if you bear a shield).",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Hold 1 Readiness (or 2 with a shield).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Escalate the situation aggressively, failure, etc.  (Up to GM interpretation).",
+      "text": ""
+    }
+  },
+  "defy-danger": {
+    "name": {
+      "source": "Defy Danger",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_danger looms, the stakes are high, and you do something chancy_**, check if another move applies. If not, roll...\n\n... +STR to power through or test your might\n\n... +DEX to employ speed, agility, or finesse\n\n... +CON to endure or hold steady\n\n... +INT to apply expertise or enact a clever plan\n\n... +WIS to exert willpower or rely on your senses\n\n... +CHA to charm, bluff, impress, or fit in\n\n**_On a 10+_**, you pull it off as well as one could hope; **_on a 7-9_**, you can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You pull it off as well as one could hope.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Things get bad... things burn. (Up to GM interpretation)",
+      "text": ""
+    }
+  },
+  "deploy": {
+    "name": {
+      "source": "Deploy",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_send a steading's people into danger or rally them against an attack_**, roll +Defenses: **on a 10+**, it goes as well as can be expected; **on a 7-9**, it works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.\n\n- It's less effective than you expected\n- Injuries abound; the steading marks *diminished* (disadvantage to Deploy, Muster, Pull Together)\n- The GM picks a named NPC involved in the action; they die",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "It goes as well as can be expected.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "It works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.\n\n- It's less effective than you expected\n- Injuries abound; the steading marks *diminished* (disadvantage to Deploy, Muster, Pull Together)\n- The GM picks a named NPC involved in the action; they die",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "destined": {
+    "name": {
+      "source": "Destined",
+      "text": ""
+    },
+    "description": {
+      "source": "At the **_start of a session_**, roll +Omens: **on a 7+**, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, **on a 10+**, ask the GM a follow-up question and get a clear, helpful answer; **on a 6-**, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.\n\n**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, ask the GM a follow-up question and get a clear, helpful answer.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.",
+      "text": ""
+    }
+  },
+  "disembodied": {
+    "name": {
+      "source": "Disembodied",
+      "text": ""
+    },
+    "description": {
+      "source": "Your body is dead and gone, but you persist as a spirit. You can be harmed only by silver, salt, or that which harms spirits or ghosts.\n\nYou normally go unseen, with the barest influence on the material world and a dim, distorted sense of reality. When you **_manifest a ghostly presence in shadows or darkness,_** the world becomes clear and pick 1. For each additional option you pick, lose 1d4 HP:\n\n- You appear solid and whole, much as you did in life\n- You can speak clearly and intelligibly\n- Your touch (or ghostly weapons) can harm the living (ignores armor)\nYou remain manifest for as long as you concentrate; pain or shock or direct sunlight threaten your concentration, for sure.",
+      "text": ""
+    }
+  },
+  "dust-to-dust": {
+    "name": {
+      "source": "Dust to Dust",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wear the ring and press it firmly against a work of mortal artifice_**, mark a debility and then roll +CON: **on a 10+**, the artifice fails or is ruined (say how); **on a 7-9**, it is ruined (as per a 10+) but also mark a consequence; **on a 6-**, the GM says what happens (which may or may not involve marking a consequence.)",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the artifice fails or is ruined (say how)",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "it is ruined (as per a 10+) but also mark a consequence",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "the GM says what happens (which may or may not involve marking a consequence.)",
+      "text": ""
+    }
+  },
+  "empower": {
+    "name": {
+      "source": "Empower",
+      "text": ""
+    },
+    "description": {
+      "source": "Name a living thing or vessel for power in your presence. If you speak this Word forward, the target surges with power. A creature heals 1d8 HP or gains advantage on its next roll. If you speak backward, the target is drained of energy. A creature takes 1d8 damage (ignores armor) or takes disadvantage on its next roll.",
+      "text": ""
+    }
+  },
+  "empowered-invocations": {
+    "name": {
+      "source": "Empowered Invocations",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Invoke the Sun God_**, you can choose an extra consequence before you roll. If you do, the Invocation has its empowered effect.",
+      "text": ""
+    }
+  },
+  "end-of-session": {
+    "name": {
+      "source": "End of Session",
+      "text": ""
+    },
+    "description": {
+      "source": "When a **_session ends_**, point out how you demonstrated or struggled with your instinct. If you can, mark XP.\n\nSay how your relationship with or opinion of a PC, NPC, or group has changed. If you can, mark XP.\n\nAnswer these questions as a group. For each “yes,” everyone marks XP.\n\n- Did we learn more about the world or its history?\n- Did we defeat a threat to Stonetop or the region?\n- Did we improve our standing with our neighbors?\n- Did we make a lasting improvement to Stonetop, or tangible progress towards doing so?\n\nPraise something about the session (in the fiction or around the table) that you enjoyed or appreciated.\n\nFinally, offer up a wish for future sessions: more __, less __, a chance to __, handling __ in a different way, etc. Wishes can be about what happens in the fiction or around the table. The GM will take notes.",
+      "text": ""
+    }
+  },
+  "everything-bleeds": {
+    "name": {
+      "source": "Everything Bleeds",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_exploit an unnatural foe's specific weakness or vulnerability_**, deal +1d6 damage.",
+      "text": ""
+    }
+  },
+  "everything-burns": {
+    "name": {
+      "source": "Everything Burns",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_inspect a work of artifice or magic for a fatal flaw_**, roll +INT: **_on a 7+_**, the GM will reveal the best way to destroy/sabotage it; **on a 10+**, you or an ally also gain advantage to act on the info.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The GM reveals the best way to destroy/sabotage it, and you or an ally gain advantage to act on the info.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The GM reveals the best way to destroy/sabotage it.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "expert-tracker": {
+    "name": {
+      "source": "Expert Tracker",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight by searching for or studying the signs left by passing creatures_**, you can ask \"What happened here recently?\" for free, even **on a 6-**.\n\nWhen you **_follow a creature's trail_**, roll +WIS: **_on a 7+_** you follow it to a significant change in terrain or activity; **on a 10+**, you can ask the GM a reasonable question about your quarry and get a useful answer.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Follow the trail to a significant change and ask a reasonable question about your quarry.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Follow the trail to a significant change in terrain or activity.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "eye-of-the-storm": {
+    "name": {
+      "source": "Eye of the Storm",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_grasp the Azure Hand and impose your will on the elements around you_**, roll +CON: **on a** **10+**, the elements calm or diminish in their power, and choose 2 from the list below; **on a 7-9**, the elements calm or diminish, and choose 1.\n- You suffer no consequence (otherwise, mark one)\n- The effect is far reaching, up to a mile around you (otherwise, it extends just a few paces) You can maintain the effect easily (otherwise, it takes all of your concentration)",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the elements calm or diminish in their power, and choose 2 from the list below",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the elements calm or diminish, and choose 1.",
+      "text": ""
+    }
+  },
+  "eye-on-the-door": {
+    "name": {
+      "source": "Eye on the Door",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_and your allies need to get out of here_**, name your escape route and roll +INT: **on a 10+**, you're gone; **_on a 7-9_**, you can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You're gone.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You can stay or go, but if you go, it costs you—the GM will tell you what (or who) you leave behind or take with you.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "fanning-the-flames": {
+    "name": {
+      "source": "Fanning the Flames",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_use Inflame_**, you can incite everyone who can hear you into violent action, not just an individual. If you do, roll once for the entire crowd, but each target makes their own choices. **On a 7-9**, you must also choose a Consequence; **on a 6-**, the GM chooses a Consequence for you in addition to whatever else happens.\n\nWhen you **_use Burning Hatred_**, you can mark a consequence to target not just the person or thing you hate but also everything near them. Roll +CHA once but roll damage for each victim. Any combustibles on your targets also erupt into flame.",
+      "text": ""
+    }
+  },
+  "farwalker": {
+    "name": {
+      "source": "Farwalker",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mindwalk_**, you may spend 1 Power to instantly send your mind to any place you have ever visited, physically or mentally.",
+      "text": ""
+    }
+  },
+  "favor": {
+    "name": {
+      "source": "Favor",
+      "text": ""
+    },
+    "description": {
+      "source": "Your Favor starts at 0 and can go no higher than 3.\n\nWhen you have 3 Favor and would gain another, reduce your Favor to 0 and choose 1:\n\n- Ask a question of your master and gain advantage on your next roll to act on the answer.\n- Gain a new Mark of your choice. Then ask the GM to choose a Mark that you don't have, and cross it off—you can never gain it.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Favor",
+      "text": ""
+    }
+  },
+  "fire-within": {
+    "name": {
+      "source": "Fire Within",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are in darkness_**, you are able to see by the light of your inner fire. When you **_take damage from cold or fire_**, reduce that damage by 2.",
+      "text": ""
+    }
+  },
+  "focus-fire": {
+    "name": {
+      "source": "Focus Fire",
+      "text": ""
+    },
+    "description": {
+      "source": "You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.",
+      "text": ""
+    }
+  },
+  "for-the-greater-good": {
+    "name": {
+      "source": "For the Greater Good",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Persuade someone to act in defense of their community or civilization at large_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "forage": {
+    "name": {
+      "source": "Forage",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend a few hours seeking food in the wild_**, roll +WIS. In winter, you have disadvantage. **On a 10+**, pick 2; **on a 7-9**, pick 1:\n\n- You acquire ◇ provisions (1d6 uses)\n- You acquire an extra 1d6 uses of provisions\n- You discover something interesting or useful\n- You avoid danger or risk (else, there is some)\n\nProvisions can substitute for supplies when you Make Camp, 1-for-1.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Pick 2 from the list.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1 from the list.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The land is barren or picked clean, hunger sets in (mark a debility), or you stumble into danger.",
+      "text": ""
+    }
+  },
+  "formidable": {
+    "name": {
+      "source": "Formidable",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wade into battle_**, you can choose to roll +CHA: **on a 10+**, both; **_on a 7-9_**, pick 1:\n\n- Lesser foes will quail, hesitate, or flee before you.\n- Doughty foes will focus on you, seeing you as the greatest threat.\nOn a 6-, pick 1 but ask the GM what you've missed.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Both: lesser foes quail AND doughty foes focus on you.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1: lesser foes quail/flee OR doughty foes focus on you.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Pick 1 but ask the GM what you've missed.",
+      "text": ""
+    }
+  },
+  "free-running": {
+    "name": {
+      "source": "Free Running",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_carry a light load and move with speed and grace_**, gain advantage on any move to surmount or bypass a physical obstacle.",
+      "text": ""
+    }
+  },
+  "front-line-leader": {
+    "name": {
+      "source": "Front Line Leader",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_lead your crew into battle_**, hold 2 Presence. Spend Presence in lieu of your crew's Loyalty or as Readiness (as if you Defended them).",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Presence",
+      "text": ""
+    }
+  },
+  "frosty": {
+    "name": {
+      "source": "Frosty",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defy Danger by keeping calm and carrying on_**, **on a 10+** you can also ask the GM a question that you could ask when Seeking Insight. You have advantage on your next move to act on the answer.",
+      "text": ""
+    }
+  },
+  "gather": {
+    "name": {
+      "source": "Gather",
+      "text": ""
+    },
+    "description": {
+      "source": "Name an unliving object in your presence. If you speak this Word forward, the object is drawn forcefully towards you, possibly flying through the air and into your hand. If you speak backward, the object is flung away from you. If the object weighs more than you, or is secured by something that does, it is you that moves instead.",
+      "text": ""
+    }
+  },
+  "giant-slayer": {
+    "name": {
+      "source": "Giant Slayer",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_strike at a weak spot of a large or huge creature_**, you deal another +2 damage (+4 total).",
+      "text": ""
+    }
+  },
+  "glorious-servant": {
+    "name": {
+      "source": "Glorious Servant",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Invoke the Sun God and roll a 10+_**, you need not choose a consequence; **_on a 7-9_**, you choose a consequence but the GM does not.",
+      "text": ""
+    }
+  },
+  "greater-conduit": {
+    "name": {
+      "source": "Greater Conduit",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_perform the secret rite_**, hold 3 Conduit instead of 1 (and increase your max Conduit to 3). You no longer need the effigy on your person to use Surrogate Suffering. However, any magic that divines your location or spies on you also targets the effigy.",
+      "text": ""
+    }
+  },
+  "guardian": {
+    "name": {
+      "source": "Guardian",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defend_**, hold 1 extra Readiness. Even **on a 6-**, hold 1 Readiness (plus whatever the GM says).",
+      "text": ""
+    }
+  },
+  "guiding-light": {
+    "name": {
+      "source": "Guiding Light",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_lead one or more NPCs through danger_**, roll +CHA: **on a 10+**, you all make it through (Helior be praised); **_on a 7-9_**, the GM will tell you what's required to get everyone through safely.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You all make it through.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The GM will tell you what's required to get everyone through safely.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "hard-to-kill": {
+    "name": {
+      "source": "Hard to Kill",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are at Death's Door_**, you can roll +CON or +nothing (your choice). **_On a 7-9_**, you can mark a debility of your choice to regain 1 HP.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Stabilize — see Death's Door rules.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Mark a debility of your choice to regain 1 HP.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "have-what-you-need": {
+    "name": {
+      "source": "Have What You Need",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_decide that you had something all along_**, transfer a mark (or marks) from your \"undefined\" inventory to a specific item or a slot. If you mark a slot, fill it with a common mundane item or something from your special possessions.\n\nAlternately, you can expend a use of supplies to mark an additional small item/slot (□).\n\nWhatever you produce, it must be something you could have had all along. The GM or any player can veto unreasonable items.",
+      "text": ""
+    }
+  },
+  "healers-arts": {
+    "name": {
+      "source": "Healer's Arts",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_someone Recovers under your care_**, they recover extra HP equal to your WIS. If you also spend 1 Stock, they heal an extra 5 HP and their wounds/injuries are stabilized.",
+      "text": ""
+    }
+  },
+  "heed-my-words": {
+    "name": {
+      "source": "Heed My Words",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Persuade by talking sense or warning against foolishness_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "heliors-unblinking-eye": {
+    "name": {
+      "source": "Helior's Unblinking Eye",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_stare into the sun long enough to lose your vision_**, name a person or place that you know and roll +WIS: **on a 10+**, you briefly glimpse your subject as if from a great height, and choose 2 from the list below; **_on a 7-9_**, you briefly glimpse your subject as if from a great height, and choose 1.\n\n- The glimpse lasts as long as you wish\n- Your point of view shifts to very close range\n- You recover your vision quickly",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You briefly glimpse your subject from a great height — choose 2.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You briefly glimpse your subject from a great height — choose 1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "heroes-to-the-last": {
+    "name": {
+      "source": "Heroes to the Last",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, pick 1:\n\n- They are *exceptional* (and roll +2 instead of +1)\n- They are inured to terror & horror\n- Increase their max HP by 4 each\n- Increase their damage die one size (max d10)",
+      "text": ""
+    }
+  },
+  "home-on-the-range": {
+    "name": {
+      "source": "Home on the Range",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_a journey requires you to Defy Danger or Struggle as One_**, treat a 6- as a 7-9.",
+      "text": ""
+    }
+  },
+  "hound-of-aratis": {
+    "name": {
+      "source": "Hound of Aratis",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, you can always ask \"What here is tainted by chaos?\" for free, even **on a 6-**.",
+      "text": ""
+    }
+  },
+  "hungry-flames": {
+    "name": {
+      "source": "Hungry Flames",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_deal damage with a holy light_**, you deal +1d6 damage and your target is engulfed in holy light and flames.",
+      "text": ""
+    }
+  },
+  "i-get-knocked-down": {
+    "name": {
+      "source": "I Get Knocked Down",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take damage despite your best efforts to avoid it_**, you can choose to halve the damage but pick 1 of the following:\n\n- You lose something (footing, grip, etc.)\n- Something on your person breaks\n- You're out of it for a moment\nWhatever you choose, the GM will describe the details.",
+      "text": ""
+    }
+  },
+  "implacable": {
+    "name": {
+      "source": "Implacable",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_push the limits of your undead body_**, lose 1d4 HP and choose 1:\n\n- Perform a feat of inhuman strength\n- Act with uncanny speed and grace\n- Refuse to be moved, held back, or knocked off course",
+      "text": ""
+    }
+  },
+  "improved-stat": {
+    "name": {
+      "source": "Improved Stat",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, increase one of your stats by 1 (to a max of +2).",
+      "text": ""
+    }
+  },
+  "improvise": {
+    "name": {
+      "source": "Improvise",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wish to use an arcanum's move or option without having unlocked it_**, ask the GM what fool risk(s) it requires and/or what consequence(s) you'll incur. If you go for it, roll +INT: **_on a 7+_**, you get it to work this once; **on a 10+**, also mark one step towards unlocking the arcanum's mysteries.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "It works and you mark one step towards unlocking the arcanum's mysteries.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "It works this once.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "in-over-your-head": {
+    "name": {
+      "source": "In Over Your Head",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_another PC rescues you from danger_**, mark XP.",
+      "text": ""
+    }
+  },
+  "indomitable": {
+    "name": {
+      "source": "Indomitable",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wear the Scales and stand fast against a magical attack_**, you can mark a consequence after you roll to add 3 to the result.",
+      "text": ""
+    }
+  },
+  "inescapable-pull": {
+    "name": {
+      "source": "Inescapable Pull",
+      "text": ""
+    },
+    "description": {
+      "source": "You can use Siphon at up to *near* range, and on a 10+ you can can choose to drag the victim closer.",
+      "text": ""
+    }
+  },
+  "inflame": {
+    "name": {
+      "source": "Inflame",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wield the Scepter and incite an individual to violent action_**, you may erase 1 charge to roll +CHA: **on a 10+**, they must pick 1 from the list below; **on a 7-9**, they may choose to either lash out violently against a target of their choice or choose 1 from the list below.\n- Act as you suggest, without doubt or fear, dealing +1d4 damage while they do so\n- Resist, but suffer painful burns (2d4 damage, ignores armor).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "they must pick 1 from the list below",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "they may choose to either lash out violently against a target of their choice or choose 1 from the list below.",
+      "text": ""
+    }
+  },
+  "initiate-of-the-secret-arts": {
+    "name": {
+      "source": "Initiate of the Secret Arts",
+      "text": ""
+    },
+    "description": {
+      "source": "You have a \"Sacred Pouch\" (3 Stock, magical), as per the Blessed, but with no remarkable traits. Each time you take this move, choose a Blessed move for which you otherwise qualify. (You can't take Improved Stat or Superior Stat.)",
+      "text": ""
+    }
+  },
+  "inquiring-minds": {
+    "name": {
+      "source": "Inquiring Minds",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_seek out and receive honest advice_**, gain advantage on your next roll to follow that advice.",
+      "text": ""
+    }
+  },
+  "interfere": {
+    "name": {
+      "source": "Interfere",
+      "text": ""
+    },
+    "description": {
+      "source": "When you try to foil another PC’s action and neither of you back down, roll...\n\n... +STR to power through or test your might\n\n... +DEX to employ speed, agility, or finesse\n\n... +CON to endure or hold steady\n\n... +INT to apply expertise or enact a clever plan\n\n... +WIS to exert willpower or rely on your senses\n\n... +CHA to charm, bluff, impress, or fit in\n\n**_On a 10+_**, they pick 1 from the list below; **_on a 7-9_**, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.\n\n- Do it anyway, but with disadvantage on their (next) roll\n- Relent, change course, or otherwise allow their move to be foiled",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They pick 1 from the list.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Makes a hard GM move (Up to GM interpretation).",
+      "text": ""
+    }
+  },
+  "intimidating": {
+    "name": {
+      "source": "Intimidating",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Persuade using violence or threats_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "into-the-lions-den": {
+    "name": {
+      "source": "Into the Lion's Den",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_approach a beast calmly and show no fear_**, it will not harm you (though it may threaten you and test your nerve). When you **_lay your hand gently upon a beast_**, it calms to your touch.",
+      "text": ""
+    }
+  },
+  "invoke-the-sun-god": {
+    "name": {
+      "source": "Invoke the Sun God",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_imbue a holy light with Helior's power_**, choose an Invocation you know and roll +WIS: **on a 10+**, it works as described but you must choose 1 consequence from the list below; **_on a 7-9_**, it works as described, but you and the GM each choose 1.\n\n- The Invocation has its reduced effect\n- The effort taxes you; mark a debility\n- The light is snuffed out when the Invocation is complete, its fuel consumed\n- You must bask in sunlight for an hour or so before using that Invocation again\nSee the Invocations insert for details.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "It works as described — you choose 1 consequence.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "It works as described — you and the GM each choose 1 consequence.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "iron-will": {
+    "name": {
+      "source": "Iron Will",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are subject to mind control or magic that affects your feelings_**, you can take 1d4 damage (ignoring armor) to disregard its influence.",
+      "text": ""
+    }
+  },
+  "irresistible": {
+    "name": {
+      "source": "Irresistible",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_interact with someone_**, you can ask their player if they find you attractive and get an honest answer (usually \"yes\").\n\nWhen you **_Persuade by using your considerable charms as leverage_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "keep-company": {
+    "name": {
+      "source": "Keep Company",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend a stretch of time together_**, ask the others if they want to Keep Company. If they do, take turns asking a PC or NPC one of the following.\n\n- What do you do that's annoying/endearing?\n- What do I do that you find annoying/endearing?\n- Who or what seems to be on your mind?\n- What do we find ourselves talking about?\n- How do you/we pass the time?\n- What new thing do you reveal about yourself?",
+      "text": ""
+    }
+  },
+  "keep-the-home-fires-burning": {
+    "name": {
+      "source": "Keep the Home-Fires Burning",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_build a camp fire and sprinkle it with ash from your own hearth_**, anyone who Makes Camp with you is free from nightmares or bad dreams and recovers (extra) HP equal to your CHA.",
+      "text": ""
+    }
+  },
+  "know-things": {
+    "name": {
+      "source": "Know Things",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_consult your accumulated knowledge_**, roll +INT: **on a 10+**, The GM will tell you something interesting and useful about the topic at hand; **_On a 7-9_**, the GM will tell you something interesting—it's on you to make it useful;**_either way_**, the GM might ask “how do you know this?”",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The GM will tell you something interesting and useful about the topic at hand.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the GM will tell you something interesting—it's on you to make it useful.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)",
+      "text": ""
+    }
+  },
+  "knowledge-is-power": {
+    "name": {
+      "source": "Knowledge is Power",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_roll 10+ to Know Things_**, you or an ally gain advantage on the next roll to act on what you learn.",
+      "text": ""
+    }
+  },
+  "lamplighter": {
+    "name": {
+      "source": "Lamplighter",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_whisper to a flammable object (a torch, a wick, kindling, etc.)_**, it ignites in moments.",
+      "text": ""
+    }
+  },
+  "laugh-at-danger": {
+    "name": {
+      "source": "Laugh at Danger",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are about to roll +CON and you make a joke about the adversity you face_**, you can roll +CHA instead.",
+      "text": ""
+    }
+  },
+  "let-fly": {
+    "name": {
+      "source": "Let Fly",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take an easy shot with a ranged weapon_**, deal your damage. If **_the shot is tricky or you’re under pressure_**, first roll +DEX: **on a 10+**, you have a clear shot, deal your damage; **on a 7-9**, pick 1:\n\n- Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)\n- Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage\n- Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage\n- Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You have a clear shot, deal your damage.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1:\n\n- Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)\n- Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage\n- Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage\n- Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Up to GM",
+      "text": ""
+    }
+  },
+  "lets-make-a-deal": {
+    "name": {
+      "source": "Let's Make a Deal",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, add \"What do they really want or need?\" to the list of questions. When you **_Persuade by offering them something that you know they want or need_**, treat a 7-9 as a 10+.",
+      "text": ""
+    }
+  },
+  "level-up": {
+    "name": {
+      "source": "Level Up",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level_**, follow these steps:\n\n- Subtract 6 + twice your current level from your XP.\n- Increase your level by 1.\n- Choose a new move from your playbook, or an insert class that you've unlocked.\n- If you are the Blessed (or have a sacred pouch) and your new level is even, increase your maximum Stock by 1.\n- If you are the Lightbearer (or have Invoke the Sun God) and your new level is even, choose a new Invocation.\n- Review your Instinct and Appearance. Change anything that no longer applies. Feel free to make up new options.",
+      "text": ""
+    }
+  },
+  "light-fingers": {
+    "name": {
+      "source": "Light Fingers",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_perform sleight of hand on an unwary mark_**, you succeed and no one's the wiser. If you're being watched, roll +DEX: **on a 10+**, you succeed and no one's the wiser; **_on a 7-9_**, you succeed OR no one's the wiser (your choice).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You succeed and no one's the wiser.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You succeed OR no one's the wiser (your choice).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "light-more-light": {
+    "name": {
+      "source": "Light, More Light",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_consecrate a flame_**, it burns brighter than normal. A rushlight or candle illuminates to reach range, an oil lamp, lantern, or torch out to near range, and a bullseye lantern out to far range.",
+      "text": ""
+    }
+  },
+  "lightning-rod": {
+    "name": {
+      "source": "Lightning Rod",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defend while touching the earth_**, you can spend 1 Readiness to intercept a nearby magical attack and redirect it harmlessly into the ground.",
+      "text": ""
+    }
+  },
+  "like-a-dog-with-a-bone": {
+    "name": {
+      "source": "Like a Dog with a Bone",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_attack something you know to be tainted by chaos_**, deal +1d6 damage.",
+      "text": ""
+    }
+  },
+  "like-an-open-book": {
+    "name": {
+      "source": "Like an Open Book",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Take the Measure of someone who fears or respects you_**, your second question can be anything you want. The GM might ask how you could possibly know this; tell them or ask something else.",
+      "text": ""
+    }
+  },
+  "logbook": {
+    "name": {
+      "source": "Logbook",
+      "text": ""
+    },
+    "description": {
+      "source": "You have a logbook (2 uses, slow) that doesn't take up space in your inventory. When you **_(and only you) consult your logbook and expend a use_**, you can ignore a Know Things roll you just made and treat the result as a 10+. When **_the Seasons Change_**, reset your logbook to 2 uses.",
+      "text": ""
+    }
+  },
+  "logistics": {
+    "name": {
+      "source": "Logistics",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have a steading Muster or Pull Together, or when you Requisition_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "luminous-shield": {
+    "name": {
+      "source": "Luminous Shield",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_brandish a holy light to turn aside an attack against body, mind, or soul_**, roll +CHA: **on a 10+**, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; **_on a 7-9_**, the attack is deflected but your holy light flickers and dims, threatening to go out; **on a 6-**, your light snuffs out and the attack is unimpeded.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The attack is deflected and the attacker (if in range) is briefly blinded.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The attack is deflected but your holy light flickers and dims, threatening to go out.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Your light snuffs out and the attack is unimpeded.",
+      "text": ""
+    }
+  },
+  "maelstrom": {
+    "name": {
+      "source": "Maelstrom",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_use Siphon_**, you can mark a consequence before rolling to affect a number of victims within range. Roll +CON once, but roll damage separately for each target.",
+      "text": ""
+    }
+  },
+  "magnet": {
+    "name": {
+      "source": "Magnet",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_witness a magical attack_**, you can either spend 1 Readiness (from the Defend move) or mark a consequence to redirect the magic so that it affects only you. You can then stand fast against it.",
+      "text": ""
+    }
+  },
+  "magnificent-specimen": {
+    "name": {
+      "source": "Magnificent Specimen",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, your companion gains 2 additional options of your choice.",
+      "text": ""
+    }
+  },
+  "magpie": {
+    "name": {
+      "source": "Magpie",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Have What You Need_**, you can produce something strange, specific, maybe even valuable or a little bit magical, but if you do, tell us where you got it and 2 of the following:\n\n- How it's not quite right, but maybe it'll do?\n- The trouble you caused back home by getting it\n- Why using it will draw unwanted attention\n- That it's the only thing like this that you've got, and why it'll only work the one time",
+      "text": ""
+    }
+  },
+  "make-a-plan": {
+    "name": {
+      "source": "Make a Plan",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wish to accomplish some project but don't know how to go about it_**, tell the GM what you hope to achieve. They'll say what's required. If you're stumped on how to accomplish one of the requirements, tell the GM and Make a Plan for that.",
+      "text": ""
+    }
+  },
+  "make-camp": {
+    "name": {
+      "source": "Make Camp",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_settle in to rest in an unsafe area_**, answer the GM's questions about your campsite. Each member of the party must consume 1 use of supplies or provisions; if you use a mess kit (requires fire & water), then 1 use can provide for up to four people.\n\nIf you **_eat and drink your fill, and get at least a few hours of sleep_**, pick 1:\n\n- Regain HP equal to ½ your max (round up)\n- Clear a debility\n\nIf your rest was particularly peaceful, comfortable, or enjoyable, you also gain advantage on your next roll.",
+      "text": ""
+    }
+  },
+  "many-hands-make-light-work": {
+    "name": {
+      "source": "Many Hands Make Light Work",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_jump in to help another character who just rolled_**, tell us how and ask the GM what else is required or what the consequences will be. If you accept, increase your ally's roll by +1.",
+      "text": ""
+    }
+  },
+  "meet-with-disaster": {
+    "name": {
+      "source": "Meet With Disaster",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_calamity befalls the steading or panic spreads_**, reduce Fortunes by 1 (min -1).\n **_When Fortunes would drop below -1 for any reason_** (not just calamity or panic), then the GM picks 1 instead:\n\n- The steading marks diminished from injuries/sickness/doubt (disadvantage to Deploy, Muster, Pull Together)\n- The steading marks lacking due to shortages/hoarding/distrust (treat Prosperity as 1 lower)\n- The steading marks malcontent from fear/anger/despair (Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual)\n- Folks start to leave; reduce Population by 1",
+      "text": ""
+    }
+  },
+  "mental-map": {
+    "name": {
+      "source": "Mental Map",
+      "text": ""
+    },
+    "description": {
+      "source": "You can always retrace your steps and can accurately gauge distances and directions. You might not know the way forward but can always find your way back.\n\nWhen you **_think back on a place you've been_**, you can Seek Insight retroactively, as if you were still there.",
+      "text": ""
+    }
+  },
+  "mighty-thews": {
+    "name": {
+      "source": "Mighty Thews",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_perform a feat of extraordinary strength (bursting chains, smashing through a wall, heaving a boulder, etc.)_**, you do it (OH YEAH!) but pick 1:\n\n- It takes a while\n- You cause unwanted damage or harm\n- It takes a toll (mark a debility)",
+      "text": ""
+    }
+  },
+  "mind-over-magic": {
+    "name": {
+      "source": "Mind Over Magic",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_roll to study or use an arcanum_**, you can roll +INT instead of the stat you'd normally roll.",
+      "text": ""
+    }
+  },
+  "mindwalking": {
+    "name": {
+      "source": "Mindwalking",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_use the Ice Sphere as a psychic anchor_**, your consciousness leaves your body and walks the world as a spirit, invisible and insubstantial. Roll +INT: **on a 10+**, hold 3 Power; **on a 7-9**, hold 2 Power; **on a 6-**, hold 2 Power and mark a Consequence. While mindwalking, you may spend your Power, 1-for-1 to:\n- Manifest as a ghostly voice and/or presence\n- Manipulate an unattended item (small or\n- Return instantly to the Ice Sphere from any distance For every 2 Consequences you mark, gain one of the following moves:",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "hold 3 Power",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "hold 2 Power",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "hold 2 Power and mark a Consequence. While mindwalking, you may spend your Power, 1-for-1 to:",
+      "text": ""
+    }
+  },
+  "mirrorshield": {
+    "name": {
+      "source": "Mirrorshield",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defend with a shield_**, you can spend 1 Readiness to intercept a magical force and redirect it to a different target (or none).",
+      "text": ""
+    }
+  },
+  "musclebound": {
+    "name": {
+      "source": "Musclebound",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_make a hand-to-hand or thrown attack_**, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.",
+      "text": ""
+    }
+  },
+  "muster": {
+    "name": {
+      "source": "Muster",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_press every able body into the defense of a steading_**, reduce Fortunes by 1 and roll +Population: **on a 7+**, the steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. **On a 10+**, also pick 2; **on a 7-9**, also pick 1.\n\n- Increase Defenses by 1 as long as the Muster holds\n- Everyone's willing to pitch in; don't reduce Fortunes after all\n- The muster holds together even without your presence\n- 1 or 2 individuals show real potential; ask the GM who and how",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. Also pick 2.\n\n- Increase Defenses by 1 as long as the Muster holds\n- Everyone's willing to pitch in; don't reduce Fortunes after all\n- The muster holds together even without your presence\n- 1 or 2 individuals show real potential; ask the GM who and how",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. Also pick 1.\n\n- Increase Defenses by 1 as long as the Muster holds\n- Everyone's willing to pitch in; don't reduce Fortunes after all\n- The muster holds together even without your presence\n- 1 or 2 individuals show real potential; ask the GM who and how",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "naturalist": {
+    "name": {
+      "source": "Naturalist",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Know Things about beasts, natural environs, or spirits of the wild_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "natures-wrath": {
+    "name": {
+      "source": "Nature's Wrath",
+      "text": ""
+    },
+    "description": {
+      "source": "Danu's Grasp gains the area tag and can affect any creature. A mortal reduced to 0 HP is subdued or killed (your choice) rather than bound in stone.",
+      "text": ""
+    }
+  },
+  "nemesis": {
+    "name": {
+      "source": "Nemesis",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Clash and your foe survives_**, all of your future attacks against them do +1d6 damage.",
+      "text": ""
+    }
+  },
+  "never-at-a-loss": {
+    "name": {
+      "source": "Never at a Loss",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Know Things and roll a 6-_**, you may choose to not mark XP. If you don't mark XP, the worst that happens is that the GM tells you nothing interesting or useful about the subject, but instead tells you how you could learn more.",
+      "text": ""
+    }
+  },
+  "never-gonna-keep-me-down": {
+    "name": {
+      "source": "Never Gonna Keep Me Down",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have 5 or fewer current HP_**, you impose disadvantage on any damage you take.\n\nOnce per session, when you are at Death's Door, don't roll. You get a 10+.",
+      "text": ""
+    }
+  },
+  "noble-mien": {
+    "name": {
+      "source": "Noble Mien",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_lead an NPC through danger and return them to safety_**, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support.",
+      "text": ""
+    }
+  },
+  "on-the-hoof": {
+    "name": {
+      "source": "On the Hoof",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_travel through the wilderness_**, you can procure 1d6 uses of provisions each day (roll with disadvantage in winter or barren terrain). Provisions can substitute for supplies when you Make Camp.",
+      "text": ""
+    }
+  },
+  "order-followers": {
+    "name": {
+      "source": "Order Followers",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_direct your follower to do something that would trigger a player move_**, and they do it, they trigger the move. If the move involves rolling, you roll for them. Instead of rolling +STAT, roll and:\n\n- if they have at least one appropriate tag or move, add +1, or +2 if they're also *exceptional*;\n- if they have no relevant tag or move, add +0; and\n- if any of their tags would get in the way, roll with disadvantage.\n\nWhen a follower is without orders or they act on their own initiative, the GM says what they do and how it goes.",
+      "text": ""
+    }
+  },
+  "outfit": {
+    "name": {
+      "source": "Outfit",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_prepare for an expedition in a friendly community_**, mark as many ◇ on your Inventory insert as you wish to carry, either on specific items or in \"undefined.\" Mark up to 3 ◇ for a _light_ load (quick and quiet), 4–6 ◇ for a _normal_ load, or 7–9 ◇ for a _heavy_ load (noisy, slow, quick to tire). Also, mark a number of □ in the Small items section equal to 4+Prosperity (on specific items or \"undefined\").\n\nYou can select:\n\n- Items printed on the Inventory insert\n- Other common, mundane items\n- Any of your special possessions\n- Special items for which you Trade & Barter\n\nTell the GM what you're bringing, and answer their questions about your gear and where you got it.",
+      "text": ""
+    }
+  },
+  "overchannel": {
+    "name": {
+      "source": "Overchannel",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_would mark a Consequence from a major arcanum_**, you may mark a debility instead.",
+      "text": ""
+    }
+  },
+  "pack-horse": {
+    "name": {
+      "source": "Pack Horse",
+      "text": ""
+    },
+    "description": {
+      "source": "You can carry up to 4 weight with a light load, 7 weight with a normal load, and 10 weight with a heavy load.",
+      "text": ""
+    }
+  },
+  "pants-on-fire": {
+    "name": {
+      "source": "Pants on Fire",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defy Danger, Persuade, or Interfere by being deceitful_**, you have advantage.\n\nWhen **_another move (like Seek Insight) allows a player to ask you a question_**, you can opt not to answer.",
+      "text": ""
+    }
+  },
+  "parry-riposte": {
+    "name": {
+      "source": "Parry & Riposte",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defend with a weapon that you can wield quickly_**, you can spend 1 Readiness to both halve an attack's effects/damage and strike back at the attacker (deal your damage with disadvantage), instead of spending 1 Readiness for each.",
+      "text": ""
+    }
+  },
+  "pathfinder": {
+    "name": {
+      "source": "Pathfinder",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_lead your people to Pull Together or Deploy beyond sight of home_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "payback": {
+    "name": {
+      "source": "Payback",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_deal damage to a foe that has harmed you or one of your allies_**, deal +1d4 damage.",
+      "text": ""
+    }
+  },
+  "peace-through-strength": {
+    "name": {
+      "source": "Peace Through Strength",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_stand ready to fight alongside like-minded allies_**, anything capable of fear recognizes you as a serious threat and treats you accordingly.",
+      "text": ""
+    }
+  },
+  "perceptive": {
+    "name": {
+      "source": "Perceptive",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, you may ask 1 additional question. Even **on a 6-**, you can ask 1 question (though you might not like how you learn the answer).",
+      "text": ""
+    }
+  },
+  "persuade-vs-npcs": {
+    "name": {
+      "source": "Persuade (vs. NPCs)",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +DEX: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They either do as you want or reveal the easiest way to convince them",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Up to GM",
+      "text": ""
+    }
+  },
+  "persuade-vs-pcs": {
+    "name": {
+      "source": "Persuade (vs. PCs)",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_press or entice a PC and they resist_**, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.\n\nIf they say “yes,” you can roll +CHA: **on a 10+**, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; **on a 7-9**, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Up to GM",
+      "text": ""
+    }
+  },
+  "piety": {
+    "name": {
+      "source": "Piety",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend at least an hour in proper worship to Helior_**, hold 1 Blessing. Other faithful PCs who partake in this worship also hold 1 Blessing. At any time, you can spend 1 Blessing to add +1 to a roll you just made in pursuit of a righteous cause.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Blessing",
+      "text": ""
+    }
+  },
+  "polyglot": {
+    "name": {
+      "source": "Polyglot",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_first encounter a living language in play_**, describe your proficiency with it (if any) and how you came to acquire it.\n\nWhen you **_Know Things about any script, text, runes or symbols that you encounter_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "potent-workings": {
+    "name": {
+      "source": "Potent Workings",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_craft a protective charm_**, you may spend 1 additional Stock to choose 1:\n\n- Name an additional type of harm\n- **On a 10+**, the charm retains its potency",
+      "text": ""
+    }
+  },
+  "potential-for-greatness": {
+    "name": {
+      "source": "Potential for Greatness",
+      "text": ""
+    },
+    "description": {
+      "source": "Once per level, **_when you roll a stat and get a 10+_**, mark one of the following (note the level during which you marked it). You don't have to mark them in order.",
+      "text": ""
+    },
+    "choices/stat1/input/placeholder": {
+      "source": "level checked",
+      "text": ""
+    },
+    "choices/stat2/input/placeholder": {
+      "source": "level checked",
+      "text": ""
+    },
+    "choices/stat3/input/placeholder": {
+      "source": "level checked",
+      "text": ""
+    },
+    "choices/stat4/input/placeholder": {
+      "source": "level checked",
+      "text": ""
+    },
+    "choices/hp/input/placeholder": {
+      "source": "level checked",
+      "text": ""
+    },
+    "choices/damage/input/placeholder": {
+      "source": "level checked",
+      "text": ""
+    },
+    "choices/stat1/text": {
+      "source": "Increase the stat you rolled by 1, to a max of +2",
+      "text": ""
+    },
+    "choices/stat2/text": {
+      "source": "Increase the stat you rolled by 1, to a max of +2",
+      "text": ""
+    },
+    "choices/stat3/text": {
+      "source": "Increase the stat you rolled by 1, to a max of +2",
+      "text": ""
+    },
+    "choices/stat4/text": {
+      "source": "Increase the stat you rolled by 1, to a max of +2",
+      "text": ""
+    },
+    "choices/hp/text": {
+      "source": "Increase your max HP by 4",
+      "text": ""
+    },
+    "choices/damage/text": {
+      "source": "Increase your damage die to a d8",
+      "text": ""
+    }
+  },
+  "power-of-the-lidless-orb": {
+    "name": {
+      "source": "Power of the Lidless Orb",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_bear the staff and call upon the power of the Orb_**, choose one of the effects that you have marked:\n- Cast your sight afar, seeing either a time in the past of your current locale or the present of a distant place which you have previously visited. While you maintain the effect, you are blind to the world around you.\n- Hold the Orb before another creature’s gaze and steal its sense of sight, blinding them until you use this effect again. When you see through the Lidless Orb, you can choose to see using the currently stolen sense of sight.\n- Hold the Orb before a mortal being’s gaze, keeping it transfixed, mesmerized, and receptive to your suggestions. A weak-willed creature will obey outright; a strong-willed one might require convincing.\n- Point the Orb at a living victim and roll 2d4. If you roll higher than the victim’s current HP, it’s debilitated with nausea and vertigo while you remain in its presence (and possibly for some time thereafter). Otherwise, the victim reels momentarily but soon recovers.\n\nAfter you’ve chosen the effect, roll +CON: **on a 10+**, the effect occurs as described; **on a 7-9**, you decide either to mark a Consequence and have the effect occur, or to have the effect fail; **on a 6-**, ask the GM what happens (which may or may not involve marking a Consequence).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the effect occurs as described",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "you decide either to mark a Consequence and have the effect occur, or to have the effect fail",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "ask the GM what happens (which may or may not involve marking a Consequence).",
+      "text": ""
+    }
+  },
+  "power-sink": {
+    "name": {
+      "source": "Power Sink",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wear the Rune-laden Scales and stand fast against a magical attack_**, **on a 12+** the armor drains the attacker’s power. That form of attack is lost to them, though they might regain it with time, study, or effort.\n\nWhen you **_wear the Rune-laden Scales and spend time in quiet communion with the elements_**, the power absorbed by the armor dissipates harmlessly.\n\nIf you **_trigger Power Sink again before dissipating the absorbed power_**, mark XP, ask the GM what happens, and brace yourself for the worst.",
+      "text": ""
+    }
+  },
+  "predator": {
+    "name": {
+      "source": "Predator",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, add the following to the list of questions you can ask. When **_acting on the answer to either question_**, deal an extra 1d4 damage.\n\n- Who or what here is the easiest prey?\n- How is ________ weak or vulnerable?",
+      "text": ""
+    }
+  },
+  "prepare-a-welcome": {
+    "name": {
+      "source": "Prepare a Welcome",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have your allies fortify a position and lie in wait for battle_**, hold 1 Surprise if you're rushed or 2 Surprises if you can take your time.\n\nOnce battle is joined, spend 1 Surprise to reveal a ploy, defense, or dirty trick you prepared in advance and roll +INT: **on a 10+**, it works as well as can be expected, and you've still got a few tricks up your sleeve—regain 1 Surprise; **_on a 7-9_**, it works as well as can be expected.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "It works as expected, and you regain 1 Surprise.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "It works as expected.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Surprise",
+      "text": ""
+    }
+  },
+  "proclamation": {
+    "name": {
+      "source": "Proclamation",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Censure_**, you may denounce a group or faction as long as you can clearly identify them. Apply the effects of Censure to every member of that group, regardless of distance.",
+      "text": ""
+    }
+  },
+  "promise-of-doom": {
+    "name": {
+      "source": "Promise of Doom",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_hold the Twisted Spear and speak aloud an oath to destroy a spirit or demon_**, you do +2d4 damage against them and -4 damage to everything else. This lasts until you destroy them or forsake your oath. If you forsake your oath, mark a consequence.",
+      "text": ""
+    }
+  },
+  "proof-against-detection": {
+    "name": {
+      "source": "Proof Against Detection",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_hold Protection_**, you can't be scried upon or sensed by magical means, and have advantage to Defy Danger by being stealthy.",
+      "text": ""
+    }
+  },
+  "proof-against-harm": {
+    "name": {
+      "source": "Proof Against Harm",
+      "text": ""
+    },
+    "description": {
+      "source": "The Rune-laden Scales now provide you 3 armor, even against piercing and attacks that normally ignore armor. When you **_wear the Rune-laden Scales and find yourself at Death’s Door_**, you may mark a consequence before you roll to automatically get a 10+.",
+      "text": ""
+    }
+  },
+  "pull-together": {
+    "name": {
+      "source": "Pull Together",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_set a community to work on improvements_**, to secure new resources, or to make major repairs, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: **on a 10+**, the job gets done; **on a 7-9**, pick 1:\n\n- It gets done, but other work doesn't; reduce Fortunes by 1\n- It gets done, but the work is shoddy, crude\n- It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)\n- There's an unforseen cost, requirement, or challenge; address it and the job gets done",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The job gets done.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1:\n\n- It gets done, but other work doesn't; reduce Fortunes by 1\n- It gets done, but the work is shoddy, crude\n- It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)\n- There's an unforseen cost, requirement, or challenge; address it and the job gets done",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "purify": {
+    "name": {
+      "source": "Purify",
+      "text": ""
+    },
+    "description": {
+      "source": "Name an instance of corruption, infection, or taint in your presence. If you speak this Word forward, the target is cleansed. If you speak backward, the corruption grows and spreads aggressively.",
+      "text": ""
+    }
+  },
+  "purifying-flames": {
+    "name": {
+      "source": "Purifying Flames",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wield a holy light against a creature of darkness_**, it counts as a weapon (d10 damage, hand, close, area, 2 piercing) and you can choose to roll +WIS to Clash.",
+      "text": ""
+    }
+  },
+  "quick-study": {
+    "name": {
+      "source": "Quick Study",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_study something magical that should take months to understand_**, it instead takes mere weeks. If it should take weeks, it takes days. If it should take days, it takes only a few hours.",
+      "text": ""
+    }
+  },
+  "radiant-countenance": {
+    "name": {
+      "source": "Radiant Countenance",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_give someone your fond attention_**, you can then Persuade them with advantage. If they are a follower, you can instead choose to Strengthen Your Bond (as if you paid their cost).",
+      "text": ""
+    }
+  },
+  "rapier-wit": {
+    "name": {
+      "source": "Rapier Wit",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_pierce an NPC's pride with a well-placed quip_**, they must do 1 (their choice):\n\n- Attack, doing +1d4 damage if they hit but giving you advantage on your next roll against them\n- Stoop to your level and respond in kind\n- Spend a few moments fuming, sputtering, or controlling their temper",
+      "text": ""
+    }
+  },
+  "read-the-land": {
+    "name": {
+      "source": "Read the Land",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_first take a moment to survey the terrain_**, ask the GM one of the following; gain advantage on your next roll to act on the answer.\n\n- What's the best way in, out, through, or past?\n- Where's the best spot for a trap or an ambush?\n- Where's the most defensible position?\n- What here is out of place?",
+      "text": ""
+    }
+  },
+  "recover": {
+    "name": {
+      "source": "Recover",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take time to catch your breath and tend to what ails you_**, expend 1 use of supplies and regain HP equal to 4+Prosperity. You can't gain this benefit again until you take more damage.\n\nWhen you **_tend to a debility or a problematic wound_**, say how. The GM will either say that it's taken care of or tell you what else is required to do so.",
+      "text": ""
+    }
+  },
+  "relentless": {
+    "name": {
+      "source": "Relentless",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Clash and your foe survives_**, you gain advantage the next time you Clash with them.",
+      "text": ""
+    }
+  },
+  "requisition": {
+    "name": {
+      "source": "Requisition",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_borrow some of the steading's assets for an expedition_** (like the horses or a plow), roll +Fortunes: **on a 10+**, go ahead, but bring it back safely; **on a 7-9**, you'll need to do some convincing; **on a 6-**, don't mark XP—you can take the asset with you if you want, but if you do, reduce Fortunes by 1.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Go ahead, but bring it back safely.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You'll need to do some convincing.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Don't mark XP. You can take the asset with you if you want, but if you do, reduce Fortunes by 1.",
+      "text": ""
+    }
+  },
+  "resonance": {
+    "name": {
+      "source": "Resonance",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have captured a tremendous elemental force_** (like that from a storm or wildfire) and **_then_** **_channel it into the eddies of air or earth_**, pick 1 from the list below and roll +INT: **on a 10+**, it comes to pass; **on a 7-9**, it will come to pass if you choose to mark a consequence; **on a 6-**, mark a consequence and prepare for the worst.\n- A potent storm or earthquake builds, unleashing itself within the next few hours.\n- The weather for the next few weeks is abnormal, hotter or colder, wetter or dryer, windier or more still, per your desires (though nothing too extreme).\n- The weather for the next few months is generally favorable; any steading in the area gains advantage to its next Seasons Change roll.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "it comes to pass",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "it will come to pass if you choose to mark a consequence",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "mark a consequence and prepare for the worst.",
+      "text": ""
+    }
+  },
+  "resourceful": {
+    "name": {
+      "source": "Resourceful",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defy Danger and roll a 6-_**, ask the GM a question from Seek Insight after they describe what happens. Gain advantage on your next roll to act on the answer.",
+      "text": ""
+    }
+  },
+  "return-triumphant": {
+    "name": {
+      "source": "Return Triumphant",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_return home in triumph_**, having saved your fellows, put down the threat, seized the opportunity, etc., then clear one of the steading's debilities (_diminished_, _lacking_, or _malcontent_).\n\nIf the steading has no debilities marked, then increase Fortunes by 1.",
+      "text": ""
+    }
+  },
+  "rise-like-the-sun": {
+    "name": {
+      "source": "Rise Like the Sun",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_draw attention to yourself by word or deed_**, roll +CHA: **on a 10+**, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; **_on a 7-9_**, everyone turns and looks.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Everyone turns and looks.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "rites-of-the-land": {
+    "name": {
+      "source": "Rites of the Land",
+      "text": ""
+    },
+    "description": {
+      "source": "Once per season, when you oversee the sacred rites, hold 1 Favor. If you also sacrifice 1 Surplus, hold 4 Favor instead. Spend Favor in lieu of Stock, 1-for-1.\n\nWhen you **_publicly sacrifice something or someone much-loved_**, either clear a steading debility or gain advantage when the steading next rolls +Fortunes.",
+      "text": ""
+    }
+  },
+  "roots-of-the-elder-tree": {
+    "name": {
+      "source": "Roots of the Elder Tree",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_stand with your feet firmly on the ground and strike a spirit, ghost, or demon_**, you can mark a consequence to send your target coursing through you and into the depths of the earth, where it is bound fast.",
+      "text": ""
+    }
+  },
+  "safety-first": {
+    "name": {
+      "source": "Safety First",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend an hour or so preparing your mystical defenses_**, hold 2 Protection. When you **_are affected by harmful magic_**, spend 1 Protection either to gain advantage on any roll to resist it or to halve its damage/effects.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Protection",
+      "text": ""
+    }
+  },
+  "sage-advice": {
+    "name": {
+      "source": "Sage Advice",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_another PC asks you for guidance_**, they get advantage on their next roll to follow your advice.",
+      "text": ""
+    }
+  },
+  "seal": {
+    "name": {
+      "source": "Seal",
+      "text": ""
+    },
+    "description": {
+      "source": "Name a portal, clasp, or seam in your presence. If you speak this Word forward, the target seals shut and holds against any mundane attempt to open it. If you speak backward, the target is pried open or apart.",
+      "text": ""
+    }
+  },
+  "seasoned-warrior": {
+    "name": {
+      "source": "Seasoned Warrior",
+      "text": ""
+    },
+    "description": {
+      "source": "Take a move from the Fox, Marshal, Ranger, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. (You can't pick Improved Stat or Superior Stat.)",
+      "text": ""
+    }
+  },
+  "seasons-change-autumn": {
+    "name": {
+      "source": "Seasons Change: Autumn",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\nWhen the harvest is complete, roll 1d4; the steading generates that much Surplus.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
+      "text": ""
+    }
+  },
+  "seasons-change-spring": {
+    "name": {
+      "source": "Seasons Change: Spring",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1.",
+      "text": ""
+    }
+  },
+  "seasons-change-summer": {
+    "name": {
+      "source": "Seasons Change: Summer",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes: **on a 10+**, pick 2 seasonal gains; **on a 7-9**, pick 1 seasonal gain; **on a 6-**, a threat to the steading makes itself known or gets worse (and don't mark XP).\n\nWhatever the result, the steading generates 1d4-1 Surplus. Then, reset Fortunes to +1.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Pick 2 seasonal gains.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1 seasonal gain.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "A threat to the steading makes itself known or gets worse (and don't mark XP).\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
+      "text": ""
+    }
+  },
+  "seasons-change-winter": {
+    "name": {
+      "source": "Seasons Change: Winter",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and Meet with Disaster. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).\n\nThen reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.\n\nThen reset Fortunes to +1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "As a 7-9, but also threats abound (and don't mark XP).\n\nThen reset Fortunes to +1.",
+      "text": ""
+    }
+  },
+  "second-intent": {
+    "name": {
+      "source": "Second Intent",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defend and spend 1 Readiness to Parry & Riposte_**, also pick 1 option from the Ambush list.",
+      "text": ""
+    }
+  },
+  "seek-insight": {
+    "name": {
+      "source": "Seek Insight",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_study a situation or person_**, looking to the GM for insight, roll +WIS: **on a 10+**, ask the GM 3 questions from the list below; **on a 7-9**, ask 1; **either way**, take advantage on your next move to act on the answers\n\n- What happened here recently?\n- What is about to happen?\n- What should I be on the lookout for?\n- What here is useful or valuable to me?\n- Who or what is really in control here?\n- What here is not what it appears to be?",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "ask the GM 3 questions from the list above",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "ask the GM 1 question from the list above",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "GM Move (**announce trouble, reveal an unwelcome truth, advance towards impending doom, use up their resources, turn their move back on them,** etc.)",
+      "text": ""
+    }
+  },
+  "set-up-strike": {
+    "name": {
+      "source": "Set-Up Strike",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Clash and get a 7+_**, you can choose to deal damage with disadvantage. If you do, you create an opening for an ally to act on, as if you provided Aid. Describe it!",
+      "text": ""
+    }
+  },
+  "shadow-magic": {
+    "name": {
+      "source": "Shadow Magic",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_hold a Whispering Rock and call out the shadows within_**, choose one thing which you wish to do:\n- Cloak yourself in shadows and silence, moving unseen and unnoticed as long as you draw no attention to yourself and avoid the sun or sacred light\n- Name someone you know or to whom you have an arcane link (hair, clothing, or the like); you can see them, hear them, and whisper to them as if from a nearby shadow\n- Name someone you can see; the nearby shadows ensnare them, doing no harm but hampering their sight and movement Then, roll +CON: **on a 10+**, the effect lasts as long as you wish, but you have disadvantage on all rolls while you maintain it; **on a 7-9**, either mark a consequence and the effect lasts as on a 10+, or the effect flickers out after mere moments (your choice which); **on a 6-**, ask the GM what happens (which may or may not involve marking a consequence).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the effect lasts as long as you wish, but you have disadvantage on all rolls while you maintain it",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "either mark a consequence and the effect lasts as on a 10+, or the effect flickers out after mere moments (your choice which)",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "ask the GM what happens (which may or may not involve marking a consequence).",
+      "text": ""
+    }
+  },
+  "shake-it-off": {
+    "name": {
+      "source": "Shake It Off",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_order an ally to overcome fear, pain_**, doubt, or delusion, roll +CHA: **on a 10+**, they do it; **_on a 7-9_**, a PC gets advantage to do it; an NPC will do it, but they'll need time, they'll resent you, or they'll feel humiliated (GM decides).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They do it.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "A PC gets advantage to do it; an NPC does it but at a cost (GM decides).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "shared-souls": {
+    "name": {
+      "source": "Shared Souls",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mark a beast with 1 Stock_**, you can direct its actions and perceive through its senses no matter the distance between you. Treat it as a follower with 3 Loyalty; when you spend its last Loyalty, the effect ends.",
+      "text": ""
+    }
+  },
+  "shield-wall": {
+    "name": {
+      "source": "Shield Wall",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_have your crew form a shield wall_**, they Defend with advantage and **_on a 7+_** they hold +2 Readiness (instead of the usual +1 for shields). As long as they maintain formation, they can go on the offensive without losing Readiness.",
+      "text": ""
+    }
+  },
+  "silver-tongued": {
+    "name": {
+      "source": "Silver Tongued",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_use words to avoid suspicion or trouble_**, roll +CHA: **on a 10+**, hold 3 Nerve; **_on a 7-9_**, hold 1 Nerve. You may spend Nerve, 1-for-1, to:\n\n- Move about or maneuver unchallenged\n- Withstand direct scrutiny or questioning\n- Direct suspicion or attention elsewhere",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Hold 3 Nerve.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Hold 1 Nerve.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Nerve",
+      "text": ""
+    }
+  },
+  "siphon": {
+    "name": {
+      "source": "Siphon",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_raise your ringed hand and will the ring to consume someone’s life-force_** (at up to *reach* range), roll +CON: **on a 10+**, deal 1d10 damage (*grabby*, ignores armor); **on a 7-9**, deal 1d10 damage (ignores armor) but choose one:\n- The ring eats at your life-force, too—lose 1d10 HP and mark a debility\n- Mark a consequence\n\n**On a 6-**, the GM says what happens (which may or may not involve marking a consequence).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "deal 1d10 damage (*grabby*, ignores armor)",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "deal 1d10 damage (ignores armor) but choose one:",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "the GM says what happens (which may or may not involve marking a consequence).",
+      "text": ""
+    }
+  },
+  "sir-permission-to-die-sir": {
+    "name": {
+      "source": "Sir, Permission to Die, Sir",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_one of your followers would die_**, you can spend 1 of their Loyalty to have them survive (out of the action, but alive). If you let them go, mark XP.",
+      "text": ""
+    }
+  },
+  "situational-awareness": {
+    "name": {
+      "source": "Situational Awareness",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, add the following to the list of questions you can ask:\n\n- Who or what here is the biggest threat?\n- What is my enemy's true position?\n- What here can I use as a weapon?\nWhen **_a fight breaks out_**, ask the GM 1 question that you could ask when Seeking Insight.",
+      "text": ""
+    }
+  },
+  "skill-at-arms": {
+    "name": {
+      "source": "Skill at Arms",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wield a weapon with speed and grace_**, roll +DEX to Clash (instead of +STR).",
+      "text": ""
+    }
+  },
+  "slippery": {
+    "name": {
+      "source": "Slippery",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_roll to escape being caught or controlled_**, treat a 6- as a 7-9. On a 12+, say how you turn the tables or use the circumstances to your advantage.",
+      "text": ""
+    }
+  },
+  "sniff-out-corruption": {
+    "name": {
+      "source": "Sniff Out Corruption",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, you can ask, \"What here stinks of the unnatural?\" for free, even **on a 6-**.",
+      "text": ""
+    }
+  },
+  "something-to-remember-me-by": {
+    "name": {
+      "source": "Something to Remember Me By",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend Readiness (from Defend) to strike back at an attacker_**, you deal +1d4 damage and scar, mark, or diminish them in some way (the GM will say how, or ask you to).",
+      "text": ""
+    }
+  },
+  "speak-softly": {
+    "name": {
+      "source": "Speak Softly",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_offer peace but your enemy refuses_**, gain advantage on your next roll against them.",
+      "text": ""
+    }
+  },
+  "speak-the-unutterable": {
+    "name": {
+      "source": "Speak the Unutterable",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_speak an Ineffable Word that you have mastered_**, roll +CON: **on a 10+**, the Word’s power manifests as described; **on a 7-9**, the Word’s power manifests, but choose 1 from the list below; **on a** **6-**, the GM says what happens (which may or may not involve marking a consequence).\n- You collapse in a full-body seizure\n- Mark a consequence\n- **Seal.** Name a portal, clasp, or seam in your presence. If you speak this Word forward, the target seals shut and holds against any mundane attempt to open it. If you speak backward, the target is pried open or apart.\n- **Purify.** Name an instance of corruption, infection, or taint in your presence. If you speak this Word forward, the target is cleansed. If you speak backward, the corruption grows and spreads aggressively.\n- **Gather.** Name an unliving object in your presence. If you speak this Word forward, the object is drawn forcefully towards you, possibly flying through the air and into your hand. If you speak backward, the object is flung away from you. If the object weighs more than you, or is secured by something that does, it is you that moves instead.\n- **Empower.** Name a living thing or vessel for power in your presence. If you speak this Word forward, the target surges with power. A creature heals 1d8 HP or gains advantage on its next roll. If you speak backward, the target is drained of energy. A creature takes 1d8 damage (ignores armor) or takes disadvantage on its next roll.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the Word’s power manifests as described",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the Word’s power manifests, but choose 1 from the list below",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "the GM says what happens (which may or may not involve marking a consequence).",
+      "text": ""
+    }
+  },
+  "speak-truth-to-power": {
+    "name": {
+      "source": "Speak Truth to Power",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_demand that someone does what is clearly good and right_**, you have advantage to Persuade. If they refuse, gain +1 Resolve.",
+      "text": ""
+    }
+  },
+  "spirit-tongue": {
+    "name": {
+      "source": "Spirit Tongue",
+      "text": ""
+    },
+    "description": {
+      "source": "You can speak with beasts and spirits. You can always ask the GM, \"What spirits are active here?\" and get an honest answer.",
+      "text": ""
+    }
+  },
+  "spirits-of-the-herd": {
+    "name": {
+      "source": "Spirits of the Herd",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_proudly bear the Shield of the Wisent Witch and call upon the spirits of the herd_**, choose 1 of the following effects:\n- So long as you bear the Shield and until one of you speaks in the tongues of men, you and any allies that you mark with mud from the forest floor take on the visage of a herd of wisents. While this spell lasts, you and your allies cover ground at great speed and can graze rather than consuming supplies/provisions.\n- As you charge your foes, conjure a herd of stampeding wisent to join you. Treat the herd as a weapon (+2d4 damage, *forceful*, *messy*, *area*, *dangerous*, *terrifying*) as you Clash. The herd vanishes once the charge’s momentum is spent.\n- Hold 3 Might. You can spend Might 1-for-1 to:\n- Plow past, over, or through an opponent or obstacle\n- Tear free from any physical restraint\n- Shrug off a physical blow, unfazed and unharmed\n\nAfter choosing an effect, roll +CON: **on a 10+**, the effect occurs as described; **on a 7-9**, the effect occurs, but only if you mark 1 Consequence; **on a 6-**, mark 1 Consequence, and the effect occurs—but the GM will tell you what goes wrong.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the effect occurs as described",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the effect occurs, but only if you mark 1 Consequence",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "mark 1 Consequence, and the effect occurs—but the GM will tell you what goes wrong.",
+      "text": ""
+    }
+  },
+  "springs-first-thaw": {
+    "name": {
+      "source": "Spring's First Thaw",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend time (an hour at least, maybe more) seeking to stir hope, kindness, or mercy in an NPC_**, roll +CHA: **on a 10+**, you light a fire deep within them and effect a lasting change; **_on a 7-9_**, you kindle goodness in their heart for now, but they will eventually return to their old ways; **on a 6-**, their heart hardens and, whatever else the GM says, you can't use this move on them again.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You light a fire deep within them and effect a lasting change.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You kindle goodness in their heart for now, but they will eventually return to their old ways.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Their heart hardens and you can't use this move on them again.",
+      "text": ""
+    }
+  },
+  "stalker": {
+    "name": {
+      "source": "Stalker",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_carry a normal or light load and move with care_**, you make no noise and leave no sign of your passing. When you **_hide yourself in a natural environment_**, you remain unseen until you draw attention to yourself, move positions, or attack.",
+      "text": ""
+    }
+  },
+  "steadfast-guardian": {
+    "name": {
+      "source": "Steadfast Guardian",
+      "text": ""
+    },
+    "description": {
+      "source": "While you hold Readiness (from Defend), you can always suffer the damage/effects of an attack instead of your ward; no need to spend Readiness, you can just do it.",
+      "text": ""
+    }
+  },
+  "stentorian": {
+    "name": {
+      "source": "Stentorian",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_raise your voice_**, it carries far and cuts through even the din of battle. When you **_go into battle_**, hold 2 Command. Spend 1 Command to shout an order or warning and pick 1:\n\n- PCs get advantage on their next roll to do as you say\n- You have advantage to Order Followers or Deploy",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Command",
+      "text": ""
+    }
+  },
+  "stone-cold": {
+    "name": {
+      "source": "Stone Cold",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defy Danger (or Struggle as One) by keeping calm and carrying on_**, treat a 6- as a 7-9.",
+      "text": ""
+    }
+  },
+  "storms-fury": {
+    "name": {
+      "source": "Storm’s Fury",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_begin to roil with anger_**, your markings crackle with electricity and the air thrums with pressure. Roll +CON: **on a 10+**, hold 3 Fury; **on a 7-9**, hold 2 Fury; **on a 6-**, hold 2 Fury but also mark a consequence.\n\nYou may spend Fury 1-for-1 to manifest one of the following:\n- Imbue your next strike with the force of thunder (+1d6 damage, *forceful*, *loud*)\n- Move like lightning, closing the distance between you and a nearby foe before they can react\n- Bellow like the storm itself, drawing no small amount of attention and making craven foes cringe in fear\n\nWhen you **_have marked 3 consequences_**, you gain Chosen of the Storm-bringer.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "hold 3 Fury",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "hold 2 Fury",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "hold 2 Fury but also mark a consequence.",
+      "text": ""
+    }
+  },
+  "strengthen-your-bond": {
+    "name": {
+      "source": "Strengthen Your Bond",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_pay your followers cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).\n\nSpend your followers Loyalty 1-for-1 to have them:\n\n- Overcome their fear to do as you say\n- Resist acting on their instinct/tags/traits\n- Do something they don't want to do (so long as it's not abhorent or suicidal)\n\nWhen a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.",
+      "text": ""
+    }
+  },
+  "struggle-as-one": {
+    "name": {
+      "source": "Struggle as One",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defy Danger as a group_**, establish the party's approach and each roll +STAT (per Defy Danger): **on a 6-**, you find yourself in a spot, the GM will describe it or ask you to; **on a 7-9**, you pull your weight; **on a 10+**, you do well enough to get someone else out of a spot, if you can tell us how.\n\nIf you roll a 6- but someone saves you, don't mark XP.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You do well enough to get someone else out of a spot, if you can tell us how.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You pull your weight.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "You find yourself in a spot—the GM will describe it or ask you to.",
+      "text": ""
+    }
+  },
+  "suck-the-poison-out": {
+    "name": {
+      "source": "Suck the Poison Out",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_draw a malady from a patient's body, mind, or soul_**, spend 1 Stock and roll +WIS.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "You remove it, but choose 1: your patient suffers lingering harm or trauma; OR you suffer some of the malady's effects; OR it will be harmful and dangerous to discard.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "suffering-unleashed": {
+    "name": {
+      "source": "Suffering Unleashed",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_feed the effigy the blood of another_**, pick one of the harms recorded on the reverse and roll +CON: **on a 10+**, your target suffers that harm fully; **on a 7-9,** your target suffers that harm but pick 1; **on a 6-**, they suffer that harm but all 3 are true:\n- They suffer only half the harm’s effects/damage\n- You fully suffer the unleashed harm (you can’t divert it via Surrogate Suffering)\n- Mark a consequence **Regardless**, the harm is no longer stored in the effigy—erase it from the reverse.\n\nFor every 2 Consequences you mark, gain one of the following moves:",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "your target suffers that harm fully",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "your target suffers that harm but pick 1",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "they suffer that harm but all 3 are true:",
+      "text": ""
+    }
+  },
+  "superior-stat": {
+    "name": {
+      "source": "Superior Stat",
+      "text": ""
+    },
+    "description": {
+      "source": "Increase one of your stats by +1 (to a max of +3).",
+      "text": ""
+    }
+  },
+  "survivalist": {
+    "name": {
+      "source": "Survivalist",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Forage_**, pick 1 extra choice (even **on a 6-**, pick 1) and add \"Find or fashion some useful item or supply (GM can veto)\" to the list of options.",
+      "text": ""
+    }
+  },
+  "take-the-measure": {
+    "name": {
+      "source": "Take the Measure",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_size someone up_**, ask their player one of the questions below and get an honest answer. If they fear or respect you (their call), you can ask another question. You can't use this move on them again until your relationship significantly changes.\n\n- Can I trust them (to _____)?\n- What do they intend to do?\n- How are they most useful/dangerous?\n- What weakness of theirs can I exploit?",
+      "text": ""
+    }
+  },
+  "telepathy": {
+    "name": {
+      "source": "Telepathy",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mindwalk_**, you may spend 1 Power to become able to communicate mentally with someone nearby, as long as you remain in their presence. They can choose whether to respond, and can attempt to ignore you, but cannot shut you out completely without magic of their own.",
+      "text": ""
+    }
+  },
+  "terror-on-the-field": {
+    "name": {
+      "source": "Terror on the Field",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_reduce a foe to 0 HP_**, describe how you take them out. If you fell them in a particularly brutal or impressive manner, their allies are impressed, dismayed, or frightened and respond accordingly.",
+      "text": ""
+    }
+  },
+  "tethered": {
+    "name": {
+      "source": "Tethered",
+      "text": ""
+    },
+    "description": {
+      "source": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.\n\nWhen you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
+      "text": ""
+    }
+  },
+  "the-flesh-remembers": {
+    "name": {
+      "source": "The Flesh Remembers",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_first encounter a demon and search the Cloak’s memories for its like_**, roll +nothing: **on a 10+**, the flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated; **on a** **7-9**, choose 1 from the list below.\n- The flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated, but mark a Consequence\n- The flesh of such a creature is not present in the cloak; you learn nothing\n\nWhen you **_have marked 3 Consequences_**, you gain the following move:",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "choose 1 from the list below.",
+      "text": ""
+    }
+  },
+  "the-hammer-and-the-book": {
+    "name": {
+      "source": "The Hammer and the Book",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_strike a thing of supernatural chaos_**, roll +WIS: **on a 10+**, deal your damage and choose 1 from the list below; **_on a 7-9_**, deal damage and choose 1, but you also expose yourself to harm or unwanted attention.\n\n- Deal +1d6 damage\n- Ignore the thing's armor or other defenses\n- Suppress one of its unnatural powers\n- Force it from its host",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Deal your damage and choose 1 from the list.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Deal damage and choose 1, but you also expose yourself to harm or unwanted attention.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "the-roots-grow-deep": {
+    "name": {
+      "source": "The Roots Grow Deep",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_use Suffering Unleashed and roll a 12+_**, clear a mark from the reverse.",
+      "text": ""
+    }
+  },
+  "the-tower-eternal": {
+    "name": {
+      "source": "The Tower Eternal",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Defy Danger against magic_**, treat a result of 6- as a 7-9.",
+      "text": ""
+    }
+  },
+  "thoughtcrafter": {
+    "name": {
+      "source": "Thoughtcrafter",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mindwalk_**, you may spend 1 Power to animate a mass of loose material (gravel, snow, leaves, etc.) into a body no larger than your own. When you would roll STR, DEX, or CON in this form, use INT instead. This form has 10 HP. When reduced to 0 HP, it dissipates and you return to your physical body.",
+      "text": ""
+    }
+  },
+  "tough-love": {
+    "name": {
+      "source": "Tough Love",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_honestly think another PC is in the wrong and call them on it_**, they have disadvantage on any rolls against you until you two work it out.",
+      "text": ""
+    }
+  },
+  "trackless-step": {
+    "name": {
+      "source": "Trackless Step",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_move through nature with care and patience_**, you make no sound, leave no trace and can ignore any hindering or treacherous terrain (briars, mire, scree, etc.). When you **_spend 1 Stock and mark others_**, they each gain this benefit so long as the mark remains. 1 Stock can mark a number of individuals up to your level +INT.",
+      "text": ""
+    }
+  },
+  "trade-barter": {
+    "name": {
+      "source": "Trade & Barter",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wish to acquire or sell a commonly available item_**, you can. When you **_seek to acquire or sell a special item_**, roll +Prosperity and subtract the item's Value. In winter, you have disadvantage. **On a 10+**, you can get it or sell it for a fair price; **on a 7-9**, when you're trying to buy, the GM picks 1:\n\n- You can get it, but it'll cost more than usual\n- ____ has it, but they aren't keen to give it up.\n- You can get get something close, but not quite right\n\n**On a 7-9 when you're looking to sell**, you can sell it now but you won't get its full worth.\n\n**On a 6- either way** don't mark XP. If you want to aquire/sell it, you'll need to travel to ____ or wait until next season.\n\nFor unique or truly exceptional items, don't Trade & Barter. Either get with the GM and Make a Plan or wait for a trade opportunity when Seasons Change.\n\nSee @UUID[Compendium.stonetop.reference.JournalEntry.YtD7j5PutvcvOHC6.JournalEntryPage.96v6UhrjmP0UfmIw]{Gear & Possessions} for what a Value is worth, and for the items you can acquire.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "You can get it or sell it for a fair price.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "When you're trying to buy, the GM picks 1:\n\n- You can get it, but it'll cost more than usual\n- ____ has it, but they aren't keen to give it up.\n- You can get get something close, but not quite right\n **On a 7-9 when you're looking to sell**, you can sell it now but you won't get its full worth.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Don't mark XP. If you want to aquire/sell it, you'll need to travel to ____ or wait until next season.",
+      "text": ""
+    }
+  },
+  "trailblazer": {
+    "name": {
+      "source": "Trailblazer",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_a journey causes you to Defy Danger or Struggle as One_**, **on a 10+** you also learn or discover something interesting and useful—ask the GM what.",
+      "text": ""
+    }
+  },
+  "truth-or-consequences": {
+    "name": {
+      "source": "Truth or Consequences",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_look into someone's eyes and gaze upon their soul_**, you can ask their player, \"Are you lying or hiding something from me?\" and get an honest answer. If the answer is \"Yes,\" you have advantage on your next roll against them.\n\nWhen you **_lie or otherwise deceive someone through words_**, you have disadvantage on your next roll against them.",
+      "text": ""
+    }
+  },
+  "uncanny-reflexes": {
+    "name": {
+      "source": "Uncanny Reflexes",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are unarmored and carrying a normal or light load_**, you impose disadvantage on any damage you take that you could dodge or roll with.",
+      "text": ""
+    }
+  },
+  "undaunted": {
+    "name": {
+      "source": "Undaunted",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are outnumbered or facing a foe bigger than you_**, you get +1 armor and deal +1d6 damage. (Replaces Better Part of Valor. First use crosses off \"Would-be\" on the front page.)",
+      "text": ""
+    }
+  },
+  "under-your-skin": {
+    "name": {
+      "source": "Under Your Skin",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_engage an NPC in conversation_**, you can ask the GM 1 of these and get an honest answer:\n\n- What are they expecting me to do?\n- What, in general, are they trying to hide?\n- What do they want to happen?",
+      "text": ""
+    }
+  },
+  "underestimated": {
+    "name": {
+      "source": "Underestimated",
+      "text": ""
+    },
+    "description": {
+      "source": "As long as you avoid overt hostility, no enemy will consider you a threat.\n\nWhen you **_first make your move against an enemy who underestimates you_**, you have advantage.",
+      "text": ""
+    }
+  },
+  "undying": {
+    "name": {
+      "source": "Undying",
+      "text": ""
+    },
+    "description": {
+      "source": "Neither poison nor disease do you harm. You feel little pain. When you **_take damage from cutting, stabbing, or crushing_**, take half damage (after armor, rounded up).\n\nWhen you are **_reduced to 0 HP_**, roll +CON.: **on a 10+**, regain half your max HP and choose 1; **on a 7-9**, regain half your max HP and choose 2; **on a 6-**, either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.\n\n- Mark a consequence (see reverse)\n- You're out of the action until the next sunset\n- Your body is permanently maimed in some way of the GM's choosing\nIf **_your body is completely destroyed_** (burnt to ash, ground to jelly, etc.), treat it as if you were reduced to 0 HP and rolled a 6-.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Regain half your max HP and choose 1 from the list.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Regain half your max HP and choose 2 from the list.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.",
+      "text": ""
+    }
+  },
+  "unfettered": {
+    "name": {
+      "source": "Unfettered",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are subject to physical or mental restraint_**, you may mark a debility to immediately break free of that restraint.",
+      "text": ""
+    }
+  },
+  "unholy-vessel": {
+    "name": {
+      "source": "Unholy Vessel",
+      "text": ""
+    },
+    "description": {
+      "source": "When you would gain a Mark but there are none left to gain, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.",
+      "text": ""
+    }
+  },
+  "unholy-visage": {
+    "name": {
+      "source": "Unholy Visage",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_take the appearance of a demon_**, roll +CON: **on a 10+**, hold 3 Guise; **on a 7-9**, hold 1 Guise; **on a 6-**, hold 1 Guise and mark a Consequence. While you hold Guise, all perceive you as a demon, and magic that affects demons affects you, too. Spend Guise, 1-for-1 to:\n- Maintain your appearance in the face of divination or revealing light\n- Understand any language you hear, and reply in kind\n- Shrug off harm that your demonic form could ignore\n- Maneuver in a way consistent with your demonic form: flying, leaping, oozing, flitting as a shadow, etc.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "hold 3 Guise",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "hold 1 Guise",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "hold 1 Guise and mark a Consequence. While you hold Guise, all perceive you as a demon, and magic that affects demons affects you, too. Spend Guise, 1-for-1 to:",
+      "text": ""
+    }
+  },
+  "unliving": {
+    "name": {
+      "source": "Unliving",
+      "text": ""
+    },
+    "description": {
+      "source": "You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, *Make Camp*, *Recover* or *Convalesce*.",
+      "text": ""
+    }
+  },
+  "unquenched": {
+    "name": {
+      "source": "Unquenched",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Clash with a living, bleeding foe with the Blood-quenched Sword_**, you may mark a Consequence to shift the result up one step (a 6- becomes a 7-9; a 7-9 becomes a 10-11; a 10-11 becomes 12+). You can do this only once per roll.\n\nWhen you **_have marked 3 consequences_**, you gain A Flickering Flame.",
+      "text": ""
+    }
+  },
+  "unstoppable": {
+    "name": {
+      "source": "Unstoppable",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_are reduced to 0 HP in battle_**, you can keep fighting. Each time you take damage while at 0 HP, mark 1. If you would regain HP while fighting, clear one mark instead.\n\nWhen you **_stop fighting_**, roll for Death's Door with a -1 penalty for each circle marked. If you survive, clear all your circles.",
+      "text": ""
+    }
+  },
+  "up-with-people": {
+    "name": {
+      "source": "Up With People",
+      "text": ""
+    },
+    "description": {
+      "source": "When you converse with someone (PC or NPC) you can hold 2 Rapport with them. If you do, they hold 1 Rapport with you. During the conversation, either of you can spend 1 Rapport to ask the other player one of the following and get an honest answer.\n\n- What weighs you down or holds you back?\n- What drives you forward?\n- What lesson would you have me learn?\n- What do you think of me, truly?",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Rapport",
+      "text": ""
+    },
+    "resource/labels/": {
+      "source": "|",
+      "text": ""
+    }
+  },
+  "urges": {
+    "name": {
+      "source": "Urges",
+      "text": ""
+    },
+    "description": {
+      "source": "When the GM compels you to act on your impulse, gain 1 Favor if you act as bidden. If you resist, roll +WIS: **on a 10+**, your actions are your own; **on a 7–9**, choose 1:\n\n- Struggle for control until someone or something snaps you out of it\n- Start acting as compelled, putting yourself or an ally in a spot before you regain control\n- Harm yourself (d6 damage, ignores armor) to regain control\n**On a 6–**, you come to your senses later, having done gods-know-what.\n\nWhen you act on your impulse without being compelled to do so, and your actions cause you or your allies trouble, gain 1 Favor.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Your actions are your own.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Choose 1: Struggle for control until someone or something snaps you out of it; Start acting as compelled, putting yourself or an ally in a spot before you regain control; Harm yourself (d6 damage, ignores armor) to regain control.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "You come to your senses later, having done gods-know-what.",
+      "text": ""
+    }
+  },
+  "veil": {
+    "name": {
+      "source": "Veil",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wrap yourself or another in a subtle veil_**, spend 1 Stock and choose 1:\n\n- A type of being you name (including \"people\") will tend to ignore your presence\n- People will perceive you as someone else, though you must wear something of an individual's in order to impersonate them\nWhen **_your deception comes under scrutiny_**, roll +INT.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "The veil holds, and no one is the wiser.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "The veil holds, but there is further scrutiny or a complication (GM's choice).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "versatile": {
+    "name": {
+      "source": "Versatile",
+      "text": ""
+    },
+    "description": {
+      "source": "Choose a move from any other playbook, as long as you meet its requirements. You can pick from a different playbook each time. You can't take Improved Stat or Superior Stat.",
+      "text": ""
+    }
+  },
+  "veteran-crew": {
+    "name": {
+      "source": "Veteran Crew",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.\n\n- Select 2 new tags for your Crew\n- Increase their damage die from d6 to d8\n- Increase their max HP by 2 each",
+      "text": ""
+    }
+  },
+  "vision-unclouded": {
+    "name": {
+      "source": "Vision Unclouded",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, you can always ask \"What here is hidden by illusion or magic?\" for free, even **on a 6-**.",
+      "text": ""
+    }
+  },
+  "voice-of-experience": {
+    "name": {
+      "source": "Voice of Experience",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_another PC comes to you for advice and you tell them what you think is best_**, they have advantage on their first roll to follow your advice.\n\nWhen you **_Seek Insight_**, you can always ask, \"What is about to happen?\" for free, even **on a 6-**. (Replaces Inquiring Minds. First use crosses off \"Would-be\" on the front page.)",
+      "text": ""
+    }
+  },
+  "voice-of-the-earth-mother": {
+    "name": {
+      "source": "Voice of the Earth Mother",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_speak on behalf of Danu_**, natural beasts and spirits of the wild respect your authority. All but the most headstrong will do as you command, even against their instincts.",
+      "text": ""
+    }
+  },
+  "walk-it-off": {
+    "name": {
+      "source": "Walk It Off",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_you'd mark a debility_**, you can mark this move instead to no ill effect. Clear it as you would a debility.",
+      "text": ""
+    }
+  },
+  "warden-of-the-wild": {
+    "name": {
+      "source": "Warden of the Wild",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_defeat a perversion of nature_**, you can ask the GM 2 of the following and get a useful answer:\n\n- Will it come back? If so, how can I stop it?\n- Will its taint spread? If so, how can I contain it?\n- What useful (but grisly) bits can I harvest?\n- What else can I learn about it or its ilk?",
+      "text": ""
+    }
+  },
+  "wards-bindings": {
+    "name": {
+      "source": "Wards & Bindings",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_mark a boundary with sacred signs_**, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.\n\nWhen **_your wards or bindings are first tested_**, roll +INT.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They hold for now but may be overcome through might or will.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "we-are-as-one": {
+    "name": {
+      "source": "We Are as One",
+      "text": ""
+    },
+    "description": {
+      "source": "You can sense, speak, and even work magic through the effigy as though it were an extension of yourself. (It remains inanimate.)",
+      "text": ""
+    }
+  },
+  "we-happy-few": {
+    "name": {
+      "source": "We Happy Few",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_give an inspiring speech to your allies before facing a dire threat_**, roll +CHA: **on a 10+**, each ally holds 2 Inspiration; **_on a 7-9_**, each ally holds 1 Inspiration; **on a 6-**, each ally holds 1, but you have disadvantage on all rolls until you share your nagging doubts with someone else.\n\nOnce battle is joined, your allies can spend their Inspiration at any time, 1-for-1 to:\n\n- Act fearlessly in the face of terror or overwhelming odds\n- Keep 1 HP instead of being reduced to 0 HP\n- Add 1d6 to a damage roll they just made",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Each ally holds 2 Inspiration.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Each ally holds 1 Inspiration.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else.",
+      "text": ""
+    }
+  },
+  "well-read": {
+    "name": {
+      "source": "Well-Read",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_name the source in which you read about the matter at hand_**, roll +WIS to Know Things instead of +INT.",
+      "text": ""
+    }
+  },
+  "well-versed": {
+    "name": {
+      "source": "Well Versed",
+      "text": ""
+    },
+    "description": {
+      "source": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.\n\n- The Last Door, death, and the undead\n- The civilizations of humanity\n- The Fae and their strange ways\n- The Makers and their arts\n- The primordial powers\n- The Things Below\n- The wild world and its spirits\nWhen you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).",
+      "text": ""
+    }
+  },
+  "whispers": {
+    "name": {
+      "source": "Whispers",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_grip the shaft of the Twisted Spear_**, you can ask the GM, \"What spirits are active here?\" and get an honest answer.",
+      "text": ""
+    }
+  },
+  "wielder-of-the-white-flame": {
+    "name": {
+      "source": "Wielder of the White Flame",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_channel Helior's essence into an object you carry_**, roll +WIS: **on a 10+**, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object, and you may Invoke the Sun God right now as if you rolled a 10+; **_on a 7-9_**, it ignites with a white flame that casts a holy light (reach, area) and burns neither you nor the object.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Ignites with white flame (reach, area) and you may Invoke the Sun God as if you rolled a 10+.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Ignites with white flame (reach, area).",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "wild-soul": {
+    "name": {
+      "source": "Wild Soul",
+      "text": ""
+    },
+    "description": {
+      "source": "Each time you take this move, gain a Ranger move of your choice for which you qualify. You can't pick Improved Stat or Superior Stat.",
+      "text": ""
+    }
+  },
+  "wild-speech": {
+    "name": {
+      "source": "Wild Speech",
+      "text": ""
+    },
+    "description": {
+      "source": "The grunts, barks, chirps, and calls of natural beasts are as a language to you. You can understand their intentions and communicate basic ideas. When you **_Persuade a beast_**, you can choose to roll +WIS.",
+      "text": ""
+    }
+  },
+  "work-with-what-youve-got": {
+    "name": {
+      "source": "Work With What You've Got",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_cleverly use your environment to harm or impede your foe(s)_**, roll +INT: **on a 10+**, pick 2; **_on a 7-9_**, pick 1:\n\n- Interrupt or thwart their action(s)\n- Create an opportunity that grants you or an ally advantage on the next roll to exploit it\n- Deal damage appropriate to the source (d4 for bruises/scrapes, d6 for bloodshed, d8 if it'd break bones, d10 if it'd kill a common person)",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Pick 2.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Pick 1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
+      "text": ""
+    }
+  },
+  "worldly": {
+    "name": {
+      "source": "Worldly",
+      "text": ""
+    },
+    "description": {
+      "source": "Take a move from the Blessed, Fox, Heavy, Marshal, or Seeker playbooks, for which you otherwise qualify. You can pick from a different playbook each time. You can't pick Improved Stat or Superior Stat.",
+      "text": ""
+    }
+  },
+  "_folders": {
+    "ghost": {
+      "source": "ghost",
+      "text": ""
+    },
+    "revenant": {
+      "source": "revenant",
+      "text": ""
+    },
+    "thrall": {
+      "source": "thrall",
+      "text": ""
+    },
+    "common": {
+      "source": "common",
+      "text": ""
+    },
+    "the-blessed": {
+      "source": "The Blessed",
+      "text": ""
+    },
+    "the-fox": {
+      "source": "The Fox",
+      "text": ""
+    },
+    "the-heavy": {
+      "source": "The Heavy",
+      "text": ""
+    },
+    "the-judge": {
+      "source": "The Judge",
+      "text": ""
+    },
+    "the-lightbearer": {
+      "source": "The Lightbearer",
+      "text": ""
+    },
+    "the-marshal": {
+      "source": "The Marshal",
+      "text": ""
+    },
+    "the-ranger": {
+      "source": "The Ranger",
+      "text": ""
+    },
+    "the-seeker": {
+      "source": "The Seeker",
+      "text": ""
+    },
+    "the-would-be-hero": {
+      "source": "The Would-Be Hero",
+      "text": ""
+    },
+    "arcana": {
+      "source": "arcana",
+      "text": ""
+    },
+    "basic": {
+      "source": "basic",
+      "text": ""
+    },
+    "expedition": {
+      "source": "expedition",
+      "text": ""
+    },
+    "follower": {
+      "source": "follower",
+      "text": ""
+    },
+    "homefront": {
+      "source": "homefront",
+      "text": ""
+    },
+    "playbook": {
+      "source": "playbook",
+      "text": ""
+    },
+    "post-death": {
+      "source": "post death",
+      "text": ""
+    },
+    "seasons": {
+      "source": "seasons",
+      "text": ""
+    },
+    "special": {
+      "source": "special",
+      "text": ""
+    }
+  }
+}

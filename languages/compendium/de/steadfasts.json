@@ -1,0 +1,996 @@
+{
+  "barrier-pass": {
+    "name": {
+      "source": "Barrier Pass",
+      "text": "German - Barrier Pass"
+    },
+    "assets/resources/trade-with-mammoth-herders-ivory-wool-meat": {
+      "source": "Trade with mammoth herders (ivory, wool, meat)",
+      "text": ""
+    },
+    "assets/resources/trade-with-other-fortress-monasteries": {
+      "source": "Trade with other fortress-monasteries",
+      "text": ""
+    },
+    "assets/resources/taxes-from-nearby-farm-valleys": {
+      "source": "Taxes from nearby farm valleys",
+      "text": ""
+    },
+    "assets/resources/farming-terraced-gardens-barley": {
+      "source": "Farming (terraced gardens, barley)",
+      "text": ""
+    },
+    "assets/resources/livestock-goats-sheep-milk-fine-wool-meat": {
+      "source": "Livestock (goats, sheep, milk, fine wool, meat)",
+      "text": ""
+    },
+    "assets/resources/timber-from-foothills": {
+      "source": "Timber (from Foothills)",
+      "text": ""
+    },
+    "assets/resources/parchment-vellum-ink": {
+      "source": "Parchment, vellum, ink",
+      "text": ""
+    },
+    "assets/resources/trades-smithing-weaving-tanning-scribing": {
+      "source": "Trades: smithing, weaving, tanning, scribing",
+      "text": ""
+    },
+    "assets/fortifications/a-score-of-guardians": {
+      "source": "A score of guardians",
+      "text": ""
+    },
+    "assets/fortifications/a-handful-of-adepts-page-328": {
+      "source": "A handful of adepts (page 328)",
+      "text": ""
+    },
+    "assets/fortifications/a-number-of-tulpas-page-324": {
+      "source": "A number of tulpas (page 324)",
+      "text": ""
+    },
+    "assets/fortifications/blunt-weapons-nets-bolas-bronze-shields-and-mail": {
+      "source": "Blunt weapons, nets, bolas, bronze shields and mail",
+      "text": ""
+    },
+    "assets/fortifications/exceptional-fortifications": {
+      "source": "Exceptional fortifications",
+      "text": ""
+    }
+  },
+  "gordins-delve": {
+    "name": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "assets/resources/trade-with-marshedge-wheat-flax-rope-textiles-herbs-glass": {
+      "source": "Trade with Marshedge (wheat, flax, rope, textiles, herbs, glass)",
+      "text": ""
+    },
+    "assets/resources/trade-with-stonetop-barley-potatoes-furs-whisky": {
+      "source": "Trade with Stonetop (barley, potatoes, furs, whisky)",
+      "text": ""
+    },
+    "assets/resources/mining-iron-copper-lead-tin-silver": {
+      "source": "Mining (iron, copper, lead, tin, silver)",
+      "text": ""
+    },
+    "assets/resources/trades-smithing-tinkering": {
+      "source": "Trades (smithing, tinkering)",
+      "text": ""
+    },
+    "assets/resources/timber": {
+      "source": "Timber",
+      "text": ""
+    },
+    "assets/resources/goats": {
+      "source": "Goats",
+      "text": ""
+    },
+    "assets/resources/aqueduct": {
+      "source": "Aqueduct",
+      "text": ""
+    },
+    "assets/fortifications/maker-ramparts": {
+      "source": "Maker-ramparts",
+      "text": ""
+    },
+    "assets/fortifications/unassailable-position": {
+      "source": "Unassailable position",
+      "text": ""
+    }
+  },
+  "hillfolk": {
+    "name": {
+      "source": "Hillfolk",
+      "text": ""
+    },
+    "assets/resources/trade-with-other-bands": {
+      "source": "Trade with other bands",
+      "text": ""
+    },
+    "assets/resources/trade-with-marshedge-rope-textiles-herbs-pottery": {
+      "source": "Trade with Marshedge (rope, textiles, herbs, pottery)",
+      "text": ""
+    },
+    "assets/resources/trade-with-stonetop-whisky-potatoes-oats": {
+      "source": "Trade with Stonetop (whisky, potatoes, oats)",
+      "text": ""
+    },
+    "assets/resources/trade-with-lygos-etc-salt-tools": {
+      "source": "Trade with Lygos, etc. (salt, tools)",
+      "text": ""
+    },
+    "assets/resources/horses-sheep-goats-hounds": {
+      "source": "Horses, sheep, goats, hounds",
+      "text": ""
+    },
+    "assets/resources/wool-milk": {
+      "source": "Wool, milk",
+      "text": ""
+    },
+    "assets/resources/forage-fruits-nuts-veggies-honey": {
+      "source": "Forage (fruits, nuts, veggies, honey)",
+      "text": ""
+    },
+    "assets/resources/hunting-meat-fur-hides": {
+      "source": "Hunting (meat, fur, hides)",
+      "text": ""
+    },
+    "assets/resources/gathering-timber-sap-flint": {
+      "source": "Gathering (timber, sap, flint)",
+      "text": ""
+    },
+    "assets/fortifications/mounted-warriors": {
+      "source": "Mounted warriors",
+      "text": ""
+    },
+    "assets/fortifications/flint-tipped-weapons-crude": {
+      "source": "Flint-tipped weapons (crude)",
+      "text": ""
+    }
+  },
+  "marshedge": {
+    "name": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "assets/resources/trade-with-lygos-fine-goods-spices-etc": {
+      "source": "Trade with Lygos (fine goods, spices, etc.)",
+      "text": ""
+    },
+    "assets/resources/trade-with-manmarch-timber-salt-amber": {
+      "source": "Trade with Manmarch (timber, salt, amber)",
+      "text": ""
+    },
+    "assets/resources/trade-with-gordins-delve-metal-tools": {
+      "source": "Trade with Gordin’s Delve (metal, tools)",
+      "text": ""
+    },
+    "assets/resources/trade-with-stonetop-whisky-fur": {
+      "source": "Trade with Stonetop (whisky, fur)",
+      "text": ""
+    },
+    "assets/resources/farming-wheat-hemp-wild-rice-herbs": {
+      "source": "Farming (wheat, hemp, wild rice, herbs)",
+      "text": ""
+    },
+    "assets/resources/trades-textiles-pottery-glass-rope-medicine": {
+      "source": "Trades (textiles, pottery, glass, rope, medicine)",
+      "text": ""
+    },
+    "assets/resources/forage-herbs-peat-clay": {
+      "source": "Forage (herbs, peat, clay)",
+      "text": ""
+    },
+    "assets/resources/marketplace": {
+      "source": "Marketplace",
+      "text": ""
+    },
+    "assets/resources/windmill": {
+      "source": "Windmill",
+      "text": ""
+    },
+    "assets/fortifications/the-guard-page-280": {
+      "source": "The Guard (page 280)",
+      "text": ""
+    },
+    "assets/fortifications/wooden-palisade": {
+      "source": "Wooden palisade",
+      "text": ""
+    },
+    "assets/fortifications/bendis-root-braziers": {
+      "source": "Bendis root braziers",
+      "text": ""
+    }
+  },
+  "north-manmarch-hamlet": {
+    "name": {
+      "source": "North Manmarch (Hamlet)",
+      "text": ""
+    },
+    "assets/resources/trade-with-other-hamlets": {
+      "source": "Trade with other hamlets",
+      "text": ""
+    },
+    "assets/resources/livestock-pigs-goats-sheep-meat-milk-wool": {
+      "source": "Livestock (pigs, goats, sheep, meat, milk, wool)",
+      "text": ""
+    },
+    "assets/resources/farming-wheat-barley-oats": {
+      "source": "Farming (wheat, barley, oats,",
+      "text": ""
+    },
+    "assets/resources/honey-mead": {
+      "source": "honey, mead)",
+      "text": ""
+    },
+    "assets/resources/timber": {
+      "source": "Timber",
+      "text": ""
+    },
+    "assets/resources/trapping-fur-meat": {
+      "source": "Trapping (fur, meat)",
+      "text": ""
+    },
+    "assets/resources/mining-amber-salt-and-or-iron": {
+      "source": "Mining (amber, salt, and/or iron)",
+      "text": ""
+    },
+    "assets/fortifications/warrior-culture": {
+      "source": "Warrior culture",
+      "text": ""
+    },
+    "assets/fortifications/iron-weapons-wooden-shields": {
+      "source": "Iron weapons, wooden shields",
+      "text": ""
+    },
+    "assets/fortifications/protection-from-the-local-chief": {
+      "source": "Protection from the local chief",
+      "text": ""
+    }
+  },
+  "north-manmarch-hillfort": {
+    "name": {
+      "source": "North Manmarch (Hillfort)",
+      "text": ""
+    },
+    "assets/resources/trade-with-other-hillforts": {
+      "source": "Trade with other hillforts",
+      "text": ""
+    },
+    "assets/resources/trade-with-marshedge-and-or": {
+      "source": "Trade with Marshedge and/or",
+      "text": ""
+    },
+    "assets/resources/lygos-textile-spices-glass-herbs-finery": {
+      "source": "Lygos (textile, spices, glass, herbs, finery)",
+      "text": ""
+    },
+    "assets/resources/taxes-from-surrounding-hamlets": {
+      "source": "Taxes from surrounding hamlets",
+      "text": ""
+    },
+    "assets/resources/trades-smithing-tanning-pottery": {
+      "source": "Trades: smithing, tanning, pottery",
+      "text": ""
+    },
+    "assets/resources/livestock-pigs-goats-sheep-meat-milk-wool": {
+      "source": "Livestock (pigs, goats, sheep, meat, milk, wool)",
+      "text": ""
+    },
+    "assets/resources/market-for-surrounding-hamlets": {
+      "source": "Market (for surrounding hamlets)",
+      "text": ""
+    },
+    "assets/resources/timber": {
+      "source": "Timber",
+      "text": ""
+    },
+    "assets/fortifications/a-dozen-or-so-professional-warriors": {
+      "source": "A dozen or so professional warriors",
+      "text": ""
+    },
+    "assets/fortifications/rotating-recruits-from-the-hamlets": {
+      "source": "Rotating recruits from the hamlets",
+      "text": ""
+    },
+    "assets/fortifications/iron-weapons-wooden-shields": {
+      "source": "Iron weapons, wooden shields",
+      "text": ""
+    },
+    "assets/fortifications/series-of-earthen-ramparts": {
+      "source": "Series of earthen ramparts",
+      "text": ""
+    },
+    "assets/fortifications/palisades": {
+      "source": "Palisades",
+      "text": ""
+    }
+  },
+  "stonetop": {
+    "name": {
+      "source": "Stonetop",
+      "text": ""
+    },
+    "assets/resources/farming-beans-potatoes-oats-barley": {
+      "source": "Farming (beans, potatoes, oats, barley)",
+      "text": ""
+    },
+    "assets/resources/hunting-trapping-fur-meat-hides": {
+      "source": "Hunting/trapping (fur, meat, hides)",
+      "text": ""
+    },
+    "assets/resources/distilling-whisky": {
+      "source": "Distilling (whisky)",
+      "text": ""
+    },
+    "assets/resources/stone-collected-from-the-old-wall": {
+      "source": "Stone (collected from the Old Wall)",
+      "text": ""
+    },
+    "assets/resources/cistern-filled-with-rain-snow": {
+      "source": "Cistern (filled with rain, snow)",
+      "text": ""
+    },
+    "assets/resources/tradesfolk-midwife-potter-publican-smith-tanner": {
+      "source": "Tradesfolk (midwife, potter, publican, smith, tanner)",
+      "text": ""
+    },
+    "assets/resources/trade-gordins-delve-metal-tools": {
+      "source": "Trade: Gordin's Delve (metal, tools)",
+      "text": ""
+    },
+    "assets/resources/trade-marshedge-textiles-herbs-glass": {
+      "source": "Trade: Marshedge (textiles, herbs, glass)",
+      "text": ""
+    },
+    "assets/fortifications/village-militia": {
+      "source": "Village militia",
+      "text": ""
+    },
+    "assets/fortifications/the-ringwall-low-stone": {
+      "source": "The Ringwall (low, stone)",
+      "text": ""
+    },
+    "assets/fortifications/3-watchtowers": {
+      "source": "3 watchtowers",
+      "text": ""
+    },
+    "assets/fortifications/some-bows": {
+      "source": "Some bows",
+      "text": ""
+    },
+    "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming": {
+      "source": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
+      "text": ""
+    },
+    "assets/items/a-pair-of-horse-drawn-plows-iron": {
+      "source": "A pair of horse-drawn plows, iron",
+      "text": ""
+    },
+    "assets/items/a-pair-of-carts-plus-horse-harness": {
+      "source": "A pair of carts (plus horse harness)",
+      "text": ""
+    },
+    "assets/items/a-wagon-plus-horse-harness": {
+      "source": "A wagon (plus horse harness)",
+      "text": ""
+    },
+    "residents/traits/all-thumbs": {
+      "source": "all thumbs",
+      "text": ""
+    },
+    "residents/traits/dallied-with-the-fae-years-ago": {
+      "source": "dallied with the Fae years ago",
+      "text": ""
+    },
+    "residents/traits/has-a-beef-with-marshedge": {
+      "source": "has a beef with Marshedge",
+      "text": ""
+    },
+    "residents/traits/immaculate-appearance": {
+      "source": "immaculate appearance",
+      "text": ""
+    },
+    "residents/traits/mute": {
+      "source": "mute",
+      "text": ""
+    },
+    "residents/traits/ambitious": {
+      "source": "ambitious",
+      "text": ""
+    },
+    "residents/traits/deaf": {
+      "source": "deaf",
+      "text": ""
+    },
+    "residents/traits/has-a-good-heart": {
+      "source": "has a good heart",
+      "text": ""
+    },
+    "residents/traits/jealous": {
+      "source": "jealous",
+      "text": ""
+    },
+    "residents/traits/not-afraid-of-deep-water": {
+      "source": "not afraid of deep water",
+      "text": ""
+    },
+    "residents/traits/beloved-by-everyone": {
+      "source": "beloved by everyone",
+      "text": ""
+    },
+    "residents/traits/desperately-wants-a-child": {
+      "source": "desperately wants a child",
+      "text": ""
+    },
+    "residents/traits/has-a-lot-of-backbone": {
+      "source": "has a lot of backbone",
+      "text": ""
+    },
+    "residents/traits/just-got-married": {
+      "source": "just got married",
+      "text": ""
+    },
+    "residents/traits/not-too-bright": {
+      "source": "not too bright",
+      "text": ""
+    },
+    "residents/traits/beautiful-singing-voice": {
+      "source": "beautiful singing voice",
+      "text": ""
+    },
+    "residents/traits/distills-the-best-whisky": {
+      "source": "distills the best whisky",
+      "text": ""
+    },
+    "residents/traits/has-a-wandering-eye": {
+      "source": "has a wandering eye",
+      "text": ""
+    },
+    "residents/traits/keeps-to-themselves": {
+      "source": "keeps to themselves",
+      "text": ""
+    },
+    "residents/traits/oldest": {
+      "source": "oldest",
+      "text": ""
+    },
+    "residents/traits/best-cook": {
+      "source": "best cook",
+      "text": ""
+    },
+    "residents/traits/doesnt-pull-their-weight": {
+      "source": "doesn't pull their weight",
+      "text": ""
+    },
+    "residents/traits/has-a-way-with-animals": {
+      "source": "has a way with animals",
+      "text": ""
+    },
+    "residents/traits/knows-all-the-gossip": {
+      "source": "knows all the gossip",
+      "text": ""
+    },
+    "residents/traits/orphan": {
+      "source": "orphan",
+      "text": ""
+    },
+    "residents/traits/best-weaver": {
+      "source": "best weaver",
+      "text": ""
+    },
+    "residents/traits/drunkard": {
+      "source": "drunkard",
+      "text": ""
+    },
+    "residents/traits/has-fae-blood-in-their-veins": {
+      "source": "has Fae blood in their veins",
+      "text": ""
+    },
+    "residents/traits/lame": {
+      "source": "lame",
+      "text": ""
+    },
+    "residents/traits/overprotective": {
+      "source": "overprotective",
+      "text": ""
+    },
+    "residents/traits/blind": {
+      "source": "blind",
+      "text": ""
+    },
+    "residents/traits/eagle-eye": {
+      "source": "eagle-eye",
+      "text": ""
+    },
+    "residents/traits/has-just-terrible-luck": {
+      "source": "has just terrible luck",
+      "text": ""
+    },
+    "residents/traits/likes-to-hurt-things": {
+      "source": "likes to hurt things",
+      "text": ""
+    },
+    "residents/traits/prettiest": {
+      "source": "prettiest",
+      "text": ""
+    },
+    "residents/traits/braved-the-ruined-tower": {
+      "source": "braved the Ruined Tower",
+      "text": ""
+    },
+    "residents/traits/fearless": {
+      "source": "fearless",
+      "text": ""
+    },
+    "residents/traits/has-lost-their-nerve": {
+      "source": "has lost their nerve",
+      "text": ""
+    },
+    "residents/traits/lived-among-the-forest-folk": {
+      "source": "lived among the Forest Folk",
+      "text": ""
+    },
+    "residents/traits/prideful": {
+      "source": "prideful",
+      "text": ""
+    },
+    "residents/traits/cautious": {
+      "source": "cautious",
+      "text": ""
+    },
+    "residents/traits/foundling": {
+      "source": "foundling",
+      "text": ""
+    },
+    "residents/traits/has-no-respect-for-their-elders": {
+      "source": "has no respect for their elders",
+      "text": ""
+    },
+    "residents/traits/lost-all-their-children": {
+      "source": "lost all their children",
+      "text": ""
+    },
+    "residents/traits/reckless": {
+      "source": "reckless",
+      "text": ""
+    },
+    "residents/traits/cheery": {
+      "source": "cheery",
+      "text": ""
+    },
+    "residents/traits/gathers-herbs-from-the-wood": {
+      "source": "gathers herbs from the Wood",
+      "text": ""
+    },
+    "residents/traits/has-terrible-nightmares": {
+      "source": "has terrible nightmares",
+      "text": ""
+    },
+    "residents/traits/lovesick": {
+      "source": "lovesick",
+      "text": ""
+    },
+    "residents/traits/refuses-to-marry": {
+      "source": "refuses to marry",
+      "text": ""
+    },
+    "residents/traits/chronic-cough": {
+      "source": "chronic cough",
+      "text": ""
+    },
+    "residents/traits/gets-the-best-deals": {
+      "source": "gets the best deals",
+      "text": ""
+    },
+    "residents/traits/has-the-most-children": {
+      "source": "has the most children",
+      "text": ""
+    },
+    "residents/traits/loves-their-dogs": {
+      "source": "loves their dogs",
+      "text": ""
+    },
+    "residents/traits/resents-their-lot-in-life": {
+      "source": "resents their lot in life",
+      "text": ""
+    },
+    "residents/traits/complains-too-much": {
+      "source": "complains too much",
+      "text": ""
+    },
+    "residents/traits/gifted-storyteller": {
+      "source": "gifted storyteller",
+      "text": ""
+    },
+    "residents/traits/has-their-head-in-the-clouds": {
+      "source": "has their head in the clouds",
+      "text": ""
+    },
+    "residents/traits/loyal-friend": {
+      "source": "loyal friend",
+      "text": ""
+    },
+    "residents/traits/runs-everywhere": {
+      "source": "runs everywhere",
+      "text": ""
+    },
+    "residents/traits/cowardly": {
+      "source": "cowardly",
+      "text": ""
+    },
+    "residents/traits/gods-fearing": {
+      "source": "gods-fearing",
+      "text": ""
+    },
+    "residents/traits/hates-the-hillfolk": {
+      "source": "hates the Hillfolk",
+      "text": ""
+    },
+    "residents/traits/most-handsome": {
+      "source": "most handsome",
+      "text": ""
+    },
+    "residents/traits/sensitive": {
+      "source": "sensitive",
+      "text": ""
+    },
+    "residents/traits/craves-recognition": {
+      "source": "craves recognition",
+      "text": ""
+    },
+    "residents/traits/good-with-children": {
+      "source": "good with children",
+      "text": ""
+    },
+    "residents/traits/hears-voices": {
+      "source": "hears voices",
+      "text": ""
+    },
+    "residents/traits/moved-here-recently": {
+      "source": "moved here recently",
+      "text": ""
+    },
+    "residents/traits/simpleton": {
+      "source": "simpleton",
+      "text": ""
+    },
+    "residents/traits/curious": {
+      "source": "curious",
+      "text": ""
+    },
+    "residents/traits/happy-go-lucky": {
+      "source": "happy-go-lucky",
+      "text": ""
+    },
+    "residents/traits/humorless": {
+      "source": "humorless",
+      "text": ""
+    },
+    "residents/traits/must-approve-any-marriages": {
+      "source": "must approve any marriages",
+      "text": ""
+    },
+    "residents/traits/slew-many-crinwin": {
+      "source": "slew many crinwin",
+      "text": ""
+    },
+    "residents/traits/stoic": {
+      "source": "stoic",
+      "text": ""
+    },
+    "residents/traits/stubborn": {
+      "source": "stubborn",
+      "text": ""
+    },
+    "residents/traits/suffers-from-fits": {
+      "source": "suffers from fits",
+      "text": ""
+    },
+    "residents/traits/swears-they-met-the-pale-hunter": {
+      "source": "swears they met the Pale Hunter",
+      "text": ""
+    },
+    "residents/traits/tells-the-best-jokes": {
+      "source": "tells the best jokes",
+      "text": ""
+    },
+    "residents/traits/tender-hearted": {
+      "source": "tender-hearted",
+      "text": ""
+    },
+    "residents/traits/tends-the-gods-pavilion": {
+      "source": "tends the Gods' Pavilion",
+      "text": ""
+    },
+    "residents/traits/tends-to-the-sick-injured": {
+      "source": "tends to the sick & injured",
+      "text": ""
+    },
+    "residents/traits/touched": {
+      "source": "touched",
+      "text": ""
+    },
+    "residents/traits/very-strong": {
+      "source": "very strong",
+      "text": ""
+    },
+    "residents/traits/wants-to-have-kids": {
+      "source": "wants to have kids",
+      "text": ""
+    },
+    "residents/traits/well-read": {
+      "source": "well-read",
+      "text": ""
+    },
+    "residents/traits/well-traveled": {
+      "source": "well-traveled",
+      "text": ""
+    },
+    "residents/traits/widowed": {
+      "source": "widowed",
+      "text": ""
+    },
+    "residents/traits/will-eat-anything": {
+      "source": "will eat anything",
+      "text": ""
+    },
+    "placesOfInterest/0/name": {
+      "source": "The Stone",
+      "text": ""
+    },
+    "placesOfInterest/1/name": {
+      "source": "The Granary",
+      "text": ""
+    },
+    "placesOfInterest/2/name": {
+      "source": "Public House & Stables",
+      "text": ""
+    },
+    "placesOfInterest/3/name": {
+      "source": "Cistern",
+      "text": ""
+    },
+    "placesOfInterest/4/name": {
+      "source": "Pavilion of the Gods",
+      "text": ""
+    },
+    "placesOfInterest/5/name": {
+      "source": "Watchtowers",
+      "text": ""
+    },
+    "neighborPlaces/marshedge/name": {
+      "source": "Marshedge",
+      "text": ""
+    },
+    "neighborPlaces/gordins-delve/name": {
+      "source": "Gordin's Delve",
+      "text": ""
+    },
+    "neighborPlaces/steplands/name": {
+      "source": "The Steplands",
+      "text": ""
+    },
+    "neighborPlaces/steplands/subtitle": {
+      "source": "Hillfolk",
+      "text": ""
+    },
+    "neighborPlaces/lygos/name": {
+      "source": "Lygos",
+      "text": ""
+    },
+    "neighborPlaces/lygos/subtitle": {
+      "source": "and other points south",
+      "text": ""
+    },
+    "neighborPlaces/other/name": {
+      "source": "Other places",
+      "text": ""
+    },
+    "neighborPlaces/other/subtitle": {
+      "source": "Barrier Pass, the Manmarch, etc.",
+      "text": ""
+    }
+  },
+  "the-frozen-wastes": {
+    "name": {
+      "source": "The Frozen Wastes",
+      "text": ""
+    },
+    "assets/resources/trade-with-other-mammoth-herders": {
+      "source": "Trade with other mammoth herders",
+      "text": ""
+    },
+    "assets/resources/trade-with-a-farming-valley": {
+      "source": "Trade with a farming valley",
+      "text": ""
+    },
+    "assets/resources/trade-with-a-fortress-monastery": {
+      "source": "Trade with a fortress-monastery",
+      "text": ""
+    },
+    "assets/resources/mammoths-wool-ivory-bone-dung": {
+      "source": "Mammoths (wool, ivory, bone, dung)",
+      "text": ""
+    },
+    "assets/resources/sleds-sledges-of-bone-hide-timber": {
+      "source": "Sleds/sledges of bone, hide, timber",
+      "text": ""
+    },
+    "assets/resources/hunting-wild-mammoths-caribou-hare-fish": {
+      "source": "Hunting (wild mammoths, caribou, hare, fish)",
+      "text": ""
+    },
+    "assets/resources/gathering-timber-ivory-bone-flint-herbs-dark-ice-page-322": {
+      "source": "Gathering (timber, ivory, bone, flint, herbs, dark ice (page 322)",
+      "text": ""
+    },
+    "assets/fortifications/mammoth-mounted-warriors": {
+      "source": "Mammoth-mounted warriors",
+      "text": ""
+    },
+    "assets/fortifications/hounds-and-hunting-drakes": {
+      "source": "Hounds and hunting drakes",
+      "text": ""
+    },
+    "assets/fortifications/spears-javelins-tipped-with-dark-ice-flint-bone-or-bronze-crude": {
+      "source": "Spears/javelins tipped with dark ice, flint, bone, or bronze (crude)",
+      "text": ""
+    }
+  },
+  "the-labyrinth": {
+    "name": {
+      "source": "The Labyrinth",
+      "text": ""
+    },
+    "assets/resources/gathering-fungus-fish-water": {
+      "source": "Gathering (fungus, fish, water)",
+      "text": ""
+    },
+    "assets/resources/farming-fungus-grubs-bugs": {
+      "source": "Farming (fungus, grubs, bugs)",
+      "text": ""
+    },
+    "assets/resources/scavenging-forge-lord-sites": {
+      "source": "Scavenging (Forge Lord sites)",
+      "text": ""
+    },
+    "assets/resources/raiding-neighboring-tribes": {
+      "source": "Raiding (neighboring tribes)",
+      "text": ""
+    },
+    "assets/resources/cannibalism": {
+      "source": "Cannibalism",
+      "text": ""
+    },
+    "assets/fortifications/warlike-culture": {
+      "source": "Warlike culture",
+      "text": ""
+    },
+    "assets/fortifications/bone-clubs-spears-tipped-with-obsidian": {
+      "source": "Bone clubs/spears tipped with obsidian",
+      "text": ""
+    },
+    "assets/fortifications/corrupted-gifts": {
+      "source": "Corrupted gifts",
+      "text": ""
+    },
+    "assets/fortifications/magical-artifacts": {
+      "source": "Magical artifacts",
+      "text": ""
+    }
+  },
+  "the-whitefang-mountains-fortress-monastery": {
+    "name": {
+      "source": "The Whitefang Mountains (Fortress-Monastery)",
+      "text": ""
+    },
+    "assets/resources/trade-with-nearby-farm-valleys-food-livestock-wool": {
+      "source": "Trade with nearby farm valleys (food, livestock, wool)",
+      "text": ""
+    },
+    "assets/resources/tithes-from-nearby-farm-valleys": {
+      "source": "Tithes from nearby farm valleys",
+      "text": ""
+    },
+    "assets/resources/terraced-gardens-barley-lentils": {
+      "source": "Terraced gardens (barley, lentils)",
+      "text": ""
+    },
+    "assets/resources/livestock-goats-sheep-milk-meat": {
+      "source": "Livestock (goats, sheep, milk, meat)",
+      "text": ""
+    },
+    "assets/resources/fine-wool": {
+      "source": "Fine wool",
+      "text": ""
+    },
+    "assets/resources/parchment-vellum-ink": {
+      "source": "Parchment, vellum, ink",
+      "text": ""
+    },
+    "assets/resources/trades-bronze-smithing-weaving-dyeing-tanning-scribing-etc": {
+      "source": "Trades: bronze-smithing, weaving, dyeing, tanning, scribing, etc.",
+      "text": ""
+    },
+    "assets/resources/rime-lord-artifacts": {
+      "source": "Rime Lord artifacts",
+      "text": ""
+    },
+    "assets/fortifications/guardians-page-33": {
+      "source": "Guardians (page 33)",
+      "text": ""
+    },
+    "assets/fortifications/at-least-one-adept-page-328": {
+      "source": "At least one adept (page 328)",
+      "text": ""
+    },
+    "assets/fortifications/one-or-more-tulpas-page-324": {
+      "source": "One or more tulpas (page 324)",
+      "text": ""
+    },
+    "assets/fortifications/weapons-armor-of-bronze-maybe-dark-ice-page-322": {
+      "source": "Weapons/armor of bronze, maybe dark ice (page 322)",
+      "text": ""
+    },
+    "assets/fortifications/defensible-position": {
+      "source": "Defensible position",
+      "text": ""
+    }
+  },
+  "the-whitefang-mountains-steading": {
+    "name": {
+      "source": "The Whitefang Mountains (Steading)",
+      "text": ""
+    },
+    "assets/resources/trade-with-other-farm-valleys-food-spouses": {
+      "source": "Trade with other farm valleys (food, spouses)",
+      "text": ""
+    },
+    "assets/resources/trade-with-mammoth-herders-ivory-meat-dark-ice-see-page-322": {
+      "source": "Trade with mammoth herders (ivory, meat, dark ice, see page 322)",
+      "text": ""
+    },
+    "assets/resources/farming-terraced-fields-barley-lentils": {
+      "source": "Farming: terraced fields, barley, lentils",
+      "text": ""
+    },
+    "assets/resources/livestock-goats-sheep-milk-meat": {
+      "source": "Livestock: goats, sheep, milk, meat",
+      "text": ""
+    },
+    "assets/resources/fine-wool": {
+      "source": "Fine wool",
+      "text": ""
+    },
+    "assets/resources/timber": {
+      "source": "Timber",
+      "text": ""
+    },
+    "assets/resources/hunting-fishing": {
+      "source": "Hunting/fishing",
+      "text": ""
+    },
+    "assets/resources/trades-weaving-dyeing-bronzesmithing-etc": {
+      "source": "Trades: weaving, dyeing, bronzesmithing, etc.",
+      "text": ""
+    },
+    "assets/fortifications/a-village": {
+      "source": "a village",
+      "text": ""
+    },
+    "assets/fortifications/some-spears-slings-bows": {
+      "source": "Some spears, slings, bows",
+      "text": ""
+    },
+    "assets/fortifications/some-bronze-tools-weapons": {
+      "source": "Some bronze tools/weapons",
+      "text": ""
+    },
+    "assets/fortifications/protection-from-a-nearby-fortress-monastery": {
+      "source": "Protection from a nearby fortress-monastery",
+      "text": ""
+    }
+  }
+}

@@ -66,10 +66,16 @@ describe("extractImprovements", () => {
 		expect(imps[0].choices.slug).toBe("trade-with-barrier-pass");
 	});
 
-	it("makes the first list item a track-less title entry with name + flavor", () => {
+	// The name belongs to the document, and the sheets render it as the group's title. Repeating it
+	// as a row title printed it twice on every panel that shows an improvement.
+	it("makes the first list item a track-less, title-less entry holding only the flavor", () => {
 		const first = imps[0].choices.list[0];
-		expect(first).toEqual({ type: "entry", content: { title: "Trade with Barrier Pass", text: "Surely it would benefit both communities were we to trade with each other!" } });
+		expect(first).toEqual({ type: "entry", content: { title: null, text: "Surely it would benefit both communities were we to trade with each other!" } });
 		expect(first.track).toBeUndefined();
+	});
+
+	it("still reports the improvement's name, which becomes the document's", () => {
+		expect(imps[0].name).toBe("Trade with Barrier Pass");
 	});
 
 	it("keeps interstitial prose as plain entry rows in document order", () => {

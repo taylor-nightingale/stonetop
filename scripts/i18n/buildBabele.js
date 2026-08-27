@@ -15,9 +15,14 @@
 // or orphaned is left out and falls back to the English in the pack.
 import path from "path";
 import { pathToFileURL } from "url";
-import { englishCatalog, readPackDocuments } from "./packCatalog.js";
+import {
+	FOLDER_SLUG, FOLDER_TYPE, englishCatalog, folderCatalog, readPackDocuments, readPackFolders, withFolders,
+} from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
-import { TRANSLATED_PACKS, listLanguages, readAuthoring, readJson, writeJson } from "./files.js";
+import {
+	TRANSLATED_PACKS, languageFilePath, listLanguages, readAuthoring, readJson, writeJson,
+} from "./files.js";
+import { reconcileTagLabels, tagLabelsFor } from "./tagLabels.js";
 import { summarise } from "./report.js";
 import { stonetopMapping } from "../../src/i18n/babeleConverter.js";
 
@@ -37,14 +42,30 @@ export function documentIdentities(documents) {
 }
 
 /**
- * One Babele translation file: {label, mapping, entries}.
+ * Folder names in the shape Babele reads them: original name → translated name
+ * (folder-translations.js falls back to `compendium.folders`).
+ */
+export function babeleFolders(runtime, folders) {
+	const translated = runtime[FOLDER_TYPE]?.[FOLDER_SLUG] ?? {};
+	const out = {};
+	for (const [key, text] of Object.entries(translated)) {
+		const originalName = folders.get(key);
+		if (originalName) out[originalName] = text;
+	}
+	return out;
+}
+
+/**
+ * One Babele translation file: {label, mapping, folders, entries}.
  * @param {string} label            the compendium label
  * @param {object} runtime          reconcile().toRuntime() — type → slug → key → text
  * @param {Map} identities          slug → {id, name}
+ * @param {Map} folders             key → English folder name
  */
-export function babeleTranslationFile(label, runtime, identities) {
+export function babeleTranslationFile(label, runtime, identities, folders = new Map()) {
 	const entries = {};
-	for (const bySlug of Object.values(runtime)) {
+	for (const [type, bySlug] of Object.entries(runtime)) {
+		if (type === FOLDER_TYPE) continue;
 		for (const [slug, strings] of Object.entries(bySlug)) {
 			const identity = identities.get(slug);
 			if (!identity) continue;
@@ -56,7 +77,23 @@ export function babeleTranslationFile(label, runtime, identities) {
 			if (Object.keys(entry).length) entries[identity.id] = entry;
 		}
 	}
-	return { label, mapping: stonetopMapping(), entries };
+	const file = { label, mapping: stonetopMapping(), entries };
+	const folderNames = babeleFolders(runtime, folders);
+	if (Object.keys(folderNames).length) file.folders = folderNames;
+	return file;
+}
+
+// Only `stonetop.tagLabels` is generated; anything else a translator has put in the language file
+// (UI strings, the tag glossary) is left exactly as it was.
+async function writeLanguageFile(lang, labels, root) {
+	const file     = languageFilePath(lang, root);
+	const existing = await readJson(file, {});
+	const stonetop = { ...(existing.stonetop ?? {}) };
+	if (Object.keys(labels).length) stonetop.tagLabels = labels;
+	else delete stonetop.tagLabels;
+
+	await writeJson(file, { ...existing, stonetop });
+	console.log(`  Wrote ${path.relative(root, file)}`);
 }
 
 async function packLabels(root) {
@@ -73,8 +110,11 @@ export async function buildBabeleFiles({ root = "." } = {}) {
 
 	for (const lang of languages) {
 		for (const pack of TRANSLATED_PACKS) {
-			const documents = await readPackDocuments(path.join(root, "packs", "src", pack));
-			const result = reconcile(lang, pack, englishCatalog(documents), await readAuthoring(lang, pack, root));
+			const dir       = path.join(root, "packs", "src", pack);
+			const documents = await readPackDocuments(dir);
+			const folders   = folderCatalog(await readPackFolders(dir));
+			const english   = withFolders(englishCatalog(documents), folders);
+			const result    = reconcile(lang, pack, english, await readAuthoring(lang, pack, root));
 			console.log(`  ${summarise(result)}`);
 
 			const file = babeleFilePath(lang, pack, root);
@@ -82,10 +122,18 @@ export async function buildBabeleFiles({ root = "." } = {}) {
 				labels.get(pack) ?? pack,
 				result.toRuntime(),
 				documentIdentities(documents),
+				folders,
 			));
 			console.log(`  Wrote ${path.relative(root, file)}`);
 			built.push({ lang, pack });
 		}
+
+		// Tag labels are ordinary localized strings, not compendium content: the system reads them off
+		// game.i18n at i18nInit, so they belong in the language file rather than a Babele file.
+		const tags = await reconcileTagLabels(lang, root);
+		console.log(`  ${summarise(tags)}`);
+		await writeLanguageFile(lang, tagLabelsFor(tags.toRuntime()), root);
+		built.push({ lang, pack: "tag-labels" });
 	}
 	return built;
 }

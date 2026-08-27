@@ -8,6 +8,7 @@ import { pathToFileURL } from "url";
 import { englishCatalogForPack } from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
 import { TRANSLATED_PACKS, listLanguages, readAuthoring } from "./files.js";
+import { reconcileTagLabels } from "./tagLabels.js";
 import { detail, summarise } from "./report.js";
 
 export async function check({ root = "." } = {}) {
@@ -25,6 +26,11 @@ export async function check({ root = "." } = {}) {
 			for (const line of detail(result)) console.log(line);
 			if (!result.isClean) clean = false;
 		}
+
+		const tags = await reconcileTagLabels(lang, root);
+		console.log(summarise(tags));
+		for (const line of detail(tags)) console.log(line);
+		if (!tags.isClean) clean = false;
 	}
 	if (!clean) console.error("\nRun `npm run i18n:extract` to refresh the files, then resolve the entries above.");
 	return clean;

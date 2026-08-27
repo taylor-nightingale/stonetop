@@ -7,9 +7,10 @@ export class FakeSteadingImprovementRepository {
 	_improvements = [];
 
 	// `choices` is the improvement's choice-group definition ({ slug, list }) — null models a pack
-	// entry with no content yet, which the steading must skip rather than render blank.
-	withImprovement(slug, choices = { slug, list: [] }) {
-		this._improvements.push(new SteadingImprovement(slug, choices, this._improvements.length));
+	// entry with no content yet, which the steading must skip rather than render blank. `name` is what
+	// the panels title the improvement with; it defaults off the slug so most tests need not say.
+	withImprovement(slug, choices = { slug, list: [] }, name = slug) {
+		this._improvements.push(new SteadingImprovement(slug, name, choices, this._improvements.length));
 		return this;
 	}
 

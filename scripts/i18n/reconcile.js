@@ -12,7 +12,36 @@ export const EntryStatus = Object.freeze({
 	UNTRANSLATED: "untranslated",
 	NEEDS_REVIEW: "needsReview",
 	ORPHANED:     "orphaned",
+	BROKEN_MARKUP: "brokenMarkup",
 });
+
+// Markup that has to survive translation byte for byte, because Foundry acts on it:
+//
+//   @UUID[Compendium.stonetop.moves.abc123]{Defy Danger}
+//        the braces hold a label a translator SHOULD rewrite, the brackets a target they must not
+//   [[/r 1d6]]
+//        an inline roll — a follower's damage is often prose wrapped around one
+//
+// Both go on looking perfectly correct in the translation file once broken, which is why this is
+// checked rather than trusted.
+const UUID_TARGET = /@UUID\[([^\]]+)\]/gu;
+const INLINE_ROLL = /\[\[[^\]]+\]\]/gu;
+
+export function protectedMarkup(text) {
+	const value = String(text ?? "");
+	return [
+		...[...value.matchAll(UUID_TARGET)].map(match => match[1]),
+		...[...value.matchAll(INLINE_ROLL)].map(match => match[0]),
+	].sort();
+}
+
+// Order-insensitive: a translator may reorder sentences, and that is their business. Which
+// documents are linked and which dice are rolled, and how many times, is not.
+function sameMarkup(english, translated) {
+	const before = protectedMarkup(english);
+	const after  = protectedMarkup(translated);
+	return before.length === after.length && before.every((token, i) => token === after[i]);
+}
 
 export class ReconciledEntry {
 	constructor(key, source, text, status) {
@@ -83,7 +112,9 @@ export class Reconciliation {
 	}
 
 	get isClean() {
-		return !this.countOf(EntryStatus.NEEDS_REVIEW) && !this.countOf(EntryStatus.ORPHANED);
+		return !this.countOf(EntryStatus.NEEDS_REVIEW)
+			&& !this.countOf(EntryStatus.ORPHANED)
+			&& !this.countOf(EntryStatus.BROKEN_MARKUP);
 	}
 
 	toAuthoring() {
@@ -132,7 +163,12 @@ function reconcileEntry(key, english, authored) {
 	// `source` is rewritten to the current English so the translator sees what to translate against;
 	// `needsReview` is the durable mark, and only a human removes it.
 	const drifted = authored.source !== english || authored.needsReview === true;
-	return new ReconciledEntry(key, english, text, drifted ? EntryStatus.NEEDS_REVIEW : EntryStatus.TRANSLATED);
+	if (drifted) return new ReconciledEntry(key, english, text, EntryStatus.NEEDS_REVIEW);
+
+	// Only worth checking once the translation is known to be current — against drifted English the
+	// comparison says nothing.
+	if (!sameMarkup(english, text)) return new ReconciledEntry(key, english, text, EntryStatus.BROKEN_MARKUP);
+	return new ReconciledEntry(key, english, text, EntryStatus.TRANSLATED);
 }
 
 /**

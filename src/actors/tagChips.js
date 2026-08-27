@@ -1,5 +1,6 @@
 import { editOnly } from "../utils/sheetActions.js";
 import { takeTagInputValue } from "../utils/takeTagInputValue.js";
+import { TagLabels } from "../model/data/TagLabels.js";
 
 /**
  * Which Selection field a tag chip belongs to.
@@ -40,10 +41,12 @@ export const TAG_CHIP_ACTIONS = {
 /** Change handler to merge into a sheet's ChangeActionRouter map. */
 export function tagChipChangeHandlers(sheet) {
 	return {
+		// What a person typed is in the language the chips are shown in; what gets stored has to be the
+		// canonical token, or the tag loses both its behaviour and its glossary definition.
 		tagAdd: el => {
-			const value = takeTagInputValue(el);
-			const wrap = TagWrap.fromElement(el);
-			if (value && wrap) return sheet.toggleTag(wrap, value);
+			const typed = takeTagInputValue(el);
+			const wrap  = TagWrap.fromElement(el);
+			if (typed && wrap) return sheet.toggleTag(wrap, TagLabels.current.tokenFor(typed));
 		},
 	};
 }

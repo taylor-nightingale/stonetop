@@ -1,0 +1,1662 @@
+{
+  "a-bejeweled-helm": {
+    "name": {
+      "source": "A bejeweled helm",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, *loud*, *dangerous*, 1d4+1 uses\n\nBronze, battered, and adorned with seven fittings, 1d4+1 of which bear purple gems that hum ominously. When you **_don the_** **_helm_**, you sense the gems’ power and how to use them but can hear nothing over their incessant noise.\n\nWhen you **_unleash a gem’s power_**, pick a target you can see and roll +WIS: **on a 10+**, your target freezes in time and space for as long as you wear the helm and maintain focus; **on a 7-9**, you must focus for a few seconds, but then the effect kicks in as per a 10+.\n\n**_While your target remains frozen_**, the gem hums louder and louder, painfully so. When **_the effect ends_**, the gem crumbles to dust.\n\nWhen you **_try to maintain focus_**, roll +CON: **on a 10+**, you’re fine for now; **on a** **7-9**, either mark a debility or let the effect end; **on a 6-**, mark a debility and either let the effect end or ask the GM how time and space start to go haywire around you.\n\nWhile frozen, the target (and anything on their person) is inviolate—they cannot be harmed, moved, or otherwise interacted with. They rejoin the timeline as if no time had passed for them, with whatever momentum they previously had.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers}.*",
+      "text": ""
+    },
+    "outfitItems/a-bejeweled-helm/name": {
+      "source": "A bejeweled helm",
+      "text": ""
+    },
+    "outfitItems/a-bejeweled-helm/note": {
+      "source": "1d4+1 uses",
+      "text": ""
+    }
+  },
+  "a-big-stone-coffer": {
+    "name": {
+      "source": "A big stone coffer",
+      "text": ""
+    },
+    "description": {
+      "source": "*immobile*, *magical*\n\nCarved from serpentine, 4 feet by 2 feet by 2, with a heavy stone lid. When found, it’s likely half-full with soil. To those sensitive to such things, it thrums with the power of fertility and growth.\n\nWhen you **_add fresh soil to the coffer, plant_** **_seeds in it, and close the lid_**, the seeds will germinate and sprout overnight. Each seed will sprout only once, and the sprouts henceforth grow at a regular rate, regardless of whether they stay in the coffer or are planted elsewhere.\n\nWith coordination, this could lead to a boom in Stonetop’s gardens and +1 Surplus each summer. In the hands of a skilled herbalist, this can greatly improve an herb garden and allow the cultivation of rare or difficult plants. The herbalists of Marshedge would kill over this—or even start a war.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
+      "text": ""
+    }
+  },
+  "a-black-menhir": {
+    "name": {
+      "source": "A black menhir",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *immobile*\n\nA number of these megaliths have appeared in the **Great Wood** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{200}) of late. They are jagged chunks of basalt, tall as a tall lad, etched with intricate patterns that could be writing, almost. The earth around them is broken and disturbed. They are unmarred by moss or lichen, untouched by shoot or vine.\n\nWhen you **_study the intricate markings and_** **_let your mind wander_**, you receive a vision or intuition about the current situation. The GM will describe it. But first, roll +WIS: **on a 10+**, pick only 1; **on a 7-9**, pick 2; **on a 6-**, alas, all 3 are true.\n\n- Part of what you learn is false or misleading (but what?)\n- You start to suffer nightmares, of horrors shifting in the earth\n- The menhir asks a question about your shame, guilt, or fears—answer truly\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below}.*",
+      "text": ""
+    }
+  },
+  "a-blackened-splinter": {
+    "name": {
+      "source": "A blackened splinter",
+      "text": ""
+    },
+    "description": {
+      "source": "*crude*, *magical*, *fireproof*\n\nUndead who see it are drawn to it, or else deeply agitated by its presence. When you **_touch the splinter to an undead entity,_** they see the Last Door yawning open before them. Roll 4d6. If the total is greater than the entity’s current HP, they are drawn through the Last Door and leave this world for good. Otherwise, they are transfixed for a few moments before the Door slams shut. Regardless, the splinter vanishes.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
+      "text": ""
+    }
+  },
+  "a-chalky-potion": {
+    "name": {
+      "source": "A chalky potion",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *fragile*, *slow*\n\n1d4 glass vials containing thick, gritty, whitish fluid. The stopper bears a mark of transformation, flesh, and stone.\n\nWhen you **_drink the whole potion while_** **_touching stone_**, you transform (over a matter of minutes) into a mass of stone, similar to that which you touch. You retain awareness of your surroundings, blind but with excellent hearing.\n\nWhen you **_attempt to end your lithic vigil_**, roll +CON: **on a 10+**, you return to your original form, rested and invigorated—regain all your HP and clear all your debilities; **on a 7-9**, the transformation back is slow and arduous, mark a debility; **on a 6-**, you are stuck until someone pours another dose of the potion over you or communes with your spirit and helps you try again.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
+      "text": ""
+    }
+  },
+  "a-column-of-ice": {
+    "name": {
+      "source": "A column of ice",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *immobile*\n\nAmidst a high, lonely meadow stands a pillar of dark purple ice, 12 feet tall and 2 feet thick. It rests on a circular slab of rune-etched stone, a dozen paces across, untouched by time or nature. There’s a stillness to the place, a tension in the air.\n\n**Something interesting:** The runes appear to be some sort of spell, waiting to be triggered; it’d take days of study to puzzle out the command word (and you risk triggering it accidentally).\n\n**Something useful:** You can determine the command word with a few hours of study (less if you’re versed in Rime Lord script).\n\nWhen you **_speak the command word near_** **_the column_**, the dark ice expands in a flash, encasing the stone slab and anything on it. The ice traps even spirits (manifest or not). Mortal prisoners soon perish, their souls ensnared. The dark ice never melts and resists all but the mightiest magic and blows.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
+      "text": ""
+    }
+  },
+  "a-cracked-femur": {
+    "name": {
+      "source": "A cracked femur",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*\n\nThis leg bone is always cold and covered in rime. It’s the bone of a witch who broke her leg and froze to death. It houses not a ghost, but a potent spirit of winter and cold.\n\nWhen you **_first grip the bone_**, roll +CON: **on** **a 10+**, the spirit acknowledges you as master and you can wield the bone; **on a 7-9**, pick 1:\n\n- Drop the bone; you can never wield it\n- Endure as the spirit sucks away your heat—take 2d4 damage (ignores armor) and mark *weakened*—but you then master the spirit and can wield the bone.\n\n**On a 6-**, the spirit sucks away your heat—take 2d4 damage (ignores armor) and mark *weak**ened*—and you can never wield the bone.\n\nWhen you **_wield the bone as a weapon_** (*hand*, *crude*, *magical*, ignores armor) it deals 2d4 damage instead of your normal damage, sucking the warmth from your foe.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    },
+    "outfitItems/a-cracked-femur/name": {
+      "source": "A cracked femur",
+      "text": ""
+    }
+  },
+  "a-crown-of-flowers": {
+    "name": {
+      "source": "A crown of flowers",
+      "text": ""
+    },
+    "description": {
+      "source": "*fragile*, *magical*\n\nA wreath of living vines, sprouting flowers of great variety and beauty. A woman who dons the crown becomes greatly attuned to the fertility of everything around her, and the whispering spirits of growing things. She also becomes aware of the rites of spring.\n\nWhen a **_woman wears the crown and_** **_performs the rites of spring_**—dancing around an oak tree, making offerings to the spirits, and joining with her lover in the light of the full moon—then her steading rolls with advantage to generate Surplus in both summer and autumn. Also, if the woman wearing the crown so chooses, she will conceive and bear a healthy child, regardless of any barriers.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    }
+  },
+  "a-dark-ice-knife": {
+    "name": {
+      "source": "A dark ice knife",
+      "text": ""
+    },
+    "description": {
+      "source": "*hand*, *magical*, *crude*\n\nA hilt of bone, with a spike of dark ice tapering to a sharp point. The ice is hard as stone, and not especially sharp.\n\nWhen you **_stab an undead entity with the_** **_knife_**, ask the GM whether it is driven by obsession, hunger, and/or vengeance. If the answer is “yes,” then deal +1d4 damage (ignores armor), and leave the entity briefly disoriented. Should this reduce the entity to 0 HP, the dark ice knife melts away along with whatever bound the entity to this world.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
+      "text": ""
+    }
+  },
+  "a-fang-dagger": {
+    "name": {
+      "source": "A fang-dagger",
+      "text": ""
+    },
+    "description": {
+      "source": "*hand*, *magical*, +1 damage\n\nAn 8-inch fang, bound to a wooden hilt by fiber that never rots. A cruel-looking thing, with strange carvings along the blade.\n\n**Something interesting:** The fang looks like it came from a **cynddaraig** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{206}), and the markings are definitely some sort of spell related to blood and soil.\n\n**Something useful:** When you **_bury the_** **_fang-dagger and water the soil with blood_**, the ground buckles and bulges. A minute later, a full-grown cynddaraig bursts from the soil—angry, confused, and hungry. The spell grants no control over the beast and provides no way to dismiss it. The dagger is gone, now a tooth in the rage-drake’s maw.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
+      "text": ""
+    }
+  },
+  "a-forked-stick-of-redwood": {
+    "name": {
+      "source": "A forked stick of redwood",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*\n\nA stout stick about 2 feet long, the bark removed, with fine woodworm trails making entirely-too-regular patterns. If you hold it gently, with a hand on each tine of the fork, you can feel it tugging, pulling you gently in certain directions.\n\nWhen you **_dowse with the redwood stick_**, it will guide you to the nearest site sacred to the spirits of the wild. With practice, you can estimate the distance and even the disposition of the spirits that dwell there.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    },
+    "outfitItems/a-forked-stick-of-redwood/name": {
+      "source": "A forked stick of redwood",
+      "text": ""
+    }
+  },
+  "a-fossilized-horn": {
+    "name": {
+      "source": "A fossilized horn",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*\n\nA spiral thing, maybe 2’ long, the remnant of some long-gone **incarnation** (page 300). Those sensitive to the spirit world can sense its lingering, radiant power.\n\nWhen you **_bear the fossilized horn_**, you have advantage on any move to impress, intimidate, or threaten a spirit (though it grants no special ability to communicate with spirits in the first place). Should you roll a 6- on any such roll, the spirit can choose to destroy the horn and end its effect, in addition to whatever else the GM says.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers}.*",
+      "text": ""
+    },
+    "outfitItems/a-fossilized-horn/name": {
+      "source": "A fossilized horn",
+      "text": ""
+    }
+  },
+  "a-fur-lined-bedroll": {
+    "name": {
+      "source": "A fur-lined bedroll",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*\n\nThis bedroll is decorated with Forest Folk beadwork and lined with the softest rabbit fur. It tethers a nurturing, protective spirit, one that is quiet and comforting.\n\nWhen you **_Make Camp in the fur-lined_** **_bedroll_**, you regain 1d6 (extra) HP and gain advantage on your next roll.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    },
+    "outfitItems/a-fur-lined-bedroll/name": {
+      "source": "A fur-lined bedroll",
+      "text": ""
+    }
+  },
+  "a-good-dog": {
+    "name": {
+      "source": "A good dog",
+      "text": ""
+    },
+    "label": {
+      "source": "A good dog",
+      "text": ""
+    },
+    "description": {
+      "source": "follower (retriever or herder, keen-nosed, clever); HP 6; Damage d6 (hand, grabby); Instinct to play; Cost: affection.",
+      "text": ""
+    }
+  },
+  "a-hunk-of-amber": {
+    "name": {
+      "source": "A hunk of amber",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, Value 2\n\nIt’s about the size of two fists, with a mass of blood-sucking insects floating in its center. It tethers an ambitious spirit of insects, blight, and disease. Treat it as a threat (type: *magical entity*, **Instinct** to foster worship) with the following moves:\n\n- Demand a blood sacrifice, poured over the amber\n- Shield someone from sickness, vermin, and poison\n- Blight an enemy with sickness, vermin, or both\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    },
+    "outfitItems/a-hunk-of-amber/name": {
+      "source": "A hunk of amber",
+      "text": ""
+    },
+    "outfitItems/a-hunk-of-amber/note": {
+      "source": "Value 2",
+      "text": ""
+    }
+  },
+  "a-large-urn": {
+    "name": {
+      "source": "A large urn",
+      "text": ""
+    },
+    "description": {
+      "source": "*immobile*, *magical*\n\nWhen the **_urn is unoccupied and a Fae looks_** **_inside_**, it is compelled to crawl in (it can always fit). If you **_then close the lid_**, the Fae is trapped and the urn slowly and painfully peels away its knowledge, essence, and sense of self. In time, nothing remains but a pile of pearls (Value 2).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
+      "text": ""
+    }
+  },
+  "a-lead-bracelet": {
+    "name": {
+      "source": "A lead bracelet",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, Value 1\n\nThis heavy, black metal torc is set with a red gem. It feels good upon your wrist. Makes you feel important.\n\nWhen you **_wear the torc and threaten_** **_someone that you consider beneath you_**, lose HP equal to the torc’s current Cost (1d4 to start). They are filled with fear; the craven will flee, cower, or grovel, and even the brave will flinch and hesitate. Each time you use the torc, the Cost increases by 1 die size (max 1d10).\n\nWhen you **_wear the torc for a week without_** **_anyone questioning your authority_**, decrease the Cost by one step (min 1d4).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders}.*",
+      "text": ""
+    }
+  },
+  "a-pale-wooden-sword": {
+    "name": {
+      "source": "A pale wooden sword",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *close*, *crude*, *magical*\n\nCarved from a dool tree with a silver knife, and polished with oils infused with moonlight. The grip is worn smooth but the “blade” is chipped and notched, unlikely to stand up to iron or bronze.\n\nWhen you **_wield the sword against a_** **_manifest undead spirit_**, you can hurt it (deal damage normally). If you reduce it to 0 HP, the manifest form dissipates but the spirit can reform at its tether normally.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
+      "text": ""
+    },
+    "outfitItems/a-pale-wooden-sword/name": {
+      "source": "A pale wooden sword",
+      "text": ""
+    }
+  },
+  "a-pot-of-gold": {
+    "name": {
+      "source": "A pot of “gold”",
+      "text": ""
+    },
+    "description": {
+      "source": "◇◇ *magical*\n\nA small bronze cauldron, full of glittering coins. At least, that’s what it seems.\n\nWhen you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a purse of gold ◇ (Value 4).\n\nAny “coins” removed from the pot revert to their true form when…\n\n… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
+      "text": ""
+    },
+    "outfitItems/a-pot-of-gold/name": {
+      "source": "A pot of “gold”",
+      "text": ""
+    }
+  },
+  "a-scarred-slab-of-marble": {
+    "name": {
+      "source": "A scarred slab of marble",
+      "text": ""
+    },
+    "description": {
+      "source": "*immobile*, *magical*\n\nA slab of once-beautiful stone, some 30 feet tall and about half again as wide, standing in a vaulted chamber, surrounded by deeply etched runes that speak of union and protection, consumption and sacrifice. The stone bears a multitude of chips, gouges, and cracks. Dust and debris surround it.\n\nWhen you **_pry a chip of stone from the mar_****_ble and swallow it whole, while standing_** **_within the ring of runes_**, your flesh becomes like stone and your DEX becomes -2 until the effect ends. The next three times you would suffer physical harm, the marble slab suffers the harm instead. The effect ends after the third blow.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
+      "text": ""
+    }
+  },
+  "a-sealed-amphora": {
+    "name": {
+      "source": "A sealed amphora",
+      "text": ""
+    },
+    "description": {
+      "source": "◇◇ *fragile*, *magical*, 3 uses\n\nA ceramic, two-armed jug with a wax seal. Inside is water of life, the quintessence of water, so pure that it washes away all impurity, corruption, poison, or disease from any living thing. It becomes sullied and loses its potency when used, or if left unsealed for more than a minute or so.\n\nThe amphora itself is a perfect vessel: as long as it is sealed, no substance within will rot, putrefy, or otherwise spoil.\n<figure class=\"art\"></figure>\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers}.*",
+      "text": ""
+    },
+    "outfitItems/a-sealed-amphora/name": {
+      "source": "A sealed amphora",
+      "text": ""
+    },
+    "outfitItems/a-sealed-amphora/note": {
+      "source": "3 uses",
+      "text": ""
+    }
+  },
+  "a-serpentine-armband": {
+    "name": {
+      "source": "A serpentine armband",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *beautiful*, Value 3\n\nCast from silver that never seems to tarnish, with what appear to be two small rubies in its eye sockets. It seems like it might not fit—but what do you know, it does.\n\nWhen you **_wear the serpentine arm_****_band openly for all to see_**, NPCs find you magnetic, becoming jealous and possessive of your attention. Tempers flare quickly, and you might need to Defy Danger or Persuade others in order to take your leave. Ask each PC you encounter how the armband affects them.\n\nWhen you **_remove the armband after_** **_wearing it and basking in the regard of_** **_others_**, you find yourself pining for that feeling of being adored. Roll +CON: **on a** **10+**, you’ll get over it; **on a 7-9**, either put the armband back on (and keep it there) or mark a debility; **on a 6-**, you cannot sleep until you put the armband on and wear it openly around others.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below}.*",
+      "text": ""
+    }
+  },
+  "a-silken-noose": {
+    "name": {
+      "source": "A silken noose",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*\n\nA length of fine cord, tied into a noose with a few feet hanging free. It’s remarkably tough, but a bronze blade will slice right through it. If untied and left unattended, it re-ties itself into a noose.\n\nWhen you **_slip the noose around someone’s_** **_neck_**, it cinches tight—snug and uncomfortable, but the victim can breathe.\n\nWhen **_your victim lies or refuses to answer_** **_a question_**, the noose tightens and strangles them until they die or gasp out the truth.\n\nWhen you (or anyone else) **_tries to remove_** **_or loosen the noose_**, it starts to strangle the victim. If you (or they) stop, it relaxes. If you (or they) persist, it quickly crushes the victim’s windpipe.\n\nWhen **_the victim dies_**, the noose slackens and can be removed.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below}.*",
+      "text": ""
+    }
+  },
+  "a-small-black-sphere": {
+    "name": {
+      "source": "A small black sphere",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *indestructible*, *immobile*\n\nFound in or near some Rime Lord ruin, this… thing… appears to be a perfect sphere of lead, maybe 2 inches across. It hovers motionless in the air. No amount of physical force can mar it, nor move it from its relative position.\n\nWhen you **_focus all your will upon the black_** **_sphere_**, roll +WIS: **on a 10+**, you can slowly move the sphere with your mind, so long as you keep your attention fixed upon the task; **on a 7-9**, pick 1:\n\n- Mark a debility and move the sphere as per a 10+\n- Move the sphere, but only a few inches\n- Fling the sphere in a random vector (if it matters: d8 damage, *forceful*, *messy*)\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
+      "text": ""
+    }
+  },
+  "a-spindle-of-fine-thread": {
+    "name": {
+      "source": "A spindle of fine thread",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*\n\nA length of fiber, maybe 50 feet long, spun by a ghost from all the hair that ever fell from her daughters’ heads. The thread is light, and fine, and almost unbreakably strong, but it can be handled only by one who has seen the Last Door. Only the edge of a silver blade can cut it. It can be used to bind a ghost fast, if you’re clever and can handle the thread yourself.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
+      "text": ""
+    }
+  },
+  "a-stone-cup": {
+    "name": {
+      "source": "A stone cup",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*\n\nA lump of limestone, big as a large man’s fist, sheared off smooth at one end and hollowed out. Water slowly seeps from the interior wall, filling the cup in about half an hour. The water is hard, mineral-rich but potable, and just a little cursed.\n\nWhen you **_drink water produced by the cup_**, you’ll have troubling dreams the next time you sleep—dreams of suffocation and endless wet caverns and huge uncaring things stirring in the lightless depths. Roll 1d6: **on a 1**, you wake up screaming and will get no rest this evening; **on a 2-6**, the dreams are merely unsettling.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    }
+  },
+  "a-sturdy-banded-box": {
+    "name": {
+      "source": "A sturdy, banded box",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*\n\n6” by 4” by 3”, made of thick rowan wood and banded with bronze. It’s not much to look at. It slips easily from one’s mind.\n\nWhen you **_let a drop of your blood fall into_** **_the empty chest_**, name a promise you have made, an oath you have given, or a debt that you owe. Your blood becomes a bead of lead as it falls into the chest, and the promise, oath, or debt holds no power over you as long as the chest is sealed.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
+      "text": ""
+    },
+    "outfitItems/a-sturdy-banded-box/name": {
+      "source": "A sturdy, banded box",
+      "text": ""
+    }
+  },
+  "a-tattered-standard": {
+    "name": {
+      "source": "A tattered standard",
+      "text": ""
+    },
+    "description": {
+      "source": "◇◇ *magical*\n\nThreadbare, ancient, but remarkably well-preserved. Embroidered with a stylized aurochs whose horns encompass the sun. It fills you with hope and pride to look upon it, as well it should. For this was the standard of the Heol-Tarv, a heroic band who gave their lives in hopeless battle against the **Anan Gllo** (page 81), securing their people’s escape.\n\nWhen you **_unfurl the tattered standard and_** **_hold it aloft for all to see_**, you and your allies are immune to supernatural fear and unshaken by undead or otherwise unnatural foes.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
+      "text": ""
+    },
+    "outfitItems/a-tattered-standard/name": {
+      "source": "A tattered standard",
+      "text": ""
+    }
+  },
+  "a-tightly-woven-net": {
+    "name": {
+      "source": "A tightly-woven net",
+      "text": ""
+    },
+    "description": {
+      "source": "*close*, *thrown*, *magical*, *crude*\n\nWoven from Flats-grass by a Hillfolk sorcerer or witch. Hundreds of minor root-spirits are tethered to the strands.\n\nWhen you **_cast the net over a spirit_**, it is ensnared—even if its form is intangible or could flow through the net. The spirit can’t escape on its own as long as the net is intact. Don’t try to use this on fire spirits— they’ll burn right through it.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    }
+  },
+  "a-vine-in-a-rune-carved-pot": {
+    "name": {
+      "source": "A vine in a rune-carved pot",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*\n\nIt’s about as thick as your finger and maybe 30 feet long stretched out, with skinny little tendrils. It looks rather dried out, but moves slightly if you touch it or its pot. If you water it, it twitches excitedly.\n\nA plant spirit is bound to the vine and pot. If you befriend it and carry its pot, it will animate and act as a follower: *grabby*, *clever*, *playful*; **HP** 3; **Damage** 0; **Instinct** to not let go; **Cost** affection, play time.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
+      "text": ""
+    },
+    "outfitItems/a-vine-in-a-rune-carved-pot/name": {
+      "source": "A vine in a rune-carved pot",
+      "text": ""
+    }
+  },
+  "a-wooden-mask": {
+    "name": {
+      "source": "A wooden mask",
+      "text": ""
+    },
+    "description": {
+      "source": "*fragile*, *magical*\n\nCarved from pale elder wood in the shape of a bird’s head, but with small horns and fangs. The inside is chiseled with glyphs like those that the Forest Folk used to make.\n\n**Something interesting:** You recognize glyphs for “beast,” “spirit,” “forest,” and… “peace?” Or maybe “treaty.”\n\n**Something useful:** When you **_wear the_** **_wooden mask_**, beasts of the Great Wood will do you no harm, though your companions have no such protection. Perversions of nature are unaffected. If you **_harm a beast of_** **_the Great Wood while wearing the mask_**, it loses all power and rapidly rots away.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{Forest Folk}.*",
+      "text": ""
+    }
+  },
+  "aetherium-urn": {
+    "name": {
+      "source": "Aetherium urn",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, *dangerous*\n\nThe lid is held fast by no apparent means. It takes some effort to pry open and eagerly snaps back into place.\n\nWhen **_the urn is open and empty_**, it draws raw elemental force into it like a lodestone draws iron. With the lid in place, the force is safely stored. If the urn is damaged or dented (not hard), any stored force escapes, violently.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
+      "text": ""
+    },
+    "outfitItems/aetherium-urn/name": {
+      "source": "Aetherium urn",
+      "text": ""
+    }
+  },
+  "an-iron-spider": {
+    "name": {
+      "source": "An iron spider",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *indestructible*\n\nAbout the size of one’s palm, half an inch thick, rusted around the edges, with legs folded up on the back. A hidden button makes the legs extend and reveals their bladed tips. Sometimes, when you go to retrieve it, it’s not quite where you left it.\n\nThe spider is hungry when you find it. When you **_plunge the hungry spider into a_** **_person’s flesh_**, they lose 1d4 HP every few seconds until it’s torn free (1d8 damage, *messy*, ignores armor). Should the spider drain them to 0 HP, it becomes sated.\n\nWhen you **_plunge the sated spider into a_** **_person’s flesh_**, they take 1 damage (ignores armor) and will not age for 1d10 years. If they are middle aged or older, they regain some vigor of their youth. Then, the spider becomes hungry.\n\nEach time someone uses the spider to extend their life, their features change subtly, becoming blander, waxier, more pallid, less specific. Should they die after exceeding their mortal lifespan, they become a **reve****nant** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{80}), hungering for blood.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below}.*",
+      "text": ""
+    }
+  },
+  "an-obsidian-pendant": {
+    "name": {
+      "source": "An obsidian pendant",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*\n\nA lump of volcanic glass, impossibly black, set in a pendant and hanging from a leather cord. The glass sucks up light from nearby sources, causing them to dim. (The sun and moon are unaffected, as they are far, far away.) More subtly, the pendant also sucks up kindness, making individuals in its presence more callous and self-centered.\n\nWhen you **_wear or carry the pendant_** **_openly for a few minutes or more_**, your eyes adjust and can see clearly in all but pitch darkness. But also, your instinct for the session becomes “Callousness: to disregard the feelings, needs, or wellbeing of others.”\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below}.*",
+      "text": ""
+    }
+  },
+  "an-old-bronze-dagger": {
+    "name": {
+      "source": "An old bronze dagger",
+      "text": ""
+    },
+    "description": {
+      "source": "*hand*, *magical*\n\nTinged green, but sharp and sturdy. In the chaotic days after the Makers fell, it was the weapon of a desperate father. He killed his own brother with it, to protect his children’s food. He killed others, too, to make sure his family had enough. So many, many others.\n\nThe dagger holds a shard of that father’s desperate will. When you **_Seek Insight_** **_about someone while carrying the dagger_**, add the following to the list of questions you can ask. If **_your hand is on the hilt_**, you can ask one of these questions for free, even on a 6-.\n\n- What of mine do they most want?\n- How am I most vulnerable to them?\n- What do they carry that is useful to me?\n\nIf a PC keeps the dagger, treat it as a threat (a *MacGuffin*; **Instinct** to cause paranoia).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders}.*",
+      "text": ""
+    }
+  },
+  "an-oversized-ring": {
+    "name": {
+      "source": "An oversized ring",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *beautiful*, *magical*, Value 4\n\nA fist-sized signet, large even by the Makers’ standards, made of orichalcum. It glows like a dying ember, but is cool to the touch. When anyone lies in the ring’s presence, their tongue blisters and burns. The greater the lie, the more damage is done.\n\n**Something interesting:** This was the signet ring of a Forge Lord, one of great wealth and importance; the **Ustrina** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{464}) often show keen interest in such things.\n\n**Something useful:** This was the signet ring of Omelor Xonane, a storied artificer. Many of their works were said to be keyed to this signet ring. Who knows what wonders it could unlock?\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords}.*",
+      "text": ""
+    },
+    "outfitItems/an-oversized-ring/name": {
+      "source": "An oversized ring",
+      "text": ""
+    },
+    "outfitItems/an-oversized-ring/note": {
+      "source": "Value 4",
+      "text": ""
+    }
+  },
+  "apiary": {
+    "name": {
+      "source": "Apiary",
+      "text": ""
+    },
+    "label": {
+      "source": "Apiary",
+      "text": ""
+    },
+    "description": {
+      "source": "beeswax, candles (*close, area*, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
+      "text": ""
+    },
+    "outfitItems/bee-smokers/name": {
+      "source": "Bee smokers",
+      "text": ""
+    },
+    "outfitItems/hat-veils/name": {
+      "source": "Hat & veils",
+      "text": ""
+    }
+  },
+  "artificial-limb": {
+    "name": {
+      "source": "Artificial limb",
+      "text": ""
+    },
+    "description": {
+      "source": "*crude*, *magical* (?), Value 3\n\nA clockwork hand, foot, arm, or leg, with straps and buckles to attach it. Impossibly intricate, and with practice it’s nearly as functional as the real thing. It cannot feel, though, and is prone to jamming up and needing repairs.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    }
+  },
+  "aviary": {
+    "name": {
+      "source": "Aviary",
+      "text": ""
+    },
+    "label": {
+      "source": "Aviary",
+      "text": ""
+    },
+    "description": {
+      "source": "thick gloves, bird hoods, tethers, seed, ◇ messenger birds, ◇ birdcages, etc.",
+      "text": ""
+    },
+    "outfitItems/messenger-birds/name": {
+      "source": "Messenger birds",
+      "text": ""
+    },
+    "outfitItems/birdcages/name": {
+      "source": "Birdcages",
+      "text": ""
+    }
+  },
+  "barrel-of-anthracite": {
+    "name": {
+      "source": "Barrel of anthracite",
+      "text": ""
+    },
+    "description": {
+      "source": "*immobile*, *dangerous*, Value 3\n\nLumps of lustrous, gray-black stone, like coal but drier and much more useful. A small lump catches fire as readily as dry wood and burns all night with the heat of a good cook-fire. It casts only dim light (*close*, *area*) and there’s almost no smoke, but the smell is something awful.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    }
+  },
+  "bloodshot-amber": {
+    "name": {
+      "source": "Bloodshot amber",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ each, *magical*\n\n1d4 fist-sized gems, riddled with red-black intrusions.\n\nWhen you **_drip blood onto an amber_**, name a manifest spirit in your presence and roll +CHA. If the spirit has an intact **tether** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{358}), roll with disadvantage. **On a** **10+**, the spirit is imprisoned in the amber; **on a 7-9**, the amber starts to suck the spirit in, but it may yet fight back; **on a 6-**, the spirit wrests free and the amber shatters.\n\nWhen you **_imprison a spirit in a bloodshot_** **_amber_**, it is wracked with pain and cannot manifest. Only one spirit can be imprisoned at a time. When you **_touch the amber with_** **_bare skin_**, you can communicate with the spirit within and release it if you want (even if you weren’t the one who imprisoned it).\n\nWhen a bloodshot amber is found, it likely contains a spirit that has been trapped in agony for centuries.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.z8rAsGkDl5lJd8GG]{Fomoraij}.*",
+      "text": ""
+    },
+    "outfitItems/bloodshot-amber/name": {
+      "source": "Bloodshot amber",
+      "text": ""
+    },
+    "outfitItems/bloodshot-amber/note": {
+      "source": "each",
+      "text": ""
+    }
+  },
+  "books-and-scrolls": {
+    "name": {
+      "source": "Books & scrolls",
+      "text": ""
+    },
+    "label": {
+      "source": "Books & scrolls",
+      "text": ""
+    },
+    "description": {
+      "source": "expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
+      "text": ""
+    }
+  },
+  "brass-sphere": {
+    "name": {
+      "source": "Brass sphere",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, Value 2\n\nA heavy lump of smooth metal that fits in one’s hand. When you touch the sphere with bare flesh, it glows with an orange light (*reach*, *area*, hours). It recharges an hour of light for every hour that it sits in a hot fire or coals.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    },
+    "outfitItems/brass-sphere/name": {
+      "source": "Brass sphere",
+      "text": ""
+    },
+    "outfitItems/brass-sphere/note": {
+      "source": "Value 2",
+      "text": ""
+    }
+  },
+  "bright-sticks": {
+    "name": {
+      "source": "Bright-sticks",
+      "text": ""
+    },
+    "description": {
+      "source": "*fragile*, *dangerous*, Value 1\n\nA small box containing 3d4 stiff metal rods, about the size of incense sticks. Snap one, and each piece bursts into a blindingly bright, blisteringly hot flame (d8 damage, *messy*) for a few seconds while it burns away to ash.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    }
+  },
+  "bronze-ring": {
+    "name": {
+      "source": "Bronze ring",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, *fireproof*, hours\n\nAbout 8 inches in diameter, an inch thick throughout, scorched and smeared with ash. A button protrudes, with a Tempest Lord glyph that might mean “stubborn.”\n\nWhen you **_find the ring_**, it has enough power to run for 1d4-1 hours.\n\nWhen you **_press the button_**, the ring fixes in place, defying gravity. It simply will not budge. The effect ends if the ring is bent or broken, or when it runs out of power. There’s no obvious way to end the effect early. When **_the ring runs out of power_**, the button pops out and the effect ends.\n\nWhen **_you heat the ring in a forge or kiln_** for about eight hours, it gains an hour of use (up to 3 hours).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
+      "text": ""
+    },
+    "outfitItems/bronze-ring/name": {
+      "source": "Bronze ring",
+      "text": ""
+    },
+    "outfitItems/bronze-ring/note": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "burglars-kit": {
+    "name": {
+      "source": "Burglar's kit",
+      "text": ""
+    },
+    "label": {
+      "source": "Burglar's kit",
+      "text": ""
+    },
+    "description": {
+      "source": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, *close, area*), ◇ a grappling hook, etc.",
+      "text": ""
+    },
+    "outfitItems/prybars/name": {
+      "source": "Prybars",
+      "text": ""
+    },
+    "outfitItems/hacksaws/name": {
+      "source": "Hacksaws",
+      "text": ""
+    },
+    "outfitItems/lantern/name": {
+      "source": "Lantern",
+      "text": ""
+    },
+    "outfitItems/burglar-grappling-hook/name": {
+      "source": "Grappling hook",
+      "text": ""
+    },
+    "outfitItems/lantern/resource/labels/hours": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "carpenters-tools": {
+    "name": {
+      "source": "Carpenter's tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Carpenter's tools",
+      "text": ""
+    },
+    "description": {
+      "source": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ◇◇ firkins, barrels, etc.",
+      "text": ""
+    },
+    "outfitItems/prybars/name": {
+      "source": "Prybars",
+      "text": ""
+    },
+    "outfitItems/saws/name": {
+      "source": "Saws",
+      "text": ""
+    },
+    "outfitItems/firkins/name": {
+      "source": "Firkins",
+      "text": ""
+    }
+  },
+  "chandlery": {
+    "name": {
+      "source": "Chandlery",
+      "text": ""
+    },
+    "label": {
+      "source": "Chandlery",
+      "text": ""
+    },
+    "description": {
+      "source": "beeswax, candles (_close_, _area_, lasts ~1 hr), wicks, scented herbs, soap, lye, ash, etc.",
+      "text": ""
+    }
+  },
+  "chirurgeons-tools": {
+    "name": {
+      "source": "Chirurgeon's tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Chirurgeon's tools",
+      "text": ""
+    },
+    "description": {
+      "source": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc.",
+      "text": ""
+    },
+    "outfitItems/bonesaws/name": {
+      "source": "Bonesaws",
+      "text": ""
+    }
+  },
+  "clockwork-bird": {
+    "name": {
+      "source": "Clockwork bird",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *fragile*, *magical*, Value 3\n\nMade of tin and set with agate eyes. When you wind it up and let it run, it will dance and chirp loudly for a few minutes. When you wind it up and twist one of its feathers just so, it will sit and wait, only starting to dance and chirp when a creature enters its line of sight.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    },
+    "outfitItems/clockwork-bird/name": {
+      "source": "Clockwork bird",
+      "text": ""
+    },
+    "outfitItems/clockwork-bird/note": {
+      "source": "Value 3",
+      "text": ""
+    }
+  },
+  "collected-offerings": {
+    "name": {
+      "source": "Collected offerings",
+      "text": ""
+    },
+    "label": {
+      "source": "Collected offerings",
+      "text": ""
+    },
+    "description": {
+      "source": "Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
+      "text": ""
+    },
+    "resource/labels/uses": {
+      "source": "uses",
+      "text": ""
+    }
+  },
+  "composite-bow": {
+    "name": {
+      "source": "Composite bow",
+      "text": ""
+    },
+    "label": {
+      "source": "Composite bow",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ (*far*, +1 damage, x piercing; ○ low ammo, ○ all out)",
+      "text": ""
+    },
+    "outfitItems/composite-bow/name": {
+      "source": "Composite Bow",
+      "text": ""
+    },
+    "outfitItems/composite-bow/note": {
+      "source": "+1 damage, _x_ piercing",
+      "text": ""
+    },
+    "outfitItems/composite-bow/resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "outfitItems/composite-bow/resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "crystal-knife": {
+    "name": {
+      "source": "Crystal knife",
+      "text": ""
+    },
+    "description": {
+      "source": "*hand*, *crude*, *magical*\n\nA blade of knapped quartz, with the hilt wrapped in glyph-covered leather. It gleams to those with the forest eyes.\n\nWhen you **_wield the crystal knife as a_** **_weapon_**, you can harm the manifest form of any spirit, ignoring armor and dealing +1d4 damage. If the 1d4 comes up a 4, though, the knife shatters into useless shards.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{Forest Folk}.*",
+      "text": ""
+    }
+  },
+  "distillery": {
+    "name": {
+      "source": "Distillery",
+      "text": ""
+    },
+    "label": {
+      "source": "Distillery",
+      "text": ""
+    },
+    "description": {
+      "source": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Skins of fine whisky",
+      "text": ""
+    },
+    "outfitItems/firkins/name": {
+      "source": "Firkins",
+      "text": ""
+    }
+  },
+  "engineers-tools": {
+    "name": {
+      "source": "Engineer's tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Engineer's tools",
+      "text": ""
+    },
+    "description": {
+      "source": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
+      "text": ""
+    },
+    "outfitItems/engineer-tripod/name": {
+      "source": "Tripod",
+      "text": ""
+    },
+    "outfitItems/engineer-block/name": {
+      "source": "Block & Tackle",
+      "text": ""
+    }
+  },
+  "ever-burning-ember": {
+    "name": {
+      "source": "Ever-burning ember",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *fragile*, *magical*, Value 3\n\nThis ceramic pot has a number of thin slits along its shoulder and a ring of rune-etched brass around its neck. The pot is always hot, painful to touch, but it won’t cause blisters outright. Inside is a glowing ember of redwood with a fire spirit bound inside. The ember will smolder forever as long it stays in the pot and isn’t completely submerged.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    },
+    "outfitItems/ever-burning-ember/name": {
+      "source": "Ever-burning ember",
+      "text": ""
+    },
+    "outfitItems/ever-burning-ember/note": {
+      "source": "Value 3",
+      "text": ""
+    }
+  },
+  "floating-sash": {
+    "name": {
+      "source": "Floating sash",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*\n\nA length of bluish-white lamé, maybe 6 inches wide by 6 feet long, snaking about in the air. Like a belt, but for someone far larger than you.\n\nWhen you **_wrap the sash securely around_** **_your waist_**, it buoys you against falls—you never fall faster than if you had fallen your own height.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
+      "text": ""
+    }
+  },
+  "glassworks": {
+    "name": {
+      "source": "Glassworks",
+      "text": ""
+    },
+    "label": {
+      "source": "Glassworks",
+      "text": ""
+    },
+    "description": {
+      "source": "vials, charms, lenses, sand, marbles, bellows, crucible, ◇ lanterns (○○○○○ _hours_, _close_, _area_), etc.",
+      "text": ""
+    },
+    "outfitItems/lantern/name": {
+      "source": "Lantern",
+      "text": ""
+    },
+    "outfitItems/lantern/resource/labels/hours": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "goat-herd": {
+    "name": {
+      "source": "Goat herd",
+      "text": ""
+    },
+    "label": {
+      "source": "Goat herd",
+      "text": ""
+    },
+    "description": {
+      "source": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison).",
+      "text": ""
+    }
+  },
+  "heap-of-expectations": {
+    "name": {
+      "source": "A heap of expectations",
+      "text": ""
+    },
+    "label": {
+      "source": "A heap of expectations",
+      "text": ""
+    },
+    "description": {
+      "source": "of little use",
+      "text": ""
+    }
+  },
+  "herb-garden": {
+    "name": {
+      "source": "Herb garden",
+      "text": ""
+    },
+    "label": {
+      "source": "Herb garden",
+      "text": ""
+    },
+    "description": {
+      "source": "shears, mortars & pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, [[/r 1d4]] uses of bendis root (*reach, area*, burns ~1 hr, fumes repel perversions of nature).",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Bendis root",
+      "text": ""
+    },
+    "outfitItems/spades/name": {
+      "source": "Spades",
+      "text": ""
+    }
+  },
+  "hidden-stash": {
+    "name": {
+      "source": "Hidden stash",
+      "text": ""
+    },
+    "label": {
+      "source": "Hidden stash",
+      "text": ""
+    },
+    "description": {
+      "source": "each use produces valuables worth a purse of silvers (Value 2).",
+      "text": ""
+    }
+  },
+  "hideouts": {
+    "name": {
+      "source": "Hideouts",
+      "text": ""
+    },
+    "label": {
+      "source": "Hideouts",
+      "text": ""
+    },
+    "description": {
+      "source": "○○○ uses: 2-3 stocked shelters in the wild, each a safe place to sleep and cache supplies. When you arrive at a hideout, mark a use to restore Supplies or Ammo.",
+      "text": ""
+    }
+  },
+  "holy-relics": {
+    "name": {
+      "source": "Holy relics",
+      "text": ""
+    },
+    "label": {
+      "source": "Holy relics",
+      "text": ""
+    },
+    "description": {
+      "source": "if you have one in inventory when you Invoke the Sun God, you can mark a use in lieu of choosing a consequence.",
+      "text": ""
+    }
+  },
+  "hounds": {
+    "name": {
+      "source": "Hounds",
+      "text": ""
+    },
+    "label": {
+      "source": "Hounds",
+      "text": ""
+    },
+    "description": {
+      "source": "2-3 followers (*alert, keen-nosed, fierce, overprotective*); HP 6; Damage d6 (*hand, grabby*); Instinct: to bark & threaten; Cost: affection.",
+      "text": ""
+    }
+  },
+  "husbandry-tools": {
+    "name": {
+      "source": "Husbandry tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Husbandry tools",
+      "text": ""
+    },
+    "description": {
+      "source": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.).",
+      "text": ""
+    },
+    "outfitItems/husbandry-whips/name": {
+      "source": "Whips",
+      "text": ""
+    },
+    "outfitItems/husbandry-bridles/name": {
+      "source": "Bridles",
+      "text": ""
+    }
+  },
+  "laboratory": {
+    "name": {
+      "source": "Laboratory",
+      "text": ""
+    },
+    "label": {
+      "source": "Laboratory",
+      "text": ""
+    },
+    "description": {
+      "source": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce [[/r 1d4-1]] uses of ◇ naphtha (*thrown, area, dangerous, ignores armor*)",
+      "text": ""
+    },
+    "outfitItems/laboratory-scales/name": {
+      "source": "Scales",
+      "text": ""
+    },
+    "outfitItems/laboratory-decanters/name": {
+      "source": "Decanters",
+      "text": ""
+    },
+    "outfitItems/laboratory-naptha/name": {
+      "source": "Naptha",
+      "text": ""
+    }
+  },
+  "lay-of-the-land": {
+    "name": {
+      "source": "Lay of the land",
+      "text": ""
+    },
+    "label": {
+      "source": "Lay of the land",
+      "text": ""
+    },
+    "description": {
+      "source": "expend a use to know where to find ___, without having to Know Things; GM can veto",
+      "text": ""
+    }
+  },
+  "length-of-braided-leather": {
+    "name": {
+      "source": "Length of braided leather",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*\n\n3 feet long, frayed on one end, and crusty with flaking... something. The braids entwine 2d4 beads of redwood. Each bead contains some harm: a wound (1d10 damage, *messy*, ignores armor), a sickness, a poison, a delusion. The whole thing binds a spirit of blight.\n\nWhen you **_unweave the braid and let a_** **_redwood bead drop upon the earth_**, the spirit manifests as a warm, damp wind. Name someone in your presence; the spirit inflicts upon them whatever harm was stored in the bead. If you do not name someone in your presence, the spirit will choose someone at random (maybe even you).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
+      "text": ""
+    }
+  },
+  "luthiers-tools": {
+    "name": {
+      "source": "Luthier's tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Luthier's tools",
+      "text": ""
+    },
+    "description": {
+      "source": "gut strings, pegs, wood, varnish, ◇ chisels, ◇ clamps; instruments, repairs, etc.",
+      "text": ""
+    }
+  },
+  "mastiffs": {
+    "name": {
+      "source": "Mastiffs",
+      "text": ""
+    },
+    "label": {
+      "source": "Mastiffs",
+      "text": ""
+    },
+    "description": {
+      "source": "2-3 followers (*alert, keen-nosed, fierce, overprotective*); HP 6; Damage d6 (*hand, grabby*); Instinct: to bark & threaten; Cost: affection.",
+      "text": ""
+    }
+  },
+  "moonlight-raiment": {
+    "name": {
+      "source": "Moonlight raiment",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *beautiful*, *fragile*\n\nA gossamer robe, a joy against your skin. When you **_wear the raiment in dim light_**, you become more pleasing to the eye. If normally ugly, you become plain. If plain, you become beautiful. If beautiful, you become luminous, breathtaking, magnificent.\n\nAlas, when **_the moonlight raiment is soiled_** **_or torn while you wear it_**, mark a debility. The debility cannot be cleared until the raiment is cleaned or repaired using Fae magic, or you burn it away into silvery ash.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
+      "text": ""
+    }
+  },
+  "mummers-kit": {
+    "name": {
+      "source": "Mummer's kit",
+      "text": ""
+    },
+    "label": {
+      "source": "Mummer's kit",
+      "text": ""
+    },
+    "description": {
+      "source": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc.",
+      "text": ""
+    },
+    "outfitItems/mummer-puppets/name": {
+      "source": "Puppets",
+      "text": ""
+    },
+    "outfitItems/mummer-fiddle/name": {
+      "source": "A fiddle",
+      "text": ""
+    }
+  },
+  "orichalcum-spear": {
+    "name": {
+      "source": "Orichalcum spear",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *close*, *thrown*, *magical*, *beautiful*\n\n1 piercing The haft needs replacing, but the spearhead itself is pristine, beautiful, sharp as hot flame. When you **_strike a perversion of_** **_nature with the spear_**, deal +1d4 damage. When you **_strike a perversion of nature and_** **_roll max damage_** (including any bonus dice), deal another +1d4 damage as the spearhead flares and melts into worthless slag.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords}.*",
+      "text": ""
+    },
+    "outfitItems/orichalcum-spear/name": {
+      "source": "Orichalcum spear",
+      "text": ""
+    }
+  },
+  "pale-metal-gauntlets": {
+    "name": {
+      "source": "Pale metal gauntlets",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *fireproof*, *magical*, Value 3\n\nMade of a pale metal, lighter than it should be, and intricately carved with geometric patterns. The insides are an impossibly fine chainmail of the same metal. They seem to absorb heat, and are often damp.\n\nWhen you **_wear the pale metal gauntlets_**, you can pick up and manipulate even white-hot steel without harming your hands (the rest of you, though, has no special protection from heat).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    },
+    "outfitItems/pale-metal-gauntlets/name": {
+      "source": "Pale metal gauntlets",
+      "text": ""
+    },
+    "outfitItems/pale-metal-gauntlets/note": {
+      "source": "Value 3",
+      "text": ""
+    }
+  },
+  "paraphernalia": {
+    "name": {
+      "source": "Paraphernalia",
+      "text": ""
+    },
+    "label": {
+      "source": "Paraphernalia",
+      "text": ""
+    },
+    "description": {
+      "source": "crystals, incense, talismans, blood, bone, horn, eye of newt, ◇ braziers, ◇◇ a cauldron, etc.",
+      "text": ""
+    },
+    "outfitItems/paraphernalia-braziers/name": {
+      "source": "Braziers",
+      "text": ""
+    },
+    "outfitItems/paraphernalia-cauldron/name": {
+      "source": "A cauldron",
+      "text": ""
+    }
+  },
+  "personal-symbol": {
+    "name": {
+      "source": "Personal symbol",
+      "text": ""
+    },
+    "label": {
+      "source": "Personal symbol",
+      "text": ""
+    },
+    "description": {
+      "source": "a banner, insignia, or seal that marks you as the Marshal of Stonetop. Recognized throughout the Manmarch.",
+      "text": ""
+    }
+  },
+  "personal-token": {
+    "name": {
+      "source": "Personal token, fraught with meaning",
+      "text": ""
+    },
+    "label": {
+      "source": "Personal token, fraught with meaning",
+      "text": ""
+    },
+    "description": {
+      "source": "(pick 1)",
+      "text": ""
+    },
+    "choices/0/options/family-heirloom/text": {
+      "source": "◇◇ A shield, bearing ___’s crest",
+      "text": ""
+    },
+    "choices/0/options/cloak/text": {
+      "source": "◇ A wool cloak, woven just for you by ___",
+      "text": ""
+    },
+    "choices/0/options/letter/text": {
+      "source": "A letter, spattered with tears & blood",
+      "text": ""
+    },
+    "choices/0/options/flute/text": {
+      "source": "A flute, a gift from someone you loved",
+      "text": ""
+    },
+    "choices/0/options/locket/text": {
+      "source": "A fine locket, holding a strand of hair",
+      "text": ""
+    },
+    "choices/0/options/tinderbox/text": {
+      "source": "A tinderbox, lovingly engraved",
+      "text": ""
+    }
+  },
+  "power-crystal": {
+    "name": {
+      "source": "Power-crystal",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, *dangerous*\n\nA chunk of crystal the size of a clenched fist. If charged, it thrums or crackles with power. If depleted, it fills you with a sense of emptiness and longing.\n\nWhen you **_brandish the depleted power_****_crystal at a source of elemental energy_**, roll +CON: **on a 10+**, the crystal absorbs the energy fully and as safely as possible (it is now charged); **on a 7-9**, the crystal absorbs the energy (it’s now charged) but pick 1:\n\n- You are harmed by the coursing energy, taking damage as the GM sees fit\n- The power stored in the crystal is extremely unstable, likely to discharge without warning\n- The crystal cracks; henceforth, treat a 10+ on this move as a 7-9, and you can’t pick this option again.\n\nIn the hands of a skilled arcanist, a charged power-crystal can fuel or empower a magical effect (though this is dangerous). In the hands of the incautious, the reckless, or the desperate, it can split or crack, leading to a violent explosion.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
+      "text": ""
+    },
+    "outfitItems/power-crystal/name": {
+      "source": "Power-crystal",
+      "text": ""
+    }
+  },
+  "sacred-pouch": {
+    "name": {
+      "source": "Sacred pouch (*magical*)",
+      "text": ""
+    },
+    "label": {
+      "source": "Sacred pouch (*magical*)",
+      "text": ""
+    },
+    "description": {
+      "source": "See playbook tab",
+      "text": ""
+    },
+    "resource/title": {
+      "source": "Stock",
+      "text": ""
+    }
+  },
+  "scribes-tools": {
+    "name": {
+      "source": "Scribe's tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Scribe's tools",
+      "text": ""
+    },
+    "description": {
+      "source": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
+      "text": ""
+    },
+    "outfitItems/notebook/name": {
+      "source": "Notebook",
+      "text": ""
+    }
+  },
+  "self-burning-lamp": {
+    "name": {
+      "source": "Self-burning lamp",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *reach*, *area*, hours, Value 2\n\nA bronze oil-lamp with a small valve on the top. When you screw the nozzle open, a hot blue flame pops out of the nozzle. When you screw the nozzle shut, the flame snuffs out. The lamp itself gets blisteringly hot while running, and once empty of fuel, only the Ustrina know how to refill it.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
+      "text": ""
+    },
+    "outfitItems/self-burning-lamp/name": {
+      "source": "Self-burning lamp",
+      "text": ""
+    },
+    "outfitItems/self-burning-lamp/note": {
+      "source": "hours, Value 2",
+      "text": ""
+    }
+  },
+  "silvery-horn": {
+    "name": {
+      "source": "Silvery horn",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, *loud*\n\nWhen you **_blow the horn outside, at night,_** **_in the presence of the undead_**, the horn crumbles and a mist rises. The undead flee, and the Pale Hunter and his hounds soon appear to chase them.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{The Pale Hunter}.*",
+      "text": ""
+    },
+    "outfitItems/silvery-horn/name": {
+      "source": "Silvery horn",
+      "text": ""
+    }
+  },
+  "silvery-tuning-fork": {
+    "name": {
+      "source": "Silvery tuning fork",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *loud*\n\nWhen you **_strike this tuning fork against a_** **_hard surface_**, it emits a loud tone for about a minute. Nearby (*reach*, *area*) magical effects and creatures become visible: shaking, vibrating, distorted. The noise draws the attention of any spirits or magically attuned beings for miles around.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
+      "text": ""
+    }
+  },
+  "small-clay-jars": {
+    "name": {
+      "source": "Small clay jars",
+      "text": ""
+    },
+    "description": {
+      "source": "*fragile*, *magical*\n\nA number of earthenware jars, about the size of a pinecone, sealed with wax and seemingly empty. When opened (or broken) a fine cloud of dust puffs out. The dust is, in fact, chogor spores.\n\nWhen **_someone is exposed to chogor spores_**, the spores quickly start to grow on them in masses of vine-like ferns. They will—in a matter of seconds—ensnare and restrain their victim. After about an hour, the ferns die and rapidly dry out, but until then, it’s like being bound up in twine.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
+      "text": ""
+    }
+  },
+  "smithy": {
+    "name": {
+      "source": "Smithy",
+      "text": ""
+    },
+    "label": {
+      "source": "Smithy",
+      "text": ""
+    },
+    "description": {
+      "source": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
+      "text": ""
+    },
+    "outfitItems/smithy-tongs/name": {
+      "source": "Tongs",
+      "text": ""
+    },
+    "outfitItems/smithy-bellows/name": {
+      "source": "Bellows",
+      "text": ""
+    }
+  },
+  "stoneworkers-tools": {
+    "name": {
+      "source": "Stoneworker's tools",
+      "text": ""
+    },
+    "label": {
+      "source": "Stoneworker's tools",
+      "text": ""
+    },
+    "description": {
+      "source": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc.",
+      "text": ""
+    },
+    "outfitItems/stoneworkers-prybars/name": {
+      "source": "Prybars",
+      "text": ""
+    },
+    "outfitItems/stoneworkers-spikes/name": {
+      "source": "Spikes",
+      "text": ""
+    },
+    "outfitItems/stoneworkers-block-tackle/name": {
+      "source": "Block & tackles",
+      "text": ""
+    },
+    "outfitItems/stoneworkers-wheelbarrow/name": {
+      "source": "Wheelbarrow",
+      "text": ""
+    }
+  },
+  "storm-cloud-potion": {
+    "name": {
+      "source": "Storm-cloud potion",
+      "text": ""
+    },
+    "description": {
+      "source": "*magical*, *fragile*\n\nA glass vial of dark-grey liquid, roiling and shot through with sparks.\n\nWhen you **_drink a storm-cloud potion_**, lightning courses through you. Take 1d10 damage (ignores armor) and mark a debility. Should you survive, hold 3 Storm.\n\nWhile you **_hold any Storm_**, you cannot feel pain or fear, tell friend from foe, speak coherently, or exercise patience or care. Add your Storm to your Armor, and your melee and thrown attacks do +Storm damage (+*loud*, +*forceful*).\n\nWhen you **_reduce someone or something to 0_** **_HP_**, lose 1 Storm.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
+      "text": ""
+    }
+  },
+  "symbol-of-authority": {
+    "name": {
+      "source": "Symbol of authority (pick 1)",
+      "text": ""
+    },
+    "label": {
+      "source": "Symbol of authority (pick 1)",
+      "text": ""
+    },
+    "choices/0/options/authority-black-iron-maul/text": {
+      "source": "◇◇ Black iron maul",
+      "text": ""
+    },
+    "choices/0/options/authority-black-iron-maul/description": {
+      "source": "utterly immune to all magic (*close, forceful, awkward*, +1 damage)",
+      "text": ""
+    },
+    "choices/0/options/authority-makerglass-shield/text": {
+      "source": "◇◇ Makerglass shield",
+      "text": ""
+    },
+    "choices/0/options/authority-makerglass-shield/description": {
+      "source": "etched with Aratis's symbol (*indestructible*, +1 armor, +1 Readiness on a Defend 7+)",
+      "text": ""
+    },
+    "choices/0/options/authority-helm/text": {
+      "source": "Helm",
+      "text": ""
+    },
+    "choices/0/options/authority-helm/description": {
+      "source": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic.",
+      "text": ""
+    },
+    "choices/0/options/authority-black-iron-maul/outfitItems/black-iron-maul/name": {
+      "source": "Black iron maul, utterly immune to all magic",
+      "text": ""
+    },
+    "choices/0/options/authority-black-iron-maul/outfitItems/black-iron-maul/note": {
+      "source": "*close, forceful, awkward*, +1 damage",
+      "text": ""
+    },
+    "choices/0/options/authority-makerglass-shield/outfitItems/makerglass-shield/name": {
+      "source": "Makerglass shield, etched with Aratis's symbol",
+      "text": ""
+    },
+    "choices/0/options/authority-makerglass-shield/outfitItems/makerglass-shield/note": {
+      "source": "*indestructible*, +1 armor, +1 Readiness on a Defend 7+",
+      "text": ""
+    }
+  },
+  "tannery": {
+    "name": {
+      "source": "Tannery",
+      "text": ""
+    },
+    "label": {
+      "source": "Tannery",
+      "text": ""
+    },
+    "description": {
+      "source": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc.",
+      "text": ""
+    },
+    "outfitItems/tannery-cuirass/name": {
+      "source": "A boiled leather cuirass",
+      "text": ""
+    },
+    "outfitItems/tannery-cuirass/note": {
+      "source": "1 armor",
+      "text": ""
+    }
+  },
+  "the-red-pennant": {
+    "name": {
+      "source": "The Red Pennant",
+      "text": ""
+    },
+    "description": {
+      "source": "◇◇ *magical*, Blood\n\nA woolen flag hanging from a crossbar at the end of a sturdy long spear. It’s tattered, crimson, with a crudely embroidered boot for a device. It hangs heavy. Like it’s wet.\n\nWhen you **_fly the Red Pennant in battle_**, all who fight on your side feel bloodlust boil within them. Hold 3 Blood. While the battle rages, you can spend Blood 1-for-1 to will your allies to:\n\n- Rush forward, driving back their foes\n- Hold fast, making their foes pay for every inch\n- Fight savagely, giving no quarter\nIf spending Blood results in you Ordering Followers or Deploying, or another PC Clashing, the roll has advantage. Each time you spend Blood, those affected gain some small, animalistic or stony trait (little horns, weird eyes, crag-like wrinkles, etc.).\n\nWhen you **_spend the last Blood or the battle_** **_ends_**, the Red Pennant’s color fades and a few (~1 in 6) of those manifested traits will linger, especially in those who fought hardest. It will not function again until you soak it in the blood of fallen foes.\n\nThis is the battle standard of the **Bloody** **Boots** (page 112), their most sacred relic. Don’t expect them to just let it go.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
+      "text": ""
+    },
+    "outfitItems/the-red-pennant/name": {
+      "source": "The Red Pennant",
+      "text": ""
+    },
+    "outfitItems/the-red-pennant/note": {
+      "source": "Blood",
+      "text": ""
+    }
+  },
+  "the-three-star-crown": {
+    "name": {
+      "source": "The Three-star Crown",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *magical*, *beautiful*, Value 4\n\nA circlet of whitest gold, set with three black sapphires that shine like stars. It was made by a renowned smith, an apprentice of the **Forge Lords** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{156}), at the command of a petty warlord. The warlord was so pleased, he maimed the smith’s hands so that she could never make its rival. The smith killed herself in despair, cursing the crown to steal the hopes of all who wore it.\n\nWhen you **_wear the crown and interact_** **_with someone who fears or respects you_**, you roll +CHA with advantage. Alas, **_each time_** **_you don the crown_**, roll +WIS: **on a 10+**, tell the GM one of your hopes and why you doubt it can be achieved; **on a 7-9**, tell them a hope you have abandoned; **on a 6-**, you fall into a deep despair that lasts until you rouse yourself to face a mortal danger.\n\nIf **_the crown is destroyed_**—the gems shattered, the metal reduced to slag— then the despair is lifted and all lost hopes are restored.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders}.*",
+      "text": ""
+    },
+    "outfitItems/the-three-star-crown/name": {
+      "source": "The Three-star Crown",
+      "text": ""
+    },
+    "outfitItems/the-three-star-crown/note": {
+      "source": "Value 4",
+      "text": ""
+    }
+  },
+  "trade-contacts": {
+    "name": {
+      "source": "Trade contacts",
+      "text": ""
+    },
+    "label": {
+      "source": "Trade contacts",
+      "text": ""
+    },
+    "description": {
+      "source": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc.",
+      "text": ""
+    }
+  },
+  "trapping-gear": {
+    "name": {
+      "source": "Trapping gear",
+      "text": ""
+    },
+    "label": {
+      "source": "Trapping gear",
+      "text": ""
+    },
+    "description": {
+      "source": "snares, pelts, musk, bait, etc. When you _**Forage**_, get +1 use of provisions.",
+      "text": ""
+    }
+  },
+  "two-mirrors": {
+    "name": {
+      "source": "Two mirrors",
+      "text": ""
+    },
+    "description": {
+      "source": "◇ *beautiful*, *magical*, Value 4\n\nOne is a flawless silvered ◇ ◇ mirror (*magical*, *beautiful*, *fragile*, Value 4), 3 feet tall and set in a golden frame. Forge Lord runes adorn the frame, translated as: “To my beautiful Esé, my faithful, my rock.”\n\nThe other is a smaller, humble mirror ◇ (*magical*, *fragile*, Value 2), only 12 inches tall in a frame of bronze. It bears the same inscription as the other mirror, but inverted. A small needle protrudes from the frame, stained dark.\n\nWhen you **_prick your finger and touch the_** **_smaller mirror_**, it shows what is reflected in the larger mirror until you break contact. Your blood soaks into the surface, leaving no stain.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords}.*",
+      "text": ""
+    },
+    "outfitItems/two-mirrors/name": {
+      "source": "Two mirrors",
+      "text": ""
+    },
+    "outfitItems/two-mirrors/note": {
+      "source": "Value 4",
+      "text": ""
+    }
+  },
+  "weapons-of-war-heavy": {
+    "name": {
+      "source": "Weapons of war",
+      "text": ""
+    },
+    "label": {
+      "source": "Weapons of war",
+      "text": ""
+    },
+    "description": {
+      "source": "choose up to 3 (now or later)",
+      "text": ""
+    },
+    "choices/0/options/sword/text": {
+      "source": "◇ Sword, iron (*close*, +1 damage)",
+      "text": ""
+    },
+    "choices/0/options/battleaxe/text": {
+      "source": "◇ Battleaxe, iron (*close, messy*)",
+      "text": ""
+    },
+    "choices/0/options/warhammer/text": {
+      "source": "◇ Warhammer, iron (*close*, 2 piercing)",
+      "text": ""
+    },
+    "choices/0/options/mace-or-flail/text": {
+      "source": "◇ Mace or flail, iron (*close, forceful*)",
+      "text": ""
+    },
+    "choices/0/options/crossbow/text": {
+      "source": "◇ Crossbow (*far*, +1 damage, *reload*, x piercing)",
+      "text": ""
+    },
+    "choices/0/options/sword/outfitItems/sword/name": {
+      "source": "Sword, iron",
+      "text": ""
+    },
+    "choices/0/options/sword/outfitItems/sword/note": {
+      "source": "*close*, +1 damage",
+      "text": ""
+    },
+    "choices/0/options/battleaxe/outfitItems/battleaxe/name": {
+      "source": "Battleaxe, iron",
+      "text": ""
+    },
+    "choices/0/options/battleaxe/outfitItems/battleaxe/note": {
+      "source": "*close, messy*",
+      "text": ""
+    },
+    "choices/0/options/warhammer/outfitItems/warhammer/name": {
+      "source": "Warhammer, iron",
+      "text": ""
+    },
+    "choices/0/options/warhammer/outfitItems/warhammer/note": {
+      "source": "*close*, 2 piercing",
+      "text": ""
+    },
+    "choices/0/options/mace-or-flail/outfitItems/mace-or-flail/name": {
+      "source": "Mace or flail, iron",
+      "text": ""
+    },
+    "choices/0/options/mace-or-flail/outfitItems/mace-or-flail/note": {
+      "source": "*close, forceful*",
+      "text": ""
+    },
+    "choices/0/options/crossbow/outfitItems/crossbow/name": {
+      "source": "Crossbow",
+      "text": ""
+    },
+    "choices/0/options/crossbow/outfitItems/crossbow/note": {
+      "source": "*far*, +1 damage, *reload, x* piercing",
+      "text": ""
+    },
+    "choices/0/options/crossbow/outfitItems/crossbow/resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "choices/0/options/crossbow/outfitItems/crossbow/resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "weapons-of-war-marshal": {
+    "name": {
+      "source": "Weapons of war",
+      "text": ""
+    },
+    "label": {
+      "source": "Weapons of war",
+      "text": ""
+    },
+    "description": {
+      "source": "choose up to 3 (now or later)",
+      "text": ""
+    },
+    "choices/0/options/sword/text": {
+      "source": "◇ Sword, iron (*close*, +1 damage)",
+      "text": ""
+    },
+    "choices/0/options/long-spear/text": {
+      "source": "◇◇ Long spear, fine steel (*reach*, 2 piercing)",
+      "text": ""
+    },
+    "choices/0/options/battleaxe/text": {
+      "source": "◇ Battleaxe, iron (*close, messy*)",
+      "text": ""
+    },
+    "choices/0/options/composite-bow/text": {
+      "source": "◇ Composite bow (*far*, +1 damage, x piercing; ○ low ammo, ○ all out)",
+      "text": ""
+    },
+    "choices/0/options/sword/outfitItems/sword/name": {
+      "source": "Sword, iron",
+      "text": ""
+    },
+    "choices/0/options/sword/outfitItems/sword/note": {
+      "source": "+1 damage",
+      "text": ""
+    },
+    "choices/0/options/long-spear/outfitItems/long-spear/name": {
+      "source": "Long spear, fine steel",
+      "text": ""
+    },
+    "choices/0/options/long-spear/outfitItems/long-spear/note": {
+      "source": "2 piercing",
+      "text": ""
+    },
+    "choices/0/options/battleaxe/outfitItems/battleaxe/name": {
+      "source": "Battleaxe, iron",
+      "text": ""
+    },
+    "choices/0/options/battleaxe/outfitItems/battleaxe/note": {
+      "source": "*close, messy*",
+      "text": ""
+    },
+    "choices/0/options/composite-bow/outfitItems/composite-bow/name": {
+      "source": "Composite Bow",
+      "text": ""
+    },
+    "choices/0/options/composite-bow/outfitItems/composite-bow/note": {
+      "source": "+1 damage, _x_ piercing",
+      "text": ""
+    },
+    "choices/0/options/composite-bow/outfitItems/composite-bow/resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "choices/0/options/composite-bow/outfitItems/composite-bow/resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "_folders": {
+    "artifacts": {
+      "source": "Artifacts",
+      "text": ""
+    }
+  }
+}

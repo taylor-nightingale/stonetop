@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { babeleFilePath, babeleTranslationFile, documentIdentities } from "../../scripts/i18n/buildBabele.js";
 import { CONVERTER_NAME } from "../../src/i18n/babeleConverter.js";
+import { FOLDER_SLUG, FOLDER_TYPE, folderCatalog } from "../../scripts/i18n/packCatalog.js";
 
 const DOCS = [
 	{ _id: "aaa111", type: "playbook", name: "The Seeker", system: { slug: "the-seeker" } },
@@ -73,5 +74,49 @@ describe("babeleFilePath", () => {
 	// systems/<system>/babele/<language>/<pack collection>.json
 	it("matches the layout Babele resolves for a system's own translations", () => {
 		expect(babeleFilePath("de", "playbooks")).toBe("babele/de/stonetop.playbooks.json");
+	});
+});
+
+describe("folder translations", () => {
+	const folders = () => folderCatalog([{ name: "Major Arcana" }, { name: "Minor Arcana" }]);
+	const runtime = translated => ({
+		arcanum: { "rune-laden-scales": { name: "Runenbeschriftete Schuppen" } },
+		[FOLDER_TYPE]: { [FOLDER_SLUG]: translated },
+	});
+
+	// Babele's folder-translations.js reads `compendium.folders`, keyed by the folder's ORIGINAL
+	// name. The authoring file keys by the slugified name, so the build maps one to the other.
+	it("emits folders keyed by their original name", () => {
+		const file = babeleTranslationFile("Arcana", runtime({ "major-arcana": "Große Arkana" }), new Map(), folders());
+		expect(file.folders).toEqual({ "Major Arcana": "Große Arkana" });
+	});
+
+	it("omits the folders key when none are translated", () => {
+		const file = babeleTranslationFile("Arcana", runtime({}), new Map(), folders());
+		expect(file.folders).toBeUndefined();
+		expect(babeleTranslationFile("Arcana", {}, new Map()).folders).toBeUndefined();
+	});
+
+	it("ignores a translation for a folder the pack no longer has", () => {
+		const file = babeleTranslationFile("Arcana", runtime({ "gone-folder": "Weg" }), new Map(), folders());
+		expect(file.folders).toBeUndefined();
+	});
+
+	it("keeps folders out of the document entries", () => {
+		const identities = documentIdentities([{ _id: "zzz", type: "arcanum", system: { slug: "rune-laden-scales" } }]);
+		const file = babeleTranslationFile("Arcana", runtime({ "major-arcana": "Große Arkana" }), identities, folders());
+		expect(Object.keys(file.entries)).toEqual(["zzz"]);
+	});
+});
+
+describe("folderCatalog", () => {
+	it("keys folders by their slugified name", () => {
+		expect([...folderCatalog([{ name: "Major Arcana" }]).entries()]).toEqual([["major-arcana", "Major Arcana"]]);
+	});
+
+	// Two folders sharing a name share a translation, which is what Babele does anyway — it looks
+	// translations up by name, not by folder id.
+	it("collapses folders that share a name, and skips nameless ones", () => {
+		expect(folderCatalog([{ name: "Arcana" }, { name: "Arcana" }, {}, { name: "" }]).size).toBe(1);
 	});
 });

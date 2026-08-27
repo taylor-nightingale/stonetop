@@ -1,0 +1,898 @@
+{
+  "1-surplus-of-various-trade-goods": {
+    "name": {
+      "source": "1 Surplus of various trade goods",
+      "text": ""
+    }
+  },
+  "awl": {
+    "name": {
+      "source": "Awl",
+      "text": ""
+    }
+  },
+  "barrel-of-whisky-common": {
+    "name": {
+      "source": "Barrel of whisky, common",
+      "text": ""
+    }
+  },
+  "barrel-of-whisky-fine": {
+    "name": {
+      "source": "Barrel of whisky, fine",
+      "text": ""
+    }
+  },
+  "battleaxe-iron": {
+    "name": {
+      "source": "Battleaxe, iron",
+      "text": ""
+    }
+  },
+  "bedroll": {
+    "name": {
+      "source": "Bedroll",
+      "text": ""
+    },
+    "note": {
+      "source": "recover 1d6 extra HP when you Make Camp",
+      "text": ""
+    }
+  },
+  "bendis-root": {
+    "name": {
+      "source": "Bendis root",
+      "text": ""
+    },
+    "note": {
+      "source": "fumes repel perversions of nature; lasts ~1 hour",
+      "text": ""
+    }
+  },
+  "bezoar": {
+    "name": {
+      "source": "Bezoar",
+      "text": ""
+    },
+    "note": {
+      "source": "swallow to cure any poison",
+      "text": ""
+    }
+  },
+  "blanket": {
+    "name": {
+      "source": "Blanket",
+      "text": ""
+    }
+  },
+  "block-tackle": {
+    "name": {
+      "source": "Block & tackle",
+      "text": ""
+    }
+  },
+  "bow-arrows": {
+    "name": {
+      "source": "Bow & iron arrows",
+      "text": ""
+    },
+    "note": {
+      "source": "x piercing",
+      "text": ""
+    },
+    "resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "bowstring": {
+    "name": {
+      "source": "Bowstring",
+      "text": ""
+    }
+  },
+  "bullseye-lantern": {
+    "name": {
+      "source": "Bullseye lantern",
+      "text": ""
+    },
+    "resource/labels/hours": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "candle": {
+    "name": {
+      "source": "Candle",
+      "text": ""
+    },
+    "note": {
+      "source": "lasts ~1 hour",
+      "text": ""
+    }
+  },
+  "cart-or-sleigh": {
+    "name": {
+      "source": "Cart or sleigh",
+      "text": ""
+    },
+    "note": {
+      "source": "requires donkey/mule/horse",
+      "text": ""
+    }
+  },
+  "chalk": {
+    "name": {
+      "source": "Chalk",
+      "text": ""
+    }
+  },
+  "change-clothes": {
+    "name": {
+      "source": "Change of clothes",
+      "text": ""
+    }
+  },
+  "charcoal": {
+    "name": {
+      "source": "Charcoal",
+      "text": ""
+    }
+  },
+  "clay-jar": {
+    "name": {
+      "source": "Clay jar",
+      "text": ""
+    }
+  },
+  "cloak": {
+    "name": {
+      "source": "Cloak",
+      "text": ""
+    }
+  },
+  "cloth-rag": {
+    "name": {
+      "source": "Cloth/rag",
+      "text": ""
+    }
+  },
+  "comb": {
+    "name": {
+      "source": "Comb",
+      "text": ""
+    }
+  },
+  "common-trade-tools": {
+    "name": {
+      "source": "Common trade tools",
+      "text": ""
+    },
+    "note": {
+      "source": "for pottery, weaving, distilling, etc.; immobile",
+      "text": ""
+    }
+  },
+  "composite-bow": {
+    "name": {
+      "source": "Composite bow",
+      "text": ""
+    },
+    "note": {
+      "source": "+1 damage, x piercing",
+      "text": ""
+    },
+    "resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "coppers": {
+    "name": {
+      "source": "Handful of coppers",
+      "text": ""
+    }
+  },
+  "crossbow": {
+    "name": {
+      "source": "Crossbow",
+      "text": ""
+    },
+    "note": {
+      "source": "+1 damage, x piercing",
+      "text": ""
+    },
+    "resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "cuirass-boiled-leather": {
+    "name": {
+      "source": "Cuirass, boiled leather",
+      "text": ""
+    },
+    "note": {
+      "source": "1 armor",
+      "text": ""
+    }
+  },
+  "cup": {
+    "name": {
+      "source": "Cup",
+      "text": ""
+    }
+  },
+  "empty-book-fine-vellum": {
+    "name": {
+      "source": "Empty book, fine vellum",
+      "text": ""
+    }
+  },
+  "empty-book-parchment": {
+    "name": {
+      "source": "Empty book, parchment",
+      "text": ""
+    }
+  },
+  "even-more-supplies": {
+    "name": {
+      "source": "Even more supplies",
+      "text": ""
+    },
+    "note": {
+      "source": "4+Prosperity uses",
+      "text": ""
+    }
+  },
+  "extra-arrows": {
+    "name": {
+      "source": "Extra arrows",
+      "text": ""
+    },
+    "note": {
+      "source": "x piercing",
+      "text": ""
+    },
+    "resource/labels/plenty-left": {
+      "source": "plenty left",
+      "text": ""
+    },
+    "resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "extra-oil": {
+    "name": {
+      "source": "Extra oil",
+      "text": ""
+    },
+    "note": {
+      "source": "for lamp/lantern, useless as a weapon",
+      "text": ""
+    },
+    "resource/labels/hours": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "extra-socks": {
+    "name": {
+      "source": "Extra socks",
+      "text": ""
+    }
+  },
+  "fine-vellum-a-few-sheets": {
+    "name": {
+      "source": "Fine vellum., a few sheets",
+      "text": ""
+    }
+  },
+  "firewood": {
+    "name": {
+      "source": "Firewood",
+      "text": ""
+    },
+    "note": {
+      "source": "enough to last 1 full night",
+      "text": ""
+    }
+  },
+  "firkin-of-whisky-fine": {
+    "name": {
+      "source": "Firkin of whisky, fine",
+      "text": ""
+    }
+  },
+  "glass-vial": {
+    "name": {
+      "source": "Glass vial",
+      "text": ""
+    }
+  },
+  "gloves": {
+    "name": {
+      "source": "Gloves",
+      "text": ""
+    }
+  },
+  "handful-of-silvers": {
+    "name": {
+      "source": "Handful of silvers",
+      "text": ""
+    }
+  },
+  "hatchet": {
+    "name": {
+      "source": "Hatchet, iron",
+      "text": ""
+    },
+    "note": {
+      "source": "x piercing",
+      "text": ""
+    }
+  },
+  "hauberk-cuirass-scale-iron-or-bronze": {
+    "name": {
+      "source": "Hauberk/cuirass/scale, iron or bronze",
+      "text": ""
+    },
+    "note": {
+      "source": "2 armor",
+      "text": ""
+    }
+  },
+  "ink-vial-and-quills": {
+    "name": {
+      "source": "Ink, vial and quills",
+      "text": ""
+    }
+  },
+  "instrument": {
+    "name": {
+      "source": "Instrument",
+      "text": ""
+    },
+    "note": {
+      "source": "harp, lute, fiddle, etc.",
+      "text": ""
+    }
+  },
+  "javelins": {
+    "name": {
+      "source": "Javelins, a few, iron",
+      "text": ""
+    },
+    "note": {
+      "source": "x piercing, +1 damage",
+      "text": ""
+    },
+    "resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "knife-dagger": {
+    "name": {
+      "source": "Knife or dagger, iron",
+      "text": ""
+    }
+  },
+  "lantern": {
+    "name": {
+      "source": "Lantern",
+      "text": ""
+    },
+    "resource/labels/hours": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "little-box": {
+    "name": {
+      "source": "Little box",
+      "text": ""
+    }
+  },
+  "long-spear": {
+    "name": {
+      "source": "Long spear, iron",
+      "text": ""
+    },
+    "note": {
+      "source": "x piercing",
+      "text": ""
+    }
+  },
+  "mace-or-flail-iron": {
+    "name": {
+      "source": "Mace or flail, iron",
+      "text": ""
+    }
+  },
+  "mallet": {
+    "name": {
+      "source": "Mallet, iron and/or wood",
+      "text": ""
+    }
+  },
+  "mattock": {
+    "name": {
+      "source": "Mattock, iron",
+      "text": ""
+    }
+  },
+  "maul-iron": {
+    "name": {
+      "source": "Maul, iron",
+      "text": ""
+    }
+  },
+  "mess-kit": {
+    "name": {
+      "source": "Mess kit",
+      "text": ""
+    },
+    "note": {
+      "source": "requires fire & water, makes Supplies last longer",
+      "text": ""
+    }
+  },
+  "metal-tools": {
+    "name": {
+      "source": "Metal tools",
+      "text": ""
+    },
+    "note": {
+      "source": "drill, prybar, saw, etc.",
+      "text": ""
+    }
+  },
+  "mirror-hand-held-polished-bronze": {
+    "name": {
+      "source": "Mirror, hand-held, polished bronze",
+      "text": ""
+    }
+  },
+  "more-supplies": {
+    "name": {
+      "source": "More supplies",
+      "text": ""
+    },
+    "note": {
+      "source": "4+Prosperity uses",
+      "text": ""
+    }
+  },
+  "naphtha": {
+    "name": {
+      "source": "Naphtha",
+      "text": ""
+    },
+    "note": {
+      "source": "burns hot & sticky; damage d8, ignores armor",
+      "text": ""
+    },
+    "resource/labels/uses": {
+      "source": "uses",
+      "text": ""
+    }
+  },
+  "needle-thread": {
+    "name": {
+      "source": "Needle & thread",
+      "text": ""
+    }
+  },
+  "oil-lamp": {
+    "name": {
+      "source": "Oil lamp",
+      "text": ""
+    },
+    "resource/labels/hours": {
+      "source": "hours",
+      "text": ""
+    }
+  },
+  "parchment-a-few-sheets": {
+    "name": {
+      "source": "Parchment, a few sheets",
+      "text": ""
+    }
+  },
+  "purse-of-coppers": {
+    "name": {
+      "source": "Purse of coppers",
+      "text": ""
+    },
+    "note": {
+      "source": "~10 handfuls",
+      "text": ""
+    }
+  },
+  "purse-of-silvers": {
+    "name": {
+      "source": "Purse of silvers",
+      "text": ""
+    },
+    "note": {
+      "source": "~10 handfuls",
+      "text": ""
+    }
+  },
+  "rope": {
+    "name": {
+      "source": "Rope, ~25 ft",
+      "text": ""
+    }
+  },
+  "rushlight": {
+    "name": {
+      "source": "Rushlight",
+      "text": ""
+    },
+    "note": {
+      "source": "lasts ~15-30 min",
+      "text": ""
+    }
+  },
+  "sack": {
+    "name": {
+      "source": "Sack (empty)",
+      "text": ""
+    }
+  },
+  "salt": {
+    "name": {
+      "source": "Salt",
+      "text": ""
+    },
+    "note": {
+      "source": "a little box",
+      "text": ""
+    }
+  },
+  "sawdust": {
+    "name": {
+      "source": "Sawdust",
+      "text": ""
+    }
+  },
+  "shield": {
+    "name": {
+      "source": "Shield",
+      "text": ""
+    },
+    "note": {
+      "source": "+1 armor, +1 Readiness on 7+ to Defend",
+      "text": ""
+    }
+  },
+  "short-sword-iron": {
+    "name": {
+      "source": "Short sword, iron",
+      "text": ""
+    }
+  },
+  "shovel": {
+    "name": {
+      "source": "Shovel",
+      "text": ""
+    }
+  },
+  "silver-alloy-dagger": {
+    "name": {
+      "source": "Silver-alloy dagger",
+      "text": ""
+    }
+  },
+  "skin-of-whisky-fine": {
+    "name": {
+      "source": "Skin of whisky, fine",
+      "text": ""
+    },
+    "resource/labels/uses-share-a-use-with-someone-to-get-advantage-on-persuade": {
+      "source": "uses; share a use with someone to get advantage on Persuade",
+      "text": ""
+    }
+  },
+  "slate-and-chalk": {
+    "name": {
+      "source": "Slate and chalk",
+      "text": ""
+    }
+  },
+  "sledge": {
+    "name": {
+      "source": "Sledge/litter/travois, roll-out",
+      "text": ""
+    }
+  },
+  "sling": {
+    "name": {
+      "source": "Sling",
+      "text": ""
+    },
+    "resource/labels/low-ammo": {
+      "source": "low ammo",
+      "text": ""
+    },
+    "resource/labels/all-out": {
+      "source": "all out",
+      "text": ""
+    }
+  },
+  "small-metal-tool": {
+    "name": {
+      "source": "Small metal tool",
+      "text": ""
+    },
+    "note": {
+      "source": "chisel, file, shears, etc.",
+      "text": ""
+    }
+  },
+  "snow-shoes": {
+    "name": {
+      "source": "Snow-shoes",
+      "text": ""
+    }
+  },
+  "spare-parts-for-wagon-cart-sleigh": {
+    "name": {
+      "source": "Spare parts for wagon/cart/sleigh",
+      "text": ""
+    },
+    "note": {
+      "source": "axles, wheels, etc.",
+      "text": ""
+    },
+    "resource/labels/uses": {
+      "source": "uses",
+      "text": ""
+    }
+  },
+  "spear": {
+    "name": {
+      "source": "Spear, iron",
+      "text": ""
+    },
+    "note": {
+      "source": "x piercing",
+      "text": ""
+    }
+  },
+  "specialized-trade-tools": {
+    "name": {
+      "source": "Specialized trade tools",
+      "text": ""
+    },
+    "note": {
+      "source": "for smithing, glassblowing, scribing, etc.; immobile",
+      "text": ""
+    }
+  },
+  "staff": {
+    "name": {
+      "source": "Staff",
+      "text": ""
+    }
+  },
+  "supplies": {
+    "name": {
+      "source": "Supplies",
+      "text": ""
+    },
+    "note": {
+      "source": "4+Prosperity uses",
+      "text": ""
+    }
+  },
+  "sword-iron": {
+    "name": {
+      "source": "Sword, iron",
+      "text": ""
+    },
+    "note": {
+      "source": "+1 damage",
+      "text": ""
+    }
+  },
+  "tallow": {
+    "name": {
+      "source": "Tallow",
+      "text": ""
+    }
+  },
+  "thick-hides": {
+    "name": {
+      "source": "Thick hides",
+      "text": ""
+    },
+    "note": {
+      "source": "1 armor",
+      "text": ""
+    }
+  },
+  "tinderbox": {
+    "name": {
+      "source": "Tinderbox",
+      "text": ""
+    }
+  },
+  "torch": {
+    "name": {
+      "source": "Torch",
+      "text": ""
+    },
+    "note": {
+      "source": "lasts ~1 hour",
+      "text": ""
+    }
+  },
+  "twine-cord": {
+    "name": {
+      "source": "Twine/cord",
+      "text": ""
+    }
+  },
+  "uncommon-trade-tools": {
+    "name": {
+      "source": "Uncommon trade tools",
+      "text": ""
+    },
+    "note": {
+      "source": "for carpentry, chandlery, beekeeping, etc.; immobile",
+      "text": ""
+    }
+  },
+  "vest-brigandine-fancy": {
+    "name": {
+      "source": "Vest, brigandine, fancy",
+      "text": ""
+    },
+    "note": {
+      "source": "2 armor",
+      "text": ""
+    }
+  },
+  "wagon": {
+    "name": {
+      "source": "Wagon",
+      "text": ""
+    },
+    "note": {
+      "source": "requires mule/horse",
+      "text": ""
+    }
+  },
+  "warhammer-iron": {
+    "name": {
+      "source": "Warhammer, iron",
+      "text": ""
+    },
+    "note": {
+      "source": "2 piercing",
+      "text": ""
+    }
+  },
+  "waterskin": {
+    "name": {
+      "source": "Waterskin",
+      "text": ""
+    }
+  },
+  "wax-tablet-and-stylus": {
+    "name": {
+      "source": "Wax tablet and stylus",
+      "text": ""
+    }
+  },
+  "wheelbarrow": {
+    "name": {
+      "source": "Wheelbarrow",
+      "text": ""
+    }
+  },
+  "whetstone": {
+    "name": {
+      "source": "Whetstone",
+      "text": ""
+    }
+  },
+  "whisky": {
+    "name": {
+      "source": "Whisky, skin",
+      "text": ""
+    }
+  },
+  "whistle": {
+    "name": {
+      "source": "Whistle",
+      "text": ""
+    }
+  },
+  "_folders": {
+    "armor": {
+      "source": "Armor",
+      "text": ""
+    },
+    "exotic-stuff": {
+      "source": "Exotic Stuff",
+      "text": ""
+    },
+    "light-sources": {
+      "source": "Light Sources",
+      "text": ""
+    },
+    "tools-trades": {
+      "source": "Tools & Trades",
+      "text": ""
+    },
+    "trade-goods": {
+      "source": "Trade Goods",
+      "text": ""
+    },
+    "transport": {
+      "source": "Transport",
+      "text": ""
+    },
+    "weapons-of-war": {
+      "source": "Weapons of War",
+      "text": ""
+    },
+    "writing-implements": {
+      "source": "Writing Implements",
+      "text": ""
+    },
+    "basics": {
+      "source": "Basics",
+      "text": ""
+    },
+    "sundries": {
+      "source": "Sundries",
+      "text": ""
+    },
+    "supplies": {
+      "source": "Supplies",
+      "text": ""
+    },
+    "travel": {
+      "source": "Travel",
+      "text": ""
+    },
+    "warmth": {
+      "source": "Warmth",
+      "text": ""
+    },
+    "weapons": {
+      "source": "Weapons",
+      "text": ""
+    },
+    "default": {
+      "source": "Default",
+      "text": ""
+    },
+    "special-items": {
+      "source": "Special items",
+      "text": ""
+    }
+  }
+}

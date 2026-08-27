@@ -1,7 +1,6 @@
 # Translating the compendiums
 
-Compendium prose — playbook descriptions, backgrounds, the questions on a sheet — is translated
-here. You never edit `packs/src/`.
+Compendiums translations live here
 
 These are the *authoring* files. `npm run pack` compiles them into the Babele translation files the
 system ships, in `babele/<lang>/`. Players need the [Babele](https://foundryvtt.com/packages/babele)
@@ -10,11 +9,14 @@ module installed to see translations; the system itself is fully playable in Eng
 ## Starting a language
 
 ```sh
-mkdir -p languages/compendium/<lang>     # e.g. fr, es, pt-BR
-npm run i18n:extract -- --lang <lang>
+npm run i18n:extract fr      # or es, pt-BR, …
 ```
 
-That writes one file per pack — today only `playbooks.json` — containing every translatable string.
+That is the whole setup. It creates the directory and a file per translated pack, each holding every
+translatable string in it. Re-run it whenever the packs change and it picks up anything new.
+
+`npm run i18n:check` tells you what exists and how far along each file is.
+
 Nothing else needs registering: Babele finds a language by its directory here.
 
 ## Translating
@@ -31,6 +33,36 @@ Each entry is a key, the English it was written against, and your translation:
 
 Fill in `text` and leave everything else alone. An empty `text` simply shows the English, so a
 part-finished translation is always safe to ship.
+
+Two kinds of markup must survive translation **unchanged**, because Foundry acts on them:
+
+```
+@UUID[Compendium.stonetop.moves.abc123]{Defy Danger}   ← rewrite the {label}, never the [target]
+[[/r 1d6]]                                             ← never touch the dice
+```
+
+`i18n:check` compares them against the English and fails if they differ, so a broken link cannot
+reach a player.
+
+Compendium **folder names** appear under a `_folders` entry in each file, and are translated the
+same way.
+
+## Tags
+
+Tags live in their own file, `tag-labels.json`, gathered from every pack so that `close` is
+translated once rather than on each of the many things that carry it.
+
+They work differently from everything else here, and the difference matters. A tag token is at once
+its identity and its label: the code asks `hasGroupTag(["group"])`, and the glossary is keyed by the
+token. So the token is **never** rewritten — only what the chip displays:
+
+```
+data-tag="group"  →  never changes, this is what the game acts on
+      "Gruppe"    →  what the player reads
+```
+
+Fill in `text` as normal. The result ships in `languages/<lang>.json` under `stonetop.tagLabels`,
+not in a Babele file, because tags are ordinary localized strings.
 
 Keys are addresses into the playbook (`backgrounds/patriot/label` is the Patriot background's
 label). They are built from the slugs in the data rather than from positions, so they survive the
@@ -65,8 +97,11 @@ globe button in their sheet header ("Translate actor") to bring it across; that 
 ## What is not translated here
 
 Slugs, ids and cross-pack references are structure, not prose — translating one would break the
-move or follower it points at, so they never appear in these files. Personal names
-(`origin[].names[]`) are left alone too.
+move or follower it points at, so they never appear in these files. Personal names, dice notation
+and tag tokens (see above) are left out for the same kind of reason. `src/i18n/translatablePaths.js` records every exception and why,
+and a test fails if a new prose field appears that is neither translatable nor a recorded exception.
 
-Only the playbooks pack is covered so far. Until the moves pack follows, a translated playbook still
-shows English move names.
+One consequence worth knowing: a move's "Requires: Battery" label names another move, and the game
+matches it by name — so it stays English for now.
+
+Still untranslated: the NPCs of the wider world, the journals, and the roll tables.

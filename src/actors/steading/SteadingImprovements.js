@@ -51,7 +51,7 @@ export class SteadingImprovements {
 		const groups = [];
 		for (const slug of this._slugs) {
 			const imp = await this._repo.getBySlug(slug);
-			if (imp?.choices != null) groups.push(buildChoiceGroup(imp.choices, values));
+			if (imp?.choices != null) groups.push(buildChoiceGroup(imp.titledChoices, values));
 		}
 		return groups;
 	}

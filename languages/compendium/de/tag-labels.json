@@ -1,0 +1,836 @@
+{
+  "_tags": {
+    "pick-1-more": {
+      "source": "[pick 1 more]",
+      "text": ""
+    },
+    "1-armor-agility": {
+      "source": "+1 armor (agility)",
+      "text": ""
+    },
+    "1-armor-hide-scales-etc": {
+      "source": "+1 armor (hide, scales, etc.)",
+      "text": ""
+    },
+    "1-armor-hide": {
+      "source": "+1 armor (hide)",
+      "text": ""
+    },
+    "4-hp": {
+      "source": "+4 HP",
+      "text": ""
+    },
+    "absentminded": {
+      "source": "absentminded",
+      "text": ""
+    },
+    "adorable": {
+      "source": "adorable",
+      "text": ""
+    },
+    "aggressive": {
+      "source": "aggressive",
+      "text": ""
+    },
+    "agile": {
+      "source": "agile",
+      "text": ""
+    },
+    "alert": {
+      "source": "alert",
+      "text": ""
+    },
+    "all-wise": {
+      "source": "all-wise",
+      "text": ""
+    },
+    "amorphous": {
+      "source": "amorphous",
+      "text": ""
+    },
+    "amphibious": {
+      "source": "amphibious",
+      "text": ""
+    },
+    "ancient": {
+      "source": "ancient",
+      "text": ""
+    },
+    "angry": {
+      "source": "angry",
+      "text": ""
+    },
+    "annoying": {
+      "source": "annoying",
+      "text": ""
+    },
+    "aquatic": {
+      "source": "aquatic",
+      "text": ""
+    },
+    "archers": {
+      "source": "archers",
+      "text": ""
+    },
+    "area": {
+      "source": "area",
+      "text": ""
+    },
+    "arrogant": {
+      "source": "arrogant",
+      "text": ""
+    },
+    "athletic": {
+      "source": "athletic",
+      "text": ""
+    },
+    "attack-bird": {
+      "source": "attack-bird",
+      "text": ""
+    },
+    "audacious": {
+      "source": "audacious",
+      "text": ""
+    },
+    "awkward": {
+      "source": "awkward",
+      "text": ""
+    },
+    "beautiful": {
+      "source": "beautiful",
+      "text": ""
+    },
+    "bird-wise": {
+      "source": "Bird-wise",
+      "text": ""
+    },
+    "bloodthirsty": {
+      "source": "bloodthirsty",
+      "text": ""
+    },
+    "brash": {
+      "source": "brash",
+      "text": ""
+    },
+    "brave": {
+      "source": "brave",
+      "text": ""
+    },
+    "brutal": {
+      "source": "brutal",
+      "text": ""
+    },
+    "burrowing": {
+      "source": "burrowing",
+      "text": ""
+    },
+    "cagey": {
+      "source": "cagey",
+      "text": ""
+    },
+    "callous": {
+      "source": "callous",
+      "text": ""
+    },
+    "calm": {
+      "source": "calm",
+      "text": ""
+    },
+    "cautious": {
+      "source": "cautious",
+      "text": ""
+    },
+    "clever": {
+      "source": "clever",
+      "text": ""
+    },
+    "climber": {
+      "source": "climber",
+      "text": ""
+    },
+    "close": {
+      "source": "close",
+      "text": ""
+    },
+    "clumsy": {
+      "source": "clumsy",
+      "text": ""
+    },
+    "confused": {
+      "source": "confused",
+      "text": ""
+    },
+    "construct": {
+      "source": "Construct",
+      "text": ""
+    },
+    "corrupted": {
+      "source": "corrupted",
+      "text": ""
+    },
+    "corrupted-or-emanation": {
+      "source": "corrupted or emanation",
+      "text": ""
+    },
+    "craven": {
+      "source": "craven",
+      "text": ""
+    },
+    "creepy": {
+      "source": "creepy",
+      "text": ""
+    },
+    "crude": {
+      "source": "crude",
+      "text": ""
+    },
+    "cruel": {
+      "source": "cruel",
+      "text": ""
+    },
+    "cumbersome": {
+      "source": "cumbersome",
+      "text": ""
+    },
+    "cunning": {
+      "source": "cunning",
+      "text": ""
+    },
+    "curious": {
+      "source": "curious",
+      "text": ""
+    },
+    "damage-is-messy-1-piercing": {
+      "source": "Damage is _messy_, 1 piercing",
+      "text": ""
+    },
+    "damage-is-2-damage-forceful": {
+      "source": "Damage is +2 damage, _forceful_",
+      "text": ""
+    },
+    "dangerous": {
+      "source": "dangerous",
+      "text": ""
+    },
+    "death-wise": {
+      "source": "death-wise",
+      "text": ""
+    },
+    "deep-wise": {
+      "source": "deep-wise",
+      "text": ""
+    },
+    "demon-wise": {
+      "source": "demon-wise",
+      "text": ""
+    },
+    "devious": {
+      "source": "devious",
+      "text": ""
+    },
+    "devoted": {
+      "source": "devoted",
+      "text": ""
+    },
+    "dextrous": {
+      "source": "dextrous",
+      "text": ""
+    },
+    "disciplined": {
+      "source": "disciplined",
+      "text": ""
+    },
+    "drunkard": {
+      "source": "drunkard",
+      "text": ""
+    },
+    "durable": {
+      "source": "durable",
+      "text": ""
+    },
+    "dutiful": {
+      "source": "dutiful",
+      "text": ""
+    },
+    "eager": {
+      "source": "eager",
+      "text": ""
+    },
+    "easy-going": {
+      "source": "easy-going",
+      "text": ""
+    },
+    "either": {
+      "source": "either",
+      "text": ""
+    },
+    "emanation": {
+      "source": "emanation",
+      "text": ""
+    },
+    "emotionless": {
+      "source": "emotionless",
+      "text": ""
+    },
+    "enduring": {
+      "source": "enduring",
+      "text": ""
+    },
+    "enigmatic": {
+      "source": "enigmatic",
+      "text": ""
+    },
+    "exceptional": {
+      "source": "Exceptional",
+      "text": ""
+    },
+    "exceptional-requires-heroes-to-the-last": {
+      "source": "exceptional (requires Heroes to the Last)",
+      "text": ""
+    },
+    "extraordinary": {
+      "source": "extraordinary",
+      "text": ""
+    },
+    "fae": {
+      "source": "Fae",
+      "text": ""
+    },
+    "fae-wise": {
+      "source": "Fae-wise",
+      "text": ""
+    },
+    "far": {
+      "source": "far",
+      "text": ""
+    },
+    "fast": {
+      "source": "fast",
+      "text": ""
+    },
+    "fates-wise": {
+      "source": "Fates-wise",
+      "text": ""
+    },
+    "fearless": {
+      "source": "fearless",
+      "text": ""
+    },
+    "fen-wise": {
+      "source": "Fen-wise",
+      "text": ""
+    },
+    "fickle": {
+      "source": "fickle",
+      "text": ""
+    },
+    "fierce": {
+      "source": "fierce",
+      "text": ""
+    },
+    "fiery": {
+      "source": "fiery",
+      "text": ""
+    },
+    "fireproof": {
+      "source": "fireproof",
+      "text": ""
+    },
+    "forceful": {
+      "source": "forceful",
+      "text": ""
+    },
+    "forge-lord": {
+      "source": "Forge Lord",
+      "text": ""
+    },
+    "forlorn": {
+      "source": "forlorn",
+      "text": ""
+    },
+    "fragile": {
+      "source": "fragile",
+      "text": ""
+    },
+    "frail": {
+      "source": "frail",
+      "text": ""
+    },
+    "gluttonous": {
+      "source": "gluttonous",
+      "text": ""
+    },
+    "gossipy": {
+      "source": "gossipy",
+      "text": ""
+    },
+    "grabby": {
+      "source": "grabby",
+      "text": ""
+    },
+    "greedy": {
+      "source": "greedy",
+      "text": ""
+    },
+    "group": {
+      "source": "group",
+      "text": "German - group"
+    },
+    "grumpy": {
+      "source": "grumpy",
+      "text": ""
+    },
+    "gullible": {
+      "source": "gullible",
+      "text": ""
+    },
+    "hand": {
+      "source": "hand",
+      "text": ""
+    },
+    "hardy": {
+      "source": "hardy",
+      "text": ""
+    },
+    "healer": {
+      "source": "healer",
+      "text": ""
+    },
+    "hedonistic": {
+      "source": "hedonistic",
+      "text": ""
+    },
+    "herb-wise": {
+      "source": "Herb-wise",
+      "text": ""
+    },
+    "hoarder": {
+      "source": "hoarder",
+      "text": ""
+    },
+    "horde": {
+      "source": "horde",
+      "text": ""
+    },
+    "horse-wise": {
+      "source": "horse-wise",
+      "text": ""
+    },
+    "huge": {
+      "source": "huge",
+      "text": ""
+    },
+    "hungry": {
+      "source": "hungry",
+      "text": ""
+    },
+    "hunter": {
+      "source": "hunter",
+      "text": ""
+    },
+    "immobile": {
+      "source": "immobile",
+      "text": ""
+    },
+    "implacable": {
+      "source": "implacable",
+      "text": ""
+    },
+    "implanted": {
+      "source": "implanted",
+      "text": ""
+    },
+    "improved-damage-die-d6": {
+      "source": "Improved damage die (d6)",
+      "text": ""
+    },
+    "indestructible": {
+      "source": "indestructible",
+      "text": ""
+    },
+    "innocent": {
+      "source": "innocent",
+      "text": ""
+    },
+    "insightful": {
+      "source": "insightful",
+      "text": ""
+    },
+    "intense": {
+      "source": "intense",
+      "text": ""
+    },
+    "intimidating": {
+      "source": "intimidating",
+      "text": ""
+    },
+    "jealous": {
+      "source": "jealous",
+      "text": ""
+    },
+    "keen-eared": {
+      "source": "keen-eared",
+      "text": ""
+    },
+    "keen-eyed": {
+      "source": "keen-eyed",
+      "text": ""
+    },
+    "keen-nosed": {
+      "source": "keen-nosed",
+      "text": ""
+    },
+    "kind": {
+      "source": "kind",
+      "text": ""
+    },
+    "knowledgeable": {
+      "source": "knowledgeable",
+      "text": ""
+    },
+    "large": {
+      "source": "large",
+      "text": ""
+    },
+    "large-4-hp-1-damage-close": {
+      "source": "large (+4 HP, +1 damage, +_close_)",
+      "text": ""
+    },
+    "leader": {
+      "source": "leader",
+      "text": ""
+    },
+    "lonely": {
+      "source": "lonely",
+      "text": ""
+    },
+    "loud": {
+      "source": "loud",
+      "text": ""
+    },
+    "loyal": {
+      "source": "loyal",
+      "text": ""
+    },
+    "magical": {
+      "source": "Magical",
+      "text": ""
+    },
+    "maker-wise": {
+      "source": "Maker-wise",
+      "text": ""
+    },
+    "meek": {
+      "source": "meek",
+      "text": ""
+    },
+    "mesmerizing": {
+      "source": "mesmerizing",
+      "text": ""
+    },
+    "messy": {
+      "source": "messy",
+      "text": ""
+    },
+    "mimic": {
+      "source": "mimic",
+      "text": ""
+    },
+    "mindless": {
+      "source": "mindless",
+      "text": ""
+    },
+    "mischievous": {
+      "source": "mischievous",
+      "text": ""
+    },
+    "moody": {
+      "source": "moody",
+      "text": ""
+    },
+    "mute": {
+      "source": "mute",
+      "text": ""
+    },
+    "naive": {
+      "source": "naive",
+      "text": ""
+    },
+    "near": {
+      "source": "near",
+      "text": ""
+    },
+    "observant": {
+      "source": "observant",
+      "text": ""
+    },
+    "obsessive": {
+      "source": "obsessive",
+      "text": ""
+    },
+    "opportunistic": {
+      "source": "opportunistic",
+      "text": ""
+    },
+    "organized": {
+      "source": "organized",
+      "text": ""
+    },
+    "ornery": {
+      "source": "ornery",
+      "text": ""
+    },
+    "overbearing": {
+      "source": "overbearing",
+      "text": ""
+    },
+    "pack-hunter": {
+      "source": "pack-hunter",
+      "text": ""
+    },
+    "paranoid": {
+      "source": "paranoid",
+      "text": ""
+    },
+    "passionate": {
+      "source": "passionate",
+      "text": ""
+    },
+    "patient": {
+      "source": "patient",
+      "text": ""
+    },
+    "plodding": {
+      "source": "plodding",
+      "text": ""
+    },
+    "powerful": {
+      "source": "powerful",
+      "text": ""
+    },
+    "primordial": {
+      "source": "primordial",
+      "text": ""
+    },
+    "protective": {
+      "source": "protective",
+      "text": ""
+    },
+    "proud": {
+      "source": "proud",
+      "text": ""
+    },
+    "quick": {
+      "source": "quick",
+      "text": ""
+    },
+    "raucous": {
+      "source": "raucous",
+      "text": ""
+    },
+    "ravenous": {
+      "source": "ravenous",
+      "text": ""
+    },
+    "reach": {
+      "source": "reach",
+      "text": ""
+    },
+    "relentless": {
+      "source": "relentless",
+      "text": ""
+    },
+    "reload": {
+      "source": "reload",
+      "text": ""
+    },
+    "resolute": {
+      "source": "resolute",
+      "text": ""
+    },
+    "respected": {
+      "source": "respected",
+      "text": ""
+    },
+    "restless": {
+      "source": "restless",
+      "text": ""
+    },
+    "sadistic": {
+      "source": "sadistic",
+      "text": ""
+    },
+    "sarcastic": {
+      "source": "sarcastic",
+      "text": ""
+    },
+    "see-below": {
+      "source": "see below",
+      "text": ""
+    },
+    "self-sufficient": {
+      "source": "self-sufficient",
+      "text": ""
+    },
+    "shapeshifter": {
+      "source": "shapeshifter",
+      "text": ""
+    },
+    "sharp-eyed": {
+      "source": "sharp-eyed",
+      "text": ""
+    },
+    "size-by-hp": {
+      "source": "size by HP",
+      "text": ""
+    },
+    "skilled": {
+      "source": "skilled",
+      "text": ""
+    },
+    "slow": {
+      "source": "slow",
+      "text": ""
+    },
+    "sly": {
+      "source": "sly",
+      "text": ""
+    },
+    "small": {
+      "source": "small",
+      "text": ""
+    },
+    "solitary": {
+      "source": "Solitary",
+      "text": ""
+    },
+    "spirit": {
+      "source": "Spirit",
+      "text": ""
+    },
+    "spirit-wise": {
+      "source": "spirit-wise",
+      "text": ""
+    },
+    "stealthy": {
+      "source": "stealthy",
+      "text": ""
+    },
+    "sterile": {
+      "source": "sterile",
+      "text": ""
+    },
+    "stinky": {
+      "source": "stinky",
+      "text": ""
+    },
+    "story-wise": {
+      "source": "story-wise",
+      "text": ""
+    },
+    "strong": {
+      "source": "strong",
+      "text": ""
+    },
+    "stubborn": {
+      "source": "stubborn",
+      "text": ""
+    },
+    "sure-footed": {
+      "source": "sure-footed",
+      "text": ""
+    },
+    "swift": {
+      "source": "swift",
+      "text": ""
+    },
+    "terrifying": {
+      "source": "Terrifying",
+      "text": ""
+    },
+    "thieving": {
+      "source": "thieving",
+      "text": ""
+    },
+    "thrown": {
+      "source": "thrown",
+      "text": ""
+    },
+    "timid": {
+      "source": "timid",
+      "text": ""
+    },
+    "tiny": {
+      "source": "tiny",
+      "text": ""
+    },
+    "tireless": {
+      "source": "tireless",
+      "text": ""
+    },
+    "tough": {
+      "source": "tough",
+      "text": ""
+    },
+    "ugly": {
+      "source": "ugly",
+      "text": ""
+    },
+    "undead": {
+      "source": "Undead",
+      "text": ""
+    },
+    "unnerving": {
+      "source": "unnerving",
+      "text": ""
+    },
+    "vicious": {
+      "source": "vicious",
+      "text": ""
+    },
+    "vigilant": {
+      "source": "vigilant",
+      "text": ""
+    },
+    "violent": {
+      "source": "violent",
+      "text": ""
+    },
+    "warm": {
+      "source": "warm",
+      "text": ""
+    },
+    "warrior": {
+      "source": "warrior",
+      "text": ""
+    },
+    "warriors": {
+      "source": "warriors",
+      "text": ""
+    },
+    "watery": {
+      "source": "watery",
+      "text": ""
+    },
+    "well-informed": {
+      "source": "well-informed",
+      "text": ""
+    },
+    "willful": {
+      "source": "willful",
+      "text": ""
+    },
+    "wooly": {
+      "source": "wooly",
+      "text": ""
+    },
+    "wretched": {
+      "source": "wretched",
+      "text": ""
+    },
+    "young": {
+      "source": "young",
+      "text": ""
+    }
+  }
+}

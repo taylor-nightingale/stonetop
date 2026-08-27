@@ -7,7 +7,7 @@
 <div class="stonetop-tags" data-slug="{{slug}}" data-field="{{field}}"{{#if member}} data-member-index="{{memberIndex}}"{{/if}}>
 	{{#each sel.values}}
 	<button type="button" class="stonetop-tag-chip is-selected" data-action="toggleTag" data-slug="{{../slug}}" data-tag="{{this}}"
-	        title="{{#if (isGroupTag this)}}{{localize 'stonetop.followers.groupTagTooltip'}}{{else}}{{localize 'stonetop.followers.remove'}}{{/if}}">{{rich this}}</button>
+	        title="{{#if (isGroupTag this)}}{{localize 'stonetop.followers.groupTagTooltip'}}{{else}}{{localize 'stonetop.followers.remove'}}{{/if}}">{{rich (tagLabel this)}}</button>
 	{{/each}}
 	<span class="stonetop-combo stonetop-combo--add">
 		<input type="text" class="stonetop-tag-add stonetop-combo-input" data-change-action="tagAdd"
@@ -16,7 +16,7 @@
 		{{#if sel.unselectedOptions.length}}
 		<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{placeholder}}">▾</button>
 		<ul class="stonetop-combo-list" hidden>
-			{{#each sel.unselectedOptions}}<li class="stonetop-combo-option" data-value="{{this}}"{{#if (isGroupTag this)}} title="{{localize 'stonetop.followers.groupTagTooltip'}}"{{/if}}>{{rich this}}</li>{{/each}}
+			{{#each sel.unselectedOptions}}<li class="stonetop-combo-option" data-value="{{this}}"{{#if (isGroupTag this)}} title="{{localize 'stonetop.followers.groupTagTooltip'}}"{{/if}}>{{rich (tagLabel this)}}</li>{{/each}}
 		</ul>
 		{{/if}}
 	</span>

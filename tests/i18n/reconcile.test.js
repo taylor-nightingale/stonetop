@@ -21,7 +21,7 @@ describe("englishCatalog", () => {
 	});
 
 	it("skips documents of untranslated types and documents with no slug", () => {
-		const catalog = english([{ type: "move", name: "Defy Danger", system: { slug: "defy-danger" } }, { type: "playbook", name: "x", system: {} }]);
+		const catalog = english([{ type: "npc", name: "Nerth serpent", system: { slug: "nerth-serpent" } }, { type: "playbook", name: "x", system: {} }]);
 		expect(catalog.size).toBe(0);
 	});
 
@@ -137,5 +137,51 @@ describe("authoring file ordering", () => {
 			"backgrounds/patriot/label", "backgrounds/patriot/description",
 			"backgrounds/antiquarian/label", "backgrounds/antiquarian/description",
 		]);
+	});
+});
+
+describe("protected markup integrity", () => {
+	const linked = text => seeker({ description: text });
+	const EN = "See @UUID[Compendium.stonetop.moves.abc123]{Defy Danger} for more.";
+	const authoringFor = text => ({ "the-seeker": { description: { source: EN, text } } });
+	const statusOf = result => entryFor(result, "the-seeker", "description").status;
+
+	it("accepts a translation that rewrites the label but keeps the target", () => {
+		const result = run([linked(EN)], authoringFor("Siehe @UUID[Compendium.stonetop.moves.abc123]{Gefahr trotzen}."));
+		expect(statusOf(result)).toBe(EntryStatus.TRANSLATED);
+	});
+
+	it("rejects a translation that changes the link target", () => {
+		const result = run([linked(EN)], authoringFor("Siehe @UUID[Compendium.stonetop.moves.gefahr]{Gefahr trotzen}."));
+		expect(statusOf(result)).toBe(EntryStatus.BROKEN_MARKUP);
+		expect(result.isClean).toBe(false);
+	});
+
+	it("rejects a translation that drops or duplicates a link", () => {
+		expect(statusOf(run([linked(EN)], authoringFor("Siehe die Bewegung.")))).toBe(EntryStatus.BROKEN_MARKUP);
+		const twice = "@UUID[Compendium.stonetop.moves.abc123]{A} @UUID[Compendium.stonetop.moves.abc123]{B}";
+		expect(statusOf(run([linked(EN)], authoringFor(twice)))).toBe(EntryStatus.BROKEN_MARKUP);
+	});
+
+	it("does not ship an entry with broken links", () => {
+		const result = run([linked(EN)], authoringFor("Siehe @UUID[falsch]{Gefahr}."));
+		expect(result.toRuntime()).toEqual({});
+	});
+
+	it("allows the links to be reordered", () => {
+		const two = "@UUID[A]{one} then @UUID[B]{two}";
+		const result = run([linked(two)], { "the-seeker": { description: { source: two, text: "@UUID[B]{zwei} nach @UUID[A]{eins}" } } });
+		expect(statusOf(result)).toBe(EntryStatus.TRANSLATED);
+	});
+
+	// Against drifted English the comparison says nothing, so review comes first.
+	it("reports drift ahead of link problems", () => {
+		const result = run([linked(EN)], { "the-seeker": { description: { source: "older English", text: "kein Link" } } });
+		expect(statusOf(result)).toBe(EntryStatus.NEEDS_REVIEW);
+	});
+
+	it("ignores links in strings nobody has translated", () => {
+		const result = run([linked(EN)], {});
+		expect(statusOf(result)).toBe(EntryStatus.UNTRANSLATED);
 	});
 });

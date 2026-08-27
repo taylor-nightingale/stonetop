@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { StonetopSteadfast } from "../../src/item/StonetopSteadfast.js";
 import { SteadfastSnapshot } from "../../src/model/snapshot/steading/SteadfastSnapshot.js";
 import { createStonetopItemClass } from "../../src/item/StonetopItem.js";
+import { SteadingImprovement } from "../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 
 // A steadfast item: the shared profile schema plus a name/img. `update` is a spy so we can assert what
 // each edit writes. The composed controllers (SteadingAttributes/Assets/PlacesOfInterest/NeighborPlaces)
@@ -24,9 +25,13 @@ function makeItem(overrides = {}) {
 	};
 }
 
-// Resolves any owned slug to a one-entry improvement choice group.
+// Resolves any owned slug to a one-entry improvement choice group. Builds the real entity rather
+// than a look-alike, so a test cannot come to depend on a shape the production repo never returns.
 const fakeRepo = {
-	getBySlug: async (slug) => ({ slug, choices: { slug, list: [{ type: "entry", slug: "built", content: { title: "Watchtower", text: "Keep watch." } }] } }),
+	getBySlug: async (slug) => new SteadingImprovement(slug, "Watchtower", {
+		slug,
+		list: [{ type: "entry", slug: "built", content: { title: null, text: "Keep watch." } }],
+	}),
 };
 
 describe("StonetopSteadfast", () => {

@@ -72,7 +72,7 @@
 								"title": null,
 								"text": "… tell the mask another person’s secret, something that you’ve promised never to tell (tell the GM and other players what it is)."
 							},
-							"slug": "tell-mask",
+							"slug": "tell-mask-anothers-secret",
 							"track": {
 								"max": 1
 							}

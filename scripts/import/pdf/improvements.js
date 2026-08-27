@@ -61,7 +61,9 @@ function choicesFromBlocks(blocks) {
 			if (!titleItem) { // the first list item is the improvement's name + flavor
 				const t = splitTitle(item);
 				name = t.name; titleItem = item;
-				list.push({ type: "entry", content: { title: t.name, text: t.text } });
+				// The name is the document's, and the sheets render it as the group's title — repeating
+				// it here as a row title would print it twice on every panel that shows one.
+				list.push({ type: "entry", content: { title: null, text: t.text } });
 			} else { // a requirement pick row — inline ◇ are the book's item-weight markers, kept as text
 				const text = joinMd(item, { keepDiamonds: true });
 				list.push({ type: "entry", slug: uniqSlug(unlockSlug(text)), content: { title: null, text }, track: { max: countChecks(item) || 1 } });
