@@ -1,5 +1,5 @@
 import { loadAllSteadfasts } from "./applySteadfast.js";
-import { editOnly, confirmedDelete } from "../../utils/sheetActions.js";
+import { editOnly, confirmedDelete, confirmedUnlink } from "../../utils/sheetActions.js";
 import { steadingChangeHandlers } from "./steadingChangeHandlers.js";
 import { RosterActorCreation } from "./RosterActorCreation.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
@@ -36,14 +36,14 @@ export function createStonetopSteadingSheetClass(Base) {
 					return RosterActorCreation.forNeighbors(this._stonetopSteading).run();
 				}),
 
-				// --- unlinks (drop the linked document, keep the row) ---
-				unlinkResident: editOnly(function (ev, target) {
+				// --- unlinks (drop the linked document, keep the row; click confirms, right-click skips) ---
+				unlinkResident: confirmedUnlink(function (target) {
 					return this._stonetopSteading.unlinkResident(target.dataset.id);
 				}),
-				unlinkNeighbor: editOnly(function (ev, target) {
+				unlinkNeighbor: confirmedUnlink(function (target) {
 					return this._stonetopSteading.unlinkNeighbor(target.dataset.id);
 				}),
-				unlinkPlace: editOnly(function (ev, target) {
+				unlinkPlace: confirmedUnlink(function (target) {
 					return this._stonetopSteading.unlinkPlace(parseInt(target.dataset.index));
 				}),
 

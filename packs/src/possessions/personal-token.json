@@ -22,7 +22,7 @@
 							"text": "◇◇ A shield, bearing ___’s crest",
 							"outfitItems": [
 								{
-									"slug": "shield, bearing a crest",
+									"slug": "shield-bearing-a-crest",
 									"name": "Shield, bearing a crest",
 									"weight": 2,
 									"inventoryColumn": "regular"

@@ -7,7 +7,6 @@
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 
 
-* deleting a link in residents should have a confirmation
 * level up move
 * compendium folders have styling (light mode) of light text on light background
 * add a stonetop image to the game system in foundry like the delta green one has
@@ -23,3 +22,4 @@
 * bug: see img_2 the check boxes get split sometimes
 * allow copy paste of names and text for names/neighbors
 * bug: remove generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
+k

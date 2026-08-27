@@ -26,7 +26,11 @@
 			"deleteTitle": "Delete",
 			"deleteNamed": "Delete \"{name}\"? This can't be undone.",
 			"deleteGeneric": "Delete this? This can't be undone.",
-			"deleteHint": "Right-click to delete without confirming"
+			"deleteHint": "Right-click to delete without confirming",
+			"unlinkTitle": "Remove link",
+			"unlinkNamed": "Remove the linked document from \"{name}\"? The row itself is kept.",
+			"unlinkGeneric": "Remove this link? The row itself is kept.",
+			"unlinkHint": "Right-click to remove the link without confirming"
 		},
 		"sheet": {
 			"tabs": {

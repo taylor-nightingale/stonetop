@@ -1,9 +1,11 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { editOnly, confirmedDelete } from "../../src/utils/sheetActions.js";
+import { editOnly, confirmedDelete, confirmedUnlink } from "../../src/utils/sheetActions.js";
 import { confirmDelete } from "../../src/utils/confirmDelete.js";
+import { confirmUnlink } from "../../src/utils/confirmUnlink.js";
 
 vi.mock("../../src/utils/confirmDelete.js", () => ({ confirmDelete: vi.fn() }));
+vi.mock("../../src/utils/confirmUnlink.js", () => ({ confirmUnlink: vi.fn() }));
 
 // Stands in for the sheet an action's `this` is bound to.
 function sheet({ editable = true } = {}) {
@@ -19,7 +21,7 @@ function target(name = "Enfys") {
 const leftClick  = () => ({ type: "click", button: 0, preventDefault: vi.fn() });
 const rightClick = () => ({ type: "contextmenu", button: 2, preventDefault: vi.fn() });
 
-beforeEach(() => { confirmDelete.mockReset(); });
+beforeEach(() => { confirmDelete.mockReset(); confirmUnlink.mockReset(); });
 
 describe("editOnly", () => {
 	it("runs the handler on an editable sheet and forwards event and target", () => {
@@ -120,5 +122,58 @@ describe("confirmedDelete", () => {
 
 		expect(confirmDelete).not.toHaveBeenCalled();
 		expect(perform).not.toHaveBeenCalled();
+	});
+});
+
+describe("confirmedUnlink", () => {
+	it("declares buttons [0, 2] so core routes right-click through the actions pipeline", () => {
+		expect(confirmedUnlink(vi.fn()).buttons).toEqual([0, 2]);
+	});
+
+	it("unlinks on a left-click once confirmed, naming the row", async () => {
+		confirmUnlink.mockResolvedValue(true);
+		const perform = vi.fn();
+		const el = target("Enfys");
+
+		await confirmedUnlink(perform).handler.call(sheet(), leftClick(), el);
+
+		expect(confirmUnlink).toHaveBeenCalledWith("Enfys");
+		expect(perform).toHaveBeenCalledWith(el);
+	});
+
+	it("keeps the link when the confirmation is declined", async () => {
+		confirmUnlink.mockResolvedValue(false);
+		const perform = vi.fn();
+
+		await confirmedUnlink(perform).handler.call(sheet(), leftClick(), target());
+
+		expect(perform).not.toHaveBeenCalled();
+	});
+
+	it("skips the confirmation entirely on a right-click", async () => {
+		const perform = vi.fn();
+
+		await confirmedUnlink(perform).handler.call(sheet(), rightClick(), target());
+
+		expect(confirmUnlink).not.toHaveBeenCalled();
+		expect(perform).toHaveBeenCalledTimes(1);
+	});
+
+	it("does nothing on a locked sheet, without even asking", async () => {
+		const perform = vi.fn();
+
+		await confirmedUnlink(perform).handler.call(sheet({ editable: false }), leftClick(), target());
+
+		expect(confirmUnlink).not.toHaveBeenCalled();
+		expect(perform).not.toHaveBeenCalled();
+	});
+
+	// The two wrappers share a factory; each must keep asking with its own prompt.
+	it("asks the unlink question, never the delete one", async () => {
+		confirmUnlink.mockResolvedValue(true);
+
+		await confirmedUnlink(vi.fn()).handler.call(sheet(), leftClick(), target());
+
+		expect(confirmDelete).not.toHaveBeenCalled();
 	});
 });

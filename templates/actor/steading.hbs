@@ -206,7 +206,7 @@
 									<span class="steading-doc-link">
 										{{#if docLink}}
 											{{rich docLink}}
-											<button class="stonetop-resident-unlink" data-action="unlinkResident" type="button" data-id="{{id}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
+											<button class="stonetop-resident-unlink" data-action="unlinkResident" type="button" data-id="{{id}}" data-name="{{name}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
 										{{/if}}
 									</span>
 									<button class="stonetop-resident-remove stonetop-icon-btn" data-action="removeResident" type="button" data-id="{{id}}" data-name="{{name}}" title="Delete resident" aria-label="Delete resident">
@@ -305,7 +305,7 @@
 									<span class="steading-doc-link">
 										{{#if docLink}}
 											{{rich docLink}}
-											<button class="stonetop-neighbor-person-unlink" data-action="unlinkNeighbor" type="button" data-id="{{id}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
+											<button class="stonetop-neighbor-person-unlink" data-action="unlinkNeighbor" type="button" data-id="{{id}}" data-name="{{name}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
 										{{/if}}
 									</span>
 									<button class="stonetop-neighbor-person-remove stonetop-icon-btn" data-action="removeNeighbor" type="button" data-id="{{id}}" data-name="{{name}}" title="Delete neighbor" aria-label="Delete neighbor">

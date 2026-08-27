@@ -14,7 +14,7 @@
 				{{#if docLink}}
 					<span class="steading-doc-link">
 						{{rich docLink}}
-						<button class="stonetop-place-unlink" data-action="unlinkPlace" type="button" data-index="{{index}}" title="{{localize 'stonetop.steading.unlink'}}" aria-label="{{localize 'stonetop.steading.unlink'}}">✕</button>
+						<button class="stonetop-place-unlink" data-action="unlinkPlace" type="button" data-index="{{index}}" data-name="{{value}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
 					</span>
 				{{/if}}
 			</div>

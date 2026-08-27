@@ -203,6 +203,84 @@ describe("steading sheet wiring — neighbors, assets, places (integration)", ()
 	});
 });
 
+// Unlinking keeps the row and drops only its `@UUID` link, but a mis-aimed ✕ still loses work the
+// player did by dragging a document in, so it asks like the deletes do.
+describe("steading sheet wiring — unlinking (integration)", () => {
+	function stubDialog(result) {
+		const confirm = vi.fn(async () => result);
+		vi.stubGlobal("foundry", { ...globalThis.foundry,
+			applications: { ...globalThis.foundry?.applications, api: { DialogV2: { confirm } } } });
+		return confirm;
+	}
+
+	async function linkedResident() {
+		const wired = await makeWiredSheet();
+		await fireAction(wired.sheet, "addResident", `<button data-action="addResident"></button>`, "button");
+		const { id } = wired.actor.system.residentPeople[0];
+		await wired.steading.updateResidentName(id, "Cerdig");
+		await wired.steading.linkResident(id, "Actor.cerdig");
+		return { ...wired, id };
+	}
+
+	const unlinkButton = id =>
+		`<button data-action="unlinkResident" data-id="${id}" data-name="Cerdig"></button>`;
+
+	it("drops the link on a confirmed click, keeping the row", async () => {
+		stubDialog(true);
+		const { sheet, actor, id } = await linkedResident();
+
+		await fireAction(sheet, "unlinkResident", unlinkButton(id), "button");
+
+		expect(actor.system.residentPeople).toHaveLength(1);
+		expect(actor.system.residentPeople[0].name).toBe("Cerdig");
+		expect(actor.system.residentPeople[0].linkUuid).toBeFalsy();
+	});
+
+	it("keeps the link when the confirmation is declined", async () => {
+		stubDialog(false);
+		const { sheet, actor, id } = await linkedResident();
+
+		await fireAction(sheet, "unlinkResident", unlinkButton(id), "button");
+
+		expect(actor.system.residentPeople[0].linkUuid).toBe("Actor.cerdig");
+	});
+
+	it("unlinks without asking on a right-click", async () => {
+		const confirm = stubDialog(true);
+		const { sheet, actor, id } = await linkedResident();
+
+		await fireAction(sheet, "unlinkResident", unlinkButton(id), "button",
+			{ type: "contextmenu", button: 2 });
+
+		expect(confirm).not.toHaveBeenCalled();
+		expect(actor.system.residentPeople[0].linkUuid).toBeFalsy();
+	});
+
+	it("asks before unlinking a neighbor too", async () => {
+		stubDialog(false);
+		const { sheet, actor, steading } = await makeWiredSheet();
+		await fireAction(sheet, "addNeighbor", `<button data-action="addNeighbor"></button>`, "button");
+		const { id } = actor.system.neighborPeople[0];
+		await steading.linkNeighbor(id, "Actor.brennan");
+
+		await fireAction(sheet, "unlinkNeighbor",
+			`<button data-action="unlinkNeighbor" data-id="${id}" data-name="Brennan"></button>`, "button");
+
+		expect(actor.system.neighborPeople[0].linkUuid).toBe("Actor.brennan");
+	});
+
+	it("asks before unlinking a place of interest too", async () => {
+		stubDialog(true);
+		const { sheet, actor, steading } = await makeWiredSheet();
+		await steading.linkPlace(0, "JournalEntry.mill");
+
+		await fireAction(sheet, "unlinkPlace",
+			`<button data-action="unlinkPlace" data-index="0" data-name="The Old Mill"></button>`, "button");
+
+		expect(actor.system.placesOfInterest[0].linkUuid).toBe("");
+	});
+});
+
 describe("steading sheet wiring — the router itself (integration)", () => {
 	// The whole point of the migration: a name stamped in a template with no handler behind it is
 	// silent in play except for this warning. Nothing the sheet legitimately emits may trigger it.
