@@ -5955,8 +5955,16 @@ button.stonetop-xp-toggle {
 }
 
 /* ── Character Notes tab: bio + notes as ProseMirror editors ─────────────────── */
+/* The height belongs on <prose-mirror> itself. Core lays the element out as a flex column whose
+   toolbar band is a `flex: 0 0 42px` item and whose editor is `flex: 1`; any other `display` here
+   makes that band a 0-height block, and its 26px buttons then spill out under the absolutely
+   positioned .editor-content, which swallows the clicks. `overflow` is what enables `resize` —
+   it clips nothing that matters, since core renders the format dropdown detached from the sheet. */
 .stonetop-notes-editor {
-	display: block;
+	height: 20em;
+	min-height: 10em;
+	resize: vertical;
+	overflow: hidden;
 	margin-bottom: 12px;
 	border: 1px solid var(--st-rule);
 	border-radius: 3px;
@@ -5964,20 +5972,7 @@ button.stonetop-xp-toggle {
 	font-family: var(--font-primary);
 	line-height: 1.4;
 }
-.stonetop-notes-editor .editor-content {
-	min-height: 14em;
-	padding: 4px 6px;
-	overflow: auto;
-}
-/* Active ProseMirror: core pins .editor-content absolutely (inset: 0) inside the .editor-container
-   it injects, so the height (and the drag-resize) has to live on the container instead. */
-.stonetop-notes-editor .editor-container {
-	height: 16em;
-	min-height: 8em;
-	resize: vertical;
-	overflow: hidden;
-}
-.stonetop-notes-editor .editor-container .editor-content { min-height: 0; resize: none; }
+.stonetop-notes-editor .editor-content { padding: 4px 6px; }
 
 /* ── Hover ▲▼ stepper on number inputs (wrapper added by activateSteppers) ──────── */
 .stonetop-stepper {
@@ -6467,14 +6462,6 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-title); font-weight: bold; margin: 0 0 6px; padding-bottom: 4px;
 	border-bottom: 2px solid var(--st-rule-strong); text-transform: uppercase; letter-spacing: 0.04em;
 }
-
-/* Description editor — a definite-height box whose content scrolls inside it, so the active
-   ProseMirror editor (toolbar + content) can never overflow onto the unlock section below it. */
-.stonetop-arcanum-editor-box { position: relative; height: 200px; margin: 2px 0 12px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--st-rule); border-radius: 3px; }
-.stonetop-arcanum-editor-box .editor-content { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 4px 6px; }
-/* When Foundry swaps in the active ProseMirror editor, keep its toolbar + scrolling container inside the box. */
-.stonetop-arcanum-editor-box.prosemirror { padding: 0; }
-.stonetop-arcanum-editor-box .editor-container { flex: 1 1 auto; min-height: 0; overflow: hidden; }
 
 /* ── Wider World and Other Wonders (GM journal pack) ───────────────────────────
    Renders the verbatim Book II articles built by scripts/import/pdf/build-journal.js.
