@@ -9,7 +9,6 @@
 
 * deleting a link in residents should have a confirmation
 * level up move
-* names in the origin section should not be bolded
 * compendium folders have styling (light mode) of light text on light background
 * add a stonetop image to the game system in foundry like the delta green one has
 * After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this?
@@ -23,4 +22,4 @@
 * bug: the bio/notes sections have the save button, etc but the bar is not tall enough to accommodate them and they're hard to click
 * bug: see img_2 the check boxes get split sometimes
 * allow copy paste of names and text for names/neighbors
-* we need to remove that generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
+* bug: remove generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
