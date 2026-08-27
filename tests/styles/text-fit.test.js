@@ -180,12 +180,22 @@ describe.skipIf(!canProbe())("a move's description hangs under its name", () => 
 // Controls have to move with the text they belong to. A checkbox frozen at 14px beside a label that
 // has doubled is no longer a pair, and one centred on a wrapped row floats to the middle of a
 // two-line block instead of sitting beside the words it ticks.
+//
+// The move row is spelled out as move-item.hbs emits it — the name as a <button>, followed by the
+// source, die and chat controls — and not as the <strong> it used to be here. That stand-in is why
+// this passed while the tick sat visibly high: core pins a button to `--button-size`, so the real
+// header is twice a line box tall and centres the name inside it, and no simplified markup meets
+// that rule at all.
 const CONTROL_ROW = `
 <div class="application stonetop sheet character themed theme-light"><div class="window-content" style="width: 340px">
   <ol class="items-list"><li class="stonetop-item">
     <div class="stonetop-item-header">
-      <input type="checkbox" class="stonetop-item-check" id="c-check" checked>
-      <strong class="stonetop-item-name" id="c-name">A Long Move Name That Wraps Onto A Second Line</strong>
+      <input type="checkbox" class="stonetop-item-check stonetop-move-check" id="c-check" checked>
+      <button type="button" class="stonetop-item-name stonetop-item-name--open" id="c-name"
+              data-action="openMove" data-view-state>A Long Move Name That Wraps Onto A Second Line</button>
+      <span class="stonetop-item-source">The Blessed</span>
+      <span class="rollable move-rollable" data-roll="int"><i class="fas fa-dice-d6"></i></span>
+      <button type="button" class="stonetop-move-chat" data-action="moveToChat"><i class="fas fa-comment"></i></button>
     </div>
   </li></ol>
   <div class="stonetop-inv-item">

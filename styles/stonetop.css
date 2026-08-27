@@ -1794,10 +1794,17 @@ button.stonetop-view-toggle.is-active {
 
 /* The move name is a <button> so it can carry data-action (core binds click only there), but it has
    to read as the bold label it replaced — core's .window-app button rules would otherwise stretch it
-   to full width and give it a fill and a border. */
+   to full width and give it a fill and a border.
+
+   The height pair is the one that moves the row rather than the label: core pins every button to
+   `--button-size` (30px at the default step), so the header grew to twice a line box, and
+   `align-items: center` then dropped the name half a control below the check pinned to the first
+   line beside it. A wrapping name multiplied that — the words fell an entire line away. */
 .stonetop.sheet button.stonetop-item-name--open {
 	width: auto;
 	min-width: 0;
+	height: auto;
+	min-height: 0;
 	margin: 0;
 	padding: 0;
 	border: none;
