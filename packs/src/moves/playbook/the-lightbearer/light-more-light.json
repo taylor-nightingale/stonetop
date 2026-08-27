@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Consecrated Flame"
+				"consecrated-flame"
 			]
 		},
 		"slug": "light-more-light"

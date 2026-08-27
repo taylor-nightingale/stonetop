@@ -9,8 +9,8 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Parry & Riposte",
-				"Ambush"
+				"parry-riposte",
+				"ambush"
 			]
 		},
 		"slug": "second-intent"

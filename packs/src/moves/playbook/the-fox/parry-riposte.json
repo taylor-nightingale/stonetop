@@ -8,7 +8,7 @@
 		"description": "When you **_Defend with a weapon that you can wield quickly_**, you can spend 1 Readiness to both halve an attack's effects/damage and strike back at the attacker (deal your damage with disadvantage), instead of spending 1 Readiness for each.",
 		"requirement": {
 			"moves": [
-				"Skill at Arms"
+				"skill-at-arms"
 			]
 		},
 		"slug": "parry-riposte"

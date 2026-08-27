@@ -49,6 +49,14 @@ export class FoundryPlaybookRepository {
 		return data ? new StonetopPlaybook(data) : null;
 	}
 
+	// Slug → name for every playbook, mirroring FoundryMoveRepository#namesBySlug. Read off the
+	// compendium index, so a translated pack names them as the player sees them.
+	async namesBySlug() {
+		return new Map((await this.getAllPlaybooks())
+			.map(p => [p.slug, p.name])
+			.filter(([slug, name]) => slug && name));
+	}
+
 	async getAllPlaybooks() {
 		const packEntries = await this._store.getAll();
 		const packSlugs   = new Set(packEntries.map(e => e.system?.slug).filter(Boolean));

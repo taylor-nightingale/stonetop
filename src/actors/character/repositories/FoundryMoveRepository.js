@@ -74,6 +74,16 @@ export class FoundryMoveRepository {
 		return entry ? this.getReferencedMoveDocument(entry._id) : null;
 	}
 
+	// Slug → name for every move that exists, compendium and world alike. A move's requirement names
+	// other moves the character may not own — an arcanum's move can require two from a playbook that
+	// is not theirs — so the catalog, not the character's own items, is what resolves them.
+	async namesBySlug() {
+		const index = await this.buildSlugIndex();
+		return new Map([...index]
+			.map(([slug, move]) => [slug, move?.name])
+			.filter(([slug, name]) => slug && name));
+	}
+
 	async buildSlugIndex() {
 		const [all, world] = await Promise.all([
 			this._moveStore.getAll(),

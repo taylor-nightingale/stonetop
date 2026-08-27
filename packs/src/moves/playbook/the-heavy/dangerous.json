@@ -7,7 +7,7 @@
 		"moveType": null,
 		"description": "When you **_deal your damage_**, you have advantage.",
 		"requirement": {
-			"playbook": "The Heavy"
+			"playbook": "the-heavy"
 		},
 		"slug": "dangerous"
 	},

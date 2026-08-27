@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Musclebound"
+				"musclebound"
 			]
 		},
 		"slug": "mighty-thews"

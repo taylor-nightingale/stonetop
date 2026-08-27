@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Speak Softly"
+				"speak-softly"
 			]
 		},
 		"slug": "peace-through-strength"

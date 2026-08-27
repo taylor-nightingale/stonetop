@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Censure"
+				"censure"
 			]
 		},
 		"slug": "condemn"

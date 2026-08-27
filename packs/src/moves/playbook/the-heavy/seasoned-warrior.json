@@ -9,7 +9,7 @@
 		"repeatMax": 3,
 		"requirement": {
 			"level": 2,
-			"playbook": "The Heavy"
+			"playbook": "the-heavy"
 		},
 		"slug": "seasoned-warrior"
 	},

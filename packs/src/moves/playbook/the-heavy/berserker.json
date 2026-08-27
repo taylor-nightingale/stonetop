@@ -8,7 +8,7 @@
 		"description": "While in your Battle Joy, add the area tag to your melee attacks, lashing out at anyone nearby (friend and foe alike). Roll damage separately for each target.",
 		"requirement": {
 			"moves": [
-				"Battle Joy"
+				"battle-joy"
 			]
 		},
 		"slug": "berserker"

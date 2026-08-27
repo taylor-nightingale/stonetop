@@ -15,6 +15,7 @@ import {
 	MoveSnapshot,
 	ValueMax,
 } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
+import { MoveRequirements } from "../../../src/model/data/MoveRequirements.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -39,6 +40,7 @@ function makeMoves({
 	const res = new ResourceController(actor);
 	const m   = new CharacterMoves(repo, actor, res, new ChoiceGroupControllerFactory(actor));
 	m.setVitals(vitals);
+	m.setRequirements(new MoveRequirements(vitals, { getSlug: () => "the-heavy" }, repo, null));
 	return m;
 }
 
@@ -256,8 +258,10 @@ describe("CharacterMoves.buildSnapshot — requiresLabel", () => {
 		expect((await snapMove(new FakeCompendiumMoveBuilder().withName("Alpha").withRequirement({moves: ["Wild Speech"], level: 6, playbook: null}))).requiresLabel).toBe("Wild Speech, Level 6");
 	});
 
-	it("requiresLabel is null when requirement has only playbook field", async () => {
-		expect((await snapMove(new FakeCompendiumMoveBuilder().withName("Alpha").withRequirement({moves: [], level: null, playbook: "The Ranger"}))).requiresLabel).toBeNull();
+	// A playbook gate is a requirement like any other, and the label has to say so — it is the whole
+	// point of the gate when a move is reached for from another playbook (Versatile).
+	it("requiresLabel names the gating playbook", async () => {
+		expect((await snapMove(new FakeCompendiumMoveBuilder().withName("Alpha").withRequirement({moves: [], level: null, playbook: "the-ranger"}))).requiresLabel).toBe("the-ranger");
 	});
 });
 

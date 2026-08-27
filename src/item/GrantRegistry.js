@@ -36,7 +36,7 @@ export class GrantRegistry {
 
 		const moveBySlug = {};
 		for (const entry of moveEntries) {
-			const snap = buildMoveSnapshot(entry, "reference", false, true, null);
+			const snap = buildMoveSnapshot(entry, "reference", false, null);
 			if (snap.slug) moveBySlug[snap.slug] = snap;
 		}
 

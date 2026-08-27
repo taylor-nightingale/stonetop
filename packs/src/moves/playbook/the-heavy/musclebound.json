@@ -7,9 +7,8 @@
 		"moveType": null,
 		"description": "When you **_make a hand-to-hand or thrown attack_**, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.",
 		"requirement": {
-			"moves": [
-				"Strength +2 or higher"
-			]
+			"moves": [],
+			"note": "Strength +2 or higher"
 		},
 		"slug": "musclebound"
 	},

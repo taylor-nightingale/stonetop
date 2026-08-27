@@ -8,7 +8,7 @@
 		"description": "When you **_Struggle as One_**, you and one ally of your choice have advantage.",
 		"requirement": {
 			"moves": [
-				"Many Hands Make Light Work"
+				"many-hands-make-light-work"
 			]
 		},
 		"slug": "a-bundle-of-sticks-unbroken"

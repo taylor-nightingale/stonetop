@@ -9,7 +9,7 @@
 		"repeatMax": 2,
 		"requirement": {
 			"moves": [
-				"Animal Companion"
+				"animal-companion"
 			]
 		},
 		"slug": "magnificent-specimen"

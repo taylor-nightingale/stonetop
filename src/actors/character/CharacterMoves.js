@@ -28,6 +28,15 @@ export class CharacterMoves {
 
 	setVitals(vitals) { this._vitals = vitals; }
 
+	setRequirements(requirements) { this._requirements = requirements; }
+
+	/** The slugs of the moves this character has actually taken. Derived fresh: they take more. */
+	get acquiredSlugs() {
+		return new Set([...this._actor.items]
+			.filter(i => i.type === "move" && (i.system?.acquired ?? false))
+			.map(i => toSlug(i.system?.slug ?? i.name ?? "")));
+	}
+
 	// Reference moves are seeded onto every character and shown in the sidebar (not the moves
 	// tab): basic, plus the expedition, universal special, and follower moves. Seeded once at actor
 	// creation (CreateActor hook), NOT on render — thereafter they are ordinary owned items the GM
@@ -185,8 +194,8 @@ export class CharacterMoves {
 	async buildSnapshot() {
 		const allMoveItems = [...this._actor.items].filter(i => i.type === "move");
 		const level              = this._vitals?.level ?? 1;
-		const acquiredSlugs      = _acquiredSlugs(allMoveItems);
 		const resourceController = this._resourceController;
+		const acquired           = this.acquiredSlugs;
 
 		// One MoveSnapshot per move item, keyed by slug — the `bySlug` registry an inline move grant (in
 		// any choice row) resolves against, so it renders rollable with its resource. Built for EVERY move,
@@ -194,10 +203,9 @@ export class CharacterMoves {
 		const snapById = new Map();
 		const bySlug   = {};
 		for (const item of allMoveItems) {
-			const snap = await buildMoveSnapshot(item, item.system?.categoryKey ?? "other",
-				computeSelectable(item),
-				_requirementsMet(item.system ?? null, level, acquiredSlugs),
-				resourceController);
+			const snap = buildMoveSnapshot(item, item.system?.categoryKey ?? "other",
+				computeSelectable(item), resourceController,
+				await this._requirements?.snapshotFor(item.system?.requirement, acquired));
 			snapById.set(item, snap);
 			if (snap.slug) bySlug[snap.slug] = snap;
 		}
@@ -242,14 +250,10 @@ export class CharacterMoves {
 			.filter(i => i.type === "move" && i.system?.categoryKey === key)
 			.sort((a, b) => (a.system?.sortOrder ?? 999) - (b.system?.sortOrder ?? 999));
 		if (!items.length) return [];
-		const level = this._vitals?.level ?? 1;
-		const allMoveItems  = [...this._actor.items].filter(i => i.type === "move");
-		const acquiredSlugs = _acquiredSlugs(allMoveItems);
-		return Promise.all(items.map(item =>
-			buildMoveSnapshot(item, key,
-				computeSelectable(item),
-				_requirementsMet(item.system ?? null, level, acquiredSlugs),
-				this._resourceController)
+		const acquired = this.acquiredSlugs;
+		return Promise.all(items.map(async item =>
+			buildMoveSnapshot(item, key, computeSelectable(item), this._resourceController,
+				await this._requirements?.snapshotFor(item.system?.requirement, acquired))
 		));
 	}
 
@@ -286,13 +290,6 @@ export class CharacterMoves {
 
 // ── Private helpers ───────────────────────────────────────────────────────────
 
-function _acquiredSlugs(moveItems) {
-	return new Set(
-		moveItems
-			.filter(i => i.system?.acquired ?? false)
-			.map(i => i.system?.slug ?? toSlug(i.name))
-	);
-}
 
 function _categoryOrder(key) {
 	if (key.startsWith("playbook-")) return 0;
@@ -325,13 +322,6 @@ function _rendersOnMovesTab(item) {
 	return !OWN_SURFACE_PREFIXES.some(prefix => key.startsWith(prefix));
 }
 
-function _requirementsMet(move, level, acquiredSlugs) {
-	const req = move?.requirement;
-	if (!req) return true;
-	if (req.level && level < req.level) return false;
-	if ((req.moves ?? []).some(name => !acquiredSlugs.has(toSlug(name)))) return false;
-	return true;
-}
 
 function _sortGroup(moves, groupNames) {
 	const dependents = new Map();

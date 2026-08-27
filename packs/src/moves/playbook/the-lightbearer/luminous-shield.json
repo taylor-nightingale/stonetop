@@ -8,7 +8,7 @@
     "description": "When you **_brandish a holy light to turn aside an attack against body, mind, or soul_**, roll +CHA: **on a 10+**, the attack is deflected and, if the attacker is in range of your light, they are briefly blinded; **_on a 7-9_**, the attack is deflected but your holy light flickers and dims, threatening to go out; **on a 6-**, your light snuffs out and the attack is unimpeded.",
     "requirement": {
       "moves": [
-        "A Candle Against the Dark"
+        "a-candle-against-the-dark"
       ]
     },
     "moveResults": {

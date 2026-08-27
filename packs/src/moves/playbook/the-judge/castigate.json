@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 2,
 			"moves": [
-				"Censure"
+				"censure"
 			]
 		},
 		"slug": "castigate"

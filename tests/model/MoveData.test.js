@@ -21,11 +21,11 @@ describe("MoveData defaults", () => {
 		expect(moveResults.success.value).toBe("");
 	});
 
-	it("defaults requirement with empty moves array and null level/playbook", () => {
+	it("defaults requirement with empty moves array and null level/note", () => {
 		const { requirement } = new MoveData();
 		expect(requirement.moves).toEqual([]);
 		expect(requirement.level).toBeNull();
-		expect(requirement.playbook).toBeNull();
+		expect(requirement.note).toBeNull();
 	});
 
 	it("defaults repeatMax to 1", () => {

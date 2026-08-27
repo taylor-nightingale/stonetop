@@ -37,7 +37,7 @@ describe("moveIcon", () => {
 
 describe("buildMoveSnapshot icon", () => {
 	const snapshotFor = img =>
-		buildMoveSnapshot({ name: "Trade", img, system: { slug: "trade" } }, "homefront", true, true, null);
+		buildMoveSnapshot({ name: "Trade", img, system: { slug: "trade" } }, "homefront", true, null);
 
 	it("carries the chosen icon onto the snapshot every surface renders", () => {
 		expect(snapshotFor("systems/stonetop/assets/content/seasons/season-winter.png").icon)

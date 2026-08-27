@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Conduit of Power"
+				"conduit-of-power"
 			]
 		},
 		"slug": "overchannel"

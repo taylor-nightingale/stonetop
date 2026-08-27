@@ -2181,6 +2181,10 @@
     "description": {
       "source": "When you **_make a hand-to-hand or thrown attack_**, it's forceful and messy. If it would already be forceful and/or messy, it's even more so.",
       "text": ""
+    },
+    "requirement/note": {
+      "source": "Strength +2 or higher",
+      "text": ""
     }
   },
   "muster": {

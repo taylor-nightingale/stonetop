@@ -8,7 +8,7 @@
 		"description": "When you **_demand that someone does what is clearly good and right_**, you have advantage to Persuade. If they refuse, gain +1 Resolve.",
 		"requirement": {
 			"moves": [
-				"Anger is a Gift"
+				"anger-is-a-gift"
 			]
 		},
 		"slug": "speak-truth-to-power"

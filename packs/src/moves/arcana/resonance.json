@@ -24,8 +24,8 @@
 		},
 		"requirement": {
 			"moves": [
-				"Battery",
-				"Eye of the Storm"
+				"battery",
+				"eye-of-the-storm"
 			]
 		}
 	},

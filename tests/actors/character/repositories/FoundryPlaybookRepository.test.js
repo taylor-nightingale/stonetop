@@ -125,3 +125,19 @@ describe("FoundryPlaybookRepository", () => {
 		});
 	});
 });
+
+describe("namesBySlug", () => {
+	it("maps every playbook's slug to its name", async () => {
+		new FakeGameBuilder()
+			.withPack(FakePackBuilder.playbooksPack().withItem(BLESSED).withItem(FOX))
+			.build();
+		const names = await new FoundryPlaybookRepository().namesBySlug();
+		expect(names.get("the-blessed")).toBe(BLESSED.name);
+		expect(names.get("the-fox")).toBe("The Fox");
+	});
+
+	it("is empty when there is no pack", async () => {
+		new FakeGameBuilder().build();
+		expect((await new FoundryPlaybookRepository().namesBySlug()).size).toBe(0);
+	});
+});

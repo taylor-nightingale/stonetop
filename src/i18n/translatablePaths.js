@@ -24,9 +24,8 @@ import { toSlug } from "../utils/slug.js";
 //        /^(group|horde)(\s*\(N\))?$/i on it, and the glossary is keyed by toSlug of it. Rewriting
 //        one breaks the behaviour it drives. Tags are translated at DISPLAY time instead, through
 //        `stonetop.tagLabels` — once each, not once per document that carries them.
-//   requirement.moves[] / requirement.playbook / replaces   Move references. CharacterMoves'
-//        `_requirementsMet` does `acquiredSlugs.has(toSlug(name))`, so a translated name never
-//        matches and the move can never be unlocked.
+//   requirement.moves[]   Move slugs. The "Requires: …" label resolves them to the referenced
+//        moves' own names, so it reads translated without the reference itself ever moving.
 //   moveResults.*.label   Dice notation ("10+", "7-9", "6-"), the same in every language.
 //   personal names   origin[].names[], memberSuggestions.names[], residents.names,
 //        neighborPlaces[].names — people, not prose.
@@ -80,6 +79,9 @@ const MOVE = [
 	"system.moveResults.failure.value",
 	"system.resource.title",
 	"system.resource.labels[]",
+	// A requirement that is not a move reference — prose, and the only part of a requirement a
+	// translator sees. The move references resolve to their own translated names.
+	"system.requirement.note",
 	"system.choices.list[].input.placeholder",
 	...rowPaths("system.choices.list[]"),
 ];
@@ -186,9 +188,7 @@ export const TEXT_PATHS = {
 // untranslatable in silence.
 export const UNTRANSLATED_PATHS = {
 	move: {
-		"system.requirement.moves[]":   "Move reference — CharacterMoves matches it with toSlug(name).",
-		"system.requirement.playbook":  "Playbook reference, matched by name.",
-		"system.replaces":              "Move reference, matched by name.",
+		"system.requirement.moves[]": "Move slugs; the label resolves them to the moves' own names.",
 	},
 	follower: {
 		"system.tagOptions[]": "A tag — translated once through stonetop.tagLabels, not per follower.",

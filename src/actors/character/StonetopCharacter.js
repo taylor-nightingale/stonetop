@@ -24,6 +24,7 @@ import {applyPick} from "./ChoiceGroupController.js";
 import {GrantedItems} from "../GrantedItems.js";
 import {ItemGrantRouter} from "./ItemGrantRouter.js";
 import {GrantSource} from "../../model/data/ItemGrant.js";
+import { MoveRequirements } from "../../model/data/MoveRequirements.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -49,12 +50,12 @@ export class StonetopCharacter {
 		       .subscribe(outfitSync);
 
 		this._background  = new CharacterBackgrounds(actor, factory, this._resourceController);
+		this._vitals      = new CharacterVitals(actor);
 		this._moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory, grantedItems);
 		this._playbook    = new CharacterPlaybook(actor, this._background, factory, this._origin);
 		factory.subscribe(new InstinctSideEffectHandler(this._playbook));
 		this._possessions = new CharacterPossessions(actor, this._moves, repos.possessions, factory, outfitSync, grantedItems);
 		this._inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, this._resourceController, repos.steading);
-		this._vitals      = new CharacterVitals(actor);
 		this._debilities  = new CharacterDebilities(actor);
 		this._arcana      = new CharacterArcana(actor, repos.arcana, this._stats, this._followers, factory, this._moves, outfitSync, grantedItems);
 		factory.subscribe(new ArcanumSideEffectHandler(this._arcana));
@@ -62,6 +63,7 @@ export class StonetopCharacter {
 		this._playbook.setVitals(this._vitals);
 		this._playbook.setMoves(this._moves);
 		this._moves.setVitals(this._vitals);
+		this._moves.setRequirements(new MoveRequirements(this._vitals, this._playbook, repos.moves, repos.playbooks));
 
 		// Where an item that lands on the character turns into grants, and — off the same registration,
 		// so the two can't drift — what leaves when it goes. Each host still owns what its own type

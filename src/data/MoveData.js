@@ -21,9 +21,15 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			// false is how a move says otherwise.
 			xpOnMiss: new f.BooleanField({ initial: true }),
 			requirement: new f.SchemaField({
-				moves:    new f.ArrayField(new f.StringField()),
-				level:    new f.NumberField({ nullable: true, initial: null }),
+				// Move SLUGS, resolved to the referenced moves' names for display — so the label reads in
+				// whatever language those moves are showing.
+				moves: new f.ArrayField(new f.StringField()),
+				level: new f.NumberField({ nullable: true, initial: null }),
+				// A playbook SLUG. The book gates a few moves to one playbook, which only bites when a
+				// move is reached for from another — see the Would-Be Hero's Versatile.
 				playbook: new f.StringField({ nullable: true, initial: null }),
+				// A condition that is not a move ("Strength +2 or higher"): shown, never matched.
+				note:  new f.StringField({ nullable: true, initial: null }),
 			}),
 			resource:       new f.ObjectField({ nullable: true, initial: null }),
 			repeatMax:      new f.NumberField({ initial: 1, integer: true }),

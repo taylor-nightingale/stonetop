@@ -10,7 +10,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Veteran Crew"
+				"veteran-crew"
 			]
 		},
 		"slug": "heroes-to-the-last"

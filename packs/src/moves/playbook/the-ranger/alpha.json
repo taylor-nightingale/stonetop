@@ -9,8 +9,8 @@
     "requirement": {
       "level": 6,
       "moves": [
-        "Wild Speech",
-        "Spirit Tongue"
+        "wild-speech",
+        "spirit-tongue"
       ]
     },
     "moveResults": {

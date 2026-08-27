@@ -60,6 +60,12 @@ export class FakeMoveRepository {
 		return this;
 	}
 
+	async namesBySlug() {
+		return new Map([...await this.buildSlugIndex()]
+			.map(([slug, move]) => [slug, move?.name])
+			.filter(([slug, name]) => slug && name));
+	}
+
 	async buildSlugIndex() {
 		const world = await this._worldStore.getAll();
 		const all   = [...this._playbookMoves, ...this._basicMoves, ...this._insertMoves, ...world];

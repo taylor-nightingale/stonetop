@@ -9,7 +9,7 @@
 		"repeatMax": 2,
 		"requirement": {
 			"moves": [
-				"Crew"
+				"crew"
 			]
 		},
 		"slug": "veteran-crew"

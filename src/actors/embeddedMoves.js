@@ -1,6 +1,5 @@
 import {
 	MoveSnapshotBuilder,
-	RequirementSnapshot,
 	ValueMax,
 } from "../model/snapshot/character/MoveSnapshot.js";
 import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
@@ -86,7 +85,10 @@ export async function decrementMove(actor, categoryKey, moveSlug) {
 
 // Build a MoveSnapshot from an embedded move item. `resourceController` (optional) turns the move's
 // resource def into a live ResourceSnapshot keyed by the move slug in the "moves" namespace.
-export function buildMoveSnapshot(item, categoryKey, selectable, requirementsMet, resourceController) {
+// `requirement` (optional) is the RequirementSnapshot the caller already built — see
+// MoveRequirements#snapshotFor. Callers with no character (an item-sheet preview, a steading) pass
+// none; those moves carry no requirements.
+export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null) {
 	const sys    = item?.system ?? null;
 	const slug   = sys?.slug ?? toSlug(item?.name ?? "");
 	const resDef = sys?.resource ?? null;
@@ -98,11 +100,7 @@ export function buildMoveSnapshot(item, categoryKey, selectable, requirementsMet
 		const values = new ChoiceValues(sys.pickValues ?? {});
 		choices = buildChoiceGroup(sys.choices, values);
 	}
-	const req      = sys?.requirement ?? null;
-	const reqParts = [...(req?.moves ?? []), req?.level ? `Level ${req.level}` : ""].filter(Boolean);
-	const requirement = reqParts.length
-		? new RequirementSnapshot(reqParts.join(", "), requirementsMet)
-		: null;
+
 	return new MoveSnapshotBuilder()
 		.withId(sys?.compendiumId ?? null)
 		.withOwnedId(item?._id ?? null)

@@ -23,4 +23,4 @@
 * bug: the bio/notes sections have the save button, etc but the bar is not tall enough to accommodate them and they're hard to click
 * bug: see img_2 the check boxes get split sometimes
 * allow copy paste of names and text for names/neighbors
-* we need to remove that generic on hover change text to the exact color of the background. damage has it too. I want all of our on hover clickables to be the same formatting
+* we need to remove that generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting

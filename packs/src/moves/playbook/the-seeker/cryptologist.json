@@ -8,7 +8,7 @@
     "description": "When you **_study encoded, forgotten, or arcane marks or writing_**, roll +INT: **on a 10+**, you can fully decipher them in just a few minutes; **_on a 7-9_**, you get the gist in a few minutes, but fully deciphering them will take you an hour or so.",
     "requirement": {
       "moves": [
-        "Polyglot"
+        "polyglot"
       ]
     },
     "moveResults": {

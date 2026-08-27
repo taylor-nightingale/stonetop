@@ -139,7 +139,7 @@ export class SteadingMoves {
 		const items = this._sortedMovesIn(category);
 		if (!items.length) return null;
 		const moves = await Promise.all(items.map(item =>
-			buildMoveSnapshot(item, category.key, computeSelectable(item), true, this._resourceController)
+			buildMoveSnapshot(item, category.key, computeSelectable(item), this._resourceController)
 		));
 		return new MoveCategorySnapshotBuilder()
 			.withKey(category.key)

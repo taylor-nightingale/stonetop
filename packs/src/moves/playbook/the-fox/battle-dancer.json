@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Skill at Arms"
+				"skill-at-arms"
 			]
 		},
 		"slug": "battle-dancer"

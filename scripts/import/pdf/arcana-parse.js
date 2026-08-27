@@ -262,12 +262,13 @@ export function runInName(md) {
 }
 
 /** A mystery move whose text begins "(Requires: A, B)" gates on those moves — pull the comma-listed
- *  move names into `requirement.moves` (display names, mirroring `call-the-spirits`) and strip the
- *  parenthetical from the text. Returns { moves: string[]|null, text }. */
+ *  names into `requirement.moves` as SLUGS (the sheets resolve them back to the referenced moves'
+ *  own names, so the label reads in whatever language they show) and strip the parenthetical from
+ *  the text. Returns { moves: string[]|null, text }. */
 export function parseRequires(text) {
 	const m = (text || "").match(/^\(Requires?:\s*([^)]+)\)\s*/i);
 	if (!m) return { moves: null, text };
-	const moves = m[1].split(",").map((s) => s.trim()).filter(Boolean);
+	const moves = m[1].split(",").map((s) => toSlug(s.trim())).filter(Boolean);
 	return { moves: moves.length ? moves : null, text: text.slice(m[0].length) };
 }
 

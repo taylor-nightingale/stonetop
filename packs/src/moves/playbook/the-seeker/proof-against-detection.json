@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Safety First"
+				"safety-first"
 			]
 		},
 		"slug": "proof-against-detection"

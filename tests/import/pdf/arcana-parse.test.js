@@ -192,7 +192,7 @@ describe("parseBack — major mysteries (moves + consequence tracks)", () => {
 			_list(["□ RESONANCE (Requires: Battery, Eye of the Storm) When you unleash the storm, roll +CON."]),
 		], { slug: "azure-hand", name: "Azure Hand", major: true });
 		expect(b.moves[0].name).toBe("Resonance");
-		expect(b.moves[0].requirement).toEqual({ moves: ["Battery", "Eye of the Storm"] });
+		expect(b.moves[0].requirement).toEqual({ moves: ["battery", "eye-of-the-storm"] });
 		expect(b.moves[0].text).toBe("When you unleash the storm, roll +CON.");
 	});
 });
@@ -242,9 +242,11 @@ describe("parseBack — Hec'tumel Codex: 'Spells of the Codex' + a marker-glued 
 });
 
 describe("parseRequires", () => {
-	it("pulls a leading (Requires: A, B) into requirement moves and strips it from the text", () => {
+	// Slugs, not names: the sheets resolve them back to the referenced moves' own names, so the
+	// "Requires: …" label reads translated without the reference itself ever moving.
+	it("pulls a leading (Requires: A, B) into requirement moves as slugs, stripping it from the text", () => {
 		expect(parseRequires("(Requires: Battery, Eye of the Storm) When you unleash the storm."))
-			.toEqual({ moves: ["Battery", "Eye of the Storm"], text: "When you unleash the storm." });
+			.toEqual({ moves: ["battery", "eye-of-the-storm"], text: "When you unleash the storm." });
 	});
 	it("returns null moves and the unchanged text when there is no requires prefix", () => {
 		expect(parseRequires("When you grip the shaft, roll +CON.")).toEqual({ moves: null, text: "When you grip the shaft, roll +CON." });

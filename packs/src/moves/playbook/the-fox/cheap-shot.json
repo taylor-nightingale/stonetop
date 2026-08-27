@@ -9,7 +9,7 @@
 		"requirement": {
 			"level": 6,
 			"moves": [
-				"Ambush"
+				"ambush"
 			]
 		},
 		"slug": "cheap-shot"
