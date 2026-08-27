@@ -7,7 +7,7 @@ import { GrantedItems } from "../GrantedItems.js";
 import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 
 export class CharacterInserts {
-	constructor(actor, factory, moves, insertRepo = null, grantedItems = new GrantedItems(actor)) {
+	constructor(actor, factory, moves, insertRepo, grantedItems = new GrantedItems(actor)) {
 		this._actor   = actor;
 		this._factory = factory;
 		this._moves   = moves;

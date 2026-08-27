@@ -14,7 +14,7 @@ import { GrantSource, GrantStamp, ItemGrant, ItemGrantSet } from "../../model/da
 export class CharacterPossessions {
 	// `factory` is required: a locally-constructed one would carry no registered side-effect handlers,
 	// so every choice group on the sheet would silently stop granting.
-	constructor(actor, moves, possessionRepo = null, factory, containerOutfitSync = null,
+	constructor(actor, moves, possessionRepo, factory, containerOutfitSync = null,
 	            grantedItems = new GrantedItems(actor)) {
 		this._actor          = actor;
 		this._moves          = moves;

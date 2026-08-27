@@ -8,20 +8,15 @@ import {GrantSource, ItemGrantSet} from "../../model/data/ItemGrant.js";
 import {rich} from "../../model/snapshot/RichText.js";
 
 export class CharacterPlaybook {
-	constructor(actor, background, factory, origin) {
+	constructor(actor, background, factory, origin, vitals, moves, selection) {
 		this._actor = actor;
 		this._background = background;
 		this._origin = origin;
+		this._vitals = vitals;
+		this._moves = moves;
+		this._selection = selection;
 		this._ctrl = factory.forSingleton("playbook", "choiceValues");
 		this._instinct = new InstinctController(this._ctrl);
-	}
-
-	setVitals(vitals) {
-		this._vitals = vitals;
-	}
-
-	setMoves(moves) {
-		this._moves = moves;
 	}
 
 	async getData() {
@@ -31,7 +26,7 @@ export class CharacterPlaybook {
 	}
 
 	getSlug() {
-		return this._actor.system?.playbookSlug || null;
+		return this._selection.slug;
 	}
 
 	async getBackgroundMoveNames(bgSelectedSlug) {
@@ -63,7 +58,7 @@ export class CharacterPlaybook {
 	// What choosing a playbook does to the character itself. The items it grants are not here — those
 	// are the playbook's grant sets, applied by the router.
 	async selectPlaybook(stonetopPlaybook) {
-		await this._actor.update({"system.playbookSlug": stonetopPlaybook.slug});
+		await this._selection.select(stonetopPlaybook.slug);
 		await this._vitals.updateVitalsFromPlaybook(stonetopPlaybook);
 	}
 

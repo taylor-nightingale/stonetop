@@ -13,7 +13,7 @@ import { FollowerItem } from "./FollowerItem.js";
 import { itemsOfType, itemOfTypeBySlug } from "../actorItems.js";
 
 export class CharacterFollowers {
-	constructor(actor, followerRepo, resourceController, factory = null, inventoryRepo = null,
+	constructor(actor, followerRepo, resourceController, factory, inventoryRepo = null,
 	            grantedItems = new GrantedItems(actor)) {
 		this._actor              = actor;
 		this._followerRepo       = followerRepo;

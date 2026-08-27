@@ -10,13 +10,14 @@ const playbookRepo = () => ({
 
 // The collaborators that own each answer. Mutable on purpose: all three change during play, and
 // MoveRequirements must never hold a copy of any of them.
-const fakePlaybook = (slug = "the-heavy") => ({ slug, getSlug() { return this.slug; } });
+// The PlaybookSelection leaf: one fact, read live.
+const fakeSelection = (slug = "the-heavy") => ({ slug });
 
 // Which moves are taken is CharacterMoves' knowledge, handed in at the moment of asking.
 const acquired = (...slugs) => new Set(slugs);
 
 const requirements = (
-	{ vitals = { level: 6 }, playbook = fakePlaybook() } = {},
+	{ vitals = { level: 6 }, playbook = fakeSelection() } = {},
 	moveNames = moveRepo(), playbookNames = playbookRepo(),
 ) => new MoveRequirements(vitals, playbook, moveNames, playbookNames);
 
@@ -53,7 +54,7 @@ describe("MoveRequirements — what it says", () => {
 	});
 
 	it("works with no catalogs at all, falling back to the raw references", async () => {
-		expect(await new MoveRequirements({ level: 6 }, fakePlaybook()).labelFor({ moves: ["battery"] }))
+		expect(await new MoveRequirements({ level: 6 }, fakeSelection()).labelFor({ moves: ["battery"] }))
 			.toBe("battery");
 	});
 
@@ -118,12 +119,20 @@ describe("MoveRequirements — reads the character live", () => {
 	});
 
 	it("sees the playbook being swapped without being rebuilt", () => {
-		const playbook = fakePlaybook();
+		const playbook = fakeSelection();
 		const req = requirements({ playbook });
 		expect(req.isMet({ playbook: "the-fox" })).toBe(false);
 
 		playbook.slug = "the-fox";
 		expect(req.isMet({ playbook: "the-fox" })).toBe(true);
+	});
+
+	// It holds two leaves and two catalogs — nothing that could point back at it.
+	it("holds no subsystem", () => {
+		const req = requirements();
+		for (const held of Object.values(req)) {
+			expect(typeof held?.buildSnapshot, "a subsystem leaked in").toBe("undefined");
+		}
 	});
 
 	it("tolerates collaborators it was never given", () => {

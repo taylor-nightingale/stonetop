@@ -8,6 +8,7 @@ import { FakeMoves } from "../../fakes/FakeMoves.js";
 import { FakeVitals } from "../../fakes/FakeVitals.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { TestPlaybookItemBuilder } from "../../fakes/TestPlaybookItemBuilder.js";
+import { PlaybookSelection } from "../../../src/actors/character/PlaybookSelection.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -30,9 +31,10 @@ class FakeOrigin {
 	buildSnapshot(data) { return data; }
 }
 
-function makePlaybook(actor, { background = new FakeBackground() } = {}) {
+function makePlaybook(actor, { background = new FakeBackground(), vitals, moves } = {}) {
 	const factory = new ChoiceGroupControllerFactory(actor);
-	return new CharacterPlaybook(actor, background, factory, new FakeOrigin());
+	return new CharacterPlaybook(actor, background, factory, new FakeOrigin(), vitals, moves,
+		new PlaybookSelection(actor));
 }
 
 const INSTINCT_GROUP = { slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [
@@ -326,9 +328,7 @@ describe("CharacterPlaybook.selectPlaybook", () => {
 	it("updates vitals from the playbook data", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
-		const pb = makePlaybook(makeActor());
-		pb.setVitals(vitals);
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor(), { vitals: vitals, moves: moves });
 		await pb.selectPlaybook(PLAYBOOK_DATA);
 		expect(vitals.playbookUpdatedWith()).toBe(PLAYBOOK_DATA);
 	});
@@ -336,9 +336,7 @@ describe("CharacterPlaybook.selectPlaybook", () => {
 	it("does not touch the moves — those are the playbook's grants, applied by the router", async () => {
 		const vitals = new FakeVitals();
 		const moves  = new FakeMoves();
-		const pb = makePlaybook(makeActor());
-		pb.setVitals(vitals);
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor(), { vitals: vitals, moves: moves });
 		await pb.selectPlaybook(PLAYBOOK_DATA);
 		expect(moves.initializedWith()).toBeNull();
 		expect(moves.incrementedCount()).toBe(0);
@@ -350,8 +348,7 @@ describe("CharacterPlaybook.selectPlaybook", () => {
 describe("CharacterPlaybook.moveGrants", () => {
 	it("asks the moves for what this playbook grants", async () => {
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor());
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor(), { moves: moves });
 		const set = await pb.moveGrants(PLAYBOOK_DATA);
 		expect(moves.initializedWith()).toBe(PLAYBOOK_DATA);
 		expect(set.source).toBe("playbook:the-blessed");
@@ -361,16 +358,14 @@ describe("CharacterPlaybook.moveGrants", () => {
 	// playbook's own starting moves rather than being incremented afterwards.
 	it("adds the chosen background's moves to the starting ones", async () => {
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor(), { background: new FakeBackground("herbalist") });
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor(), { background: new FakeBackground("herbalist"), moves: moves });
 		await pb.moveGrants(PLAYBOOK_DATA);
 		expect(moves.alsoStarting()).toEqual(["healing-touch"]);
 	});
 
 	it("adds nothing extra when no background is selected", async () => {
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor());
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor(), { moves: moves });
 		await pb.moveGrants(PLAYBOOK_DATA);
 		expect(moves.alsoStarting()).toEqual([]);
 	});
@@ -401,8 +396,7 @@ describe("CharacterPlaybook.getBackgroundMoveNames", () => {
 describe("CharacterPlaybook.selectBackground", () => {
 	it("persists the new background selection", async () => {
 		const bg = new FakeBackground("");
-		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
-		pb.setMoves(new FakeMoves());
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg, moves: new FakeMoves() });
 		await pb.selectBackground("herbalist");
 		expect(bg.selectedSlug).toBe("herbalist");
 	});
@@ -410,8 +404,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("increments new bg moves not in the old bg", async () => {
 		const bg    = new FakeBackground("");
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg, moves: moves });
 		await pb.selectBackground("herbalist");
 		expect(moves.wasIncremented("playbook-the-blessed", "healing-touch")).toBe(true);
 	});
@@ -419,8 +412,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("decrements old bg moves not in the new bg", async () => {
 		const bg    = new FakeBackground("herbalist");
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg, moves: moves });
 		await pb.selectBackground("vessel");
 		expect(moves.wasDecremented("playbook-the-blessed", "healing-touch")).toBe(true);
 		expect(moves.wasIncremented("playbook-the-blessed", "channel")).toBe(true);
@@ -430,8 +422,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 		const bg    = new FakeBackground("");
 		const moves = new FakeMoves();
 		const actor = new FakeCharacterActorBuilder().build();
-		const pb = makePlaybook(actor, { background: bg });
-		pb.setMoves(moves);
+		const pb = makePlaybook(actor, { background: bg, moves: moves });
 		await pb.selectBackground("herbalist");
 		expect(moves.incrementedCount()).toBe(0);
 	});
@@ -441,8 +432,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("hands back the old background's own moves and grants the new one's", async () => {
 		const bg    = new FakeBackground("destined");
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg, moves: moves });
 
 		await pb.selectBackground("herbalist");
 
@@ -453,8 +443,7 @@ describe("CharacterPlaybook.selectBackground", () => {
 	it("grants the moves the newly chosen background links", async () => {
 		const bg    = new FakeBackground("herbalist");
 		const moves = new FakeMoves();
-		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg });
-		pb.setMoves(moves);
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: bg, moves: moves });
 
 		await pb.selectBackground("destined");
 
@@ -469,8 +458,7 @@ describe("CharacterPlaybook.backgroundMoveGrants", () => {
 	it("asks for the moves the chosen background's choice group links, in a category of its own", async () => {
 		const moves = new FakeMoves();
 		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]),
-			{ background: new FakeBackground("destined") });
-		pb.setMoves(moves);
+			{ background: new FakeBackground("destined"), moves });
 
 		const set = await pb.backgroundMoveGrants(PLAYBOOK_DATA);
 
@@ -483,14 +471,12 @@ describe("CharacterPlaybook.backgroundMoveGrants", () => {
 	// grant — this one only speaks for the moves the background itself hands over.
 	it("grants nothing for a background that links no moves", async () => {
 		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]),
-			{ background: new FakeBackground("herbalist") });
-		pb.setMoves(new FakeMoves());
+			{ background: new FakeBackground("herbalist"), moves: new FakeMoves() });
 		expect((await pb.backgroundMoveGrants(PLAYBOOK_DATA)).isEmpty).toBe(true);
 	});
 
 	it("grants nothing when no background is chosen", async () => {
-		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]));
-		pb.setMoves(new FakeMoves());
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { moves: new FakeMoves() });
 		expect((await pb.backgroundMoveGrants(PLAYBOOK_DATA)).isEmpty).toBe(true);
 	});
 });

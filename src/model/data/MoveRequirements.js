@@ -18,13 +18,12 @@ import { RequirementSnapshot } from "../snapshot/character/MoveSnapshot.js";
  * met. Being unmet is advisory, as everything in this system is — the sheet marks it, never blocks it.
  */
 export class MoveRequirements {
-	// Each collaborator answers for what it owns — the character's level, their playbook — and is
-	// asked afresh every time, never copied. The moves they have taken are handed in by CharacterMoves
-	// at the moment of asking: that is its knowledge to give, and holding it here would make the two
-	// classes point at each other.
-	constructor(vitals, playbook, moveRepo, playbookRepo) {
+	// Two leaves and two catalogs — nothing that could point back here. The moves the character has
+	// taken are handed in by CharacterMoves at the moment of asking: that is its knowledge to give,
+	// and holding it would make the two classes point at each other.
+	constructor(vitals, selection, moveRepo, playbookRepo) {
 		this._vitals       = vitals;
-		this._playbook     = playbook;
+		this._selection    = selection;
 		this._moveRepo     = moveRepo;
 		this._playbookRepo = playbookRepo;
 	}
@@ -34,7 +33,7 @@ export class MoveRequirements {
 	}
 
 	get playbookSlug() {
-		return this._playbook?.getSlug?.() ?? null;
+		return this._selection?.slug ?? null;
 	}
 
 	/** A requirement with nothing in it renders no line at all. Needs no catalog to answer. */

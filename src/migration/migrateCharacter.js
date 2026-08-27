@@ -1,4 +1,5 @@
-import { CharacterMoves } from "../actors/character/CharacterMoves.js";
+import { CharacterMoveGrants } from "../actors/character/CharacterMoveGrants.js";
+import { GrantedItems } from "../actors/GrantedItems.js";
 import { info } from "../utils/logger.js";
 import { toSlug } from "../utils/slug.js";
 import { CharacterPossessions } from "../actors/character/CharacterPossessions.js";
@@ -91,7 +92,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateArcanaFollowerPackData(actor, repos.followers);
 	await migrateArcanaOwnedFollowers(actor, repos.followers, resourceController);
 
-	const moves = new CharacterMoves(repos.moves, actor, null);
+	const moves = new CharacterMoveGrants(repos.moves, actor, new GrantedItems(actor));
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
 	// Refresh authored fields before stamping the group slug: the refresh replaces `choices` (slug
 	// included), so the stamp has to run after it to correct a pack that ever drifts.
@@ -161,8 +162,8 @@ export async function migrateEmbeddedMoveSlugs(actor) {
 // moves. Seeds only categories the character has NOTHING from: a GM who deleted a single reference
 // move meant it, and a migration must not hand it back.
 export async function migrateReferenceMoveCategories(actor, moveRepo) {
-	const moves = new CharacterMoves(moveRepo, actor, null, null);
-	for (const categoryKey of CharacterMoves.REFERENCE_CATEGORIES) {
+	const moves = new CharacterMoveGrants(moveRepo, actor, new GrantedItems(actor));
+	for (const categoryKey of CharacterMoveGrants.REFERENCE_CATEGORIES) {
 		const present = [...actor.items].some(i => i.type === "move" && i.system?.categoryKey === categoryKey);
 		if (!present) await moves.seedReferenceCategory(categoryKey);
 	}
@@ -178,7 +179,7 @@ export async function migrateReferenceMoveCategories(actor, moveRepo) {
 const ADDED_REFERENCE_SLUGS = { basic: ["seek-insight"] };
 
 export async function migrateAddedReferenceMoves(actor, moveRepo) {
-	const moves = new CharacterMoves(moveRepo, actor, null, null);
+	const moves = new CharacterMoveGrants(moveRepo, actor, new GrantedItems(actor));
 	for (const [categoryKey, slugs] of Object.entries(ADDED_REFERENCE_SLUGS)) {
 		await moves.seedReferenceSlugs(categoryKey, slugs);
 	}
@@ -219,7 +220,7 @@ export async function migrateCharacterMoves(actor, moveRepo, insertRepo = null) 
 	if (idsToDelete.length) await actor.deleteEmbeddedDocuments("Item", idsToDelete);
 
 	// Re-create via domain methods
-	const moves = new CharacterMoves(moveRepo, actor, null, null);
+	const moves = new CharacterMoveGrants(moveRepo, actor, new GrantedItems(actor));
 	await moves.initBasicMoves();
 
 	const playbookItem = [...actor.items].find(i => i.type === "playbook");
@@ -374,7 +375,7 @@ export async function migrateArcanaMoves(actor, arcanaRepo, moveRepo) {
 	const arcana = [...actor.items].filter(i => i.type === "arcanum");
 	if (!arcana.length) return;
 
-	const moves = new CharacterMoves(moveRepo, actor, null, null);
+	const moves = new CharacterMoveGrants(moveRepo, actor, new GrantedItems(actor));
 	for (const item of arcana) {
 		const slug = item.system?.slug;
 		if (!slug) continue;

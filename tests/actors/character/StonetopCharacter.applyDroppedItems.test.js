@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { TestCharacterBuilder } from "../../fakes/TestCharacterBuilder.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { StonetopCharacter } from "../../../src/actors/character/StonetopCharacter.js";
+import { FakeRepositoryFactory } from "../../fakes/FakeRepositoryFactory.js";
 
 describe("StonetopCharacter.applyDroppedItems", () => {
 	it("embeds a new arcanum", async () => {
@@ -66,9 +67,13 @@ describe("StonetopCharacter.listPlaybooks", () => {
 		expect(Array.isArray(list)).toBe(true);
 	});
 
+	// Only the playbook repository is missing — the rest are real, because a character cannot be
+	// assembled without them and pretending otherwise is what the empty `{}` used to hide.
 	it("answers an empty list when there is no playbook repository", async () => {
 		const actor = new FakeCharacterActorBuilder().build();
-		const char = new StonetopCharacter(actor, {});
+		const repos = new FakeRepositoryFactory();
+		repos.playbooks = null;
+		const char = new StonetopCharacter(actor, repos);
 
 		expect(await char.listPlaybooks()).toEqual([]);
 	});
