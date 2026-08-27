@@ -19,11 +19,27 @@
 					"options": [
 						{
 							"slug": "family-heirloom",
-							"text": "◇◇ A shield, bearing ___’s crest"
+							"text": "◇◇ A shield, bearing ___’s crest",
+							"outfitItems": [
+								{
+									"slug": "shield, bearing a crest",
+									"name": "Shield, bearing a crest",
+									"weight": 2,
+									"inventoryColumn": "regular"
+								}
+							]
 						},
 						{
 							"slug": "cloak",
-							"text": "◇ A wool cloak, woven just for you by ___"
+							"text": "◇ A wool cloak, woven just for you by ___",
+							"outfitItems": [
+								{
+									"slug": "wool-cloak-woven",
+									"name": "Wool cloak, woven just for you",
+									"weight": 1,
+									"inventoryColumn": "regular"
+								}
+							]
 						},
 						{
 							"slug": "letter",
@@ -42,9 +58,9 @@
 							"text": "A tinderbox, lovingly engraved"
 						}
 					]
-				}
+						}
 			]
-		},
+				},
 		"scaling": null,
 		"sortOrder": null
 	}
