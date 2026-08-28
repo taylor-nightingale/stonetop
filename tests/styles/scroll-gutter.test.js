@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 
@@ -51,14 +51,18 @@ const FIXTURE = `
 </div></div>`;
 
 describe.skipIf(!canProbe())("the scrolling tab body reserves its scrollbar gutter", () => {
-	const probed = probe.render({
-		bodyHtml: FIXTURE,
-		bodyClass: "game themed theme-light",
-		probes: {
-			body:      { selector: "#body", properties: ["overflow-y", "scrollbar-gutter", "padding-right"] },
-			name:      { selector: "#name", properties: ["font-weight"] },
-			qualifier: { selector: "#qualifier", properties: ["font-weight"] },
-		},
+	let probed;
+
+	beforeAll(() => {
+		probed = probe.render({
+			bodyHtml: FIXTURE,
+			bodyClass: "game themed theme-light",
+			probes: {
+				body:      { selector: "#body", properties: ["overflow-y", "scrollbar-gutter", "padding-right"] },
+				name:      { selector: "#name", properties: ["font-weight"] },
+				qualifier: { selector: "#qualifier", properties: ["font-weight"] },
+			},
+		});
 	});
 
 	it("still scrolls the tab body", () => {
