@@ -31,7 +31,6 @@
 				<option value="small" {{#if (eq item.inventoryColumn "small")}}selected{{/if}}>small</option>
 			</select>
 		</label>
-		<label class="stonetop-arcanum-field--check"><input type="checkbox" name="{{path}}.twoCol" {{#if item.twoCol}}checked{{/if}}><span>{{localize "stonetop.arcanum.itemTwoCol"}}</span></label>
 	</div>
 	{{> "stonetop.arcanum-resource" resource=item.resource path=(concat path ".resource")}}
 	{{/if}}

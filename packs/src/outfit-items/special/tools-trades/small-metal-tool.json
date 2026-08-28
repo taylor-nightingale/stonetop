@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "small-metal-tool",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 0,
 		"note": "chisel, file, shears, etc.",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

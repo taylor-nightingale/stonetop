@@ -1,16 +1,16 @@
 {
 	"_id": "m63FlzovluhWf9a2",
 	"_key": "!items!m63FlzovluhWf9a2",
-	"name": "Sword, iron",
+	"name": "Sword",
 	"type": "outfitItem",
 	"system": {
 		"slug": "sword-iron",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 1,
 		"note": "+1 damage",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

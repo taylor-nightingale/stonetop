@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "sawdust",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": true,
 		"armor": null,
 		"source": null,
 		"tagList": []

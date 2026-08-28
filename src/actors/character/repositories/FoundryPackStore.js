@@ -1,5 +1,3 @@
-import { PackFolders } from "./PackFolders.js";
-
 export class FoundryPackStore {
 	constructor(packName, fields) {
 		this._packName = packName;
@@ -39,11 +37,5 @@ export class FoundryPackStore {
 		const pack = game.packs.get(this._packName);
 		if (!pack) return null;
 		return pack.getDocument(id);
-	}
-
-	/** The pack's folder tree, which knows both a folder's name and what it is filed under. */
-	async getFolders() {
-		const pack = await this._ensureIndexed();
-		return new PackFolders(pack ? [...pack.folders] : []);
 	}
 }

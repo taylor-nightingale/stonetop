@@ -8,7 +8,7 @@ const SHIELD_DOC = {
 	name: "Shield",
 	system: {
 		slug: "shield", inventoryColumn: "regular", weight: 2, tagList: { selected: [], options: [], multi: true, allowCustom: true },
-		note: "+1 armor", resource: null, twoCol: false, armor: { modifier: 1 },
+		note: "+1 armor", resource: null, armor: { modifier: 1 },
 	},
 };
 
@@ -24,12 +24,20 @@ describe("OutfitItem.fromDocument", () => {
 		expect(oi.armor).toEqual({ modifier: 1 });
 	});
 
-	it("carries the folder-derived group when one is given", () => {
-		expect(OutfitItem.fromDocument(SHIELD_DOC, "Armor").group).toBe("Armor");
+	// Where a row sits and how it is set are the page's business (InventoryPage), so nothing about
+	// where the document is FILED comes along — the entity is the gear, and only the gear.
+	it("reads the qualifier the printed name trails", () => {
+		const doc = { name: "Rope", system: { slug: "rope", qualifier: "~25 ft" } };
+		expect(OutfitItem.fromDocument(doc).qualifier).toBe("~25 ft");
 	});
 
-	it("defaults the group to null — world items have no section", () => {
-		expect(OutfitItem.fromDocument(SHIELD_DOC).group).toBeNull();
+	it("rejoins the halves into the name the book prints", () => {
+		const doc = { name: "Rope", system: { slug: "rope", qualifier: "~25 ft" } };
+		expect(OutfitItem.fromDocument(doc).fullName).toBe("Rope, ~25 ft");
+	});
+
+	it("is its own full name when the book qualifies it with nothing", () => {
+		expect(OutfitItem.fromDocument(SHIELD_DOC).fullName).toBe("Shield");
 	});
 
 	it("fills defaults for a document with an empty system", () => {
@@ -39,7 +47,7 @@ describe("OutfitItem.fromDocument", () => {
 		expect(oi.note).toBeNull();
 		expect(oi.inventoryColumn).toBeNull();
 		expect(oi.resource).toBeNull();
-		expect(oi.twoCol).toBe(false);
+		expect(oi.qualifier).toBe("");
 		expect(oi.armor).toBeNull();
 	});
 

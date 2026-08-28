@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "wagon",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 3,
 		"note": "requires mule/horse",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

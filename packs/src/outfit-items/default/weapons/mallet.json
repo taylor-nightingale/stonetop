@@ -1,15 +1,15 @@
 {
 	"_id": "P6ihgIqLSmNqE40f",
 	"_key": "!items!P6ihgIqLSmNqE40f",
-	"name": "Mallet, iron and/or wood",
+	"name": "Mallet",
 	"type": "outfitItem",
 	"system": {
 		"slug": "mallet",
+		"qualifier": "iron and/or wood",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

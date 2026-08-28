@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "firewood",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 2,
 		"note": "enough to last 1 full night",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

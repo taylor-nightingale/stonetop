@@ -6,16 +6,20 @@ import { Tags } from "../../model/data/Tags.js";
 import { normalizeGroupTags, hasGroupTag, GROUP_TAG } from "../../model/data/groupTag.js";
 import { newMember } from "../../utils/followerMemberEdit.js";
 import { blankCompanion } from "../../utils/followerCompanionEdit.js";
-import { buildOutfitColumn, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
+import { OutfitPage, toOutfitItemSnapshot, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
+import { INVENTORY_INSERT_PAGE } from "../../model/data/character/inventoryInsertPage.js";
 import { GrantedItems } from "../GrantedItems.js";
 import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 import { FollowerItem } from "./FollowerItem.js";
 import { itemsOfType, itemOfTypeBySlug } from "../actorItems.js";
 
 export class CharacterFollowers {
+	// `page` — the printed inventory a follower's gear list is drawn from. Same page the character
+	// carries, injected the same way (see CharacterInventory).
 	constructor(actor, followerRepo, resourceController, factory, inventoryRepo = null,
-	            grantedItems = new GrantedItems(actor)) {
+	            grantedItems = new GrantedItems(actor), page = INVENTORY_INSERT_PAGE) {
 		this._actor              = actor;
+		this._page               = page;
 		this._followerRepo       = followerRepo;
 		this._resourceController = resourceController;
 		this._factory            = factory;
@@ -57,7 +61,7 @@ export class CharacterFollowers {
 		await this._updateInventory(followerSlug, inv => {
 			inv.customItems.push({
 				slug, name: name || "Item", weight: Math.max(1, Number(weight) || 1),
-				tags: "", note: null, inventoryColumn: "regular", twoCol: false,
+				tags: "", note: null, inventoryColumn: "regular",
 			});
 			inv.checked[slug] = true;
 		});
@@ -347,15 +351,17 @@ export class CharacterFollowers {
 	async buildSnapshot() {
 		const ownedItems = [...this._actor.items].filter(i => i.type === "follower" && i.system?.owned === true);
 		if (!ownedItems.length) return [];
-		// Fetch the shared outfit-item catalog once (async) and pass it into each follower's snapshot.
-		const repoItems = this._inventoryRepo ? await this._inventoryRepo.getInsertItems() : [];
-		return ownedItems.map(item => this._buildFollowerSnapshotFromItem(item, repoItems));
+		// Resolve the shared page + catalog once (async) and pass it into each follower's snapshot.
+		// No localize: a follower's gear list is a gear list, not a reprint of the character sheet's prose.
+		const catalog = this._inventoryRepo ? await this._inventoryRepo.bySlug() : new Map();
+		const page    = new OutfitPage(this._page, catalog);
+		return ownedItems.map(item => this._buildFollowerSnapshotFromItem(item, page));
 	}
 
-	_buildFollowerSnapshotFromItem(item, repoItems = []) {
+	_buildFollowerSnapshotFromItem(item, page) {
 		const sys            = item.system;
 		const loyaltyCurrent = this._resourceController.getCurrent("followers", sys.slug);
-		const inventory      = this._buildFollowerInventory(sys.slug, sys.inventory ?? {}, repoItems);
+		const inventory      = this._buildFollowerInventory(sys.slug, sys.inventory ?? {}, page);
 		return buildFollowerSnapshot(item, { loyaltyCurrent, inventory });
 	}
 
@@ -377,7 +383,7 @@ export class CharacterFollowers {
 		return new FollowersSnapshot(bySlug, tab);
 	}
 
-	// Build the follower's inventory snapshot — parity with the character (twoCol grids, resources,
+	// Build the follower's inventory snapshot — parity with the character (two-across grids, resources,
 	// custom items), via the shared buildOutfitColumn. Regular column only. Load is computed from total
 	// checked weight and is informational (highlighted band, never a cap — guide-don't-enforce); a
 	// follower is measured against the same MAX_OUTFIT_MARKS ◇ a character is.
@@ -386,8 +392,8 @@ export class CharacterFollowers {
 	// The full `sections` (catalog) is built ONLY when this follower's inventory is open — building it
 	// for every follower on every render is what makes tag/item edits sluggish. `ownedSections`
 	// (checked items only) drives the compact view.
-	_buildFollowerInventory(slug, inv, repoItems) {
-		const regular     = repoItems.filter(i => i.inventoryColumn === "regular");
+	_buildFollowerInventory(slug, inv, page) {
+		const regular     = page.itemsIn("regular");
 		const customItems = (inv.customItems ?? []).map(c => ({ ...c, inventoryColumn: "regular", ownedId: c.slug }));
 		if (!regular.length && !customItems.length) return null;
 
@@ -395,6 +401,8 @@ export class CharacterFollowers {
 		const resources  = inv.resources ?? {};
 		const editing    = this._openInventories.has(slug);
 		const resourceFn = oi => oi.resource ? ResourceController.build(oi.resource, resources[oi.slug] ?? 0) : null;
+		const mapItem    = oi => toOutfitItemSnapshot(oi, checked[oi.slug] ?? false, resourceFn(oi));
+		const isChecked  = oi => Boolean(checked[oi.slug]);
 
 		const owned       = [...regular, ...customItems].filter(i => checked[i.slug]);
 		const totalWeight = owned.reduce((s, i) => s + (i.weight ?? 0), 0);
@@ -405,8 +413,8 @@ export class CharacterFollowers {
 			editing,
 			hasAny,
 			showDetails:   editing || hasAny, // hide load band + list for an empty, collapsed follower
-			ownedSections: buildOutfitColumn(regular.filter(i => checked[i.slug]), customItems.filter(i => checked[i.slug]), checked, "regular", resourceFn),
-			sections:      editing ? buildOutfitColumn(repoItems, customItems, checked, "regular", resourceFn) : [],
+			ownedSections: page.forColumn("regular", customItems, mapItem, isChecked),
+			sections:      editing ? page.forColumn("regular", customItems, mapItem) : [],
 			totalWeight,
 			band,
 			capacity:     MAX_OUTFIT_MARKS,

@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "common-trade-tools",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 1,
 		"note": "for pottery, weaving, distilling, etc.; immobile",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

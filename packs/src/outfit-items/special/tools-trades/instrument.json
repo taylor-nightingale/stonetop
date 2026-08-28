@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "instrument",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 1,
 		"note": "harp, lute, fiddle, etc.",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "bendis-root",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 1,
 		"note": "fumes repel perversions of nature; lasts ~1 hour",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

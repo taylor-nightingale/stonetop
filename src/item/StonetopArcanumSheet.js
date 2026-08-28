@@ -21,7 +21,7 @@ import { Tags } from "../model/data/Tags.js";
 import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../actors/tagChips.js";
 import { ChangeActionRouter } from "../utils/ChangeActionRouter.js";
 
-const BLANK_ITEM     = () => ({ name: "", weight: 1, tagList: Tags.gear(null).toRaw(), note: null, inventoryColumn: null, twoCol: false, resource: null });
+const BLANK_ITEM     = () => ({ name: "", qualifier: "", weight: 1, tagList: Tags.gear(null).toRaw(), note: null, inventoryColumn: null, resource: null });
 const BLANK_RESOURCE = () => ({ max: 1, maxStat: null, title: null, labels: [] });
 
 // "Entirely blank" = no authored content on either side (name is ignored — a freshly created item

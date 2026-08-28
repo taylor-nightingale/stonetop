@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "wheelbarrow",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

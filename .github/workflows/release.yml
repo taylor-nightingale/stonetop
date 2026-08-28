@@ -17,6 +17,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm test
+      - run: npm run build
       - run: npm run pack
 
       - name: Patch download URL
@@ -31,7 +32,7 @@ jobs:
       - name: Create zip
         run: |
           zip -r stonetop.zip \
-            system.json template.json stonetop.js LICENSE art-manifest.json src/ styles/ languages/ assets/ templates/ packs/ lib/ babele/ \
+            system.json template.json LICENSE art-manifest.json dist/ styles/ languages/ assets/ templates/ packs/ lib/ babele/ \
             --exclude "packs/src/*" \
             --exclude "languages/compendium/*"
 

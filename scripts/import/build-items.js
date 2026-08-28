@@ -19,11 +19,13 @@ import { pathToFileURL } from "url";
 import { toSlug } from "../../src/utils/slug.js";
 import { deterministicId, documentKey } from "./ids.js";
 import { resolveBooks, requireTools } from "./pdf/books.js";
-import { parseItemTables, parseInsertItems, knownTagSlugs, parseStatBlock } from "./pdf/items.js";
+import { parseItemTables, parseInsertItems, parseInsertLines, knownTagSlugs, parseStatBlock } from "./pdf/items.js";
+import { INVENTORY_INSERT_PAGE } from "../../src/model/data/character/inventoryInsertPage.js";
 import { toFollowerDoc } from "./pdf/creatures.js";
 import {
 	OUTFIT_PACK, FOLLOWER_PACK, InsertList, resolveRow, toOutfitItemDoc, toFolderDoc,
 	normalizeName, sectionTitle, followerName, followerSlug, generatedFlags, isGenerated,
+	fullOutfitItemName, insertKey,
 } from "./item-docs.js";
 
 const OUTFIT_DIR    = `packs/src/${OUTFIT_PACK}`;
@@ -64,10 +66,9 @@ function clearGenerated(dir) {
 }
 
 /**
- * The Default folder holds the Inventory insert and nothing else — a character sheet renders every
- * item in it, so a row filed there that the printed insert doesn't list becomes a permanent row on
- * every character in the world. Drift either way is a data bug to fix in `packs/src`, never
- * something to paper over.
+ * The insert shelf holds the Inventory insert's gear and nothing else. Filing is only shelving now —
+ * the PAGE decides what a sheet draws (see reconcileWithPage) — but a shelf that quietly disagrees
+ * with the printed page is still a data bug to fix in `packs/src`, never something to paper over.
  */
 function reconcileWithInsert(insert, defaultNames) {
 	const missing = insert.missingFrom(defaultNames);
@@ -81,6 +82,48 @@ function reconcileWithInsert(insert, defaultNames) {
 	throw new Error(lines.join("\n"));
 }
 
+/**
+ * The inventory page is what a character sheet actually draws, so it is the thing that has to match
+ * p. 142 — not a folder, which is how 46 rows of the value tables once reached every sheet in the
+ * world. Both halves are checked, because a page is both:
+ *
+ *   membership — every printed row appears, and nothing appears that the book does not print;
+ *   layout     — the rows come in printed order, and the pairs the book sets two-across are pairs.
+ *
+ * Compared per column and line by line, which catches all of that at once. Section breaks are the
+ * page's own (the book marks them only with whitespace), so they are not compared.
+ */
+function reconcileWithPage(printedLines, page, docs) {
+	const slugOf = new Map(docs.map((doc) => [insertKey(fullOutfitItemName(doc)), doc.system?.slug]));
+	const unknown = [];
+
+	const printed = (column) => printedLines
+		.map((line) => line.filter((row) => row.column === column).map((row) => {
+			const slug = slugOf.get(insertKey(row.name));
+			if (!slug) unknown.push(row.name);
+			return slug ?? `?${row.name}`;
+		}))
+		.filter((line) => line.length);
+
+	const onPage = (column) => (page.column(column)?.sections ?? [])
+		.flatMap((section) => section.lines)
+		.map((line) => [line].flat());
+
+	const problems = [];
+	for (const column of ["regular", "small"]) {
+		const want = printed(column), have = onPage(column);
+		if (JSON.stringify(want) === JSON.stringify(have)) continue;
+		problems.push(`  ${column} column:`, `    p. 142: ${JSON.stringify(want)}`, `    page:   ${JSON.stringify(have)}`);
+	}
+	if (unknown.length) problems.unshift(`  printed rows no pack item matches: ${[...new Set(unknown)].join(", ")}`);
+	if (!problems.length) return;
+
+	throw new Error([
+		"src/model/data/character/inventoryInsertPage.js does not match the Inventory insert (printed p. 142):",
+		...problems,
+	].join("\n"));
+}
+
 function main() {
 	requireTools(["mutool"]);
 	const { bookI } = resolveBooks(process.argv.slice(2), process.env);
@@ -92,7 +135,9 @@ function main() {
 
 	const cleared = clearGenerated(OUTFIT_DIR) + clearGenerated(FOLLOWER_DIR);
 	const existing = loadPack(OUTFIT_DIR);
-	const byName = new Map(existing.map((e) => [normalizeName(e.doc.name), e.doc]));
+	// Keyed on the name the BOOK prints — `name` holds only the item, `system.qualifier` the rest —
+	// so a value-table row still finds the item that already ships.
+	const byName = new Map(existing.map((e) => [normalizeName(fullOutfitItemName(e.doc)), e.doc]));
 	// The insert's own printed groups, so a new insert row lands beside the ones already filed under it.
 	const folders = readdirSync(join(DEFAULT_DIR, "_folders")).map((n) => readJson(join(DEFAULT_DIR, "_folders", n)));
 	const folderByName = new Map(folders.map((f) => [f.name.toLowerCase(), f]));
@@ -168,8 +213,11 @@ function main() {
 	if (usedLivestock) writeJson(join(FOLLOWER_DIR, "_folders", "livestock.json"), livestockFolder);
 
 	reconcileWithInsert(insert, [
-		...existing.filter((e) => e.file.startsWith(`${DEFAULT_DIR}/`)).map((e) => e.doc.name),
-		...newItems.filter((n) => n.dir.startsWith(DEFAULT_DIR)).map((n) => n.doc.name),
+		...existing.filter((e) => e.file.startsWith(`${DEFAULT_DIR}/`)).map((e) => fullOutfitItemName(e.doc)),
+		...newItems.filter((n) => n.dir.startsWith(DEFAULT_DIR)).map((n) => fullOutfitItemName(n.doc)),
+	]);
+	reconcileWithPage(parseInsertLines(bookI), INVENTORY_INSERT_PAGE, [
+		...existing.map((e) => e.doc), ...newItems.map((n) => n.doc),
 	]);
 
 	const rows = [...resolved.values()];

@@ -1,10 +1,11 @@
 {
 	"_id": "a5HSUPwePut0Sstz",
 	"_key": "!items!a5HSUPwePut0Sstz",
-	"name": "Javelins, a few, iron",
+	"name": "Javelins",
 	"type": "outfitItem",
 	"system": {
 		"slug": "javelins",
+		"qualifier": "a few, iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "x piercing, +1 damage",
@@ -15,7 +16,6 @@
 				"all out"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

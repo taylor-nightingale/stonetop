@@ -13,19 +13,31 @@
   },
   "barrel-of-whisky-common": {
     "name": {
-      "source": "Barrel of whisky, common",
+      "source": "Barrel of whisky",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "common",
       "text": ""
     }
   },
   "barrel-of-whisky-fine": {
     "name": {
-      "source": "Barrel of whisky, fine",
+      "source": "Barrel of whisky",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "fine",
       "text": ""
     }
   },
   "battleaxe-iron": {
     "name": {
-      "source": "Battleaxe, iron",
+      "source": "Battleaxe",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     }
   },
@@ -221,7 +233,11 @@
   },
   "cuirass-boiled-leather": {
     "name": {
-      "source": "Cuirass, boiled leather",
+      "source": "Cuirass",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "boiled leather",
       "text": ""
     },
     "note": {
@@ -237,13 +253,21 @@
   },
   "empty-book-fine-vellum": {
     "name": {
-      "source": "Empty book, fine vellum",
+      "source": "Empty book",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "fine vellum",
       "text": ""
     }
   },
   "empty-book-parchment": {
     "name": {
-      "source": "Empty book, parchment",
+      "source": "Empty book",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "parchment",
       "text": ""
     }
   },
@@ -301,7 +325,11 @@
   },
   "fine-vellum-a-few-sheets": {
     "name": {
-      "source": "Fine vellum., a few sheets",
+      "source": "Fine vellum.",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "a few sheets",
       "text": ""
     }
   },
@@ -317,7 +345,11 @@
   },
   "firkin-of-whisky-fine": {
     "name": {
-      "source": "Firkin of whisky, fine",
+      "source": "Firkin of whisky",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "fine",
       "text": ""
     }
   },
@@ -341,7 +373,11 @@
   },
   "hatchet": {
     "name": {
-      "source": "Hatchet, iron",
+      "source": "Hatchet",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     },
     "note": {
@@ -351,7 +387,11 @@
   },
   "hauberk-cuirass-scale-iron-or-bronze": {
     "name": {
-      "source": "Hauberk/cuirass/scale, iron or bronze",
+      "source": "Hauberk/cuirass/scale",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron or bronze",
       "text": ""
     },
     "note": {
@@ -361,7 +401,11 @@
   },
   "ink-vial-and-quills": {
     "name": {
-      "source": "Ink, vial and quills",
+      "source": "Ink",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "vial and quills",
       "text": ""
     }
   },
@@ -377,7 +421,11 @@
   },
   "javelins": {
     "name": {
-      "source": "Javelins, a few, iron",
+      "source": "Javelins",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "a few, iron",
       "text": ""
     },
     "note": {
@@ -391,7 +439,11 @@
   },
   "knife-dagger": {
     "name": {
-      "source": "Knife or dagger, iron",
+      "source": "Knife or dagger",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     }
   },
@@ -413,7 +465,11 @@
   },
   "long-spear": {
     "name": {
-      "source": "Long spear, iron",
+      "source": "Long spear",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     },
     "note": {
@@ -423,25 +479,41 @@
   },
   "mace-or-flail-iron": {
     "name": {
-      "source": "Mace or flail, iron",
+      "source": "Mace or flail",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     }
   },
   "mallet": {
     "name": {
-      "source": "Mallet, iron and/or wood",
+      "source": "Mallet",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron and/or wood",
       "text": ""
     }
   },
   "mattock": {
     "name": {
-      "source": "Mattock, iron",
+      "source": "Mattock",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     }
   },
   "maul-iron": {
     "name": {
-      "source": "Maul, iron",
+      "source": "Maul",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     }
   },
@@ -467,7 +539,11 @@
   },
   "mirror-hand-held-polished-bronze": {
     "name": {
-      "source": "Mirror, hand-held, polished bronze",
+      "source": "Mirror",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "hand-held, polished bronze",
       "text": ""
     }
   },
@@ -513,7 +589,11 @@
   },
   "parchment-a-few-sheets": {
     "name": {
-      "source": "Parchment, a few sheets",
+      "source": "Parchment",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "a few sheets",
       "text": ""
     }
   },
@@ -539,7 +619,11 @@
   },
   "rope": {
     "name": {
-      "source": "Rope, ~25 ft",
+      "source": "Rope",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "~25 ft",
       "text": ""
     }
   },
@@ -555,7 +639,11 @@
   },
   "sack": {
     "name": {
-      "source": "Sack (empty)",
+      "source": "Sack",
+      "text": ""
+    },
+    "note": {
+      "source": "empty",
       "text": ""
     }
   },
@@ -587,7 +675,11 @@
   },
   "short-sword-iron": {
     "name": {
-      "source": "Short sword, iron",
+      "source": "Short sword",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     }
   },
@@ -605,7 +697,11 @@
   },
   "skin-of-whisky-fine": {
     "name": {
-      "source": "Skin of whisky, fine",
+      "source": "Skin of whisky",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "fine",
       "text": ""
     },
     "resource/labels/uses-share-a-use-with-someone-to-get-advantage-on-persuade": {
@@ -621,7 +717,11 @@
   },
   "sledge": {
     "name": {
-      "source": "Sledge/litter/travois, roll-out",
+      "source": "Sledge/litter/travois",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "roll-out",
       "text": ""
     }
   },
@@ -671,7 +771,11 @@
   },
   "spear": {
     "name": {
-      "source": "Spear, iron",
+      "source": "Spear",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     },
     "note": {
@@ -707,7 +811,11 @@
   },
   "sword-iron": {
     "name": {
-      "source": "Sword, iron",
+      "source": "Sword",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     },
     "note": {
@@ -765,7 +873,11 @@
   },
   "vest-brigandine-fancy": {
     "name": {
-      "source": "Vest, brigandine, fancy",
+      "source": "Vest",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "brigandine, fancy",
       "text": ""
     },
     "note": {
@@ -785,7 +897,11 @@
   },
   "warhammer-iron": {
     "name": {
-      "source": "Warhammer, iron",
+      "source": "Warhammer",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "iron",
       "text": ""
     },
     "note": {
@@ -819,7 +935,11 @@
   },
   "whisky": {
     "name": {
-      "source": "Whisky, skin",
+      "source": "Whisky",
+      "text": ""
+    },
+    "qualifier": {
+      "source": "skin",
       "text": ""
     }
   },
@@ -886,8 +1006,8 @@
       "source": "Weapons",
       "text": ""
     },
-    "default": {
-      "source": "Default",
+    "inventory-insert-p-142": {
+      "source": "Inventory insert (p. 142)",
       "text": ""
     },
     "special-items": {

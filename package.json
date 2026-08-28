@@ -4,9 +4,10 @@
   "scripts": {
     "postinstall": "node scripts/vendor-deps.js",
     "vendor": "node scripts/vendor-deps.js",
+    "build": "node scripts/build.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:pdf": "STONETOP_PDF_TESTS=1 vitest run tests/art/bookArtExtractor.integration.test.js",
+    "test:pdf": "STONETOP_PDF_TESTS=1 vitest run tests/art",
     "pack": "node scripts/compendium-pack/pack.js",
     "unpack": "node scripts/compendium-pack/unpack.js",
     "i18n:extract": "node scripts/i18n/extract.js",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "esbuild": "^0.28.2",
     "handlebars": "^4.7.9",
     "happy-dom": "^20.10.3",
     "vitest": "^4.1.7"

@@ -14,6 +14,13 @@ export class OutfitItemData extends foundry.abstract.TypeDataModel {
 		const f = foundry.data.fields;
 		return {
 			slug:            new f.StringField({ nullable: true, initial: null }),
+			// The trailing, unbolded half of the printed name: the book sets "Rope, ~25 ft" with only
+			// "Rope" as the item, and "~25 ft" qualifying it. `name` holds the first half, this the
+			// second; neither repeats the other, and the full printed name is the two rejoined.
+			qualifier:       new f.StringField({ initial: "" }),
+			// Which checklist gear NOT on the inventory page lands in — a possession's grant, an
+			// arcanum's card, an item a player added. The page itself places every row it lists (see
+			// inventoryInsertPage.js), so for those 53 this is ignored.
 			inventoryColumn: new f.StringField({ nullable: true, initial: null }),
 			weight:          new f.NumberField({ initial: 1, integer: true }),
 			// The Value the book prints beside the item in its Common/Special items table (p. 94-97)
@@ -25,8 +32,6 @@ export class OutfitItemData extends foundry.abstract.TypeDataModel {
 			tagList:         tagListField(),
 			note:            new f.StringField({ initial: "" }),
 			resource:        new f.ObjectField({ nullable: true, initial: null }),
-			twoCol:          new f.BooleanField({ initial: false }),
-			// Outfit rows render in compendium order (then world items) — there is no sort field.
 			armor:           new f.ObjectField({ nullable: true, initial: null }),
 			// Legacy provenance. Nothing writes it any more — a granted item carries its source in
 			// `flags.stonetop.grant` — but the grant-stamp migration reads it off worlds made before that,

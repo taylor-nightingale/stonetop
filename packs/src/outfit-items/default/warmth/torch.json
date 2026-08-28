@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "torch",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "lasts ~1 hour",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

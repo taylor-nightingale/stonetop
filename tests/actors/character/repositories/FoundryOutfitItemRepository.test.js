@@ -83,75 +83,51 @@ describe("FoundryOutfitItemRepository", () => {
 		expect(items[0].note).toBe("x piercing");
 	});
 
-	it("resolves folder id to group name", async () => {
-		const entry = { ...makeEntry("knife"), folder: "folder-1" };
-		const pack = makePack([entry], [{ _id: "folder-1", name: "Weapons" }]);
-		stubGame(pack);
-		const repo = new FoundryOutfitItemRepository();
-		const items = await repo.getAll();
-		expect(items[0].group).toBe("Weapons");
-	});
-
-	it("sets group to null when item has no folder", async () => {
-		stubGame(makePack([makeEntry("cloak")]));
-		const repo = new FoundryOutfitItemRepository();
-		const items = await repo.getAll();
-		expect(items[0].group).toBeNull();
-	});
-
-	it("excludes world-authored outfit items — the catalog is the compendium only", async () => {
-		// A custom outfit item authored in the Items directory must NOT force-show on every character's
-		// inventory grid. It reaches a character only by being dropped (embedded, removable) instead.
-		const world = { _id: "w1", type: "outfitItem", name: "Homebrew charm", system: { slug: "homebrew-charm", inventoryColumn: "regular", weight: 1 }, toObject() { return this; } };
-		stubGame(makePack([makeEntry("cloak")]), [world]);
-		const repo = new FoundryOutfitItemRepository();
-		const items = await repo.getAll();
-		expect(items.map(i => i.slug)).toEqual(["cloak"]);
-	});
-
-	// The pack ships two things: the Inventory insert's checklist, filed under "Default", and the
-	// catalog Book I prices behind it. A character sheet draws the first IN FULL, so an item filed
-	// anywhere else must never reach it — it would be a row on every character that nobody granted and
-	// nobody can remove. Membership is the folder walk, so a nested group has to resolve too.
-	describe("Default folder membership", () => {
-		const DEFAULT = "StOnEtOpDef0001X";
-		const packWithFolders = () => makePack(
+	// The repository is the CATALOG now: it says what gear exists, never what a sheet draws. That is
+	// the inventory page's job (src/model/data/character/inventoryInsertPage.js), which names the rows
+	// it lists by slug. The folder walk this used to do — "everything filed under Default is the
+	// printed sheet" — is how 46 rows of the value tables became a permanent, unremovable row on
+	// every character in the world, which nobody could delete because nobody had granted it.
+	it("hands back every item in the pack, filed anywhere or nowhere", async () => {
+		const pack = makePack(
 			[
 				{ ...makeEntry("cloak"), folder: "warmth" },
 				{ ...makeEntry("sword-iron"), folder: "weapons-of-war" },
 				{ ...makeEntry("loose"), folder: null },
 			],
-			[
-				{ _id: DEFAULT, name: "Default", folder: null },
-				{ _id: "warmth", name: "Warmth", folder: DEFAULT },
-				{ _id: "special", name: "Special items", folder: null },
-				{ _id: "weapons-of-war", name: "Weapons of War", folder: "special" },
-			],
+			[{ _id: "warmth", name: "Warmth", folder: null }],
 		);
+		stubGame(pack);
+		const items = await new FoundryOutfitItemRepository().getAll();
+		expect(items.map(i => i.slug)).toEqual(["cloak", "sword-iron", "loose"]);
+	});
 
-		it("gives the sheet only what is filed under Default", async () => {
-			stubGame(packWithFolders());
-			const repo = new FoundryOutfitItemRepository();
-			expect((await repo.getInsertItems()).map(i => i.slug)).toEqual(["cloak"]);
-		});
+	it("keys the catalog by slug, which is how a page resolves the rows it names", async () => {
+		stubGame(makePack([makeEntry("cloak"), makeEntry("shield")]));
+		const bySlug = await new FoundryOutfitItemRepository().bySlug();
+		expect([...bySlug.keys()]).toEqual(["cloak", "shield"]);
+		expect(bySlug.get("shield").name).toBe("shield");
+	});
 
-		it("still offers the whole catalog to anything that asks for it", async () => {
-			stubGame(packWithFolders());
-			const repo = new FoundryOutfitItemRepository();
-			expect((await repo.getAll()).map(i => i.slug)).toEqual(["cloak", "sword-iron", "loose"]);
-		});
+	it("gives an empty catalog when the pack is missing, rather than throwing", async () => {
+		stubGameNoPack();
+		expect([...(await new FoundryOutfitItemRepository().bySlug()).keys()]).toEqual([]);
+	});
 
-		it("keeps each item's own group as its section heading, not the root's", async () => {
-			stubGame(packWithFolders());
-			const repo = new FoundryOutfitItemRepository();
-			expect((await repo.getInsertItems())[0].group).toBe("Warmth");
-		});
+	it("maps system.qualifier onto the item", async () => {
+		stubGame(makePack([makeEntry("rope", { qualifier: "~25 ft" })]));
+		const [rope] = await new FoundryOutfitItemRepository().getAll();
+		expect(rope.qualifier).toBe("~25 ft");
+		expect(rope.fullName).toBe("rope, ~25 ft");
+	});
 
-		it("leaves an unfiled item off the sheet", async () => {
-			stubGame(packWithFolders());
-			const repo = new FoundryOutfitItemRepository();
-			expect((await repo.getInsertItems()).map(i => i.slug)).not.toContain("loose");
-		});
+	it("excludes world-authored outfit items — the catalog is the compendium only", async () => {
+		// A custom outfit item authored in the Items directory must NOT reach a character's inventory
+		// on its own. It gets there by being dropped (embedded, removable) instead.
+		const world = { _id: "w1", type: "outfitItem", name: "Homebrew charm", system: { slug: "homebrew-charm", inventoryColumn: "regular", weight: 1 }, toObject() { return this; } };
+		stubGame(makePack([makeEntry("cloak")]), [world]);
+		const items = await new FoundryOutfitItemRepository().getAll();
+		expect(items.map(i => i.slug)).toEqual(["cloak"]);
 	});
 
 	it("caches results — getIndex is not called a second time", async () => {

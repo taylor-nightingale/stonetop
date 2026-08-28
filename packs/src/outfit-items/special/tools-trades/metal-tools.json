@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "metal-tools",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 0,
 		"note": "drill, prybar, saw, etc.",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

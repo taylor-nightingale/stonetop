@@ -11,6 +11,9 @@ vi.mock("../../src/actors/character/repositories/FoundryRepositoryFactory.js", (
 	FoundryRepositoryFactory: class {},
 }));
 vi.mock("../../src/art/foundryArt.js", () => ({ isArtInstalled: async () => true }));
+// Pinned to the version the stubbed world reports, so every test below runs as a current client.
+// The stale-client gate is exercised by overriding `game.system.version` in its own suite.
+vi.mock("../../src/version.js", () => ({ SYSTEM_VERSION: "1.0.2" }));
 
 import { onReady } from "../../src/hooks/Ready.js";
 
@@ -136,5 +139,40 @@ describe("onReady — a compendium the update left behind", () => {
 		expect(run).toHaveBeenCalledOnce();
 		expect(errors).toEqual([]);
 		expect(settings.systemVersion).toBe("1.0.2");
+	});
+});
+
+// A browser holds a system's JavaScript by an unversioned URL, so it can go on running the previous
+// release's code against an updated world. Templates are never cached, so that client is handed fresh
+// ones referring to partials its code never registered — and its sheets stop opening.
+describe("onReady — the stale client gate", () => {
+	it("says nothing while the cached code matches the install", async () => {
+		await onReady();
+		expect(errors).toEqual([]);
+	});
+
+	it("tells a client running last release's code to reload", async () => {
+		game.system.version = "1.0.3";
+		await onReady();
+		expect(errors).toEqual(['stonetop.staleClient:{"installed":"1.0.3","loaded":"1.0.2"}']);
+	});
+
+	// The code running the migration would be the previous release's, so its pass list is too. Finishing
+	// would stamp the world as migrated to the version now installed and skip this release's passes for
+	// good — the same trap the stale-pack gate exists to avoid.
+	it("does not migrate or stamp the world from a stale client", async () => {
+		game.system.version = "1.0.3";
+		await onReady();
+		expect(run).not.toHaveBeenCalled();
+		expect(settings.systemVersion).toBe("0.14.0");
+	});
+
+	// The GM gate sits below this one on purpose: players are the ones staring at a sheet that will not
+	// open, and they can do nothing about it until someone tells them to hard-reload.
+	it("warns players, not just the GM", async () => {
+		game.user.isGM = false;
+		game.system.version = "1.0.3";
+		await onReady();
+		expect(errors).toEqual(['stonetop.staleClient:{"installed":"1.0.3","loaded":"1.0.2"}']);
 	});
 });

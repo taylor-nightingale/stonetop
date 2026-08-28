@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "uncommon-trade-tools",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 2,
 		"note": "for carpentry, chandlery, beekeeping, etc.; immobile",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

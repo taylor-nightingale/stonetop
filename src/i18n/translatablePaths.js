@@ -45,6 +45,7 @@ const rowPaths = (rows) => [
 /** The gear a container hands out, wherever it hangs. */
 const outfitItemPaths = (items) => [
 	`${items}.name`,
+	`${items}.qualifier`,
 	`${items}.note`,
 	`${items}.resource.labels[]`,
 ];
@@ -140,6 +141,7 @@ const FOLLOWER = [
 
 const OUTFIT_ITEM = [
 	"name",
+	"system.qualifier",
 	"system.note",
 	"system.resource.labels[]",
 ];

@@ -10,7 +10,8 @@ import {OutfitItemBuilder} from "../../model/data/character/OutfitItem.js";
 import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
 import { ResourceController } from "./ResourceController.js";
 import { GrantStamp } from "../../model/data/ItemGrant.js";
-import { buildOutfitColumn, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
+import { OutfitPage, toOutfitItemSnapshot, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
+import { INVENTORY_INSERT_PAGE } from "../../model/data/character/inventoryInsertPage.js";
 
 // The Prosperity gear table as the inventory insert prints it: fixed rungs, the steading's rating
 // only decides which one the character is standing on. A rating past either end marks the nearest
@@ -27,12 +28,16 @@ const _PROSPERITY_MIN = _PROSPERITY_ROWS[0].value;
 const _PROSPERITY_MAX = _PROSPERITY_ROWS.at(-1).value;
 
 export class CharacterInventory {
-	constructor(actor, inventoryRepo, outfitItems, resourceController, steadingRepo = null) {
+	// `page` is the printed sheet this inventory reproduces — injected rather than reached for, so a
+	// test can render a two-row page and so a second layout would not mean a second CharacterInventory.
+	constructor(actor, inventoryRepo, outfitItems, resourceController, steadingRepo = null,
+	            page = INVENTORY_INSERT_PAGE) {
 		this._actor = actor;
 		this._repo = inventoryRepo;
 		this._outfitItems = outfitItems;
 		this._resourceController = resourceController;
 		this._steadingRepo = steadingRepo;
+		this._page = page;
 	}
 
 	get checked()     { return this._actor.system?.inventory?.checked     ?? {}; }
@@ -102,7 +107,13 @@ export class CharacterInventory {
 	}
 
 	async getArmorBreakdown() {
-		return this.buildArmorBreakdown(await this._repo.getInsertItems());
+		return this.buildArmorBreakdown((await this._outfitPage()).items);
+	}
+
+	/** The printed inventory page, resolved against the gear catalog. The page says what the sheet
+	 *  draws and where; the catalog says what each row IS. */
+	async _outfitPage() {
+		return new OutfitPage(this._page, await this._repo.bySlug(), _loc);
 	}
 
 	async getArmor() {
@@ -112,6 +123,7 @@ export class CharacterInventory {
 	async buildSnapshot(level) {
 		const checked = this.checked;
 		const resourceFn = oi => this._resourceController.buildSnapshot("inventory", oi.resource, oi.slug);
+		const mapItem   = oi => toOutfitItemSnapshot(oi, checked[oi.slug] ?? false, resourceFn(oi));
 
 		const embeddedItems = this._outfitItems.getAll().map(i => {
 			const sys = i.system ?? {};
@@ -126,18 +138,17 @@ export class CharacterInventory {
 				.withNote(sys.note ?? null)
 				.withInventoryColumn(sys.inventoryColumn ?? "regular")
 				.withResource(sys.resource ?? null)
-				.withTwoCol(sys.twoCol ?? false)
 				.withOwnedId(granted ? null : i._id)
 				.build();
 		});
 
-		const repoItems = await this._repo.getInsertItems();
+		const page = await this._outfitPage();
 
 		return new OutfitSnapshotBuilder()
-			.withLoad(this.buildLoadSnapshot(this.markedWeight(repoItems, embeddedItems)))
-			.withRegularSections(buildOutfitColumn(repoItems, embeddedItems, checked, "regular", resourceFn))
+			.withLoad(this.buildLoadSnapshot(this.markedWeight(page.itemsIn("regular"), embeddedItems)))
+			.withRegularSections(page.forColumn("regular", embeddedItems, mapItem))
 			.withRegularPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.regularPool))
-			.withSmallSections(buildOutfitColumn(repoItems, embeddedItems, checked, "small", resourceFn))
+			.withSmallSections(page.forColumn("small", embeddedItems, mapItem))
 			.withSmallPool(ResourceController.build({ max: 9, title: null, labels: [] }, this.smallPool))
 			.withOtherItems(this.otherItems)
 			.withProsperity(this.buildProsperitySnapshot())
@@ -159,10 +170,13 @@ export class CharacterInventory {
 
 	// The ◇ a character has marked: every checked regular item's weight, plus the diamonds marked in
 	// the "undefined" pool. Small items are □ and carry no load, so the small column is not counted.
-	markedWeight(repoItems, embeddedItems) {
+	//
+	// `regularItems` are the page's own regular rows — the page decides which column a row is in.
+	// Gear the page does not list still says so itself, on `inventoryColumn`.
+	markedWeight(regularItems, embeddedItems) {
 		const checked = this.checked;
-		return [...repoItems, ...embeddedItems]
-			.filter(i => i.inventoryColumn === "regular" && checked[i.slug])
+		return [...regularItems, ...embeddedItems.filter(i => i.inventoryColumn === "regular")]
+			.filter(i => checked[i.slug])
 			.reduce((total, i) => total + (i.weight ?? 0), 0) + this.regularPool;
 	}
 

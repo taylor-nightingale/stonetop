@@ -1,16 +1,16 @@
 {
 	"_id": "VaArMG3m996Agrbz",
 	"_key": "!items!VaArMG3m996Agrbz",
-	"name": "Ink, vial and quills",
+	"name": "Ink",
 	"type": "outfitItem",
 	"system": {
 		"slug": "ink-vial-and-quills",
+		"qualifier": "vial and quills",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "purse-of-silvers",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 2,
 		"note": "~10 handfuls",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

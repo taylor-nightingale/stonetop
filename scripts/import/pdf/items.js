@@ -435,21 +435,72 @@ const MARK_GAP    = 10;   // a row's text starts within this of its own gutter m
  * mark and no text, so they fall out on their own.
  */
 export function parseInsertItems(pdf) {
+	return parseInsertLines(pdf).flat().map((r) => r.name);
+}
+
+/** Printed p. 142's marked rows, grouped into the printed lines they share — the page's own layout.
+ *  See insertItemLines for what a line means. */
+export function parseInsertLines(pdf) {
 	const { page, pdfPage } = findTablePage(pdf, INSERT);
-	const names = insertItemNames(page, loadMarkers(pdf, pdfPage));
-	if (!names.length) throw new Error(`${INSERT.name}: page ${pdfPage} matched but no marked rows parsed`);
-	return names;
+	const lines = insertItemLines(page, loadMarkers(pdf, pdfPage));
+	if (!lines.length) throw new Error(`${INSERT.name}: page ${pdfPage} matched but no marked rows parsed`);
+	return lines;
+}
+
+/** One marked row of the insert: the item's name as printed, and which checklist it stands in — a
+ *  load ◇ puts it in the regular column, the □/○ of a pocket item in the small one. The book itself
+ *  says which, in the vector layer, so nothing here has to be told. */
+export class InsertRow {
+	constructor(name, column) {
+		this.name   = name;      // as printed, parenthetical removed
+		this.column = column;    // "regular" | "small"
+	}
+}
+
+/**
+ * The insert's marked rows, grouped into the printed LINES they share, in reading order.
+ *
+ * A line holding two rows of the same column is a pair the book sets two-across ("Blanket | Change
+ * of clothes"), which is how the page's layout is read off the book rather than kept by hand.
+ */
+export function insertItemLines(page, markers) {
+	const midpoint = page.width / 2;
+	const marks = gutterMarks(markers.filter((m) => m.x < midpoint));
+	const lines = page.lines
+		.filter((l) => l.bbox[2] <= midpoint && l.text.trim() && leadingMark(l, marks))
+		.sort((a, b) => a.bbox[1] - b.bbox[1] || a.bbox[0] - b.bbox[0]);
+	return clusterRows(lines)
+		.map((row) => row
+			.map((l) => new InsertRow(insertItemName(l.text), columnOf(leadingMark(l, marks))))
+			.filter((r) => r.name))
+		.filter((row) => row.length);
 }
 
 /** The marked rows of the insert page, in printed order. Pure over a parsed page and its markers. */
 export function insertItemNames(page, markers) {
-	const midpoint = page.width / 2;
-	const marks = gutterMarks(markers.filter((m) => m.x < midpoint));
-	return page.lines
-		.filter((l) => l.bbox[2] <= midpoint && l.text.trim() && leadingMark(l, marks))
-		.sort((a, b) => a.bbox[1] - b.bbox[1] || a.bbox[0] - b.bbox[0])
-		.map((l) => insertItemName(l.text))
-		.filter(Boolean);
+	return insertItemLines(page, markers).flat().map((r) => r.name);
+}
+
+/** A load ◇ is the regular column; the □ (or ○, depending how the book drew it) is a small item. */
+const columnOf = (mark) => (mark?.kind === "diamond" ? "regular" : "small");
+
+// Two rows set side by side do not always share an exact baseline — "Little box" sits a point below
+// the "Sack" beside it, "Tallow" a point above the "Sawdust" — so ordering by y alone reads those
+// pairs backwards. A row is a cluster of baselines within ROW_TOLERANCE, well under the ~9pt the
+// insert sets its lines at. Clustering measures from the row's FIRST line, not the previous one, so
+// a long run of near-baselines cannot chain the whole column into a single row.
+const ROW_TOLERANCE = 4;
+
+/** Lines clustered into the printed rows they share, top to bottom, each row read left to right. */
+function clusterRows(lines) {
+	const rows = [];
+	for (const line of lines) {
+		const row = rows.at(-1);
+		if (row && line.bbox[1] - row[0].bbox[1] <= ROW_TOLERANCE) row.push(line);
+		else rows.push([line]);
+	}
+	for (const row of rows) row.sort((a, b) => a.bbox[0] - b.bbox[0]);
+	return rows;
 }
 
 /** Only the marks standing in a checklist gutter — a column x that at least GUTTER_ROWS rows share. */

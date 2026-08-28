@@ -36,7 +36,8 @@ export class LoadSnapshotBuilder {
 
 /**
  * @property {string}      slug
- * @property {string}      name
+ * @property {string}      name      — the item itself, set bold: "Rope"
+ * @property {string}      qualifier — the rest of the printed name, not bold: "~25 ft"
  * @property {ResolvedTag[]} tags     — one entry per tag, each with its book definition when there is one
  * @property {string|null} note      — parenthetical annotation, e.g. "x piercing"
  * @property {number}      weight
@@ -44,42 +45,55 @@ export class LoadSnapshotBuilder {
  * @property {Resource|null} resource
  * @property {boolean}     isCustom
  * @property {string|null} ownedId
- * @property {boolean}     twoCol
  */
 export class OutfitItemSnapshot {
 	constructor(b) {
-		this.slug     = b._slug;
-		this.name     = b._name;
-		this.tags     = b._tags;
-		this.note     = b._note;
-		this.weight   = b._weight;
-		this.checked  = b._checked;
-		this.resource = b._resource;
-		this.isCustom = b._isCustom;
-		this.ownedId  = b._ownedId;
-		this.twoCol   = b._twoCol;
+		this.slug      = b._slug;
+		this.name      = b._name;
+		this.qualifier = b._qualifier ?? "";
+		this.tags      = b._tags;
+		this.note      = b._note;
+		this.weight    = b._weight;
+		this.checked   = b._checked;
+		this.resource  = b._resource;
+		this.isCustom  = b._isCustom;
+		this.ownedId   = b._ownedId;
 	}
 }
 
 export class OutfitItemSnapshotBuilder {
-	withSlug(v)     { this._slug     = v; return this; }
-	withName(v)     { this._name     = v; return this; }
-	withTags(v)     { this._tags     = v; return this; }
-	withNote(v)     { this._note     = v; return this; }
-	withWeight(v)   { this._weight   = v; return this; }
-	withChecked(v)  { this._checked  = v; return this; }
-	withResource(v) { this._resource = v; return this; }
-	withIsCustom(v) { this._isCustom = v; return this; }
-	withOwnedId(v)  { this._ownedId  = v; return this; }
-	withTwoCol(v)   { this._twoCol   = v; return this; }
-	build()         { return new OutfitItemSnapshot(this); }
+	withSlug(v)      { this._slug      = v; return this; }
+	withName(v)      { this._name      = v; return this; }
+	withQualifier(v) { this._qualifier = v; return this; }
+	withTags(v)      { this._tags      = v; return this; }
+	withNote(v)      { this._note      = v; return this; }
+	withWeight(v)    { this._weight    = v; return this; }
+	withChecked(v)   { this._checked   = v; return this; }
+	withResource(v)  { this._resource  = v; return this; }
+	withIsCustom(v)  { this._isCustom  = v; return this; }
+	withOwnedId(v)   { this._ownedId   = v; return this; }
+	build()          { return new OutfitItemSnapshot(this); }
 }
 
-/** A named group of outfit items within a column (maps to a compendium folder). */
+/** A stretch of one section set the same way: a plain run of rows, or a two-across grid. */
+export class OutfitRun {
+	constructor(isGrid, items) {
+		this.isGrid = isGrid;
+		this.items  = items;
+	}
+}
+
+/**
+ * One divider-delimited group of the inventory page: the layout runs it holds, and the prose the
+ * page prints under it (already localized), if any.
+ *
+ * Both come from the page (see InventoryPage) rather than being re-derived at render time — the
+ * section knows it is set two-across, instead of every item carrying a flag saying so.
+ */
 export class OutfitSection {
-	constructor(name, items) {
-		this.name  = name;
-		this.items = items;
+	constructor(runs, note = null) {
+		this.runs = runs;
+		this.note = note;
 	}
 }
 

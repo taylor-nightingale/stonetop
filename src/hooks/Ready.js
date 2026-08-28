@@ -3,6 +3,8 @@ import { FoundryRepositoryFactory } from "../actors/character/repositories/Found
 import { getSetting, setSetting } from "../settings.js";
 import { isArtInstalled } from "../art/foundryArt.js";
 import { PackVersionCheck } from "../migration/PackVersionCheck.js";
+import { ClientVersionCheck } from "../migration/ClientVersionCheck.js";
+import { SYSTEM_VERSION } from "../version.js";
 import { info, warn } from "../utils/logger.js";
 
 /**
@@ -38,6 +40,18 @@ async function _packsAreStale(systemVersion) {
 }
 
 export async function onReady() {
+	// Ahead of the GM gate, because a player running cached code is the one whose sheets will not
+	// open. Ahead of the migration too: the code running here is the previous release's, so its
+	// pass list is the previous release's. Letting it finish would stamp the world as migrated to
+	// the version now installed, and the passes this release added would be skipped for good.
+	if (new ClientVersionCheck(SYSTEM_VERSION, game.system?.version).isStale) {
+		ui.notifications.error(game.i18n.format("stonetop.staleClient", {
+			installed: game.system?.version,
+			loaded:    SYSTEM_VERSION,
+		}), { permanent: true });
+		return;
+	}
+
 	if (!game.user?.isGM) return;
 
 	await ensureBookOrderSort();

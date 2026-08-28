@@ -23,13 +23,14 @@
 		{{/each}}
 	</span>
 {{/if}}
-	{{!-- The book prints an item as `Spear, iron (close, thrown, x piercing)`: ONE parenthetical
-	      holding the italic tags and then the roman note, not a group each. The two branches differ
-	      only in whether the tags come first — deliberately spelled out rather than adding a generic
-	      `or` helper for one row. --}}
+	{{!-- The book prints an item as `Spear, iron (close, thrown, x piercing)`: the item itself set
+	      bold, what qualifies it following in roman, then ONE parenthetical holding the italic tags
+	      and the roman note — not a group each. The two parenthetical branches differ only in whether
+	      the tags come first; deliberately spelled out rather than adding a generic `or` helper for
+	      one row. --}}
 	{{!-- Each branch opens with its own literal space: the separator belongs to the parenthetical, so
 	      an item with neither tags nor note ends cleanly at its name. --}}
-	<span class="stonetop-inv-label">{{name}}
+	<span class="stonetop-inv-label"><strong class="stonetop-inv-name">{{name}}</strong>{{#if qualifier}}<span class="stonetop-inv-qualifier">, {{qualifier}}</span>{{/if}}
 		{{~#if tags.length~}}
 			<span class="stonetop-inv-parens"> ({{> "stonetop.tag-list" tags=tags}}{{#if (hasText note)}}, <span class="stonetop-inv-note">{{rich note}}</span>{{/if}})</span>
 		{{~else if (hasText note)~}}

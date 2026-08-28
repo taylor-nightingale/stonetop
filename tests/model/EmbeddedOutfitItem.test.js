@@ -68,12 +68,12 @@ describe("EmbeddedOutfitItemBuilder", () => {
 		expect(makeItem().system.resource).toBeNull();
 	});
 
-	it("stores twoCol in system.twoCol", () => {
-		expect(makeItem({ twoCol: true }).system.twoCol).toBe(true);
+	it("stores the qualifier in system.qualifier", () => {
+		expect(makeItem({ qualifier: "iron" }).system.qualifier).toBe("iron");
 	});
 
-	it("defaults twoCol to false", () => {
-		expect(makeItem().system.twoCol).toBe(false);
+	it("defaults the qualifier to empty — most gear the book names needs no qualifying", () => {
+		expect(makeItem().system.qualifier).toBe("");
 	});
 
 

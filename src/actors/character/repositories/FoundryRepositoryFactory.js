@@ -6,6 +6,7 @@ import {FoundryPossessionRepository} from "./FoundryPossessionRepository.js";
 import {FoundryPlaybookRepository} from "./FoundryPlaybookRepository.js";
 import {FoundryInsertRepository} from "./FoundryInsertRepository.js";
 import {FoundrySteadingRepository} from "./FoundrySteadingRepository.js";
+import {INVENTORY_INSERT_PAGE} from "../../../model/data/character/inventoryInsertPage.js";
 
 export class FoundryRepositoryFactory {
 	get moves() {
@@ -14,6 +15,13 @@ export class FoundryRepositoryFactory {
 
 	get inventory() {
 		return this._inventory ??= new FoundryOutfitItemRepository();
+	}
+
+	/** The printed sheet the Outfit tab reproduces. Not a repository — the page is the system's own,
+	 *  not the world's — but it is a collaborator the character's subsystems need, and this is where
+	 *  they are handed the rest of theirs. */
+	get inventoryPage() {
+		return INVENTORY_INSERT_PAGE;
 	}
 
 	get arcana() {

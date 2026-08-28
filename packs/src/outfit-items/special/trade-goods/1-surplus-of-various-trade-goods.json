@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "1-surplus-of-various-trade-goods",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 2,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

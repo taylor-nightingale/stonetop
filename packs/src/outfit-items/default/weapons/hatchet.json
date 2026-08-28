@@ -1,15 +1,15 @@
 {
 	"_id": "zKG5mSoyPstUeC99",
 	"_key": "!items!zKG5mSoyPstUeC99",
-	"name": "Hatchet, iron",
+	"name": "Hatchet",
 	"type": "outfitItem",
 	"system": {
 		"slug": "hatchet",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "x piercing",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

@@ -70,7 +70,7 @@ function embeddedGear(actor) {
 /** Names the equipment tab would actually render, in order, including duplicates. */
 async function renderedGearNames(character) {
 	const snap = await character.buildSnapshot();
-	return snap.outfit.regularSections.flatMap(s => s.items.map(i => i.name));
+	return snap.outfit.regularSections.flatMap(s => s.runs.flatMap(r => r.items.map(i => i.name)));
 }
 
 describe("possession pick → inventory (integration)", () => {

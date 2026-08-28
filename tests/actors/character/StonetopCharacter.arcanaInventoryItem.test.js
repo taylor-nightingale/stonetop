@@ -41,7 +41,7 @@ function characterWithArcanum(arcanumItem) {
 // Find the arcanum's synced item in the inventory snapshot (embedded items trail as a null-named section).
 async function inventoryItem(character, slug) {
 	const snap = await character.buildSnapshot();
-	return snap.outfit.regularSections.flatMap(s => s.items).find(i => i.slug === slug);
+	return snap.outfit.regularSections.flatMap(s => s.runs.flatMap(r => r.items)).find(i => i.slug === slug);
 }
 
 describe("StonetopCharacter — arcanum inventory item carries tags + note (integration)", () => {

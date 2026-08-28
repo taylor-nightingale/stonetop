@@ -1,16 +1,16 @@
-{{!-- Shared outfit-item rendering for a single inventory column. Params:
-       sections   — OutfitSection[] (each {name, items})
+{{!-- Shared outfit rendering for a single inventory column. Params:
+       sections   — OutfitSection[] (each {runs, note})
        addColumn  — when set, render the "+ add item" button with this data-column (omit for read-only)
        addLabel   — localization key for that button (defaults to the load column's wording)
        square     — mark rows with a single □ (the small-items column) instead of their weight in ◇
      Item checkboxes carry data-slug = item slug (same for character + follower); the follower path is
      distinguished by the enclosing .stonetop-follower-inventory[data-slug] wrapper, so the handlers
-     branch without per-element follower attributes. Sections are split into two-line twoCol grids vs
-     plain rows by the outfitSegments helper; rows show diamonds + label + tags/note + resource +
-     custom-delete. --}}
+     branch without per-element follower attributes.
+     A run knows whether it is set two-across and a section knows the prose printed under it, because
+     the inventory page says both (see InventoryPage) — nothing here re-derives either from the rows. --}}
 {{#each sections}}
 {{#unless @first}}<div class="stonetop-inv-divider" aria-hidden="true"></div>{{/unless}}
-{{#each (outfitSegments items)}}
+{{#each runs}}
 {{#if isGrid}}
 <div class="stonetop-inv-twocol-grid">
 	{{#each items}}
@@ -23,6 +23,7 @@
 {{/each}}
 {{/if}}
 {{/each}}
+{{#if note}}<p class="stonetop-inv-section-note">{{{note}}}</p>{{/if}}
 {{/each}}
 {{#if addColumn}}
 <button type="button" class="stonetop-inv-add-btn" data-action="addInventoryItem" data-column="{{addColumn}}">

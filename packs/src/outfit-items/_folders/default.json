@@ -1,12 +1,12 @@
 {
-	"name": "Default",
-	"type": "Item",
-	"description": "The gear the Inventory insert prints (Book I, p. 142) — the checklist every character sheet lays out. Items filed here appear on every character's Outfit tab; everything else in this compendium is a catalog to drag from.",
-	"folder": null,
-	"sorting": "a",
-	"sort": 0,
-	"color": null,
-	"flags": {},
-	"_id": "StOnEtOpDef0001X",
-	"_key": "!folders!StOnEtOpDef0001X"
+  "name": "Inventory insert (p. 142)",
+  "type": "Item",
+  "description": "The gear Book I's Inventory insert prints. Shelving only: what a character sheet draws is decided by the inventory page (src/model/data/character/inventoryInsertPage.js), which names the rows it lists by slug. Everything else in this compendium is the catalog Book I prices (pp. 92-97), to drag from.",
+  "folder": null,
+  "sorting": "a",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_id": "StOnEtOpDef0001X",
+  "_key": "!folders!StOnEtOpDef0001X"
 }

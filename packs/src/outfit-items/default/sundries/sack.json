@@ -1,15 +1,15 @@
 {
 	"_id": "f7ZJ69PqcUDO4lKN",
 	"_key": "!items!f7ZJ69PqcUDO4lKN",
-	"name": "Sack (empty)",
+	"name": "Sack",
 	"type": "outfitItem",
 	"system": {
 		"slug": "sack",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
-		"note": "",
+		"note": "empty",
 		"resource": null,
-		"twoCol": true,
 		"armor": null,
 		"source": null,
 		"tagList": []

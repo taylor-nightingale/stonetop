@@ -19,7 +19,10 @@ const route = (path) => foundry.utils.getRoute(path);
 let pdfjsPromise = null;
 function loadPdfjs() {
 	pdfjsPromise ??= (async () => {
-		const pdfjs = await import("../../lib/pdfjs/pdf.mjs");
+		// Routed rather than relative: this module is bundled into dist/, so a path relative to the
+		// source tree would resolve against the wrong directory in the browser. pdf.js stays out of
+		// the bundle — it is only ever needed by the art installer, and it is large.
+		const pdfjs = await import(route("systems/stonetop/lib/pdfjs/pdf.mjs"));
 		pdfjs.GlobalWorkerOptions.workerSrc = route("systems/stonetop/lib/pdfjs/pdf.worker.mjs");
 		return pdfjs;
 	})();

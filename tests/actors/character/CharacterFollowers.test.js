@@ -5,6 +5,7 @@ import { ChoiceGroupControllerFactory } from "../../../src/actors/character/Choi
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
+import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
 import { Follower } from "../../../src/model/data/character/Follower.js";
 
 // -- Helpers ------------------------------------------------------------------
@@ -1143,15 +1144,18 @@ const FOLLOWER_TMPL_2 = new Follower({ slug: "enfys", name: "Enfys", hp: { value
 
 function makeCfInv(invItems = OUTFIT) {
 	const actor = makeActor();
-	const cf = new CharacterFollowers(
+	// A follower's inventory draws the same printed page the character's does — here, the fixture's
+	// own page over the fixture's own gear (see pageOf).
+	const inventoryRepo = new FakeInventoryRepository(invItems);
+	return new CharacterFollowers(
 		actor, new FakeFollowerRepository([FOLLOWER_TMPL, FOLLOWER_TMPL_2]), makeResourceController(),
-		// A follower's inventory draws the same printed checklist the character's does.
-		new ChoiceGroupControllerFactory(actor), { getInsertItems: async () => invItems },
+		new ChoiceGroupControllerFactory(actor), inventoryRepo, undefined, inventoryRepo.page,
 	);
-	return cf;
 }
 
-const ownedSlugs = inv => inv.ownedSections.flatMap(s => s.items.map(i => i.slug));
+// A section holds layout runs; the runs hold the rows (see OutfitSection).
+const sectionItems = (sections) => sections.flatMap(s => s.runs.flatMap(r => r.items));
+const ownedSlugs = inv => sectionItems(inv.ownedSections).map(i => i.slug);
 
 describe("CharacterFollowers — inventory", () => {
 	it("setInvItemChecked is reflected in the inventory snapshot owned subset", async () => {
@@ -1175,7 +1179,7 @@ describe("CharacterFollowers — inventory", () => {
 		cf.setOpenInventories(["crew"]);
 		[snap] = await cf.buildSnapshot();                // expanded
 		expect(snap.inventory.editing).toBe(true);
-		const catalogSlugs = snap.inventory.sections.flatMap(s => s.items.map(i => i.slug));
+		const catalogSlugs = sectionItems(snap.inventory.sections).map(i => i.slug);
 		expect(catalogSlugs).toEqual(expect.arrayContaining(["hatchet", "shield", "hides", "pack"]));
 		expect(catalogSlugs).not.toContain("torch");      // "small" items excluded
 	});
@@ -1207,7 +1211,7 @@ describe("CharacterFollowers — inventory", () => {
 		await cf.addInvCustomItem("crew", "Lucky charm", 1);
 		cf.setOpenInventories(["crew"]);
 		let [snap] = await cf.buildSnapshot();
-		const custom = snap.inventory.sections.flatMap(s => s.items).find(i => i.name === "Lucky charm");
+		const custom = sectionItems(snap.inventory.sections).find(i => i.name === "Lucky charm");
 		expect(custom).toBeTruthy();
 		expect(custom.isCustom).toBe(true);       // deletable
 		expect(custom.checked).toBe(true);        // auto-held on add
@@ -1215,7 +1219,7 @@ describe("CharacterFollowers — inventory", () => {
 
 		await cf.removeInvCustomItem("crew", custom.slug);
 		[snap] = await cf.buildSnapshot();
-		expect(snap.inventory.sections.flatMap(s => s.items).some(i => i.name === "Lucky charm")).toBe(false);
+		expect(sectionItems(snap.inventory.sections).some(i => i.name === "Lucky charm")).toBe(false);
 	});
 
 	it("setInvResource is reflected in the item's resource snapshot", async () => {
@@ -1225,7 +1229,7 @@ describe("CharacterFollowers — inventory", () => {
 		await cf.setInvResource("crew", "bow", 1);
 		cf.setOpenInventories(["crew"]);
 		const [snap] = await cf.buildSnapshot();
-		const bow = snap.inventory.sections.flatMap(s => s.items).find(i => i.slug === "bow");
+		const bow = sectionItems(snap.inventory.sections).find(i => i.slug === "bow");
 		expect(bow.resource.current).toBe(1);
 	});
 

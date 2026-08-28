@@ -1,16 +1,16 @@
 {
 	"_id": "xc3jJwRNvHVWAcOi",
 	"_key": "!items!xc3jJwRNvHVWAcOi",
-	"name": "Firkin of whisky, fine",
+	"name": "Firkin of whisky",
 	"type": "outfitItem",
 	"system": {
 		"slug": "firkin-of-whisky-fine",
+		"qualifier": "fine",
 		"inventoryColumn": "regular",
 		"weight": 2,
 		"value": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

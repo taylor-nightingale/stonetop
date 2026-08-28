@@ -51,11 +51,11 @@ export function embeddedOutfitItem(data) {
 	return new EmbeddedOutfitItemBuilder()
 		.withSlug(data.slug)
 		.withName(data.name)
+		.withQualifier(data.qualifier ?? "")
 		.withWeight(data.weight ?? 1)
 		.withTags(data.tagList)
 		.withNote(data.note ?? null)
 		.withInventoryColumn(data.inventoryColumn ?? "regular")
 		.withResource(data.resource ?? null)
-		.withTwoCol(data.twoCol ?? false)
 		.build();
 }

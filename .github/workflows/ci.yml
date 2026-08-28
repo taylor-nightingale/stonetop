@@ -16,6 +16,9 @@ jobs:
           node-version: "24"
           cache: "npm"
       - run: npm ci
+      # Fails on an import the bundler cannot resolve — the release build would hit it too,
+      # but by then the tag exists.
+      - run: npm run build
       - run: npm test
       # Fails on translations left behind by a pack rebuild, and on @UUID targets or [[rolls]] a
       # translation broke. Untranslated strings never fail — a partial translation is the normal

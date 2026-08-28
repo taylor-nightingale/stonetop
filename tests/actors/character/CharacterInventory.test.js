@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { CharacterInventory } from "../../../src/actors/character/CharacterInventory.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
+import { InventoryPage, InventoryColumn, PageSection } from "../../../src/model/data/character/InventoryPage.js";
 import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
 import { FakeSteadingRepository } from "../../fakes/FakeSteadingRepository.js";
@@ -31,8 +32,7 @@ function makeOutfitItem(overrides = {}) {
 		.withNote(overrides.note ?? null)
 		.withInventoryColumn(overrides.inventoryColumn ?? "regular")
 		.withResource(labels != null ? { max: labels.length, title: null, labels } : (overrides.resource ?? null))
-		.withTwoCol(overrides.twoCol ?? false)
-		.withGroup(overrides.group ?? null)
+		.withQualifier(overrides.qualifier ?? "")
 		.withOwnedId(overrides.ownedId ?? null)
 		.build();
 }
@@ -79,13 +79,17 @@ function makeResourceController() {
 // Which of the three printed load lines the marked ◇ land in.
 const activeLoad = snap => snap.load.options.find(o => o.active)?.slug ?? null;
 
-function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null, steadingRepo = null) {
+// The page is what the sheet draws. The real one names Book I p. 142's rows by slug, so these
+// fixtures bring their own — see pageOf: one section per column, listing exactly what the repo holds.
+function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null, steadingRepo = null, page = null) {
+	const inventoryRepo = repo ?? makeRepo();
 	return new CharacterInventory(
 		makeActor(inventoryState),
-		repo ?? makeRepo(),
+		inventoryRepo,
 		outfitItems ?? makeActorOutfitItems(),
 		resourceCtrl ?? makeResourceController(),
 		steadingRepo,
+		page ?? inventoryRepo.page,
 	);
 }
 
@@ -100,8 +104,10 @@ function makeSteadingRepo({ name = "Stonetop", prosperity = 0, lacking = false }
 }
 
 // Flatten all items across sections for a column
-function regularItems(snap) { return snap.regularSections.flatMap(s => s.items); }
-function smallItems(snap)   { return snap.smallSections.flatMap(s => s.items); }
+// A section holds layout runs; the runs hold the rows (see OutfitSection).
+const sectionItems = (sections) => sections.flatMap(s => s.runs.flatMap(r => r.items));
+function regularItems(snap) { return sectionItems(snap.regularSections); }
+function smallItems(snap)   { return sectionItems(snap.smallSections); }
 
 // -- CharacterInventory -------------------------------------------------------
 
@@ -140,7 +146,6 @@ function makeArmorItem(slug, armor) {
 		.withNote(null)
 		.withInventoryColumn("regular")
 		.withResource(null)
-		.withTwoCol(false)
 		.withArmor(armor)
 		.build();
 }
@@ -284,42 +289,40 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(regularItems(snap)[0].resource).toBeNull();
 	});
 
-	it("items with the same group appear in the same section", async () => {
-		const repo = makeRepo([
-			makeOutfitItem({ slug: "a", group: "weapons" }),
-			makeOutfitItem({ slug: "b", group: "weapons" }),
-		]);
-		const snap = await makeCi({}, repo).buildSnapshot(1);
-		expect(snap.regularSections).toHaveLength(1);
-		expect(snap.regularSections[0].name).toBe("weapons");
-		expect(snap.regularSections[0].items).toHaveLength(2);
-	});
-
-	it("different groups produce separate sections in encounter order", async () => {
-		const repo = makeRepo([
-			makeOutfitItem({ slug: "a", group: "weapons" }),
-			makeOutfitItem({ slug: "b", group: "bedroll" }),
-		]);
-		const snap = await makeCi({}, repo).buildSnapshot(1);
+	// Sections, order and layout are the PAGE's — the inventory renders whatever page it was handed,
+	// and an item carries no position of its own. The page's own behaviour is pinned in
+	// tests/model/snapshot/outfitSections.test.js; what matters here is that the snapshot follows it.
+	it("renders the page's groups as separate sections, in the page's order", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "a" }), makeOutfitItem({ slug: "b" })]);
+		const page = new InventoryPage([new InventoryColumn("regular", [
+			new PageSection(["b"]), new PageSection(["a"]),
+		])]);
+		const snap = await makeCi({}, repo, null, null, null, page).buildSnapshot(1);
 		expect(snap.regularSections).toHaveLength(2);
-		expect(snap.regularSections[0].name).toBe("weapons");
-		expect(snap.regularSections[1].name).toBe("bedroll");
+		expect(regularItems(snap).map(i => i.slug)).toEqual(["b", "a"]);
 	});
 
-	it("embedded items form a trailing section separate from repo items", async () => {
+	it("draws only the rows the page lists, whatever else the catalog holds", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "a" }), makeOutfitItem({ slug: "unlisted" })]);
+		const page = new InventoryPage([new InventoryColumn("regular", [new PageSection(["a"])])]);
+		const snap = await makeCi({}, repo, null, null, null, page).buildSnapshot(1);
+		expect(regularItems(snap).map(i => i.slug)).toEqual(["a"]);
+	});
+
+	it("embedded items form a trailing section separate from the page's rows", async () => {
 		const repo = makeRepo([makeOutfitItem({ slug: "knife", inventoryColumn: "regular" })]);
 		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
 		const snap = await makeCi({}, repo, makeActorOutfitItems([embedded])).buildSnapshot(1);
 		expect(snap.regularSections).toHaveLength(2);
-		expect(snap.regularSections[0].items.some(i => i.slug === "knife")).toBe(true);
-		expect(snap.regularSections[1].items.some(i => i.slug === "arcanum-1")).toBe(true);
+		expect(sectionItems([snap.regularSections[0]]).some(i => i.slug === "knife")).toBe(true);
+		expect(sectionItems([snap.regularSections[1]]).some(i => i.slug === "arcanum-1")).toBe(true);
 	});
 
 	it("embedded items are the only section when no repo items exist", async () => {
 		const embedded = makeRawEmbeddedItem({ _id: "emb-1", slug: "arcanum-1", source: "arcana:arcanum-1" });
 		const snap = await makeCi({}, makeRepo(), makeActorOutfitItems([embedded])).buildSnapshot(1);
 		expect(snap.regularSections).toHaveLength(1);
-		expect(snap.regularSections[0].items.some(i => i.slug === "arcanum-1")).toBe(true);
+		expect(sectionItems([snap.regularSections[0]]).some(i => i.slug === "arcanum-1")).toBe(true);
 	});
 
 	it("embedded item with no source has isCustom=true and ownedId set", async () => {
@@ -365,18 +368,11 @@ describe("CharacterInventory.buildSnapshot", () => {
 		expect(smallItems(snap).some(i => i.slug === "c-3")).toBe(true);
 	});
 
-	it("small item has twoCol=false when not a grid item", async () => {
-		const repo = makeRepo([makeOutfitItem({ slug: "chalk", inventoryColumn: "small", twoCol: false })]);
+	it("puts a small-column row in the small column", async () => {
+		const repo = makeRepo([makeOutfitItem({ slug: "chalk", inventoryColumn: "small" })]);
 		const snap = await makeCi({}, repo).buildSnapshot(1);
-		expect(smallItems(snap)).toHaveLength(1);
-		expect(smallItems(snap)[0].slug).toBe("chalk");
-		expect(smallItems(snap)[0].twoCol).toBe(false);
-	});
-
-	it("small item has twoCol=true when it is a grid item", async () => {
-		const repo = makeRepo([makeOutfitItem({ slug: "coins", inventoryColumn: "small", twoCol: true })]);
-		const snap = await makeCi({}, repo).buildSnapshot(1);
-		expect(smallItems(snap)[0].twoCol).toBe(true);
+		expect(smallItems(snap).map(i => i.slug)).toEqual(["chalk"]);
+		expect(regularItems(snap)).toHaveLength(0);
 	});
 
 	it("clearSelections unmarks every item and empties both pools", async () => {

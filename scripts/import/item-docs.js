@@ -37,7 +37,6 @@ export const INSERT_ALIASES = new Map([
 	["Extra oil, for lamp/lantern", "Extra oil"],
 	["Bowstring, spare",            "Bowstring"],
 	["Handful of copper coins",     "Handful of coppers"],
-	["Sack",                        "Sack (empty)"],
 	["Snowshoes",                   "Snow-shoes"],
 ]);
 
@@ -87,6 +86,28 @@ export function linkCoinPhrases(text, idBySlug) {
 }
 
 /** Compare printed names loosely enough to see through the two lists' punctuation and "and/or". */
+/**
+ * The two halves of a printed gear name: the item itself, and what qualifies it.
+ *
+ * The book sets "Rope, ~25 ft" and "Knife or dagger, iron" with only the first half as the object —
+ * the rest tells you which rope, which dagger. The sheet sets the first half bold and the second not,
+ * so they are stored apart rather than one being derived from the other at render time. Everything
+ * before the FIRST comma is the item; a name with no comma is all item.
+ */
+export function splitPrintedName(printed) {
+	const text  = String(printed).trim();
+	const comma = text.indexOf(",");
+	if (comma < 0) return { name: text, qualifier: "" };
+	return { name: text.slice(0, comma).trim(), qualifier: text.slice(comma + 1).trim() };
+}
+
+/** An outfit-item doc's name as the book prints it — the two stored halves rejoined. This, not the
+ *  bare `name`, is what matches a printed insert row or a value-table entry. */
+export function fullOutfitItemName(doc) {
+	const qualifier = doc.system?.qualifier;
+	return qualifier ? `${doc.name}, ${qualifier}` : doc.name;
+}
+
 export const normalizeName = (name) => String(name).toLowerCase()
 	.replace(/\band\/or\b/g, " or ")
 	.replace(/\bfeet\b/g, "ft")
@@ -134,7 +155,7 @@ export class InsertList {
 	get size() { return this._keys.size; }
 }
 
-const insertKey = (name) => normalizeName(String(name).replace(/\s*\([^)]*\)\s*$/, ""));
+export const insertKey = (name) => normalizeName(String(name).replace(/\s*\([^)]*\)\s*$/, ""));
 
 const isLivestock = (section) => /livestock/i.test(section.title);
 
@@ -200,19 +221,20 @@ export const followerName = (name) => String(name).replace(/,\s*follower\??$/i, 
 export function toOutfitItemDoc(item, { folder = null } = {}) {
 	const slug = toSlug(item.name);
 	const id   = deterministicId(OUTFIT_PACK, slug);
+	const { name, qualifier } = splitPrintedName(item.name);
 	return {
 		_id: id,
 		_key: documentKey("Item", id),
-		name: item.name,
+		name,
 		type: "outfitItem",
 		system: {
 			slug,
+			qualifier,
 			inventoryColumn: item.inventoryColumn,
 			weight:          Math.max(1, item.weight),
 			value:           item.value,
 			note:            item.note,
 			resource:        item.resource,
-			twoCol:          false,
 			armor:           item.armor,
 			source:          null,
 			tagList:         item.tagList,

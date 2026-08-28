@@ -4,11 +4,11 @@ import { Tags } from "../Tags.js";
 export class ArcanumItem {
 	constructor(data) {
 		this.name            = data.name;
+		this.qualifier       = data.qualifier       ?? "";
 		this.weight          = data.weight          ?? null;
 		this.tags            = Tags.gear(data.tagList);
 		this.note            = data.note            ?? null;
 		this.inventoryColumn = data.inventoryColumn ?? null;
-		this.twoCol          = data.twoCol          ?? false;
 		this.resource        = data.resource ? new Resource(data.resource) : null;
 	}
 }

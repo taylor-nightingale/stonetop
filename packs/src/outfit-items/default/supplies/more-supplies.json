@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "more-supplies",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "4+Prosperity uses",
@@ -20,7 +21,6 @@
 				""
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

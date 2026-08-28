@@ -87,7 +87,7 @@ export function followerFields() {
 		// embedded Item and can't own embedded Items). Opaque ObjectField (atomic read-modify-write
 		// like `companion`/`members`; never default-injected by migrateCreatureData — the
 		// migrate-on-diff landmine). `checked`: which items (shared-catalog + custom) are held;
-		// `customItems`: the follower's own gear defs {slug,name,weight,tags,note,inventoryColumn,twoCol};
+		// `customItems`: the follower's own gear defs {slug,name,weight,tags,note,inventoryColumn};
 		// `resources`: per-item resource counts (ammo etc.). Load is computed + informational (never a
 		// cap). PLAIN-object initial.
 		inventory: new f.ObjectField({ initial: { checked: {}, customItems: [], resources: {} } }),

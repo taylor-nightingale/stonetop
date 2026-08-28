@@ -1,16 +1,16 @@
 {
 	"_id": "sQ4lAlnbGEABAg6X",
 	"_key": "!items!sQ4lAlnbGEABAg6X",
-	"name": "Maul, iron",
+	"name": "Maul",
 	"type": "outfitItem",
 	"system": {
 		"slug": "maul-iron",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 2,
 		"value": 0,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

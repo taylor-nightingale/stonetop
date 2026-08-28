@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "salt",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 0,
 		"note": "a little box",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

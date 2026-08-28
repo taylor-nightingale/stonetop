@@ -1,16 +1,16 @@
 {
 	"_id": "pDK8ghHkiceEVl7H",
 	"_key": "!items!pDK8ghHkiceEVl7H",
-	"name": "Vest, brigandine, fancy",
+	"name": "Vest",
 	"type": "outfitItem",
 	"system": {
 		"slug": "vest-brigandine-fancy",
+		"qualifier": "brigandine, fancy",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 3,
 		"note": "2 armor",
 		"resource": null,
-		"twoCol": false,
 		"armor": {
 			"base": 2
 		},

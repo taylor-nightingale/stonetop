@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "specialized-trade-tools",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 3,
 		"note": "for smithing, glassblowing, scribing, etc.; immobile",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

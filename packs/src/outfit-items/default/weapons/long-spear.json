@@ -1,15 +1,15 @@
 {
 	"_id": "18Y2bTu5X1YqWg21",
 	"_key": "!items!18Y2bTu5X1YqWg21",
-	"name": "Long spear, iron",
+	"name": "Long spear",
 	"type": "outfitItem",
 	"system": {
 		"slug": "long-spear",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "x piercing",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

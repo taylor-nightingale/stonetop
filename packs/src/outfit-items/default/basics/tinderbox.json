@@ -5,14 +5,16 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "tinderbox",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
-		"tagList": ["slow"]
+		"tagList": [
+			"slow"
+		]
 	},
 	"flags": {},
 	"folder": "StOnEtOpBsc0001X"

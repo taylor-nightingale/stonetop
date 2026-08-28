@@ -315,7 +315,6 @@
 			"itemTags": "Tags",
 			"itemNote": "Note",
 			"itemColumn": "Size",
-			"itemTwoCol": "Two-column",
 			"itemSameAsFront": "Same item as front",
 			"resource": "Resource",
 			"resourceMax": "Max",
@@ -341,7 +340,9 @@
 		},
 		"inventory": {
 			"regularItems": "Items",
-			"regularItemsNote": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items.",
+			"supplies": {
+				"note": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items."
+			},
 			"smallItems": "Small Items",
 			"smallItemsNote": "Fit in a pocket, pouch, or boot.<p>When you Outfit, mark □ below equal to 4+Prosperity.</p>",
 			"otherItems": "Other Items",
@@ -390,7 +391,8 @@
 			"column": "Column",
 			"columnRegular": "Regular",
 			"columnSmall": "Small items",
-			"twoCol": "Span both columns",
+			"qualifier": "Qualifier",
+			"qualifierPlaceholder": "e.g. iron, ~25 ft",
 			"tags": "Tags",
 			"tagsPlaceholder": "hand, thrown, near",
 			"note": "Note",
@@ -453,6 +455,7 @@
 			"failed": "Stonetop: migration failed for {names}. Their sheets may show out-of-date content. See the console (F12) for the error; the migration will be retried the next time the world loads.",
 			"stalePacks": "Stonetop: Looks like the compendium didn't update. Please uninstall and reinstall the system for the latest compendium data."
 		},
+		"staleClient": "Stonetop {installed} is installed, but your browser is still running {loaded}. Press Ctrl+Shift+R (Cmd+Shift+R on macOS) to load the update — until you do, character sheets may fail to open.",
 		"rollResults": {
 			"miss": "Miss",
 			"weakHit": "Weak Hit",

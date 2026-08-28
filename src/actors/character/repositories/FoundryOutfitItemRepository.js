@@ -2,44 +2,45 @@ import { OutfitItem } from "../../../model/data/character/OutfitItem.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 
 const FIELDS = [
-	"system.slug", "system.inventoryColumn",
+	"system.slug", "system.qualifier", "system.inventoryColumn",
 	"system.weight", "system.tagList", "system.note", "system.resource",
-	"system.twoCol", "system.armor",
-	"folder",
+	"system.armor",
 ];
 
-// The compendium's "Default" folder: Book I's Inventory insert (printed p. 142), which is the gear the
-// printed character sheet lays out as a checklist. Everything else in the pack — the Special items the
-// value tables price (pp. 96-97) — is a catalog to drag from, and a sheet must not list it: an item
-// there would be a permanent row on EVERY character, which nobody can remove because nobody granted it.
-const DEFAULT_FOLDER = "StOnEtOpDef0001X";
-
+/**
+ * The gear catalog: every `outfitItem` the compendium holds.
+ *
+ * Flat, and deliberately so. WHAT A SHEET DRAWS is decided by the inventory page
+ * (src/model/data/character/inventoryInsertPage.js), which names the gear it lists by slug. Where an
+ * item is filed in the compendium is shelving for a human browsing it and means nothing here.
+ *
+ * This used to reconstruct the printed sheet by walking the folder tree and taking everything under
+ * "Default" — which is how 46 rows of the value tables once became a permanent row on every
+ * character in the world, unremovable because nobody had granted them. Membership is a list now, and
+ * the list is readable.
+ */
 export class FoundryOutfitItemRepository {
 	constructor() {
 		this._store  = new FoundryPackStore("stonetop.outfit-items", FIELDS);
 		this._all    = null;
-		this._insert = null;
+		this._bySlug = null;
 	}
 
-	/** Every item in the compendium — the printed checklist plus the catalog behind it. */
+	/** Every item in the compendium — the printed checklist's gear and the catalog behind it alike. */
 	async getAll() {
 		await this._load();
 		return this._all;
 	}
 
-	/** Only what the Inventory insert prints: the rows a character sheet's Outfit tab draws. */
-	async getInsertItems() {
+	/** slug → item: how a page resolves the rows it names. */
+	async bySlug() {
 		await this._load();
-		return this._insert;
+		return this._bySlug;
 	}
 
 	async _load() {
 		if (this._all) return;
-		// Compendium order is the authored order (the pack's own sequence).
-		const entries = await this._store.getAll();
-		const folders = await this._store.getFolders();
-		const toItem  = entry => OutfitItem.fromDocument(entry, folders.nameOf(entry.folder));
-		this._all     = entries.map(toItem);
-		this._insert  = entries.filter(e => folders.isUnder(e.folder, DEFAULT_FOLDER)).map(toItem);
+		this._all    = (await this._store.getAll()).map(entry => OutfitItem.fromDocument(entry));
+		this._bySlug = new Map(this._all.map(item => [item.slug, item]));
 	}
 }

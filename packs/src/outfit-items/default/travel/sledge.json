@@ -1,15 +1,15 @@
 {
 	"_id": "AnHTmt9OBGhnuKon",
 	"_key": "!items!AnHTmt9OBGhnuKon",
-	"name": "Sledge/litter/travois, roll-out",
+	"name": "Sledge/litter/travois",
 	"type": "outfitItem",
 	"system": {
 		"slug": "sledge",
+		"qualifier": "roll-out",
 		"inventoryColumn": "regular",
 		"weight": 2,
 		"note": "",
 		"resource": null,
-		"twoCol": true,
 		"armor": null,
 		"source": null,
 		"tagList": []

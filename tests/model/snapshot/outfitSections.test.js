@@ -1,105 +1,183 @@
 import { describe, it, expect } from "vitest";
-import { buildOutfitSections, buildOutfitColumn, toOutfitItemSnapshot, loadBand } from "../../../src/model/snapshot/character/outfitSections.js";
+import { OutfitPage, toOutfitItemSnapshot, loadBand } from "../../../src/model/snapshot/character/outfitSections.js";
+import { InventoryPage, InventoryColumn, PageSection } from "../../../src/model/data/character/InventoryPage.js";
+import { OutfitItemBuilder } from "../../../src/model/data/character/OutfitItem.js";
 
-const item = (slug, column = "regular", group = "Weapons") => ({ slug, name: slug, inventoryColumn: column, group });
-const idMap = i => ({ slug: i.slug, group: i.group }); // trivial mapItem
+// OutfitPage is where the two halves meet: the PAGE says what the printed sheet lists, where, in what
+// order and how it is set; the CATALOG says what each piece of gear is. Neither knows the other, and
+// an item never carries its own position — that was the bug, because position is relational.
 
-describe("buildOutfitSections", () => {
-	it("groups repo items by folder group, only for the given column, preserving order", () => {
-		const repo = [
-			item("hatchet", "regular", "Weapons"),
-			item("shield", "regular", "Armor"),
-			item("spear", "regular", "Weapons"),
-			item("torch", "small", "Sundries"),
-		];
-		const sections = buildOutfitSections(repo, [], "regular", idMap);
-		expect(sections.map(s => s.name)).toEqual(["Weapons", "Armor"]); // small column excluded
-		expect(sections[0].items.map(i => i.slug)).toEqual(["hatchet", "spear"]);
-		expect(sections[1].items.map(i => i.slug)).toEqual(["shield"]);
+const item = (slug, over = {}) => new OutfitItemBuilder()
+	.withSlug(slug)
+	.withName(over.name ?? slug)
+	.withQualifier(over.qualifier ?? "")
+	.withWeight(over.weight ?? 1)
+	.withInventoryColumn(over.inventoryColumn ?? "regular")
+	.withOwnedId(over.ownedId ?? null)
+	.build();
+
+const catalog = (...items) => new Map(items.map(i => [i.slug, i]));
+
+const CATALOG = catalog(
+	item("supplies"), item("mess-kit"), item("bedroll"),
+	item("blanket"), item("change-clothes"), item("rope"), item("shovel"),
+	item("awl", { inventoryColumn: "small" }), item("bowstring", { inventoryColumn: "small" }),
+);
+
+const PAGE = new InventoryPage([
+	new InventoryColumn("regular", [
+		new PageSection(["supplies"], { note: "stonetop.inventory.supplies.note" }),
+		new PageSection(["mess-kit", "bedroll", ["blanket", "change-clothes"], ["rope", "shovel"]]),
+	]),
+	new InventoryColumn("small", [
+		new PageSection([["awl", "bowstring"]]),
+	]),
+]);
+
+const slugsOf = (sections) => sections.flatMap(s => s.runs.flatMap(r => r.items.map(i => i.slug)));
+const build = (over = {}) => new OutfitPage(over.page ?? PAGE, over.catalog ?? CATALOG, over.localize ?? null);
+
+describe("OutfitPage.forColumn", () => {
+	it("renders a column's rows in the order the page prints them", () => {
+		expect(slugsOf(build().forColumn("regular")))
+			.toEqual(["supplies", "mess-kit", "bedroll", "blanket", "change-clothes", "rope", "shovel"]);
 	});
 
-	it("trails embedded items as a single null-named section", () => {
-		const sections = buildOutfitSections(
-			[item("hatchet")], [item("homemade", "regular", "x")], "regular", idMap);
-		expect(sections.at(-1).name).toBeNull();
-		expect(sections.at(-1).items.map(i => i.slug)).toEqual(["homemade"]);
+	it("keeps each column to its own rows", () => {
+		expect(slugsOf(build().forColumn("small"))).toEqual(["awl", "bowstring"]);
 	});
 
-	it("handles no embedded items", () => {
-		expect(buildOutfitSections([item("hatchet")], [], "regular", idMap)).toHaveLength(1);
-		expect(buildOutfitSections([item("hatchet")], null, "regular", idMap)).toHaveLength(1);
+	it("gives a column the page does not have no sections at all", () => {
+		expect(build().forColumn("nope")).toEqual([]);
+	});
+
+	it("keeps the page's groups apart, so the sheet can rule between them", () => {
+		expect(build().forColumn("regular")).toHaveLength(2);
+	});
+
+	// Layout is the page's statement, not something re-derived from a flag on each row.
+	it("splits a section into a plain run and a two-across grid where the page changes", () => {
+		const [, travel] = build().forColumn("regular");
+		expect(travel.runs.map(r => [r.isGrid, r.items.map(i => i.slug)])).toEqual([
+			[false, ["mess-kit", "bedroll"]],
+			[true,  ["blanket", "change-clothes", "rope", "shovel"]],
+		]);
+	});
+
+	// A slug with nothing behind it means a half-loaded compendium, which must not take the sheet down.
+	// The pack guard is what reports the drift.
+	it("skips a row the catalog does not hold rather than drawing a blank", () => {
+		const page = new InventoryPage([new InventoryColumn("regular", [new PageSection(["supplies", "ghost"])])]);
+		expect(slugsOf(build({ page }).forColumn("regular"))).toEqual(["supplies"]);
+	});
+
+	it("drops a section entirely when nothing in it resolves", () => {
+		const page = new InventoryPage([new InventoryColumn("regular", [
+			new PageSection(["ghost"]), new PageSection(["supplies"]),
+		])]);
+		expect(build({ page }).forColumn("regular")).toHaveLength(1);
 	});
 });
 
-describe("buildOutfitColumn", () => {
-	const repo = [
-		{ slug: "hatchet", name: "Hatchet", weight: 1, tags: "hand", note: "x", inventoryColumn: "regular", group: "Weapons", twoCol: false },
-		{ slug: "bow", name: "Bow", weight: 1, inventoryColumn: "regular", group: "Weapons", resource: { max: 2 } },
-	];
-	const custom = [
-		{ slug: "lucky-coin", name: "Lucky coin", weight: 1, inventoryColumn: "regular", twoCol: true, ownedId: "lucky-coin" },
-	];
-
-	it("maps repo + custom items into snapshots with checked flags, custom flag, resources, twoCol", () => {
-		const resourceFn = oi => oi.resource ? { max: oi.resource.max } : null;
-		const sections = buildOutfitColumn(repo, custom, { hatchet: true }, "regular", resourceFn);
-		const items = sections.flatMap(s => s.items);
-		const hatchet = items.find(i => i.slug === "hatchet");
-		const bow     = items.find(i => i.slug === "bow");
-		const coin    = items.find(i => i.slug === "lucky-coin");
-		expect(hatchet.checked).toBe(true);
-		expect(hatchet.isCustom).toBe(false);
-		expect(bow.checked).toBe(false);
-		expect(bow.resource).toEqual({ max: 2 });   // resourceFn applied
-		expect(coin.isCustom).toBe(true);            // custom item (has ownedId)
-		expect(coin.ownedId).toBe("lucky-coin");
-		expect(coin.twoCol).toBe(true);
-		expect(hatchet.note.raw).toBe("x");          // note wrapped as RichText
-		expect(hatchet.tags.map((t) => t.label)).toEqual(["hand"]); // one entry per tag, not one blob
+describe("OutfitPage section notes", () => {
+	it("prints the prose the page sets under a group, localized", () => {
+		const page = build({ localize: key => `<em>${key}</em>` });
+		expect(page.forColumn("regular")[0].note).toBe("<em>stonetop.inventory.supplies.note</em>");
 	});
 
-	it("defaults resource to null when no resourceFn is given", () => {
-		const [section] = buildOutfitColumn(repo, [], {}, "regular");
-		expect(section.items[0].resource).toBeNull();
+	it("leaves other groups without one", () => {
+		expect(build({ localize: k => k }).forColumn("regular")[1].note).toBeNull();
+	});
+
+	// The follower panel renders the same page without a localizer: a follower's gear list is a gear
+	// list, not a reprint of the character sheet's rules prose.
+	it("says nothing where the caller gave no localizer", () => {
+		expect(build().forColumn("regular")[0].note).toBeNull();
+	});
+});
+
+describe("OutfitPage off-page gear", () => {
+	const granted = item("sword", { ownedId: "abc" });
+	const smallGranted = item("charm", { inventoryColumn: "small", ownedId: "def" });
+
+	it("trails a column with the gear the page does not list", () => {
+		expect(slugsOf(build().forColumn("regular", [granted]))).toEqual([
+			"supplies", "mess-kit", "bedroll", "blanket", "change-clothes", "rope", "shovel", "sword",
+		]);
+	});
+
+	it("puts it in its own last section, below the page's own rule", () => {
+		const sections = build().forColumn("regular", [granted]);
+		expect(sections).toHaveLength(3);
+		expect(slugsOf([sections.at(-1)])).toEqual(["sword"]);
+	});
+
+	// Off the page, an item still says which column it belongs in — the page places only its own rows.
+	it("routes it by its own inventoryColumn", () => {
+		expect(slugsOf(build().forColumn("small", [granted, smallGranted]))).toEqual(["awl", "bowstring", "charm"]);
+	});
+
+	it("adds no section when there is none", () => {
+		expect(build().forColumn("regular", [])).toHaveLength(2);
+	});
+});
+
+describe("OutfitPage.forColumn narrowing", () => {
+	// The follower panel's compact view shows only what the follower actually has.
+	const has = (...slugs) => (item) => slugs.includes(item.slug);
+
+	it("keeps only the rows the predicate admits", () => {
+		expect(slugsOf(build().forColumn("regular", [], undefined, has("rope", "bedroll"))))
+			.toEqual(["bedroll", "rope"]);
+	});
+
+	it("drops a section that narrows away to nothing", () => {
+		expect(build().forColumn("regular", [], undefined, has("rope"))).toHaveLength(1);
+	});
+
+	it("narrows off-page gear the same way", () => {
+		const granted = item("sword", { ownedId: "abc" });
+		expect(slugsOf(build().forColumn("regular", [granted], undefined, has("rope")))).toEqual(["rope"]);
+	});
+});
+
+describe("OutfitPage.itemsIn", () => {
+	// Load and armor are counted off these, so the page decides which column a row is in.
+	it("resolves the gear one column lists, in printed order", () => {
+		expect(build().itemsIn("regular").map(i => i.slug))
+			.toEqual(["supplies", "mess-kit", "bedroll", "blanket", "change-clothes", "rope", "shovel"]);
+	});
+
+	it("resolves every row the page lists, both columns", () => {
+		expect(build().items).toHaveLength(9);
 	});
 });
 
 describe("toOutfitItemSnapshot", () => {
-	// The one mapping behind every rendered outfit row (both inventories + the item sheet preview).
-	const hatchet = { slug: "hatchet", name: "Hatchet", weight: 1, tags: "hand", note: "x", twoCol: false };
-
-	it("resolves tags, wraps the note as RichText, and carries the caller's checked/resource decisions", () => {
-		const snap = toOutfitItemSnapshot(hatchet, true, { max: 2 });
-		expect(snap.slug).toBe("hatchet");
-		expect(snap.name).toBe("Hatchet");
-		expect(snap.weight).toBe(1);
-		expect(snap.tags.map((t) => t.label)).toEqual(["hand"]);
-		expect(snap.note.raw).toBe("x");
-		expect(snap.checked).toBe(true);
-		expect(snap.resource).toEqual({ max: 2 });
+	it("carries the printed name's two halves separately, so the sheet can bold only the item", () => {
+		const snap = toOutfitItemSnapshot(item("rope", { name: "Rope", qualifier: "~25 ft" }), false, null);
+		expect(snap.name).toBe("Rope");
+		expect(snap.qualifier).toBe("~25 ft");
 	});
 
-	it("marks an item custom (deletable) only when it carries an ownedId", () => {
-		expect(toOutfitItemSnapshot(hatchet, false, null).isCustom).toBe(false);
-		expect(toOutfitItemSnapshot(hatchet, false, null).ownedId).toBeNull();
-
-		const owned = toOutfitItemSnapshot({ ...hatchet, ownedId: "abc" }, false, null);
-		expect(owned.isCustom).toBe(true);
-		expect(owned.ownedId).toBe("abc");
+	it("marks a row the character has checked", () => {
+		expect(toOutfitItemSnapshot(item("rope"), true, null).checked).toBe(true);
 	});
 
-	it("defaults twoCol to false when absent", () => {
-		expect(toOutfitItemSnapshot({ slug: "x", name: "X", weight: 0 }, false, null).twoCol).toBe(false);
+	// Only gear the player added themselves is theirs to delete.
+	it("calls an item with an owning id custom, and deletable", () => {
+		expect(toOutfitItemSnapshot(item("charm", { ownedId: "x1" }), false, null).isCustom).toBe(true);
+		expect(toOutfitItemSnapshot(item("rope"), false, null).isCustom).toBe(false);
 	});
 });
 
 describe("loadBand", () => {
-	it("maps total weight to a band at the boundaries (≤3 light / 4–6 normal / 7+ heavy)", () => {
+	it("bands the marked weight the way the Outfit move prints it", () => {
 		expect(loadBand(0)).toBe("light");
 		expect(loadBand(3)).toBe("light");
 		expect(loadBand(4)).toBe("normal");
 		expect(loadBand(6)).toBe("normal");
 		expect(loadBand(7)).toBe("heavy");
-		expect(loadBand(99)).toBe("heavy"); // no cap — guidance only
+		expect(loadBand(99)).toBe("heavy");
 	});
 });

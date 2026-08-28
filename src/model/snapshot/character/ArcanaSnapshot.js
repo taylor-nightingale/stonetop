@@ -10,11 +10,11 @@ export function arcanumOutfitItemSnapshot(slug, itemData, resolvedResource = und
 	return {
 		slug,
 		name:            itemData.name,
+		qualifier:       itemData.qualifier ?? "",
 		weight:          itemData.weight ?? null,
 		tags:            Tags.gear(itemData.tags).resolved,
 		note:            rich(itemData.note ?? null),
 		inventoryColumn: itemData.inventoryColumn ?? null,
-		twoCol:          itemData.twoCol ?? false,
 		resource:        resolvedResource !== undefined ? resolvedResource : (itemData.resource ?? null),
 		checked,
 		isCustom:        false,

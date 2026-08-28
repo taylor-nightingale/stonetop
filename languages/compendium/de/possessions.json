@@ -1181,6 +1181,14 @@
     "choices/0/options/tinderbox/text": {
       "source": "A tinderbox, lovingly engraved",
       "text": ""
+    },
+    "choices/0/options/family-heirloom/outfitItems/shield-bearing-a-crest/name": {
+      "source": "Shield, bearing a crest",
+      "text": ""
+    },
+    "choices/0/options/cloak/outfitItems/wool-cloak-woven/name": {
+      "source": "Wool cloak, woven just for you",
+      "text": ""
     }
   },
   "power-crystal": {

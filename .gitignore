@@ -38,3 +38,6 @@ helper/
 
 # Raw mutool stext dumps — large; compact *.lines.json fixtures are committed instead
 tests/import/pdf/fixtures/*.stext.xml
+
+# Bundled client code — built by `npm run build` from stonetop.js + src/
+dist/

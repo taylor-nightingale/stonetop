@@ -1,10 +1,11 @@
 {
 	"_id": "bjhPInRVkLUhY7gb",
 	"_key": "!items!bjhPInRVkLUhY7gb",
-	"name": "Whisky, skin",
+	"name": "Whisky",
 	"type": "outfitItem",
 	"system": {
 		"slug": "whisky",
+		"qualifier": "skin",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"note": "",
@@ -16,7 +17,6 @@
 				""
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

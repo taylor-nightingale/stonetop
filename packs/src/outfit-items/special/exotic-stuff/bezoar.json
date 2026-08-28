@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "bezoar",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 1,
 		"note": "swallow to cure any poison",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

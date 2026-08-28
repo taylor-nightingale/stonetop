@@ -9,10 +9,10 @@ describe("OutfitItemData defaults", () => {
 		expect(d.source).toBeNull();
 	});
 
-	it("defaults weight to 1 and twoCol to false", () => {
+	it("defaults weight to 1 and the qualifier to empty", () => {
 		const d = new OutfitItemData();
 		expect(d.weight).toBe(1);
-		expect(d.twoCol).toBe(false);
+		expect(d.qualifier).toBe("");
 	});
 
 	it("defaults note to empty string", () => {

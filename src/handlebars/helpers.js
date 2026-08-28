@@ -43,18 +43,6 @@ Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) =>
 // say which of N it is out loud, e.g. "Track 2 of 5".
 Handlebars.registerHelper("inc", n => Number(n ?? 0) + 1);
 
-Handlebars.registerHelper("outfitSegments", items => {
-	const segments = [];
-	let current = null;
-	for (const item of (items ?? [])) {
-		if (!current || current.isGrid !== item.twoCol) {
-			current = { isGrid: item.twoCol, items: [] };
-			segments.push(current);
-		}
-		current.items.push(item);
-	}
-	return segments;
-});
 Handlebars.registerHelper("gt", (a, b) => a > b);
 Handlebars.registerHelper("eq", (a, b) => a === b);
 Handlebars.registerHelper("join", (arr, sep) => (Array.isArray(arr) ? arr.join(typeof sep === "string" ? sep : ", ") : ""));

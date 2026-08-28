@@ -58,6 +58,23 @@ describe("insertItemNames", () => {
 			.toEqual(["Awl", "Bowstring", "Chalk", "Charcoal", "Clay jar", "Cup", "Comb", "Gloves"]);
 	});
 
+	// Two rows set side by side do not always share an exact baseline: on p. 142 "Little box" sits a
+	// point below the "Sack" beside it, and "Tallow" a point above the "Sawdust". Ordering by raw y
+	// alone therefore reads those pairs right-to-left. Reading order is the printed one: rows first,
+	// then left to right within a row.
+	it("reads a side-by-side pair left to right when their baselines differ slightly", () => {
+		const p = page(
+			line("Little box", 264, 355), line("Sack (empty)", 323, 354),
+			line("Sawdust", 264, 364), line("Tallow", 323, 363),
+			line("Twine/cord", 264, 374), line("Waterskin", 323, 373),
+			line("Whetstone", 264, 383), line("Whistle", 323, 382));
+		const marks = [...gutter(260, [358, 367, 377, 386], "square"),
+			...gutter(318, [357, 366, 376, 385], "square")];
+		expect(insertItemNames(p, marks)).toEqual([
+			"Little box", "Sack", "Sawdust", "Tallow",
+			"Twine/cord", "Waterskin", "Whetstone", "Whistle"]);
+	});
+
 	// The insert shares its spread with the Ranger's Animal Companion sheet, whose rows are marked the
 	// same way. Only the left page is the inventory.
 	it("stops at the spread's midpoint", () => {

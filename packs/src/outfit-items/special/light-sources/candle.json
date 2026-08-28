@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "candle",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 0,
 		"note": "lasts ~1 hour",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

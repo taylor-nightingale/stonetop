@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "thick-hides",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 2,
 		"note": "1 armor",
 		"resource": null,
-		"twoCol": false,
 		"armor": {
 			"base": 1
 		},

@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "needle-thread",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

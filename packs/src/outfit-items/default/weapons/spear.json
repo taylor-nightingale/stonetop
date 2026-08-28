@@ -1,15 +1,15 @@
 {
 	"_id": "jht3X13npgW2zMj5",
 	"_key": "!items!jht3X13npgW2zMj5",
-	"name": "Spear, iron",
+	"name": "Spear",
 	"type": "outfitItem",
 	"system": {
 		"slug": "spear",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "x piercing",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

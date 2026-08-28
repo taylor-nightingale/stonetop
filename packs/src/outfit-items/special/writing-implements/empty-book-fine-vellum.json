@@ -1,16 +1,16 @@
 {
 	"_id": "CGs99BccWB3ACjal",
 	"_key": "!items!CGs99BccWB3ACjal",
-	"name": "Empty book, fine vellum",
+	"name": "Empty book",
 	"type": "outfitItem",
 	"system": {
 		"slug": "empty-book-fine-vellum",
+		"qualifier": "fine vellum",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 2,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

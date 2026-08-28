@@ -1,16 +1,16 @@
 {
 	"_id": "NSEBB5agxrh52EN8",
 	"_key": "!items!NSEBB5agxrh52EN8",
-	"name": "Mace or flail, iron",
+	"name": "Mace or flail",
 	"type": "outfitItem",
 	"system": {
 		"slug": "mace-or-flail-iron",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

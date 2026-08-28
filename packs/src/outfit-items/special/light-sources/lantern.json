@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "lantern",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 0,
@@ -20,7 +21,6 @@
 				"hours"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { BookItem } from "../../scripts/import/pdf/items.js";
 import {
 	normalizeName, InsertList, resolveRow, toOutfitItemDoc, toFolderDoc, sectionTitle,
-	followerName, followerSlug, isGenerated, CATEGORY_ROWS, OUTFIT_PACK, FOLLOWER_PACK,
+	followerName, followerSlug, isGenerated, CATEGORY_ROWS, OUTFIT_PACK, FOLLOWER_PACK, splitPrintedName, fullOutfitItemName,
 } from "../../scripts/import/item-docs.js";
 
 const bookItem = (name, patch = {}) => Object.assign(new BookItem("common", "weapons"), { name }, patch);
@@ -14,6 +14,41 @@ describe("normalizeName", () => {
 	it("sees through the two lists' punctuation and and/or", () => {
 		expect(normalizeName("Mattock, iron and/or wood")).toBe("mattock iron or wood");
 		expect(normalizeName("Rope, ~25 feet")).toBe(normalizeName("Rope, ~25 ft"));
+	});
+});
+
+describe("splitPrintedName", () => {
+	// The book sets "Rope, ~25 ft" with only the first half as the object — the rest tells you which
+	// rope. The sheet bolds the first half and not the second, so the two are stored apart.
+	it("splits an item from what qualifies it, at the first comma", () => {
+		expect(splitPrintedName("Rope, ~25 ft")).toEqual({ name: "Rope", qualifier: "~25 ft" });
+	});
+
+	it("keeps every later comma with the qualifier", () => {
+		expect(splitPrintedName("Javelins, a few, iron")).toEqual({ name: "Javelins", qualifier: "a few, iron" });
+	});
+
+	it("leaves a name the book qualifies with nothing whole", () => {
+		expect(splitPrintedName("Shield")).toEqual({ name: "Shield", qualifier: "" });
+	});
+
+	it("does not mistake a slash for a comma", () => {
+		expect(splitPrintedName("Sledge/litter/travois, roll-out"))
+			.toEqual({ name: "Sledge/litter/travois", qualifier: "roll-out" });
+	});
+});
+
+describe("fullOutfitItemName", () => {
+	it("rejoins the halves into the name the book prints", () => {
+		expect(fullOutfitItemName({ name: "Rope", system: { qualifier: "~25 ft" } })).toBe("Rope, ~25 ft");
+	});
+
+	it("is the bare name when nothing qualifies it", () => {
+		expect(fullOutfitItemName({ name: "Shield", system: { qualifier: "" } })).toBe("Shield");
+	});
+
+	it("tolerates a document with no system at all", () => {
+		expect(fullOutfitItemName({ name: "Bare" })).toBe("Bare");
 	});
 });
 
@@ -35,7 +70,9 @@ describe("InsertList", () => {
 });
 
 describe("resolveRow", () => {
-	const byName = new Map([[normalizeName("Sack (empty)"), { _id: "existingSackId00" }]]);
+	// Keyed the way build-items keys it: on the name the BOOK prints, which for a stored item is its
+	// two halves rejoined (fullOutfitItemName). The pack's sack is "Sack", its "(empty)" being a note.
+	const byName = new Map([[normalizeName("Sack"), { _id: "existingSackId00" }]]);
 	const insert = new InsertList(["Sack (empty)", "Maul, iron"]);
 
 	it("points a row at the item that already ships, under either list's name", () => {

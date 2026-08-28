@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "extra-arrows",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "x piercing",
@@ -17,7 +18,6 @@
 				"all out"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

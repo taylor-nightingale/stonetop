@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "cart-or-sleigh",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 2,
 		"note": "requires donkey/mule/horse",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "spare-parts-for-wagon-cart-sleigh",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 2,
@@ -18,7 +19,6 @@
 				"uses"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

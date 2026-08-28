@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "oil-lamp",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "",
@@ -17,7 +18,6 @@
 				"hours"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

@@ -22,4 +22,4 @@
 * bug: see img_2 the check boxes get split sometimes
 * allow copy paste of names and text for names/neighbors
 * bug: remove generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
-k
+

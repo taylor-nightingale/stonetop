@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "extra-oil",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "for lamp/lantern, useless as a weapon",
@@ -18,7 +19,6 @@
 				"hours"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

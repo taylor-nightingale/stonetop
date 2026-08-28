@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "rushlight",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"note": "lasts ~15-30 min",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

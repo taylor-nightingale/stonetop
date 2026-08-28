@@ -48,13 +48,13 @@ export class CharacterSubsystems {
 		const factory = new ChoiceGroupControllerFactory(actor);
 
 		// ── Subsystems, in dependency order ──────────────────────────────────────────────────────
-		const followers   = new CharacterFollowers(actor, repos.followers, resourceController, factory, repos.inventory, grantedItems);
+		const followers   = new CharacterFollowers(actor, repos.followers, resourceController, factory, repos.inventory, grantedItems, repos.inventoryPage);
 		const background  = new CharacterBackgrounds(actor, factory, resourceController);
 		const requirements = new MoveRequirements(vitals, playbookSelection, repos.moves, repos.playbooks);
 		const moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory, grantedItems, requirements);
 		const playbook    = new CharacterPlaybook(actor, background, factory, origin, vitals, moves, playbookSelection);
 		const possessions = new CharacterPossessions(actor, moves, repos.possessions, factory, outfitSync, grantedItems);
-		const inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, resourceController, repos.steading);
+		const inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, resourceController, repos.steading, repos.inventoryPage);
 		const arcana      = new CharacterArcana(actor, repos.arcana, stats, followers, factory, moves, outfitSync, grantedItems);
 		const inserts     = new CharacterInserts(actor, factory, moves, repos.inserts, grantedItems);
 

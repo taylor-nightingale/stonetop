@@ -1,10 +1,11 @@
 {
 	"_id": "L4Pl5uCQnBg7U2x1",
 	"_key": "!items!L4Pl5uCQnBg7U2x1",
-	"name": "Skin of whisky, fine",
+	"name": "Skin of whisky",
 	"type": "outfitItem",
 	"system": {
 		"slug": "skin-of-whisky-fine",
+		"qualifier": "fine",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 0,
@@ -17,7 +18,6 @@
 				"uses; share a use with someone to get advantage on Persuade"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

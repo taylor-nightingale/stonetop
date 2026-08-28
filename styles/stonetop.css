@@ -1519,12 +1519,18 @@ body,
 	container-type: inline-size;
 }
 
+/* `scrollbar-gutter: stable` keeps the scrollbar's track reserved whether or not the tab is
+   currently scrolling, so nothing at the right edge is either overlapped or nudged when it appears.
+   The inventory's small column ends in resource pips flush against that edge — the scrollbar sat on
+   top of Whisky's second ○ — and a tab that reflows the moment it overflows is its own bug. */
 .stonetop-sheet-layout .sheet-body {
 	flex: 1;
 	min-width: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
 	height: 100%;
+	scrollbar-gutter: stable;
+	padding-right: 2px;
 }
 
 .stonetop-moves-sidebar {
@@ -2274,6 +2280,17 @@ button.stonetop-view-toggle.is-active {
 	margin-left: 1px;
 }
 
+/* The item itself is set bold and what qualifies it is not — "**Rope**, ~25 ft" — which is what
+   separates the thing you carry from the tags and notes trailing it. The two halves are stored
+   apart (OutfitItemData.qualifier), so neither is derived from the other here. */
+.stonetop-inv-name {
+	font-weight: 700;
+}
+
+.stonetop-inv-qualifier {
+	font-weight: 400;
+}
+
 /* The book's parenthetical after an item name — italic tags then the roman note, in ONE group
    (see outfit-item-row.hbs). The brackets themselves are roman, like the note. */
 .stonetop-inv-parens {
@@ -2999,10 +3016,15 @@ button.stonetop-xp-toggle {
 	display: inline-block;
 }
 
+/* Squares carry no margin of their own, so in the pool they'd inherit the UA checkbox margin and
+   sit wider apart than the diamond pool above them. */
+.stonetop-supplies-pool .stonetop-inv-square {
+	margin: 0 2px;
+}
+
 .stonetop-supplies-pool-note {
 	font-size: var(--fs-body);
 	color: var(--st-ink-soft);
-	font-style: italic;
 	margin: 0 0 4px;
 }
 

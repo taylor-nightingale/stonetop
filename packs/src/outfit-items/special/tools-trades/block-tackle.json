@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "block-tackle",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 0,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

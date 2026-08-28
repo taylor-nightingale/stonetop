@@ -1,15 +1,15 @@
 {
 	"_id": "enq522wjZRL9OaYs",
 	"_key": "!items!enq522wjZRL9OaYs",
-	"name": "Mattock, iron",
+	"name": "Mattock",
 	"type": "outfitItem",
 	"system": {
 		"slug": "mattock",
+		"qualifier": "iron",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

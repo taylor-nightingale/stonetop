@@ -5,12 +5,12 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "silver-alloy-dagger",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"value": 2,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

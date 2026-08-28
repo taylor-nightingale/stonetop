@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "bow-arrows",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "x piercing",
@@ -16,7 +17,6 @@
 				"all out"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

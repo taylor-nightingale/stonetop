@@ -1,16 +1,16 @@
 {
 	"_id": "1dVDKynlfRQ8kQVh",
 	"_key": "!items!1dVDKynlfRQ8kQVh",
-	"name": "Barrel of whisky, fine",
+	"name": "Barrel of whisky",
 	"type": "outfitItem",
 	"system": {
 		"slug": "barrel-of-whisky-fine",
+		"qualifier": "fine",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"value": 2,
 		"note": "",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

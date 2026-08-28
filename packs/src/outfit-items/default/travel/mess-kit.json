@@ -5,11 +5,11 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "mess-kit",
+		"qualifier": "",
 		"inventoryColumn": "regular",
 		"weight": 1,
 		"note": "requires fire & water, makes Supplies last longer",
 		"resource": null,
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": []

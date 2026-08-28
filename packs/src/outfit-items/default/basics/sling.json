@@ -5,6 +5,7 @@
 	"type": "outfitItem",
 	"system": {
 		"slug": "sling",
+		"qualifier": "",
 		"inventoryColumn": "small",
 		"weight": 1,
 		"note": "",
@@ -16,7 +17,6 @@
 				"all out"
 			]
 		},
-		"twoCol": false,
 		"armor": null,
 		"source": null,
 		"tagList": [

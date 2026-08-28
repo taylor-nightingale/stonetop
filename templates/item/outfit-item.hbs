@@ -46,9 +46,9 @@
 					<option value="small" {{#if (eq system.inventoryColumn "small")}}selected{{/if}}>{{localize "stonetop.outfitItem.columnSmall"}}</option>
 				</select>
 			</label>
-			<label class="stonetop-arcanum-field--check">
-				<input type="checkbox" name="system.twoCol" {{#if system.twoCol}}checked{{/if}}>
-				<span>{{localize "stonetop.outfitItem.twoCol"}}</span>
+			<label>{{localize "stonetop.outfitItem.qualifier"}}
+				<input type="text" name="system.qualifier" value="{{system.qualifier}}"
+				       placeholder="{{localize 'stonetop.outfitItem.qualifierPlaceholder'}}">
 			</label>
 		</div>
 		<p class="stonetop-outfit-item-hint">{{localize "stonetop.outfitItem.weightHint"}}</p>

@@ -1,16 +1,16 @@
 {
 	"_id": "gSsukHN8Hzy3kciO",
 	"_key": "!items!gSsukHN8Hzy3kciO",
-	"name": "Hauberk/cuirass/scale, iron or bronze",
+	"name": "Hauberk/cuirass/scale",
 	"type": "outfitItem",
 	"system": {
 		"slug": "hauberk-cuirass-scale-iron-or-bronze",
+		"qualifier": "iron or bronze",
 		"inventoryColumn": "regular",
 		"weight": 2,
 		"value": 2,
 		"note": "2 armor",
 		"resource": null,
-		"twoCol": false,
 		"armor": {
 			"base": 2
 		},
