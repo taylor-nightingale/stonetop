@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { BUILDERS } from "../../scripts/build-packs.js";
+import { BUILDERS, BUILDER_ARGS } from "../../scripts/build-packs.js";
 
 const root = join(import.meta.dirname, "../..");
 
@@ -19,6 +19,16 @@ describe("build-packs builder list", () => {
 				.map((f) => `${dir}/${f}`))
 			.sort();
 		expect([...BUILDERS].sort()).toEqual(onDisk);
+	});
+
+	// build-arcana writes nothing without these — it is a report generator by default, so a flagless
+	// entry here silently drops every arcanum card out of the rebuild (and out of the regen diff).
+	it("tells build-arcana to write the arcana cards", () => {
+		expect(BUILDER_ARGS["scripts/import/pdf/build-arcana.js"]).toEqual(["--write-arcana", "--write-minor"]);
+	});
+
+	it("only passes args to builders it actually lists", () => {
+		for (const builder of Object.keys(BUILDER_ARGS)) expect(BUILDERS).toContain(builder);
 	});
 
 	it("builds npc and arcana sources before the journal that links to them, and the journal before the artifacts extracted from it", () => {

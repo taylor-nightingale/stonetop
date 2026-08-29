@@ -25,7 +25,7 @@ import { parseItemTables, parseInsertItems, knownTagSlugs } from "./pdf/items.js
 import { loadItemUuidsBySlug } from "./pdf/crossref.js";
 import { parseGearTerms } from "./pdf/tag-glossary.js";
 import { applyBookOneEdits } from "./pdf/manual-edits.js";
-import { normalizeName, InsertList, resolveTableRows, sectionTitle, linkCoinPhrases, OUTFIT_PACK } from "./item-docs.js";
+import { normalizeName, fullOutfitItemName, InsertList, resolveTableRows, sectionTitle, linkCoinPhrases, OUTFIT_PACK } from "./item-docs.js";
 import { renderCategory } from "./item-reference.js";
 
 const REFERENCE_PACK = "reference";
@@ -53,14 +53,17 @@ const ARTICLES = [
 
 const readJson = (f) => JSON.parse(readFileSync(f, "utf8"));
 
-/** Every outfit item already in the pack, by normalized name — what a table row resolves against. */
+/** Every outfit item already in the pack, keyed the way the BOOK prints the name — `name` holds only
+ *  the object ("Hatchet"), `system.qualifier` the rest ("iron"), and a value-table row is looked up as
+ *  the two rejoined. Keying on the bare name instead makes every qualified item miss, and resolveRow
+ *  then falls back to a deterministic id no document has — a dead @UUID on the gear page. */
 function outfitItemsByName() {
 	const walk = (d) => readdirSync(d).flatMap((n) => {
 		const f = path.join(d, n);
 		if (statSync(f).isDirectory()) return n === "_folders" ? [] : walk(f);
 		return n.endsWith(".json") ? [f] : [];
 	});
-	return new Map(walk(OUTFIT_DIR).map((f) => readJson(f)).map((d) => [normalizeName(d.name), d]));
+	return new Map(walk(OUTFIT_DIR).map((f) => readJson(f)).map((d) => [normalizeName(fullOutfitItemName(d)), d]));
 }
 
 /** A pointer from one article to the gear page, for a section that defers to it. */

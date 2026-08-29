@@ -39,7 +39,7 @@
 								"title": null,
 								"text": "… determine the scroll’s origin and be able to read the author’s language."
 							},
-							"slug": "determine-scroll",
+							"slug": "determine-scrolls",
 							"track": {
 								"max": 1
 							}
@@ -61,7 +61,7 @@
 								"title": null,
 								"text": "… acquire the recipe’s unusual and unsavory ingredients (Value 1)."
 							},
-							"slug": "acquire-recipe",
+							"slug": "acquire-recipes",
 							"track": {
 								"max": 1
 							}

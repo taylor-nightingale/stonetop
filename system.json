@@ -3,7 +3,7 @@
 	"id": "stonetop",
 	"title": "Stonetop",
 	"description": "An unofficial system for playing Stonetop in Foundry VTT.",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"compatibility": {
 		"minimum": "13",
 		"verified": "14"
@@ -27,8 +27,10 @@
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": ["css", "hbs", "json"],
+			"extensions": ["css", "js", "hbs", "json"],
 			"paths": [
+				"stonetop.js",
+				"module",
 				"styles",
 				"languages",
 				"templates"
@@ -36,7 +38,7 @@
 		}
 	},
 	"esmodules": [
-		"dist/stonetop.js"
+		"stonetop.js"
 	],
 	"styles": [
 		"styles/themes/palette.css",

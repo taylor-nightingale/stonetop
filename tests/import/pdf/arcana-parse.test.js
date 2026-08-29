@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, stripMarkers, joinSplitItemLine, uniqueUnlockSlugs, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -27,9 +27,38 @@ describe("parseTrack", () => {
 	});
 });
 
+describe("unlockSlug", () => {
+	it("closes up an apostrophe rather than splitting the word", () => {
+		expect(unlockSlug("… tell another’s secret", 3)).toBe("tell-anothers-secret");
+	});
+	it("takes the requested number of salient words", () => {
+		expect(unlockSlug("… learn the Words of Unbeing, which will send the spirit home.")).toBe("learn-words");
+		expect(unlockSlug("… learn the Words of Unbeing, which will send the spirit home.", 3)).toBe("learn-words-unbeing");
+	});
+});
+
 describe("stripMarkers", () => {
-	it("removes box/circle/diamond glyphs from markdown text, keeping emphasis", () => {
+	it("removes box/circle glyphs from markdown text, keeping emphasis", () => {
 		expect(stripMarkers("◻◻ **You** lose yourself ◻")).toBe("**You** lose yourself");
+	});
+	it("drops a leading ◇ — there it's the item's bullet, not prose", () => {
+		expect(stripMarkers("◇ A sack of seeds")).toBe("A sack of seeds");
+		expect(stripMarkers("○ ○ □ Your emotions dull.")).toBe("Your emotions dull.");
+	});
+	it("keeps an inline ◇ — the book writes its item-weight marker into the sentence", () => {
+		expect(stripMarkers("Manipulate an unattended item (small or ◇, no bigger)"))
+			.toBe("Manipulate an unattended item (small or ◇, no bigger)");
+		expect(stripMarkers("□ Retrieve an ◇◇ acorn")).toBe("Retrieve an ◇◇ acorn");
+	});
+	it("drops a ◇ welded into a word — a mark mis-placed from a neighbouring row", () => {
+		expect(stripMarkers("at least to s◇tar◇t).")).toBe("at least to start).");
+	});
+	it("sets adjacent pips tight, as the book prints them", () => {
+		expect(stripMarkers("a pair of hides into a magnificent ◇ ◇ beznpol scale coat"))
+			.toBe("a pair of hides into a magnificent ◇◇ beznpol scale coat");
+	});
+	it("drops a trailing ◇ track mark", () => {
+		expect(stripMarkers("You lose yourself in a blood-rage. ◇")).toBe("You lose yourself in a blood-rage.");
 	});
 });
 
@@ -40,6 +69,85 @@ describe("tagText (disguise tags for a diamond-less front)", () => {
 	});
 	it("returns null for an empty tag line", () => {
 		expect(tagText("  ◇  ")).toBeNull();
+	});
+});
+
+describe("uniqueUnlockSlugs", () => {
+	const row = (text, slug) => ({ type: "entry", slug, content: { title: null, text } });
+
+	it("widens a colliding slug with the next word of its own text", () => {
+		// The disturbing mask prints both of these; two salient words cannot tell them apart.
+		const list = [
+			row("… tell the mask a secret, something no one else knows about you.", "tell-mask"),
+			row("… tell the mask another person’s secret, something you promised never to tell.", "tell-mask"),
+		];
+		expect(uniqueUnlockSlugs(list).map((r) => r.slug)).toEqual(["tell-mask", "tell-mask-another"]);
+	});
+
+	it("keeps widening until the slugs are actually distinct", () => {
+		// The oversized crown's Words of Being / Words of Unbeing.
+		const list = [
+			row("… learn the Words of Being, which will force the spirit to manifest.", "learn-words"),
+			row("… learn the Words of Unbeing, which will send the spirit home.", "learn-words"),
+		];
+		expect(uniqueUnlockSlugs(list).map((r) => r.slug)).toEqual(["learn-words", "learn-words-unbeing"]);
+	});
+
+	it("leaves already-distinct slugs alone", () => {
+		const list = [row("… don the mask while alone.", "don-mask"), row("… watch someone unnoticed.", "watch-someone")];
+		expect(uniqueUnlockSlugs(list).map((r) => r.slug)).toEqual(["don-mask", "watch-someone"]);
+	});
+
+	it("separates identical text by widening while there are still words to add", () => {
+		const list = [row("… tell the mask a secret.", "tell-mask"), row("… tell the mask a secret.", "tell-mask")];
+		expect(uniqueUnlockSlugs(list).map((r) => r.slug)).toEqual(["tell-mask", "tell-mask-secret"]);
+	});
+
+	it("numbers rows when there are no further words to widen with", () => {
+		const list = [row("… tell.", "tell"), row("… tell.", "tell"), row("… tell.", "tell")];
+		expect(uniqueUnlockSlugs(list).map((r) => r.slug)).toEqual(["tell", "tell-2", "tell-3"]);
+	});
+
+	it("skips rows with no slug (the intro/description entries)", () => {
+		const list = [row("A stiff, leathery mask.", undefined), row("… don the mask.", "don-mask")];
+		expect(uniqueUnlockSlugs(list).map((r) => r.slug)).toEqual([undefined, "don-mask"]);
+	});
+});
+
+describe("joinSplitItemLine", () => {
+	// Opening the Way (time-worn missive): the book prints one line, but the leading ◇ reads as a
+	// bullet, so the layout hands back a one-item list plus a para holding the parenthesised tail.
+	const split = () => ([
+		_heading("Opening the Way"),
+		_list(["◇  pouch of powdered cinnabar "]),
+		_para(" ( ○ ○ ○   uses, Value 2) ○"),
+		_para("When you use ink of powdered cinnabar…"),
+	]);
+
+	it("rejoins the ◇-led name with the parenthesised tail as one para", () => {
+		const out = joinSplitItemLine(split());
+		expect(out).toHaveLength(3);
+		expect(out[1].type).toBe("para");
+		expect(out[1].lines.map((l) => l.text).join("")).toBe("◇  pouch of powdered cinnabar  ( ○ ○ ○   uses, Value 2) ○");
+		expect(out[2].lines[0].text).toBe("When you use ink of powdered cinnabar…");
+	});
+
+	it("leaves a ◇ item that carries its own '(' alone", () => {
+		const blocks = split();
+		blocks[1] = _list(["◇  a lantern (bright) "]);
+		expect(joinSplitItemLine(blocks)).toHaveLength(4);
+	});
+
+	it("leaves a ◇ item followed by ordinary prose alone", () => {
+		const blocks = split();
+		blocks[2] = _para("When you light it…");
+		expect(joinSplitItemLine(blocks)).toHaveLength(4);
+	});
+
+	it("leaves a multi-item list alone — that is a real bullet list", () => {
+		const blocks = split();
+		blocks[1] = _list(["◇  one "], ["◇  two "]);
+		expect(joinSplitItemLine(blocks)).toHaveLength(4);
 	});
 });
 

@@ -39,11 +39,20 @@ export const BUILDERS = [
 	"scripts/import/build-book-one.js",
 ];
 
+// Flags a builder needs to write everything it owns. build-arcana writes the arcana CARDS only when
+// asked — with no flags it writes nothing at all, just its review report. Leaving it flagless here
+// meant the cards were never re-derived, so a broken heuristic could sit in the back parser
+// indefinitely with no diff and no failing test to show for it.
+export const BUILDER_ARGS = {
+	"scripts/import/pdf/build-arcana.js": ["--write-arcana", "--write-minor"],
+};
+
 function main() {
 	const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 	for (const builder of BUILDERS) {
 		console.log(`\n=== ${builder} ===`);
-		const { status } = spawnSync(process.execPath, [join(root, builder)], { stdio: "inherit" });
+		const args = BUILDER_ARGS[builder] ?? [];
+		const { status } = spawnSync(process.execPath, [join(root, builder), ...args], { stdio: "inherit" });
 		if (status !== 0) {
 			console.error(`${builder} failed (exit ${status}); stopping.`);
 			process.exit(status ?? 1);

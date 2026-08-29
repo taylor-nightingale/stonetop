@@ -48,6 +48,18 @@ describe("parseMarkers", () => {
 		expect(parseMarkers(diamond)[0].kind).toBe("diamond");
 	});
 
+	it("classifies a ROUNDED box as square, not circle (every major-arcana checkbox)", () => {
+		// Four corner arcs joined by four straight sides. It is mostly-curved and fills its bbox, so
+		// the hull ratio alone reads it as ○ — the straight sides are what make it a □. Shape taken
+		// from the Noruba's Ice Sphere back (Book II p.274), where every move and consequence uses it.
+		const rounded = `<stroke_path color="0 0 0" transform="1 0 0 -1 432.9 416.6">` +
+			`<moveto x="1" y="0"/><lineto x="4" y="0"/><curveto x1="4.6" y1="0" x2="5" y2="-0.4" x3="5" y3="-1"/>` +
+			`<lineto x="5" y="-4"/><curveto x1="5" y1="-4.6" x2="4.6" y2="-5" x3="4" y3="-5"/>` +
+			`<lineto x="1" y="-5"/><curveto x1="0.4" y1="-5" x2="0" y2="-4.6" x3="0" y3="-4"/>` +
+			`<lineto x="0" y="-1"/><curveto x1="0" y1="-0.4" x2="0.4" y2="0" x3="1" y3="0"/></stroke_path>`;
+		expect(parseMarkers(rounded)[0].kind).toBe("square");
+	});
+
 	it("classifies a rotated straight-sided square (the artifact weight pip) as diamond", () => {
 		// Vertices at the bbox edge midpoints — the hull fills ~half the bbox, unlike an upright
 		// checkbox whose corners fill it entirely. Shape taken from a Book II artifact tag line.

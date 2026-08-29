@@ -17,6 +17,7 @@
 			"mute",
 			"gullible"
 		],
+		"tagOptions": [],
 		"hp": {
 			"value": 0,
 			"max": 13

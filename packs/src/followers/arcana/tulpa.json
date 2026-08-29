@@ -14,6 +14,18 @@
 			"tiny",
 			"naive"
 		],
+		"tagOptions": [
+			"Spirit",
+			"construct",
+			"tiny",
+			"naive",
+			"eager",
+			"fierce",
+			"kind",
+			"sly",
+			"timid",
+			"willful"
+		],
 		"hp": {
 			"value": 0,
 			"max": 8
@@ -65,7 +77,7 @@
 						"slug": "carry-manipulate-a-item",
 						"content": {
 							"title": null,
-							"text": "Carry/manipulate a item"
+							"text": "Carry/manipulate a ◇ item"
 						},
 						"track": {
 							"max": 1
@@ -98,19 +110,7 @@
 		],
 		"moves": "- Manifest a form of dust/snow/vapor",
 		"description": "",
-		"notes": "",
-		"tagOptions": [
-			"Spirit",
-			"construct",
-			"tiny",
-			"naive",
-			"eager",
-			"fierce",
-			"kind",
-			"sly",
-			"timid",
-			"willful"
-		]
+		"notes": ""
 	},
 	"flags": {},
 	"folder": "BNaYX2Y4eMe7EOPK"

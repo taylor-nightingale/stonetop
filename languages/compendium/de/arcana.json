@@ -818,7 +818,7 @@
       "source": "… tell the mask a secret, something no one else knows about you (tell the GM and other players what it is).",
       "text": ""
     },
-    "front/choices/disturbing-mask/tell-mask-anothers-secret/text": {
+    "front/choices/disturbing-mask/tell-mask-another/text": {
       "source": "… tell the mask another person’s secret, something that you’ve promised never to tell (tell the GM and other players what it is).",
       "text": ""
     },
@@ -1138,7 +1138,7 @@
       "source": "… you must decipher the Maker-runes.",
       "text": ""
     },
-    "front/choices/half-buried-plaque/ll-take/text": {
+    "front/choices/half-buried-plaque/itll-take/text": {
       "source": "… it’ll take a few weeks of study.",
       "text": ""
     },
@@ -1677,7 +1677,7 @@
       "text": ""
     },
     "front/choices/mindgem/recover-heart/text": {
-      "source": "Recover its \"heart,\" a chunk of makerglass that forever burns with terrible heat (*indestructible*, *dangerous*)",
+      "source": "Recover its ◇ \"heart,\" a chunk of makerglass that forever burns with terrible heat (*indestructible*, *dangerous*)",
       "text": ""
     },
     "front/choices/mindgem/recover-repair/text": {
@@ -1904,11 +1904,11 @@
       "source": "… you must translate the letter.",
       "text": ""
     },
-    "front/choices/old-scroll-case/ll-take/text": {
+    "front/choices/old-scroll-case/itll-take/text": {
       "source": "… it’ll take a few weeks of dedicated study.",
       "text": ""
     },
-    "front/choices/old-scroll-case/ll-use/text": {
+    "front/choices/old-scroll-case/youll-use/text": {
       "source": "… you’ll use up one of the aetherium ingots (or another source of aetherium).",
       "text": ""
     },
@@ -1984,7 +1984,7 @@
       "source": "… learn the Words of Being, which will force the spirit to manifest.",
       "text": ""
     },
-    "front/choices/oversized-crown/learn-words-of-unbeing/text": {
+    "front/choices/oversized-crown/learn-words-unbeing/text": {
       "source": "… learn the Words of Unbeing, which will send the spirit home.",
       "text": ""
     },
@@ -2806,7 +2806,7 @@
       "source": "Indeed, the looping glyphs carved all over the cave walls sap your will to struggle, to fight, to do much of… anything. You can learn their mysteries, but…",
       "text": ""
     },
-    "front/choices/sealed-cave/ll-take/text": {
+    "front/choices/sealed-cave/itll-take/text": {
       "source": "… it’ll take days of careful transcription, haunted by morose shades.",
       "text": ""
     },
@@ -3264,7 +3264,7 @@
       "source": "or…",
       "text": ""
     },
-    "front/choices/strange-skull-and-antlers/use-blessed/text": {
+    "front/choices/strange-skull-and-antlers/use-blesseds/text": {
       "source": "… use the Blessed’s Call the Spirits move to call up the shade.",
       "text": ""
     },
@@ -3451,7 +3451,7 @@
       "text": ""
     },
     "front/choices/time-worn-missive/acquire-pouch/text": {
-      "source": "… acquire a pouch of powdered cinnabar (1d4+8 uses, Value 2).",
+      "source": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2).",
       "text": ""
     },
     "front/choices/time-worn-missive/attempt-casting/text": {
@@ -3671,7 +3671,7 @@
       "text": ""
     },
     "front/choices/vein-of-milky-crystal/personally-extract/text": {
-      "source": "… personally extract a large hunk of crystal (Value 1) from the vein.",
+      "source": "… personally extract a large ◇ hunk of crystal (Value 1) from the vein.",
       "text": ""
     },
     "front/choices/vein-of-milky-crystal/have-gemcutter/text": {
@@ -3716,7 +3716,7 @@
       "source": "To unlock the secrets of this scroll, you must…",
       "text": ""
     },
-    "front/choices/vellum-scroll/determine-scroll/text": {
+    "front/choices/vellum-scroll/determine-scrolls/text": {
       "source": "… determine the scroll’s origin and be able to read the author’s language.",
       "text": ""
     },
@@ -3724,7 +3724,7 @@
       "source": "… break the cipher in which the recipe is encoded.",
       "text": ""
     },
-    "front/choices/vellum-scroll/acquire-recipe/text": {
+    "front/choices/vellum-scroll/acquire-recipes/text": {
       "source": "… acquire the recipe’s unusual and unsavory ingredients (Value 1).",
       "text": ""
     },

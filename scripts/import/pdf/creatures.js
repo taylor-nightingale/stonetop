@@ -3,7 +3,7 @@ import { deterministicId, documentKey } from "../ids.js";
 import { toSlug } from "../../../src/utils/slug.js";
 import { normalizeGroupTags } from "../../../src/model/data/groupTag.js";
 import { newMember } from "../../../src/utils/followerMemberEdit.js";
-import { stripLoyalty } from "./arcana-parse.js";
+import { stripLoyalty, stripMarkers } from "./arcana-parse.js";
 
 // The GM-locked journal pack the monsters link back to (built later, with deterministic ids).
 export const JOURNAL_PACK = "wider-world-and-other-wonders";
@@ -31,7 +31,10 @@ export function npcUuid(creatureSlug) {
 const isNameFont = (l) => (isAvara(l.font) && l.size < 11) || /FeltTip\w*-Heavy/i.test(l.font);
 // The arcana load pipeline injects □/◻/○/◯/◇ vector markers (pick boxes, loyalty/track pips, item
 // load) into follower stat-block lines; they carry no creature-stat meaning here, so strip them
-// (monster stat blocks have none, so this is a no-op for them).
+// (monster stat blocks have none, so this is a no-op for them). Used for DETECTION — the field and
+// bullet tests read a line with every mark gone. Emitted prose goes through `stripMarkers` instead,
+// which keeps an inline ◇ ("Carry/manipulate a ◇ item"): there it is the book's item-weight marker,
+// written into the move, not furniture.
 const stripMk = (s) => s.replace(/[□◻○◯◇]/g, " ");
 const isMoveBullet = (l) => /^ä\s/.test(stripMk(l.text).trim());
 // A field label must be followed by whitespace or end-of-string — not punctuation — so a wrapped value
@@ -101,7 +104,7 @@ const looksTransition = (t) => /^[A-Z]/.test(t) && t.split(/\s+/).length > 4;
 /** Parse a stat block's lines into structured creature data. */
 export function parseStatBlock(lines) {
 	const out = { name: "", tagList: [], tagOptions: [], hp: { value: 0, max: 0 }, armor: "", damage: "", specialQuality: "", instinct: "", instinctOptions: [], cost: "", costOptions: [], moves: [], description: [] };
-	const text = (l) => stripMk(l.text).replace(/\s{2,}/g, " ").trim();
+	const text = (l) => stripMarkers(l.text);
 
 	// The name is the first name-font line; anything before it is an in-character intro → description.
 	let nameIdx = lines.findIndex(isNameFont);

@@ -14,6 +14,7 @@
 			"confused",
 			"angry"
 		],
+		"tagOptions": [],
 		"hp": {
 			"value": 0,
 			"max": 15

@@ -9,6 +9,7 @@ import { CharacterFollowers } from "../actors/character/CharacterFollowers.js";
 import { ActorOutfitItems } from "../actors/character/ActorOutfitItems.js";
 import { ResourceController } from "../actors/character/ResourceController.js";
 import { migrateChoiceRow } from "./migrateChoices.js";
+import { migrateArcanumUnlockSlugs } from "./migrateArcanumUnlockSlugs.js";
 import { ChoiceGroupDefs } from "../model/data/ChoiceGroupDefs.js";
 import { Selection } from "../model/data/Selection.js";
 import { richTextToHtml } from "./richTextToHtml.js";
@@ -67,8 +68,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateAddedReferenceMoves(actor, repos.moves);
 	await migrateMovePackData(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
-	await migratePlaybookChoices(actor, repos.playbooks);
-	await migratePlaybookIntroductions(actor, repos.playbooks);
+	await migratePlaybookPackData(actor, repos.playbooks);
 
 	const outfitItems         = new ActorOutfitItems(actor);
 	const resourceController  = new ResourceController(actor);
@@ -88,6 +88,9 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateArcanumPackData(actor, repos.arcana, outfitSync);
 	await migrateArcanaMoves(actor, repos.arcana, repos.moves);
 	await migrateArcanumChoiceGroupSlugs(actor);
+	// After migrateArcanumPackData refreshes each arcanum from the pack: the refreshed rows carry the
+	// NEW unlock slugs, so this is what carries the player's ticks over to them.
+	await migrateArcanumUnlockSlugs(actor);
 	await migrateFollowers(actor, repos.followers, resourceController);
 	await migrateArcanaFollowerPackData(actor, repos.followers);
 	await migrateArcanaOwnedFollowers(actor, repos.followers, resourceController);
@@ -622,43 +625,53 @@ export async function migratePlaybookChoiceValues(actor) {
 	}]);
 }
 
-// ── N. Playbook introductions (0.10.0 → 0.10.1) ──────────────────────────────
-
-export async function migratePlaybookIntroductions(actor, playbookRepo) {
+// ── N. Refresh an embedded playbook's authored fields from the pack ──────────
+// An embedded playbook is a copy taken when it was chosen, so regenerating the pack never reaches a
+// character already in play: a background that gained a granted move or its own choice group, a row
+// edited inside a choice group that already existed, a corrected stats note — none of it arrives.
+// Authored fields come from the pack source (matched by slug); player state is preserved by omission —
+// choiceValues, instinctValues, appearanceValues and backgroundValues all survive Foundry's merge.
+// `name` and `img` are deliberately left alone so a GM rename is not clobbered.
+//
+// The SOURCE, not the prepared playbook: prepared data carries the world's language, and copying that
+// onto the character would bake whatever language the migration ran in into the sheet for good.
+export async function migratePlaybookPackData(actor, playbookRepo) {
 	const pbItem = [...actor.items].find(i => i.type === "playbook") ?? null;
-	if (!pbItem) return;
-
-	const intro = pbItem.system?.introductions;
-	if (intro && !Array.isArray(intro) && intro.step4?.list?.[0]?.input !== undefined) return;
-
-	const slug = pbItem.system?.slug;
+	const slug   = pbItem?.system?.slug;
 	if (!slug) return;
 
-	const compendium = await playbookRepo.findSourceBySlug(slug);
-	const newIntro = compendium?.introductions ?? null;
-	if (!newIntro) return;
+	const source = await playbookRepo.findSourceBySlug(slug);
+	if (!source) return;
 
-	await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: { introductions: newIntro } }]);
-}
-
-// ── O. Playbook choices refresh (0.10.0 → 0.10.1) ────────────────────────────
-
-export async function migratePlaybookChoices(actor, playbookRepo) {
-	const pbItem = [...actor.items].find(i => i.type === "playbook") ?? null;
-	if (!pbItem) return;
-
-	const slug = pbItem.system?.slug;
-	if (!slug) return;
-
-	const compendium = await playbookRepo.findSourceBySlug(slug);
-	const compendiumChoices = compendium?.choices ?? [];
-	if (!compendiumChoices.length) return;
-
-	const currentSlugs = new Set((pbItem.system?.choices ?? []).map(g => g.slug));
-	const hasAll = compendiumChoices.every(g => currentSlugs.has(g.slug));
-	if (hasAll) return;
-
-	await actor.updateEmbeddedDocuments("Item", [{ _id: pbItem._id, system: { choices: compendiumChoices } }]);
+	info(`Refreshing the embedded "${pbItem.name}" playbook from pack data.`);
+	// Cleared first for the same reason the possession/arcanum refreshes do it: Foundry merges an
+	// object-field update rather than replacing it, so a key the pack has since dropped would survive a
+	// plain write and go on rendering. The array fields below replace wholesale and need no clearing.
+	await actor.updateEmbeddedDocuments("Item", [{
+		_id:    pbItem._id,
+		system: { specialPossessions: null, instinct: null, appearance: null, introductions: null },
+	}]);
+	await actor.updateEmbeddedDocuments("Item", [{
+		_id:    pbItem._id,
+		system: {
+			description:        source.description       ?? "",
+			hp:                 source.hp                ?? 0,
+			damage:             source.damage            ?? { value: null },
+			statsNote:          source.statsNote         ?? "",
+			startingMovesNote:  source.startingMovesNote ?? "",
+			backgrounds:        source.backgrounds       ?? [],
+			origin:             source.origin            ?? [],
+			followers:          source.followers         ?? [],
+			inserts:            source.inserts           ?? [],
+			moves:              source.moves             ?? [],
+			startingMoves:      source.startingMoves     ?? [],
+			specialPossessions: source.specialPossessions ?? null,
+			instinct:           source.instinct          ?? null,
+			appearance:         source.appearance        ?? null,
+			choices:            source.choices           ?? [],
+			introductions:      source.introductions     ?? null,
+		},
+	}]);
 }
 
 // ── M0. Stamp stable slugs onto embedded arcanum items that lack one ─────────

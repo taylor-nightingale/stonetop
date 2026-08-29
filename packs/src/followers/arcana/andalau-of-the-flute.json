@@ -14,6 +14,7 @@
 			"stealthy",
 			"mischievous"
 		],
+		"tagOptions": [],
 		"hp": {
 			"value": 0,
 			"max": 8

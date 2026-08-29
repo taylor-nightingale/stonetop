@@ -6,7 +6,7 @@
 	"img": "icons/svg/item-bag.svg",
 	"system": {
 		"slug": "a-pot-of-gold",
-		"description": "◇◇ *magical*\n\nA small bronze cauldron, full of glittering coins. At least, that’s what it seems.\n\nWhen you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a purse of gold ◇ (Value 4).\n\nAny “coins” removed from the pot revert to their true form when…\n\n… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
+		"description": "◇◇ *magical*\n\nA small bronze cauldron, full of glittering coins. At least, that’s what it seems.\n\nWhen you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a ◇ purse of gold (Value 4).\n\nAny “coins” removed from the pot revert to their true form when…\n\n… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
 		"resource": null,
 		"outfitItems": [
 			{

@@ -28,6 +28,44 @@ export function spliceGlyph(line, x, g) {
 	return false;
 }
 
+/** The character a vector mark draws. */
+const glyphFor = (kind) => (kind === "circle" ? "○" : kind === "square" ? "□" : "◇");
+
+/** Rejoin a text line that a vector mark split in two. mutool ends a stext line where the page
+ *  interrupts it with vector art, so an inline ◇/○ drawn mid-sentence leaves the tail as its own
+ *  line on the same baseline ("…item (small or " + ", no bigger)"). A tail that starts far enough
+ *  right sorts into the NEXT column and is lost from its sentence entirely (Noruba's Ice Sphere).
+ *  Only joins when the mark FILLS the gap between the two — a wider gap is a table's cells or a
+ *  column boundary the mark happens to sit on, and those must stay apart.
+ *
+ *  A joined mark is ALSO spliced here, and returned in the set so `attachMarkers` skips it: this is
+ *  the one place its line is known for certain (it is the gap the mark sits in), where the ordinary
+ *  nearest-baseline match would have to choose between the joined line and a neighbouring column's
+ *  line on the same row. Mutates `lines`. */
+export function joinMarkerSplitLines(lines, markers) {
+	const isText = (l) => l.spans.some((s) => s.xs);   // a real stext line, not an injected pseudo-line
+	const placed = new Set();
+	for (const mk of markers) {
+		if (mk.kind === "square") continue; // a checkbox leads its item; it never interrupts a sentence
+		for (const head of lines) {
+			if (!isText(head) || head.bbox[2] > mk.x + 1) continue;
+			const tail = lines.find((l) => l !== head && isText(l)
+				&& Math.abs(l.bbox[1] - head.bbox[1]) <= 1        // same baseline
+				&& l.bbox[0] - head.bbox[2] <= mk.w + 3           // the mark fills the gap
+				&& mk.x + mk.w <= l.bbox[0] + 1);
+			if (!tail) continue;
+			head.spans.push(...tail.spans);
+			head.text += tail.text;
+			head.bbox[2] = Math.max(head.bbox[2], tail.bbox[2]);
+			head.bbox[3] = Math.max(head.bbox[3], tail.bbox[3]);
+			lines.splice(lines.indexOf(tail), 1);
+			if (spliceGlyph(head, mk.x, glyphFor(mk.kind))) placed.add(mk);
+			break;
+		}
+	}
+	return placed;
+}
+
 // Drop the resource/outfit check markers (small vector circles/diamonds) inline as glyphs.
 // Align each to the text line it overlaps and merge it into that row; ordering by x then
 // places it. Match by the nearest vertical centre (a marker sits between two rows, so the
@@ -42,7 +80,9 @@ export function spliceGlyph(line, x, g) {
 // minus any belonging to a figure, because the sample insert printed on "Gear and possessions"
 // carries 117 of its own that would otherwise scatter through the prose around it.
 export function attachMarkers(pg, markers) {
+	const placed = joinMarkerSplitLines(pg.lines, markers); // rejoins split lines and places their marks
 	for (const mk of markers) {
+		if (placed.has(mk)) continue;
 		const mid = (l) => (l.bbox[1] + l.bbox[3]) / 2;
 		let line;
 		if (mk.kind === "square") {
@@ -64,7 +104,7 @@ export function attachMarkers(pg, markers) {
 			line = (mk.kind === "diamond" ? pool : (pool.length ? pool : cand)).sort((a, b) => Math.abs(mid(a) - cy) - Math.abs(mid(b) - cy))[0];
 		}
 		const y0 = line ? line.bbox[1] : mk.y;
-		const g = mk.kind === "circle" ? "○" : mk.kind === "square" ? "□" : "◇";
+		const g = glyphFor(mk.kind);
 		// Splice a mark that falls inside a line at its exact character position — circles as well as
 		// diamonds. A pseudo-line can only sort by its x against the line's LEFT edge, so a circle
 		// sitting within a cell lands outside it entirely: "(○ plenty left, low ammo, all out ○ ○)"

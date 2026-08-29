@@ -59,9 +59,20 @@ export function joinMd(lines, { keepDiamonds = false } = {}) {
 // ─── pure helpers ─────────────────────────────────────────────────────────────
 const MARK = /[□◻○◯◇]/g;
 
-/** Remove box/circle/diamond glyphs from text (keeps markdown emphasis), collapse spaces. */
+/** Remove the layout marks from text (keeps markdown emphasis), collapse spaces. A mark run at
+ *  either END of the line is its bullet/checkbox/track and goes, as does every box/circle pip. An
+ *  inline ◇ stays: there it is the book's item-weight marker, written into the sentence ("an
+ *  unattended item (small or ◇, no bigger)", "an ◇◇ acorn"), which is prose — the same distinction
+ *  joinMd draws with `keepDiamonds`. The book always sets that marker as its own token, so a ◇ found
+ *  welded to the end of a word ("at least to s◇tar◇t") is a mark attachMarkers mis-placed from a
+ *  neighbouring row, and goes too. */
 export function stripMarkers(text) {
-	return text.replace(MARK, "").replace(/\s{2,}/g, " ").trim();
+	return text
+		.replace(/^[\s□◻○◯◇]+/, "").replace(/[\s◇]+$/, "")
+		.replace(/[□◻○◯]/g, "")
+		.replace(/(?<=[\p{L}\p{N}])◇+/gu, "")
+		.replace(/◇(?:\s+◇)+/g, (m) => m.replace(/\s+/g, ""))   // adjacent pips set tight, as printed ("an ◇◇ acorn")
+		.replace(/\s{2,}/g, " ").trim();
 }
 
 /** Clean a disguise tag line ("*magical, terrifying*") to a plain tag string ("magical, terrifying").
@@ -238,10 +249,29 @@ export function parseItemLine(text, { name, pips = 0 } = {}) {
 
 const STOP = new Set("a an the to of and or you your must can will would it its is are be with for from while into on at".split(" "));
 /** A deterministic kebab slug from an unlock option's salient words (editorial slugs aren't
- *  mechanically reproducible; this is stable + readable). */
-export function unlockSlug(text) {
-	const words = stripMarkers(text).toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w && !STOP.has(w));
-	return toSlug(words.slice(0, 2).join(" ")) || "step";
+ *  mechanically reproducible; this is stable + readable). Apostrophes close up rather than splitting
+ *  the word, so "another's" reads as one word. `words` widens it — see uniqueUnlockSlugs. */
+export function unlockSlug(text, words = 2) {
+	const parts = stripMarkers(text).toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9\s]/g, " ")
+		.split(/\s+/).filter((w) => w && !STOP.has(w));
+	return toSlug(parts.slice(0, words).join(" ")) || "step";
+}
+
+/** A row's slug is the key its player state is stored under (`choiceValues[group][row]`), so two rows
+ *  in one group must never share one — the disturbing mask offers "tell the mask a secret" AND "tell
+ *  the mask another person's secret", and two salient words cannot tell those apart. Widen a colliding
+ *  slug with the next words of its own text until it is distinct. Mutates the rows; returns the list. */
+export function uniqueUnlockSlugs(list) {
+	const used = new Set();
+	for (const row of list ?? []) {
+		if (!row?.slug) continue;
+		let slug = row.slug;
+		for (let n = 3; used.has(slug) && n <= 8; n++) slug = unlockSlug(row.content?.text ?? "", n);
+		for (let n = 2; used.has(slug); n++) slug = `${row.slug}-${n}`; // identical text — number them
+		row.slug = slug;
+		used.add(slug);
+	}
+	return list;
 }
 
 // ─── major arcana helpers ───────────────────────────────────────────────────────
@@ -406,6 +436,9 @@ export function majorMoveName(text) {
 // ─── blocks → front/back ──────────────────────────────────────────────────────
 const markerKind = (line) => { const t = (line?.text || "").trim(); return /^[□◻]/.test(t) ? "square" : /^◇/.test(t) ? "diamond" : /^[○◯]/.test(t) ? "circle" : null; };
 const rawOf = (lines) => (lines || []).map((l) => l.text).join(" ");
+/** A marker row that is nothing but ◇ pips is the ITEM's load weight, grouped into the option list by
+ *  the column split — not a Marks track. Every real track is drawn with boxes or circles. */
+const isLoadPipRow = (raw) => /^[\s◇]+$/.test(raw);
 const isHead = (b, re) => (b?.type === "heading" || b?.type === "title") && re.test(b.line.text.trim());
 
 /** Split a front-side follower stat block out of a major front's block stream (the Ring of Daagon
@@ -542,6 +575,7 @@ export function parseFront(blocks, { name, slug, major = false }) {
 		const list = [];
 		if (front.description) list.push({ type: "entry", content: { title: null, text: front.description } });
 		list.push(...(front.unlock?.list ?? []));
+		uniqueUnlockSlugs(list);
 		front.choices = list.length ? [{ slug: front.unlock?.slug ?? slug, list }] : [];
 		delete front.description; delete front.unlock;
 		return front;
@@ -562,7 +596,9 @@ export function parseFront(blocks, { name, slug, major = false }) {
 				flushCur();
 				cur = { type: "entry", content: { title: null, text: stripMarkers(joinMd(s.lines)) } };
 			} else if (s.kind === "li") {
-				const { max, text: residual } = parseTrack(rawOf(s.lines));
+				const raw = rawOf(s.lines);
+				const { max, text: residual } = parseTrack(raw);
+				if (max > 0 && !residual && isLoadPipRow(raw)) continue;
 				if (max > 0 && !residual) { flushCur(); list.push({ type: "entry", slug: "marks", content: { title: null, text: "Marks" }, track: { max } }); }
 				else if (max > 0) { flushCur(); const t = stripMarkers(joinMd(s.lines)); const row = { type: "entry", content: { title: null, text: t } }; if (t) row.slug = unlockSlug(t); row.track = { max }; list.push(row); }
 				else if (cur) cur.content.text += "\n- " + stripMarkers(joinMd(s.lines)).replace(/^[ä••\-\s]+/, ""); // an option bullet of the current trigger
@@ -594,7 +630,7 @@ export function parseFront(blocks, { name, slug, major = false }) {
 		const { max, text: residual } = parseTrack(raw); // residual is "" for a pure run ("l l l l" / "○ ○ ○")
 		const text = stripMarkers(joinMd(s.lines));
 		if (max > 0 && !residual) {
-			if (/^[\s◇]+$/.test(raw)) continue; // a stray item load pip (◇) grouped into the list — not a track
+			if (isLoadPipRow(raw)) continue;
 			// A standalone marker run ("l l l l l" / "○ ○ ○") is the Marks track (its length is the max).
 			list.push({ type: "entry", slug: "marks", content: { title: null, text: "Marks" }, track: { max } });
 		} else if (s.kind === "li" || max > 0) {
@@ -665,7 +701,7 @@ function parseMajorBack(blocks, { slug, name }) {
 			else if (/^consequences$/i.test(t)) { flush(); section = "consequences"; }
 			else if (/^spells of\b/i.test(t)) { flush(); section = "spells"; spellsTitle = t; } // the Hec'tumel Codex's pickable spells
 			else if (/^(front|back)$/i.test(t) || /^appendix [cd]/i.test(t)) { flush(); section = null; } // side label / running header ends back content
-			else if (!back.title) back.title = t;
+			else if (!back.title && /\p{L}/u.test(t)) back.title = t; // a letterless heading ("1○1") is page furniture
 			continue;
 		}
 		// A section heading can arrive glued to stray leading markers as a 1-item list ("○ ○ ○ ○
@@ -801,7 +837,7 @@ export function attachItemResource(item, lines) {
 export function parseNameFirstItem(text) {
 	const m = text.match(/^(.*?)\(\s*([○\s]*)([A-Za-z][A-Za-z ]*?)?\s*,?\s*Value\s*(\d+)\s*\)/);
 	if (!m) return null;
-	const name = m[1].replace(/\s+/g, " ").trim();
+	const name = m[1].replace(/^[\s◇○□◻]+/, "").replace(/\s+/g, " ").trim();
 	// The uses pool is every ○ on the item's line(s) — extraction can strand a pip past the closing
 	// paren ("… uses, Value 2) ○"), so count them all (the pouch's 4×3 grid reads 12, not 11), not just
 	// the run captured before the "uses" label.
@@ -828,12 +864,36 @@ export function followerSectionIndex(blocks) {
 
 /** Build the back side (the spell / mysteries) from its blocks. Stat blocks (followers) are handled
  *  by build-arcana via toFollowerDoc; here we collect moves/consequences/resource. */
+/** The book prints a back's outfit item as ONE line — "◇ pouch of powdered cinnabar ( ○ ○ … uses,
+ *  Value 2)" — but its leading ◇ reads as a list bullet, so the layout hands it over split in two: a
+ *  one-item list holding the name, then a para holding the parenthesised tail. Rejoin them into a
+ *  single para, so parseNameFirstItem sees the whole line instead of a nameless track and a stray
+ *  bullet. Only fires on that exact shape: a lone ◇-led item with no "(" of its own, followed by a
+ *  para that opens with one. */
+export function joinSplitItemLine(blocks) {
+	const out = [];
+	for (let i = 0; i < blocks.length; i++) {
+		const b = blocks[i], next = blocks[i + 1];
+		const item = b?.type === "list" && b.items?.length === 1 ? b.items[0] : null;
+		const itemText = item ? item.map((l) => l.text).join(" ") : "";
+		if (item && /^\s*◇[\s◇]*\S/.test(itemText) && !itemText.includes("(")
+			&& next?.type === "para" && /^\s*\(/.test(next.lines?.[0]?.text ?? "")) {
+			out.push({ type: "para", lines: [...item, ...next.lines] });
+			i++;
+			continue;
+		}
+		out.push(b);
+	}
+	return out;
+}
+
 export function parseBack(blocks, { slug, name, major } = {}) {
 	if (major) return parseMajorBack(blocks, { slug, name });
 	// The spell text ends where the follower's stat block begins — every field of it lives on the
 	// follower item, which the back's follower choice group shows inline.
 	const followerAt = followerSectionIndex(blocks);
 	if (followerAt > 0) blocks = blocks.slice(0, followerAt);
+	blocks = joinSplitItemLine(blocks);
 	// A minor arcanum's back is the "spell": a title, an optional item tags line, and flowing
 	// description — no named moves or consequence tracks (those are major-only, kept null/[] for shape).
 	// A clean dice table is promoted to a RollTable (build-arcana writes the pack file) and referenced

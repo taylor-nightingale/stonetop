@@ -6,7 +6,7 @@
 	"system": {
 		"slug": "mindwalking",
 		"moveType": null,
-		"description": "When you **_use the Ice Sphere as a psychic anchor_**, your consciousness leaves your body and walks the world as a spirit, invisible and insubstantial. Roll +INT: **on a 10+**, hold 3 Power; **on a 7-9**, hold 2 Power; **on a 6-**, hold 2 Power and mark a Consequence. While mindwalking, you may spend your Power, 1-for-1 to:\n- Manifest as a ghostly voice and/or presence\n- Manipulate an unattended item (small or\n- Return instantly to the Ice Sphere from any distance For every 2 Consequences you mark, gain one of the following moves:",
+		"description": "When you **_use the Ice Sphere as a psychic anchor_**, your consciousness leaves your body and walks the world as a spirit, invisible and insubstantial. Roll +INT: **on a 10+**, hold 3 Power; **on a 7-9**, hold 2 Power; **on a 6-**, hold 2 Power and mark a Consequence. While mindwalking, you may spend your Power, 1-for-1 to:\n- Manifest as a ghostly voice and/or presence\n- Manipulate an unattended item (small or ◇, no bigger)\n- Return instantly to the Ice Sphere from any distance For every 2 Consequences you mark, gain one of the following moves:",
 		"rollStat": "int",
 		"moveResults": {
 			"success": {

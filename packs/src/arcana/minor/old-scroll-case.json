@@ -50,7 +50,7 @@
 								"title": null,
 								"text": "… it’ll take a few weeks of dedicated study."
 							},
-							"slug": "ll-take",
+							"slug": "itll-take",
 							"track": {
 								"max": 1
 							}
@@ -61,7 +61,7 @@
 								"title": null,
 								"text": "… you’ll use up one of the aetherium ingots (or another source of aetherium)."
 							},
-							"slug": "ll-use",
+							"slug": "youll-use",
 							"track": {
 								"max": 1
 							}

@@ -57,11 +57,14 @@ function hullArea(pts) {
  * Small check markers from the vector layer, drawn as small black outlines (`stroke_path`):
  *   • **circle** ○ and **diamond** ◇ — curved outlines (≥3 arcs, no straight sides), told apart by
  *     how much of their bounding box the shape fills (a circle ≈ 0.9, a diamond ≈ 0.5).
- *   • **square** □ — a straight-sided, roughly-square box (the choice-group pick/track checkbox,
- *     e.g. the Blackwater "Getting there" list and the arcana tracks). The artifact weight pips
- *     are also straight-sided but drawn as a *rotated* square (vertices at the bbox edge
- *     midpoints, so the hull fills ~50% of the bbox where an upright box fills ~100%) — the same
- *     hull-ratio test that separates circles from curved diamonds separates these too.
+ *   • **square** □ — the pick/track checkbox (the Blackwater "Getting there" list, the arcana
+ *     tracks, every major-arcana move and consequence). Drawn two ways: sharp-cornered (all
+ *     `lineto`) and ROUNDED (four corner arcs joined by four straight sides). A rounded box is
+ *     mostly-curved AND fills its bbox, so the hull ratio alone reads it as a ○ — the straight
+ *     sides are what tell them apart. The artifact weight pips are straight-sided too but drawn
+ *     as a *rotated* square (vertices at the bbox edge midpoints, so the hull fills ~50% of the
+ *     bbox where an upright box fills ~100%) — the same hull-ratio test that separates circles
+ *     from curved diamonds separates those out as ◇.
  * Everything else — filled swirls and the swirl+triangle/arrow list bullets — is left alone (the
  * lists detect themselves). Returns `[{x, y, w, h, kind}]` in page coordinates.
  */
@@ -85,8 +88,10 @@ export function parseMarkers(xml) {
 		// Curved outline. The books draw the SAME ◇ three different ways — all curves (Book II), three
 		// curves closed by a `lineto` (Book I's item tables), and two curves with two straight sides
 		// (Book I's inline prose diamond) — so the test is "mostly curved, closed" rather than a
-		// segment count that only one of them satisfies. The hull ratio still decides ◇ from ○.
-		if (curves >= 2 && curves + lines >= 3) kind = hullArea(pts) / (w * h) < 0.7 ? "diamond" : "circle";
+		// segment count that only one of them satisfies. The hull ratio still decides ◇ from ○; a
+		// bbox-filling shape that ALSO has ≥3 straight sides is a rounded box, not a circle.
+		if (curves >= 2 && curves + lines >= 3)
+			kind = hullArea(pts) / (w * h) < 0.7 ? "diamond" : lines >= 3 ? "square" : "circle";
 		else if (lines >= 3 && Math.abs(w - h) <= Math.max(w, h) * 0.35)                             // straight-sided box
 			kind = hullArea(pts) / (w * h) < 0.7 ? "diamond" : "square";                             // upright □ vs rotated ◇
 		else continue;
