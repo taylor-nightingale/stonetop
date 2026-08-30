@@ -29,18 +29,20 @@ describe("steading coinage layout", () => {
 		expect(css).toContain(`.${cls}`);
 	});
 
-	// Each currency's three fields are grid columns, not inline flow — that is what makes the block
-	// render identically at every width.
-	it("lays the three fields out as equal grid columns", () => {
-		const block = css.slice(css.indexOf(".steading-coinage-fields {"));
+	// A caption and the input it names are ONE flex row, so they can never wrap apart — which is the
+	// failure this file was written for, and the reason the block is not simply inline flow.
+	it("keeps each caption on one line with the input it names", () => {
+		const block = css.slice(css.indexOf(".steading-coinage-field {"));
 		const body = block.slice(0, block.indexOf("}"));
-		expect(body).toContain("display: grid");
-		expect(body).toContain("repeat(3, 1fr)");
+		expect(body).toContain("display: flex");
+		expect(body).not.toContain("flex-direction: column");
 	});
 
-	// activateSteppers replaces each input with an inline-flex wrapper at runtime, which sizes to the
-	// input's intrinsic width and leaves the grid column half empty unless the wrapper opts in.
-	it("makes the stepper wrapper fill the coinage column", () => {
-		expect(css).toContain(".stonetop-stepper:has(> .stonetop-coinage-input)");
+	// The coinage steppers are the sheet's steppers. They used to be core's stacked ▲▼ under the
+	// field while a rating three rows above had flanking carets — two idioms for one control.
+	it("uses the sheet's own stepper, not a coinage-only override", () => {
+		expect(css).not.toContain(".stonetop-stepper:has(> .stonetop-coinage-input)");
+		const stepper = css.slice(css.indexOf(".stonetop.sheet.steading .stonetop-stepper {"));
+		expect(stepper.slice(0, stepper.indexOf("}"))).toContain("inline-flex");
 	});
 });

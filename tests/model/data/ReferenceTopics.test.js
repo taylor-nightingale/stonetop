@@ -48,9 +48,18 @@ describe("ReferenceTopics.open", () => {
 		expect(store.getDocument).not.toHaveBeenCalled();
 	});
 
-	it("does nothing without a topic key", async () => {
-		const store = storeWith({ pages: [page()], flags: { stonetop: { topics: ANCHORS } }, sheet: { render: vi.fn() } });
+	// The sheet's own ? asks the general question rather than one about a rating, so it names no
+	// topic — and the article is one page whose headings are all on it, so the top of the page is a
+	// real answer rather than a fallback.
+	it("opens the article at its top when no topic is named", async () => {
+		const render = vi.fn();
+		const store = storeWith({ pages: [page()], flags: { stonetop: { topics: ANCHORS } }, sheet: { render } });
+		expect(await new ReferenceTopics(store).open("")).toBe(true);
+		expect(render).toHaveBeenCalledWith(true, { pageId: page().id });
+	});
+
+	it("still resolves false with no topic when the pack has no article", async () => {
+		const store = storeWith(null);
 		expect(await new ReferenceTopics(store).open("")).toBe(false);
-		expect(store.findEntry).not.toHaveBeenCalled();
 	});
 });

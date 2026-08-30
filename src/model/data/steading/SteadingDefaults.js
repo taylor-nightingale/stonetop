@@ -1,72 +1,78 @@
+import { RatingDefinition } from "./RatingDefinition.js";
+
+// Every ±N rating runs the same range, named once so the five of them can't drift apart.
+const BONUSES = [-1, 0, 1, 2, 3];
+
+const SIZE_TIERS = ["hamlet", "village", "town", "city"];
+
+const DEFENSE_TIERS = ["feeble", "mediocre", "strong", "formidable", "legendary"];
+
+// The two ratings the book arches, extracted from the steading playbook page by
+// scripts/import/pdf/steading-art.js into the gitignored art store. Written out in full rather than
+// built from the slug: the shipped art manifest is scanned out of the source, so a path assembled at
+// runtime is a path the installer never learns to recognize.
+// TRADE DRESS, so these ship with the system rather than living in the gitignored art store: the
+// same call the four season glyphs get. They are the book's own device for its two crowned ratings —
+// small, structural, and meaningless outside this sheet — where the plates beside them (the harvest
+// spread, the residents) are illustrations and stay copyrighted.
+//
+// Committed also means they are always there: no install step, nothing to 404, and the rail reads
+// the same in a world whose owner has never opened the art installer.
+const FORTUNES_ARCH = "systems/stonetop/assets/content/steading/fortunes.png";
+const SURPLUS_ARCH  = "systems/stonetop/assets/content/steading/surplus.png";
+
 export const SteadingDefaults = {
-	fortunes: {
-		title:   "Fortunes",
-		current: 2,
-		bonuses: [-1, 0, 1, 2, 3],
-		options: ["-1", "+0", "+1", "+2", "+3"],
-	},
-	surplus: {
-		title:   "Surplus",
-		current: 1,
-	},
+	fortunes: new RatingDefinition("fortunes", {
+		titleKey: "stonetop.steading.attr.fortunes",
+		shortTitleKey: "stonetop.steading.attrShort.fortunes",
+		badge:    FORTUNES_ARCH,
+		bonuses:  BONUSES,
+	}),
+	surplus: new RatingDefinition("surplus", {
+		// Surplus is a raw count, not a ±N rating: it floors at nothing in store and names no ceiling.
+		titleKey: "stonetop.steading.attr.surplus",
+		shortTitleKey: "stonetop.steading.attrShort.surplus",
+		badge:    SURPLUS_ARCH,
+		min:      0,
+	}),
+
 	attributes: {
-		size: {
-			title:   "Size",
-			// Size is a named tier, not a ±N rating: `values` are the stored tier strings, parallel to
-			// `options` (their display labels). A steading stores one of `values` in system.attributes.size.
-			values:  ["hamlet", "village", "town", "city"],
-			options: [
-				"<em>hamlet</em> (&lt;50 people)",
-				"<em>village</em> (150–350 people)",
-				"<em>town</em> (500–1500 people)",
-				"<em>city</em> (2500+ people)",
-			],
-		},
-		population: {
-			title:   "Population",
-			bonuses: [-1, 0, 1, 2, 3],
-			options: ["-1", "+0", "+1", "+2", "+3"],
-		},
-		prosperity: {
-			title:   "Prosperity",
-			bonuses: [-1, 0, 1, 2, 3],
-			options: ["-1", "+0", "+1", "+2", "+3"],
-		},
-		defenses: {
-			title:   "Defenses",
-			bonuses: [-1, 0, 1, 2, 3],
-			options: [
-				"-1 <em>feeble</em>",
-				"+0 <em>mediocre</em>",
-				"+1 <em>strong</em>",
-				"+2 <em>formidable</em>",
-				"+3 <em>legendary</em>",
-			],
-		},
+		// Size is a named tier, not a number — `values` are the strings a steading stores, and each
+		// carries the book's population band beside its name.
+		size: new RatingDefinition("size", {
+			titleKey: "stonetop.steading.attr.size",
+		shortTitleKey: "stonetop.steading.attrShort.size",
+			values:   SIZE_TIERS,
+			tierKeys: SIZE_TIERS.map(tier => `stonetop.steading.tier.size.${tier}`),
+			bandKeys: SIZE_TIERS.map(tier => `stonetop.steading.band.${tier}`),
+		}),
+		population: new RatingDefinition("population", {
+			titleKey: "stonetop.steading.attr.population",
+		shortTitleKey: "stonetop.steading.attrShort.population",
+			bonuses:  BONUSES,
+		}),
+		prosperity: new RatingDefinition("prosperity", {
+			titleKey: "stonetop.steading.attr.prosperity",
+		shortTitleKey: "stonetop.steading.attrShort.prosperity",
+			bonuses:  BONUSES,
+		}),
+		defenses: new RatingDefinition("defenses", {
+			titleKey: "stonetop.steading.attr.defenses",
+		shortTitleKey: "stonetop.steading.attrShort.defenses",
+			bonuses:  BONUSES,
+			tierKeys: DEFENSE_TIERS.map(tier => `stonetop.steading.tier.defenses.${tier}`),
+		}),
 	},
+
 	// `hindersMoves` lists the move slugs an active debility rolls at disadvantage. The book scopes
 	// *diminished* to three named moves rather than to a rating, so a bare Population roll — or a
 	// future move that happens to roll +Population — is untouched.
 	debilities: [
-		{
-			slug:         "diminished",
-			description:  "<em>diminished</em>, by injury/sickness/doubt",
-			note:         "disadvantage to Deploy, Muster, or Pull Together",
-			hindersMoves: ["deploy", "muster", "pull-together"],
-		},
-		{
-			slug:         "lacking",
-			description:  "<em>lacking</em>, due to shortages/hoarding/distrust",
-			note:         "treat Prosperity as if it's 1 lower than it is",
-			hindersMoves: [],
-		},
-		{
-			slug:         "malcontent",
-			description:  "<em>malcontent</em>, from fear/anger/despair",
-			note:         "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual",
-			hindersMoves: [],
-		},
+		{ slug: "diminished", hindersMoves: ["deploy", "muster", "pull-together"] },
+		{ slug: "lacking",    hindersMoves: [] },
+		{ slug: "malcontent", hindersMoves: [] },
 	],
+
 	content: {
 		description:
 			`<p>Keep this in sync with the GM playbook. Review it at the start of each session.</p>` +

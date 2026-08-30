@@ -4,6 +4,8 @@ import { steadingChangeHandlers } from "./steadingChangeHandlers.js";
 import { RosterActorCreation } from "./RosterActorCreation.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
+import { activateTablistKeys } from "../../utils/tablistKeyboard.js";
+import { RAIL_ACTIONS } from "../../utils/SheetRail.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 
 export function createStonetopSteadingSheetClass(Base) {
@@ -18,6 +20,9 @@ export function createStonetopSteadingSheetClass(Base) {
 			position: { width: 1180, height: 760 },
 			actions: {
 				...MOVE_ROW_ACTIONS,
+				// The rail's drawer toggle, below the layout's breakpoint. Shared with the character
+				// sheet — same component, opposite edge.
+				...RAIL_ACTIONS,
 
 				// --- adds ---
 				addResident:      editOnly(function () { return this._stonetopSteading.addResident(); }),
@@ -67,24 +72,38 @@ export function createStonetopSteadingSheetClass(Base) {
 			},
 		};
 
-		// Core tab machinery end to end: tabGroups seeds from `initial`, the nav anchors carry
+		// Core tab machinery end to end: tabGroups seeds from `initial`, the nav buttons carry
 		// data-action="tab" (core's built-in action → changeTab), and context.tabs comes out of
 		// super._prepareContext via _prepareTabs.
+		//
+		// Four tabs, filed by WHEN you use them rather than by which book page they came off.
+		//
+		// Play is open essentially the whole session, so it carries the things a steading move needs:
+		// the homefront moves themselves, and the two ratings that lead evidence lists. Folk is the
+		// people, Season the ritual, Chronicle the record. The seven page-order tabs split single jobs
+		// across tabs — rolling a move meant Moves, then the header, then Overview — which is the cost
+		// this pays off.
 		static TABS = {
 			primary: {
 				tabs: [
-					{ id: "overview" }, { id: "residents" }, { id: "neighbors" },
-					{ id: "improvements" }, { id: "moves" }, { id: "seasons" }, { id: "notes" },
+					{ id: "play",      label: "stonetop.steading.tabs.play" },
+					{ id: "folk",      label: "stonetop.steading.tabs.folk" },
+					{ id: "season",    label: "stonetop.steading.tabs.season" },
+					{ id: "chronicle", label: "stonetop.steading.tabs.chronicle" },
 				],
-				initial: "overview",
+				initial: "play",
 			},
 		};
 
 		static PARTS = {
 			form: {
-				// No `scrollable`: like the NPC card, scrolling lives on .window-content (which
-				// persists across V2 re-renders), not on the part content that gets replaced.
 				template: "systems/stonetop/templates/actor/steading.hbs",
+				// The TAB scrolls, not the sheet. Scrolling used to live on .window-content, which
+				// took the ledger line and the tab strip with it — and the line exists precisely so a
+				// rating, a condition and the roll mode are readable without going to find them. A
+				// tall Play tab would have reintroduced the scroll-to-the-header step the line was
+				// built to remove. Same arrangement the character sheet uses, for the same reason.
+				scrollable: [".sheet-body", ".stonetop-rail"],
 			},
 		};
 
@@ -134,6 +153,9 @@ export function createStonetopSteadingSheetClass(Base) {
 		async _onFirstRender(context, options) {
 			await super._onFirstRender(context, options);
 			const root = this.element;
+
+			// Arrow keys / Home / End across the tab row — core ships the clicks, not the keyboard model.
+			activateTablistKeys(root);
 
 			// Every choice row on the sheet — improvement tracks, seasonal gains — through the one
 			// shared description of how a choice row behaves.

@@ -29,23 +29,29 @@ const adviceButton = (variant, extra = "") => `
 
 const FIXTURE = `
 <div class="application stonetop sheet steading themed theme-light"><div class="window-content">
-  <section class="steading-header-grid">
-    <div class="steading-stat-panel steading-panel-frame steading-prosperity">
-      <span class="panel-corner panel-corner-tl"></span>
-      <h2>
+  <section class="steading-ledger">
+    <div class="steading-tile steading-prosperity" data-attr="prosperity">
+      <span class="steading-tile-label">
         <button class="steading-stat-roll rollable" type="button" data-roll="prosperity">Prosperity</button>
         ${adviceButton("inline", "stonetop-icon-btn")}
-      </h2>
-      <div class="steading-rating-options"><label class="steading-rating-option">
-        <span class="steading-option-text"><span>+1</span></span>
-      </label></div>
+      </span>
+      <span class="steading-tile-value">
+        <span class="stonetop-stepper">
+          <input type="number" class="stonetop-step steading-attr-input" data-attr="prosperity" value="1" step="1" min="-1" max="3">
+          <button type="button" tabindex="-1" class="stonetop-stepper-btn stonetop-stepper-btn--up" data-step-dir="1">▲</button>
+          <button type="button" tabindex="-1" class="stonetop-stepper-btn stonetop-stepper-btn--down" data-step-dir="-1">▼</button>
+        </span>
+        <em class="steading-tile-adjustment">−1 lacking</em>
+      </span>
     </div>
   </section>
-  <div class="steading-coinage steading-panel-frame">
-    <span class="panel-corner panel-corner-tl"></span>
+  <div class="steading-coinage">
     <div class="steading-coinage-currency">
       <span class="steading-coinage-name">Silver${adviceButton("inline", "stonetop-icon-btn")}</span>
-      <div class="steading-coinage-fields"><label class="steading-coinage-field"><span>Purses</span></label></div>
+      <div class="steading-coinage-fields">
+        <label class="steading-coinage-field"><span>Purses</span><input type="number" class="stonetop-coinage-input" value="0"></label>
+        <label class="steading-coinage-field"><span>Handfuls</span><input type="number" class="stonetop-coinage-input" value="0"></label>
+      </div>
     </div>
     <div class="steading-coinage-currency"><span class="steading-coinage-name">Gold</span></div>
   </div>
@@ -73,7 +79,7 @@ const DIALOG = `
 
 const TARGETS = {
 	panel:   ".steading-prosperity",
-	heading: ".steading-prosperity h2",
+	heading: ".steading-prosperity .steading-tile-label",
 	roll:    ".steading-prosperity .steading-stat-roll",
 	inline:  ".steading-prosperity .stonetop-advice-btn--inline",
 	coinage: ".steading-coinage",
@@ -104,30 +110,31 @@ describe.skipIf(!canProbe())("the advice ? button", () => {
 	});
 
 	// Core's `.window-app button { width: 100% }` is what this catches: a stretched button would be
-	// as wide as the heading and push the rating's name off it.
-	it("takes only the width of its icon, not the whole heading", () => {
+	// as wide as the tile's label and push the rating's name off it.
+	it("takes only the width of its icon, not the whole label", () => {
 		expect(el("inline").values.boxWidth).toBeLessThan(el("heading").values.boxWidth / 2);
 	});
 
-	it("sits at the far end of the heading, after the rating's name", () => {
+	// The tile's label is a fixed grid column, so the ? has no far end to be flush with — the claim
+	// worth pinning is that it follows the rating's name rather than preceding or overlapping it.
+	it("follows the rating's name", () => {
 		expect(el("inline").values.boxLeft).toBeGreaterThanOrEqual(right(el("roll")));
-		// Flush with the heading's end — `margin-left: auto` is what puts it there.
-		expect(Math.abs(right(el("inline")) - right(el("heading")))).toBeLessThan(2);
+		expect(right(el("inline"))).toBeLessThanOrEqual(right(el("heading")) + 2);
 	});
 
-	it("stays on the heading's line rather than adding a row", () => {
+	it("stays on the label's line rather than adding a row", () => {
 		expect(Math.abs(el("inline").boxMiddle - el("heading").boxMiddle)).toBeLessThan(4);
 	});
 
-	// The currency name's hairline is a flex item that grows to the panel edge — so an absolutely
-	// positioned ? sat on top of it, with the line running straight through the glyph. In flow, the
-	// hairline stops where the button starts.
-	it("does not let the currency hairline run through it", () => {
+	// The ? rides the currency's name, and the fields sit beside it on the same row now that coinage
+	// is one line per currency. What has to stay true is that nothing overlaps the glyph: the name and
+	// the fields must begin after it, not under it.
+	it("keeps the currency's fields clear of it", () => {
 		expect(el("coinAdvice").missing).toBe(false);
 		// Flush with the end of the name row it rides, and clear of the fields below.
 		expect(Math.abs(right(el("coinAdvice")) - right(el("coinName")))).toBeLessThan(2);
-		expect(el("coinFields").values.boxTop)
-			.toBeGreaterThanOrEqual(el("coinAdvice").values.boxTop + el("coinAdvice").values.boxHeight - 1);
+		expect(el("coinFields").values.boxLeft)
+			.toBeGreaterThanOrEqual(el("coinAdvice").values.boxLeft + el("coinAdvice").values.boxWidth - 1);
 	});
 
 	it("keeps the ? on the first currency's row only", () => {
@@ -202,11 +209,11 @@ const hoverProbe = () => new RenderProbe([
 
 const hoverFixture = theme => `
 <div class="application stonetop sheet steading themed theme-${theme}"><div class="window-content">
-  <div class="steading-stat-panel steading-panel-frame steading-prosperity">
-    <h2><button class="steading-stat-roll rollable" type="button">Prosperity</button>
+  <div class="steading-tile steading-prosperity">
+    <span class="steading-tile-label"><button class="steading-stat-roll rollable" type="button">Prosperity</button>
       <button type="button" data-action="showAdvice" data-topic="prosperity"
               class="stonetop-advice-btn stonetop-advice-btn--inline stonetop-icon-btn is-hover">
-        <i class="fas fa-circle-question"></i></button></h2>
+        <i class="fas fa-circle-question"></i></button></span>
   </div>
 </div></div>`;
 

@@ -9,7 +9,7 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
 //
 // Asserted as a CASCADE question, not a geometry one. Whether the gutter is reserved is settled the
 // moment the declaration survives core's stylesheet — and the height chain that makes .sheet-body
-// scroll comes from the Foundry window itself (.window-content and .stonetop-sheet-layout are both
+// scroll comes from the Foundry window itself (.window-content and .stonetop-rail-layout are both
 // flex items sized by their container), which a fixture cannot reproduce without standing up the
 // whole window. A probe that renders a non-scrolling body and measures it would pass while saying
 // nothing, which is the failure this directory exists to avoid.
@@ -30,7 +30,7 @@ const probe = new RenderProbe([
 const FIXTURE = `
 <div class="application stonetop sheet character themed theme-light"><div class="window-content">
   <div class="sheet-wrapper"><div class="sheet-main">
-    <div class="stonetop-sheet-layout">
+    <div class="stonetop-rail-layout">
       <div class="sheet-body" id="body">
         <div class="tab equipment active" data-tab="inventory">
           <section class="stonetop-inventory">

@@ -1,22 +1,89 @@
-{{!-- One rating panel (Size / Population / Prosperity / Defenses) — title, optional roll button, the
-      "Starts at …" note, and the ±N / tier option radios. Shared by the steading header (rollable
-      ratings, "Starts at" notes) and the steadfast sheet (a template — no rolls, no notes).
-      Params: attr (slug), title, attrData (AttributeSnapshot: .note + .options), rollable, wide,
-      panelClass, and optionally advice (an "If you want to…" topic key). --}}
-<div class="steading-stat-panel steading-panel-frame {{panelClass}}">
-	{{> "stonetop.panel-frame"}}
-	<h2>
-		{{#if rollable}}<button class="steading-stat-roll rollable" type="button" data-roll="{{attr}}">{{title}}</button>{{else}}{{title}}{{/if}}
+{{!-- One rating as a framed tile — the same device the character sheet gives a stat: a rough-inked
+      frame with the rating's name punched into its top rule and its value centred inside. A steading
+      rating does the same job as a character stat (a named number you roll), so it reads the same
+      way, and someone who knows one sheet already knows this one.
+
+      That frame is also what ends the "which number is the value?" confusion structurally: the name
+      sits ON the border and the note sits ON the bottom border, so neither can be mistaken for the
+      value between them.
+
+      A NUMERIC rating (Fortunes, Surplus, Population, Prosperity, Defenses) renders the shared
+      stepper — `activateSteppers` drives ▲▼ by dispatching a native `change`, which the steading's
+      ChangeActionRouter picks up like any other. A NAMED one (Size) renders a select. The snapshot
+      decides which; nothing here branches on the slug.
+
+      `.steading-attr-input` is load-bearing: the steadfast item sheet has no change router and binds
+      these by that class (StonetopSteadfastSheet._onRender). Renaming it silently breaks editing
+      there, so the two must move together.
+
+      Params: attr (slug), attrData (RatingSnapshot), rollable, changeAction (defaults to the generic
+      `attribute` handler), panelClass, and optionally advice (an "If you want to…" topic key). --}}
+<div class="steading-tile {{panelClass}}" data-attr="{{attr}}">
+
+	{{!-- The book gives Fortunes and Surplus an illustrated arch and the other four a plain rule, and
+	      that hierarchy is the thing worth keeping from the printed sheet.
+
+	      The WHOLE PANEL is lifted — outline, illustration and the distressed band at its foot (see
+	      scripts/import/pdf/steading-art.js). No frame of our own: a rectangle can never crop a curved
+	      shoulder cleanly, so drawing an arch around a cropped interior put two strokes on the page
+	      and clipped the rays off Fortunes to do it.
+
+	      Decorative: the rating's name and value are right beneath, so the picture names nothing the
+	      reader cannot already read. Absent gracefully — with no art installed the img 404s,
+	      HideBrokenImages hides it, and the tile is a name and a value like the other four. --}}
+	{{#if attrData.badge}}
+		<span class="steading-arch" aria-hidden="true">
+			<img class="steading-tile-badge" src="{{attrData.badge}}" alt="">
+		</span>
+	{{/if}}
+
+	<span class="steading-tile-label">
+		{{!-- Both labels ship, and the SHORT one is decoration only. Where the line has no room for
+		      "Prosperity" it shows "Pros", but the full word stays in the DOM — hidden visually, never
+		      removed — so what a screen reader announces never shrinks to an abbreviation it would
+		      have to decode. --}}
+		{{!-- The NAME is the roll button — one control, so there is nothing to keep in step — and the
+		      die rides inside it as the visible cue. Without it a name that rolls looks exactly like
+		      one that doesn't, which is the same die the character sheet's moves use (move-item.hbs),
+		      so a reader who knows one sheet knows this one. It is decoration: the button's accessible
+		      name is still "Roll Prosperity". --}}
+		{{#if rollable}}
+			<button type="button" class="steading-stat-roll rollable" data-roll="{{attr}}"
+			        aria-label="{{localize 'stonetop.a11y.rollRating' rating=attrData.title}}"><span class="steading-title-full">{{attrData.title}}</span><span class="steading-title-short" aria-hidden="true">{{attrData.shortTitle}}</span><i class="fas fa-dice-d6 steading-roll-die" aria-hidden="true"></i></button>
+		{{else}}
+			<span class="steading-tile-title"><span class="steading-title-full">{{attrData.title}}</span><span class="steading-title-short" aria-hidden="true">{{attrData.shortTitle}}</span></span>
+		{{/if}}
 		{{#if advice}}{{> "stonetop.advice-button" variant="inline" topic=advice}}{{/if}}
-	</h2>
-	{{#if (hasText attrData.note)}}<div class="steading-start-line">{{rich attrData.note}}</div>{{/if}}
-	<div class="steading-rating-options{{#if wide}} steading-rating-options--wide{{/if}}">
-		{{#each attrData.options}}
-			<label class="steading-rating-option">
-				<input class="steading-box-input" data-change-action="attribute" type="radio" name="stonetop-attr-{{../attr}}" data-attr="{{../attr}}" value="{{value}}" {{#if selected}}checked{{/if}}>
-				<span class="steading-box" aria-hidden="true"></span>
-				<span class="steading-option-text"><span>{{rich label}}</span></span>
-			</label>
-		{{/each}}
-	</div>
+	</span>
+
+	<span class="steading-tile-value">
+		{{#if attrData.isNumeric}}
+			<span class="stonetop-stepper">
+				<input type="number" class="stonetop-step steading-attr-input"
+				       data-change-action="{{#if changeAction}}{{changeAction}}{{else}}attribute{{/if}}" data-attr="{{attr}}"
+				       value="{{attrData.current}}" step="1"
+				       {{#if attrData.hasMin}}min="{{attrData.min}}"{{/if}}
+				       {{~#if attrData.hasMax}} max="{{attrData.max}}"{{/if}}
+				       aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
+				       {{#unless @root.editable}}disabled{{/unless}}>
+				{{> "stonetop.stepper-buttons"}}
+			</span>
+		{{else}}
+			<select class="steading-attr-input steading-tile-select"
+			        data-change-action="{{#if changeAction}}{{changeAction}}{{else}}attribute{{/if}}" data-attr="{{attr}}"
+			        aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
+			        {{#unless @root.editable}}disabled{{/unless}}>
+				{{#each attrData.options}}
+					<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+				{{/each}}
+			</select>
+		{{/if}}
+	</span>
+
+	{{!-- Straddles the bottom rule: the one thing this rating most needs to say about its value —
+	      a debility's effect, the book's word for the number, a population band, or where it began. --}}
+	{{#if (hasText attrData.note)}}
+		<span class="steading-tile-note steading-tile-note--{{attrData.noteKind}}">{{attrData.note}}</span>
+	{{/if}}
+
 </div>

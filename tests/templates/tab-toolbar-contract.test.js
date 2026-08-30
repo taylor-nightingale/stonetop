@@ -173,9 +173,10 @@ describe("tab toolbar contract", () => {
 		expect(template.slice(toolbarClose + "</div>".length, groupAt)).not.toContain("<");
 	});
 
-	// ...and the sibling the selector names has to be what that partial actually emits.
+	// ...and the sibling the selector names has to be what that partial actually emits. A leading
+	// Handlebars comment emits nothing, so it is stripped first — the contract is about output.
 	it("renders each group behind the class the selector matches", () => {
-		expect(read("templates/actor/partials/move-group.hbs").trimStart())
-			.toMatch(/^<div class="stonetop-move-group">/);
+		const emitted = read("templates/actor/partials/move-group.hbs").replace(/^\s*\{\{!--.*?--\}\}/s, "").trimStart();
+		expect(emitted).toMatch(/^<div class="stonetop-move-group">/);
 	});
 });

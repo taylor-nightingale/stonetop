@@ -47,7 +47,7 @@ async function makeWiredSheet({ editable = true } = {}) {
 	// Mirrors what steading-improvement-panel.hbs emits for one owned improvement. The
 	// "template ↔ handler contract" tests below keep this stub honest about the real markup.
 	sheet.element.innerHTML = `
-		<div class="steading-improvement-group steading-panel-frame">
+		<div class="steading-improvement-group steading-block">
 			<button type="button" class="steading-improvement-remove stonetop-icon-btn"
 			        data-action="revokeImprovement" data-slug="palisade" data-name="palisade"></button>
 		</div>`;

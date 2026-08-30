@@ -32,7 +32,7 @@ function readChunks(buf) {
 }
 
 /** Decode a 1-bit grayscale PNG to `{ width, height, px }` (px: Uint8Array of 0/1 per pixel). */
-function decode1bitGray(buf) {
+export function decode1bitGray(buf) {
 	const chunks = readChunks(buf);
 	const ihdr = chunks.find((c) => c.type === "IHDR").data;
 	const width = ihdr.readUInt32BE(0), height = ihdr.readUInt32BE(4);
@@ -86,7 +86,7 @@ export function blackTransparent(buf, bg = 0) {
 }
 
 /** Decode an 8-bit PNG (grayscale=1ch, RGB=3ch, RGBA=4ch) to `{width,height,channels,px}`. */
-function decode8bit(buf) {
+export function decode8bit(buf) {
 	const chunks = readChunks(buf);
 	const ihdr = chunks.find((c) => c.type === "IHDR").data;
 	const width = ihdr.readUInt32BE(0), height = ihdr.readUInt32BE(4), depth = ihdr[8], ctype = ihdr[9];

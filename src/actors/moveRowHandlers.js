@@ -1,4 +1,5 @@
 import { editOnly } from "../utils/sheetActions.js";
+import { MOVE_DISCLOSURE_ACTIONS } from "../utils/MoveDisclosure.js";
 
 /**
  * How a rendered move row behaves, described once for every sheet that shows one.
@@ -13,6 +14,9 @@ import { editOnly } from "../utils/sheetActions.js";
 
 /** Click actions for a sheet's `DEFAULT_OPTIONS.actions`. */
 export const MOVE_ROW_ACTIONS = {
+	// Collapsing a row is view state on the row itself, so it travels with the row rather than with
+	// whichever sheet happens to be rendering one.
+	...MOVE_DISCLOSURE_ACTIONS,
 	// Not edit-gated: posting a move's text to chat mutates nothing, so it works on a locked sheet.
 	moveToChat(ev, target) {
 		return this.typedActor.sendMoveToChat(target.dataset.moveSlug);

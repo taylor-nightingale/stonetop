@@ -28,7 +28,7 @@ export class SteadingDebilities {
 	buildSnapshot() {
 		const state = this._state;
 		return SteadingDefaults.debilities.map(def =>
-			new DebilitySnapshot(def.slug, def.description, def.note, state[def.slug] ?? false),
+			new DebilitySnapshot(def.slug, state[def.slug] ?? false),
 		);
 	}
 }

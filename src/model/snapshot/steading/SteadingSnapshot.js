@@ -1,59 +1,96 @@
 import { rich } from "../RichText.js";
 
-export class SelectOptionSnapshot {
-	// `value` is what the option stores when picked — a rating bonus (−1…+3) or a size tier string.
-	// `index` is kept only for stable DOM keys/ordering; selection is by value, not position.
-	constructor(label, index, value, selected) {
-		this.label    = rich(label);
-		this.index    = index;
-		this.value    = value;
-		this.selected = selected;
+/**
+ * One rating as a ledger tile draws it — the number stated outright, the word the book gives that
+ * number, how far it has travelled from its starting baseline, and what a debility is costing it.
+ *
+ * One class for all six ratings. A numeric rating renders a stepper bounded by `min`/`max`; a named
+ * one (Size) renders `options`. Everything else is shared, so the tile partial never branches on
+ * which rating it was handed.
+ */
+export class RatingSnapshot {
+	constructor(def, { current, starting = null, adjustment = null, items = [] } = {}) {
+		this.slug      = def.slug;
+		this.title     = def.title;
+		this.shortTitle = def.shortTitle;
+		// The book's arch, for the two ratings it crowns; null for the four it rules plainly.
+		this.badge     = def.badge;
+		// The stored value — a bonus (−1…+3), a raw count, or Size's tier string.
+		this.current   = current;
+		this.tierLabel = def.tierLabel(current);
+		this.band      = def.band(current);
+		this.isNumeric = def.isNumeric;
+		this.min       = def.min;
+		this.max       = def.max;
+		// Stated separately because a bound of 0 is a real bound, and `{{#if min}}` would drop it.
+		this.hasMin    = def.min !== null;
+		this.hasMax    = def.max !== null;
+		// The values a named rating picks between; empty for the numeric ones, which step instead.
+		// A select with nothing matching would silently display its first option — so a steadfast
+		// that has not chosen a Size yet would read as a hamlet. Offer "unset" instead, and say so.
+		this.options   = def.isNumeric ? [] : withUnsetOption(def.selectOptions(current));
+		// The lists backing a rating — resources (Prosperity) or fortifications (Defenses).
+		this.items     = items;
+
+		// "was +0", and only once the rating has actually moved off the baseline a steadfast set —
+		// a hint that restates the current value is noise.
+		this.startingNote = (starting == null || starting === current)
+			? ""
+			: game.i18n.format("stonetop.steading.startingValue", { value: formatStartingValue(def.slug, starting) });
+
+		// "→ 0 lacking" — the number you actually roll, and what made it that. A bare "−1" printed
+		// beside the stored value reads as a second value rather than as arithmetic on the first.
+		this.adjustment = adjustment
+			? game.i18n.format("stonetop.steading.adjustedBy", {
+				effective: formatDelta(current + adjustment.delta),
+				debility:  game.i18n.localize(`stonetop.steading.debilities.${adjustment.debility}.name`),
+			})
+			: "";
+
+		// A rating gets ONE note beside its value, so the things it might say are ranked: what a
+		// debility is doing to it right now beats the book's own gloss on the number, which beats a
+		// population band.
+		//
+		// `startingNote` is deliberately NOT in this ranking. "was +0" is the least useful of the
+		// four and the most frequent, so it put a third element on nearly every rating and made the
+		// value itself ambiguous — `1  −1 lacking  was +0` reads as three numbers. The baseline is
+		// still carried on the snapshot for the chronicle to use; it simply is not shown here.
+		[this.note, this.noteKind] =
+			this.adjustment ? [this.adjustment, "adjustment"] :
+			this.band       ? [this.band, "band"] :
+			this.tierLabel  ? [this.tierLabel, "tier"] :
+			["", ""];
 	}
 }
 
-export class FortunesSnapshot {
-	// `current` is the stored actual value (e.g. +1); options are selected by matching that value.
-	constructor(title, note, current, options, values) {
-		this.title = title;
-		this.note = rich(note);
-		this.current = current;
-		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, values[i], values[i] === current));
-	}
-}
-
-export class SurplusSnapshot {
-	constructor(title, note, current) {
-		this.title = title;
-		this.note = rich(note);
-		this.current = current;
-	}
-}
-
-export class AttributeSnapshot {
-	// `current` is the stored actual value: a rating bonus (−1…+3) or a size tier string ("village").
-	// `values` are each option's stored value, parallel to `options` (their labels); an option is
-	// selected when its value equals `current`.
-	constructor(slug, title, note, current, options, values, items = []) {
-		this.slug = slug;
-		this.title = title;
-		this.note = rich(note);
-
-		// Current selection (the actual value, not an index)
-		this.current = current;
-		// Selectable options, ex. -1, 0, +1 (or the size tiers)
-		this.options = options.map((label, i) => new SelectOptionSnapshot(label, i, values[i], values[i] === current));
-		// List of strings backing the rating — resources (Prosperity) or fortifications (Defenses)
-		this.items = items;
-	}
-}
-
+/** A debility, as the header line states it: its name, what causes it, and what it does. */
 export class DebilitySnapshot {
-	constructor(slug, description, note, active) {
-		this.slug = slug;
-		this.description = rich(description);
-		this.note = rich(note);
+	constructor(slug, active) {
+		this.slug   = slug;
+		this.name   = game.i18n.localize(`stonetop.steading.debilities.${slug}.name`);
+		this.cause  = game.i18n.localize(`stonetop.steading.debilities.${slug}.cause`);
+		this.effect = game.i18n.localize(`stonetop.steading.debilities.${slug}.effect`);
 		this.active = active;
 	}
+}
+
+// A blank leading option, ticked, when the stored value matches none of them — the honest rendering
+// of "not chosen yet", which a bare select cannot express on its own.
+function withUnsetOption(options) {
+	if (options.some(o => o.selected)) return options;
+	return [{ value: "", label: game.i18n.localize("stonetop.steading.tier.unset"), band: "", selected: true }, ...options];
+}
+
+// A minus sign, not a hyphen — this is arithmetic being read aloud, not a dash.
+function formatDelta(delta) {
+	return delta < 0 ? `−${Math.abs(delta)}` : `+${delta}`;
+}
+
+// Surplus is a raw count and Size a tier name; the ±N ratings are signed (including +0), matching
+// the roll-display convention (ActorRolling.js).
+export function formatStartingValue(slug, value) {
+	if (slug === "size" || slug === "surplus") return `${value}`;
+	return `${value >= 0 ? "+" : ""}${value}`;
 }
 
 export class ContentSection {
@@ -87,7 +124,7 @@ export class SteadingSnapshot {
 								placesOfInterest, notes, residents, neighbors,
 								contentDescription, content, assets, improvements,
 								residentNames, residentTraits,
-								moves, seasons, rollMode,
+								moves, seasons, rollMode, rollModes,
 							}) {
 		this.fortunes = fortunes;
 		this.surplus = surplus;
@@ -109,16 +146,37 @@ export class SteadingSnapshot {
 		this.moves    = moves    ?? [];
 		this.seasons  = seasons  ?? null;
 		this.rollMode = rollMode ?? "normal";
+		// The same three options the character sheet and the stat-pick dialog draw, in the same order —
+		// the steading's hand-rolled copy had already drifted from them.
+		this.rollModes = rollModes ?? [];
+	}
+
+	/**
+	 * The homefront category — the steading's own moves — as the Play tab renders it.
+	 *
+	 * Asked of the snapshot rather than filtered in the template: which category is "the steading's
+	 * moves" is a fact about the steading, and a Handlebars `{{#if (eq key "homefront")}}` would put
+	 * that fact in the markup, where nothing tests it.
+	 */
+	get homefrontMoves() {
+		return this.moves.find(category => category.key === "homefront") ?? null;
 	}
 }
 
+// Three columns as evenly as the count allows. `Math.ceil(n / 3)` for every column overfills the
+// first two and starves the last — seven improvements went 3/3/1, which reads as a ragged break
+// rather than three columns. Spreading the remainder one row at a time gives 3/2/2.
 function splitIntoImprovementColumns(items) {
-	const third = Math.ceil(items.length / 3);
-	return {
-		left:   items.slice(0, third),
-		middle: items.slice(third, third * 2),
-		right:  items.slice(third * 2),
-	};
+	const columns = [[], [], []];
+	const base = Math.floor(items.length / 3);
+	const spare = items.length % 3;
+	let taken = 0;
+	for (let i = 0; i < 3; i++) {
+		const size = base + (i < spare ? 1 : 0);
+		columns[i] = items.slice(taken, taken + size);
+		taken += size;
+	}
+	return { left: columns[0], middle: columns[1], right: columns[2] };
 }
 
 export function splitIntoColumns(items, columnCount) {

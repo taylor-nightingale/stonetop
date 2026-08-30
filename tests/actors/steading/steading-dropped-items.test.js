@@ -109,6 +109,34 @@ describe("StonetopSteading.renameOrApplySteadfast", () => {
 		expect(update).not.toHaveBeenCalled();
 	});
 
+	// The bug this guards: applying a steadfast REPLACES the whole profile — attributes, assets,
+	// places, neighbour places, residents, improvements. A steading seeded from Stonetop is named
+	// "Stonetop", so every change event the name field emitted matched the steadfast it already had
+	// and wiped the table's play back to the book's starting numbers.
+	it("never re-applies the steadfast the steading already has", async () => {
+		const { steading, actor } = make();
+		actor.system.steadfast = "stonetop";
+		actor.name = "Stonetop";
+		loadSteadfast.mockResolvedValue({ type: "steadfast", name: "Stonetop" });
+
+		await steading.renameOrApplySteadfast("Stonetop", available);
+
+		expect(applySteadfast).not.toHaveBeenCalled();
+		expect(loadSteadfast).not.toHaveBeenCalled();
+	});
+
+	// Switching to a DIFFERENT steadfast is a real request, and still works.
+	it("applies a steadfast that is not the one already in use", async () => {
+		const { steading, actor } = make();
+		actor.system.steadfast = "stonetop";
+		const steadfast = { type: "steadfast", name: "Barrier Pass" };
+		loadSteadfast.mockResolvedValue(steadfast);
+
+		await steading.renameOrApplySteadfast("Barrier Pass", available);
+
+		expect(applySteadfast).toHaveBeenCalledWith(actor, steadfast);
+	});
+
 	it("ignores an empty value and a value equal to the current name", async () => {
 		const { steading, actor } = make();
 		actor.name = "Stonetop Keep";

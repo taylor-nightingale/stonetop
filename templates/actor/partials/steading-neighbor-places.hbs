@@ -3,9 +3,8 @@
       sheet. Params: places (array of {slug, name, subtitle, note, names}). --}}
 <section class="steading-neighbor-places">
 	{{#each places}}
-		<section class="steading-neighbor-place steading-panel-frame">
-			{{> "stonetop.panel-frame"}}
-			<h2>{{name}}{{#if subtitle}} <small>{{subtitle}}</small>{{/if}}</h2>
+		<section class="steading-neighbor-place steading-block">
+			{{> "stonetop.section-heading" title=name note=subtitle}}
 			<label class="steading-neighbor-text-field">
 				<span>Notes</span>
 				<textarea class="stonetop-neighbor-place-note" data-change-action="neighborPlaceNote" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>

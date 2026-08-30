@@ -42,7 +42,8 @@ async function renderSheet({ editable = true } = {}) {
 	sheet.isEditable = editable;
 	sheet.element.innerHTML = `
 		<input class="steading-steadfast-input" data-change-action="steadfastName" value="Barrier Pass">
-		<input class="steading-box-input" data-change-action="fortunes" name="stonetop-fortunes" value="2">
+		<input type="number" class="stonetop-step steading-attr-input" data-change-action="fortunes" data-attr="fortunes" value="2">
+		<input type="number" class="stonetop-step steading-attr-input" data-change-action="attribute" data-attr="defenses" value="3">
 		<input class="stonetop-resident-name" data-change-action="residentName" data-id="r1" value="Cerdig">
 		<input class="stonetop-neighbor-person-name" data-change-action="neighborName" data-id="n1" value="Marock">
 		<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource">gruff
@@ -62,8 +63,11 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 		const { sheet, steading } = await renderSheet();
 		const el = sel => sheet.element.querySelector(sel);
 
-		fire(el(".steading-box-input[name='stonetop-fortunes']"), "change");
+		fire(el(".steading-attr-input[data-attr='fortunes']"), "change");
 		expect(steading.setFortunes).toHaveBeenCalledWith(2);
+
+		fire(el(".steading-attr-input[data-attr='defenses']"), "change");
+		expect(steading.setAttribute).toHaveBeenCalledWith("defenses", 3);
 
 		fire(el(".stonetop-resident-name"), "change");
 		expect(steading.updateResidentName).toHaveBeenCalledWith("r1", "Cerdig");

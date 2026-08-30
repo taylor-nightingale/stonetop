@@ -6,9 +6,21 @@
       It names itself from the topic alone, so a caller cannot label a button with one topic and
       wire it to another; a topic the book has no advice for yields no label, and so no button.
 
+      The `sheet` variant is the exception, and only because it names no topic: it asks the general
+      question, carries no data-topic, and opens the spread at its top — where every heading is, since
+      the article is one page. Nothing to mislabel, so the invariant above still holds.
+
       Params: topic (the advice key), and variant:
         inline   — icon only, last flex item of a heading row
-        labelled — icon + text, in a tab's toolbar (same look as the view toggles beside it) --}}
+        labelled — icon + text, in a tab's toolbar (same look as the view toggles beside it)
+        sheet    — icon only, one per sheet, no topic --}}
+{{#if (eq variant "sheet")}}
+<button type="button" data-action="showAdvice" data-view-state
+        title="{{localize 'stonetop.sheet.advice.sheetLabel'}}" aria-label="{{localize 'stonetop.sheet.advice.sheetLabel'}}"
+        class="stonetop-advice-btn stonetop-advice-btn--sheet stonetop-icon-btn">
+	<i class="fas fa-circle-question" aria-hidden="true"></i>
+</button>
+{{else}}
 {{#if (adviceLabel topic)}}
 <button type="button" data-action="showAdvice" data-topic="{{topic}}" data-view-state
         title="{{adviceLabel topic}}" aria-label="{{adviceLabel topic}}"
@@ -17,4 +29,5 @@
 	<i class="fas fa-circle-question" aria-hidden="true"></i>
 	{{#if (eq variant "labelled")}}<span>{{adviceLabel topic}}</span>{{/if}}
 </button>
+{{/if}}
 {{/if}}

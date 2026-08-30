@@ -1,0 +1,26 @@
+{{!-- Size, as a pill.
+
+      Size is the one rating that is a CATEGORY rather than a quantity — a hamlet is not more than a
+      village the way Defenses +2 is more than +1. Given the ratings' idiom (a value written on a
+      rule, with a label beside it) it read as a sixth number in a row of numbers, and the band it
+      carries ("2500+") read as that number's note.
+
+      So it gets its own shape: one chip, no label, no rule, the tier and its population band on one
+      line — "Stonetop, a city of 2500+". A category and a quantity share neither a control idiom nor
+      a table row.
+
+      Still a real select element, with the native chrome removed and the blank "unset" option the
+      snapshot supplies preserved: an unchosen Size must not silently read as "hamlet".
+
+      Params: attrData (the Size RatingSnapshot). --}}
+<span class="steading-size-pill{{#unless attrData.current}} is-unset{{/unless}}">
+	<select class="steading-attr-input steading-size-select"
+	        data-change-action="attribute" data-attr="size"
+	        aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
+	        {{#unless @root.editable}}disabled{{/unless}}>
+		{{#each attrData.options}}
+			<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+		{{/each}}
+	</select>
+	{{#if (hasText attrData.note)}}<span class="steading-size-band">{{attrData.note}}</span>{{/if}}
+</span>

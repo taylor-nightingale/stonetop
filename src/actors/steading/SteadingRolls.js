@@ -25,7 +25,15 @@ export class SteadingRolls {
 	resolveBonus(rollStat) {
 		const stored = this._actor.system.attributes?.[rollStat] ?? null;
 		if (stored === null) return null;
-		return rollStat === "prosperity" && this.isLacking ? stored - 1 : stored;
+		return stored + (this.adjustmentFor(rollStat)?.delta ?? 0);
+	}
+
+	// What a debility is currently costing a rating, and which one is costing it — so a sheet can
+	// say "+1 −1 lacking" rather than silently showing a different number than the one stored.
+	// Null when nothing bends this rating.
+	adjustmentFor(rollStat) {
+		if (rollStat === "prosperity" && this.isLacking) return { delta: -1, debility: "lacking" };
+		return null;
 	}
 
 	applyRollMode(rollStat, rollMode, moveSlug = null) {

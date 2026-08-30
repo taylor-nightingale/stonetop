@@ -2,9 +2,8 @@
       button. Shared by the steading notes tab and the steadfast sheet.
       Params: places (array of {key, index, value, docLink}); linkHint (steading only — shows the
       drag-to-link hint, since only the steading sheet wires the document-link drop). --}}
-<div class="steading-notes-field steading-panel-frame">
-	{{> "stonetop.panel-frame"}}
-	<h2>Places of Interest</h2>
+<div class="steading-notes-field steading-block">
+	{{> "stonetop.section-heading" title="Places of Interest"}}
 	<div class="stonetop-places-list">
 		{{#each places}}
 			<div class="stonetop-places-row" data-index="{{index}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">

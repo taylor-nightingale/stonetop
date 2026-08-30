@@ -48,31 +48,46 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 		// Size is the village tier; its option is the one selected.
 		expect(snap.attributes.size.current).toBe("village");
 		expect(snap.attributes.size.options.find(o => o.value === "village").selected).toBe(true);
+		expect(snap.attributes.size.isNumeric).toBe(false);
 		// Ratings are actual numbers; Prosperity/Defenses carry their backing lists from assets.
 		expect(snap.attributes.prosperity.current).toBe(0);
 		expect(snap.attributes.prosperity.items).toHaveLength(8);
 		expect(snap.attributes.defenses.items).toHaveLength(4);
 		// Fortunes +1, surplus 1.
 		expect(snap.fortunes.current).toBe(1);
-		expect(snap.fortunes.options.find(o => o.value === 1).selected).toBe(true);
 		expect(snap.surplus.current).toBe(1);
 		// Places (6) and the resident pool came across.
 		expect(snap.placesOfInterest).toHaveLength(6);
 		expect(snap.placesOfInterest[0].value).toBe("The Stone");
 		expect(snap.residentNames).toContain("Aderyn");
 		expect(snap.residentTraits.length).toBeGreaterThanOrEqual(90);
-		// The "Starts at …" notes are derived from the starting baseline + localized template.
-		expect(snap.fortunes.note.raw).toBe("Starts at +1");
-		expect(snap.attributes.size.note.raw).toBe("Starts at <em>village</em>");
-		expect(snap.attributes.prosperity.note.raw).toBe("Starts at +0");
+		// Nothing has moved off the baseline yet, so no rating claims a history it doesn't have.
+		expect(snap.fortunes.startingNote).toBe("");
+		expect(snap.attributes.size.startingNote).toBe("");
+		expect(snap.attributes.prosperity.startingNote).toBe("");
 	});
 
-	it("shows no 'Starts at …' notes on a blank steading (no steadfast applied)", async () => {
+	it("notes where a rating started once it has moved off that baseline", async () => {
+		const actor = blankSteading();
+		await applySteadfast(actor, stonetop);
+		const steading = new StonetopSteading(actor, steadingRepos({ improvements: improvementsRepo, moves: movesRepo }));
+
+		await steading.setFortunes(3);
+		await steading.setAttribute("prosperity", 2);
+
+		const snap = await steading.buildSnapshot();
+		expect(snap.fortunes.startingNote).toBe("was +1");
+		expect(snap.attributes.prosperity.startingNote).toBe("was +0");
+		// Untouched ratings still say nothing.
+		expect(snap.attributes.defenses.startingNote).toBe("");
+	});
+
+	it("shows no starting notes on a blank steading (no steadfast applied)", async () => {
 		const snap = await new StonetopSteading(blankSteading(), steadingRepos({ improvements: improvementsRepo, moves: movesRepo })).buildSnapshot();
-		expect(snap.fortunes.note.raw).toBe("");
-		expect(snap.surplus.note.raw).toBe("");
-		expect(snap.attributes.size.note.raw).toBe("");
-		expect(snap.attributes.prosperity.note.raw).toBe("");
+		expect(snap.fortunes.startingNote).toBe("");
+		expect(snap.surplus.startingNote).toBe("");
+		expect(snap.attributes.size.startingNote).toBe("");
+		expect(snap.attributes.prosperity.startingNote).toBe("");
 	});
 
 	it("rolls the actual rating values", async () => {

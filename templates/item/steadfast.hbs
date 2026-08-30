@@ -15,45 +15,31 @@
 
 	<div class="stonetop-steadfast-body">
 
-		{{!-- Ratings --}}
-		<section class="steading-header-grid stonetop-steadfast-ratings">
+		{{!-- Ratings, at the full density — this is a page, not a line, so it gets the same treatment
+		      the steading's Play tab gets: the two the book arches, then the four it rules plainly. --}}
+		<section class="steading-ledger stonetop-steadfast-ratings" data-density="full">
 
-			<div class="steading-stat-panel steading-panel-frame steading-fortunes">
-				{{> "stonetop.panel-frame"}}
-				<h2>{{localize "stonetop.steadfast.fortunes"}}</h2>
-				<span class="stonetop-stepper">
-					<input class="stonetop-step" type="number" name="system.attributes.fortunes"
-					       aria-label="{{localize 'stonetop.steadfast.fortunes'}}"
-					       value="{{stonetop.fortunes}}" step="1" {{#unless editable}}disabled{{/unless}}>
-					{{> "stonetop.stepper-buttons"}}
-				</span>
+			<div class="steading-archpair">
+				{{> "stonetop.steading-stat-panel" attr="fortunes" attrData=stonetop.fortunes panelClass="steading-fortunes steading-tile--arched"}}
+				{{> "stonetop.steading-stat-panel" attr="surplus"  attrData=stonetop.surplus  panelClass="steading-surplus steading-tile--arched"}}
 			</div>
 
-			<div class="steading-stat-panel steading-panel-frame steading-surplus">
-				{{> "stonetop.panel-frame"}}
-				<h2>{{localize "stonetop.steadfast.surplus"}}</h2>
-				<span class="stonetop-stepper">
-					<input class="stonetop-step" type="number" name="system.attributes.surplus"
-					       aria-label="{{localize 'stonetop.a11y.surplus'}}"
-					       value="{{stonetop.surplus}}" min="0" step="1" {{#unless editable}}disabled{{/unless}}>
-					{{> "stonetop.stepper-buttons"}}
-				</span>
+			<div class="stonetop-steadfast-rating-row">
+				{{> "stonetop.steading-stat-panel" attr="size"       attrData=stonetop.attributes.size       panelClass="steading-size"}}
+				{{> "stonetop.steading-stat-panel" attr="population" attrData=stonetop.attributes.population panelClass="steading-population"}}
+				{{> "stonetop.steading-stat-panel" attr="prosperity" attrData=stonetop.attributes.prosperity panelClass="steading-prosperity"}}
+				{{> "stonetop.steading-stat-panel" attr="defenses"   attrData=stonetop.attributes.defenses   panelClass="steading-defenses"}}
 			</div>
-
-			{{> "stonetop.steading-stat-panel" attr="size" title="Size" attrData=stonetop.attributes.size panelClass="steading-size"}}
-			{{> "stonetop.steading-stat-panel" attr="population" title="Population" attrData=stonetop.attributes.population panelClass="steading-population"}}
-			{{> "stonetop.steading-stat-panel" attr="prosperity" title="Prosperity" attrData=stonetop.attributes.prosperity panelClass="steading-prosperity"}}
-			{{> "stonetop.steading-stat-panel" attr="defenses" title="Defenses" attrData=stonetop.attributes.defenses wide=true panelClass="steading-defenses"}}
 
 		</section>
 
 		{{!-- Resources / Fortifications / Assets --}}
-		<section class="steading-overview-grid stonetop-steadfast-assets">
+		<section class="steading-overview-grid stonetop-steadfast-assets" data-density="full">
 			<section class="steading-overview-column">
-				{{> "stonetop.steading-ratings-list" title="Resources" attr="prosperity" items=stonetop.attributes.prosperity.items}}
+				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items}}
 			</section>
 			<section class="steading-overview-column">
-				{{> "stonetop.steading-ratings-list" title="Defenses" attr="defenses" items=stonetop.attributes.defenses.items}}
+				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
 			</section>
 			<section class="steading-overview-column steading-assets-column">
 				{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage}}
@@ -73,12 +59,9 @@
 		{{/if}}
 
 		{{!-- Resident name / trait pool --}}
-		<section class="stonetop-steadfast-section steading-npc-traits steading-panel-frame">
-			{{> "stonetop.panel-frame"}}
-			<div class="steading-npc-traits-heading">
-				<h2>Residents</h2>
-				<span>The name and trait pools this place seeds — suggestions for generating residents.</span>
-			</div>
+		<section class="stonetop-steadfast-section steading-npc-traits steading-block">
+			{{> "stonetop.section-heading" title="Residents"
+			    note="The name and trait pools this place seeds — suggestions for generating residents."}}
 			<label class="stonetop-insert-sheet-label" for="steadfast-resident-names">Names</label>
 			<textarea id="steadfast-resident-names" class="stonetop-steadfast-resident-names" rows="2"
 			          {{#unless editable}}disabled{{/unless}}>{{stonetop.residentNames}}</textarea>
@@ -95,14 +78,11 @@
 
 		{{!-- Granted improvements --}}
 		<section class="stonetop-steadfast-section stonetop-steadfast-improvements">
-			<div class="steading-npc-traits-heading">
-				<h2>{{localize "stonetop.steadfast.improvements"}}</h2>
-				<span>{{localize "stonetop.steadfast.improvementsHint"}}</span>
-			</div>
+			{{> "stonetop.section-heading" title=(localize "stonetop.steadfast.improvements")
+			    note=(localize "stonetop.steadfast.improvementsHint")}}
 			<div class="steading-improvements-grid stonetop-steadfast-improvement-list">
 				{{#each stonetop.improvements}}
-					<div class="steading-improvement-group steading-panel-frame stonetop-steadfast-improvement">
-						{{> "stonetop.panel-frame"}}
+					<div class="steading-improvement-group steading-block stonetop-steadfast-improvement">
 						{{#if @root.editable}}
 						<button type="button" class="steadfast-improvement-remove stonetop-icon-btn"
 						        data-slug="{{slug}}" data-name="{{slug}}"

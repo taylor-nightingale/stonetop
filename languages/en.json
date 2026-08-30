@@ -70,6 +70,7 @@
 			},
 			"advice": {
 				"label": "If you want to… {topic}",
+				"sheetLabel": "If you want to…",
 				"close": "Close"
 			}
 		},
@@ -81,6 +82,89 @@
 		},
 		"steading": {
 			"startsAt": "Starts at {value}",
+			"startingValue": "was {value}",
+			"attr": {
+				"fortunes": "Fortunes",
+				"surplus": "Surplus",
+				"size": "Size",
+				"population": "Population",
+				"prosperity": "Prosperity",
+				"defenses": "Defenses"
+			},
+			"attrShort": {
+				"fortunes": "Fort",
+				"surplus": "Surp",
+				"size": "Size",
+				"population": "Pop",
+				"prosperity": "Pros",
+				"defenses": "Def"
+			},
+			"rail": "Arches and homefront moves",
+			"headings": {
+				"residents": "Residents",
+				"neighbors": "Neighbors",
+				"names": "Names",
+				"npcTraits": "NPC Traits",
+				"npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
+				"placesOfInterest": "Places of Interest",
+				"notes": "Notes"
+			},
+			"lists": {
+				"resources": "Resources",
+				"fortifications": "Fortifications, etc.",
+				"assets": "Assets",
+				"addResource": "add a resource",
+				"addFortification": "add a fortification",
+				"addAsset": "add an asset"
+			},
+			"tier": {
+				"defenses": {
+					"feeble": "feeble",
+					"mediocre": "mediocre",
+					"strong": "strong",
+					"formidable": "formidable",
+					"legendary": "legendary"
+				},
+				"unset": "—",
+				"size": {
+					"hamlet": "hamlet",
+					"village": "village",
+					"town": "town",
+					"city": "city"
+				}
+			},
+			"band": {
+				"hamlet": "<50",
+				"village": "150–350",
+				"town": "500–1500",
+				"city": "2500+"
+			},
+			"debilities": {
+				"title": "Debilities",
+				"diminished": {
+					"name": "diminished",
+					"cause": "by injury/sickness/doubt",
+					"effect": "disadvantage to Deploy, Muster, or Pull Together"
+				},
+				"lacking": {
+					"name": "lacking",
+					"cause": "due to shortages/hoarding/distrust",
+					"effect": "treat Prosperity as if it's 1 lower than it is"
+				},
+				"malcontent": {
+					"name": "malcontent",
+					"cause": "from fear/anger/despair",
+					"effect": "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
+				}
+			},
+			"adjustedBy": "→ {effective} {debility}",
+			"steadfastHint": "Type a name, or pick a steadfast",
+			"tabs": {
+				"play": "Play",
+				"folk": "Folk",
+				"season": "Season",
+				"chronicle": "Chronicle"
+			},
 			"colName": "Name",
 			"colOccupation": "Occupation",
 			"colTraits": "Traits",
@@ -636,6 +720,9 @@
 			"smallItems": "Small item slot {position}",
 			"steadingName": "Steading name",
 			"surplus": "Surplus",
+			"ratingValue": "{rating} rating",
+			"rollRating": "Roll {rating}",
+			"steadingTabs": "Steading sections",
 			"npcTraits": "Traits",
 			"assetItem": "Asset",
 			"placeField": "Place of interest",

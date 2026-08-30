@@ -2,6 +2,7 @@ import { FoundryMoveRepository } from "./repositories/FoundryMoveRepository.js";
 import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 import { editOnly } from "../../utils/sheetActions.js";
+import { SheetRail, RAIL_ACTIONS } from "../../utils/SheetRail.js";
 import { ScrollAnchoring } from "../../utils/ScrollAnchoring.js";
 import { TabViewFlags } from "../../utils/TabViewFlags.js";
 import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
@@ -39,9 +40,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				toggleTop(ev, target) {
 					target.closest(".sheet-wrapper")?.classList.toggle("top-collapsed");
 				},
-				toggleMovesOverlay(ev, target) {
-					target.closest(".stonetop-sheet-layout")?.classList.toggle("moves-open");
-				},
+				...RAIL_ACTIONS,
 				// One toggle for every tab's view state: the button names its flag, and whether the
 				// tab is re-rendered or just decorated is the flag's business (see TabViewFlags).
 				toggleTabView(ev, target) {
@@ -49,7 +48,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				},
 				async openBasicMove(ev, target) {
 					// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.
-					target.closest(".stonetop-sheet-layout")?.classList.remove("moves-open");
+					SheetRail.from(target)?.close();
 					const { compendiumId } = target.dataset;
 					if (!compendiumId) return;
 					const doc = await this._moveRepository.getReferencedMoveDocument(compendiumId);
@@ -107,7 +106,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		static PARTS = {
 			form: {
 				template: "systems/stonetop/templates/actor/character.hbs",
-				scrollable: [".sheet-body", ".stonetop-moves-sidebar"],
+				scrollable: [".sheet-body", ".stonetop-rail"],
 			},
 		};
 

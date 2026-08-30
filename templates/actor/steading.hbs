@@ -1,8 +1,90 @@
 {{!-- V2 part: single root element; the sheet root form + classes come from DEFAULT_OPTIONS. --}}
-<div>
+<div class="sheet-wrapper">
 
-	<header class="sheet-header steading-top">
-		<div class="steading-steadfast-row">
+	{{!-- The ledger: every rating stated outright, on one row that shrinks to its contents. The
+	      ladders the book prints are a pencil-and-paper technique — a stepper says the same thing
+	      in a fraction of the height, and says the value out loud while it's at it. --}}
+	{{!-- The ledger rail.
+
+	      The ratings live in a column rather than a top band, for three reasons: the book draws
+	      Fortunes and Surplus as ARCHES, which are a portrait form a horizontal strip can only
+	      shrink; a column has no wrap to go ragged at any width; and the tab content beside it is
+	      text-heavy, so being narrowed to a readable measure improves it. It is the same persistent
+	      rail the character sheet already uses for its moves.
+
+	      Order is identity → stores → ratings → conditions → mode: who this is, then what it has,
+	      then how it is doing, then what is wrong, then how it rolls. --}}
+	{{!-- The season's tint, as a rule above the ledger. Decorative, so it is hidden from assistive
+	      tech — the season will also be stated as text on the line once it is stored (phase 4), and a
+	      colour is never the only carrier of anything. Until then it takes the sheet's accent. --}}
+	<div class="steading-season-band" aria-hidden="true"></div>
+
+	{{!-- The rail, and everything beside it.
+
+	      The rail owns the two ratings the book CROWNS and the moves you roll; the band owns the four
+	      it rules plainly, plus everything conditional. Divided by kind, so "where is Prosperity" and
+	      "where is Fortunes" each have exactly one answer.
+
+	      It earns its 220px because of the MOVES, not the numbers: rolling a homefront move is the
+	      thing this sheet is asked to do most, and it used to cost a tab change each way.
+
+	      It opens ABOVE the band, so it runs from the season rule down past the tab rule — the arches
+	      hold the top-left corner and the masthead and the body read as one object rather than as a
+	      header stacked on content.
+
+	      Left, mirroring the character sheet's right-hand moves rail. The steading's rail IS the
+	      steading — the arches belong to the masthead's left edge — where the character's is a
+	      reference index. Same component, `data-side` apart. --}}
+	<div class="stonetop-rail-layout" data-side="left">
+
+		<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
+		        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-rail"
+		        title="{{localize 'stonetop.steading.rail'}}" aria-label="{{localize 'stonetop.steading.rail'}}">
+			<i class="fas fa-archway"></i>
+		</button>
+
+		<div class="stonetop-rail steading-rail" id="{{sheetIdPrefix}}-rail" data-density="full">
+			{{!-- The book gives Fortunes and Surplus an illustrated arch and the other four a plain
+			      rule. This is the one place on the sheet with the portrait room to honour that. --}}
+			<div class="steading-archpair">
+				{{> "stonetop.steading-stat-panel" attr="fortunes" attrData=stonetop.fortunes rollable=true changeAction="fortunes" panelClass="steading-fortunes steading-tile--arched"}}
+				{{> "stonetop.steading-stat-panel" attr="surplus"  attrData=stonetop.surplus                changeAction="surplus"  panelClass="steading-surplus steading-tile--arched"}}
+			</div>
+			{{#if stonetop.homefrontMoves}}
+				{{> "stonetop.move-group"
+				    title=stonetop.homefrontMoves.label
+				    note=stonetop.homefrontMoves.note
+				    moves=stonetop.homefrontMoves.moves
+				    categoryKey=stonetop.homefrontMoves.key
+				    allowAdditional=false
+				    alwaysShowResource=true
+				    unacquirable=true
+				    disclosure=true}}
+			{{/if}}
+		</div>
+
+	<div class="stonetop-rail-main steading-main">
+
+	{{!-- The ledger line.
+
+	      One component, two densities: this same markup is what the Play tab renders at full size,
+	      with the arch pair and the evidence lists. It is NOT a second, compact copy — if the two
+	      ever drift apart the "one component" claim is gone and this is just two headers. The
+	      density is a class on the container; nothing here knows which one it is in.
+
+	      Every rating's name is its roll button in both densities, which is what lets you roll from
+	      the line without a second code path to keep in step. --}}
+	<header class="sheet-header steading-line" data-density="line">
+
+		{{!-- Row one: who this is, and every number. Row two: what is wrong, and how it rolls.
+
+		      Two rows in the MARKUP rather than a flex-basis trick, because they are two different
+		      statements and the rule between them is what says so. Rolling a steading move needs a
+		      rating, the condition bending it and the roll mode — so all three stay here, on every
+		      tab, and the tab below scrolls under them rather than taking them with it. --}}
+		<div class="steading-line-row steading-line-values">
+
+		<div class="steading-identity">
 			{{!-- Name combobox: type the steading's own name, or pick a steadfast from the list (which
 			      seeds its profile and adopts its name). Dropping a steadfast onto the sheet does the same. --}}
 			<span class="stonetop-combo steading-steadfast-combo">
@@ -10,186 +92,128 @@
 				       aria-label="{{localize 'stonetop.a11y.steadingName'}}"
 				       placeholder="{{localize 'stonetop.steadfast.namePlaceholder'}}" {{#unless editable}}disabled{{/unless}}>
 				{{#if availableSteadfasts.length}}
-				<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="Steadfasts">▾</button>
+				<button type="button" class="stonetop-combo-toggle" tabindex="-1" aria-label="{{localize 'stonetop.steading.steadfastHint'}}">▾</button>
 				<ul class="stonetop-combo-list" hidden>
 					{{#each availableSteadfasts}}<li class="stonetop-combo-option" data-value="{{name}}">{{name}}</li>{{/each}}
 				</ul>
 				{{/if}}
 			</span>
-			<span class="steading-steadfast-hint">Type a name, or pick / drag a steadfast.</span>
+
+			{{!-- Size is a category, not a quantity, so it reads with the name — "Stonetop, a village" —
+			      rather than sitting in a row of numbers pretending to be one. Its own shape, for the
+			      same reason: a pill, not a value on a rule. --}}
+			{{> "stonetop.steading-size-pill" attrData=stonetop.attributes.size}}
+
 		</div>
-		<section class="steading-header-grid">
 
-			{{!-- Fortunes --}}
-			<div class="steading-stat-panel steading-panel-frame steading-fortunes">
-				<span class="panel-corner panel-corner-tl"></span>
-				<span class="panel-corner panel-corner-tr"></span>
-				<span class="panel-corner panel-corner-bl"></span>
-				<span class="panel-corner panel-corner-br"></span>
-				<span class="panel-edge panel-edge-top"></span>
-				<span class="panel-edge panel-edge-right"></span>
-				<span class="panel-edge panel-edge-bottom"></span>
-				<span class="panel-edge panel-edge-left"></span>
-				<h2>
-					<button class="steading-stat-roll rollable" type="button" data-roll="fortunes">Fortunes</button>
-					{{> "stonetop.advice-button" variant="inline" topic="fortunes"}}
-				</h2>
-				{{#if (hasText stonetop.fortunes.note)}}<div class="steading-start-line">{{rich stonetop.fortunes.note}}</div>{{/if}}
-				<div class="steading-rating-options">
-					{{#each stonetop.fortunes.options}}
-						<label class="steading-rating-option">
-							<input class="steading-box-input" type="radio" name="stonetop-fortunes" data-change-action="fortunes" value="{{value}}" {{#if selected}}checked{{/if}}>
-							<span class="steading-box" aria-hidden="true"></span>
-							<span class="steading-option-text"><span>{{rich label}}</span></span>
-						</label>
-					{{/each}}
-				</div>
-			</div>
+		{{!-- The quantities.
 
-			{{!-- Surplus --}}
-			<div class="steading-stat-panel steading-panel-frame steading-surplus">
-				<span class="panel-corner panel-corner-tl"></span>
-				<span class="panel-corner panel-corner-tr"></span>
-				<span class="panel-corner panel-corner-bl"></span>
-				<span class="panel-corner panel-corner-br"></span>
-				<span class="panel-edge panel-edge-top"></span>
-				<span class="panel-edge panel-edge-right"></span>
-				<span class="panel-edge panel-edge-bottom"></span>
-				<span class="panel-edge panel-edge-left"></span>
-				<h2>
-					<button class="steading-stat-roll rollable" type="button" data-roll="surplus">Surplus</button>
-					{{> "stonetop.advice-button" variant="inline" topic="surplus"}}
-				</h2>
-				{{#if (hasText stonetop.surplus.note)}}<div class="steading-start-line">{{rich stonetop.surplus.note}}</div>{{/if}}
-				<span class="stonetop-stepper">
-					<input class="steading-surplus-input stonetop-step" data-change-action="surplus" aria-label="{{localize 'stonetop.a11y.surplus'}}" type="number" value="{{stonetop.surplus.current}}" min="0" step="1">
-					{{> "stonetop.stepper-buttons"}}
-				</span>
-			</div>
+		      Fortunes and Surplus are the rail's, and the rail is present at every width the sheet is
+		      wide enough for. They are rendered HERE regardless and hidden by a container query while
+		      the rail is showing them — so when the rail drawers, the two ratings it was carrying are
+		      already on the line rather than one class-toggle away from existing. One partial, one code
+		      path, and "collapsing must not hide the ratings" holds without anything having to run.
 
-			{{!-- Size --}}
-			{{> "stonetop.steading-stat-panel" attr="size" title="Size" attrData=stonetop.attributes.size panelClass="steading-size"}}
+		      They lead the line, as the book prints them. --}}
+		<div class="steading-ledger">
+			{{> "stonetop.steading-stat-panel" attr="fortunes"   attrData=stonetop.fortunes              rollable=true changeAction="fortunes" panelClass="steading-fortunes steading-railed"}}
+			{{> "stonetop.steading-stat-panel" attr="surplus"    attrData=stonetop.surplus                             changeAction="surplus"  panelClass="steading-surplus steading-railed"}}
+			{{> "stonetop.steading-stat-panel" attr="population" attrData=stonetop.attributes.population rollable=true panelClass="steading-population"}}
+			{{> "stonetop.steading-stat-panel" attr="prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity"}}
+			{{> "stonetop.steading-stat-panel" attr="defenses"   attrData=stonetop.attributes.defenses   rollable=true panelClass="steading-defenses"}}
+		</div>
 
-			{{!-- Population --}}
-			{{> "stonetop.steading-stat-panel" attr="population" title="Population" attrData=stonetop.attributes.population rollable=true panelClass="steading-population" advice="population"}}
+		</div>{{!-- /row one --}}
 
-			{{!-- Prosperity --}}
-			{{> "stonetop.steading-stat-panel" attr="prosperity" title="Prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity" advice="prosperity"}}
+		{{!-- Row two. Conditions always say what they do — a steading marks these rarely, and when it
+		      does, "what does diminished mean again?" is the very next question at the table, so the
+		      effect is text in the DOM, never a pointer-only tooltip. The roll mode ends the row
+		      because it is the last thing you set before rolling. --}}
+		<div class="steading-line-row steading-line-conditions">
 
-			{{!-- Defenses --}}
-			{{> "stonetop.steading-stat-panel" attr="defenses" title="Defenses" attrData=stonetop.attributes.defenses rollable=true wide=true panelClass="steading-defenses" advice="defenses"}}
+		<div class="steading-conditions">
+			{{#each stonetop.debilities}}
+				<label class="steading-debility{{#if active}} is-active{{/if}}">
+					<input class="steading-circle-input" data-change-action="debility" type="checkbox" data-slug="{{slug}}" {{#if active}}checked{{/if}}>
+					<span class="steading-circle" aria-hidden="true"></span>
+					<span class="steading-debility-text">
+						<span class="steading-debility-name">{{name}}</span>
+						<span class="steading-debility-effect"><span class="steading-debility-dash" aria-hidden="true">—</span> {{effect}}</span>
+					</span>
+				</label>
+			{{/each}}
+		</div>
 
-			{{!-- Debilities --}}
-			<div class="steading-debilities-panel steading-panel-frame">
-				<span class="panel-corner panel-corner-tl"></span>
-				<span class="panel-corner panel-corner-tr"></span>
-				<span class="panel-corner panel-corner-bl"></span>
-				<span class="panel-corner panel-corner-br"></span>
-				<span class="panel-edge panel-edge-top"></span>
-				<span class="panel-edge panel-edge-right"></span>
-				<span class="panel-edge panel-edge-bottom"></span>
-				<span class="panel-edge panel-edge-left"></span>
-				<h2>Debilities</h2>
-				<div class="steading-debility-list">
-					{{#each stonetop.debilities}}
-						<label class="steading-debility-option">
-							<input class="steading-circle-input" data-change-action="debility" type="checkbox" data-slug="{{slug}}" {{#if active}}checked{{/if}}>
-							<span class="steading-circle" aria-hidden="true"></span>
-							<span>{{rich description}} <small>{{rich note}}</small></span>
-						</label>
-					{{/each}}
-				</div>
-			</div>
+		{{!-- A mode, not a value: no rule and no box, just the active word in the accent. Last on the
+		      line, pushed to the far end — it modifies a roll rather than describing the steading. --}}
+		<fieldset class="steading-rollmode">
+			<legend class="steading-line-heading">{{localize "stonetop.rollMode.label"}}</legend>
+			{{#each stonetop.rollModes}}
+				<label class="steading-rollmode-option{{#if checked}} is-checked{{/if}}">
+					<input type="radio" class="steading-rollmode-input" name="stonetop-roll-mode"
+					       data-change-action="rollMode" value="{{key}}" {{#if checked}}checked{{/if}}>
+					<span>{{localize labelKey}}</span>
+				</label>
+			{{/each}}
+		</fieldset>
 
-			{{!-- Roll Mode --}}
-			<div class="steading-stat-panel steading-panel-frame steading-roll-mode">
-				<span class="panel-corner panel-corner-tl"></span>
-				<span class="panel-corner panel-corner-tr"></span>
-				<span class="panel-corner panel-corner-bl"></span>
-				<span class="panel-corner panel-corner-br"></span>
-				<span class="panel-edge panel-edge-top"></span>
-				<span class="panel-edge panel-edge-right"></span>
-				<span class="panel-edge panel-edge-bottom"></span>
-				<span class="panel-edge panel-edge-left"></span>
-				<h2>{{localize "stonetop.rollMode.label"}}</h2>
-				<div class="steading-rating-options">
-					<label class="steading-rating-option">
-						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" data-change-action="rollMode" value="normal" {{#if (eq stonetop.rollMode "normal")}}checked{{/if}}>
-						<span class="steading-box" aria-hidden="true"></span>
-						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.normal"}}</span></span>
-					</label>
-					<label class="steading-rating-option">
-						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" data-change-action="rollMode" value="adv" {{#if (eq stonetop.rollMode "adv")}}checked{{/if}}>
-						<span class="steading-box" aria-hidden="true"></span>
-						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.adv"}}</span></span>
-					</label>
-					<label class="steading-rating-option">
-						<input class="steading-box-input steading-roll-mode-radio" type="radio" name="stonetop-roll-mode" data-change-action="rollMode" value="dis" {{#if (eq stonetop.rollMode "dis")}}checked{{/if}}>
-						<span class="steading-box" aria-hidden="true"></span>
-						<span class="steading-option-text"><span>{{localize "stonetop.rollMode.dis"}}</span></span>
-					</label>
-				</div>
-			</div>
+		</div>{{!-- /row two --}}
 
-		</section>
 	</header>
 
-	{{!-- Tab navigation --}}
-	{{!-- data-action="tab" is core ApplicationV2's built-in action (→ changeTab); each anchor
-	      carries data-group because changeTab addresses `.tabs [data-group][data-tab]` directly. --}}
-	<nav class="sheet-tabs tabs" data-group="primary">
-		<button type="button" class="item {{tabs.overview.cssClass}}" data-action="tab" data-group="primary" data-tab="overview">Overview</button>
-		<button type="button" class="item {{tabs.residents.cssClass}}" data-action="tab" data-group="primary" data-tab="residents">Residents</button>
-		<button type="button" class="item {{tabs.neighbors.cssClass}}" data-action="tab" data-group="primary" data-tab="neighbors">Neighbors</button>
-		<button type="button" class="item {{tabs.improvements.cssClass}}" data-action="tab" data-group="primary" data-tab="improvements">Improvements</button>
-		<button type="button" class="item {{tabs.moves.cssClass}}" data-action="tab" data-group="primary" data-tab="moves">Moves</button>
-		<button type="button" class="item {{tabs.seasons.cssClass}}" data-action="tab" data-group="primary" data-tab="seasons">Seasons</button>
-		<button type="button" class="item {{tabs.notes.cssClass}}" data-action="tab" data-group="primary" data-tab="notes">Notes</button>
+	{{!-- Tab navigation. data-action="tab" is core ApplicationV2's built-in action (→ changeTab); each
+	      button carries data-group because changeTab addresses `.tabs [data-group][data-tab]` directly.
+	      The ARIA and the arrow-key roving are ours — core ships neither. --}}
+	<nav class="sheet-tabs tabs" data-group="primary" role="tablist" aria-label="{{localize 'stonetop.a11y.steadingTabs'}}">
+		{{#each tabs}}
+		<button type="button" class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}"
+		        role="tab" id="{{@root.sheetIdPrefix}}-tab-{{this.id}}" aria-controls="{{@root.sheetIdPrefix}}-panel-{{this.id}}"
+		        aria-selected="{{#if this.active}}true{{else}}false{{/if}}" tabindex="{{#if this.active}}0{{else}}-1{{/if}}">{{localize this.label}}</button>
+		{{/each}}
+		{{!-- One ? for the sheet, at the end of the tab row. Every rating's advice is one page of the
+		      same article, and its headings are all on it — so six buttons opening the same document
+		      at six anchors is five buttons too many. --}}
+		{{> "stonetop.advice-button" variant="sheet"}}
 	</nav>
 
 	<section class="sheet-body">
 
-		{{!-- Overview tab --}}
-		<div class="tab {{tabs.overview.cssClass}}" data-group="primary" data-tab="overview">
+		{{!-- Play — the tab you are on essentially the whole session.
 
-			<div class="steading-overview-grid">
+		      The ratings at their full density: the SAME tile partial the line renders, laid out so a
+		      rating leads the evidence that justifies it — Prosperity over Resources, Defenses over
+		      Fortifications. That pairing is the book's best structural idea.
+
+		      Two columns, not three: Fortunes and Surplus lead no list, so they went to the rail with
+		      the moves, and each column here is now wider than all three were. --}}
+		<div class="tab {{tabs.play.cssClass}}" data-group="primary" data-tab="play"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-play" aria-labelledby="{{sheetIdPrefix}}-tab-play">
+
+			<div class="steading-overview-grid steading-play-grid" data-density="full">
 
 				<section class="steading-overview-column">
-					{{> "stonetop.steading-ratings-list" title="Resources" attr="prosperity" items=stonetop.attributes.prosperity.items}}
+					{{> "stonetop.steading-stat-panel" attr="prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity"}}
+					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items}}
 				</section>
-
-				<div class="steading-overview-divider" aria-hidden="true"></div>
 
 				<section class="steading-overview-column">
-					{{> "stonetop.steading-ratings-list" title="Defenses" attr="defenses" items=stonetop.attributes.defenses.items}}
-				</section>
-
-				<div class="steading-overview-divider" aria-hidden="true"></div>
-
-				<section class="steading-overview-column steading-assets-column">
+					{{> "stonetop.steading-stat-panel" attr="defenses" attrData=stonetop.attributes.defenses rollable=true panelClass="steading-defenses"}}
+					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
 					{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage advice="coin"}}
 				</section>
 
 			</div>
 
+		</div>{{!-- /tab play --}}
 
-		</div>{{!-- /tab overview --}}
-
-		{{!-- Residents tab --}}
-		<div class="tab {{tabs.residents.cssClass}}" data-group="primary" data-tab="residents">
+		{{!-- Folk — residents and neighbours, the people of and around the steading --}}
+		<div class="tab {{tabs.folk.cssClass}}" data-group="primary" data-tab="folk"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-folk" aria-labelledby="{{sheetIdPrefix}}-tab-folk">
 
 			<div class="steading-residents-grid">
 
-				<section class="steading-residents-roster steading-panel-frame">
-					<span class="panel-corner panel-corner-tl"></span>
-					<span class="panel-corner panel-corner-tr"></span>
-					<span class="panel-corner panel-corner-bl"></span>
-					<span class="panel-corner panel-corner-br"></span>
-					<span class="panel-edge panel-edge-top"></span>
-					<span class="panel-edge panel-edge-right"></span>
-					<span class="panel-edge panel-edge-bottom"></span>
-					<span class="panel-edge panel-edge-left"></span>
-
+				<section class="steading-residents-roster steading-block">
+					{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.residents")}}
 					<div class="steading-residents-table">
 						<div class="steading-residents-header">
 							<span>{{localize "stonetop.steading.colName"}}</span>
@@ -227,36 +251,17 @@
 
 				<div class="steading-residents-divider" aria-hidden="true"></div>
 
-				<section class="steading-resident-names steading-panel-frame">
-					<span class="panel-corner panel-corner-tl"></span>
-					<span class="panel-corner panel-corner-tr"></span>
-					<span class="panel-corner panel-corner-bl"></span>
-					<span class="panel-corner panel-corner-br"></span>
-					<span class="panel-edge panel-edge-top"></span>
-					<span class="panel-edge panel-edge-right"></span>
-					<span class="panel-edge panel-edge-bottom"></span>
-					<span class="panel-edge panel-edge-left"></span>
-					<h2>Names</h2>
+				<section class="steading-resident-names steading-block">
+					{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.names")}}
 					<p class="steading-names-text">{{stonetop.residentNames}}</p>
 					<img class="steading-residents-img" src="stonetop-art/steading/residents.png" alt="">
 				</section>
 
 			</div>
 
-			<section class="steading-npc-traits steading-panel-frame">
-				<span class="panel-corner panel-corner-tl"></span>
-				<span class="panel-corner panel-corner-tr"></span>
-				<span class="panel-corner panel-corner-bl"></span>
-				<span class="panel-corner panel-corner-br"></span>
-				<span class="panel-edge panel-edge-top"></span>
-				<span class="panel-edge panel-edge-right"></span>
-				<span class="panel-edge panel-edge-bottom"></span>
-				<span class="panel-edge panel-edge-left"></span>
-
-				<div class="steading-npc-traits-heading">
-					<h2>NPC Traits</h2>
-					<span>Assign as needed; choose from this list or make up your own.</span>
-				</div>
+			<section class="steading-npc-traits steading-block">
+				{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.npcTraits")
+				    note=(localize "stonetop.steading.headings.npcTraitsNote")}}
 				<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource"
 				          aria-label="{{localize 'stonetop.a11y.npcTraits'}}">{{stonetop.residentTraitsText}}</textarea>
 				<div class="steading-npc-traits-columns">
@@ -270,23 +275,10 @@
 				</div>
 			</section>
 
-		</div>{{!-- /tab residents --}}
-
-		{{!-- Neighbors tab --}}
-		<div class="tab {{tabs.neighbors.cssClass}}" data-group="primary" data-tab="neighbors">
-
 			<div class="steading-neighbors-grid">
 
-				<section class="steading-neighbors-roster steading-panel-frame">
-					<span class="panel-corner panel-corner-tl"></span>
-					<span class="panel-corner panel-corner-tr"></span>
-					<span class="panel-corner panel-corner-bl"></span>
-					<span class="panel-corner panel-corner-br"></span>
-					<span class="panel-edge panel-edge-top"></span>
-					<span class="panel-edge panel-edge-right"></span>
-					<span class="panel-edge panel-edge-bottom"></span>
-					<span class="panel-edge panel-edge-left"></span>
-
+				<section class="steading-neighbors-roster steading-block">
+					{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.neighbors")}}
 					<div class="steading-residents-table steading-neighbors-table">
 						<div class="steading-residents-header steading-neighbors-header">
 							<span>{{localize "stonetop.steading.colName"}}</span>
@@ -330,10 +322,15 @@
 
 			</div>
 
-		</div>{{!-- /tab neighbors --}}
+		</div>{{!-- /tab folk --}}
 
-		{{!-- Improvements tab --}}
-		<div class="tab {{tabs.improvements.cssClass}}" data-group="primary" data-tab="improvements">
+		{{!-- Season — the ritual: the Seasons Change move, the gains picker, and the improvement board --}}
+		<div class="tab {{tabs.season.cssClass}}" data-group="primary" data-tab="season"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-season" aria-labelledby="{{sheetIdPrefix}}-tab-season">
+
+			<section class="sheet-tab">
+				{{> "stonetop.steading-seasons" seasons=stonetop.seasons}}
+			</section>
 
 			<div class="stonetop-advice-toolbar">
 				{{> "stonetop.advice-button" variant="labelled" topic="steadingImprovement"}}
@@ -365,36 +362,11 @@
 
 			</div>
 
-		</div>{{!-- /tab improvements --}}
+		</div>{{!-- /tab season --}}
 
-		{{!-- Moves tab --}}
-		<div class="tab {{tabs.moves.cssClass}}" data-group="primary" data-tab="moves">
-			<section class="sheet-tab">
-				{{#each stonetop.moves}}
-					{{!-- alwaysShowResource: a steading's moves are its fixed set, so their resource
-					      pips show whether or not the move reads as "acquired". --}}
-					{{> "stonetop.move-group"
-					    title=label
-					    note=note
-					    moves=moves
-					    categoryKey=key
-					    allowAdditional=false
-					    alwaysShowResource=true}}
-				{{else}}
-					<p class="stonetop-moves-empty">No moves assigned to this steading.</p>
-				{{/each}}
-			</section>
-		</div>{{!-- /tab moves --}}
-
-		{{!-- Seasons Change tab --}}
-		<div class="tab {{tabs.seasons.cssClass}}" data-group="primary" data-tab="seasons">
-			<section class="sheet-tab">
-				{{> "stonetop.steading-seasons" seasons=stonetop.seasons}}
-			</section>
-		</div>{{!-- /tab seasons --}}
-
-		{{!-- Notes tab --}}
-		<div class="tab {{tabs.notes.cssClass}}" data-group="primary" data-tab="notes">
+		{{!-- Chronicle — the record: places of interest, notes, and the safety-tools content page --}}
+		<div class="tab {{tabs.chronicle.cssClass}}" data-group="primary" data-tab="chronicle"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-chronicle" aria-labelledby="{{sheetIdPrefix}}-tab-chronicle">
 
 			<div class="steading-notes-grid">
 
@@ -406,16 +378,8 @@
 
 				<section class="steading-notes-column steading-notes-content-column">
 					{{#each stonetop.content}}
-						<div class="steading-notes-field steading-notes-content-field steading-panel-frame">
-							<span class="panel-corner panel-corner-tl"></span>
-							<span class="panel-corner panel-corner-tr"></span>
-							<span class="panel-corner panel-corner-bl"></span>
-							<span class="panel-corner panel-corner-br"></span>
-							<span class="panel-edge panel-edge-top"></span>
-							<span class="panel-edge panel-edge-right"></span>
-							<span class="panel-edge panel-edge-bottom"></span>
-							<span class="panel-edge panel-edge-left"></span>
-							<h2>{{rich label}}{{#if note.raw}} <small>{{rich note}}</small>{{/if}}</h2>
+						<div class="steading-notes-field steading-notes-content-field steading-block">
+							{{> "stonetop.section-heading" title=label note=note}}
 							<textarea class="stonetop-content-textarea" data-change-action="contentText" data-type="{{slug}}"
 						          aria-label="{{localize 'stonetop.a11y.contentText' section=label.raw}}">{{text}}</textarea>
 						</div>
@@ -425,24 +389,19 @@
 				<div class="steading-notes-divider" aria-hidden="true"></div>
 
 				<section class="steading-notes-column">
-					<div class="steading-notes-field steading-panel-frame">
-						<span class="panel-corner panel-corner-tl"></span>
-						<span class="panel-corner panel-corner-tr"></span>
-						<span class="panel-corner panel-corner-bl"></span>
-						<span class="panel-corner panel-corner-br"></span>
-						<span class="panel-edge panel-edge-top"></span>
-						<span class="panel-edge panel-edge-right"></span>
-						<span class="panel-edge panel-edge-bottom"></span>
-						<span class="panel-edge panel-edge-left"></span>
-						<h2>Notes</h2>
+					<div class="steading-notes-field steading-block">
+						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
 						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}" class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>
 					</div>
 				</section>
 
 			</div>
 
-		</div>{{!-- /tab notes --}}
+		</div>{{!-- /tab chronicle --}}
 
 	</section>{{!-- /sheet-body --}}
+
+	</div>{{!-- /rail main --}}
+	</div>{{!-- /rail layout --}}
 
 </div>

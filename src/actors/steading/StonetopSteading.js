@@ -1,5 +1,5 @@
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
-import {FortunesSnapshot, SurplusSnapshot, SteadingSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
+import {RatingSnapshot, SteadingSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
 import {PlacesOfInterest} from "./PlacesOfInterest.js";
 import {SteadingAttributes} from "./SteadingAttributes.js";
 import {SteadingDebilities} from "./SteadingDebilities.js";
@@ -13,12 +13,13 @@ import {SteadingMoves} from "./SteadingMoves.js";
 import {SteadingChoices} from "./SteadingChoices.js";
 import {SteadingSeasons} from "./SteadingSeasons.js";
 import {SteadingRolls} from "./SteadingRolls.js";
+import {RollModes} from "../RollModes.js";
 import {SteadingDropRouter} from "./SteadingDropRouter.js";
 import {ChoiceStores} from "../character/ChoiceStores.js";
 import {applyPick} from "../character/ChoiceGroupController.js";
 import {FoundrySteadingRepositoryFactory} from "./repositories/FoundrySteadingRepositoryFactory.js";
 import {SteadingPeopleDelta} from "./SteadingPeopleDelta.js";
-import {startingAttributeNote} from "./startingAttributeNote.js";
+import {startingValue} from "./startingValue.js";
 import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadfast.js";
 
 /**
@@ -36,8 +37,11 @@ export class StonetopSteading {
 	constructor(actor, repos = FoundrySteadingRepositoryFactory.create()) {
 		this.#actor          = actor;
 		this.#places         = new PlacesOfInterest(actor);
-		this.#attributes     = new SteadingAttributes(actor);
 		this.#debilities     = new SteadingDebilities(actor);
+		// Rolls before attributes: a rating tile names the debility bending it, and rolls is the one
+		// place that knows a debility bends anything at all.
+		this.#rolls          = new SteadingRolls(actor, this.#debilities);
+		this.#attributes     = new SteadingAttributes(actor, this.#rolls);
 		this.#residents      = new Residents(actor, repos.npcs);
 		this.#neighborPeople = new NeighborPeople(actor, repos.npcs);
 		this.#neighborPlaces = new NeighborPlaces(actor);
@@ -47,7 +51,6 @@ export class StonetopSteading {
 		this.#moves          = new SteadingMoves(actor, repos.moves);
 		this.#choices        = new SteadingChoices(actor);
 		this.#seasons        = new SteadingSeasons(this.#choices, this.#moves, repos.art);
-		this.#rolls          = new SteadingRolls(actor, this.#debilities);
 		// Where a choice write goes, keyed by the context its row was rendered in — the same registry
 		// the character uses, so both answer the shared choice wiring identically. A move's picks live
 		// on that ITEM, which is why `move` resolves through SteadingMoves rather than the steading's
@@ -240,10 +243,17 @@ export class StonetopSteading {
 	async renameOrApplySteadfast(value, availableSteadfasts = []) {
 		const name = (value ?? "").trim();
 		const match = matchSteadfastByName(name, availableSteadfasts);
-		if (match) {
+		// Applying a steadfast OVERWRITES the profile — attributes, assets, places, neighbour places,
+		// residents and improvements — with the pack's starting values. That is right when the name
+		// changes TO a steadfast, and catastrophic when it is merely re-submitted: a steading named
+		// after the steadfast it came from (which every steading seeded from one is) matched itself on
+		// every change event the name field emitted, and a session's play was replaced by the book's
+		// starting numbers. So the steadfast this steading already has is never re-applied here.
+		// Deliberately re-seeding is the drop path (applyDroppedItem), where it is what was asked for.
+		if (match && match.slug !== this.#actor.system.steadfast) {
 			const steadfast = await loadSteadfast(match.slug);
 			if (steadfast) await applySteadfast(this.#actor, steadfast);
-		} else if (name && name !== this.#actor.name) {
+		} else if (!match && name && name !== this.#actor.name) {
 			await this.#actor.update({ name });
 		}
 	}
@@ -257,13 +267,14 @@ export class StonetopSteading {
 			this.#seasons.buildSnapshot(),
 		]);
 		return new SteadingSnapshot({
-			fortunes: new FortunesSnapshot(
-				SteadingDefaults.fortunes.title, startingAttributeNote(this.#actor, "fortunes"),
-				this.fortunesCurrent, SteadingDefaults.fortunes.options, SteadingDefaults.fortunes.bonuses,
-			),
-			surplus: new SurplusSnapshot(
-				SteadingDefaults.surplus.title, startingAttributeNote(this.#actor, "surplus"), this.surplusCurrent,
-			),
+			fortunes: new RatingSnapshot(SteadingDefaults.fortunes, {
+				current:  this.fortunesCurrent,
+				starting: startingValue(this.#actor, "fortunes"),
+			}),
+			surplus: new RatingSnapshot(SteadingDefaults.surplus, {
+				current:  this.surplusCurrent,
+				starting: startingValue(this.#actor, "surplus"),
+			}),
 			attributes:         this.#attributes.buildSnapshot(),
 			debilities:         this.#debilities.buildSnapshot(),
 			placesOfInterest:   this.#places.buildSnapshot(),
@@ -282,6 +293,7 @@ export class StonetopSteading {
 			moves,
 			seasons,
 			rollMode:           this.rollMode,
+			rollModes:          RollModes.options(this.rollMode),
 		});
 	}
 }

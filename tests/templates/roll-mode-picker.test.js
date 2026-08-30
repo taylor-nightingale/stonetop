@@ -87,11 +87,17 @@ describe("roll-mode picker call sites", () => {
 		expect(others).toEqual([]);
 	});
 
-	// Not an oversight: the steading draws its own box glyph, and orders the modes normal/adv/dis
-	// against the picker's adv/normal/dis. Sharing the partial would silently restyle and reorder it.
-	it("is deliberately not used by the steading, which draws a different control", () => {
+	// The steading draws a segmented control rather than the picker's stacked list — its header is a
+	// single row, and a column of three radios is most of that row's height. Only the MARKUP diverges
+	// now: the options come from the shared RollModes list, so the two can no longer drift in which
+	// modes exist or what order they come in, which is what the old hand-rolled copy had done.
+	it("is not used by the steading, which draws the same options as a segmented control", () => {
 		const steading = read("templates/actor/steading.hbs");
-		expect(steading).toContain("steading-roll-mode-radio");
 		expect(steading).not.toContain('{{> "stonetop.roll-mode-picker"');
+		expect(steading).toContain("stonetop.rollModes");
+		expect(steading).toContain("steading-rollmode-input");
+		// The retired ladder glyph is gone from the header along with the rating ladders.
+		expect(steading).not.toContain("steading-roll-mode-radio");
+		expect(steading).not.toContain("steading-box-input");
 	});
 });

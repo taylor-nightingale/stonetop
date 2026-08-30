@@ -11,15 +11,13 @@
 		</div>
 	{{/if}}
 
-	<section class="steading-seasons-gains steading-panel-frame">
-		{{> "stonetop.panel-frame"}}
-		<h2>{{localize "stonetop.steading.seasons.gainsTitle"}}</h2>
-		<p class="steading-seasons-hint">{{localize "stonetop.steading.seasons.gainsHint"}}</p>
+	<section class="steading-seasons-gains steading-block">
+		{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.gainsTitle")
+		    note=(localize "stonetop.steading.seasons.gainsHint")}}
 		{{#with seasons.gains}}{{> "stonetop.choice-group" cgContext="steading"}}{{/with}}
 	</section>
 
-	<section class="steading-seasons-moves steading-panel-frame">
-		{{> "stonetop.panel-frame"}}
+	<section class="steading-seasons-moves steading-block">
 		{{#if seasons.moves}}
 			{{!-- alwaysShowResource: the seasonal moves are a fixed set, so their resource pips show
 			      whether or not the move reads as "acquired". --}}
@@ -29,9 +27,10 @@
 			    moves=seasons.moves.moves
 			    categoryKey=seasons.moves.key
 			    allowAdditional=false
-			    alwaysShowResource=true}}
+			    alwaysShowResource=true
+			    unacquirable=true}}
 		{{else}}
-			<h2>{{localize "stonetop.steading.seasons.movesTitle"}}</h2>
+			{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.movesTitle")}}
 			<p class="stonetop-moves-empty">{{localize "stonetop.steading.seasons.movesEmpty"}}</p>
 		{{/if}}
 	</section>

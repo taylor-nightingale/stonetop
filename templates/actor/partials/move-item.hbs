@@ -1,6 +1,23 @@
-{{!-- One move row body (shared between the moves tab and the major-arcana card). Context is a
-      MoveSnapshot; params: showCheck (render the acquisition checkbox), categoryKey, allowAdditional.
-      The caller supplies the <li>/<ol> wrapper. --}}
+{{!-- One move row body (shared between the moves tab, the major-arcana card and the steading's rail).
+      Context is a MoveSnapshot; params: showCheck (render the acquisition checkbox), categoryKey,
+      allowAdditional, and `disclosure`. The caller supplies the <li>/<ol> wrapper.
+
+      `disclosure` collapses the row: the name becomes a button that opens the move's text in flow,
+      and while it is shut the row says what the move is FOR — its own trigger, as a gloss. Six moves
+      printed in full is 1400px of a column; six rows is a list you can read.
+
+      The row keeps the SAME controls either way — the die and the chat bubble, in the same places,
+      doing the same things. A disclosure changes what the row SAYS, not what it can do, so it is not
+      a second vocabulary to learn. Opening the move's own item sheet is dropped from a disclosure
+      row on purpose: the body already IS the move's text, which is what that button was for.
+
+      Activation, not proximity. A hover card would be governed by SC 1.4.13 (dismissible, hoverable,
+      persistent) and would need a second path for touch and a third for the keyboard; a disclosure
+      announces itself through `aria-expanded` and behaves identically for all three. Rows shifting
+      below the one you open was an objection to HOVER — once the trigger is a click, the shift is
+      what the reader just asked for.
+
+      They are independent, not an accordion: opening one never closes another. --}}
 <div class="stonetop-item-header">
 	{{#if showCheck}}
 	{{#if (gt selection.max 1)}}
@@ -32,10 +49,23 @@
 	{{#if icon}}<img class="stonetop-move-icon" src="{{icon}}" alt="">{{/if}}
 	{{!-- The name opens the move's own item sheet, the way the Items sidebar does. A <button>, not a
 	      <strong>: core binds click only for [data-action], so anything else is keyboard-dead.
-	      data-view-state keeps it live on a locked sheet — reading a move mutates nothing. --}}
+	      data-view-state keeps it live on a locked sheet — reading a move mutates nothing.
+
+	      As a disclosure it opens the text in place instead, and the gloss rides inside it so the
+	      whole line is one target. Opening the move's own sheet is then a button in the body. --}}
+	{{#if disclosure}}
+	<button type="button" class="stonetop-item-name stonetop-move-disclosure" data-action="toggleMoveBody"
+	        data-view-state data-move-slug="{{slug}}"
+	        aria-expanded="false" aria-controls="{{@root.sheetIdPrefix}}-move-{{categoryKey}}-{{slug}}">
+		<i class="fas fa-caret-right stonetop-move-caret" aria-hidden="true"></i>
+		<span class="stonetop-move-disclosure-name">{{name}}</span>
+		{{#if (hasText gloss)}}<span class="stonetop-move-gloss">— {{gloss}}</span>{{/if}}
+	</button>
+	{{else}}
 	<button type="button" class="stonetop-item-name stonetop-item-name--open" data-action="openMove"
 	        data-view-state data-move-slug="{{slug}}"
 	        title="{{localize 'stonetop.character.moves.openSource'}}">{{name}}</button>
+	{{/if}}
 	{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 	{{!-- Any move that rolls shows its die, ticked or not: the check marks what the character has
 	      taken, not what the table is allowed to roll. --}}
@@ -65,7 +95,14 @@
 	{{/if}}
 </div>
 {{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}
+
+{{!-- Everything below is the same content in both variants; a disclosure just wraps it in the region
+      its button controls. `hidden` rather than a class, because a hidden region leaves the tab order
+      and the accessibility tree for free — which is exactly what `aria-expanded="false"` promises. --}}
+{{#if disclosure}}<div class="stonetop-move-body" id="{{@root.sheetIdPrefix}}-move-{{categoryKey}}-{{slug}}" hidden>{{/if}}
+
 <div class="stonetop-item-description">{{rich description}}</div>
+
 {{#if choices}}
 <div class="stonetop-move-choices" data-move-slug="{{slug}}">
 	{{#each choices.list}}
@@ -73,3 +110,5 @@
 	{{/each}}
 </div>
 {{/if}}
+
+{{#if disclosure}}</div>{{/if}}

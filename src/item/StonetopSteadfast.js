@@ -4,6 +4,8 @@ import { PlacesOfInterest } from "../actors/steading/PlacesOfInterest.js";
 import { NeighborPlaces } from "../actors/steading/NeighborPlaces.js";
 import { SteadingImprovements } from "../actors/steading/SteadingImprovements.js";
 import { SteadfastSnapshot } from "../model/snapshot/steading/SteadfastSnapshot.js";
+import { RatingSnapshot } from "../model/snapshot/steading/SteadingSnapshot.js";
+import { SteadingDefaults } from "../model/data/steading/SteadingDefaults.js";
 import { addImprovement, removeImprovement } from "../model/data/steading/improvementSlugs.js";
 
 // The typed wrapper for a `steadfast` item — the definition of a place a steading begins from. It
@@ -56,8 +58,10 @@ export class StonetopSteadfast {
 			name:             this._item.name,
 			img:              this._item.img,
 			attributes:       this.attributes.buildSnapshot(),
-			fortunes:         sys.attributes?.fortunes ?? 0,
-			surplus:          sys.attributes?.surplus ?? 0,
+			// A steadfast is a template: these are plain starting counts, with no baseline to have
+			// travelled from and no debilities to bend them — but they draw as the same tile.
+			fortunes:         new RatingSnapshot(SteadingDefaults.fortunes, { current: sys.attributes?.fortunes ?? 0 }),
+			surplus:          new RatingSnapshot(SteadingDefaults.surplus,  { current: sys.attributes?.surplus  ?? 0 }),
 			assets:           this.assets.buildSnapshot(),
 			placesOfInterest: this.placesOfInterest.buildSnapshot(),
 			neighborPlaces:   this.neighborPlaces.buildSnapshot(),

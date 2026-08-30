@@ -1,8 +1,18 @@
+{{!-- A titled group of move rows. Params: title, note, moves, categoryKey, allowAdditional,
+      alwaysShowResource, and `unacquirable`.
+
+      `disclosure` collapses every row in the group to a single line — see move-item.hbs.
+
+      `unacquirable` drops the acquisition checkbox. The tick records that a CHARACTER has taken a
+      move, so it only means something where there was a choice: a steading has all six of its
+      homefront moves and all four Seasons Change moves from the day it exists, and a box that can
+      never be unticked asserts a state that does not exist — while costing a column of width in a
+      220px rail. Opt-in, so every group that does have something to acquire is unaffected. --}}
 <div class="stonetop-move-group">
 	{{> "stonetop.section-heading" title=title note=note}}
 	<ol class="items-list">
 	{{#each moves}}
-		{{> "stonetop.move-row" showCheck=true categoryKey=../categoryKey allowAdditional=../allowAdditional alwaysShowResource=../alwaysShowResource}}
+		{{> "stonetop.move-row" showCheck=(not ../unacquirable) categoryKey=../categoryKey allowAdditional=../allowAdditional alwaysShowResource=../alwaysShowResource disclosure=../disclosure}}
 	{{/each}}
 	</ol>
 </div>

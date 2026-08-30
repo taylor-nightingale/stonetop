@@ -136,7 +136,7 @@ export class SteadingMoves {
 	}
 
 	async _buildCategory(category) {
-		const items = this._sortedMovesIn(category);
+		const items = this._visibleMovesIn(category);
 		if (!items.length) return null;
 		const moves = await Promise.all(items.map(item =>
 			buildMoveSnapshot(item, category.key, computeSelectable(item), this._resourceController)
@@ -162,5 +162,12 @@ export class SteadingMoves {
 
 	_movesIn(categoryKey) {
 		return [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === categoryKey);
+	}
+
+	// What the SHEET shows of a category — its moves less the ones it owns but does not draw. Applied
+	// on the way out rather than at seed time: the items stay on the actor, so nothing is lost and a
+	// later decision to show one again is a one-line change here.
+	_visibleMovesIn(category) {
+		return this._sortedMovesIn(category).filter(i => category.shows(i.system?.slug ?? toSlug(i.name)));
 	}
 }

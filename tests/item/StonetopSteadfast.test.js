@@ -43,8 +43,12 @@ describe("StonetopSteadfast", () => {
 		const snap = await new StonetopSteadfast(makeItem(), fakeRepo).buildSnapshot();
 		expect(snap).toBeInstanceOf(SteadfastSnapshot);
 		expect(snap.name).toBe("Barrier Pass");
-		expect(snap.fortunes).toBe(1);
-		expect(snap.surplus).toBe(1);
+		// Fortunes and Surplus draw as the same ledger tile the steading uses, so they arrive as
+		// rating snapshots rather than bare numbers — but a template has no baseline to have moved off.
+		expect(snap.fortunes.current).toBe(1);
+		expect(snap.fortunes.startingNote).toBe("");
+		expect(snap.surplus.current).toBe(1);
+		expect(snap.surplus.min).toBe(0);
 		expect(snap.attributes.size.current).toBe("village");
 		expect(snap.attributes.prosperity.items).toEqual(["Timber"]);
 		expect(snap.attributes.defenses.items).toEqual(["Ramparts"]);

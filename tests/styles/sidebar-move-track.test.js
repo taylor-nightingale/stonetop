@@ -35,7 +35,7 @@ const row = (name, track) => `
 
 const FIXTURE = `
 <div class="application stonetop sheet character themed theme-light"><div class="window-content">
-  <div class="stonetop-sheet-layout"><div class="stonetop-moves-sidebar">
+  <div class="stonetop-rail-layout" data-side="right"><div class="stonetop-rail stonetop-moves-rail">
     <ol class="items-list">
       ${row("Aid or Interfere", false)}
       ${row("Defend", true)}

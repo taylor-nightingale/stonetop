@@ -1,6 +1,7 @@
 export { ValueMax } from "./VitalsSnapshot.js";
 import { ValueMax } from "./VitalsSnapshot.js";
 import { rich } from "../RichText.js";
+import { MoveGloss } from "./MoveGloss.js";
 
 /** Move or possession requirement. */
 export class RequirementSnapshot {
@@ -23,6 +24,7 @@ export class RequirementSnapshot {
  * @property {RequirementSnapshot|null} requirement
  * @property {string|null} requiresLabel
  * @property {ResourceSnapshot|null} resource
+ * @property {string} gloss - the move's own trigger, for a collapsed disclosure row
  */
 export class MoveSnapshot {
 	constructor(b) {
@@ -31,6 +33,10 @@ export class MoveSnapshot {
 		this.slug          = b._slug;
 		this.name          = b._name;
 		this.description   = b._description;
+		// What a collapsed row says about itself: the move's own emphasised trigger, lifted from the
+		// text above. Derived here rather than at a render site so every surface that shows a move row
+		// says the same thing about it.
+		this.gloss         = MoveGloss.from(b._description);
 		this.rollStat      = b._rollStat;
 		this.source        = b._source;
 		this.sourceLabel   = b._sourceLabel;

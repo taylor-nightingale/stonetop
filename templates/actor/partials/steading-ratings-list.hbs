@@ -1,9 +1,14 @@
-{{!-- A framed add/edit/remove list of the strings backing a rating: `resources` (Prosperity) or
+{{!-- An add/edit/remove list of the strings backing a rating: `resources` (Prosperity) or
       `fortifications` (Defenses). Shared by the steading overview and the steadfast sheet.
-      Params: title, attr (the rating slug the list backs), items (array of strings). --}}
-<div class="steading-overview-field steading-panel-frame">
-	{{> "stonetop.panel-frame"}}
-	<h2>{{title}}</h2>
+
+      No frame: this list sits under the rating it justifies, and a border round it would cut the
+      two apart. The heading rule and the row hairlines are what separate it from its neighbours.
+      Params: title, addLabel, attr (the rating slug the list backs), items (array of strings). --}}
+<div class="steading-overview-field">
+	{{!-- The system's own section heading, so a block on this tab is titled the way every block on
+	      the character sheet is. It had a heading of its own that came out SMALLER than the rows
+	      underneath it, which is not a heading. --}}
+	{{> "stonetop.section-heading" title=title}}
 	<div class="steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
@@ -14,8 +19,10 @@
 				</button>
 			</div>
 		{{/each}}
-		<button class="stonetop-attr-extra-add stonetop-icon-btn" data-action="addAttributeItem" type="button" data-attr="{{attr}}" title="Add" aria-label="Add">
-			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
+		{{!-- The list's last row, and it says what it makes. A bare + at the foot of a column named
+		      neither the list it joins nor what a row is. --}}
+		<button class="stonetop-attr-extra-add stonetop-list-add" data-action="addAttributeItem" type="button" data-attr="{{attr}}" aria-label="{{addLabel}}">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{addLabel}}</span>
 		</button>
 	</div>
 </div>

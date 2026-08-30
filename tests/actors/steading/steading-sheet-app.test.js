@@ -45,28 +45,28 @@ describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integr
 		const move = ctx.stonetop.moves[0].moves[0];
 		expect(move.description.render()).toContain('<a class="content-link">the Barrow</a>');
 
-		// A plain default note (fortunes) also flowed through enrich — html is filled, not null.
-		expect(typeof ctx.stonetop.fortunes.note.html).toBe("string");
+		// A debility's effect is plain localized text on the snapshot, ready for the header line.
+		expect(ctx.stonetop.debilities[1].effect).toBe("stonetop.steading.debilities.lacking.effect");
 
 		// The template reads these directly.
 		expect(ctx.actor).toBe(sheet.actor);
 		expect(ctx.editable).toBe(true);
 	});
 
-	it("marks the overview tab active by default and reflects tabGroups.primary", async () => {
+	it("marks the play tab active by default and reflects tabGroups.primary", async () => {
 		const sheet = makeSheet(new FakeMoveRepository());
 
 		const first = await sheet._prepareContext({});
-		expect(Object.keys(first.tabs)).toEqual(["overview", "residents", "neighbors", "improvements", "moves", "seasons", "notes"]);
-		expect(first.tabs.overview.active).toBe(true);
-		expect(first.tabs.overview.cssClass).toBe("active");
-		expect(first.tabs.residents.active).toBe(false);
-		expect(first.tabs.residents.cssClass).toBe("");
+		expect(Object.keys(first.tabs)).toEqual(["play", "folk", "season", "chronicle"]);
+		expect(first.tabs.play.active).toBe(true);
+		expect(first.tabs.play.cssClass).toBe("active");
+		expect(first.tabs.folk.active).toBe(false);
+		expect(first.tabs.folk.cssClass).toBe("");
 
 		// Switching the active tab (what changeTab records) is reflected on the next context build.
-		sheet.tabGroups.primary = "residents";
+		sheet.tabGroups.primary = "folk";
 		const next = await sheet._prepareContext({});
-		expect(next.tabs.residents.active).toBe(true);
-		expect(next.tabs.overview.active).toBe(false);
+		expect(next.tabs.folk.active).toBe(true);
+		expect(next.tabs.play.active).toBe(false);
 	});
 });

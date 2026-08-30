@@ -56,11 +56,15 @@
 			</button>
 		</nav>
 
-		<div class="stonetop-sheet-layout">
-			<button type="button" class="stonetop-moves-toggle" data-action="toggleMovesOverlay" data-view-state title="{{localize 'stonetop.sheet.tabs.moves'}}" aria-label="{{localize 'stonetop.sheet.tabs.moves'}}">
+		{{!-- The moves rail. `data-side` is the only thing that says which edge it is on; the shared
+		      rail stylesheet reads it, so the steading's left-hand rail is the same component. --}}
+		<div class="stonetop-rail-layout" data-side="right">
+			<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
+			        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-moves-rail"
+			        title="{{localize 'stonetop.sheet.tabs.moves'}}" aria-label="{{localize 'stonetop.sheet.tabs.moves'}}">
 				<i class="fas fa-bolt"></i>
 			</button>
-			<section class="sheet-body">
+			<section class="sheet-body stonetop-rail-main">
 				{{> "stonetop.tab-playbook"}}
 				{{> "stonetop.tab-moves"}}
 				{{> "stonetop.tab-possessions"}}
@@ -72,7 +76,7 @@
 				    viewFlag=(concat "insertLocked-" slug) locked=(lookup @root.viewFlags (concat "insertLocked-" slug))}}{{/each}}
 			</section>
 
-			<div class="stonetop-moves-sidebar">
+			<div class="stonetop-rail stonetop-moves-rail" id="{{sheetIdPrefix}}-moves-rail">
 				{{!-- Roll Mode --}}
 				<div class="stonetop-outfit-header">
 					{{> "stonetop.roll-mode-picker" modes=stonetop.rollModes name="stonetop-roll-mode" changeAction="rollMode"}}

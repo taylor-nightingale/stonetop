@@ -12,11 +12,20 @@ import { Seasons } from "./Seasons.js";
 export class SteadingMoveCategory {
 	// `order` names the slugs that have a meaningful reading order. Anything absent from it (a move
 	// the GM dropped in, or a whole category that never had one) sorts alphabetically behind them.
-	constructor(key, label, { order = [], ownTab = false } = {}) {
+	//
+	// `hidden` names slugs the category OWNS but does not show on the steading. The book files a move
+	// by when you make it, not by who makes it, so "Homefront moves" holds both — see below.
+	constructor(key, label, { order = [], hidden = [], ownTab = false } = {}) {
 		this.key    = key;
 		this.label  = label;
 		this.order  = order;
+		this.hidden = hidden;
 		this.ownTab = ownTab;
+	}
+
+	/** Whether this category shows `slug` on the steading sheet. */
+	shows(slug) {
+		return !this.hidden.includes(slug);
 	}
 
 	// Unnamed slugs all tie at the end, so a comparator subtracting two ranks gets 0 and can fall
@@ -27,8 +36,20 @@ export class SteadingMoveCategory {
 	}
 }
 
+// Book I files a move by WHEN you make it, not by who makes it, so its "Homefront moves" index holds
+// both the steading's moves and a character's downtime moves — Level Up among them. The pack is
+// faithful to the book and stays that way; what is wrong is only where the steading sheet draws it.
+//
+// Level Up is a character gaining a level. Rendered in a column headed by the steading's name, over
+// the steading's own ratings, it reads as the STEADING levelling up, which is not a thing. Hidden
+// here rather than recategorised, so the book's own filing survives and the reason is on the record.
+//
+// Provisional: the wider split (Bolster, Convalesce, Make a Plan and Trade & Barter are also things a
+// character does at home) is a separate piece of work.
+const HOMEFRONT_HIDDEN = ["level-up"];
+
 const _CATEGORIES = [
-	new SteadingMoveCategory("homefront", "Homefront Moves"),
+	new SteadingMoveCategory("homefront", "Homefront Moves", { hidden: HOMEFRONT_HIDDEN }),
 	// The seasons run spring → winter, not A–Z: an alphabetical list would open on Autumn. The order
 	// is the Seasons model's, so a season renamed there can't silently sort to the back here.
 	new SteadingMoveCategory(Seasons.CATEGORY, "Seasons Change", { order: Seasons.moveSlugs(), ownTab: true }),

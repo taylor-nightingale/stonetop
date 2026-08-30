@@ -1,10 +1,9 @@
-{{!-- The Assets panel — the general `items` list — plus a framed Coinage panel below it, grouped one
-      block per currency (purses/handfuls/coins). Shared by the steading overview and the steadfast sheet.
+{{!-- The Assets list plus the Coinage block below it, grouped one block per currency
+      (purses/handfuls/coins). Shared by the steading overview and the steadfast sheet.
       Params: items (array of strings), coinage (array of {title, label, purses, handfuls, coins}),
       and optionally advice (an "If you want to…" topic key). --}}
-<div class="steading-overview-field steading-panel-frame">
-	{{> "stonetop.panel-frame"}}
-	<h2>Assets</h2>
+<div class="steading-overview-field">
+	{{> "stonetop.section-heading" title=(localize "stonetop.steading.lists.assets")}}
 	<div class="steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
@@ -15,14 +14,13 @@
 				</button>
 			</div>
 		{{/each}}
-		<button class="stonetop-asset-item-add stonetop-icon-btn" data-action="addAssetItem" type="button" title="Add" aria-label="Add">
-			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
+		<button class="stonetop-asset-item-add stonetop-list-add" data-action="addAssetItem" type="button" aria-label="{{localize 'stonetop.steading.lists.addAsset'}}">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.lists.addAsset"}}</span>
 		</button>
 	</div>
 </div>
 
-<div class="steading-coinage steading-panel-frame">
-	{{> "stonetop.panel-frame"}}
+<div class="steading-coinage">
 	{{#each coinage}}
 		<div class="steading-coinage-currency">
 			{{!-- This panel has no heading of its own, so the first currency's name row is the row the

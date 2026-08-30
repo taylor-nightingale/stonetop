@@ -333,3 +333,19 @@ describe("SteadingMoves.categorySnapshot", () => {
 	});
 });
 
+
+// Book I files a move by when you make it, so its "Homefront moves" index holds both the steading's
+// moves and a character's downtime moves. Level Up is the latter, and over the steading's own
+// ratings it reads as the steading levelling up. The pack stays faithful; the sheet does not draw it.
+describe("what the steading draws of a category", () => {
+	it("keeps Level Up off the steading's moves without removing it from the actor", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Level Up"), homefront("Deploy")));
+		await moves.seedReferenceMoves();
+
+		expect(inCategory(actor, "homefront").map(i => i.name).sort(),
+			"Level Up should still be seeded onto the actor").toEqual(["Deploy", "Level Up"]);
+
+		const category = (await moves.buildSnapshot()).find(c => c.key === "homefront");
+		expect(category.moves.map(m => m.name)).toEqual(["Deploy"]);
+	});
+});

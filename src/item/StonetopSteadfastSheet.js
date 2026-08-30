@@ -53,9 +53,10 @@ export function createStonetopSteadfastSheetClass(Base) {
 			const root = this.element;
 			const s = this._steadfast;
 
-			// Ratings (size / population / prosperity / defenses). Size stores its tier string; the ±N
-			// ratings store a number.
-			bindAll(root, ".steading-box-input[data-attr]", "change", async ev => {
+			// Ratings (size / population / prosperity / defenses / fortunes / surplus). Size stores its
+			// tier string; the others store a number. The selector is the tile partial's input class —
+			// this sheet has no change router, so the two have to move together.
+			bindAll(root, ".steading-attr-input[data-attr]", "change", async ev => {
 				const { attr } = ev.currentTarget.dataset;
 				const raw = ev.currentTarget.value;
 				await s.attributes.setValue(attr, attr === "size" ? raw : parseInt(raw));

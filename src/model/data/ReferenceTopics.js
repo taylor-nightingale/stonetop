@@ -34,14 +34,21 @@ export class ReferenceTopics {
 	 * ANCHOR rather than by being a page of its own. The entry carries key → anchor, stamped by the
 	 * build from the heading it actually rendered — so nothing here has to guess how a heading slugs.
 	 *
-	 * Resolves false when the pack, the entry or the topic is absent: a button for something the book
-	 * doesn't cover is a no-op, not an error.
+	 * With NO key, opens the spread at its top — the sheet-level ? , which asks the general question
+	 * rather than one about a particular rating. The article is one page whose headings are all
+	 * present, so landing at the top reaches every topic by scrolling.
+	 *
+	 * Resolves false when the pack, the entry or a named topic is absent: a button for something the
+	 * book doesn't cover is a no-op, not an error.
 	 */
 	async open(key) {
-		if (!key) return false;
 		const entry = await this.entry();
 		const page = entry?.pages?.contents?.[0] ?? entry?.pages?.[0];
 		if (!page) return false;
+		if (!key) {
+			entry.sheet.render(true, { pageId: page.id });
+			return true;
+		}
 		const anchor = entry.flags?.stonetop?.topics?.[key];
 		if (!anchor) return false;
 		entry.sheet.render(true, { pageId: page.id, anchor });

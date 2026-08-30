@@ -1,14 +1,18 @@
 import {SteadingDefaults} from "../../model/data/steading/SteadingDefaults.js";
-import {AttributeSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
-import {startingAttributeNote} from "./startingAttributeNote.js";
+import {RatingSnapshot} from "../../model/snapshot/steading/SteadingSnapshot.js";
+import {startingValue} from "./startingValue.js";
 
 // Which asset list backs each rating. Prosperity's sources are `resources`; Defenses' are
 // `fortifications`. Size and Population have no backing list.
 const BACKING_LIST = { prosperity: "resources", defenses: "fortifications" };
 
 export class SteadingAttributes {
-	constructor(actor) {
+	// `rolls` is what the ratings are worth once debilities have had their say — asked here so a tile
+	// can name the debility bending it rather than silently showing a different number. Optional, so
+	// a steadfast (a template, with no debilities to speak of) can build the same snapshots.
+	constructor(actor, rolls = null) {
 		this._actor = actor;
+		this._rolls = rolls;
 	}
 
 	// The stored rating — an actual value (number, or the size tier string), not an index.
@@ -59,11 +63,11 @@ export class SteadingAttributes {
 	}
 
 	_attrSnapshot(slug) {
-		const def = SteadingDefaults.attributes[slug];
-		// Ratings select by their `bonuses`; size selects by its tier `values`. The "Starts at …" note is
-		// derived from the steadfast-supplied starting baseline (empty until a steadfast is applied).
-		const values = def.values ?? def.bonuses;
-		const note   = startingAttributeNote(this._actor, slug);
-		return new AttributeSnapshot(slug, def.title, note, this._value(slug), def.options, values, this._items(slug));
+		return new RatingSnapshot(SteadingDefaults.attributes[slug], {
+			current:    this._value(slug),
+			starting:   startingValue(this._actor, slug),
+			adjustment: this._rolls?.adjustmentFor(slug) ?? null,
+			items:      this._items(slug),
+		});
 	}
 }

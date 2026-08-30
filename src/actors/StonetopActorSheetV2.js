@@ -40,6 +40,9 @@ export function createStonetopActorSheetV2Class() {
 			const context = await super._prepareContext(options);
 			context.actor    = this.actor;
 			context.editable = this.isEditable;
+			// Scopes every id this sheet's markup mints for aria-controls / aria-labelledby wiring.
+			// Per-application, because two sheets open at once must not mint the same ids.
+			context.sheetIdPrefix = this.id;
 			context.stonetop = await this.typedActor.buildSnapshot();
 			await enrichRichTextTree(context.stonetop, this.actor?.getRollData?.() ?? {});
 			return context;

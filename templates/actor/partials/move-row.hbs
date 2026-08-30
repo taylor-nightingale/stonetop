@@ -11,5 +11,5 @@
 {{else}}
 <li class="stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}">
 {{/if}}
-	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource}}
+	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource disclosure=disclosure}}
 </li>

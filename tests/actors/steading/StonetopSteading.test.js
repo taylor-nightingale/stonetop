@@ -57,12 +57,16 @@ describe("StonetopSteading — fortunes", () => {
 		expect((await s.buildSnapshot()).fortunes.current).toBe(4);
 	});
 
-	it("marks the option whose value matches after setFortunes", async () => {
+	it("steps between the ends of the book's range", async () => {
 		const s = make();
-		await s.setFortunes(3); // +3
-		const options = (await s.buildSnapshot()).fortunes.options;
-		expect(options.find(o => o.value === 3).selected).toBe(true);
-		expect(options.find(o => o.value === -1).selected).toBe(false);
+		await s.setFortunes(3);
+		const fortunes = (await s.buildSnapshot()).fortunes;
+		expect(fortunes.current).toBe(3);
+		expect(fortunes.min).toBe(-1);
+		expect(fortunes.max).toBe(3);
+		// A ±N rating steps; it has no list to pick from.
+		expect(fortunes.isNumeric).toBe(true);
+		expect(fortunes.options).toEqual([]);
 	});
 });
 
