@@ -29,6 +29,10 @@ export function buildFocusSelector(element, container) {
 		}
 		if (dataset.attr && dataset.index !== undefined) return `.${cls}[data-attr="${dataset.attr}"][data-index="${dataset.index}"]`;
 		if (dataset.index !== undefined) return `.${cls}[data-index="${dataset.index}"]`;
+		// A rating's own control (a value, or Size's select). Every one of them shares
+		// `.steading-attr-input`, so without the attr the class alone matched the FIRST rating on the
+		// sheet: changing Size to "village" re-rendered and put the caret in Fortunes.
+		if (dataset.attr) return `.${cls}[data-attr="${dataset.attr}"]`;
 		if (dataset.cgContext) return `.${cls}[data-cg-context="${dataset.cgContext}"][data-cg-group="${dataset.cgGroup}"][data-cg-option="${dataset.cgOption}"]`;
 		// No unique data hook — disambiguate by name/value so we don't grab the first sibling.
 		return nameSel ? `.${cls}${nameSel}` : `.${cls}`;

@@ -55,12 +55,12 @@ const lineTile = (attr, text, { railed = false } = {}) => `
 // all in the image now, so there is nothing of the sheet's own to stand in for.
 const GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
-const fullTile = (attr, text, { arched = false, note = "", noteKind = "tier" } = {}) => `
+const fullTile = (attr, text, { arched = false, note = "", noteKind = "tier", rollable = true } = {}) => `
 	<div class="steading-tile steading-${attr}${arched ? " steading-tile--arched" : ""}" data-attr="${attr}">
 		${arched ? `<span class="steading-arch" aria-hidden="true">
 			<img class="steading-tile-badge" width="120" height="120" src="${GIF}" alt="">
 		</span>` : ""}
-		${label(attr, text)}<span class="steading-tile-value">${stepper(2)}</span>
+		${label(attr, text, { rollable })}<span class="steading-tile-value">${stepper(2)}</span>
 		${note ? `<span class="steading-tile-note steading-tile-note--${noteKind}">${note}</span>` : ""}
 	</div>`;
 
@@ -97,8 +97,11 @@ const fixture = width => `
     <div class="stonetop-rail steading-rail" data-density="full">
       <div class="steading-archpair">
         ${fullTile("fortunes", "Fortunes", { arched: true })}
-        ${fullTile("surplus", "Surplus", { arched: true })}
+        ${fullTile("surplus", "Surplus", { arched: true, rollable: false })}
       </div>
+      <!-- The moves the rail also carries. Only their WIDTH matters here: they fill the rail's
+           content box, so they are what "centred over its column" is measured against. -->
+      <div class="stonetop-move-group"><h3 class="stonetop-move-group-title">Homefront Moves</h3></div>
     </div>
    <div class="stonetop-rail-main steading-main">
     <header class="sheet-header steading-line" data-density="line">
@@ -181,6 +184,12 @@ const TARGETS = {
 	arch:           '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-arch',
 	archName:       '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-tile-label',
 	archValue:      '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-tile-value',
+	archPair:       ".steading-rail .steading-archpair",
+	railMoves:      ".steading-rail .stonetop-move-group",
+	archName2:      '.steading-archpair .steading-tile[data-attr="surplus"] .steading-tile-label',
+	archValue2:     '.steading-archpair .steading-tile[data-attr="surplus"] .steading-tile-value',
+	lineRollDie:    '.steading-line .steading-tile[data-attr="prosperity"] .steading-roll-die',
+	lineStepUp:     '.steading-line .steading-tile[data-attr="prosperity"] .stonetop-stepper-btn--up',
 	// All three addressed through the SAME stepper, spelled the same way. They used to differ — the
 	// input was reached via `.steading-rail`, the two buttons were not — which left the harness free
 	// to resolve them against different tiles.
@@ -258,9 +267,67 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 				}
 			});
 
+			// Fortunes rolls and Surplus does not, so one name is a <button> and the other a <span> —
+			// and core sizes every button to a fixed height, unlayered. That put Fortunes' whole value
+			// row 7px below Surplus's: the two numbers the book crowns side by side, out of level.
+			//
+			// The NAMES and the VALUES, not just the tiles: two tiles can start and end together while
+			// the rows inside them sit at different depths, which is the shape the defect took.
+			// The pair is capped well under the rail's width — the caption sets that cap, not the art —
+			// so where the leftover room goes is a choice. Flush left it left ~44px of empty rail beside
+			// the badges while the moves under them ran the full column, and the two arches read as
+			// pushed into a corner rather than as the head of the column.
+			//
+			// Measured against the MOVES, not against the rail's border box: the rail carries a right
+			// gutter, so "centred in the rail" and "centred over the column" are 12px apart and only
+			// the second is what a reader sees.
+			it("centres the arch pair over the column it heads", () => {
+				const pair  = m.get("archPair").values;
+				const moves = m.get("railMoves").values;
+				const left  = pair.boxLeft - moves.boxLeft;
+				const right = (moves.boxLeft + moves.boxWidth) - (pair.boxLeft + pair.boxWidth);
+				expect(left, "the arch pair is not centred over the rail's column").toBeCloseTo(right, 0);
+				expect(left, "the arch pair fills the column, so there is nothing to centre")
+					.toBeGreaterThan(0);
+			});
+
 			it("keeps the two arches level, though only one of them rolls", () => {
-				expect(m.get("archTile").values.boxTop).toBeCloseTo(m.get("archTile2").values.boxTop, 0);
-				expect(m.get("archTile").values.boxHeight).toBeCloseTo(m.get("archTile2").values.boxHeight, 0);
+				for (const [a, b] of [["archTile", "archTile2"], ["archName", "archName2"], ["archValue", "archValue2"]]) {
+					expect(m.get(a).values.boxTop, `${a} and ${b} start at different depths`)
+						.toBeCloseTo(m.get(b).values.boxTop, 0);
+					expect(m.get(a).values.boxHeight, `${a} and ${b} are different heights`)
+						.toBeCloseTo(m.get(b).values.boxHeight, 0);
+				}
+			});
+
+			// A name that rolls has to look like one. The die was dropped from the line for room, on
+			// the reasoning that its names are the only things on it that respond to a click — a fact
+			// about the line that nobody reading it can see.
+			// Computed rather than measured: the die is a Font Awesome glyph, and this harness has no
+			// icon font — the box is empty either way, so only the cascade can answer whether the line
+			// still hides it.
+			it("marks a rollable rating on the line with the same die it uses in full", () => {
+				const seen = probe.render({
+					bodyHtml: fixture(width), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
+					probes: {
+						lineDie: { selector: TARGETS.lineRollDie, properties: ["display"] },
+						archDie: { selector: '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-roll-die', properties: ["display"] },
+					},
+				});
+				expect(seen.get("lineDie").missing, "the line's rollable name has no die at all").toBe(false);
+				expect(seen.get("lineDie").get("display"),
+					"a rollable rating on the line has nothing saying it rolls").not.toBe("none");
+				expect(seen.get("archDie").get("display")).not.toBe("none");
+			});
+
+			// The line's carets are hidden at rest — ten permanent arrows across five ratings is noise
+			// on the one row that has to stay glanceable — but they are hidden with `visibility`, so
+			// they still hold their room. Revealed with `display` they grew the row the instant a
+			// pointer crossed a number, and the whole sheet stepped down under it.
+			it("has the line's hidden carets hold their room, so hovering never moves the sheet", () => {
+				expect(m.get("lineStepUp").values.boxWidth,
+					"the line's carets are out of flow, so revealing one re-lays out the row")
+					.toBeGreaterThan(0);
 			});
 
 			// The bug this replaces: absolutely positioned over the input's right edge and revealed on
@@ -364,16 +431,15 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		});
 	});
 
-	// Conditions shed their explanations by WIDTH and never by which one is marked, and every name
-	// stays reachable at every width.
-	describe("the conditions, as the line narrows", () => {
-		// Wider than the old 1400: the rail takes 220px off the line at every width, permanently, and
-		// the line's shedding thresholds are measured against its OWN container. Same behaviour for a
-		// given line width — the window simply has to be that much bigger to produce it.
-		it("states all three effects while there is room", () => {
+	// A condition explains itself when it is MARKED, at every width, and never otherwise.
+	describe("the conditions", () => {
+		// Not width-keyed in either direction: an explanation that arrives because the window got
+		// wider is explaining something nothing is doing.
+		it("says nothing about an unmarked condition, however much room there is", () => {
 			const m = measureAt(1660);
 			expect(m.get("markedEffect").values.boxWidth).toBeGreaterThan(0);
-			expect(m.get("unmarkedEffect").values.boxWidth).toBeGreaterThan(0);
+			expect(m.get("unmarkedEffect").values.boxWidth,
+				"an unmarked condition explained itself because the sheet was wide").toBe(0);
 		});
 
 		// The marked one used to be sorted to the front, which meant that ticking a circle moved the
@@ -388,15 +454,14 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 				"the marked condition was sorted to the front").toBeGreaterThan(lefts[0]);
 		});
 
-		// The marked one used to keep its effect after the other two had lost theirs, which meant that
-		// ticking a circle deleted two phrases and added a third — the row re-flowed, and everything
-		// after it moved, because a control was clicked. The layout answers to the space it has, never
-		// to which condition happens to be marked; marking says so in colour, which costs no layout.
-		it("sheds every explanation at one width, so marking one never re-flows the row", () => {
+		// A steading marks these rarely, and when it does, "what does lacking do again?" is the very
+		// next question at the table — so the condition bending every roll says so at any width, down
+		// to the narrowest anyone would use.
+		it("keeps the marked condition's explanation at the narrowest width", () => {
 			const m = measureAt(900);
 			expect(m.get("unmarkedEffect").values.boxWidth).toBe(0);
 			expect(m.get("markedEffect").values.boxWidth,
-				"the marked condition still has an explanation the others have lost").toBe(0);
+				"the condition currently bending every roll stopped saying what it does").toBeGreaterThan(0);
 		});
 	});
 });

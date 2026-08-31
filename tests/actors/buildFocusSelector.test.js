@@ -50,6 +50,14 @@ describe("buildFocusSelector", () => {
 		expect(buildFocusSelector(el, inContainer(el))).toBe('.stonetop-attr-extra[data-attr="prosperity"][data-index="1"]');
 	});
 
+	it("uses data-attr alone for a rating control (regression: changing Size focused Fortunes)", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			className: "steading-attr-input steading-size-select",
+			dataset: { attr: "size" },
+		});
+		expect(buildFocusSelector(el, inContainer(el))).toBe('.steading-attr-input[data-attr="size"]');
+	});
+
 	it("uses data-index alone when no data-attr", () => {
 		const el = Object.assign(new FakeDOMElement(), {
 			className: "stonetop-asset-item",

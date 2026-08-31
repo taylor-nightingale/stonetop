@@ -51,17 +51,17 @@
 	      <strong>: core binds click only for [data-action], so anything else is keyboard-dead.
 	      data-view-state keeps it live on a locked sheet — reading a move mutates nothing.
 
-	      As a disclosure it opens the text in place instead, and the gloss rides inside it so the
-	      whole line is one target — on its OWN line beneath the name, which is what leaves the first
-	      line to the die, the chat bubble and the resource track. Opening the move's own sheet is
-	      then a button in the body. --}}
+	      As a disclosure it opens the text in place instead. The button is the NAME alone: the gloss
+	      is the row's second line and ends the header (see below), so it runs the row's full width
+	      rather than stopping where the controls begin — and the button's accessible name stays
+	      "Bolster" instead of the move's whole trigger read aloud after it. Opening the move's own
+	      sheet is then a button in the body. --}}
 	{{#if disclosure}}
 	<button type="button" class="stonetop-item-name stonetop-move-disclosure" data-action="toggleMoveBody"
 	        data-view-state data-move-slug="{{slug}}"
 	        aria-expanded="false" aria-controls="{{@root.sheetIdPrefix}}-move-{{categoryKey}}-{{slug}}">
 		<i class="fas fa-caret-right stonetop-move-caret" aria-hidden="true"></i>
 		<span class="stonetop-move-disclosure-name">{{name}}</span>
-		{{#if (hasText gloss)}}<span class="stonetop-move-gloss">— {{gloss}}</span>{{/if}}
 	</button>
 	{{else}}
 	<button type="button" class="stonetop-item-name stonetop-item-name--open" data-action="openMove"
@@ -69,6 +69,10 @@
 	        title="{{localize 'stonetop.character.moves.openSource'}}">{{name}}</button>
 	{{/if}}
 	{{#if sourceLabel}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
+	{{!-- On a disclosure row the controls are one group, so they can hold the first line together
+	      while the gloss runs the full width underneath them. Opened and closed around the same
+	      controls both variants render, so there is still one set of them. --}}
+	{{#if disclosure}}<span class="stonetop-item-controls">{{/if}}
 	{{!-- Any move that rolls shows its die, ticked or not: the check marks what the character has
 	      taken, not what the table is allowed to roll. --}}
 	{{!-- A <button>, not a <span>: the die is a control, so it has to be reachable by the keyboard and
@@ -95,6 +99,11 @@
 		{{> "stonetop.resource-input" input=resource.input moveSlug=slug}}
 	</span>
 	{{/if}}
+	{{#if disclosure}}</span>{{/if}}
+	{{!-- The row's second line, and the last thing in the header so it wraps under everything above
+	      it rather than under the name alone. No dash in front of it: it is its own line, not a
+	      continuation of the name. --}}
+	{{#if disclosure}}{{#if (hasText gloss)}}<span class="stonetop-move-gloss">{{gloss}}</span>{{/if}}{{/if}}
 	{{#if allowAdditional}}
 	<button type="button" class="stonetop-other-move-delete" data-action="deleteOtherMove" data-move-slug="{{slug}}" data-name="{{name}}" title="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
 		<i class="fas fa-trash"></i>

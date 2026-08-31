@@ -12,8 +12,12 @@
 	<div class="steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
-				<input type="text" class="stonetop-attr-extra" data-change-action="attributeItem" data-attr="{{../attr}}" data-index="{{@index}}" value="{{this}}"
-				       aria-label="{{localize 'stonetop.a11y.ratingExtra'}}">
+				{{!-- A textarea, not an input: a resource is a phrase ("Tradesfolk (midwife, potter,
+				      publican, smith, tanner)"), and an input scrolls the tail of one out of view
+				      sideways with no way to see it but to put the caret back in. One line to start,
+				      growing downward as it wraps — the same field the choice rows use. --}}
+				<textarea rows="1" class="stonetop-attr-extra stonetop-grow-field" data-change-action="attributeItem" data-attr="{{../attr}}" data-index="{{@index}}"
+				          aria-label="{{localize 'stonetop.a11y.ratingExtra'}}">{{this}}</textarea>
 				<button class="stonetop-attr-extra-remove stonetop-icon-btn" data-action="removeAttributeItem" type="button" data-attr="{{../attr}}" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 				</button>

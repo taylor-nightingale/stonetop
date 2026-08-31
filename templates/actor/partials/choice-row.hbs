@@ -105,7 +105,7 @@
               {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
     {{else}}
     {{! Single-line to start, but grows downward as the answer wraps (field-sizing: content). }}
-    <textarea rows="1" class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--inline"
+    <textarea rows="1" class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--inline stonetop-grow-field"
               aria-label="{{localize 'stonetop.a11y.choiceText'}}"
               data-change-action="cgText"
               data-cg-context="{{cgContext}}"

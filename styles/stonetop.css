@@ -1939,15 +1939,8 @@ button.stonetop-view-toggle.is-active {
 }
 
 /* The gloss is what the row says about itself while it is shut, so it goes the moment the thing it
-   was standing in for is on screen. It never wraps: a label that takes two lines is not a label.
-
-   `flex: 1 0 100%` breaks it onto its own line under the name and lets it use the row's full width
-   before ellipsising — where `1 1 0` gave it whatever the die and the track had not already taken. */
+   was standing in for is on screen. It never wraps: a label that takes two lines is not a label. */
 .stonetop-move-gloss {
-	flex: 1 0 100%;
-	/* Hangs under the NAME, clearing the caret — the caret's width plus the row's gap, so the shut
-	   row's second line and the open row's body start in the same place. */
-	padding-left: calc(0.7em + 0.35rem);
 	font-style: italic;
 	font-size: var(--fs-micro);
 	color: var(--st-ink-faint);
@@ -1961,28 +1954,54 @@ button.stonetop-view-toggle.is-active {
 	display: none;
 }
 
-/* Baseline, not centre: a wrapped flex container's baseline comes from its FIRST line, so the die
-   and the chat bubble sit on the name's own baseline rather than floating between the two lines.
-   The resource track has no text to sit on a baseline, so it centres against the block — which is
-   also where a two-line row wants a column of pips. */
+/* ── A shut disclosure row is TWO lines, and only the first one is the row ──
+   Line one is the name and the controls; line two is the gloss, and it runs the row's FULL width —
+   the controls are only on line one, so there is nothing under them for it to stop short of.
+
+   Three columns: the caret, the name (which takes the slack), and the controls. The button is a
+   subgrid over the first two, so the gloss can start in the name's own column without anything
+   restating the caret's width, and end at the row's right edge.
+
+   Baseline alignment is what this replaces. It could only ever put the controls on the NAME's
+   baseline — they hang from it, which reads as bottom-aligned against a glyph box twice their
+   height — and the pip track, which has no text and so no baseline, fell between the two lines
+   entirely. Centred in a row that is exactly the name's own line box, they line up by construction. */
 .stonetop-item-header:has(> .stonetop-move-disclosure) {
-	align-items: baseline;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	grid-template-rows: auto auto;
+	align-items: center;
+	column-gap: var(--item-header-gap);
+	row-gap: 0;
 }
 
-.stonetop-item-header:has(> .stonetop-move-disclosure) > .stonetop-item-resources {
-	align-self: center;
+.stonetop.sheet .stonetop-item-header > .stonetop-move-disclosure {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: 1 / 3;
+	grid-row: 1;
+	align-items: center;
+}
+
+.stonetop-item-header > .stonetop-move-disclosure > .stonetop-move-caret { grid-column: 1; }
+.stonetop-item-header > .stonetop-move-disclosure > .stonetop-move-disclosure-name { grid-column: 2; }
+
+.stonetop-item-header > .stonetop-item-controls {
+	grid-column: 3;
+	grid-row: 1;
+	display: flex;
+	align-items: center;
+	gap: var(--item-header-gap);
+}
+
+/* From the name's column to the row's right edge. */
+.stonetop-item-header > .stonetop-move-gloss {
+	grid-column: 2 / -1;
+	grid-row: 2;
 }
 
 .stonetop.sheet button.stonetop-move-disclosure:hover .stonetop-move-disclosure-name {
 	text-decoration: underline;
-}
-
-/* The track ends the row rather than trailing the name: shut, the gloss takes whatever is left and
-   ellipsises; open, the gloss goes and the name would otherwise collide with the track. Right-
-   aligned, the pips also line up down the rail. */
-.stonetop-item-header > .stonetop-move-disclosure ~ .stonetop-item-resources {
-	margin-left: auto;
-	flex: none;
 }
 
 /* In a rail the track is PIPS ONLY. Its title ran 80px of a 207px row — a third of the line, spent
@@ -5250,17 +5269,15 @@ button.stonetop-xp-toggle {
    line wraps by nature — the failure to avoid is not wrapping but losing the values, so what sheds
    is explanation, never a number. */
 
-/* Narrow, the conditions shed their explanations — all three at once, at one width. All three names
-   stay, because marking and clearing a condition has to work at every width.
+/* A condition says what it does when it is MARKED, at every width, and never otherwise.
 
-   Keyed on the WIDTH alone and never on which one is marked. Shedding by state meant that ticking a
-   circle deleted two effects and added a third, re-flowing the row and everything after it: the
-   layout answered to the data instead of to the space, so the same steading at the same width had
-   two different shapes. What a marked condition changes is its colour. */
-@container steading-line (max-width: 74rem) {
-	.stonetop.sheet.steading .steading-line .steading-debility-effect {
-		display: none;
-	}
+   A steading marks these rarely, and when it does, "what does lacking do again?" is the very next
+   question at the table — so the one condition currently bending every roll has to say so, and the
+   two that are not are names alone, which is enough to read and to mark. Keyed on the state rather
+   than on the width because that is what the reader is asking about: an explanation that appears
+   because the window got wider explains something nothing is doing. */
+.stonetop.sheet.steading .steading-line .steading-debility:not(.is-active) .steading-debility-effect {
+	display: none;
 }
 
 /* The notes go in order of what they cost you to lose. "legendary" and "150–350" are the book
@@ -5483,13 +5500,28 @@ button.stonetop-xp-toggle {
    something else, and its job is to be complete and cheap in height; ten permanent carets across
    five ratings is noise on the one row that has to stay glanceable. They come back on hover and on
    focus, exactly as they do everywhere outside this sheet. */
+/* `visibility`, not `display`: these carets are in normal flow on this sheet (they flank the number
+   rather than overlaying it), so revealing them with `display` grew the line by a couple of pixels
+   and pushed the whole sheet down the instant a pointer crossed a number. Hidden, they still hold
+   their room, so hovering changes what you can see and never what is where.
+
+   And since that room is now held permanently on the row that has to stay glanceable, it is held as
+   tightly as the glyphs allow: at the full-density spacing, five ratings spent ~40px each on two
+   arrows nobody can see, and the numbers read as adrift in their own line. */
+.stonetop.sheet.steading .steading-line .stonetop-stepper {
+	gap: 0.1rem;
+}
+
 .stonetop.sheet.steading .steading-line .stonetop-stepper-btn {
-	display: none;
+	visibility: hidden;
+	width: 0.6rem;
+	padding: 0;
+	justify-content: center;
 }
 
 .stonetop.sheet.steading .steading-line .stonetop-stepper:hover .stonetop-stepper-btn,
 .stonetop.sheet.steading .steading-line .stonetop-stepper:focus-within .stonetop-stepper-btn {
-	display: inline-flex;
+	visibility: visible;
 }
 
 /* ── The roll affordance ──
@@ -5507,11 +5539,10 @@ button.stonetop-xp-toggle {
 	color: var(--st-accent);
 }
 
-/* No room for it on a 36px line, and no need: the line's names are already the only things on it
-   that respond to a click. */
-.stonetop.sheet.steading .steading-line .steading-roll-die {
-	display: none;
-}
+/* On the line as well as at full density. It was dropped here for room, on the reasoning that the
+   line's names are the only things on it that respond to a click — which is a fact about the line
+   that nobody can see. A name that rolls has to LOOK like one, and it is the same die on the same
+   names three rows down. */
 
 /* ── The lists ──
    Unframed, so the rows carry their own hairlines. Dotted, because a solid rule per row competes
@@ -5642,7 +5673,15 @@ button.stonetop-xp-toggle {
    the caption step, and a column narrower than that puts the widest rating name half outside its own
    tile. The art would happily go smaller; the words under it will not. */
 .stonetop.sheet.steading .steading-rail .steading-archpair {
-	max-width: 11rem;
+	/* A DEFINITE width, not a max-width, because the pair is centred in the rail below and an auto
+	   inline margin takes a column-flex item out of `stretch`: with only a cap to go on it would
+	   shrink to its own content and stop being the width this number sets. */
+	width: 11rem;
+	max-width: 100%;
+	/* Centred in the rail it heads. Flush left it left 44px of empty rail beside the arches while
+	   the moves under them ran the full width, so the two badges read as pushed into a corner
+	   rather than as the head of the column. */
+	margin-inline: auto;
 }
 
 /* A move group is two CSS columns by default, which is right for a full-width tab and wrong for a
@@ -5780,9 +5819,11 @@ button.stonetop-xp-toggle {
 	flex: 1;
 }
 
+/* `start`, not `centre`: an entry that wraps to three lines is still one row, and its swirl and its
+   delete belong to the line the row begins on rather than floating halfway down the block. */
 .stonetop.sheet.steading .steading-attr-row {
 	display: flex;
-	align-items: center;
+	align-items: start;
 	gap: 3px;
 }
 
@@ -5797,8 +5838,12 @@ button.stonetop-xp-toggle {
 	-webkit-mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 }
 
-.stonetop.sheet.steading .steading-attr-row input[type="text"] {
+.stonetop.sheet.steading .steading-attr-row .stonetop-grow-field {
 	flex: 1;
+	/* A textarea carries a min-height of several lines by default. `field-sizing` can only grow the
+	   field from its minimum, so without this every row opened three lines tall and the list of four
+	   resources was taller than the tab. */
+	min-height: 0;
 	border: none;
 	border-bottom: 1px solid transparent;
 	background: transparent;
@@ -5811,7 +5856,7 @@ button.stonetop-xp-toggle {
 	padding: 1px 2px;
 }
 
-.stonetop.sheet.steading .steading-attr-row input[type="text"]:focus {
+.stonetop.sheet.steading .steading-attr-row .stonetop-grow-field:focus {
 	border-bottom-color: var(--st-rule-veil);
 	outline: none;
 }
@@ -7175,10 +7220,13 @@ button.stonetop-xp-toggle {
 /* Always-visible choice data-entry boxes. input.type "rich" gets a taller textarea. */
 .stonetop-choice-input { width: 100%; }
 .stonetop-choice-input--rich { min-height: 4.5em; resize: vertical; }
-/* input.type "inline": a textarea that starts one line tall and grows downward as the answer wraps,
-   instead of an <input> that scrolls the text out of view sideways. field-sizing drives the growth
-   (already used elsewhere in this sheet); no manual resize handle. */
-.stonetop-choice-input--inline {
+/* A one-line textarea that grows downward as its answer wraps, instead of an <input> that scrolls
+   the text out of view sideways with no way to read the tail but to put the caret back in it.
+   field-sizing drives the growth; no manual resize handle.
+
+   Shared, because it is the same field wherever a single sentence is typed into a list — a choice
+   row's write-in blank, a steading's resources, fortifications and assets. */
+.stonetop-grow-field {
 	field-sizing: content;
 	resize: none;
 	overflow: hidden;
@@ -8421,6 +8469,12 @@ button.stonetop-xp-toggle {
 	font-family: "StonetopUI", serif;
 	font-weight: normal;
 	letter-spacing: 0.04em;
+	/* Core gives every button a fixed height, unlayered. That made a ROLLABLE name 28px tall against
+	   a plain one's 19px — so in the arch pair, Fortunes (which rolls) sat its whole value row 7px
+	   below Surplus (which does not), and the two numbers the book crowns side by side were visibly
+	   out of level. The name is text: it takes the height of its own line. */
+	height: auto;
+	min-height: 0;
 }
 
 .stonetop.sheet.steading .steading-stat-roll:hover {

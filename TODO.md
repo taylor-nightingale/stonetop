@@ -11,7 +11,6 @@
 * compendium folders have styling (light mode) of light text on light background
 * add a stonetop image to the game system in foundry like the delta green one has
 * After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this?
-* Rework the stonetop sheet UI
 
 * lore section on playbook has questions split from their input boxes on certain screen widths
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
@@ -35,8 +34,6 @@ Level up is not a homefront move.
 overall the formatting of the entire thing is all over the place. font sizes vary wildly. They aren't big enough to read in many places. The titles are smaller than whats below it. The hard ink splotched bars are jaring when there are other small thin bars. The weight of the page is a bit off in play more stuff to the right. The stonetop name should be bigger. The icons in the left corner dominate the view and make everything else feel tiny
 
 == 2
-https://claude.ai/code/artifact/5fc618a6-48a9-499f-bc15-898bb2d7de31?org=858ceef1-6adb-4895-96a2-f91e805989b5
-https://claude.ai/code/artifact/20d7ad9d-1c01-453e-83c9-3090b5e1d56f?org=858ceef1-6adb-4895-96a2-f91e805989b5
 the roll icon on a move has no indication its clickable (unlike dice icon on prosperity which looks nice)
 debilities rearrange themselves when selected. its jarring.
 in the mockup the move names had the rollable dice next to them and then had the description text in a different color. The mockup used different colored text in many places to indicate what we should focus on. We're missing that completely in our current sheet. I really like how it changed the color of the bold/italic parts of a move that indicate what you have to do "prepare for what's coming or seek the favor of the gods" for example.
@@ -56,3 +53,12 @@ hovering over a number on the top rail pushes the sheet down a bit. The appearan
 The debilities should still say what they do when checked.
 selecting and changing village, selects the fortunes entry box
 assets, fortifications, resources should wrap lines when text is too long
+
+
+== 4
+don't make the debility explaination text red
+increase fortunes/surplus to fit the space better.
+Put image 35054ea8d15b39521589bc2cab68c9f309301fe645948ac9fd0ed37d920da6c7.png underneath resources
+remove the spacing for the invisible arrows next to attribute numbers on the rail. Only display them on hover. Note that I don't want them pushing the whole sheet down, jittering it like it did before.
+https://claude.ai/code/artifact/5fc618a6-48a9-499f-bc15-898bb2d7de31?org=858ceef1-6adb-4895-96a2-f91e805989b5
+https://claude.ai/code/artifact/20d7ad9d-1c01-453e-83c9-3090b5e1d56f?org=858ceef1-6adb-4895-96a2-f91e805989b5
