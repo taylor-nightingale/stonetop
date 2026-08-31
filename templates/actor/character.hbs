@@ -93,9 +93,13 @@
 					<li class="stonetop-move-item move-unowned">
 					{{/if}}
 						{{#if (and ownedId rollStat)}}
-						<span class="rollable move-rollable" data-roll="{{rollStat}}" data-mod="">
-							<i class="fas fa-dice-d6"></i>
-						</span>
+						{{!-- A <button>, as in move-item.hbs: the die is a control on both surfaces, so it is
+						      reachable and lights up the same way on both. --}}
+						<button type="button" class="rollable move-rollable" data-roll="{{rollStat}}" data-mod=""
+						        title="{{localize 'stonetop.a11y.rollMove' name=name}}"
+						        aria-label="{{localize 'stonetop.a11y.rollMove' name=name}}">
+							<i class="fas fa-dice-d6" aria-hidden="true"></i>
+						</button>
 						{{/if}}
 						<button type="button" class="stonetop-move-name stonetop-basic-move-open" data-action="openBasicMove"
 					      data-compendium-id="{{id}}">{{name}}</button>

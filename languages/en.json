@@ -722,6 +722,7 @@
 			"surplus": "Surplus",
 			"ratingValue": "{rating} rating",
 			"rollRating": "Roll {rating}",
+			"rollMove": "Roll {name}",
 			"steadingTabs": "Steading sections",
 			"npcTraits": "Traits",
 			"assetItem": "Asset",

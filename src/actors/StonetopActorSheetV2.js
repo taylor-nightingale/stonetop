@@ -3,6 +3,7 @@ import { buildFocusSelector } from "./buildFocusSelector.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { ADVICE_ACTIONS } from "../utils/adviceAction.js";
 import { EDIT_IMAGE_ACTIONS } from "../utils/editImageAction.js";
+import { OpenMoveRows } from "../utils/OpenMoveRows.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop actor sheets: HandlebarsApplicationMixin over
@@ -29,6 +30,15 @@ export function createStonetopActorSheetV2Class() {
 		// can reach it; concrete sheets alias it under their own domain name.
 		get typedActor() {
 			return this.actor.typedActor;
+		}
+
+		/**
+		 * The move rows this reader has open. Every Stonetop actor sheet renders move rows through the
+		 * one shared partial, so the one place that knows a row can be opened is also the one place
+		 * that has to put it back — here, rather than in each sheet.
+		 */
+		get openMoveRows() {
+			return this._openMoveRows ??= new OpenMoveRows();
 		}
 
 		/**
@@ -69,6 +79,14 @@ export function createStonetopActorSheetV2Class() {
 			const { focus } = state;
 			super._syncPartState(partId, newElement, priorElement, { ...state, focus: null });
 			if (focus) newElement.querySelector(focus)?.focus({ preventScroll: true });
+		}
+
+		// Core rebuilds the part's DOM on every render, which takes the open move rows with it — so a
+		// pip ticked anywhere on the sheet, or another player's edit arriving over the socket, shut the
+		// move you were reading. Restored here rather than in each sheet: the row is shared markup.
+		_onRender(context, options) {
+			super._onRender(context, options);
+			this.openMoveRows.restore(this.element);
 		}
 
 		async _onFirstRender(context, options) {

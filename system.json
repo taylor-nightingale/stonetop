@@ -38,7 +38,7 @@
 		}
 	},
 	"esmodules": [
-		"stonetop.js"
+		"dist/stonetop.js"
 	],
 	"styles": [
 		"styles/themes/palette.css",

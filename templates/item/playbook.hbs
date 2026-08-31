@@ -20,7 +20,7 @@
 		<section class="stonetop-insert-sheet-section editor">
 			<label class="stonetop-insert-sheet-label">{{localize "stonetop.playbook.description"}}</label>
 			{{#if editable}}
-			<prose-mirror class="stonetop-item-description-editor" name="system.description" value="{{system.description}}"></prose-mirror>
+			<prose-mirror class="stonetop-item-description-editor" name="system.description" value="{{editorHtml system.description}}"></prose-mirror>
 			{{else}}
 			<div class="editor-content">{{rich rich.description}}</div>
 			{{/if}}

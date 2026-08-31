@@ -78,4 +78,39 @@ describe("MoveGloss", () => {
 	it("returns plain text, whatever nesting it came out of", () => {
 		expect(MoveGloss.from("When you **_hold *the* line_**, roll.")).toBe("hold the line");
 	});
+
+	// A description is markdown as the packs ship it and HTML once its sheet's <prose-mirror> has
+	// saved it. Both are real stored states, so the gloss has to read both — a row whose move had
+	// been edited once would otherwise fall back to its first sentence and label itself wrongly.
+	describe("reading a description a ProseMirror has saved", () => {
+		it.each([
+			["strong outside", "<p>When you <strong><em>hold the line</em></strong>, roll.</p>", "hold the line"],
+			["em outside",     "<p>When you <em><strong>hold the line</strong></em>, roll.</p>", "hold the line"],
+			["whitespace between the tags", "<p>When you <strong> <em>hold the line</em> </strong>, roll.</p>", "hold the line"],
+			["singly emphasised", "<p>When you <em>walk the old road</em>, say where.</p>", "walk the old road"],
+		])("lifts the trigger from %s", (_label, html, expected) => {
+			expect(MoveGloss.from(html)).toBe(expected);
+		});
+
+		it("gives the same gloss either way the move happens to be stored", () => {
+			const markdown = "When you **_prepare for what's coming_**, say how.";
+			const html     = "<p>When you <strong><em>prepare for what's coming</em></strong>, say how.</p>";
+			expect(MoveGloss.from(html)).toBe(MoveGloss.from(markdown));
+		});
+
+		it("still skips the result tiers", () => {
+			expect(MoveGloss.from("<p>Roll +Defenses: <strong>on a 10+</strong>, it works.</p>"))
+				.toBe("Roll +Defenses: on a 10+, it works.");
+		});
+
+		it("stops at the end of the first block", () => {
+			expect(MoveGloss.from("<p>Pick one</p><ul><li>a thing</li><li>another</li></ul>")).toBe("Pick one");
+		});
+
+		// A gloss is read, not parsed — an escaped apostrophe must not reach the row as "&#39;".
+		it("decodes the entities the markup carries", () => {
+			expect(MoveGloss.from("<p>When you <strong><em>hold Bill&#39;s line</em></strong>, roll.</p>"))
+				.toBe("hold Bill's line");
+		});
+	});
 });

@@ -4,6 +4,7 @@ import { setField as setChoicesField, newGroup } from "../utils/choiceGroupEdit.
 import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
+import { richTextToHtml } from "../migration/richTextToHtml.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { GrantRegistry } from "./GrantRegistry.js";
 
@@ -13,6 +14,9 @@ export function moveSheetRichText(system) {
 	const r = system?.moveResults ?? {};
 	return {
 		description: rich(system?.description ?? ""),
+		// What the <prose-mirror> is seeded with — see itemDescriptionRich for why it cannot be the
+		// markdown. The result tiers below are plain <textarea>s and stay markdown.
+		descriptionHtml: richTextToHtml(system?.description ?? ""),
 		success:     rich(r.success?.value ?? ""),
 		partial:     rich(r.partial?.value ?? ""),
 		failure:     rich(r.failure?.value ?? ""),

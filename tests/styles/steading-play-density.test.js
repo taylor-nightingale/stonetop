@@ -119,9 +119,11 @@ const fixture = width => `
         </div>
       </div>
       <div class="steading-line-row steading-line-conditions">
+        <!-- The book's order, with the MARKED one in the middle: a fixture that lists the marked
+             condition first cannot tell a row that holds still from one that sorts it to the front. -->
         <div class="steading-conditions">
-          ${condition("lacking", true, "treat Prosperity as if it's 1 lower than it is")}
           ${condition("diminished", false, "disadvantage to Deploy, Muster, or Pull Together")}
+          ${condition("lacking", true, "treat Prosperity as if it's 1 lower than it is")}
           ${condition("malcontent", false, "Fortunes reset to +0 each season, not +1")}
         </div>
         <fieldset class="steading-rollmode"><legend class="steading-line-heading">Roll Mode</legend>
@@ -149,6 +151,9 @@ const fixture = width => `
   </div></div>
 </div>`;
 
+const ARCH_STEPPER =
+	'.steading-rail .steading-archpair .steading-tile[data-attr="fortunes"] .stonetop-stepper';
+
 const TARGETS = {
 	grid:           ".steading-play-grid",
 	col1:           ".steading-play-grid > .steading-overview-column:nth-of-type(1)",
@@ -162,6 +167,9 @@ const TARGETS = {
 	valuesRow:      ".steading-line-values",
 	conditionsRow:  ".steading-line-conditions",
 	rollMode:       ".steading-line-conditions .steading-rollmode",
+	debility1:      ".steading-conditions > .steading-debility:nth-of-type(1)",
+	debility2:      ".steading-conditions > .steading-debility:nth-of-type(2)",
+	debility3:      ".steading-conditions > .steading-debility:nth-of-type(3)",
 	markedEffect:   ".steading-debility.is-active .steading-debility-effect",
 	unmarkedEffect: ".steading-debility:not(.is-active) .steading-debility-effect",
 	head:           '.steading-play-grid .steading-tile[data-attr="prosperity"]',
@@ -173,9 +181,12 @@ const TARGETS = {
 	arch:           '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-arch',
 	archName:       '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-tile-label',
 	archValue:      '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-tile-value',
-	archInput:      '.steading-rail .steading-archpair .steading-tile[data-attr="fortunes"] .steading-attr-input',
-	archStepUp:     '.steading-archpair .steading-tile[data-attr="fortunes"] .stonetop-stepper-btn--up',
-	archStepDown:   '.steading-archpair .steading-tile[data-attr="fortunes"] .stonetop-stepper-btn--down',
+	// All three addressed through the SAME stepper, spelled the same way. They used to differ — the
+	// input was reached via `.steading-rail`, the two buttons were not — which left the harness free
+	// to resolve them against different tiles.
+	archInput:      `${ARCH_STEPPER} .steading-attr-input`,
+	archStepUp:     `${ARCH_STEPPER} .stonetop-stepper-btn--up`,
+	archStepDown:   `${ARCH_STEPPER} .stonetop-stepper-btn--down`,
 };
 
 // The probe's window is ~768px by default, so a fixture wider than that is clipped by the viewport
@@ -212,12 +223,30 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 					.toBeCloseTo(conds.boxLeft + conds.boxWidth, 0);
 			});
 
-			// One rule, closing the head — note included, so the note cannot read as a second value.
-			it("closes each rating head with one rule, below its note", () => {
-				const head = m.get("head").values;
-				const note = m.get("headNote").values;
+			// The rating reads as one line, the way it is said aloud: "Prosperity, lacking, 2". The note
+			// used to take a row of its own under the value, where it sat level with the heading of the
+			// list below and read as a caption on the wrong thing — and cost a row of height on the
+			// tiles that had one and none on the tiles that didn't, so the two columns fell out of step.
+			//
+			// What keeps it from reading as a second number is its POSITION — hard against the name it
+			// qualifies, nowhere near the right edge where the value lives — so that is what is asserted
+			// here, along with the one rule that still closes the whole head.
+			it("sets each rating on one line: name, then its note, then the value", () => {
+				const head  = m.get("head").values;
+				const label = m.get("headLabel").values;
+				const note  = m.get("headNote").values;
 				const value = m.get("headValue").values;
-				expect(note.boxTop).toBeGreaterThan(value.boxTop + value.boxHeight - 1);
+
+				const overlap = Math.min(note.boxTop + note.boxHeight, value.boxTop + value.boxHeight)
+					- Math.max(note.boxTop, value.boxTop);
+				expect(overlap, "the note is not on the value's line").toBeGreaterThan(0);
+
+				expect(note.boxLeft, "the note is not after the name")
+					.toBeGreaterThanOrEqual(label.boxLeft + label.boxWidth - 1);
+				expect(note.boxLeft + note.boxWidth, "the note runs into the value")
+					.toBeLessThanOrEqual(value.boxLeft + 1);
+
+				// One rule closes the head, and the note is inside it rather than hanging below.
 				expect(note.boxTop + note.boxHeight).toBeLessThanOrEqual(head.boxTop + head.boxHeight + 1);
 			});
 
@@ -251,6 +280,40 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 					expect(overlap, `the ${name} stepper covers ${Math.round(overlap)}px of the value`)
 						.toBeLessThanOrEqual(0);
 				}
+			});
+
+			// ▾ and ▴ flank the number, so they have to flank it EVENLY — one arrow standing further
+			// out than the other reads as a misalignment, which is exactly how it was reported.
+			//
+			// Stated as "the value carries no margin of its own", because that WAS the bug and it is
+			// the only way the gaps can differ: the stepper separates its three children with a single
+			// `gap`, which is symmetric by definition, so the one thing that can land on one side and
+			// not the other is a margin on the middle child. A `margin-left: 4px` on the line's input
+			// did exactly that, inside the stepper, on the ▾ side alone.
+			//
+			// Computed rather than measured: the arrows are glyphs whose fallback font this harness
+			// picks non-deterministically, which moves both boxes by a px or two and says nothing
+			// about the rule under test.
+			it("gives the value no margin of its own, so the two arrows flank it evenly", () => {
+				const seen = probe.render({
+					bodyHtml: fixture(1400), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
+					probes: {
+						lineInput: {
+							selector: '.steading-line .steading-tile[data-attr="prosperity"] .steading-attr-input',
+							properties: ["margin-left", "margin-right"],
+						},
+						archInput: { selector: `${ARCH_STEPPER} .steading-attr-input`, properties: ["margin-left", "margin-right", "text-align"] },
+					},
+				});
+				for (const name of ["lineInput", "archInput"]) {
+					const el = seen.get(name);
+					expect(el.missing, `${name} did not render`).toBe(false);
+					expect(el.get("margin-left"), `${name} is pushed off-centre inside its stepper`)
+						.toBe(el.get("margin-right"));
+				}
+				// And the digit itself is centred in its field, so a two-digit value does not crowd one
+				// arrow while leaving a hole at the other.
+				expect(seen.get("archInput").get("text-align")).toBe("center");
 			});
 		});
 	}
@@ -301,8 +364,8 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		});
 	});
 
-	// Conditions shed in the order they are worth: the ones the steading does not have lose their
-	// explanation first, and every name stays reachable at every width.
+	// Conditions shed their explanations by WIDTH and never by which one is marked, and every name
+	// stays reachable at every width.
 	describe("the conditions, as the line narrows", () => {
 		// Wider than the old 1400: the rail takes 220px off the line at every width, permanently, and
 		// the line's shedding thresholds are measured against its OWN container. Same behaviour for a
@@ -313,10 +376,27 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			expect(m.get("unmarkedEffect").values.boxWidth).toBeGreaterThan(0);
 		});
 
-		it("drops the unmarked explanations before the marked one", () => {
+		// The marked one used to be sorted to the front, which meant that ticking a circle moved the
+		// control out from under the pointer that had just clicked it and shuffled the other two past
+		// it — for a row of three items whose whole value is being in the same place every time.
+		// The fixture marks the MIDDLE condition, so a row that re-sorts fails this.
+		it("leaves the conditions in the book's order, marked or not", () => {
+			const m = measureAt(1660);
+			const lefts = ["debility1", "debility2", "debility3"].map(n => m.get(n).values.boxLeft);
+			expect(lefts, "marking a condition re-sorted the row").toEqual([...lefts].sort((a, b) => a - b));
+			expect(m.get("debility2").values.boxLeft,
+				"the marked condition was sorted to the front").toBeGreaterThan(lefts[0]);
+		});
+
+		// The marked one used to keep its effect after the other two had lost theirs, which meant that
+		// ticking a circle deleted two phrases and added a third — the row re-flowed, and everything
+		// after it moved, because a control was clicked. The layout answers to the space it has, never
+		// to which condition happens to be marked; marking says so in colour, which costs no layout.
+		it("sheds every explanation at one width, so marking one never re-flows the row", () => {
 			const m = measureAt(900);
 			expect(m.get("unmarkedEffect").values.boxWidth).toBe(0);
-			expect(m.get("markedEffect").values.boxWidth).toBeGreaterThan(0);
+			expect(m.get("markedEffect").values.boxWidth,
+				"the marked condition still has an explanation the others have lost").toBe(0);
 		});
 	});
 });

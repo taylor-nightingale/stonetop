@@ -17,7 +17,7 @@
 			{{#if editable}}
 			{{!-- V2 doesn't auto-activate editors on [data-edit] divs; a named <prose-mirror> saves
 			      through the form's submitOnChange on blur. --}}
-			<prose-mirror class="stonetop-item-description-editor" name="system.description" value="{{system.description}}"></prose-mirror>
+			<prose-mirror class="stonetop-item-description-editor" name="system.description" value="{{editorHtml system.description}}"></prose-mirror>
 			{{else}}
 			<div class="editor-content">{{rich rich.description}}</div>
 			{{/if}}

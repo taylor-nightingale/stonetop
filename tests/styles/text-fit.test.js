@@ -194,7 +194,7 @@ const CONTROL_ROW = `
       <button type="button" class="stonetop-item-name stonetop-item-name--open" id="c-name"
               data-action="openMove" data-view-state>A Long Move Name That Wraps Onto A Second Line</button>
       <span class="stonetop-item-source">The Blessed</span>
-      <span class="rollable move-rollable" data-roll="int"><i class="fas fa-dice-d6"></i></span>
+      <button type="button" class="rollable move-rollable" data-roll="int"><i class="fas fa-dice-d6"></i></button>
       <button type="button" class="stonetop-move-chat" data-action="moveToChat"><i class="fas fa-comment"></i></button>
     </div>
   </li></ol>

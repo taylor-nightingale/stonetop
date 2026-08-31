@@ -27,14 +27,14 @@
 * bug: stonetop moves are still matched by name. This won't work for translations. They must be matched by slug or id.
 
 
-== working on
+== 1
 the open move/send to chat buttons are a new pattern. previously we had the little chat bubble do that. Why not do that here too?
 hovering over the fortunes icon/surplus icon makes an orange outline. remove that
 Clicking on a homefont move puts the text centered. Just keep the name where it was
 Level up is not a homefront move.
 overall the formatting of the entire thing is all over the place. font sizes vary wildly. They aren't big enough to read in many places. The titles are smaller than whats below it. The hard ink splotched bars are jaring when there are other small thin bars. The weight of the page is a bit off in play more stuff to the right. The stonetop name should be bigger. The icons in the left corner dominate the view and make everything else feel tiny
 
-== next
+== 2
 https://claude.ai/code/artifact/5fc618a6-48a9-499f-bc15-898bb2d7de31?org=858ceef1-6adb-4895-96a2-f91e805989b5
 https://claude.ai/code/artifact/20d7ad9d-1c01-453e-83c9-3090b5e1d56f?org=858ceef1-6adb-4895-96a2-f91e805989b5
 the roll icon on a move has no indication its clickable (unlike dice icon on prosperity which looks nice)
@@ -47,3 +47,12 @@ perhaps it would be nice to show the text for the moves as one line below each n
 Bolster doesn't have its nice formatting anymore with newlines and bullet points
 up/down arros arent aligned properly on pop, prosperity, defense, etc. the one on the left side is farther out
 
+== 3
+surplus number is higher than fortunes. They aren't aligned
+resources aren't aligned with the name of the move when collapsed.
+remove the - in front of the text for the move in collapsed form
+move bubbles and dice buttons should be centered on the text, not aligned with the bottom. same for rollable attributes. the top attributes should also have a dice to indicate they're rollable
+hovering over a number on the top rail pushes the sheet down a bit. The appearance of the arrows shouldn't push the sheet down
+The debilities should still say what they do when checked.
+selecting and changing village, selects the fortunes entry box
+assets, fortifications, resources should wrap lines when text is too long

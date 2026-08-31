@@ -1889,8 +1889,16 @@ button.stonetop-view-toggle.is-active {
    Hover is a row highlight and nothing else. Everything the row can do is reached by activating it,
    so pointer and keyboard get one behaviour rather than two that have to be kept in step. */
 
+/* Two lines: the name (with its caret) on the first, the gloss on the second. The gloss was sharing
+   the first line with the die, the chat bubble and the resource track, which left it about 40px in a
+   220px rail — "— pre…", "— se…" — so the rail hid it outright and a shut row said nothing about
+   itself. A line of its own costs nothing the rail has (vertical space scrolls) and gives the
+   controls beside the name room to be controls.
+
+   Still inside the button, so the whole two-line block is one target and one `aria-expanded`. */
 .stonetop.sheet button.stonetop-move-disclosure {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: baseline;
 	gap: 0.35rem;
 	flex: 1 1 auto;
@@ -1931,11 +1939,15 @@ button.stonetop-view-toggle.is-active {
 }
 
 /* The gloss is what the row says about itself while it is shut, so it goes the moment the thing it
-   was standing in for is on screen. It never wraps: a label that takes two lines is not a label. And
-   it is the one thing in the row that DOES yield — `flex: 1 1 0` makes it take whatever is left over
-   and ellipsise, so the name, the die and the track all keep their size and the courtesy pays. */
+   was standing in for is on screen. It never wraps: a label that takes two lines is not a label.
+
+   `flex: 1 0 100%` breaks it onto its own line under the name and lets it use the row's full width
+   before ellipsising — where `1 1 0` gave it whatever the die and the track had not already taken. */
 .stonetop-move-gloss {
-	flex: 1 1 0;
+	flex: 1 0 100%;
+	/* Hangs under the NAME, clearing the caret — the caret's width plus the row's gap, so the shut
+	   row's second line and the open row's body start in the same place. */
+	padding-left: calc(0.7em + 0.35rem);
 	font-style: italic;
 	font-size: var(--fs-micro);
 	color: var(--st-ink-faint);
@@ -1947,6 +1959,18 @@ button.stonetop-view-toggle.is-active {
 
 .is-open > .stonetop-item-header .stonetop-move-gloss {
 	display: none;
+}
+
+/* Baseline, not centre: a wrapped flex container's baseline comes from its FIRST line, so the die
+   and the chat bubble sit on the name's own baseline rather than floating between the two lines.
+   The resource track has no text to sit on a baseline, so it centres against the block — which is
+   also where a two-line row wants a column of pips. */
+.stonetop-item-header:has(> .stonetop-move-disclosure) {
+	align-items: baseline;
+}
+
+.stonetop-item-header:has(> .stonetop-move-disclosure) > .stonetop-item-resources {
+	align-self: center;
 }
 
 .stonetop.sheet button.stonetop-move-disclosure:hover .stonetop-move-disclosure-name {
@@ -1970,8 +1994,14 @@ button.stonetop-view-toggle.is-active {
 	display: none;
 }
 
+/* Text you opened on purpose is the thing you are reading, so it is set in full ink rather than in
+   the soft grey a description takes when it is trailing under a row you did not ask about. */
 .stonetop-move-body {
 	padding-bottom: 0.4rem;
+}
+
+.stonetop-move-body .stonetop-item-description {
+	color: var(--st-ink);
 }
 
 .stonetop-item-source {
@@ -1980,6 +2010,36 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-ink-soft);
 	margin-left: 2px;
 	flex-shrink: 0;
+}
+
+/* Per-move roll die (every move row: moves tab, side-bar, arcana, homefront).
+
+   It had no styling at all — core's own `.rollable` gives it nothing on these sheets — so a die that
+   rolls looked exactly like a die that is decoration, while the steading's rating die two inches
+   away lit up under a pointer. One treatment for both, so a die means one thing on the sheet.
+
+   `all: unset` first, because the element is now a real <button> and core styles every button
+   unlayered: without it the die arrives in a bordered, centred, full-height box. */
+.move-rollable {
+	all: unset;
+	display: inline-flex;
+	align-items: center;
+	color: var(--st-ink-faint);
+	font-size: var(--fs-fine);
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.move-rollable:hover,
+.move-rollable:focus-visible {
+	color: var(--st-accent);
+}
+
+/* `all: unset` takes the focus ring with it, and this is the one control on the row that has no
+   text to underline instead. */
+.move-rollable:focus-visible {
+	outline: 2px solid var(--st-accent);
+	outline-offset: 2px;
 }
 
 /* Per-move "send to chat" button (every move row: moves tab, side-bar, arcana, homefront). */
@@ -2043,6 +2103,29 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-item-description p {
 	margin: 0 0 2px;
+}
+
+/* Every move in the book opens by naming its trigger in emphasis — *When you **_prepare for what's
+   coming_**, …* — and that run is the one thing in the paragraph you scan for. It is also exactly
+   the run `MoveGloss` lifts for the shut row's gloss, so the coloured phrase and the gloss are the
+   same words by construction rather than by coincidence.
+
+   The nested pair only, `**_…_**` — bold alone marks the result tiers ("On a 10+"), which are a
+   different thing and must not take the same accent. */
+.stonetop-item-description strong em,
+.stonetop-item-description em strong {
+	color: var(--st-accent);
+	font-style: italic;
+	font-weight: normal;
+}
+
+/* The markers are the sheet's own swirls, drawn by the list rules at the top of this file — nothing
+   to add here. What a list inside a description does need is AIR: the browser's default `1em 0` is
+   a whole blank line above and below in a row that is otherwise set to 2px, and no margin at all
+   welds the options to the sentence that introduces them. */
+.stonetop-item-description ul,
+.stonetop-item-description ol {
+	margin: 0.25em 0;
 }
 
 .stonetop-insert-description {
@@ -4720,11 +4803,14 @@ button.stonetop-xp-toggle {
 	margin: 0;
 }
 
-/* Whatever the rating has to say about its own value, trailing in fine print. */
+/* Whatever the rating has to say about its own value, trailing in fine print — and in the accent,
+   because it is the book's own reading of the number beside it ("legendary", "150–350") rather than
+   more of the same prose. Muted grey made it the quietest thing in the tile, which is backwards: it
+   is the half of the rating you cannot work out for yourself. */
 .stonetop.sheet.steading .steading-tile-note {
 	font-size: var(--fs-micro);
 	font-style: italic;
-	color: var(--st-ink-muted);
+	color: var(--st-accent);
 	white-space: nowrap;
 	min-width: 0;
 	overflow: hidden;
@@ -4985,13 +5071,12 @@ button.stonetop-xp-toggle {
 	margin-left: auto;
 }
 
-/* Marked first: a steading usually has none marked, and when it has one, that one is the reason
-   anybody is reading this part of the line. It should not queue behind two names. */
-.stonetop.sheet.steading .steading-line .steading-debility.is-active {
-	order: -1;
-}
+/* The conditions are in the book's order and STAY in it. Sorting the marked one to the front meant
+   that ticking a circle moved the thing you had just clicked out from under the pointer and shuffled
+   the other two past it — for a row of three items whose whole point is that they are always in the
+   same place. Marked is said in colour, which costs no layout.
 
-/* The arch is the full density's business. At line height there is no size at which the woodcut is a
+   The arch is the full density's business. At line height there is no size at which the woodcut is a
    woodcut rather than a smudge, and a smudge beside a word reads as clip-art pasted on. The whole
    wrapper goes, not just the picture: the frame is drawn, so hiding only the img leaves an empty
    arch sitting on the line. */
@@ -5033,11 +5118,14 @@ button.stonetop-xp-toggle {
 	line-height: 1.25;
 }
 
+/* The gap between a rating's name and its value belongs to the TILE, not to the value — a margin on
+   the input sits inside the stepper, between ▾ and the number, and pushes the down arrow out of step
+   with the up one. `.steading-debility` overrides this gap for itself below. */
 .stonetop.sheet.steading .steading-line .steading-tile,
 .stonetop.sheet.steading .steading-line .steading-debility {
 	display: flex;
 	align-items: baseline;
-	gap: 0;
+	gap: 0.25rem;
 	grid-template-columns: none;
 	grid-template-areas: none;
 	padding: 0;
@@ -5074,7 +5162,9 @@ button.stonetop-xp-toggle {
 	   on a line — and it is the only thing telling you the value can be edited at all, since the
 	   ▲▼ do not appear until you are already hovering. */
 	border-bottom-color: var(--st-rule-veil);
-	margin-left: 4px;
+	/* No margin of its own. A `margin-left` here landed BETWEEN ▾ and the number and nowhere else, so
+	   the down arrow sat 4px further out than the up arrow on every rating on the line. The stepper's
+	   own `gap` is what separates the three, and a gap is symmetric by definition. */
 	min-width: 2.75ch;
 }
 
@@ -5160,17 +5250,15 @@ button.stonetop-xp-toggle {
    line wraps by nature — the failure to avoid is not wrapping but losing the values, so what sheds
    is explanation, never a number. */
 
-/* Narrow, the conditions shed in the order they are worth: the two a steading does NOT have lose
-   their explanation first, and the one it does keeps its effect to the last. All three names stay,
-   because marking and clearing a condition has to work at every width. */
-@container steading-line (max-width: 74rem) {
-	.stonetop.sheet.steading .steading-line .steading-debility:not(.is-active) .steading-debility-effect {
-		display: none;
-	}
-}
+/* Narrow, the conditions shed their explanations — all three at once, at one width. All three names
+   stay, because marking and clearing a condition has to work at every width.
 
-@container steading-line (max-width: 40rem) {
-	.stonetop.sheet.steading .steading-line .steading-debility.is-active .steading-debility-effect {
+   Keyed on the WIDTH alone and never on which one is marked. Shedding by state meant that ticking a
+   circle deleted two effects and added a third, re-flowing the row and everything after it: the
+   layout answered to the data instead of to the space, so the same steading at the same width had
+   two different shapes. What a marked condition changes is its colour. */
+@container steading-line (max-width: 74rem) {
+	.stonetop.sheet.steading .steading-line .steading-debility-effect {
 		display: none;
 	}
 }
@@ -5285,10 +5373,13 @@ button.stonetop-xp-toggle {
    heights, because the two are baseline-aligned and their boxes end at different depths. */
 
 .stonetop.sheet.steading [data-density="full"] .steading-tile {
-	grid-template-columns: minmax(0, 1fr) auto;
-	grid-template-areas:
-		"label value"
-		"note  note";
+	/* Name, then what the book calls the number, then the number — one line, the way the rating reads
+	   aloud: "Prosperity, lacking, 2". On its own row underneath, the note sat level with the list
+	   heading below it and read as a caption on the wrong thing; it also cost a whole row of height
+	   on every tile that had one and none on the tiles that didn't, so the two columns fell out of
+	   step with each other. */
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	grid-template-areas: "label note value";
 	align-items: baseline;
 	column-gap: 0.6rem;
 	padding-bottom: 2px;
@@ -5321,7 +5412,10 @@ button.stonetop-xp-toggle {
 	letter-spacing: 0;
 	color: var(--st-ink);
 	border-bottom-color: transparent;
-	text-align: right;
+	/* Centred, so the gap to ▾ and the gap to ▴ are the same gap. Right-aligned in a field wider than
+	   one digit, the number sat hard against ▴ and left a hole on the ▾ side — which reads as the two
+	   arrows being at different distances, because they were. */
+	text-align: center;
 	min-width: 2ch;
 }
 
@@ -5329,8 +5423,10 @@ button.stonetop-xp-toggle {
 	border-bottom-color: var(--st-accent);
 }
 
-/* Its own row under the rule's shoulder, never beside the value — a note level with a number reads
-   as a second number, which is the confusion the tile was redesigned to end. */
+/* Between the name and the value, hard against the name it qualifies. What kept it from reading as a
+   second number is that it is neither of the two type treatments a number gets here — it is italic,
+   two steps smaller, and in the accent — and that it is nowhere near the right edge where the value
+   lives. */
 .stonetop.sheet.steading [data-density="full"] .steading-tile-note {
 	grid-area: note;
 	justify-self: start;
@@ -5338,7 +5434,6 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-micro);
 	font-style: italic;
 	letter-spacing: 0;
-	padding-top: 1px;
 }
 
 /* ── The steppers, at rest ──
@@ -5533,21 +5628,6 @@ button.stonetop-xp-toggle {
 	   also capture the layout's own `max-width: 900px` query for anything nested here. */
 	container-type: inline-size;
 	container-name: steading-rail;
-}
-
-/* The gloss is the first thing out when the row runs short.
-
-   A shut row has to carry the name, the die, the chat bubble and the resource track before it earns
-   anything else, and at the rail's 220px that leaves the gloss about 40px — "— pre…", "— se…",
-   which identifies nothing and reads as damage. The row is better off without it.
-
-   A query rather than a flat rule, so it is stated as what it is — a width the row cannot afford —
-   and comes back on its own if the rail is ever widened. Everywhere else a move row is drawn (a
-   whole tab, a wide drawer) it keeps its gloss. */
-@container steading-rail (max-width: 17rem) {
-	.stonetop-move-gloss {
-		display: none;
-	}
 }
 
 /* Sized so the pair CROWNS the masthead rather than replacing it. Filling the rail's width put two
@@ -8375,6 +8455,16 @@ button.stonetop-xp-toggle {
 	min-width: 0;
 }
 
+/* The gloss is PROSE — the move's own trigger, lifted from its own text — so it steps out of the
+   small-caps face its row's NAME is set in, exactly as a rating's note steps out of its label's. It
+   sits inside the name's button, so it was inheriting both the face and its tracking: "send a
+   steading's people into danger" came out as spaced capitals, which is shouting a phrase the row is
+   only murmuring, and ran out of room at a third of its length because small caps are wider. */
+.stonetop.sheet.steading .stonetop-move-disclosure .stonetop-move-gloss {
+	font-family: var(--font-primary);
+	letter-spacing: 0;
+}
+
 /* And the name yields before the row does: `min-width: auto` on a flex item is what stops a nowrap
    label shrinking at all, so it overflows instead of ellipsising. */
 .stonetop.sheet.steading .stonetop-move-disclosure-name {
@@ -8436,7 +8526,12 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-note);
 }
 
-.stonetop.sheet.steading .steading-tile-select option {
+/* Every <select> on the sheet, not just the tile ones. The size pill's select carries
+   `.steading-size-select` and was never in this list, so its popup fell back to the browser's own
+   white menu — light text on white — while the ratings beside it drew correctly. A select whose
+   chrome we have removed still opens a menu the browser paints from the control's own colours. */
+.stonetop.sheet.steading .steading-tile-select option,
+.stonetop.sheet.steading .steading-size-select option {
 	background-color: var(--st-paper);
 	color: var(--st-ink);
 }

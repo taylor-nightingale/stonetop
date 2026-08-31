@@ -1,4 +1,5 @@
 import { rich, hasText } from "../model/snapshot/RichText.js";
+import { richTextToHtml } from "../migration/richTextToHtml.js";
 import { isGroupTag } from "../model/data/groupTag.js";
 import { TagLabels } from "../model/data/TagLabels.js";
 import { Advice, adviceLabel } from "../model/data/Advice.js";
@@ -51,6 +52,18 @@ Handlebars.registerHelper("concat", (...args) => args.slice(0, -1).join(""));
 // The single render path for game text. Accepts a RichText (enriched by enrichRichTextTree in
 // getData) or a bare string (rendered as markdown). One way to render text: {{rich field}}.
 Handlebars.registerHelper("rich", value => new Handlebars.SafeString(rich(value).render()));
+
+// The single SEED path for a <prose-mirror>: {{editorHtml field}}, never {{field}}.
+//
+// That editor parses its `value` as HTML, where newlines mean nothing — so a markdown value arrives
+// as one text run and is written back on blur as a single <p> with every line break and list marker
+// welded in. Opening a sheet destroyed the text it was showing. Converting first is what keeps a
+// list a list, and it is idempotent, so a value the editor has already saved passes through.
+//
+// A helper rather than something each sheet prepares, because this was opt-in before and four
+// templates forgot: one token at the call site, and `prose-mirror-seed.test.js` fails the build if
+// any <prose-mirror> is seeded without it.
+Handlebars.registerHelper("editorHtml", value => richTextToHtml(rich(value).raw));
 
 // Truthiness for an optional text field that may arrive as a bare string OR a RichText — used to
 // guard optional notes/subtitles in the shared heading partials: {{#if (hasText note)}}.
