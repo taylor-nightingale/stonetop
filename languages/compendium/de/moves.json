@@ -205,7 +205,7 @@
       "text": ""
     },
     "description": {
-      "source": "When you **_craft a protective charm for someone_**, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When **_they would suffer such harm while bearing your charm_**, roll +INT: **on a 10+**, they ignore the harm entirely; **_on a 7-9_**, they suffer only half the damage or effect; **on a 6-**, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.",
+      "source": "When you **_craft a protective charm for someone_**, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When **_they would suffer such harm while bearing your charm_**, roll +INT: **on a 10+**, they ignore the harm entirely; **on a 7-9**, they suffer only half the damage or effect; **on a 6-**, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.",
       "text": ""
     },
     "moveResults/success/value": {
@@ -661,6 +661,16 @@
       "text": ""
     }
   },
+  "call-upon-judge": {
+    "name": {
+      "source": "Call Upon a Judge",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_call upon the Judge of another steading for aid or information_**, they are oathbound to give it. You are likewise oathbound to support them.",
+      "text": ""
+    }
+  },
   "carved-out-of-wood": {
     "name": {
       "source": "Carved Out of Wood",
@@ -786,6 +796,28 @@
     },
     "moveResults/failure/value": {
       "source": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)",
+      "text": ""
+    }
+  },
+  "commune-with-aratis": {
+    "name": {
+      "source": "Commune with Aratis",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole_**, roll +WIS: **on a 7+**, Aratis reveals the course of action she would have you take; **on a 10+**, you also hold 2 Sanction. While **_acting on her orders_**, spend 1 Sanction to add +1 to a roll you just made.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Aratis reveals the course of action she would have you take and hold 2 Sanction.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Aratis reveals the course of action she would have you take.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM makes a move.",
       "text": ""
     }
   },
@@ -939,7 +971,7 @@
       "text": ""
     },
     "description": {
-      "source": "When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **_on a 7+_**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.\n\n- They're restrained, unable to act freely until your focus slips or they tear their way free\n- They take 2d4 damage (ignores armor)\nIf this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.",
+      "source": "When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **on a 7+**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.\n\n- They're restrained, unable to act freely until your focus slips or they tear their way free\n- They take 2d4 damage (ignores armor)\nIf this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.",
       "text": ""
     },
     "moveResults/success/value": {

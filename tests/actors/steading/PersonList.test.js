@@ -88,7 +88,7 @@ describe("PersonList.update", () => {
 
 	it("preserves unmodified fields on the updated entry", async () => {
 		const list = make();
-		await list.add(Person.blankNeighbor());
+		await list.add(Person.blank());
 		const original = list.buildSnapshot()[0];
 		await list.update(original.withName("Maren").withHome("Marshedge"));
 		const p = list.buildSnapshot()[0];

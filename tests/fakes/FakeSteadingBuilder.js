@@ -2,7 +2,7 @@ import { applyDocumentUpdate } from "./foundry/applyDocumentUpdate.js";
 
 // A fully-applied Stonetop steading in the NEW shape: ratings are actual game numbers, `size` is a
 // tier string, the Prosperity/Defenses source lists live under assets.resources/fortifications, the
-// resident name/trait pool is `residents` (the people are `residentPeople`), and improvements are an
+// resident name/trait pool is `residents` (the people are one `folk` roster), and improvements are an
 // owned slug list. Mirrors what applySteadfast(stonetop) produces.
 export class FakeSteadingBuilder {
 	_steadfast = "stonetop";
@@ -75,7 +75,7 @@ export class FakeSteadingBuilder {
 				],
 				neighborPlaces: [
 					{ slug: "marshedge",    name: "Marshedge",       subtitle: "",                                  note: "", names: "Abben, Ailen, Brin, Brogan, Catlin, Coln, Daedre, Dermos, Ennin, Finnen, Gilor, Isbeal, Kiran, Lile, Lim, Mathuin, Mirne, Noren, Owan, Ragan, Renan, Seadha, Seann, Tierney, Ulliam" },
-					{ slug: "gordins-delve",name: "Gordin's Delve",  subtitle: "",                                  note: "", names: "Choose from other lists; everyone comes to Gordin's Delve from somewhere else." },
+					{ slug: "gordins-delve",name: "Gordin's Delve",  subtitle: "Choose from other lists; everyone comes to Gordin's Delve from somewhere else.", note: "", names: "" },
 					{ slug: "steplands",    name: "The Steplands",   subtitle: "Hillfolk",                          note: "", names: "Adm, Blej, Cirl, Davth, Elst, Gwilm, Gwenl, Henri, Ines, Jenfir, Jown, Juda, Kiln, Laurl, Loic, Merrn, Maikl, Nanzl, Nolwn, Quent, Reegn, Ropr, Sabi, Stren, Yanz" },
 					{ slug: "lygos",        name: "Lygos",            subtitle: "and other points south",           note: "", names: "Agatte, Aref, Alix, Baraz, Canan, Darya, Demetra, Elene, Elios, Fotios, Faruza, Golza, Iasos, Iona, Kyriakos, Marika, Maayan, Osher, Natasa, Nivola, Rinat, Stamat, Thecla, Zhaleh" },
 					{ slug: "other",        name: "Other places",     subtitle: "Barrier Pass, the Manmarch, etc.", note: "", names: "" },
@@ -103,8 +103,7 @@ export class FakeSteadingBuilder {
 						"wants to have kids", "well-read", "well-traveled", "widowed", "will eat anything",
 					],
 				},
-				residentPeople: [],
-				neighborPeople: [],
+				folk: [],
 				improvements: [
 					"additional-housing", "aurochs-hunting", "expanded-trades", "greater-harvest",
 					"harnessing-the-stream", "herd-of-horses", "heroic-reputation", "inn", "market",

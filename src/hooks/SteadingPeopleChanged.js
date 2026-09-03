@@ -4,7 +4,7 @@ import { SteadingPeopleDelta } from "../actors/steading/SteadingPeopleDelta.js";
 export const PEOPLE_DELTA_KEY = "stonetopPeopleDelta";
 
 /**
- * Residents and neighbours get NPC actors so a relationship map has something to point at. Creating
+ * The steading's folk get NPC actors so a relationship map has something to point at. Creating
  * actors and folders is privileged — actor creation defaults to the Assistant GM role and folder
  * creation cannot be granted to players at all — but the people filling in the roster are usually
  * players. So the work is split: the editing client works out WHAT changed, and the active GM's

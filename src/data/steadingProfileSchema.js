@@ -23,7 +23,13 @@ export function steadingProfileSchema(f) {
 		attributes: new f.SchemaField(steadingRatingsSchema(f)),
 
 		assets: new f.SchemaField({
-			items:          new f.ArrayField(new f.StringField()),
+			// A general asset is property that can leave town, so it carries whether it currently has
+			// (see Asset.js). Resources and fortifications stay plain strings: they are evidence for a
+			// rating, not things to requisition.
+			items:          new f.ArrayField(new f.SchemaField({
+				text:          new f.StringField({ initial: "" }),
+				requisitioned: new f.BooleanField({ initial: false }),
+			})),
 			resources:      new f.ArrayField(new f.StringField()),  // what backs Prosperity
 			fortifications: new f.ArrayField(new f.StringField()),  // what backs Defenses
 			coinage:        new f.ArrayField(new f.SchemaField({
@@ -49,7 +55,7 @@ export function steadingProfileSchema(f) {
 		})),
 
 		// The resident name/trait pool (suggestions for generating residents), not the residents
-		// themselves — on a steading actor the actual people live in `residentPeople`.
+		// themselves — on a steading actor the actual people live in `folk`.
 		residents: new f.SchemaField({
 			names:  new f.StringField({ initial: "" }),
 			traits: new f.ArrayField(new f.StringField()),

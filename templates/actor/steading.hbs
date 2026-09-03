@@ -199,128 +199,46 @@
 				<section class="steading-overview-column">
 					{{> "stonetop.steading-stat-panel" attr="defenses" attrData=stonetop.attributes.defenses rollable=true panelClass="steading-defenses"}}
 					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
-					{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage advice="coin"}}
+					{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage
+				    note=stonetop.assets.requisitionedNote requisition=true advice="coin"}}
 				</section>
 
 			</div>
 
 		</div>{{!-- /tab play --}}
 
-		{{!-- Folk — residents and neighbours, the people of and around the steading --}}
+		{{!-- Folk — one roster of the people of and around the steading, beside the lists you scan
+		      to invent them --}}
 		<div class="tab {{tabs.folk.cssClass}}" data-group="primary" data-tab="folk"
 		     role="tabpanel" id="{{sheetIdPrefix}}-panel-folk" aria-labelledby="{{sheetIdPrefix}}-tab-folk">
 
-			<div class="steading-residents-grid">
+			{{!-- One roster, and the lists you read to fill it.
 
-				<section class="steading-residents-roster steading-block">
-					{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.residents")}}
-					<div class="steading-residents-table">
-						<div class="steading-residents-header">
-							<span>{{localize "stonetop.steading.colName"}}</span>
-							<span>{{localize "stonetop.steading.colOccupation"}}</span>
-							<span>{{localize "stonetop.steading.colTraits"}}</span>
-							<span>{{localize "stonetop.steading.linkColumn"}}</span>
-						</div>
-						<div class="steading-residents-rows">
-							{{#each stonetop.residents}}
-								<div class="steading-resident-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
-									<input type="text" class="stonetop-resident-name" data-change-action="residentName" aria-label="{{localize 'stonetop.a11y.residentName'}}" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
-									<input type="text" class="stonetop-resident-occupation" data-change-action="residentOccupation" aria-label="{{localize 'stonetop.a11y.residentOccupation'}}" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
-									<input type="text" class="stonetop-resident-traits" data-change-action="residentTraits" aria-label="{{localize 'stonetop.a11y.residentTraits'}}" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
-									<span class="steading-doc-link">
-										{{#if docLink}}
-											{{rich docLink}}
-											<button class="stonetop-resident-unlink" data-action="unlinkResident" type="button" data-id="{{id}}" data-name="{{name}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
-										{{/if}}
-									</span>
-									<button class="stonetop-resident-remove stonetop-icon-btn" data-action="removeResident" type="button" data-id="{{id}}" data-name="{{name}}" title="Delete resident" aria-label="Delete resident">
-										<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
-									</button>
-								</div>
-							{{/each}}
-						</div>
-						<button class="stonetop-resident-add stonetop-icon-btn" data-action="addResident" type="button" title="Add resident" aria-label="Add resident">
-							<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
-						</button>
-						{{#if isGM}}
-							<button class="stonetop-create-actors" data-action="createResidentActors" type="button">{{localize "stonetop.steading.createActors.residents"}}</button>
-						{{/if}}
-						<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
-					</div>
-				</section>
+			      Two columns rather than the four stacked blocks this used to be: the roster on the left,
+			      and on the right the name and trait lists WHOLE. The search box narrows the roster and
+			      cannot reach the lists — reading down them is how an NPC gets made, so filtering them
+			      would remove the feature to speed up the overhead. --}}
+			<div class="steading-folk-grid">
 
-				<div class="steading-residents-divider" aria-hidden="true"></div>
+				{{> "stonetop.steading-folk-roster" folk=stonetop.folk isGM=isGM}}
 
-				<section class="steading-resident-names steading-block">
-					{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.names")}}
-					<p class="steading-names-text">{{stonetop.residentNames}}</p>
-					<img class="steading-residents-img" src="stonetop-art/steading/residents.png" alt="">
-				</section>
+				<div class="steading-folk-divider" aria-hidden="true"></div>
 
-			</div>
-
-			<section class="steading-npc-traits steading-block">
-				{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.npcTraits")
-				    note=(localize "stonetop.steading.headings.npcTraitsNote")}}
-				<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource"
-				          aria-label="{{localize 'stonetop.a11y.npcTraits'}}">{{stonetop.residentTraitsText}}</textarea>
-				<div class="steading-npc-traits-columns">
-					{{#each stonetop.npcTraitColumns}}
-						<div class="steading-npc-traits-column">
-							{{#each this}}
-								<div class="steading-npc-trait">{{this}}</div>
-							{{/each}}
-						</div>
+				<section class="steading-folk-ref steading-block">
+					{{#each stonetop.folkSuggestions}}
+						{{> "stonetop.steading-folk-suggestions" list=this}}
 					{{/each}}
-				</div>
-			</section>
-
-			<div class="steading-neighbors-grid">
-
-				<section class="steading-neighbors-roster steading-block">
-					{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.neighbors")}}
-					<div class="steading-residents-table steading-neighbors-table">
-						<div class="steading-residents-header steading-neighbors-header">
-							<span>{{localize "stonetop.steading.colName"}}</span>
-							<span>{{localize "stonetop.steading.colOccupation"}}</span>
-							<span>{{localize "stonetop.steading.colTraits"}}</span>
-							<span>{{localize "stonetop.steading.colHome"}}</span>
-							<span>{{localize "stonetop.steading.linkColumn"}}</span>
-						</div>
-						<div class="steading-residents-rows">
-							{{#each stonetop.neighbors.people}}
-								<div class="steading-resident-row steading-neighbor-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
-									<input type="text" class="stonetop-neighbor-person-name" data-change-action="neighborName" aria-label="{{localize 'stonetop.a11y.residentName'}}" data-id="{{id}}" value="{{name}}" placeholder="Name (Pronouns)">
-									<input type="text" class="stonetop-neighbor-person-occupation" data-change-action="neighborOccupation" aria-label="{{localize 'stonetop.a11y.residentOccupation'}}" data-id="{{id}}" value="{{occupation}}" placeholder="Occupation">
-									<input type="text" class="stonetop-neighbor-person-traits" data-change-action="neighborTraits" aria-label="{{localize 'stonetop.a11y.residentTraits'}}" data-id="{{id}}" value="{{traits}}" placeholder="Traits, Relations, Etc">
-									<input type="text" class="stonetop-neighbor-person-home" data-change-action="neighborHome" aria-label="{{localize 'stonetop.a11y.neighborHome'}}" data-id="{{id}}" value="{{home}}" placeholder="Home">
-									<span class="steading-doc-link">
-										{{#if docLink}}
-											{{rich docLink}}
-											<button class="stonetop-neighbor-person-unlink" data-action="unlinkNeighbor" type="button" data-id="{{id}}" data-name="{{name}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
-										{{/if}}
-									</span>
-									<button class="stonetop-neighbor-person-remove stonetop-icon-btn" data-action="removeNeighbor" type="button" data-id="{{id}}" data-name="{{name}}" title="Delete neighbor" aria-label="Delete neighbor">
-										<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
-									</button>
-								</div>
-							{{/each}}
-						</div>
-						<button class="stonetop-neighbor-person-add stonetop-icon-btn" data-action="addNeighbor" type="button" title="Add neighbor" aria-label="Add neighbor">
-							<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
-						</button>
-						{{#if isGM}}
-							<button class="stonetop-create-actors" data-action="createNeighborActors" type="button">{{localize "stonetop.steading.createActors.neighbors"}}</button>
-						{{/if}}
-						<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
-					</div>
+					{{!-- The trait pool's edit surface, one per line. It sits under the list it feeds, so
+					      anything the table invents joins the same scan. --}}
+					<textarea class="steading-folk-traits-source" data-change-action="folkTraitsSource"
+					          aria-label="{{localize 'stonetop.a11y.npcTraits'}}">{{stonetop.traitPoolText}}</textarea>
 				</section>
 
-				<div class="steading-neighbors-divider" aria-hidden="true"></div>
-
-				{{> "stonetop.steading-neighbor-places" places=stonetop.neighbors.places}}
-
 			</div>
+
+			{{!-- The neighbouring places themselves: what the steading knows about each. Their NAME pools
+			      are rendered above, in the reference column, so the panel carries only the notes. --}}
+			{{> "stonetop.steading-neighbor-places" places=stonetop.neighborPlaces showNames=false}}
 
 		</div>{{!-- /tab folk --}}
 

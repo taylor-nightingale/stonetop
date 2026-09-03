@@ -1,17 +1,31 @@
 {{!-- The Assets list plus the Coinage block below it, grouped one block per currency
-      (purses/handfuls/coins). Shared by the steading overview and the steadfast sheet.
-      Params: items (array of strings), coinage (array of {title, label, purses, handfuls, coins}),
-      and optionally advice (an "If you want to…" topic key). --}}
+      (purses/handfuls/coins). Shared by the steading's Play tab and the steadfast sheet.
+      Params: items (Asset[]), coinage (array of {title, label, purses, handfuls, coins}), note (the
+      heading's "2 out"), requisition (whether an asset can be marked out), and optionally advice
+      (an "If you want to…" topic key).
+
+      `requisition` is false on the steadfast: a steadfast is the DEFINITION of a place, and nothing
+      is out on loan from a definition. --}}
 <div class="steading-overview-field">
-	{{> "stonetop.section-heading" title=(localize "stonetop.steading.lists.assets")}}
+	{{> "stonetop.section-heading" title=(localize "stonetop.steading.lists.assets") note=note}}
 	<div class="steading-attr-list">
 		{{#each items}}
-			<div class="steading-attr-row">
+			<div class="steading-attr-row steading-asset-row{{#if requisitioned}} is-requisitioned{{/if}}">
 				{{!-- Grows downward as it wraps rather than scrolling sideways — see the note in
 				      steading-ratings-list.hbs; an asset is a phrase, and often a long one. --}}
 				<textarea rows="1" class="stonetop-asset-item stonetop-grow-field" data-change-action="assetItem" data-index="{{@index}}"
-				          aria-label="{{localize 'stonetop.a11y.assetItem'}}">{{this}}</textarea>
-				<button class="stonetop-asset-item-remove stonetop-icon-btn" data-action="removeAssetItem" type="button" data-index="{{@index}}" data-name="{{this}}" title="Remove" aria-label="Remove">
+				          aria-label="{{localize 'stonetop.a11y.assetItem'}}">{{text}}</textarea>
+				{{#if ../requisition}}
+					{{!-- At home, or out. The state word is a real label rather than a tooltip: it is the
+					      thing the table forgets, so it has to be readable without a pointer. --}}
+					<label class="steading-asset-state">
+						<input type="checkbox" class="stonetop-item-check" data-change-action="assetRequisitioned"
+						       data-index="{{@index}}" {{#if requisitioned}}checked{{/if}}
+						       aria-label="{{localize 'stonetop.a11y.assetRequisitioned'}}">
+						<span>{{#if requisitioned}}{{localize "stonetop.steading.lists.assetOut"}}{{else}}{{localize "stonetop.steading.lists.assetHome"}}{{/if}}</span>
+					</label>
+				{{/if}}
+				<button class="stonetop-asset-item-remove stonetop-icon-btn" data-action="removeAssetItem" type="button" data-index="{{@index}}" data-name="{{text}}" title="Remove" aria-label="Remove">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 				</button>
 			</div>

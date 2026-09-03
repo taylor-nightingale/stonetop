@@ -17,12 +17,11 @@ const FACADE_METHODS = [
 	"setFortunes", "setSurplus", "setRollMode", "setNotes", "renameOrApplySteadfast",
 	"setAttribute", "addAttributeItem", "removeAttributeItem", "updateAttributeItem",
 	"setDebility", "updateContentText",
-	"addAssetItem", "removeAssetItem", "updateAssetItem",
+	"addAssetItem", "removeAssetItem", "updateAssetItem", "setAssetRequisitioned",
 	"updateCoinagePurses", "updateCoinageHandfuls", "updateCoinageCoins",
-	"addResident", "removeResident", "updateResidentName", "updateResidentOccupation",
-	"updateResidentTraits", "updateResidentTraitsSource", "unlinkResident", "linkResident",
-	"addNeighbor", "removeNeighbor", "updateNeighborName", "updateNeighborOccupation",
-	"updateNeighborTraits", "updateNeighborHome", "unlinkNeighbor", "linkNeighbor",
+	"addPerson", "addPersonNamed", "removePerson", "updatePersonName", "updatePersonOccupation",
+	"updatePersonTraits", "updatePersonHome", "appendPersonTrait", "updateFolkTraitsSource",
+	"unlinkPerson", "linkPerson",
 	"updateNeighborPlaceNote",
 	"addPlace", "setPlaceValue", "unlinkPlace", "linkPlace",
 	"revokeImprovement",
@@ -44,9 +43,12 @@ async function renderSheet({ editable = true } = {}) {
 		<input class="steading-steadfast-input" data-change-action="steadfastName" value="Barrier Pass">
 		<input type="number" class="stonetop-step steading-attr-input" data-change-action="fortunes" data-attr="fortunes" value="2">
 		<input type="number" class="stonetop-step steading-attr-input" data-change-action="attribute" data-attr="defenses" value="3">
-		<input class="stonetop-resident-name" data-change-action="residentName" data-id="r1" value="Cerdig">
-		<input class="stonetop-neighbor-person-name" data-change-action="neighborName" data-id="n1" value="Marock">
-		<textarea class="steading-npc-traits-source" data-change-action="residentTraitsSource">gruff
+		<div class="steading-folk-roster"><div class="steading-folk-row" data-id="r1">
+			<input class="stonetop-person-name" data-change-action="personName" data-id="r1" value="Cerdig">
+			<input class="stonetop-person-home" data-change-action="personHome" data-id="r1" value="Marshedge">
+		</div></div>
+		<input type="checkbox" class="stonetop-item-check" data-change-action="assetRequisitioned" data-index="1" checked>
+		<textarea class="steading-folk-traits-source" data-change-action="folkTraitsSource">gruff
 curious</textarea>
 		<textarea class="stonetop-notes" data-change-action="notes">a note</textarea>
 		<input type="checkbox" class="stonetop-cg-track" data-change-action="cgTrack" data-cg-context="improvement"
@@ -59,7 +61,7 @@ curious</textarea>
 }
 
 describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
-	it("routes overview, residents, neighbors, and notes controls to their setters", async () => {
+	it("routes overview, roster and notes controls to their setters", async () => {
 		const { sheet, steading } = await renderSheet();
 		const el = sel => sheet.element.querySelector(sel);
 
@@ -69,11 +71,14 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 		fire(el(".steading-attr-input[data-attr='defenses']"), "change");
 		expect(steading.setAttribute).toHaveBeenCalledWith("defenses", 3);
 
-		fire(el(".stonetop-resident-name"), "change");
-		expect(steading.updateResidentName).toHaveBeenCalledWith("r1", "Cerdig");
+		fire(el(".stonetop-person-name"), "change");
+		expect(steading.updatePersonName).toHaveBeenCalledWith("r1", "Cerdig");
 
-		fire(el(".stonetop-neighbor-person-name"), "change");
-		expect(steading.updateNeighborName).toHaveBeenCalledWith("n1", "Marock");
+		fire(el(".stonetop-person-home"), "change");
+		expect(steading.updatePersonHome).toHaveBeenCalledWith("r1", "Marshedge");
+
+		fire(el("[data-change-action='assetRequisitioned']"), "change");
+		expect(steading.setAssetRequisitioned).toHaveBeenCalledWith(1, true);
 
 		fire(el(".stonetop-notes"), "change");
 		expect(steading.setNotes).toHaveBeenCalledWith("a note");
@@ -87,10 +92,10 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 			"Barrier Pass", [{ slug: "barrier-pass", name: "Barrier Pass" }]);
 	});
 
-	it("routes the traits-source textarea to Residents.updateTraitsSource (raw text)", async () => {
+	it("routes the traits-source textarea to Folk.updateTraitsSource (raw text)", async () => {
 		const { sheet, steading } = await renderSheet();
-		fire(sheet.element.querySelector(".steading-npc-traits-source"), "change");
-		expect(steading.updateResidentTraitsSource).toHaveBeenCalledWith("gruff\ncurious");
+		fire(sheet.element.querySelector(".steading-folk-traits-source"), "change");
+		expect(steading.updateFolkTraitsSource).toHaveBeenCalledWith("gruff\ncurious");
 	});
 
 	it("routes the delegated improvement track and move-resource pip", async () => {

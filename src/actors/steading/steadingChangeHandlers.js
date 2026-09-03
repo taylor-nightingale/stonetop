@@ -30,23 +30,21 @@ export function steadingChangeHandlers(s, { availableSteadfasts }) {
 		contentText: el => s.updateContentText(el.dataset.type, el.value),
 
 		// Assets + coinage
-		assetItem:       el => s.updateAssetItem(parseInt(el.dataset.index), el.value),
+		assetItem:          el => s.updateAssetItem(parseInt(el.dataset.index), el.value),
+		assetRequisitioned: el => s.setAssetRequisitioned(parseInt(el.dataset.index), el.checked),
 		coinagePurses:   el => s.updateCoinagePurses(el.dataset.title, parseInt(el.value) || 0),
 		coinageHandfuls: el => s.updateCoinageHandfuls(el.dataset.title, parseInt(el.value) || 0),
 		coinageCoins:    el => s.updateCoinageCoins(el.dataset.title, parseInt(el.value) || 0),
 
-		// Residents
-		residentName:         el => s.updateResidentName(el.dataset.id, el.value),
-		residentOccupation:   el => s.updateResidentOccupation(el.dataset.id, el.value),
-		residentTraits:       el => s.updateResidentTraits(el.dataset.id, el.value),
-		// Residents owns the one-per-line parse.
-		residentTraitsSource: el => s.updateResidentTraitsSource(el.value),
+		// Folk — one roster; a blank home means this steading.
+		personName:       el => s.updatePersonName(el.dataset.id, el.value),
+		personOccupation: el => s.updatePersonOccupation(el.dataset.id, el.value),
+		personTraits:     el => s.updatePersonTraits(el.dataset.id, el.value),
+		personHome:       el => s.updatePersonHome(el.dataset.id, el.value),
+		// Folk owns the one-per-line parse.
+		folkTraitsSource: el => s.updateFolkTraitsSource(el.value),
 
-		// Neighbors — people and places
-		neighborName:       el => s.updateNeighborName(el.dataset.id, el.value),
-		neighborOccupation: el => s.updateNeighborOccupation(el.dataset.id, el.value),
-		neighborTraits:     el => s.updateNeighborTraits(el.dataset.id, el.value),
-		neighborHome:       el => s.updateNeighborHome(el.dataset.id, el.value),
+		// Neighboring places
 		neighborPlaceNote:  el => s.updateNeighborPlaceNote(el.dataset.id, el.value),
 
 		// Places of Interest

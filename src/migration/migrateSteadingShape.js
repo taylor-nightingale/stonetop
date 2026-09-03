@@ -1,4 +1,5 @@
 import { SteadingDefaults } from "../model/data/steading/SteadingDefaults.js";
+import { newPersonId } from "../actors/steading/Person.js";
 
 // Heals the pre-0.13.0 steading SOURCE shape: ratings were stored as { current: <option index>,
 // items: [...] } (with the resource/fortification lists inside), size as an index, fortunes/surplus
@@ -19,6 +20,8 @@ export function migrateSteadingShape(source) {
 	_healPlaces(source);
 	_healImprovements(source);
 	_healResidents(source);
+	_healFolk(source);
+	source.assets = healAssets(source.assets);
 	return source;
 }
 
@@ -75,6 +78,39 @@ function _healImprovements(source) {
 	if (imp == null || Array.isArray(imp) || typeof imp !== "object") return;
 	source.improvementValues ??= imp.pickValues ?? {};
 	source.improvements = [];
+}
+
+// Residents and neighbours were two arrays rendering the same table; 1.6.0 merged them into one
+// roster where the Home column carries the difference and blank means this steading.
+//
+// Deduped by id, because the two keys can outlive the fold for a moment: a client that loads a
+// legacy steading and saves anything writes the MERGED `folk` while the old keys are still in the
+// database, and a straight concat on the next load would double every neighbour. Legacy rows
+// occasionally carry no id at all (the very old flag-based people) — those get one here, once.
+function _healFolk(source) {
+	const legacy = [source.residentPeople, source.neighborPeople].filter(Array.isArray);
+	if (!legacy.length) return;
+	const merged = Array.isArray(source.folk) ? [...source.folk] : [];
+	const seen = new Set(merged.map(p => p?.id).filter(Boolean));
+	for (const person of legacy.flat()) {
+		if (person?.id && seen.has(person.id)) continue;
+		const id = person?.id || newPersonId();
+		seen.add(id);
+		merged.push({ home: "", ...person, id });
+	}
+	source.folk = merged;
+	delete source.residentPeople;
+	delete source.neighborPeople;
+}
+
+// A general asset was a bare sentence; 1.6.0 gave it a requisitioned state. Shared with SteadfastData,
+// which composes the same profile schema and so holds the same legacy strings.
+export function healAssets(assets) {
+	if (!assets?.items?.some(item => typeof item === "string")) return assets;
+	return {
+		...assets,
+		items: assets.items.map(item => typeof item === "string" ? { text: item, requisitioned: false } : item),
+	};
 }
 
 // `residents` used to be the PEOPLE array; the name/trait pool lived at the root.

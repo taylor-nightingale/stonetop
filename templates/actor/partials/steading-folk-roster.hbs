@@ -1,0 +1,65 @@
+{{!-- The steading's people — ONE roster. Residents and neighbours differ only by the home written on
+      the row, and a blank Home means this steading, so there is one table, one add button and one
+      place to search. Params: folk (Person[]), isGM, editable.
+
+      The search filters THIS table and nothing else — the name and trait lists beside it stay whole,
+      because reading down them is how an NPC gets made. That is enforced by RosterFilter being handed
+      the roster rather than the tab. --}}
+<section class="steading-folk-roster steading-block">
+	<div class="steading-folk-head">
+		{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.folk" place=actor.name)}}
+		{{!-- No data-change-action: this writes nothing to the actor. It filters rows in place on
+		      `input`, so it keeps up with typing and never puts the table through a render. Named by
+		      aria-label rather than a visible one — the placeholder alone is not an accessible name,
+		      and it disappears the moment anything is typed. --}}
+		<input type="search" class="steading-folk-search" data-view-state
+		       placeholder="{{localize 'stonetop.steading.folk.searchPlaceholder'}}"
+		       aria-label="{{localize 'stonetop.a11y.folkSearch'}}">
+	</div>
+
+	<div class="steading-folk-table">
+		<div class="steading-folk-header">
+			<span>{{localize "stonetop.steading.colName"}}</span>
+			<span>{{localize "stonetop.steading.colHome"}}</span>
+			<span>{{localize "stonetop.steading.colOccupation"}}</span>
+			<span>{{localize "stonetop.steading.colTraits"}}</span>
+			<span>{{localize "stonetop.steading.linkColumn"}}</span>
+		</div>
+		<div class="steading-folk-rows">
+			{{#each folk}}
+				<div class="steading-folk-row" data-id="{{id}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
+					{{!-- The caret marks the row a click in the reference column will land on. Decorative:
+					      the row states the same thing to assistive tech through aria-current, which
+					      RosterFocus sets. --}}
+					<span class="steading-folk-name">
+						<span class="steading-folk-caret" aria-hidden="true">▸</span>
+						<input type="text" class="stonetop-person-name" data-change-action="personName" aria-label="{{localize 'stonetop.a11y.personName'}}" data-id="{{id}}" value="{{name}}" placeholder="{{localize 'stonetop.steading.folk.namePlaceholder'}}">
+					</span>
+					<input type="text" class="stonetop-person-home" data-change-action="personHome" aria-label="{{localize 'stonetop.a11y.personHome'}}" data-id="{{id}}" value="{{home}}" placeholder="{{localize 'stonetop.steading.folk.homePlaceholder'}}">
+					<input type="text" class="stonetop-person-occupation" data-change-action="personOccupation" aria-label="{{localize 'stonetop.a11y.personOccupation'}}" data-id="{{id}}" value="{{occupation}}" placeholder="{{localize 'stonetop.steading.colOccupation'}}">
+					<input type="text" class="stonetop-person-traits" data-change-action="personTraits" aria-label="{{localize 'stonetop.a11y.personTraits'}}" data-id="{{id}}" value="{{traits}}" placeholder="{{localize 'stonetop.steading.colTraits'}}">
+					<span class="steading-doc-link">
+						{{#if docLink}}
+							{{rich docLink}}
+							<button class="stonetop-person-unlink" data-action="unlinkPerson" type="button" data-id="{{id}}" data-name="{{name}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
+						{{/if}}
+					</span>
+					<button class="stonetop-person-remove stonetop-icon-btn" data-action="removePerson" type="button" data-id="{{id}}" data-name="{{name}}" title="{{localize 'stonetop.steading.folk.remove'}}" aria-label="{{localize 'stonetop.steading.folk.remove'}}">
+						<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+					</button>
+				</div>
+			{{/each}}
+		</div>
+
+		{{!-- Adding also CLEARS the focused row, so the next name clicked in the reference column
+		      creates someone rather than renaming whoever was last edited. --}}
+		<button class="steading-folk-add stonetop-list-add" data-action="addPerson" type="button">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.folk.newVillager"}}</span>
+		</button>
+		{{#if isGM}}
+			<button class="stonetop-create-actors" data-action="createFolkActors" type="button">{{localize "stonetop.steading.createActors.folk"}}</button>
+		{{/if}}
+		<p class="steading-folk-hint">{{localize "stonetop.steading.folk.homeBlankHint"}}</p>
+		<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
+	</div>
+</section>

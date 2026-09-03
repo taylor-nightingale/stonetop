@@ -93,47 +93,47 @@ describe("steading sheet wiring — overview fields (integration)", () => {
 	});
 });
 
-describe("steading sheet wiring — residents (integration)", () => {
-	it("adds a resident, then renames it by its row id", async () => {
+describe("steading sheet wiring — the roster (integration)", () => {
+	it("adds a villager, then renames them by their row id", async () => {
 		const { sheet, actor, steading } = await makeWiredSheet();
 
-		await fireAction(sheet, "addResident", `<button data-action="addResident"></button>`, "button");
-		const [resident] = actor.system.residentPeople;
+		await fireAction(sheet, "addPerson", `<button data-action="addPerson"></button>`, "button");
+		const [resident] = actor.system.folk;
 		expect(resident).toBeDefined();
 
 		await fireChange(sheet,
-			`<input data-change-action="residentName" data-id="${resident.id}" value="Cerdig">`, "input");
+			`<input data-change-action="personName" data-id="${resident.id}" value="Cerdig">`, "input");
 
-		expect(actor.system.residentPeople[0].name).toBe("Cerdig");
-		expect(actor.system.residentPeople[0].id).toBe(resident.id); // renamed in place, not replaced
+		expect(actor.system.folk[0].name).toBe("Cerdig");
+		expect(actor.system.folk[0].id).toBe(resident.id); // renamed in place, not replaced
 	});
 
-	it("removes a resident on a confirmed click", async () => {
+	it("removes a villager on a confirmed click", async () => {
 		vi.stubGlobal("foundry", { ...globalThis.foundry,
 			applications: { ...globalThis.foundry?.applications,
 				api: { DialogV2: { confirm: async () => true } } } });
 		const { sheet, actor } = await makeWiredSheet();
-		await fireAction(sheet, "addResident", `<button data-action="addResident"></button>`, "button");
-		const { id } = actor.system.residentPeople[0];
+		await fireAction(sheet, "addPerson", `<button data-action="addPerson"></button>`, "button");
+		const { id } = actor.system.folk[0];
 
-		await fireAction(sheet, "removeResident",
-			`<button data-action="removeResident" data-id="${id}" data-name="Cerdig"></button>`, "button");
+		await fireAction(sheet, "removePerson",
+			`<button data-action="removePerson" data-id="${id}" data-name="Cerdig"></button>`, "button");
 
-		expect(actor.system.residentPeople).toHaveLength(0);
+		expect(actor.system.folk).toHaveLength(0);
 	});
 
-	it("keeps the resident when the confirmation is declined", async () => {
+	it("keeps the villager when the confirmation is declined", async () => {
 		vi.stubGlobal("foundry", { ...globalThis.foundry,
 			applications: { ...globalThis.foundry?.applications,
 				api: { DialogV2: { confirm: async () => false } } } });
 		const { sheet, actor } = await makeWiredSheet();
-		await fireAction(sheet, "addResident", `<button data-action="addResident"></button>`, "button");
-		const { id } = actor.system.residentPeople[0];
+		await fireAction(sheet, "addPerson", `<button data-action="addPerson"></button>`, "button");
+		const { id } = actor.system.folk[0];
 
-		await fireAction(sheet, "removeResident",
-			`<button data-action="removeResident" data-id="${id}" data-name="Cerdig"></button>`, "button");
+		await fireAction(sheet, "removePerson",
+			`<button data-action="removePerson" data-id="${id}" data-name="Cerdig"></button>`, "button");
 
-		expect(actor.system.residentPeople).toHaveLength(1);
+		expect(actor.system.folk).toHaveLength(1);
 	});
 
 	// The right-click escape hatch must not ask at all.
@@ -142,31 +142,19 @@ describe("steading sheet wiring — residents (integration)", () => {
 		vi.stubGlobal("foundry", { ...globalThis.foundry,
 			applications: { ...globalThis.foundry?.applications, api: { DialogV2: { confirm } } } });
 		const { sheet, actor } = await makeWiredSheet();
-		await fireAction(sheet, "addResident", `<button data-action="addResident"></button>`, "button");
-		const { id } = actor.system.residentPeople[0];
+		await fireAction(sheet, "addPerson", `<button data-action="addPerson"></button>`, "button");
+		const { id } = actor.system.folk[0];
 
-		await fireAction(sheet, "removeResident",
-			`<button data-action="removeResident" data-id="${id}" data-name="Cerdig"></button>`, "button",
+		await fireAction(sheet, "removePerson",
+			`<button data-action="removePerson" data-id="${id}" data-name="Cerdig"></button>`, "button",
 			{ type: "contextmenu", button: 2 });
 
 		expect(confirm).not.toHaveBeenCalled();
-		expect(actor.system.residentPeople).toHaveLength(0);
+		expect(actor.system.folk).toHaveLength(0);
 	});
 });
 
-describe("steading sheet wiring — neighbors, assets, places (integration)", () => {
-	it("adds a neighbor and edits its home", async () => {
-		const { sheet, actor } = await makeWiredSheet();
-
-		await fireAction(sheet, "addNeighbor", `<button data-action="addNeighbor"></button>`, "button");
-		const { id } = actor.system.neighborPeople[0];
-
-		await fireChange(sheet,
-			`<input data-change-action="neighborHome" data-id="${id}" value="Marshedge">`, "input");
-
-		expect(actor.system.neighborPeople[0].home).toBe("Marshedge");
-	});
-
+describe("steading sheet wiring — assets and places (integration)", () => {
 	it("adds an asset item and edits it by index", async () => {
 		const { sheet, actor } = await makeWiredSheet();
 		const before = actor.system.assets.items.length;
@@ -177,7 +165,18 @@ describe("steading sheet wiring — neighbors, assets, places (integration)", ()
 		await fireChange(sheet,
 			`<input data-change-action="assetItem" data-index="${before}" value="a good well">`, "input");
 
-		expect(actor.system.assets.items[before]).toBe("a good well");
+		expect(actor.system.assets.items[before].text).toBe("a good well");
+	});
+
+	// Requisition happens mid-scene, so it is a stored state on the row rather than a note typed
+	// into the sentence.
+	it("marks an asset requisitioned by index", async () => {
+		const { sheet, actor } = await makeWiredSheet();
+
+		await fireChange(sheet,
+			`<input type="checkbox" data-change-action="assetRequisitioned" data-index="0" checked>`, "input");
+
+		expect(actor.system.assets.items[0].requisitioned).toBe(true);
 	});
 
 	// Coinage is addressed by title, and an update re-appends the entry rather than replacing it in
@@ -213,60 +212,47 @@ describe("steading sheet wiring — unlinking (integration)", () => {
 		return confirm;
 	}
 
-	async function linkedResident() {
+	async function linkedVillager() {
 		const wired = await makeWiredSheet();
-		await fireAction(wired.sheet, "addResident", `<button data-action="addResident"></button>`, "button");
-		const { id } = wired.actor.system.residentPeople[0];
-		await wired.steading.updateResidentName(id, "Cerdig");
-		await wired.steading.linkResident(id, "Actor.cerdig");
+		await fireAction(wired.sheet, "addPerson", `<button data-action="addPerson"></button>`, "button");
+		const { id } = wired.actor.system.folk[0];
+		await wired.steading.updatePersonName(id, "Cerdig");
+		await wired.steading.linkPerson(id, "Actor.cerdig");
 		return { ...wired, id };
 	}
 
 	const unlinkButton = id =>
-		`<button data-action="unlinkResident" data-id="${id}" data-name="Cerdig"></button>`;
+		`<button data-action="unlinkPerson" data-id="${id}" data-name="Cerdig"></button>`;
 
 	it("drops the link on a confirmed click, keeping the row", async () => {
 		stubDialog(true);
-		const { sheet, actor, id } = await linkedResident();
+		const { sheet, actor, id } = await linkedVillager();
 
-		await fireAction(sheet, "unlinkResident", unlinkButton(id), "button");
+		await fireAction(sheet, "unlinkPerson", unlinkButton(id), "button");
 
-		expect(actor.system.residentPeople).toHaveLength(1);
-		expect(actor.system.residentPeople[0].name).toBe("Cerdig");
-		expect(actor.system.residentPeople[0].linkUuid).toBeFalsy();
+		expect(actor.system.folk).toHaveLength(1);
+		expect(actor.system.folk[0].name).toBe("Cerdig");
+		expect(actor.system.folk[0].linkUuid).toBeFalsy();
 	});
 
 	it("keeps the link when the confirmation is declined", async () => {
 		stubDialog(false);
-		const { sheet, actor, id } = await linkedResident();
+		const { sheet, actor, id } = await linkedVillager();
 
-		await fireAction(sheet, "unlinkResident", unlinkButton(id), "button");
+		await fireAction(sheet, "unlinkPerson", unlinkButton(id), "button");
 
-		expect(actor.system.residentPeople[0].linkUuid).toBe("Actor.cerdig");
+		expect(actor.system.folk[0].linkUuid).toBe("Actor.cerdig");
 	});
 
 	it("unlinks without asking on a right-click", async () => {
 		const confirm = stubDialog(true);
-		const { sheet, actor, id } = await linkedResident();
+		const { sheet, actor, id } = await linkedVillager();
 
-		await fireAction(sheet, "unlinkResident", unlinkButton(id), "button",
+		await fireAction(sheet, "unlinkPerson", unlinkButton(id), "button",
 			{ type: "contextmenu", button: 2 });
 
 		expect(confirm).not.toHaveBeenCalled();
-		expect(actor.system.residentPeople[0].linkUuid).toBeFalsy();
-	});
-
-	it("asks before unlinking a neighbor too", async () => {
-		stubDialog(false);
-		const { sheet, actor, steading } = await makeWiredSheet();
-		await fireAction(sheet, "addNeighbor", `<button data-action="addNeighbor"></button>`, "button");
-		const { id } = actor.system.neighborPeople[0];
-		await steading.linkNeighbor(id, "Actor.brennan");
-
-		await fireAction(sheet, "unlinkNeighbor",
-			`<button data-action="unlinkNeighbor" data-id="${id}" data-name="Brennan"></button>`, "button");
-
-		expect(actor.system.neighborPeople[0].linkUuid).toBe("Actor.brennan");
+		expect(actor.system.folk[0].linkUuid).toBeFalsy();
 	});
 
 	it("asks before unlinking a place of interest too", async () => {
@@ -295,7 +281,10 @@ describe("steading sheet wiring — the router itself (integration)", () => {
 			<input data-change-action="rollMode" value="adv">
 			<input data-change-action="contentText" data-type="history" value="y">
 			<input type="checkbox" data-change-action="debility" data-slug="hungry">
-			<input data-change-action="residentTraitsSource" value="gruff">`;
+			<input data-change-action="folkTraitsSource" value="gruff">
+			<input data-change-action="personName" data-id="r1" value="Cerdig">
+			<input data-change-action="personHome" data-id="r1" value="Marshedge">
+			<input type="checkbox" data-change-action="assetRequisitioned" data-index="0">`;
 		for (const el of sheet.element.querySelectorAll("[data-change-action]")) fire(el, "change");
 		await settle();
 

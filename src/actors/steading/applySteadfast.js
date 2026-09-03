@@ -1,7 +1,7 @@
 // Apply a steadfast's definition to a steading actor: copy the shared profile fields onto the actor
 // (independent copies it then edits in play — the character/playbook pattern, where the actor's live
 // state lives on the actor, seeded from the definition) and record which steadfast it came from. The
-// actor's runtime state (residentPeople, neighborPeople, debilities, content, improvementValues) is
+// actor's runtime state (folk, debilities, content, improvementValues) is
 // left untouched.
 const PROFILE_FIELDS = ["attributes", "assets", "placesOfInterest", "neighborPlaces", "residents", "improvements"];
 

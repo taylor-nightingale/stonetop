@@ -50,6 +50,8 @@ export const STONETOP_PARTIALS = {
 	"stonetop.steading-assets":          "systems/stonetop/templates/actor/partials/steading-assets.hbs",
 	"stonetop.steading-places-of-interest": "systems/stonetop/templates/actor/partials/steading-places-of-interest.hbs",
 	"stonetop.steading-neighbor-places": "systems/stonetop/templates/actor/partials/steading-neighbor-places.hbs",
+	"stonetop.steading-folk-roster":      "systems/stonetop/templates/actor/partials/steading-folk-roster.hbs",
+	"stonetop.steading-folk-suggestions": "systems/stonetop/templates/actor/partials/steading-folk-suggestions.hbs",
 	"stonetop.section-sub-heading":  "systems/stonetop/templates/actor/partials/section-sub-heading.hbs",
 	"stonetop.resource-track":   "systems/stonetop/templates/actor/partials/resource-track.hbs",
 	"stonetop.resource-input":   "systems/stonetop/templates/actor/partials/resource-input.hbs",

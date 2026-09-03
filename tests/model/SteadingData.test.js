@@ -39,8 +39,7 @@ describe("SteadingData defaults (blank = empty place)", () => {
 
 	it("defaults the runtime instance lists + pick state to empty", () => {
 		const d = new SteadingData();
-		expect(d.residentPeople).toEqual([]);
-		expect(d.neighborPeople).toEqual([]);
+		expect(d.folk).toEqual([]);
 		expect(d.improvementValues).toEqual({});
 	});
 });
@@ -59,13 +58,14 @@ describe("SteadingData with applied values", () => {
 		expect(d.improvements).toEqual(["market", "mill"]);
 	});
 
-	it("keeps the resident pool distinct from the resident people", () => {
+	// `residents` is the name/trait POOL the place seeds; `folk` is the people themselves.
+	it("keeps the resident pool distinct from the roster", () => {
 		const d = new SteadingData({
 			residents: { names: "Aderyn, Bryn", traits: ["curious"] },
-			residentPeople: [{ id: "1", name: "Afon" }],
+			folk: [{ id: "1", name: "Afon", home: "" }],
 		});
 		expect(d.residents).toEqual({ names: "Aderyn, Bryn", traits: ["curious"] });
-		expect(d.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
+		expect(d.folk).toEqual([{ id: "1", name: "Afon", home: "" }]);
 	});
 
 	it("accepts debilities overrides", () => {

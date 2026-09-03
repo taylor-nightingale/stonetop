@@ -41,14 +41,20 @@ describe("steadingChangeHandlers", () => {
 		expect(s.setAttribute).toHaveBeenCalledWith("size", "village");
 	});
 
-	it("routes a resident field by its row id", () => {
-		handlers.residentName(el(`<input data-id="r1" value="Cerdig">`));
-		expect(s.updateResidentName).toHaveBeenCalledWith("r1", "Cerdig");
+	it("routes a roster field by its row id", () => {
+		handlers.personName(el(`<input data-id="r1" value="Cerdig">`));
+		expect(s.updatePersonName).toHaveBeenCalledWith("r1", "Cerdig");
 	});
 
-	it("routes a neighbor field by its row id", () => {
-		handlers.neighborHome(el(`<input data-id="n1" value="Marshedge">`));
-		expect(s.updateNeighborHome).toHaveBeenCalledWith("n1", "Marshedge");
+	// One roster: where somebody lives is a column on their row, not a separate list.
+	it("routes the home column by its row id too", () => {
+		handlers.personHome(el(`<input data-id="n1" value="Marshedge">`));
+		expect(s.updatePersonHome).toHaveBeenCalledWith("n1", "Marshedge");
+	});
+
+	it("routes an asset's requisitioned box by its index, as a boolean", () => {
+		handlers.assetRequisitioned(el(`<input type="checkbox" data-index="2" checked>`));
+		expect(s.setAssetRequisitioned).toHaveBeenCalledWith(2, true);
 	});
 
 	it("routes coinage by currency title, treating a blank as zero", () => {

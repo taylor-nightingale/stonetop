@@ -121,9 +121,9 @@ export class SeasonsSnapshot {
 export class SteadingSnapshot {
 	constructor({
 								fortunes, surplus, attributes, debilities,
-								placesOfInterest, notes, residents, neighbors,
+								placesOfInterest, notes, folk, folkSuggestions, neighborPlaces,
 								contentDescription, content, assets, improvements,
-								residentNames, residentTraits,
+								traitPoolText,
 								moves, seasons, rollMode, rollModes,
 							}) {
 		this.fortunes = fortunes;
@@ -132,16 +132,18 @@ export class SteadingSnapshot {
 		this.debilities = debilities;
 		this.placesOfInterest = placesOfInterest;
 		this.notes = notes;
-		this.residents = residents;
-		this.neighbors = neighbors;
+		// One roster — residents and neighbours together, the Home column carrying the difference.
+		this.folk = folk;
+		// The name and trait lists the Folk tab keeps WHOLE. Never filtered: reading down them is how
+		// an NPC gets made, which is why the roster's search box cannot reach them.
+		this.folkSuggestions = folkSuggestions;
+		this.neighborPlaces = neighborPlaces;
 		this.contentDescription = contentDescription;
 		this.content = content;
 		this.assets = assets;
 		this.improvements = improvements;
-		this.residentNames = residentNames;
-		this.residentTraits = residentTraits;
-		this.npcTraitColumns = splitIntoColumns(residentTraits ?? [], 5);
-		this.residentTraitsText = (residentTraits ?? []).join("\n");
+		// The trait pool as its edit surface holds it: one per line.
+		this.traitPoolText = traitPoolText ?? "";
 		this.improvementColumns = splitIntoImprovementColumns(improvements ?? []);
 		this.moves    = moves    ?? [];
 		this.seasons  = seasons  ?? null;

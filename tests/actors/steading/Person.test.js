@@ -13,8 +13,9 @@ describe("Person.blank", () => {
 		expect(p.traits).toBe("");
 	});
 
-	it("does not have a home field", () => {
-		expect("home" in Person.blank()).toBe(false);
+	// One roster: everyone carries a home, and blank means this steading. There is no second blank.
+	it("has an empty home", () => {
+		expect(Person.blank().home).toBe("");
 	});
 
 	it("does not have a linkUuid field", () => {
@@ -26,20 +27,70 @@ describe("Person.blank", () => {
 	});
 });
 
-describe("Person.blankNeighbor", () => {
-	it("has a non-empty id", () => {
-		expect(Person.blankNeighbor().id).toBeTruthy();
+describe("Person.named", () => {
+	it("carries the name it was given and a fresh id", () => {
+		const p = Person.named("Eirlys");
+		expect(p.name).toBe("Eirlys");
+		expect(p.id).toBeTruthy();
+		expect(p.home).toBe("");
+	});
+});
+
+describe("Person#bareName", () => {
+	it("is the name as printed when there is no parenthetical", () => {
+		expect(Person.named("Cadoc").bareName).toBe("Cadoc");
 	});
 
-	it("has empty name, occupation, traits", () => {
-		const p = Person.blankNeighbor();
-		expect(p.name).toBe("");
-		expect(p.occupation).toBe("");
-		expect(p.traits).toBe("");
+	// The roster writes pronouns beside the name; the book's lists print names alone, so matching one
+	// against the other has to drop the parenthetical or nothing would ever read as used.
+	it("drops a trailing parenthetical", () => {
+		expect(Person.named("Bryn (she/her)").bareName).toBe("Bryn");
 	});
 
-	it("has an empty home field", () => {
-		expect(Person.blankNeighbor().home).toBe("");
+	it("is empty for an unnamed row", () => {
+		expect(Person.blank().bareName).toBe("");
+	});
+});
+
+describe("Person#withTraitAdded", () => {
+	it("sets the traits outright when the row has none", () => {
+		expect(Person.blank().withTraitAdded("cheery").traits).toBe("cheery");
+	});
+
+	it("appends to what is already written, comma-separated", () => {
+		const p = Person.blank().withTraitAdded("cheery");
+		expect(p.withTraitAdded("all thumbs").traits).toBe("cheery, all thumbs");
+	});
+
+	it("does not repeat a trait the row already carries, whatever its case", () => {
+		const p = Person.blank().withTraitAdded("cheery");
+		expect(p.withTraitAdded("Cheery").traits).toBe("cheery");
+	});
+
+	it("ignores a blank trait", () => {
+		expect(Person.blank().withTraitAdded("   ").traits).toBe("");
+	});
+
+	it("does not double the comma after a trailing one", () => {
+		const p = Person.fromRaw({ id: "a", traits: "cheery," });
+		expect(p.withTraitAdded("mute").traits).toBe("cheery, mute");
+	});
+
+	it("preserves the other fields", () => {
+		const p = Person.fromRaw({ id: "a", name: "Bryn", home: "Marshedge" });
+		const added = p.withTraitAdded("cheery");
+		expect(added.name).toBe("Bryn");
+		expect(added.home).toBe("Marshedge");
+	});
+});
+
+describe("Person.traitTokens", () => {
+	it("splits on commas and trims", () => {
+		expect(Person.traitTokens(" cheery , all thumbs ")).toEqual(["cheery", "all thumbs"]);
+	});
+
+	it("is empty for a blank field", () => {
+		expect(Person.traitTokens("")).toEqual([]);
 	});
 });
 
@@ -64,7 +115,7 @@ describe("Person with-methods", () => {
 	});
 
 	it("withHome returns a new Person with the updated home", () => {
-		const p = Person.blankNeighbor();
+		const p = Person.blank();
 		expect(p.withHome("Marshedge").home).toBe("Marshedge");
 	});
 
@@ -91,16 +142,16 @@ describe("Person with-methods", () => {
 });
 
 describe("Person.fromRaw", () => {
-	it("round-trips a resident (no home)", () => {
+	it("round-trips someone with no home written down", () => {
 		const p = Person.fromRaw({id: "abc", name: "Aldric", occupation: "Smith", traits: "Gruff"});
 		expect(p.id).toBe("abc");
 		expect(p.name).toBe("Aldric");
 		expect(p.occupation).toBe("Smith");
 		expect(p.traits).toBe("Gruff");
-		expect("home" in p).toBe(false);
+		expect(p.home).toBe("");
 	});
 
-	it("round-trips a neighbor person (with home)", () => {
+	it("round-trips someone who lives elsewhere", () => {
 		const p = Person.fromRaw({id: "abc", name: "Maren", occupation: "Merchant", traits: "Cunning", home: "Marshedge"});
 		expect(p.home).toBe("Marshedge");
 	});
@@ -119,5 +170,12 @@ describe("Person.fromRaw", () => {
 		expect(p.name).toBe("");
 		expect(p.occupation).toBe("");
 		expect(p.traits).toBe("");
+		expect(p.home).toBe("");
+	});
+
+	// fromRaw runs on every read of the stored list, so minting an id here would hand the same person
+	// a new identity on every render — and the sheet addresses rows by id.
+	it("leaves an absent id absent rather than minting one", () => {
+		expect(Person.fromRaw({name: "Aldric"}).id).toBeUndefined();
 	});
 });

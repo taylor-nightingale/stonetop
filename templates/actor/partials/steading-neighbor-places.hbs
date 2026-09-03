@@ -1,6 +1,11 @@
 {{!-- The neighboring places list — each a framed panel with an editable Notes field and (if the
-      place seeds them) a read-only Names pool. Shared by the steading neighbors tab and the steadfast
-      sheet. Params: places (array of {slug, name, subtitle, note, names}). --}}
+      place seeds them) a read-only Names pool. Shared by the steading's Folk tab and the steadfast
+      sheet. Params: places (array of {slug, name, subtitle, note, names}), showNames.
+
+      `showNames` is false on the steading, where those pools are rendered in the Folk reference
+      column as individually clickable entries; a second, inert copy of the same words beneath them
+      would be the wall this tab exists to retire. The steadfast sheet is a definition with no roster
+      to click into, so it keeps the plain list. --}}
 <section class="steading-neighbor-places">
 	{{#each places}}
 		<section class="steading-neighbor-place steading-block">
@@ -9,7 +14,7 @@
 				<span>Notes</span>
 				<textarea class="stonetop-neighbor-place-note" data-change-action="neighborPlaceNote" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>
 			</label>
-			{{#if names}}
+			{{#if (and showNames names)}}
 				<div class="steading-neighbor-text-field">
 					<span>Names</span>
 					<p class="steading-names-text">{{names}}</p>

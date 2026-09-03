@@ -14,9 +14,9 @@ function healedLegacySteading(system = {}) {
 	return new FakeActorBuilder().withType("steading").withSystem({
 		steadfast: "",
 		attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 2, defenses: -1 },
-		assets: { items: ["A wagon"], resources: ["Farming"], fortifications: [], coinage: [] },
+		assets: { items: [{ text: "A wagon", requisitioned: false }], resources: ["Farming"], fortifications: [], coinage: [] },
 		residents: { names: "Aderyn, Bryn", traits: ["curious"] },
-		residentPeople: [{ id: "1", name: "Afon" }],
+		folk: [{ id: "1", name: "Afon", home: "" }],
 		improvements: [],
 		improvementValues: { market: { offer: 1 } },
 		debilities: { diminished: true, lacking: false, malcontent: false },
@@ -46,7 +46,7 @@ describe("migrateSteading (one-time semantic pass on the healed model)", () => {
 			fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 2, defenses: -1,
 		});
 		expect(actor.system.assets.resources).toEqual(["Farming"]);
-		expect(actor.system.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
+		expect(actor.system.folk).toEqual([{ id: "1", name: "Afon", home: "" }]);
 		expect(actor.system.debilities.diminished).toBe(true);
 	});
 
@@ -64,15 +64,25 @@ describe("migrateSteading — flag-legacy sources", () => {
 		return new FakeActorBuilder().withType("steading").withFlags(flags).withSystem({}).build();
 	}
 
+	// Both flag rosters land in the ONE roster the system now keeps. Writing the retired
+	// residentPeople/neighborPeople keys instead would be dropped by schema cleaning and lose them.
 	it("routes flag people/neighbors/pick state into the new fields", async () => {
 		const actor = withFlags({
 			"improvements.pickValues": { "imp-1": 1 },
 			"steading.residents": [{ name: "Aldric" }],
-			"steading.neighborPeople": [{ name: "Mira" }],
+			"steading.neighborPeople": [{ name: "Mira", home: "Marshedge" }],
 		});
 		await migrateSteading(actor, DEFAULTS);
 		expect(actor.system.improvementValues).toEqual({ "imp-1": 1 });
-		expect(actor.system.residentPeople).toEqual([{ name: "Aldric" }]);
-		expect(actor.system.neighborPeople).toEqual([{ name: "Mira" }]);
+		expect(actor.system.folk).toEqual([
+			{ home: "", name: "Aldric" },
+			{ home: "Marshedge", name: "Mira" },
+		]);
+	});
+
+	it("keeps the healed roster when there are no flags to fold", async () => {
+		const actor = healedLegacySteading();
+		await migrateSteading(actor, DEFAULTS);
+		expect(actor.system.folk).toEqual([{ id: "1", name: "Afon", home: "" }]);
 	});
 });

@@ -14,15 +14,20 @@ export async function migrateSteading(actor, defaults = {}) {
 	const { improvements = [], attributes: startingAttributes = {} } = defaults;
 	const sys = actor.system ?? {};
 
-	const people    = actor.getFlag(SCOPE, "steading.residents")      ?? sys.residentPeople ?? [];
-	const neighbors = actor.getFlag(SCOPE, "steading.neighborPeople") ?? sys.neighborPeople ?? [];
+	// Flag-era people land in the ONE roster the system now keeps — writing the retired
+	// residentPeople/neighborPeople keys would be dropped by schema cleaning and lose them outright.
+	// `sys.folk` is what migrateSteadingShape already folded out of those keys on load.
+	const flagged   = [
+		...(actor.getFlag(SCOPE, "steading.residents") ?? []),
+		...(actor.getFlag(SCOPE, "steading.neighborPeople") ?? []),
+	].map(person => ({ home: "", ...person }));
+	const people    = flagged.length ? flagged : (sys.folk ?? []);
 	const picks     = actor.getFlag(SCOPE, "improvements.pickValues") ?? sys.improvementValues ?? {};
 
 	await actor.update({
 		"system.steadfast": "stonetop",
 		"system.startingAttributes": { ...startingAttributes },
-		"system.residentPeople": people,
-		"system.neighborPeople": neighbors,
+		"system.folk": people,
 		"system.improvements": [...improvements],
 		"system.improvementValues": picks,
 	});

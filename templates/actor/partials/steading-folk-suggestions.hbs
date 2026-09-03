@@ -1,0 +1,37 @@
+{{!-- One titled reference list — a region's names, or the NPC-trait pool. Context: `list` = a
+      SuggestionList (see src/model/snapshot/steading/SuggestionSnapshot.js).
+
+      Names and traits are the same data structure, so they get the same partial; `list.action` is the
+      only thing that differs, and it comes off the snapshot rather than being branched on here.
+
+      Each entry is a real <button>, exactly as tag-list.hbs does it: core binds click for
+      [data-action] only, so a clickable span would be keyboard-dead. It is then styled back down to
+      plain text — a wall of a hundred buttons that LOOKS like a hundred buttons is unreadable, and
+      reading the wall is the whole feature. `data-view-state` keeps them live on a non-editable
+      sheet, which otherwise disables every button it renders.
+
+      NOT data-view-state, unlike tag-list's: showing a tag's definition is view state, but these
+      entries WRITE to the roster. On a sheet the reader cannot edit, core disables them and they
+      stay readable text — which is honest, where a live-looking control that silently does nothing
+      is not.
+
+      An entry already used in this steading is marked rather than removed: repeating a trait is
+      sometimes exactly right, and you still want to see that "cheery" is taken twice.
+
+      A token that is not a usable value renders as plain text — the field is free text a GM edits,
+      and no button should paste a sentence into a name cell. --}}
+<div class="steading-folk-list">
+	<h6 class="steading-folk-list-title">{{list.title}}</h6>
+	<p class="steading-folk-entries">
+		{{~#each list.entries~}}
+			{{~#if clickable~}}
+				<button type="button" class="steading-folk-entry{{#if used}} is-used{{/if}}"
+				        data-action="{{../list.action}}" data-value="{{label}}"
+				        aria-label="{{#if used}}{{localize 'stonetop.a11y.suggestionUsed'}} {{/if}}{{label}}">{{label}}</button>
+			{{~else~}}
+				<span class="steading-folk-prose">{{label}}</span>
+			{{~/if~}}
+			{{~#unless @last}}, {{/unless~}}
+		{{~/each~}}
+	</p>
+</div>

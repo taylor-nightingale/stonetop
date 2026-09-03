@@ -1,0 +1,324 @@
+// @vitest-environment happy-dom
+import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
+import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
+import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
+import { SteadingData } from "../../../src/data/SteadingData.js";
+import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
+import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
+import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
+import { renderTemplate } from "../../fakes/renderTemplate.js";
+
+const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
+
+/**
+ * The Folk tab end to end, with only Foundry faked: the real sheet, the real template and its real
+ * partials, the real Folk roster, FolkSuggestions, RosterFocus and RosterFilter.
+ *
+ * Every claim the tab makes is a claim about wiring — that a click in the reference column reaches
+ * the row the caret is on, that the search narrows the roster and not the lists beside it, that the
+ * caret and the query survive the render every edit causes. A unit test over a mocked roster would
+ * prove each piece works and miss whether the sheet ever calls it, which is the failure this file
+ * exists to catch.
+ */
+function makeSheet(id = "steading-1", existingActor = null) {
+	const actor = existingActor ?? new FakeSteadingBuilder().build();
+	actor.typedActor ??= new StonetopSteading(actor, steadingRepos());
+	const sheet = new (createStonetopSteadingSheetClass(stonetopActorSheetBase()))(actor);
+	sheet.id = id;
+	sheet.isEditable = true;
+	// In the document, as a rendered sheet is: focus and delegated listeners need a live tree.
+	document.body.append(sheet.element);
+	return sheet;
+}
+
+/** One render of the sheet, followed by the lifecycle hooks a real render fires. */
+async function render(sheet, first = false) {
+	sheet.element.innerHTML = renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({}));
+	if (first) await sheet._onFirstRender({}, {});
+	sheet._onRender({}, {});
+	return sheet.element;
+}
+
+const rows      = root => [...root.querySelectorAll(".steading-folk-row")];
+const visible   = root => rows(root).filter(r => !r.hidden);
+const nameOf    = row => row.querySelector(".stonetop-person-name").value;
+const traitsOf  = row => row.querySelector(".stonetop-person-traits").value;
+const homeOf    = row => row.querySelector(".stonetop-person-home").value;
+const entries   = root => [...root.querySelectorAll(".steading-folk-entry")];
+const entryFor  = (root, value) => entries(root).find(e => e.dataset.value === value);
+
+const act = (sheet, name, target) =>
+	sheet.constructor.DEFAULT_OPTIONS.actions[name].call(sheet, { type: "click", preventDefault() {} }, target);
+
+/** Put the caret in a row, the way typing in it does. */
+function focusRow(sheet, root, id) {
+	root.querySelector(`.steading-folk-row[data-id="${id}"] .stonetop-person-name`)
+		.dispatchEvent(new Event("focusin", { bubbles: true }));
+}
+
+function search(sheet, root, query) {
+	const box = root.querySelector(".steading-folk-search");
+	box.value = query;
+	box.dispatchEvent(new Event("input", { bubbles: true }));
+}
+
+beforeEach(() => { document.body.innerHTML = ""; });
+afterEach(() => vi.unstubAllGlobals());
+
+describe("one roster (integration)", () => {
+	// The merge, from the far side: a world whose residents and neighbours were two arrays arrives
+	// through the shape heal as one table, with the Home column carrying what used to be the split.
+	it("renders residents and neighbours as one table, Home telling them apart", async () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system = SteadingData.migrateData({
+			...actor.system,
+			folk: undefined,
+			residentPeople: [{ id: "r1", name: "Bryn", occupation: "publican" }],
+			neighborPeople: [{ id: "n1", name: "Seadha", occupation: "trader", home: "Marshedge" }],
+		});
+		const root = await render(makeSheet("steading-1", actor));
+
+		expect(rows(root).map(nameOf)).toEqual(["Bryn", "Seadha"]);
+		expect(rows(root).map(homeOf)).toEqual(["", "Marshedge"]);
+	});
+
+	it("adds a villager through the roster's own control", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		expect(rows(await render(sheet))).toHaveLength(1);
+	});
+});
+
+describe("scan, then click (integration)", () => {
+	it("replaces the focused row's name with the name clicked in the rail", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		const { id } = rows(root)[0].dataset;
+
+		focusRow(sheet, root, id);
+		await act(sheet, "useName", entryFor(root, "Cadoc"));
+
+		expect(nameOf(rows(await render(sheet))[0])).toBe("Cadoc");
+	});
+
+	// The gesture session zero actually runs on: read down the list, click, and the villager exists.
+	it("creates a villager from a name when no row is focused", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+
+		await act(sheet, "useName", entryFor(root, "Eirlys"));
+
+		const after = rows(await render(sheet));
+		expect(after).toHaveLength(1);
+		expect(nameOf(after[0])).toBe("Eirlys");
+	});
+
+	// …and the caret follows the villager it just made, so the next trait clicked lands on them.
+	it("points the caret at the villager it just created", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		await act(sheet, "useName", entryFor(root, "Eirlys"));
+
+		const next = await render(sheet);
+		await act(sheet, "useTrait", entryFor(next, "cheery"));
+
+		expect(traitsOf(rows(await render(sheet))[0])).toBe("cheery");
+	});
+
+	it("appends each trait clicked to the focused row, comma-separated", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		focusRow(sheet, root, rows(root)[0].dataset.id);
+
+		await act(sheet, "useTrait", entryFor(root, "cheery"));
+		const next = await render(sheet);
+		await act(sheet, "useTrait", entryFor(next, "curious"));
+
+		expect(traitsOf(rows(await render(sheet))[0])).toBe("cheery, curious");
+	});
+
+	// Only names create. A trait has nowhere to go without a row, so it says so rather than
+	// inventing a nameless villager the NPC-actor sync would then skip.
+	it("writes nothing when a trait is clicked with no row focused", async () => {
+		const info = vi.fn();
+		vi.stubGlobal("ui", { notifications: { info } });
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+
+		await act(sheet, "useTrait", entryFor(root, "cheery"));
+
+		expect(rows(await render(sheet))).toHaveLength(0);
+		expect(info).toHaveBeenCalledOnce();
+	});
+
+	it("dims what this steading already uses, without dropping it from the list", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		await act(sheet, "useName", entryFor(root, "Bryn"));
+
+		const next = await render(sheet);
+
+		expect(entryFor(next, "Bryn"), "the used name left the list").toBeTruthy();
+		expect(entryFor(next, "Bryn").classList.contains("is-used")).toBe(true);
+		expect(entryFor(next, "Cadoc").classList.contains("is-used")).toBe(false);
+	});
+
+	// The reference lists are the steading's own names AND every neighbouring place's.
+	it("offers a neighbouring place's names too, under its own heading", async () => {
+		const root = await render(makeSheet(), true);
+		const titles = [...root.querySelectorAll(".steading-folk-list-title")].map(t => t.textContent);
+
+		expect(titles).toContain("Names — Marshedge");
+		expect(entryFor(root, "Seadha")).toBeTruthy();
+	});
+});
+
+describe("the search (integration)", () => {
+	async function withRoster() {
+		const sheet = makeSheet();
+		const s = sheet.actor.typedActor;
+		const bryn = await s.addPersonNamed("Bryn");
+		await s.updatePersonOccupation(bryn.id, "publican");
+		const cadoc = await s.addPersonNamed("Cadoc");
+		await s.updatePersonOccupation(cadoc.id, "smith");
+		return { sheet, root: await render(sheet, true) };
+	}
+
+	it("narrows the roster to the rows that answer it", async () => {
+		const { sheet, root } = await withRoster();
+		search(sheet, root, "smith");
+		expect(visible(root).map(nameOf)).toEqual(["Cadoc"]);
+	});
+
+	// The whole point: reading down the name and trait lists is how an NPC gets made, so narrowing
+	// the roster must never narrow them.
+	it("leaves every reference entry in place", async () => {
+		const { sheet, root } = await withRoster();
+		const before = entries(root).length;
+
+		search(sheet, root, "smith");
+
+		expect(entries(root).filter(e => !e.hidden)).toHaveLength(before);
+	});
+
+	it("brings the rows back when the box is cleared", async () => {
+		const { sheet, root } = await withRoster();
+		search(sheet, root, "smith");
+		search(sheet, root, "");
+		expect(visible(root)).toHaveLength(2);
+	});
+});
+
+describe("what survives a re-render (integration)", () => {
+	// Every edit anywhere on the sheet causes one — a pip ticked, another player's change arriving
+	// over the socket — and the template renders the search box empty and no caret.
+	it("keeps the caret on the row the reader was editing", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		const second = rows(root)[1].dataset.id;
+		focusRow(sheet, root, second);
+
+		const next = await render(sheet);
+
+		expect(next.querySelector(".steading-folk-row.is-focused").dataset.id).toBe(second);
+		expect(next.querySelector(`.steading-folk-row[data-id="${second}"]`).getAttribute("aria-current")).toBe("true");
+	});
+
+	it("keeps the query in the box, and the rows it excluded hidden", async () => {
+		const sheet = makeSheet();
+		const s = sheet.actor.typedActor;
+		await s.addPersonNamed("Bryn");
+		await s.addPersonNamed("Cadoc");
+		const root = await render(sheet, true);
+		search(sheet, root, "bryn");
+
+		const next = await render(sheet);
+
+		expect(next.querySelector(".steading-folk-search").value).toBe("bryn");
+		expect(visible(next).map(nameOf)).toEqual(["Bryn"]);
+	});
+
+	// Which row you are editing and what you have typed into a search box are facts about YOU.
+	it("reaches no other sheet on the same steading, and writes nothing to the actor", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		const before = JSON.stringify(sheet.actor.system);
+		focusRow(sheet, root, rows(root)[0].dataset.id);
+		search(sheet, root, "bryn");
+
+		const otherRoot = await render(makeSheet("steading-2", sheet.actor), true);
+
+		expect(otherRoot.querySelector(".steading-folk-row.is-focused"), "one reader's caret moved another's").toBeNull();
+		expect(otherRoot.querySelector(".steading-folk-search").value).toBe("");
+		expect(JSON.stringify(sheet.actor.system), "focusing or searching wrote to the steading").toBe(before);
+	});
+
+	// Adding gives up the caret, so the next name clicked creates someone rather than renaming the
+	// villager who happened to be last edited.
+	it("gives up the caret when a new villager is added", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		focusRow(sheet, root, rows(root)[0].dataset.id);
+
+		await act(sheet, "addPerson", null);
+		const next = await render(sheet);
+		await act(sheet, "useName", entryFor(next, "Cadoc"));
+
+		const after = rows(await render(sheet));
+		expect(after, "the name renamed a row instead of creating one").toHaveLength(3);
+		expect(nameOf(after[2])).toBe("Cadoc");
+	});
+});
+
+// Step 4 rides on the same tab machinery: an asset carries whether it is out, and the Assets heading
+// says how many are — which is the thing the table forgets every single time.
+describe("requisitioned assets (integration)", () => {
+	const assetRows = root => [...root.querySelectorAll(".steading-asset-row")];
+	const headingNote = root =>
+		root.querySelector(".steading-overview-field .stonetop-section-note")?.textContent.trim() ?? "";
+
+	it("says nothing in the heading while everything is at home", async () => {
+		const root = await render(makeSheet(), true);
+		expect(assetRows(root).length).toBeGreaterThan(0);
+		expect(headingNote(root)).toBe("");
+	});
+
+	it("counts what is out, in the heading beside the list", async () => {
+		const sheet = makeSheet();
+		await sheet.actor.typedActor.setAssetRequisitioned(0, true);
+		await sheet.actor.typedActor.setAssetRequisitioned(3, true);
+
+		const root = await render(sheet, true);
+
+		expect(headingNote(root)).toBe("2 out");
+		expect(assetRows(root)[0].classList.contains("is-requisitioned")).toBe(true);
+		expect(assetRows(root)[1].classList.contains("is-requisitioned")).toBe(false);
+	});
+
+	// Stated in words on the row, not by a colour or a tick alone — the render harness resolves a
+	// key-only localize to its key, so these are the two distinct strings the sheet asks for.
+	it("marks the row's own state in words, not by colour alone", async () => {
+		const sheet = makeSheet();
+		await sheet.actor.typedActor.setAssetRequisitioned(0, true);
+		const root = await render(sheet, true);
+
+		const [out, home] = assetRows(root).map(r => r.querySelector(".steading-asset-state span").textContent);
+		expect(out).toBe("stonetop.steading.lists.assetOut");
+		expect(home).toBe("stonetop.steading.lists.assetHome");
+	});
+
+	it("ticks the box for an asset that is out, and only that one", async () => {
+		const sheet = makeSheet();
+		await sheet.actor.typedActor.setAssetRequisitioned(0, true);
+		const root = await render(sheet, true);
+
+		const boxes = assetRows(root).map(r => r.querySelector("[data-change-action='assetRequisitioned']").checked);
+		expect(boxes).toEqual([true, false, false, false]);
+	});
+});

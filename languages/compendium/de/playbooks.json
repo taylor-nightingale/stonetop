@@ -1034,24 +1034,44 @@
       "source": "Missionary",
       "text": ""
     },
-    "backgrounds/missionary/description": {
-      "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.\n\nWhen you **_call upon the Judge of another steading for aid or information_**, they are oathbound to give it. You are likewise oathbound to support them.\n\nYou have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
-      "text": ""
-    },
     "backgrounds/prophet/label": {
       "source": "Prophet",
       "text": ""
     },
     "backgrounds/prophet/description": {
-      "source": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.\n\nWhen you **_spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole_**, roll +WIS: **on a 7+**, Aratis reveals the course of action she would have you take; **on a 10+**, you also hold 2 Sanction. While **_acting on her orders_**, spend 1 Sanction to add +1 to a roll you just made.",
+      "source": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.",
       "text": ""
     },
-    "choices/chronicle-plus/0/title": {
-      "source": "The Chronicle",
+    "backgrounds/missionary/choices/0/text": {
+      "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain. Add these Judges to the Neighbors section of the steading playbook (pick 2 more):",
       "text": ""
     },
-    "choices/chronicle-plus/0/text": {
-      "source": "The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… *(choose 3)*",
+    "backgrounds/missionary/choices/devin/text": {
+      "source": "Devin (from Marshedge)",
+      "text": ""
+    },
+    "backgrounds/missionary/choices/haeris/text": {
+      "source": "Haeris (from Gordin's Delve)",
+      "text": ""
+    },
+    "backgrounds/missionary/choices/isalde/text": {
+      "source": "Isalde (from the Manmarch)",
+      "text": ""
+    },
+    "backgrounds/missionary/choices/Rahat/text": {
+      "source": "Rahat (from Lygos)",
+      "text": ""
+    },
+    "backgrounds/missionary/choices/tejisha/text": {
+      "source": "Tejisha (from Barrier Pass)",
+      "text": ""
+    },
+    "backgrounds/missionary/choices/unz/text": {
+      "source": "Unz (from the Hillfolk)",
+      "text": ""
+    },
+    "backgrounds/missionary/choices/8/text": {
+      "source": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
       "text": ""
     },
     "choices/chronicle-minus/0/title": {
@@ -1076,6 +1096,10 @@
     },
     "choices/lawkeeper-demands/0/text": {
       "source": "*(choose 3)*",
+      "text": ""
+    },
+    "choices/chronicle-plus/0/text": {
+      "source": "The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… *(choose 3)*",
       "text": ""
     },
     "choices/chronicle-plus/sturdy-vault/text": {
@@ -1360,44 +1384,12 @@
       "source": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
       "text": ""
     },
-    "choices/helior-worship-spread/0/title": {
-      "source": "The Worship of Helior Is…",
-      "text": ""
-    },
     "choices/helior-worship-spread/0/text": {
-      "source": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. *(choose 1)*",
+      "source": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.",
       "text": ""
     },
-    "choices/helior-worship-practice/0/title": {
-      "source": "He Is Worshipped Through…",
-      "text": ""
-    },
-    "choices/helior-worship-practice/0/text": {
-      "source": "*(choose 1 or 2)*",
-      "text": ""
-    },
-    "choices/helior-shrine/0/title": {
-      "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
-      "text": ""
-    },
-    "choices/helior-shrine/0/text": {
-      "source": "*(choose 1)*",
-      "text": ""
-    },
-    "choices/helior-predecessor/0/title": {
-      "source": "Your Predecessor, the Previous Lightbearer…",
-      "text": ""
-    },
-    "choices/helior-predecessor/0/text": {
-      "source": "*(choose 2 or 3)*",
-      "text": ""
-    },
-    "choices/helior-powers-origin/0/title": {
-      "source": "You Came Into Your Powers…",
-      "text": ""
-    },
-    "choices/helior-powers-origin/0/text": {
-      "source": "*(choose 1)*",
+    "choices/helior-worship-spread/1/text": {
+      "source": "The Worship of Helior Is… (choose 1)",
       "text": ""
     },
     "choices/helior-worship-spread/ancient-widespread/text": {
@@ -1418,6 +1410,10 @@
     },
     "choices/helior-worship-spread/persecuted/text": {
       "source": "… widely persecuted.",
+      "text": ""
+    },
+    "choices/helior-worship-practice/0/text": {
+      "source": "He Is Worshipped Through… (choose 1 or 2)",
       "text": ""
     },
     "choices/helior-worship-practice/solemn-hymns/text": {
@@ -1452,6 +1448,10 @@
       "source": "… pain & sacrifice.",
       "text": ""
     },
+    "choices/helior-shrine/0/text": {
+      "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has… (choose 1)",
+      "text": ""
+    },
     "choices/helior-shrine/highest-honor/text": {
       "source": "… the place of highest honor, even if Tor is more popular.",
       "text": ""
@@ -1466,6 +1466,10 @@
     },
     "choices/helior-shrine/seen-better-days/text": {
       "source": "… seen better days, for certain.",
+      "text": ""
+    },
+    "choices/helior-predecessor/0/text": {
+      "source": "Your Predecessor, the Previous Lightbearer… (choose 2 or 3)",
       "text": ""
     },
     "choices/helior-predecessor/lived-long-ago/text": {
@@ -1498,6 +1502,10 @@
     },
     "choices/helior-predecessor/reincarnated/text": {
       "source": "… was reincarnated—as you.",
+      "text": ""
+    },
+    "choices/helior-powers-origin/0/text": {
+      "source": "You Came Into Your Powers… (choose 1)",
       "text": ""
     },
     "choices/helior-powers-origin/years-study/text": {
@@ -1722,16 +1730,8 @@
       "source": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
       "text": ""
     },
-    "choices/war-stories-action/0/title": {
-      "source": "The Last Time the Militia Saw Serious Action, It Was…",
-      "text": ""
-    },
     "choices/war-stories-action/0/text": {
-      "source": "*(pick 1)*",
-      "text": ""
-    },
-    "choices/war-stories-questions/0/title": {
-      "source": "Answer At Least 3 of the Following",
+      "source": "The Last Time the Militia Saw Serious Action, It Was… (pick 1)",
       "text": ""
     },
     "choices/war-stories-action/crinwin-raid/text": {
@@ -1756,6 +1756,10 @@
     },
     "choices/war-stories-action/beasts/text": {
       "source": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
+      "text": ""
+    },
+    "choices/war-stories-questions/0/text": {
+      "source": "Answer At Least 3 of the Following",
       "text": ""
     },
     "choices/war-stories-questions/when/text": {
@@ -1982,6 +1986,26 @@
     },
     "backgrounds/beast-bonded/description": {
       "source": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.\n\nWhen you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/choices/gauge-distance/text": {
+      "source": "Gauge its distance and direction from you",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/choices/call-it-back/text": {
+      "source": "Call it back to your side",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/choices/sense-emotions/text": {
+      "source": "Sense its emotional state",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/choices/impression-of-senses/text": {
+      "source": "Get a brief impression of what it senses",
+      "text": ""
+    },
+    "backgrounds/beast-bonded/choices/lend-strength/text": {
+      "source": "Lend it your strength — lose 1d6 HP, and it regains an equal amount",
       "text": ""
     },
     "choices/wicked-threat/0/title": {

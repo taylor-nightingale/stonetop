@@ -1,0 +1,12 @@
+{
+  "name": "Call Upon a Judge",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_call upon the Judge of another steading for aid or information_**, they are oathbound to give it. You are likewise oathbound to support them.",
+    "slug": "call-upon-judge"
+  },
+  "folder": "jISe56pNVdmHJLgu",
+  "_id": "GIVYAafkHB7hrGQV",
+  "_key": "!items!GIVYAafkHB7hrGQV"
+}

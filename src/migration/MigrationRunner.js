@@ -2,6 +2,7 @@ import { migrateCharacter } from "./migrateCharacter.js";
 import { migrateNpc } from "./migrateNpc.js";
 import { migrateSteading } from "./migrateSteading.js";
 import { migrateSteadingMoves } from "./migrateSteadingMoves.js";
+import { migrateSteadingFolk } from "./migrateSteadingFolk.js";
 import { migrateWorldItems } from "./migrateWorldItems.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
 import { FoundryInsertRepository } from "../actors/character/repositories/FoundryInsertRepository.js";
@@ -31,6 +32,9 @@ export class MigrationRunner {
 					// Not gated on migrateSteading's legacy check: every steading, however new,
 					// needs homefront moves that were added since it was created.
 					await migrateSteadingMoves(actor);
+					// Also ungated: the roster merge and the asset state have to reach a steading
+					// that already sits at a steadfast, which is every modern one.
+					await migrateSteadingFolk(actor);
 					await migrateGrantStamps(actor);
 				}
 			} catch (err) {

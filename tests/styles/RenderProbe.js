@@ -148,6 +148,22 @@ export class MeasuredElement {
  */
 export const pseudoAsClass = pseudo => css => css.replaceAll(`:${pseudo}`, `.is-${pseudo}`);
 
+/**
+ * Foundry's cascade-layer order, declared before any stylesheet is linked.
+ *
+ * A layer takes its priority from where its NAME is first declared, and the browser fixes that as
+ * each sheet is parsed. Two file:// sheets loaded in parallel do not reliably finish in document
+ * order, so on some runs `@layer system` — the layer stonetop.css wraps itself in — was registered
+ * before core's statement and became the LOWEST layer instead of the eighth: core's `blocks` rules
+ * then beat ours, and the same fixture reported our ink on one run and core's black on the next,
+ * while the unlayered rules beside them stayed correct throughout.
+ *
+ * Stating the order up front pins it to what the app actually produces (core's sheet first, ours
+ * after) no matter which file arrives first. Copied from foundry2.css:5.
+ */
+const LAYER_ORDER = "<style>@layer reset, variables, elements, blocks, applications, compatibility, layouts, system, modules, exceptions;</style>";
+
+
 export class RenderProbe {
 	/**
 	 * @param {string[]} stylesheets absolute paths, applied in order after core's
@@ -260,10 +276,25 @@ for (const [name, selector] of Object.entries(targets)) {
 		const chrome = chromePath();
 		if (!chrome || !foundryCss) throw new Error("RenderProbe needs Chrome and a local Foundry install");
 
-		const links = this._sheetPaths()
-			.map(f => `<link rel="stylesheet" href="file://${f}">`).join("\n");
+		// Core's sheet is linked, as it is in the app; OURS are inlined, in the same order, right after
+		// it. A linked file:// stylesheet does not always finish applying before Chrome dumps, and when
+		// ours did not the fixture reported the user agent's own defaults as if the sheet had computed
+		// them — silently, with every other value looking ordinary. Inlining removes the fetch, so the
+		// only thing left to race is core's, whose absence a probe would notice immediately.
+		const [core, ...ours] = this._sheetPaths();
+		const sheets = [
+			`<link rel="stylesheet" href="file://${core}">`,
+			...ours.map(f => `<style>${readFileSync(f, "utf8")}</style>`),
+		].join("\n");
 
-		const html = `<!doctype html><html ${rootAttrs}><head><meta charset="utf-8">${links}</head>
+		// url(../assets/…) inside an inlined sheet resolves against the DOCUMENT, which lives in a temp
+		// directory — so the document is told where those sheets came from.
+		const base = `<base href="file://${path.join(process.cwd(), "styles")}/">`;
+
+		const html = `<!doctype html><html ${rootAttrs}><head><meta charset="utf-8">
+${base}
+${LAYER_ORDER}
+${sheets}</head>
 <body class="${bodyClass}">
 ${bodyHtml}
 <pre id="probe-result"></pre>

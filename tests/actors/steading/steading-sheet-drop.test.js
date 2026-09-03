@@ -13,8 +13,7 @@ function makeSheet({ editable = true } = {}) {
 	// Flat: the sheet may only call named methods on the typed steading.
 	const typedSteading = {
 		applyDroppedItem: vi.fn(async () => false),
-		linkResident:     vi.fn(async () => {}),
-		linkNeighbor:     vi.fn(async () => {}),
+		linkPerson:       vi.fn(async () => {}),
 		linkPlace:        vi.fn(async () => {}),
 	};
 	const actor = {
@@ -74,27 +73,19 @@ describe("StonetopSteadingSheet._onDropDocument — linking documents to rows", 
 	const journalDoc = { documentName: "JournalEntry", uuid: "JournalEntry.j1" };
 	const itemDoc    = { documentName: "Item", uuid: "Item.i1", type: "possession", toObject: () => ({ type: "possession" }) };
 
-	const residentRow = `<div class="steading-resident-row" data-id="r1"><input class="stonetop-resident-name"></div>`;
-	const neighborRow = `<div class="steading-resident-row steading-neighbor-row" data-id="n1"><input class="stonetop-neighbor-person-name"></div>`;
+	const personRow = `<div class="steading-folk-row" data-id="r1"><input class="stonetop-person-name"></div>`;
 	const placeRow    = `<div class="stonetop-places-row" data-index="2"><input class="stonetop-place-field"></div>`;
 
-	it("links an actor dropped on a resident row", async () => {
+	it("links an actor dropped on a roster row", async () => {
 		const { sheet, typedSteading } = makeSheet();
-		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), actorDoc);
-		expect(typedSteading.linkResident).toHaveBeenCalledWith("r1", "Actor.abc");
+		await sheet._onDropDocument(dropOnRow(personRow, ".stonetop-person-name"), actorDoc);
+		expect(typedSteading.linkPerson).toHaveBeenCalledWith("r1", "Actor.abc");
 	});
 
-	it("links a journal dropped on a resident row (any document type)", async () => {
+	it("links a journal dropped on a roster row (any document type)", async () => {
 		const { sheet, typedSteading } = makeSheet();
-		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), journalDoc);
-		expect(typedSteading.linkResident).toHaveBeenCalledWith("r1", "JournalEntry.j1");
-	});
-
-	it("links to the neighbor (not the resident) when the row is a neighbor row", async () => {
-		const { sheet, typedSteading } = makeSheet();
-		await sheet._onDropDocument(dropOnRow(neighborRow, ".stonetop-neighbor-person-name"), actorDoc);
-		expect(typedSteading.linkNeighbor).toHaveBeenCalledWith("n1", "Actor.abc");
-		expect(typedSteading.linkResident).not.toHaveBeenCalled();
+		await sheet._onDropDocument(dropOnRow(personRow, ".stonetop-person-name"), journalDoc);
+		expect(typedSteading.linkPerson).toHaveBeenCalledWith("r1", "JournalEntry.j1");
 	});
 
 	it("links a document dropped on a place-of-interest row", async () => {
@@ -105,14 +96,14 @@ describe("StonetopSteadingSheet._onDropDocument — linking documents to rows", 
 
 	it("does not link when the sheet is not editable", async () => {
 		const { sheet, typedSteading } = makeSheet({ editable: false });
-		await sheet._onDropDocument(dropOnRow(residentRow, ".stonetop-resident-name"), actorDoc);
-		expect(typedSteading.linkResident).not.toHaveBeenCalled();
+		await sheet._onDropDocument(dropOnRow(personRow, ".stonetop-person-name"), actorDoc);
+		expect(typedSteading.linkPerson).not.toHaveBeenCalled();
 	});
 
 	it("passes a document dropped off any linkable row through to core routing (item embed)", async () => {
 		const { sheet, actor, typedSteading } = makeSheet();
 		await sheet._onDropDocument({ target: document.createElement("div") }, itemDoc);
-		expect(typedSteading.linkResident).not.toHaveBeenCalled();
+		expect(typedSteading.linkPerson).not.toHaveBeenCalled();
 		expect(actor.createEmbeddedDocuments).toHaveBeenCalledWith("Item", [{ type: "possession" }]);
 	});
 });

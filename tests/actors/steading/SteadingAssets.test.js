@@ -39,7 +39,8 @@ describe("SteadingAssets.addItem", () => {
 		await a.addItem();
 		const items = a.buildSnapshot().items;
 		expect(items).toHaveLength(DEFAULT_ITEMS_COUNT + 1);
-		expect(items.at(-1)).toBe("");
+		expect(items.at(-1).text).toBe("");
+		expect(items.at(-1).requisitioned).toBe(false);
 	});
 
 	it("preserves existing items", async () => {
@@ -64,8 +65,8 @@ describe("SteadingAssets.removeItem", () => {
 		await a.removeItem(1);
 		const after = a.buildSnapshot().items;
 		expect(after).toHaveLength(before.length - 1);
-		expect(after[0]).toBe(before[0]);
-		expect(after[1]).toBe(before[2]);
+		expect(after[0].text).toBe(before[0].text);
+		expect(after[1].text).toBe(before[2].text);
 	});
 });
 
@@ -73,7 +74,7 @@ describe("SteadingAssets.updateItem", () => {
 	it("updates the value at the given index", async () => {
 		const a = make();
 		await a.updateItem(0, "A new thing");
-		expect(a.buildSnapshot().items[0]).toBe("A new thing");
+		expect(a.buildSnapshot().items[0].text).toBe("A new thing");
 	});
 
 	it("does not affect other items", async () => {
@@ -81,10 +82,53 @@ describe("SteadingAssets.updateItem", () => {
 		const before = a.buildSnapshot().items;
 		await a.updateItem(2, "Changed");
 		const after = a.buildSnapshot().items;
-		expect(after[0]).toBe(before[0]);
-		expect(after[1]).toBe(before[1]);
-		expect(after[2]).toBe("Changed");
-		expect(after[3]).toBe(before[3]);
+		expect(after[0].text).toBe(before[0].text);
+		expect(after[1].text).toBe(before[1].text);
+		expect(after[2].text).toBe("Changed");
+		expect(after[3].text).toBe(before[3].text);
+	});
+
+	// Editing the sentence must not quietly bring an asset home again.
+	it("keeps the requisitioned state", async () => {
+		const a = make();
+		await a.setRequisitioned(0, true);
+		await a.updateItem(0, "A new thing");
+		expect(a.buildSnapshot().items[0].requisitioned).toBe(true);
+	});
+});
+
+// Requisition happens mid-scene and is the thing the table forgets, so it is a stored state rather
+// than something you edit into the sentence.
+describe("SteadingAssets.setRequisitioned", () => {
+	it("marks one asset out and leaves the rest at home", async () => {
+		const a = make();
+		await a.setRequisitioned(1, true);
+		expect(a.buildSnapshot().items.map(i => i.requisitioned)).toEqual([false, true, false, false]);
+	});
+
+	it("brings it home again", async () => {
+		const a = make();
+		await a.setRequisitioned(1, true);
+		await a.setRequisitioned(1, false);
+		expect(a.buildSnapshot().items[1].requisitioned).toBe(false);
+	});
+
+	it("counts what is out, for the heading beside the list", async () => {
+		const a = make();
+		await a.setRequisitioned(0, true);
+		await a.setRequisitioned(3, true);
+		expect(a.buildSnapshot().requisitionedCount).toBe(2);
+	});
+
+	it("says nothing in the heading while everything is at home", () => {
+		expect(make().buildSnapshot().requisitionedNote).toBe("");
+	});
+
+	// An index can name a row another client has just deleted.
+	it("ignores an index that names nothing", async () => {
+		const a = make();
+		await a.setRequisitioned(99, true);
+		expect(a.buildSnapshot().requisitionedCount).toBe(0);
 	});
 });
 

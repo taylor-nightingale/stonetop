@@ -6,7 +6,8 @@ import { migrateSteadingShape } from "../migration/migrateSteadingShape.js";
 // onto it and records which one in `steadfast`). The definition fields are the shared
 // steadingProfileSchema, so a steading and its steadfast can never drift; on top of those the actor
 // carries its own in-play state: which steadfast it came from, free-text, debilities, content policy,
-// the actual resident/neighbor people (distinct from the name/trait pool), and improvement pick state.
+// the actual people of and around it (`folk` — distinct from the name/trait pool), and improvement
+// pick state.
 export class SteadingData extends foundry.abstract.TypeDataModel {
 	// Pre-0.13.0 sources fail schema validation outright (ratings were {current, items} objects) —
 	// heal the shape here, pre-validation, or the actor is quarantined before the MigrationRunner
@@ -48,8 +49,10 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			startingAttributes: new f.SchemaField(steadingRatingsSchema(f)),
 
 			// Runtime-only instances + pick state (not part of the shared definition a steadfast holds).
-			residentPeople:    new f.ArrayField(new f.ObjectField()),  // the actual people (pool → residents)
-			neighborPeople:    new f.ArrayField(new f.ObjectField()),
+			// One roster: residents and neighbours differ only by the home written on the row, and a
+			// blank home means this steading (see Folk.js). The people, not the name/trait pool —
+			// that is `residents`.
+			folk:              new f.ArrayField(new f.ObjectField()),
 			improvementValues: new f.ObjectField(),                    // track/pick state, keyed by group slug
 			choiceValues:      new f.ObjectField(),                    // choice-group picks, keyed by group slug
 		};

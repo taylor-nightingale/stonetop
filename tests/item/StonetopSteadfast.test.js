@@ -14,7 +14,7 @@ function makeItem(overrides = {}) {
 		system: {
 			description: "A pass.",
 			attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 1, defenses: 2 },
-			assets: { items: ["A cart"], resources: ["Timber"], fortifications: ["Ramparts"], coinage: [{ title: "gold", purses: 0, handfuls: 0, coins: 0 }] },
+			assets: { items: [{ text: "A cart", requisitioned: false }], resources: ["Timber"], fortifications: ["Ramparts"], coinage: [{ title: "gold", purses: 0, handfuls: 0, coins: 0 }] },
 			placesOfInterest: [{ name: "The Gate", linkUuid: "" }],
 			neighborPlaces: [{ slug: "stonetop", name: "Stonetop", subtitle: "", note: "", names: "" }],
 			residents: { names: "Ana, Bram", traits: ["Gruff", "Kind"] },
@@ -52,7 +52,7 @@ describe("StonetopSteadfast", () => {
 		expect(snap.attributes.size.current).toBe("village");
 		expect(snap.attributes.prosperity.items).toEqual(["Timber"]);
 		expect(snap.attributes.defenses.items).toEqual(["Ramparts"]);
-		expect(snap.assets.items).toEqual(["A cart"]);
+		expect(snap.assets.items.map(i => i.text)).toEqual(["A cart"]);
 		expect(snap.placesOfInterest[0].value).toBe("The Gate");
 		expect(snap.neighbors.places[0].name).toBe("Stonetop");
 		expect(snap.residentNames).toBe("Ana, Bram");

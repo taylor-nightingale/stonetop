@@ -5946,22 +5946,29 @@ button.stonetop-xp-toggle {
 }
 
 
-/* ── Residents tab ───────────────────────────────────────────────────────────── */
+/* ── Folk tab ─────────────────────────────────────────────────────────────────
+   One roster, and the lists you read to fill it. The roster takes the larger share because it has
+   six columns of editable text; the reference column takes what is left and scrolls, because it is
+   deliberately never filtered — every name and every trait stays in it however narrow the search
+   gets, since reading down them whole is how an NPC gets made. */
 
-.stonetop.sheet.steading .steading-residents-grid {
+.stonetop.sheet.steading .steading-folk-grid {
 	display: flex;
 	gap: 0;
 	margin-bottom: 8px;
-	min-height: 200px;
+	min-height: 0;
 }
 
-.stonetop.sheet.steading .steading-residents-roster {
-	flex: 2;
+.stonetop.sheet.steading .steading-folk-roster {
+	flex: 1.55;
 	display: flex;
 	flex-direction: column;
+	/* Without this a grid row's text inputs set the column's min-content width and the six columns
+	   push the tab into a horizontal scroll instead of narrowing. */
+	min-width: 0;
 }
 
-.stonetop.sheet.steading .steading-residents-divider {
+.stonetop.sheet.steading .steading-folk-divider {
 	width: 8px;
 	flex-shrink: 0;
 	margin: 0 4px;
@@ -5970,18 +5977,46 @@ button.stonetop-xp-toggle {
 	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
-.stonetop.sheet.steading .steading-resident-names {
+.stonetop.sheet.steading .steading-folk-ref {
 	flex: 1;
+	min-width: 0;
 	display: flex;
 	flex-direction: column;
+	gap: 6px;
+	overflow-y: auto;
 }
 
-.stonetop.sheet.steading .steading-names-text {
+/* The heading and the search share a line; the panel divider gets the one below, so it still runs
+   the panel's full width rather than being pushed alongside the box. */
+.stonetop.sheet.steading .steading-folk-head {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.stonetop.sheet.steading .steading-folk-head .stonetop-panel-divider {
+	grid-column: 1 / -1;
+}
+
+.stonetop.sheet.steading .steading-folk-search {
+	grid-column: 2;
+	justify-self: end;
+	width: min(14rem, 100%);
 	font-size: var(--fs-fine);
-	line-height: 1.5;
+	font-style: italic;
+	padding: 1px 4px;
+	border: none;
+	border-bottom: 1px solid var(--st-rule-veil);
+	background: transparent;
+	color: var(--st-ink);
+}
+
+.stonetop.sheet.steading .steading-folk-hint {
+	margin: 4px 0 0;
+	font-size: var(--fs-micro);
+	font-style: italic;
 	color: var(--st-ink-soft);
-	margin: 0;
-	overflow-y: auto;
 }
 
 /* ── Moves tab ───────────────────────────────────────────────────────────────
@@ -6030,38 +6065,32 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-ink) !important;
 }
 
-.stonetop.sheet.steading .steading-residents-img {
-	/* V2 dropped the legacy sheet flex bounds this decorative art relied on, so `width: 100%` now
-	   resolves against an unbounded column and the image grows without limit, burying the NPC-traits
-	   section below it. Cap it (like the NPC portrait) so it stays a modest footer illustration. */
-	display: block;
-	max-width: 100%;
-	max-height: 180px;
-	width: auto;
-	height: auto;
-	margin: 6px auto 0;
-	opacity: 0.85;
-	border: none;
-}
-
-.stonetop.sheet.steading .steading-residents-table {
+.stonetop.sheet.steading .steading-folk-table {
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
 }
 
-.stonetop.sheet.steading .steading-residents-header,
-.stonetop.sheet.steading .steading-resident-row {
+.stonetop.sheet.steading .steading-folk-header,
+.stonetop.sheet.steading .steading-folk-row {
 	display: grid;
 	/* Trailing link + delete columns are FIXED (not auto): each row is its own grid, so a
 	   content-sized column would compute a different width per row and knock the text inputs out of
-	   alignment with the header. Fixed tracks keep every row and the header on the same columns. */
-	grid-template-columns: 1fr 1fr 2fr 6rem 1.5rem;
+	   alignment with the header. Fixed tracks keep every row and the header on the same columns.
+	   Home sits second, right after the name — it is the column that says whether someone is of this
+	   steading or of somewhere else, and blank means here.
+
+	   minmax(0, …) on every flexible track, not a bare `fr`: an `fr` track floors at its content's
+	   min-content width, and a text input's min-content is the ~20 characters the user agent sizes it
+	   to. Six of those put the roster ~100px wider than its own column at the sheet's default width
+	   and ~270px wider at 900 — a horizontal scrollbar under the table instead of narrower columns.
+	   tests/styles/folk-reference-render.test.js measures exactly this. */
+	grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr) minmax(0, 0.95fr) minmax(0, 1.8fr) 5rem 1.5rem;
 	gap: 4px;
 	align-items: center;
 }
 
-.stonetop.sheet.steading .steading-residents-header span {
+.stonetop.sheet.steading .steading-folk-header span {
 	font-size: var(--fs-micro);
 	font-weight: bold;
 	color: var(--st-ink-soft);
@@ -6069,7 +6098,7 @@ button.stonetop-xp-toggle {
 	border-bottom: 1px solid var(--st-rule-veil);
 }
 
-.stonetop.sheet.steading .steading-resident-row input[type="text"] {
+.stonetop.sheet.steading .steading-folk-row input[type="text"] {
 	border: none;
 	border-bottom: 1px solid transparent;
 	background: transparent;
@@ -6077,11 +6106,37 @@ button.stonetop-xp-toggle {
 	font-family: var(--font-primary);
 	padding: 1px 2px;
 	width: 100%;
+	min-width: 0;
 }
 
-.stonetop.sheet.steading .steading-resident-row input[type="text"]:focus {
+.stonetop.sheet.steading .steading-folk-row input[type="text"]:focus {
 	border-bottom-color: var(--st-rule-veil);
 	outline: none;
+}
+
+/* The caret marks the row a click in the reference column will land on. It holds its space at all
+   times — a marker that appears and disappears would shunt every name a few px sideways as the
+   focus moved down the roster. */
+.stonetop.sheet.steading .steading-folk-name {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	min-width: 0;
+}
+
+.stonetop.sheet.steading .steading-folk-caret {
+	flex: 0 0 auto;
+	visibility: hidden;
+	font-size: var(--fs-micro);
+	color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-folk-row.is-focused .steading-folk-caret {
+	visibility: visible;
+}
+
+.stonetop.sheet.steading .steading-folk-row.is-focused {
+	background-color: var(--st-paper-sunken);
 }
 
 /* Linked-document chip: a clickable content link (actor/journal/item) + an unlink (✕) button. Sits
@@ -6127,8 +6182,7 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .stonetop-resident-unlink,
-.stonetop.sheet.steading .stonetop-neighbor-person-unlink,
+.stonetop.sheet.steading .stonetop-person-unlink,
 .stonetop.sheet.steading .stonetop-place-unlink {
 	flex-shrink: 0;
 	width: auto;
@@ -6141,18 +6195,45 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .stonetop-resident-unlink:hover,
-.stonetop.sheet.steading .stonetop-neighbor-person-unlink:hover,
+.stonetop.sheet.steading .stonetop-person-unlink:hover,
 .stonetop.sheet.steading .stonetop-place-unlink:hover {
 	color: var(--st-ink);
 }
 
-.stonetop.sheet.steading .steading-add-resident {
-	margin-top: 4px;
-	align-self: flex-start;
+/* An asset's requisitioned box, and the word beside it. The WORD is the point: whether the wagon is
+   out is the thing the table forgets, and a bare tick says nothing without hovering it. It hugs the
+   right of the row and never wraps, so a long asset sentence flows under it rather than around it. */
+.stonetop.sheet.steading .steading-asset-state {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	font-size: var(--fs-micro);
+	font-style: italic;
+	color: var(--st-ink-soft);
+	white-space: nowrap;
+	cursor: pointer;
 }
 
-/* NPC Traits */
+.stonetop.sheet.steading .steading-asset-row.is-requisitioned .steading-asset-state {
+	color: var(--st-accent);
+	font-style: normal;
+}
+
+
+/* ── The steadfast's resident pool ────────────────────────────────────────────
+   These classes are the STEADFAST sheet's now — a steadfast is a definition, so it edits the name
+   and trait pools as plain text and has no roster to click them into. It carries the `steading`
+   class too (StonetopSteadfastSheet.DEFAULT_OPTIONS), which is why these rules are scoped as they
+   are and why they outlived the Folk tab's two-roster layout. */
+
+.stonetop.sheet.steading .steading-names-text {
+	font-size: var(--fs-fine);
+	line-height: 1.5;
+	color: var(--st-ink-soft);
+	margin: 0;
+	overflow-y: auto;
+}
 
 .stonetop.sheet.steading .steading-npc-traits {
 	margin-top: 0;
@@ -6180,33 +6261,51 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink);
 }
 
-/* ── Neighbors tab ───────────────────────────────────────────────────────────── */
 
-.stonetop.sheet.steading .steading-neighbors-grid {
-	display: flex;
-	gap: 0;
-	min-height: 300px;
+/* ── The Folk tab's reference column ──────────────────────────────────────────
+   The name lists and the trait pool, whole. Each entry is a target (styled down to running text in
+   the unlayered block near the end of this file — core's button rules are unlayered and would
+   otherwise give every one of a hundred names a border, a background and a full-width box). */
+
+.stonetop.sheet.steading .steading-folk-list-title {
+	margin: 4px 0 1px;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-micro);
+	font-weight: normal;
+	letter-spacing: 0.06em;
+	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .steading-neighbors-roster {
-	flex: 2;
-	display: flex;
-	flex-direction: column;
+.stonetop.sheet.steading .steading-folk-entries {
+	margin: 0;
+	font-size: var(--fs-fine);
+	line-height: 1.6;
+	color: var(--st-ink);
 }
 
-.stonetop.sheet.steading .steading-neighbors-divider {
-	width: 8px;
-	flex-shrink: 0;
-	margin: 0 4px;
-	background-color: var(--st-decor);
-	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
-	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+/* A GM can type anything into a name pool; a token that is not a usable value shows as what it is. */
+.stonetop.sheet.steading .steading-folk-prose {
+	font-style: italic;
+	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .steading-neighbors-header,
-.stonetop.sheet.steading .steading-neighbor-row {
-	grid-template-columns: 1fr 1fr 2fr 1fr 6rem 1.5rem;
+/* The pool's edit surface, under the list it feeds. */
+.stonetop.sheet.steading .steading-folk-traits-source {
+	margin-top: 6px;
+	min-height: 4rem;
+	resize: vertical;
+	border: none;
+	border-top: 1px solid var(--st-rule-veil);
+	background: transparent;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
 }
+
+/* ── Neighbouring places ──────────────────────────────────────────────────────
+   The notes kept on each place. On the STEADFAST sheet this is a column beside the roster, as it has
+   always been. On the steading's Folk tab it is a short block UNDER the roster now — their name
+   pools have moved into the reference column — so it lays out as a row of panels rather than a
+   scrolling stack, which would put five headings in a tall ladder below the table. */
 
 .stonetop.sheet.steading .steading-neighbor-places {
 	flex: 1;
@@ -6214,6 +6313,12 @@ button.stonetop-xp-toggle {
 	flex-direction: column;
 	gap: 6px;
 	overflow-y: auto;
+}
+
+.stonetop.sheet.steading [data-tab="folk"] > .steading-neighbor-places {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+	overflow: visible;
 }
 
 .stonetop.sheet.steading .steading-neighbor-place {
@@ -8409,6 +8514,70 @@ button.stonetop-xp-toggle {
 .stonetop-tag-list .stonetop-tag.is-defined:hover,
 .stonetop-tag-list .stonetop-tag.is-defined:focus-visible {
 	text-decoration-color: currentColor;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   The Folk tab's reference entries — outside `@layer system` for exactly the reason tag-list.hbs is,
+   and the same trick.
+
+   Every name and every trait is a target, so every one of them is a real <button>: core binds click
+   for [data-action] on buttons, and a clickable span is keyboard-dead. But a column holding a
+   hundred and thirty of them has to READ as the book's two lists — running text you scan down —
+   rather than as a hundred and thirty controls. So core's whole button treatment comes off again:
+   background, border, padding, `min-height: var(--button-size)`, its own font, and .window-app's
+   stretch to full width.
+
+   Unlayered is what makes these PLAIN rules work; `!important` inside the layer does NOT win, since
+   for important declarations the layer order inverts. tests/styles/folk-reference-render.test.js
+   renders the real partial against core's stylesheet and reads the values back, so moving this
+   inside the layer fails there rather than in the app.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+.stonetop.sheet.steading .steading-folk-entry {
+	/* Core sets `display: flex` on every button. Blink blockifies `inline` to `inline-block` for form
+	   controls — unavoidable, and right here: each name stays whole while the list wraps around it. */
+	display: inline;
+	width: auto;
+	min-width: 0;
+	height: auto;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	font: inherit;
+	/* The ink token outright, not `inherit`. A <button> that inherits nothing falls back to the user
+	   agent's `buttontext` — flat black on the parchment — and naming the token is one fewer thing
+	   that has to be true for a hundred names to be legible. */
+	color: var(--st-ink);
+	line-height: inherit;
+	text-align: left;
+	white-space: normal;
+	cursor: pointer;
+}
+
+/* A trait can only be appended to a row, so with no caret anywhere it has nowhere to land — and it
+   says so rather than offering a pointer that produces a notification. RosterFocus sets the marker
+   on the panel; the names beside them stay live, because a name with no row focused CREATES one. */
+.stonetop.sheet.steading .steading-folk-ref:not([data-folk-focused]) .steading-folk-entry[data-action="useTrait"] {
+	cursor: default;
+}
+
+.stonetop.sheet.steading .steading-folk-entry:hover,
+.stonetop.sheet.steading .steading-folk-entry:focus-visible {
+	color: var(--st-accent);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+/* Already used in this steading. DIMMED, never removed — repeating a trait is sometimes exactly
+   right, and you still want to see at a glance that "cheery" is taken twice. It stays readable
+   (--st-ink-soft is body ink, not a veil): you are still reading down this list. */
+.stonetop.sheet.steading .steading-folk-entry.is-used {
+	color: var(--st-ink-soft);
+	font-style: italic;
 }
 
 /* ── Outfit figure ─────────────────────────────────────────────────────────────

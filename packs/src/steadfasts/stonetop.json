@@ -19,10 +19,22 @@
 		},
 		"assets": {
 			"items": [
-				"A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
-				"A pair of horse-drawn plows, iron",
-				"A pair of carts (plus horse harness)",
-				"A wagon (plus horse harness)"
+				{
+					"text": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
+					"requisitioned": false
+				},
+				{
+					"text": "A pair of horse-drawn plows, iron",
+					"requisitioned": false
+				},
+				{
+					"text": "A pair of carts (plus horse harness)",
+					"requisitioned": false
+				},
+				{
+					"text": "A wagon (plus horse harness)",
+					"requisitioned": false
+				}
 			],
 			"resources": [
 				"Farming (beans, potatoes, oats, barley)",
@@ -92,9 +104,9 @@
 			{
 				"slug": "gordins-delve",
 				"name": "Gordin's Delve",
-				"subtitle": "",
+				"subtitle": "Choose from other lists; everyone comes to Gordin's Delve from somewhere else.",
 				"note": "",
-				"names": "Choose from other lists; everyone comes to Gordin's Delve from somewhere else."
+				"names": ""
 			},
 			{
 				"slug": "steplands",

@@ -3,8 +3,8 @@ import {RatingSnapshot, SteadingSnapshot} from "../../model/snapshot/steading/St
 import {PlacesOfInterest} from "./PlacesOfInterest.js";
 import {SteadingAttributes} from "./SteadingAttributes.js";
 import {SteadingDebilities} from "./SteadingDebilities.js";
-import {Residents} from "./Residents.js";
-import {NeighborPeople} from "./NeighborPeople.js";
+import {Folk} from "./Folk.js";
+import {FolkSuggestions} from "./FolkSuggestions.js";
 import {NeighborPlaces} from "./NeighborPlaces.js";
 import {SteadingContent} from "./SteadingContent.js";
 import {SteadingAssets} from "./SteadingAssets.js";
@@ -31,7 +31,7 @@ import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadf
  */
 export class StonetopSteading {
 	#actor;
-	#places; #attributes; #debilities; #residents; #neighborPeople; #neighborPlaces;
+	#places; #attributes; #debilities; #folk; #suggestions; #neighborPlaces;
 	#content; #assets; #improvements; #moves; #choices; #seasons; #rolls; #drops; #choiceStores;
 
 	constructor(actor, repos = FoundrySteadingRepositoryFactory.create()) {
@@ -42,8 +42,8 @@ export class StonetopSteading {
 		// place that knows a debility bends anything at all.
 		this.#rolls          = new SteadingRolls(actor, this.#debilities);
 		this.#attributes     = new SteadingAttributes(actor, this.#rolls);
-		this.#residents      = new Residents(actor, repos.npcs);
-		this.#neighborPeople = new NeighborPeople(actor, repos.npcs);
+		this.#folk           = new Folk(actor, repos.npcs);
+		this.#suggestions    = new FolkSuggestions(actor, this.#folk);
 		this.#neighborPlaces = new NeighborPlaces(actor);
 		this.#content        = new SteadingContent(actor);
 		this.#assets         = new SteadingAssets(actor);
@@ -105,31 +105,24 @@ export class StonetopSteading {
 	async addAssetItem()                     { await this.#assets.addItem(); }
 	async removeAssetItem(index)             { await this.#assets.removeItem(index); }
 	async updateAssetItem(index, value)      { await this.#assets.updateItem(index, value); }
+	async setAssetRequisitioned(index, flag) { await this.#assets.setRequisitioned(index, flag); }
 	async updateCoinagePurses(title, count)  { await this.#assets.updatePurses(title, count); }
 	async updateCoinageHandfuls(title, count){ await this.#assets.updateHandfuls(title, count); }
 	async updateCoinageCoins(title, count)   { await this.#assets.updateCoins(title, count); }
 
-	// ── Residents ──────────────────────────────────────────────────────────────
+	// ── Folk — one roster, residents and neighbours together ───────────────────
 
-	async addResident()                        { await this.#residents.add(); }
-	async removeResident(id)                   { await this.#residents.remove(id); }
-	async updateResidentName(id, value)        { await this.#residents.updateName(id, value); }
-	async updateResidentOccupation(id, value)  { await this.#residents.updateOccupation(id, value); }
-	async updateResidentTraits(id, value)      { await this.#residents.updateTraits(id, value); }
-	async updateResidentTraitsSource(value)    { await this.#residents.updateTraitsSource(value); }
-	async unlinkResident(id)                   { await this.#residents.unlinkDocument(id); }
-	async linkResident(id, uuid)               { await this.#residents.linkDocument(id, uuid); }
-
-	// ── Neighbors ──────────────────────────────────────────────────────────────
-
-	async addNeighbor()                        { await this.#neighborPeople.add(); }
-	async removeNeighbor(id)                   { await this.#neighborPeople.remove(id); }
-	async updateNeighborName(id, value)        { await this.#neighborPeople.updateName(id, value); }
-	async updateNeighborOccupation(id, value)  { await this.#neighborPeople.updateOccupation(id, value); }
-	async updateNeighborTraits(id, value)      { await this.#neighborPeople.updateTraits(id, value); }
-	async updateNeighborHome(id, value)        { await this.#neighborPeople.updateHome(id, value); }
-	async unlinkNeighbor(id)                   { await this.#neighborPeople.unlinkDocument(id); }
-	async linkNeighbor(id, uuid)               { await this.#neighborPeople.linkDocument(id, uuid); }
+	async addPerson()                          { await this.#folk.add(); }
+	async addPersonNamed(name)                 { return this.#folk.addNamed(name); }
+	async removePerson(id)                     { await this.#folk.remove(id); }
+	async updatePersonName(id, value)          { await this.#folk.updateName(id, value); }
+	async updatePersonOccupation(id, value)    { await this.#folk.updateOccupation(id, value); }
+	async updatePersonTraits(id, value)        { await this.#folk.updateTraits(id, value); }
+	async updatePersonHome(id, value)          { await this.#folk.updateHome(id, value); }
+	async appendPersonTrait(id, trait)         { await this.#folk.appendTrait(id, trait); }
+	async updateFolkTraitsSource(value)        { await this.#folk.updateTraitsSource(value); }
+	async unlinkPerson(id)                     { await this.#folk.unlinkDocument(id); }
+	async linkPerson(id, uuid)                 { await this.#folk.linkDocument(id, uuid); }
 	async updateNeighborPlaceNote(id, value)   { await this.#neighborPlaces.updateNote(id, value); }
 
 	// ── Linked NPC actors ──────────────────────────────────────────────────────
@@ -138,20 +131,15 @@ export class StonetopSteading {
 
 	/** Bring the rows named in `delta` — and only those — in step with their NPC actors. */
 	async syncLinkedActors(delta) {
-		await this.#residents.syncActors(delta?.residents ?? []);
-		await this.#neighborPeople.syncActors(delta?.neighbors ?? []);
+		await this.#folk.syncActors(delta?.people ?? []);
 	}
 
-	async createMissingResidentActors()  { await this.#residents.syncActors(); }
-	async createMissingNeighborActors()  { await this.#neighborPeople.syncActors(); }
-	async previewResidentActors()        { return this.#residents.previewActors(); }
-	async previewNeighborActors()        { return this.#neighborPeople.previewActors(); }
+	async createMissingFolkActors()  { await this.#folk.syncActors(); }
+	async previewFolkActors()        { return this.#folk.previewActors(); }
 
 	/** Whether anything on this steading points at that document — asked when it changes or dies. */
 	linksDocument(uuid) {
-		return this.#residents.linksDocument(uuid)
-			|| this.#neighborPeople.linksDocument(uuid)
-			|| this.#places.linksDocument(uuid);
+		return this.#folk.linksDocument(uuid) || this.#places.linksDocument(uuid);
 	}
 
 	// ── Places of interest ─────────────────────────────────────────────────────
@@ -279,17 +267,14 @@ export class StonetopSteading {
 			debilities:         this.#debilities.buildSnapshot(),
 			placesOfInterest:   this.#places.buildSnapshot(),
 			notes:              this.notes,
-			residents:          this.#residents.buildSnapshot(),
-			neighbors: {
-				people: this.#neighborPeople.buildSnapshot(),
-				places: this.#neighborPlaces.buildSnapshot(),
-			},
+			folk:               this.#folk.buildSnapshot(),
+			folkSuggestions:    this.#suggestions.build(),
+			neighborPlaces:     this.#neighborPlaces.buildSnapshot(),
 			contentDescription: SteadingDefaults.content.description,
 			content:            this.#content.buildSnapshot(),
 			assets:             this.#assets.buildSnapshot(),
 			improvements,
-			residentNames:      this.#actor.system.residents?.names ?? "",
-			residentTraits:     this.#actor.system.residents?.traits ?? [],
+			traitPoolText:      (this.#actor.system.residents?.traits ?? []).join("\n"),
 			moves,
 			seasons,
 			rollMode:           this.rollMode,

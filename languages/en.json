@@ -101,9 +101,7 @@
 			},
 			"rail": "Arches and homefront moves",
 			"headings": {
-				"residents": "Residents",
-				"neighbors": "Neighbors",
-				"names": "Names",
+				"folk": "Folk of {place} and beyond",
 				"npcTraits": "NPC Traits",
 				"npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
 				"placesOfInterest": "Places of Interest",
@@ -115,7 +113,10 @@
 				"assets": "Assets",
 				"addResource": "add a resource",
 				"addFortification": "add a fortification",
-				"addAsset": "add an asset"
+				"addAsset": "add an asset",
+				"assetsOut": "{count} out",
+				"assetOut": "requisitioned",
+				"assetHome": "at home"
 			},
 			"tier": {
 				"defenses": {
@@ -175,8 +176,7 @@
 			"unlink": "Unlink",
 			"improvementRemove": "Remove",
 			"createActors": {
-				"residents": "Create actors for residents",
-				"neighbors": "Create actors for neighbors",
+				"folk": "Create actors for the roster",
 				"title": "Create NPC actors",
 				"creating": "Create {count} new NPC actor(s): {names}.",
 				"linking": "Link {count} row(s) to actors that already exist: {names}.",
@@ -188,6 +188,16 @@
 				"movesEmpty": "No seasonal moves assigned to this steading.",
 				"gainsTitle": "Seasonal gains",
 				"gainsHint": "Recording a pick doesn't change the steading's ratings."
+			},
+			"folk": {
+				"searchPlaceholder": "search the roster…",
+				"namePlaceholder": "Name (Pronouns)",
+				"homePlaceholder": "Home",
+				"newVillager": "new villager",
+				"remove": "Delete villager",
+				"homeBlankHint": "Home blank means this steading. Search filters this table only.",
+				"focusRowFirst": "Put the cursor in a villager's row first — a trait is added to the row you are editing.",
+				"namesFrom": "Names — {place}"
 			}
 		},
 		"followers": {
@@ -738,11 +748,14 @@
 			"listItem": "List item",
 			"contentText": "{section} text",
 			"moveTaken": "Taken",
-			"residentName": "Resident name",
-			"residentOccupation": "Occupation",
-			"residentTraits": "Traits",
-			"neighborHome": "Home",
-			"edit": "Edit"
+			"edit": "Edit",
+			"personName": "Villager name",
+			"personHome": "Home",
+			"personOccupation": "Occupation",
+			"personTraits": "Traits, relations, etc.",
+			"folkSearch": "Search the roster",
+			"suggestionUsed": "already used —",
+			"assetRequisitioned": "Requisitioned"
 		},
 		"tagGlossary": {
 			"general": {

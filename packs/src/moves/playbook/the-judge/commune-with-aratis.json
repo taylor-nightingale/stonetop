@@ -1,0 +1,30 @@
+{
+  "name": "Commune with Aratis",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_spend a few days communing with Aratis about a threat facing Stonetop or civilization as a whole_**, roll +WIS: **on a 7+**, Aratis reveals the course of action she would have you take; **on a 10+**, you also hold 2 Sanction. While **_acting on her orders_**, spend 1 Sanction to add +1 to a roll you just made.",
+    "resource": {
+      "max": 2
+    },
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Aratis reveals the course of action she would have you take and hold 2 Sanction."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Aratis reveals the course of action she would have you take."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM makes a move."
+      }
+    },
+    "rollStat": "wis",
+    "slug": "commune-with-aratis"
+  },
+  "folder": "jISe56pNVdmHJLgu",
+  "_id": "6tGCrKYpNGI3jZUG",
+  "_key": "!items!6tGCrKYpNGI3jZUG"
+}

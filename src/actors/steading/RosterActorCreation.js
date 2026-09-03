@@ -2,28 +2,21 @@ import { confirmAction } from "../../utils/confirmAction.js";
 import { PersonActorPlans } from "./PersonActorPlans.js";
 
 /**
- * The GM's bulk pass over one roster: rows that have a name but no document yet.
+ * The GM's bulk pass over the roster: rows that have a name but no document yet.
  *
  * Deliberately a button rather than something that happens on its own — the automatic path only ever
  * reacts to a row someone just edited, so a roster typed up before this existed, or while no GM was
  * connected, is caught up here, and only once the GM has seen exactly what it will do to a directory
  * they curate.
  *
- * Each factory hard-codes its own roster's pair of steading methods, so callers name a roster rather
- * than assembling one.
+ * The factory hard-codes the roster's pair of steading methods, so callers name a roster rather than
+ * assembling one.
  */
 export class RosterActorCreation {
-	static forResidents(steading) {
+	static forFolk(steading) {
 		return new RosterActorCreation(
-			() => steading.previewResidentActors(),
-			() => steading.createMissingResidentActors(),
-		);
-	}
-
-	static forNeighbors(steading) {
-		return new RosterActorCreation(
-			() => steading.previewNeighborActors(),
-			() => steading.createMissingNeighborActors(),
+			() => steading.previewFolkActors(),
+			() => steading.createMissingFolkActors(),
 		);
 	}
 

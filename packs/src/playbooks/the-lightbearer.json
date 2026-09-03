@@ -108,14 +108,25 @@
       ]
     },
     "choices": [
+			{
+				"type": "entry",
+				"content": {
+					"title": "Praise the day"
+				}
+			},
       {
         "slug": "helior-worship-spread",
         "list": [
+					{
+						"type": "entry",
+						"content": {
+							"text": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy."
+						}
+					},
           {
             "type": "entry",
             "content": {
-              "title": "The Worship of Helior Is…",
-              "text": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. *(choose 1)*"
+              "text": "The Worship of Helior Is… (choose 1)"
             }
           },
           {
@@ -181,8 +192,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "He Is Worshipped Through…",
-              "text": "*(choose 1 or 2)*"
+              "text": "He Is Worshipped Through… (choose 1 or 2)"
             }
           },
           {
@@ -281,8 +291,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
-              "text": "*(choose 1)*"
+              "text": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has… (choose 1)"
             }
           },
           {
@@ -337,8 +346,8 @@
           {
             "type": "entry",
             "content": {
-              "title": "Your Predecessor, the Previous Lightbearer…",
-              "text": "*(choose 2 or 3)*"
+              "title": "",
+              "text": "Your Predecessor, the Previous Lightbearer… (choose 2 or 3)"
             }
           },
           {
@@ -437,8 +446,8 @@
           {
             "type": "entry",
             "content": {
-              "title": "You Came Into Your Powers…",
-              "text": "*(choose 1)*"
+              "title": "",
+              "text": "You Came Into Your Powers… (choose 1)"
             }
           },
           {

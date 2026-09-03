@@ -35,14 +35,13 @@ describe("StonetopSteading.buildSnapshot", () => {
 		expect((await make().buildSnapshot()).debilities).toHaveLength(3);
 	});
 
-	it("snapshot includes residents from SteadingResidents", async () => {
-		expect((await make().buildSnapshot()).residents).toEqual([]);
+	it("snapshot includes the one roster of folk", async () => {
+		expect((await make().buildSnapshot()).folk).toEqual([]);
 	});
 
-	it("snapshot includes neighbors from SteadingNeighbors", async () => {
+	it("snapshot includes the neighbouring places", async () => {
 		const snap = await make().buildSnapshot();
-		expect(snap.neighbors.people).toEqual([]);
-		expect(snap.neighbors.places).toHaveLength(5);
+		expect(snap.neighborPlaces).toHaveLength(5);
 	});
 
 	it("snapshot includes content sections from SteadingContent", async () => {

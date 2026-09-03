@@ -125,14 +125,19 @@
       ]
     },
     "choices": [
+			{
+				"type": "entry",
+				"content": {
+					"title": "War stories"
+				}
+			},
       {
         "slug": "war-stories-action",
         "list": [
           {
             "type": "entry",
             "content": {
-              "title": "The Last Time the Militia Saw Serious Action, It Was…",
-              "text": "*(pick 1)*"
+              "text": "The Last Time the Militia Saw Serious Action, It Was… (pick 1)"
             }
           },
           {
@@ -209,8 +214,7 @@
           {
             "type": "entry",
             "content": {
-              "title": "Answer At Least 3 of the Following",
-              "text": ""
+              "text": "Answer At Least 3 of the Following"
             }
           },
           {

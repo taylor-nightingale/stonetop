@@ -164,7 +164,7 @@ const STEADFAST = [
 	"system.description",
 	"system.assets.resources[]",
 	"system.assets.fortifications[]",
-	"system.assets.items[]",
+	"system.assets.items[].text",
 	"system.residents.traits[]",
 	"system.placesOfInterest[].name",
 	"system.placesOfInterest[].description",

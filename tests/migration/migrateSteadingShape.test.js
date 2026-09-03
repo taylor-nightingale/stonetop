@@ -39,7 +39,6 @@ describe("migrateSteadingShape — legacy full source", () => {
 
 	it("moves the resource/fortification lists into assets without clobbering existing assets", () => {
 		const src = migrateSteadingShape(legacySource());
-		expect(src.assets.items).toEqual(["A wagon"]);
 		expect(src.assets.resources).toEqual(["Farming", "Distilling"]);
 		expect(src.assets.fortifications).toEqual(["Village militia"]);
 		expect(src.assets.coinage[0].title).toBe("silver");
@@ -56,9 +55,14 @@ describe("migrateSteadingShape — legacy full source", () => {
 	it("folds the resident pool + people into their new fields", () => {
 		const src = migrateSteadingShape(legacySource());
 		expect(src.residents).toEqual({ names: "Aderyn, Bryn", traits: ["curious", "stoic"] });
-		expect(src.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
+		expect(src.folk).toEqual([{ home: "", id: "1", name: "Afon" }]);
 		expect(src.residentNames).toBeUndefined();
 		expect(src.residentTraits).toBeUndefined();
+	});
+
+	it("gives every asset a requisitioned state", () => {
+		const src = migrateSteadingShape(legacySource());
+		expect(src.assets.items).toEqual([{ text: "A wagon", requisitioned: false }]);
 	});
 
 	it("turns legacy pick state into improvementValues and empties the slug list for the runner", () => {
@@ -83,10 +87,10 @@ describe("migrateSteadingShape — current-shape sources and update diffs (must 
 		const modern = {
 			steadfast: "stonetop",
 			attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 2, defenses: -1 },
-			assets: { items: [], resources: ["Farming"], fortifications: [], coinage: [] },
+			assets: { items: [{ text: "A wagon", requisitioned: true }], resources: ["Farming"], fortifications: [], coinage: [] },
 			placesOfInterest: [{ name: "The Stone", linkUuid: "" }],
 			residents: { names: "", traits: [] },
-			residentPeople: [],
+			folk: [],
 			improvements: ["market"],
 			improvementValues: { market: { offer: 1 } },
 		};
@@ -109,5 +113,75 @@ describe("SteadingData.migrateData", () => {
 	it("routes sources through the shape heal before validation", () => {
 		const healed = SteadingData.migrateData({ attributes: { population: { current: 3, items: [] } } });
 		expect(healed.attributes.population).toBe(2);
+	});
+});
+
+// Residents and neighbours were two arrays rendering the same table. The fold is where they become
+// one roster, and it is also the only place that can still SEE the retired keys: Foundry's schema
+// cleaning strips an undeclared key from the in-memory source before anything else runs.
+describe("migrateSteadingShape — the roster merge", () => {
+	it("merges residents and neighbours into one roster, residents first", () => {
+		const src = migrateSteadingShape({
+			residentPeople: [{ id: "1", name: "Bryn" }],
+			neighborPeople: [{ id: "2", name: "Seadha", home: "Marshedge" }],
+		});
+		expect(src.folk.map(p => p.name)).toEqual(["Bryn", "Seadha"]);
+		expect(src.residentPeople).toBeUndefined();
+		expect(src.neighborPeople).toBeUndefined();
+	});
+
+	// Blank is not "unknown" — it is this steading, which is what lets one column carry the difference.
+	it("gives a resident a blank home and leaves a neighbour's alone", () => {
+		const src = migrateSteadingShape({
+			residentPeople: [{ id: "1", name: "Bryn" }],
+			neighborPeople: [{ id: "2", name: "Seadha", home: "Marshedge" }],
+		});
+		expect(src.folk.map(p => p.home)).toEqual(["", "Marshedge"]);
+	});
+
+	// A client that loads a legacy steading and saves anything writes the MERGED roster while the old
+	// keys are still in the database; a straight concat on the next load would double every neighbour.
+	it("does not re-add someone the merged roster already holds", () => {
+		const src = migrateSteadingShape({
+			folk: [{ id: "1", name: "Bryn", home: "" }, { id: "2", name: "Seadha", home: "Marshedge" }],
+			residentPeople: [{ id: "1", name: "Bryn" }],
+			neighborPeople: [{ id: "2", name: "Seadha", home: "Marshedge" }],
+		});
+		expect(src.folk.map(p => p.id)).toEqual(["1", "2"]);
+	});
+
+	// The very old flag-based people had no ids at all, and the sheet addresses every row by one.
+	it("stamps an id onto a legacy row that has none", () => {
+		const src = migrateSteadingShape({ residentPeople: [{ name: "Bryn" }] });
+		expect(src.folk[0].id).toBeTruthy();
+	});
+
+	it("folds an empty neighbour list without inventing anything", () => {
+		const src = migrateSteadingShape({ residentPeople: [], neighborPeople: [] });
+		expect(src.folk).toEqual([]);
+	});
+
+	it("leaves a diff that carries neither key alone", () => {
+		const diff = { folk: [{ id: "1", name: "Bryn", home: "" }] };
+		expect(migrateSteadingShape(structuredClone(diff))).toEqual(diff);
+	});
+});
+
+describe("migrateSteadingShape — assets get a state", () => {
+	it("turns a bare sentence into an asset that is at home", () => {
+		const src = migrateSteadingShape({ assets: { items: ["A wagon", "A cart"] } });
+		expect(src.assets.items).toEqual([
+			{ text: "A wagon", requisitioned: false },
+			{ text: "A cart", requisitioned: false },
+		]);
+	});
+
+	it("leaves an asset that already has a state alone", () => {
+		const items = [{ text: "A wagon", requisitioned: true }];
+		expect(migrateSteadingShape({ assets: { items } }).assets.items).toEqual(items);
+	});
+
+	it("touches nothing when the diff carries no assets at all", () => {
+		expect(migrateSteadingShape({ notes: "x" }).assets).toBeUndefined();
 	});
 });

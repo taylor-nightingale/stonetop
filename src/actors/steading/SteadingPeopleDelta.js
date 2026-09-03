@@ -1,4 +1,4 @@
-// Which resident/neighbour rows an edit actually touched.
+// Which roster rows an edit actually touched.
 //
 // It exists because the people arrays are written whole: an update carries all twenty residents even
 // when one name changed, so "what changed" can only be answered while the pre-edit document is still
@@ -6,36 +6,34 @@
 // established game from conjuring twenty actors at once.
 const WATCHED = ["name", "occupation", "traits", "home"];
 
-// Foundry expands a flattened update ({"system.residentPeople": […]}) before the hooks see it, but
+// Foundry expands a flattened update ({"system.folk": […]}) before the hooks see it, but
 // both shapes are read here: the failure mode of guessing wrong is a sync that silently never runs.
 function section(changed, key) {
 	return changed?.system?.[key] ?? changed?.[`system.${key}`];
 }
 
 export class SteadingPeopleDelta {
-	constructor(residents = [], neighbors = []) {
-		this.residents = residents;
-		this.neighbors = neighbors;
+	constructor(people = []) {
+		this.people = people;
 	}
 
 	get isEmpty() {
-		return this.residents.length === 0 && this.neighbors.length === 0;
+		return this.people.length === 0;
 	}
 
-	/** `before` is the pre-edit `system`, `changed` the update diff; a section absent from it is untouched. */
+	/** `before` is the pre-edit `system`, `changed` the update diff; a roster absent from it is untouched. */
 	static between(before, changed) {
 		return new SteadingPeopleDelta(
-			SteadingPeopleDelta._changedIds(before?.residentPeople, section(changed, "residentPeople")),
-			SteadingPeopleDelta._changedIds(before?.neighborPeople, section(changed, "neighborPeople")),
+			SteadingPeopleDelta._changedIds(before?.folk, section(changed, "folk")),
 		);
 	}
 
 	static fromRaw(raw) {
-		return new SteadingPeopleDelta(raw?.residents ?? [], raw?.neighbors ?? []);
+		return new SteadingPeopleDelta(raw?.people ?? []);
 	}
 
 	toRaw() {
-		return { residents: this.residents, neighbors: this.neighbors };
+		return { people: this.people };
 	}
 
 	// Only the fields an actor mirrors count. A row whose `linkUuid` alone changed is our own

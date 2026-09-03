@@ -31,7 +31,14 @@ describe("NeighborPlaces.buildSnapshot", () => {
 	it("places without subtitles have empty subtitle", () => {
 		const snap = make().buildSnapshot();
 		expect(snap.find(p => p.slug === "marshedge").subtitle).toBe("");
-		expect(snap.find(p => p.slug === "gordins-delve").subtitle).toBe("");
+	});
+
+	// `names` is a comma-separated pool everywhere, so the one place the book gives an instruction
+	// instead carries it as its subtitle — see packs/src/steadfasts/stonetop.json.
+	it("carries Gordin's Delve's instruction as a subtitle, leaving its name pool empty", () => {
+		const place = make().buildSnapshot().find(p => p.slug === "gordins-delve");
+		expect(place.subtitle).toContain("Choose from other lists");
+		expect(place.names).toBe("");
 	});
 
 	it("Marshedge has the correct names string", () => {
