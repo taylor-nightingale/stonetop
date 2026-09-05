@@ -3,7 +3,8 @@ import { buildFocusSelector } from "./buildFocusSelector.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { ADVICE_ACTIONS } from "../utils/adviceAction.js";
 import { EDIT_IMAGE_ACTIONS } from "../utils/editImageAction.js";
-import { OpenMoveRows } from "../utils/OpenMoveRows.js";
+import { OpenDisclosures } from "../utils/OpenDisclosures.js";
+import { RailState } from "../utils/SheetRail.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop actor sheets: HandlebarsApplicationMixin over
@@ -33,12 +34,22 @@ export function createStonetopActorSheetV2Class() {
 		}
 
 		/**
-		 * The move rows this reader has open. Every Stonetop actor sheet renders move rows through the
-		 * one shared partial, so the one place that knows a row can be opened is also the one place
-		 * that has to put it back — here, rather than in each sheet.
+		 * The collapsible regions this reader has opened or shut — move rows on every sheet, and the
+		 * steading's name lists. Every Stonetop actor sheet renders disclosures through shared
+		 * partials, so the one place that knows a region can be opened is also the one place that has
+		 * to put it back — here, rather than in each sheet.
 		 */
-		get openMoveRows() {
-			return this._openMoveRows ??= new OpenMoveRows();
+		get openDisclosures() {
+			return this._openDisclosures ??= new OpenDisclosures();
+		}
+
+		/**
+		 * Which side rails this reader has put away — the character sheet's moves index, the
+		 * steading's arches. Same reason it lives here rather than on either sheet: both render the
+		 * one shared rail, so one place puts it back.
+		 */
+		get railState() {
+			return this._railState ??= new RailState();
 		}
 
 		/**
@@ -81,12 +92,13 @@ export function createStonetopActorSheetV2Class() {
 			if (focus) newElement.querySelector(focus)?.focus({ preventScroll: true });
 		}
 
-		// Core rebuilds the part's DOM on every render, which takes the open move rows with it — so a
+		// Core rebuilds the part's DOM on every render, which takes every open region with it — so a
 		// pip ticked anywhere on the sheet, or another player's edit arriving over the socket, shut the
-		// move you were reading. Restored here rather than in each sheet: the row is shared markup.
+		// move you were reading. Restored here rather than in each sheet: the markup is shared.
 		_onRender(context, options) {
 			super._onRender(context, options);
-			this.openMoveRows.restore(this.element);
+			this.openDisclosures.restore(this.element);
+			this.railState.restore(this.element);
 		}
 
 		async _onFirstRender(context, options) {

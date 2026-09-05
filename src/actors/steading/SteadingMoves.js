@@ -112,6 +112,14 @@ export class SteadingMoves {
 	}
 
 
+	// Roll one of the steading's own moves by slug — the seasonal turn rolls Seasons Change through
+	// here so it goes out as an ordinary move roll rather than a second kind of card.
+	async roll(moveSlug) {
+		const item = findMoveItemBySlug(this._actor, moveSlug);
+		if (item) await this._actor.rollItem(item);
+		return Boolean(item);
+	}
+
 	// Post the move's full text (description + all result tiers) to chat, without rolling.
 	async sendToChat(moveSlug) {
 		const item = findMoveItemBySlug(this._actor, moveSlug);

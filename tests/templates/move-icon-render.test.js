@@ -44,9 +44,30 @@ describe("move icon rendering", () => {
 		expect(others).toEqual([]);
 	});
 
-	it("renders the seasons tab through the shared move group", () => {
+	// The Season tab no longer renders one move GROUP: the incoming season's move is promoted into
+	// the turn panel and the other three are folded away as reference. Both still go through the
+	// shared move partials, which is what this file is actually about — the tab has never been
+	// allowed a bespoke icon of its own.
+	it("renders the seasons tab's moves through the shared move row", () => {
 		const seasons = read("templates/actor/partials/steading-seasons.hbs");
-		expect(seasons).toContain('{{> "stonetop.move-group"');
+		expect(seasons).toContain('{{> "stonetop.move-row"');
 		expect(seasons).not.toContain("<img class=\"steading-season-icon\"");
+	});
+
+	// The season GLYPH is a different thing from a move icon: it is masked so it can take the season
+	// tint, and it is decoration beside text that already names the season. It must never become a
+	// second way of drawing a move's own icon.
+	//
+	// And the template must not name the image AT ALL. A path written here would be a document path
+	// (systems/stonetop/…) dropped into a custom property, which resolves against the stylesheet
+	// rather than the document — and an absolute one would skip an install's route prefix and 404.
+	// The stylesheet owns the four paths, relative to itself.
+	it("draws the season glyph by mask, and leaves its path to the stylesheet", () => {
+		for (const file of ["templates/actor/partials/steading-season-turn.hbs", "templates/actor/steading.hbs"]) {
+			expect(read(file)).not.toContain("stonetop-move-icon");
+			expect(read(file)).not.toContain("--steading-glyph:");
+		}
+		const css = read("styles/stonetop.css");
+		expect(css).toContain('--steading-glyph: url("../assets/content/seasons/season-spring.png")');
 	});
 });

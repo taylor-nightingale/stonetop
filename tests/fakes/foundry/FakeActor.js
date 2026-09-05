@@ -38,12 +38,19 @@ export class FakeActor {
 	get updateOps()    { return this._updateOps; }
 	get deletedIds()   { return this._deletedIds; }
 	get chatItems()        { return this._chatItems; }
+	get rolledItems()      { return this._rolledItems ??= []; }
 	get chatDescriptions() { return this._chatDescriptions; }
 
 	// Recorders for StonetopActor's chat surface (sendItemToChat / sendDescriptionToChat) — the
 	// domain classes call these on the actor; the real posting lives in StonetopActor/ActorRolling.
 	async sendItemToChat(item) {
 		this._chatItems.push(item);
+	}
+
+	// Recorder for StonetopActor#rollItem — the seasonal turn rolls a move through the actor; the
+	// real roll lives in ActorRolling.
+	async rollItem(item, rollStat = null) {
+		this.rolledItems.push({ item, rollStat });
 	}
 
 	async sendDescriptionToChat(label, description) {

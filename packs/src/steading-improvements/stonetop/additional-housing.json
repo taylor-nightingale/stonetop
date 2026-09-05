@@ -50,7 +50,18 @@
           "type": "entry",
           "content": {
             "title": null,
-            "text": "And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes."
+            "text": "And then:"
+          }
+        },
+        {
+          "type": "entry",
+          "slug": "pull-together",
+          "content": {
+            "title": null,
+            "text": "Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes."
+          },
+          "track": {
+            "max": 5
           }
         },
         {
@@ -61,7 +72,63 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "any": 1,
+          "of": [
+            {
+              "all": [
+                "engineer-foreman"
+              ]
+            },
+            {
+              "all": [
+                "build-on-fields"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            "pull-together"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "add any new homes to the map"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "winter"
+          ]
+        },
+        "adjustment": {
+          "step": "consumption",
+          "term": "population",
+          "amount": -1
+        },
+        "text": "when you consume Surplus in winter, consider Population to be 1 lower than it is"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

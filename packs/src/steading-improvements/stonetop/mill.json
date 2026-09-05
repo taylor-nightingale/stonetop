@@ -83,11 +83,79 @@
           "type": "entry",
           "content": {
             "title": null,
-            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use."
+            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of ◇ supplies has 1 extra use."
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "engineer-foreman"
+          ]
+        },
+        {
+          "all": [
+            "power-source"
+          ]
+        },
+        {
+          "all": [
+            "building-site"
+          ]
+        },
+        {
+          "all": [
+            "pull-together"
+          ]
+        },
+        {
+          "all": [
+            "full-time-miller"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "Mill"
+        },
+        "text": "add \"Mill\" to the Resources list and draw it on the map"
+      },
+      {
+        "when": {
+          "kind": "moment",
+          "moment": "autumn-harvest"
+        },
+        "change": {
+          "target": "surplus",
+          "amount": 1
+        },
+        "text": "when the autumn harvest is complete, the steading generates +1 Surplus"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

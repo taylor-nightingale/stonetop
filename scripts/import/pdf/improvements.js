@@ -9,6 +9,7 @@
 // tested directly in tests/import/pdf/improvements.test.js. Reuses arcana-parse's markdown/slug
 // helpers rather than re-deriving them.
 import { joinMd, unlockSlug, titleCase } from "./arcana-parse.js";
+import { classifyHeader } from "../improvementRequirements.js";
 import { deterministicId } from "../ids.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
@@ -34,6 +35,63 @@ const isImprovementHeading = (b) => b.type === "heading" && /^steading improveme
 // which each carry two boxes → track max 2).
 const countChecks = (lines) => (lines.map((l) => l.text).join(" ").match(/[□◻]/g) || []).length;
 
+// ── What the page layout glues together ──────────────────────────────────────
+// These call-outs are set in narrow boxed columns, and two things follow from that. A requirement
+// can wrap onto a line the extractor reads as its own list item, and the next HEADER (or the closing
+// payoff prose) can run on inside the wrapped block of the requirement above it. Neither is visible
+// as a break in the text, so both are repaired here rather than left for a human to notice.
+
+/** A line beginning the next requirement header — the closed phrase set classifyHeader knows. */
+const GLUED_HEADER = /^\s*(?:requires?\b|and\s+(?:then|either|any|all|each|establishing|these)\b)/i;
+/** A line beginning the call-out's payoff — always "When you mark/meet the requirements…". */
+const GLUED_PAYOFF = /^\s*when\s+you\s+(?:mark|meet)\b/i;
+
+/**
+ * Split a requirement item where a header or the payoff prose has been run onto the end of it.
+ *
+ * Line-wise, and only where the TAIL ITSELF opens the new block: "…and patience" continues a
+ * requirement, "And either of these, to germinate the seeds:" begins the next group. A header
+ * candidate must also read as one — an unrecognised phrase is left glued, where the requirement
+ * build reports it, rather than silently cut in the wrong place.
+ */
+export function splitGluedTail(lines) {
+	for (let k = 1; k < lines.length; k++) {
+		const tail = lines.slice(k).map(l => l.text).join(" ").trim();
+		if (GLUED_PAYOFF.test(tail) || (GLUED_HEADER.test(tail) && classifyHeader(tail)))
+			return [lines.slice(0, k), lines.slice(k)];
+	}
+	return [lines, []];
+}
+
+/** A continuation line carries no marker of its own; the boxes on it are the next item's. */
+const stripChecks = (lines) => lines.map(l => ({ ...l, text: l.text.replace(/[□◻]/g, " ") }));
+
+/**
+ * A list block's items, with wrapped continuations folded back into what they continue.
+ *
+ * A continuation opens mid-sentence — lowercase, after the leading marker — which across the whole
+ * book identifies exactly one item ("haul timber to and from Stonetop", the Permanent Logging Camp),
+ * where the extractor had split one requirement in two. Its checkboxes are NOT its own: it has no
+ * marker, so they are the next item's, which is how "Four seasons of operation" gets its four boxes
+ * back.
+ */
+export function requirementItems(items) {
+	const out = [];
+	let carried = 0;
+	for (const item of items) {
+		const body = item.map(l => l.text).join(" ").replace(/^[\s□◻]+/, "");
+		if (out.length && /^[a-z]/.test(body)) {
+			const previous = out[out.length - 1];
+			previous.lines = [...previous.lines, ...stripChecks(item)];
+			carried += countChecks(item);
+			continue;
+		}
+		out.push({ lines: item, carried });
+		carried = 0;
+	}
+	return out;
+}
+
 /** Split a title checkbox item into its bold name + regular flavor. The book bolds the improvement
  *  name (small-caps, so "TRADE WITH BARRIER PASS"), then continues with the plain flavor line. The
  *  name can span several bold runs across wrapped lines, so the whole leading bold run is the name;
@@ -57,17 +115,21 @@ function choicesFromBlocks(blocks) {
 	for (const b of blocks) {
 		if (b.type === "para") { list.push({ type: "entry", content: { title: null, text: joinMd(b.lines, { keepDiamonds: true }) } }); continue; }
 		if (b.type !== "list") continue;
-		for (const item of b.items) {
+		for (const { lines, carried } of requirementItems(b.items)) {
 			if (!titleItem) { // the first list item is the improvement's name + flavor
-				const t = splitTitle(item);
-				name = t.name; titleItem = item;
+				const t = splitTitle(lines);
+				name = t.name; titleItem = lines;
 				// The name is the document's, and the sheets render it as the group's title — repeating
 				// it here as a row title would print it twice on every panel that shows one.
 				list.push({ type: "entry", content: { title: null, text: t.text } });
-			} else { // a requirement pick row — inline ◇ are the book's item-weight markers, kept as text
-				const text = joinMd(item, { keepDiamonds: true });
-				list.push({ type: "entry", slug: uniqSlug(unlockSlug(text)), content: { title: null, text }, track: { max: countChecks(item) || 1 } });
+				continue;
 			}
+			// a requirement pick row — inline ◇ are the book's item-weight markers, kept as text
+			const [own, tail] = splitGluedTail(lines);
+			const text = joinMd(own, { keepDiamonds: true });
+			list.push({ type: "entry", slug: uniqSlug(unlockSlug(text)), content: { title: null, text }, track: { max: countChecks(own) + carried || 1 } });
+			// The header or payoff the layout ran on: its own block, in the place the book prints it.
+			if (tail.length) list.push({ type: "entry", content: { title: null, text: joinMd(tail, { keepDiamonds: true }) } });
 		}
 	}
 	return { name, list, titleItem };

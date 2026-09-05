@@ -57,16 +57,16 @@ describe("Steading improvements — custom world improvement (integration)", () 
 			[worldEntry("watchtower", 2, WATCHTOWER)],
 		);
 		const improvements = new SteadingImprovements(makeActor(["inn", "watchtower"]), new FoundrySteadingImprovementRepository());
-		const snap = await improvements.buildSnapshot();
+		const snap = (await improvements.buildSnapshot()).entries;
 
 		expect(snap.map(g => g.slug)).toEqual(["inn", "watchtower"]);
-		expect(snap[1].list[0].track.checks).toEqual([false, false]);
+		expect(snap[1].group.list[0].track.checks).toEqual([false, false]);
 	});
 
 	it("does not surface improvements the steading does not own", async () => {
 		stubGame([packEntry("inn", 1, { slug: "inn", list: [] })], [worldEntry("watchtower", 2, WATCHTOWER)]);
 		const improvements = new SteadingImprovements(makeActor(["watchtower"]), new FoundrySteadingImprovementRepository());
-		const snap = await improvements.buildSnapshot();
+		const snap = (await improvements.buildSnapshot()).entries;
 		expect(snap.map(g => g.slug)).toEqual(["watchtower"]);
 	});
 
@@ -74,9 +74,9 @@ describe("Steading improvements — custom world improvement (integration)", () 
 		stubGame([], [worldEntry("watchtower", 1, WATCHTOWER)]);
 		const actor = makeActor(["watchtower"], { watchtower: { built: 1 } });
 		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
-		const snap = await improvements.buildSnapshot();
+		const snap = (await improvements.buildSnapshot()).entries;
 
-		expect(snap[0].list[0].track.checks).toEqual([true, false]);
+		expect(snap[0].group.list[0].track.checks).toEqual([true, false]);
 	});
 
 	// The drop path end to end against the REAL catalog: a wonder improvement that exists only in the
@@ -88,11 +88,11 @@ describe("Steading improvements — custom world improvement (integration)", () 
 		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
 
 		await improvements.grant("watchtower");
-		const snap = await improvements.buildSnapshot();
+		const snap = (await improvements.buildSnapshot()).entries;
 
 		expect(actor.system.improvements).toEqual(["watchtower"]);
 		expect(snap.map(g => g.slug)).toEqual(["watchtower"]);
-		expect(snap[0].list[0].content.title.raw).toBe("Watchtower");
+		expect(snap[0].group.list[0].content.title.raw).toBe("Watchtower");
 	});
 
 	it("track state set after a grant survives a revoke and re-grant", async () => {
@@ -105,8 +105,8 @@ describe("Steading improvements — custom world improvement (integration)", () 
 		await improvements.revoke("watchtower");
 		await improvements.grant("watchtower");
 
-		const snap = await improvements.buildSnapshot();
-		expect(snap[0].list[0].track.checks).toEqual([true, false]);
+		const snap = (await improvements.buildSnapshot()).entries;
+		expect(snap[0].group.list[0].track.checks).toEqual([true, false]);
 	});
 
 	it("writes a track change back for a custom improvement", async () => {

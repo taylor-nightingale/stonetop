@@ -161,3 +161,101 @@ describe("extractImprovements — inline ◇ item-weight diamonds", () => {
 		expect(imp.choices.list[2].content.text).toBe("Nurture and protect the sapling");
 	});
 });
+
+// ── What the page layout glues together ──────────────────────────────────────
+// These call-outs are set in narrow boxed columns, and the extractor sees the wrapped runs, not the
+// breaks the reader sees. Both fixtures are the book's own text, line for line.
+
+// Rhoillyg Orchard (Green Lords): two headers and the closing payoff run on inside the wrapped block
+// of the requirement above them.
+const orchardBox = [
+	{ type: "boxstart" },
+	heading(".  steading improvement  ."),
+	list(
+		[
+			line("□ RHOILLYG ORCHARD", [box("□ "), bold("RHOILLYG ORCHARD")]),
+			line("Requires both:", [span("Requires both:")]),
+		],
+		[line("□ A sack full of rhoillyg seeds", [box("□ "), span("A sack full of rhoillyg seeds")])],
+		[
+			line("□ An herbalist of considerable skill", [box("□ "), span("An herbalist of considerable skill")]),
+			line("and patience", [span("and patience")]),
+			line("And either of these, to germinate", [span("And either of these, to germinate")]),
+			line("the seeds:", [span("the seeds:")]),
+		],
+		[line("□ A year or so of experimentation", [box("□ "), span("A year or so of experimentation")])],
+		[
+			line("□ Advice from a knowledgeable source", [box("□ "), span("Advice from a knowledgeable source")]),
+			line("And then each of these:", [span("And then each of these:")]),
+		],
+		[
+			line("□ Protecting the orchard through □", [box("□ "), span("Protecting the orchard through "), box("□")]),
+			line("two more summers", [span("two more summers")]),
+			line("When you mark all the requirements,", [span("When you mark all the requirements,")]),
+			line("increase Fortunes by 1.", [span("increase Fortunes by 1.")]),
+		],
+	),
+	{ type: "boxend" },
+];
+
+describe("extractImprovements — a header run onto the requirement above it", () => {
+	const rows = extractImprovements(article(...orchardBox))[0].choices.list;
+
+	it("ends the requirement where the requirement ends", () => {
+		expect(rows[2].content.text).toBe("An herbalist of considerable skill and patience");
+		expect(rows[2].track).toEqual({ max: 1 });
+	});
+
+	// Its own row, in the place the book prints it — which is what makes the two options below it a
+	// "1 of" group rather than two more things the steading must do.
+	it("gives the header its own untracked row", () => {
+		expect(rows[3]).toEqual({ type: "entry", content: { title: null, text: "And either of these, to germinate the seeds:" } });
+		expect(rows[5].content.text).toBe("Advice from a knowledgeable source");
+		expect(rows[6]).toEqual({ type: "entry", content: { title: null, text: "And then each of these:" } });
+	});
+
+	it("splits the payoff prose off the last requirement, keeping its boxes", () => {
+		expect(rows[7].content.text).toBe("Protecting the orchard through two more summers");
+		expect(rows[7].track).toEqual({ max: 2 });
+		expect(rows[8].content.text).toBe("When you mark all the requirements, increase Fortunes by 1.");
+		expect(rows[8].track).toBeUndefined();
+	});
+
+	// "and patience" continues a sentence; only a tail that OPENS a header is cut.
+	it("does not cut an ordinary continuation that happens to start with 'and'", () => {
+		expect(rows.some(r => r.content.text === "and patience")).toBe(false);
+	});
+});
+
+// Permanent Logging Camp (The Foothills): one requirement wrapped onto its own item, with three of
+// the NEXT requirement's four checkboxes landing on that line.
+const loggingBox = [
+	{ type: "boxstart" },
+	heading(".  steading improvement  ."),
+	list([line("□ PERMANENT LOGGING CAMP", [box("□ "), bold("PERMANENT LOGGING CAMP")])]),
+	para([span("Requires all of the following:")]),
+	list(
+		[line("□ An extra wagon (Value 3) and", [box("□ "), span("An extra wagon (Value 3) and")]),
+		 line("extra horse or mule (Value 3) to", [span("extra horse or mule (Value 3) to")])],
+		[line("□ haul timber to and from Stonetop □ □", [box("□ "), span("haul timber to and from Stonetop "), box("□ "), box("□")])],
+		[line("□ Four seasons of operation", [box("□ "), span("Four seasons of operation")])],
+	),
+	{ type: "boxend" },
+];
+
+describe("extractImprovements — a requirement wrapped onto its own item", () => {
+	const rows = extractImprovements(article(...loggingBox))[0].choices.list;
+
+	it("reads it as one requirement, not two", () => {
+		expect(rows.filter(r => r.track)).toHaveLength(2);
+		expect(rows[2].content.text)
+			.toBe("An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from Stonetop");
+	});
+
+	// A continuation carries no marker of its own, so the boxes on its line are the next item's —
+	// which is how "Four seasons of operation" gets its four back.
+	it("hands the continuation's checkboxes to the requirement that follows", () => {
+		expect(rows[2].track).toEqual({ max: 1 });
+		expect(rows[3].track).toEqual({ max: 4 });
+	});
+});

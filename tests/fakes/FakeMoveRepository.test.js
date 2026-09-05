@@ -30,3 +30,19 @@ describe("FakeMoveRepository — world moves via addWorld", () => {
 		expect(doc.name).toBe("Aid or Interfere");
 	});
 });
+
+describe("FakeMoveRepository.getMoveEntriesBySlugs", () => {
+	// Item-shaped, not flat Move models: the callers read `system` and `img` straight off the entry.
+	it("returns the requested entries in order, dropping unknowns", async () => {
+		const repo = new FakeMoveRepository();
+		repo.addBasic(new FakeCompendiumMoveBuilder().withName("Lead the Aurochs Hunt").build());
+		repo.addWorld(new FakeCompendiumMoveBuilder().withName("News at the Inn").build());
+		const entries = await repo.getMoveEntriesBySlugs(["news-at-the-inn", "nope", "lead-the-aurochs-hunt"]);
+		expect(entries.map(e => e.name)).toEqual(["News at the Inn", "Lead the Aurochs Hunt"]);
+		expect(entries[0].system.slug).toBe("news-at-the-inn");
+	});
+
+	it("asks nothing of the stores for an empty request", async () => {
+		expect(await new FakeMoveRepository().getMoveEntriesBySlugs([])).toEqual([]);
+	});
+});

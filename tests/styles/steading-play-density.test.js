@@ -89,10 +89,10 @@ const condition = (slug, active, effect) => `
 
 // Both densities at once, which is the situation the design has to resolve and neither half can be
 // tested from alone.
-const fixture = width => `
+const fixture = (width, { shut = false } = {}) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
   <div class="window-content"><div class="sheet-wrapper">
-   <div class="stonetop-rail-layout" data-side="left">
+   <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="left">
     <button type="button" class="stonetop-rail-toggle" data-action="toggleRail" aria-expanded="false" aria-label="Rail"><i class="fas fa-archway"></i></button>
     <div class="stonetop-rail steading-rail" data-density="full">
       <div class="steading-archpair">
@@ -201,8 +201,8 @@ const TARGETS = {
 // The probe's window is ~768px by default, so a fixture wider than that is clipped by the viewport
 // rather than laid out — and every container query answers to the viewport instead of the width
 // under test. Size the window to match.
-const measureAt = width => probe.measure({
-	bodyHtml: fixture(width), bodyClass: "theme-light",
+const measureAt = (width, options) => probe.measure({
+	bodyHtml: fixture(width, options), bodyClass: "theme-light",
 	rootAttrs: 'style="font-size: 16px"', targets: TARGETS,
 	chromeFlags: [`--window-size=${width + 40},1200`],
 });
@@ -273,22 +273,20 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			//
 			// The NAMES and the VALUES, not just the tiles: two tiles can start and end together while
 			// the rows inside them sit at different depths, which is the shape the defect took.
-			// The pair is capped well under the rail's width — the caption sets that cap, not the art —
-			// so where the leftover room goes is a choice. Flush left it left ~44px of empty rail beside
-			// the badges while the moves under them ran the full column, and the two arches read as
-			// pushed into a corner rather than as the head of the column.
+			// The pair takes the whole column it heads. Capped under it, the arches sat in a margin of
+			// empty rail down both sides while the moves beneath them ran edge to edge, and the two
+			// ratings the book CROWNS read as the smallest thing in their own column.
 			//
 			// Measured against the MOVES, not against the rail's border box: the rail carries a right
-			// gutter, so "centred in the rail" and "centred over the column" are 12px apart and only
-			// the second is what a reader sees.
-			it("centres the arch pair over the column it heads", () => {
+			// gutter, so "fills the rail" and "fills the column" are 12px apart and only the second is
+			// what a reader sees.
+			it("gives the arch pair the full width of the column it heads", () => {
 				const pair  = m.get("archPair").values;
 				const moves = m.get("railMoves").values;
-				const left  = pair.boxLeft - moves.boxLeft;
-				const right = (moves.boxLeft + moves.boxWidth) - (pair.boxLeft + pair.boxWidth);
-				expect(left, "the arch pair is not centred over the rail's column").toBeCloseTo(right, 0);
-				expect(left, "the arch pair fills the column, so there is nothing to centre")
-					.toBeGreaterThan(0);
+				expect(pair.boxLeft, "the arch pair does not start where the column does")
+					.toBeCloseTo(moves.boxLeft, 0);
+				expect(pair.boxWidth, "the arch pair is narrower than the column it heads")
+					.toBeCloseTo(moves.boxWidth, 0);
 			});
 
 			it("keeps the two arches level, though only one of them rolls", () => {
@@ -424,6 +422,16 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			const m = measureAt(width);
 			expect(m.get("railedLineTile").values.boxWidth,
 				`Fortunes is on neither the rail nor the line at ${width}px`).toBeGreaterThan(0);
+		});
+
+		// The rail is the reader's to put away at any width, and the two ratings it was carrying are
+		// already in the line's markup — so shutting it reveals them rather than moving them. If this
+		// fails, collapsing the rail on a wide sheet loses Fortunes and Surplus entirely.
+		it("gives them back when the reader shuts the rail at a wide width", () => {
+			const m = measureAt(1400, { shut: true });
+			expect(m.get("rail").values.boxWidth, "the shut rail still takes room").toBe(0);
+			expect(m.get("railedLineTile").values.boxWidth,
+				"Fortunes is on neither the rail nor the line").toBeGreaterThan(0);
 		});
 
 		it("keeps Size out of the ledger and in its own pill", () => {

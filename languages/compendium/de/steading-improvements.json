@@ -4,6 +4,18 @@
       "source": "Additional Housing",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add any new homes to the map",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when you consume Surplus in winter, consider Population to be 1 lower than it is",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "It's getting crowded! We need more room to live.",
       "text": ""
@@ -21,16 +33,40 @@
       "text": ""
     },
     "choices/4/text": {
-      "source": "And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.",
+      "source": "And then:",
       "text": ""
     },
-    "choices/5/text": {
+    "choices/pull-together/text": {
+      "source": "Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.",
+      "text": ""
+    },
+    "choices/6/text": {
       "source": "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is.",
       "text": ""
     }
   },
   "aetherium-crucible": {
     "name": {
+      "source": "Aetherium Crucible",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "add \"Aetherium Crucible\" to the Resources list and the map",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "as long as you trade aetherium to the outside world, increase Prosperity by 1",
+      "text": ""
+    },
+    "effects/1/condition": {
+      "source": "as long as you trade aetherium to the outside world",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop, and you have advantage to Trade & Barter for aetherium items with special characteristics",
+      "text": ""
+    },
+    "effects/0/listEntry/text": {
       "source": "Aetherium Crucible",
       "text": ""
     },
@@ -76,6 +112,18 @@
       "source": "Aurochs Hunting",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "add \"Aurochs hunting (meat, hide, horn)\" to the Resources list",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "when you lead the aurochs hunt in spring, roll +Defenses: on a 10+, gain 1d4 Surplus; on a 7-9, gain 1d4 Surplus but pick 1 from the list below; on a 6-, pick 1 from the list below, or pick 2 and gain 1d4 Surplus",
+      "text": ""
+    },
+    "effects/0/listEntry/text": {
+      "source": "Aurochs hunting (meat, hide, horn)",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.",
       "text": ""
@@ -112,6 +160,10 @@
   "expanded-trades": {
     "name": {
       "source": "Expanded Trades",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)",
       "text": ""
     },
     "choices/0/text": {
@@ -172,6 +224,22 @@
       "source": "Golden Sapling",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "add \"Golden Sapling\" to the Resources list",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "automatically mark the Greater Harvest improvement",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when the steading generates Surplus, even just 1, it generates +1 Surplus",
+      "text": ""
+    },
+    "effects/0/listEntry/text": {
+      "source": "Golden Sapling",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "Requires all of the following, in order:",
       "text": ""
@@ -200,6 +268,22 @@
   "great-wood-timber": {
     "name": {
       "source": "Great Wood Timber",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Timber from the Great Wood\" to the Resources list",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "Timber from the Great Wood",
       "text": ""
     },
     "choices/0/text": {
@@ -236,6 +320,14 @@
       "source": "Greater Harvest",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "when the autumn harvest is complete, gain +1d4 Surplus",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.",
       "text": ""
@@ -262,6 +354,26 @@
       "source": "Harnessing the Stream",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add them to the Resources list",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus",
+      "text": ""
+    },
+    "effects/2/condition": {
+      "source": "you roll a 7+ with Fortunes",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "Harnessing the Stream",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "A shallow creek flows just below the town. If only it could be harnessed!",
       "text": ""
@@ -271,14 +383,18 @@
       "text": ""
     },
     "choices/reservoir/text": {
-      "source": "A reservoir for the Stream to pool in, and some way for water to flow uphill",
+      "source": "A reservoir for the Stream to pool in",
+      "text": ""
+    },
+    "choices/water-uphill/text": {
+      "source": "Some way for water to flow uphill",
       "text": ""
     },
     "choices/aqueducts/text": {
       "source": "A series of aqueducts, from the Stream's source to Stonetop",
       "text": ""
     },
-    "choices/4/text": {
+    "choices/5/text": {
       "source": "When you **_meet the requirements_**, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.",
       "text": ""
     }
@@ -286,6 +402,34 @@
   "herd-of-horses": {
     "name": {
       "source": "Herd of Horses",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when you leverage the horses to Pull Together, it takes half as long and costs half as much",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "when you Requisition half the herd or less, treat a 6- as a 7-9",
+      "text": ""
+    },
+    "effects/4/text": {
+      "source": "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)",
+      "text": ""
+    },
+    "effects/5/text": {
+      "source": "when winter grips the land, the herd consumes 1 Surplus per 6 grown or yearling horses. For every Surplus not consumed, 1d6 horses are lost",
+      "text": ""
+    },
+    "effects/5/condition": {
+      "source": "1 Surplus per 6 grown or yearling horses",
       "text": ""
     },
     "choices/0/text": {
@@ -324,7 +468,7 @@
       "source": "Pulling Together to have a couple dozen villagers learn to ride, requiring a season and 1 Surplus.",
       "text": ""
     },
-    "choices/9/text": {
+    "choices/mind-the-herd/text": {
       "source": "Someone to mind the herd and stable, full time.",
       "text": ""
     },
@@ -336,6 +480,10 @@
   "heroic-reputation": {
     "name": {
       "source": "Heroic Reputation",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "gain the move: when you first meet someone from beyond Stonetop, roll +Fortunes",
       "text": ""
     },
     "choices/0/text": {
@@ -380,6 +528,30 @@
       "source": "Inn",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "name the inn, add it to both the Resources list and map",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when the seasons change, whoever is friendliest rolls +Fortunes: on a 10+, ask the GM 3 questions about the wider world; on a 7-9, ask 1 question; on a 6-, ask 1 question, but the GM describes some trouble",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "once per season, when you expend 1 Surplus and bring folks together at the inn, clear one of the steading's debilities",
+      "text": ""
+    },
+    "effects/3/condition": {
+      "source": "once per season, when you expend 1 Surplus and bring folks together at the inn",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "The inn",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "The public house offers a common room and shelter for a few horses, but it's hardly a proper inn.",
       "text": ""
@@ -416,6 +588,18 @@
   "market": {
     "name": {
       "source": "Market",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "when the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus",
+      "text": ""
+    },
+    "effects/1/condition": {
+      "source": "the market is active and Population is +1 or better",
       "text": ""
     },
     "choices/0/text": {
@@ -460,6 +644,26 @@
       "source": "Mill",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Mill\" to the Resources list and draw it on the map",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when the autumn harvest is complete, the steading generates +1 Surplus",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "Mill",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.",
       "text": ""
@@ -489,12 +693,28 @@
       "text": ""
     },
     "choices/7/text": {
-      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.",
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of ◇ supplies has 1 extra use.",
       "text": ""
     }
   },
   "palisade": {
     "name": {
+      "source": "Palisade",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Palisade\" to the Fortifications list and draw it on the map",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when you take advantage of the palisade, you have advantage to Deploy",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
       "source": "Palisade",
       "text": ""
     },
@@ -518,7 +738,7 @@
       "source": "Lots of rope, nails, pitch, etc. (Value 2)",
       "text": ""
     },
-    "choices/5/text": {
+    "choices/pull-together/text": {
       "source": "Pulling Together, costing a month and 1 Surplus.",
       "text": ""
     },
@@ -530,6 +750,30 @@
   "permanent-logging-camp": {
     "name": {
       "source": "Permanent Logging Camp",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Logging: timber, wood\" to the Resources list",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "as long as the camp is in operation, the steading consumes 1 less Surplus than usual in winter",
+      "text": ""
+    },
+    "effects/2/condition": {
+      "source": "as long as the camp is in operation",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "the logging camp consumes 1 Surplus every summer or else it ceases operation",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "Logging: timber, wood",
       "text": ""
     },
     "choices/0/text": {
@@ -553,28 +797,44 @@
       "text": ""
     },
     "choices/extra-wagon/text": {
-      "source": "An extra wagon (Value 3) and extra horse or mule (Value 3) to",
-      "text": ""
-    },
-    "choices/haul-timber/text": {
-      "source": "haul timber to and from Stonetop",
+      "source": "An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from Stonetop",
       "text": ""
     },
     "choices/four-seasons/text": {
       "source": "Four seasons of operation, each generating a wagonload of timber (Value 2)",
       "text": ""
     },
-    "choices/8/text": {
+    "choices/7/text": {
       "source": "When you **_mark all the requirements_**, add \"Logging: timber, wood\" to the resources list and increase Fortunes by 1.",
       "text": ""
     },
-    "choices/9/text": {
+    "choices/8/text": {
       "source": "Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation.",
       "text": ""
     }
   },
   "raincatching": {
     "name": {
+      "source": "Raincatching",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Raincatching\" to the Resources list",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus",
+      "text": ""
+    },
+    "effects/2/condition": {
+      "source": "you roll a 7+ with Fortunes",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
       "source": "Raincatching",
       "text": ""
     },
@@ -608,6 +868,26 @@
       "source": "Rhoillyg Orchard",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Rhoillyg Orchard\" to both the Resources list and the steading map",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "the steading generates +1 Surplus in summer",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "and another +1 Surplus when the autumn harvest is complete",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "Rhoillyg Orchard",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "Requires both:",
       "text": ""
@@ -617,7 +897,11 @@
       "text": ""
     },
     "choices/herbalist-considerable/text": {
-      "source": "An herbalist of considerable skill and patience And either of these, to germinate the seeds:",
+      "source": "An herbalist of considerable skill and patience",
+      "text": ""
+    },
+    "choices/3/text": {
+      "source": "And either of these, to germinate the seeds:",
       "text": ""
     },
     "choices/year-so/text": {
@@ -625,7 +909,11 @@
       "text": ""
     },
     "choices/advice-knowledgeable/text": {
-      "source": "Advice from a knowledgeable source And then each of these:",
+      "source": "Advice from a knowledgeable source",
+      "text": ""
+    },
+    "choices/6/text": {
+      "source": "And then each of these:",
       "text": ""
     },
     "choices/full-spring/text": {
@@ -637,13 +925,21 @@
       "text": ""
     },
     "choices/protecting-orchard/text": {
-      "source": "Protecting the orchard through two more summers When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Rhoillyg Orchard\" to both the Resources list and the steading map. Henceforth, the steading generates +1 Surplus in summer and another +1 Surplus when the autumn harvest is complete.",
+      "source": "Protecting the orchard through two more summers",
+      "text": ""
+    },
+    "choices/10/text": {
+      "source": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Rhoillyg Orchard\" to both the Resources list and the steading map. Henceforth, the steading generates +1 Surplus in summer and another +1 Surplus when the autumn harvest is complete.",
       "text": ""
     }
   },
   "roadbuilding": {
     "name": {
       "source": "Roadbuilding",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "you can expand or repair the Makers' Roads. Every ~25 miles of road requires Pulling Together, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies",
       "text": ""
     },
     "choices/0/text": {
@@ -680,6 +976,22 @@
       "source": "Standing Watch",
       "text": ""
     },
+    "effects/0/text": {
+      "source": "add \"standing watch\" to the Fortifications list",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "at the start of each season, the watch consumes 1 Surplus or it disbands",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when you specifically involve the watch in a move, treat Defenses as 1 higher than they are",
+      "text": ""
+    },
+    "effects/0/listEntry/text": {
+      "source": "Standing watch",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "Some full-time warriors would make us all safer, no?",
       "text": ""
@@ -707,6 +1019,22 @@
   },
   "stone-wall": {
     "name": {
+      "source": "Stone Wall",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "when you take advantage of the stone wall, you have advantage to Deploy",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when winter grips the land, the steading consumes 1 less Surplus than normal",
+      "text": ""
+    },
+    "effects/0/listEntry/text": {
       "source": "Stone Wall",
       "text": ""
     },
@@ -742,6 +1070,22 @@
   "township": {
     "name": {
       "source": "Township",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "change Size to town and its Population to +0",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "when you Muster, Pull Together, or Trade & Barter, you have advantage",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when the seasons change to spring or summer, the town generates Surplus equal to Population+1",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population",
       "text": ""
     },
     "choices/0/text": {
@@ -780,6 +1124,30 @@
   "trade-with-barrier-pass": {
     "name": {
       "source": "Trade with Barrier Pass",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Fortunes by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\"",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "when spring bursts forth and Stonetop has at least 1 Surplus, Stonetop gains +1 Surplus from trade",
+      "text": ""
+    },
+    "effects/2/condition": {
+      "source": "Stonetop has at least 1 Surplus",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "when you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink, you have advantage",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
+      "source": "Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)",
       "text": ""
     },
     "choices/0/text": {
@@ -825,6 +1193,30 @@
   },
   "weapons-of-war": {
     "name": {
+      "source": "Weapons of War",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "increase Defenses by 1",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "add \"Weapons of War\" to the Fortifications list",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "each spring, the village must expend 1 Surplus to maintain and replace the town's weapons",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items",
+      "text": ""
+    },
+    "effects/4/text": {
+      "source": "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity",
+      "text": ""
+    },
+    "effects/1/listEntry/text": {
       "source": "Weapons of War",
       "text": ""
     },
@@ -876,6 +1268,18 @@
   "well-trained-militia": {
     "name": {
       "source": "Well-Trained Militia",
+      "text": ""
+    },
+    "effects/0/text": {
+      "source": "when you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)",
+      "text": ""
+    },
+    "effects/1/text": {
+      "source": "when the militia has trained in 2+ tactics, increase Defenses by 1",
+      "text": ""
+    },
+    "effects/2/text": {
+      "source": "each summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic",
       "text": ""
     },
     "choices/0/text": {

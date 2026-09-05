@@ -51,6 +51,16 @@
 		--st-accent:    var(--color-warm-2);
 		--st-highlight: slategrey;
 
+		/* ── The four seasons ────────────────────────────────────────────────────────
+		   The tint the season band and the wheel's current segment take. Never the only
+		   carrier of the season: it is stated in words on the ledger line and on the
+		   wheel, and the band itself is aria-hidden. Distinguishable from each other by
+		   lightness as well as by hue, so they still read apart in monochrome. */
+		--st-season-spring: hsl(126deg 30% 34%);
+		--st-season-summer: hsl(43deg 62% 33%);
+		--st-season-autumn: hsl(27deg 58% 38%);
+		--st-season-winter: hsl(205deg 32% 40%);
+
 		/* ── Semantics: the book's, not Foundry's ───────────────────────────────────── */
 		--st-danger:        #a00;
 		--st-danger-strong: #7a1414;

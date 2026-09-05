@@ -94,7 +94,69 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "any": 1,
+          "of": [
+            {
+              "all": [
+                "compelling-good"
+              ]
+            },
+            {
+              "all": [
+                "other-reason"
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            "market-site"
+          ]
+        },
+        {
+          "all": [
+            "arbiter"
+          ]
+        },
+        {
+          "all": [
+            "four-seasons"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "prosperity",
+          "amount": 1
+        },
+        "text": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "spring",
+            "summer",
+            "autumn"
+          ]
+        },
+        "change": {
+          "target": "surplus",
+          "amount": 1
+        },
+        "condition": "the market is active and Population is +1 or better",
+        "text": "when the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

@@ -1,9 +1,11 @@
+import { Impressions } from "../../model/data/steading/Impressions.js";
+import { Seasons } from "../../model/data/steading/Seasons.js";
 // Apply a steadfast's definition to a steading actor: copy the shared profile fields onto the actor
 // (independent copies it then edits in play — the character/playbook pattern, where the actor's live
 // state lives on the actor, seeded from the definition) and record which steadfast it came from. The
 // actor's runtime state (folk, debilities, content, improvementValues) is
 // left untouched.
-const PROFILE_FIELDS = ["attributes", "assets", "placesOfInterest", "neighborPlaces", "residents", "improvements"];
+const PROFILE_FIELDS = ["attributes", "assets", "placesOfInterest", "neighborPlaces", "residents", "improvements", "impressions"];
 
 export async function applySteadfast(actor, steadfast) {
 	const src = steadfast.system;
@@ -12,6 +14,12 @@ export async function applySteadfast(actor, steadfast) {
 	// The steadfast's attributes are its starting values; keep an immutable copy so the "Starts at …"
 	// notes stay correct after the live `attributes` are edited in play.
 	update["system.startingAttributes"] = structuredClone(src.attributes);
+	// Every steading begins in spring, so it begins with something to say about spring: the wheel
+	// stamps an impression each time it turns, and without this the very first season — the one a
+	// new steading spends its whole first play in — would be the only one with none.
+	const impression = Impressions.fromRaw(src.impressions)
+		.pickFor(Seasons.byKey(actor.system?.season));
+	update["system.seasonImpression"] = impression ?? "";
 	await actor.update(update);
 }
 

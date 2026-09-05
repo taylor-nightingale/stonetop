@@ -168,10 +168,143 @@ describe("scan, then click (integration)", () => {
 	// The reference lists are the steading's own names AND every neighbouring place's.
 	it("offers a neighbouring place's names too, under its own heading", async () => {
 		const root = await render(makeSheet(), true);
-		const titles = [...root.querySelectorAll(".steading-folk-list-title")].map(t => t.textContent);
+		const titles = [...root.querySelectorAll(".steading-folk-list-title")].map(t => t.textContent.trim());
 
 		expect(titles).toContain("Names — Marshedge");
 		expect(entryFor(root, "Seadha")).toBeTruthy();
+	});
+
+	// A name off a neighbouring place's list says two things at once — who this is and where they
+	// are from — so the Home column is filled by the same click.
+	it("homes a villager created from a neighbouring place's name at that place", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+
+		await act(sheet, "useName", entryFor(root, "Seadha"));
+
+		expect(homeOf(rows(await render(sheet))[0])).toBe("Marshedge");
+	});
+
+	it("homes the focused row at the place a name was taken from", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		focusRow(sheet, root, rows(root)[0].dataset.id);
+
+		await act(sheet, "useName", entryFor(root, "Seadha"));
+
+		expect(homeOf(rows(await render(sheet))[0])).toBe("Marshedge");
+	});
+
+	// A default, never a correction: the steading's own names leave the Home column blank, which is
+	// what says "lives here".
+	it("leaves the home blank for a name off the steading's own list", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+
+		await act(sheet, "useName", entryFor(root, "Bryn"));
+
+		expect(homeOf(rows(await render(sheet))[0])).toBe("");
+	});
+
+	it("does not move somebody the table has already placed", async () => {
+		const sheet = makeSheet();
+		await act(sheet, "addPerson", null);
+		const root = await render(sheet, true);
+		const { id } = rows(root)[0].dataset;
+		await sheet.actor.typedActor.updatePersonHome(id, "Lygos");
+
+		const next = await render(sheet);
+		focusRow(sheet, next, id);
+		await act(sheet, "useName", entryFor(next, "Seadha"));
+
+		const after = rows(await render(sheet))[0];
+		expect(nameOf(after)).toBe("Seadha");
+		expect(homeOf(after)).toBe("Lygos");
+	});
+});
+
+// Six or seven name pools is a column several screens long, and all but one of them are places most
+// villagers are not from.
+describe("folding a name list away (integration)", () => {
+	const listToggles = root => [...root.querySelectorAll(".steading-folk-list-toggle")];
+	const listBody    = toggle => document.getElementById(toggle.getAttribute("aria-controls"));
+	// The list this toggle drives, as FolkSuggestions keys it: "names-own", "names-lygos", "traits".
+	const keyOf       = toggle => toggle.getAttribute("aria-controls").replace(/^.*-folk-/, "");
+	const isOpen      = toggle => !listBody(toggle).hidden;
+	const toggleFor   = (root, key) => listToggles(root).find(t => keyOf(t) === key);
+
+	it("arrives with the steading's own names open and each neighbour's folded", async () => {
+		const root = await render(makeSheet(), true);
+		const toggles = listToggles(root);
+		expect(toggles.length, "the fixture has only one list to compare").toBeGreaterThan(1);
+
+		for (const toggle of toggles) {
+			const shouldBeOpen = keyOf(toggle) === "names-own" || keyOf(toggle) === "traits";
+			expect(isOpen(toggle), `${keyOf(toggle)} arrived ${shouldBeOpen ? "shut" : "open"}`)
+				.toBe(shouldBeOpen);
+			// The two halves of a disclosure's state have to agree, or a screen reader and the page
+			// are describing different columns.
+			expect(toggle.getAttribute("aria-expanded")).toBe(String(shouldBeOpen));
+		}
+	});
+
+	it("folds one list away without touching the others", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		const own = toggleFor(root, "names-own");
+		const others = listToggles(root).filter(t => t !== own);
+
+		await act(sheet, "toggleFolkList", own);
+
+		expect(listBody(own).hidden).toBe(true);
+		expect(own.getAttribute("aria-expanded")).toBe("false");
+		for (const other of others) {
+			expect(isOpen(other), `folding the steading's own names moved ${keyOf(other)}`)
+				.toBe(keyOf(other) === "traits");
+		}
+	});
+
+	// The other direction: a place the reader opens is a place they meant to open, and it has to
+	// still be open after the render the next click causes.
+	it("keeps a neighbour's list open once the reader unfolds it", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		const neighbour = listToggles(root).find(t => keyOf(t).startsWith("names-") && keyOf(t) !== "names-own");
+		expect(neighbour, "the fixture seeds no neighbouring place").toBeTruthy();
+
+		await act(sheet, "toggleFolkList", neighbour);
+		expect(isOpen(neighbour)).toBe(true);
+
+		const next = await render(sheet);
+		expect(isOpen(toggleFor(next, keyOf(neighbour))), "the unfold did not survive the render").toBe(true);
+	});
+
+	// Clicking a name writes to the actor, which re-renders the sheet — so a fold that did not
+	// survive a render would spring open again on the very next thing the reader did.
+	it("stays folded across the render an edit causes", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		const folded = listToggles(root)[0];
+		await act(sheet, "toggleFolkList", folded);
+
+		const next = await render(sheet);
+		const again = listToggles(next)[0];
+
+		expect(listBody(again).hidden, "the fold did not survive the render").toBe(true);
+		expect(again.getAttribute("aria-expanded")).toBe("false");
+	});
+
+	it("unfolds again on a second activation", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		const toggle = listToggles(root)[0];
+
+		await act(sheet, "toggleFolkList", toggle);
+		await act(sheet, "toggleFolkList", toggle);
+
+		const next = await render(sheet);
+		expect(listBody(listToggles(next)[0]).hidden).toBe(false);
 	});
 });
 

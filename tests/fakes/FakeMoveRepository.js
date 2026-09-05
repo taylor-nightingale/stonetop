@@ -47,6 +47,19 @@ export class FakeMoveRepository {
 		return slugs.map(s => index.get(s)).filter(Boolean);
 	}
 
+	// Item-shaped entries rather than flat Move models — what buildMoveSnapshot and GrantedMoves read.
+	// Mirrors the real repo: order-preserving, first slug wins, unknowns dropped.
+	async getMoveEntriesBySlugs(slugs = []) {
+		if (!slugs?.length) return [];
+		const world  = await this._worldStore.getAll();
+		const bySlug = new Map();
+		for (const entry of [...this._playbookMoves, ...this._basicMoves, ...this._insertMoves, ...world]) {
+			const slug = new Move(entry).slug;
+			if (slug && !bySlug.has(slug)) bySlug.set(slug, entry);
+		}
+		return slugs.map(s => bySlug.get(s)).filter(Boolean);
+	}
+
 	async getReferencedMoveDocument(id) {
 		return this._insertMoves.find(m => m._id === id)
 			?? this._playbookMoves.find(m => m._id === id)

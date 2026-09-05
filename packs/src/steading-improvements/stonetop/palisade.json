@@ -59,9 +59,13 @@
         },
         {
           "type": "entry",
+          "slug": "pull-together",
           "content": {
             "title": null,
             "text": "Pulling Together, costing a month and 1 Surplus."
+          },
+          "track": {
+            "max": 1
           }
         },
         {
@@ -72,7 +76,59 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "timber"
+          ]
+        },
+        {
+          "all": [
+            "engineer-foreman"
+          ]
+        },
+        {
+          "all": [
+            "rope-nails-pitch"
+          ]
+        },
+        {
+          "all": [
+            "pull-together"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "fortifications",
+          "text": "Palisade"
+        },
+        "text": "add \"Palisade\" to the Fortifications list and draw it on the map"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you take advantage of the palisade, you have advantage to Deploy"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

@@ -44,12 +44,12 @@ async function makeWiredSheet({ editable = true } = {}) {
 
 	const sheet = new StonetopSteadingSheet(actor);
 	sheet.isEditable = editable;
-	// Mirrors what steading-improvement-panel.hbs emits for one owned improvement. The
+	// Mirrors what steading-improvement-card.hbs emits for one owned improvement. The
 	// "template ↔ handler contract" tests below keep this stub honest about the real markup.
 	sheet.element.innerHTML = `
-		<div class="steading-improvement-group steading-block">
+		<div class="steading-improvement-card steading-block" data-slug="palisade">
 			<button type="button" class="steading-improvement-remove stonetop-icon-btn"
-			        data-action="revokeImprovement" data-slug="palisade" data-name="palisade"></button>
+			        data-action="revokeImprovement" data-slug="palisade" data-name="Palisade"></button>
 		</div>`;
 	await sheet._onFirstRender({}, {});
 	sheet._onRender({}, {});
@@ -73,7 +73,7 @@ async function drop(sheet, item) {
 const ownedSlugs = actor => actor.system.improvements;
 // Through the steading's own snapshot — its collaborators are private, and what the sheet
 // renders is what this test is about anyway.
-const renderedSlugs = async steading => (await steading.buildSnapshot()).improvements.map(g => g.slug);
+const renderedSlugs = async steading => (await steading.buildSnapshot()).improvements.entries.map(g => g.slug);
 
 describe("StonetopSteadingSheet — dropping an improvement onto a steading", () => {
 	it("grants the slug and renders the improvement, without embedding an item", async () => {
@@ -190,7 +190,8 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 		await clickRemove(sheet);
 
 		expect(confirmCalls).toHaveLength(1);
-		expect(confirmCalls[0].content).toContain("palisade");
+		// The improvement's name, not its slug: "Remove herd-of-horses?" is not what anyone calls it.
+		expect(confirmCalls[0].content).toContain("Palisade");
 		expect(ownedSlugs(actor)).not.toContain("palisade");
 		expect(await renderedSlugs(steading)).not.toContain("palisade");
 	});
@@ -236,7 +237,7 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 		// Re-granted the way a drop does it, through the steading's public surface.
 		await steading.applyDroppedItem({ type: "improvement", system: { slug: "palisade" } });
 		const snap = await steading.buildSnapshot();
-		expect(snap.improvements.find(g => g.slug === "palisade").list[0].track.checks).toEqual([true, true]);
+		expect(snap.improvements.entries.find(g => g.slug === "palisade").group.list[0].track.checks).toEqual([true, true]);
 	});
 
 	it("does not wire the × on a non-editable sheet", async () => {
@@ -254,9 +255,9 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 // actually emits that markup in the game. Nothing renders .hbs in these tests (Foundry compiles the
 // templates), so assert the two agree — otherwise renaming the class or the data attribute in one
 // file leaves every test above passing against a stub that no longer matches the real sheet.
-describe("steading-improvement-panel.hbs ↔ revoke handler contract", () => {
+describe("steading-improvement-card.hbs ↔ revoke handler contract", () => {
 	const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
-	const template = read("templates/actor/partials/steading-improvement-panel.hbs");
+	const template = read("templates/actor/partials/steading-improvement-card.hbs");
 	const sheetSource = read("src/actors/steading/StonetopSteadingSheet.js");
 
 	it("emits the action the sheet registers", () => {
@@ -266,16 +267,25 @@ describe("steading-improvement-panel.hbs ↔ revoke handler contract", () => {
 
 	it("passes the improvement's slug as the data the handler reads", () => {
 		expect(template).toContain('data-slug="{{slug}}"');
-		expect(template).toContain('data-name="{{slug}}"');   // shown in the confirm prompt
+		// The improvement's NAME is what the confirm prompt shows — the slug was what it had before
+		// the card had the name to hand, and "Remove herd-of-horses?" is not what anyone calls it.
+		expect(template).toContain('data-name="{{name}}"');
 	});
 
 	it("renders the control only on an editable sheet", () => {
 		expect(template).toMatch(/\{\{#if @root\.editable\}\}[\s\S]*steading-improvement-remove[\s\S]*\{\{\/if\}\}/);
 	});
 
-	it("renders each owned improvement through the shared panel partial", () => {
+	// One board, which renders one card per owned improvement. It replaced three fixed columns each
+	// invoking the panel partial itself — a count of three here was a count of COLUMNS, and said
+	// nothing about whether an improvement reached the page.
+	it("renders every owned improvement through the one board", () => {
 		const steadingTemplate = read("templates/actor/steading.hbs");
-		const panelUses = steadingTemplate.match(/stonetop\.steading-improvement-panel/g) ?? [];
-		expect(panelUses).toHaveLength(3);   // one per improvement column
+		expect(steadingTemplate.match(/stonetop\.steading-improvement-board/g) ?? []).toHaveLength(1);
+		expect(steadingTemplate).not.toContain("steading-improvement-panel");
+
+		const board = read("templates/actor/partials/steading-improvement-board.hbs");
+		expect(board).toContain("{{#each board.entries}}");
+		expect(board).toContain('{{> "stonetop.steading-improvement-card"}}');
 	});
 });

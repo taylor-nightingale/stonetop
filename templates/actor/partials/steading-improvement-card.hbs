@@ -1,0 +1,88 @@
+{{!-- One improvement on the project board.
+
+      Shut, it is a name and a meter — how far along, at a glance. Open, it is the improvement's real
+      choice group, with the requirement boxes you actually tick, through the same
+      `improvement-group` partial the item sheet and the steadfast render.
+
+      Between the two, chips — and deliberately no summary SENTENCE. A card that quoted what the
+      improvement still needed, or what it did once built, was quoting rows the group below renders in
+      full: the same words twice, once paraphrased into a frame that read oddly beside the real thing.
+      A chip quotes nothing. It carries the numbers the result already states as data — `+1 Fortunes`,
+      `Autumn +1 Surplus` — which is precisely what the prose below cannot give at a glance. Results
+      with nothing but prose behind them get no chip at all.
+
+      Context = an ImprovementProgress. --}}
+<div class="steading-improvement-card steading-block{{#if isComplete}} is-complete{{/if}}{{#if isUntouched}} is-untouched{{/if}}"
+     data-disclosure-row data-slug="{{slug}}" data-state="{{state}}">
+
+	<div class="steading-improvement-card-top">
+
+		<button type="button" class="steading-improvement-disclosure" data-action="toggleImprovementCard"
+		        data-disclosure data-view-state
+		        aria-expanded="false" aria-controls="{{@root.sheetIdPrefix}}-improvement-{{slug}}">
+			<i class="fas fa-caret-right stonetop-move-caret" aria-hidden="true"></i>
+			<span class="steading-improvement-name">{{name}}</span>
+		</button>
+
+		{{!-- The meter says its own numbers out loud beside the pips: the pips are the shape of the
+		      progress, the count is the progress. A reader who cannot see the pips still gets it. --}}
+		<span class="steading-improvement-meter">
+			<span class="steading-improvement-pips" aria-hidden="true">
+				{{#each meter}}<i class="steading-improvement-pip{{#if this}} is-on{{/if}}"></i>{{/each}}
+			</span>
+			<span class="steading-improvement-count">
+				{{#if isComplete}}
+					{{localize "stonetop.steading.improvements.complete"}}
+				{{else}}
+					{{localize "stonetop.steading.improvements.progress" ticked=ticked total=total}}
+				{{/if}}
+			</span>
+		</span>
+
+		{{#if @root.editable}}
+			<button type="button" class="steading-improvement-remove stonetop-icon-btn" data-action="revokeImprovement"
+			        data-slug="{{slug}}" data-name="{{name}}"
+			        title="{{localize 'stonetop.steading.improvementRemove'}}"
+			        aria-label="{{localize 'stonetop.steading.improvementRemove'}}">
+				<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+			</button>
+		{{/if}}
+
+	</div>
+
+	{{#if chips}}
+		{{!-- Dimmed until earned: a chip on an unfinished improvement is what it WILL do. --}}
+		<ul class="steading-effect-chips">
+			{{#each chips}}
+				<li class="steading-effect-chip{{#unless earned}} is-pending{{/unless}}">
+					{{#each timingKeys}}
+						<span class="steading-effect-when">{{localize this}}</span>
+					{{/each}}
+					{{#if amount}}<span class="steading-effect-amount">{{amount}}</span>{{/if}}
+					<span class="steading-effect-subject">{{localize subjectKey}}{{#if text}}:{{/if}}</span>
+					{{#if text}}<span class="steading-effect-entry">{{text}}</span>{{/if}}
+				</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+
+	{{!-- Just finished, and the steading is owed something for it. Offered here because ticking the
+	      last requirement happens right here — not on another tab the table has to remember to
+	      visit. It goes as soon as it is applied; a completion is owed once, ever. --}}
+	{{#if isCompletionPending}}
+		<div class="steading-improvement-completion">
+			<p class="steading-improvement-completion-head">{{localize "stonetop.steading.effects.completed" name=name}}</p>
+			{{!-- Only what the sheet can DO. What it merely states is already in this card's own prose,
+			      a line below — restating it here was the same duplication that made the old summary
+			      read oddly. --}}
+			{{> "stonetop.steading-statement" statement=completion showAdvisory=false
+			    applyAction="applyCompletion" applySlug=slug
+			    applyLabel="stonetop.steading.effects.apply"}}
+		</div>
+	{{/if}}
+
+	<div class="steading-improvement-body" id="{{@root.sheetIdPrefix}}-improvement-{{slug}}" hidden>
+		{{#with group}}{{> "stonetop.improvement-group"}}{{/with}}
+	</div>
+
+</div>

@@ -37,6 +37,17 @@ export const BUILDERS = [
 	// Book I's reference articles — "Gear & Possessions" and "If You Want To…" — into the reference
 	// pack. LAST: its value tables link the items build-items.js has just written.
 	"scripts/import/build-book-one.js",
+	// Merges the hand-authored improvement model (data/improvement-effects.json) onto every
+	// improvement item — what it requires, and what each of its results does. A pass over the pack
+	// SOURCES rather than the PDF, and it must run AFTER build-improvements.js: that script clears
+	// and regenerates steading-improvements/additional/, so a field written before it is dropped by
+	// the next full rebuild. It covers the hand-authored stonetop/ half too, which no other builder
+	// touches, and FAILS rather than writing when the model and the pack have drifted apart.
+	"scripts/import/build-improvement-effects.js",
+	// Lifts each steading article's per-season "Impressions" lines into its steadfast. After
+	// build-journal (which writes the article it reads) and after build-steadfasts (which owns the
+	// steadfasts folder, though it protects the hand-authored stonetop.json by name).
+	"scripts/import/build-steading-impressions.js",
 ];
 
 // Flags a builder needs to write everything it owns. build-arcana writes the arcana CARDS only when

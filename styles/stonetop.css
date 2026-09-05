@@ -47,13 +47,6 @@
 
 /* Custom CSS */
 
-/* Foundry core puts a 1px border on every <img> inside a sheet/app window
-   (.window-app img). We never want borders around icons/portraits, so strip them
-   once here authoritatively instead of adding per-element `border: none` overrides. */
-.stonetop.sheet img {
-	border: none;
-}
-
 /* Hide images that fail to load (tagged by installBrokenImageHider). Our copyrighted
    illustrations live in the gitignored stonetop-art/ store; when it isn't populated those
    refs would otherwise show Foundry's broken-image placeholder. */
@@ -1566,6 +1559,10 @@ body,
 	   height instead of stopping at the current tab's content. */
 	align-self: stretch;
 	overflow-y: auto;
+	/* The toggle sits in this corner at every width now, so the rail reserves the strip it occupies
+	   rather than putting its first row underneath the control that closes it. Same reservation the
+	   drawer makes below, for the same reason. */
+	padding-top: 32px;
 }
 
 /* The rule sits between the rail and the tab, whichever side that is. `order` is what puts a
@@ -1583,43 +1580,94 @@ body,
 	padding-right: 12px;
 }
 
-/* Wide layout: the rail is an inline column, so there is nothing to disclose. */
-.stonetop-rail-toggle { display: none; }
+/* The toggle, at every width.
 
-/* Narrow layout: collapse the rail and reveal a toggle that slides it out as an overlay on top of
-   the current tab, so the tab content gets the full width by default. */
+   A rail is a column of the sheet the reader may simply not want right now — the arches and the
+   homefront moves while reading the roster, the move index while shopping — and "you may put it
+   away only when your window is small" is a rule about the window rather than about the reader. So
+   the control is always there, and what changes with the width is only what the rail DOES when it
+   is showing: an inline column above the breakpoint, an overlay drawer below it.
+
+   Absolutely positioned in the layout's own corner, which is the rail's top corner while the rail is
+   inline and the tab's while it is not. Everything that lives in that corner steps aside by the
+   gutter below rather than by hard-coding this button's size in four places. */
+.stonetop-rail-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 2px;
+	z-index: 5;
+	/* 24px is the SC 2.5.8 floor; this clears it with the border included. */
+	width: 26px;
+	height: 26px;
+	padding: 0;
+	line-height: 1;
+	border: 1px solid var(--st-rule);
+	border-radius: 4px;
+	background: var(--st-paper);
+	cursor: pointer;
+}
+.stonetop-rail-layout[data-side="right"] .stonetop-rail-toggle { right: 2px; }
+.stonetop-rail-layout[data-side="left"]  .stonetop-rail-toggle { left: 2px; }
+
+.stonetop-rail-toggle > i {
+	margin: 0;
+	line-height: 1;
+}
+
+/* Put away: the inline rail is gone and the tab has the whole layout. The two ratings a steading's
+   rail carries come back to the ledger line on their own — see the handoff rule, which asks this
+   same class rather than asking the width.
+
+   Only where the rail is inline. Below the breakpoint a shut rail is already off-screen by its own
+   transform, and `display: none` there would cancel the slide in both directions — the drawer would
+   snap shut and snap back rather than move. */
+@container (min-width: 900.01px) {
+	/* `.stonetop.sheet` carries no meaning here beyond weight: each sheet declares its own rail's
+	   `display` (the steading's is a flex column), and a state that hides the whole thing has to
+	   outrank every one of them. */
+	.stonetop.sheet .stonetop-rail-layout.rail-shut > .stonetop-rail {
+		display: none;
+	}
+}
+
+/* How much room the toggle takes out of the corner it is in. Zero while it sits over the RAIL —
+   the rail reserves its own strip — and a button's width once it sits over the tab instead, which
+   is what a shut rail at any width and a drawer at a narrow one both mean. */
+/* Declared on the region BESIDE the rail rather than on the layout: everything that spends the
+   gutter is inside it, and the narrow case below is an unnamed container query — which binds to the
+   nearest ancestor container. From the layout that is the sheet wrapper (a different width); from
+   the region it is the layout itself, which is the thing whose width the breakpoint is about. */
+.stonetop-rail-layout > .stonetop-rail-main { --rail-toggle-gutter: 0px; }
+.stonetop-rail-layout.rail-shut > .stonetop-rail-main { --rail-toggle-gutter: 32px; }
+
+/* A left-hand rail opens ABOVE its sheet's masthead, so its toggle lands in the top-left corner —
+   which on the steading is exactly where the name is. It sat on top of the name, both at the same
+   origin, and read as a smudge on the word. The band steps aside for it instead. */
+.stonetop-rail-layout[data-side="left"] > .stonetop-rail-main > .steading-line {
+	padding-left: var(--rail-toggle-gutter);
+}
+
+/* Everything else that lives in that corner of a tab — the insert controls, and the tab toolbars
+   pinned there. Both are on the right-hand rail's sheet. */
+.stonetop-rail-layout[data-side="right"] .stonetop-insert-actions {
+	padding-right: var(--rail-toggle-gutter);
+}
+
+.stonetop-rail-layout[data-side="right"] .stonetop-moves-toolbar,
+.stonetop-rail-layout[data-side="right"] .stonetop-playbook-toolbar {
+	right: var(--rail-toggle-gutter);
+}
+
+/* Narrow layout: the rail stops being an inline column and becomes an overlay the toggle slides out
+   on top of the current tab, so the tab content gets the full width by default. */
 @container (max-width: 900px) {
-	.stonetop-rail-toggle {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		position: absolute;
-		top: 2px;
-		z-index: 5;
-		/* 24px is the SC 2.5.8 floor; this clears it with the border included. */
-		width: 26px;
-		height: 26px;
-		padding: 0;
-		line-height: 1;
-		border: 1px solid var(--st-rule);
-		border-radius: 4px;
-		background: var(--st-paper);
-		cursor: pointer;
-	}
-	.stonetop-rail-layout[data-side="right"] .stonetop-rail-toggle { right: 2px; }
-	.stonetop-rail-layout[data-side="left"]  .stonetop-rail-toggle { left: 2px; }
+	/* The tab is under the toggle whichever way the rail is set, so the gutter is spent here at every
+	   state. Same specificity as the base declaration and later in the file, so it wins; `.rail-shut`
+	   above it is more specific still and agrees. */
+	.stonetop-rail-layout > .stonetop-rail-main { --rail-toggle-gutter: 32px; }
 
-	/* A left-hand rail opens ABOVE its sheet's masthead, so its toggle lands in the top-left corner —
-	   which on the steading is exactly where the name is. It sat on top of the name, both at the same
-	   origin, and read as a smudge on the word. The band steps aside for it instead. */
-	.stonetop-rail-layout[data-side="left"] > .stonetop-rail-main > .steading-line {
-		padding-left: 34px;
-	}
-
-	.stonetop-rail-toggle > i {
-		margin: 0;
-		line-height: 1;
-	}
 	.stonetop-rail {
 		position: absolute;
 		top: 0;
@@ -1648,16 +1696,6 @@ body,
 	}
 	.stonetop-rail-layout.rail-open .stonetop-rail {
 		transform: translateX(0);
-	}
-	/* Clear the rail toggle (top:2, 26px wide): everything else that lives in that corner of a tab
-	   has to step aside for it — the insert controls, and the tab toolbars pinned there. */
-	.stonetop-rail-layout[data-side="right"] .stonetop-insert-actions {
-		padding-right: 32px;
-	}
-
-	.stonetop-rail-layout[data-side="right"] .stonetop-moves-toolbar,
-	.stonetop-rail-layout[data-side="right"] .stonetop-playbook-toolbar {
-		right: 32px;
 	}
 }
 
@@ -4423,6 +4461,16 @@ button.stonetop-xp-toggle {
 	--font-serif:   "IM Fell English", Georgia, serif;
 	--font-primary: "IM Fell English", Georgia, serif;
 
+	/* DIGITS, and only digits.
+	   The book's roman is a scan of a 17th-century face: its figures are old-style, irregular in
+	   width, and its zero is the height and shape of an `o`. That is right for prose and wrong for
+	   the six numbers this sheet exists to state — at value size, `0` read as a letter and `-1`
+	   ahead of "lacking" read as an em dash. Signika is Foundry's own UI face, already loaded in
+	   every world, and its figures are lining, monoline and unambiguous.
+	   A rating's NAME stays in the book's voice; it is the number that changes face, which also
+	   makes a value unmistakable on a line with no room for boxes or rules around it. */
+	--font-numeral: Signika, "Segoe UI", sans-serif;
+
 	--fs-micro:      0.8rem;      /* notes, glosses, population bands           12.8px */
 	--fs-fine:       0.875rem;    /* debility names, band labels, coinage       14px   */
 	--fs-note:       0.9375rem;   /* list rows, move text, prose                15px   */
@@ -4487,17 +4535,29 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-main > .sheet-body {
 	flex: 1 1 auto;
 	min-height: 0;
+	/* The width a TAB actually has, which is the sheet's less the rail's — and the rail comes and goes
+	   now, at every width. A tab that asked `steading-sheet` was answering about a region up to 220px
+	   wider than itself, so the two-column tabs held their split ~220px past the point where they
+	   still fitted. Named for the same reason every container here is: an unnamed one binds to
+	   whatever ancestor is nearest, which is a silent trap the moment another is added above it. */
+	container-type: inline-size;
+	container-name: steading-tab;
 }
 
-/* The handoff. Above the rail's breakpoint the rail shows Fortunes and Surplus, so the line does
-   not; at or below it the rail is a drawer and the line takes them back. `900.01px` against the
-   rail's `max-width: 900px`: at exactly 900 the rail is already collapsed, and a `min-width: 900`
-   here would hide the two ratings on the one width where nothing else is showing them. */
+/* The handoff. Where the rail is showing Fortunes and Surplus the line does not; where it is not —
+   below the breakpoint, where it is a drawer, or put away by its toggle at any width — the line
+   takes them back. `900.01px` against the rail's `max-width: 900px`: at exactly 900 the rail is
+   already collapsed, and a `min-width: 900` here would hide the two ratings on the one width where
+   nothing else is showing them.
+
+   `:not(.rail-shut)` is the whole of what the collapse costs this sheet: the two ratings are already
+   in the line's markup at every width, so putting the rail away reveals them rather than moving
+   them, and there is no second code path to keep in step. */
 @container steading-sheet (min-width: 900.01px) {
 	/* `.steading-tile.steading-railed`, not the marker alone: the line's own tile rule sets
 	   `display: flex` at equal specificity and later in the file, so a three-class selector here
 	   loses the tie and the two ratings stay on the line at every width. */
-	.stonetop.sheet.steading .steading-line .steading-tile.steading-railed {
+	.stonetop.sheet.steading .stonetop-rail-layout:not(.rail-shut) .steading-line .steading-tile.steading-railed {
 		display: none;
 	}
 }
@@ -4586,6 +4646,34 @@ button.stonetop-xp-toggle {
    second code path. */
 /* The season's tint. A custom property rather than a fixed colour: phase 4 sets it per season, and
    until then it is the sheet's own accent, so the rule is drawn once and never re-laid-out. */
+/* The four season tints, chosen for the dark parchment and keyed off the season the sheet root
+   carries. The colour is NEVER the only carrier: the season is stated in words on the ledger line
+   and on the wheel, and the band itself is aria-hidden. */
+/* Both the tint and the GLYPH hang off the one attribute, so an element that says which season it
+   is gets the whole of that season's identity by inheritance.
+
+   The url()s are stylesheet-relative on purpose. A Foundry install can be served under a route
+   prefix (https://host/foundry/), and an absolute /systems/… resolves against the domain root and
+   404s there — which is why these are `../assets/…` and never a path handed in from JS. A relative
+   url() inside a custom property resolves against THIS stylesheet, which is exactly what makes it
+   correct here and exactly what made a document path (systems/stonetop/…) wrong. */
+.stonetop.sheet.steading [data-season="spring"] {
+	--steading-season-tint: var(--st-season-spring);
+	--steading-glyph: url("../assets/content/seasons/season-spring.png");
+}
+.stonetop.sheet.steading [data-season="summer"] {
+	--steading-season-tint: var(--st-season-summer);
+	--steading-glyph: url("../assets/content/seasons/season-summer.png");
+}
+.stonetop.sheet.steading [data-season="autumn"] {
+	--steading-season-tint: var(--st-season-autumn);
+	--steading-glyph: url("../assets/content/seasons/season-autumn.png");
+}
+.stonetop.sheet.steading [data-season="winter"] {
+	--steading-season-tint: var(--st-season-winter);
+	--steading-glyph: url("../assets/content/seasons/season-winter.png");
+}
+
 .stonetop.sheet.steading .steading-season-band {
 	height: 3px;
 	border-radius: 2px;
@@ -4787,7 +4875,8 @@ button.stonetop-xp-toggle {
 }
 
 /* Size names a tier rather than stepping a number, but it is still a value on a rule — so the
-   browser's dropdown chrome comes off and it is drawn like the numbers beside it. */
+   browser's dropdown chrome comes off and it is drawn like the numbers beside it. It keeps the face
+   it inherits, though — it holds a word, not a number. */
 .stonetop.sheet.steading .steading-tile-select {
 	appearance: none;
 	-webkit-appearance: none;
@@ -4905,14 +4994,6 @@ button.stonetop-xp-toggle {
    the next question at the table, and Foundry's tooltips are pointer-only and invisible to
    assistive tech. */
 
-.stonetop.sheet.steading .steading-debility-line {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 0.2rem 1.5rem;
-	padding-top: 0.3rem;
-	border-top: 1px solid var(--st-rule-veil);
-}
-
 .stonetop.sheet.steading .steading-debility {
 	display: grid;
 	grid-template-columns: auto 1fr;
@@ -4942,12 +5023,21 @@ button.stonetop-xp-toggle {
 	min-width: 0;
 }
 
-/* Marked: the accent, and the effect stops being fine print — this is the one somebody is about
-   to ask about. */
+/* Marked: the NAME carries the alarm and the effect stops being fine print — this is the one
+   somebody is about to ask about.
+
+   Only the name is red. The effect is a sentence of rules text ("treat Prosperity as if it's 1
+   lower"), and a whole sentence in the danger colour reads as an error message rather than as what
+   the steading currently does; full ink at the same weight says "this one is live" without shouting
+   a line of prose. The red stays where it is one word and means one thing. */
 .stonetop.sheet.steading .steading-debility.is-active .steading-debility-name,
 .stonetop.sheet.steading .steading-debility.is-active .steading-debility-effect {
-	color: var(--st-danger);
+	color: var(--st-ink);
 	font-style: normal;
+}
+
+.stonetop.sheet.steading .steading-debility.is-active .steading-debility-name {
+	color: var(--st-danger);
 }
 
 .stonetop.sheet.steading .steading-circle-input {
@@ -4962,10 +5052,15 @@ button.stonetop-xp-toggle {
 	width: 0.6rem;
 	height: 0.6rem;
 	flex: 0 0 auto;
-	margin-top: 0.25em;
 	border: 1px solid var(--st-rule-strong);
 	border-radius: 50%;
 }
+
+/* No nudge down onto a first line. The conditions are one flex row that centres its own mark against
+   the words beside it, and a `margin-top` on top of that centring pushed the circle 1.8px below the
+   middle of a 9.6px circle — exactly the kind of thing that reads as "not quite right" without being
+   nameable. It was correct for a block form (name over a wrapped effect, aligned to start) that this
+   sheet no longer renders. */
 
 .stonetop.sheet.steading .steading-circle-input:checked + .steading-circle {
 	background: var(--st-danger);
@@ -5152,6 +5247,21 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
+/* A rating's gap is the room its carets appear in.
+
+   They are out of flow (see below), so at 0.25rem they had nowhere to appear but on top of the tile's
+   own neighbours: ▾ landed on the die at the end of the roll button, and ▴ landed on the note — the
+   control covering the two things it sits between. Nothing showed it until a pointer arrived, which
+   is the worst time to find out.
+
+   Derived from the caret rather than measured against it: the gap exists to hold that button, so it
+   is that button's width plus enough air to read as a gap. Move `--steading-line-caret-w` and both the
+   arrows and the room they need move together. */
+.stonetop.sheet.steading .steading-line .steading-tile {
+	--steading-line-caret-w: 0.6rem;
+	gap: calc(var(--steading-line-caret-w) + 0.2rem);
+}
+
 /* A rating's value is written ON a rule, at both densities — one idiom, so a number means the same
    thing wherever it is. Core gives every input a filled box with a border on four sides; on the
    parchment themes that box is invisible in the dark one and plainly a box in the light one, which
@@ -5172,7 +5282,6 @@ button.stonetop-xp-toggle {
    room for boxes or rules around it. */
 .stonetop.sheet.steading .steading-line .steading-attr-input,
 .stonetop.sheet.steading .steading-line .steading-tile-select {
-	font-family: "IM Fell English", Georgia, serif;
 	font-size: var(--fs-subheading);
 	font-weight: normal;
 	letter-spacing: 0;
@@ -5187,6 +5296,27 @@ button.stonetop-xp-toggle {
 	min-width: 2.75ch;
 }
 
+/* The digits, in the face cut for digits.
+
+   A rating's value, at both densities, plus the glosses that are themselves numbers — "→ +0
+   lacking", a population band — and the treasury's counts. What stays in the book's roman is
+   everything that is words: the rating's name, a tier ("legendary"), a condition and its effect.
+
+   One selector list rather than a declaration on each, so "a number on this sheet looks like a
+   number wherever it is" is stated once and cannot half-drift. */
+/* The notes that are themselves numbers. The VALUES are set the same way, further down and outside
+   this layer — see "The digits" — because a field's family is decided by an unlayered rule that no
+   amount of specificity in here can reach.
+
+   The note's kind, spelled twice on purpose: each density sets the note's prose face at five
+   classes, and a numeric note has to outrank that wherever it is rather than being restated per
+   density. A tier ("legendary") is words and keeps the roman. */
+.stonetop.sheet.steading .steading-size-band,
+.stonetop.sheet.steading .steading-tile .steading-tile-note.steading-tile-note--adjustment,
+.stonetop.sheet.steading .steading-tile .steading-tile-note.steading-tile-note--band {
+	font-family: var(--font-numeral);
+}
+
 .stonetop.sheet.steading .steading-line .stonetop-stepper:hover > .steading-attr-input,
 .stonetop.sheet.steading .steading-line .steading-attr-input:focus,
 .stonetop.sheet.steading .steading-line .steading-tile-select:hover,
@@ -5198,7 +5328,7 @@ button.stonetop-xp-toggle {
    "treat Prosperity as if it's 1 lower" in capitals, which is shouting, and render numerals in a
    face that was never cut for them. */
 .stonetop.sheet.steading .steading-line .steading-tile-note {
-	font-family: "IM Fell English", Georgia, serif;
+	font-family: var(--font-serif);
 	font-size: var(--fs-micro);
 	font-style: italic;
 	letter-spacing: 0;
@@ -5224,10 +5354,15 @@ button.stonetop-xp-toggle {
 	letter-spacing: 0;
 }
 
+/* Same split on the line: the name in the alarm colour, its effect in ink. */
 .stonetop.sheet.steading .steading-line .steading-debility.is-active .steading-debility-name,
 .stonetop.sheet.steading .steading-line .steading-debility.is-active .steading-debility-effect {
-	color: var(--st-danger);
+	color: var(--st-ink);
 	font-style: italic;
+}
+
+.stonetop.sheet.steading .steading-line .steading-debility.is-active .steading-debility-name {
+	color: var(--st-danger);
 }
 
 .stonetop.sheet.steading .steading-line .steading-tile-note {
@@ -5423,7 +5558,6 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading [data-density="full"] .steading-attr-input,
 .stonetop.sheet.steading [data-density="full"] .steading-tile-select {
-	font-family: "IM Fell English", Georgia, serif;
 	font-size: var(--fs-title);
 	font-weight: normal;
 	letter-spacing: 0;
@@ -5447,7 +5581,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading [data-density="full"] .steading-tile-note {
 	grid-area: note;
 	justify-self: start;
-	font-family: "IM Fell English", Georgia, serif;
+	font-family: var(--font-serif);
 	font-size: var(--fs-micro);
 	font-style: italic;
 	letter-spacing: 0;
@@ -5499,25 +5633,37 @@ button.stonetop-xp-toggle {
 /* Except on the line, which is a READOUT you can edit rather than an editor. It is read while doing
    something else, and its job is to be complete and cheap in height; ten permanent carets across
    five ratings is noise on the one row that has to stay glanceable. They come back on hover and on
-   focus, exactly as they do everywhere outside this sheet. */
-/* `visibility`, not `display`: these carets are in normal flow on this sheet (they flank the number
-   rather than overlaying it), so revealing them with `display` grew the line by a couple of pixels
-   and pushed the whole sheet down the instant a pointer crossed a number. Hidden, they still hold
-   their room, so hovering changes what you can see and never what is where.
+   focus, exactly as they do everywhere outside this sheet.
 
-   And since that room is now held permanently on the row that has to stay glanceable, it is held as
-   tightly as the glyphs allow: at the full-density spacing, five ratings spent ~40px each on two
-   arrows nobody can see, and the numbers read as adrift in their own line. */
+   OUT OF FLOW, which is the only arrangement that costs nothing in either axis. In flow they had to
+   choose between two bad things: `display` reveal grew the line's height and pushed the whole sheet
+   down the instant a pointer crossed a number, and `visibility` reveal cured that by holding the
+   carets' room permanently — ten slots of blank on the row with the least to spare, with the numbers
+   adrift in the middle of it. Absolute, the stepper is exactly as wide as its number at rest, and
+   showing a caret moves nothing anywhere: no jitter, and no space spent on arrows nobody can see.
+
+   They sit just OUTSIDE the number rather than over it — the control must never cover the thing it
+   edits — in the gap between one rating and the next, which is empty until you hover. */
 .stonetop.sheet.steading .steading-line .stonetop-stepper {
-	gap: 0.1rem;
+	position: relative;
+	gap: 0;
 }
 
 .stonetop.sheet.steading .steading-line .stonetop-stepper-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 	visibility: hidden;
-	width: 0.6rem;
+	/* The tile's gap is sized from this, so the two cannot fall out of step. */
+	width: var(--steading-line-caret-w, 0.6rem);
 	padding: 0;
 	justify-content: center;
 }
+
+/* ▾ left of the number, ▴ right of it — the same reading order the flanking carets have at full
+   density, kept by placing them rather than by `order`, which is meaningless out of flow. */
+.stonetop.sheet.steading .steading-line .stonetop-stepper-btn--down { right: 100%; }
+.stonetop.sheet.steading .steading-line .stonetop-stepper-btn--up   { left: 100%; }
 
 .stonetop.sheet.steading .steading-line .stonetop-stepper:hover .stonetop-stepper-btn,
 .stonetop.sheet.steading .steading-line .stonetop-stepper:focus-within .stonetop-stepper-btn {
@@ -5661,27 +5807,17 @@ button.stonetop-xp-toggle {
 	container-name: steading-rail;
 }
 
-/* Sized so the pair CROWNS the masthead rather than replacing it. Filling the rail's width put two
-   ~98px blocks of dense woodcut at the top of the sheet, against a steading name a third their
-   height — the heaviest thing on the page was decoration, and everything else read as small next to
-   it. Capped, the arches still lead the rail and the name leads the sheet.
+/* The pair takes the rail it heads. It was capped well inside that width, which left a margin of
+   empty rail down both sides of the arches while the moves beneath them ran edge to edge — the two
+   crowned ratings read as the smallest thing in their own column.
 
-   A max-width rather than a height: the panel is square and carries its own aspect-ratio, so one
-   number sets both and the pair can never fall out of level.
-
-   The number is set by the CAPTION, not by the picture. "Fortunes" plus its die runs about 78px at
-   the caption step, and a column narrower than that puts the widest rating name half outside its own
-   tile. The art would happily go smaller; the words under it will not. */
+   No width of its own beyond the rail's: the panels are square and carry their own aspect-ratio, so
+   the rail sets one number and the pair can never fall out of level. The captions are what the
+   width has to clear — "Fortunes" plus its die runs about 78px at the caption step — and half the
+   rail is comfortably past that. */
 .stonetop.sheet.steading .steading-rail .steading-archpair {
-	/* A DEFINITE width, not a max-width, because the pair is centred in the rail below and an auto
-	   inline margin takes a column-flex item out of `stretch`: with only a cap to go on it would
-	   shrink to its own content and stop being the width this number sets. */
-	width: 11rem;
+	width: 100%;
 	max-width: 100%;
-	/* Centred in the rail it heads. Flush left it left 44px of empty rail beside the arches while
-	   the moves under them ran the full width, so the two badges read as pushed into a corner
-	   rather than as the head of the column. */
-	margin-inline: auto;
 }
 
 /* A move group is two CSS columns by default, which is right for a full-width tab and wrong for a
@@ -5986,17 +6122,55 @@ button.stonetop-xp-toggle {
 	overflow-y: auto;
 }
 
-/* The heading and the search share a line; the panel divider gets the one below, so it still runs
-   the panel's full width rather than being pushed alongside the box. */
-.stonetop.sheet.steading .steading-folk-head {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	align-items: center;
-	column-gap: 8px;
+/* Thin sheets: the two columns become two rows.
+
+   Side by side, the roster's share of a narrow tab is six columns of editable text in ~300px — the
+   Name cell narrower than the Link one used to be — while the reference column keeps a third of the
+   width to print names it could print just as well underneath. Stacked, the roster gets the whole
+   width and the lists follow it, which is also the order you use them in: read a name, write it into
+   a row.
+
+   Keyed to the TAB's width, not the sheet's: with the rail showing, the tab is 220px narrower than
+   the window, and that is the number that decides whether six columns fit.
+
+   640px, which is BELOW anything a tab can be while the rail is still inline (the rail drawers at
+   900, so the narrowest inline-rail tab is 900 − 220 − 16 = 664). That is the whole reason for the
+   number: the rail hiding itself HANDS the tab 236px, so a threshold above 664 would fold the tab as
+   the sheet narrowed and then unfold it a moment later when the rail got out of the way — the lists
+   jumping back beside the roster on the way down. Below 664 the two can only happen in one order:
+   the rail goes, then, if the window keeps narrowing, the lists go under the roster.
+
+   In px, like the rail's own breakpoint and the rail's own width, so that relationship holds at
+   every step of Foundry's font-size setting. A rem threshold here would grow past 664 as the reader
+   scaled the UI up and bring the flip back at large steps only. */
+@container steading-tab (max-width: 640px) {
+	.stonetop.sheet.steading .steading-folk-grid {
+		flex-direction: column;
+	}
+
+	/* The divider turns with the layout: the same decorative rule, run the other way. */
+	.stonetop.sheet.steading .steading-folk-divider {
+		width: auto;
+		height: 5px;
+		margin: 6px 0;
+		mask: url("../assets/ui/decor/divider-horizontal-thin.png") repeat-x center / auto 5px;
+		-webkit-mask: url("../assets/ui/decor/divider-horizontal-thin.png") repeat-x center / auto 5px;
+	}
+
+	/* Stacked, the reference column is part of the tab's own scroll rather than a column that scrolls
+	   inside it — a short scroller nested in a long page is two scrollbars for one list. */
+	.stonetop.sheet.steading .steading-folk-ref {
+		overflow-y: visible;
+	}
 }
 
-.stonetop.sheet.steading .steading-folk-head .stonetop-panel-divider {
-	grid-column: 1 / -1;
+/* The search has the head to itself, and nothing is ruled off from anything: the table below is the
+   only thing this box acts on. */
+.stonetop.sheet.steading .steading-folk-head {
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: center;
+	column-gap: 8px;
 }
 
 .stonetop.sheet.steading .steading-folk-search {
@@ -6084,10 +6258,23 @@ button.stonetop-xp-toggle {
 	   min-content width, and a text input's min-content is the ~20 characters the user agent sizes it
 	   to. Six of those put the roster ~100px wider than its own column at the sheet's default width
 	   and ~270px wider at 900 — a horizontal scrollbar under the table instead of narrower columns.
-	   tests/styles/folk-reference-render.test.js measures exactly this. */
-	grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr) minmax(0, 0.95fr) minmax(0, 1.8fr) 5rem 1.5rem;
+	   tests/styles/folk-reference-render.test.js measures exactly this.
+
+	   The link track holds an icon and a ✕ and nothing else — see the chip below. At 5rem it was the
+	   widest fixed thing on the row and, on a narrow sheet, wider than the Name cell: a quarter of the
+	   roster spent restating a name that is already in the row.
+
+	   Cells align to the TOP, not the middle. The traits cell wraps to a second line, and a centred
+	   row would then float the other five cells down its middle — the roster stops lining up as soon
+	   as anyone is interesting.
+
+	   Traits takes the largest share, and takes the room the link column gave up. It is the only cell
+	   that WRAPS — "knows all the gossip, cheery, owes the Marshedge dockmaster" is a list, not a
+	   word — so every character it is short is a line the row grows by, while the three beside it hold
+	   a name, a place and a trade. */
+	grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 2.2fr) 2.4rem 1.5rem;
 	gap: 4px;
-	align-items: center;
+	align-items: start;
 }
 
 .stonetop.sheet.steading .steading-folk-header span {
@@ -6098,20 +6285,34 @@ button.stonetop-xp-toggle {
 	border-bottom: 1px solid var(--st-rule-veil);
 }
 
-.stonetop.sheet.steading .steading-folk-row input[type="text"] {
+/* One field, whatever element it is. Traits is a textarea so its list can wrap; everything else on
+   the row is an input, and a cell that looked different because of the tag it is written with would
+   be a roster of two kinds of box. */
+.stonetop.sheet.steading .steading-folk-row input[type="text"],
+.stonetop.sheet.steading .steading-folk-row textarea {
 	border: none;
 	border-bottom: 1px solid transparent;
 	background: transparent;
 	font-size: var(--fs-note);
 	font-family: var(--font-primary);
+	line-height: 1.35;
 	padding: 1px 2px;
 	width: 100%;
 	min-width: 0;
 }
 
-.stonetop.sheet.steading .steading-folk-row input[type="text"]:focus {
+.stonetop.sheet.steading .steading-folk-row input[type="text"]:focus,
+.stonetop.sheet.steading .steading-folk-row textarea:focus {
 	border-bottom-color: var(--st-rule-veil);
 	outline: none;
+}
+
+/* The row's other cells are inputs, which are one line tall by definition; the textarea has to be
+   told, and `field-sizing` (on .stonetop-grow-field) grows it from there. Without a floor of one
+   line the empty cells in a fresh roster would each be shorter than the inputs beside them. */
+.stonetop.sheet.steading .steading-folk-row .stonetop-person-traits {
+	min-height: 1.35em;
+	align-self: start;
 }
 
 /* The caret marks the row a click in the reference column will land on. It holds its space at all
@@ -6156,6 +6357,38 @@ button.stonetop-xp-toggle {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	font-size: var(--fs-note);
+}
+
+/* On the ROSTER, the chip is its icon alone.
+
+   Everywhere else a link names the thing it points at, because the row does not. Here the row is
+   that person: the name is in the first cell, being typed, and the chip repeated it in a column wide
+   enough to hold it — the same name twice, and the wider of the two spent on the copy. So the link
+   keeps its icon (which says what it is: an actor, a journal, an item) and its ✕, and the name it
+   would have drawn stays in the DOM for anything that reads rather than looks.
+
+   `font-size: 0` rather than hiding the text: the anchor is a real link with a real accessible name,
+   and removing the text would take that with it. */
+.stonetop.sheet.steading .steading-folk-row .steading-doc-link .content-link {
+	font-size: 0;
+	overflow: visible;
+}
+
+.stonetop.sheet.steading .steading-folk-row .steading-doc-link .content-link i {
+	font-size: var(--fs-note);
+	margin: 0;
+}
+
+/* Named for assistive tech, not drawn: the column is two controls wide and the word does not fit. */
+.stonetop.sheet.steading .steading-folk-link-heading {
+	border: 0;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 /* The GM's "create actors for the roster" control, beside each list's add button. `width: auto` is
@@ -6267,13 +6500,39 @@ button.stonetop-xp-toggle {
    the unlayered block near the end of this file — core's button rules are unlayered and would
    otherwise give every one of a hundred names a border, a background and a full-width box). */
 
+/* A step ABOVE the names it heads. At --fs-micro it was set smaller than its own list, so the one
+   word telling you which place you were reading was the least visible thing in the column — and with
+   six or seven pools stacked, finding the right one is what the column is for. */
 .stonetop.sheet.steading .steading-folk-list-title {
-	margin: 4px 0 1px;
+	margin: 6px 0 2px;
 	font-family: "StonetopUI", serif;
-	font-size: var(--fs-micro);
+	font-size: var(--fs-body);
 	font-weight: normal;
 	letter-spacing: 0.06em;
 	color: var(--st-ink-soft);
+}
+
+/* The caret turns off `aria-expanded`, which is the state itself rather than a class kept in step
+   with it — so the glyph and what a screen reader is told can never disagree. Down when open, right
+   when shut, the same way the move rows read. */
+.stonetop.sheet.steading .steading-folk-list-caret {
+	display: inline-block;
+	width: 0.7em;
+	font-size: 0.9em;
+	color: var(--st-ink-faint);
+	transition: transform 0.1s ease;
+}
+
+.stonetop.sheet.steading .steading-folk-list-toggle[aria-expanded="false"] .steading-folk-list-caret {
+	transform: rotate(-90deg);
+}
+
+.stonetop.sheet.steading .steading-folk-list-toggle:hover {
+	color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-folk-list-toggle:hover .steading-folk-list-caret {
+	color: var(--st-accent);
 }
 
 .stonetop.sheet.steading .steading-folk-entries {
@@ -6286,18 +6545,6 @@ button.stonetop-xp-toggle {
 /* A GM can type anything into a name pool; a token that is not a usable value shows as what it is. */
 .stonetop.sheet.steading .steading-folk-prose {
 	font-style: italic;
-	color: var(--st-ink-soft);
-}
-
-/* The pool's edit surface, under the list it feeds. */
-.stonetop.sheet.steading .steading-folk-traits-source {
-	margin-top: 6px;
-	min-height: 4rem;
-	resize: vertical;
-	border: none;
-	border-top: 1px solid var(--st-rule-veil);
-	background: transparent;
-	font-size: var(--fs-fine);
 	color: var(--st-ink-soft);
 }
 
@@ -6367,27 +6614,382 @@ button.stonetop-xp-toggle {
 
 /* ── Improvements tab ────────────────────────────────────────────────────────── */
 
-.stonetop.sheet.steading .steading-improvements-grid {
+/* ── A pending statement ──
+   What a set of results proposes to do, before anyone commits. Shown on a finished improvement's
+   card and, later, at the turn of the season. */
+
+.stonetop.sheet.steading .steading-statement {
+	display: grid;
+	gap: 5px;
+	margin-top: 5px;
+}
+
+.stonetop.sheet.steading .steading-statement-lines {
+	display: grid;
+	gap: 2px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.stonetop.sheet.steading .steading-statement-label {
 	display: flex;
-	gap: 0;
+	gap: 0.4rem;
 	align-items: flex-start;
+	/* SC 2.5.8: the whole row is the target, well past 24px. */
+	min-height: 24px;
+	padding: 1px 0;
+	cursor: pointer;
 }
 
-.stonetop.sheet.steading .steading-improvement-column {
-	flex: 1;
+.stonetop.sheet.steading .steading-statement-line {
 	display: flex;
-	flex-direction: column;
-	gap: 8px;
+	gap: 0.4rem;
+	align-items: flex-start;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	line-height: 1.4;
 }
 
-.stonetop.sheet.steading .steading-improvements-divider {
-	width: 8px;
-	align-self: stretch;
-	flex-shrink: 0;
-	margin: 0 4px;
-	background-color: var(--st-decor);
-	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
-	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+.stonetop.sheet.steading .steading-statement-text { flex: 1 1 auto; min-width: 0; }
+.stonetop.sheet.steading .steading-statement-source { color: var(--st-ink); }
+.stonetop.sheet.steading .steading-statement-clause > * { display: inline; }
+
+/* Dropped: still listed, visibly not counted. Never hidden — a line the table declined is part of
+   what happened this season. */
+.stonetop.sheet.steading .steading-statement-line.is-dropped { opacity: 0.55; }
+
+.stonetop.sheet.steading .steading-statement-condition {
+	display: block;
+	font-style: italic;
+	opacity: 0.85;
+}
+
+/* The arithmetic, stated. An advisory delta is dimmed: it is what the book says, not what the sheet
+   will do. */
+.stonetop.sheet.steading .steading-statement-delta {
+	flex: 0 0 auto;
+	font-size: var(--fs-fine);
+	color: var(--st-accent);
+	border: 1px solid var(--st-accent);
+	border-radius: 2px;
+	padding: 0 0.35rem;
+	white-space: nowrap;
+}
+
+.stonetop.sheet.steading .steading-statement-delta.is-advisory {
+	color: var(--st-ink-soft);
+	border-color: var(--st-rule);
+}
+
+.stonetop.sheet.steading .steading-statement-lines--advisory { margin-top: 2px; }
+
+.stonetop.sheet.steading .steading-statement-foot {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	flex-wrap: wrap;
+	margin-top: 2px;
+}
+
+/* before → after, so nobody has to add up a column of deltas to know what the button does. */
+.stonetop.sheet.steading .steading-statement-totals {
+	display: flex;
+	gap: 0.7rem;
+	flex-wrap: wrap;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+.stonetop.sheet.steading .steading-statement-from { opacity: 0.7; }
+.stonetop.sheet.steading .steading-statement-to   { color: var(--st-ink); font-weight: 600; }
+.stonetop.sheet.steading .steading-statement-arrow { opacity: 0.6; margin: 0 0.15rem; }
+
+.stonetop.sheet.steading .steading-statement-apply {
+	width: auto;
+	min-height: 24px;
+	margin-left: auto;
+	padding: 0.15rem 0.7rem;
+	font-size: var(--fs-fine);
+	border: 1px solid var(--st-accent);
+	border-radius: 2px;
+	background: var(--st-accent);
+	color: var(--st-paper);
+}
+
+.stonetop.sheet.steading .steading-statement-apply:disabled {
+	background: none;
+	color: var(--st-ink-soft);
+	border-color: var(--st-rule);
+}
+
+/* A result that confers a MOVE has nothing to apply and everything to roll, so it gets a control
+   rather than a checkbox — the one thing the book's own sentence above it cannot do for you. */
+.stonetop.sheet.steading .steading-statement-moves {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin: 4px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.stonetop.sheet.steading .steading-statement-move {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	width: auto;
+	min-height: 24px;
+	padding: 0.15rem 0.6rem;
+	font-size: var(--fs-fine);
+	border: 1px solid var(--st-accent);
+	border-radius: 2px;
+	background: none;
+	color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-improvement-completion {
+	margin-top: 5px;
+	padding-top: 5px;
+	border-top: 1px solid var(--st-rule);
+}
+
+.stonetop.sheet.steading .steading-improvement-completion-head {
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-accent);
+}
+
+/* The statement's tick reuses the debility circle's hidden input; give it the square box the
+   requirement tracks use, so "include this" reads as the same kind of mark. */
+.stonetop.sheet.steading .steading-statement-box {
+	width: 0.75rem;
+	height: 0.75rem;
+	flex: 0 0 auto;
+	border: 1px solid var(--st-ink-soft);
+	border-radius: 2px;
+	margin-top: 0.15rem;
+}
+
+.stonetop.sheet.steading .steading-circle-input:checked + .steading-statement-box {
+	background: var(--st-accent);
+	border-color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-circle-input:focus-visible + .steading-statement-box {
+	outline: 2px solid var(--st-accent);
+	outline-offset: 2px;
+}
+
+/* ── The improvement board ── */
+
+.stonetop.sheet.steading .steading-board-controls {
+	display: flex;
+	gap: 0.6rem;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0 0 6px;
+}
+
+.stonetop.sheet.steading .steading-board-chips {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+/* Real toggles: they look like controls because they are, and a pressed one is filled rather than
+   merely tinted — SC 1.4.1, the state is not carried by colour alone. */
+.stonetop.sheet.steading .steading-board-chip {
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	padding: 0.1rem 0.5rem;
+	width: auto;
+	min-height: 24px;
+	background: none;
+}
+
+.stonetop.sheet.steading .steading-board-chip.is-progress {
+	color: var(--st-accent);
+	border-color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-board-chip[aria-pressed="true"] {
+	background: var(--st-accent);
+	border-color: var(--st-accent);
+	color: var(--st-paper);
+	font-weight: 600;
+}
+
+.stonetop.sheet.steading .steading-board-list {
+	display: grid;
+	gap: 5px;
+}
+
+.stonetop.sheet.steading .steading-improvement-card {
+	border: 1px solid var(--st-decor);
+	border-radius: 2px;
+	padding: 5px 8px;
+	position: relative;
+}
+
+/* Not started: present, and visibly not the thing to look at first. Opacity only — the text keeps
+   its own contrast the moment the card is opened or focused. */
+.stonetop.sheet.steading .steading-improvement-card.is-untouched { opacity: 0.75; }
+.stonetop.sheet.steading .steading-improvement-card.is-untouched:hover,
+.stonetop.sheet.steading .steading-improvement-card.is-untouched:focus-within { opacity: 1; }
+
+/* What the improvement is FOR, as the numbers its results already state — never a paraphrase of the
+   prose inside the card. Shut, a card is otherwise a name and a meter: how far along the work is, and
+   nothing at all about what the work buys. */
+.stonetop.sheet.steading .steading-effect-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3px 4px;
+	margin: 4px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.stonetop.sheet.steading .steading-effect-chip {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.25rem;
+	padding: 0 0.3rem;
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	font-size: var(--fs-fine);
+	line-height: 1.6;
+	color: var(--st-ink-soft);
+}
+
+/* What it WILL do, not what it does — the requirement behind this result does not hold yet. */
+.stonetop.sheet.steading .steading-effect-chip.is-pending { opacity: 0.6; }
+
+.stonetop.sheet.steading .steading-effect-when {
+	font-style: italic;
+	opacity: 0.8;
+}
+
+.stonetop.sheet.steading .steading-effect-amount {
+	font-weight: 600;
+	color: var(--st-ink);
+	font-variant-numeric: tabular-nums;
+}
+
+.stonetop.sheet.steading .steading-effect-entry { color: var(--st-ink); }
+
+.stonetop.sheet.steading .steading-improvement-card-top {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-width: 0;
+}
+
+/* The name IS the disclosure — one target, the width of the row, well past SC 2.5.8. */
+.stonetop.sheet.steading .steading-improvement-disclosure {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	/* Core's own button rule centres flex content inside a .window-app button, which put every
+	   improvement name in the middle of its card instead of at the start of it. `text-align: left`
+	   does not touch flex placement, which is why it looked set and was not. */
+	justify-content: flex-start;
+	gap: 0.3rem;
+	min-width: 0;
+	width: auto;
+	min-height: 24px;
+	background: none;
+	border: 0;
+	padding: 0;
+	text-align: left;
+	color: inherit;
+	cursor: pointer;
+}
+
+.stonetop.sheet.steading .steading-improvement-name {
+	font-size: var(--fs-body);
+	color: var(--st-ink);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.stonetop.sheet.steading .steading-improvement-meter {
+	display: flex;
+	gap: 2px;
+	align-items: center;
+	flex: 0 0 auto;
+}
+
+.stonetop.sheet.steading .steading-improvement-pips {
+	display: flex;
+	gap: 2px;
+	align-items: center;
+}
+
+.stonetop.sheet.steading .steading-improvement-pip {
+	width: 6px;
+	height: 6px;
+	border: 1px solid var(--st-ink-soft);
+	border-radius: 1px;
+	display: block;
+}
+
+.stonetop.sheet.steading .steading-improvement-pip.is-on {
+	background: var(--st-accent);
+	border-color: var(--st-accent);
+}
+
+/* The count in words beside the pips: the pips are the shape of the progress, this is the progress. */
+.stonetop.sheet.steading .steading-improvement-count {
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	margin-left: 4px;
+	white-space: nowrap;
+}
+
+.stonetop.sheet.steading .steading-improvement-line {
+	margin: 3px 0 0;
+	font-size: var(--fs-fine);
+	line-height: 1.4;
+	color: var(--st-ink-soft);
+}
+
+.stonetop.sheet.steading .steading-improvement-line > * { display: inline; }
+
+/* The one clause a finished improvement is re-read for, so it reads at full strength. */
+.stonetop.sheet.steading .steading-improvement-henceforth { color: var(--st-ink); }
+
+.stonetop.sheet.steading .steading-improvement-needs-list {
+	margin: 2px 0 0;
+	padding-left: 1rem;
+	display: grid;
+	gap: 1px;
+}
+
+.stonetop.sheet.steading .steading-improvement-needs-list li { font-size: var(--fs-fine); }
+.stonetop.sheet.steading .steading-improvement-needs-list li > * { display: inline; }
+
+.stonetop.sheet.steading .steading-improvement-needs-more {
+	margin: 2px 0 0;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	color: var(--st-ink-soft);
+	opacity: 0.85;
+}
+
+.stonetop.sheet.steading .steading-improvement-needs-label {
+	color: var(--st-ink);
+}
+
+.stonetop.sheet.steading .steading-improvement-body { margin-top: 6px; }
+
+/* The caret turns when the card is open — the same disclosure affordance the move rows use. */
+.stonetop.sheet.steading .steading-improvement-card.is-open .stonetop-move-caret {
+	transform: rotate(90deg);
 }
 
 .stonetop.sheet.steading .steading-improvement-group {
@@ -6396,82 +6998,346 @@ button.stonetop-xp-toggle {
 	position: relative;
 }
 
+/* In flow, at the end of the card's top row. It used to be absolutely positioned into the corner of
+   a framed panel; the board's card has a real row to sit in, so it no longer has to be lifted out of
+   the flow (and no longer needs a z-index to stay clickable above the choice rows). */
 .stonetop.sheet.steading .steading-improvement-remove {
-	position: absolute;
-	top: 8px;
-	right: 8px;
-	/* Above the panel's content (3), not just its edges — the choice rows below span the full width
-	   and would otherwise swallow the click in this corner. */
-	z-index: 4;
+	flex: 0 0 auto;
 }
 
 /* ── Seasons Change tab ──────────────────────────────────────────────────────── */
 
-/* Gains beside the plate, as the book prints them. `auto` on the art column lets it take only what
-   the image needs, so the gains keep the rest. */
+/* The tab reads top to bottom as the ritual runs: where the wheel stands, then everything that
+   fires because of it, then the moves you roll, then the book's plate. */
 .stonetop.sheet.steading .steading-seasons {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(200px, 32%);
-	grid-template-areas:
-		"gains plate"
-		"moves moves";
+	display: flex;
+	flex-direction: column;
 	gap: 10px;
-	align-items: start;
+	min-width: 0;
 }
 
-/* No installed plate, no art column: the plate is absent from the DOM entirely in a world without
-   Book I art, and the gains panel should take the row rather than keep a third of it empty. */
-.stonetop.sheet.steading .steading-seasons:not(:has(.steading-seasons-plate)) {
-	grid-template-columns: minmax(0, 1fr);
-	grid-template-areas:
-		"gains"
-		"moves";
+/* The turnover beside the gains — the two halves of the same beat. The checklist is the wider of
+   the two because its rows are sentences and the gains' are names. */
+.stonetop.sheet.steading .steading-seasons-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+	gap: 10px;
+	align-items: start;
 }
 
 /* The seasons tab is the query container, so the layout below responds to the SHEET's width — a
    viewport media query can't, since a Foundry sheet is resized inside a window that never changes
    size. NAMED, so the query below can only ever resolve to this element: an unnamed one binds to
    whatever the nearest container ancestor happens to be, which is a silent trap if another gets
-   added above it later. */
-.stonetop.sheet.steading .tab[data-tab="seasons"] {
+   added above it later.
+
+   The selector says `season`, which is what the tab is called. It said `seasons` for as long as
+   this rule existed, matched nothing, and so the container query below had never once fired. */
+.stonetop.sheet.steading .tab[data-tab="season"] {
 	container-type: inline-size;
 	container-name: steading-seasons;
 }
 
-.stonetop.sheet.steading .steading-seasons-gains { grid-area: gains; }
-.stonetop.sheet.steading .steading-seasons-moves { grid-area: moves; }
+/* ── The season wheel ── */
+
+.stonetop.sheet.steading .steading-season-head {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	flex-wrap: wrap;
+}
+
+.stonetop.sheet.steading .steading-season-spacer { flex: 1; }
+
+/* One pill, four segments. A list rather than a control: the year runs forwards, and the only way
+   to move it is the advance button beside it. */
+.stonetop.sheet.steading .steading-wheel {
+	display: inline-flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: 1px solid var(--st-rule);
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+.stonetop.sheet.steading .steading-wheel-season {
+	font-size: var(--fs-fine);
+	padding: 0.15rem 0.7rem;
+	color: var(--st-ink-soft);
+	white-space: nowrap;
+}
+
+/* The current season is marked three ways — the tint, the weight, and the word itself in the text
+   beside the wheel — because a tint alone would be the only carrier. */
+.stonetop.sheet.steading .steading-wheel-season.is-current {
+	background: var(--steading-season-tint, var(--st-accent));
+	color: var(--st-paper);
+	font-weight: 600;
+}
+
+.stonetop.sheet.steading .steading-season-stated {
+	margin: 0;
+	font-size: var(--fs-note);
+	color: var(--st-ink-soft);
+}
+
+.stonetop.sheet.steading .steading-season-advance {
+	flex: 0 0 auto;
+	width: auto;
+	font-size: var(--fs-fine);
+	padding: 0.2rem 0.6rem;
+	/* SC 2.5.8: a real target, not a chip. */
+	min-height: 24px;
+}
+
+/* The season on the ledger line — display only, so it is type and not a control. */
+.stonetop.sheet.steading .steading-season-line {
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	white-space: nowrap;
+}
+
+/* The season's glyph at the head of the rail, so the season is present on every tab. Masked to the
+   season tint like the one in the turn panel — the two marks agree, and both are decoration beside
+   text that already says which season it is. */
+.stonetop.sheet.steading .steading-rail-season {
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0 0 0 auto;
+	background: var(--steading-season-tint, var(--st-accent));
+	mask: var(--steading-glyph) no-repeat center / contain;
+	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
+}
+
+/* ── The turn of the season ── */
+
+.stonetop.sheet.steading .steading-turn {
+	border: 1px solid var(--st-decor);
+	border-radius: 2px;
+	padding: 8px 10px 10px;
+	gap: 8px;
+}
+
+.stonetop.sheet.steading .steading-turn-head {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin-bottom: 8px;
+}
+
+/* The season's own glyph, masked so it takes the season tint rather than the sheet's art filter —
+   it is saying WHICH season, so it is the one image here that carries colour. */
+.stonetop.sheet.steading .steading-turn-glyph {
+	flex: 0 0 auto;
+	width: 2rem;
+	height: 2rem;
+	display: block;
+	background: var(--steading-season-tint, var(--st-accent));
+	mask: var(--steading-glyph) no-repeat center / contain;
+	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
+}
+
+.stonetop.sheet.steading .steading-turn-heading { min-width: 0; }
+
+.stonetop.sheet.steading .steading-turn-title {
+	margin: 0;
+	font-size: var(--fs-body);
+	color: var(--st-ink);
+	font-weight: normal;
+}
+
+.stonetop.sheet.steading .steading-turn-season { color: var(--steading-season-tint, var(--st-accent)); }
+
+.stonetop.sheet.steading .steading-turn-standing {
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+/* The ritual, numbered — this IS a sequence, and the numbers say the order the move prescribes. */
+.stonetop.sheet.steading .steading-turn-steps {
+	display: grid;
+	gap: 9px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.stonetop.sheet.steading .steading-turn-step {
+	display: grid;
+	grid-template-columns: 1.3rem 1fr;
+	gap: 0.5rem;
+	align-items: start;
+}
+
+.stonetop.sheet.steading .steading-turn-num {
+	font-size: var(--fs-micro);
+	color: var(--st-accent);
+	border: 1px solid var(--st-accent);
+	border-radius: 999px;
+	width: 1.2rem;
+	height: 1.2rem;
+	display: grid;
+	place-items: center;
+	margin-top: 1px;
+}
+
+.stonetop.sheet.steading .steading-turn-body { min-width: 0; }
+
+.stonetop.sheet.steading .steading-turn-label {
+	margin: 0 0 3px;
+	font-size: var(--fs-note);
+	color: var(--st-ink);
+	font-weight: normal;
+}
+
+/* The one control: rolling it turns the wheel, so it reads as the primary act on the tab. */
+.stonetop.sheet.steading .steading-turn-roll {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	width: auto;
+	min-height: 24px;
+	padding: 0.25rem 0.7rem;
+	border: 1px solid var(--st-accent);
+	border-radius: 2px;
+	background: var(--st-accent);
+	color: var(--st-paper);
+	font-size: var(--fs-fine);
+}
+
+.stonetop.sheet.steading .steading-turn-reset {
+	width: auto;
+	min-height: 24px;
+	padding: 0.15rem 0.6rem;
+	font-size: var(--fs-fine);
+}
+
+.stonetop.sheet.steading .steading-turn-gloss {
+	margin: 3px 0 0;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+/* The book's own line for the season, in its own voice. */
+.stonetop.sheet.steading .steading-season-impression {
+	margin: 0;
+	flex-basis: 100%;
+	font-size: var(--fs-note);
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+/* ── The turnover, and the moments within a season ── */
+
+/* Said after the fact, not shown by absence: six people share this document, and the one who was not
+   here when Apply was pressed has no other way to learn the season was paid. */
+.stonetop.sheet.steading .steading-turnover-applied,
+.stonetop.sheet.steading .steading-moment-state {
+	margin: 0 0 4px;
+	font-size: var(--fs-fine);
+	color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-moments {
+	gap: 8px;
+	margin-top: 6px;
+}
+
+.stonetop.sheet.steading .steading-moment + .steading-moment {
+	margin-top: 6px;
+	padding-top: 6px;
+	border-top: 1px solid var(--st-rule);
+}
+
+.stonetop.sheet.steading .steading-moment-title {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin: 0 0 3px;
+	font-size: var(--fs-note);
+	font-weight: normal;
+	color: var(--st-ink);
+}
+
+.stonetop.sheet.steading .steading-moment-state { margin: 0; }
+
+/* Behind you, not undone — dimmed rather than struck through. */
+.stonetop.sheet.steading .steading-moment.is-applied .steading-statement { opacity: 0.7; }
+
+.stonetop.sheet.steading .steading-turnover-empty,
+.stonetop.sheet.steading .steading-board-empty {
+	margin: 0;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	color: var(--st-ink-soft);
+	opacity: 0.8;
+}
+
 
 /* The frame stretches to the row, which the gains panel beside it sizes. Its own content height is
    zero (the image inside is absolutely positioned and so out of flow), so the plate can never push
    the row taller than the gains — it matches that height exactly and stops there. `overflow: hidden`
    is belt-and-braces: whatever the image does, it is clipped to the frame. */
-.stonetop.sheet.steading .steading-seasons-plate {
-	grid-area: plate;
-	align-self: stretch;
-	position: relative;
-	min-height: 0;
-	overflow: hidden;
+/* ── The Resources plate ──
+   The book's village-life illustration, closing the Play tab's left column under the Resources list.
+   Decoration and nothing else: it names nothing the list above it does not, so it is last in the
+   column, and it is the first thing to go when a world has no art installed — the template asks the
+   snapshot before it draws, and HideBrokenImages catches a path that 404s anyway.
+
+   `margin-top: auto` pushes it to the FOOT of its column rather than leaving it hard against the
+   list: the two columns of this tab are different lengths, and the plate closing the shorter one is
+   what keeps them reading as a pair. Line art on transparent, so it takes the sheet's art filter and
+   sits straight on the parchment like every other plate. */
+/* Sized as the vignette it is, not as a plate that heads a section. At the column's full width it
+   ran over 500px of dense woodcut under a list of five short lines — the heaviest thing on the tab,
+   illustrating the least. Capped, it closes the column without competing with it. */
+.stonetop.sheet.steading .steading-resources-plate {
+	margin: auto auto 0;
+	padding-top: 0.5rem;
+	max-width: 15rem;
+	min-width: 0;
 }
 
-/* Black line art on transparent, so it sits straight on the parchment. The plate is ~2:1 wide and
-   the frame is tall, so `cover` crops its sides rather than letterboxing it in the column. */
-.stonetop.sheet.steading .steading-seasons-plate img {
-	position: absolute;
-	inset: 0;
+.stonetop.sheet.steading .steading-resources-plate img {
+	display: block;
 	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
+	height: auto;
+	filter: var(--st-art-filter);
+}
+
+/* Decoration, closing the turn panel at its bottom right — the corner the numbered steps leave
+   empty. `margin-left: auto` rather than absolute positioning: in flow it cannot land on top of a
+   long checklist, and a panel with no plate installed just ends where the last step does.
+
+   It used to be an absolutely-filled frame sharing a grid row with the gains, which existed only so
+   the art could never make that row taller than the panel beside it. Out of that row, the whole
+   apparatus is unnecessary: it is an image with a cap on it. */
+.stonetop.sheet.steading .steading-seasons-plate {
+	margin: 6px 0 0 auto;
+	max-width: 16rem;
+	width: 45%;
+	min-width: 0;
+}
+
+.stonetop.sheet.steading .steading-seasons-plate img {
+	display: block;
+	width: 100%;
+	height: auto;
+	filter: var(--st-art-filter);
 	border: none;
 }
 
-/* Narrow sheet: one column, and the plate goes. It is decoration — the gains and moves are the
-   content, and squeezing the art would only steal width from them. The threshold is generous: below
-   this the art column is too slim to read as anything but a sliver. */
-@container steading-seasons (max-width: 1000px) {
-	.stonetop.sheet.steading .steading-seasons {
+/* Narrow sheet: the turnover and the gains stack, and the plate goes. It is decoration — the
+   checklist and the gains are the content, and squeezing the art would only steal width from them. */
+@container steading-seasons (max-width: 620px) {
+	.stonetop.sheet.steading .steading-seasons-grid {
 		grid-template-columns: minmax(0, 1fr);
-		grid-template-areas: "gains" "moves";
 	}
 
 	.stonetop.sheet.steading .steading-seasons-plate {
@@ -8405,6 +9271,43 @@ button.stonetop-xp-toggle {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   No frame around an image. Ever. Anywhere on a Stonetop surface.
+
+   The book's plates are line art on parchment and our controls are cut-out glyphs; a box drawn
+   round either is core's chrome showing through. Core draws it from THREE properties in TWO places:
+
+     `body.game .app img`  border                          (@layer compatibility)
+     `figure img`          border AND box-shadow: 0 0 4px  (@layer elements.media)
+
+   Core's own escape hatch clears border, box-shadow and outline together (`img.noborder`), which is
+   the tell: stripping the border alone leaves a 4px black glow around anything inside a <figure>,
+   and that glow is indistinguishable from the frame it was meant to remove.
+
+   OUTSIDE `@layer system`, and that is the whole point. This rule spent its life inside the layer,
+   where on paper it wins — `system` is core's eighth layer and both of core's rules sit in earlier
+   ones. In practice a layer takes its priority from where its NAME is first declared, and two
+   stylesheets do not reliably finish parsing in document order: when ours registered `system` before
+   core's ordering statement, `system` became the LOWEST layer and every core rule above beat it.
+   That is why the border kept coming back for no reason anyone could reproduce, and why chasing it
+   with more specificity never held — inside the layer, specificity is not what is losing.
+
+   Unlayered, it outranks every layered rule in either outcome of that race, so there is nothing left
+   to go wrong. tests/styles/image-borders-render.test.js keeps it here.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+/* Border and shadow only — NOT outline, though core's `.noborder` clears that too. Core never draws
+   an outline on an image; the only one that ever lands there is the keyboard focus ring from the
+   block below, and this selector is more specific than that one. Clearing it here would take the
+   focus ring off every focusable image on the sheet to solve a problem nothing is causing. */
+.stonetop img,
+.stonetop.sheet img,
+.stonetop-roll-dialog img,
+.stonetop-art-installer img {
+	border: none;
+	box-shadow: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
    Focus visibility (WCAG 2.4.7)
 
    Nineteen rules in the layer above suppress the browser's focus ring, and they are not wrong to: a
@@ -8558,6 +9461,32 @@ button.stonetop-xp-toggle {
 	cursor: pointer;
 }
 
+/* The list's own heading, which is a <button> for the same reason its entries are: core binds click
+   for [data-action] on buttons only. Core's button treatment comes off exactly as it does for the
+   entries below — this has to read as the heading it replaced, not as a control bar above each
+   list. Unlayered for the same reason too: `!important` inside the layer does not win. */
+.stonetop.sheet.steading .steading-folk-list-toggle {
+	display: flex;
+	align-items: baseline;
+	gap: 0.25rem;
+	width: auto;
+	min-width: 0;
+	height: auto;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	font: inherit;
+	letter-spacing: inherit;
+	color: inherit;
+	line-height: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+
 /* A trait can only be appended to a row, so with no caret anywhere it has nowhere to land — and it
    says so rather than offering a pointer that produces a notification. RosterFocus sets the marker
    on the panel; the names beside them stay live, because a name with no row focused CREATES one. */
@@ -8572,12 +9501,30 @@ button.stonetop-xp-toggle {
 	text-underline-offset: 2px;
 }
 
-/* Already used in this steading. DIMMED, never removed — repeating a trait is sometimes exactly
-   right, and you still want to see at a glance that "cheery" is taken twice. It stays readable
-   (--st-ink-soft is body ink, not a veil): you are still reading down this list. */
+/* Already used in this steading. MARKED, never removed — repeating a trait is sometimes exactly
+   right, and you still want to see at a glance that "cheery" is taken twice.
+
+   Struck through in the accent rather than dimmed. Dimming said "already used" in the one register a
+   wall of small text cannot carry it: set a shade back from its neighbours, a taken name simply read
+   as more of the list, and the thing you most want to see while scanning — which of these you have
+   already spent — was the least visible thing on the tab. A rule through the word is unmissable at
+   scanning speed and still leaves the word legible, which is what keeps it clickable a second time.
+
+   Distinct from hover (accent + underline) by which line it draws, so a pointer resting on a used
+   entry still says something the entry does not. */
 .stonetop.sheet.steading .steading-folk-entry.is-used {
-	color: var(--st-ink-soft);
-	font-style: italic;
+	color: var(--st-accent);
+	font-style: normal;
+	text-decoration: line-through;
+	text-decoration-thickness: 1px;
+}
+
+/* The hover rule above sets `text-decoration: underline`, and this block outranks it by source
+   order — so a used entry under a pointer would silently lose its mark. Both lines, so hovering
+   still says "you can click this" without unsaying "you already have". */
+.stonetop.sheet.steading .steading-folk-entry.is-used:hover,
+.stonetop.sheet.steading .steading-folk-entry.is-used:focus-visible {
+	text-decoration: underline line-through;
 }
 
 /* ── Outfit figure ─────────────────────────────────────────────────────────────
@@ -8727,16 +9674,31 @@ button.stonetop-xp-toggle {
 	font-family: inherit;
 }
 
-/* The book's roman sets its figures OLD-STYLE — a 3 that descends, a 0 at x-height. Measured against
-   its own cap height: "0" rises 7 of 13, "8" rises 10. That is right in running prose and awkward in
-   a field two characters wide, where the value is the only thing there.
+/* The digits.
 
-   Asked for lining and tabular figures. IM Fell English ships neither, so for that face this is a
-   no-op and the numerals stay the book's — which is the right outcome: the alternative is a third
-   face for digits alone, and one face for labels and numerals alike is the rule this sheet is built
-   on. It is not wasted, because the fallbacks (Georgia) do have both, and `tabular-nums` still lines
-   a column of values up wherever the face supports it. The legibility of the field is bought with
-   SIZE instead — see the coinage input below. */
+   Every field on this sheet inherits its family from the rule just above, which is what keeps core's
+   UI font out of them — and which is unlayered, so nothing inside `@layer system` can say anything
+   else about a value's face however specific it is. This is where a number gets to differ from the
+   words around it, and the only reason it does.
+
+   The book's roman sets its figures OLD-STYLE — a 3 that descends, a 0 at x-height. Measured against
+   its own cap height: "0" rises 7 of 13, "8" rises 10. That is right in running prose and unreadable
+   in a field two characters wide where the value is the only thing there: a rating's "0" read as a
+   letter and "-1" ahead of "lacking" read as an em dash. Asking for lining figures does not help —
+   IM Fell English ships none, so `lining-nums` is a no-op on the face that needs it.
+
+   So the digits change face, and nothing else does. A rating's name, a tier, a condition and its
+   effect all stay in the book's voice; `--font-numeral` is Foundry's own Signika, already loaded in
+   every world, with lining figures that cannot be mistaken for letters. `tabular-nums` below still
+   lines a column of values up wherever the face supports it. */
+/* `input`, not the class alone: Size wears `.steading-attr-input` too — it is a value on a rule
+   like the rest — but it holds a WORD, and it is a <select>. The element is what tells the two
+   apart, and it does so without a second class anyone has to remember to write. */
+.stonetop.sheet.steading .window-content input.steading-attr-input,
+.stonetop.sheet.steading .window-content .steading-coinage-field input[type="number"] {
+	font-family: var(--font-numeral);
+}
+
 .stonetop.sheet.steading .window-content input[type="number"],
 .stonetop.sheet.steading .steading-attr-input,
 .stonetop.sheet.steading .steading-tile-value {

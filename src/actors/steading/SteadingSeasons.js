@@ -12,23 +12,27 @@ import { SeasonsSnapshot } from "../../model/snapshot/steading/SteadingSnapshot.
 // gains are an ordinary choice group persisted through SteadingChoices, so a pick is made and
 // released by the same machinery as every other choice in the system.
 export class SteadingSeasons {
-	constructor(choices, moves, artRepo) {
+	constructor(choices, moves, artRepo, season) {
 		this._choices = choices;
 		this._moves   = moves;
 		this._art     = artRepo;
+		// Where the wheel stands and what fires when it turns. A separate collaborator because it is
+		// a separate job — this class knows which four moves are seasonal, that one knows what season
+		// it is — and the tab needs both in one snapshot.
+		this._season  = season;
 	}
 
 	async buildSnapshot() {
-		const [category, plate] = await Promise.all([
+		const [category, plate, turnover] = await Promise.all([
 			this._moves.categorySnapshot(Seasons.CATEGORY),
 			this._art.seasonsPlate(),
+			this._season.buildSnapshot(),
 		]);
 		return new SeasonsSnapshot({
 			moves: category,
 			gains: buildChoiceGroup(SeasonalGains.toChoiceGroupData(), this._choices.values),
 			plate,
+			turnover,
 		});
 	}
-
-
 }

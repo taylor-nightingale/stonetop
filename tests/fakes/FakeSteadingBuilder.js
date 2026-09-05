@@ -157,6 +157,9 @@ export class FakeSteadingBuilder {
 		actor.chatItems = [];
 		actor.chatDescriptions = [];
 		actor.sendItemToChat = async item => { actor.chatItems.push(item); };
+		// Recorder for StonetopActor#rollItem — the seasonal turn rolls Seasons Change through it.
+		actor.rolledItems = [];
+		actor.rollItem = async (item, rollStat = null) => { actor.rolledItems.push({ item, rollStat }); };
 		actor.sendDescriptionToChat = async (label, description) => { actor.chatDescriptions.push({ label, description }); };
 
 		if (this._typedActorFactory) actor.typedActor = this._typedActorFactory(actor);

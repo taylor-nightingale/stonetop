@@ -108,18 +108,13 @@
       ]
     },
     "choices": [
-			{
-				"type": "entry",
-				"content": {
-					"title": "Praise the day"
-				}
-			},
       {
         "slug": "helior-worship-spread",
         "list": [
 					{
 						"type": "entry",
 						"content": {
+							"title": "Praise the day",
 							"text": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy."
 						}
 					},

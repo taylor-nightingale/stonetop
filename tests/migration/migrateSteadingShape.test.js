@@ -181,7 +181,34 @@ describe("migrateSteadingShape — assets get a state", () => {
 		expect(migrateSteadingShape({ assets: { items } }).assets.items).toEqual(items);
 	});
 
-	it("touches nothing when the diff carries no assets at all", () => {
-		expect(migrateSteadingShape({ notes: "x" }).assets).toBeUndefined();
+	// `toBeUndefined` was what this asserted, and it passed for a year while the heal wrote
+	// `assets: undefined` into every diff that had no assets — an absent key and a key holding
+	// undefined are indistinguishable to it, and only one of the two is harmless. The key itself is
+	// what matters: Foundry resets a SchemaField given an explicit undefined, so the injected key
+	// cleared the resource and fortification lists on every unrelated edit.
+	it("does not so much as MENTION assets when the diff carries none", () => {
+		expect(migrateSteadingShape({ notes: "x" })).not.toHaveProperty("assets");
 	});
+});
+
+// The rule the assets heal broke, stated once for all of them: migrateData runs on update DIFFS as
+// well as on whole sources, and a diff is a list of what the caller means to change. A heal may
+// transform a key that is present; introducing one that is not turns every edit into a write against
+// a field nobody touched.
+describe("migrateSteadingShape — a diff comes back saying only what it said", () => {
+	const diffs = {
+		"a note":        { notes: "The harvest came in early." },
+		"a rating":      { attributes: { prosperity: 2 } },
+		"a debility":    { debilities: { lacking: true } },
+		"the roster":    { folk: [{ id: "1", name: "Bryn", home: "" }] },
+		"a place link":  { placesOfInterest: [{ name: "The Stone", linkUuid: "" }] },
+		"the roll mode": { rollMode: "advantage" },
+	};
+
+	for (const [what, diff] of Object.entries(diffs)) {
+		it(`introduces no key into a diff changing ${what}`, () => {
+			const migrated = migrateSteadingShape(structuredClone(diff));
+			expect(Object.keys(migrated).sort()).toEqual(Object.keys(diff).sort());
+		});
+	}
 });

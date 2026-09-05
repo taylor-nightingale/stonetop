@@ -87,7 +87,77 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "population-plus3"
+          ]
+        },
+        {
+          "all": [
+            "additional-housing"
+          ]
+        },
+        {
+          "all": [
+            "water-source"
+          ]
+        },
+        {
+          "all": [
+            "other-improvements"
+          ]
+        },
+        {
+          "all": [
+            "formal-government"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "change Size to town and its Population to +0"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you Muster, Pull Together, or Trade & Barter, you have advantage"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "spring",
+            "summer"
+          ]
+        },
+        "change": {
+          "target": "surplus",
+          "formula": "@population + 1"
+        },
+        "text": "when the seasons change to spring or summer, the town generates Surplus equal to Population+1"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "winter"
+          ]
+        },
+        "adjustment": {
+          "step": "consumption",
+          "replaceFormula": "2d6 + @population"
+        },
+        "text": "when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

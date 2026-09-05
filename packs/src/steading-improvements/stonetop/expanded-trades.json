@@ -138,7 +138,78 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "any": 1,
+          "of": [
+            {
+              "all": [
+                "req-harnessing-stream"
+              ]
+            },
+            {
+              "all": [
+                "req-raincatching"
+              ]
+            },
+            {
+              "all": [
+                "req-mill"
+              ]
+            }
+          ]
+        },
+        {
+          "any": 3,
+          "of": [
+            {
+              "all": [
+                "chandler"
+              ]
+            },
+            {
+              "all": [
+                "glassblower"
+              ]
+            },
+            {
+              "all": [
+                "weaver"
+              ]
+            },
+            {
+              "all": [
+                "potter"
+              ]
+            },
+            {
+              "all": [
+                "smith"
+              ]
+            },
+            {
+              "all": [
+                "other-tradesperson"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "prosperity",
+          "amount": 1
+        },
+        "text": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

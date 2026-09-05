@@ -111,15 +111,29 @@ describe("tab toolbar contract", () => {
 		expect(ruleBlock(".stonetop-insert-remove")).not.toContain("position: absolute");
 	});
 
-	// Narrow layout floats a sidebar toggle in the tab's top-right corner (26px at right:2). Anything
-	// else that lives there — the pinned toolbars, the insert controls — has to clear it or ends up
-	// underneath.
-	it("clears the narrow-layout sidebar toggle in every corner control", () => {
+	// The sidebar toggle floats in the tab's top corner (26px at right:2) — at a narrow width, where
+	// the rail is a drawer over the tab, and at any width where the reader has put the rail away.
+	// Anything else that lives in that corner — the pinned toolbars, the insert controls — has to
+	// clear it or ends up underneath.
+	//
+	// The clearance is one variable spent in three places rather than three copies of "32px" behind a
+	// condition, because the condition is now two conditions ("narrow" OR "shut") and a corner
+	// control must step aside for both.
+	it("clears the sidebar toggle in every corner control", () => {
+		// The rail's own section, from where the gutter is declared to where the drawer takes over.
+		const railSection = css.slice(css.indexOf("--rail-toggle-gutter: 0px"),
+			css.indexOf("@container (max-width: 900px)"));
+		for (const selector of [".stonetop-moves-toolbar", ".stonetop-playbook-toolbar", ".stonetop-insert-actions"]) {
+			const at = railSection.indexOf(selector);
+			expect(at, `${selector} does not step aside for the toggle`).toBeGreaterThan(-1);
+			expect(railSection.slice(at), `${selector} does not spend the toggle's gutter`)
+				.toContain("var(--rail-toggle-gutter)");
+		}
+
+		// Set where a corner control can read it, in both states that put the toggle over the tab.
 		const narrow = css.slice(css.indexOf("@container (max-width: 900px)"));
-		for (const selector of [".stonetop-moves-toolbar", ".stonetop-playbook-toolbar", ".stonetop-insert-actions"])
-			expect(narrow).toContain(selector);
-		expect(narrow).toContain("right: 32px");
-		expect(narrow).toContain("padding-right: 32px");
+		expect(narrow).toContain("--rail-toggle-gutter: 32px");
+		expect(css).toContain(".rail-shut > .stonetop-rail-main { --rail-toggle-gutter: 32px; }");
 	});
 
 	it("marks the moves filter as the toggle that decorates rather than re-renders", () => {

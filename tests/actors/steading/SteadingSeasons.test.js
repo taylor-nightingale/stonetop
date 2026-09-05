@@ -10,6 +10,9 @@ import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
 import { FakeSteadingArtRepository, steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
+import { SteadingSeason } from "../../../src/actors/steading/SteadingSeason.js";
+import { SteadingImprovements } from "../../../src/actors/steading/SteadingImprovements.js";
+import { SteadingEffects } from "../../../src/actors/steading/SteadingEffects.js";
 
 const seasonMove = name =>
 	new FakeCompendiumMoveBuilder().withName(name).withMoveType("seasons").build();
@@ -22,14 +25,25 @@ function build({ moveNames = [], plate = null } = {}) {
 	moveNames.forEach(n => repo.addBasic(seasonMove(n)));
 	const choices = new SteadingChoices(actor);
 	const moves   = new SteadingMoves(actor, repo);
-	const seasons = new SteadingSeasons(choices, moves, new FakeSteadingArtRepository(plate));
+	const repos   = steadingRepos({ moves: repo });
+	// A real SteadingSeason behind it too: the tab's snapshot carries the turnover, and a fake would
+	// prove nothing about the composition this class exists to do.
+	const season  = new SteadingSeason(
+		actor,
+		new SteadingEffects(actor, new SteadingImprovements(actor, repos.improvements)),
+		choices,
+	);
+	const seasons = new SteadingSeasons(choices, moves, new FakeSteadingArtRepository(plate), season);
 	// Picks are made the way the sheet makes them — through the steading — so the store this reads
 	// back from is genuinely the one the registry routes to.
-	const steading = new StonetopSteading(actor, steadingRepos({ moves: repo }));
-	return { actor, choices, moves, seasons, steading };
+	const steading = new StonetopSteading(actor, repos);
+	return { actor, choices, moves, seasons, season, steading };
 }
 
-const allFour = () => Seasons.all().map(s => `Seasons Change: ${s.label}`);
+// The pack names the four moves after the seasons; the season itself now carries only a translation
+// key, so the printed name is spelled out here rather than read off the model.
+const NAMES = { spring: "Spring", summer: "Summer", autumn: "Autumn", winter: "Winter" };
+const allFour = () => Seasons.all().map(s => `Seasons Change: ${NAMES[s.key]}`);
 
 const gainTarget = key => new ChoiceTarget({
 	context: "steading", group: SEASONAL_GAINS_GROUP, option: key,

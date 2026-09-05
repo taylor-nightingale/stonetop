@@ -67,7 +67,7 @@ export class StonetopSteadfast {
 			neighborPlaces:   this.neighborPlaces.buildSnapshot(),
 			residentNames:    sys.residents?.names ?? "",
 			residentTraits:   sys.residents?.traits ?? [],
-			improvements:     await this.improvements.buildSnapshot(),
+			improvements:     await this.improvements.buildGroups(),
 		});
 	}
 }

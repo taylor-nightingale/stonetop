@@ -54,7 +54,45 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "any": 1,
+      "of": [
+        {
+          "all": [
+            "double-yield"
+          ]
+        },
+        {
+          "all": [
+            "clear-fields"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "moment",
+          "moment": "autumn-harvest"
+        },
+        "change": {
+          "target": "surplus",
+          "formula": "1d4"
+        },
+        "text": "when the autumn harvest is complete, gain +1d4 Surplus"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

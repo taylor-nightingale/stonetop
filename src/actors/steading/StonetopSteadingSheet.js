@@ -9,6 +9,8 @@ import { RAIL_ACTIONS } from "../../utils/SheetRail.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
+import { BoardView } from "./BoardView.js";
+import { toggleDisclosure } from "../../utils/Disclosure.js";
 
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
@@ -44,18 +46,93 @@ export function createStonetopSteadingSheetClass(Base) {
 				// outright, which is how most of session zero actually goes. A trait only ever appends
 				// to a row, so with nothing focused it says where to put it rather than inventing a
 				// nameless person the actor sync would then skip.
+				//
+				// The name brings its LIST's place with it: picking off Marshedge's list is the table
+				// saying this person is from Marshedge, so the Home column is filled rather than left
+				// to be typed out again. A default only — a row that already says where they live
+				// keeps it (Person.withHomeIfUnset) — and blank on the steading's own list, since a
+				// blank Home means this steading.
 				useName: editOnly(async function (ev, target) {
-					const name = target.dataset.value;
+					const { value: name, home = "" } = target.dataset;
 					const id = this.rosterFocus.id;
-					if (id) return this._stonetopSteading.updatePersonName(id, name);
-					const person = await this._stonetopSteading.addPersonNamed(name);
+					if (id) return this._stonetopSteading.usePersonName(id, name, home);
+					const person = await this._stonetopSteading.addPersonNamed(name, home);
 					this.rosterFocus.focusOn(person.id);
 				}),
+
+				// Folding a name list away, and opening an improvement card onto its requirement
+				// rows, are view state on the thing itself rather than edits — so neither is
+				// edit-gated and both survive a locked sheet. The same disclosure the move rows use,
+				// through the same one implementation.
+				toggleFolkList:        toggleDisclosure,
+				toggleImprovementCard: toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
 					const id = this.rosterFocus.id;
 					if (!id) return void ui.notifications?.info(game.i18n.localize("stonetop.steading.folk.focusRowFirst"));
 					return this._stonetopSteading.appendPersonTrait(id, target.dataset.value);
 				}),
+
+				// --- the season ---
+				// Rolling the incoming season's Seasons Change move IS turning the wheel, so there is
+				// one control for both. It lives here and nowhere else: the season is DISPLAYED
+				// wherever the ratings are, but a turn-the-season click reachable from anywhere is a
+				// foot-gun on a sheet six people can edit.
+				//
+				// It asks first, because it discards this season's checklist and gain — and the
+				// question names the roll, since the roll is what the reader is about to do.
+				turnSeason: editOnly(async function () {
+					const next = this._stonetopSteading.season.next;
+					const ok = await foundry.applications.api.DialogV2.confirm({
+						window:  { title: game.i18n.localize("stonetop.steading.seasons.turnTitle") },
+						content: `<p>${game.i18n.format("stonetop.steading.seasons.turnConfirm", {
+							season: game.i18n.localize(next.labelKey),
+						})}</p>`,
+					});
+					if (ok) await this._stonetopSteading.turnSeason();
+				}),
+
+				// The one instruction in Seasons Change that applies on every result, and the sheet
+				// used to leave it entirely unsaid. Not gated on having rolled: the table decides when
+				// it happened, as with everything else here.
+				resetFortunes: editOnly(function () {
+					return this._stonetopSteading.resetFortunes();
+				}),
+
+				// --- applying what an improvement does ---
+				// Finishing an improvement owes the steading something (+1 Fortunes, an entry on the
+				// Resources list). The card offers it where the last box was ticked, and this writes
+				// it — once, and only the lines still included.
+				applyCompletion: editOnly(function (ev, target) {
+					return this._stonetopSteading.applyCompletion(target.dataset.slug);
+				}),
+
+				// The season's own statement, written once. Guarded in the domain rather than here, so
+				// two people pressing it at the same moment still pay the season only once.
+				applyTurnover: editOnly(function () {
+					return this._stonetopSteading.applyTurnover();
+				}),
+
+				// A moment WITHIN the season — the harvest coming in, the hunt being led. The sheet
+				// cannot know when either happened, so the table says so by pressing this. Guarded in
+				// the domain on both counts: once per season, and only in a season it can occur in.
+				applyMoment: editOnly(function (ev, target) {
+					return this._stonetopSteading.applyMoment(target.dataset.slug);
+				}),
+
+				// A move an improvement conferred. Not edit-gated: rolling posts a chat card and writes
+				// nothing to the steading, so a locked sheet still rolls the hunt.
+				rollGrantedMove(ev, target) {
+					return this._stonetopSteading.rollGrantedMove(target.dataset.slug);
+				},
+
+				// --- the improvement board's own view ---
+				// Narrowing the board is view state on the reader, not an edit: it writes nothing, so
+				// it is not edit-gated and it works on a locked sheet. Filtering happens in the DOM
+				// for the same reason the roster's search does — a document update per click would
+				// put every other client through a render to answer one person's question.
+				toggleBoardFilter(ev, target) {
+					if (this.boardView.toggle(target.dataset.boardFilter)) this.boardView.restore(this.element);
+				},
 
 				// --- NPC actors for the roster (GM-only control; the automatic path is a hook) ---
 				createFolkActors: editOnly(function () {
@@ -169,6 +246,7 @@ export function createStonetopSteadingSheetClass(Base) {
 		 */
 		get rosterFocus()  { return this._rosterFocus  ??= new RosterFocus(); }
 		get rosterFilter() { return this._rosterFilter ??= new RosterFilter(); }
+		get boardView()    { return this._boardView    ??= new BoardView(); }
 
 		// Core rebuilds the part's DOM on every render, which takes the caret and the search with it.
 		// Restored here, after the base has put the open move rows back.
@@ -176,6 +254,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			super._onRender(context, options);
 			this.rosterFilter.restore(this.element);
 			this.rosterFocus.restore(this.element);
+			this.boardView.restore(this.element);
 		}
 
 		// Root-delegated, one-time wiring — the V2 root persists across re-renders. Editability is

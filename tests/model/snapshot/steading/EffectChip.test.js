@@ -1,0 +1,94 @@
+import { describe, it, expect } from "vitest";
+import { EffectChip } from "../../../../src/model/snapshot/steading/EffectChip.js";
+import { SteadingImprovement } from "../../../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
+
+// One requirement row, so a chip's `earned` can be flipped by one tick.
+const improvement = effects => new SteadingImprovement("mill", "Mill", {
+	slug: "mill",
+	list: [{ type: "entry", slug: "site", content: { text: "a site" }, track: { max: 1 } }],
+}, 0, { requires: "site", effects });
+
+const chipsOf = (effects, values = { site: 1 }) =>
+	EffectChip.forImprovement(improvement(effects), values);
+
+describe("EffectChip — what an improvement is for", () => {
+	// What it EARNS needs no "when": the timing is the completion itself.
+	it("states a completion delta with no timing", () => {
+		const [chip] = chipsOf([{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 },
+			text: "increase Fortunes by 1" }]);
+		expect(chip.timingKeys).toEqual([]);
+		expect(chip.amount).toBe("+1");
+		expect(chip.subjectKey).toBe("stonetop.steading.attr.fortunes");
+	});
+
+	// A minus sign, not a hyphen.
+	it("states a cost as a negative", () => {
+		const [chip] = chipsOf([{ when: { kind: "turn" }, change: { target: "surplus", amount: -1 },
+			text: "the watch consumes 1 Surplus" }]);
+		expect(chip.amount).toBe("−1");
+	});
+
+	it("states a rolled amount as its formula", () => {
+		const [chip] = chipsOf([{ when: { kind: "moment", moment: "autumn-harvest" },
+			change: { target: "surplus", formula: "1d4" }, text: "gain 1d4 Surplus" }]);
+		expect(chip.amount).toBe("1d4");
+		expect(chip.timingKeys).toEqual(["stonetop.steading.seasons.moments.autumn-harvest"]);
+	});
+
+	it("names the seasons a turn result fires in", () => {
+		const [chip] = chipsOf([{ when: { kind: "turn", seasons: ["autumn"] },
+			change: { target: "surplus", amount: 1 }, text: "+1 Surplus" }]);
+		expect(chip.timingKeys).toEqual(["stonetop.steading.seasons.names.autumn"]);
+	});
+
+	// Shorter than four season names, and what the book itself says.
+	it("says every season rather than naming four", () => {
+		const [chip] = chipsOf([{ when: { kind: "turn" }, change: { target: "surplus", amount: -1 },
+			text: "consumes 1 Surplus" }]);
+		expect(chip.timingKeys).toEqual(["stonetop.steading.seasons.everySeason"]);
+	});
+
+	it("states a list entry by its list and its own words", () => {
+		const [chip] = chipsOf([{ when: { kind: "completed" },
+			listEntry: { list: "resources", text: "Mill" }, text: 'add "Mill" to the Resources list' }]);
+		expect(chip.subjectKey).toBe("stonetop.steading.lists.resources");
+		expect(chip.text).toBe("Mill");
+		expect(chip.amount).toBe("");
+	});
+
+	// Both halves stated: dropping one would silently lose half of what the result does.
+	it("gives a result carrying both a delta and an entry two chips", () => {
+		const chips = chipsOf([{ when: { kind: "completed" },
+			change: { target: "defenses", amount: 1 },
+			listEntry: { list: "fortifications", text: "Palisade" },
+			text: "increase Defenses by 1 and add it to the list" }]);
+		expect(chips.map(c => c.subjectKey)).toEqual([
+			"stonetop.steading.attr.defenses", "stonetop.steading.lists.fortifications",
+		]);
+	});
+
+	// Township changing Size, Roadbuilding letting you build roads: nothing to compress, and
+	// compressing it anyway is how the old summary sentence went wrong.
+	it("says nothing about a result that is only prose", () => {
+		expect(chipsOf([{ when: { kind: "completed" }, text: "change Size to town" }])).toEqual([]);
+	});
+
+	it("says nothing about a result that only confers a move", () => {
+		expect(chipsOf([{ when: { kind: "completed" }, grantsMove: "heroic-reputation",
+			text: "gain the move: heroic reputation" }])).toEqual([]);
+	});
+});
+
+describe("EffectChip — earned or still owed", () => {
+	const effects = [{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 },
+		text: "increase Fortunes by 1" }];
+
+	it("is earned once the requirement behind it holds", () => {
+		expect(chipsOf(effects, { site: 1 })[0].earned).toBe(true);
+	});
+
+	// On an unfinished improvement a chip is what it WILL do; the card dims it to say so.
+	it("is not earned while the requirement does not", () => {
+		expect(chipsOf(effects, {})[0].earned).toBe(false);
+	});
+});

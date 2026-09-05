@@ -21,7 +21,12 @@ export function migrateSteadingShape(source) {
 	_healImprovements(source);
 	_healResidents(source);
 	_healFolk(source);
-	source.assets = healAssets(source.assets);
+	// GUARDED, like every heal above it. Assigning unconditionally wrote `assets: undefined` into
+	// every partial update diff this model ever migrated — and a diff carrying an explicit undefined
+	// for a SchemaField is a diff that resets it, so a steading's resources and fortifications were
+	// cleared by any edit that did not happen to mention them. In memory the sheet went on showing
+	// them; the database no longer had them, which is why they only vanished on a reload.
+	if (source.assets) source.assets = healAssets(source.assets);
 	return source;
 }
 

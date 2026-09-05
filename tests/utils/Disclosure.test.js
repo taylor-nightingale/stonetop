@@ -1,12 +1,13 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, beforeEach } from "vitest";
-import { MoveDisclosure, MOVE_DISCLOSURE_ACTIONS } from "../../src/utils/MoveDisclosure.js";
+import { Disclosure } from "../../src/utils/Disclosure.js";
+import { MOVE_ROW_ACTIONS } from "../../src/actors/moveRowHandlers.js";
 
 function rows(count = 2) {
 	document.body.innerHTML = Array.from({ length: count }, (_, i) => `
-		<li class="stonetop-item">
+		<li class="stonetop-item" data-disclosure-row>
 			<div class="stonetop-item-header">
-				<button type="button" class="stonetop-move-disclosure" data-action="toggleMoveBody"
+				<button type="button" class="stonetop-move-disclosure" data-action="toggleMoveBody" data-disclosure
 				        aria-expanded="false" aria-controls="body-${i}">Move ${i}</button>
 			</div>
 			<div class="stonetop-move-body" id="body-${i}" hidden>
@@ -20,14 +21,14 @@ function rows(count = 2) {
 	}));
 }
 
-const click = toggle => MOVE_DISCLOSURE_ACTIONS.toggleMoveBody(new Event("click"), toggle);
+const click = toggle => MOVE_ROW_ACTIONS.toggleMoveBody(new Event("click"), toggle);
 
-describe("MoveDisclosure", () => {
+describe("Disclosure, as a move row uses it", () => {
 	beforeEach(() => { document.body.innerHTML = ""; });
 
 	it("starts shut", () => {
 		const [a] = rows(1);
-		expect(MoveDisclosure.from(a.toggle).isOpen).toBe(false);
+		expect(Disclosure.from(a.toggle).isOpen).toBe(false);
 	});
 
 	// `hidden`, not a class: a hidden region is out of the tab order and the accessibility tree, which
@@ -66,7 +67,7 @@ describe("MoveDisclosure", () => {
 
 	it("is null for a button that controls nothing", () => {
 		document.body.innerHTML = `<button type="button" id="loose">x</button>`;
-		expect(MoveDisclosure.from(document.getElementById("loose"))).toBe(null);
+		expect(Disclosure.from(document.getElementById("loose"))).toBe(null);
 	});
 
 	it("does nothing when the action fires on such a button", () => {

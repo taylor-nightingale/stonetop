@@ -6,8 +6,11 @@
       because reading down them is how an NPC gets made. That is enforced by RosterFilter being handed
       the roster rather than the tab. --}}
 <section class="steading-folk-roster steading-block">
+	{{!-- No heading, and no rule under the search either. The tab is called Folk, the panel beneath is
+	      a roster with Name/Home/Occupation written across its top, and the only other thing on this
+	      side of the divider is that table — so a title here restated the tab it is on, and a rule
+	      beneath it separated the search from the one thing the search acts on. --}}
 	<div class="steading-folk-head">
-		{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.folk" place=actor.name)}}
 		{{!-- No data-change-action: this writes nothing to the actor. It filters rows in place on
 		      `input`, so it keeps up with typing and never puts the table through a render. Named by
 		      aria-label rather than a visible one — the placeholder alone is not an accessible name,
@@ -23,7 +26,10 @@
 			<span>{{localize "stonetop.steading.colHome"}}</span>
 			<span>{{localize "stonetop.steading.colOccupation"}}</span>
 			<span>{{localize "stonetop.steading.colTraits"}}</span>
-			<span>{{localize "stonetop.steading.linkColumn"}}</span>
+			{{!-- The link column is two controls wide and its heading does not fit in them. It is not
+			      missing: the chip in the column IS a document link, which says what the column is more
+			      directly than the word would, and the header keeps the name for assistive tech. --}}
+			<span class="steading-folk-link-heading">{{localize "stonetop.steading.linkColumn"}}</span>
 		</div>
 		<div class="steading-folk-rows">
 			{{#each folk}}
@@ -37,7 +43,13 @@
 					</span>
 					<input type="text" class="stonetop-person-home" data-change-action="personHome" aria-label="{{localize 'stonetop.a11y.personHome'}}" data-id="{{id}}" value="{{home}}" placeholder="{{localize 'stonetop.steading.folk.homePlaceholder'}}">
 					<input type="text" class="stonetop-person-occupation" data-change-action="personOccupation" aria-label="{{localize 'stonetop.a11y.personOccupation'}}" data-id="{{id}}" value="{{occupation}}" placeholder="{{localize 'stonetop.steading.colOccupation'}}">
-					<input type="text" class="stonetop-person-traits" data-change-action="personTraits" aria-label="{{localize 'stonetop.a11y.personTraits'}}" data-id="{{id}}" value="{{traits}}" placeholder="{{localize 'stonetop.steading.colTraits'}}">
+					{{!-- A textarea, alone among the row's cells: what goes here is a LIST — "knows all the
+					      gossip, cheery, owes the Marshedge dockmaster" — and a one-line field scrolls its
+					      tail out of sight sideways with no way to read it back but to put the caret in
+					      and walk. The shared one-line grower is the same field the resources and assets
+					      lists use: it starts one line high and takes a second only when the text needs
+					      one, so a roster of short traits costs nothing. --}}
+					<textarea rows="1" class="stonetop-person-traits stonetop-grow-field" data-change-action="personTraits" aria-label="{{localize 'stonetop.a11y.personTraits'}}" data-id="{{id}}" placeholder="{{localize 'stonetop.steading.folk.traitsPlaceholder'}}">{{traits}}</textarea>
 					<span class="steading-doc-link">
 						{{#if docLink}}
 							{{rich docLink}}

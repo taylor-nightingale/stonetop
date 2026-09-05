@@ -65,7 +65,62 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "engineer-foreman"
+          ]
+        },
+        {
+          "all": [
+            "slate-terracotta"
+          ]
+        },
+        {
+          "all": [
+            "pull-together"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "Raincatching"
+        },
+        "text": "add \"Raincatching\" to the Resources list"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "summer"
+          ]
+        },
+        "change": {
+          "target": "surplus",
+          "amount": 1
+        },
+        "condition": "you roll a 7+ with Fortunes",
+        "text": "when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

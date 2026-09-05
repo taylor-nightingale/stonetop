@@ -21,6 +21,21 @@ export class Person {
 	withOccupation(occupation) { return Person.fromRaw({...this, occupation}); }
 	withTraits(traits)         { return Person.fromRaw({...this, traits}); }
 	withHome(home)             { return Person.fromRaw({...this, home}); }
+
+	/**
+	 * The same person with `home` written on their row ONLY if nothing is written there yet.
+	 *
+	 * A default, not an override. Clicking a name off Marshedge's list says where that name comes
+	 * from, which is worth writing down for someone who has no home yet — and worth nothing against
+	 * someone whose row already says where they live, where it would be a silent correction of
+	 * something the table decided on purpose. Blank means this steading (see `home`), so a resident
+	 * given a Marshedge name is a resident until somebody says otherwise.
+	 */
+	withHomeIfUnset(home) {
+		const addition = (home ?? "").trim();
+		if (!addition || (this.home ?? "").trim()) return this;
+		return this.withHome(addition);
+	}
 	withLink(linkUuid)         { return Person.fromRaw({...this, linkUuid}); }
 	withoutLink()              { return Person.fromRaw({...this, linkUuid: null}); }
 
@@ -57,8 +72,8 @@ export class Person {
 		return new Person(newPersonId());
 	}
 
-	static named(name) {
-		return new Person(newPersonId(), name);
+	static named(name, home = "") {
+		return new Person(newPersonId(), name, "", "", home);
 	}
 
 	// `raw.id` is taken as it stands, never defaulted: this runs on every read of the stored list, so

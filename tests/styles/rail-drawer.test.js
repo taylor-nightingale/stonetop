@@ -27,10 +27,10 @@ const probe = new RenderProbe([
 	sheet("stonetop.css"),
 ]);
 
-const fixture = ({ side, open, width }) => `
+const fixture = ({ side, open, shut = false, width }) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
   <div class="window-content"><div class="sheet-wrapper">
-   <div class="stonetop-rail-layout${open ? " rail-open" : ""}" data-side="${side}" style="height: 600px">
+   <div class="stonetop-rail-layout${open ? " rail-open" : ""}${shut ? " rail-shut" : ""}" data-side="${side}" style="height: 600px">
     <button type="button" class="stonetop-rail-toggle" data-action="toggleRail" aria-expanded="${open}" aria-label="Rail">
       <i class="fas fa-archway"></i>
     </button>
@@ -101,10 +101,37 @@ describe.skipIf(!canProbe())("the rail as a drawer", () => {
 		expect(toggle.boxHeight).toBeGreaterThanOrEqual(24);
 	});
 
-	// Above the breakpoint the rail is an inline column, so there is nothing to disclose and the
-	// button must not be taking up a corner of the tab.
-	it("hides the toggle entirely while the rail is inline", () => {
+	// The rail is the reader's to put away at any width — "only when your window is small" was a rule
+	// about the window rather than about the reader.
+	it("offers the toggle while the rail is an inline column too", () => {
 		const toggle = measure({ side: "left", open: false, width: 1400 }).get("toggle").values;
-		expect(toggle.boxWidth).toBe(0);
+		expect(toggle.boxWidth).toBeGreaterThanOrEqual(24);
+		expect(toggle.boxHeight).toBeGreaterThanOrEqual(24);
+	});
+
+	// Inline, the toggle sits in the rail's own top corner — so the rail has to reserve that strip,
+	// exactly as the drawer does. This is the same regression as the drawer's, at the other width.
+	it("does not put an inline rail's first row under its toggle", () => {
+		const r = measure({ side: "left", open: false, width: 1400 });
+		const toggle = r.get("toggle").values;
+		const arch = r.get("archpair").values;
+		expect(arch.boxTop, `the arches start ${Math.round(toggle.boxTop + toggle.boxHeight - arch.boxTop)}px over the toggle`)
+			.toBeGreaterThanOrEqual(toggle.boxTop + toggle.boxHeight);
+	});
+
+	// Put away above the breakpoint the rail is GONE, not slid off-screen: the whole point is the tab
+	// getting the width back.
+	it("takes the rail out of the layout when it is shut at a wide width", () => {
+		const r = measure({ side: "left", open: false, shut: true, width: 1400 });
+		expect(r.get("rail").values.boxWidth).toBe(0);
+		expect(r.get("main").values.boxLeft).toBeLessThan(60);
+	});
+
+	// Shut, the toggle is over the TAB rather than over the rail, so the tab's own corner steps aside.
+	it("keeps the toggle reachable and clear of the tab when the rail is shut", () => {
+		const r = measure({ side: "left", open: false, shut: true, width: 1400 });
+		const toggle = r.get("toggle").values;
+		expect(toggle.boxWidth).toBeGreaterThanOrEqual(24);
+		expect(r.get("main").values.boxLeft).toBeLessThanOrEqual(toggle.boxLeft);
 	});
 });

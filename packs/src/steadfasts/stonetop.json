@@ -104,7 +104,7 @@
 			{
 				"slug": "gordins-delve",
 				"name": "Gordin's Delve",
-				"subtitle": "Choose from other lists; everyone comes to Gordin's Delve from somewhere else.",
+				"subtitle": "",
 				"note": "",
 				"names": ""
 			},
@@ -243,6 +243,80 @@
 			"township",
 			"weapons-of-war",
 			"well-trained-militia"
+		],
+		"impressions": [
+			{
+				"season": "spring",
+				"text": "Drip drip drip of snow melting from roofs, collecting in jugs and puddles"
+			},
+			{
+				"season": "spring",
+				"text": "Petrichor smell on a southerly breeze"
+			},
+			{
+				"season": "spring",
+				"text": "Hopeful green poking through deadbrown grass and soil"
+			},
+			{
+				"season": "spring",
+				"text": "Bare skin reveling in the still-chilly sun; cheerful voices; smiles and songs"
+			},
+			{
+				"season": "summer",
+				"text": "Blinding sun outside, cave-like dark inside"
+			},
+			{
+				"season": "summer",
+				"text": "Crops swaying and rippling in the breeze"
+			},
+			{
+				"season": "summer",
+				"text": "Fireflies like galaxies over the fields at dusk"
+			},
+			{
+				"season": "summer",
+				"text": "Dark storm clouds looming in the south, rumbling, flashing"
+			},
+			{
+				"season": "summer",
+				"text": "CRACKOOM of thunder, blinding flash as lightning touches the Stone"
+			},
+			{
+				"season": "autumn",
+				"text": "Crops bobbing heavy with seed, the Great Wood aflame with color"
+			},
+			{
+				"season": "autumn",
+				"text": "Work-song, shouts and laughter, grunts of effort"
+			},
+			{
+				"season": "autumn",
+				"text": "Rosy cheeks, breath visible in the morning air"
+			},
+			{
+				"season": "autumn",
+				"text": "Cold, steady rain"
+			},
+			{
+				"season": "winter",
+				"text": "Roofs covered in thick white blankets"
+			},
+			{
+				"season": "winter",
+				"text": "Trodden-down paths in the snow, brown and gray"
+			},
+			{
+				"season": "winter",
+				"text": "Cloaks drawn tight against a bitter wind"
+			},
+			{
+				"season": "winter",
+				"text": "Families gathered ‘round the hearth, hands busy with inside chores"
+			},
+			{
+				"season": "winter",
+				"text": "Yeasty smell of fermenting barley"
+			}
 		]
 	}
 }

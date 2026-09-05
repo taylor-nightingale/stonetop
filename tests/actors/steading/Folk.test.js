@@ -44,6 +44,54 @@ describe("Folk.addNamed", () => {
 		const person = await folk.addNamed("Eirlys");
 		expect(person.id).toBe(folk.buildSnapshot()[0].id);
 	});
+
+	// A name off a neighbouring place's list arrives already knowing where it is from.
+	it("adds them at the home the name's list belongs to", async () => {
+		const folk = make();
+		await folk.addNamed("Seadha", "Marshedge");
+		expect(folk.buildSnapshot()[0].home).toBe("Marshedge");
+	});
+
+	it("adds them with a blank home when the list names no place", async () => {
+		const folk = make();
+		await folk.addNamed("Eirlys");
+		expect(folk.buildSnapshot()[0].home).toBe("");
+	});
+});
+
+// One gesture — "use this name, off this list" — rather than a name write and a home write the
+// caller has to remember to pair up.
+describe("Folk.useName", () => {
+	it("writes the name onto the row", async () => {
+		const { folk, id } = await withOne();
+		await folk.useName(id, "Seadha");
+		expect(folk.buildSnapshot()[0].name).toBe("Seadha");
+	});
+
+	it("fills a blank home with the place the name came from", async () => {
+		const { folk, id } = await withOne();
+		await folk.useName(id, "Seadha", "Marshedge");
+		expect(folk.buildSnapshot()[0].home).toBe("Marshedge");
+	});
+
+	it("leaves a home somebody already wrote", async () => {
+		const { folk, id } = await withOne();
+		await folk.updateHome(id, "Lygos");
+		await folk.useName(id, "Seadha", "Marshedge");
+		expect(folk.buildSnapshot()[0]).toMatchObject({ name: "Seadha", home: "Lygos" });
+	});
+
+	it("leaves the home alone for a name off the steading's own list", async () => {
+		const { folk, id } = await withOne();
+		await folk.useName(id, "Bryn");
+		expect(folk.buildSnapshot()[0].home).toBe("");
+	});
+
+	it("does nothing for an id that is not on the roster", async () => {
+		const { folk } = await withOne();
+		await folk.useName("nobody", "Seadha", "Marshedge");
+		expect(folk.buildSnapshot()[0].name).not.toBe("Seadha");
+	});
 });
 
 describe("Folk.remove", () => {
@@ -129,26 +177,6 @@ describe("Folk — document linking", () => {
 		await folk.linkDocument(id, "Actor.xyz");
 		expect(folk.linksDocument("Actor.xyz")).toBe(true);
 		expect(folk.linksDocument("Actor.other")).toBe(false);
-	});
-});
-
-describe("Folk.updateTraitsSource", () => {
-	it("parses one trait per line into the pool", async () => {
-		const actor = new FakeActorBuilder().build();
-		await new Folk(actor).updateTraitsSource("gruff\ncurious\nsuperstitious");
-		expect(actor.system.residents.traits).toEqual(["gruff", "curious", "superstitious"]);
-	});
-
-	it("drops blank lines and trims whitespace", async () => {
-		const actor = new FakeActorBuilder().build();
-		await new Folk(actor).updateTraitsSource("  gruff  \n\n\t\ncurious\n");
-		expect(actor.system.residents.traits).toEqual(["gruff", "curious"]);
-	});
-
-	it("empties the pool for empty input", async () => {
-		const actor = new FakeActorBuilder().build();
-		await new Folk(actor).updateTraitsSource("");
-		expect(actor.system.residents.traits).toEqual([]);
 	});
 });
 

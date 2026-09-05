@@ -1,0 +1,112 @@
+{{!-- What a set of improvement results proposes to do to the steading, before anyone commits.
+
+      The turnover CHANGES the steading, and six people share this document — so this is never a
+      series of silent edits accumulating as somebody scrolls. It is one statement: every line shown
+      with its source, any line droppable, the net effect stated, and one Apply.
+
+      A line the sheet can do carries a checkbox (on by default — you opt OUT, you do not opt in).
+      One it cannot is shown with no checkbox and says why: a die the table rolls, a condition the
+      sheet cannot evaluate, an arithmetic that bends a step it never performs, or pure fiction.
+
+      A result that confers a MOVE gets a control instead of a checkbox: what it does depends on what
+      it rolls, so there is nothing to apply in advance and everything to roll.
+
+      Params: statement (TurnoverStatement), applyAction, applySlug, applyLabel, applied,
+      showAdvisory — whether to list the results the sheet cannot do. --}}
+<div class="steading-statement">
+
+	{{#if statement.hasAutomatic}}
+		<ul class="steading-statement-lines">
+			{{#each statement.automatic}}
+				<li class="steading-statement-line{{#unless included}} is-dropped{{/unless}}">
+					<label class="steading-statement-label">
+						<input class="steading-circle-input" type="checkbox"
+						       data-change-action="effectIncluded" data-effect-id="{{id}}"
+						       {{#if included}}checked{{/if}}>
+						<span class="steading-statement-box" aria-hidden="true"></span>
+						<span class="steading-statement-text">
+							<span class="steading-statement-source">{{source}}</span>
+							<span class="steading-statement-clause">{{rich text}}</span>
+						</span>
+						{{#with delta}}
+							<span class="steading-statement-delta">{{amount}} {{localize subjectKey}}</span>
+						{{/with}}
+					</label>
+				</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+
+	{{!-- Advisory lines are shown where the improvement's own words are NOT — the Season tab, where
+	      "because of what Stonetop has built" is the whole point. On the improvement's own card they
+	      are noise: the prose that says them is an inch below. --}}
+	{{#if (and showAdvisory statement.advisory)}}
+		{{!-- No checkbox: nothing here is the sheet's to do. Shown so the table can do it. --}}
+		<ul class="steading-statement-lines steading-statement-lines--advisory">
+			{{#each statement.advisory}}
+				<li class="steading-statement-line">
+					<span class="steading-statement-text">
+						<span class="steading-statement-source">{{source}}</span>
+						<span class="steading-statement-clause">{{rich text}}</span>
+						{{#if condition}}
+							<span class="steading-statement-condition">{{localize "stonetop.steading.effects.onlyIf"}} {{condition}}</span>
+						{{/if}}
+					</span>
+					{{#with delta}}
+						<span class="steading-statement-delta is-advisory">{{amount}} {{localize subjectKey}}</span>
+					{{/with}}
+				</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+
+	{{!-- The moves these results confer. Shown wherever the statement is — including on the
+	      improvement's own card, where the advisory prose is not — because this is the one thing the
+	      book's sentence cannot do for you. Not edit-gated: rolling a move writes nothing to the
+	      steading, and a locked sheet still gets to roll. --}}
+	{{#if statement.grantedMoveSlugs}}
+		<ul class="steading-statement-moves">
+			{{#each statement.grantedMoveSlugs}}
+				{{#with (lookup @root.stonetop.grantedMoves this)}}
+					<li>
+						<button type="button" class="steading-statement-move" data-view-state
+						        data-action="rollGrantedMove" data-slug="{{slug}}">
+							<i class="fas fa-dice-d6" aria-hidden="true"></i>
+							<span>{{localize "stonetop.steading.effects.rollGranted" move=name}}</span>
+						</button>
+					</li>
+				{{/with}}
+			{{/each}}
+		</ul>
+	{{/if}}
+
+	{{!-- No footer where there is nothing the sheet could write. A disabled Apply says "you may not",
+	      when the truth is that this statement has nothing to do — every result of it is a move to
+	      roll or a sentence for the table. The button stays, disabled, when automatic lines exist and
+	      have all been dropped: there the reader HAS taken everything out, and the control saying so
+	      is the feedback. --}}
+	{{#if (and @root.editable (not applied) statement.hasAutomatic)}}
+		<div class="steading-statement-foot">
+			{{!-- The consequence, stated as before → after, so nobody has to add up a column of deltas
+			      to know what pressing the button does. --}}
+			{{#if statement.totals}}
+				<span class="steading-statement-totals">
+					{{#each statement.totals}}
+						<span class="steading-statement-total">
+							{{localize (concat "stonetop.steading.attr." target)}}
+							<span class="steading-statement-from">{{from}}</span>
+							<span class="steading-statement-arrow" aria-hidden="true">→</span>
+							<span class="steading-statement-to">{{to}}</span>
+						</span>
+					{{/each}}
+				</span>
+			{{/if}}
+
+			<button type="button" class="steading-statement-apply" data-action="{{applyAction}}"
+			        data-slug="{{applySlug}}" {{#unless statement.willChangeAnything}}disabled{{/unless}}>
+				{{localize applyLabel}}
+			</button>
+		</div>
+	{{/if}}
+
+</div>

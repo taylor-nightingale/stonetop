@@ -1,6 +1,12 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, beforeEach } from "vitest";
-import { SheetRail, RAIL_ACTIONS } from "../../src/utils/SheetRail.js";
+import { SheetRail, RailState, RAIL_ACTIONS } from "../../src/utils/SheetRail.js";
+
+// The stylesheet is what says whether the rail is a column or an overlay, and there is no
+// stylesheet here — so a drawer is simulated the way the real one is drawn: positioned over the tab.
+function drawer(el) {
+	el.querySelector(".stonetop-rail").style.position = "absolute";
+}
 
 function layout({ open = false, side = "left" } = {}) {
 	const root = document.createElement("div");
@@ -72,6 +78,7 @@ describe("SheetRail", () => {
 
 	it("toggles both ways", () => {
 		const { el } = layout();
+		drawer(el);
 		const rail = new SheetRail(el);
 		expect(rail.isOpen).toBe(false);
 		rail.toggle();
@@ -82,6 +89,7 @@ describe("SheetRail", () => {
 
 	it("exposes the toggle as an actions entry that works from the button", () => {
 		const { el, toggle } = layout();
+		drawer(el);
 		RAIL_ACTIONS.toggleRail(new Event("click"), toggle);
 		expect(el.classList.contains("rail-open")).toBe(true);
 	});
@@ -89,5 +97,129 @@ describe("SheetRail", () => {
 	it("does nothing when the action fires outside a rail layout", () => {
 		document.body.innerHTML = `<button type="button" id="loose">x</button>`;
 		expect(() => RAIL_ACTIONS.toggleRail(new Event("click"), document.getElementById("loose"))).not.toThrow();
+	});
+});
+
+// The rail is put away and brought back at every width, so "is it open" cannot be a question about
+// the class alone: with the reader having said nothing, it is whatever the width means.
+describe("the three states", () => {
+	beforeEach(() => document.body.replaceChildren());
+
+	it("counts an untouched inline rail as open", () => {
+		const { el } = layout();
+		expect(new SheetRail(el).isOpen).toBe(true);
+	});
+
+	it("counts an untouched drawer as closed", () => {
+		const { el } = layout();
+		drawer(el);
+		expect(new SheetRail(el).isOpen).toBe(false);
+	});
+
+	// The regression this whole change is for: above the breakpoint there used to be no way to say it.
+	it("closes an inline rail, and says so on the layout and the toggle", () => {
+		const { el, toggle } = layout();
+		new SheetRail(el).toggle();
+		expect(el.classList.contains("rail-shut")).toBe(true);
+		expect(el.classList.contains("rail-open")).toBe(false);
+		expect(toggle.getAttribute("aria-expanded")).toBe("false");
+	});
+
+	it("never carries both states at once", () => {
+		const { el } = layout();
+		const rail = new SheetRail(el);
+		rail.close();
+		rail.open();
+		expect(el.classList.contains("rail-open")).toBe(true);
+		expect(el.classList.contains("rail-shut")).toBe(false);
+	});
+
+	// A reader's own answer outlives the width: a drawer they opened stays open, a column they shut
+	// stays shut.
+	it("keeps the reader's answer over the width's", () => {
+		const { el } = layout();
+		drawer(el);
+		const rail = new SheetRail(el);
+		rail.open();
+		expect(rail.isOpen).toBe(true);
+	});
+
+	// setOpen is the restore path, which runs on every re-render — including ones caused by typing
+	// somewhere else entirely.
+	it("restores state without moving the focus", () => {
+		const { el, outside } = layout();
+		outside.focus();
+		new SheetRail(el).setOpen(true);
+		expect(document.activeElement).toBe(outside);
+	});
+
+	it("is keyed by the region the toggle controls", () => {
+		const { el } = layout();
+		expect(new SheetRail(el).key).toBe("rail");
+	});
+});
+
+describe("RailState", () => {
+	beforeEach(() => document.body.replaceChildren());
+
+	it("puts a rail the reader shut back the way they left it", () => {
+		const { el } = layout();
+		const state = new RailState();
+		const rail = new SheetRail(el);
+		rail.close();
+		state.remember(rail);
+
+		// What a re-render does: the whole part, classes and all, is replaced.
+		const { el: fresh } = layout();
+		state.restore(document.body);
+		expect(fresh.classList.contains("rail-shut")).toBe(true);
+	});
+
+	it("leaves a rail nobody touched following the width", () => {
+		const { el } = layout();
+		new RailState().restore(document.body);
+		expect(el.classList.contains("rail-shut")).toBe(false);
+		expect(el.classList.contains("rail-open")).toBe(false);
+	});
+
+	it("remembers each rail separately", () => {
+		const { el } = layout();
+		el.querySelector(".stonetop-rail").id = "other";
+		const state = new RailState();
+		const other = new SheetRail(el);
+		other.close();
+		state.remember(other);
+
+		const { el: fresh } = layout();
+		state.restore(document.body);
+		expect(fresh.classList.contains("rail-shut")).toBe(false);
+	});
+
+	// The action is what the sheet binds; the sheet is what remembers.
+	it("is fed by the toggle action, with the sheet as `this`", () => {
+		const { el, toggle } = layout();
+		const sheet = { railState: new RailState() };
+		RAIL_ACTIONS.toggleRail.call(sheet, new Event("click"), toggle);
+		expect(sheet.railState._state.get("rail")).toBe(false);
+	});
+});
+
+// The template ships one aria-expanded and the width decides the other, so the toggle is corrected
+// once the sheet is in the document.
+describe("what the toggle announces", () => {
+	beforeEach(() => document.body.replaceChildren());
+
+	it("says a width-default inline rail is expanded", () => {
+		const { el, toggle } = layout();
+		new RailState().restore(document.body);
+		expect(toggle.getAttribute("aria-expanded")).toBe("true");
+		expect(el.classList.contains("rail-open")).toBe(false);
+	});
+
+	it("leaves a width-default drawer announced as collapsed", () => {
+		const { el, toggle } = layout();
+		drawer(el);
+		new RailState().restore(document.body);
+		expect(toggle.getAttribute("aria-expanded")).toBe("false");
 	});
 });

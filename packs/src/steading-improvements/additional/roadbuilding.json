@@ -80,7 +80,44 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "unlock-secrets"
+          ]
+        },
+        {
+          "all": [
+            "teach-runes"
+          ]
+        },
+        {
+          "all": [
+            "secure-nigh"
+          ]
+        },
+        {
+          "all": [
+            "recruit-foreman"
+          ]
+        },
+        {
+          "all": [
+            "recruit-maintain"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "you can expand or repair the Makers' Roads. Every ~25 miles of road requires Pulling Together, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies"
+      }
+    ]
   },
   "folder": "1UlzxDTaEInlMvWC"
 }

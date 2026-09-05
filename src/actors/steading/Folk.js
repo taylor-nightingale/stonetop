@@ -20,22 +20,30 @@ export class Folk {
 		this._actors = npcs ? new PersonActors(actor, npcs) : null;
 	}
 
-	// The "one trait per line" source textarea that feeds the trait pool. Owns the parse: blank lines
-	// and surrounding whitespace are dropped.
-	async updateTraitsSource(rawText) {
-		const traits = (rawText ?? "").split("\n").map(t => t.trim()).filter(Boolean);
-		await this._actor.update({ "system.residents.traits": traits });
-	}
-
 	async add() {
 		await this._list.add(Person.blank());
 	}
 
-	/** Add someone already carrying a name — the reference list's browse-and-create in one gesture. */
-	async addNamed(name) {
-		const person = Person.named(name);
+	/**
+	 * Add someone already carrying a name — the reference list's browse-and-create in one gesture.
+	 * `home` is where the list that name came off belongs; blank for the steading's own list, which
+	 * is also what a resident's row says.
+	 */
+	async addNamed(name, home = "") {
+		const person = Person.named(name, home);
 		await this._list.add(person);
 		return person;
+	}
+
+	/**
+	 * Give an existing row a name off one of the reference lists, and — only if the row does not
+	 * already say where they live — the place that list belongs to.
+	 *
+	 * One method rather than a name write followed by a home write: picking "Seadha" off Marshedge's
+	 * list is one gesture at the table and one thing the reader means by it.
+	 */
+	async useName(id, name, home = "") {
+		await this._update(id, p => p.withName(name).withHomeIfUnset(home));
 	}
 
 	async remove(id) {

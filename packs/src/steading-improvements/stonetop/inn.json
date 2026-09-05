@@ -87,7 +87,72 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "building-site"
+          ]
+        },
+        {
+          "all": [
+            "engineer-foreman"
+          ]
+        },
+        {
+          "all": [
+            "furnishings"
+          ]
+        },
+        {
+          "all": [
+            "pull-together"
+          ]
+        },
+        {
+          "all": [
+            "staff"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "The inn"
+        },
+        "text": "name the inn, add it to both the Resources list and map"
+      },
+      {
+        "when": {
+          "kind": "turn"
+        },
+        "text": "when the seasons change, whoever is friendliest rolls +Fortunes: on a 10+, ask the GM 3 questions about the wider world; on a 7-9, ask 1 question; on a 6-, ask 1 question, but the GM describes some trouble",
+        "grantsMove": "news-at-the-inn"
+      },
+      {
+        "when": {
+          "kind": "turn"
+        },
+        "condition": "once per season, when you expend 1 Surplus and bring folks together at the inn",
+        "text": "once per season, when you expend 1 Surplus and bring folks together at the inn, clear one of the steading's debilities"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

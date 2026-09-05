@@ -98,7 +98,51 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "any": 3,
+      "of": [
+        {
+          "all": [
+            "impress-hillfolk"
+          ]
+        },
+        {
+          "all": [
+            "brave-lake"
+          ]
+        },
+        {
+          "all": [
+            "save-marshedge"
+          ]
+        },
+        {
+          "all": [
+            "save-gordins-delve"
+          ]
+        },
+        {
+          "all": [
+            "save-beyond-marshedge"
+          ]
+        },
+        {
+          "all": [
+            "hire-minstrel"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "gain the move: when you first meet someone from beyond Stonetop, roll +Fortunes",
+        "grantsMove": "heroic-reputation"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

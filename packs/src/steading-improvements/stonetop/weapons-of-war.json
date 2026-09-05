@@ -112,7 +112,97 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "any": 1,
+          "of": [
+            {
+              "all": [
+                "buy-weapons"
+              ]
+            },
+            {
+              "all": [
+                {
+                  "all": [
+                    "smith-staff"
+                  ]
+                },
+                {
+                  "all": [
+                    "iron-ore"
+                  ]
+                },
+                {
+                  "all": [
+                    "smith-seasons"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            "veteran-warrior"
+          ]
+        },
+        {
+          "all": [
+            "train-militia"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "defenses",
+          "amount": 1
+        },
+        "text": "increase Defenses by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "fortifications",
+          "text": "Weapons of War"
+        },
+        "text": "add \"Weapons of War\" to the Fortifications list"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "spring"
+          ]
+        },
+        "change": {
+          "target": "surplus",
+          "amount": -1
+        },
+        "text": "each spring, the village must expend 1 Surplus to maintain and replace the town's weapons"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

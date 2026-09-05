@@ -9,7 +9,7 @@ const blank = () => new f.SchemaField(steadingProfileSchema(f)).initialize({});
 describe("steadingProfileSchema", () => {
 	it("exposes exactly the shared steading-definition fields", () => {
 		expect(Object.keys(steadingProfileSchema(f)).sort()).toEqual(
-			["assets", "attributes", "improvements", "neighborPlaces", "placesOfInterest", "residents"],
+			["assets", "attributes", "impressions", "improvements", "neighborPlaces", "placesOfInterest", "residents"],
 		);
 	});
 

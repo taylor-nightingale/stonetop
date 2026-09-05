@@ -61,6 +61,15 @@ export function steadingProfileSchema(f) {
 			traits: new f.ArrayField(new f.StringField()),
 		}),
 
+		// What this place is like in each season, in the book's own words (Book II's "Impressions"
+		// section, lifted by scripts/import/build-steading-impressions.js). Flat and season-tagged
+		// rather than a field per season, so nothing downstream has to spell the four keys. Empty for
+		// every steading whose article prints no such section.
+		impressions: new f.ArrayField(new f.SchemaField({
+			season: new f.StringField({ initial: "" }),
+			text:   new f.StringField({ initial: "" }),
+		})),
+
 		// Owned improvement slugs. On a steadfast: the improvements it grants. On a steading: the ones
 		// it has (granted-on-apply, plus any wonder improvements dropped later). Track/pick state lives
 		// alongside in the actor's `improvementValues`.

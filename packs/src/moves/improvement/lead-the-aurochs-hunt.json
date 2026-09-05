@@ -1,0 +1,27 @@
+{
+  "_id": "Thy0uF9koNYIH3I2",
+  "_key": "!items!Thy0uF9koNYIH3I2",
+  "name": "Lead the Aurochs Hunt",
+  "type": "move",
+  "system": {
+    "moveType": "improvement",
+    "description": "When you **_lead the aurochs hunt in spring,_** roll +Defenses.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Gain 1d4 Surplus."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Gain 1d4 Surplus, but pick 1 from the list below."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "Pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town’s horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they’ll be wiped out"
+      }
+    },
+    "rollStat": "defenses",
+    "slug": "lead-the-aurochs-hunt"
+  },
+  "folder": "EBs963c2tMdgyCOb"
+}

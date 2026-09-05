@@ -9,9 +9,13 @@ import {NeighborPlaces} from "./NeighborPlaces.js";
 import {SteadingContent} from "./SteadingContent.js";
 import {SteadingAssets} from "./SteadingAssets.js";
 import {SteadingImprovements} from "./SteadingImprovements.js";
+import {SteadingEffects} from "./SteadingEffects.js";
 import {SteadingMoves} from "./SteadingMoves.js";
+import {GrantedMoves} from "./GrantedMoves.js";
 import {SteadingChoices} from "./SteadingChoices.js";
 import {SteadingSeasons} from "./SteadingSeasons.js";
+import {SteadingSeason} from "./SteadingSeason.js";
+import {SeasonSnapshot} from "../../model/snapshot/steading/TurnoverSnapshot.js";
 import {SteadingRolls} from "./SteadingRolls.js";
 import {RollModes} from "../RollModes.js";
 import {SteadingDropRouter} from "./SteadingDropRouter.js";
@@ -32,7 +36,8 @@ import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadf
 export class StonetopSteading {
 	#actor;
 	#places; #attributes; #debilities; #folk; #suggestions; #neighborPlaces;
-	#content; #assets; #improvements; #moves; #choices; #seasons; #rolls; #drops; #choiceStores;
+	#content; #assets; #improvements; #effects; #moves; #grantedMoves; #choices; #season; #seasons;
+	#rolls; #drops; #choiceStores; #art;
 
 	constructor(actor, repos = FoundrySteadingRepositoryFactory.create()) {
 		this.#actor          = actor;
@@ -48,9 +53,21 @@ export class StonetopSteading {
 		this.#content        = new SteadingContent(actor);
 		this.#assets         = new SteadingAssets(actor);
 		this.#improvements   = new SteadingImprovements(actor, repos.improvements);
+		// What the improvements propose to do to the steading, and doing it. Built FROM the
+		// improvements, so it is composed after them and handed to the board rather than held by it.
+		this.#effects        = new SteadingEffects(actor, this.#improvements);
 		this.#moves          = new SteadingMoves(actor, repos.moves);
+		// Moves an improvement confers rather than moves the steading owns — looked up in the pack, so
+		// they never join the Moves tab. See GrantedMoves.
+		this.#grantedMoves   = new GrantedMoves(actor, repos.moves);
 		this.#choices        = new SteadingChoices(actor);
-		this.#seasons        = new SteadingSeasons(this.#choices, this.#moves, repos.art);
+		// The stored season and the turnover it drives. Built from the improvements, because the
+		// checklist is assembled from what this steading has actually built.
+		this.#season         = new SteadingSeason(actor, this.#effects, this.#choices);
+		this.#seasons        = new SteadingSeasons(this.#choices, this.#moves, repos.art, this.#season);
+		// Kept as well as handed to the seasons: the Play tab's own plate is asked for at snapshot
+		// time, where there is no region class to own it.
+		this.#art            = repos.art;
 		// Where a choice write goes, keyed by the context its row was rendered in — the same registry
 		// the character uses, so both answer the shared choice wiring identically. A move's picks live
 		// on that ITEM, which is why `move` resolves through SteadingMoves rather than the steading's
@@ -113,14 +130,14 @@ export class StonetopSteading {
 	// ── Folk — one roster, residents and neighbours together ───────────────────
 
 	async addPerson()                          { await this.#folk.add(); }
-	async addPersonNamed(name)                 { return this.#folk.addNamed(name); }
+	async addPersonNamed(name, home = "")      { return this.#folk.addNamed(name, home); }
 	async removePerson(id)                     { await this.#folk.remove(id); }
 	async updatePersonName(id, value)          { await this.#folk.updateName(id, value); }
+	async usePersonName(id, name, home = "")   { await this.#folk.useName(id, name, home); }
 	async updatePersonOccupation(id, value)    { await this.#folk.updateOccupation(id, value); }
 	async updatePersonTraits(id, value)        { await this.#folk.updateTraits(id, value); }
 	async updatePersonHome(id, value)          { await this.#folk.updateHome(id, value); }
 	async appendPersonTrait(id, trait)         { await this.#folk.appendTrait(id, trait); }
-	async updateFolkTraitsSource(value)        { await this.#folk.updateTraitsSource(value); }
 	async unlinkPerson(id)                     { await this.#folk.unlinkDocument(id); }
 	async linkPerson(id, uuid)                 { await this.#folk.linkDocument(id, uuid); }
 	async updateNeighborPlaceNote(id, value)   { await this.#neighborPlaces.updateNote(id, value); }
@@ -149,9 +166,69 @@ export class StonetopSteading {
 	async unlinkPlace(index)             { await this.#places.unlinkDocument(index); }
 	async linkPlace(index, uuid)         { await this.#places.linkDocument(index, uuid); }
 
+	// ── The season ─────────────────────────────────────────────────────────────
+	// Displayed wherever the ratings are; advanced only on the Season tab, because advancing runs
+	// the whole turnover procedure.
+
+	get season() { return this.#season.season; }
+	get year()   { return this.#season.year; }
+
+	/**
+	 * Turn the season — one act, because in the fiction it IS one act.
+	 *
+	 * Rolling the incoming season's Seasons Change move is what turning the wheel means ("when spring
+	 * bursts forth upon the land, whoever is the most hopeful rolls +Fortunes"), so the sheet does not
+	 * offer an abstract "advance" beside the move that advances it. The wheel turns first and the roll
+	 * follows: the season changes whatever the dice say, and the card should be posted by a steading
+	 * already in the season it is about.
+	 */
+	async turnSeason() {
+		const moveSlug = this.season.next.moveSlug;
+		await this.#season.turn();
+		await this.#moves.roll(moveSlug);
+	}
+
+	/**
+	 * Reset Fortunes, as the move tells you to on every result.
+	 *
+	 * To +1 — or to +0 while the steading is malcontent, which is that debility's whole effect. The
+	 * debilities are asked rather than checked here, so the rule lives with the thing that causes it.
+	 */
+	async resetFortunes() { await this.setFortunes(this.#debilities.seasonalFortunesReset); }
+
+	/** What that reset will actually set Fortunes to — the button says so rather than implying +1. */
+	get fortunesResetValue() { return this.#debilities.seasonalFortunesReset; }
+
+	/** Write what this season does to the steading — the turn's statement, once. */
+	async applyTurnover() { return this.#season.applyTurnover(); }
+
+	/**
+	 * Write what a named moment of this season does — the harvest coming in, the hunt being led.
+	 *
+	 * Separate from the turnover because it happens at a different time, and the sheet cannot know
+	 * when: the table says the harvest is in by applying it.
+	 */
+	async applyMoment(key) { return this.#season.applyMoment(key); }
+
+	/** Roll a move an improvement conferred — the aurochs hunt, the news at the inn. */
+	async rollGrantedMove(slug) { return this.#grantedMoves.roll(slug); }
+
 	// ── Improvements ───────────────────────────────────────────────────────────
 
 	async revokeImprovement(slug) { await this.#improvements.revoke(slug); }
+
+	// ── Applying what improvements do ──────────────────────────────────────────
+	// The sheet never writes a rating silently: a statement is built, the table drops any line it
+	// does not want, and one Apply writes the lot.
+
+	/** Include or drop one line of a pending statement. */
+	async setEffectIncluded(id, included) { await this.#effects.setIncluded(id, included); }
+
+	/** Apply what finishing an improvement does, and record that it is done. */
+	async applyCompletion(slug) {
+		const improvement = (await this.#improvements.owned()).find(i => i.slug === slug);
+		if (improvement) await this.#effects.applyCompletion(improvement);
+	}
 
 	// ── Choice groups ──────────────────────────────────────────────────────────
 	// The same four the character answers, so one shared wiring drives either sheet.
@@ -249,10 +326,12 @@ export class StonetopSteading {
 	// ── Rendering ──────────────────────────────────────────────────────────────
 
 	async buildSnapshot() {
-		const [improvements, moves, seasons] = await Promise.all([
-			this.#improvements.buildSnapshot(),
+		const [improvements, moves, seasons, resourcesPlate, grantedMoves] = await Promise.all([
+			this.#improvements.buildSnapshot(this.#effects),
 			this.#moves.buildSnapshot(),
 			this.#seasons.buildSnapshot(),
+			this.#art.resourcesPlate(),
+			this.#improvements.grantedMoveSlugs().then(slugs => this.#grantedMoves.bySlug(slugs)),
 		]);
 		return new SteadingSnapshot({
 			fortunes: new RatingSnapshot(SteadingDefaults.fortunes, {
@@ -274,9 +353,16 @@ export class StonetopSteading {
 			content:            this.#content.buildSnapshot(),
 			assets:             this.#assets.buildSnapshot(),
 			improvements,
-			traitPoolText:      (this.#actor.system.residents?.traits ?? []).join("\n"),
+			resourcesPlate,
 			moves,
 			seasons,
+			// Keyed by slug at the root, because a granted move is named in three unrelated places —
+			// its improvement's card, the season's statement, and the moment it fires at — and each
+			// of them holds only the slug.
+			grantedMoves,
+			season:             new SeasonSnapshot(this.season, true),
+			year:               this.year,
+			fortunesReset:      this.fortunesResetValue,
 			rollMode:           this.rollMode,
 			rollModes:          RollModes.options(this.rollMode),
 		});

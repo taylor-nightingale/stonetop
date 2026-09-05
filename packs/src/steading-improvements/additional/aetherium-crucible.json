@@ -98,7 +98,70 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "learning-process"
+          ]
+        },
+        {
+          "all": [
+            "learning-imbue"
+          ]
+        },
+        {
+          "all": [
+            "reliable-means"
+          ]
+        },
+        {
+          "all": [
+            "securing-steady"
+          ]
+        },
+        {
+          "all": [
+            "securing-steady-2"
+          ]
+        },
+        {
+          "all": [
+            "exceptional-smith"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "Aetherium Crucible"
+        },
+        "text": "add \"Aetherium Crucible\" to the Resources list and the map"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "prosperity",
+          "amount": 1
+        },
+        "condition": "as long as you trade aetherium to the outside world",
+        "text": "as long as you trade aetherium to the outside world, increase Prosperity by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop, and you have advantage to Trade & Barter for aetherium items with special characteristics"
+      }
+    ]
   },
   "folder": "1UlzxDTaEInlMvWC"
 }

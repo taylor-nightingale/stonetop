@@ -312,6 +312,78 @@
       "source": "Stonetop",
       "text": ""
     },
+    "impressions/0/text": {
+      "source": "Drip drip drip of snow melting from roofs, collecting in jugs and puddles",
+      "text": ""
+    },
+    "impressions/1/text": {
+      "source": "Petrichor smell on a southerly breeze",
+      "text": ""
+    },
+    "impressions/2/text": {
+      "source": "Hopeful green poking through deadbrown grass and soil",
+      "text": ""
+    },
+    "impressions/3/text": {
+      "source": "Bare skin reveling in the still-chilly sun; cheerful voices; smiles and songs",
+      "text": ""
+    },
+    "impressions/4/text": {
+      "source": "Blinding sun outside, cave-like dark inside",
+      "text": ""
+    },
+    "impressions/5/text": {
+      "source": "Crops swaying and rippling in the breeze",
+      "text": ""
+    },
+    "impressions/6/text": {
+      "source": "Fireflies like galaxies over the fields at dusk",
+      "text": ""
+    },
+    "impressions/7/text": {
+      "source": "Dark storm clouds looming in the south, rumbling, flashing",
+      "text": ""
+    },
+    "impressions/8/text": {
+      "source": "CRACKOOM of thunder, blinding flash as lightning touches the Stone",
+      "text": ""
+    },
+    "impressions/9/text": {
+      "source": "Crops bobbing heavy with seed, the Great Wood aflame with color",
+      "text": ""
+    },
+    "impressions/10/text": {
+      "source": "Work-song, shouts and laughter, grunts of effort",
+      "text": ""
+    },
+    "impressions/11/text": {
+      "source": "Rosy cheeks, breath visible in the morning air",
+      "text": ""
+    },
+    "impressions/12/text": {
+      "source": "Cold, steady rain",
+      "text": ""
+    },
+    "impressions/13/text": {
+      "source": "Roofs covered in thick white blankets",
+      "text": ""
+    },
+    "impressions/14/text": {
+      "source": "Trodden-down paths in the snow, brown and gray",
+      "text": ""
+    },
+    "impressions/15/text": {
+      "source": "Cloaks drawn tight against a bitter wind",
+      "text": ""
+    },
+    "impressions/16/text": {
+      "source": "Families gathered ‘round the hearth, hands busy with inside chores",
+      "text": ""
+    },
+    "impressions/17/text": {
+      "source": "Yeasty smell of fermenting barley",
+      "text": ""
+    },
     "assets/resources/farming-beans-potatoes-oats-barley": {
       "source": "Farming (beans, potatoes, oats, barley)",
       "text": ""
@@ -360,19 +432,19 @@
       "source": "Some bows",
       "text": ""
     },
-    "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming": {
+    "assets/items/0/text": {
       "source": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
       "text": ""
     },
-    "assets/items/a-pair-of-horse-drawn-plows-iron": {
+    "assets/items/1/text": {
       "source": "A pair of horse-drawn plows, iron",
       "text": ""
     },
-    "assets/items/a-pair-of-carts-plus-horse-harness": {
+    "assets/items/2/text": {
       "source": "A pair of carts (plus horse harness)",
       "text": ""
     },
-    "assets/items/a-wagon-plus-horse-harness": {
+    "assets/items/3/text": {
       "source": "A wagon (plus horse harness)",
       "text": ""
     },

@@ -105,7 +105,92 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        "veteran-warrior"
+      ]
+    },
+    "effects": [
+      {
+        "requires": {
+          "all": [
+            "veteran-warrior"
+          ]
+        },
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
+      },
+      {
+        "requires": {
+          "all": [
+            {
+              "all": [
+                "veteran-warrior"
+              ]
+            },
+            {
+              "any": 2,
+              "of": [
+                {
+                  "all": [
+                    "archery"
+                  ]
+                },
+                {
+                  "all": [
+                    "cavalry"
+                  ]
+                },
+                {
+                  "all": [
+                    "formations"
+                  ]
+                },
+                {
+                  "all": [
+                    "readiness"
+                  ]
+                },
+                {
+                  "all": [
+                    "skirmishing"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "defenses",
+          "amount": 1
+        },
+        "text": "when the militia has trained in 2+ tactics, increase Defenses by 1"
+      },
+      {
+        "requires": {
+          "all": [
+            "veteran-warrior"
+          ]
+        },
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "summer"
+          ]
+        },
+        "change": {
+          "target": "surplus",
+          "amount": -1
+        },
+        "text": "each summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

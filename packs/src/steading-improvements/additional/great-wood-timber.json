@@ -76,7 +76,66 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "proof-that"
+          ]
+        },
+        {
+          "all": [
+            "crew-brave"
+          ]
+        },
+        {
+          "all": [
+            "skilled-carpenter"
+          ]
+        },
+        {
+          "all": [
+            "pulling-together"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "Timber from the Great Wood"
+        },
+        "text": "add \"Timber from the Great Wood\" to the Resources list"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "winter"
+          ]
+        },
+        "adjustment": {
+          "step": "consumption",
+          "amount": -1
+        },
+        "text": "the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter"
+      }
+    ]
   },
   "folder": "1UlzxDTaEInlMvWC"
 }

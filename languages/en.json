@@ -101,7 +101,6 @@
 			},
 			"rail": "Arches and homefront moves",
 			"headings": {
-				"folk": "Folk of {place} and beyond",
 				"npcTraits": "NPC Traits",
 				"npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
 				"placesOfInterest": "Places of Interest",
@@ -168,7 +167,7 @@
 			},
 			"colName": "Name",
 			"colOccupation": "Occupation",
-			"colTraits": "Traits",
+			"colTraits": "Traits, relations, etc.",
 			"colHome": "Home",
 			"linkColumn": "Link",
 			"linkHint": "Drag a document onto an entry to link it.",
@@ -184,20 +183,67 @@
 				"nothing": "Every named row already has a linked document."
 			},
 			"seasons": {
-				"movesTitle": "Seasons Change",
+				"names": {
+					"spring": "Spring",
+					"summer": "Summer",
+					"autumn": "Autumn",
+					"winter": "Winter"
+				},
 				"movesEmpty": "No seasonal moves assigned to this steading.",
-				"gainsTitle": "Seasonal gains",
-				"gainsHint": "Recording a pick doesn't change the steading's ratings."
+				"wheelLabel": "The steading's year",
+				"stated": "{season}, year {year}",
+				"turnoverTitle": "Because of what Stonetop has built",
+				"turnoverHint": "Everything Stonetop has built that fires this season. Drop any line you want to keep out.",
+				"turnoverEmpty": "Nothing Stonetop has built fires this season.",
+				"turnTitle": "The turn of the season",
+				"turnConfirm": "Roll Seasons Change: {season}? The season turns, and this season's checklist and seasonal gain are cleared.",
+				"rollMove": "Roll {move}",
+				"stepRoll": "Roll it",
+				"stepGain": "Pick 1 seasonal gain",
+				"stepGainNote": "on a 10+, or on a 7-9 with a threat",
+				"stepFortunes": "Reset Fortunes",
+				"stepFortunesNote": "whatever the result",
+				"resetFortunes": "Reset Fortunes to +{value}",
+				"othersTitle": "The other seasons",
+				"othersHint": "Reference. The season turns by rolling the move above.",
+				"momentsTitle": "This season",
+				"momentsHint": "The sheet can't know when these happen. Apply one when it does.",
+				"moments": {
+					"autumn-harvest": "The autumn harvest",
+					"aurochs-hunt": "The aurochs hunt"
+				},
+				"everySeason": "every season"
 			},
 			"folk": {
 				"searchPlaceholder": "search the roster…",
 				"namePlaceholder": "Name (Pronouns)",
 				"homePlaceholder": "Home",
+				"traitsPlaceholder": "Traits",
 				"newVillager": "new villager",
 				"remove": "Delete villager",
 				"homeBlankHint": "Home blank means this steading. Search filters this table only.",
 				"focusRowFirst": "Put the cursor in a villager's row first — a trait is added to the row you are editing.",
 				"namesFrom": "Names — {place}"
+			},
+			"improvements": {
+				"boardTitle": "Improvements",
+				"boardEmpty": "This steading owns no improvements yet. Drop one onto the sheet to start it.",
+				"complete": "done",
+				"progress": "{ticked} / {total}",
+				"countInProgress": "{count} in progress",
+				"countUntouched": "{count} not started",
+				"countComplete": "{count} complete",
+				"filterLabel": "Show only"
+			},
+			"effects": {
+				"completed": "{name} is complete.",
+				"apply": "Apply",
+				"onlyIf": "only if",
+				"applySeason": "Apply the season",
+				"alreadyApplied": "This season has been applied.",
+				"applyMoment": "Apply",
+				"momentApplied": "Applied this season.",
+				"rollGranted": "Roll {move}"
 			}
 		},
 		"followers": {

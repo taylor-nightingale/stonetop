@@ -7,9 +7,9 @@
       "selected only" filter hides (CSS-only, see .tab.moves.hide-unselected). Context is a MoveSnapshot;
       params: showCheck, categoryKey, allowAdditional (forwarded to move-item). --}}
 {{#if rollStat}}
-<li class="item stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}" data-item-id="{{ownedId}}">
+<li class="item stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}" data-disclosure-row data-item-id="{{ownedId}}">
 {{else}}
-<li class="stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}">
+<li class="stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}" data-disclosure-row>
 {{/if}}
 	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource disclosure=disclosure}}
 </li>

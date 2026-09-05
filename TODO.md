@@ -71,3 +71,26 @@ selecting a name from another location should default that person to that locati
 remove the editable steading source traits source
 remove "choose from other lists; everyone comes to gordin's delve from somewhere else" from the notes section
 remove title "Folk of Stonetop and beyond" from folk section
+resources, fortifications, etc for the steading ge  t deleted when I do a page refresh. This should have an integration test
+
+== 5
+should be allowed to collapse the sidebar any time
+folk tab needs fixing for thin screens
+traits column should say "traits, relations, etc."
+traits column should wrap when text is too long
+the roll button next to the attributes on the top rail intersects with the up down buttons
+the check boxes for steading debilities is not aligned centered with the text
+the font we're using makes numbers harder to read, can we use a different, more readable font for the stat numbers (including the -1 in front of 'lacking' on prosperity)
+The link column is too wide. shorten it to only include the person icon and the x button. I don't  care about duplicating the name
+steading folk names should be collapsed by default execpt for stonetop
+
+== 6
+the previous people image we had on the folk sheet is gone, figure out a nice place for it?
+if someone manually types an npc trait it doesn't detect it nad cross out the trait
+are there ways to make the sidebar more recognizable? the button at the top left is nice but it isn't very clear what it does. Perhaps showing a hovering sidebar thing on the left? research
+improvements should be searchable
+clicking on the increase/decrease buttons selects the fortunes up button and makes the other one dissapear. you can't click twice in a row without moving the cursor around
+make the seasons change picture larger
+remove the duplicate names on the improvements. They shouldn't appear in the body as well as the title.
+add a search bar to improvements
+the other seasons reference is awkward looking and jaring in that location

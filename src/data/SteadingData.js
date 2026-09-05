@@ -1,5 +1,6 @@
 import { steadingProfileSchema, steadingRatingsSchema } from "./steadingProfileSchema.js";
 import { migrateSteadingShape } from "../migration/migrateSteadingShape.js";
+import { Seasons } from "../model/data/steading/Seasons.js";
 
 // A steading actor. It is generic — a blank steading is an EMPTY place. It receives its starting
 // values by applying a steadfast (applySteadfast / the create hook copies the steadfast's profile
@@ -28,6 +29,18 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			// slug under the "moves" namespace — same shape/section a character uses (ResourceController).
 			resources:   new f.SchemaField({ counts: new f.ObjectField(), texts: new f.ObjectField() }),
 
+			// Where the wheel stands, and how many times it has come round. In-play state like the
+			// debilities below it, not part of the shared profile a steadfast defines — a steadfast
+			// describes a place, not a moment in its year. Advanced only on the Season tab, because
+			// advancing runs the whole turnover; every other surface displays it and nothing more.
+			season: new f.StringField({ initial: Seasons.DEFAULT }),
+			year:   new f.NumberField({ initial: 1, integer: true, min: 1 }),
+			// The impression the wheel stamped on this season — one line drawn from the steadfast's
+			// list when the season turned. Stored rather than picked at render: six people have this
+			// sheet open, and a line re-rolled per client per render is a different season to each of
+			// them. Blank until the first turn, and blank forever for a steading with no impressions.
+			seasonImpression: new f.StringField({ initial: "" }),
+
 			debilities: new f.SchemaField({
 				diminished: new f.BooleanField({ initial: false }),
 				lacking:    new f.BooleanField({ initial: false }),
@@ -54,6 +67,17 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			// that is `residents`.
 			folk:              new f.ArrayField(new f.ObjectField()),
 			improvementValues: new f.ObjectField(),                    // track/pick state, keyed by group slug
+			// Lines the table opted OUT of before applying a statement, keyed by line id. Season-scoped:
+			// cleared when the wheel turns, because the statement it belonged to is gone.
+			turnoverExcluded:  new f.ObjectField(),
+			// What has already been written this season — `{turn: true}` — so the second person to
+			// press Apply on a sheet six people share does not pay the season twice. Season-scoped.
+			turnoverApplied:   new f.ObjectField(),
+			// Which improvements have had their completion results applied, keyed by slug. DURABLE and
+			// not season-scoped — an improvement is finished once, and its +1 Fortunes is not owed
+			// again next spring. It is also what stops the board card asking twice on a sheet six
+			// people are looking at.
+			improvementsApplied: new f.ObjectField(),
 			choiceValues:      new f.ObjectField(),                    // choice-group picks, keyed by group slug
 		};
 	}

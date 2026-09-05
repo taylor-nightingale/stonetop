@@ -1,14 +1,49 @@
 import { FoundryPackStore } from "../../character/repositories/FoundryPackStore.js";
 import { WorldItemStore } from "../../character/repositories/WorldItemStore.js";
+import { ImprovementEffects } from "../../../model/data/steading/ImprovementEffect.js";
+import { RequirementBoxes, parseRequirement } from "../../../model/data/steading/ImprovementRequirement.js";
 
-const FIELDS = ["system.slug", "system.sortOrder", "system.choices"];
+const FIELDS = ["system.slug", "system.sortOrder", "system.choices", "system.requires", "system.effects"];
 
 export class SteadingImprovement {
-	constructor(slug, name, choices, sortOrder = 0) {
+	constructor(slug, name, choices, sortOrder = 0, { requires = null, effects = [] } = {}) {
 		this.slug      = slug;
 		this.name      = name;
 		this.choices   = choices;
 		this.sortOrder = sortOrder;
+		// What it takes to build, and what it does once built — the hand-authored model merged onto
+		// the item by scripts/import/build-improvement-effects.js. Empty for a custom improvement
+		// authored in a world, which simply has no results the sheet can reason about.
+		this.requires  = parseRequirement(requires);
+		// Results inherit the improvement's own requirement unless they narrow it — see
+		// ImprovementEffect.fromRaw. Without that, every result of an owned-but-unbuilt improvement
+		// would fire.
+		this.effects   = ImprovementEffects.fromRaw(effects, requires);
+	}
+
+	/**
+	 * This improvement's tick state, against the steading's stored values for its group.
+	 *
+	 * Every question about an improvement — is it built, does this result hold, how far along is it —
+	 * is asked of the requirement expression against this.
+	 */
+	boxesFrom(storedValues) {
+		return RequirementBoxes.from(this.choices?.list ?? [], storedValues ?? {});
+	}
+
+	/** Whether Stonetop has built it: anything it promises is true yet. */
+	isBuilt(storedValues) {
+		return this.effects.isBuilt(this.boxesFrom(storedValues));
+	}
+
+	/** The results firing at a trigger, given what has been ticked. */
+	firingAt(kind, storedValues, options = {}) {
+		return this.effects.firingAt(kind, this.boxesFrom(storedValues), options);
+	}
+
+	/** The same, each with its stable position in this improvement's result list. */
+	entriesFiringAt(kind, storedValues, options = {}) {
+		return this.effects.entriesFiringAt(kind, this.boxesFrom(storedValues), options);
 	}
 
 	/**
@@ -47,6 +82,7 @@ export class FoundrySteadingImprovementRepository {
 				entry.name,
 				entry.system?.choices ?? null,
 				entry.system?.sortOrder ?? 0,
+				{ requires: entry.system?.requires ?? null, effects: entry.system?.effects ?? [] },
 			))
 			.sort((a, b) => a.sortOrder - b.sortOrder);
 		return this._cache;

@@ -52,8 +52,10 @@ export class RosterFilter {
 	}
 
 	// Every value written on the row — a search for "smith" should find the smith whether that word is
-	// their occupation, their trait or their name.
+	// their occupation, their trait or their name. Traits is a textarea (its list wraps), so the
+	// fields are asked for by what they are rather than by which tag they happen to use: an input-only
+	// sweep silently stopped searching the widest column on the row.
 	static _rowText(row) {
-		return [...row.querySelectorAll("input[type='text']")].map(i => i.value).join(" ");
+		return [...row.querySelectorAll("input[type='text'], textarea")].map(i => i.value).join(" ");
 	}
 }

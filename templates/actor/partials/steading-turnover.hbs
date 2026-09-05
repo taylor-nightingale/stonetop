@@ -1,0 +1,27 @@
+{{!-- "Because of what Stonetop has built" — the seasonal turnover, assembled.
+
+      This is the heaviest thing the sheet is asked to do and the place it used to help least: every
+      improvement the steading owns had to be re-read looking for a clause that fires this season,
+      and then every rating edited by hand. The list is written from the improvements' own structured
+      results, and applying it is one act.
+
+      Params: turnover (TurnoverSnapshot). --}}
+<div class="steading-turnover">
+
+	{{#if turnover.hasClauses}}
+		{{#if turnover.applied}}
+			{{!-- Already written. Still shown — what the season did is worth reading after the fact —
+			      but with nothing left to press. --}}
+			<p class="steading-turnover-applied">{{localize "stonetop.steading.effects.alreadyApplied"}}</p>
+		{{/if}}
+		{{> "stonetop.steading-statement" statement=turnover.statement showAdvisory=true
+		    applyAction="applyTurnover"
+		    applyLabel="stonetop.steading.effects.applySeason"
+		    applied=turnover.applied}}
+	{{else}}
+		{{!-- Not an error and not an empty state to apologise for: a season in which nothing Stonetop
+		      has built fires is an ordinary season. --}}
+		<p class="steading-turnover-empty">{{localize "stonetop.steading.seasons.turnoverEmpty"}}</p>
+	{{/if}}
+
+</div>

@@ -76,7 +76,62 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "engineer-foreman"
+          ]
+        },
+        {
+          "all": [
+            "stonecutter"
+          ]
+        },
+        {
+          "all": [
+            "equipment-tools"
+          ]
+        },
+        {
+          "all": [
+            "pull-together"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "fortifications",
+          "text": "Stone Wall"
+        },
+        "text": "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you take advantage of the stone wall, you have advantage to Deploy"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "winter"
+          ]
+        },
+        "adjustment": {
+          "step": "consumption",
+          "amount": -1
+        },
+        "text": "when winter grips the land, the steading consumes 1 less Surplus than normal"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

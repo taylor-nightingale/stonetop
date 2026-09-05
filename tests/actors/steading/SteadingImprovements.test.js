@@ -28,7 +28,7 @@ const palisadeRepo = () => makeRepo([new SteadingImprovement("palisade", "Palisa
 describe("SteadingImprovements.buildSnapshot", () => {
 	it("returns empty when the steading owns no improvements", async () => {
 		const imp = new SteadingImprovements(makeActor([]), palisadeRepo());
-		expect(await imp.buildSnapshot()).toEqual([]);
+		expect((await imp.buildSnapshot()).entries).toEqual([]);
 	});
 
 	it("renders only the improvements the steading owns, resolved by slug", async () => {
@@ -37,7 +37,7 @@ describe("SteadingImprovements.buildSnapshot", () => {
 			new SteadingImprovement("palisade", "Palisade", PALISADE_CHOICES),
 		]);
 		const imp = new SteadingImprovements(makeActor(["palisade"]), repo);
-		const snap = await imp.buildSnapshot();
+		const snap = (await imp.buildSnapshot()).entries;
 		expect(snap).toHaveLength(1);
 		expect(snap[0].slug).toBe("palisade");
 	});
@@ -45,13 +45,13 @@ describe("SteadingImprovements.buildSnapshot", () => {
 	it("skips an owned slug the repo can't resolve or whose choices are null", async () => {
 		const repo = makeRepo([new SteadingImprovement("mill", "Mill", null)]);
 		const imp = new SteadingImprovements(makeActor(["mill", "ghost"]), repo);
-		expect(await imp.buildSnapshot()).toEqual([]);
+		expect((await imp.buildSnapshot()).entries).toEqual([]);
 	});
 
 	it("track is unchecked by default", async () => {
 		const imp = new SteadingImprovements(makeActor(["palisade"]), palisadeRepo());
-		const snap = await imp.buildSnapshot();
-		expect(snap[0].list[0].track.checks[0]).toBe(false);
+		const snap = (await imp.buildSnapshot()).entries;
+		expect(snap[0].group.list[0].track.checks[0]).toBe(false);
 	});
 });
 
@@ -76,7 +76,7 @@ describe("SteadingImprovements.grant", () => {
 		const repo = makeRepo([new SteadingImprovement("palisade", "Palisade", PALISADE_CHOICES)]);
 		const imp = new SteadingImprovements(makeActor([]), repo);
 		await imp.grant("palisade");
-		const snap = await imp.buildSnapshot();
+		const snap = (await imp.buildSnapshot()).entries;
 		expect(snap.map(g => g.slug)).toEqual(["palisade"]);
 	});
 
@@ -87,7 +87,7 @@ describe("SteadingImprovements.grant", () => {
 		const imp = new SteadingImprovements(actor, palisadeRepo());
 		await imp.grant("from-a-disabled-module");
 		expect(actor.system.improvements).toEqual(["from-a-disabled-module"]);
-		expect(await imp.buildSnapshot()).toEqual([]);
+		expect((await imp.buildSnapshot()).entries).toEqual([]);
 	});
 
 	it("is a no-op for a slug already owned — re-dropping does not duplicate or write", async () => {
@@ -126,7 +126,7 @@ describe("SteadingImprovements.revoke", () => {
 		const actor = makeActor(["palisade"]);
 		const imp = new SteadingImprovements(actor, palisadeRepo());
 		await imp.revoke("palisade");
-		expect(await imp.buildSnapshot()).toEqual([]);
+		expect((await imp.buildSnapshot()).entries).toEqual([]);
 	});
 
 	it("leaves the list alone when the slug isn't owned", async () => {
@@ -144,7 +144,7 @@ describe("SteadingImprovements.revoke", () => {
 		expect(actor.system.improvementValues).toEqual({ palisade: { done: 1 } });
 
 		await imp.grant("palisade");
-		expect((await imp.buildSnapshot())[0].list[0].track.checks[0]).toBe(true);
+		expect(((await imp.buildSnapshot()).entries)[0].group.list[0].track.checks[0]).toBe(true);
 	});
 
 	it("does not disturb another improvement's track state", async () => {
@@ -157,18 +157,56 @@ describe("SteadingImprovements.revoke", () => {
 // Writing track state is the steading's job now (setChoiceTrackFor → its ChoiceStores → this
 // improvement's controller); what belongs here is what the snapshot makes of what is stored.
 describe("SteadingImprovements.buildSnapshot — stored track state", () => {
-	const snapshotOf = values =>
-		new SteadingImprovements(makeActor(["palisade"], values), palisadeRepo()).buildSnapshot();
+	const snapshotOf = async values =>
+		(await new SteadingImprovements(makeActor(["palisade"], values), palisadeRepo()).buildSnapshot()).entries;
 
 	it("shows a filled track as checked", async () => {
-		expect((await snapshotOf({ palisade: { done: 1 } }))[0].list[0].track.checks[0]).toBe(true);
+		expect((await snapshotOf({ palisade: { done: 1 } }))[0].group.list[0].track.checks[0]).toBe(true);
 	});
 
 	it("shows an emptied track as unchecked", async () => {
-		expect((await snapshotOf({ palisade: { done: 0 } }))[0].list[0].track.checks[0]).toBe(false);
+		expect((await snapshotOf({ palisade: { done: 0 } }))[0].group.list[0].track.checks[0]).toBe(false);
 	});
 
 	it("shows a track nothing has been stored for as unchecked", async () => {
-		expect((await snapshotOf({}))[0].list[0].track.checks[0]).toBe(false);
+		expect((await snapshotOf({}))[0].group.list[0].track.checks[0]).toBe(false);
+	});
+});
+
+describe("SteadingImprovements.grantedMoveSlugs", () => {
+	// The pack holds the move; the improvement only names it. Collected here so the sheet resolves
+	// the whole set in one lookup rather than one per line.
+	const withMoves = () => {
+		const repo = new FakeSteadingImprovementRepository();
+		repo._improvements.push(
+			new SteadingImprovement("inn", "Inn", { slug: "inn", list: [] }, 0, {
+				effects: [
+					{ when: { kind: "turn" }, text: "news reaches the inn", grantsMove: "news-at-the-inn" },
+					{ when: { kind: "completed" }, text: "increase Prosperity by 1",
+					  change: { target: "prosperity", amount: 1 } },
+				],
+			}),
+			new SteadingImprovement("aurochs-hunting", "Aurochs Hunting", { slug: "aurochs-hunting", list: [] }, 1, {
+				effects: [
+					{ when: { kind: "moment", moment: "aurochs-hunt" }, text: "lead the hunt",
+					  grantsMove: "lead-the-aurochs-hunt" },
+					{ when: { kind: "completed" }, text: "gain a reputation", grantsMove: "news-at-the-inn" },
+				],
+			}),
+			new SteadingImprovement("palisade", "Palisade", PALISADE_CHOICES),
+		);
+		return repo;
+	};
+
+	it("names every move the owned improvements confer, once", async () => {
+		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
+		expect(await imp.grantedMoveSlugs()).toEqual(["news-at-the-inn", "lead-the-aurochs-hunt"]);
+	});
+
+	// Whether it is BUILT is not asked: the sheet needs the move's name wherever the line is shown,
+	// and the line is shown before the improvement is finished.
+	it("names nothing for an improvement the steading does not own", async () => {
+		const imp = new SteadingImprovements(makeActor(["palisade"]), withMoves());
+		expect(await imp.grantedMoveSlugs()).toEqual([]);
 	});
 });

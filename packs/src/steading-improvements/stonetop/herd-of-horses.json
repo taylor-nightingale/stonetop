@@ -103,9 +103,13 @@
         },
         {
           "type": "entry",
+          "slug": "mind-the-herd",
           "content": {
             "title": null,
             "text": "Someone to mind the herd and stable, full time."
+          },
+          "track": {
+            "max": 1
           }
         },
         {
@@ -116,7 +120,100 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "stable-site"
+          ]
+        },
+        {
+          "all": [
+            "build-stable"
+          ]
+        },
+        {
+          "all": [
+            "skilled-rider"
+          ]
+        },
+        {
+          "all": [
+            "acquire-horses"
+          ]
+        },
+        {
+          "all": [
+            "training-horses"
+          ]
+        },
+        {
+          "all": [
+            "saddles-equipment"
+          ]
+        },
+        {
+          "all": [
+            "learn-to-ride"
+          ]
+        },
+        {
+          "all": [
+            "mind-the-herd"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you leverage the horses to Pull Together, it takes half as long and costs half as much"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you Requisition half the herd or less, treat a 6- as a 7-9"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "summer"
+          ]
+        },
+        "text": "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "winter"
+          ]
+        },
+        "condition": "1 Surplus per 6 grown or yearling horses",
+        "text": "when winter grips the land, the herd consumes 1 Surplus per 6 grown or yearling horses. For every Surplus not consumed, 1d6 horses are lost"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }

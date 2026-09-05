@@ -27,6 +27,10 @@ export function steadingChangeHandlers(s, { availableSteadfasts }) {
 		attributeItem: el => s.updateAttributeItem(el.dataset.attr, el.dataset.index, el.value),
 
 		debility:    el => s.setDebility(el.dataset.slug, el.checked),
+
+		// A line of a pending statement, included or dropped. Unticking does not apply anything — it
+		// takes the line out of what Apply will write, and the totals above the button follow.
+		effectIncluded: el => s.setEffectIncluded(el.dataset.effectId, el.checked),
 		contentText: el => s.updateContentText(el.dataset.type, el.value),
 
 		// Assets + coinage
@@ -42,7 +46,6 @@ export function steadingChangeHandlers(s, { availableSteadfasts }) {
 		personTraits:     el => s.updatePersonTraits(el.dataset.id, el.value),
 		personHome:       el => s.updatePersonHome(el.dataset.id, el.value),
 		// Folk owns the one-per-line parse.
-		folkTraitsSource: el => s.updateFolkTraitsSource(el.value),
 
 		// Neighboring places
 		neighborPlaceNote:  el => s.updateNeighborPlaceNote(el.dataset.id, el.value),

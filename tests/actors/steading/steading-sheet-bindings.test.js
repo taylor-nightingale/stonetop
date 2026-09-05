@@ -48,8 +48,6 @@ async function renderSheet({ editable = true } = {}) {
 			<input class="stonetop-person-home" data-change-action="personHome" data-id="r1" value="Marshedge">
 		</div></div>
 		<input type="checkbox" class="stonetop-item-check" data-change-action="assetRequisitioned" data-index="1" checked>
-		<textarea class="steading-folk-traits-source" data-change-action="folkTraitsSource">gruff
-curious</textarea>
 		<textarea class="stonetop-notes" data-change-action="notes">a note</textarea>
 		<input type="checkbox" class="stonetop-cg-track" data-change-action="cgTrack" data-cg-context="improvement"
 		       data-cg-group="fortifications" data-cg-option="palisade" data-cg-index="1" checked>
@@ -90,12 +88,6 @@ describe("StonetopSteadingSheet — V2 control bindings (one per tab)", () => {
 		fire(sheet.element.querySelector(".steading-steadfast-input"), "change");
 		expect(steading.renameOrApplySteadfast).toHaveBeenCalledWith(
 			"Barrier Pass", [{ slug: "barrier-pass", name: "Barrier Pass" }]);
-	});
-
-	it("routes the traits-source textarea to Folk.updateTraitsSource (raw text)", async () => {
-		const { sheet, steading } = await renderSheet();
-		fire(sheet.element.querySelector(".steading-folk-traits-source"), "change");
-		expect(steading.updateFolkTraitsSource).toHaveBeenCalledWith("gruff\ncurious");
 	});
 
 	it("routes the delegated improvement track and move-resource pip", async () => {

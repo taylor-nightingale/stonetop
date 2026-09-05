@@ -62,21 +62,10 @@
           "slug": "extra-wagon",
           "content": {
             "title": null,
-            "text": "An extra wagon (Value 3) and extra horse or mule (Value 3) to"
+            "text": "An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from Stonetop"
           },
           "track": {
             "max": 1
-          }
-        },
-        {
-          "type": "entry",
-          "slug": "haul-timber",
-          "content": {
-            "title": null,
-            "text": "haul timber to and from Stonetop"
-          },
-          "track": {
-            "max": 3
           }
         },
         {
@@ -87,7 +76,7 @@
             "text": "Four seasons of operation, each generating a wagonload of timber (Value 2)"
           },
           "track": {
-            "max": 1
+            "max": 4
           }
         },
         {
@@ -105,7 +94,85 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "two-three"
+          ]
+        },
+        {
+          "all": [
+            "supplies-furnishings"
+          ]
+        },
+        {
+          "all": [
+            "5-6"
+          ]
+        },
+        {
+          "all": [
+            "extra-wagon"
+          ]
+        },
+        {
+          "all": [
+            "four-seasons"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "change": {
+          "target": "fortunes",
+          "amount": 1
+        },
+        "text": "increase Fortunes by 1"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "Logging: timber, wood"
+        },
+        "text": "add \"Logging: timber, wood\" to the Resources list"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "winter"
+          ]
+        },
+        "adjustment": {
+          "step": "consumption",
+          "amount": -1
+        },
+        "condition": "as long as the camp is in operation",
+        "text": "as long as the camp is in operation, the steading consumes 1 less Surplus than usual in winter"
+      },
+      {
+        "when": {
+          "kind": "turn",
+          "seasons": [
+            "summer"
+          ]
+        },
+        "change": {
+          "target": "surplus",
+          "amount": -1
+        },
+        "text": "the logging camp consumes 1 Surplus every summer or else it ceases operation"
+      }
+    ]
   },
   "folder": "1UlzxDTaEInlMvWC"
 }

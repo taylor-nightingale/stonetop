@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, MeasuredElement, canProbe } from "./RenderProbe.js";
 
@@ -148,21 +148,29 @@ const MOVE_ROW = check => `
 </div></div>`;
 
 describe.skipIf(!canProbe())("a move's description hangs under its name", () => {
-	const leftEdges = check => {
-		const m = probe.measure({
-			bodyHtml: MOVE_ROW(check),
-			bodyClass: "theme-light",
-			rootAttrs: 'style="font-size: 16px"',
-			targets: { name: "#m-name", requirement: "#m-req", description: "#m-desc" }
-		});
-		return m;
-	};
+	// Measured ONCE per variant, in a beforeAll with a real budget, and shared by every case below.
+	//
+	// Each probe.measure launches Chrome. Measuring inside the tests meant four launches for three
+	// assertions, and the case that needed two of them had only vitest's default 5s to do it in — so
+	// under full-suite load it timed out rather than failed. Two launches, one budget, no flake.
+	const edges = {};
+
+	beforeAll(() => {
+		for (const check of [true, false]) {
+			edges[check] = probe.measure({
+				bodyHtml: MOVE_ROW(check),
+				bodyClass: "theme-light",
+				rootAttrs: 'style="font-size: 16px"',
+				targets: { name: "#m-name", requirement: "#m-req", description: "#m-desc" }
+			});
+		}
+	}, 120000);
 
 	it.each([
 		["on an arcanum card, where the row has no checkbox", false],
 		["in the moves tab, where the row has one", true]
 	])("%s", (_label, check) => {
-		const m = leftEdges(check);
+		const m = edges[check];
 		// Within a px: the name is bold display type and the description is prose, so their glyph
 		// bearings differ slightly even when both start at the same offset.
 		expect(m.get("description").textLeft).toBeCloseTo(m.get("name").textLeft, 0);
@@ -170,8 +178,8 @@ describe.skipIf(!canProbe())("a move's description hangs under its name", () => 
 	});
 
 	it("indents both surfaces by exactly the checkbox they do or do not have", () => {
-		const withCheck = leftEdges(true).get("description").textLeft;
-		const without = leftEdges(false).get("description").textLeft;
+		const withCheck = edges[true].get("description").textLeft;
+		const without = edges[false].get("description").textLeft;
 		// 14px checkbox + the header's 6px gap.
 		expect(withCheck - without).toBeCloseTo(20, 0);
 	});

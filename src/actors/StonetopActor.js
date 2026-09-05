@@ -54,6 +54,13 @@ export function createStonetopActorClass(BaseActor) {
 			return true;
 		}
 
+		// Roll an owned item the way a click on its die would, for a caller that has the item rather
+		// than an event — the seasonal turn, which rolls Seasons Change on the steading's behalf. The
+		// same RollRequest and the same execute as _onRoll, so the chat card is identical.
+		async rollItem(item, rollStat = null) {
+			await this._rolling.execute(RollRequest.fromItem(item, rollStat, this.typedActor.rollMode));
+		}
+
 		// Post an owned item's full text (description + all result tiers) to chat, without rolling.
 		async sendItemToChat(item) {
 			await this._rolling.execute(RollRequest.fromItem(item, null, "normal"), {descriptionOnly: true});

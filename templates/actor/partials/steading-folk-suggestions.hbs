@@ -4,6 +4,15 @@
       Names and traits are the same data structure, so they get the same partial; `list.action` is the
       only thing that differs, and it comes off the snapshot rather than being branched on here.
 
+      COLLAPSIBLE, and the LIST says whether it arrives open (see FolkSuggestions: the steading's own
+      names and the trait pool do, each neighbouring place's does not). Six or seven pools of
+      twenty-five names is a column several screens long, and all but one of them are places most
+      villagers are not from — so what is in front of you is the list you reach for, and the rest are
+      a title you click. Folded is not hidden: every title is still there to be found.
+
+      The reader's own folds are remembered across renders by OpenDisclosures, which is what stops a
+      click on a name (an actor write, so a re-render) refolding what they just opened.
+
       Each entry is a real <button>, exactly as tag-list.hbs does it: core binds click for
       [data-action] only, so a clickable span would be keyboard-dead. It is then styled back down to
       plain text — a wall of a hundred buttons that LOOKS like a hundred buttons is unreadable, and
@@ -13,7 +22,11 @@
       NOT data-view-state, unlike tag-list's: showing a tag's definition is view state, but these
       entries WRITE to the roster. On a sheet the reader cannot edit, core disables them and they
       stay readable text — which is honest, where a live-looking control that silently does nothing
-      is not.
+      is not. The list's own toggle IS view state, so that one keeps the marker.
+
+      `data-home` is where this list's names come from, carried on the entry so clicking one says
+      both things the reader meant: this person's name, and where they are from. Blank on the
+      steading's own list, because a blank Home column already means this steading.
 
       An entry already used in this steading is marked rather than removed: repeating a trait is
       sometimes exactly right, and you still want to see that "cheery" is taken twice.
@@ -21,12 +34,19 @@
       A token that is not a usable value renders as plain text — the field is free text a GM edits,
       and no button should paste a sentence into a name cell. --}}
 <div class="steading-folk-list">
-	<h6 class="steading-folk-list-title">{{list.title}}</h6>
-	<p class="steading-folk-entries">
+	<h6 class="steading-folk-list-title">
+		<button type="button" class="steading-folk-list-toggle" data-action="toggleFolkList"
+		        data-disclosure data-view-state
+		        aria-expanded="{{#if list.open}}true{{else}}false{{/if}}" aria-controls="{{@root.sheetIdPrefix}}-folk-{{list.key}}">
+			<i class="fas fa-caret-down steading-folk-list-caret" aria-hidden="true"></i>
+			<span>{{list.title}}</span>
+		</button>
+	</h6>
+	<p class="steading-folk-entries" id="{{@root.sheetIdPrefix}}-folk-{{list.key}}" {{#unless list.open}}hidden{{/unless}}>
 		{{~#each list.entries~}}
 			{{~#if clickable~}}
 				<button type="button" class="steading-folk-entry{{#if used}} is-used{{/if}}"
-				        data-action="{{../list.action}}" data-value="{{label}}"
+				        data-action="{{../list.action}}" data-value="{{label}}" data-home="{{../list.home}}"
 				        aria-label="{{#if used}}{{localize 'stonetop.a11y.suggestionUsed'}} {{/if}}{{label}}">{{label}}</button>
 			{{~else~}}
 				<span class="steading-folk-prose">{{label}}</span>

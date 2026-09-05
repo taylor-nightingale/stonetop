@@ -30,6 +30,44 @@ describe("FolkSuggestions.build", () => {
 		expect(titles(suggestions.build())).toEqual(["Names — Stonetop", "Names — Marshedge"]);
 	});
 
+	// A name carries its list's place with it, so the roster's Home column is filled by the same
+	// click that fills the Name column.
+	it("gives a neighbouring place's list that place as its home", () => {
+		const { suggestions } = make({
+			places: [{ slug: "marshedge", name: "Marshedge", names: "Seadha" }],
+		});
+		expect(suggestions.build()[0].home).toBe("Marshedge");
+	});
+
+	// A blank Home means THIS steading, so the steading's own names send none: writing the steading's
+	// own name into every resident's row would undo the merge of residents and neighbours a row at a
+	// time.
+	it("sends no home with the steading's own names", () => {
+		const { suggestions } = make({ names: "Bryn" });
+		expect(suggestions.build()[0].home).toBe("");
+	});
+
+	it("sends no home with the traits, which belong to nowhere", () => {
+		const { suggestions } = make({ traits: ["gruff"] });
+		expect(suggestions.build()[0].home).toBe("");
+	});
+
+	// The key identifies a list to the one thing outside its own DOM that addresses it: the record of
+	// which lists this reader has folded away. Stable across renders, and unique on the tab.
+	it("keys each list distinctly", () => {
+		const { suggestions } = make({
+			names: "Bryn",
+			traits: ["gruff"],
+			places: [
+				{ slug: "marshedge", name: "Marshedge", names: "Seadha" },
+				{ slug: "lygos",     name: "Lygos",     names: "Agatte" },
+			],
+		});
+		const keys = suggestions.build().map(l => l.key);
+		expect(keys).toEqual(["names-own", "names-marshedge", "names-lygos", "traits"]);
+		expect(new Set(keys).size).toBe(keys.length);
+	});
+
 	it("follows the steadfast's order for the neighbouring places", () => {
 		const { suggestions } = make({
 			places: [
@@ -62,6 +100,33 @@ describe("FolkSuggestions.build", () => {
 
 	it("is empty when the steading seeds no pools at all", () => {
 		expect(make().suggestions.build()).toEqual([]);
+	});
+});
+
+// Which lists arrive open. The reference column is several screens of names, and all but one of its
+// pools are places most villagers are not from — so the one you reach for is in front of you and the
+// rest are a title. Which is which is this class's knowledge; SuggestionList only carries it.
+describe("FolkSuggestions — how the lists arrive", () => {
+	it("opens the steading's own names", () => {
+		const { suggestions } = make({ names: "Bryn" });
+		expect(suggestions.build()[0].open).toBe(true);
+	});
+
+	it("folds each neighbouring place's names away", () => {
+		const { suggestions } = make({
+			names: "Bryn",
+			places: [
+				{ slug: "marshedge", name: "Marshedge", names: "Seadha" },
+				{ slug: "lygos",     name: "Lygos",     names: "Agatte" },
+			],
+		});
+		expect(suggestions.build().map(l => l.open)).toEqual([true, false, false]);
+	});
+
+	// The pool you scan while writing traits, not a place — it stays open with the steading's own.
+	it("opens the trait pool", () => {
+		const { suggestions } = make({ traits: ["cheery"] });
+		expect(suggestions.build()[0].open).toBe(true);
 	});
 });
 

@@ -1,38 +1,37 @@
-{{!-- The Seasons Change spread (Book I, p.85): the four seasonal moves, each bulleted with its
-      glyph, and the Seasonal gains panel. Params: seasons (SeasonsSnapshot). --}}
+{{!-- The Season tab: the ritual, assembled.
+
+      It opens on where the wheel stands, then the turn itself — one panel that runs in the order
+      Seasons Change prescribes, because the tab's whole job at the table is that procedure. The
+      book's spread (Book I, p.85) is still all here; it is filed by when you use it.
+
+      Params: seasons (SeasonsSnapshot). --}}
 <div class="steading-seasons">
 
-	{{!-- Installer-provided (copyrighted), so absent in a world without Book I art. The frame is what
-	      the grid sizes; the image fills it absolutely, so the plate can never be what makes the row
-	      taller than the gains panel beside it. --}}
-	{{#if seasons.plate}}
-		<div class="steading-seasons-plate">
-			<img src="{{seasons.plate}}" alt="">
-		</div>
+	{{> "stonetop.steading-season-wheel" turnover=seasons.turnover}}
+
+	{{> "stonetop.steading-season-turn" seasons=seasons}}
+
+	{{!-- After the turn, because it happens after it: the wheel brings the season in, and the harvest
+	      or the hunt happens somewhere inside it. --}}
+	{{#if seasons.turnover.hasMoments}}
+		{{> "stonetop.steading-moments" turnover=seasons.turnover}}
 	{{/if}}
 
-	<section class="steading-seasons-gains steading-block">
-		{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.gainsTitle")
-		    note=(localize "stonetop.steading.seasons.gainsHint")}}
-		{{#with seasons.gains}}{{> "stonetop.choice-group" cgContext="steading"}}{{/with}}
-	</section>
-
-	<section class="steading-seasons-moves steading-block">
-		{{#if seasons.moves}}
-			{{!-- alwaysShowResource: the seasonal moves are a fixed set, so their resource pips show
-			      whether or not the move reads as "acquired". --}}
-			{{> "stonetop.move-group"
-			    title=seasons.moves.label
-			    note=seasons.moves.note
-			    moves=seasons.moves.moves
-			    categoryKey=seasons.moves.key
-			    allowAdditional=false
-			    alwaysShowResource=true
-			    unacquirable=true}}
-		{{else}}
-			{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.movesTitle")}}
-			<p class="stonetop-moves-empty">{{localize "stonetop.steading.seasons.movesEmpty"}}</p>
-		{{/if}}
-	</section>
+	{{!-- The other three seasonal moves, folded away: only one of the four is ever the one the turn
+	      rolls, and four cards at equal weight said the opposite. They keep their dice — turning the
+	      wheel is what the promoted move's control does, but a table that wants to roll a season's
+	      move on its own terms is not something this sheet should decide it cannot. --}}
+	{{#if seasons.otherMoves.length}}
+		<section class="steading-seasons-others steading-block">
+			{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.othersTitle")
+			    note=(localize "stonetop.steading.seasons.othersHint")}}
+			<ol class="items-list steading-others-list">
+				{{#each seasons.otherMoves}}
+					{{> "stonetop.move-row" showCheck=false categoryKey=../seasons.moves.key
+					    allowAdditional=false alwaysShowResource=false disclosure=true}}
+				{{/each}}
+			</ol>
+		</section>
+	{{/if}}
 
 </div>

@@ -1,0 +1,96 @@
+import { Seasons } from "../../data/steading/Seasons.js";
+import { Moments } from "../../data/steading/Moments.js";
+
+/** The list an entry is written onto, by the heading the sheet already draws over it. */
+const LIST_LABELS = {
+	resources:      "stonetop.steading.lists.resources",
+	fortifications: "stonetop.steading.lists.fortifications",
+	items:          "stonetop.steading.lists.assets",
+};
+
+/**
+ * One structured result of an improvement, compressed to a chip.
+ *
+ * A card shut is a name and a meter, which says how far along the work is and nothing at all about
+ * what the work is FOR. The prose that answers that is inside the card, and paraphrasing it onto the
+ * outside read oddly — a sentence about a sentence.
+ *
+ * A chip is not a paraphrase. It carries only what the result already states as data: the timing, the
+ * amount, and the thing changed. `+1 Fortunes`, `Autumn +1 Surplus`, `Resources: Mill` — the numbers
+ * the sentence contains, which are exactly what a glance cannot get from the sentence itself.
+ *
+ * Results with no structured payload get NO chip. Township changing Size, Roadbuilding letting you
+ * build roads: there is nothing to compress, and compressing it anyway is how the old summary went
+ * wrong.
+ */
+export class EffectChip {
+	constructor({ timingKeys = [], amount = "", subjectKey, text = "", earned = false }) {
+		// When it fires, as localize keys — a season name, a moment, "every season". Empty for a
+		// result that fires on completion: what an improvement earns needs no "when".
+		this.timingKeys = timingKeys;
+		// "+1" · "−1" · "1d4". Empty for a list entry, which has no amount.
+		this.amount     = amount;
+		this.subjectKey = subjectKey;
+		// The entry's own words, for a chip that writes onto a list. Never prose: it is the name of
+		// the thing added, which is what the book puts on the list.
+		this.text       = text;
+		// Whether this result's requirement holds YET. An unearned chip is what the improvement will
+		// do; an earned one is what it does.
+		this.earned     = earned;
+	}
+
+	/**
+	 * When a result fires, as localize keys.
+	 *
+	 * A `turn` naming every season says "every season" rather than listing four, which is both
+	 * shorter and what the book says.
+	 */
+	static timingFor(trigger) {
+		if (trigger.isCompletion) return [];
+		if (trigger.kind === "moment") {
+			const moment = Moments.byKey(trigger.moment);
+			return moment ? [moment.labelKey] : [];
+		}
+		if (trigger.isEverySeason) return ["stonetop.steading.seasons.everySeason"];
+		return trigger.seasons.map(key => Seasons.byKey(key).labelKey);
+	}
+
+	/**
+	 * A rating delta on its own — `+1 Surplus`.
+	 *
+	 * Timing-less by default, because the statement uses this too: on the season's own panel the
+	 * timing IS the panel, and repeating "autumn" on every line of an autumn statement is noise.
+	 */
+	static forChange(change, { timingKeys = [], earned = false } = {}) {
+		return new EffectChip({
+			timingKeys, earned,
+			amount:     change.formula ?? `${change.amount < 0 ? "−" : "+"}${Math.abs(change.amount)}`,
+			subjectKey: `stonetop.steading.attr.${change.target}`,
+		});
+	}
+
+	/** An entry written onto one of the steading's evidence lists — `Resources: Mill`. */
+	static forListEntry(entry, { timingKeys = [], earned = false } = {}) {
+		return LIST_LABELS[entry.list]
+			? new EffectChip({ timingKeys, earned, subjectKey: LIST_LABELS[entry.list], text: entry.text })
+			: null;
+	}
+
+	/** One chip per structured payload — a result carrying both states both. */
+	static forEffect(effect, boxes) {
+		const context = {
+			timingKeys: EffectChip.timingFor(effect.trigger),
+			earned:     effect.holds(boxes),
+		};
+		return [
+			effect.change    ? EffectChip.forChange(effect.change, context)      : null,
+			effect.listEntry ? EffectChip.forListEntry(effect.listEntry, context) : null,
+		].filter(Boolean);
+	}
+
+	/** Every chip an improvement's results come to, against what has been ticked so far. */
+	static forImprovement(improvement, storedValues = {}) {
+		const boxes = improvement.boxesFrom(storedValues);
+		return improvement.effects.all().flatMap(effect => EffectChip.forEffect(effect, boxes));
+	}
+}

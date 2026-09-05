@@ -108,23 +108,45 @@ export class ContentSection {
 export class SeasonsSnapshot {
 	// `moves` is the ordinary MoveCategorySnapshot — the seasonal glyphs ride on each move's own
 	// icon, so this tab renders through the same move-group as the Moves tab.
-	constructor({ moves = null, gains = null, plate = null }) {
+	constructor({ moves = null, gains = null, plate = null, turnover = null }) {
 		this.moves = moves;
 		this.gains = gains;
+		// Where the wheel stands, and the checklist assembled from what this steading has built.
+		this.turnover = turnover;
 		// The harvest plate from the book's Seasons Change spread — a copyrighted illustration, so
 		// null until the art installer has actually produced it. Referencing it regardless would 404
 		// on every render for everyone who hasn't installed (or who only owns Book II).
 		this.plate = plate;
 	}
+
+	/**
+	 * The Seasons Change move that turns the season — the NEXT season's, because that is the one you
+	 * roll when the season changes TO it. Rolling it is what advancing the wheel means, which is why
+	 * the tab shows this one move beside the advance control and the other three apart from it.
+	 *
+	 * Asked of the snapshot rather than filtered in the template: "which of these four do we roll
+	 * now" is a fact about the seasons, and a Handlebars comparison would put it in markup where
+	 * nothing tests it.
+	 */
+	get nextMove() {
+		return (this.moves?.moves ?? []).find(m => m.slug === this.turnover?.next?.moveSlug) ?? null;
+	}
+
+	/** The other three: reference, until their own season comes round. */
+	get otherMoves() {
+		const next = this.turnover?.next?.moveSlug;
+		return (this.moves?.moves ?? []).filter(m => m.slug !== next);
+	}
+
 }
 
 export class SteadingSnapshot {
 	constructor({
 								fortunes, surplus, attributes, debilities,
 								placesOfInterest, notes, folk, folkSuggestions, neighborPlaces,
-								contentDescription, content, assets, improvements,
-								traitPoolText,
-								moves, seasons, rollMode, rollModes,
+								contentDescription, content, assets, improvements, resourcesPlate,
+								moves, seasons, season, year, fortunesReset, rollMode, rollModes,
+								grantedMoves,
 							}) {
 		this.fortunes = fortunes;
 		this.surplus = surplus;
@@ -141,12 +163,25 @@ export class SteadingSnapshot {
 		this.contentDescription = contentDescription;
 		this.content = content;
 		this.assets = assets;
+		// The Season tab's project board (an ImprovementBoard), not a bare list — it knows its own
+		// order and the counts its chips state.
 		this.improvements = improvements;
-		// The trait pool as its edit surface holds it: one per line.
-		this.traitPoolText = traitPoolText ?? "";
-		this.improvementColumns = splitIntoImprovementColumns(improvements ?? []);
+		// Where the wheel stands. Displayed wherever the ratings are — the ledger line states it as
+		// text and the season band takes its tint from it — and advanced only on the Season tab.
+		this.season = season;
+		this.year   = year;
+		// What "reset Fortunes" will actually set — +1, or +0 while the steading is malcontent. The
+		// button states the number rather than implying one.
+		this.fortunesReset = fortunesReset ?? 1;
+		// Decoration under the Resources list, and null in a world whose owner has never run the art
+		// installer — the template asks before it draws.
+		this.resourcesPlate = resourcesPlate ?? null;
 		this.moves    = moves    ?? [];
 		this.seasons  = seasons  ?? null;
+		// Moves an improvement CONFERS, keyed by slug. Not the steading's moves: they are read on the
+		// improvement that granted them and again at the moment they fire, and each of those places
+		// holds only a slug. See GrantedMoves.
+		this.grantedMoves = grantedMoves ?? {};
 		this.rollMode = rollMode ?? "normal";
 		// The same three options the character sheet and the stat-pick dialog draw, in the same order —
 		// the steading's hand-rolled copy had already drifted from them.
@@ -163,22 +198,6 @@ export class SteadingSnapshot {
 	get homefrontMoves() {
 		return this.moves.find(category => category.key === "homefront") ?? null;
 	}
-}
-
-// Three columns as evenly as the count allows. `Math.ceil(n / 3)` for every column overfills the
-// first two and starves the last — seven improvements went 3/3/1, which reads as a ragged break
-// rather than three columns. Spreading the remainder one row at a time gives 3/2/2.
-function splitIntoImprovementColumns(items) {
-	const columns = [[], [], []];
-	const base = Math.floor(items.length / 3);
-	const spare = items.length % 3;
-	let taken = 0;
-	for (let i = 0; i < 3; i++) {
-		const size = base + (i < spare ? 1 : 0);
-		columns[i] = items.slice(taken, taken + size);
-		taken += size;
-	}
-	return { left: columns[0], middle: columns[1], right: columns[2] };
 }
 
 export function splitIntoColumns(items, columnCount) {

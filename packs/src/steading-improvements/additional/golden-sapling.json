@@ -65,7 +65,54 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "retrieve-acorn"
+          ]
+        },
+        {
+          "all": [
+            "plant-acorn"
+          ]
+        },
+        {
+          "all": [
+            "nurture-protect"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "resources",
+          "text": "Golden Sapling"
+        },
+        "text": "add \"Golden Sapling\" to the Resources list"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "automatically mark the Greater Harvest improvement"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "adjustment": {
+          "step": "generation",
+          "amount": 1
+        },
+        "text": "when the steading generates Surplus, even just 1, it generates +1 Surplus"
+      }
+    ]
   },
   "folder": "1UlzxDTaEInlMvWC"
 }

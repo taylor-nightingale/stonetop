@@ -1,0 +1,27 @@
+{
+  "_id": "fucP51433l26mKy7",
+  "_key": "!items!fucP51433l26mKy7",
+  "name": "Heroic Reputation",
+  "type": "move",
+  "system": {
+    "moveType": "improvement",
+    "description": "When you first meet someone from beyond Stonetop, roll +Fortunes.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Say what they’ve heard about you or Stonetop, and gain advantage on your next move against them."
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "Say what they’ve heard."
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM decides what they’ve heard."
+      }
+    },
+    "rollStat": "fortunes",
+    "slug": "heroic-reputation"
+  },
+  "folder": "EBs963c2tMdgyCOb"
+}

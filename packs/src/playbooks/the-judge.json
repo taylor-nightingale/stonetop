@@ -211,17 +211,12 @@
 		},
 		"choices": [
 			{
-				"type": "entry",
-				"content": {
-					"title": "The Chronicle"
-				}
-			},
-			{
 				"slug": "chronicle-plus",
 				"list": [
 					{
 						"type": "entry",
 						"content": {
+							"title": "The Chronicle",
 							"text": "The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… *(choose 3)*"
 						}
 					},

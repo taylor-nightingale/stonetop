@@ -114,6 +114,30 @@ describe("Person with-methods", () => {
 		expect(p.withTraits("Quiet").traits).toBe("Quiet");
 	});
 
+	// A DEFAULT, not an override: a name clicked off Marshedge's list says where it comes from, which
+	// is worth writing down for someone whose row says nothing yet and worth nothing against someone
+	// the table has already placed.
+	it("withHomeIfUnset fills a blank home", () => {
+		expect(Person.named("Seadha").withHomeIfUnset("Marshedge").home).toBe("Marshedge");
+	});
+
+	it("withHomeIfUnset leaves a home somebody already wrote", () => {
+		const placed = Person.named("Seadha").withHome("Lygos");
+		expect(placed.withHomeIfUnset("Marshedge").home).toBe("Lygos");
+	});
+
+	// Blank means THIS steading, which is a home like any other — the steading's own name list sends
+	// no home precisely because a blank one already says it.
+	it("withHomeIfUnset ignores a blank home", () => {
+		expect(Person.named("Bryn").withHomeIfUnset("").home).toBe("");
+		expect(Person.named("Bryn").withHomeIfUnset("   ").home).toBe("");
+	});
+
+	it("withHomeIfUnset returns the same person when there is nothing to write", () => {
+		const p = Person.named("Bryn");
+		expect(p.withHomeIfUnset("")).toBe(p);
+	});
+
 	it("withHome returns a new Person with the updated home", () => {
 		const p = Person.blank();
 		expect(p.withHome("Marshedge").home).toBe("Marshedge");

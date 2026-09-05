@@ -163,13 +163,24 @@ const ROSTER_FOLK = [
 	Person.fromRaw({ id: "a", name: "Bryn (she/her)", occupation: "publican", traits: "gets the best deals" }),
 	Person.fromRaw({ id: "b", name: "Cadoc (he/him)", occupation: "smith", traits: "has a beef with Marshedge" }),
 	Person.fromRaw({ id: "c", name: "Seadha (they/them)", home: "Marshedge", occupation: "trader", traits: "knows all the gossip, cheery, lived among the Forest Folk" }),
+	// A LINKED row. `docLink` is enriched HTML the snapshot adds — the row itself stores a bare uuid —
+	// so it is written here as Foundry renders it: an icon and the document's name in one anchor. The
+	// name is what the roster has to stop drawing, and only a browser can say whether it did.
+	{
+		id: "d", name: "Aederyn (she/her)", home: "", occupation: "reeve", traits: "keeps the tallies",
+		docLink: '<a class="content-link" draggable="true" data-uuid="Actor.x" data-type="Actor"><i class="fas fa-user"></i>Aederyn, Reeve of Stonetop</a>',
+	},
 ];
 
+// The rail is part of the fixture because the tab's width is the sheet's LESS the rail's, and that
+// is the width the folk grid answers to.
 const folkTab = width => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
  <div class="window-content"><div class="sheet-wrapper">
   <div class="stonetop-rail-layout" data-side="left">
+   <div class="stonetop-rail steading-rail"></div>
    <div class="stonetop-rail-main steading-main">
+    <section class="sheet-body">
     <div class="tab active" data-tab="folk">
      <div class="steading-folk-grid">
       ${renderPartial("stonetop.steading-folk-roster", { folk: ROSTER_FOLK, isGM: true, actor: { name: "Stonetop" } })}
@@ -179,6 +190,7 @@ const folkTab = width => `
       </section>
      </div>
     </div>
+    </section>
    </div>
   </div>
  </div></div>
@@ -198,8 +210,16 @@ describe.skipIf(!canProbe())("the roster fits the tab it shares with the referen
 						roster:  ".steading-folk-roster",
 						table:   ".steading-folk-table",
 						row:     '.steading-folk-row[data-id="c"]',
-						lastCol: '.steading-folk-header span:last-child',
+						// The row's real last column: the header's is the link heading, which is named
+						// for assistive tech and drawn nowhere.
+						lastCol: '.steading-folk-row[data-id="c"] .stonetop-person-remove',
 						ref:     ".steading-folk-ref",
+						linkCell: '.steading-folk-row[data-id="d"] .steading-doc-link',
+						linkText: '.steading-folk-row[data-id="d"] .content-link',
+						nameCell: '.steading-folk-row[data-id="d"] .stonetop-person-name',
+						traits:   '.steading-folk-row[data-id="c"] .stonetop-person-traits',
+						shortRow: '.steading-folk-row[data-id="a"]',
+						shortTraits: '.steading-folk-row[data-id="a"] .stonetop-person-traits',
 					},
 					chromeFlags: [`--window-size=${width + 120},1400`],
 				});
@@ -233,6 +253,99 @@ describe.skipIf(!canProbe())("the roster fits the tab it shares with the referen
 			it("leaves the reference column a readable measure", () => {
 				expect(m.get("ref").values.boxWidth).toBeGreaterThan(m.get("grid").values.boxWidth * 0.3);
 			});
+
+			// The link column is a chip and a ✕. It used to be 5rem — the widest fixed thing on the
+			// row, and at a narrow width wider than the Name cell — spent drawing a name the row is
+			// already showing in an editable field two cells to the left.
+			it("spends no more on the link column than the two controls in it", () => {
+				const linkCell = m.get("linkCell").values;
+				expect(linkCell.boxWidth, "the link column is wider than its controls")
+					.toBeLessThan(m.get("nameCell").values.boxWidth);
+				expect(m.get("linkText").values.boxWidth, "the chip is still drawing the document's name")
+					.toBeLessThan(24);
+				// Icon and ✕ both still inside it: shrinking the column must not clip the control that
+				// unlinks the row.
+				expect(m.get("linkCell").overflowX, "the chip's controls are clipped").toBe(0);
+			});
+
+			// A list of traits is the one cell that cannot be read at a glance if it is cut: "knows all
+			// the gossip, cheery, lived among the…" ends exactly where the interesting part starts.
+			it("wraps a long traits cell instead of scrolling it out of sight", () => {
+				const traits = m.get("traits").values;
+				const short  = m.get("shortTraits").values;
+				expect(traits.boxHeight, "the long traits cell did not wrap")
+					.toBeGreaterThan(short.boxHeight + 1);
+				// And the row grew with it rather than the text spilling out of the row's box.
+				expect(m.get("row").values.boxHeight).toBeGreaterThanOrEqual(traits.boxHeight);
+			});
+
+			// One wrapped cell must not cost every roster row the height of the worst one.
+			it("leaves the rows that fit at one line", () => {
+				expect(m.get("shortRow").values.boxHeight)
+					.toBeLessThan(m.get("row").values.boxHeight);
+			});
 		});
 	}
+});
+
+
+/**
+ * Thin sheets: the tab's two columns become two rows.
+ *
+ * Side by side, a narrow tab gives the roster six columns of editable text in about 300px while the
+ * reference column keeps a third of the width to print names it could print just as well underneath.
+ *
+ * The fold is keyed to the TAB's width rather than the sheet's, and the two are not the same
+ * question: with the rail inline the tab is 236px narrower than the window, and below the rail's own
+ * breakpoint the rail drawers and hands all of that back at once.
+ *
+ * Which makes ORDER the thing to prove. The two thresholds have to fire in one direction only —
+ * first the rail gets out of the way, then, if the window keeps narrowing, the lists go under the
+ * roster. Set carelessly they interleave: the tab folds as it narrows and then unfolds a moment
+ * later when the rail hides, so the lists jump back beside the roster on the way DOWN. That is a
+ * relationship between two containers at two thresholds, which no reading of the stylesheet
+ * resolves — each rule is obviously correct on its own.
+ */
+describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
+	const measure = width => probe.measure({
+		bodyHtml: folkTab(width), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
+		targets: {
+			grid:   ".steading-folk-grid",
+			roster: ".steading-folk-roster",
+			ref:    ".steading-folk-ref",
+			row:    '.steading-folk-row[data-id="c"]',
+			name:   '.steading-folk-row[data-id="c"] .stonetop-person-name',
+		},
+		chromeFlags: [`--window-size=${width + 120},1400`],
+	});
+
+	it("stacks the reference column under the roster", () => {
+		const m = measure(560);
+		const roster = m.get("roster").values;
+		const ref    = m.get("ref").values;
+		expect(ref.boxTop, "the lists are still beside the roster")
+			.toBeGreaterThanOrEqual(roster.boxTop + roster.boxHeight - 1);
+		expect(roster.boxWidth, "the roster did not take the tab's whole width")
+			.toBeCloseTo(m.get("grid").values.boxWidth, 0);
+	});
+
+	// The point of stacking: the roster's own columns stop being unusable. A name cell narrower than
+	// the delete button beside it is a roster you cannot read a name in.
+	it("gives the roster's name cell a usable width", () => {
+		expect(measure(560).get("name").values.boxWidth).toBeGreaterThan(100);
+	});
+
+	const sideBySide = (m, why) => expect(m.get("ref").values.boxLeft, why)
+		.toBeGreaterThan(m.get("roster").values.boxLeft + m.get("roster").values.boxWidth - 1);
+
+	it("keeps the two columns side by side while the tab is wide enough", () => {
+		sideBySide(measure(1180), "the tab folded at a width that fits both columns");
+	});
+
+	// The order this file exists for. Narrowing past the rail's breakpoint gives the tab 236px back;
+	// at every width in that neighbourhood — with the rail inline, and just after it drawers — the
+	// two columns have to still be two columns, or they fold and unfold as the window shrinks.
+	it.each([1000, 940, 900, 860, 760])("does not fold on the way down at %ipx", width => {
+		sideBySide(measure(width), `the lists folded under the roster at ${width}px and will jump back`);
+	});
 });

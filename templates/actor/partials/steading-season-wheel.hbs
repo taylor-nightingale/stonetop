@@ -1,0 +1,32 @@
+{{!-- Where Stonetop's year stands.
+
+      The four seasons are STATED, not merely tinted — the current one is marked with text and with
+      aria-current as well as with the band's colour, because colour is never the only carrier of
+      anything here. The wheel is a list, not a row of buttons: the year runs forwards, and the one
+      thing that moves it is rolling the incoming season's move in the panel below.
+
+      Params: turnover (TurnoverSnapshot). --}}
+<div class="steading-season-head">
+
+	<ol class="steading-wheel" aria-label="{{localize 'stonetop.steading.seasons.wheelLabel'}}">
+		{{#each turnover.wheel}}
+			<li class="steading-wheel-season{{#if isCurrent}} is-current{{/if}}"
+			    {{#if isCurrent}}aria-current="true"{{/if}}>{{localize labelKey}}</li>
+		{{/each}}
+	</ol>
+
+	{{!-- The season in words, with the year — the same fact the ledger line carries, so the tab and
+	      the line can never disagree. --}}
+	<p class="steading-season-stated">
+		{{localize "stonetop.steading.seasons.stated"
+		           season=(localize turnover.season.labelKey) year=turnover.year}}
+	</p>
+
+	{{!-- What the place is like right now, in the book's own words — one line from this steading's
+	      own Impressions, stamped when the wheel last turned. Absent for a steadfast that prints no
+	      such section, and then the head simply says less. --}}
+	{{#if turnover.impression}}
+		<p class="steading-season-impression">{{turnover.impression}}</p>
+	{{/if}}
+
+</div>

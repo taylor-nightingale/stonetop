@@ -1611,6 +1611,28 @@
       "text": ""
     }
   },
+  "heroic-reputation": {
+    "name": {
+      "source": "Heroic Reputation",
+      "text": ""
+    },
+    "description": {
+      "source": "When you first meet someone from beyond Stonetop, roll +Fortunes.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Say what they’ve heard about you or Stonetop, and gain advantage on your next move against them.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Say what they’ve heard.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM decides what they’ve heard.",
+      "text": ""
+    }
+  },
   "home-on-the-range": {
     "name": {
       "source": "Home on the Range",
@@ -1914,6 +1936,28 @@
     },
     "description": {
       "source": "When you **_are about to roll +CON and you make a joke about the adversity you face_**, you can roll +CHA instead.",
+      "text": ""
+    }
+  },
+  "lead-the-aurochs-hunt": {
+    "name": {
+      "source": "Lead the Aurochs Hunt",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_lead the aurochs hunt in spring,_** roll +Defenses.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Gain 1d4 Surplus.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Gain 1d4 Surplus, but pick 1 from the list below.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town’s horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they’ll be wiped out",
       "text": ""
     }
   },
@@ -2288,6 +2332,28 @@
     },
     "description": {
       "source": "When you **_have 5 or fewer current HP_**, you impose disadvantage on any damage you take.\n\nOnce per session, when you are at Death's Door, don't roll. You get a 10+.",
+      "text": ""
+    }
+  },
+  "news-at-the-inn": {
+    "name": {
+      "source": "News at the Inn",
+      "text": ""
+    },
+    "description": {
+      "source": "When the seasons change, whoever is friendliest rolls +Fortunes.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Ask the GM 3 questions about the wider world.",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "Ask 1 question.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "Ask 1 question, but the GM describes some trouble that stems from the inn or its guests.",
       "text": ""
     }
   },
@@ -4134,6 +4200,10 @@
     },
     "homefront": {
       "source": "homefront",
+      "text": ""
+    },
+    "improvement": {
+      "source": "improvement",
       "text": ""
     },
     "playbook": {

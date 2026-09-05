@@ -59,10 +59,10 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 		// Places (6) and the resident pool came across.
 		expect(snap.placesOfInterest).toHaveLength(6);
 		expect(snap.placesOfInterest[0].value).toBe("The Stone");
-		// The name pool arrives as clickable entries in the Folk tab's reference column; the trait
-		// pool keeps its one-per-line edit surface.
+		// Both pools arrive as clickable entries in the Folk tab's reference column — the names under
+		// the place they come from, the traits as the list's last block.
 		expect(snap.folkSuggestions[0].entries.map(e => e.label)).toContain("Aderyn");
-		expect(snap.traitPoolText.split("\n").length).toBeGreaterThanOrEqual(90);
+		expect(snap.folkSuggestions.at(-1).entries.length).toBeGreaterThanOrEqual(90);
 		// Nothing has moved off the baseline yet, so no rating claims a history it doesn't have.
 		expect(snap.fortunes.startingNote).toBe("");
 		expect(snap.attributes.size.startingNote).toBe("");

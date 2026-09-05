@@ -2,19 +2,24 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { RosterFilter } from "../../../src/actors/steading/RosterFilter.js";
 
-/** The roster beside the reference lists — which the search must never reach. */
+/**
+ * The roster beside the reference lists — which the search must never reach.
+ *
+ * Traits is a TEXTAREA, as the roster renders it: its list wraps, where the other three cells are
+ * one-line inputs. A fixture that made it an input would let a search that only reads inputs pass.
+ */
 function tree() {
 	document.body.innerHTML = `
 		<input type="search" class="steading-folk-search">
 		<div class="steading-folk-roster">
 			<div class="steading-folk-row" data-id="a">
-				<input type="text" value="Bryn"><input type="text" value=""><input type="text" value="publican"><input type="text" value="gets the best deals">
+				<input type="text" value="Bryn"><input type="text" value=""><input type="text" value="publican"><textarea class="stonetop-person-traits">gets the best deals</textarea>
 			</div>
 			<div class="steading-folk-row" data-id="b">
-				<input type="text" value="Cadoc"><input type="text" value=""><input type="text" value="smith"><input type="text" value="has a beef with Marshedge">
+				<input type="text" value="Cadoc"><input type="text" value=""><input type="text" value="smith"><textarea class="stonetop-person-traits">has a beef with Marshedge</textarea>
 			</div>
 			<div class="steading-folk-row" data-id="c">
-				<input type="text" value="Seadha"><input type="text" value="Marshedge"><input type="text" value="trader"><input type="text" value="">
+				<input type="text" value="Seadha"><input type="text" value="Marshedge"><input type="text" value="trader"><textarea class="stonetop-person-traits"></textarea>
 			</div>
 		</div>
 		<div class="steading-folk-ref">
@@ -43,6 +48,16 @@ describe("RosterFilter", () => {
 		filter.setQuery("smith");
 		filter.apply(root);
 		expect(visibleIds(root)).toEqual(["b"]);
+	});
+
+	// The traits cell is a textarea; a sweep that only read `input` stopped searching the widest
+	// column on the row the moment it stopped being an input.
+	it("matches on a trait, which is not written in an input", () => {
+		const root = tree();
+		const filter = new RosterFilter();
+		filter.setQuery("best deals");
+		filter.apply(root);
+		expect(visibleIds(root)).toEqual(["a"]);
 	});
 
 	it("matches on the name, the home and the traits too", () => {

@@ -1,0 +1,38 @@
+{{!-- "This season" — the named moments within it, and what fires at each.
+
+      The wheel turning is not the only thing that happens in a season. "When the autumn harvest is
+      complete" fires DURING autumn, and the sheet has no way to know when: no amount of watching the
+      calendar tells it the harvest came in or that anyone led the hunt. So this is an offer the table
+      takes up, not a schedule the sheet runs — one panel per moment, each with its own statement and
+      its own Apply, each owed again when its season next comes round.
+
+      Only moments something built actually fires at are here. An empty panel headed "The autumn
+      harvest" would read as a thing left undone.
+
+      Params: turnover (TurnoverSnapshot). --}}
+<section class="steading-moments steading-block">
+
+	{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.momentsTitle")
+	    note=(localize "stonetop.steading.seasons.momentsHint")}}
+
+	{{#each turnover.moments}}
+		<article class="steading-moment{{#if applied}} is-applied{{/if}}" data-moment="{{key}}">
+
+			<h4 class="steading-moment-title">
+				{{localize labelKey}}
+				{{#if applied}}
+					{{!-- Said rather than shown by absence: six people share this document, and the one
+					      who was not here when it was pressed has no other way to learn it happened. --}}
+					<span class="steading-moment-state">{{localize "stonetop.steading.effects.momentApplied"}}</span>
+				{{/if}}
+			</h4>
+
+			{{> "stonetop.steading-statement" statement=statement showAdvisory=true
+			    applyAction="applyMoment" applySlug=key
+			    applyLabel="stonetop.steading.effects.applyMoment"
+			    applied=applied}}
+
+		</article>
+	{{/each}}
+
+</section>

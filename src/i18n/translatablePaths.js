@@ -156,12 +156,21 @@ const INSERT = [
 const IMPROVEMENT = [
 	"name",
 	"system.description",
+	// A result's own sentence, and the condition the sheet cannot evaluate. Both are the book's words
+	// lifted out of the prose beside them, so they translate with that prose or the turnover is the
+	// one English thing left on a translated sheet. `requires` is slugs — nothing to translate.
+	"system.effects[].text",
+	"system.effects[].condition",
+	"system.effects[].listEntry.text",
 	...rowPaths("system.choices.list[]"),
 ];
 
 const STEADFAST = [
 	"name",
 	"system.description",
+	// The book's own sensory line for a season, quoted on the Season tab when the wheel turns. Prose,
+	// and it translates with the article it was lifted from.
+	"system.impressions[].text",
 	"system.assets.resources[]",
 	"system.assets.fortifications[]",
 	"system.assets.items[].text",
@@ -189,6 +198,10 @@ export const TEXT_PATHS = {
 // coverage test enforces that, so a builder that starts emitting a new field cannot leave it
 // untranslatable in silence.
 export const UNTRANSLATED_PATHS = {
+	improvement: {
+		"system.effects[].change.formula":         "A dice expression (\"2d6 + @population\"), not prose. Translating it would break the roll.",
+		"system.effects[].adjustment.replaceFormula": "As above — the formula a step is replaced by.",
+	},
 	move: {
 		"system.requirement.moves[]": "Move slugs; the label resolves them to the moves' own names.",
 	},

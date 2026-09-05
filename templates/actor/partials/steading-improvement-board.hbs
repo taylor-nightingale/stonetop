@@ -1,0 +1,51 @@
+{{!-- The improvement board: everything Stonetop is building.
+
+      It replaced three ragged columns of full panels, which showed every improvement at the same
+      weight — the one two boxes from done looked exactly like the one nobody has touched.
+
+      In the order the steading owns them, and never re-ordered. Sorting by progress moved a card the
+      moment you ticked a box on it, which is the one time a reader is certain to be looking at it.
+
+      No new data anywhere: every requirement row already carries a `track`, and its checks ARE the
+      meter. Params: board (ImprovementBoard). --}}
+<section class="steading-board">
+
+	{{> "stonetop.section-heading" title=(localize "stonetop.steading.improvements.boardTitle")}}
+
+	{{#if board.isEmpty}}
+		<p class="steading-board-empty">{{localize "stonetop.steading.improvements.boardEmpty"}}</p>
+	{{else}}
+
+		<div class="steading-board-controls">
+
+			{{!-- Real toggles, not decoration: a count that looks like a filter and does nothing is
+			      worse than no chip at all. Independent, because "in progress AND nearly done" is a
+			      question someone actually asks; pressing the last active one clears back to the
+			      whole board. --}}
+			<div class="steading-board-chips" role="group"
+			     aria-label="{{localize 'stonetop.steading.improvements.filterLabel'}}">
+				<button type="button" class="steading-board-chip is-progress" data-action="toggleBoardFilter"
+				        data-board-filter="progress" data-view-state aria-pressed="false">
+					{{localize "stonetop.steading.improvements.countInProgress" count=board.inProgressCount}}
+				</button>
+				<button type="button" class="steading-board-chip" data-action="toggleBoardFilter"
+				        data-board-filter="untouched" data-view-state aria-pressed="false">
+					{{localize "stonetop.steading.improvements.countUntouched" count=board.untouchedCount}}
+				</button>
+				<button type="button" class="steading-board-chip is-complete" data-action="toggleBoardFilter"
+				        data-board-filter="complete" data-view-state aria-pressed="false">
+					{{localize "stonetop.steading.improvements.countComplete" count=board.completeCount}}
+				</button>
+			</div>
+
+		</div>
+
+		<div class="steading-board-list">
+			{{#each board.entries}}
+				{{> "stonetop.steading-improvement-card"}}
+			{{/each}}
+		</div>
+
+	{{/if}}
+
+</section>

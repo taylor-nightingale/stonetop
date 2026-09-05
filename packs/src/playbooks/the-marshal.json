@@ -125,18 +125,13 @@
       ]
     },
     "choices": [
-			{
-				"type": "entry",
-				"content": {
-					"title": "War stories"
-				}
-			},
       {
         "slug": "war-stories-action",
         "list": [
           {
             "type": "entry",
             "content": {
+              "title": "War stories",
               "text": "The Last Time the Militia Saw Serious Action, It Was… (pick 1)"
             }
           },

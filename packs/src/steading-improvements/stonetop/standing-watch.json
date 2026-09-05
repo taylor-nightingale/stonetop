@@ -65,7 +65,54 @@
           }
         }
       ]
-    }
+    },
+    "requires": {
+      "all": [
+        {
+          "all": [
+            "veteran-warrior"
+          ]
+        },
+        {
+          "all": [
+            "six-warriors"
+          ]
+        },
+        {
+          "all": [
+            "village-leaders"
+          ]
+        }
+      ]
+    },
+    "effects": [
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "listEntry": {
+          "list": "fortifications",
+          "text": "Standing watch"
+        },
+        "text": "add \"standing watch\" to the Fortifications list"
+      },
+      {
+        "when": {
+          "kind": "turn"
+        },
+        "change": {
+          "target": "surplus",
+          "amount": -1
+        },
+        "text": "at the start of each season, the watch consumes 1 Surplus or it disbands"
+      },
+      {
+        "when": {
+          "kind": "completed"
+        },
+        "text": "when you specifically involve the watch in a move, treat Defenses as 1 higher than they are"
+      }
+    ]
   },
   "folder": "K6GCg2kg3hRVE3nl"
 }
