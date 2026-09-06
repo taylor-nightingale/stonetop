@@ -12,7 +12,7 @@ import { readFileSync, readdirSync } from "fs";
 import path from "path";
 import { Moments } from "../../src/model/data/steading/Moments.js";
 import { Seasons } from "../../src/model/data/steading/Seasons.js";
-import { seasonalClausesFor } from "./seasonalClauses.js";
+import { gluedPayoffRow, seasonalClausesIn } from "./seasonalClauses.js";
 
 /** Every move slug in the moves pack — what a result's `grantsMove` has to name. */
 export function knownMoveSlugs(root = "packs/src/moves") {
@@ -36,6 +36,24 @@ export function requirementSlugs(raw) {
 	return [];
 }
 
+/**
+ * The improvement's PAYOFF rows: everything after the last requirement row.
+ *
+ * A requirement row is exactly a row carrying a `track` — that is what a track IS — so what follows
+ * the last of them is the book's "When you meet the requirements… Henceforth…" sentence. Verified
+ * across all 24 improvements: every one has such a tail, and every one has `effects` decomposing it.
+ *
+ * Empty once the strip has run, which is the shape every caller has to tolerate.
+ */
+export function payoffRows(doc) {
+	const rows = doc?.system?.choices?.list ?? [];
+	const lastTracked = rows.reduce((last, row, i) => (row.track ? i : last), -1);
+	return rows
+		.slice(lastTracked + 1)
+		.map(row => (row?.content?.text ?? "").trim())
+		.filter(Boolean);
+}
+
 /** The tracked rows an improvement actually has, as slug → box count. */
 export function trackedRows(doc) {
 	const rows = {};
@@ -56,6 +74,33 @@ export function problemsFor(slug, entry, doc, moveSlugs = null) {
 
 	const rows = trackedRows(doc);
 	const known = new Set(Object.keys(rows));
+
+	// `_prose` is the book's payoff sentence, which used to live in the pack as a second copy of
+	// everything `effects` says. It moved here when that copy was stripped, and these three checks are
+	// what keep the move honest — without them the strip is a delete with nothing watching it.
+	const prose = entry._prose ?? [];
+	const payoff = payoffRows(doc);
+	if (!prose.length) {
+		problems.push(`${slug}: has no _prose — the book's payoff sentence has to be recorded before the pack's copy is stripped`);
+	}
+	if (payoff.length && !(entry.effects ?? []).length) {
+		// The refusal that matters: a parser regression that empties `effects` must never let the
+		// strip proceed, or the book's payoff is deleted with nothing left saying what it was.
+		problems.push(`${slug}: has ${payoff.length} payoff row(s) to strip but models no effects`);
+	}
+	// The Book II box parser has, before now, run an improvement's whole payoff paragraph onto the end
+	// of its last requirement row. Prose glued in there is prose the strip cannot reach: it would stay
+	// in the pack, translated a second time, with every check above passing.
+	const glued = gluedPayoffRow(doc?.system?.choices?.list ?? []);
+	if (glued) {
+		problems.push(`${slug}: its payoff is glued onto the last requirement row — fix the box parser; the strip cannot reach it there`);
+	}
+	if (payoff.length && prose.length && payoff.join("\n") !== prose.join("\n")) {
+		// The pack still carries the prose, and it no longer matches what was recorded — so a builder
+		// upstream reworded it. Loud, because the alternative is stripping the new wording and keeping
+		// the old as the review surface, which is a lie nobody would notice.
+		problems.push(`${slug}: the pack's payoff rows no longer match _prose — a builder reworded them; reconcile against the book before stripping`);
+	}
 
 	// Every requirement — the improvement's own, and any a single result narrows further — must name
 	// rows that exist. A typo here silently makes a result that can never hold.
@@ -100,7 +145,11 @@ export function problemsFor(slug, entry, doc, moveSlugs = null) {
 
 	// The drift detector: if the improvement's own prose names a season but nothing was modelled to
 	// fire in one, the model has fallen behind the book.
-	const { clauses } = seasonalClausesFor(doc?.system?.choices?.list ?? []);
+	//
+	// Read from `_prose`, not from the pack: the payoff rows this used to scan are stripped, and a
+	// detector pointed at rows that no longer exist finds no clauses, reports no problem, and is
+	// indistinguishable from one that is working.
+	const { clauses } = seasonalClausesIn(prose);
 	const recurring = (entry.effects ?? []).filter(e => ["turn", "moment"].includes(e.when?.kind));
 	if (clauses.length && !recurring.length) {
 		problems.push(`${slug}: its effect prose names a season, but no turn/moment result is modelled`);

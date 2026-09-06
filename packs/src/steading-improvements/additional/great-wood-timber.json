@@ -60,20 +60,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Timber from the Great Wood\" to the Resources list."
-          }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "Henceforth, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter."
-          }
         }
       ]
     },
@@ -133,7 +119,7 @@
           "step": "consumption",
           "amount": -1
         },
-        "text": "the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter"
+        "text": "the steading has a ready supply of timber for improvements and other projects, and consumes 1 less Surplus"
       }
     ]
   },

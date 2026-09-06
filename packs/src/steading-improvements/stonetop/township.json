@@ -78,13 +78,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you mark all of the requirements, change Size to town and its Population to +0.\n\nHenceforth: When you Muster, Pull Together, or Trade & Barter, you have advantage. When the seasons change to spring or summer, the town generates Surplus equal to Population+1. But, when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population."
-          }
         }
       ]
     },
@@ -142,7 +135,7 @@
           "target": "surplus",
           "formula": "@population + 1"
         },
-        "text": "when the seasons change to spring or summer, the town generates Surplus equal to Population+1"
+        "text": "the town generates Surplus equal to Population+1"
       },
       {
         "when": {
@@ -155,7 +148,7 @@
           "step": "consumption",
           "replaceFormula": "2d6 + @population"
         },
-        "text": "when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population"
+        "text": "roll 2d6+Population to consume Surplus, instead of 1d4+Population"
       }
     ]
   },

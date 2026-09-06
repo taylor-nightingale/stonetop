@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { knownMoveSlugs, missingFrom, problemsFor, requirementSlugs, trackedRows } from "../../scripts/import/improvementModel.js";
+import { knownMoveSlugs, missingFrom, payoffRows, problemsFor, requirementSlugs, trackedRows } from "../../scripts/import/improvementModel.js";
 
 /**
  * The improvement model is authored by hand, because classifying a clause needs judgement a parser
@@ -132,5 +132,110 @@ describe("every requirement is answerable", () => {
 			}
 		}
 		expect(orphans).toEqual([]);
+	});
+});
+
+/**
+ * `_prose` is the book's payoff sentence, moved into the model when the pack's copy was stripped —
+ * it was a second statement of everything `effects` says, and BOTH halves were extracted for
+ * translation (29 strings, 7,848 characters, against 6,276 of effect text saying the same things).
+ *
+ * Moving it makes `text` free to be display copy, and makes `_prose` the only thing left that can be
+ * checked against Book I/II. So these are the checks that keep the move honest: without them the
+ * strip is a delete with nothing watching it.
+ */
+describe("the book's payoff sentence is recorded before the pack's copy is stripped", () => {
+	// What build-improvements.js leaves behind every time it regenerates additional/: the payoff rows
+	// back on the end of the list, waiting for the strip pass. That is the state these guards run in,
+	// so it is the state they are tested in — the committed pack is already stripped and would let
+	// every one of them pass by having nothing to check.
+	const unstripped = (slug, prose = MODEL[slug]._prose) => {
+		const doc = docs[slug];
+		return { ...doc, system: { ...doc.system, choices: { ...doc.system.choices,
+			list: [...doc.system.choices.list, ...prose.map(text => ({ type: "entry", content: { title: null, text } }))],
+		} } };
+	};
+
+	it("records _prose for every improvement", () => {
+		expect(authored.filter(([, e]) => !(e._prose ?? []).length).map(([slug]) => slug)).toEqual([]);
+	});
+
+	it("reads back exactly the rows the strip removed", () => {
+		for (const [slug, entry] of authored) {
+			expect(payoffRows(unstripped(slug)), slug).toEqual(entry._prose);
+		}
+	});
+
+	// The committed pack is stripped, and every guard has to be quiet about that — otherwise the
+	// build fails the moment the strip it is guarding actually runs.
+	it("is quiet once the pack has been stripped", () => {
+		const moves = knownMoveSlugs();
+		for (const [slug, entry] of authored) {
+			expect(payoffRows(docs[slug]), slug).toEqual([]);
+			expect(problemsFor(slug, entry, docs[slug], moves), slug).toEqual([]);
+		}
+	});
+
+	// The refusal that matters. A parser regression that empties `effects` must not let the strip
+	// proceed: the book's payoff would be deleted with nothing left saying what it was.
+	it("refuses to strip an improvement that models no effects", () => {
+		const problems = problemsFor("mill", { ...MODEL.mill, effects: [] }, unstripped("mill"));
+		expect(problems.some(p => /payoff row\(s\) to strip but models no effects/.test(p))).toBe(true);
+	});
+
+	it("refuses when a builder has reworded the pack's payoff out from under _prose", () => {
+		const doc = unstripped("mill", ["Henceforth, something else entirely."]);
+		const problems = problemsFor("mill", MODEL.mill, doc);
+		expect(problems.some(p => /no longer match _prose/.test(p))).toBe(true);
+	});
+
+	it("refuses an improvement with no _prose at all", () => {
+		const { _prose, ...without } = MODEL.mill;
+		expect(problemsFor("mill", without, docs.mill).some(p => /has no _prose/.test(p))).toBe(true);
+	});
+
+	// A payoff the box parser ran onto the end of a requirement row is prose the strip cannot reach.
+	it("refuses a payoff glued onto the last requirement row", () => {
+		const doc = docs.mill;
+		const rows = [...doc.system.choices.list];
+		const last = rows.reduce((l, r, i) => (r.track ? i : l), -1);
+		rows[last] = { ...rows[last], content: { ...rows[last].content,
+			text: `${rows[last].content.text} Henceforth, the steading generates +1 Surplus.` } };
+		const glued = { ...doc, system: { ...doc.system, choices: { ...doc.system.choices, list: rows } } };
+		expect(problemsFor("mill", MODEL.mill, glued).some(p => /glued onto the last requirement row/.test(p))).toBe(true);
+	});
+});
+
+/**
+ * `text` is DISPLAY COPY. Every result renders under a heading that already states its trigger, so a
+ * line that re-opens with that trigger reads "The autumn harvest / Mill when the autumn harvest is
+ * complete, …" — which is what made every collection of results a wall of tiny text, with the part
+ * that differs buried behind a clause they all share.
+ */
+describe("effect text says what a result DOES, never when it fires", () => {
+	const TRIGGER_OPENERS = [
+		/^when (the seasons change|winter|summer|spring|autumn)/i,
+		/^when (the autumn harvest|summer comes|spring (breaks|bursts))/i,
+		/^(each|every) (spring|summer|autumn|winter|season)/i,
+		/^at the start of each season/i,
+		/^when you (lead the aurochs hunt|consume Surplus in winter)/i,
+	];
+
+	it.each(authored.flatMap(([slug, entry]) =>
+		(entry.effects ?? []).map((e, i) => [`${slug}[${i}]`, e])
+	))("%s", (_name, effect) => {
+		for (const opener of TRIGGER_OPENERS) {
+			expect(effect.text, `re-states its own trigger: ${effect.text}`).not.toMatch(opener);
+		}
+	});
+
+	// A granted move's result tiers live on the move item in the moves pack and are translated there.
+	// Restating them here made a translator do the same three tiers twice.
+	it("never restates a granted move's result tiers", () => {
+		for (const [slug, entry] of authored) {
+			for (const e of entry.effects ?? []) {
+				if (e.grantsMove) expect(e.text, slug).not.toMatch(/on a (10\+|7-9|6-)/i);
+			}
+		}
 	});
 });

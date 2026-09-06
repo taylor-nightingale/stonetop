@@ -7,6 +7,7 @@ import { migrateNeighborPlaces } from "./migrateNeighborPlaces.js";
 import { migrateSteadingImpressions } from "./migrateSteadingImpressions.js";
 import { migrateWorldItems } from "./migrateWorldItems.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
+import { migrateSteadingApplied } from "./migrateSteadingApplied.js";
 import { FoundryInsertRepository } from "../actors/character/repositories/FoundryInsertRepository.js";
 import { error, info } from "../utils/logger.js";
 
@@ -44,6 +45,10 @@ export class MigrationRunner {
 					// steadfast's definition, so a steading seeded before they existed has none.
 					await migrateSteadingImpressions(actor);
 					await migrateGrantStamps(actor);
+					// Also ungated: the applied-results record moved from per-improvement to per-line
+					// when Apply gained a Revert, and a steading that has taken its +1 Fortunes must
+					// not be offered it again by the new storage finding no record.
+					await migrateSteadingApplied(actor, this._repos?.improvements);
 				}
 			} catch (err) {
 				failed.push(actor.name);

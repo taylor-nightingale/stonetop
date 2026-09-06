@@ -56,13 +56,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.\n\nWhen you specifically involve the watch in a move, treat Defenses as 1 higher than they are."
-          }
         }
       ]
     },
@@ -104,7 +97,7 @@
           "target": "surplus",
           "amount": -1
         },
-        "text": "at the start of each season, the watch consumes 1 Surplus or it disbands"
+        "text": "the watch consumes 1 Surplus, or it disbands"
       },
       {
         "when": {

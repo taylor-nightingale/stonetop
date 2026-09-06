@@ -284,8 +284,17 @@ body,
 /* ── Generic bullet icons (applies to all rich-text ul lists) ───────────────── */
 
 /* `.stonetop-advice` is the advice dialog's body — not a sheet, but the same book prose, so it
-   takes the same swirls rather than a second bullet treatment of its own. */
-.stonetop.sheet ul:not(.stonetop-outfit-loads),
+   takes the same swirls rather than a second bullet treatment of its own.
+
+   `.stonetop-unmarked` is an OPT-OUT, not an exception list. This rule used to name the one
+   structural list it knew about (`:not(.stonetop-outfit-loads)`), which meant every chip row,
+   statement row and control row added since silently inherited a book bullet. They looked fine only
+   because each set `list-style: none; padding: 0` in its own rule — specificity (0,4,0) over this
+   one's (0,3,1) — which kills the gutter the swirl is positioned INTO while leaving `li::before`
+   drawing. In a flex row each swirl then landed on the item to its left. A list of prose is a
+   claim the list itself has to make; a generic rule cannot keep the register of every `ul` on the
+   sheet. */
+.stonetop.sheet ul:not(.stonetop-unmarked),
 .stonetop-advice ul {
 	/* The swirl and the gap it sits in, sized in em so the marker tracks the text it marks. One
 	   declaration for both, so the list's indent and the marker's offset cannot drift apart. */
@@ -296,12 +305,12 @@ body,
 	padding-left: calc(var(--bullet) + var(--bullet-gap));
 }
 
-.stonetop.sheet ul:not(.stonetop-outfit-loads) li,
+.stonetop.sheet ul:not(.stonetop-unmarked) li,
 .stonetop-advice ul li {
 	position: relative;
 }
 
-.stonetop.sheet ul:not(.stonetop-outfit-loads) li::before,
+.stonetop.sheet ul:not(.stonetop-unmarked) li::before,
 .stonetop-advice ul li::before {
 	content: '';
 	position: absolute;
@@ -2169,6 +2178,15 @@ button.stonetop-view-toggle.is-active {
 
    The nested pair only, `**_…_**` — bold alone marks the result tiers ("On a 10+"), which are a
    different thing and must not take the same accent. */
+/* Scoped to the SHEET (and the advice dialog, which is the same prose out of a window) rather than
+   to one container. It was `.stonetop-item-description` alone, which meant the book's own trigger
+   phrase took the accent inside a move's description and lost it three inches lower in a choice row
+   or an improvement's payoff — the same words, set two different ways on one card. A maintained list
+   of containers cannot keep up with where book prose renders; the roots can. */
+.stonetop.sheet strong em,
+.stonetop.sheet em strong,
+.stonetop-advice strong em,
+.stonetop-advice em strong,
 .stonetop-item-description strong em,
 .stonetop-item-description em strong {
 	color: var(--st-accent);
@@ -6503,7 +6521,11 @@ button.stonetop-xp-toggle {
 /* A step ABOVE the names it heads. At --fs-micro it was set smaller than its own list, so the one
    word telling you which place you were reading was the least visible thing in the column — and with
    six or seven pools stacked, finding the right one is what the column is for. */
-.stonetop.sheet.steading .steading-folk-list-title {
+/* The sheet's SUB-HEADING: a short label naming the block under it, in the UI face rather than the
+   book's roman, so it reads as the sheet talking rather than as one more line of the book. Extracted
+   when the improvement payoff wanted the same treatment — a second hand-tuned copy is how two
+   headings drift apart. */
+.stonetop.sheet.steading .steading-subheading {
 	margin: 6px 0 2px;
 	font-family: "StonetopUI", serif;
 	font-size: var(--fs-body);
@@ -6632,16 +6654,6 @@ button.stonetop-xp-toggle {
 	list-style: none;
 }
 
-.stonetop.sheet.steading .steading-statement-label {
-	display: flex;
-	gap: 0.4rem;
-	align-items: flex-start;
-	/* SC 2.5.8: the whole row is the target, well past 24px. */
-	min-height: 24px;
-	padding: 1px 0;
-	cursor: pointer;
-}
-
 .stonetop.sheet.steading .steading-statement-line {
 	display: flex;
 	gap: 0.4rem;
@@ -6655,9 +6667,48 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-statement-source { color: var(--st-ink); }
 .stonetop.sheet.steading .steading-statement-clause > * { display: inline; }
 
-/* Dropped: still listed, visibly not counted. Never hidden — a line the table declined is part of
-   what happened this season. */
-.stonetop.sheet.steading .steading-statement-line.is-dropped { opacity: 0.55; }
+/* Applied: still listed, and visibly done. Never hidden — what the season did to the steading is
+   worth reading after the fact, and on a document six people share it is the only way the one who
+   was not here learns it happened. */
+.stonetop.sheet.steading .steading-statement-line.is-applied { color: var(--st-ink-soft); }
+
+/* One control per result. Quiet by default — an unpressed Apply is an offer, not the main event on a
+   card that is mostly prose — and it earns its 24px target without a filled button on every line. */
+.stonetop.sheet.steading .steading-statement-line-btn {
+	flex: 0 0 auto;
+	width: auto;
+	/* SC 2.5.8: a real target, not a text link. */
+	min-height: 24px;
+	padding: 0 0.5rem;
+	font-size: var(--fs-fine);
+	line-height: 1.4;
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	background: none;
+	color: var(--st-accent);
+	white-space: nowrap;
+}
+
+.stonetop.sheet.steading .steading-statement-line-btn:hover,
+.stonetop.sheet.steading .steading-statement-line-btn:focus-visible {
+	border-color: var(--st-accent);
+}
+
+/* Revert is the undo, so it reads as the quieter of the two: the line beside it already says it
+   happened, and this is only the way back. */
+.stonetop.sheet.steading .steading-statement-line-btn.is-revert {
+	color: var(--st-ink-soft);
+}
+
+/* Applied, with nothing to offer: a record migrated from the old per-improvement storage knows THAT
+   it happened and not what it wrote, so there is no inverse to press. */
+.stonetop.sheet.steading .steading-statement-line-state {
+	flex: 0 0 auto;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	font-style: italic;
+	white-space: nowrap;
+}
 
 .stonetop.sheet.steading .steading-statement-condition {
 	display: block;
@@ -6723,8 +6774,8 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-rule);
 }
 
-/* A result that confers a MOVE has nothing to apply and everything to roll, so it gets a control
-   rather than a checkbox — the one thing the book's own sentence above it cannot do for you. */
+/* A result that confers a MOVE has nothing to apply and everything to roll, so it gets something to
+   roll rather than an Apply — the one thing the book's own sentence above it cannot do for you. */
 .stonetop.sheet.steading .steading-statement-moves {
 	display: flex;
 	flex-wrap: wrap;
@@ -6748,38 +6799,73 @@ button.stonetop-xp-toggle {
 	color: var(--st-accent);
 }
 
-.stonetop.sheet.steading .steading-improvement-completion {
-	margin-top: 5px;
-	padding-top: 5px;
+/* ── An improvement's payoff, inside the open card ──
+
+   Ruled off from the requirement rows above it, because the card's whole job is to read
+   requirements → payoff in one flow, and the rule is what says which half you are in. It used to sit
+   ABOVE the header instead, floating with no context on a shut card. */
+.stonetop.sheet.steading .steading-payoff {
+	margin-top: 6px;
+	padding-top: 6px;
 	border-top: 1px solid var(--st-rule);
 }
 
-.stonetop.sheet.steading .steading-improvement-completion-head {
-	margin: 0;
-	font-size: var(--fs-fine);
-	color: var(--st-accent);
+/* The payoff reads as the second half of ONE card, so it takes the card's own two levels rather
+   than inventing any: its headings are set exactly like "Requires either one of these:"
+   (.stonetop-choice-description) and its items exactly like the requirement rows beneath that
+   (.stonetop-choice-track-desc). The first version of this used the sheet's UI face at soft ink,
+   which put two lines of a different typeface in the middle of a card of book prose. */
+.stonetop.sheet.steading .steading-payoff-head {
+	margin: 8px 0 3px;
+	font-size: var(--fs-body);
+	line-height: 1.25;
+	color: var(--st-ink);
 }
 
-/* The statement's tick reuses the debility circle's hidden input; give it the square box the
-   requirement tracks use, so "include this" reads as the same kind of mark. */
-.stonetop.sheet.steading .steading-statement-box {
-	width: 0.75rem;
-	height: 0.75rem;
-	flex: 0 0 auto;
-	border: 1px solid var(--st-ink-soft);
-	border-radius: 2px;
-	margin-top: 0.15rem;
+.stonetop.sheet.steading .steading-payoff-head:first-child { margin-top: 0; }
+
+/* Tabbed in under their heading, at the indent the sheet already uses for the book's own nested
+   rows (.stonetop-choice--indent). The requirement rows above reach the same column via their
+   checkbox; these have no checkbox and get there by the indent, so the two lists line up. */
+.stonetop.sheet.steading .steading-payoff .steading-statement-lines {
+	margin-left: 1.5em;
+	gap: 3px;
 }
 
-.stonetop.sheet.steading .steading-circle-input:checked + .steading-statement-box {
-	background: var(--st-accent);
-	border-color: var(--st-accent);
+/* One row height whether or not the row has a control, so a line with an Apply and a line without
+   keep the same rhythm. It is the control's own target height (SC 2.5.8) — the row is sized to what
+   it MAY have to hold rather than to what this particular row happens to hold. */
+.stonetop.sheet.steading .steading-payoff .steading-statement-line {
+	min-height: 24px;
+	align-items: center;
+	font-size: var(--fs-note);
+	line-height: 1.3;
+	color: inherit;
 }
 
-.stonetop.sheet.steading .steading-circle-input:focus-visible + .steading-statement-box {
-	outline: 2px solid var(--st-accent);
-	outline-offset: 2px;
+/* The control belongs to the words beside it, so it sits directly after them rather than against the
+   far edge of the card. Right-aligned, it read as a page-level button that happened to share a line:
+   on a card with two of them there was nothing saying which result each one applied. */
+.stonetop.sheet.steading .steading-payoff .steading-statement-text { flex: 0 1 auto; }
+
+/* Fills the row it is in, so it cannot be the thing that makes that row taller than its neighbours.
+   Its SIZING cannot be set here — core styles every button unlayered, so it outranks the layer
+   however specific this gets; that half lives at the end of this file, with the rating-name button
+   that had the same 28px problem. */
+.stonetop.sheet.steading .steading-payoff .steading-statement-line-btn {
+	align-self: stretch;
 }
+
+/* WHEN a Henceforth result fires — set as the lead-in of its own line, in the book's voice. It was
+   a bordered badge in the margin, which sat off the text's baseline and read as a control rather
+   than as words. */
+.stonetop.sheet.steading .steading-statement-when {
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+.stonetop.sheet.steading .steading-statement-when::after { content: " — "; }
+
 
 /* ── The improvement board ── */
 
@@ -6851,6 +6937,18 @@ button.stonetop-xp-toggle {
 	margin: 4px 0 0;
 	padding: 0;
 	list-style: none;
+	/* A chip is its own height. Left to the flex default (`stretch`), each chip was stretched to its
+	   LINE's cross size — which, once the row wrapped, ran 4px taller than a chip needs, so a card
+	   whose chips fitted one line drew them at 24px and a card whose chips wrapped drew the wrapped
+	   ones at 28px. The cards then sat at different heights down the board for no reason a reader
+	   could see.
+
+	   Worth recording how long this took to find: it looks exactly like an icon-font problem. The
+	   chips that were tall were the ones carrying a die glyph, whose line-height FontAwesome sets to
+	   1 — so the glyph was blamed, and "fixed", twice. It was innocent: hiding the icon outright left
+	   the chip at 28px. What actually varied was whether that chip had wrapped onto a line of its
+	   own. */
+	align-items: flex-start;
 }
 
 .stonetop.sheet.steading .steading-effect-chip {
@@ -6867,6 +6965,7 @@ button.stonetop-xp-toggle {
 
 /* What it WILL do, not what it does — the requirement behind this result does not hold yet. */
 .stonetop.sheet.steading .steading-effect-chip.is-pending { opacity: 0.6; }
+
 
 .stonetop.sheet.steading .steading-effect-when {
 	font-style: italic;
@@ -6986,6 +7085,16 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop.sheet.steading .steading-improvement-body { margin-top: 6px; }
+
+/* Chips are the SHUT view. An open card states every one of those payloads in the book's words with
+   a control beside it, so leaving them up is the same reward said twice an inch apart — which is the
+   duplication this whole card was rebuilt to remove. Hidden rather than removed from the markup so
+   shutting the card costs no re-render.
+
+   The header cannot move as a result: the chip row sits BELOW it. */
+.stonetop.sheet.steading .steading-improvement-card.is-open .steading-effect-chips {
+	display: none;
+}
 
 /* The caret turns when the card is open — the same disclosure affordance the move rows use. */
 .stonetop.sheet.steading .steading-improvement-card.is-open .stonetop-move-caret {
@@ -9595,6 +9704,16 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-stat-roll:hover {
 	color: var(--st-highlight);
+}
+
+/* The same unlayered-button problem, in the improvement payoff: core's fixed height and vertical
+   padding put an Apply at 26.7px inside a 24px row, so the one line that had a control sat taller
+   than the lines that did not and the little list lost its rhythm. The row already states the height
+   a control needs (SC 2.5.8); the button's job is to fill it, not to set it. */
+.stonetop.sheet.steading .steading-payoff .steading-statement-line-btn {
+	height: auto;
+	min-height: 0;
+	padding-block: 0;
 }
 
 /* A rating's name at full density is the heading of the list under it, so it is set as one. Size and

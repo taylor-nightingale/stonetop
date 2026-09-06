@@ -118,12 +118,13 @@ export class SteadingImprovements {
 		const entries = [];
 		for (const imp of await this.owned()) {
 			if (imp.choices == null) continue;
-			const group = buildChoiceGroup(imp.titledChoices, values);
-			// Offered only while it is owed: a completion applies once, ever.
-			const completion = effects && !effects.isCompletionApplied(imp.slug)
-				? effects.completionFor(imp)
-				: null;
-			entries.push(ImprovementProgress.from(imp, group, stored[imp.slug] ?? {}, completion));
+			// `choices`, not `titledChoices`: the card's disclosure button already carries the name, and
+			// the titled group printed it a second time directly beneath it.
+			const group = buildChoiceGroup(imp.choices, values);
+			// The whole payoff, owed or not: the card states what an improvement WILL do as well as
+			// what it has done, because the prose that used to say so is no longer in the pack.
+			const payoff = effects ? effects.payoffFor(imp) : null;
+			entries.push(ImprovementProgress.from(imp, group, stored[imp.slug] ?? {}, payoff));
 		}
 		return new ImprovementBoard(entries);
 	}

@@ -113,6 +113,21 @@ export function buildImprovementEffects({ write = true } = {}) {
 		// The flat seasonal list this replaces: a clause with no requirement and no structure.
 		delete doc.system.seasonal;
 
+		// Strip the payoff prose. It said, in one sentence, exactly what the effects above say clause
+		// by clause — and BOTH were extracted for translation, so a translator wrote the payoff twice:
+		// 29 strings and 7,848 characters against 6,276 of effect text. Hiding the rows instead was not
+		// an option; the improvement item sheet renders `choices`, so a row that survives has to be
+		// translated wherever it shows.
+		//
+		// Safe to delete only because problemsFor has already refused, above, unless `_prose` records
+		// this exact text and the improvement models effects to replace it. The build writes nothing
+		// when it refuses, so there is no half-stripped state.
+		const list = doc.system.choices?.list;
+		if (list) {
+			const lastTracked = list.reduce((last, row, i) => (row.track ? i : last), -1);
+			doc.system.choices.list = list.slice(0, lastTracked + 1);
+		}
+
 		const next = `${JSON.stringify(doc, null, 2)}\n`;
 		if (next !== raw) { changed++; if (write) writeFileSync(paths[slug], next); }
 
@@ -122,9 +137,11 @@ export function buildImprovementEffects({ write = true } = {}) {
 		// The book's own outcome prose, in FULL and unsummarised. This is the half that catches an
 		// omission: a review that shows only what was modelled cannot show what was missed, and three
 		// dropped clauses got through before this was here.
-		const outcome = (doc.system.choices?.list ?? [])
-			.filter(r => !r.track && /meet the requirements|mark all|Henceforth|cease to meet/i.test(r?.content?.text ?? ""))
-			.map(r => r.content.text.trim());
+		//
+		// Read from `_prose` rather than from the pack, because the pack's copy is stripped: the
+		// effects below are DISPLAY copy now, deliberately not the book's wording, so without this the
+		// review would have nothing left to check them against.
+		const outcome = entry._prose ?? [];
 		if (outcome.length) {
 			lines.push("<details><summary>the book's words</summary>\n");
 			lines.push(outcome.map(o => `> ${o.replace(/\n+/g, "\n> ")}`).join("\n>\n"));

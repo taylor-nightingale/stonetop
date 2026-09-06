@@ -78,13 +78,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of ◇ supplies has 1 extra use."
-          }
         }
       ]
     },
@@ -147,7 +140,7 @@
           "target": "surplus",
           "amount": 1
         },
-        "text": "when the autumn harvest is complete, the steading generates +1 Surplus"
+        "text": "the steading generates +1 Surplus"
       },
       {
         "when": {

@@ -1,0 +1,39 @@
+{{!-- What an improvement gives you, in the book's own two halves.
+
+      The book writes every payoff as two sentences — "When you ***meet the requirements***, increase
+      Fortunes by 1 and add any new homes to the map. **Henceforth**, when you consume Surplus in
+      winter, consider Population to be 1 lower than it is." — and `system.effects` carries that split
+      as `trigger.isCompletion`. So: two headed groups, and the HEADING states the trigger so that no
+      line has to. Every result appears exactly once, saying only what it does.
+
+      That prose used to sit in the pack as a third statement of the same facts, under the chips and
+      the statement lines that already said them, and it was extracted for translation twice over. It
+      is gone; this is the only place the payoff is stated now, which is why it renders whether or not
+      the improvement is finished. An unearned line is a promise, and carries no control.
+
+      Nothing under **Henceforth** is applied here even where the sheet could write it: those results
+      fire at the turn of the season, and the season's own panel is where the table takes them. See
+      TurnoverStatement's `stated`.
+
+      Context = an ImprovementPayoff. --}}
+<div class="steading-payoff">
+
+	{{#if hasCompletion}}
+		<p class="steading-payoff-head">{{rich (localize "stonetop.steading.effects.onCompletion")}}</p>
+		{{!-- No source: on an improvement's own card the source IS the card, and gluing it on produced
+		      "Additional Housing increase Fortunes by 1". No delta chip either — the chip row on the
+		      shut card already states the number, and the line's own words contain it. --}}
+		{{> "stonetop.steading-statement" statement=completion showAdvisory=true
+		    showSource=false showDelta=false}}
+	{{/if}}
+
+	{{#if hasHenceforth}}
+		<p class="steading-payoff-head">{{rich (localize "stonetop.steading.effects.henceforth")}}</p>
+		{{!-- The timing, because "Henceforth" says these fire later without saying when — and the
+		      line's own words no longer say it either, since the trigger came out of them with the
+		      prose. No delta: the words that remain already contain the number. --}}
+		{{> "stonetop.steading-statement" statement=henceforth showAdvisory=true
+		    showSource=false showDelta=false showTiming=true}}
+	{{/if}}
+
+</div>

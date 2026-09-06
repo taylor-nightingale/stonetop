@@ -218,17 +218,14 @@ export class StonetopSteading {
 	async revokeImprovement(slug) { await this.#improvements.revoke(slug); }
 
 	// ── Applying what improvements do ──────────────────────────────────────────
-	// The sheet never writes a rating silently: a statement is built, the table drops any line it
-	// does not want, and one Apply writes the lot.
+	// The sheet never writes a rating silently: every result is shown with its source, and each one
+	// the sheet can write carries its own control. Nothing is applied that was not pressed.
 
-	/** Include or drop one line of a pending statement. */
-	async setEffectIncluded(id, included) { await this.#effects.setIncluded(id, included); }
+	/** Write one result, recording what it wrote so it can be taken back. */
+	async applyEffectLine(id) { return this.#effects.applyLine(id); }
 
-	/** Apply what finishing an improvement does, and record that it is done. */
-	async applyCompletion(slug) {
-		const improvement = (await this.#improvements.owned()).find(i => i.slug === slug);
-		if (improvement) await this.#effects.applyCompletion(improvement);
-	}
+	/** Take one result back, subtracting exactly what it wrote. */
+	async revertEffectLine(id) { return this.#effects.revertLine(id); }
 
 	// ── Choice groups ──────────────────────────────────────────────────────────
 	// The same four the character answers, so one shared wiring drives either sheet.

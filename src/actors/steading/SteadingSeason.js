@@ -29,13 +29,6 @@ export class SteadingSeason {
 
 	get _impressions() { return Impressions.fromRaw(this._actor.system?.impressions); }
 
-	/** Whether this season's turnover has already been written. */
-	isApplied(key = "turn") {
-		return Boolean((this._actor.system?.turnoverApplied ?? {})[key]);
-	}
-
-	static _momentKey(key) { return `moment:${key}`; }
-
 	/**
 	 * The moments of THIS season that something built actually fires at.
 	 *
@@ -48,28 +41,27 @@ export class SteadingSeason {
 		for (const moment of Moments.inSeason(this.season)) {
 			const statement = await this._effects.statementFor("moment", { moment: moment.key });
 			if (statement.isEmpty) continue;
-			found.push(new MomentSnapshot({
-				moment, statement, applied: this.isApplied(SteadingSeason._momentKey(moment.key)),
-			}));
+			found.push(new MomentSnapshot({ moment, statement }));
 		}
 		return found;
 	}
 
 	/**
-	 * Write what a moment does — once, and only if it can happen in the season the steading is in.
+	 * Write everything a moment still owes — and only if it can happen in the season the steading is
+	 * in.
 	 *
-	 * The season check is not defensive noise: `turnoverApplied` is cleared on the turn, so a stale
-	 * click from a client still showing last season would otherwise pay an autumn harvest in winter.
+	 * The season check is not defensive noise: the per-line records are cleared on the turn, so a
+	 * stale click from a client still showing last season would otherwise pay an autumn harvest in
+	 * winter.
+	 *
+	 * Once-per-season needs no guard of its own any more. Each line records that it was applied, and
+	 * applying skips what is already recorded, so a second press writes nothing — which is also what
+	 * makes this safe on a sheet six people share.
 	 */
 	async applyMoment(key) {
 		const moment = Moments.byKey(key);
 		if (!moment?.occursIn(this.season)) return false;
-		const applyKey = SteadingSeason._momentKey(key);
-		if (this.isApplied(applyKey)) return false;
-		const statement = await this._effects.statementFor("moment", { moment: key });
-		await this._effects.apply(statement);
-		await this._actor.update({ [`system.turnoverApplied.${applyKey}`]: true });
-		return true;
+		return this._effects.apply(await this._effects.statementFor("moment", { moment: key }));
 	}
 
 	/**
@@ -77,11 +69,12 @@ export class SteadingSeason {
 	 *
 	 * The year advances when winter gives way to spring (the season knows which one that is, so
 	 * nothing here compares keys), the new season is stamped with one of the book's own lines about
-	 * it, and last season's record goes: what was applied, which lines the table dropped, and the
-	 * seasonal gain — because the move just rolled is what grants the next one.
+	 * it, and last season's record goes: what was applied, and the seasonal gain — because the move
+	 * just rolled is what grants the next one. Clearing the record is what makes the mill's harvest
+	 * owed again next autumn.
 	 *
-	 * The object fields are nulled before they are emptied: Foundry MERGES an object-field update
-	 * rather than replacing it, so assigning an empty object would leave every key in place.
+	 * The object field is nulled before it is emptied: Foundry MERGES an object-field update rather
+	 * than replacing it, so assigning an empty object would leave every key in place.
 	 */
 	async turn(random = Math.random) {
 		const next = this.season.next;
@@ -90,24 +83,20 @@ export class SteadingSeason {
 			"system.year":             this.year + (this.season.endsYear ? 1 : 0),
 			"system.seasonImpression": this._impressions.pickFor(next, random) ?? "",
 			"system.turnoverApplied":  null,
-			"system.turnoverExcluded": null,
 		});
-		await this._actor.update({ "system.turnoverApplied": {}, "system.turnoverExcluded": {} });
+		await this._actor.update({ "system.turnoverApplied": {} });
 		await this._choices?.controller().clearValues(SEASONAL_GAINS_GROUP);
 	}
 
 	/**
-	 * Write what this season does to the steading — once.
+	 * Write everything this season still owes.
 	 *
-	 * Guarded, because six people share this sheet: the second person to press Apply must not pay the
-	 * season twice.
+	 * Not guarded here any more: each line records itself, and applying skips what is already
+	 * recorded, so the second person to press this on a sheet six people share writes nothing rather
+	 * than paying the season twice.
 	 */
 	async applyTurnover() {
-		if (this.isApplied("turn")) return false;
-		const statement = await this._effects.statementFor("turn", { season: this.season });
-		await this._effects.apply(statement);
-		await this._actor.update({ "system.turnoverApplied.turn": true });
-		return true;
+		return this._effects.apply(await this._effects.statementFor("turn", { season: this.season }));
 	}
 
 	async buildSnapshot() {
@@ -121,7 +110,6 @@ export class SteadingSeason {
 			// Assembled from what the steading has BUILT: a result fires here only if its own
 			// requirement holds, so an unbuilt mill contributes nothing.
 			statement:  await this._effects.statementFor("turn", { season }),
-			applied:    this.isApplied("turn"),
 			moments:    await this.moments(),
 		});
 	}

@@ -85,13 +85,6 @@
           "track": {
             "max": 4
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1.\n\nWhen the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus."
-          }
         }
       ]
     },
@@ -154,7 +147,7 @@
           "amount": 1
         },
         "condition": "the market is active and Population is +1 or better",
-        "text": "when the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus"
+        "text": "the market generates 1 Surplus"
       }
     ]
   },

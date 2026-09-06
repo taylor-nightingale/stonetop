@@ -49,20 +49,6 @@
           "track": {
             "max": 4
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_mark all the requirements_**, add \"Golden Sapling\" to the Resources list and automatically mark the **Greater Harvest** improvement."
-          }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus."
-          }
         }
       ]
     },

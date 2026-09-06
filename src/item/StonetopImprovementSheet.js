@@ -16,6 +16,8 @@ import * as CG from "../utils/choiceGroupEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
+import { ImprovementPayoff } from "../model/snapshot/steading/ImprovementPayoff.js";
+import { SteadingImprovement } from "../actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 
 export function createStonetopImprovementSheetClass(Base) {
 	return class StonetopImprovementSheet extends Base {
@@ -60,6 +62,14 @@ export function createStonetopImprovementSheetClass(Base) {
 			// state of its own; that lives on each steading that adopts it).
 			context.preview = buildChoiceGroup(sys.choices ?? { slug: sys.slug, list: [] });
 			await enrichRichTextTree(context.preview, this.item?.getRollData?.() ?? {});
+
+			// What it GIVES YOU, through the same snapshot and partial the steading's card uses. The
+			// catalog knows no steading, so nothing is ticked, nothing is applied and nothing is
+			// applicable — ImprovementPayoff.forCatalog is that decision, made once and named.
+			const improvement = new SteadingImprovement(sys.slug, this.item.name, sys.choices ?? null, 0,
+				{ requires: sys.requires ?? null, effects: sys.effects ?? [] });
+			context.payoff = ImprovementPayoff.forCatalog(improvement);
+			await enrichRichTextTree(context.payoff, this.item?.getRollData?.() ?? {});
 
 			// View-first: an authored improvement opens as the rendered view; a blank one (no rows yet)
 			// opens in the editor. A locked (non-editable) item is always view-only.

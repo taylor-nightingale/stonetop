@@ -23,7 +23,10 @@ describe("migrateSteadingFolk", () => {
 		expect(actor.system.folk.map(p => p.name)).toEqual(["Bryn", "Seadha"]);
 	});
 
-	it("deletes the two keys the merge replaced", async () => {
+	// The payload is the right thing to assert here, and only here: schema cleaning has already taken
+	// these keys out of the in-memory source, so the update is aimed at what is STORED and there is
+	// nothing in `actor.system` left to watch disappear.
+	it("asks for the two keys the merge replaced to be deleted", async () => {
 		const actor = healedSteading();
 		const updates = [];
 		const update = actor.update.bind(actor);
@@ -33,6 +36,28 @@ describe("migrateSteadingFolk", () => {
 
 		expect(updates[0]).toHaveProperty("system.-=residentPeople", null);
 		expect(updates[0]).toHaveProperty("system.-=neighborPeople", null);
+	});
+
+	/**
+	 * And that the ask REMOVES rather than adds. Seeded deliberately — a healed actor no longer holds
+	 * these keys, so the fake stands in for the stored document here.
+	 *
+	 * Worth its own test because the fake used to get this wrong in the lenient direction: it had no
+	 * handling for `-=` at the end of a dot path, so it stored a literal key called
+	 * `-=residentPeople` and left the real one untouched. The assertion above passed throughout —
+	 * a claim about what the code says can never catch that.
+	 */
+	it("removes them, rather than storing a key named -=", async () => {
+		const actor = healedSteading({
+			residentPeople: [{ name: "Bryn" }],
+			neighborPeople: [{ name: "Seadha" }],
+		});
+
+		await migrateSteadingFolk(actor);
+
+		expect(actor.system.residentPeople).toBeUndefined();
+		expect(actor.system.neighborPeople).toBeUndefined();
+		expect(Object.keys(actor.system).filter(k => k.startsWith("-="))).toEqual([]);
 	});
 
 	it("persists the assets with their requisitioned state", async () => {

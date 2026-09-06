@@ -99,11 +99,16 @@ export function createStonetopSteadingSheetClass(Base) {
 				}),
 
 				// --- applying what an improvement does ---
-				// Finishing an improvement owes the steading something (+1 Fortunes, an entry on the
-				// Resources list). The card offers it where the last box was ticked, and this writes
-				// it — once, and only the lines still included.
-				applyCompletion: editOnly(function (ev, target) {
-					return this._stonetopSteading.applyCompletion(target.dataset.slug);
+				// One control per result, because every applied line is independently revertable BECAUSE
+				// it was independently applied. Both are guarded in the domain: applying twice writes
+				// nothing, and a result migrated from the old storage knows that it happened but not what
+				// it wrote, so it offers no Revert rather than guessing an inverse.
+				applyEffectLine: editOnly(function (ev, target) {
+					return this._stonetopSteading.applyEffectLine(target.dataset.lineId);
+				}),
+
+				revertEffectLine: editOnly(function (ev, target) {
+					return this._stonetopSteading.revertEffectLine(target.dataset.lineId);
 				}),
 
 				// The season's own statement, written once. Guarded in the domain rather than here, so
@@ -249,12 +254,14 @@ export function createStonetopSteadingSheetClass(Base) {
 		get boardView()    { return this._boardView    ??= new BoardView(); }
 
 		// Core rebuilds the part's DOM on every render, which takes the caret and the search with it.
-		// Restored here, after the base has put the open move rows back.
-		_onRender(context, options) {
-			super._onRender(context, options);
-			this.rosterFilter.restore(this.element);
-			this.rosterFocus.restore(this.element);
-			this.boardView.restore(this.element);
+		// Put back after the base's own regions, and — like them — before core measures the tree it is
+		// about to restore scroll into: a filtered roster and a filtered board are both SHORTER than
+		// what the template rendered.
+		restoreViewState(root) {
+			super.restoreViewState(root);
+			this.rosterFilter.restore(root);
+			this.rosterFocus.restore(root);
+			this.boardView.restore(root);
 		}
 
 		// Root-delegated, one-time wiring — the V2 root persists across re-renders. Editability is

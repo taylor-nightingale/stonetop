@@ -7,6 +7,7 @@ import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 import { renderTemplate } from "../../fakes/renderTemplate.js";
+import { renderSheetPart } from "../../fakes/renderSheetPart.js";
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
@@ -31,12 +32,9 @@ function makeSheet(id = "steading-1", existingActor = null) {
 	return sheet;
 }
 
-/** One render of the sheet, followed by the lifecycle hooks a real render fires. */
+/** One render of the sheet, in the order a real one happens. */
 async function render(sheet, first = false) {
-	sheet.element.innerHTML = renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({}));
-	if (first) await sheet._onFirstRender({}, {});
-	sheet._onRender({}, {});
-	return sheet.element;
+	return renderSheetPart(sheet, renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({})), { first });
 }
 
 const rows      = root => [...root.querySelectorAll(".steading-folk-row")];

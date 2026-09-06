@@ -15,9 +15,9 @@
 			<p class="steading-turnover-applied">{{localize "stonetop.steading.effects.alreadyApplied"}}</p>
 		{{/if}}
 		{{> "stonetop.steading-statement" statement=turnover.statement showAdvisory=true
-		    applyAction="applyTurnover"
-		    applyLabel="stonetop.steading.effects.applySeason"
-		    applied=turnover.applied}}
+		    showSource=true showDelta=true
+		    applyAllAction="applyTurnover"
+		    applyAllLabel="stonetop.steading.effects.applySeason"}}
 	{{else}}
 		{{!-- Not an error and not an empty state to apologise for: a season in which nothing Stonetop
 		      has built fires is an ordinary season. --}}

@@ -1,4 +1,4 @@
-// Finds colour literals in a stylesheet. The theming contract (helper/theming-plan.md) is that
+// Finds colour literals in a stylesheet. The theming contract is that
 // structural CSS names a role — var(--st-ink) — and only a theme file says what colour that role
 // is. This is what measures compliance: 262 literals in 78 distinct values is what one stylesheet
 // with no colour vocabulary looks like, and four interchangeable border greys is what it costs.

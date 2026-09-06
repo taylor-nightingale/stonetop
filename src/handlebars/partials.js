@@ -43,6 +43,7 @@ export const STONETOP_PARTIALS = {
 	"stonetop.steading-improvement-board": "systems/stonetop/templates/actor/partials/steading-improvement-board.hbs",
 	"stonetop.steading-improvement-card": "systems/stonetop/templates/actor/partials/steading-improvement-card.hbs",
 	"stonetop.steading-statement": "systems/stonetop/templates/actor/partials/steading-statement.hbs",
+	"stonetop.steading-improvement-payoff": "systems/stonetop/templates/actor/partials/steading-improvement-payoff.hbs",
 	"stonetop.steading-season-turn": "systems/stonetop/templates/actor/partials/steading-season-turn.hbs",
 	"stonetop.steading-season-wheel": "systems/stonetop/templates/actor/partials/steading-season-wheel.hbs",
 	"stonetop.steading-turnover": "systems/stonetop/templates/actor/partials/steading-turnover.hbs",

@@ -45,13 +45,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Fortunes by 1. Henceforth, when **_the autumn harvest is complete_**, gain +1d4 Surplus."
-          }
         }
       ]
     },
@@ -90,7 +83,7 @@
           "target": "surplus",
           "formula": "1d4"
         },
-        "text": "when the autumn harvest is complete, gain +1d4 Surplus"
+        "text": "gain +1d4 Surplus"
       }
     ]
   },

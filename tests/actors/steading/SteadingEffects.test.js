@@ -40,7 +40,7 @@ const WATCH = () => new SteadingImprovement("standing-watch", "Standing Watch", 
 	],
 });
 
-function build({ owned = ["mill"], ticks = {}, attributes = {}, excluded = {}, applied = {} } = {}) {
+function build({ owned = ["mill"], ticks = {}, attributes = {}, applied = {}, turnover = {} } = {}) {
 	const repo = new FakeSteadingImprovementRepository();
 	repo._improvements.push(MILL(), WATCH());
 	const actor = new FakeActorBuilder().withSystem({
@@ -48,115 +48,221 @@ function build({ owned = ["mill"], ticks = {}, attributes = {}, excluded = {}, a
 		improvementValues: ticks,
 		attributes: { fortunes: 0, surplus: 0, population: 0, prosperity: 0, defenses: 0, ...attributes },
 		assets: { resources: [], fortifications: [], items: [] },
-		turnoverExcluded: excluded,
 		improvementsApplied: applied,
+		turnoverApplied: turnover,
 	}).build();
 	return { actor, effects: new SteadingEffects(actor, new SteadingImprovements(actor, repo)), repo };
 }
 
 const BUILT_MILL = { mill: { site: 1, miller: 1 } };
+const mill  = ({ repo }) => repo._improvements[0];
+const watch = ({ repo }) => repo._improvements[1];
 
-describe("the completion statement", () => {
-	it("is empty while the improvement is unbuilt", () => {
-		const { effects, repo } = build({ ticks: { mill: { site: 1 } } });
-		expect(effects.completionFor(repo._improvements[0]).isEmpty).toBe(true);
+describe("the payoff of one improvement", () => {
+	// The card is the only place the payoff is stated now — the prose that used to say it was stripped
+	// out of the pack — so an UNBUILT improvement still has to say what it will do. That is what
+	// separates this from statementFor, which only ever collects what actually fires.
+	it("states what an unbuilt improvement will do, and marks it unearned", () => {
+		const ctx = build({ ticks: { mill: { site: 1 } } });
+		const payoff = ctx.effects.payoffFor(mill(ctx));
+		expect(payoff.completion.lines.map(l => l.text.raw)).toEqual([
+			"increase Fortunes by 1", 'add "Mill" to the Resources list', "each of supplies has 1 extra use",
+		]);
+		expect(payoff.completion.lines.every(l => l.earned)).toBe(false);
+		// Unearned lines get no control, so there is nothing to press and nothing to total.
+		expect(payoff.completion.automatic).toEqual([]);
+		expect(payoff.completion.totals).toEqual([]);
+		expect(payoff.isOwed).toBe(false);
 	});
 
-	it("lists what finishing it does", () => {
-		const { effects, repo } = build({ ticks: BUILT_MILL });
-		const s = effects.completionFor(repo._improvements[0]);
+	it("lists what finishing it does, once it is finished", () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		const s = ctx.effects.payoffFor(mill(ctx)).completion;
 		expect(s.automatic.map(l => l.delta?.amount ?? l.listEntry.text)).toEqual(["+1", "Mill"]);
 		// Named through a key, not written out — the raw `fortunes` used to print in every language.
 		expect(s.automatic[0].delta.subjectKey).toBe("stonetop.steading.attr.fortunes");
 	});
 
-	// A result with nothing to apply is still shown — with its source, and no checkbox.
+	// A result with nothing to apply is still shown — with its source, and no control.
 	it("separates what it can apply from what it only states", () => {
-		const { effects, repo } = build({ ticks: BUILT_MILL });
-		const s = effects.completionFor(repo._improvements[0]);
+		const ctx = build({ ticks: BUILT_MILL });
+		const s = ctx.effects.payoffFor(mill(ctx)).completion;
 		expect(s.automatic).toHaveLength(2);
 		expect(s.advisory.map(l => l.text.raw)).toEqual(["each of supplies has 1 extra use"]);
 	});
 
-	// The harvest is not completion — it fires during autumn, every autumn.
-	it("leaves the harvest out of completion", () => {
-		const { effects, repo } = build({ ticks: BUILT_MILL });
-		expect(effects.completionFor(repo._improvements[0]).lines.map(l => l.text.raw))
-			.not.toContain("the steading generates +1 Surplus");
-	});
-
 	it("says what the ratings become", () => {
-		const { effects, repo } = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
-		expect(effects.completionFor(repo._improvements[0]).totals)
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		expect(ctx.effects.payoffFor(mill(ctx)).completion.totals)
 			.toEqual([expect.objectContaining({ target: "fortunes", from: 2, to: 3 })]);
 	});
+
+	/**
+	 * The harvest is not completion — it fires during autumn, EVERY autumn. It belongs in the
+	 * Henceforth half, and that half is `stated`: seven turn/moment results across the pack are plain
+	 * arithmetic, and a control for them on the card would pay them early and then again in the season
+	 * that owns them.
+	 */
+	describe("the Henceforth half", () => {
+		it("carries the results that fire later, away from the completion ones", () => {
+			const ctx = build({ ticks: BUILT_MILL });
+			const payoff = ctx.effects.payoffFor(mill(ctx));
+			expect(payoff.henceforth.lines.map(l => l.text.raw)).toEqual(["the steading generates +1 Surplus"]);
+			expect(payoff.completion.lines.map(l => l.text.raw)).not.toContain("the steading generates +1 Surplus");
+		});
+
+		it("offers no control over them, even though the sheet could write them", () => {
+			const ctx = build({ ticks: BUILT_MILL });
+			const { henceforth } = ctx.effects.payoffFor(mill(ctx));
+			// The line itself IS automatic — this is the statement declining to be the one that writes it.
+			expect(henceforth.lines[0].isAutomatic).toBe(true);
+			expect(henceforth.automatic).toEqual([]);
+			expect(henceforth.pending).toEqual([]);
+			expect(henceforth.totals).toEqual([]);
+			expect(henceforth.willChangeAnything).toBe(false);
+		});
+
+		it("still states a result whose requirement does not hold yet", () => {
+			const ctx = build({ ticks: {} });
+			expect(ctx.effects.payoffFor(mill(ctx)).henceforth.lines).toHaveLength(1);
+		});
+	});
 });
 
-describe("opting a line out", () => {
-	it("drops it from the totals without removing it from the statement", () => {
-		const { effects, repo } = build({ ticks: BUILT_MILL, excluded: { "mill:0": true } });
-		const s = effects.completionFor(repo._improvements[0]);
-		expect(s.lines).toHaveLength(3);
-		expect(s.totals).toEqual([]);
-		expect(s.lines.find(l => l.id === "mill:0").included).toBe(false);
+describe("applying one line at a time", () => {
+	it("writes only the line pressed, and records what it wrote", async () => {
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		expect(await ctx.effects.applyLine("mill:0")).toBe(true);
+		expect(ctx.actor.system.attributes.fortunes).toBe(3);
+		// The other completion line was not pressed, so it did not happen.
+		expect(ctx.actor.system.assets.resources).toEqual([]);
+		expect(ctx.actor.system.improvementsApplied["mill:0"]).toEqual({ change: { target: "fortunes", amount: 1 } });
 	});
 
-	it("is recorded, and can be put back", async () => {
-		const { actor, effects } = build({ ticks: BUILT_MILL });
-		await effects.setIncluded("mill:0", false);
-		expect(actor.system.turnoverExcluded["mill:0"]).toBe(true);
-		await effects.setIncluded("mill:0", true);
-		expect(actor.system.turnoverExcluded["mill:0"]).toBe(false);
+	it("writes a list entry, and records it by value", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		await ctx.effects.applyLine("mill:1");
+		expect(ctx.actor.system.assets.resources).toEqual(["Mill"]);
+		expect(ctx.actor.system.improvementsApplied["mill:1"]).toEqual({ entry: { list: "resources", text: "Mill" } });
+	});
+
+	// Six people share this sheet; the second press must not pay it twice.
+	it("refuses to apply the same line again", async () => {
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		await ctx.effects.applyLine("mill:0");
+		expect(await ctx.effects.applyLine("mill:0")).toBe(false);
+		expect(ctx.actor.system.attributes.fortunes).toBe(3);
+	});
+
+	it("refuses a line whose requirement does not hold", async () => {
+		const ctx = build({ ticks: { mill: { site: 1 } } });
+		expect(await ctx.effects.applyLine("mill:0")).toBe(false);
+		expect(ctx.actor.system.attributes.fortunes).toBe(0);
+	});
+
+	it("refuses an advisory line, which has nothing to write", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		expect(await ctx.effects.applyLine("mill:3")).toBe(false);
+	});
+
+	it("says nothing to an id that addresses no result", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		for (const id of ["mill:99", "nonsuch:0", "mill", "", null]) {
+			expect(await ctx.effects.applyLine(id), String(id)).toBe(false);
+		}
+	});
+
+	// A completion is owed once ever; a harvest is owed again next autumn. Two stores, and filing a
+	// harvest in the durable one would pay the Mill once and never again.
+	it("files a completion durably and a seasonal result in the season's own record", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		await ctx.effects.applyLine("mill:0");
+		await ctx.effects.applyLine("mill:2");
+		expect(Object.keys(ctx.actor.system.improvementsApplied)).toEqual(["mill:0"]);
+		expect(Object.keys(ctx.actor.system.turnoverApplied)).toEqual(["mill:2"]);
 	});
 });
 
-describe("applying", () => {
-	it("writes the rating and the list entry", async () => {
-		const { actor, effects, repo } = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
-		await effects.applyCompletion(repo._improvements[0]);
-		expect(actor.system.attributes.fortunes).toBe(3);
-		expect(actor.system.assets.resources).toEqual(["Mill"]);
+describe("taking a line back", () => {
+	it("subtracts exactly what it added, and clears the record", async () => {
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		await ctx.effects.applyLine("mill:0");
+		expect(await ctx.effects.revertLine("mill:0")).toBe(true);
+		expect(ctx.actor.system.attributes.fortunes).toBe(2);
+		expect(ctx.actor.system.improvementsApplied["mill:0"]).toBeUndefined();
+	});
+
+	it("removes the list entry it added and leaves the rest", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		ctx.actor.system.assets.resources = ["Quarry"];
+		await ctx.effects.applyLine("mill:1");
+		expect(ctx.actor.system.assets.resources).toEqual(["Quarry", "Mill"]);
+		await ctx.effects.revertLine("mill:1");
+		expect(ctx.actor.system.assets.resources).toEqual(["Quarry"]);
+	});
+
+	// Reverting takes away its OWN 1, wherever the rating stands now — it does not restore a
+	// remembered total, because the rating moves for other reasons between apply and revert.
+	it("subtracts its own delta from wherever the rating now stands", async () => {
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		await ctx.effects.applyLine("mill:0");
+		ctx.actor.system.attributes.fortunes = 7;
+		await ctx.effects.revertLine("mill:0");
+		expect(ctx.actor.system.attributes.fortunes).toBe(6);
+	});
+
+	it("refuses to revert a line that was never applied", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		expect(await ctx.effects.revertLine("mill:0")).toBe(false);
+	});
+
+	// The old storage said THAT a completion happened and not WHAT it wrote. Inventing an inverse for
+	// one would be a guess that looks like a fact.
+	it("refuses to revert a legacy apply, and leaves it applied", async () => {
+		const ctx = build({ ticks: BUILT_MILL, applied: { "mill:0": { legacy: true } } });
+		expect(await ctx.effects.revertLine("mill:0")).toBe(false);
+		expect(ctx.actor.system.improvementsApplied["mill:0"]).toEqual({ legacy: true });
+		expect((await ctx.effects.lineById("mill:0")).isApplied).toBe(true);
+	});
+
+	it("re-offers a reverted line", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		await ctx.effects.applyLine("mill:0");
+		await ctx.effects.revertLine("mill:0");
+		expect((await ctx.effects.lineById("mill:0")).isPending).toBe(true);
+	});
+});
+
+describe("applying a whole statement", () => {
+	it("writes every pending line in ONE update", async () => {
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		const before = ctx.actor.update.mock?.calls?.length ?? 0;
+		expect(await ctx.effects.apply(ctx.effects.payoffFor(mill(ctx)).completion)).toBe(true);
+		expect(ctx.actor.system.attributes.fortunes).toBe(3);
+		expect(ctx.actor.system.assets.resources).toEqual(["Mill"]);
+		if (ctx.actor.update.mock) expect(ctx.actor.update.mock.calls.length - before).toBe(1);
+	});
+
+	it("skips the lines already applied and writes the rest", async () => {
+		const ctx = build({ ticks: BUILT_MILL, attributes: { fortunes: 2 } });
+		await ctx.effects.applyLine("mill:0");
+		await ctx.effects.apply(ctx.effects.payoffFor(mill(ctx)).completion);
+		expect(ctx.actor.system.attributes.fortunes).toBe(3);
+		expect(ctx.actor.system.assets.resources).toEqual(["Mill"]);
+	});
+
+	it("writes nothing when there is nothing left to write", async () => {
+		const ctx = build({ ticks: BUILT_MILL });
+		await ctx.effects.apply(ctx.effects.payoffFor(mill(ctx)).completion);
+		expect(await ctx.effects.apply(ctx.effects.payoffFor(mill(ctx)).completion)).toBe(false);
+		expect(ctx.actor.system.assets.resources).toEqual(["Mill"]);
 	});
 
 	it("never applies an advisory line", async () => {
-		const { actor, effects, repo } = build({ ticks: BUILT_MILL });
-		await effects.applyCompletion(repo._improvements[0]);
+		const ctx = build({ ticks: BUILT_MILL });
+		await ctx.effects.apply(ctx.effects.payoffFor(mill(ctx)).completion);
 		// The "extra use" line has no payload at all; nothing but the two automatic ones moved.
-		expect(actor.system.attributes.surplus).toBe(0);
-	});
-
-	it("leaves out a line the table opted out of", async () => {
-		const { actor, effects, repo } = build({
-			ticks: BUILT_MILL, attributes: { fortunes: 2 }, excluded: { "mill:0": true },
-		});
-		await effects.applyCompletion(repo._improvements[0]);
-		expect(actor.system.attributes.fortunes).toBe(2);
-		expect(actor.system.assets.resources).toEqual(["Mill"]);
-	});
-
-	// An improvement is finished once; its +1 Fortunes is not owed again next spring.
-	it("records that the completion is applied", async () => {
-		const { actor, effects, repo } = build({ ticks: BUILT_MILL });
-		expect(effects.isCompletionApplied("mill")).toBe(false);
-		await effects.applyCompletion(repo._improvements[0]);
-		expect(effects.isCompletionApplied("mill")).toBe(true);
-	});
-
-	// Six people share this sheet; a re-apply must not double the entry.
-	it("does not write a list entry twice", async () => {
-		const { actor, effects, repo } = build({ ticks: BUILT_MILL });
-		await effects.applyCompletion(repo._improvements[0]);
-		await effects.applyCompletion(repo._improvements[0]);
-		expect(actor.system.assets.resources).toEqual(["Mill"]);
-	});
-
-	it("writes nothing at all when every line is opted out", async () => {
-		const { actor, effects, repo } = build({
-			ticks: BUILT_MILL, excluded: { "mill:0": true, "mill:1": true },
-		});
-		const wrote = await effects.apply(effects.completionFor(repo._improvements[0]));
-		expect(wrote).toBe(false);
-		expect(actor.system.assets.resources).toEqual([]);
+		expect(ctx.actor.system.attributes.surplus).toBe(0);
 	});
 });
 
@@ -190,18 +296,16 @@ describe("the moves a statement's results confer", () => {
 	// A move is rolled, and what it does depends on the roll — so it is never an applied line. What
 	// the sheet offers instead is the one thing the book's sentence cannot: something to roll.
 	it("names them by slug, and never applies one", async () => {
-		const { actor, effects, repo } = build({
-			owned: ["standing-watch"], ticks: { "standing-watch": { leaders: 1 } },
-		});
-		const s = effects.completionFor(repo._improvements[1]);
+		const ctx = build({ owned: ["standing-watch"], ticks: { "standing-watch": { leaders: 1 } } });
+		const s = ctx.effects.payoffFor(watch(ctx)).completion;
 		expect(s.grantedMoveSlugs).toEqual(["heroic-reputation"]);
 		expect(s.automatic.map(l => l.grantsMove)).toEqual([null]);
-		await effects.apply(s);
-		expect(actor.system.attributes.fortunes).toBe(0);
+		await ctx.effects.apply(s);
+		expect(ctx.actor.system.attributes.fortunes).toBe(0);
 	});
 
 	it("names nothing where no result confers a move", () => {
-		const { effects, repo } = build({ ticks: BUILT_MILL });
-		expect(effects.completionFor(repo._improvements[0]).grantedMoveSlugs).toEqual([]);
+		const ctx = build({ ticks: BUILT_MILL });
+		expect(ctx.effects.payoffFor(mill(ctx)).completion.grantedMoveSlugs).toEqual([]);
 	});
 });

@@ -9,7 +9,7 @@
 import { EffectChip } from "./EffectChip.js";
 
 export class ImprovementProgress {
-	constructor({ slug, name, group, ticked, total, meter, isMet, chips = [], completion = null }) {
+	constructor({ slug, name, group, ticked, total, meter, isMet, chips = [], payoff = null }) {
 		this.slug       = slug;
 		this.name       = name;
 		// The improvement's own choice group, carried so the board card can open onto the REAL
@@ -25,19 +25,20 @@ export class ImprovementProgress {
 		// What the improvement is FOR, as the numbers its results already state. Shut, a card is a
 		// name and a meter — how far along, and nothing about what the work buys. See EffectChip.
 		this.chips      = chips;
-		// What finishing it does, offered on the card where the last box was ticked — null once the
-		// table has applied it, and null while it is unfinished.
-		this.completion = completion;
+		// Everything the improvement gives you, in the book's two halves — what finishing it does, and
+		// what holds henceforth. Always present, earned or not: this is the only place the payoff is
+		// stated now.
+		this.payoff = payoff;
 	}
 
 	/**
-	 * Whether this card is asking to apply what finishing the improvement does.
+	 * Whether this card is owed something the sheet can write.
 	 *
 	 * Only when there is something to DO. An improvement whose completion is all fiction — Township
-	 * changing Size, Roadbuilding letting you build roads — says so in its own prose, and a prompt
-	 * offering to apply nothing is worse than no prompt.
+	 * changing Size, Roadbuilding letting you build roads — has nothing to press, and a card claiming
+	 * otherwise would be asking for a click that does nothing.
 	 */
-	get isCompletionPending() { return Boolean(this.completion?.hasAutomatic); }
+	get isCompletionPending() { return Boolean(this.payoff?.isOwed); }
 
 	/** Which chip this row answers to, and what the board filters on. */
 	get state() {
@@ -60,7 +61,7 @@ export class ImprovementProgress {
 	 * @param group        its built ChoiceGroup, for the card to open onto
 	 * @param storedValues this steading's ticks for that improvement
 	 */
-	static from(improvement, group, storedValues = {}, completion = null) {
+	static from(improvement, group, storedValues = {}, payoff = null) {
 		const boxes  = improvement.boxesFrom(storedValues);
 		const req    = improvement.requires;
 		const total  = req.neededIn(boxes);
@@ -77,7 +78,7 @@ export class ImprovementProgress {
 			meter:  Array.from({ length: total }, (_, i) => i < ticked),
 			isMet:  req.isMet(boxes),
 			chips:  EffectChip.forImprovement(improvement, storedValues),
-			completion,
+			payoff,
 		});
 	}
 }

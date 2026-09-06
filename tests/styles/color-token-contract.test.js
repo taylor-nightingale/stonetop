@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, existsSync } from "fs";
 import path from "path";
 import { ColorLiteralScan } from "./cssColorLiterals.js";
 
-// The theming contract (helper/theming-plan.md): structural CSS names a ROLE — var(--st-ink) — and
+// The theming contract: structural CSS names a ROLE — var(--st-ink) — and
 // only a theme file says what colour that role is. That separation is the whole feature: it is what
 // lets a dark theme exist at all, and what lets a module ship one by setting ~25 values instead of
 // overriding rules one at a time.

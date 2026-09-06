@@ -11,6 +11,7 @@ import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
 import { Seasons } from "../../../src/model/data/steading/Seasons.js";
 import { renderTemplate } from "../../fakes/renderTemplate.js";
+import { renderSheetPart } from "../../fakes/renderSheetPart.js";
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
@@ -136,13 +137,13 @@ function seasonalMoveRepo() {
 	return repo;
 }
 
-async function makeSheet({ owned = [], season, year, values, excluded } = {}) {
+async function makeSheet({ owned = [], season, year, values, turnoverApplied } = {}) {
 	const actor = new FakeSteadingBuilder().build();
 	actor.system.improvements      = owned;
 	actor.system.improvementValues = values ?? {};
 	if (season !== undefined) actor.system.season = season;
 	if (year !== undefined) actor.system.year = year;
-	if (excluded !== undefined) actor.system.turnoverExcluded = excluded;
+	if (turnoverApplied !== undefined) actor.system.turnoverApplied = turnoverApplied;
 
 	const moveRepo = seasonalMoveRepo();
 	actor.typedActor = new StonetopSteading(actor, steadingRepos({ improvements: catalog(), moves: moveRepo }));
@@ -156,11 +157,9 @@ async function makeSheet({ owned = [], season, year, values, excluded } = {}) {
 	return sheet;
 }
 
-async function render(sheet, first = false) {
-	sheet.element.innerHTML = renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({}));
-	if (first) await sheet._onFirstRender({}, {});
-	sheet._onRender({}, {});
-	return sheet.element;
+async function render(sheet, first = false, opts = {}) {
+	return renderSheetPart(sheet, renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({})),
+		{ first, ...opts });
 }
 
 const act = (sheet, name, target) => {
@@ -368,26 +367,52 @@ describe("the season's statement", () => {
 			.toContain("surplus");
 	});
 
-	// Dropping a line goes through the ordinary change router, so this proves the sheet's wiring
-	// reaches the actor and not just that the method works.
-	it("records a dropped line through the sheet's own change wiring", async () => {
+	// One control per result, pressed through the sheet's own action router — so this proves the
+	// wiring reaches the actor, not just that the method works.
+	it("applies one line through the sheet's own wiring, and records what it wrote", async () => {
 		const sheet = await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill });
 		const root = await render(sheet, true);
+		sheet.actor.system.attributes.surplus = 2;
 
-		const box = root.querySelector('.steading-turnover [data-change-action="effectIncluded"]');
-		box.checked = false;
-		box.dispatchEvent(new Event("change", { bubbles: true }));
-		await Promise.resolve();
+		const button = root.querySelector('.steading-turnover [data-action="applyEffectLine"]');
+		await act(sheet, "applyEffectLine", button);
 
-		expect(sheet.actor.system.turnoverExcluded["mill:3"]).toBe(true);
+		expect(sheet.actor.system.attributes.surplus).toBe(3);
+		expect(sheet.actor.system.turnoverApplied[button.dataset.lineId]).toBeTruthy();
 	});
 
-	it("shows a dropped line back as dropped, still listed", async () => {
+	// The whole point of recording WHAT was written: a mis-click is recoverable, on a document six
+	// people share.
+	it("takes one line back through the sheet's own wiring", async () => {
+		const sheet = await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill });
+		let root = await render(sheet, true);
+		sheet.actor.system.attributes.surplus = 2;
+
+		const applyBtn = root.querySelector('.steading-turnover [data-action="applyEffectLine"]');
+		const lineId = applyBtn.dataset.lineId;
+		await act(sheet, "applyEffectLine", applyBtn);
+		expect(sheet.actor.system.attributes.surplus).toBe(3);
+
+		root = await render(sheet, true);
+		const revertBtn = root.querySelector(`.steading-turnover [data-action="revertEffectLine"][data-line-id="${lineId}"]`);
+		expect(revertBtn).not.toBeNull();
+		await act(sheet, "revertEffectLine", revertBtn);
+
+		expect(sheet.actor.system.attributes.surplus).toBe(2);
+		expect(sheet.actor.system.turnoverApplied[lineId]).toBeUndefined();
+	});
+
+	// Applied lines stay listed — what the season did is worth reading after the fact — and offer
+	// Revert instead of Apply.
+	it("shows an applied line as applied, still listed", async () => {
 		const root = await render(await makeSheet({
-			season: "autumn", owned: ["mill"], values: BUILT.mill, excluded: { "mill:3": true },
+			season: "autumn", owned: ["mill"], values: BUILT.mill,
+			turnoverApplied: { "mill:3": { change: { target: "surplus", amount: 1 } } },
 		}));
-		expect(root.querySelector('.steading-turnover [data-change-action="effectIncluded"]').checked).toBe(false);
-		expect(statementRows(root)[0].classList.contains("is-dropped")).toBe(true);
+		const row = statementRows(root)[0];
+		expect(row.classList.contains("is-applied")).toBe(true);
+		expect(row.querySelector('[data-action="applyEffectLine"]')).toBeNull();
+		expect(row.querySelector('[data-action="revertEffectLine"]')).not.toBeNull();
 	});
 
 	// The point of the whole thing: the season changes the steading.
@@ -400,28 +425,34 @@ describe("the season's statement", () => {
 		expect(sheet.actor.system.attributes.surplus).toBe(3);
 	});
 
-	it("writes nothing for a line the table dropped", async () => {
+	// "Apply all" is not a different mechanism — it is every line still owed, so a line already
+	// applied is simply skipped rather than paid twice.
+	it("writes nothing for a line already applied", async () => {
 		const sheet = await makeSheet({
-			season: "autumn", owned: ["mill"], values: BUILT.mill, excluded: { "mill:3": true },
+			season: "autumn", owned: ["mill"], values: BUILT.mill,
+			turnoverApplied: { "mill:3": { change: { target: "surplus", amount: 1 } } },
 		});
 		const root = await render(sheet, true);
 		sheet.actor.system.attributes.surplus = 2;
 
-		await act(sheet, "applyTurnover", root.querySelector('[data-action="applyTurnover"]'));
+		const applyAll = root.querySelector('[data-action="applyTurnover"]');
+		if (applyAll) await act(sheet, "applyTurnover", applyAll);
 		expect(sheet.actor.system.attributes.surplus).toBe(2);
 	});
 
-	// Turning the wheel starts the season over — what was applied and what was dropped both go.
+	// Turning the wheel starts the season over — last season's records go, so the mill's harvest is
+	// owed again when autumn comes round.
 	it("clears the record when the season turns", async () => {
 		const sheet = await makeSheet({
-			season: "autumn", owned: ["mill"], values: BUILT.mill, excluded: { "mill:3": true },
+			season: "autumn", owned: ["mill"], values: BUILT.mill,
+			turnoverApplied: { "mill:3": { change: { target: "surplus", amount: 1 } } },
 		});
 		stubConfirm(true);
 		await render(sheet, true);
 
 		await act(sheet, "turnSeason", null);
 		const root = await render(sheet);
-		expect(sheet.actor.system.turnoverExcluded).toEqual({});
+		expect(sheet.actor.system.turnoverApplied).toEqual({});
 		expect(statementRows(root)).toHaveLength(0);   // winter: the Mill is quiet
 	});
 });
@@ -516,6 +547,50 @@ describe("the improvement board", () => {
 		const chips = [...root.querySelectorAll(".steading-board-chip")].map(c => c.textContent.trim());
 		expect(chips.join(" ")).toMatch(/1/);
 		expect(chips).toHaveLength(3);
+	});
+
+	// Ticking a requirement threw the view hundreds of pixels down the tab. The write re-renders, the
+	// template renders every card shut and the whole board unfiltered, and the scroll position core
+	// hands back was measured against the tab the READER had — so the browser clamped it to the
+	// shorter tree, and its own scroll anchoring then shoved against the correction as the cards
+	// reopened. The board this sheet restores has to be back before core measures the part.
+	//
+	// happy-dom has no layout, so the clamp is modelled: a card is worth 100, an open card body 300,
+	// in a 200-tall viewport.
+	it("has the open card and the filtered board back before the scroll position is restored", async () => {
+		const sheet = await makeSheet({
+			owned: ["mill", "palisade", "standing-watch"], values: { mill: { site: 1 } },
+		});
+		let root = await render(sheet, true);
+		const clamping = tree => {
+			const body = tree.querySelector(".sheet-body");
+			let top = 0;
+			Object.defineProperty(body, "scrollTop", {
+				configurable: true,
+				get: () => top,
+				set: v => {
+					const shown = cards(tree).filter(c => !c.hidden).length;
+					const open  = cards(tree).filter(c => !c.querySelector(".steading-improvement-body").hidden).length;
+					top = Math.max(0, Math.min(v, shown * 100 + open * 300 - 200));
+				},
+			});
+			return body;
+		};
+
+		// The reader narrows the board to what is under way and opens the card they are working on.
+		await act(sheet, "toggleBoardFilter", root.querySelector('[data-board-filter="progress"]'));
+		await act(sheet, "toggleImprovementCard",
+			root.querySelector('.steading-improvement-card[data-slug="mill"] [data-disclosure]'));
+		clamping(root).scrollTop = 200;
+
+		// …and ticks something, which is a write, which is a render.
+		root = await render(sheet, false, { beforeSync: clamping });
+
+		expect(root.querySelector('.steading-improvement-card[data-slug="mill"] .steading-improvement-body').hidden,
+			"the card the reader was working in shut").toBe(false);
+		expect(cards(root).filter(c => c.hidden), "the board came back unfiltered").toHaveLength(2);
+		expect(root.querySelector(".sheet-body").scrollTop,
+			"the scroll position was clamped to a tree the reader was never looking at").toBe(200);
 	});
 });
 
@@ -623,12 +698,117 @@ describe("a move an improvement confers", () => {
 		expect([...sheet.actor.items].some(i => i.name === "Lead the Aurochs Hunt")).toBe(false);
 	});
 
-	// A move is rolled, and what it does depends on the roll — so it is never an applied line.
+	// A move is rolled, and what it does depends on the roll — so it is never an applied line and
+	// gets no control of its own, only something to roll.
 	it("is not something the statement offers to apply", async () => {
 		const root = await render(await springHunt());
 		const moment = root.querySelector(".steading-moment");
-		expect(moment.querySelectorAll(".steading-statement-label")).toHaveLength(0);
+		expect(moment.querySelectorAll('[data-action="applyEffectLine"]')).toHaveLength(0);
 		expect(moment.querySelector(".steading-statement-apply")).toBeNull();
+	});
+});
+
+/**
+ * The card reads requirements → payoff, in one flow, and the payoff is stated exactly ONCE.
+ *
+ * It used to be stated four times over: as chips, as a statement line, as a delta chip beside that
+ * line, and again as the book's prose at the end of the requirement rows — with a `Fortunes 4 → 5`
+ * total underneath for a fifth. The prose is stripped from the pack, the delta and the total are
+ * gone from this surface, and the chips are the SHUT view only. What is left is the book's own two
+ * headed halves, with one control per result the sheet can write.
+ */
+describe("the payoff on an improvement's card", () => {
+	const cardFor = (root, slug) => root.querySelector(`.steading-improvement-card[data-slug="${slug}"]`);
+	const payoffOf = card => card.querySelector(".steading-payoff");
+	const headsOf = card => [...card.querySelectorAll(".steading-payoff-head")]
+		.map(h => h.textContent.trim());
+
+	it("states both of the book's halves, under their own headings", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"], values: BUILT.mill }));
+		expect(headsOf(cardFor(root, "mill"))).toEqual([
+			"stonetop.steading.effects.onCompletion",
+			"stonetop.steading.effects.henceforth",
+		]);
+	});
+
+	// Inside the body, AFTER the requirement rows — the order the book prints them in and the order
+	// the work happens in. It used to be bolted on above the header, floating with no context.
+	it("puts the payoff inside the card body, after the requirements", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"], values: BUILT.mill }));
+		const body = cardFor(root, "mill").querySelector(".steading-improvement-body");
+		expect(body.querySelector(".steading-payoff")).not.toBeNull();
+		const kids = [...body.children];
+		expect(kids.findIndex(k => k.classList.contains("stonetop-choice-entry")))
+			.toBeLessThan(kids.findIndex(k => k.classList.contains("steading-payoff")));
+	});
+
+	// The prose that used to say this was stripped from the pack, so the card is the only place it is
+	// said — which means it has to be said before the work is finished, not only after.
+	it("states what an UNFINISHED improvement will do, with no control", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"] }), true);
+		const payoff = payoffOf(cardFor(root, "mill"));
+		expect(payoff.textContent).toContain("increase Fortunes by 1");
+		expect(payoff.querySelectorAll('[data-action="applyEffectLine"]')).toHaveLength(0);
+	});
+
+	it("offers one control per writable result once it is built", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"], values: BUILT.mill }), true);
+		const payoff = payoffOf(cardFor(root, "mill"));
+		// Two writable completion results; the fiction line beside them gets nothing to press.
+		expect(payoff.querySelectorAll('[data-action="applyEffectLine"]')).toHaveLength(2);
+	});
+
+	// Applied and reverted from the card itself, through the sheet's own action router.
+	it("applies and reverts one result from the card", async () => {
+		const sheet = await makeSheet({ owned: ["mill"], values: BUILT.mill });
+		let root = await render(sheet, true);
+		sheet.actor.system.attributes.fortunes = 2;
+
+		const apply = payoffOf(cardFor(root, "mill")).querySelector('[data-action="applyEffectLine"]');
+		const lineId = apply.dataset.lineId;
+		await act(sheet, "applyEffectLine", apply);
+		expect(sheet.actor.system.attributes.fortunes).toBe(3);
+
+		root = await render(sheet, true);
+		const revert = root.querySelector(`[data-action="revertEffectLine"][data-line-id="${lineId}"]`);
+		await act(sheet, "revertEffectLine", revert);
+		expect(sheet.actor.system.attributes.fortunes).toBe(2);
+	});
+
+    // Its results fire at the turn of the season, and the season's panel is where they are written.
+	it("offers no control on the Henceforth half, even where the sheet could write it", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"], values: BUILT.mill }), true);
+		const heads = [...cardFor(root, "mill").querySelectorAll(".steading-payoff-head")];
+		const henceforth = heads[1].nextElementSibling;
+		expect(henceforth.textContent).toContain("+1 Surplus");
+		expect(henceforth.querySelectorAll("button[data-action^=\"applyEffectLine\"]")).toHaveLength(0);
+	});
+
+	// "Henceforth" says these fire later without saying WHEN, and the trigger came out of the line's
+	// own words when the payoff prose was stripped. So the timing is stated beside it.
+	it("says when a Henceforth result fires", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"], values: BUILT.mill }));
+		expect([...cardFor(root, "mill").querySelectorAll(".steading-statement-when")].map(e => e.textContent.trim()))
+			.toEqual(["stonetop.steading.seasons.names.autumn"]);
+	});
+
+	// On the season's own panel the timing IS the panel, so repeating it down every line would be
+	// noise. It is stated on the card and nowhere else.
+	it("does not repeat the timing on the season's own panel", async () => {
+		const root = await render(await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill }));
+		expect(root.querySelectorAll(".steading-turnover .steading-statement-when")).toHaveLength(0);
+	});
+
+	// The disclosure button above already says the name; the titled group printed it again directly
+	// beneath, so the open card said it twice.
+	it("does not print the improvement's name twice", async () => {
+		const root = await render(await makeSheet({ owned: ["mill"], values: BUILT.mill }));
+		const card = cardFor(root, "mill");
+		// The group's title is where the second copy came from — the board builds from `choices` now,
+		// not `titledChoices`, so there is none. (The Resources chip also reads "Mill", but that is the
+		// entry the improvement WRITES, not its name.)
+		expect(card.querySelectorAll(".stonetop-choice-entry-title")).toHaveLength(0);
+		expect(card.querySelectorAll(".steading-improvement-name")).toHaveLength(1);
 	});
 });
 

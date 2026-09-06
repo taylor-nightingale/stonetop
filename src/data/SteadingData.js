@@ -67,16 +67,16 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			// that is `residents`.
 			folk:              new f.ArrayField(new f.ObjectField()),
 			improvementValues: new f.ObjectField(),                    // track/pick state, keyed by group slug
-			// Lines the table opted OUT of before applying a statement, keyed by line id. Season-scoped:
-			// cleared when the wheel turns, because the statement it belonged to is gone.
-			turnoverExcluded:  new f.ObjectField(),
-			// What has already been written this season — `{turn: true}` — so the second person to
-			// press Apply on a sheet six people share does not pay the season twice. Season-scoped.
+			// What has already been written this season, keyed by LINE id — each value an AppliedEffect
+			// recording what that one result wrote, so it can be taken back exactly. Season-scoped:
+			// cleared when the wheel turns, which is what makes the mill's harvest owed again next
+			// autumn. It is also the guard on a sheet six people share — applying skips what is
+			// already recorded, so the second person to press Apply pays nothing.
 			turnoverApplied:   new f.ObjectField(),
-			// Which improvements have had their completion results applied, keyed by slug. DURABLE and
-			// not season-scoped — an improvement is finished once, and its +1 Fortunes is not owed
-			// again next spring. It is also what stops the board card asking twice on a sheet six
-			// people are looking at.
+			// Which completion results have been applied, keyed by LINE id, each an AppliedEffect.
+			// DURABLE and not season-scoped — an improvement is finished once, and its +1 Fortunes is
+			// not owed again next spring. Was keyed by improvement SLUG and held a bare `true`, which
+			// recorded that something happened and nothing about what; see migrateSteadingApplied.
 			improvementsApplied: new f.ObjectField(),
 			choiceValues:      new f.ObjectField(),                    // choice-group picks, keyed by group slug
 		};

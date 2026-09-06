@@ -209,6 +209,16 @@ export class ImprovementEffects {
 	}
 
 	/**
+	 * Every result with its position, whatever it fires at and whether or not it holds yet.
+	 *
+	 * What an improvement's own card is built from: it has to state the whole payoff, including the
+	 * halves that are not owed yet, because the prose that used to state it is no longer in the pack.
+	 */
+	entries() {
+		return this._effects.map((effect, index) => ({ effect, index }));
+	}
+
+	/**
 	 * The same, each with its position in the improvement's full result list.
 	 *
 	 * A caller that identifies a result across renders needs an index that does not move — the

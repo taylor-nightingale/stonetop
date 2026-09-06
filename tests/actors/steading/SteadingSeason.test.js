@@ -28,7 +28,7 @@ const BUILT = specs => Object.fromEntries(specs.map(s => [s.slug, { built: 1 }])
 
 function build({
 	owned = [], season, year, improvements = [], impressions, choiceValues,
-	unbuilt = false, excluded, applied, attributes,
+	unbuilt = false, applied, attributes,
 } = {}) {
 	const system = {
 		improvements: owned,
@@ -40,7 +40,6 @@ function build({
 	if (year !== undefined) system.year = year;
 	if (impressions !== undefined) system.impressions = impressions;
 	if (choiceValues !== undefined) system.choiceValues = choiceValues;
-	if (excluded !== undefined) system.turnoverExcluded = excluded;
 	if (applied !== undefined) system.turnoverApplied = applied;
 
 	const actor = new FakeActorBuilder().withSystem(system).build();
@@ -109,14 +108,13 @@ describe("SteadingSeason.turn", () => {
 		expect([actor.system.season, actor.system.year]).toEqual(["spring", 3]);
 	});
 
-	// The statement the record belonged to is gone, so the record goes with it.
-	it("clears what was applied and what was dropped", async () => {
+	// Clearing the record is what makes the mill's harvest owed again next autumn.
+	it("clears what was applied last season", async () => {
 		const { actor, season } = build({
-			season: "autumn", applied: { turn: true }, excluded: { "mill:0": true },
+			season: "autumn", applied: { "mill:0": { change: { target: "surplus", amount: 1 } } },
 		});
 		await season.turn();
 		expect(actor.system.turnoverApplied).toEqual({});
-		expect(actor.system.turnoverExcluded).toEqual({});
 	});
 
 	// The move just rolled is what grants the next gain, so last season's pick cannot stay ticked —
@@ -245,18 +243,24 @@ describe("SteadingSeason.applyTurnover", () => {
 		expect((await season.buildSnapshot()).applied).toBe(true);
 	});
 
-	it("leaves out a line the table dropped", async () => {
-		const { actor, season } = autumn({ excluded: { "mill:0": true } });
+	// Every line records what it wrote, so the season's whole record is auditable afterwards rather
+	// than being one flag saying that something happened.
+	it("records each line it wrote, in the season-scoped store", async () => {
+		const { actor, season } = autumn();
 		await season.applyTurnover();
-		expect(actor.system.attributes.surplus).toBe(2);
+		expect(Object.values(actor.system.turnoverApplied).every(r => r.change || r.entry)).toBe(true);
 	});
 
-	// A new season is owed its own turnover.
-	it("can be applied again once the wheel has turned", async () => {
-		const { season } = autumn();
+	// A new season is owed its own turnover: the record is season-scoped, so coming round to autumn
+	// again finds the same line owed and pays it again.
+	it("is owed again when the wheel comes back round", async () => {
+		const { actor, season } = autumn();
 		await season.applyTurnover();
-		await season.turn();
-		expect(season.isApplied("turn")).toBe(false);
+		const paid = actor.system.attributes.surplus;
+		for (let i = 0; i < 4; i++) await season.turn();
+		expect((await season.buildSnapshot()).applied).toBe(false);
+		await season.applyTurnover();
+		expect(actor.system.attributes.surplus).toBeGreaterThan(paid);
 	});
 });
 
@@ -341,12 +345,17 @@ describe("SteadingSeason.applyMoment", () => {
 		expect(await autumn().season.applyMoment("goose-day")).toBe(false);
 	});
 
-	// Next autumn is owed its own harvest.
+	// Next autumn is owed its own harvest — the records are cleared when the wheel turns.
 	it("is owed again once the wheel has come round", async () => {
-		const { season } = autumn();
+		const { actor, season } = autumn();
 		await season.applyMoment("autumn-harvest");
-		await season.turn();
-		expect(season.isApplied("moment:autumn-harvest")).toBe(false);
+		expect((await season.moments())[0].applied).toBe(true);
+		const paid = actor.system.attributes.surplus;
+
+		for (let i = 0; i < 4; i++) await season.turn();
+		expect((await season.moments())[0].applied).toBe(false);
+		await season.applyMoment("autumn-harvest");
+		expect(actor.system.attributes.surplus).toBeGreaterThan(paid);
 	});
 
 	it("puts the moment on the turnover snapshot", async () => {

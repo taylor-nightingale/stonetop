@@ -111,13 +111,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Fortunes by 1 and replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size.\n\nHenceforth: When you leverage the horses to Pull Together, it takes half as long and costs half as much. When you Requisition half the herd or less, treat a 6- as a 7-9. When the Seasons Change to summer, any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0). When winter grips the land, the herd consumes 1 Surplus per 6 grown or yearling horses. For every Surplus not consumed, 1d6 horses are lost."
-          }
         }
       ]
     },
@@ -211,7 +204,7 @@
           ]
         },
         "condition": "1 Surplus per 6 grown or yearling horses",
-        "text": "when winter grips the land, the herd consumes 1 Surplus per 6 grown or yearling horses. For every Surplus not consumed, 1d6 horses are lost"
+        "text": "the herd consumes 1 Surplus per 6 grown or yearling horses; for every Surplus not consumed, 1d6 horses are lost"
       }
     ]
   },

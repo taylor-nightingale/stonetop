@@ -1,71 +1,104 @@
-{{!-- What a set of improvement results proposes to do to the steading, before anyone commits.
+{{!-- What a set of improvement results does to the steading, and the controls that do it.
 
-      The turnover CHANGES the steading, and six people share this document — so this is never a
-      series of silent edits accumulating as somebody scrolls. It is one statement: every line shown
-      with its source, any line droppable, the net effect stated, and one Apply.
+      ONE CONTROL PER RESULT. A line the sheet can write carries its own Apply, and once applied its
+      own Revert — every applied line is independently revertable BECAUSE it was independently
+      applied. What this replaced was a checkbox per line plus a single Apply, which meant a mis-click
+      could not be undone at all and the ticks only meant anything at the moment the button was
+      pressed. Most improvements have exactly one writable line; tick-then-commit was ceremony.
 
-      A line the sheet can do carries a checkbox (on by default — you opt OUT, you do not opt in).
-      One it cannot is shown with no checkbox and says why: a die the table rolls, a condition the
-      sheet cannot evaluate, an arithmetic that bends a step it never performs, or pure fiction.
+      A line the sheet CANNOT write carries no control and says why: a die the table rolls, a
+      condition it cannot evaluate, an arithmetic that bends a step it never performs, or pure
+      fiction. Giving "draw it on the map" a control that does nothing is what the old checkboxes did.
 
-      A result that confers a MOVE gets a control instead of a checkbox: what it does depends on what
-      it rolls, so there is nothing to apply in advance and everything to roll.
+      A result that confers a MOVE gets something to roll instead: what it does depends on what it
+      rolls, so there is nothing to apply in advance.
 
-      Params: statement (TurnoverStatement), applyAction, applySlug, applyLabel, applied,
-      showAdvisory — whether to list the results the sheet cannot do. --}}
+      Params: statement (TurnoverStatement), showAdvisory — whether to list the results the sheet
+      cannot do; showSource — false where the source is already the surrounding card; showDelta —
+      false where the line's own words already state the number; showTiming — true only where the
+      surrounding section does not already say WHEN (an improvement's Henceforth half; never the
+      season's own panel, where the timing is the panel); applyAllAction/applyAllSlug/applyAllLabel —
+      an optional group-level "apply everything still owed", for the season turnover where 5-10 lines
+      from different improvements fire at once. --}}
 <div class="steading-statement">
 
 	{{#if statement.hasAutomatic}}
-		<ul class="steading-statement-lines">
+		<ul class="steading-statement-lines stonetop-unmarked">
 			{{#each statement.automatic}}
-				<li class="steading-statement-line{{#unless included}} is-dropped{{/unless}}">
-					<label class="steading-statement-label">
-						<input class="steading-circle-input" type="checkbox"
-						       data-change-action="effectIncluded" data-effect-id="{{id}}"
-						       {{#if included}}checked{{/if}}>
-						<span class="steading-statement-box" aria-hidden="true"></span>
-						<span class="steading-statement-text">
-							<span class="steading-statement-source">{{source}}</span>
-							<span class="steading-statement-clause">{{rich text}}</span>
-						</span>
+				<li class="steading-statement-line{{#if isApplied}} is-applied{{/if}}">
+					<span class="steading-statement-text">
+						{{#if ../showTiming}}{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}{{/if}}
+						{{#if ../showSource}}<span class="steading-statement-source">{{source}}</span>{{/if}}
+						<span class="steading-statement-clause">{{rich text}}</span>
+					</span>
+
+					{{#if ../showDelta}}
 						{{#with delta}}
 							<span class="steading-statement-delta">{{amount}} {{localize subjectKey}}</span>
 						{{/with}}
-					</label>
+					{{/if}}
+
+					{{#if @root.editable}}
+						{{#if isApplied}}
+							{{#if canRevert}}
+								<button type="button" class="steading-statement-line-btn is-revert"
+								        data-action="revertEffectLine" data-line-id="{{id}}"
+								        aria-label="{{localize 'stonetop.steading.effects.revertLine' result=text.raw}}">
+									{{localize "stonetop.steading.effects.revert"}}
+								</button>
+							{{else}}
+								{{!-- Applied before the sheet recorded WHAT each line wrote, so there is no
+								      inverse to offer. Stated rather than hidden: it did happen. --}}
+								<span class="steading-statement-line-state">{{localize "stonetop.steading.effects.appliedLegacy"}}</span>
+							{{/if}}
+						{{else}}
+							{{!-- Named for the result it applies, not just "Apply": on a card with two of them the
+							      bare word says nothing about which line it belongs to, to a reader or to a
+							      screen reader. --}}
+							<button type="button" class="steading-statement-line-btn"
+							        data-action="applyEffectLine" data-line-id="{{id}}"
+							        aria-label="{{localize 'stonetop.steading.effects.applyLine' result=text.raw}}">
+								{{localize "stonetop.steading.effects.apply"}}
+							</button>
+						{{/if}}
+					{{else if isApplied}}
+						<span class="steading-statement-line-state">{{localize "stonetop.steading.effects.applied"}}</span>
+					{{/if}}
 				</li>
 			{{/each}}
 		</ul>
 	{{/if}}
 
 	{{!-- Advisory lines are shown where the improvement's own words are NOT — the Season tab, where
-	      "because of what Stonetop has built" is the whole point. On the improvement's own card they
-	      are noise: the prose that says them is an inch below. --}}
+	      "because of what Stonetop has built" is the whole point. --}}
 	{{#if (and showAdvisory statement.advisory)}}
-		{{!-- No checkbox: nothing here is the sheet's to do. Shown so the table can do it. --}}
-		<ul class="steading-statement-lines steading-statement-lines--advisory">
+		{{!-- No control: nothing here is the sheet's to do. Shown so the table can do it. --}}
+		<ul class="steading-statement-lines steading-statement-lines--advisory stonetop-unmarked">
 			{{#each statement.advisory}}
 				<li class="steading-statement-line">
 					<span class="steading-statement-text">
-						<span class="steading-statement-source">{{source}}</span>
+						{{#if ../showTiming}}{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}{{/if}}
+						{{#if ../showSource}}<span class="steading-statement-source">{{source}}</span>{{/if}}
 						<span class="steading-statement-clause">{{rich text}}</span>
 						{{#if condition}}
 							<span class="steading-statement-condition">{{localize "stonetop.steading.effects.onlyIf"}} {{condition}}</span>
 						{{/if}}
 					</span>
-					{{#with delta}}
-						<span class="steading-statement-delta is-advisory">{{amount}} {{localize subjectKey}}</span>
-					{{/with}}
+					{{#if ../showDelta}}
+						{{#with delta}}
+							<span class="steading-statement-delta is-advisory">{{amount}} {{localize subjectKey}}</span>
+						{{/with}}
+					{{/if}}
 				</li>
 			{{/each}}
 		</ul>
 	{{/if}}
 
-	{{!-- The moves these results confer. Shown wherever the statement is — including on the
-	      improvement's own card, where the advisory prose is not — because this is the one thing the
-	      book's sentence cannot do for you. Not edit-gated: rolling a move writes nothing to the
-	      steading, and a locked sheet still gets to roll. --}}
+	{{!-- The moves these results confer. Shown wherever the statement is, because this is the one
+	      thing the book's sentence cannot do for you. Not edit-gated: rolling a move writes nothing to
+	      the steading, and a locked sheet still gets to roll. --}}
 	{{#if statement.grantedMoveSlugs}}
-		<ul class="steading-statement-moves">
+		<ul class="steading-statement-moves stonetop-unmarked">
 			{{#each statement.grantedMoveSlugs}}
 				{{#with (lookup @root.stonetop.grantedMoves this)}}
 					<li>
@@ -80,15 +113,11 @@
 		</ul>
 	{{/if}}
 
-	{{!-- No footer where there is nothing the sheet could write. A disabled Apply says "you may not",
-	      when the truth is that this statement has nothing to do — every result of it is a move to
-	      roll or a sentence for the table. The button stays, disabled, when automatic lines exist and
-	      have all been dropped: there the reader HAS taken everything out, and the control saying so
-	      is the feedback. --}}
-	{{#if (and @root.editable (not applied) statement.hasAutomatic)}}
+	{{!-- Batching earns its keep only where several lines from DIFFERENT improvements fire at once,
+	      which is the season turnover. There is no batch on an improvement's own card, so no totals
+	      either: a before → after is what makes a batch reviewable before you commit to it. --}}
+	{{#if (and @root.editable applyAllAction statement.willChangeAnything)}}
 		<div class="steading-statement-foot">
-			{{!-- The consequence, stated as before → after, so nobody has to add up a column of deltas
-			      to know what pressing the button does. --}}
 			{{#if statement.totals}}
 				<span class="steading-statement-totals">
 					{{#each statement.totals}}
@@ -102,9 +131,9 @@
 				</span>
 			{{/if}}
 
-			<button type="button" class="steading-statement-apply" data-action="{{applyAction}}"
-			        data-slug="{{applySlug}}" {{#unless statement.willChangeAnything}}disabled{{/unless}}>
-				{{localize applyLabel}}
+			<button type="button" class="steading-statement-apply" data-action="{{applyAllAction}}"
+			        data-slug="{{applyAllSlug}}">
+				{{localize applyAllLabel}}
 			</button>
 		</div>
 	{{/if}}

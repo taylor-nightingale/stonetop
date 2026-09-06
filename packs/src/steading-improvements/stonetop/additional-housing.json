@@ -63,13 +63,6 @@
           "track": {
             "max": 5
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is."
-          }
         }
       ]
     },
@@ -126,7 +119,7 @@
           "term": "population",
           "amount": -1
         },
-        "text": "when you consume Surplus in winter, consider Population to be 1 lower than it is"
+        "text": "when consuming Surplus, consider Population to be 1 lower than it is"
       }
     ]
   },

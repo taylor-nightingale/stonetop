@@ -8,6 +8,7 @@ import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder
 import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 import { renderTemplate } from "../../fakes/renderTemplate.js";
+import { renderSheetPart } from "../../fakes/renderSheetPart.js";
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
@@ -45,11 +46,9 @@ async function makeSheet(id = "steading-1", existingActor = null) {
 	return sheet;
 }
 
-/** One render of the sheet: a fresh tree, every row shut, followed by the lifecycle hook. */
+/** One render of the sheet: a fresh tree, every row shut, through the real V2 render order. */
 async function render(sheet) {
-	sheet.element.innerHTML = renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({}));
-	sheet._onRender({}, {});
-	return sheet.element;
+	return renderSheetPart(sheet, renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({})));
 }
 
 const rowFor = (root, slug) => root.querySelector(`.stonetop-move-disclosure[data-move-slug="${slug}"]`);

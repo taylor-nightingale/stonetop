@@ -67,13 +67,6 @@
           "track": {
             "max": 4
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.\n\nHenceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal."
-          }
         }
       ]
     },
@@ -129,7 +122,7 @@
           "step": "consumption",
           "amount": -1
         },
-        "text": "when winter grips the land, the steading consumes 1 less Surplus than normal"
+        "text": "the steading consumes 1 less Surplus than normal"
       }
     ]
   },

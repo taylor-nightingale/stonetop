@@ -1,34 +1,48 @@
 // Lifting an improvement's SEASONAL clauses out of its effect prose.
 //
-// Pure and dependency-free so it can be tested against the real pack sources; the script that walks
-// the folders and writes the field is build-seasonal-clauses.js beside it.
+// Pure and dependency-free so it can be tested against the real sources.
 //
-// The whole job is telling two things apart that both name a season:
+// The job used to be two: find the improvement's effect region inside its choice list, then read the
+// seasons out of it. The first half is gone — the payoff prose is no longer in the pack (it was a
+// second copy of everything `system.effects` says, and both halves were extracted for translation),
+// so the region arrives already isolated as `_prose` in data/improvement-effects.json.
 //
-//   * an ongoing effect — "Henceforth, when winter grips the land, the steading consumes 1 less
-//     Surplus", which fires every winter forever and belongs on the turnover checklist;
-//   * a REQUIREMENT or a piece of flavour — "Retrieve an acorn from the Golden Oak in late autumn",
-//     "Large herds form on the Flats in spring", which happen once (or never) and do not.
-//
-// A keyword sweep cannot tell them apart and lands on the wrong six. The discriminator is WHERE the
-// phrase sits: requirement rows are exactly the rows carrying a `track`, so the effect region is
-// what follows the last of them.
+// What remains is the half a keyword sweep gets wrong: which of the book's many phrasings for a
+// season a clause is using. That still feeds the drift detector — an improvement whose prose names a
+// season with nothing modelled to fire in one has fallen behind the book.
 
 import { Seasons } from "../../src/model/data/steading/Seasons.js";
 
 const ALL = Seasons.all().map(s => s.key);
 
-// The phrase that opens an improvement's effect region when it is embedded mid-row rather than
-// given a row of its own (see effectRegion).
+// The phrase that opens an improvement's payoff sentence. Only used to CATCH one thing now: a Book II
+// box-parser bug that glues the whole payoff paragraph onto the end of the last requirement row
+// instead of giving it a row of its own. That used to be worked around silently here; it is reported
+// instead, because a glued payoff is prose the strip cannot reach — it would sit inside a requirement
+// row, translated twice, with nothing saying so.
 const EFFECT_MARKER = /(?:when you\s+)?\**_*(?:meet the requirements|mark all (?:of )?the requirements)\**_*|Henceforth/i;
+
+/**
+ * A requirement row with the improvement's payoff paragraph run onto the end of it, or null.
+ *
+ * Mid-string only: a row that merely STARTS with "Henceforth" is not a thing the sources contain, but
+ * a requirement row whose text runs on into the payoff is exactly the bug.
+ */
+export function gluedPayoffRow(list = []) {
+	const lastTracked = list.reduce((last, row, i) => (row.track ? i : last), -1);
+	if (lastTracked < 0) return null;
+	const text  = list[lastTracked]?.content?.text ?? "";
+	const match = text.match(EFFECT_MARKER);
+	return match && match.index > 0 ? text.slice(match.index) : null;
+}
 
 /**
  * The book's own trigger phrases, in the order they must be tried: the SET phrases first, since
  * "when the Seasons Change to spring, summer, or autumn" also contains the bare word "spring".
  *
- * Every phrase here was read off the pack sources rather than invented — an improvement whose
- * effect region names a season through some phrase NOT in this table is reported rather than
- * silently dropped, which is the failure mode this table exists to make loud.
+ * Every phrase here was read off the real sources rather than invented — an improvement whose payoff
+ * prose names a season through some phrase NOT in this table is reported rather than silently
+ * dropped, which is the failure mode this table exists to make loud.
  */
 const TRIGGERS = [
 	// Every season, however the book says it.
@@ -51,38 +65,7 @@ const TRIGGERS = [
 // marks, in a sentence with no season in it at all.
 const ANY_SEASON = /spring|summer|autumn|winter|seasons change|each season/i;
 
-/**
- * The improvement's EFFECT region: the prose that describes what it does once it is built, as
- * opposed to what it costs to build.
- *
- * Requirement rows are the rows with a `track` — that is what a track IS — so the effect region
- * begins after the last of them. Two wrinkles the real sources force:
- *
- *   * `well-trained-militia` and `roadbuilding` have no "Henceforth"/"meet the requirements" marker
- *     at all, so the marker cannot be the anchor; the last tracked row can.
- *   * `additional/rhoillyg-orchard` has its whole effect paragraph GLUED onto its last requirement
- *     row by a bug in the Book II box parser (scripts/import/pdf/improvements.js). Rather than
- *     lose a real improvement to somebody else's bug, the tail of a tracked row is taken too when
- *     that row's own text contains the marker mid-string.
- */
-export function effectRegion(list = []) {
-	const lastTracked = list.reduce((last, row, i) => (row.track ? i : last), -1);
-	const region = list.slice(lastTracked + 1)
-		.map(row => row?.content?.text ?? "")
-		.filter(Boolean);
-
-	if (lastTracked >= 0) {
-		const glued  = list[lastTracked]?.content?.text ?? "";
-		const marker = glued.match(EFFECT_MARKER);
-		// Only when the marker is INSIDE the row rather than opening it — a requirement row that
-		// merely starts with "Henceforth" is not a thing the sources contain, but a row whose text
-		// runs on into the effect paragraph is.
-		if (marker && marker.index > 0) region.unshift(glued.slice(marker.index));
-	}
-	return region;
-}
-
-// The effect region as clause-sized pieces. Sentence boundaries, because that is the unit the book
+// The payoff prose as clause-sized pieces. Sentence boundaries, because that is the unit the book
 // writes a seasonal effect in and the unit the checklist reads one out in. Abbreviations do not
 // appear in this prose, so a full stop is reliably a sentence end; "e.g." inside a parenthetical is
 // guarded by requiring whitespace and a capital after it.
@@ -115,15 +98,13 @@ function seasonsFor(clause) {
 }
 
 /**
- * The seasonal clauses of one improvement's choice list, plus what was looked at and rejected.
+ * The seasonal clauses of an improvement's payoff prose, plus what was looked at and rejected.
  *
- * Returns `{ clauses, unmatched }` — `unmatched` being effect-region sentences that name a season
- * through a phrase the trigger table does not know. Those are reported by the build and printed
- * into the review file: a new phrasing that silently produced no clause is precisely the rot that
- * would leave an improvement missing from the checklist with nothing to show for it.
+ * Returns `{ clauses, unmatched }` — `unmatched` being sentences that name a season through a phrase
+ * the trigger table does not know. A new phrasing that silently produced no clause is precisely the
+ * rot that would leave an improvement missing from the checklist with nothing to show for it.
  */
-export function seasonalClausesFor(list = []) {
-	const region = effectRegion(list);
+export function seasonalClausesIn(region = []) {
 	const out = [], unmatched = [];
 	for (const clause of clauses(region)) {
 		const seasons = seasonsFor(clause);
@@ -131,13 +112,4 @@ export function seasonalClausesFor(list = []) {
 		else if (ANY_SEASON.test(clause)) unmatched.push(clause);
 	}
 	return { clauses: out, unmatched };
-}
-
-/** Season words sitting OUTSIDE the effect region — the rejections a reviewer should check. */
-export function rejectedMentions(list = []) {
-	const lastTracked = list.reduce((last, row, i) => (row.track ? i : last), -1);
-	return list
-		.slice(0, lastTracked + 1)
-		.map((row, i) => ({ index: i, tracked: Boolean(row.track), text: row?.content?.text ?? "" }))
-		.filter(row => ANY_SEASON.test(row.text));
 }

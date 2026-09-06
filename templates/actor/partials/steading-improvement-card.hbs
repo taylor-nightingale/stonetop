@@ -1,15 +1,15 @@
 {{!-- One improvement on the project board.
 
-      Shut, it is a name and a meter — how far along, at a glance. Open, it is the improvement's real
-      choice group, with the requirement boxes you actually tick, through the same
-      `improvement-group` partial the item sheet and the steadfast render.
+      Shut, it is a name, a meter and its chips — how far along the work is, and what it buys. Open, it
+      reads the way the book does: what it REQUIRES, then what it GIVES YOU, with a control beside
+      each result the sheet can write.
 
-      Between the two, chips — and deliberately no summary SENTENCE. A card that quoted what the
-      improvement still needed, or what it did once built, was quoting rows the group below renders in
-      full: the same words twice, once paraphrased into a frame that read oddly beside the real thing.
-      A chip quotes nothing. It carries the numbers the result already states as data — `+1 Fortunes`,
-      `Autumn +1 Surplus` — which is precisely what the prose below cannot give at a glance. Results
-      with nothing but prose behind them get no chip at all.
+      The chips are the SHUT view and go when the card opens. They exist because a shut card would
+      otherwise say how far along the work is and nothing about what the work is for; an open one
+      states every payload in the book's words with a control beside it, so keeping the chips there
+      would be the same reward said twice, an inch apart. (They are not a summary SENTENCE either — a
+      card that paraphrased what the improvement did read oddly beside the real thing. A chip quotes
+      nothing: it carries the numbers the result already states as data.)
 
       Context = an ImprovementProgress. --}}
 <div class="steading-improvement-card steading-block{{#if isComplete}} is-complete{{/if}}{{#if isUntouched}} is-untouched{{/if}}"
@@ -51,38 +51,39 @@
 	</div>
 
 	{{#if chips}}
-		{{!-- Dimmed until earned: a chip on an unfinished improvement is what it WILL do. --}}
-		<ul class="steading-effect-chips">
+		{{!-- Dimmed until earned: a chip on an unfinished improvement is what it WILL do. Hidden while
+		      the card is open — see the header. --}}
+		<ul class="steading-effect-chips stonetop-unmarked">
 			{{#each chips}}
 				<li class="steading-effect-chip{{#unless earned}} is-pending{{/unless}}">
 					{{#each timingKeys}}
 						<span class="steading-effect-when">{{localize this}}</span>
 					{{/each}}
-					{{#if amount}}<span class="steading-effect-amount">{{amount}}</span>{{/if}}
-					<span class="steading-effect-subject">{{localize subjectKey}}{{#if text}}:{{/if}}</span>
-					{{#if text}}<span class="steading-effect-entry">{{text}}</span>{{/if}}
+					{{#if moveSlug}}
+						{{!-- Resolved by SLUG through the same lookup the statement's roll buttons use.
+						      Never by name: Babele rewrites names, and anything matched on one vanishes. --}}
+						{{#with (lookup @root.stonetop.grantedMoves moveSlug)}}
+							<i class="fas fa-dice-d6" aria-hidden="true"></i>
+							<span class="steading-effect-subject">{{name}}</span>
+						{{/with}}
+					{{else}}
+						{{#if amount}}<span class="steading-effect-amount">{{amount}}</span>{{/if}}
+						<span class="steading-effect-subject">{{localize subjectKey}}{{#if text}}:{{/if}}</span>
+						{{#if text}}<span class="steading-effect-entry">{{text}}</span>{{/if}}
+					{{/if}}
 				</li>
 			{{/each}}
 		</ul>
 	{{/if}}
 
-	{{!-- Just finished, and the steading is owed something for it. Offered here because ticking the
-	      last requirement happens right here — not on another tab the table has to remember to
-	      visit. It goes as soon as it is applied; a completion is owed once, ever. --}}
-	{{#if isCompletionPending}}
-		<div class="steading-improvement-completion">
-			<p class="steading-improvement-completion-head">{{localize "stonetop.steading.effects.completed" name=name}}</p>
-			{{!-- Only what the sheet can DO. What it merely states is already in this card's own prose,
-			      a line below — restating it here was the same duplication that made the old summary
-			      read oddly. --}}
-			{{> "stonetop.steading-statement" statement=completion showAdvisory=false
-			    applyAction="applyCompletion" applySlug=slug
-			    applyLabel="stonetop.steading.effects.apply"}}
-		</div>
-	{{/if}}
-
+	{{!-- Requirements, then payoff, in one flow — which is the order the book prints them in and the
+	      order the work happens in. The payoff used to be bolted on ABOVE the header, where it floated
+	      with no context on a shut card and sat an inch from the prose that repeated it. --}}
 	<div class="steading-improvement-body" id="{{@root.sheetIdPrefix}}-improvement-{{slug}}" hidden>
 		{{#with group}}{{> "stonetop.improvement-group"}}{{/with}}
+		{{#unless payoff.isEmpty}}
+			{{#with payoff}}{{> "stonetop.steading-improvement-payoff"}}{{/with}}
+		{{/unless}}
 	</div>
 
 </div>

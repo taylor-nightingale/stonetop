@@ -129,13 +129,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1."
-          }
         }
       ]
     },

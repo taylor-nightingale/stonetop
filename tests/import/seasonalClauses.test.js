@@ -1,53 +1,37 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { effectRegion, rejectedMentions, seasonalClausesFor } from "../../scripts/import/seasonalClauses.js";
+import { gluedPayoffRow, seasonalClausesIn } from "../../scripts/import/seasonalClauses.js";
 
-// The pass runs over the REAL pack sources, so it is tested against them: a fixture would let the
-// heuristic drift away from the files it actually parses and still pass. The counts below are the
-// discrimination itself — if a hand edit to an improvement's prose changes what is lifted, that is
+// The sweep runs over the REAL sources, so it is tested against them: a fixture would let the
+// heuristic drift away from the prose it actually parses and still pass. The counts below are the
+// discrimination itself — if a hand edit to an improvement's payoff changes what is lifted, that is
 // exactly the thing this file exists to say out loud.
+//
+// The prose comes from `_prose` in the model rather than from the pack. It used to be in both: the
+// pack's copy was stripped because it was a second statement of everything `system.effects` says and
+// BOTH were extracted for translation. The pack still supplies the requirement rows, which is what
+// the glue check reads.
 
-const ROOT = "packs/src/steading-improvements";
+const ROOT  = "packs/src/steading-improvements";
+const MODEL = JSON.parse(readFileSync("data/improvement-effects.json", "utf8"));
 
 function improvements() {
 	return ["stonetop", "additional"].flatMap(dir =>
 		readdirSync(join(ROOT, dir)).filter(f => f.endsWith(".json")).sort().map(f => {
-			const doc = JSON.parse(readFileSync(join(ROOT, dir, f), "utf8"));
-			return { slug: f.replace(/\.json$/, ""), dir, list: doc.system?.choices?.list ?? [] };
+			const doc  = JSON.parse(readFileSync(join(ROOT, dir, f), "utf8"));
+			const slug = doc.system.slug;
+			return { slug, dir, list: doc.system?.choices?.list ?? [], prose: MODEL[slug]?._prose ?? [] };
 		}));
 }
 
-const bySlug = slug => improvements().find(i => i.slug === slug);
-const clausesOf = slug => seasonalClausesFor(bySlug(slug).list).clauses;
-
-describe("the effect region", () => {
-	// Requirement rows are the rows with a track — that IS what a track is — so everything after the
-	// last of them is what the improvement DOES rather than what it costs.
-	it("starts after the last requirement row", () => {
-		const region = effectRegion(bySlug("mill").list);
-		expect(region).toHaveLength(1);
-		expect(region[0]).toMatch(/Henceforth, when the autumn harvest is complete/);
-	});
-
-	// well-trained-militia and roadbuilding carry no "Henceforth" / "meet the requirements" marker at
-	// all, which is why the last tracked row is the anchor and the marker cannot be.
-	it("finds the effects of an improvement with no Henceforth marker", () => {
-		expect(effectRegion(bySlug("well-trained-militia").list).join(" ")).toMatch(/Each summer/);
-	});
-
-	// A bug in the Book II box parser glues rhoillyg-orchard's whole effect paragraph onto its last
-	// requirement row. Taking the tail from the marker recovers it without waiting on that fix.
-	it("recovers an effect paragraph glued onto a requirement row", () => {
-		expect(effectRegion(bySlug("rhoillyg-orchard").list).join(" "))
-			.toMatch(/generates \+1 Surplus in summer/);
-	});
-});
+const bySlug    = slug => improvements().find(i => i.slug === slug);
+const clausesOf = slug => seasonalClausesIn(bySlug(slug).prose).clauses;
 
 describe("what carries a seasonal clause", () => {
 	it("lifts one from eighteen of the twenty-four improvements", () => {
 		const withClauses = improvements()
-			.filter(i => seasonalClausesFor(i.list).clauses.length)
+			.filter(i => seasonalClausesIn(i.prose).clauses.length)
 			.map(i => i.slug);
 		expect(withClauses.sort()).toEqual([
 			"additional-housing", "aurochs-hunting", "great-wood-timber", "greater-harvest",
@@ -61,39 +45,33 @@ describe("what carries a seasonal clause", () => {
 	// The six that carry none must stay out: an improvement on the checklist that does nothing this
 	// season is worse than one missing, because it gets ticked and believed.
 	it("leaves the six that carry none alone", () => {
-		const without = improvements().filter(i => !seasonalClausesFor(i.list).clauses.length);
+		const without = improvements().filter(i => !seasonalClausesIn(i.prose).clauses.length);
 		expect(without.map(i => i.slug).sort()).toEqual([
 			"aetherium-crucible", "expanded-trades", "golden-sapling",
 			"heroic-reputation", "palisade", "roadbuilding",
 		]);
 	});
-});
 
-describe("what the sweep must NOT lift", () => {
-	// "Retrieve an ◇◇ acorn from the boughs of the Golden Oak in late autumn" is a requirement row:
-	// it happens once, on the way to building the thing. A keyword sweep takes it; this must not.
-	it("rejects a season named inside a requirement row", () => {
+	// "Retrieve an ◇◇ acorn from the boughs of the Golden Oak in late autumn" is a REQUIREMENT — it
+	// happens once, on the way to building the thing. It never reaches the sweep now, because the
+	// prose the sweep reads is the payoff and nothing else; this asserts that separation holds in the
+	// data rather than trusting it.
+	it("never sees a season named in a requirement row", () => {
 		expect(clausesOf("golden-sapling")).toEqual([]);
-		expect(rejectedMentions(bySlug("golden-sapling").list).some(r => /late autumn/.test(r.text))).toBe(true);
+		expect(bySlug("golden-sapling").prose.join(" ")).not.toMatch(/late autumn/);
+		expect(bySlug("rhoillyg-orchard").prose.join(" ")).not.toMatch(/A full spring/);
 	});
 
 	// "Large herds form on the Flats in spring" is scene-setting above the requirements. The
-	// improvement DOES have a real spring clause lower down, so the file qualifies — but on its
-	// effect, not on its flavour.
-	it("rejects flavour prose above the requirements", () => {
+	// improvement DOES have a real spring clause — on its payoff, not on its flavour.
+	it("lifts the aurochs hunt's spring clause and not its flavour", () => {
 		expect(clausesOf("aurochs-hunting")).toHaveLength(1);
 		expect(clausesOf("aurochs-hunting")[0].text).toMatch(/lead the aurochs hunt in spring/);
 	});
 
-	it("rejects 'a full spring' and 'over the course of a summer' as requirement rows", () => {
-		const rejected = rejectedMentions(bySlug("rhoillyg-orchard").list).map(r => r.text);
-		expect(rejected.some(t => /A full spring/.test(t))).toBe(true);
-		expect(clausesOf("rhoillyg-orchard").every(c => !/A full spring/.test(c.text))).toBe(true);
-	});
-
-	// "automatically mark the Greater Harvest improvement" names an improvement, not a season.
+	// "automatically mark the Greater Harvest improvement" names an improvement, not a harvest.
 	it("does not mistake the Greater Harvest improvement's name for a harvest", () => {
-		expect(seasonalClausesFor(bySlug("golden-sapling").list).unmatched).toEqual([]);
+		expect(seasonalClausesIn(bySlug("golden-sapling").prose).unmatched).toEqual([]);
 	});
 });
 
@@ -132,20 +110,51 @@ describe("which seasons a clause names", () => {
 
 describe("unrecognised phrasing", () => {
 	// The loud failure the trigger table exists for: a season named some new way produces no clause,
-	// and the improvement quietly falls off the checklist. Nothing in the sources may be unmatched.
+	// and the improvement quietly falls off the checklist. Nothing in the real prose may be unmatched.
 	it("leaves nothing in the real sources unmatched", () => {
 		const noisy = improvements()
-			.map(i => ({ slug: i.slug, unmatched: seasonalClausesFor(i.list).unmatched }))
+			.map(i => ({ slug: i.slug, unmatched: seasonalClausesIn(i.prose).unmatched }))
 			.filter(i => i.unmatched.length);
 		expect(noisy).toEqual([]);
 	});
 
 	it("reports a season named through a phrase the table doesn't know", () => {
-		const { clauses, unmatched } = seasonalClausesFor([
-			{ content: { text: "A requirement" }, track: { max: 1 } },
-			{ content: { text: "Henceforth, when the frost of Harvestide comes, and once winter has half-passed, something." } },
+		const { clauses, unmatched } = seasonalClausesIn([
+			"Henceforth, when the frost of Harvestide comes, and once winter has half-passed, something.",
 		]);
 		expect(clauses).toEqual([]);
 		expect(unmatched).toHaveLength(1);
+	});
+});
+
+/**
+ * A Book II box-parser bug has, before now, run an improvement's whole payoff paragraph onto the end
+ * of its last requirement row. That used to be worked around silently — the region-finder took the
+ * tail of the glued row too — which meant the bug could persist indefinitely without anyone seeing
+ * it. Now it is reported, because glued prose is prose the strip cannot reach: it stays in the pack
+ * and gets translated a second time with every other check passing.
+ */
+describe("a payoff glued onto a requirement row", () => {
+	it("finds none in the real sources", () => {
+		expect(improvements().filter(i => gluedPayoffRow(i.list)).map(i => i.slug)).toEqual([]);
+	});
+
+	it("catches the paragraph when a requirement row runs on into it", () => {
+		expect(gluedPayoffRow([
+			{ content: { text: "A requirement" }, track: { max: 1 } },
+			{ content: { text: "Protecting the orchard. Henceforth, the steading generates +1 Surplus in summer." }, track: { max: 1 } },
+		])).toMatch(/^Henceforth, the steading generates/);
+	});
+
+	// A row that merely OPENS with the marker is not the bug — and there is no such row in the
+	// sources, so treating one as glued would report a fault that is not there.
+	it("does not flag a row that opens with the marker", () => {
+		expect(gluedPayoffRow([
+			{ content: { text: "Henceforth this is somehow a requirement" }, track: { max: 1 } },
+		])).toBeNull();
+	});
+
+	it("has nothing to say about an improvement with no requirement rows", () => {
+		expect(gluedPayoffRow([{ content: { text: "Henceforth, something." } }])).toBeNull();
 	});
 });

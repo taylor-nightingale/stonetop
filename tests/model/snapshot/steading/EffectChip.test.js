@@ -73,9 +73,27 @@ describe("EffectChip — what an improvement is for", () => {
 		expect(chipsOf([{ when: { kind: "completed" }, text: "change Size to town" }])).toEqual([]);
 	});
 
-	it("says nothing about a result that only confers a move", () => {
-		expect(chipsOf([{ when: { kind: "completed" }, grantsMove: "heroic-reputation",
-			text: "gain the move: heroic reputation" }])).toEqual([]);
+	/**
+	 * Reversed 2026-09-05. A granted move used to get no chip, which made `Heroic Reputation` — an
+	 * improvement that grants a move and nothing else — read as the emptiest row on the board while
+	 * having the most interesting payload. A move is exactly what a chip is for: a name and a die.
+	 *
+	 * By SLUG, never by name. Babele rewrites names, and anything resolved on one silently disappears
+	 * in a translated world (helper/bugs.md #56), so the template does the lookup.
+	 */
+	it("carries a granted move as its slug, for the template to resolve", () => {
+		const [chip] = chipsOf([{ when: { kind: "completed" }, grantsMove: "heroic-reputation",
+			text: "gain the move: heroic reputation" }]);
+		expect(chip.moveSlug).toBe("heroic-reputation");
+		expect(chip.subjectKey).toBeNull();
+		expect(chip.amount).toBe("");
+	});
+
+	// One result can both change a rating and confer a move; it gets a chip for each.
+	it("gives a result with two payloads a chip for each", () => {
+		expect(chipsOf([{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 },
+			grantsMove: "heroic-reputation", text: "increase Fortunes by 1 and gain a move" }]))
+			.toHaveLength(2);
 	});
 });
 

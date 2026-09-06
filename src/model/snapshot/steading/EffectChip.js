@@ -24,7 +24,7 @@ const LIST_LABELS = {
  * wrong.
  */
 export class EffectChip {
-	constructor({ timingKeys = [], amount = "", subjectKey, text = "", earned = false }) {
+	constructor({ timingKeys = [], amount = "", subjectKey = null, text = "", moveSlug = null, earned = false }) {
 		// When it fires, as localize keys — a season name, a moment, "every season". Empty for a
 		// result that fires on completion: what an improvement earns needs no "when".
 		this.timingKeys = timingKeys;
@@ -34,6 +34,10 @@ export class EffectChip {
 		// The entry's own words, for a chip that writes onto a list. Never prose: it is the name of
 		// the thing added, which is what the book puts on the list.
 		this.text       = text;
+		// The MOVE this result confers, by slug — never by name. The template resolves it through the
+		// same lookup the statement's roll buttons use, because Babele rewrites names and anything
+		// matched on one silently disappears in a translated world.
+		this.moveSlug   = moveSlug;
 		// Whether this result's requirement holds YET. An unearned chip is what the improvement will
 		// do; an earned one is what it does.
 		this.earned     = earned;
@@ -76,15 +80,27 @@ export class EffectChip {
 			: null;
 	}
 
-	/** One chip per structured payload — a result carrying both states both. */
+	/**
+	 * A MOVE the improvement confers — the aurochs hunt, news at the inn, a heroic reputation.
+	 *
+	 * `Heroic Reputation` grants a move and nothing else, so with no chip for one it read as the
+	 * emptiest row on a board where it has the most interesting payload. A move is exactly the kind
+	 * of thing a chip is for: a name, and a die saying it is rolled.
+	 */
+	static forGrantedMove(slug, { timingKeys = [], earned = false } = {}) {
+		return slug ? new EffectChip({ timingKeys, earned, moveSlug: slug }) : null;
+	}
+
+	/** One chip per structured payload — a result carrying two states both. */
 	static forEffect(effect, boxes) {
 		const context = {
 			timingKeys: EffectChip.timingFor(effect.trigger),
 			earned:     effect.holds(boxes),
 		};
 		return [
-			effect.change    ? EffectChip.forChange(effect.change, context)      : null,
-			effect.listEntry ? EffectChip.forListEntry(effect.listEntry, context) : null,
+			effect.change     ? EffectChip.forChange(effect.change, context)       : null,
+			effect.listEntry  ? EffectChip.forListEntry(effect.listEntry, context) : null,
+			effect.grantsMove ? EffectChip.forGrantedMove(effect.grantsMove, context) : null,
 		].filter(Boolean);
 	}
 

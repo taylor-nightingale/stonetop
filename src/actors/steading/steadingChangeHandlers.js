@@ -28,9 +28,6 @@ export function steadingChangeHandlers(s, { availableSteadfasts }) {
 
 		debility:    el => s.setDebility(el.dataset.slug, el.checked),
 
-		// A line of a pending statement, included or dropped. Unticking does not apply anything — it
-		// takes the line out of what Apply will write, and the totals above the button follow.
-		effectIncluded: el => s.setEffectIncluded(el.dataset.effectId, el.checked),
 		contentText: el => s.updateContentText(el.dataset.type, el.value),
 
 		// Assets + coinage

@@ -15,6 +15,14 @@
 
 <div class="stonetop-improvement-preview">
 	{{> "stonetop.improvement-group" preview}}
+	{{!-- What it GIVES YOU, from `system.effects`. The choice group above is only what it COSTS: the
+	      book's payoff sentence used to sit at the end of those rows as a second statement of
+	      everything the effects already say, and both halves were extracted for translation, so it was
+	      stripped. Without this the catalog would show a list of requirements and nothing about what
+	      meeting them is for. Read-only — there is no steading here to write to. --}}
+	{{#unless payoff.isEmpty}}
+		{{#with payoff}}{{> "stonetop.steading-improvement-payoff"}}{{/with}}
+	{{/unless}}
 </div>
 
 {{else}}

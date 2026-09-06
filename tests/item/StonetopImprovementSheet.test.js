@@ -2,6 +2,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { createStonetopImprovementSheetClass } from "../../src/item/StonetopImprovementSheet.js";
 import { ChoiceGroup } from "../../src/model/snapshot/character/ChoiceGroup.js";
+import { ImprovementPayoff } from "../../src/model/snapshot/steading/ImprovementPayoff.js";
 
 // Drives the real sheet _prepareContext (slug/group seeding, preview snapshot, view/edit mode), the
 // toggleEditMode action, and the _onRender editor wiring. Only the V2 ItemSheet base + the item
@@ -80,6 +81,57 @@ describe("StonetopImprovementSheet._prepareContext", () => {
 		const ctx  = await makeSheet(item)._prepareContext({});
 		expect(ctx.item).toBe(item);
 		expect(ctx.editable).toBe(true);
+	});
+});
+
+/**
+ * The choice group is only what an improvement COSTS. What it GIVES YOU used to be the book's payoff
+ * sentence sitting at the end of those rows — a second statement of everything `system.effects`
+ * already says, extracted for translation twice over — so it was stripped from the pack. Without a
+ * payoff here the catalog would show a list of requirements and nothing about what meeting them is
+ * for.
+ */
+describe("StonetopImprovementSheet — what the improvement gives you", () => {
+	const MILL = {
+		slug: "mill",
+		choices: WATCHTOWER,
+		requires: "built",
+		effects: [
+			{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
+			{ when: { kind: "moment", moment: "autumn-harvest" }, change: { target: "surplus", amount: 1 },
+			  text: "the steading generates +1 Surplus" },
+		],
+	};
+
+	it("builds the payoff through the same snapshot the steading's card uses", async () => {
+		const ctx = await makeSheet(makeItem(MILL))._prepareContext({});
+		expect(ctx.payoff).toBeInstanceOf(ImprovementPayoff);
+		expect(ctx.payoff.completion.lines.map(l => l.text.raw)).toEqual(["increase Fortunes by 1"]);
+		expect(ctx.payoff.henceforth.lines.map(l => l.text.raw)).toEqual(["the steading generates +1 Surplus"]);
+	});
+
+	/**
+	 * Read-only, on both halves. There is no steading here to write to, so a control would carry an
+	 * action this sheet does not define and pressing it would do nothing at all.
+	 */
+	it("offers no control, because there is no steading behind it", async () => {
+		const ctx = await makeSheet(makeItem(MILL))._prepareContext({});
+		expect(ctx.payoff.completion.automatic).toEqual([]);
+		expect(ctx.payoff.henceforth.automatic).toEqual([]);
+		expect(ctx.payoff.isOwed).toBe(false);
+	});
+
+	// Track state lives on each steading that adopts the improvement, not on the catalog entry.
+	it("counts nothing as earned, since the catalog ticks no boxes", async () => {
+		const ctx = await makeSheet(makeItem(MILL))._prepareContext({});
+		expect(ctx.payoff.completion.lines.every(l => l.earned)).toBe(false);
+	});
+
+	// A custom improvement authored in a world has no modelled results; the template skips the block
+	// rather than drawing an empty heading.
+	it("is empty for an improvement with no modelled results", async () => {
+		const ctx = await makeSheet(makeItem({ slug: "watchtower", choices: WATCHTOWER }))._prepareContext({});
+		expect(ctx.payoff.isEmpty).toBe(true);
 	});
 });
 

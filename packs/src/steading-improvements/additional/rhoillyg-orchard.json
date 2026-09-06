@@ -107,13 +107,6 @@
           "track": {
             "max": 2
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Rhoillyg Orchard\" to both the Resources list and the steading map. Henceforth, the steading generates +1 Surplus in summer and another +1 Surplus when the autumn harvest is complete."
-          }
         }
       ]
     },
@@ -193,7 +186,7 @@
           "target": "surplus",
           "amount": 1
         },
-        "text": "the steading generates +1 Surplus in summer"
+        "text": "the steading generates +1 Surplus"
       },
       {
         "when": {
@@ -204,7 +197,7 @@
           "target": "surplus",
           "amount": 1
         },
-        "text": "and another +1 Surplus when the autumn harvest is complete"
+        "text": "another +1 Surplus"
       }
     ]
   },

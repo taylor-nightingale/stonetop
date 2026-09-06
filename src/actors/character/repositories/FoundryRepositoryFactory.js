@@ -6,6 +6,7 @@ import {FoundryPossessionRepository} from "./FoundryPossessionRepository.js";
 import {FoundryPlaybookRepository} from "./FoundryPlaybookRepository.js";
 import {FoundryInsertRepository} from "./FoundryInsertRepository.js";
 import {FoundrySteadingRepository} from "./FoundrySteadingRepository.js";
+import {FoundrySteadingImprovementRepository} from "../../steading/repositories/FoundrySteadingImprovementRepository.js";
 import {INVENTORY_INSERT_PAGE} from "../../../model/data/character/inventoryInsertPage.js";
 
 export class FoundryRepositoryFactory {
@@ -46,5 +47,10 @@ export class FoundryRepositoryFactory {
 
 	get steading() {
 		return this._steading ??= new FoundrySteadingRepository();
+	}
+
+	/** The improvement catalog — the pack plus any custom `improvement` items authored in the world. */
+	get improvements() {
+		return this._improvements ??= new FoundrySteadingImprovementRepository();
 	}
 }

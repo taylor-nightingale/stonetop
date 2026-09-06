@@ -31,6 +31,30 @@ export class FakeCoreActorSheetBase {
 	async _onFirstRender() {}
 	_onRender() {}
 
+	// Core's part-state sync (handlebars-application.mjs), faithful in the three ways our base leans
+	// on it: focus is captured by id/name ONLY (which is why the base upgrades the selector), scroll
+	// positions come from the part's `scrollable` selectors, and both are re-applied against whatever
+	// the tree looks like at that moment — a shorter tree clamps the scrollTop it is handed.
+	_preSyncPartState(partId, newElement, priorElement, state) {
+		const focus = priorElement.querySelector(":focus");
+		if (focus?.id) state.focus = `#${focus.id}`;
+		else if (focus?.name) state.focus = `${focus.tagName}[name="${focus.name}"]`;
+		state.scrollPositions = [];
+		for (const selector of this.constructor.PARTS?.[partId]?.scrollable ?? []) {
+			const el = selector === "" ? priorElement : priorElement.querySelector(selector);
+			if (el) state.scrollPositions.push([selector, el.scrollTop, el.scrollLeft]);
+		}
+		state.details = {};
+	}
+
+	_syncPartState(partId, newElement, priorElement, state) {
+		if (state.focus) newElement.querySelector(state.focus)?.focus();
+		for (const [selector, scrollTop, scrollLeft] of state.scrollPositions ?? []) {
+			const el = selector === "" ? newElement : newElement.querySelector(selector);
+			if (el) Object.assign(el, { scrollTop, scrollLeft });
+		}
+	}
+
 	_getTabsConfig(group) { return this.constructor.TABS?.[group] ?? null; }
 
 	_prepareTabs(group) {

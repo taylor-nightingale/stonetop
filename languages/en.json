@@ -1,872 +1,879 @@
 {
-	"TYPES": {
-		"Actor": {
-			"character": "Character",
-			"npc": "NPC",
-			"steading": "Steading"
-		},
-		"Item": {
-			"move": "Move",
-			"arcanum": "Arcanum",
-			"playbook": "Playbook",
-			"insert": "Insert",
-			"improvement": "Improvement",
-			"steadfast": "Steadfast",
-			"follower": "Follower",
-			"npc": "NPC",
-			"outfitItem": "Outfit Item",
-			"possession": "Possession"
-		}
-	},
-	"stonetop": {
-		"dialog": {
-			"roll": "Roll"
-		},
-		"confirm": {
-			"deleteTitle": "Delete",
-			"deleteNamed": "Delete \"{name}\"? This can't be undone.",
-			"deleteGeneric": "Delete this? This can't be undone.",
-			"deleteHint": "Right-click to delete without confirming",
-			"unlinkTitle": "Remove link",
-			"unlinkNamed": "Remove the linked document from \"{name}\"? The row itself is kept.",
-			"unlinkGeneric": "Remove this link? The row itself is kept.",
-			"unlinkHint": "Right-click to remove the link without confirming"
-		},
-		"sheet": {
-			"tabs": {
-				"playbook": "Playbook",
-				"moves": "Moves",
-				"possessions": "Possessions",
-				"inventory": "Outfit",
-				"arcana": "Arcana",
-				"followers": "Followers",
-				"notes": "Notes"
-			},
-			"collapseTop": "Collapse / expand header",
-			"notes": {
-				"bio": "Bio",
-				"notes": "Notes"
-			},
-			"lock": {
-				"lock": "Lock",
-				"lockHint": "Collapse your choices into a read-only summary.",
-				"unlock": "Edit",
-				"unlockHint": "Go back to editing your choices."
-			},
-			"playbook": {
-				"emptyHint": "Select or drag a playbook here to start.",
-				"selectPlaceholder": "Select a playbook",
-				"introductions": {
-					"title": "Introductions",
-					"preamble": "Wait here for everyone else. When everyone's ready, take turns introducing your characters. When <strong><em>someone reveals something and you want to know more</em></strong>, ask them about it. When <strong><em>someone asks you a question</em></strong>, answer it truthfully.",
-					"step1": "On your first turn, <strong>introduce yourself</strong> by name, pronouns, background, origin, and appearance.",
-					"step2": "On your second turn, <strong>describe your special possessions</strong> and how you contribute to the village (beyond working the fields).",
-					"step4Preamble": "On your next turn, <strong>answer one of the following</strong>, naming one or more NPCs who live in Stonetop.",
-					"step5": "Go around again. Answer another question from 4, or pass. When everyone has passed, go on.",
-					"step6Preamble": "On your next turn, <strong>ask your fellow PCs one of these</strong>. When others ask you, answer as you like.",
-					"step7": "Go around again. Ask another question from 6, or pass. When everyone has passed, go on.",
-					"step8": "Add your home to the steading playbook. When everyone is done, let spring break forth!"
-				}
-			},
-			"advice": {
-				"label": "If you want to… {topic}",
-				"sheetLabel": "If you want to…",
-				"close": "Close"
-			}
-		},
-		"rollMode": {
-			"label": "Roll Mode",
-			"normal": "Normal",
-			"adv": "Advantage",
-			"dis": "Disadvantage"
-		},
-		"steading": {
-			"startsAt": "Starts at {value}",
-			"startingValue": "was {value}",
-			"attr": {
-				"fortunes": "Fortunes",
-				"surplus": "Surplus",
-				"size": "Size",
-				"population": "Population",
-				"prosperity": "Prosperity",
-				"defenses": "Defenses"
-			},
-			"attrShort": {
-				"fortunes": "Fort",
-				"surplus": "Surp",
-				"size": "Size",
-				"population": "Pop",
-				"prosperity": "Pros",
-				"defenses": "Def"
-			},
-			"rail": "Arches and homefront moves",
-			"headings": {
-				"npcTraits": "NPC Traits",
-				"npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
-				"placesOfInterest": "Places of Interest",
-				"notes": "Notes"
-			},
-			"lists": {
-				"resources": "Resources",
-				"fortifications": "Fortifications, etc.",
-				"assets": "Assets",
-				"addResource": "add a resource",
-				"addFortification": "add a fortification",
-				"addAsset": "add an asset",
-				"assetsOut": "{count} out",
-				"assetOut": "requisitioned",
-				"assetHome": "at home"
-			},
-			"tier": {
-				"defenses": {
-					"feeble": "feeble",
-					"mediocre": "mediocre",
-					"strong": "strong",
-					"formidable": "formidable",
-					"legendary": "legendary"
-				},
-				"unset": "—",
-				"size": {
-					"hamlet": "hamlet",
-					"village": "village",
-					"town": "town",
-					"city": "city"
-				}
-			},
-			"band": {
-				"hamlet": "<50",
-				"village": "150–350",
-				"town": "500–1500",
-				"city": "2500+"
-			},
-			"debilities": {
-				"title": "Debilities",
-				"diminished": {
-					"name": "diminished",
-					"cause": "by injury/sickness/doubt",
-					"effect": "disadvantage to Deploy, Muster, or Pull Together"
-				},
-				"lacking": {
-					"name": "lacking",
-					"cause": "due to shortages/hoarding/distrust",
-					"effect": "treat Prosperity as if it's 1 lower than it is"
-				},
-				"malcontent": {
-					"name": "malcontent",
-					"cause": "from fear/anger/despair",
-					"effect": "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
-				}
-			},
-			"adjustedBy": "→ {effective} {debility}",
-			"steadfastHint": "Type a name, or pick a steadfast",
-			"tabs": {
-				"play": "Play",
-				"folk": "Folk",
-				"season": "Season",
-				"chronicle": "Chronicle"
-			},
-			"colName": "Name",
-			"colOccupation": "Occupation",
-			"colTraits": "Traits, relations, etc.",
-			"colHome": "Home",
-			"linkColumn": "Link",
-			"linkHint": "Drag a document onto an entry to link it.",
-			"linkDropTitle": "Drop an actor, journal, or item here to link it",
-			"unlink": "Unlink",
-			"improvementRemove": "Remove",
-			"createActors": {
-				"folk": "Create actors for the roster",
-				"title": "Create NPC actors",
-				"creating": "Create {count} new NPC actor(s): {names}.",
-				"linking": "Link {count} row(s) to actors that already exist: {names}.",
-				"proceed": "Proceed?",
-				"nothing": "Every named row already has a linked document."
-			},
-			"seasons": {
-				"names": {
-					"spring": "Spring",
-					"summer": "Summer",
-					"autumn": "Autumn",
-					"winter": "Winter"
-				},
-				"movesEmpty": "No seasonal moves assigned to this steading.",
-				"wheelLabel": "The steading's year",
-				"stated": "{season}, year {year}",
-				"turnoverTitle": "Because of what Stonetop has built",
-				"turnoverHint": "Everything Stonetop has built that fires this season. Drop any line you want to keep out.",
-				"turnoverEmpty": "Nothing Stonetop has built fires this season.",
-				"turnTitle": "The turn of the season",
-				"turnConfirm": "Roll Seasons Change: {season}? The season turns, and this season's checklist and seasonal gain are cleared.",
-				"rollMove": "Roll {move}",
-				"stepRoll": "Roll it",
-				"stepGain": "Pick 1 seasonal gain",
-				"stepGainNote": "on a 10+, or on a 7-9 with a threat",
-				"stepFortunes": "Reset Fortunes",
-				"stepFortunesNote": "whatever the result",
-				"resetFortunes": "Reset Fortunes to +{value}",
-				"othersTitle": "The other seasons",
-				"othersHint": "Reference. The season turns by rolling the move above.",
-				"momentsTitle": "This season",
-				"momentsHint": "The sheet can't know when these happen. Apply one when it does.",
-				"moments": {
-					"autumn-harvest": "The autumn harvest",
-					"aurochs-hunt": "The aurochs hunt"
-				},
-				"everySeason": "every season"
-			},
-			"folk": {
-				"searchPlaceholder": "search the roster…",
-				"namePlaceholder": "Name (Pronouns)",
-				"homePlaceholder": "Home",
-				"traitsPlaceholder": "Traits",
-				"newVillager": "new villager",
-				"remove": "Delete villager",
-				"homeBlankHint": "Home blank means this steading. Search filters this table only.",
-				"focusRowFirst": "Put the cursor in a villager's row first — a trait is added to the row you are editing.",
-				"namesFrom": "Names — {place}"
-			},
-			"improvements": {
-				"boardTitle": "Improvements",
-				"boardEmpty": "This steading owns no improvements yet. Drop one onto the sheet to start it.",
-				"complete": "done",
-				"progress": "{ticked} / {total}",
-				"countInProgress": "{count} in progress",
-				"countUntouched": "{count} not started",
-				"countComplete": "{count} complete",
-				"filterLabel": "Show only"
-			},
-			"effects": {
-				"completed": "{name} is complete.",
-				"apply": "Apply",
-				"onlyIf": "only if",
-				"applySeason": "Apply the season",
-				"alreadyApplied": "This season has been applied.",
-				"applyMoment": "Apply",
-				"momentApplied": "Applied this season.",
-				"rollGranted": "Roll {move}"
-			}
-		},
-		"followers": {
-			"empty": "Drag followers here from the Followers compendium.",
-			"remove": "Remove",
-			"kind": "Kind",
-			"kindCreature": "Creature",
-			"kindObject": "Object (no combat stats)",
-			"hp": "HP",
-			"armor": "Armor",
-			"damage": "Damage",
-			"note": "Note",
-			"instinct": "Instinct",
-			"cost": "Cost",
-			"notes": "Notes",
-			"loyalty": "Loyalty",
-			"moves": "Moves",
-			"specialQuality": "Special Qualities",
-			"description": "Description",
-			"notePlaceholder": "Tags…",
-			"add": "Add Follower",
-			"members": "Members",
-			"memberName": "Name…",
-			"addMember": "Add member",
-			"removeMember": "Remove member",
-			"customTag": "Type your own…",
-			"tags": "Tags",
-			"traits": "Traits",
-			"addTag": "tag",
-			"addTrait": "trait",
-			"companionType": "Type",
-			"companionOptions": "Options",
-			"addOption": "option",
-			"suggestedNames": "Suggested names",
-			"groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear.",
-			"inventory": "Inventory",
-			"inventoryToggle": "Add/remove gear",
-			"inventoryDone": "Done",
-			"noGear": "No gear",
-			"loadTitle": "Load (total weight carried)",
-			"loadLight": "Light",
-			"loadNormal": "Normal",
-			"loadHeavy": "Heavy",
-			"loadCarriedHint": "Total ◇ this follower is carrying.",
-			"loadOver": "Carrying more than the {max} ◇ Outfit allows."
-		},
-		"insert": {
-			"remove": "Remove",
-			"description": "Description",
-			"moves": "Moves",
-			"addMove": "Add move",
-			"startingMove": "Starts acquired (active when the insert is granted)",
-			"namePlaceholder": "Insert name",
-			"instinct": "Instinct",
-			"addInstinct": "Add instinct",
-			"removeInstinct": "Remove instinct",
-			"choices": "Choices",
-			"addChoices": "Add choices group"
-		},
-		"playbook": {
-			"tabs": {
-				"basics": "Basics",
-				"backgrounds": "Backgrounds",
-				"traits": "Traits",
-				"choices": "Choices",
-				"possessions": "Possessions",
-				"moves": "Moves",
-				"grants": "Grants",
-				"introductions": "Intro"
-			},
-			"namePlaceholder": "Playbook name",
-			"remove": "Remove",
-			"moveUp": "Move up",
-			"moveDown": "Move down",
-			"refMissing": "Not found — is the item in a loaded compendium or the world?",
-			"description": "Description",
-			"hp": "HP",
-			"damage": "Damage die",
-			"statsNote": "Stats note",
-			"startingMovesNote": "Starting moves note",
-			"backgrounds": "Backgrounds",
-			"addBackground": "Add background",
-			"backgroundLabel": "Background name",
-			"backgroundDescription": "Background description (markdown)",
-			"grantedMoves": "Granted moves",
-			"backgroundChoices": "Background choices",
-			"removeChoices": "Remove choices",
-			"addChoices": "Add choices group",
-			"origin": "Origin",
-			"addOrigin": "Add region",
-			"originRegion": "Region",
-			"originNames": "Names (one per line)",
-			"instinct": "Instinct",
-			"addInstinct": "Add instinct",
-			"appearance": "Appearance",
-			"addGroup": "Add group",
-			"removeGroup": "Remove group",
-			"choices": "Choices",
-			"possessions": "Special Possessions",
-			"enable": "Enable",
-			"pickCount": "Pick count",
-			"pickNote": "Pick note",
-			"possessionList": "Possessions",
-			"addPossession": "Add possession",
-			"preselected": "Starts selected (auto-added)",
-			"moves": "Moves",
-			"addMove": "Add move",
-			"startingMove": "Starts acquired at creation",
-			"startingHint": "Check a move to seed it acquired at character creation.",
-			"followers": "Followers",
-			"addFollower": "Add follower",
-			"inserts": "Inserts",
-			"addInsert": "Add insert",
-			"grantsHint": "Followers and inserts granted when this playbook is selected.",
-			"introStep3": "Step 3 (intro text)",
-			"introStep4": "Step 4 (NPC questions)",
-			"introStep6": "Step 6 (PC questions)"
-		},
-		"improvement": {
-			"namePlaceholder": "Improvement name",
-			"sortOrder": "Sort order",
-			"sortOrderPlaceholder": "Position in the catalog",
-			"choices": "Choices",
-			"edit": "Edit",
-			"done": "Done"
-		},
-		"steadfast": {
-			"namePlaceholder": "Steadfast name",
-			"startingValues": "Starting values",
-			"fortunes": "Fortunes",
-			"surplus": "Surplus",
-			"size": "Size",
-			"population": "Population",
-			"prosperity": "Prosperity",
-			"defenses": "Defenses",
-			"improvements": "Granted improvements",
-			"improvementsHint": "Drag improvement items here to grant them.",
-			"improvementsEmpty": "No improvements granted yet.",
-			"improvementRemove": "Remove"
-		},
-		"follower": {
-			"namePlaceholder": "Follower name",
-			"edit": "Edit",
-			"done": "Done",
-			"preview": "Preview",
-			"add": "Add",
-			"remove": "Remove",
-			"options": "Options",
-			"option": "option",
-			"default": "Default",
-			"defaultPlaceholder": "pre-selected, comma separated",
-			"choices": "Choices",
-			"membersNote": "Members note",
-			"suggestedTags": "Tag options",
-			"suggestedTraits": "Trait options",
-			"companion": "Animal companion",
-			"companionEnable": "This follower is an animal companion",
-			"companionAddType": "Add type",
-			"companionTypeName": "Type name (e.g. Bird)",
-			"companionPick": "Pick",
-			"companionVariants": "Variants",
-			"companionOptions": "Options",
-			"companionDefaults": "Starting options"
-		},
-		"possession": {
-			"namePlaceholder": "Special possession name",
-			"description": "Description",
-			"resource": "Resource",
-			"choices": "Choices",
-			"addChoices": "Add choices group",
-			"removeChoices": "Remove choices group",
-			"outfitItems": "Granted items",
-			"addOutfitItem": "Add item",
-			"itemName": "Name",
-			"itemWeight": "Wt",
-			"itemColumn": "Column",
-			"scaling": "Uses scaling",
-			"addScaling": "Add scaling",
-			"removeScaling": "Remove scaling",
-			"scalingNote": "Increases max uses of the resource above as the character advances.",
-			"perEvenLevel": "Per even level",
-			"perMove": "Per owned move",
-			"addPerMove": "Add move rule",
-			"moveSlug": "Move slug",
-			"amount": "Amount",
-			"remove": "Remove"
-		},
-		"arcana": {
-			"empty": "Drag arcana here from the Arcana compendium.",
-			"showFront": "Show Front",
-			"showBack": "Reveal Back",
-			"removeArcanum": "Remove",
-			"addToFollowers": "Add to followers",
-			"moves": "Moves",
-			"consequences": "Consequences"
-		},
-		"arcanum": {
-			"namePlaceholder": "Arcanum name",
-			"major": "Major arcanum",
-			"weight": "Weight",
-			"front": "Front",
-			"back": "Back",
-			"title": "Title",
-			"backTitle": "Mystery name",
-			"description": "Description",
-			"item": "Item",
-			"itemName": "Name",
-			"itemWeight": "Weight",
-			"itemTags": "Tags",
-			"itemNote": "Note",
-			"itemColumn": "Size",
-			"itemSameAsFront": "Same item as front",
-			"resource": "Resource",
-			"resourceMax": "Max",
-			"resourceTitle": "Title",
-			"resourceLabels": "Labels",
-			"unlock": "Unlock",
-			"choices": "Choices",
-			"moves": "Moves",
-			"consequences": "Consequences",
-			"unlockAt": "Unlock at",
-			"moveName": "Move name",
-			"moveSubtitle": "Requires / subtitle",
-			"moveText": "Move text (markdown)",
-			"moveFollower": "Follower slug (optional)",
-			"moveTracker": "Tracker",
-			"add": "Add",
-			"remove": "Remove",
-			"edit": "Edit",
-			"done": "Done",
-			"preview": "Live preview",
-			"showFront": "Show front",
-			"showBack": "Show back"
-		},
-		"inventory": {
-			"regularItems": "Items",
-			"supplies": {
-				"note": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items."
-			},
-			"smallItems": "Small Items",
-			"smallItemsNote": "Fit in a pocket, pouch, or boot.<p>When you Outfit, mark □ below equal to 4+Prosperity.</p>",
-			"otherItems": "Other Items",
-			"otherItemsNote": "(animals, kits, stashed items, etc.)",
-			"addItem": "Add item",
-			"addSmallItem": "Add small item",
-			"addItemName": "Name",
-			"addItemWeight": "Weight",
-			"addItemConfirm": "Add",
-			"removeItem": "Remove",
-			"regularUndefinedPoolLabel": "Undefined",
-			"regularUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to ◇ below.",
-			"smallUndefinedPoolLabel": "Undefined",
-			"smallUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to items below, or expend supplies to mark an additional ◇.",
-			"outfit": {
-				"headingBefore": "When you ",
-				"moveName": "Outfit",
-				"headingAfter": ", mark a number of ◇ below on specific items or as a group.",
-				"marked": "{count} ◇ marked",
-				"markedHint": "Your load follows the ◇ you have marked — it is not chosen.",
-				"markedOver": "— more than the {max} ◇ Outfit allows",
-				"reset": "Reset",
-				"resetHint": "Unmark every ◇ and □ — your items and notes stay.",
-				"resetTitle": "Reset outfit",
-				"resetConfirm": "Clear your whole outfit? Every marked ◇ and □ goes back to unmarked.",
-				"light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
-				"normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
-				"heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
-			},
-			"prosperity": "Prosperity",
-			"prosperityLacking": "(lacking)",
-			"prosperityLackingNote": "The steading is <em>lacking</em>: treat Prosperity as if it's 1 lower than it is.",
-			"prosperityTable": {
-				"crude": "Gear is <em>crude</em>",
-				"piercing1": "<em>x</em> = 1 piercing",
-				"piercing2": "<em>x</em> = 2 piercing"
-			}
-		},
-		"outfitItem": {
-			"namePlaceholder": "Item name",
-			"weight": "Weight",
-			"weightHint": "Weight is how many diamonds the row shows — 0 for a weightless item.",
-			"value": "Value",
-			"valueNone": "—",
-			"valueHint": "Value is what you subtract when you Trade & Barter for the item.",
-			"column": "Column",
-			"columnRegular": "Regular",
-			"columnSmall": "Small items",
-			"qualifier": "Qualifier",
-			"qualifierPlaceholder": "e.g. iron, ~25 ft",
-			"tags": "Tags",
-			"tagsPlaceholder": "hand, thrown, near",
-			"note": "Note",
-			"notePlaceholder": "Parenthetical shown after the name",
-			"armor": "Armor",
-			"addArmor": "Add armor",
-			"removeArmor": "Remove armor",
-			"armorHint": "While carried: the highest base among your items, plus every modifier.",
-			"armorBase": "Base",
-			"armorModifier": "Modifier",
-			"edit": "Edit",
-			"done": "Done"
-		},
-		"settings": {
-			"autoCreateResidentActors": {
-				"name": "Create NPC Actors For The Roster",
-				"hint": "When a resident or neighbor is given a name, create an NPC actor for them under NPCs/<location> and link it. The actors are created by the GM's client, so nothing happens while no GM is connected — use the buttons on the steading sheet to catch up."
-			},
-			"hideRollMode": {
-				"name": "Hide Roll Mode",
-				"hint": "Hide the roll mode selector (advantage/disadvantage) from character sheets."
-			},
-			"debugMode": {
-				"name": "Debug Mode",
-				"hint": "Enable debug logging in the browser console."
-			},
-			"expandMoveDescriptions": {
-				"name": "Expand Move Descriptions",
-				"hint": "Show move descriptions expanded by default on character sheets."
-			},
-			"defaultSheetTab": {
-				"name": "Default Sheet Tab",
-				"hint": "Which tab the character sheet opens to by default.",
-				"moves": "Moves",
-				"gear": "Gear",
-				"biography": "Biography"
-			},
-			"artInstaller": {
-				"name": "Book Artwork",
-				"label": "Install Artwork",
-				"hint": "Extract the illustrations from your own Stonetop PDFs and install them for this server."
-			}
-		},
-		"artInstaller": {
-			"title": "Install Book Artwork",
-			"intro": "The compendium can show the illustrations from the Stonetop books, but the illustrations are copyrighted and aren't shipped with the system. If you own the PDFs, select them below — Book II: The Wider World and Other Wonders and Book I: Stonetop. Use the \"spreads\" (two-page) editions of the PDFs: the single-page versions split the artwork that spans facing pages, so much of it can't be recognized.",
-			"chooseLabel": "Book PDF(s)",
-			"install": "Install Artwork",
-			"noFiles": "Select at least one Stonetop book PDF first.",
-			"starting": "Reading PDF…",
-			"progress": "File {file} of {files} — page {page} of {pages} — {found} illustrations found",
-			"installed": "Installed {count} illustrations.",
-			"missing": "{count} referenced images weren't found — selecting both books usually completes the set.",
-			"reopenHint": "Reopen any sheets or journal pages to see the artwork.",
-			"alreadyInstalled": "Artwork is already installed for this server. Installing again just refreshes the files.",
-			"dismissNudge": "Don't remind me",
-			"nudge": "Stonetop: the book illustrations aren't installed. If you own the PDFs, use Settings → Configure Settings → Stonetop → Install Artwork to add them."
-		},
-		"migration": {
-			"failed": "Stonetop: migration failed for {names}. Their sheets may show out-of-date content. See the console (F12) for the error; the migration will be retried the next time the world loads.",
-			"stalePacks": "Stonetop: Looks like the compendium didn't update. Please uninstall and reinstall the system for the latest compendium data."
-		},
-		"staleClient": "Stonetop {installed} is installed, but your browser is still running {loaded}. Press Ctrl+Shift+R (Cmd+Shift+R on macOS) to load the update — until you do, character sheets may fail to open.",
-		"rollResults": {
-			"miss": "Miss",
-			"weakHit": "Weak Hit",
-			"strongHit": "Strong Hit!",
-			"xpMarked": "You mark XP.",
-			"xpUndo": "Undo",
-			"xpMark": "Mark XP"
-		},
-		"npc": {
-			"hitPoints": "Hit Points",
-			"armor": "Armor",
-			"instinct": "Instinct"
-		},
-		"character": {
-			"stats": {
-				"sectionTitle": "Stats",
-				"strength": "Strength",
-				"dexterity": "Dexterity",
-				"intelligence": "Intelligence",
-				"wisdom": "Wisdom",
-				"constitution": "Constitution",
-				"charisma": "Charisma",
-				"abbr": {
-					"str": "+STR",
-					"dex": "+DEX",
-					"con": "+CON",
-					"int": "+INT",
-					"wis": "+WIS",
-					"cha": "+CHA"
-				},
-				"desc": {
-					"str": "Your physical power and your ability to use it. Roll +STR to Clash, or to Defy Danger with raw might or power.",
-					"dex": "Your grace and fine motor control. Roll +DEX to Let Fly, or to Defy Danger with speed, agility, finesse.",
-					"int": "Your memory, learning, and quick thinking. Roll +INT to Know Things, or to Defy Danger via expertise or with a clever plan.",
-					"wis": "Your intuition, self-control, and awareness. Roll +WIS to Seek Insight, or when you rely on your willpower or senses to Defy Danger.",
-					"con": "Your stamina, grit, determination, and endurance. Roll +CON to Defend, or to Defy Danger by holding steady or enduring hardship.",
-					"cha": "Your ability to charm and connect with others, and to get a read on what others want. Roll +CHA to Persuade, or to Defy Danger socially."
-				}
-			},
-			"debilities": {
-				"desc": {
-					"weakened": "Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.",
-					"dazed": "Out of it, befuddled, not thinking clearly. Take disadvantage when rolling +INT or +WIS.",
-					"miserable": "Greatly distressed, angry, unwell, in pain. Take disadvantage when rolling +CON or +CHA."
-				}
-			},
-			"attributes": {
-				"damage": "Damage",
-				"armor": "Armor",
-				"xp": "XP",
-				"desc": {
-					"xp": "Short for “experience points.” You start with no XP. You mark XP when you roll for a move and get a 6- (unless the move says otherwise); as part of the End of Session move; and when another move says so."
-				},
-				"level": "Level",
-				"source": {
-					"hp": "Max HP {max} comes from your playbook, {playbook}.",
-					"hpManual": "Manually set to {max}. Your playbook, {playbook}, grants {playbookMax}.",
-					"hpNoPlaybook": "Manually set to {max}. Pick a playbook to inherit its max HP.",
-					"damage": "Damage die {die} comes from your playbook, {playbook}. It's rolled on its own — add anything moves or the fiction grant.",
-					"damageManual": "Manually set to {die}. Your playbook, {playbook}, grants {playbookDie}.",
-					"damageNoPlaybook": "Manually set to {die}. Pick a playbook to inherit its damage die.",
-					"damageUnsetWithPlaybook": "No damage die set. Your playbook, {playbook}, grants {playbookDie}.",
-					"damageUnset": "No damage die set. Pick a playbook to inherit its damage die.",
-					"armor": "Armor {value} from your checked gear: {items}. Only the highest base counts, plus every modifier.",
-					"armorManual": "Manually set to {armor}. Your checked gear adds up to {value}: {items}.",
-					"armorManualOnly": "Manually set to {armor}. No checked item grants armor.",
-					"armorNone": "No checked item grants armor.",
-					"armorBaseItem": "{name} {amount} (base)",
-					"armorModifierItem": "{name} {amount}"
-				}
-			},
-			"gear": {
-				"specialPossessions": "Special Possessions"
-			},
-			"moveTypes": {
-				"background": "Background"
-			},
-			"moves": {
-				"pickTitle": "Choose Starting Moves",
-				"pickInstruction": "Pick up to {count} moves to start with.",
-				"playbookMoves": "Playbook Moves",
-				"basicMoves": "Basic Moves",
-				"otherMoves": "Other Moves",
-				"addMove": "Add Move",
-				"removeMove": "Remove Move",
-				"sendToChat": "Send to Chat",
-				"openSource": "Open this move's item sheet",
-				"open": "Open the move",
-				"requires": "Requires",
-				"notMet": "Not Met",
-				"lockHint": "Show only the moves this character has taken.",
-				"unlockHint": "Show every move again, to take new ones."
-			},
-			"selection": {
-				"select": "Select",
-				"cancel": "Cancel",
-				"choosePlaceholder": "Choose {label}…",
-				"chooseOne": "(Choose 1)",
-				"background": {
-					"label": "Background",
-					"dialogTitle": "Choose Background"
-				},
-				"instinct": {
-					"label": "Instinct",
-					"dialogTitle": "Choose Instinct",
-					"customPlaceholder": "Write your own instinct…"
-				},
-				"appearance": {
-					"label": "Appearance",
-					"dialogTitle": "Choose Appearance",
-					"instruction": "Choose 1 on each line, or make something up:"
-				},
-				"origin": {
-					"label": "Origin",
-					"dialogTitle": "Choose Origin",
-					"namesLabel": "Names",
-					"instruction": "Stonetop is your home, or close enough, but where are you (or your family) from originally? Pick 1 and a name to match (or make up something similar)."
-				}
-			}
-		},
-		"item": {
-			"move": {
-				"namePlaceholder": "Move Name",
-				"rollStat": {
-					"none": "— No Roll —",
-					"ask": "Ask (player chooses)",
-					"prompt": "Prompt (no roll)",
-					"fortunes": "Fortunes (steading)",
-					"prosperity": "Prosperity (steading)",
-					"population": "Population (steading)",
-					"defenses": "Defenses (steading)",
-					"favor": "Favor (Thrall)",
-					"omens": "Omens (Destined)"
-				},
-				"moveType": {
-					"none": "— Type —",
-					"basic": "Basic",
-					"expedition": "Expedition",
-					"homefront": "Homefront",
-					"seasons": "Seasons Change",
-					"special": "Special",
-					"follower": "Follower",
-					"other": "Other"
-				},
-				"results": {
-					"successPlaceholder": "What happens on a 10+…",
-					"partialPlaceholder": "What happens on a 7-9…",
-					"failurePlaceholder": "What happens on a 6-…"
-				},
-				"details": {
-					"repeatMax": "Checkboxes"
-				}
-			}
-		},
-		"a11y": {
-			"track": "Track",
-			"trackPip": "{name} {position} of {total}",
-			"actorName": "Name",
-			"statValue": "{stat} score",
-			"hpCurrent": "Current HP",
-			"hpMax": "Maximum HP",
-			"xpCurrent": "Current XP",
-			"xpMax": "XP needed to level",
-			"damageDie": "Damage die",
-			"notes": "Notes",
-			"carried": "Carried",
-			"addTag": "Add tag",
-			"followerName": "Follower name",
-			"memberName": "Member name",
-			"memberHp": "Member current HP",
-			"memberHpMax": "Member maximum HP",
-			"carriedDiamond": "Carried — mark to use",
-			"possessionTaken": "Taken",
-			"instinctCustom": "Custom instinct",
-			"otherItems": "Other items carried",
-			"choiceFill": "Fill in this choice",
-			"supplies": "Supplies {position}",
-			"smallItems": "Small item slot {position}",
-			"steadingName": "Steading name",
-			"surplus": "Surplus",
-			"ratingValue": "{rating} rating",
-			"rollRating": "Roll {rating}",
-			"rollMove": "Roll {name}",
-			"steadingTabs": "Steading sections",
-			"npcTraits": "Traits",
-			"assetItem": "Asset",
-			"placeField": "Place of interest",
-			"ratingExtra": "Rating note",
-			"playbookSelect": "Playbook",
-			"optionType": "Option type",
-			"inventoryColumn": "Inventory column",
-			"moveType": "Move type",
-			"rollStat": "Roll stat",
-			"choiceText": "Choice text",
-			"choicePick": "Choose this option",
-			"listItem": "List item",
-			"contentText": "{section} text",
-			"moveTaken": "Taken",
-			"edit": "Edit",
-			"personName": "Villager name",
-			"personHome": "Home",
-			"personOccupation": "Occupation",
-			"personTraits": "Traits, relations, etc.",
-			"folkSearch": "Search the roster",
-			"suggestionUsed": "already used —",
-			"assetRequisitioned": "Requisitioned"
-		},
-		"tagGlossary": {
-			"general": {
-				"area": "affects everything in an area.",
-				"awkward": "unwieldy, requires space, gets stuck.",
-				"crude": "prone to break, wear out, stop working, etc.",
-				"cumbersome": "you’re noisy, slow, hot, and quick to tire while carrying it, even without a heavy load (and if you have a heavy load, it’s worse).",
-				"dangerous": "causes trouble and collateral damage if you aren’t careful (and maybe if you are).",
-				"forceful": "can knock someone around, maybe even off their feet.",
-				"fragile": "easy to break/ruin; pack it carefully.",
-				"immobile": "you can’t really carry it on your person; you need a beast or vehicle to transport it.",
-				"messy": "does particularly destructive damage, ripping people and things apart.",
-				"reload": "after it’s used, it takes time/effort to reset.",
-				"slow": "takes minutes or more to use; unlikely to be useful in a fight.",
-				"thrown": "you can Let Fly with it (at near range).",
-				"warm": "will keep you warm in cold weather, but it’s uncomfortable and exhausting (and possibly dangerous) in hot weather."
-			},
-			"range": {
-				"hand": "tight quarters; up close and personal.",
-				"close": "melee range, 1-2 steps away.",
-				"reach": "3-4 steps away.",
-				"near": "up to 30 or so steps away.",
-				"far": "quite the distance; up to 100 steps, maybe more."
-			},
-			"artifact": {
-				"beautiful": "draws attention, makes some people want it",
-				"fireproof": "unharmed by heat or flame",
-				"implanted": "it’s part of you, or must become so before you can use it",
-				"indestructible": "can’t be broken or marred by mundane force or art",
-				"loud": "makes a lot of noise",
-				"magical": "imbued with unnatural power",
-				"terrifying": "people and beasts freak out in its presence"
-			}
-		},
-		"advice": {
-			"fortunes": {
-				"title": "increase Fortunes"
-			},
-			"surplus": {
-				"title": "gain Surplus"
-			},
-			"defenses": {
-				"title": "improve Defenses"
-			},
-			"population": {
-				"title": "increase Population"
-			},
-			"prosperity": {
-				"title": "improve Prosperity"
-			},
-			"steadingImprovement": {
-				"title": "unlock a steading improvement"
-			},
-			"coin": {
-				"title": "get some coin"
-			},
-			"arcana": {
-				"title": "find new arcana"
-			},
-			"arcanumMystery": {
-				"title": "unlock the mysteries of an arcanum"
-			},
-			"followers": {
-				"title": "recruit followers"
-			}
-		}
-	}
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC",
+      "steading": "Steading"
+    },
+    "Item": {
+      "move": "Move",
+      "arcanum": "Arcanum",
+      "playbook": "Playbook",
+      "insert": "Insert",
+      "improvement": "Improvement",
+      "steadfast": "Steadfast",
+      "follower": "Follower",
+      "npc": "NPC",
+      "outfitItem": "Outfit Item",
+      "possession": "Possession"
+    }
+  },
+  "stonetop": {
+    "dialog": {
+      "roll": "Roll"
+    },
+    "confirm": {
+      "deleteTitle": "Delete",
+      "deleteNamed": "Delete \"{name}\"? This can't be undone.",
+      "deleteGeneric": "Delete this? This can't be undone.",
+      "deleteHint": "Right-click to delete without confirming",
+      "unlinkTitle": "Remove link",
+      "unlinkNamed": "Remove the linked document from \"{name}\"? The row itself is kept.",
+      "unlinkGeneric": "Remove this link? The row itself is kept.",
+      "unlinkHint": "Right-click to remove the link without confirming"
+    },
+    "sheet": {
+      "tabs": {
+        "playbook": "Playbook",
+        "moves": "Moves",
+        "possessions": "Possessions",
+        "inventory": "Outfit",
+        "arcana": "Arcana",
+        "followers": "Followers",
+        "notes": "Notes"
+      },
+      "collapseTop": "Collapse / expand header",
+      "notes": {
+        "bio": "Bio",
+        "notes": "Notes"
+      },
+      "lock": {
+        "lock": "Lock",
+        "lockHint": "Collapse your choices into a read-only summary.",
+        "unlock": "Edit",
+        "unlockHint": "Go back to editing your choices."
+      },
+      "playbook": {
+        "emptyHint": "Select or drag a playbook here to start.",
+        "selectPlaceholder": "Select a playbook",
+        "introductions": {
+          "title": "Introductions",
+          "preamble": "Wait here for everyone else. When everyone's ready, take turns introducing your characters. When <strong><em>someone reveals something and you want to know more</em></strong>, ask them about it. When <strong><em>someone asks you a question</em></strong>, answer it truthfully.",
+          "step1": "On your first turn, <strong>introduce yourself</strong> by name, pronouns, background, origin, and appearance.",
+          "step2": "On your second turn, <strong>describe your special possessions</strong> and how you contribute to the village (beyond working the fields).",
+          "step4Preamble": "On your next turn, <strong>answer one of the following</strong>, naming one or more NPCs who live in Stonetop.",
+          "step5": "Go around again. Answer another question from 4, or pass. When everyone has passed, go on.",
+          "step6Preamble": "On your next turn, <strong>ask your fellow PCs one of these</strong>. When others ask you, answer as you like.",
+          "step7": "Go around again. Ask another question from 6, or pass. When everyone has passed, go on.",
+          "step8": "Add your home to the steading playbook. When everyone is done, let spring break forth!"
+        }
+      },
+      "advice": {
+        "label": "If you want to… {topic}",
+        "sheetLabel": "If you want to…",
+        "close": "Close"
+      }
+    },
+    "rollMode": {
+      "label": "Roll Mode",
+      "normal": "Normal",
+      "adv": "Advantage",
+      "dis": "Disadvantage"
+    },
+    "steading": {
+      "startsAt": "Starts at {value}",
+      "startingValue": "was {value}",
+      "attr": {
+        "fortunes": "Fortunes",
+        "surplus": "Surplus",
+        "size": "Size",
+        "population": "Population",
+        "prosperity": "Prosperity",
+        "defenses": "Defenses"
+      },
+      "attrShort": {
+        "fortunes": "Fort",
+        "surplus": "Surp",
+        "size": "Size",
+        "population": "Pop",
+        "prosperity": "Pros",
+        "defenses": "Def"
+      },
+      "rail": "Arches and homefront moves",
+      "headings": {
+        "npcTraits": "NPC Traits",
+        "npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
+        "placesOfInterest": "Places of Interest",
+        "notes": "Notes"
+      },
+      "lists": {
+        "resources": "Resources",
+        "fortifications": "Fortifications, etc.",
+        "assets": "Assets",
+        "addResource": "add a resource",
+        "addFortification": "add a fortification",
+        "addAsset": "add an asset",
+        "assetsOut": "{count} out",
+        "assetOut": "requisitioned",
+        "assetHome": "at home"
+      },
+      "tier": {
+        "defenses": {
+          "feeble": "feeble",
+          "mediocre": "mediocre",
+          "strong": "strong",
+          "formidable": "formidable",
+          "legendary": "legendary"
+        },
+        "unset": "—",
+        "size": {
+          "hamlet": "hamlet",
+          "village": "village",
+          "town": "town",
+          "city": "city"
+        }
+      },
+      "band": {
+        "hamlet": "<50",
+        "village": "150–350",
+        "town": "500–1500",
+        "city": "2500+"
+      },
+      "debilities": {
+        "title": "Debilities",
+        "diminished": {
+          "name": "diminished",
+          "cause": "by injury/sickness/doubt",
+          "effect": "disadvantage to Deploy, Muster, or Pull Together"
+        },
+        "lacking": {
+          "name": "lacking",
+          "cause": "due to shortages/hoarding/distrust",
+          "effect": "treat Prosperity as if it's 1 lower than it is"
+        },
+        "malcontent": {
+          "name": "malcontent",
+          "cause": "from fear/anger/despair",
+          "effect": "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
+        }
+      },
+      "adjustedBy": "→ {effective} {debility}",
+      "steadfastHint": "Type a name, or pick a steadfast",
+      "tabs": {
+        "play": "Play",
+        "folk": "Folk",
+        "season": "Season",
+        "chronicle": "Chronicle"
+      },
+      "colName": "Name",
+      "colOccupation": "Occupation",
+      "colTraits": "Traits, relations, etc.",
+      "colHome": "Home",
+      "linkColumn": "Link",
+      "linkHint": "Drag a document onto an entry to link it.",
+      "linkDropTitle": "Drop an actor, journal, or item here to link it",
+      "unlink": "Unlink",
+      "improvementRemove": "Remove",
+      "createActors": {
+        "folk": "Create actors for the roster",
+        "title": "Create NPC actors",
+        "creating": "Create {count} new NPC actor(s): {names}.",
+        "linking": "Link {count} row(s) to actors that already exist: {names}.",
+        "proceed": "Proceed?",
+        "nothing": "Every named row already has a linked document."
+      },
+      "seasons": {
+        "names": {
+          "spring": "Spring",
+          "summer": "Summer",
+          "autumn": "Autumn",
+          "winter": "Winter"
+        },
+        "movesEmpty": "No seasonal moves assigned to this steading.",
+        "wheelLabel": "The steading's year",
+        "stated": "{season}, year {year}",
+        "turnoverTitle": "Because of what Stonetop has built",
+        "turnoverHint": "Everything Stonetop has built that fires this season. Drop any line you want to keep out.",
+        "turnoverEmpty": "Nothing Stonetop has built fires this season.",
+        "turnTitle": "The turn of the season",
+        "turnConfirm": "Roll Seasons Change: {season}? The season turns, and this season's checklist and seasonal gain are cleared.",
+        "rollMove": "Roll {move}",
+        "stepRoll": "Roll it",
+        "stepGain": "Pick 1 seasonal gain",
+        "stepGainNote": "on a 10+, or on a 7-9 with a threat",
+        "stepFortunes": "Reset Fortunes",
+        "stepFortunesNote": "whatever the result",
+        "resetFortunes": "Reset Fortunes to +{value}",
+        "othersTitle": "The other seasons",
+        "othersHint": "Reference. The season turns by rolling the move above.",
+        "momentsTitle": "This season",
+        "momentsHint": "The sheet can't know when these happen. Apply one when it does.",
+        "moments": {
+          "autumn-harvest": "The autumn harvest",
+          "aurochs-hunt": "The aurochs hunt",
+          "inn-gathering": "A gathering at the inn"
+        },
+        "everySeason": "every season"
+      },
+      "folk": {
+        "searchPlaceholder": "search the roster…",
+        "namePlaceholder": "Name (Pronouns)",
+        "homePlaceholder": "Home",
+        "traitsPlaceholder": "Traits",
+        "newVillager": "new villager",
+        "remove": "Delete villager",
+        "homeBlankHint": "Home blank means this steading. Search filters this table only.",
+        "focusRowFirst": "Put the cursor in a villager's row first — a trait is added to the row you are editing.",
+        "namesFrom": "Names — {place}"
+      },
+      "improvements": {
+        "boardTitle": "Improvements",
+        "boardEmpty": "This steading owns no improvements yet. Drop one onto the sheet to start it.",
+        "complete": "done",
+        "progress": "{ticked} / {total}",
+        "countInProgress": "{count} in progress",
+        "countUntouched": "{count} not started",
+        "countComplete": "{count} complete",
+        "filterLabel": "Show only"
+      },
+      "effects": {
+        "apply": "Apply",
+        "onlyIf": "only if",
+        "applySeason": "Apply the season",
+        "alreadyApplied": "This season has been applied.",
+        "applyMoment": "Apply",
+        "momentApplied": "Applied this season.",
+        "rollGranted": "Roll {move}",
+        "revert": "Revert",
+        "applied": "Applied",
+        "appliedLegacy": "Applied earlier",
+        "onCompletion": "When you **_meet the requirements_**:",
+        "henceforth": "**_Henceforth_**:",
+        "applyLine": "Apply: {result}",
+        "revertLine": "Revert: {result}"
+      }
+    },
+    "followers": {
+      "empty": "Drag followers here from the Followers compendium.",
+      "remove": "Remove",
+      "kind": "Kind",
+      "kindCreature": "Creature",
+      "kindObject": "Object (no combat stats)",
+      "hp": "HP",
+      "armor": "Armor",
+      "damage": "Damage",
+      "note": "Note",
+      "instinct": "Instinct",
+      "cost": "Cost",
+      "notes": "Notes",
+      "loyalty": "Loyalty",
+      "moves": "Moves",
+      "specialQuality": "Special Qualities",
+      "description": "Description",
+      "notePlaceholder": "Tags…",
+      "add": "Add Follower",
+      "members": "Members",
+      "memberName": "Name…",
+      "addMember": "Add member",
+      "removeMember": "Remove member",
+      "customTag": "Type your own…",
+      "tags": "Tags",
+      "traits": "Traits",
+      "addTag": "tag",
+      "addTrait": "trait",
+      "companionType": "Type",
+      "companionOptions": "Options",
+      "addOption": "option",
+      "suggestedNames": "Suggested names",
+      "groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear.",
+      "inventory": "Inventory",
+      "inventoryToggle": "Add/remove gear",
+      "inventoryDone": "Done",
+      "noGear": "No gear",
+      "loadTitle": "Load (total weight carried)",
+      "loadLight": "Light",
+      "loadNormal": "Normal",
+      "loadHeavy": "Heavy",
+      "loadCarriedHint": "Total ◇ this follower is carrying.",
+      "loadOver": "Carrying more than the {max} ◇ Outfit allows."
+    },
+    "insert": {
+      "remove": "Remove",
+      "description": "Description",
+      "moves": "Moves",
+      "addMove": "Add move",
+      "startingMove": "Starts acquired (active when the insert is granted)",
+      "namePlaceholder": "Insert name",
+      "instinct": "Instinct",
+      "addInstinct": "Add instinct",
+      "removeInstinct": "Remove instinct",
+      "choices": "Choices",
+      "addChoices": "Add choices group"
+    },
+    "playbook": {
+      "tabs": {
+        "basics": "Basics",
+        "backgrounds": "Backgrounds",
+        "traits": "Traits",
+        "choices": "Choices",
+        "possessions": "Possessions",
+        "moves": "Moves",
+        "grants": "Grants",
+        "introductions": "Intro"
+      },
+      "namePlaceholder": "Playbook name",
+      "remove": "Remove",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "refMissing": "Not found — is the item in a loaded compendium or the world?",
+      "description": "Description",
+      "hp": "HP",
+      "damage": "Damage die",
+      "statsNote": "Stats note",
+      "startingMovesNote": "Starting moves note",
+      "backgrounds": "Backgrounds",
+      "addBackground": "Add background",
+      "backgroundLabel": "Background name",
+      "backgroundDescription": "Background description (markdown)",
+      "grantedMoves": "Granted moves",
+      "backgroundChoices": "Background choices",
+      "removeChoices": "Remove choices",
+      "addChoices": "Add choices group",
+      "origin": "Origin",
+      "addOrigin": "Add region",
+      "originRegion": "Region",
+      "originNames": "Names (one per line)",
+      "instinct": "Instinct",
+      "addInstinct": "Add instinct",
+      "appearance": "Appearance",
+      "addGroup": "Add group",
+      "removeGroup": "Remove group",
+      "choices": "Choices",
+      "possessions": "Special Possessions",
+      "enable": "Enable",
+      "pickCount": "Pick count",
+      "pickNote": "Pick note",
+      "possessionList": "Possessions",
+      "addPossession": "Add possession",
+      "preselected": "Starts selected (auto-added)",
+      "moves": "Moves",
+      "addMove": "Add move",
+      "startingMove": "Starts acquired at creation",
+      "startingHint": "Check a move to seed it acquired at character creation.",
+      "followers": "Followers",
+      "addFollower": "Add follower",
+      "inserts": "Inserts",
+      "addInsert": "Add insert",
+      "grantsHint": "Followers and inserts granted when this playbook is selected.",
+      "introStep3": "Step 3 (intro text)",
+      "introStep4": "Step 4 (NPC questions)",
+      "introStep6": "Step 6 (PC questions)"
+    },
+    "improvement": {
+      "namePlaceholder": "Improvement name",
+      "sortOrder": "Sort order",
+      "sortOrderPlaceholder": "Position in the catalog",
+      "choices": "Choices",
+      "edit": "Edit",
+      "done": "Done"
+    },
+    "steadfast": {
+      "namePlaceholder": "Steadfast name",
+      "startingValues": "Starting values",
+      "fortunes": "Fortunes",
+      "surplus": "Surplus",
+      "size": "Size",
+      "population": "Population",
+      "prosperity": "Prosperity",
+      "defenses": "Defenses",
+      "improvements": "Granted improvements",
+      "improvementsHint": "Drag improvement items here to grant them.",
+      "improvementsEmpty": "No improvements granted yet.",
+      "improvementRemove": "Remove"
+    },
+    "follower": {
+      "namePlaceholder": "Follower name",
+      "edit": "Edit",
+      "done": "Done",
+      "preview": "Preview",
+      "add": "Add",
+      "remove": "Remove",
+      "options": "Options",
+      "option": "option",
+      "default": "Default",
+      "defaultPlaceholder": "pre-selected, comma separated",
+      "choices": "Choices",
+      "membersNote": "Members note",
+      "suggestedTags": "Tag options",
+      "suggestedTraits": "Trait options",
+      "companion": "Animal companion",
+      "companionEnable": "This follower is an animal companion",
+      "companionAddType": "Add type",
+      "companionTypeName": "Type name (e.g. Bird)",
+      "companionPick": "Pick",
+      "companionVariants": "Variants",
+      "companionOptions": "Options",
+      "companionDefaults": "Starting options"
+    },
+    "possession": {
+      "namePlaceholder": "Special possession name",
+      "description": "Description",
+      "resource": "Resource",
+      "choices": "Choices",
+      "addChoices": "Add choices group",
+      "removeChoices": "Remove choices group",
+      "outfitItems": "Granted items",
+      "addOutfitItem": "Add item",
+      "itemName": "Name",
+      "itemWeight": "Wt",
+      "itemColumn": "Column",
+      "scaling": "Uses scaling",
+      "addScaling": "Add scaling",
+      "removeScaling": "Remove scaling",
+      "scalingNote": "Increases max uses of the resource above as the character advances.",
+      "perEvenLevel": "Per even level",
+      "perMove": "Per owned move",
+      "addPerMove": "Add move rule",
+      "moveSlug": "Move slug",
+      "amount": "Amount",
+      "remove": "Remove"
+    },
+    "arcana": {
+      "empty": "Drag arcana here from the Arcana compendium.",
+      "showFront": "Show Front",
+      "showBack": "Reveal Back",
+      "removeArcanum": "Remove",
+      "addToFollowers": "Add to followers",
+      "moves": "Moves",
+      "consequences": "Consequences"
+    },
+    "arcanum": {
+      "namePlaceholder": "Arcanum name",
+      "major": "Major arcanum",
+      "weight": "Weight",
+      "front": "Front",
+      "back": "Back",
+      "title": "Title",
+      "backTitle": "Mystery name",
+      "description": "Description",
+      "item": "Item",
+      "itemName": "Name",
+      "itemWeight": "Weight",
+      "itemTags": "Tags",
+      "itemNote": "Note",
+      "itemColumn": "Size",
+      "itemSameAsFront": "Same item as front",
+      "resource": "Resource",
+      "resourceMax": "Max",
+      "resourceTitle": "Title",
+      "resourceLabels": "Labels",
+      "unlock": "Unlock",
+      "choices": "Choices",
+      "moves": "Moves",
+      "consequences": "Consequences",
+      "unlockAt": "Unlock at",
+      "moveName": "Move name",
+      "moveSubtitle": "Requires / subtitle",
+      "moveText": "Move text (markdown)",
+      "moveFollower": "Follower slug (optional)",
+      "moveTracker": "Tracker",
+      "add": "Add",
+      "remove": "Remove",
+      "edit": "Edit",
+      "done": "Done",
+      "preview": "Live preview",
+      "showFront": "Show front",
+      "showBack": "Show back"
+    },
+    "inventory": {
+      "regularItems": "Items",
+      "supplies": {
+        "note": "Use supplies to Recover, Make Camp, or have extra <em>small</em> items."
+      },
+      "smallItems": "Small Items",
+      "smallItemsNote": "Fit in a pocket, pouch, or boot.<p>When you Outfit, mark □ below equal to 4+Prosperity.</p>",
+      "otherItems": "Other Items",
+      "otherItemsNote": "(animals, kits, stashed items, etc.)",
+      "addItem": "Add item",
+      "addSmallItem": "Add small item",
+      "addItemName": "Name",
+      "addItemWeight": "Weight",
+      "addItemConfirm": "Add",
+      "removeItem": "Remove",
+      "regularUndefinedPoolLabel": "Undefined",
+      "regularUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to ◇ below.",
+      "smallUndefinedPoolLabel": "Undefined",
+      "smallUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to items below, or expend supplies to mark an additional ◇.",
+      "outfit": {
+        "headingBefore": "When you ",
+        "moveName": "Outfit",
+        "headingAfter": ", mark a number of ◇ below on specific items or as a group.",
+        "marked": "{count} ◇ marked",
+        "markedHint": "Your load follows the ◇ you have marked — it is not chosen.",
+        "markedOver": "— more than the {max} ◇ Outfit allows",
+        "reset": "Reset",
+        "resetHint": "Unmark every ◇ and □ — your items and notes stay.",
+        "resetTitle": "Reset outfit",
+        "resetConfirm": "Clear your whole outfit? Every marked ◇ and □ goes back to unmarked.",
+        "light": "For a <strong>light load</strong> (<em>quick & quiet</em>), mark up to 3 ◆",
+        "normal": "For a <strong>normal load</strong>, mark 4–6 ◆",
+        "heavy": "For a <strong>heavy load</strong> (<em>noisy, slow, hot, quick to tire</em>), mark 7–9 ◆"
+      },
+      "prosperity": "Prosperity",
+      "prosperityLacking": "(lacking)",
+      "prosperityLackingNote": "The steading is <em>lacking</em>: treat Prosperity as if it's 1 lower than it is.",
+      "prosperityTable": {
+        "crude": "Gear is <em>crude</em>",
+        "piercing1": "<em>x</em> = 1 piercing",
+        "piercing2": "<em>x</em> = 2 piercing"
+      }
+    },
+    "outfitItem": {
+      "namePlaceholder": "Item name",
+      "weight": "Weight",
+      "weightHint": "Weight is how many diamonds the row shows — 0 for a weightless item.",
+      "value": "Value",
+      "valueNone": "—",
+      "valueHint": "Value is what you subtract when you Trade & Barter for the item.",
+      "column": "Column",
+      "columnRegular": "Regular",
+      "columnSmall": "Small items",
+      "qualifier": "Qualifier",
+      "qualifierPlaceholder": "e.g. iron, ~25 ft",
+      "tags": "Tags",
+      "tagsPlaceholder": "hand, thrown, near",
+      "note": "Note",
+      "notePlaceholder": "Parenthetical shown after the name",
+      "armor": "Armor",
+      "addArmor": "Add armor",
+      "removeArmor": "Remove armor",
+      "armorHint": "While carried: the highest base among your items, plus every modifier.",
+      "armorBase": "Base",
+      "armorModifier": "Modifier",
+      "edit": "Edit",
+      "done": "Done"
+    },
+    "settings": {
+      "autoCreateResidentActors": {
+        "name": "Create NPC Actors For The Roster",
+        "hint": "When a resident or neighbor is given a name, create an NPC actor for them under NPCs/<location> and link it. The actors are created by the GM's client, so nothing happens while no GM is connected — use the buttons on the steading sheet to catch up."
+      },
+      "hideRollMode": {
+        "name": "Hide Roll Mode",
+        "hint": "Hide the roll mode selector (advantage/disadvantage) from character sheets."
+      },
+      "debugMode": {
+        "name": "Debug Mode",
+        "hint": "Enable debug logging in the browser console."
+      },
+      "expandMoveDescriptions": {
+        "name": "Expand Move Descriptions",
+        "hint": "Show move descriptions expanded by default on character sheets."
+      },
+      "defaultSheetTab": {
+        "name": "Default Sheet Tab",
+        "hint": "Which tab the character sheet opens to by default.",
+        "moves": "Moves",
+        "gear": "Gear",
+        "biography": "Biography"
+      },
+      "artInstaller": {
+        "name": "Book Artwork",
+        "label": "Install Artwork",
+        "hint": "Extract the illustrations from your own Stonetop PDFs and install them for this server."
+      }
+    },
+    "artInstaller": {
+      "title": "Install Book Artwork",
+      "intro": "The compendium can show the illustrations from the Stonetop books, but the illustrations are copyrighted and aren't shipped with the system. If you own the PDFs, select them below — Book II: The Wider World and Other Wonders and Book I: Stonetop. Use the \"spreads\" (two-page) editions of the PDFs: the single-page versions split the artwork that spans facing pages, so much of it can't be recognized.",
+      "chooseLabel": "Book PDF(s)",
+      "install": "Install Artwork",
+      "noFiles": "Select at least one Stonetop book PDF first.",
+      "starting": "Reading PDF…",
+      "progress": "File {file} of {files} — page {page} of {pages} — {found} illustrations found",
+      "installed": "Installed {count} illustrations.",
+      "missing": "{count} referenced images weren't found — selecting both books usually completes the set.",
+      "reopenHint": "Reopen any sheets or journal pages to see the artwork.",
+      "alreadyInstalled": "Artwork is already installed for this server. Installing again just refreshes the files.",
+      "dismissNudge": "Don't remind me",
+      "nudge": "Stonetop: the book illustrations aren't installed. If you own the PDFs, use Settings → Configure Settings → Stonetop → Install Artwork to add them."
+    },
+    "migration": {
+      "failed": "Stonetop: migration failed for {names}. Their sheets may show out-of-date content. See the console (F12) for the error; the migration will be retried the next time the world loads.",
+      "stalePacks": "Stonetop: Looks like the compendium didn't update. Please uninstall and reinstall the system for the latest compendium data."
+    },
+    "staleClient": "Stonetop {installed} is installed, but your browser is still running {loaded}. Press Ctrl+Shift+R (Cmd+Shift+R on macOS) to load the update — until you do, character sheets may fail to open.",
+    "rollResults": {
+      "miss": "Miss",
+      "weakHit": "Weak Hit",
+      "strongHit": "Strong Hit!",
+      "xpMarked": "You mark XP.",
+      "xpUndo": "Undo",
+      "xpMark": "Mark XP"
+    },
+    "npc": {
+      "hitPoints": "Hit Points",
+      "armor": "Armor",
+      "instinct": "Instinct"
+    },
+    "character": {
+      "stats": {
+        "sectionTitle": "Stats",
+        "strength": "Strength",
+        "dexterity": "Dexterity",
+        "intelligence": "Intelligence",
+        "wisdom": "Wisdom",
+        "constitution": "Constitution",
+        "charisma": "Charisma",
+        "abbr": {
+          "str": "+STR",
+          "dex": "+DEX",
+          "con": "+CON",
+          "int": "+INT",
+          "wis": "+WIS",
+          "cha": "+CHA"
+        },
+        "desc": {
+          "str": "Your physical power and your ability to use it. Roll +STR to Clash, or to Defy Danger with raw might or power.",
+          "dex": "Your grace and fine motor control. Roll +DEX to Let Fly, or to Defy Danger with speed, agility, finesse.",
+          "int": "Your memory, learning, and quick thinking. Roll +INT to Know Things, or to Defy Danger via expertise or with a clever plan.",
+          "wis": "Your intuition, self-control, and awareness. Roll +WIS to Seek Insight, or when you rely on your willpower or senses to Defy Danger.",
+          "con": "Your stamina, grit, determination, and endurance. Roll +CON to Defend, or to Defy Danger by holding steady or enduring hardship.",
+          "cha": "Your ability to charm and connect with others, and to get a read on what others want. Roll +CHA to Persuade, or to Defy Danger socially."
+        }
+      },
+      "debilities": {
+        "desc": {
+          "weakened": "Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.",
+          "dazed": "Out of it, befuddled, not thinking clearly. Take disadvantage when rolling +INT or +WIS.",
+          "miserable": "Greatly distressed, angry, unwell, in pain. Take disadvantage when rolling +CON or +CHA."
+        }
+      },
+      "attributes": {
+        "damage": "Damage",
+        "armor": "Armor",
+        "xp": "XP",
+        "desc": {
+          "xp": "Short for “experience points.” You start with no XP. You mark XP when you roll for a move and get a 6- (unless the move says otherwise); as part of the End of Session move; and when another move says so."
+        },
+        "level": "Level",
+        "source": {
+          "hp": "Max HP {max} comes from your playbook, {playbook}.",
+          "hpManual": "Manually set to {max}. Your playbook, {playbook}, grants {playbookMax}.",
+          "hpNoPlaybook": "Manually set to {max}. Pick a playbook to inherit its max HP.",
+          "damage": "Damage die {die} comes from your playbook, {playbook}. It's rolled on its own — add anything moves or the fiction grant.",
+          "damageManual": "Manually set to {die}. Your playbook, {playbook}, grants {playbookDie}.",
+          "damageNoPlaybook": "Manually set to {die}. Pick a playbook to inherit its damage die.",
+          "damageUnsetWithPlaybook": "No damage die set. Your playbook, {playbook}, grants {playbookDie}.",
+          "damageUnset": "No damage die set. Pick a playbook to inherit its damage die.",
+          "armor": "Armor {value} from your checked gear: {items}. Only the highest base counts, plus every modifier.",
+          "armorManual": "Manually set to {armor}. Your checked gear adds up to {value}: {items}.",
+          "armorManualOnly": "Manually set to {armor}. No checked item grants armor.",
+          "armorNone": "No checked item grants armor.",
+          "armorBaseItem": "{name} {amount} (base)",
+          "armorModifierItem": "{name} {amount}"
+        }
+      },
+      "gear": {
+        "specialPossessions": "Special Possessions"
+      },
+      "moveTypes": {
+        "background": "Background"
+      },
+      "moves": {
+        "pickTitle": "Choose Starting Moves",
+        "pickInstruction": "Pick up to {count} moves to start with.",
+        "playbookMoves": "Playbook Moves",
+        "basicMoves": "Basic Moves",
+        "otherMoves": "Other Moves",
+        "addMove": "Add Move",
+        "removeMove": "Remove Move",
+        "sendToChat": "Send to Chat",
+        "openSource": "Open this move's item sheet",
+        "open": "Open the move",
+        "requires": "Requires",
+        "notMet": "Not Met",
+        "lockHint": "Show only the moves this character has taken.",
+        "unlockHint": "Show every move again, to take new ones."
+      },
+      "selection": {
+        "select": "Select",
+        "cancel": "Cancel",
+        "choosePlaceholder": "Choose {label}…",
+        "chooseOne": "(Choose 1)",
+        "background": {
+          "label": "Background",
+          "dialogTitle": "Choose Background"
+        },
+        "instinct": {
+          "label": "Instinct",
+          "dialogTitle": "Choose Instinct",
+          "customPlaceholder": "Write your own instinct…"
+        },
+        "appearance": {
+          "label": "Appearance",
+          "dialogTitle": "Choose Appearance",
+          "instruction": "Choose 1 on each line, or make something up:"
+        },
+        "origin": {
+          "label": "Origin",
+          "dialogTitle": "Choose Origin",
+          "namesLabel": "Names",
+          "instruction": "Stonetop is your home, or close enough, but where are you (or your family) from originally? Pick 1 and a name to match (or make up something similar)."
+        }
+      }
+    },
+    "item": {
+      "move": {
+        "namePlaceholder": "Move Name",
+        "rollStat": {
+          "none": "— No Roll —",
+          "ask": "Ask (player chooses)",
+          "prompt": "Prompt (no roll)",
+          "fortunes": "Fortunes (steading)",
+          "prosperity": "Prosperity (steading)",
+          "population": "Population (steading)",
+          "defenses": "Defenses (steading)",
+          "favor": "Favor (Thrall)",
+          "omens": "Omens (Destined)"
+        },
+        "moveType": {
+          "none": "— Type —",
+          "basic": "Basic",
+          "expedition": "Expedition",
+          "homefront": "Homefront",
+          "seasons": "Seasons Change",
+          "special": "Special",
+          "follower": "Follower",
+          "other": "Other"
+        },
+        "results": {
+          "successPlaceholder": "What happens on a 10+…",
+          "partialPlaceholder": "What happens on a 7-9…",
+          "failurePlaceholder": "What happens on a 6-…"
+        },
+        "details": {
+          "repeatMax": "Checkboxes"
+        }
+      }
+    },
+    "a11y": {
+      "track": "Track",
+      "trackPip": "{name} {position} of {total}",
+      "actorName": "Name",
+      "statValue": "{stat} score",
+      "hpCurrent": "Current HP",
+      "hpMax": "Maximum HP",
+      "xpCurrent": "Current XP",
+      "xpMax": "XP needed to level",
+      "damageDie": "Damage die",
+      "notes": "Notes",
+      "carried": "Carried",
+      "addTag": "Add tag",
+      "followerName": "Follower name",
+      "memberName": "Member name",
+      "memberHp": "Member current HP",
+      "memberHpMax": "Member maximum HP",
+      "carriedDiamond": "Carried — mark to use",
+      "possessionTaken": "Taken",
+      "instinctCustom": "Custom instinct",
+      "otherItems": "Other items carried",
+      "choiceFill": "Fill in this choice",
+      "supplies": "Supplies {position}",
+      "smallItems": "Small item slot {position}",
+      "steadingName": "Steading name",
+      "surplus": "Surplus",
+      "ratingValue": "{rating} rating",
+      "rollRating": "Roll {rating}",
+      "rollMove": "Roll {name}",
+      "steadingTabs": "Steading sections",
+      "npcTraits": "Traits",
+      "assetItem": "Asset",
+      "placeField": "Place of interest",
+      "ratingExtra": "Rating note",
+      "playbookSelect": "Playbook",
+      "optionType": "Option type",
+      "inventoryColumn": "Inventory column",
+      "moveType": "Move type",
+      "rollStat": "Roll stat",
+      "choiceText": "Choice text",
+      "choicePick": "Choose this option",
+      "listItem": "List item",
+      "contentText": "{section} text",
+      "moveTaken": "Taken",
+      "edit": "Edit",
+      "personName": "Villager name",
+      "personHome": "Home",
+      "personOccupation": "Occupation",
+      "personTraits": "Traits, relations, etc.",
+      "folkSearch": "Search the roster",
+      "suggestionUsed": "already used —",
+      "assetRequisitioned": "Requisitioned"
+    },
+    "tagGlossary": {
+      "general": {
+        "area": "affects everything in an area.",
+        "awkward": "unwieldy, requires space, gets stuck.",
+        "crude": "prone to break, wear out, stop working, etc.",
+        "cumbersome": "you’re noisy, slow, hot, and quick to tire while carrying it, even without a heavy load (and if you have a heavy load, it’s worse).",
+        "dangerous": "causes trouble and collateral damage if you aren’t careful (and maybe if you are).",
+        "forceful": "can knock someone around, maybe even off their feet.",
+        "fragile": "easy to break/ruin; pack it carefully.",
+        "immobile": "you can’t really carry it on your person; you need a beast or vehicle to transport it.",
+        "messy": "does particularly destructive damage, ripping people and things apart.",
+        "reload": "after it’s used, it takes time/effort to reset.",
+        "slow": "takes minutes or more to use; unlikely to be useful in a fight.",
+        "thrown": "you can Let Fly with it (at near range).",
+        "warm": "will keep you warm in cold weather, but it’s uncomfortable and exhausting (and possibly dangerous) in hot weather."
+      },
+      "range": {
+        "hand": "tight quarters; up close and personal.",
+        "close": "melee range, 1-2 steps away.",
+        "reach": "3-4 steps away.",
+        "near": "up to 30 or so steps away.",
+        "far": "quite the distance; up to 100 steps, maybe more."
+      },
+      "artifact": {
+        "beautiful": "draws attention, makes some people want it",
+        "fireproof": "unharmed by heat or flame",
+        "implanted": "it’s part of you, or must become so before you can use it",
+        "indestructible": "can’t be broken or marred by mundane force or art",
+        "loud": "makes a lot of noise",
+        "magical": "imbued with unnatural power",
+        "terrifying": "people and beasts freak out in its presence"
+      }
+    },
+    "advice": {
+      "fortunes": {
+        "title": "increase Fortunes"
+      },
+      "surplus": {
+        "title": "gain Surplus"
+      },
+      "defenses": {
+        "title": "improve Defenses"
+      },
+      "population": {
+        "title": "increase Population"
+      },
+      "prosperity": {
+        "title": "improve Prosperity"
+      },
+      "steadingImprovement": {
+        "title": "unlock a steading improvement"
+      },
+      "coin": {
+        "title": "get some coin"
+      },
+      "arcana": {
+        "title": "find new arcana"
+      },
+      "arcanumMystery": {
+        "title": "unlock the mysteries of an arcanum"
+      },
+      "followers": {
+        "title": "recruit followers"
+      }
+    }
+  }
 }

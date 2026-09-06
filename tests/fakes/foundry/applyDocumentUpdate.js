@@ -27,6 +27,14 @@ export function applyDotPath(target, path, value) {
 		obj = obj[parts[i]];
 	}
 	const leaf = parts[parts.length - 1];
+	// `{"system.bag.-=key": null}` — the dot-path spelling of the same deletion mergeValue handles
+	// inside an object. Without this the fake stores a literal key called "-=key" and the deletion
+	// silently does nothing here while working in the game, which is the wrong way round for a fake
+	// to be wrong: the test passes and the feature is untested.
+	if (leaf.startsWith("-=")) {
+		delete obj[leaf.slice(2)];
+		return;
+	}
 	obj[leaf] = mergeValue(obj[leaf], value);
 }
 

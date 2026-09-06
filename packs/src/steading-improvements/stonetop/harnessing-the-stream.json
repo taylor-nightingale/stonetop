@@ -56,13 +56,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus."
-          }
         }
       ]
     },
@@ -119,7 +112,7 @@
           "amount": 1
         },
         "condition": "you roll a 7+ with Fortunes",
-        "text": "when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus"
+        "text": "the steading generates 1 Surplus"
       }
     ]
   },

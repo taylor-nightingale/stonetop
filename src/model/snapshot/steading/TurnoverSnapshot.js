@@ -6,8 +6,7 @@ import { rich } from "../RichText.js";
  * steading has not built.
  */
 export class TurnoverSnapshot {
-	constructor({ season, next, year, wheel, impression = "", statement = null, applied = false,
-	              moments = [] }) {
+	constructor({ season, next, year, wheel, impression = "", statement = null, moments = [] }) {
 		this.season  = season;          // SeasonSnapshot — the current one
 		// The season the wheel turns to. Carried because turning it is not an abstract act: you roll
 		// that season's own Seasons Change move, and the tab has to put the two together.
@@ -19,9 +18,6 @@ export class TurnoverSnapshot {
 		this.wheel   = wheel;           // SeasonSnapshot[] — all four, in the book's order
 		// What everything Stonetop has built does this season, as one reviewable statement.
 		this.statement = statement;
-		// Whether it has already been written. The guard exists because six people share this sheet
-		// and the second person to press Apply must not pay the season twice.
-		this.applied   = applied;
 		// The named points WITHIN this season at which something built fires — the autumn harvest, the
 		// aurochs hunt. Separate from the statement above because they are separate acts: the wheel
 		// turning is not the harvest coming in, and a mill paid out the moment autumn arrived would be
@@ -30,6 +26,15 @@ export class TurnoverSnapshot {
 	}
 
 	get hasClauses() { return Boolean(this.statement && !this.statement.isEmpty); }
+
+	/**
+	 * Everything this season owed has been written.
+	 *
+	 * Asked of the statement rather than stored, now that each line records itself: a separate "the
+	 * turn was applied" flag could disagree with the lines it claims to summarise, and on a sheet six
+	 * people share the one that is wrong is the one that gets believed.
+	 */
+	get applied() { return Boolean(this.statement?.isFullyApplied); }
 
 	get hasMoments() { return this.moments.length > 0; }
 }
@@ -41,14 +46,17 @@ export class TurnoverSnapshot {
  * calendar tells it. The table says so, by applying the moment. So this is an offer, not a schedule.
  */
 export class MomentSnapshot {
-	constructor({ moment, statement, applied = false }) {
+	constructor({ moment, statement }) {
 		this.key       = moment.key;
 		this.labelKey  = moment.labelKey;
 		this.statement = statement;
-		// Applied once per season, and cleared when the wheel turns — an autumn harvest is owed again
-		// next autumn.
-		this.applied   = applied;
 	}
+
+	/**
+	 * Written, and not owed again until the wheel comes round — the per-line records live in the
+	 * season-scoped store, which is cleared on the turn.
+	 */
+	get applied() { return Boolean(this.statement?.isFullyApplied); }
 
 	/** The move this moment hands the table to roll, if any — the hunt is led by rolling it. */
 	get moveSlug() {

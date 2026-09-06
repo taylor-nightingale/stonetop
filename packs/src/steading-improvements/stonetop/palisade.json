@@ -67,13 +67,6 @@
           "track": {
             "max": 1
           }
-        },
-        {
-          "type": "entry",
-          "content": {
-            "title": null,
-            "text": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.\n\nHenceforth, when you take advantage of the palisade, you have advantage to Deploy."
-          }
         }
       ]
     },
