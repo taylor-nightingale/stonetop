@@ -1527,6 +1527,12 @@ body,
    JS knows the side, so a third sheet gets a rail by writing `data-side` and nothing else. */
 
 .stonetop-rail-layout {
+	/* The rail's width, declared once because the TOGGLE is placed off it too — open, the button
+	   rides the rail's own inner edge, and a second copy of this number is a button that drifts off
+	   that edge the moment either is touched. The drawer overrides it below. */
+	--rail-width: 220px;
+	/* How wide the rail is once it is folded against the sheet's edge. */
+	--rail-strip: 26px;
 	display: flex;
 	align-items: flex-start;
 	gap: 16px;
@@ -1562,16 +1568,12 @@ body,
 }
 
 .stonetop-rail {
-	width: 220px;
+	width: var(--rail-width);
 	flex-shrink: 0;
 	/* Override the layout's `align-items: flex-start` so the rail + its rule span the full sheet
 	   height instead of stopping at the current tab's content. */
 	align-self: stretch;
 	overflow-y: auto;
-	/* The toggle sits in this corner at every width now, so the rail reserves the strip it occupies
-	   rather than putting its first row underneath the control that closes it. Same reservation the
-	   drawer makes below, for the same reason. */
-	padding-top: 32px;
 }
 
 /* The rule sits between the rail and the tab, whichever side that is. `order` is what puts a
@@ -1589,7 +1591,7 @@ body,
 	padding-right: 12px;
 }
 
-/* The toggle, at every width.
+/* The toggle, at every width — and one button that changes SHAPE, never a second control appearing.
 
    A rail is a column of the sheet the reader may simply not want right now — the arches and the
    homefront moves while reading the roster, the move index while shopping — and "you may put it
@@ -1597,28 +1599,120 @@ body,
    the control is always there, and what changes with the width is only what the rail DOES when it
    is showing: an inline column above the breakpoint, an overlay drawer below it.
 
-   Absolutely positioned in the layout's own corner, which is the rail's top corner while the rail is
-   inline and the tab's while it is not. Everything that lives in that corner steps aside by the
-   gutter below rather than by hard-coding this button's size in four places. */
+   OPEN it is a pill riding the rail's inner edge, in the channel the layout already leaves empty
+   there — the rail's 12px padding, its rule, and the layout's 16px gap, 29px of nothing running the
+   full height. Sitting in it, the button covers no content, so the rail spends no height reserving
+   a strip for it and its first row starts at the top.
+
+   SHUT the same button becomes the rail folded against the sheet's edge: a full-height strip
+   carrying the rail's mark and its name, so a put-away rail leaves something that says what it is
+   rather than a lone glyph in a corner. Foundry's own journal sheet collapses its sidebar to a stub
+   for the same reason, and the strip is NARROWER than the gutter the lone button used to need.
+
+   The two shapes are the custom properties below, declared once each; the state rules only say
+   which shape applies. `.rail-open` and `.rail-shut` mean the same thing at both widths, so only
+   the untouched state — open inline, shut as a drawer — has to ask the width at all. */
 .stonetop-rail-toggle {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+	/* The pill, which is also the base: an untouched rail is open at the width that has no query. */
+	--rail-toggle-x: calc(var(--rail-width) - 13px);  /* centred on the rail's own rule */
+	--rail-toggle-bottom: auto;
+	--rail-toggle-height: 26px;
+	--rail-toggle-radius: 4px;
+	--rail-toggle-justify: center;
+	--rail-toggle-paper: none;
+	/* What only the folded strip shows: open, the rail is there to be looked at and needs no caption. */
+	--rail-toggle-fold: none;
+	/* Which way the caret points: 1 at the rail (close), -1 away from it (open). Multiplied by the
+	   side below, so neither has to know about the other. */
+	--rail-toggle-caret: 1;
+
 	position: absolute;
 	top: 2px;
+	bottom: var(--rail-toggle-bottom);
 	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: var(--rail-toggle-justify);
+	gap: 6px;
 	/* 24px is the SC 2.5.8 floor; this clears it with the border included. */
-	width: 26px;
-	height: 26px;
-	padding: 0;
+	width: var(--rail-strip);
+	height: var(--rail-toggle-height);
+	padding: 4px 0;
 	line-height: 1;
 	border: 1px solid var(--st-rule);
-	border-radius: 4px;
-	background: var(--st-paper);
+	border-radius: var(--rail-toggle-radius);
+	background: var(--st-paper) var(--rail-toggle-paper);
+	background-blend-mode: var(--st-paper-blend);
 	cursor: pointer;
+	overflow: hidden;
+	/* Named properties, because core gives every button `transition: 0.5s` — which is ALL of them,
+	   this button's `left` included. Opening the rail moved the column at once and then sailed the
+	   caret across the tab for half a second behind it, over content that had already reflowed. The
+	   control has to arrive with the thing it moved. */
+	transition: color 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
 }
-.stonetop-rail-layout[data-side="right"] .stonetop-rail-toggle { right: 2px; }
-.stonetop-rail-layout[data-side="left"]  .stonetop-rail-toggle { left: 2px; }
+
+/* Folded. Both selectors mean shut: `.rail-shut` is the reader's own answer, and at a drawer's width
+   an untouched rail is shut too — which is what the narrow query's `:not(.rail-open)` adds. */
+.stonetop-rail-layout.rail-shut .stonetop-rail-toggle {
+	--rail-toggle-x: 0px;
+	--rail-toggle-bottom: 0;
+	--rail-toggle-height: auto;
+	--rail-toggle-radius: 0;
+	--rail-toggle-justify: flex-start;
+	--rail-toggle-paper: var(--st-paper-image);
+	--rail-toggle-fold: flex;
+	--rail-toggle-caret: -1;
+}
+
+/* Which edge, and which way "at the rail" is from it. The sign is the whole of what the side means
+   to the caret; `data-side` stays the only thing that knows. */
+.stonetop-rail-layout[data-side="right"] .stonetop-rail-toggle { right: var(--rail-toggle-x); --rail-toggle-side: -1; }
+.stonetop-rail-layout[data-side="left"]  .stonetop-rail-toggle { left:  var(--rail-toggle-x); --rail-toggle-side: 1; }
+
+/* The rail is the reader's to push away, and a button that never changes cannot say so. A caret
+   that points where the rail is about to go says it without a word — and it is the same control
+   in both states, so it reads as one thing moving rather than two buttons. */
+.stonetop-rail-caret {
+	transform: scaleX(calc(var(--rail-toggle-caret) * var(--rail-toggle-side)));
+}
+
+/* The mark and the name together, and the ONE element whose display the state switches.
+   A wrapper rather than the two of them each asking: Font Awesome's `.fas { display: inline-block }`
+   is unlayered, and every rule in this file is inside `@layer system` — so an `<i>` told to be
+   `display: none` here is still drawn, at any specificity, and the archway sat in the open pill
+   beside the caret. A plain span is nobody else's business. */
+.stonetop-rail-fold {
+	display: var(--rail-toggle-fold);
+	/* Sized to the marks, never to the strip: stretched, they spread down whatever height the sheet
+	   happens to have and stop reading as one cluster with the caret. */
+	flex: 0 1 auto;
+	flex-direction: column;
+	align-items: center;
+	gap: 7px;
+	min-height: 0;
+	overflow: hidden;
+}
+
+/* What is folded away, said in the rail's own furniture: the arch the book crowns Fortunes and
+   Surplus with, and the die you roll a homefront move on. A caption set on its side said the same
+   thing in more words and read as a spine on a shelf; these are the marks the rail's own contents
+   already wear, which is what makes the strip legible as THAT rail rather than as a drawer. */
+.stonetop-rail-mark {
+	color: var(--st-ink-soft);
+	font-size: var(--fs-body);
+}
+
+.stonetop-rail-toggle:hover,
+.stonetop-rail-toggle:focus-visible {
+	border-color: var(--st-accent);
+	color: var(--st-accent);
+}
+
+.stonetop-rail-toggle:hover .stonetop-rail-mark {
+	color: inherit;
+}
 
 .stonetop-rail-toggle > i {
 	margin: 0;
@@ -1639,35 +1733,37 @@ body,
 	.stonetop.sheet .stonetop-rail-layout.rail-shut > .stonetop-rail {
 		display: none;
 	}
+
+	/* A shadow off the inner edge, which is the drawer's own — dialled down, because this one is
+	   resting on the sheet rather than floating over it. It is what says an OPEN rail is a layer you
+	   can push away: an inline column that meets the tab at a hairline rule reads as part of the
+	   page, and nothing about it suggests it goes anywhere. Mirrored, like everything `data-side`
+	   touches. */
+	.stonetop-rail-layout[data-side="left"]:not(.rail-shut) > .stonetop-rail {
+		box-shadow: 5px 0 12px -7px var(--st-shadow);
+	}
+	.stonetop-rail-layout[data-side="right"]:not(.rail-shut) > .stonetop-rail {
+		box-shadow: -5px 0 12px -7px var(--st-shadow);
+	}
 }
 
-/* How much room the toggle takes out of the corner it is in. Zero while it sits over the RAIL —
-   the rail reserves its own strip — and a button's width once it sits over the tab instead, which
-   is what a shut rail at any width and a drawer at a narrow one both mean. */
+/* How much room the strip takes out of the tab. Zero while the rail is open — the button is out in
+   the channel beside it, over nothing — and the strip's own width once it is folded against the tab
+   instead, which is what a shut rail at any width and a drawer at a narrow one both mean. */
 /* Declared on the region BESIDE the rail rather than on the layout: everything that spends the
    gutter is inside it, and the narrow case below is an unnamed container query — which binds to the
    nearest ancestor container. From the layout that is the sheet wrapper (a different width); from
    the region it is the layout itself, which is the thing whose width the breakpoint is about. */
 .stonetop-rail-layout > .stonetop-rail-main { --rail-toggle-gutter: 0px; }
-.stonetop-rail-layout.rail-shut > .stonetop-rail-main { --rail-toggle-gutter: 32px; }
+.stonetop-rail-layout.rail-shut > .stonetop-rail-main { --rail-toggle-gutter: calc(var(--rail-strip) + 6px); }
 
-/* A left-hand rail opens ABOVE its sheet's masthead, so its toggle lands in the top-left corner —
-   which on the steading is exactly where the name is. It sat on top of the name, both at the same
-   origin, and read as a smudge on the word. The band steps aside for it instead. */
-.stonetop-rail-layout[data-side="left"] > .stonetop-rail-main > .steading-line {
-	padding-left: var(--rail-toggle-gutter);
-}
-
-/* Everything else that lives in that corner of a tab — the insert controls, and the tab toolbars
-   pinned there. Both are on the right-hand rail's sheet. */
-.stonetop-rail-layout[data-side="right"] .stonetop-insert-actions {
-	padding-right: var(--rail-toggle-gutter);
-}
-
-.stonetop-rail-layout[data-side="right"] .stonetop-moves-toolbar,
-.stonetop-rail-layout[data-side="right"] .stonetop-playbook-toolbar {
-	right: var(--rail-toggle-gutter);
-}
+/* Spent by the whole region, not by the handful of things that used to share the corner with a
+   26px button. A strip runs the sheet's full height, so EVERY line of the tab is against it — and
+   padding three named controls left the resource list, the fortifications and the assets each
+   missing their first characters under it. A column of text that starts underneath the furniture is
+   the thing this had to stop doing; the region steps aside once and nothing inside it has to know. */
+.stonetop-rail-layout[data-side="left"] > .stonetop-rail-main { padding-left: var(--rail-toggle-gutter); }
+.stonetop-rail-layout[data-side="right"] > .stonetop-rail-main { padding-right: var(--rail-toggle-gutter); }
 
 /* Narrow layout: the rail stops being an inline column and becomes an overlay the toggle slides out
    on top of the current tab, so the tab content gets the full width by default. */
@@ -1675,23 +1771,39 @@ body,
 	/* The tab is under the toggle whichever way the rail is set, so the gutter is spent here at every
 	   state. Same specificity as the base declaration and later in the file, so it wins; `.rail-shut`
 	   above it is more specific still and agrees. */
-	.stonetop-rail-layout > .stonetop-rail-main { --rail-toggle-gutter: 32px; }
+	.stonetop-rail-layout > .stonetop-rail-main { --rail-toggle-gutter: calc(var(--rail-strip) + 6px); }
+
+	/* A drawer is wider than a column, and capped so it never takes the whole sheet. Both consumers
+	   are told, because the layout that declares the token is the container these queries ask about
+	   and a container cannot restyle itself — and the toggle rides this edge, so a drawer measured
+	   one way and a button placed the other is a button floating in the middle of the tab. */
+	.stonetop-rail,
+	.stonetop-rail-toggle { --rail-width: min(240px, 85%); }
+
+	/* Untouched, a drawer is shut — so at this width the strip is what "no class at all" looks like.
+	   `:not(.rail-open)` covers `.rail-shut` too, and says the same thing it does. */
+	.stonetop-rail-layout:not(.rail-open) .stonetop-rail-toggle {
+		--rail-toggle-x: 0px;
+		--rail-toggle-bottom: 0;
+		--rail-toggle-height: auto;
+		--rail-toggle-radius: 0;
+		--rail-toggle-justify: flex-start;
+		--rail-toggle-paper: var(--st-paper-image);
+		--rail-toggle-fold: flex;
+		--rail-toggle-caret: -1;
+	}
 
 	.stonetop-rail {
 		position: absolute;
 		top: 0;
 		/* Stretch to the full sheet height like the wide layout (no internal scroll cap). */
 		height: 100%;
-		width: 240px;
-		max-width: 85%;
 		z-index: 4;
 		margin: 0;
-		/* The top strip is the toggle's: 2px inset + a 26px button, and enough clearance after it that
-		   the rail's first row does not crowd the control that opened it. */
-		padding: 36px 12px 12px;
+		padding: 12px;
 		background: var(--st-paper) var(--st-paper-image);
 		background-blend-mode: var(--st-paper-blend);
-		transition: transform 0.2s ease;
+		transition: transform 0.12s ease-out;
 	}
 	.stonetop-rail-layout[data-side="right"] .stonetop-rail {
 		right: 0;
@@ -5814,8 +5926,9 @@ button.stonetop-xp-toggle {
    The shared rail, carrying the arch pair and the homefront moves. Everything about the collapse is
    the shared component's; what is here is only what this rail holds. */
 
-/* No padding of its own: as a drawer the shared rail reserves the top strip its toggle sits in, and
-   a `padding-top` here — even 0.1rem — out-specifies that and puts the arches over the button. */
+/* No padding of its own: what a rail is inset by is the shared component's business — a drawer and
+   a column are inset differently — and this rail's business is only what it holds. The arches take
+   the top of it: the toggle is out in the channel at the rail's other edge, over nothing. */
 .stonetop.sheet.steading .steading-rail {
 	display: flex;
 	flex-direction: column;

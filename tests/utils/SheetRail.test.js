@@ -13,7 +13,9 @@ function layout({ open = false, side = "left" } = {}) {
 	root.innerHTML = `
 		<div class="stonetop-rail-layout${open ? " rail-open" : ""}" data-side="${side}">
 			<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
-			        aria-expanded="${open}" aria-controls="rail">Rail</button>
+			        aria-expanded="${open}" aria-controls="rail"
+			        data-label-show="Show the rail" data-label-hide="Hide the rail"
+			        title="Show the rail" aria-label="Show the rail">Rail</button>
 			<div class="stonetop-rail" id="rail">
 				<span>not focusable</span>
 				<button type="button" class="first">Fortunes</button>
@@ -221,5 +223,36 @@ describe("what the toggle announces", () => {
 		drawer(el);
 		new RailState().restore(document.body);
 		expect(toggle.getAttribute("aria-expanded")).toBe("false");
+	});
+
+	// A control named for the thing it acts on says nothing about what pressing it does — which is
+	// what a rail toggle labelled "Arches and homefront moves" was. The verb comes off the button,
+	// so each sheet words its own and this file stays out of the localisation business.
+	it("names the button for what pressing it will do", () => {
+		const { el, toggle } = layout();
+		const rail = new SheetRail(el);
+		rail.open();
+		expect(toggle.getAttribute("aria-label")).toBe("Hide the rail");
+		expect(toggle.getAttribute("title")).toBe("Hide the rail");
+		rail.close();
+		expect(toggle.getAttribute("aria-label")).toBe("Show the rail");
+		expect(toggle.getAttribute("title")).toBe("Show the rail");
+	});
+
+	// The width decides the untouched state, so the label the template shipped is right at one width
+	// and wrong at the other — the same correction aria-expanded needs, and at the same moment.
+	it("corrects the shipped label for what the width turned out to mean", () => {
+		const { toggle } = layout();
+		new RailState().restore(document.body);
+		expect(toggle.getAttribute("aria-label")).toBe("Hide the rail");
+	});
+
+	it("leaves the label alone on a toggle that carries no wording", () => {
+		const { el, toggle } = layout();
+		delete toggle.dataset.labelShow;
+		delete toggle.dataset.labelHide;
+		new SheetRail(el).open();
+		expect(toggle.getAttribute("aria-label")).toBe("Show the rail");
+		expect(toggle.getAttribute("aria-expanded")).toBe("true");
 	});
 });

@@ -43,6 +43,8 @@
         "notes": "Notes"
       },
       "collapseTop": "Collapse / expand header",
+      "railShow": "Show the moves rail",
+      "railHide": "Hide the moves rail",
       "notes": {
         "bio": "Bio",
         "notes": "Notes"
@@ -99,7 +101,8 @@
         "prosperity": "Pros",
         "defenses": "Def"
       },
-      "rail": "Arches and homefront moves",
+      "railShow": "Show Fortunes, Surplus and homefront moves",
+      "railHide": "Hide Fortunes, Surplus and homefront moves",
       "headings": {
         "npcTraits": "NPC Traits",
         "npcTraitsNote": "Assign as needed; choose from this list or make up your own.",

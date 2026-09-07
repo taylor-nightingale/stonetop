@@ -330,9 +330,11 @@ describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
 	});
 
 	// The point of stacking: the roster's own columns stop being unusable. A name cell narrower than
-	// the delete button beside it is a roster you cannot read a name in.
+	// the delete button beside it is a roster you cannot read a name in. The floor is a readability
+	// one, not a measurement: a folded rail takes a real strip out of this width now, so the cell is
+	// some px narrower than it was and still holds a name.
 	it("gives the roster's name cell a usable width", () => {
-		expect(measure(560).get("name").values.boxWidth).toBeGreaterThan(100);
+		expect(measure(560).get("name").values.boxWidth).toBeGreaterThan(90);
 	});
 
 	const sideBySide = (m, why) => expect(m.get("ref").values.boxLeft, why)

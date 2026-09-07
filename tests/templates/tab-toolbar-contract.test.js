@@ -111,29 +111,32 @@ describe("tab toolbar contract", () => {
 		expect(ruleBlock(".stonetop-insert-remove")).not.toContain("position: absolute");
 	});
 
-	// The sidebar toggle floats in the tab's top corner (26px at right:2) — at a narrow width, where
-	// the rail is a drawer over the tab, and at any width where the reader has put the rail away.
-	// Anything else that lives in that corner — the pinned toolbars, the insert controls — has to
-	// clear it or ends up underneath.
+	// A shut rail folds to a strip down the tab's edge — at a narrow width, where the rail is a
+	// drawer over the tab, and at any width where the reader has put the rail away. The strip is
+	// positioned, so the tab runs clean underneath it unless something steps aside.
 	//
-	// The clearance is one variable spent in three places rather than three copies of "32px" behind a
-	// condition, because the condition is now two conditions ("narrow" OR "shut") and a corner
-	// control must step aside for both.
-	it("clears the sidebar toggle in every corner control", () => {
-		// The rail's own section, from where the gutter is declared to where the drawer takes over.
-		const railSection = css.slice(css.indexOf("--rail-toggle-gutter: 0px"),
-			css.indexOf("@container (max-width: 900px)"));
-		for (const selector of [".stonetop-moves-toolbar", ".stonetop-playbook-toolbar", ".stonetop-insert-actions"]) {
-			const at = railSection.indexOf(selector);
-			expect(at, `${selector} does not step aside for the toggle`).toBeGreaterThan(-1);
-			expect(railSection.slice(at), `${selector} does not spend the toggle's gutter`)
-				.toContain("var(--rail-toggle-gutter)");
+	// The REGION steps aside, once, rather than the two or three controls that used to share a corner
+	// with a 26px button: a strip is against every line of the tab, not just the top one, and paying
+	// per control cost the Play tab the first characters of every row in it.
+	it("steps the whole tab aside for the folded rail, on both sides", () => {
+		for (const side of ["left", "right"]) {
+			const rule = `.stonetop-rail-layout[data-side="${side}"] > .stonetop-rail-main { padding-${side === "left" ? "left" : "right"}: var(--rail-toggle-gutter); }`;
+			expect(css, `a ${side}-hand rail's tab does not step aside for the strip`).toContain(rule);
 		}
 
-		// Set where a corner control can read it, in both states that put the toggle over the tab.
+		// And no control pays it a second time: doubled, the gutter is a ragged edge where one tab
+		// indents twice as far as the one beside it.
+		for (const selector of [".stonetop-moves-toolbar", ".stonetop-playbook-toolbar", ".stonetop-insert-actions"]) {
+			const at = css.indexOf(`.stonetop-rail-layout[data-side="right"] ${selector}`);
+			expect(at, `${selector} spends the gutter the region already spent`).toBe(-1);
+		}
+
+		// Set where the region can read it, in both states that fold the rail — and set FROM the
+		// strip's own width, so widening the strip cannot leave the tab underneath it.
+		const gutter = "--rail-toggle-gutter: calc(var(--rail-strip) + 6px)";
 		const narrow = css.slice(css.indexOf("@container (max-width: 900px)"));
-		expect(narrow).toContain("--rail-toggle-gutter: 32px");
-		expect(css).toContain(".rail-shut > .stonetop-rail-main { --rail-toggle-gutter: 32px; }");
+		expect(narrow).toContain(gutter);
+		expect(css).toContain(`.rail-shut > .stonetop-rail-main { ${gutter}; }`);
 	});
 
 	it("marks the moves filter as the toggle that decorates rather than re-renders", () => {

@@ -61,8 +61,15 @@
 		<div class="stonetop-rail-layout" data-side="right">
 			<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
 			        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-moves-rail"
-			        title="{{localize 'stonetop.sheet.tabs.moves'}}" aria-label="{{localize 'stonetop.sheet.tabs.moves'}}">
-				<i class="fas fa-bolt"></i>
+			        data-label-show="{{localize 'stonetop.sheet.railShow'}}"
+			        data-label-hide="{{localize 'stonetop.sheet.railHide'}}"
+			        title="{{localize 'stonetop.sheet.railShow'}}"
+			        aria-label="{{localize 'stonetop.sheet.railShow'}}">
+				<i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
+				<span class="stonetop-rail-fold" aria-hidden="true">
+					<i class="fas fa-bolt stonetop-rail-mark"></i>
+					<i class="fas fa-dice-d6 stonetop-rail-mark"></i>
+				</span>
 			</button>
 			<section class="sheet-body stonetop-rail-main">
 				{{> "stonetop.tab-playbook"}}

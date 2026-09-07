@@ -76,15 +76,27 @@ export class SheetRail {
 	}
 
 	/**
-	 * Make the toggle say what the rail actually is.
+	 * Make the toggle say what the rail actually is — the state it announces, and the thing pressing
+	 * it will do.
 	 *
 	 * The template cannot: an untouched rail is open at one width and shut at another, and the markup
 	 * is rendered before it has a width. So it ships one value and this corrects it once the sheet is
 	 * in the document — otherwise a control that is now visible at every width announces "collapsed"
 	 * beside a rail that is plainly showing.
+	 *
+	 * The two wordings come off the button, not from here: what this rail is called is the sheet's
+	 * to say (moves on one, arches on the other) and a util that reached for `game.i18n` to find out
+	 * would be answering a question it was never asked.
 	 */
 	syncToggle() {
-		this._toggle?.setAttribute("aria-expanded", String(this.isOpen));
+		const toggle = this._toggle;
+		if (!toggle) return;
+		const open = this.isOpen;
+		toggle.setAttribute("aria-expanded", String(open));
+		const label = open ? toggle.dataset.labelHide : toggle.dataset.labelShow;
+		if (!label) return;
+		toggle.setAttribute("aria-label", label);
+		toggle.setAttribute("title", label);
 	}
 
 	open() {

@@ -8,13 +8,18 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
  * Below the layout's breakpoint the rail slides over the tab behind a toggle. Three things have to
  * be true of that, and none of them can be read off the stylesheet:
  *
- *  1. The toggle is not underneath the rail it opens. `.stonetop-rail` and the toggle are both
- *     positioned, and the rail reserves a top strip for the button by padding — which any
- *     sheet-specific `padding-top` silently out-specifies, putting the arches over the control. That
- *     is exactly what happened, and text could not see it: both rules are valid and both "apply".
+ *  1. The toggle and the rail it opens never share a pixel. The button no longer buys that with a
+ *     reserved strip of padding — it sits out in the empty channel beside the rail — so what has to
+ *     hold is the plain geometric fact, at both widths and in both states. The vertical stacking
+ *     these tests used to assert would now be WRONG: the two are meant to sit side by side.
  *  2. The two sides mirror. `data-side` is the only thing that says which edge, so a rule written
  *     for one side and not the other shows up as a drawer that slides in from the wrong place.
  *  3. The toggle clears the SC 2.5.8 target-size floor of 24px.
+ *  4. A shut rail leaves a marked strip, and the tab steps aside for it. Both are the whole point of
+ *     the collapsed state — a lone glyph in a corner said nothing, and a strip the tab runs under
+ *     hides the first characters of every line — and neither can be read off the stylesheet:
+ *     `display: var(--rail-toggle-fold)` is as valid with the wrong value as with the right one, and
+ *     whether a padding clears an absolutely positioned box is a question only layout answers.
  */
 const STYLES = path.resolve(process.cwd(), "styles");
 const sheet = f => path.join(STYLES, f);
@@ -27,12 +32,24 @@ const probe = new RenderProbe([
 	sheet("stonetop.css"),
 ]);
 
+// Font Awesome's own rule, unlayered, exactly as the app serves it — and every rule in stonetop.css
+// is inside `@layer system`, which an unlayered declaration beats at any specificity. Without this
+// here, an icon the strip alone should show is hidden in the fixture and drawn in Foundry.
+// The `width`/`height` stand in for the glyph the icon font would draw — the font itself is not
+// loaded here, and an empty <i> measures 0 either way, which no display rule could be caught by.
+const FONT_AWESOME = `<style>.fas { display: inline-block; width: 1em; height: 1em; }</style>`;
+
 const fixture = ({ side, open, shut = false, width }) => `
+${FONT_AWESOME}
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
   <div class="window-content"><div class="sheet-wrapper">
    <div class="stonetop-rail-layout${open ? " rail-open" : ""}${shut ? " rail-shut" : ""}" data-side="${side}" style="height: 600px">
     <button type="button" class="stonetop-rail-toggle" data-action="toggleRail" aria-expanded="${open}" aria-label="Rail">
-      <i class="fas fa-archway"></i>
+      <i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
+      <span class="stonetop-rail-fold" aria-hidden="true">
+        <i class="fas fa-archway stonetop-rail-mark"></i>
+        <i class="fas fa-dice-d6 stonetop-rail-mark"></i>
+      </span>
     </button>
     <div class="stonetop-rail steading-rail" data-density="full">
       <div class="steading-archpair">
@@ -54,7 +71,16 @@ const TARGETS = {
 	rail:    ".stonetop-rail",
 	archpair: ".steading-archpair",
 	main:    ".stonetop-rail-main",
+	mark:    ".stonetop-rail-mark",
+	tab:     ".stonetop-rail-main .tab",
 };
+
+/** Do two measured boxes share any pixel? The toggle's one hard rule, in the only terms it holds. */
+const overlaps = (a, b) =>
+	a.boxLeft < b.boxLeft + b.boxWidth && b.boxLeft < a.boxLeft + a.boxWidth &&
+	a.boxTop  < b.boxTop  + b.boxHeight && b.boxTop  < a.boxTop  + a.boxHeight;
+
+const rect = v => `${Math.round(v.boxLeft)},${Math.round(v.boxTop)} ${Math.round(v.boxWidth)}x${Math.round(v.boxHeight)}`;
 
 const measure = opts => probe.measure({
 	bodyHtml: fixture(opts), bodyClass: "theme-light",
@@ -72,8 +98,7 @@ describe.skipIf(!canProbe())("the rail as a drawer", () => {
 			const toggle = r.get("toggle").values;
 			const arch   = r.get("archpair").values;
 			expect(toggle.boxWidth, "the toggle is not drawn at this width").toBeGreaterThan(0);
-			expect(arch.boxTop, `the arches start ${Math.round(toggle.boxBottom - arch.boxTop)}px over the toggle`)
-				.toBeGreaterThanOrEqual(toggle.boxTop + toggle.boxHeight);
+			expect(overlaps(toggle, arch), `toggle ${rect(toggle)} covers the arches ${rect(arch)}`).toBe(false);
 		});
 
 		it("slides in from the left edge, over the tab", () => {
@@ -109,14 +134,85 @@ describe.skipIf(!canProbe())("the rail as a drawer", () => {
 		expect(toggle.boxHeight).toBeGreaterThanOrEqual(24);
 	});
 
-	// Inline, the toggle sits in the rail's own top corner — so the rail has to reserve that strip,
-	// exactly as the drawer does. This is the same regression as the drawer's, at the other width.
+	// Inline, the toggle rides the rail's inner edge. Same rule as the drawer's, at the other width.
 	it("does not put an inline rail's first row under its toggle", () => {
 		const r = measure({ side: "left", open: false, width: 1400 });
 		const toggle = r.get("toggle").values;
 		const arch = r.get("archpair").values;
-		expect(arch.boxTop, `the arches start ${Math.round(toggle.boxTop + toggle.boxHeight - arch.boxTop)}px over the toggle`)
-			.toBeGreaterThanOrEqual(toggle.boxTop + toggle.boxHeight);
+		expect(overlaps(toggle, arch), `toggle ${rect(toggle)} covers the arches ${rect(arch)}`).toBe(false);
+	});
+
+	// What buys that: the channel between the rail's content and the tab's — the rail's own padding,
+	// its rule and the layout's gap — which is empty at every height. A toggle anywhere else is
+	// either over the arches or over the tab, and the rail pays for it in reserved space.
+	it("puts an open rail's toggle in the empty channel between the rail and the tab", () => {
+		const r = measure({ side: "left", open: false, width: 1400 });
+		const toggle = r.get("toggle").values;
+		const arch = r.get("archpair").values;
+		const main = r.get("main").values;
+		expect(toggle.boxLeft, "the toggle starts before the arches end").toBeGreaterThanOrEqual(arch.boxLeft + arch.boxWidth);
+		expect(toggle.boxLeft + toggle.boxWidth, "the toggle runs past the channel, over the tab").toBeLessThanOrEqual(main.boxLeft);
+	});
+
+	// The arches start at the TOP of the rail now: nothing is reserved above them, which is the space
+	// the old corner button cost. Measured against the rail rather than in px, so the type scale can
+	// move without this becoming a lie.
+	it("gives the rail's first row the top of the rail", () => {
+		const r = measure({ side: "left", open: false, width: 1400 });
+		const rail = r.get("rail").values;
+		const arch = r.get("archpair").values;
+		expect(arch.boxTop - rail.boxTop, "empty rail above the arches").toBeLessThan(16);
+	});
+
+	// A shut rail is not nothing: it is the rail folded against the edge, wearing the marks its own
+	// contents wear. A strip showing nothing is the lone glyph in a corner this replaced.
+	it("leaves a marked strip at the edge when the rail is shut", () => {
+		const r = measure({ side: "left", open: false, shut: true, width: 1400 });
+		const toggle = r.get("toggle").values;
+		const mark = r.get("mark").values;
+		const main = r.get("main").values;
+		expect(toggle.boxLeft, "the strip is not on the rail's edge").toBeLessThanOrEqual(main.boxLeft);
+		expect(toggle.boxHeight, "the strip does not run the sheet's height").toBeGreaterThan(300);
+		expect(mark.boxWidth, "the rail's mark is not drawn on the strip").toBeGreaterThan(0);
+		// Beside the caret, not at the far end of however tall the sheet is.
+		expect(mark.boxTop, "the marks drift down the strip")
+			.toBeLessThan(toggle.boxTop + toggle.boxHeight / 2);
+	});
+
+	// The bug this cost a round of review: the strip is positioned, so the tab ran clean underneath
+	// it and every line in the Play tab lost its first characters. A gutter on the three controls
+	// that used to share a corner with a 26px button cannot see that; the region has to step aside.
+	it("steps the whole tab aside for the strip rather than letting it run underneath", () => {
+		const r = measure({ side: "left", open: false, shut: true, width: 1400 });
+		const toggle = r.get("toggle").values;
+		expect(r.get("tab").textLeft ?? r.get("tab").values.contentLeft, "the tab's text starts under the strip")
+			.toBeGreaterThanOrEqual(toggle.boxLeft + toggle.boxWidth);
+	});
+
+	it("mirrors: on the right the strip folds against the right edge", () => {
+		const r = measure({ side: "right", open: false, shut: true, width: 1400 });
+		const toggle = r.get("toggle").values;
+		const main = r.get("main").values;
+		const tab = r.get("tab").values;
+		expect(toggle.boxLeft + toggle.boxWidth).toBeGreaterThanOrEqual(main.boxLeft + main.boxWidth - 1);
+		expect(r.get("mark").values.boxWidth).toBeGreaterThan(0);
+		expect(tab.boxLeft + tab.boxWidth, "the tab runs under the strip").toBeLessThanOrEqual(toggle.boxLeft);
+	});
+
+	// Untouched at a drawer's width the rail is shut, so that is the state the strip has to appear in
+	// — the one no class in the markup says anything about.
+	it("folds to the strip at a narrow width with nothing said either way", () => {
+		const r = measure({ side: "left", open: false, width: 760 });
+		expect(r.get("toggle").values.boxHeight).toBeGreaterThan(300);
+		expect(r.get("mark").values.boxWidth).toBeGreaterThan(0);
+	});
+
+	// Open, the rail is there to be looked at; marks for its contents would name a second time what
+	// is already on screen, in the one state where the button has to stay small.
+	it("drops the marks once the rail is open", () => {
+		const r = measure({ side: "left", open: false, width: 1400 });
+		expect(r.get("mark").values.boxWidth, "a mark is still drawn in the pill").toBe(0);
+		expect(r.get("toggle").values.boxHeight).toBeLessThan(40);
 	});
 
 	// Put away above the breakpoint the rail is GONE, not slid off-screen: the whole point is the tab

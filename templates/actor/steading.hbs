@@ -38,10 +38,23 @@
 	      reference index. Same component, `data-side` apart. --}}
 	<div class="stonetop-rail-layout" data-side="left">
 
+		{{!-- The toggle carries BOTH labels and the sheet picks between them as the state changes: a
+		      control whose only tooltip is a noun never says it does anything, which is the reason a
+		      shut rail was unreadable. The wording names what is in the rail — Fortunes, Surplus, the
+		      homefront moves — rather than the book's word for the illustration around them, which
+		      means nothing to a reader who has not read this file. The strip shows the same two
+		      things as marks: the arch it is drawn in, and the die you roll a move on. --}}
 		<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
 		        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-rail"
-		        title="{{localize 'stonetop.steading.rail'}}" aria-label="{{localize 'stonetop.steading.rail'}}">
-			<i class="fas fa-archway"></i>
+		        data-label-show="{{localize 'stonetop.steading.railShow'}}"
+		        data-label-hide="{{localize 'stonetop.steading.railHide'}}"
+		        title="{{localize 'stonetop.steading.railShow'}}"
+		        aria-label="{{localize 'stonetop.steading.railShow'}}">
+			<i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
+			<span class="stonetop-rail-fold" aria-hidden="true">
+				<i class="fas fa-archway stonetop-rail-mark"></i>
+				<i class="fas fa-dice-d6 stonetop-rail-mark"></i>
+			</span>
 		</button>
 
 		<div class="stonetop-rail steading-rail" id="{{sheetIdPrefix}}-rail" data-density="full">
