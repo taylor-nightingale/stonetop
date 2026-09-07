@@ -91,17 +91,24 @@ export class SteadingImprovements {
 	}
 
 	/**
-	 * Every move slug the owned improvements confer, deduped.
+	 * Every move the owned improvements confer: slug → the improvement that confers it.
+	 *
+	 * A move row states where it came from, and a conferred move's row is the only one on the sheet
+	 * whose source is not the surface it sits on — the aurochs hunt fires in spring's statement, and
+	 * "Aurochs Hunting" is what says why it is there.
 	 *
 	 * Asked once per render and resolved once, because the same move can be granted in more than one
-	 * place and because a pack lookup per line would be a lookup per line.
+	 * place and because a pack lookup per line would be a lookup per line. First grant wins the
+	 * label, matching the order the board lists them in.
 	 */
-	async grantedMoveSlugs() {
-		const slugs = [];
+	async grantedMoveSources() {
+		const sources = new Map();
 		for (const imp of await this.owned()) {
-			for (const effect of imp.effects.all()) if (effect.grantsMove) slugs.push(effect.grantsMove);
+			for (const effect of imp.effects.all()) {
+				if (effect.grantsMove && !sources.has(effect.grantsMove)) sources.set(effect.grantsMove, imp.name);
+			}
 		}
-		return [...new Set(slugs)];
+		return sources;
 	}
 
 	/**
@@ -111,8 +118,10 @@ export class SteadingImprovements {
 	 * @param effects the steading's SteadingEffects, so a just-finished card can offer what finishing
 	 *                it does. Passed in rather than held, because effects are built FROM improvements
 	 *                and holding one here would be a cycle.
+	 * @param season  the season the steading is IN, so a card can say whether it fires now. Passed in
+	 *                for the same reason: the board does not own the wheel.
 	 */
-	async buildSnapshot(effects = null) {
+	async buildSnapshot(effects = null, season = null) {
 		const values = this._values;
 		const stored = this._actor.system?.improvementValues ?? {};
 		const entries = [];
@@ -124,7 +133,7 @@ export class SteadingImprovements {
 			// The whole payoff, owed or not: the card states what an improvement WILL do as well as
 			// what it has done, because the prose that used to say so is no longer in the pack.
 			const payoff = effects ? effects.payoffFor(imp) : null;
-			entries.push(ImprovementProgress.from(imp, group, stored[imp.slug] ?? {}, payoff));
+			entries.push(ImprovementProgress.from(imp, group, stored[imp.slug] ?? {}, payoff, season));
 		}
 		return new ImprovementBoard(entries);
 	}

@@ -106,6 +106,21 @@ export class ActorRolling {
 		return ChatMessage.create({speaker, content: await renderRollCard(card, this._rollData), rolls: [roll]});
 	}
 
+	/**
+	 * A roll of stated dice, with no result tiers — winter's `1d4+Population`.
+	 *
+	 * Not every roll a move calls for is a 2d6 that lands on 10+/7-9/6-. Winter opens by rolling
+	 * 1d4+Population to see what the season costs, and the answer is a NUMBER: reading it as a move
+	 * result would put "success" on a 10 that means ten Surplus gone. Same shape as a damage roll,
+	 * which is the other roll in this system that is just dice.
+	 */
+	async rollFormula(label, formula) {
+		const speaker = ChatMessage.getSpeaker({actor: this._actor});
+		const roll = await new Roll(formula).evaluate();
+		const card = { name: label, dice: this._display.build(roll, {}) };
+		return ChatMessage.create({speaker, content: await renderRollCard(card, this._rollData), rolls: [roll]});
+	}
+
 	_rollingFormula(rollMode, bonus) {
 		switch (rollMode) {
 			case "adv": return `3d6kh2 + ${bonus}`;

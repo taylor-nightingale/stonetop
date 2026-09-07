@@ -35,15 +35,15 @@ const FIXTURE = `
     </ul>
 
     <ul id="l-lines" class="steading-statement-lines stonetop-unmarked">
-      <li class="steading-statement-line"><span class="steading-statement-text">increase Fortunes by 1</span></li>
+      <li class="steading-statement-line"><span class="steading-statement-clause">increase Fortunes by 1</span></li>
     </ul>
 
     <ul id="l-advisory" class="steading-statement-lines steading-statement-lines--advisory stonetop-unmarked">
-      <li class="steading-statement-line"><span class="steading-statement-text">add any new homes to the map</span></li>
+      <li class="steading-statement-line"><span class="steading-statement-clause">add any new homes to the map</span></li>
     </ul>
 
     <ul id="l-moves" class="steading-statement-moves stonetop-unmarked">
-      <li><button type="button" class="steading-statement-move">Roll The Inn</button></li>
+      <li class="item stonetop-item" data-disclosure-row><div class="stonetop-item-header">News at the Inn</div></li>
     </ul>
 
     <ul id="l-loads" class="stonetop-outfit-loads stonetop-unmarked">

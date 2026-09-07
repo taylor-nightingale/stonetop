@@ -48,8 +48,27 @@ export function findMoveItemBySlug(actor, moveSlug) {
 }
 
 /**
+ * The move a rendered row stands for: the actor's own copy when they have taken it, otherwise the
+ * pack entry it was rendered from.
+ *
+ * Not every rendered move is an owned one. The moves an improvement CONFERS are looked up rather
+ * than seeded — they belong to the improvement, not to the steading's Moves tab — so their rows
+ * carry no owned id, and the two things a row does with its move (roll it, post it to chat) have to
+ * reach the pack. An index entry is enough for both: a roll reads the name, the stat and the result
+ * tiers, all of which it carries.
+ */
+export async function resolveMoveBySlug(actor, moveSlug, moveRepo) {
+	const owned = findMoveItemBySlug(actor, moveSlug);
+	if (owned) return owned;
+	const [entry] = await moveRepo?.getMoveEntriesBySlugs([moveSlug]) ?? [];
+	return entry ?? null;
+}
+
+/**
  * Open the item behind a rendered move row: the actor's own copy when they have taken the move,
  * otherwise the compendium move it was rendered from — the same document the Items sidebar opens.
+ *
+ * The full DOCUMENT, not the index entry resolveMoveBySlug returns: a sheet renders from a document.
  *
  * Shared by CharacterMoves and SteadingMoves because a move row behaves the same on every sheet that
  * shows one. Returns false when there is nothing to open: an arcanum's inline move is text on the
@@ -87,8 +106,11 @@ export async function decrementMove(actor, categoryKey, moveSlug) {
 // resource def into a live ResourceSnapshot keyed by the move slug in the "moves" namespace.
 // `requirement` (optional) is the RequirementSnapshot the caller already built — see
 // MoveRequirements#snapshotFor. Callers with no character (an item-sheet preview, a steading) pass
-// none; those moves carry no requirements.
-export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null) {
+// none; those moves carry no requirements. `sourceLabel` (optional) is the caption beside the name,
+// for a row whose surroundings do not already say where the move came from — a move an improvement
+// confers, listed among the results of a season.
+export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null,
+                                  sourceLabel = null) {
 	const sys    = item?.system ?? null;
 	const slug   = sys?.slug ?? toSlug(item?.name ?? "");
 	const resDef = sys?.resource ?? null;
@@ -109,13 +131,14 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withDescription(rich(sys?.description ?? ""))
 		.withRollStat(sys?.rollStat ?? null)
 		.withSource({ type: categoryKey })
-		.withSourceLabel(null)
+		.withSourceLabel(sourceLabel)
 		.withSelection(new ValueMax(sys?.instanceCount ?? 0, sys?.repeatMax ?? 1))
 		.withSelectable(selectable)
 		.withRequirement(requirement)
 		.withRequiresLabel(requirement?.label ?? null)
 		.withResource(resource)
 		.withChoices(choices)
+		.withSteps(sys?.steps ?? null)
 		.withIcon(moveIcon(item))
 		.build();
 }

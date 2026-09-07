@@ -47,14 +47,6 @@
 		<div class="stonetop-rail steading-rail" id="{{sheetIdPrefix}}-rail" data-density="full">
 			{{!-- The book gives Fortunes and Surplus an illustrated arch and the other four a plain
 			      rule. This is the one place on the sheet with the portrait room to honour that. --}}
-			{{!-- The season, as its own glyph, at the head of the rail. The rail is present on every
-			      tab, so the season is too — agreeing with the band above it and the words on the
-			      ledger line. Both image and tint come from the `data-season` on the wrapper; the
-			      stylesheet owns the four paths (see the season tokens). Decoration: aria-hidden,
-			      with a title for a pointer, because the season is already stated in text twice over. --}}
-			<span class="steading-rail-season" aria-hidden="true"
-			      title="{{localize stonetop.season.labelKey}}"></span>
-
 			<div class="steading-archpair">
 				{{> "stonetop.steading-stat-panel" attr="fortunes" attrData=stonetop.fortunes rollable=true changeAction="fortunes" panelClass="steading-fortunes steading-tile--arched"}}
 				{{> "stonetop.steading-stat-panel" attr="surplus"  attrData=stonetop.surplus                changeAction="surplus"  panelClass="steading-surplus steading-tile--arched"}}
@@ -132,6 +124,19 @@
 			{{> "stonetop.steading-stat-panel" attr="defenses"   attrData=stonetop.attributes.defenses   rollable=true panelClass="steading-defenses"}}
 		</div>
 
+		{{!-- The season, in words, with its own glyph beside them. Display only: advancing it runs a
+		      whole turnover, so that control lives on the Season tab and nowhere else — an
+		      advance-the-season click reachable from anywhere is a foot-gun on a sheet six people can
+		      edit. It ends the values row rather than the conditions row: the season is a fact about
+		      the steading, like every number beside it, not a thing you set before rolling. The glyph
+		      is decoration — image and tint both come from the `data-season` on the wrapper, and the
+		      words next to it already say which season it is. --}}
+		<p class="steading-season-line">
+			<span class="steading-season-mark" aria-hidden="true"></span>
+			{{localize "stonetop.steading.seasons.stated"
+			           season=(localize stonetop.season.labelKey) year=stonetop.year}}
+		</p>
+
 		</div>{{!-- /row one --}}
 
 		{{!-- Row two. Conditions always say what they do — a steading marks these rarely, and when it
@@ -165,13 +170,6 @@
 				</label>
 			{{/each}}
 		</fieldset>
-
-		{{!-- The season, in words. Display only: advancing it runs a whole turnover, so that control
-		      lives on the Season tab and nowhere else — an advance-the-season click reachable from
-		      anywhere is a foot-gun on a sheet six people can edit. --}}
-		<p class="steading-season-line">{{localize "stonetop.steading.seasons.stated"
-		                                           season=(localize stonetop.season.labelKey)
-		                                           year=stonetop.year}}</p>
 
 		</div>{{!-- /row two --}}
 

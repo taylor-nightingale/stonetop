@@ -6,7 +6,7 @@ import { SteadingImprovement } from "../../../src/actors/steading/repositories/F
 import { SteadingChoices } from "../../../src/actors/steading/SteadingChoices.js";
 import { FakeSteadingImprovementRepository } from "../../fakes/FakeSteadingImprovementRepository.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
-import { SEASONAL_GAINS_GROUP } from "../../../src/model/data/steading/SeasonalGains.js";
+import { SEASONAL_GAINS_GROUP } from "../../../src/model/data/steading/SeasonalPicks.js";
 
 // Improvements as the pack holds them after the model merge: one requirement row, a requirement
 // naming it, and results that fire once it is ticked.

@@ -917,7 +917,8 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "turn",
+          "seasons": []
         },
         "adjustment": {
           "step": "generation",
@@ -963,6 +964,12 @@
       },
       {
         "when": {
+          "kind": "completed"
+        },
+        "text": "the steading has a ready supply of timber for improvements and other projects"
+      },
+      {
+        "when": {
           "kind": "turn",
           "seasons": [
             "winter"
@@ -972,7 +979,7 @@
           "step": "consumption",
           "amount": -1
         },
-        "text": "the steading has a ready supply of timber for improvements and other projects, and consumes 1 less Surplus"
+        "text": "consumes 1 less Surplus"
       }
     ]
   },

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
-import { SEASONAL_GAINS_GROUP } from "../../../src/model/data/steading/SeasonalGains.js";
+import { SEASONAL_GAINS_GROUP } from "../../../src/model/data/steading/SeasonalPicks.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeSteadingImprovementRepository } from "../../fakes/FakeSteadingImprovementRepository.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";

@@ -5,11 +5,13 @@
       deliberately NOT part of this: an unticked move still rolls, because the tick records what the
       character has taken, not what the table may roll. `move-unselected` is what the moves tab's
       "selected only" filter hides (CSS-only, see .tab.moves.hide-unselected). Context is a MoveSnapshot;
-      params: showCheck, categoryKey, allowAdditional (forwarded to move-item). --}}
+      params: showCheck, categoryKey, allowAdditional, disclosure, startOpen, noSource (forwarded to
+      move-item). `is-open` is the row half of a disclosure's state — Disclosure toggles it there, so
+      a row the template ships OPEN has to say so itself. --}}
 {{#if rollStat}}
-<li class="item stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}" data-disclosure-row data-item-id="{{ownedId}}">
+<li class="item stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row data-item-id="{{ownedId}}">
 {{else}}
-<li class="stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}" data-disclosure-row>
+<li class="stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row>
 {{/if}}
-	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource disclosure=disclosure}}
+	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource disclosure=disclosure startOpen=startOpen noSource=noSource}}
 </li>

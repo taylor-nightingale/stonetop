@@ -13,7 +13,8 @@
 
       Context = an ImprovementProgress. --}}
 <div class="steading-improvement-card steading-block{{#if isComplete}} is-complete{{/if}}{{#if isUntouched}} is-untouched{{/if}}"
-     data-disclosure-row data-slug="{{slug}}" data-state="{{state}}">
+     data-disclosure-row data-slug="{{slug}}" data-state="{{state}}"
+     data-board-owed="{{isOwed}}" data-board-season="{{firesThisSeason}}">
 
 	<div class="steading-improvement-card-top">
 
@@ -30,14 +31,25 @@
 			<span class="steading-improvement-pips" aria-hidden="true">
 				{{#each meter}}<i class="steading-improvement-pip{{#if this}} is-on{{/if}}"></i>{{/each}}
 			</span>
+			{{!-- ONE format, always. It used to print "done" for a finished card and "0 / 4" for the rest,
+			      so the column down the board alternated between a word and a fraction and could not be
+			      read vertically at all. `4 / 4` says the same thing in the shape its neighbours use;
+			      what makes a finished card look finished is its filled pips and `.is-complete`. --}}
 			<span class="steading-improvement-count">
-				{{#if isComplete}}
-					{{localize "stonetop.steading.improvements.complete"}}
-				{{else}}
-					{{localize "stonetop.steading.improvements.progress" ticked=ticked total=total}}
-				{{/if}}
+				{{localize "stonetop.steading.improvements.progress" ticked=ticked total=total}}
 			</span>
 		</span>
+
+		{{!-- Why this row wants attention, in a word — owed, firing now, or one box short. A word
+		      rather than a dot or a tint: a marker whose meaning has to be learned is not a marker,
+		      and colour is never the only carrier of anything here.
+
+		      It marks the row IN PLACE. Promoting these to a group above the board would move the card
+		      the moment it became owed — which is the moment someone ticked its last box, with the
+		      cursor still on it. --}}
+		{{#if attentionKey}}
+			<span class="steading-improvement-attention">{{localize attentionKey}}</span>
+		{{/if}}
 
 		{{#if @root.editable}}
 			<button type="button" class="steading-improvement-remove stonetop-icon-btn" data-action="revokeImprovement"

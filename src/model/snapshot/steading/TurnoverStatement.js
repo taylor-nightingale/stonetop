@@ -1,5 +1,6 @@
 import { rich } from "../RichText.js";
 import { EffectChip } from "./EffectChip.js";
+import { EFFECT_STEPS } from "../../data/steading/ImprovementEffect.js";
 
 /**
  * What a set of improvement results proposes to do to the steading, before anyone commits.
@@ -76,6 +77,9 @@ export class TurnoverLine {
 	/** What it writes onto an evidence list, if anything. */
 	get listEntry() { return this.effect.listEntry; }
 
+	/** The step of the season's procedure this result BENDS, if it bends one. */
+	get adjustment() { return this.effect.adjustment; }
+
 	static idFor(improvementSlug, index) { return `${improvementSlug}:${index}`; }
 
 	/**
@@ -91,6 +95,26 @@ export class TurnoverLine {
 		const index = Number(id.slice(at + 1));
 		return Number.isInteger(index) && index >= 0 ? { slug: id.slice(0, at), index } : null;
 	}
+}
+
+/**
+ * The results that bend one step of a season's procedure — everything Stonetop has built that
+ * changes how the steading consumes, or how it generates.
+ *
+ * Grouped and headed by the STEP rather than left in the general list, which is the whole point:
+ * Additional Housing's "consider Population to be 1 lower" and Stone Wall's "1 less than normal" sat
+ * in a wall of prose nowhere near the place Surplus is actually consumed. They are never applied —
+ * they change an arithmetic the sheet does not perform — so the group carries no control, only the
+ * improvement that causes each and what it does.
+ */
+export class AdjustmentGroup {
+	constructor(step, lines) {
+		this.step  = step;
+		this.lines = lines;
+	}
+
+	/** "When the steading consumes Surplus" — the step named in the book's own terms. */
+	get labelKey() { return `stonetop.steading.effects.step.${this.step}`; }
 }
 
 /** One rating's before → after, for the statement's footer. */
@@ -133,13 +157,33 @@ export class TurnoverStatement {
 	 */
 	get automatic() { return this._stated ? [] : this.lines.filter(l => l.isAutomatic && l.earned); }
 
-	/** Stated with their source and left to the table: rolled, conditional, adjusting, or fiction. */
+	/**
+	 * Stated with their source and left to the table: rolled, conditional, adjusting, or fiction.
+	 *
+	 * A line that confers a MOVE is none of those and is not here: it renders as that move's own row,
+	 * so listing it would print a fragment of the move beside the move.
+	 */
 	get advisory() {
 		const applicable = new Set(this.automatic);
-		return this.lines.filter(l => !applicable.has(l));
+		return this.lines.filter(l => !applicable.has(l) && !l.grantsMove);
 	}
 
 	get hasAutomatic() { return this.automatic.length > 0; }
+
+	/** Results that bend a step, in the order the steps are named. Never applied, never counted. */
+	get adjustments() { return this.lines.filter(l => l.adjustment); }
+
+	/**
+	 * The same, gathered under the step each one bends.
+	 *
+	 * Only steps something actually bends: a heading over nothing would read as a step this steading
+	 * does differently when it does not.
+	 */
+	get adjustmentGroups() {
+		return EFFECT_STEPS
+			.map(step => new AdjustmentGroup(step, this.adjustments.filter(l => l.adjustment.step === step)))
+			.filter(group => group.lines.length);
+	}
 
 	/** Still owed — what an "apply all" would write, and nothing already written. */
 	get pending() { return this.automatic.filter(l => !l.isApplied); }

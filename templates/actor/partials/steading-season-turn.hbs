@@ -1,112 +1,79 @@
-{{!-- The turn of the season — the whole ritual, in the order the move itself prescribes it.
+{{!-- Turning the wheel — one control, quiet until the table is ready to use it.
 
-      One panel rather than four, because the book makes it one move. "Seasons Change" says: roll
-      +Fortunes; on a 10+ or 7-9 PICK 1 SEASONAL GAIN; whatever the result, reset Fortunes to +1. So
-      the gain picker is not a neighbouring panel — it is step 2 of this roll. And several of the
-      clauses under "because of what Stonetop has built" are riders on this same roll ("when spring
-      breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus"), which is why
-      they are step 3 here rather than an errand on another part of the tab.
+      This was the tab's largest element: a four-step panel, always open, at the top. But turning the
+      season happens ONCE per season and everything else on this tab is used THROUGHOUT one, so the
+      loudest thing on the page was the thing you need least often, and what the table actually works
+      with sat below it. It is a disclosure now, and what it holds is only what is done AT the turn.
+
+      What it does NOT hold: the season's own results and its moments. Those are owed by the season
+      the steading is IN — autumn's harvest was owed when autumn began — while this control is about
+      LEAVING it. Both used to sit in one panel, which is why it could be headed "Winter" while the
+      line under it said "Autumn, year 3". The control names the ACT now, and everything about the
+      season you are in is in "During autumn", where it belongs.
 
       Only the INCOMING season's move is here, and rolling it is what turns the wheel — there is no
-      separate "advance", because advancing and rolling are one act. The other three moves are
-      reference, further down.
+      separate "advance", because advancing and rolling are one act.
 
       Params: seasons (SeasonsSnapshot). --}}
-<section class="steading-turn steading-block" data-season="{{seasons.turnover.next.key}}">
+<section class="steading-turn steading-block" data-season="{{seasons.turnover.next.key}}"
+         data-disclosure-row>
 
-	<header class="steading-turn-head">
-		{{!-- The season's glyph, at a size that reads and tinted to the season it belongs to. Both the
-		      image and the tint come from the `data-season` on this section — the stylesheet owns the
-		      four paths, because a url() written here would be a document path resolved against the
-		      stylesheet, and an install served under a route prefix would 404 on it. --}}
-		<span class="steading-turn-glyph" aria-hidden="true"></span>
+	<h3 class="steading-turn-heading">
+		{{!-- The season's glyph, tinted to the season it belongs to. Both the image and the tint come
+		      from the `data-season` on this section — the stylesheet owns the four paths, because a
+		      url() written here would be a document path resolved against the stylesheet, and an
+		      install served under a route prefix would 404 on it. --}}
+		<button type="button" class="steading-turn-disclosure" data-action="toggleTurn"
+		        data-disclosure data-view-state aria-expanded="false"
+		        aria-controls="{{@root.sheetIdPrefix}}-turn">
+			<i class="fas fa-caret-right stonetop-move-caret" aria-hidden="true"></i>
+			<span class="steading-turn-glyph" aria-hidden="true"></span>
+			<span class="steading-turn-title">{{localize "stonetop.steading.seasons.turnTo"
+			      season=(localize seasons.turnover.next.labelKey)}}</span>
+		</button>
+	</h3>
 
-		<div class="steading-turn-heading">
-			<h3 class="steading-turn-title">
-				{{localize "stonetop.steading.seasons.turnTitle"}}
-				<span class="steading-turn-season">{{localize seasons.turnover.next.labelKey}}</span>
-			</h3>
-			<p class="steading-turn-standing">
-				{{localize "stonetop.steading.seasons.stated"
-				           season=(localize seasons.turnover.season.labelKey) year=seasons.turnover.year}}
-			</p>
-		</div>
-	</header>
+	<div class="steading-turn-body" id="{{@root.sheetIdPrefix}}-turn" hidden>
 
-	<ol class="steading-turn-steps">
+		{{!-- The book's harvest plate, floated so the move's own text runs beside it rather than under
+		      it. Its silhouette slants up and to the right, so wrapping to its bounding box would
+		      leave the wedge on its left blank and break the text against an invisible straight edge;
+		      `shape-outside` reads the PNG's own alpha instead and the text follows the art.
 
-		<li class="steading-turn-step">
-			<span class="steading-turn-num" aria-hidden="true">1</span>
-			<div class="steading-turn-body">
-				<h4 class="steading-turn-label">{{localize "stonetop.steading.seasons.stepRoll"}}</h4>
-				{{#if seasons.nextMove}}
-					{{!-- The one control. Rolling it turns the wheel, so it is a single primary button
-					      rather than a move row with a die beside an advance button saying the same thing
-					      twice. It asks before it fires. --}}
-					{{#if @root.editable}}
-						<button type="button" class="steading-turn-roll" data-action="turnSeason">
-							<i class="fas fa-dice-d6" aria-hidden="true"></i>
-							<span>{{localize "stonetop.steading.seasons.rollMove" move=seasons.nextMove.name}}</span>
-						</button>
-					{{/if}}
-					{{#if (hasText seasons.nextMove.gloss)}}
-						<p class="steading-turn-gloss">{{seasons.nextMove.gloss}}</p>
-					{{/if}}
-				{{else}}
-					<p class="stonetop-moves-empty">{{localize "stonetop.steading.seasons.movesEmpty"}}</p>
-				{{/if}}
-			</div>
-		</li>
+		      The path is runtime (the art installer produces it), so it is passed as a custom property
+		      here — a url() in the stylesheet cannot take one. Installer-provided and copyrighted, so
+		      absent in a world without Book I art: the template asks before it draws. --}}
+		{{#if seasons.plate}}
+			<img class="steading-seasons-plate" src="{{seasons.plate}}" alt=""
+			     style="--plate: url('{{seasons.plate}}')">
+		{{/if}}
 
-		<li class="steading-turn-step">
-			<span class="steading-turn-num" aria-hidden="true">2</span>
-			<div class="steading-turn-body">
-				<h4 class="steading-turn-label">
-					{{localize "stonetop.steading.seasons.stepGain"}}
-					<span class="stonetop-section-note">{{localize "stonetop.steading.seasons.stepGainNote"}}</span>
-				</h4>
-				{{#with seasons.gains}}{{> "stonetop.choice-group" cgContext="steading"}}{{/with}}
-			</div>
-		</li>
+		{{!-- The move itself, open, above its own steps. The procedure IS this text — "whoever is the
+		      most hopeful rolls +Fortunes", "on a 10+, pick 2 seasonal gains" — and it also answers who
+		      picks up the dice, which no control on this sheet was saying. The steps below are that
+		      text broken into the things the sheet can put a control on. --}}
+		{{#if seasons.nextMove}}
+			<ul class="steading-turn-move stonetop-unmarked">
+				{{> "stonetop.move-row" seasons.nextMove showCheck=false
+				    categoryKey=seasons.moves.key allowAdditional=false alwaysShowResource=false
+				    disclosure=true startOpen=true}}
+			</ul>
+		{{else}}
+			<p class="stonetop-moves-empty">{{localize "stonetop.steading.seasons.movesEmpty"}}</p>
+		{{/if}}
 
-		<li class="steading-turn-step">
-			<span class="steading-turn-num" aria-hidden="true">3</span>
-			<div class="steading-turn-body">
-				<h4 class="steading-turn-label">
-					{{localize "stonetop.steading.seasons.stepFortunes"}}
-					<span class="stonetop-section-note">{{localize "stonetop.steading.seasons.stepFortunesNote"}}</span>
-				</h4>
-				{{#if @root.editable}}
-					<button type="button" class="steading-turn-reset" data-action="resetFortunes">
-						{{localize "stonetop.steading.seasons.resetFortunes" value=@root.stonetop.fortunesReset}}
-					</button>
-				{{/if}}
-			</div>
-		</li>
+		{{!-- The steps the move carries, in the order it gives them. Read off the move rather than
+		      hardcoded: the tab drew Spring's — roll it, pick 1 gain, reset — for all four seasons, so
+		      winter's opening 1d4+Population roll had no control and its +Fortunes roll, which is the
+		      FOURTH thing winter does, was the one button at the top. --}}
+		{{#if seasons.procedure}}
+			<ol class="steading-turn-steps">
+				{{#each seasons.procedure.steps}}
+					{{> "stonetop.steading-turn-step"}}
+				{{/each}}
+			</ol>
+		{{/if}}
 
-		<li class="steading-turn-step">
-			<span class="steading-turn-num" aria-hidden="true">4</span>
-			<div class="steading-turn-body">
-				<h4 class="steading-turn-label">
-					{{localize "stonetop.steading.seasons.turnoverTitle"}}
-					<span class="stonetop-section-note">{{localize "stonetop.steading.seasons.turnoverHint"}}</span>
-				</h4>
-				{{> "stonetop.steading-turnover" turnover=seasons.turnover}}
-			</div>
-		</li>
-
-	</ol>
-
-	{{!-- The book's harvest plate, closing the panel at its bottom right — the corner the steps do
-	      not reach, since each step's content hangs off a number on the left. In flow rather than
-	      positioned, so it can never sit on top of a long checklist.
-
-	      Installer-provided (copyrighted), so absent in a world without Book I art; the template asks
-	      before it draws, and the panel simply ends a little sooner. --}}
-	{{#if seasons.plate}}
-		<div class="steading-seasons-plate">
-			<img src="{{seasons.plate}}" alt="">
-		</div>
-	{{/if}}
+	</div>
 
 </section>

@@ -173,7 +173,7 @@ describe("SteadingImprovements.buildSnapshot — stored track state", () => {
 	});
 });
 
-describe("SteadingImprovements.grantedMoveSlugs", () => {
+describe("SteadingImprovements.grantedMoveSources", () => {
 	// The pack holds the move; the improvement only names it. Collected here so the sheet resolves
 	// the whole set in one lookup rather than one per line.
 	const withMoves = () => {
@@ -200,13 +200,28 @@ describe("SteadingImprovements.grantedMoveSlugs", () => {
 
 	it("names every move the owned improvements confer, once", async () => {
 		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
-		expect(await imp.grantedMoveSlugs()).toEqual(["news-at-the-inn", "lead-the-aurochs-hunt"]);
+		expect([...(await imp.grantedMoveSources()).keys()])
+			.toEqual(["news-at-the-inn", "lead-the-aurochs-hunt"]);
+	});
+
+	// The row it renders as is collected by WHEN it fires, not under the thing that granted it, so
+	// the improvement's name is the only thing on the row saying why the move is there.
+	it("names the improvement that confers each one", async () => {
+		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
+		expect((await imp.grantedMoveSources()).get("lead-the-aurochs-hunt")).toBe("Aurochs Hunting");
+	});
+
+	// Two improvements can confer the same move; the first to do so is what the row says, matching
+	// the order the board lists them in.
+	it("keeps the first improvement to confer a move it shares", async () => {
+		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
+		expect((await imp.grantedMoveSources()).get("news-at-the-inn")).toBe("Inn");
 	});
 
 	// Whether it is BUILT is not asked: the sheet needs the move's name wherever the line is shown,
 	// and the line is shown before the improvement is finished.
 	it("names nothing for an improvement the steading does not own", async () => {
 		const imp = new SteadingImprovements(makeActor(["palisade"]), withMoves());
-		expect(await imp.grantedMoveSlugs()).toEqual([]);
+		expect(await imp.grantedMoveSources()).toEqual(new Map());
 	});
 });

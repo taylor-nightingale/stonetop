@@ -44,14 +44,16 @@ describe("move icon rendering", () => {
 		expect(others).toEqual([]);
 	});
 
-	// The Season tab no longer renders one move GROUP: the incoming season's move is promoted into
-	// the turn panel and the other three are folded away as reference. Both still go through the
-	// shared move partials, which is what this file is actually about — the tab has never been
+	// The Season tab no longer renders one move GROUP: the incoming season's move is in the turn
+	// control and each season's own move hangs off its segment of the wheel. Both still go through
+	// the shared move partials, which is what this file is actually about — the tab has never been
 	// allowed a bespoke icon of its own.
 	it("renders the seasons tab's moves through the shared move row", () => {
-		const seasons = read("templates/actor/partials/steading-seasons.hbs");
-		expect(seasons).toContain('{{> "stonetop.move-row"');
-		expect(seasons).not.toContain("<img class=\"steading-season-icon\"");
+		for (const file of ["templates/actor/partials/steading-season-turn.hbs",
+		                    "templates/actor/partials/steading-season-wheel.hbs"]) {
+			expect(read(file)).toContain('{{> "stonetop.move-row"');
+			expect(read(file)).not.toContain("<img class=\"steading-season-icon\"");
+		}
 	});
 
 	// The season GLYPH is a different thing from a move icon: it is masked so it can take the season

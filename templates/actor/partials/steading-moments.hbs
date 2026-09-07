@@ -1,4 +1,4 @@
-{{!-- "This season" — the named moments within it, and what fires at each.
+{{!-- The named moments within the season, and what fires at each.
 
       The wheel turning is not the only thing that happens in a season. "When the autumn harvest is
       complete" fires DURING autumn, and the sheet has no way to know when: no amount of watching the
@@ -9,11 +9,12 @@
       Only moments something built actually fires at are here. An empty panel headed "The autumn
       harvest" would read as a thing left undone.
 
-      Params: turnover (TurnoverSnapshot). --}}
-<section class="steading-moments steading-block">
+      No heading of its own: it used to be a section called "This season", exiled BELOW the turn.
+      It now sits inside "During <season>", which says that already — and each moment's own title
+      says which moment it is.
 
-	{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.momentsTitle")
-	    note=(localize "stonetop.steading.seasons.momentsHint")}}
+      Params: turnover (TurnoverSnapshot), momentSteps (the season's own moment steps by key). --}}
+<div class="steading-moments">
 
 	{{#each turnover.moments}}
 		<article class="steading-moment{{#if applied}} is-applied{{/if}}" data-moment="{{key}}">
@@ -27,12 +28,28 @@
 				{{/if}}
 			</h4>
 
+			{{!-- The SEASON's own half of the moment, where it has one. Autumn's move ends "when the
+			      harvest is complete, roll 1d4; the steading generates that much Surplus" — the book's
+			      own line, which belongs in the harvest's section beside the mill and the orchard
+			      rather than only inside the move's text. Sourced to the season, not an improvement,
+			      because nothing built causes it. --}}
+			{{#with (lookup ../momentSteps key)}}
+				{{#if noteKey}}
+					<ul class="steading-statement-lines steading-statement-lines--sourced stonetop-unmarked">
+						<li class="steading-statement-line">
+							<span class="steading-statement-source">{{localize "stonetop.steading.seasons.theSeason"}}</span>
+							<span class="steading-statement-clause">{{localize noteKey die=die}}</span>
+						</li>
+					</ul>
+				{{/if}}
+			{{/with}}
+
 			{{> "stonetop.steading-statement" statement=statement showAdvisory=true
-			    showSource=true showDelta=true
+			    showAdjustments=true showSource=true showDelta=true
 			    applyAllAction="applyMoment" applyAllSlug=key
 			    applyAllLabel="stonetop.steading.effects.applyMoment"}}
 
 		</article>
 	{{/each}}
 
-</section>
+</div>

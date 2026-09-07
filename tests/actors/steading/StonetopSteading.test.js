@@ -102,6 +102,60 @@ describe("StonetopSteading — notes", () => {
 
 // -- Rolling interface ---------------------------------------------------------
 
+// A step of the season's move that rolls dice of its own — winter's 1d4+Population. Not every roll
+// a move calls for lands on 10+/7-9/6-: this one is a NUMBER, and reading it as a move result would
+// put "success" on a 10 that means ten Surplus gone.
+describe("StonetopSteading.rollSeasonStep", () => {
+	const withRecorder = () => {
+		const actor = new FakeSteadingBuilder().build();
+		const rolled = [];
+		actor.rollFormula = async (label, formula) => { rolled.push({ label, formula }); };
+		const steading = new StonetopSteading(actor, steadingRepos({
+			improvements: fakeImprovementsRepo, moves: fakeMoves,
+		}));
+		return { actor, rolled, steading };
+	};
+
+	it("adds the rating at its current value", async () => {
+		const { actor, rolled, steading } = withRecorder();
+		actor.system.attributes.population = 2;
+		expect(await steading.rollSeasonStep("1d4", "population")).toBe(true);
+		expect(rolled[0].formula).toBe("1d4 + 2");
+	});
+
+	// Through the same resolveBonus every other roll on this sheet goes through, debilities and all
+	// — a rating rolled here at its stored value rather than its effective one would be the only
+	// place on the sheet that disagreed about what the rating is. (Only `lacking` bends a rating
+	// today, and it bends Prosperity; no season step names it, so the mechanism is what is asserted.)
+	it("rolls the rating as the steading's debilities leave it", async () => {
+		const { actor, rolled, steading } = withRecorder();
+		actor.system.attributes.prosperity = 2;
+		actor.system.debilities = { ...actor.system.debilities, lacking: true };
+		await steading.rollSeasonStep("1d4", "prosperity");
+		expect(rolled[0].formula).toBe("1d4 + 1");
+	});
+
+	// Null from resolveBonus means "not a rating at all", which is not the same as a rating at 0 —
+	// a step naming something the steading does not have rolls nothing rather than rolling bare dice.
+	it("rolls nothing for a rating the steading does not have", async () => {
+		const { rolled, steading } = withRecorder();
+		expect(await steading.rollSeasonStep("1d4", "courage")).toBe(false);
+		expect(rolled).toHaveLength(0);
+	});
+
+	it("rolls bare dice when the step adds no rating", async () => {
+		const { rolled, steading } = withRecorder();
+		await steading.rollSeasonStep("1d4", null);
+		expect(rolled[0].formula).toBe("1d4 + 0");
+	});
+
+	it("rolls nothing for a step that names no dice", async () => {
+		const { rolled, steading } = withRecorder();
+		expect(await steading.rollSeasonStep(null, "population")).toBe(false);
+		expect(rolled).toHaveLength(0);
+	});
+});
+
 describe("StonetopSteading.rollMode", () => {
 	it("always returns 'def'", () => {
 		expect(make().rollMode).toBe("normal");

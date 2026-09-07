@@ -90,7 +90,8 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "turn",
+          "seasons": []
         },
         "adjustment": {
           "step": "generation",

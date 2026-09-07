@@ -24,7 +24,7 @@
 		      "Additional Housing increase Fortunes by 1". No delta chip either — the chip row on the
 		      shut card already states the number, and the line's own words contain it. --}}
 		{{> "stonetop.steading-statement" statement=completion showAdvisory=true
-		    showSource=false showDelta=false}}
+		    showAdjustments=true showSource=false showDelta=false}}
 	{{/if}}
 
 	{{#if hasHenceforth}}
@@ -32,8 +32,11 @@
 		{{!-- The timing, because "Henceforth" says these fire later without saying when — and the
 		      line's own words no longer say it either, since the trigger came out of them with the
 		      prose. No delta: the words that remain already contain the number. --}}
+		{{!-- showAdjustments: a result that bends a step is part of what this improvement DOES, and the
+		      card is the one place that states the whole payoff. The season tab collects them under
+		      the step instead; here there is no step to collect them under. --}}
 		{{> "stonetop.steading-statement" statement=henceforth showAdvisory=true
-		    showSource=false showDelta=false showTiming=true}}
+		    showAdjustments=true showSource=false showDelta=false showTiming=true}}
 	{{/if}}
 
 </div>

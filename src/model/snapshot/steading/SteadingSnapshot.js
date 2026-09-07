@@ -1,4 +1,5 @@
 import { rich } from "../RichText.js";
+import { SeasonProcedure } from "../../data/steading/SeasonProcedure.js";
 
 /**
  * One rating as a ledger tile draws it — the number stated outright, the word the book gives that
@@ -108,9 +109,12 @@ export class ContentSection {
 export class SeasonsSnapshot {
 	// `moves` is the ordinary MoveCategorySnapshot — the seasonal glyphs ride on each move's own
 	// icon, so this tab renders through the same move-group as the Moves tab.
-	constructor({ moves = null, gains = null, plate = null, turnover = null }) {
+	constructor({ moves = null, pick = null, plate = null, turnover = null }) {
 		this.moves = moves;
-		this.gains = gains;
+		// The choice THIS season hands the table — a SeasonPick, or null for a season that hands
+		// none. Built from the current season's own move, so winter offers losses rather than being
+		// handed the gains list, and summer offers two.
+		this.pick = pick;
 		// Where the wheel stands, and the checklist assembled from what this steading has built.
 		this.turnover = turnover;
 		// The harvest plate from the book's Seasons Change spread — a copyrighted illustration, so
@@ -122,22 +126,101 @@ export class SeasonsSnapshot {
 	/**
 	 * The Seasons Change move that turns the season — the NEXT season's, because that is the one you
 	 * roll when the season changes TO it. Rolling it is what advancing the wheel means, which is why
-	 * the tab shows this one move beside the advance control and the other three apart from it.
+	 * the tab shows this one move beside the advance control.
 	 *
 	 * Asked of the snapshot rather than filtered in the template: "which of these four do we roll
 	 * now" is a fact about the seasons, and a Handlebars comparison would put it in markup where
 	 * nothing tests it.
 	 */
 	get nextMove() {
-		return (this.moves?.moves ?? []).find(m => m.slug === this.turnover?.next?.moveSlug) ?? null;
+		return this.moveFor(this.turnover?.next?.moveSlug);
 	}
 
-	/** The other three: reference, until their own season comes round. */
-	get otherMoves() {
-		const next = this.turnover?.next?.moveSlug;
-		return (this.moves?.moves ?? []).filter(m => m.slug !== next);
+	/**
+	 * What turning the wheel involves, step by step — the INCOMING season's, because that is the
+	 * move you roll to enter it.
+	 *
+	 * Read off the move rather than hardcoded: the tab drew Spring's four steps for all four
+	 * seasons, so winter's first roll had no control and summer's second gain did not exist.
+	 */
+	get procedure() {
+		return SeasonProcedure.from(this.nextMove);
 	}
 
+	/**
+	 * The wheel, each segment carrying its own move.
+	 *
+	 * What this replaced was a separate list of "the other seasons" — three full move rows, numbered
+	 * by an `ol` nobody had written a rule for, taking a screen of height to answer "what happens in
+	 * summer?" three seasons early. The wheel already names all four and is where someone looks to
+	 * ask that, so the answer lives there.
+	 */
+	get wheel() {
+		return (this.turnover?.wheel ?? []).map(s => new SeasonWheelEntry(s, this.moveFor(s.moveSlug)));
+	}
+
+	/**
+	 * The season the steading is IN, step by step — what its own results are collected against.
+	 *
+	 * Not the same move as `procedure`: that one is the season being rolled INTO. This is the season
+	 * whose harvest is owed and whose consumption the steading's buildings bend.
+	 */
+	get currentProcedure() {
+		return SeasonProcedure.from(this.moveFor(this.turnover?.season?.moveSlug));
+	}
+
+	/**
+	 * This season's moment steps, by moment key — the season's OWN half of an occasion improvements
+	 * also fire at. Autumn's move ends "when the harvest is complete, roll 1d4; the steading generates
+	 * that much", which belongs in the harvest's own section beside the mill and the orchard rather
+	 * than nowhere.
+	 */
+	get momentSteps() {
+		const steps = {};
+		for (const step of this.currentProcedure?.steps ?? []) {
+			if (step.kind === "moment" && step.moment) steps[step.moment] = step;
+		}
+		return steps;
+	}
+
+	/** The seasons category's move for a slug, or null — the tab's one lookup. */
+	moveFor(moveSlug) {
+		return (this.moves?.moves ?? []).find(m => m.slug === moveSlug) ?? null;
+	}
+
+}
+
+/**
+ * The choice a season hands the table: the step that offers it, and the rendered group.
+ *
+ * A pair with a name, because the two are read together and neither is much use alone — the group is
+ * what the table ticks, and the STEP is what says which list it is and how many the season offers.
+ */
+export class SeasonPick {
+	constructor(step, group) {
+		this.step  = step;    // a PickStep
+		this.group = group;   // the built choice group
+	}
+
+	get labelKey() { return this.step.labelKey; }
+	get count()    { return this.step.count; }
+}
+
+/**
+ * One segment of the wheel: a season, and the Seasons Change move that belongs to it.
+ *
+ * A pair with a name rather than two lists the template has to keep in step — the wheel is drawn
+ * once and each segment discloses its own move, so the two facts travel together.
+ */
+export class SeasonWheelEntry {
+	constructor(season, move) {
+		this.season = season;   // SeasonSnapshot
+		this.move   = move;     // MoveSnapshot, or null where the steading has no such move
+	}
+
+	get key()       { return this.season.key; }
+	get labelKey()  { return this.season.labelKey; }
+	get isCurrent() { return this.season.isCurrent; }
 }
 
 export class SteadingSnapshot {

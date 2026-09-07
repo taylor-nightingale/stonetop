@@ -1,0 +1,64 @@
+{{!-- One step of a Seasons Change move, with whatever control the sheet can offer for it.
+
+      The kinds come from SeasonProcedure, which reads them off the move. Handlebars has no
+      polymorphism, so the branch is here — but it is the ONLY one: everything a step differs by
+      (its label, its dice, how many it offers) is answered by the step itself, and this partial
+      only asks which control to draw.
+
+      Context is a SeasonStep, and it is passed WITHOUT hash params on purpose: a partial invoked
+      with hash args gets a flattened copy of its context, and a step answers everything about itself
+      through prototype getters — every one of which is lost in that copy, silently, leaving a
+      numbered row with no label and no control. The position comes from `@index`, which a partial
+      inherits from the enclosing {{#each}} for free. --}}
+<li class="steading-turn-step">
+	<span class="steading-turn-num" aria-hidden="true">{{inc @index}}</span>
+	<div class="steading-turn-body-step">
+
+		<h4 class="steading-turn-label">
+			{{localize labelKey die=die count=count stat=(localize statLabelKey)}}
+		</h4>
+
+		{{#if noteKey}}
+			<p class="steading-turn-note">{{localize noteKey die=die}}</p>
+		{{/if}}
+
+		{{#if isTieredRoll}}
+			{{!-- The move's OWN roll, and rolling it is what turns the wheel — so this is the one
+			      control on the tab that advances the season, not a second "advance" beside it. It
+			      asks before it fires. --}}
+			{{#if @root.editable}}
+				<button type="button" class="steading-turn-roll" data-action="turnSeason">
+					<i class="fas fa-dice-d6" aria-hidden="true"></i>
+					<span>{{localize "stonetop.steading.seasons.rollMove" move=@root.stonetop.seasons.nextMove.name}}</span>
+				</button>
+			{{/if}}
+		{{/if}}
+
+		{{#if isFormulaRoll}}
+			{{!-- Winter's 1d4+Population, which had no control at all: the panel's one button rolled
+			      +Fortunes, which is winter's FOURTH step. Not edit-gated — rolling posts a card and
+			      writes nothing, so a locked sheet still rolls. --}}
+			<button type="button" class="steading-turn-roll is-plain" data-view-state
+			        data-action="rollSeasonStep" data-die="{{die}}" data-stat="{{stat}}">
+				<i class="fas fa-dice-d6" aria-hidden="true"></i>
+				<span>{{localize labelKey die=die stat=(localize statLabelKey)}}</span>
+			</button>
+		{{/if}}
+
+		{{#if isReset}}
+			{{#if @root.editable}}
+				<button type="button" class="steading-turn-reset" data-action="resetFortunes">
+					{{localize "stonetop.steading.seasons.resetFortunes" value=@root.stonetop.fortunesReset}}
+				</button>
+			{{/if}}
+		{{/if}}
+
+		{{#if isPick}}
+			{{!-- No picker here: what you pick is in force until the wheel turns again, so it lives on
+			      the season's working surface where it can be read all season. This step says the
+			      choice is yours to make; "During <season>" is where you make it. --}}
+			<p class="steading-turn-note">{{localize "stonetop.steading.seasons.steps.pickBelow"}}</p>
+		{{/if}}
+
+	</div>
+</li>

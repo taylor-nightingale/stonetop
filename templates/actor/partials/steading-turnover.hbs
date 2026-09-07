@@ -14,8 +14,11 @@
 			      but with nothing left to press. --}}
 			<p class="steading-turnover-applied">{{localize "stonetop.steading.effects.alreadyApplied"}}</p>
 		{{/if}}
+		{{!-- The results themselves. `showAdjustments=false`: the ones that BEND A STEP are collected
+		      under that step below, and a result stated in both places is the wall this was rebuilt to
+		      remove. --}}
 		{{> "stonetop.steading-statement" statement=turnover.statement showAdvisory=true
-		    showSource=true showDelta=true
+		    showAdjustments=false showSource=true showDelta=true
 		    applyAllAction="applyTurnover"
 		    applyAllLabel="stonetop.steading.effects.applySeason"}}
 	{{else}}

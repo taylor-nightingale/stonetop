@@ -8,6 +8,7 @@ import {
 	buildMoveSnapshot,
 	findMoveItemBySlug,
 	openMoveSheet,
+	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
 import { toSlug } from "../../utils/slug.js";
@@ -75,6 +76,15 @@ export class CharacterMoves {
 		);
 		if (!item) return;
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
+	}
+
+	// Roll the move a rendered row stands for. Returns false when nothing carries the slug, so a
+	// caller with a fallback (an arcanum's inline move is text, not an item) can take over.
+	async roll(moveSlug) {
+		const item = await resolveMoveBySlug(this._actor, moveSlug, this._moveRepo);
+		if (!item) return false;
+		await this._actor.rollItem(item);
+		return true;
 	}
 
 	// Post the move's full text (description + all result tiers) to chat, without rolling. Returns

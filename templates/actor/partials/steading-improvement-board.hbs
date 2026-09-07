@@ -18,6 +18,15 @@
 
 		<div class="steading-board-controls">
 
+			{{!-- Twenty-plus rows, and three state chips are not a way to find "mill". No
+			      data-change-action: this writes nothing to the actor. It filters rows in place on
+			      `input`, so it keeps up with typing and never puts the board through a render. Named
+			      by aria-label rather than a visible one — the placeholder alone is not an accessible
+			      name, and it disappears the moment anything is typed. --}}
+			<input type="search" class="steading-board-search" data-view-state
+			       placeholder="{{localize 'stonetop.steading.improvements.searchPlaceholder'}}"
+			       aria-label="{{localize 'stonetop.a11y.improvementSearch'}}">
+
 			{{!-- Real toggles, not decoration: a count that looks like a filter and does nothing is
 			      worse than no chip at all. Independent, because "in progress AND nearly done" is a
 			      question someone actually asks; pressing the last active one clears back to the
@@ -37,6 +46,28 @@
 					{{localize "stonetop.steading.improvements.countComplete" count=board.completeCount}}
 				</button>
 			</div>
+
+			{{!-- The two questions a board of twenty rows cannot answer by being read. They cut ACROSS
+			      the states beside them — an owed card is also a complete one — so they are their own
+			      group and narrow on their own axis. Absent when there is nothing to find: a chip
+			      reading "0 owed" is a control that does nothing. --}}
+			{{#if (or board.owedCount board.thisSeasonCount)}}
+				<div class="steading-board-chips steading-board-chips--flags" role="group"
+				     aria-label="{{localize 'stonetop.steading.improvements.attentionLabel'}}">
+					{{#if board.owedCount}}
+						<button type="button" class="steading-board-chip is-owed" data-action="toggleBoardFlag"
+						        data-board-flag="owed" data-view-state aria-pressed="false">
+							{{localize "stonetop.steading.improvements.countOwed" count=board.owedCount}}
+						</button>
+					{{/if}}
+					{{#if board.thisSeasonCount}}
+						<button type="button" class="steading-board-chip is-season" data-action="toggleBoardFlag"
+						        data-board-flag="season" data-view-state aria-pressed="false">
+							{{localize "stonetop.steading.improvements.countThisSeason" count=board.thisSeasonCount}}
+						</button>
+					{{/if}}
+				</div>
+			{{/if}}
 
 		</div>
 

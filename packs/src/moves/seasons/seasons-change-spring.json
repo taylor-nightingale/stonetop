@@ -22,6 +22,22 @@
       }
     },
     "rollStat": "fortunes",
+    "steps": [
+      {
+        "kind": "roll",
+        "stat": "fortunes",
+        "tiers": true
+      },
+      {
+        "kind": "pick",
+        "from": "seasonal-gains",
+        "count": 1
+      },
+      {
+        "kind": "reset",
+        "target": "fortunes"
+      }
+    ],
     "slug": "seasons-change-spring"
   },
   "folder": "9Fr0AHPLXG0ewMGA"

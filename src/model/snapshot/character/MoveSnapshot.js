@@ -46,6 +46,9 @@ export class MoveSnapshot {
 		this.requiresLabel = b._requiresLabel;
 		this.resource      = b._resource;
 		this.choices       = b._choices ?? null;
+		// The move's own procedure, where it has one — the four Seasons Change moves. Read through
+		// SeasonProcedure; null on every other move, like `resource` and `choices`.
+		this.steps         = b._steps ?? null;
 		// Null unless someone deliberately set the move's image — see moveIcon(). Rendered by
 		// move-item, so every surface that shows a move shows it the same way.
 		this.icon          = b._icon ?? null;
@@ -67,6 +70,7 @@ export class MoveSnapshotBuilder {
 	withRequiresLabel(v) { this._requiresLabel = v; return this; }
 	withResource(v)      { this._resource      = v; return this; }
 	withChoices(v)       { this._choices       = v; return this; }
+	withSteps(v)         { this._steps         = v; return this; }
 	withIcon(v)          { this._icon          = v; return this; }
 	build()              { return new MoveSnapshot(this); }
 
@@ -91,6 +95,7 @@ export class MoveSnapshotBuilder {
 			.withRequiresLabel(null)
 			.withResource(null)
 			.withChoices(null)
+			.withSteps(null)
 			.build();
 	}
 }

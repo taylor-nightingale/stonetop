@@ -1,37 +1,71 @@
-{{!-- The Season tab: the ritual, assembled.
+{{!-- The Season tab, filed by WHEN a thing is done.
 
-      It opens on where the wheel stands, then the turn itself — one panel that runs in the order
-      Seasons Change prescribes, because the tab's whole job at the table is that procedure. The
-      book's spread (Book I, p.85) is still all here; it is filed by when you use it.
+      It used to run wheel → the full four-step turn panel → moments → the other seasons, with the
+      improvement board under all of it. So the largest, loudest element was the one act performed
+      ONCE a season, and everything used THROUGHOUT one sat below it, below the fold.
+
+      The cut is when, not what: the turn is a control, shut until the table is ready to turn, and
+      "During <season>" is the working surface — the gain in force, what the steading's buildings owe
+      this season, and the moments within it. The board follows, second now rather than fifth.
 
       Params: seasons (SeasonsSnapshot). --}}
 <div class="steading-seasons">
 
-	{{> "stonetop.steading-season-wheel" turnover=seasons.turnover}}
+	{{> "stonetop.steading-season-wheel" seasons=seasons}}
 
 	{{> "stonetop.steading-season-turn" seasons=seasons}}
 
-	{{!-- After the turn, because it happens after it: the wheel brings the season in, and the harvest
-	      or the hunt happens somewhere inside it. --}}
-	{{#if seasons.turnover.hasMoments}}
-		{{> "stonetop.steading-moments" turnover=seasons.turnover}}
-	{{/if}}
+	{{!-- Everything the season you are IN is owed, in one place. Each of these was previously a step
+	      of the turn panel or a section under it, which put what autumn owes inside the act of
+	      leaving autumn for winter. --}}
+	<section class="steading-during steading-block">
 
-	{{!-- The other three seasonal moves, folded away: only one of the four is ever the one the turn
-	      rolls, and four cards at equal weight said the opposite. They keep their dice — turning the
-	      wheel is what the promoted move's control does, but a table that wants to roll a season's
-	      move on its own terms is not something this sheet should decide it cannot. --}}
-	{{#if seasons.otherMoves.length}}
-		<section class="steading-seasons-others steading-block">
-			{{> "stonetop.section-heading" title=(localize "stonetop.steading.seasons.othersTitle")
-			    note=(localize "stonetop.steading.seasons.othersHint")}}
-			<ol class="items-list steading-others-list">
-				{{#each seasons.otherMoves}}
-					{{> "stonetop.move-row" showCheck=false categoryKey=../seasons.moves.key
-					    allowAdditional=false alwaysShowResource=false disclosure=true}}
-				{{/each}}
-			</ol>
-		</section>
-	{{/if}}
+		{{> "stonetop.section-heading"
+		    title=(localize "stonetop.steading.seasons.during"
+		           season=(localize seasons.turnover.season.labelKey))}}
+
+		{{!-- What this season handed the table on the way in, in force until the wheel turns again.
+		      Picked at the roll — "on a 10+, pick 2 seasonal gains" — but what you picked is a rule
+		      read all season ("take +1 to Pull Together this season"), so it stays out here rather
+		      than behind the turn's disclosure.
+
+		      Which list, and how many, is this season's own move's business: spring and autumn offer
+		      one gain, summer two, and winter offers no gains at all — it takes. The tab used to hand
+		      every season the same six gains at "pick 1". --}}
+		{{#if seasons.pick}}
+			<div class="steading-during-gain">
+				<h4 class="steading-during-label">
+					{{localize seasons.pick.labelKey count=seasons.pick.count}}
+				</h4>
+				{{#with seasons.pick.group}}{{> "stonetop.choice-group" cgContext="steading"}}{{/with}}
+			</div>
+		{{/if}}
+
+		{{!-- Headed by the TRIGGER, in the book's own terms — "When winter comes" — so that no row
+		      under it has to say when it fires. What the heading said before was
+		      "Because of what Stonetop has built", a noun that names the SOURCE of every row while
+		      each row went on to restate its own trigger: the half that differed between rows was
+		      buried behind a clause they all shared. --}}
+		<div class="steading-during-owed">
+			<h4 class="steading-during-label">
+				{{localize "stonetop.steading.seasons.whenComes"
+				           season=(localize seasons.turnover.season.labelKey)}}
+			</h4>
+			{{> "stonetop.steading-turnover" turnover=seasons.turnover}}
+		</div>
+
+		{{!-- The results that bend a STEP of the season rather than adding to it, gathered under the
+		      step. Separate from the block above because they are a different kind of thing: not what
+		      the season pays out, but how the season's own arithmetic works for this steading. --}}
+		{{> "stonetop.steading-adjustments" statement=seasons.turnover.statement}}
+
+		{{!-- The named points WITHIN the season that something built fires at — the harvest coming in,
+		      the hunt being led. The sheet cannot know when those happen, so each is an offer the
+		      table takes up rather than a schedule. Only moments something actually fires at appear. --}}
+		{{#if seasons.turnover.hasMoments}}
+			{{> "stonetop.steading-moments" turnover=seasons.turnover momentSteps=seasons.momentSteps}}
+		{{/if}}
+
+	</section>
 
 </div>

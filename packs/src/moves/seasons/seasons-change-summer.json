@@ -22,6 +22,26 @@
       }
     },
     "rollStat": "fortunes",
+    "steps": [
+      {
+        "kind": "roll",
+        "stat": "fortunes",
+        "tiers": true
+      },
+      {
+        "kind": "pick",
+        "from": "seasonal-gains",
+        "count": 2
+      },
+      {
+        "kind": "generate",
+        "die": "1d4-1"
+      },
+      {
+        "kind": "reset",
+        "target": "fortunes"
+      }
+    ],
     "slug": "seasons-change-summer"
   },
   "folder": "9Fr0AHPLXG0ewMGA"

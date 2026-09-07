@@ -1,4 +1,4 @@
-import {describe, expect, it} from "vitest";
+import {describe, expect, it, vi} from "vitest";
 import {CharacterMoves} from "../../../src/actors/character/CharacterMoves.js";
 import {ChoiceGroupControllerFactory} from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import {ResourceController} from "../../../src/actors/character/ResourceController.js";
@@ -1211,6 +1211,30 @@ describe("CharacterMoves — rich-text enrichment (integration)", () => {
 		}
 
 		expect(move.description.render()).toContain('<a class="content-link">the Barrow</a>');
+	});
+});
+
+// ── roll ──────────────────────────────────────────────────────────────────────
+
+// The die on a move row whose move is named by SLUG rather than by an owned id — see
+// StonetopActor#_onRoll. Every rollable row on a character sheet IS owned, so this is the owned
+// lookup in practice; it answers the shared handler's one path so the mixin does not have to know
+// which actor types can take it.
+describe("CharacterMoves.roll", () => {
+	it("rolls the owned move the slug names", async () => {
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({_id: "m1", type: "move", name: "Defend", system: {slug: "defend", categoryKey: "basic"}})
+			.build();
+		actor.rollItem = vi.fn(async () => {});
+		expect(await makeMoves({actor}).roll("defend")).toBe(true);
+		expect(actor.rollItem).toHaveBeenCalledWith(expect.objectContaining({_id: "m1"}));
+	});
+
+	it("rolls nothing, and says so, for a slug nothing carries", async () => {
+		const actor = makeActor();
+		actor.rollItem = vi.fn(async () => {});
+		expect(await makeMoves({actor}).roll("not-a-move")).toBe(false);
+		expect(actor.rollItem).not.toHaveBeenCalled();
 	});
 });
 

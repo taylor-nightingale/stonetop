@@ -7,9 +7,11 @@
  * way to satisfy it, and that is the denominator a table is actually working toward.
  */
 import { EffectChip } from "./EffectChip.js";
+import { Moments } from "../../data/steading/Moments.js";
 
 export class ImprovementProgress {
-	constructor({ slug, name, group, ticked, total, meter, isMet, chips = [], payoff = null }) {
+	constructor({ slug, name, group, ticked, total, meter, isMet, chips = [], payoff = null,
+	              firesThisSeason = false }) {
 		this.slug       = slug;
 		this.name       = name;
 		// The improvement's own choice group, carried so the board card can open onto the REAL
@@ -29,6 +31,10 @@ export class ImprovementProgress {
 		// what holds henceforth. Always present, earned or not: this is the only place the payoff is
 		// stated now.
 		this.payoff = payoff;
+		// Whether anything this improvement does fires in the season the steading is IN — its turn
+		// results, or a moment that can occur now. A board of twenty rows says nothing about which of
+		// them the table is about to need.
+		this.firesThisSeason = firesThisSeason;
 	}
 
 	/**
@@ -38,7 +44,31 @@ export class ImprovementProgress {
 	 * changing Size, Roadbuilding letting you build roads — has nothing to press, and a card claiming
 	 * otherwise would be asking for a click that does nothing.
 	 */
-	get isCompletionPending() { return Boolean(this.payoff?.isOwed); }
+	get isOwed() { return Boolean(this.payoff?.isOwed); }
+
+	/** One box short. Worth knowing on a board where the next tick finishes something. */
+	get isNearlyDone() { return !this.isComplete && this.total > 0 && this.total - this.ticked === 1; }
+
+	/**
+	 * Why this card wants the reader's attention, as a localize key — or null when it does not.
+	 *
+	 * ONE reason, the strongest: a card that is owed something is owed something whether or not it
+	 * also fires this season, and three badges on one row would be a wall of its own. Stated as a
+	 * word rather than a colour or a dot, because a marker whose meaning has to be learned is not a
+	 * marker.
+	 *
+	 * Nothing here re-orders the board. The card that becomes owed is the card someone just ticked
+	 * the last box of, and a board that promoted it would move it out from under them at exactly that
+	 * moment — so the row stays where it is and says what it needs instead.
+	 */
+	get attentionKey() {
+		if (this.isOwed)          return "stonetop.steading.improvements.owed";
+		if (this.firesThisSeason) return "stonetop.steading.improvements.firesNow";
+		if (this.isNearlyDone)    return "stonetop.steading.improvements.nearlyDone";
+		return null;
+	}
+
+	get needsAttention() { return this.attentionKey !== null; }
 
 	/** Which chip this row answers to, and what the board filters on. */
 	get state() {
@@ -61,7 +91,7 @@ export class ImprovementProgress {
 	 * @param group        its built ChoiceGroup, for the card to open onto
 	 * @param storedValues this steading's ticks for that improvement
 	 */
-	static from(improvement, group, storedValues = {}, payoff = null) {
+	static from(improvement, group, storedValues = {}, payoff = null, season = null) {
 		const boxes  = improvement.boxesFrom(storedValues);
 		const req    = improvement.requires;
 		const total  = req.neededIn(boxes);
@@ -79,7 +109,22 @@ export class ImprovementProgress {
 			isMet:  req.isMet(boxes),
 			chips:  EffectChip.forImprovement(improvement, storedValues),
 			payoff,
+			firesThisSeason: ImprovementProgress._firesIn(improvement, boxes, season),
 		});
+	}
+
+	/**
+	 * Whether anything this improvement does fires in the given season.
+	 *
+	 * Both cadences a season carries: what fires when the wheel arrives, and what fires at a moment
+	 * the season can hold. `firingAt` answers the requirement half too, so an unbuilt mill is not
+	 * "firing this autumn" merely because a built one would.
+	 */
+	static _firesIn(improvement, boxes, season) {
+		if (!season) return false;
+		if (improvement.effects.firingAt("turn", boxes, { season }).length) return true;
+		return Moments.inSeason(season)
+			.some(moment => improvement.effects.firingAt("moment", boxes, { moment: moment.key }).length);
 	}
 }
 
@@ -103,4 +148,10 @@ export class ImprovementBoard {
 	get inProgressCount(){ return this.entries.filter(e => e.isInProgress).length; }
 	get untouchedCount() { return this.entries.filter(e => e.isUntouched).length; }
 	get completeCount()  { return this.entries.filter(e => e.isComplete).length; }
+
+	// The two questions a board of twenty rows cannot answer by being read: what is finished and
+	// unclaimed, and what matters right now. Both cut ACROSS the three states — an owed card is also
+	// a complete one — so they narrow on their own axis rather than joining the state chips.
+	get owedCount()      { return this.entries.filter(e => e.isOwed).length; }
+	get thisSeasonCount(){ return this.entries.filter(e => e.firesThisSeason).length; }
 }

@@ -1,17 +1,39 @@
-{{!-- Where Stonetop's year stands.
+{{!-- Where Stonetop's year stands, and what each season does.
 
       The four seasons are STATED, not merely tinted — the current one is marked with text and with
       aria-current as well as with the band's colour, because colour is never the only carrier of
-      anything here. The wheel is a list, not a row of buttons: the year runs forwards, and the one
-      thing that moves it is rolling the incoming season's move in the panel below.
+      anything here.
 
-      Params: turnover (TurnoverSnapshot). --}}
+      The wheel is still a list rather than a row of buttons in the sense that mattered: the year runs
+      forwards, and the ONE thing that moves it is rolling the incoming season's move in the turn
+      control. These buttons never set the season. They disclose it — each opens that season's own
+      Seasons Change move, in full, below the wheel.
+
+      That replaced a separate "The other seasons" section: three full move rows, numbered by an `ol`
+      nobody had written a rule for, spending a screen of height on reference. The wheel already names
+      all four and is where a reader looks to ask "what happens in summer?", so the answer is there.
+      The incoming season's move is ALSO in the turn control, and that is fine — a move is not a
+      thing the sheet should ration. It renders through the same row in both places, so it rolls,
+      posts to chat and reads identically wherever you meet it.
+
+      Params: seasons (SeasonsSnapshot). --}}
 <div class="steading-season-head">
 
 	<ol class="steading-wheel" aria-label="{{localize 'stonetop.steading.seasons.wheelLabel'}}">
-		{{#each turnover.wheel}}
+		{{#each seasons.wheel}}
 			<li class="steading-wheel-season{{#if isCurrent}} is-current{{/if}}"
-			    {{#if isCurrent}}aria-current="true"{{/if}}>{{localize labelKey}}</li>
+			    {{#if isCurrent}}aria-current="true"{{/if}} data-disclosure-row>
+				{{#if move}}
+					{{!-- A <button>, not a styled <span>: core binds click only for [data-action], so
+					      anything else is keyboard-dead. data-view-state keeps it live on a locked sheet —
+					      reading a season's move mutates nothing. --}}
+					<button type="button" class="steading-wheel-name" data-action="toggleSeasonMove"
+					        data-disclosure data-view-state aria-expanded="false"
+					        aria-controls="{{@root.sheetIdPrefix}}-season-{{key}}">{{localize labelKey}}</button>
+				{{else}}
+					<span class="steading-wheel-name">{{localize labelKey}}</span>
+				{{/if}}
+			</li>
 		{{/each}}
 	</ol>
 
@@ -19,14 +41,31 @@
 	      the line can never disagree. --}}
 	<p class="steading-season-stated">
 		{{localize "stonetop.steading.seasons.stated"
-		           season=(localize turnover.season.labelKey) year=turnover.year}}
+		           season=(localize seasons.turnover.season.labelKey) year=seasons.turnover.year}}
 	</p>
 
 	{{!-- What the place is like right now, in the book's own words — one line from this steading's
 	      own Impressions, stamped when the wheel last turned. Absent for a steadfast that prints no
 	      such section, and then the head simply says less. --}}
-	{{#if turnover.impression}}
-		<p class="steading-season-impression">{{turnover.impression}}</p>
+	{{#if seasons.turnover.impression}}
+		<p class="steading-season-impression">{{seasons.turnover.impression}}</p>
 	{{/if}}
+
+	{{!-- The disclosed moves, below the wheel rather than inside a segment: a segment is a quarter of
+	      a narrow row, and a move does not fit in one. `aria-controls` reaches them from there.
+
+	      `disclosure=false` on the row itself — the wheel segment IS this region's disclosure, and a
+	      row that folded again inside it would be two buttons to open one move. A different
+	      categoryKey from the turn control's, because the region id is minted from it: the same move
+	      drawn twice on one tab must not mint the same id twice. --}}
+	{{#each seasons.wheel}}
+		{{#if move}}
+			<ul class="steading-wheel-move stonetop-unmarked"
+			    id="{{@root.sheetIdPrefix}}-season-{{key}}" hidden>
+				{{> "stonetop.move-row" move showCheck=false categoryKey="wheel" allowAdditional=false
+				    alwaysShowResource=false disclosure=false}}
+			</ul>
+		{{/if}}
+	{{/each}}
 
 </div>

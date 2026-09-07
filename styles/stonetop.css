@@ -5467,7 +5467,8 @@ button.stonetop-xp-toggle {
 }
 
 @container steading-line (max-width: 30rem) {
-	.stonetop.sheet.steading .steading-line .steading-rollmode {
+	.stonetop.sheet.steading .steading-line .steading-rollmode,
+	.stonetop.sheet.steading .steading-line .steading-season-line {
 		margin-left: 0;
 	}
 }
@@ -6663,9 +6664,58 @@ button.stonetop-xp-toggle {
 	line-height: 1.4;
 }
 
-.stonetop.sheet.steading .steading-statement-text { flex: 1 1 auto; min-width: 0; }
-.stonetop.sheet.steading .steading-statement-source { color: var(--st-ink); }
+.stonetop.sheet.steading .steading-statement-clause { flex: 1 1 auto; min-width: 0; }
 .stonetop.sheet.steading .steading-statement-clause > * { display: inline; }
+
+/* TWO COLUMNS where the row states its source: the improvement in one, what it does in the other.
+   A row used to be one run-on sentence, so the half that DIFFERS between rows started at a different
+   x on every line and the eye had to read each one to find it.
+
+   The grid is on the LIST, and each row is a `subgrid` of it. One grid per row would size its own
+   `max-content` column to its own name — "Mill" and "Trade with Barrier Pass" would each get exactly
+   the width they need and the results would start 100px apart, which is the alignment this exists to
+   produce, absent. Columns only line up across rows when the rows share one grid.
+
+   Subgrid rather than `display: contents` on the row, so the `<li>` stays a real box: it carries
+   `.is-applied`, and the roster's filter hides rows with `hidden`, neither of which survives an
+   element that has no box of its own.
+
+   Only where the source is shown — on an improvement's own card there is no source column, and a
+   grid reserving one would indent every line against nothing. */
+.stonetop.sheet.steading .steading-statement-lines--sourced {
+	display: grid;
+	grid-template-columns: minmax(0, max-content) minmax(0, 1fr) auto auto;
+	row-gap: 2px;
+}
+
+.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-line {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: 1 / -1;
+	align-items: baseline;
+	column-gap: 0.5rem;
+}
+
+.stonetop.sheet.steading .steading-statement-source {
+	color: var(--st-ink);
+	min-width: 0;
+}
+
+/* The last two columns are PINNED, because both are optional. Left to auto-placement, a row with no
+   delta would put its Apply in the delta's column and the buttons down the list would not line up —
+   which is the same failure the source column was fixed for, one column to the right. */
+.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-delta {
+	grid-column: 3;
+}
+
+.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-line-btn,
+.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-line-state {
+	grid-column: 4;
+}
+
+/* The whens run ahead of the source on a card's Henceforth half, where nothing above states the
+   timing. Never on the season's own panel — there the timing is the panel. */
+.stonetop.sheet.steading .steading-statement-whens { min-width: 0; }
 
 /* Applied: still listed, and visibly done. Never hidden — what the season did to the steading is
    worth reading after the fact, and on a document six people share it is the only way the one who
@@ -6774,29 +6824,12 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-rule);
 }
 
-/* A result that confers a MOVE has nothing to apply and everything to roll, so it gets something to
-   roll rather than an Apply — the one thing the book's own sentence above it cannot do for you. */
+/* A result that confers a MOVE has nothing to apply and everything to roll, so it renders as that
+   move's own row — the shared one, so nothing here restyles a move. A list wrapper and no more. */
 .stonetop.sheet.steading .steading-statement-moves {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.4rem;
 	margin: 4px 0 0;
 	padding: 0;
 	list-style: none;
-}
-
-.stonetop.sheet.steading .steading-statement-move {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.4rem;
-	width: auto;
-	min-height: 24px;
-	padding: 0.15rem 0.6rem;
-	font-size: var(--fs-fine);
-	border: 1px solid var(--st-accent);
-	border-radius: 2px;
-	background: none;
-	color: var(--st-accent);
 }
 
 /* ── An improvement's payoff, inside the open card ──
@@ -6846,7 +6879,9 @@ button.stonetop-xp-toggle {
 /* The control belongs to the words beside it, so it sits directly after them rather than against the
    far edge of the card. Right-aligned, it read as a page-level button that happened to share a line:
    on a card with two of them there was nothing saying which result each one applied. */
-.stonetop.sheet.steading .steading-payoff .steading-statement-text { flex: 0 1 auto; }
+/* On a card the clause takes only the width it needs, so the control sits beside the words rather
+   than at the far edge of a mostly empty row. There is no source column here — the card is it. */
+.stonetop.sheet.steading .steading-payoff .steading-statement-clause { flex: 0 1 auto; }
 
 /* Fills the row it is in, so it cannot be the thing that makes that row taller than its neighbours.
    Its SIZING cannot be set here — core styles every button unlayered, so it outranks the layer
@@ -6867,7 +6902,42 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-statement-when::after { content: " — "; }
 
 
+/* What Stonetop has built that bends a STEP of the season, gathered under the step it bends. Set
+   apart from the results above by a rule rather than a box: it answers a different question about
+   the same season — not what it pays out, but how its own arithmetic works here. */
+.stonetop.sheet.steading .steading-adjustments {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid var(--st-rule);
+}
+
+.stonetop.sheet.steading .steading-adjustments-head {
+	margin: 0 0 3px;
+	font-size: var(--fs-fine);
+	font-weight: normal;
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+.stonetop.sheet.steading .steading-adjustments-head ~ .steading-adjustments-head {
+	margin-top: 6px;
+}
+
+
 /* ── The improvement board ── */
+
+/* Set exactly as the roster's search (.steading-folk-search): there is one kind of search box on
+   this sheet, and a second look would say the two do different things. */
+.stonetop.sheet.steading .steading-board-search {
+	width: min(14rem, 100%);
+	font-size: var(--fs-fine);
+	font-style: italic;
+	padding: 1px 4px;
+	border: none;
+	border-bottom: 1px solid var(--st-rule-veil);
+	background: transparent;
+	color: var(--st-ink);
+}
 
 .stonetop.sheet.steading .steading-board-controls {
 	display: flex;
@@ -6902,6 +6972,19 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-accent);
 }
 
+/* The cross-cutting chips, set apart from the three states by a rule rather than a colour: they
+   answer a different question about the same board, and pressing one alongside a state chip narrows
+   on both axes at once. */
+.stonetop.sheet.steading .steading-board-chips--flags {
+	padding-left: 0.6rem;
+	border-left: 1px solid var(--st-rule);
+}
+
+.stonetop.sheet.steading .steading-board-chip.is-owed {
+	color: var(--st-accent);
+	border-color: var(--st-accent);
+}
+
 .stonetop.sheet.steading .steading-board-chip[aria-pressed="true"] {
 	background: var(--st-accent);
 	border-color: var(--st-accent);
@@ -6923,7 +7006,26 @@ button.stonetop-xp-toggle {
 
 /* Not started: present, and visibly not the thing to look at first. Opacity only — the text keeps
    its own contrast the moment the card is opened or focused. */
+/* Why a row wants attention, said in a word. Set as a quiet outlined badge rather than a filled one:
+   on a board where several rows carry it at once, filled badges would be the loudest thing on the
+   tab and the names they sit beside would be the second. */
+.stonetop.sheet.steading .steading-improvement-attention {
+	flex: 0 0 auto;
+	font-size: var(--fs-micro);
+	font-style: italic;
+	color: var(--st-accent);
+	border: 1px solid var(--st-accent);
+	border-radius: 999px;
+	padding: 0 0.4rem;
+	white-space: nowrap;
+}
+
+/* An untouched card is dimmed — unless it is the one asking for attention, which would be a marker
+   that whispers. */
 .stonetop.sheet.steading .steading-improvement-card.is-untouched { opacity: 0.75; }
+.stonetop.sheet.steading .steading-improvement-card.is-untouched:has(.steading-improvement-attention) {
+	opacity: 1;
+}
 .stonetop.sheet.steading .steading-improvement-card.is-untouched:hover,
 .stonetop.sheet.steading .steading-improvement-card.is-untouched:focus-within { opacity: 1; }
 
@@ -7125,15 +7227,6 @@ button.stonetop-xp-toggle {
 	min-width: 0;
 }
 
-/* The turnover beside the gains — the two halves of the same beat. The checklist is the wider of
-   the two because its rows are sentences and the gains' are names. */
-.stonetop.sheet.steading .steading-seasons-grid {
-	display: grid;
-	grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-	gap: 10px;
-	align-items: start;
-}
-
 /* The seasons tab is the query container, so the layout below responds to the SHEET's width — a
    viewport media query can't, since a Foundry sheet is resized inside a window that never changes
    size. NAMED, so the query below can only ever resolve to this element: an unnamed one binds to
@@ -7156,10 +7249,9 @@ button.stonetop-xp-toggle {
 	flex-wrap: wrap;
 }
 
-.stonetop.sheet.steading .steading-season-spacer { flex: 1; }
-
-/* One pill, four segments. A list rather than a control: the year runs forwards, and the only way
-   to move it is the advance button beside it. */
+/* One pill, four segments. Still a list rather than a way to SET the season — the year runs
+   forwards, and the only thing that moves it is rolling the incoming season's move. Each segment
+   opens that season's own move below the wheel. */
 .stonetop.sheet.steading .steading-wheel {
 	display: inline-flex;
 	margin: 0;
@@ -7172,9 +7264,43 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-wheel-season {
 	font-size: var(--fs-fine);
-	padding: 0.15rem 0.7rem;
 	color: var(--st-ink-soft);
 	white-space: nowrap;
+}
+
+/* The segment's own control fills it, so the whole pill segment is the hit target rather than the
+   four characters of the word inside it. Unstyled as a button: the pill IS the affordance. */
+.stonetop.sheet.steading .steading-wheel-name {
+	display: block;
+	width: auto;
+	min-height: 0;
+	margin: 0;
+	padding: 0.15rem 0.7rem;
+	border: none;
+	border-radius: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	line-height: inherit;
+}
+
+.stonetop.sheet.steading .steading-wheel-season.is-open .steading-wheel-name,
+.stonetop.sheet.steading .steading-wheel-name:hover {
+	color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-wheel-season.is-current.is-open .steading-wheel-name,
+.stonetop.sheet.steading .steading-wheel-season.is-current .steading-wheel-name:hover {
+	color: var(--st-paper);
+}
+
+/* The disclosed move, below the wheel and across the head's full width — a segment is a quarter of
+   a narrow pill and a move does not fit in one. */
+.stonetop.sheet.steading .steading-wheel-move {
+	flex-basis: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 /* The current season is marked three ways — the tint, the weight, and the word itself in the text
@@ -7200,70 +7326,99 @@ button.stonetop-xp-toggle {
 	min-height: 24px;
 }
 
-/* The season on the ledger line — display only, so it is type and not a control. */
+/* The season on the ledger line — display only, so it is type and not a control. It ends the values
+   row, pushed to the far end so it sits above the roll mode rather than beside it. */
 .stonetop.sheet.steading .steading-season-line {
-	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	margin: 0 0 0 auto;
 	font-size: var(--fs-fine);
 	color: var(--st-ink-soft);
 	white-space: nowrap;
 }
 
-/* The season's glyph at the head of the rail, so the season is present on every tab. Masked to the
-   season tint like the one in the turn panel — the two marks agree, and both are decoration beside
-   text that already says which season it is. */
-.stonetop.sheet.steading .steading-rail-season {
-	display: block;
-	width: 1.5rem;
-	height: 1.5rem;
-	margin: 0 0 0 auto;
+/* The season's glyph, beside the words that name it. Masked to the season tint like the one in the
+   turn panel — the marks agree, and both are decoration next to text that already says which season
+   it is. Sized in em so it tracks the line it sits on. */
+.stonetop.sheet.steading .steading-season-mark {
+	flex: 0 0 auto;
+	width: 1.3em;
+	height: 1.3em;
 	background: var(--steading-season-tint, var(--st-accent));
 	mask: var(--steading-glyph) no-repeat center / contain;
 	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
 }
 
-/* ── The turn of the season ── */
+/* ── Turning the wheel ── */
 
+/* Shut, this is one line. It was the tab's largest element and is the thing done least often, so it
+   reads as a control at rest and only becomes a panel once someone opens it. */
 .stonetop.sheet.steading .steading-turn {
 	border: 1px solid var(--st-decor);
 	border-radius: 2px;
-	padding: 8px 10px 10px;
+	padding: 6px 10px;
 	gap: 8px;
 }
 
-.stonetop.sheet.steading .steading-turn-head {
+.stonetop.sheet.steading .steading-turn.is-open {
+	padding-bottom: 10px;
+}
+
+.stonetop.sheet.steading .steading-turn-heading {
+	margin: 0;
+	font-size: var(--fs-body);
+	font-weight: normal;
+}
+
+/* The whole line is the control. Not styled as a button — the caret and the season's glyph say what
+   it is, and a filled button here would compete with the roll inside it. */
+.stonetop.sheet.steading .steading-turn-disclosure {
 	display: flex;
 	align-items: center;
-	gap: 0.6rem;
-	margin-bottom: 8px;
+	gap: 0.5rem;
+	width: 100%;
+	min-height: 0;
+	margin: 0;
+	padding: 2px 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	color: var(--st-ink);
+	font: inherit;
+	text-align: left;
+}
+
+.stonetop.sheet.steading .steading-turn-disclosure:hover .steading-turn-title {
+	color: var(--st-accent);
+}
+
+.stonetop.sheet.steading .steading-turn.is-open .stonetop-move-caret {
+	transform: rotate(90deg);
 }
 
 /* The season's own glyph, masked so it takes the season tint rather than the sheet's art filter —
    it is saying WHICH season, so it is the one image here that carries colour. */
 .stonetop.sheet.steading .steading-turn-glyph {
 	flex: 0 0 auto;
-	width: 2rem;
-	height: 2rem;
+	width: 1.4rem;
+	height: 1.4rem;
 	display: block;
 	background: var(--steading-season-tint, var(--st-accent));
 	mask: var(--steading-glyph) no-repeat center / contain;
 	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
 }
 
-.stonetop.sheet.steading .steading-turn-heading { min-width: 0; }
-
 .stonetop.sheet.steading .steading-turn-title {
-	margin: 0;
-	font-size: var(--fs-body);
-	color: var(--st-ink);
-	font-weight: normal;
+	min-width: 0;
+	color: var(--steading-season-tint, var(--st-accent));
 }
 
-.stonetop.sheet.steading .steading-turn-season { color: var(--steading-season-tint, var(--st-accent)); }
-
-.stonetop.sheet.steading .steading-turn-standing {
-	margin: 0;
-	font-size: var(--fs-fine);
-	color: var(--st-ink-soft);
+/* The body the heading discloses. It establishes the block formatting the plate floats inside, so
+   the float can never escape into the section below it. */
+.stonetop.sheet.steading .steading-turn-body {
+	display: flow-root;
+	margin-top: 8px;
 }
 
 /* The ritual, numbered — this IS a sequence, and the numbers say the order the move prescribes. */
@@ -7294,7 +7449,7 @@ button.stonetop-xp-toggle {
 	margin-top: 1px;
 }
 
-.stonetop.sheet.steading .steading-turn-body { min-width: 0; }
+.stonetop.sheet.steading .steading-turn-body-step { min-width: 0; }
 
 .stonetop.sheet.steading .steading-turn-label {
 	margin: 0 0 3px;
@@ -7318,6 +7473,22 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-fine);
 }
 
+/* A step's own roll — winter's 1d4+Population. Outlined rather than filled: the filled button on
+   this panel is the one that TURNS the season, and two solid buttons would read as two ways to do
+   the same thing. */
+.stonetop.sheet.steading .steading-turn-roll.is-plain {
+	background: none;
+	color: var(--st-accent);
+}
+
+/* What a step says beyond its label — the season's own half of a moment, or where a pick is made. */
+.stonetop.sheet.steading .steading-turn-note {
+	margin: 0 0 3px;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
 .stonetop.sheet.steading .steading-turn-reset {
 	width: auto;
 	min-height: 24px;
@@ -7325,11 +7496,12 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-fine);
 }
 
-.stonetop.sheet.steading .steading-turn-gloss {
-	margin: 3px 0 0;
-	font-size: var(--fs-fine);
-	font-style: italic;
-	color: var(--st-ink-soft);
+/* The season's own move, under the control that rolls it. A bare list wrapper: the row inside is the
+   same move row every other surface draws, so nothing here restyles one. */
+.stonetop.sheet.steading .steading-turn-move {
+	margin: 6px 0 0;
+	padding: 0;
+	list-style: none;
 }
 
 /* The book's own line for the season, in its own voice. */
@@ -7339,6 +7511,29 @@ button.stonetop-xp-toggle {
 	font-size: var(--fs-note);
 	font-style: italic;
 	color: var(--st-ink-soft);
+}
+
+/* ── During the season: what it owes, and the moments within it ── */
+
+/* The tab's working surface — used throughout a season, where the turn is used once. Its parts are
+   separated by rules rather than by boxes: they are three halves of one answer to "what does autumn
+   owe us", not three panels. */
+.stonetop.sheet.steading .steading-during-gain + .steading-during-owed,
+.stonetop.sheet.steading .steading-during-owed + .steading-moments {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid var(--st-rule);
+}
+
+.stonetop.sheet.steading .steading-during-label {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin: 0 0 4px;
+	font-size: var(--fs-note);
+	font-weight: normal;
+	color: var(--st-ink);
 }
 
 /* ── The turnover, and the moments within a season ── */
@@ -7352,10 +7547,6 @@ button.stonetop-xp-toggle {
 	color: var(--st-accent);
 }
 
-.stonetop.sheet.steading .steading-moments {
-	gap: 8px;
-	margin-top: 6px;
-}
 
 .stonetop.sheet.steading .steading-moment + .steading-moment {
 	margin-top: 6px;
@@ -7420,35 +7611,35 @@ button.stonetop-xp-toggle {
 	filter: var(--st-art-filter);
 }
 
-/* Decoration, closing the turn panel at its bottom right — the corner the numbered steps leave
-   empty. `margin-left: auto` rather than absolute positioning: in flow it cannot land on top of a
-   long checklist, and a panel with no plate installed just ends where the last step does.
+/* The book's harvest plate, FLOATED so the season's move runs beside it rather than under it.
 
-   It used to be an absolutely-filled frame sharing a grid row with the gains, which existed only so
-   the art could never make that row taller than the panel beside it. Out of that row, the whole
-   apparatus is unnecessary: it is an image with a cap on it. */
+   In flow it was a small picture on its own line with nothing beside it — capped at 45% of the
+   panel, so more than half the row was empty. Floated it can be bigger and still cost no height.
+
+   `shape-outside` reads the PNG's own alpha, so the text follows the ART rather than its bounding
+   box: the silhouette slants up and to the right, which leaves the whole lower-left of the box
+   transparent — wrapping to the box would break every line against an invisible straight edge with
+   a blank wedge behind it. The url is passed in on the element (`--plate`), because the path is
+   produced at runtime by the art installer and a url() written here would resolve against the
+   stylesheet. Same-origin, which shape-outside requires, since Foundry serves it.
+
+   `shape-margin` keeps the text off the art's edge the way a margin would off a box. */
 .stonetop.sheet.steading .steading-seasons-plate {
-	margin: 6px 0 0 auto;
-	max-width: 16rem;
-	width: 45%;
-	min-width: 0;
-}
-
-.stonetop.sheet.steading .steading-seasons-plate img {
-	display: block;
-	width: 100%;
+	float: right;
+	width: 40%;
+	max-width: 22rem;
 	height: auto;
+	margin: 0 0 4px 10px;
+	shape-outside: var(--plate);
+	shape-image-threshold: 0.1;
+	shape-margin: 0.6rem;
 	filter: var(--st-art-filter);
 	border: none;
 }
 
-/* Narrow sheet: the turnover and the gains stack, and the plate goes. It is decoration — the
-   checklist and the gains are the content, and squeezing the art would only steal width from them. */
+/* Narrow sheet: the plate goes. It is decoration — the move's text is the content, and a float
+   taking 40% of a narrow column would leave the text in a gutter. */
 @container steading-seasons (max-width: 620px) {
-	.stonetop.sheet.steading .steading-seasons-grid {
-		grid-template-columns: minmax(0, 1fr);
-	}
-
 	.stonetop.sheet.steading .steading-seasons-plate {
 		display: none;
 	}
@@ -7468,13 +7659,6 @@ button.stonetop-xp-toggle {
 	border: none;
 	vertical-align: text-bottom;
 	margin-right: 2px;
-}
-
-.stonetop.sheet.steading .steading-seasons-hint {
-	margin: 0 0 6px;
-	font-size: var(--fs-fine);
-	font-style: italic;
-	opacity: 0.75;
 }
 
 /* ── Notes tab ───────────────────────────────────────────────────────────────── */

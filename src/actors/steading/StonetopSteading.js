@@ -189,6 +189,25 @@ export class StonetopSteading {
 	}
 
 	/**
+	 * Roll one step of the season's move that is not the move's own roll — winter's 1d4+Population.
+	 *
+	 * The rating is added at its CURRENT value, debilities and all, through the same resolveBonus
+	 * every other roll on this sheet goes through: winter consuming less because the steading is
+	 * diminished is not a special case, it is what the rating means.
+	 */
+	async rollSeasonStep(die, stat) {
+		if (!die) return false;
+		const bonus = stat ? this.resolveBonus(stat) : 0;
+		if (bonus === null) return false;
+		const label = stat
+			? game.i18n.format("stonetop.steading.seasons.steps.rollFormula",
+				{ die, stat: game.i18n.localize(`stonetop.steading.attr.${stat}`) })
+			: game.i18n.format("stonetop.steading.seasons.steps.rollDice", { die });
+		await this.#actor.rollFormula(label, `${die} + ${bonus}`);
+		return true;
+	}
+
+	/**
 	 * Reset Fortunes, as the move tells you to on every result.
 	 *
 	 * To +1 — or to +0 while the steading is malcontent, which is that debility's whole effect. The
@@ -209,9 +228,6 @@ export class StonetopSteading {
 	 * when: the table says the harvest is in by applying it.
 	 */
 	async applyMoment(key) { return this.#season.applyMoment(key); }
-
-	/** Roll a move an improvement conferred — the aurochs hunt, the news at the inn. */
-	async rollGrantedMove(slug) { return this.#grantedMoves.roll(slug); }
 
 	// ── Improvements ───────────────────────────────────────────────────────────
 
@@ -263,6 +279,10 @@ export class StonetopSteading {
 	}
 
 	async sendMoveToChat(moveSlug)                          { await this.#moves.sendToChat(moveSlug); }
+	// The die on a move row whose move the steading does not own — the aurochs hunt, the news at the
+	// inn. Improvements confer those; they are resolved from the pack, so the row names its move by
+	// slug and there is no owned id for the roll handler to find. See StonetopActor#_onRoll.
+	async rollMoveBySlug(moveSlug)                          { return this.#moves.roll(moveSlug); }
 	async openMoveSheet(moveSlug)                            { await this.#moves.openSheet(moveSlug); }
 	async toggleMoveResourcePip(moveSlug, index, wasChecked) { await this.#moves.toggleResourcePip(moveSlug, index, wasChecked); }
 	async setMoveResourceText(moveSlug, value)              { await this.#moves.setMoveResourceText(moveSlug, value); }
@@ -324,11 +344,11 @@ export class StonetopSteading {
 
 	async buildSnapshot() {
 		const [improvements, moves, seasons, resourcesPlate, grantedMoves] = await Promise.all([
-			this.#improvements.buildSnapshot(this.#effects),
+			this.#improvements.buildSnapshot(this.#effects, this.#season.season),
 			this.#moves.buildSnapshot(),
 			this.#seasons.buildSnapshot(),
 			this.#art.resourcesPlate(),
-			this.#improvements.grantedMoveSlugs().then(slugs => this.#grantedMoves.bySlug(slugs)),
+			this.#improvements.grantedMoveSources().then(sources => this.#grantedMoves.bySlug(sources)),
 		]);
 		return new SteadingSnapshot({
 			fortunes: new RatingSnapshot(SteadingDefaults.fortunes, {

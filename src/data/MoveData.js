@@ -36,6 +36,11 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			slug:           new f.StringField({ nullable: true, initial: null }),
 			sortOrder:      new f.NumberField({ nullable: true, initial: null }),
 			choices:       new f.ObjectField({ nullable: true, initial: null }),
+			// A move's own procedure, step by step — what the four Seasons Change moves carry, so the
+			// sheet reads each season's steps instead of hardcoding one season's. STRUCTURE only (a
+			// kind, a die, a count, which list to pick from); the words are the move's description,
+			// which renders beside them. See SeasonProcedure.
+			steps:         new f.ArrayField(new f.ObjectField()),
 			categoryKey:   new f.StringField({ nullable: true, initial: null }),
 			categoryLabel: new f.StringField({ nullable: true, initial: null }),
 			categoryNote:  new f.StringField({ nullable: true, initial: null }),

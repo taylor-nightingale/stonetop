@@ -44,7 +44,10 @@ const block = season => `
       <li class="steading-wheel-season">Spring</li>
       <li class="steading-wheel-season is-current">Current</li>
     </ol>
-    <p class="steading-season-line">Autumn, year 1</p>
+    <p class="steading-season-line">
+      <span class="steading-season-mark" aria-hidden="true"></span>
+      Autumn, year 1
+    </p>
   </div>`;
 
 const fixture = theme => `
@@ -58,6 +61,7 @@ const probesFor = season => ({
 	[`${season}-band`]:    { selector: `#w-${season} .steading-season-band`, properties: ["background-image", "height"] },
 	[`${season}-current`]: { selector: `#w-${season} .steading-wheel-season.is-current`, properties: ["background-color", "color"] },
 	[`${season}-line`]:    { selector: `#w-${season} .steading-season-line`, properties: ["color"] },
+	[`${season}-mark`]:    { selector: `#w-${season} .steading-season-mark`, properties: ["background-color", "mask-image", "width"] },
 });
 
 // rgb(...) → [r,g,b]
@@ -113,6 +117,19 @@ describeMaybe("the season tint, in a real renderer", () => {
 				expect(ratio, `${theme} ${season}`).toBeGreaterThanOrEqual(4.5);
 			}
 		}
+	});
+
+	// The glyph beside those words is masked to the same tint, and the mask itself is a second token
+	// crossing the same two elements — an unresolved one leaves a tinted square, which reads as a
+	// rendering fault rather than as a season.
+	it("marks the season with its own glyph, tinted per season", () => {
+		const marks = SEASONS.map(season => result().get(`${season}-mark`));
+		for (const [i, mark] of marks.entries()) {
+			expect(mark.missing, SEASONS[i]).toBe(false);
+			expect(mark.get("mask-image"), SEASONS[i]).not.toBe("none");
+			expect(parseFloat(mark.get("width")), SEASONS[i]).toBeGreaterThan(0);
+		}
+		expect(new Set(marks.map(m => m.get("background-color"))).size).toBe(4);
 	});
 
 	// The season is stated in words as well as tinted, so that text has to actually compute a colour.

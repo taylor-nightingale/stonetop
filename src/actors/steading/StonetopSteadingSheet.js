@@ -66,6 +66,11 @@ export function createStonetopSteadingSheetClass(Base) {
 				// through the same one implementation.
 				toggleFolkList:        toggleDisclosure,
 				toggleImprovementCard: toggleDisclosure,
+				// The wheel's segments, each opening that season's own Seasons Change move, and the
+				// turn control itself. Disclosures, never a way to SET the season: the one thing that
+				// moves the wheel is rolling the incoming season's move.
+				toggleSeasonMove:      toggleDisclosure,
+				toggleTurn:            toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
 					const id = this.rosterFocus.id;
 					if (!id) return void ui.notifications?.info(game.i18n.localize("stonetop.steading.folk.focusRowFirst"));
@@ -90,6 +95,13 @@ export function createStonetopSteadingSheetClass(Base) {
 					});
 					if (ok) await this._stonetopSteading.turnSeason();
 				}),
+
+				// A step of the season's move that rolls dice of its own — winter's 1d4+Population, which
+				// had no control at all while the panel drew spring's three steps for every season. Not
+				// edit-gated: rolling posts a card and writes nothing to the steading.
+				rollSeasonStep(ev, target) {
+					return this._stonetopSteading.rollSeasonStep(target.dataset.die, target.dataset.stat);
+				},
 
 				// The one instruction in Seasons Change that applies on every result, and the sheet
 				// used to leave it entirely unsaid. Not gated on having rolled: the table decides when
@@ -124,12 +136,6 @@ export function createStonetopSteadingSheetClass(Base) {
 					return this._stonetopSteading.applyMoment(target.dataset.slug);
 				}),
 
-				// A move an improvement conferred. Not edit-gated: rolling posts a chat card and writes
-				// nothing to the steading, so a locked sheet still rolls the hunt.
-				rollGrantedMove(ev, target) {
-					return this._stonetopSteading.rollGrantedMove(target.dataset.slug);
-				},
-
 				// --- the improvement board's own view ---
 				// Narrowing the board is view state on the reader, not an edit: it writes nothing, so
 				// it is not edit-gated and it works on a locked sheet. Filtering happens in the DOM
@@ -137,6 +143,12 @@ export function createStonetopSteadingSheetClass(Base) {
 				// put every other client through a render to answer one person's question.
 				toggleBoardFilter(ev, target) {
 					if (this.boardView.toggle(target.dataset.boardFilter)) this.boardView.restore(this.element);
+				},
+
+				// The same, on the axis that cuts across the states — what is owed, and what fires this
+				// season. A separate action because it is a separate question, not a fourth state.
+				toggleBoardFlag(ev, target) {
+					if (this.boardView.toggleFlag(target.dataset.boardFlag)) this.boardView.restore(this.element);
 				},
 
 				// --- NPC actors for the roster (GM-only control; the automatic path is a hook) ---
@@ -291,8 +303,13 @@ export function createStonetopSteadingSheetClass(Base) {
 			// typing — so it is not a data-change-action and is deliberately NOT gated on isEditable:
 			// reading a locked steading's roster is still reading.
 			root.addEventListener("input", ev => {
-				if (!ev.target.closest?.(RosterFilter.INPUT)) return;
-				if (this.rosterFilter.setQuery(ev.target.value)) this.rosterFilter.apply(root);
+				if (ev.target.closest?.(RosterFilter.INPUT)) {
+					if (this.rosterFilter.setQuery(ev.target.value)) this.rosterFilter.apply(root);
+					return;
+				}
+				if (ev.target.closest?.(BoardView.INPUT)) {
+					if (this.boardView.setQuery(ev.target.value)) this.boardView.apply(root);
+				}
 			});
 
 			// Every choice row on the sheet — improvement tracks, seasonal gains — through the one

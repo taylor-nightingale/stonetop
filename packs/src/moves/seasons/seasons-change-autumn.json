@@ -22,6 +22,27 @@
       }
     },
     "rollStat": "fortunes",
+    "steps": [
+      {
+        "kind": "roll",
+        "stat": "fortunes",
+        "tiers": true
+      },
+      {
+        "kind": "pick",
+        "from": "seasonal-gains",
+        "count": 1
+      },
+      {
+        "kind": "moment",
+        "moment": "autumn-harvest",
+        "die": "1d4"
+      },
+      {
+        "kind": "reset",
+        "target": "fortunes"
+      }
+    ],
     "slug": "seasons-change-autumn"
   },
   "folder": "9Fr0AHPLXG0ewMGA"

@@ -58,6 +58,12 @@ export class FakeCompendiumMoveBuilder {
 		return this;
 	}
 
+	// A move's own procedure — what the four Seasons Change moves carry. See SeasonProcedure.
+	withSteps(steps) {
+		this._steps = steps;
+		return this;
+	}
+
 	withMoveResults(moveResults) {
 		this._moveResults = moveResults;
 		return this;
@@ -74,6 +80,7 @@ export class FakeCompendiumMoveBuilder {
 			repeatMax: this._repeatMax,
 			resource: this._resource,
 			choices: this._choices,
+			steps: this._steps ?? [],
 			moveType: this._moveType ?? null,
 			moveResults: this._moveResults ?? null,
 		};

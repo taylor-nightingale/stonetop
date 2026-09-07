@@ -185,6 +185,13 @@ export class StonetopCharacter {
 		await this._arcana.sendArcanumMoveToChat(moveSlug);
 	}
 
+	// The die on a rendered move row, when the row names its move by slug rather than by an owned id
+	// — see StonetopActor#_onRoll. Every rollable row on a character sheet IS owned; this is the
+	// mixin's one path, answered here so it does not have to know which actor types can take it.
+	async rollMoveBySlug(moveSlug) {
+		return this._moves.roll(moveSlug);
+	}
+
 	/** Open the move's item sheet — its own copy when taken, else the compendium source. */
 	async openMoveSheet(moveSlug) {
 		await this._moves.openSheet(moveSlug);

@@ -89,6 +89,35 @@ describe("ActorRolling.execute — damage", () => {
 	});
 });
 
+// -- rollFormula ---------------------------------------------------------------
+
+// Not every roll a move calls for is a 2d6 landing on 10+/7-9/6-. Winter's Seasons Change opens by
+// rolling 1d4+Population to see what the season costs, and the answer is a NUMBER: read as a move
+// result, a 10 that means ten Surplus gone would come back "success".
+describe("ActorRolling.rollFormula", () => {
+	it("rolls exactly the formula it is handed", async () => {
+		await makeRolling().rollFormula("Roll 1d4 + Population", "1d4 + 2");
+		expect(FakeRoll.lastInstance.formula).toBe("1d4 + 2");
+	});
+
+	it("posts a card titled by the step that asked for it", async () => {
+		await makeRolling().rollFormula("Roll 1d4 + Population", "1d4 + 2");
+		expect(FakeChatMessage.lastCreated.content).toContain("Roll 1d4 + Population");
+	});
+
+	// No tiers on the card: there is no 10+/7-9/6- to report, and a badge saying one would be
+	// reading a quantity as an outcome.
+	it("reports no result tier", async () => {
+		await makeRolling().rollFormula("Roll 1d4", "1d4");
+		expect(FakeChatMessage.lastCreated.content).not.toContain("stonetop.roll.outcome");
+	});
+
+	it("sends the roll along with the message, so the dice animate", async () => {
+		await makeRolling().rollFormula("Roll 1d4", "1d4");
+		expect(FakeChatMessage.lastCreated.rolls).toHaveLength(1);
+	});
+});
+
 // -- execute — stat roll -------------------------------------------------------
 
 describe("ActorRolling.execute — stat roll", () => {

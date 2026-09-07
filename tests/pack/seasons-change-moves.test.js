@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
-import { SeasonalGains } from "../../src/model/data/steading/SeasonalGains.js";
+import { SeasonalGains, SeasonalPicks } from "../../src/model/data/steading/SeasonalPicks.js";
+import { SeasonProcedure } from "../../src/model/data/steading/SeasonProcedure.js";
 import { SteadingMoveCategories } from "../../src/model/data/steading/SteadingMoveCategories.js";
 
 const SRC_DIR    = path.resolve("packs/src/moves/seasons");
@@ -74,6 +75,55 @@ describe("Seasons Change moves", () => {
 
 	it("does not offer seasonal gains in winter", () => {
 		expect(moves.winter.system.description).not.toContain("seasonal gain");
+	});
+
+	// The procedure is data on the move. A season whose steps do not parse silently falls back to
+	// "roll it" — the wheel still turns, but the season's own procedure is gone with no error.
+	it.each(ALL_SEASONS)("%s carries a procedure that parses", season => {
+		const procedure = SeasonProcedure.from(moves[season].system);
+		expect(procedure.steps.length).toBeGreaterThan(1);
+		expect(procedure.steps.map(s => s.kind)).toContain("roll");
+	});
+
+	// Every season's move is rolled, and its 10+/7-9/6- tiers belong to exactly one of its rolls.
+	// Two would give the tab two controls that both turn the wheel.
+	it.each(ALL_SEASONS)("%s has exactly one roll carrying its result tiers", season => {
+		const rolls = SeasonProcedure.from(moves[season].system).steps.filter(s => s.isTieredRoll);
+		expect(rolls).toHaveLength(1);
+	});
+
+	// Winter is TWO rolls with a choice between them, and the tiered one is the FOURTH thing it does.
+	// The tab used to draw it as the one button at the top, and winter's opening 1d4+Population roll
+	// — the one that decides what the season costs — had no control at all.
+	it("opens winter on its own dice, with the tiered roll behind the consumption and the loss", () => {
+		const steps = SeasonProcedure.from(moves.winter.system).steps;
+		expect(steps.map(s => s.kind)).toEqual(["roll", "consume", "pick", "roll", "reset"]);
+		expect(steps[0].die).toBe("1d4");
+		expect(steps[0].stat).toBe("population");
+		expect(steps[3].isTieredRoll).toBe(true);
+	});
+
+	// Summer's move gives 2 on a 10+; the sheet offered one for every season.
+	it("offers two seasonal gains in summer and one in spring and autumn", () => {
+		expect(SeasonProcedure.from(moves.summer.system).pick.count).toBe(2);
+		for (const season of ["spring", "autumn"]) {
+			expect(SeasonProcedure.from(moves[season].system).pick.count).toBe(1);
+		}
+	});
+
+	// Winter grants no gains — it takes. Handing it the gains list read as a reward for the hardest
+	// season of the year.
+	it("picks from what winter takes, not from the gains", () => {
+		expect(SeasonProcedure.from(moves.winter.system).pick.from).toBe("winter-losses");
+		for (const season of GAIN_SEASONS) {
+			expect(SeasonProcedure.from(moves[season].system).pick.from).toBe("seasonal-gains");
+		}
+	});
+
+	// A step naming a list nothing provides renders a heading over an empty picker.
+	it.each(ALL_SEASONS)("%s picks from a list the system actually has", season => {
+		const pick = SeasonProcedure.from(moves[season].system).pick;
+		expect(SeasonalPicks.byKey(pick.from)).not.toBeNull();
 	});
 
 	// The category names the four slugs to sort them spring → winter. A slug renamed in the packs

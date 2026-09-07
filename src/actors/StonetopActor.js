@@ -37,9 +37,15 @@ export function createStonetopActorClass(BaseActor) {
 		// -- Lifecycle ---------------------------------------------
 
 		async _onRoll(event) {
-			const rollStat    = event.target.closest("[data-roll]")?.dataset.roll || null;
+			const die         = event.target.closest("[data-roll]");
+			const rollStat    = die?.dataset.roll || null;
 			const itemId      = event.target.closest(".item")?.dataset.itemId;
 			const item        = itemId ? this.items.get(itemId) : null;
+
+			// A row can name its move by SLUG instead — the moves an improvement confers are resolved
+			// from the pack rather than seeded, so they have no owned id. Without this the die would
+			// fall through to a bare stat roll: the right bonus, none of the move's result tiers.
+			if (!item && die?.dataset.moveSlug) return this.typedActor.rollMoveBySlug(die.dataset.moveSlug);
 
 			if (itemId && !item) return false;
 			if (!rollStat && !item) return false;
@@ -59,6 +65,12 @@ export function createStonetopActorClass(BaseActor) {
 		// same RollRequest and the same execute as _onRoll, so the chat card is identical.
 		async rollItem(item, rollStat = null) {
 			await this._rolling.execute(RollRequest.fromItem(item, rollStat, this.typedActor.rollMode));
+		}
+
+		// Roll stated dice with no result tiers — a season step that asks for 1d4+Population, not for
+		// a move. Same entry point as rollItem, so the chat card comes out of the same pipeline.
+		async rollFormula(label, formula) {
+			await this._rolling.rollFormula(label, formula);
 		}
 
 		// Post an owned item's full text (description + all result tiers) to chat, without rolling.

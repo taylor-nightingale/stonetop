@@ -3,6 +3,7 @@ import { ImprovementBoard, ImprovementProgress } from "../../src/model/snapshot/
 import { SteadingImprovement } from "../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 import { buildChoiceGroup } from "../../src/model/snapshot/character/buildChoiceGroup.js";
 import { ChoiceValues } from "../../src/model/snapshot/character/ChoiceGroup.js";
+import { Seasons } from "../../src/model/data/steading/Seasons.js";
 
 // An improvement as the pack holds it: tracked requirement rows, a requirement expression over them,
 // and the effect prose.
@@ -129,5 +130,103 @@ describe("ImprovementBoard", () => {
 
 	it("is empty with no owned improvements", () => {
 		expect(new ImprovementBoard([]).isEmpty).toBe(true);
+	});
+});
+
+
+// A board of twenty rows says nothing about which of them the table is about to need. Three questions
+// it can now answer, each cutting across the three states rather than joining them.
+describe("what a card wants attention for", () => {
+	const seasonal = (slug, when, name = slug) => new SteadingImprovement(slug, name, {
+		slug,
+		list: [{ type: "entry", slug: "work", content: { text: "needs work" }, track: { max: 1 } },
+		       { type: "entry", content: { text: "Henceforth, something happens." } }],
+	}, 0, {
+		requires: { all: ["work"] },
+		effects: [{ when, change: { target: "surplus", amount: 1 }, text: "the steading generates +1 Surplus" }],
+	});
+
+	const built   = { work: 1 };
+	const autumn  = Seasons.byKey("autumn");
+	const winter  = Seasons.byKey("winter");
+	const cardFor = (imp, ticks, season) => ImprovementProgress.from(
+		imp, buildChoiceGroup(imp.titledChoices, new ChoiceValues({ [imp.slug]: ticks })), ticks, null, season);
+
+	describe("firesThisSeason", () => {
+		it("is true where the improvement's own results fire when the wheel is here", () => {
+			const mill = seasonal("mill", { kind: "turn", seasons: ["autumn"] });
+			expect(cardFor(mill, built, autumn).firesThisSeason).toBe(true);
+			expect(cardFor(mill, built, winter).firesThisSeason).toBe(false);
+		});
+
+		// Both cadences a season carries: what fires when the wheel arrives, and what fires at a
+		// moment the season can hold.
+		it("counts a moment the season can hold", () => {
+			const orchard = seasonal("orchard", { kind: "moment", moment: "autumn-harvest" });
+			expect(cardFor(orchard, built, autumn).firesThisSeason).toBe(true);
+			expect(cardFor(orchard, built, winter).firesThisSeason).toBe(false);
+		});
+
+		// The requirement half matters too: an unbuilt mill is not "firing this autumn" because a
+		// built one would be.
+		it("is false while the improvement is unbuilt", () => {
+			const mill = seasonal("mill", { kind: "turn", seasons: ["autumn"] });
+			expect(cardFor(mill, {}, autumn).firesThisSeason).toBe(false);
+		});
+
+		it("is false where nothing says what season it is", () => {
+			const mill = seasonal("mill", { kind: "turn", seasons: ["autumn"] });
+			expect(cardFor(mill, built, null).firesThisSeason).toBe(false);
+		});
+	});
+
+	describe("isNearlyDone", () => {
+		const twoBox = improvement("wall", [["stone", 1], ["labour", 1]]);
+
+		it("is true one box short and false anywhere else", () => {
+			expect(progressOf(twoBox, {}).isNearlyDone).toBe(false);
+			expect(progressOf(twoBox, { stone: 1 }).isNearlyDone).toBe(true);
+			expect(progressOf(twoBox, { stone: 1, labour: 1 }).isNearlyDone).toBe(false);
+		});
+	});
+
+	// ONE reason, the strongest — three badges on one row would be a wall of its own.
+	describe("attentionKey", () => {
+		it("says nothing about a card with nothing to say", () => {
+			const wall = improvement("wall", [["stone", 1], ["labour", 1], ["gate", 1]]);
+			expect(progressOf(wall, {}).attentionKey).toBeNull();
+			expect(progressOf(wall, {}).needsAttention).toBe(false);
+		});
+
+		it("leads with what is owed, over what merely fires now", () => {
+			const mill = seasonal("mill", { kind: "turn", seasons: ["autumn"] });
+			const card = ImprovementProgress.from(
+				mill, buildChoiceGroup(mill.titledChoices, new ChoiceValues({ mill: built })), built,
+				{ isOwed: true }, autumn);
+			expect(card.attentionKey).toBe("stonetop.steading.improvements.owed");
+		});
+
+		it("says what fires now over what is merely close", () => {
+			const mill = seasonal("mill", { kind: "turn", seasons: ["autumn"] });
+			expect(cardFor(mill, built, autumn).attentionKey)
+				.toBe("stonetop.steading.improvements.firesNow");
+		});
+
+		it("says how close a card is when there is nothing else to say", () => {
+			const wall = improvement("wall", [["stone", 1], ["labour", 1]]);
+			expect(progressOf(wall, { stone: 1 }).attentionKey)
+				.toBe("stonetop.steading.improvements.nearlyDone");
+		});
+	});
+
+	describe("the board's counts", () => {
+		it("counts what is owed and what fires now, across the states", () => {
+			const mill = seasonal("mill", { kind: "turn", seasons: ["autumn"] });
+			const owed = ImprovementProgress.from(
+				mill, buildChoiceGroup(mill.titledChoices, new ChoiceValues({ mill: built })), built,
+				{ isOwed: true }, autumn);
+			const board = new ImprovementBoard([owed, cardFor(mill, built, winter)]);
+			expect([board.owedCount, board.thisSeasonCount]).toEqual([1, 1]);
+		});
 	});
 });

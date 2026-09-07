@@ -294,6 +294,40 @@ describe("SteadingMoves toggling + resource state", () => {
 	});
 });
 
+// A move an improvement CONFERS is resolved from the pack and never seeded — it belongs to the
+// improvement, not to the steading's Moves tab — so its row carries no owned id and both things a row
+// does with its move have to reach past the actor's own items.
+describe("SteadingMoves and a move the steading does not own", () => {
+	const conferred = () => move("Lead the Aurochs Hunt", "improvement", { rollStat: "defenses" });
+
+	it("rolls it from the pack, so the card carries the move's own tiers", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade"), conferred()));
+		await moves.seedReferenceMoves();
+		expect(await moves.roll("lead-the-aurochs-hunt")).toBe(true);
+		expect(actor.rolledItems[0].item.name).toBe("Lead the Aurochs Hunt");
+	});
+
+	it("posts it to chat from the pack too", async () => {
+		const { moves, actor } = makeMoves(repoWith(conferred()));
+		expect(await moves.sendToChat("lead-the-aurochs-hunt")).toBe(true);
+		expect(actor.chatItems[0].name).toBe("Lead the Aurochs Hunt");
+	});
+
+	// The steading's OWN copy still wins: a GM who edited a seeded move rolls what they edited.
+	it("prefers the steading's own copy over the pack's", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade", { rollStat: "prosperity" })));
+		await moves.seedReferenceMoves();
+		await moves.roll("trade");
+		expect(actor.rolledItems[0].item._id).toBe(inCategory(actor, "homefront")[0]._id);
+	});
+
+	it("rolls nothing for a slug neither the steading nor the pack has", async () => {
+		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
+		expect(await moves.roll("nope")).toBe(false);
+		expect(actor.rolledItems).toHaveLength(0);
+	});
+});
+
 describe("SteadingMoves.sendToChat", () => {
 	it("finds the seeded homefront move by slug and hands it to the actor's chat surface", async () => {
 		const { moves, actor } = makeMoves(repoWith(homefront("Trade", { description: "When you trade…" })));

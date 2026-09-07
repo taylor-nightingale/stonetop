@@ -192,22 +192,29 @@
         "movesEmpty": "No seasonal moves assigned to this steading.",
         "wheelLabel": "The steading's year",
         "stated": "{season}, year {year}",
-        "turnoverTitle": "Because of what Stonetop has built",
-        "turnoverHint": "Everything Stonetop has built that fires this season. Drop any line you want to keep out.",
+        "whenComes": "When {season} comes",
+        "theSeason": "the season itself",
         "turnoverEmpty": "Nothing Stonetop has built fires this season.",
         "turnTitle": "The turn of the season",
+        "turnTo": "Turn to {season}",
+        "during": "During {season}",
         "turnConfirm": "Roll Seasons Change: {season}? The season turns, and this season's checklist and seasonal gain are cleared.",
         "rollMove": "Roll {move}",
-        "stepRoll": "Roll it",
-        "stepGain": "Pick 1 seasonal gain",
-        "stepGainNote": "on a 10+, or on a 7-9 with a threat",
-        "stepFortunes": "Reset Fortunes",
-        "stepFortunesNote": "whatever the result",
         "resetFortunes": "Reset Fortunes to +{value}",
-        "othersTitle": "The other seasons",
-        "othersHint": "Reference. The season turns by rolling the move above.",
-        "momentsTitle": "This season",
-        "momentsHint": "The sheet can't know when these happen. Apply one when it does.",
+        "steps": {
+          "roll": "Roll it",
+          "rollFormula": "Roll {die} + {stat}",
+          "rollDice": "Roll {die}",
+          "consume": "The steading consumes that much Surplus",
+          "generate": "The steading generates {die} Surplus",
+          "momentGenerate": "roll {die}; the steading generates that much Surplus",
+          "reset": "Reset Fortunes",
+          "pickBelow": "below, where it stays in force all season",
+          "pick": {
+            "seasonal-gains": "Pick {count} from the seasonal gains",
+            "winter-losses": "Pick {count} from what winter takes"
+          }
+        },
         "moments": {
           "autumn-harvest": "The autumn harvest",
           "aurochs-hunt": "The aurochs hunt",
@@ -229,21 +236,30 @@
       "improvements": {
         "boardTitle": "Improvements",
         "boardEmpty": "This steading owns no improvements yet. Drop one onto the sheet to start it.",
-        "complete": "done",
         "progress": "{ticked} / {total}",
         "countInProgress": "{count} in progress",
         "countUntouched": "{count} not started",
         "countComplete": "{count} complete",
-        "filterLabel": "Show only"
+        "filterLabel": "Show only",
+        "attentionLabel": "What needs attention",
+        "countOwed": "{count} owed",
+        "countThisSeason": "{count} this season",
+        "owed": "owed",
+        "firesNow": "this season",
+        "nearlyDone": "1 to go",
+        "searchPlaceholder": "Search improvements"
       },
       "effects": {
         "apply": "Apply",
+        "step": {
+          "consumption": "When the steading consumes Surplus",
+          "generation": "When the steading generates Surplus"
+        },
         "onlyIf": "only if",
         "applySeason": "Apply the season",
         "alreadyApplied": "This season has been applied.",
         "applyMoment": "Apply",
         "momentApplied": "Applied this season.",
-        "rollGranted": "Roll {move}",
         "revert": "Revert",
         "applied": "Applied",
         "appliedLegacy": "Applied earlier",
@@ -808,7 +824,8 @@
       "personTraits": "Traits, relations, etc.",
       "folkSearch": "Search the roster",
       "suggestionUsed": "already used —",
-      "assetRequisitioned": "Requisitioned"
+      "assetRequisitioned": "Requisitioned",
+      "improvementSearch": "Search the improvement board"
     },
     "tagGlossary": {
       "general": {

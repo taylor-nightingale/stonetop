@@ -4,12 +4,14 @@ import path from "path";
 
 // The harvest plate is a copyrighted illustration the art installer provides, absent in most worlds.
 //
-// It used to share a grid row with the Seasonal gains, which cost two rules to make safe: an art
-// column reserved whether or not anything filled it (so the gains sat in two thirds of the row with
-// dead space beside them), and a `:has()` collapse to take it back. The Season tab is now the
-// turnover beside the gains, with the plate closing the tab underneath — so the plate shares a row
-// with nothing, reserves nothing, and needs neither rule. What survives is the obligation those
-// rules rested on: the plate is absent from the DOM in a world without the art, not merely empty.
+// It has been three layouts. A grid row shared with the Seasonal gains, which needed a reserved art
+// column and a `:has()` collapse to take it back. Then in flow at the turn panel's bottom right,
+// where nothing sat beside it — capped at 45%, so more than half of its own line was empty. It is
+// FLOATED now, inside the turn control, with the season's move running beside it and wrapping to the
+// art's own silhouette rather than to its box.
+//
+// What survives every one of those: the plate is absent from the DOM in a world without the art,
+// not merely empty.
 
 const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
 const css = read("styles/stonetop.css");
@@ -32,30 +34,41 @@ describe("seasons plate layout", () => {
 		expect(block).not.toContain("32%");
 	});
 
-	// The turnover and the gains are the row — two columns, and no named areas, which is what the
-	// plate used to be placed into.
-	it("puts the turnover beside the gains, and gives the plate no area to sit in", () => {
-		const block = ruleBlock(".stonetop.sheet.steading .steading-seasons-grid");
-		expect(block).toContain("grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr)");
-		expect(block).not.toContain("grid-template-areas");
-	});
-
 	// Decoration, capped — at full width it is the heaviest thing on the page.
 	it("caps the plate rather than letting it take the panel's full width", () => {
 		expect(ruleBlock(`.stonetop.sheet.steading .${PLATE}`)).toContain("max-width");
 	});
 
-	// Bottom RIGHT of the turn panel, and in flow. Positioned absolutely it would sit on top of a
-	// long turnover checklist; `margin-left: auto` puts it in the corner the numbered steps leave
-	// empty without ever overlapping them.
-	it("sits at the panel's bottom right, in flow", () => {
+	// Floated, so the move's text runs beside it and it costs no height of its own. Never absolute:
+	// positioned out of flow it would sit on top of whatever the turn control holds.
+	it("floats, and stays in flow", () => {
 		const block = ruleBlock(`.stonetop.sheet.steading .${PLATE}`);
-		expect(block).toContain("margin: 6px 0 0 auto");
+		expect(block).toContain("float: right");
 		expect(block).not.toContain("position: absolute");
 	});
 
-	it("is the last thing in the turn panel", () => {
-		expect(partial.indexOf(PLATE)).toBeGreaterThan(partial.indexOf("steading-turn-steps"));
+	// The point of floating it: text follows the ART, not its bounding box. The silhouette slants up
+	// and to the right, so the lower-left of the box is transparent — wrapping to the box would break
+	// every line against an invisible straight edge with a blank wedge behind it.
+	it("wraps text to the art's own silhouette", () => {
+		expect(ruleBlock(`.stonetop.sheet.steading .${PLATE}`)).toContain("shape-outside: var(--plate)");
+	});
+
+	// The path is produced at runtime by the art installer, so it arrives on the ELEMENT: a url() in
+	// the stylesheet would resolve against the stylesheet, and shape-outside needs the real image.
+	it("takes its shape url from the element, not the stylesheet", () => {
+		expect(partial).toContain("--plate: url('{{seasons.plate}}')");
+		expect(css).not.toContain("shape-outside: url(");
+	});
+
+	// A float must not escape the control that holds it into the section below.
+	it("is contained by the body it floats inside", () => {
+		expect(ruleBlock(".stonetop.sheet.steading .steading-turn-body")).toContain("display: flow-root");
+	});
+
+	// Before the text it makes room for: a float only affects the line boxes that come after it.
+	it("is emitted ahead of the move it wraps", () => {
+		expect(partial.indexOf(PLATE)).toBeLessThan(partial.indexOf("steading-turn-steps"));
 	});
 
 	// A plate div rendered unconditionally — empty, or with a hidden img inside — would put a gap

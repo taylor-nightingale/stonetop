@@ -1,7 +1,7 @@
 import { Seasons } from "../../model/data/steading/Seasons.js";
 import { Impressions } from "../../model/data/steading/Impressions.js";
 import { Moments } from "../../model/data/steading/Moments.js";
-import { SEASONAL_GAINS_GROUP } from "../../model/data/steading/SeasonalGains.js";
+import { SeasonalPicks } from "../../model/data/steading/SeasonalPicks.js";
 import { MomentSnapshot, SeasonSnapshot, TurnoverSnapshot } from "../../model/snapshot/steading/TurnoverSnapshot.js";
 
 /**
@@ -85,7 +85,9 @@ export class SteadingSeason {
 			"system.turnoverApplied":  null,
 		});
 		await this._actor.update({ "system.turnoverApplied": {} });
-		await this._choices?.controller().clearValues(SEASONAL_GAINS_GROUP);
+		// Every list a season can write to, not just the gains: winter picks from its own list, and a
+		// loss left standing into spring would be a thing the steading paid for twice.
+		for (const group of SeasonalPicks.GROUPS) await this._choices?.controller().clearValues(group);
 	}
 
 	/**

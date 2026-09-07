@@ -22,6 +22,30 @@
       }
     },
     "rollStat": "fortunes",
+    "steps": [
+      {
+        "kind": "roll",
+        "die": "1d4",
+        "stat": "population"
+      },
+      {
+        "kind": "consume"
+      },
+      {
+        "kind": "pick",
+        "from": "winter-losses",
+        "count": 1
+      },
+      {
+        "kind": "roll",
+        "stat": "fortunes",
+        "tiers": true
+      },
+      {
+        "kind": "reset",
+        "target": "fortunes"
+      }
+    ],
     "slug": "seasons-change-winter"
   },
   "folder": "9Fr0AHPLXG0ewMGA"

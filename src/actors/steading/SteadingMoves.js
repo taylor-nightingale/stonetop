@@ -10,8 +10,8 @@ import {
 	incrementMove,
 	decrementMove,
 	buildMoveSnapshot,
-	findMoveItemBySlug,
 	openMoveSheet,
+	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { toSlug } from "../../utils/slug.js";
 
@@ -114,16 +114,19 @@ export class SteadingMoves {
 
 	// Roll one of the steading's own moves by slug — the seasonal turn rolls Seasons Change through
 	// here so it goes out as an ordinary move roll rather than a second kind of card.
+	// Owned first, then the pack — the moves an improvement CONFERS are rendered from the pack and
+	// never seeded, so the aurochs hunt has no owned id to find it by. See resolveMoveBySlug.
 	async roll(moveSlug) {
-		const item = findMoveItemBySlug(this._actor, moveSlug);
+		const item = await resolveMoveBySlug(this._actor, moveSlug, this._repo);
 		if (item) await this._actor.rollItem(item);
 		return Boolean(item);
 	}
 
 	// Post the move's full text (description + all result tiers) to chat, without rolling.
 	async sendToChat(moveSlug) {
-		const item = findMoveItemBySlug(this._actor, moveSlug);
+		const item = await resolveMoveBySlug(this._actor, moveSlug, this._repo);
 		if (item) await this._actor.sendItemToChat(item);
+		return Boolean(item);
 	}
 
 	// One MoveCategorySnapshot per non-empty category the Moves TAB lists. Categories that claim a

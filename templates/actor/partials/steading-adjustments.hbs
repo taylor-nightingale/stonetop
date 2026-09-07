@@ -1,0 +1,27 @@
+{{!-- What Stonetop has built that changes how a STEP of the season works.
+
+      "When you consume Surplus in winter, consider Population to be 1 lower." "Consumes 1 less
+      Surplus than normal." "Roll 2d6+Population instead of 1d4+Population." Five improvements bend
+      winter's consumption, and every one of them used to sit in the same undifferentiated wall as
+      the results that simply add Surplus — nowhere near the place Surplus is actually consumed,
+      because there was no consumption step in the UI to put them beside.
+
+      Headed by the STEP, so the heading states when they apply and no row has to. Never a control:
+      an adjustment changes an arithmetic the sheet does not perform.
+
+      Params: statement (TurnoverStatement). --}}
+{{#if statement.adjustmentGroups.length}}
+	<div class="steading-adjustments">
+		{{#each statement.adjustmentGroups}}
+			<h5 class="steading-adjustments-head">{{localize labelKey}}</h5>
+			<ul class="steading-statement-lines steading-statement-lines--sourced stonetop-unmarked">
+				{{#each lines}}
+					<li class="steading-statement-line">
+						<span class="steading-statement-source">{{source}}</span>
+						<span class="steading-statement-clause">{{rich text}}</span>
+					</li>
+				{{/each}}
+			</ul>
+		{{/each}}
+	</div>
+{{/if}}
