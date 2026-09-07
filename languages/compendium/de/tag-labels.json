@@ -2,7 +2,7 @@
   "_tags": {
     "pick-1-more": {
       "source": "[pick 1 more]",
-      "text": ""
+      "text": "[wähle 1 mehr]"
     },
     "1-armor-agility": {
       "source": "+1 armor (agility)",
@@ -10,7 +10,7 @@
     },
     "1-armor-hide-scales-etc": {
       "source": "+1 armor (hide, scales, etc.)",
-      "text": ""
+      "text": "+1 Rüstung (Leder, Schuppen usw.)"
     },
     "1-armor-hide": {
       "source": "+1 armor (hide)",
@@ -22,7 +22,7 @@
     },
     "absentminded": {
       "source": "absentminded",
-      "text": ""
+      "text": "Zerstreut"
     },
     "adorable": {
       "source": "adorable",
@@ -42,23 +42,23 @@
     },
     "all-wise": {
       "source": "all-wise",
-      "text": ""
+      "text": "Allwissend"
     },
     "amorphous": {
       "source": "amorphous",
-      "text": ""
+      "text": "Amorph"
     },
     "amphibious": {
       "source": "amphibious",
-      "text": ""
+      "text": "Amphibisch"
     },
     "ancient": {
       "source": "ancient",
-      "text": ""
+      "text": "Uralt"
     },
     "angry": {
       "source": "angry",
-      "text": ""
+      "text": "Zornig"
     },
     "annoying": {
       "source": "annoying",
@@ -66,7 +66,7 @@
     },
     "aquatic": {
       "source": "aquatic",
-      "text": ""
+      "text": "Aquatisch"
     },
     "archers": {
       "source": "archers",
@@ -90,11 +90,11 @@
     },
     "audacious": {
       "source": "audacious",
-      "text": ""
+      "text": "Verwegen"
     },
     "awkward": {
       "source": "awkward",
-      "text": ""
+      "text": "Unhandlich"
     },
     "beautiful": {
       "source": "beautiful",
@@ -106,11 +106,11 @@
     },
     "bloodthirsty": {
       "source": "bloodthirsty",
-      "text": ""
+      "text": "Blutrünstig"
     },
     "brash": {
       "source": "brash",
-      "text": ""
+      "text": "Ungestüm"
     },
     "brave": {
       "source": "brave",
@@ -118,7 +118,7 @@
     },
     "brutal": {
       "source": "brutal",
-      "text": ""
+      "text": "Brutal"
     },
     "burrowing": {
       "source": "burrowing",
@@ -126,11 +126,11 @@
     },
     "cagey": {
       "source": "cagey",
-      "text": ""
+      "text": "Schlau"
     },
     "callous": {
       "source": "callous",
-      "text": ""
+      "text": "Hartherzig"
     },
     "calm": {
       "source": "calm",
@@ -154,31 +154,31 @@
     },
     "clumsy": {
       "source": "clumsy",
-      "text": ""
+      "text": "Unbeholfen"
     },
     "confused": {
       "source": "confused",
-      "text": ""
+      "text": "Verwirrt"
     },
     "construct": {
       "source": "Construct",
-      "text": ""
+      "text": "Konstrukt"
     },
     "corrupted": {
       "source": "corrupted",
-      "text": ""
+      "text": "Korrumpiert"
     },
     "corrupted-or-emanation": {
       "source": "corrupted or emanation",
-      "text": ""
+      "text": "Korrumpiert oder Emanation"
     },
     "craven": {
       "source": "craven",
-      "text": ""
+      "text": "Zaghaft"
     },
     "creepy": {
       "source": "creepy",
-      "text": ""
+      "text": "Unheimlich"
     },
     "crude": {
       "source": "crude",
@@ -186,11 +186,11 @@
     },
     "cruel": {
       "source": "cruel",
-      "text": ""
+      "text": "Grausam"
     },
     "cumbersome": {
       "source": "cumbersome",
-      "text": ""
+      "text": "Schwerfällig"
     },
     "cunning": {
       "source": "cunning",
@@ -198,7 +198,7 @@
     },
     "curious": {
       "source": "curious",
-      "text": ""
+      "text": "Neugierig"
     },
     "damage-is-messy-1-piercing": {
       "source": "Damage is _messy_, 1 piercing",
@@ -214,11 +214,11 @@
     },
     "death-wise": {
       "source": "death-wise",
-      "text": ""
+      "text": "Todeskundig"
     },
     "deep-wise": {
       "source": "deep-wise",
-      "text": ""
+      "text": "Tiefenkundig"
     },
     "demon-wise": {
       "source": "demon-wise",
@@ -238,7 +238,7 @@
     },
     "disciplined": {
       "source": "disciplined",
-      "text": ""
+      "text": "Diszipliniert"
     },
     "drunkard": {
       "source": "drunkard",
@@ -246,15 +246,15 @@
     },
     "durable": {
       "source": "durable",
-      "text": ""
+      "text": "Beständig"
     },
     "dutiful": {
       "source": "dutiful",
-      "text": ""
+      "text": "Pflichtbewusst"
     },
     "eager": {
       "source": "eager",
-      "text": ""
+      "text": "Eifrig"
     },
     "easy-going": {
       "source": "easy-going",
@@ -262,15 +262,15 @@
     },
     "either": {
       "source": "either",
-      "text": ""
+      "text": "entweder"
     },
     "emanation": {
       "source": "emanation",
-      "text": ""
+      "text": "Emanation"
     },
     "emotionless": {
       "source": "emotionless",
-      "text": ""
+      "text": "Emotionslos"
     },
     "enduring": {
       "source": "enduring",
@@ -278,7 +278,7 @@
     },
     "enigmatic": {
       "source": "enigmatic",
-      "text": ""
+      "text": "Rätselhaft"
     },
     "exceptional": {
       "source": "Exceptional",
@@ -290,7 +290,7 @@
     },
     "extraordinary": {
       "source": "extraordinary",
-      "text": ""
+      "text": "Ungewöhnlich"
     },
     "fae": {
       "source": "Fae",
@@ -322,7 +322,7 @@
     },
     "fickle": {
       "source": "fickle",
-      "text": ""
+      "text": "Launisch"
     },
     "fierce": {
       "source": "fierce",
@@ -330,11 +330,11 @@
     },
     "fiery": {
       "source": "fiery",
-      "text": ""
+      "text": "Brennend"
     },
     "fireproof": {
       "source": "fireproof",
-      "text": ""
+      "text": "Feuerfest"
     },
     "forceful": {
       "source": "forceful",
@@ -346,7 +346,7 @@
     },
     "forlorn": {
       "source": "forlorn",
-      "text": ""
+      "text": "Verlassen"
     },
     "fragile": {
       "source": "fragile",
@@ -366,7 +366,7 @@
     },
     "grabby": {
       "source": "grabby",
-      "text": ""
+      "text": "Fesselnd"
     },
     "greedy": {
       "source": "greedy",
@@ -378,7 +378,7 @@
     },
     "grumpy": {
       "source": "grumpy",
-      "text": ""
+      "text": "Mürrisch"
     },
     "gullible": {
       "source": "gullible",
@@ -398,7 +398,7 @@
     },
     "hedonistic": {
       "source": "hedonistic",
-      "text": ""
+      "text": "Hedonistisch"
     },
     "herb-wise": {
       "source": "Herb-wise",
@@ -422,11 +422,11 @@
     },
     "hungry": {
       "source": "hungry",
-      "text": ""
+      "text": "Hungrig"
     },
     "hunter": {
       "source": "hunter",
-      "text": ""
+      "text": "Jäger"
     },
     "immobile": {
       "source": "immobile",
@@ -434,19 +434,19 @@
     },
     "implacable": {
       "source": "implacable",
-      "text": ""
+      "text": "Unerbittlich"
     },
     "implanted": {
       "source": "implanted",
-      "text": ""
+      "text": "Implantiert"
     },
     "improved-damage-die-d6": {
       "source": "Improved damage die (d6)",
-      "text": ""
+      "text": "Verbesserter Schadenswürfel (W6)"
     },
     "indestructible": {
       "source": "indestructible",
-      "text": ""
+      "text": "Unzerstörbar"
     },
     "innocent": {
       "source": "innocent",
@@ -458,7 +458,7 @@
     },
     "intense": {
       "source": "intense",
-      "text": ""
+      "text": "Intensiv"
     },
     "intimidating": {
       "source": "intimidating",
@@ -482,11 +482,11 @@
     },
     "kind": {
       "source": "kind",
-      "text": ""
+      "text": "Freundlich"
     },
     "knowledgeable": {
       "source": "knowledgeable",
-      "text": ""
+      "text": "Kenntnisreich"
     },
     "large": {
       "source": "large",
@@ -498,11 +498,11 @@
     },
     "leader": {
       "source": "leader",
-      "text": ""
+      "text": "Anführer"
     },
     "lonely": {
       "source": "lonely",
-      "text": ""
+      "text": "Einsam"
     },
     "loud": {
       "source": "loud",
@@ -522,11 +522,11 @@
     },
     "meek": {
       "source": "meek",
-      "text": ""
+      "text": "Demütig"
     },
     "mesmerizing": {
       "source": "mesmerizing",
-      "text": ""
+      "text": "Hypnotisierend"
     },
     "messy": {
       "source": "messy",
@@ -538,15 +538,15 @@
     },
     "mindless": {
       "source": "mindless",
-      "text": ""
+      "text": "Geistlos"
     },
     "mischievous": {
       "source": "mischievous",
-      "text": ""
+      "text": "Schelmisch"
     },
     "moody": {
       "source": "moody",
-      "text": ""
+      "text": "Launisch"
     },
     "mute": {
       "source": "mute",
@@ -554,7 +554,7 @@
     },
     "naive": {
       "source": "naive",
-      "text": ""
+      "text": "Naiv"
     },
     "near": {
       "source": "near",
@@ -566,11 +566,11 @@
     },
     "obsessive": {
       "source": "obsessive",
-      "text": ""
+      "text": "Zwanghaft"
     },
     "opportunistic": {
       "source": "opportunistic",
-      "text": ""
+      "text": "Opportunistisch"
     },
     "organized": {
       "source": "organized",
@@ -578,15 +578,15 @@
     },
     "ornery": {
       "source": "ornery",
-      "text": ""
+      "text": "Widerspenstig"
     },
     "overbearing": {
       "source": "overbearing",
-      "text": ""
+      "text": "Überheblich"
     },
     "pack-hunter": {
       "source": "pack-hunter",
-      "text": ""
+      "text": "Rudeljäger"
     },
     "paranoid": {
       "source": "paranoid",
@@ -602,7 +602,7 @@
     },
     "plodding": {
       "source": "plodding",
-      "text": ""
+      "text": "Behäbig"
     },
     "powerful": {
       "source": "powerful",
@@ -610,7 +610,7 @@
     },
     "primordial": {
       "source": "primordial",
-      "text": ""
+      "text": "Urtümlich"
     },
     "protective": {
       "source": "protective",
@@ -626,11 +626,11 @@
     },
     "raucous": {
       "source": "raucous",
-      "text": ""
+      "text": "Hemmungslos"
     },
     "ravenous": {
       "source": "ravenous",
-      "text": ""
+      "text": "Gefräßig"
     },
     "reach": {
       "source": "reach",
@@ -638,7 +638,7 @@
     },
     "relentless": {
       "source": "relentless",
-      "text": ""
+      "text": "Unerbittlich"
     },
     "reload": {
       "source": "reload",
@@ -646,7 +646,7 @@
     },
     "resolute": {
       "source": "resolute",
-      "text": ""
+      "text": "Entschlossen"
     },
     "respected": {
       "source": "respected",
@@ -654,7 +654,7 @@
     },
     "restless": {
       "source": "restless",
-      "text": ""
+      "text": "Ruhelos"
     },
     "sadistic": {
       "source": "sadistic",
@@ -666,7 +666,7 @@
     },
     "see-below": {
       "source": "see below",
-      "text": ""
+      "text": "siehe unten"
     },
     "self-sufficient": {
       "source": "self-sufficient",
@@ -682,11 +682,11 @@
     },
     "size-by-hp": {
       "source": "size by HP",
-      "text": ""
+      "text": "Größe je nach TP"
     },
     "skilled": {
       "source": "skilled",
-      "text": ""
+      "text": "Erfahren"
     },
     "slow": {
       "source": "slow",
@@ -694,7 +694,7 @@
     },
     "sly": {
       "source": "sly",
-      "text": ""
+      "text": "Listig"
     },
     "small": {
       "source": "small",
@@ -718,7 +718,7 @@
     },
     "sterile": {
       "source": "sterile",
-      "text": ""
+      "text": "Steril"
     },
     "stinky": {
       "source": "stinky",
@@ -758,7 +758,7 @@
     },
     "timid": {
       "source": "timid",
-      "text": ""
+      "text": "Scheu"
     },
     "tiny": {
       "source": "tiny",
@@ -782,19 +782,19 @@
     },
     "unnerving": {
       "source": "unnerving",
-      "text": ""
+      "text": "Nervig"
     },
     "vicious": {
       "source": "vicious",
-      "text": ""
+      "text": "Bösartig"
     },
     "vigilant": {
       "source": "vigilant",
-      "text": ""
+      "text": "Wachsam"
     },
     "violent": {
       "source": "violent",
-      "text": ""
+      "text": "Gewalttätig"
     },
     "warm": {
       "source": "warm",
@@ -810,7 +810,7 @@
     },
     "watery": {
       "source": "watery",
-      "text": ""
+      "text": "Wässrig"
     },
     "well-informed": {
       "source": "well-informed",
@@ -818,15 +818,15 @@
     },
     "willful": {
       "source": "willful",
-      "text": ""
+      "text": "Eigenwillig"
     },
     "wooly": {
       "source": "wooly",
-      "text": ""
+      "text": "Wollig"
     },
     "wretched": {
       "source": "wretched",
-      "text": ""
+      "text": "Erbärmlich"
     },
     "young": {
       "source": "young",

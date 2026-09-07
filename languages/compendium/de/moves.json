@@ -88,11 +88,11 @@
   "advantage-disadvantage": {
     "name": {
       "source": "Advantage/Disadvantage",
-      "text": ""
+      "text": "Vorteil/Nachteil"
     },
     "description": {
       "source": "When you **_make a roll with advantage_**, roll an extra die and discard the lowest result.\n\nWhen you **_make a roll with disadvantage_**, roll an extra die and discard the highest result.\n\nWhen you **_make a roll with both advantage and disadvantage_**, they cancel each other out.\n\nIf you **_have advantage/disadvantage on a damage roll_**, roll the main dice twice and discard the lower/higher result. Then add any bonus dice that apply.",
-      "text": ""
+      "text": "Wenn du **_einen Wurf mit Vorteil machst_**, würfle einen zusätzlichen Würfel und streiche das niedrigste Ergebnis.\n\nWenn du **_einen Wurf mit Nachteil machst_**, würfle einen zusätzlichen Würfel und streiche das höchste Ergebnis.\n\nWenn du **_bei einem Wurf sowohl Vorteil als auch Nachteil hast_**, heben sie sich gegenseitig auf.\n\nWenn du **_bei einem Schadenswurf einen Vorteil/Nachteil hast_**, würfle den Hauptwürfel zweimal und streiche das niedrigere/höhere Ergebnis. Addiere anschließend alle vorhandenen Bonuswürfel."
     }
   },
   "aegis-of-faith": {
@@ -108,11 +108,11 @@
   "aid": {
     "name": {
       "source": "Aid",
-      "text": ""
+      "text": "Helfen"
     },
     "description": {
       "source": "When you **_help someone who has not yet rolled_**, the GM picks 1:\n\n- They can accomplish more than they could alone\n- They gain advantage on their roll\n\nEither way, you are exposed to any risk, cost, or consequence associated with their roll.",
-      "text": ""
+      "text": "Wenn du **_jemandem hilfst, der noch nicht gewürfelt hat_**, wählt der SL eines:\n\n- Er kann mehr erreichen als er es alleine könnte.\n- Er erhält einen Vorteil auf seinem Wurf.\n\nUnabhängig davon bist auch du allen Risiken, Kosten oder Konsequenzen ausgesetzt, die mit diesem Wurf verbunden sind."
     }
   },
   "all-in-the-wrist": {
@@ -548,11 +548,11 @@
   "burn-brightly": {
     "name": {
       "source": "Burn Brightly",
-      "text": ""
+      "text": "Hell erstrahlen"
     },
     "description": {
       "source": "When you **_have enough XP to Level Up_** (6 + twice your current level), you may spend 2 XP after any roll you make to add +1 to that roll (max +1 per roll).",
-      "text": ""
+      "text": "Wenn du **_genug EP zum Stufenaufstieg hast_** (6 + das Doppelte deiner aktuellen Stufe), kannst du nach einem beliebigen Wurf 2 EP ausgeben, um +1 auf diesen Wurf zu erhalten (maximal +1 pro Wurf)."
     }
   },
   "burn-twice-as-bright": {
@@ -730,11 +730,11 @@
   "chart-a-course": {
     "name": {
       "source": "Chart a Course",
-      "text": ""
+      "text": "Eine Route festlegen"
     },
     "description": {
       "source": "When you **_wish to travel to a distant place_**, name or describe your destination. If the route is unclear, tell the GM how you intend to reach it. The GM will then tell you what's required, the risks, and how long it will likely take.\n\nWhen you **_set out on the journey_**, the GM will present each of the challenges one at a time—plus any surprises that you couldn't have seen coming—in whatever order makes the most sense. Address them all and reach your destination.",
-      "text": ""
+      "text": "Wenn du **_zu einem weit entfernten Ort reisen möchtest_**, benenne oder beschreibe dein Ziel („Gordins Binge“, „das Versteck des Hagr“ oder „wo auch immer diese Spuren hinführen“). Wenn der Weg unklar ist, erkläre dem SL, wie du dorthin gelangen willst. Der SL sagt dir dann, was dafür erforderlich ist, welche Risiken bestehen und wie lange die Reise voraussichtlich dauern wird.\n\nWenn du **_dich auf die Reise begibst_**, stellt der SL dir jede der Herausforderungen einzeln vor – ebenso wie alle Überraschungen, mit denen du nicht rechnen konntest –, und zwar in der Reihenfolge, die am sinnvollsten erscheint. Bewältige sie alle und erreiche dein Ziel."
     }
   },
   "cheap-shot": {
@@ -770,23 +770,23 @@
   "clash": {
     "name": {
       "source": "Clash",
-      "text": ""
+      "text": "Hauen & Stechen"
     },
     "description": {
       "source": "When you **_fight in melee or close quarters_**, roll +STR: **on a 10+**, your maneuver works as expected (deal your damage) and pick 1:\n\n- Avoid, prevent, or counter your enemy's attack\n- Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack\n**_On a 7-9_**, your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.",
-      "text": ""
+      "text": "Wenn du **_im Nahkampf oder auf kurze Distanz kämpfst_**, würfle +ST. **Bei einer 10+** gelingt dein Manöver wie erwartet (füge deinen Schaden zu) und wähle eines:\n\n- Vermeide, verhindere oder kontere den Angriff deines Gegners.\n- Schlage hart und schnell zu und verursache 1W6 zusätzlichen Schaden, erleide dafür aber den Angriff deines Gegners.\n**Bei 7–9** gelingt dein Manöver größtenteils (füge deinen Schaden zu), aber du erleidest den Angriff deines Gegners."
     },
     "moveResults/success/value": {
       "source": "Your maneuver works as expected (deal your damage) and pick 1:\n\n- Avoid, prevent, or counter your enemy's attack\n- Strike hard and fast, for 1d6 extra damage, but suffer your enemy's attack",
-      "text": ""
+      "text": "Dein Manöver gelingt wie erwartet (füge deinen Schaden zu) und wähle eines:\n\n- Vermeide, verhindere oder kontere den Angriff deines Gegners.\n- Schlage hart und schnell zu und verursache 1W6 zusätzlichen Schaden, erleide dafür aber den Angriff deines Gegners."
     },
     "moveResults/partial/value": {
       "source": "Your maneuver works, mostly (deal your damage), but you suffer your enemy's attack.",
-      "text": ""
+      "text": "Dein Manöver gelingt größtenteils (füge deinen Schaden zu), aber du erleidest den Angriff deines Gegners."
     },
     "moveResults/failure/value": {
       "source": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)",
-      "text": ""
+      "text": "Dein Manöver misslingt, und du erleidest den Angriff deines Gegners (nach Ermessen des SL)."
     }
   },
   "condemn": {
@@ -1008,23 +1008,23 @@
   "deaths-door": {
     "name": {
       "source": "Deaths Door",
-      "text": ""
+      "text": "An der Schwelle des Todes"
     },
     "description": {
       "source": "When you **_are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
-      "text": ""
+      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Beilage} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Beilage}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Beilage}."
     },
     "moveResults/success/value": {
       "source": "You wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you.",
-      "text": ""
+      "text": "Du kämpfst dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat."
     },
     "moveResults/partial/value": {
       "source": "The Lady waves you off—you're no longer dying but you're out of the action.",
-      "text": ""
+      "text": "Die Herrin weist dich ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel."
     },
     "moveResults/failure/value": {
       "source": "Your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
-      "text": ""
+      "text": "Deine Zeit ist gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Beilage} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Beilage}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Beilage}."
     }
   },
   "deep-insight": {
@@ -1040,45 +1040,45 @@
   "defend": {
     "name": {
       "source": "Defend",
-      "text": ""
+      "text": "Verteidigen"
     },
     "description": {
       "source": "When you **_take up a defensive stance or jump in to protect others_**,  roll +CON: **on a 10+**, hold 3 Readiness (or 4 if you bear a shield); **_On a 7-9_**, hold 1 Readiness (or 2 with a shield). You can spend Readiness 1-for-1 to:\n\n- Suffer an attack's damage/effects instead of your ward\n- Halve an attack's effect or damage\n- Draw all attention from your ward to yourself\n- Strike back at an attacker (deal your damage, with disadvantage)\nWhen you go on the offense, cease to focus on defense, or the threat passes, lose any Readiness that you hold.",
-      "text": ""
+      "text": "Wenn du **_eine defensive Haltung einnimmst oder dich dafür einsetzt, um andere zu beschützen_**, würfle +KO. **Bei einer 10+** nimm 3 Bereitschaft (oder 4, wenn du einen Schild trägst). **Bei 7–9** nimm 1 Bereitschaft (oder 2 mit einem Schild). Gib jeweils 1 Bereitschaft aus, um:\n\n- Erleide den Schaden oder Effekt des Angriffs anstelle deines Verbündeten.\n- Halbiere den Schaden oder Effekt des Angriffs.\n- Lenke die gesamte Aufmerksamkeit von deinem Verbündeten auf dich.\n- Schlage gegen einen Angreifer zurück (füge deinen Schaden mit Nachteil zu).\nWenn du **_zum Angriff übergehst, deine Verteidigung nicht länger aufrechterhältst oder die Bedrohung vorüber ist_**, verlierst du jegliche Bereitschaft, die du besitzt."
     },
     "moveResults/success/value": {
       "source": "Hold 3 Readiness (or 4 if you bear a shield).",
-      "text": ""
+      "text": "Nimm 3 Bereitschaft (oder 4, wenn du einen Schild trägst)."
     },
     "moveResults/partial/value": {
       "source": "Hold 1 Readiness (or 2 with a shield).",
-      "text": ""
+      "text": "Nimm 1 Bereitschaft (oder 2 mit einem Schild)."
     },
     "moveResults/failure/value": {
       "source": "Escalate the situation aggressively, failure, etc.  (Up to GM interpretation).",
-      "text": ""
+      "text": "Die Situation spitzt sich aggressiv zu, Scheitern usw. (nach Ermessen des SL)."
     }
   },
   "defy-danger": {
     "name": {
       "source": "Defy Danger",
-      "text": ""
+      "text": "Gefahr trotzen"
     },
     "description": {
       "source": "When **_danger looms, the stakes are high, and you do something chancy_**, check if another move applies. If not, roll...\n\n... +STR to power through or test your might\n\n... +DEX to employ speed, agility, or finesse\n\n... +CON to endure or hold steady\n\n... +INT to apply expertise or enact a clever plan\n\n... +WIS to exert willpower or rely on your senses\n\n... +CHA to charm, bluff, impress, or fit in\n\n**_On a 10+_**, you pull it off as well as one could hope; **_on a 7-9_**, you can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).",
-      "text": ""
+      "text": "Wenn **_Gefahr droht, viel auf dem Spiel steht und du etwas Riskantes unternimmst_**, überprüfe zunächst, ob ein anderer Spielzug zutrifft. Falls nicht, würfle …\n\n… +ST, um dich mit roher Kraft durchzusetzen oder deine Kraft unter Beweis zu stellen.\n\n… +GE, um Geschwindigkeit, Beweglichkeit oder Finesse einzusetzen.\n\n… +KO, um etwas auszuhalten oder standhaft zu bleiben.\n\n… +IN, um Fachwissen anzuwenden oder einen cleveren Plan umzusetzen.\n\n… +WE, um Willenskraft zu zeigen oder dich auf deine Sinne zu verlassen.\n\n… +CH, um zu schmeicheln, zu bluffen, zu beeindrucken oder dich anzupassen.\n\n**Bei einer 10+** gelingt es dir so gut, wie man es sich nur wünschen kann. **Bei 7–9** schaffst du es zwar, aber der SL wird dir einen geringeren Erfolg, einen Preis oder eine Konsequenz auferlegen (und möglicherweise eine Wahl zwischen diesen oder die Möglichkeit, einen Rückzieher zu machen)."
     },
     "moveResults/success/value": {
       "source": "You pull it off as well as one could hope.",
-      "text": ""
+      "text": "Es gelingt dir so gut, wie man es sich nur wünschen kann. "
     },
     "moveResults/partial/value": {
       "source": "You can do it, but the GM will present a lesser success, a cost, or a consequence (and maybe a choice between them, or a chance to back down).",
-      "text": ""
+      "text": "Du schaffst es zwar, aber der SL wird dir einen geringeren Erfolg, einen Preis oder eine Konsequenz auferlegen (und möglicherweise eine Wahl zwischen diesen oder die Möglichkeit, einen Rückzieher zu machen)."
     },
     "moveResults/failure/value": {
       "source": "Things get bad... things burn. (Up to GM interpretation)",
-      "text": ""
+      "text": "Die Dinge nehmen eine üble Wendung … etwas geht in Flammen auf (nach Ermessen des SL)."
     }
   },
   "deploy": {
@@ -1180,11 +1180,11 @@
   "end-of-session": {
     "name": {
       "source": "End of Session",
-      "text": ""
+      "text": "Ende der Spielsitzung"
     },
     "description": {
       "source": "When a **_session ends_**, point out how you demonstrated or struggled with your instinct. If you can, mark XP.\n\nSay how your relationship with or opinion of a PC, NPC, or group has changed. If you can, mark XP.\n\nAnswer these questions as a group. For each “yes,” everyone marks XP.\n\n- Did we learn more about the world or its history?\n- Did we defeat a threat to Stonetop or the region?\n- Did we improve our standing with our neighbors?\n- Did we make a lasting improvement to Stonetop, or tangible progress towards doing so?\n\nPraise something about the session (in the fiction or around the table) that you enjoyed or appreciated.\n\nFinally, offer up a wish for future sessions: more __, less __, a chance to __, handling __ in a different way, etc. Wishes can be about what happens in the fiction or around the table. The GM will take notes.",
-      "text": ""
+      "text": "Wenn **_eine Spielsitzung endet_**, erläutere, wie du deinem Instinkt gefolgt bist oder mit ihm gerungen hast. Wenn du es kannst, markiere EP.\n\nBeschreibe, wie sich deine Beziehung oder Meinung zu einem SC, NSC oder einer Gruppe verändert hat. Wenn du es kannst, markiere EP.\n\nBeantwortet diese Fragen gemeinsam in der Gruppe. Für jedes „Ja“ markiert jeder EP.\n\n- Haben wir mehr über die Welt oder ihre Geschichte erfahren?\n- Haben wir eine Bedrohung für Stonetop oder die Region besiegt?\n- Haben wir unser Ansehen bei unseren Nachbarn verbessert?\n- Haben wir Stonetop nachhaltig verbessert oder konkrete Fortschritte dabei gemacht?\n\nLobt etwas an der Spielsitzung (in der Spielwelt oder am Spieltisch), das euch gefallen oder das ihr zu schätzen gewusst habt.\n\nÄußere zum Schluss einen Wunsch für zukünftige Spielsitzungen: mehr von …, weniger von …, eine Gelegenheit, … zu tun, mit … auf eine andere Weise umzugehen usw. Wünsche können sich sowohl darauf beziehen, was in der Spielwelt geschieht, als auch auf das Geschehen am Spieltisch. Der SL wird sich dazu Notizen machen."
     }
   },
   "everything-bleeds": {
@@ -1348,23 +1348,23 @@
   "forage": {
     "name": {
       "source": "Forage",
-      "text": ""
+      "text": "Nahrung suchen"
     },
     "description": {
       "source": "When you **_spend a few hours seeking food in the wild_**, roll +WIS. In winter, you have disadvantage. **On a 10+**, pick 2; **on a 7-9**, pick 1:\n\n- You acquire ◇ provisions (1d6 uses)\n- You acquire an extra 1d6 uses of provisions\n- You discover something interesting or useful\n- You avoid danger or risk (else, there is some)\n\nProvisions can substitute for supplies when you Make Camp, 1-for-1.",
-      "text": ""
+      "text": "Wenn du **_einige Stunden damit verbringst, in der Wildnis nach Nahrung zu suchen_**, würfle +WE. Im Winter hast du einen Nachteil. **Bei einer 10+** wähle 2. **Bei 7–9** wähle 1.\n\n- Du beschaffst ◆ Proviant (1W6 Anwendungen).\n- Du beschaffst zusätzlich 1W6 Anwendungen Proviant.\n- Du entdeckst etwas Interessantes oder Nützliches.\n- Du vermeidest Gefahr oder Risiko (andernfalls droht dir eines davon).\nProviant kann beim Lager aufschlagen Vorräte im Verhältnis 1:1 ersetzen."
     },
     "moveResults/success/value": {
       "source": "Pick 2 from the list.",
-      "text": ""
+      "text": "Wähle 2 aus der Liste aus."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 from the list.",
-      "text": ""
+      "text": "Wähle 1 aus der Liste aus."
     },
     "moveResults/failure/value": {
       "source": "The land is barren or picked clean, hunger sets in (mark a debility), or you stumble into danger.",
-      "text": ""
+      "text": "Das Land ist karg oder bereits abgeerntet, der Hunger setzt ein (markiere eine Beeinträchtigung), oder du gerätst in eine gefährliche Situation.“"
     }
   },
   "formidable": {
@@ -1520,11 +1520,11 @@
   "have-what-you-need": {
     "name": {
       "source": "Have What You Need",
-      "text": ""
+      "text": "Du hast, was du brauchst"
     },
     "description": {
       "source": "When you **_decide that you had something all along_**, transfer a mark (or marks) from your \"undefined\" inventory to a specific item or a slot. If you mark a slot, fill it with a common mundane item or something from your special possessions.\n\nAlternately, you can expend a use of supplies to mark an additional small item/slot (□).\n\nWhatever you produce, it must be something you could have had all along. The GM or any player can veto unreasonable items.",
-      "text": ""
+      "text": "Wenn du **_entscheidest, dass du etwas die ganze Zeit über bei dir hattest_**, verschiebe eine oder mehrere Markierungen aus deinem „undefinierten“ Inventar auf einen spezifischen Gegenstand oder einen freien Platz. Wenn du einen freien Platz markierst, fülle ihn mit einem gewöhnlichen Alltagsgegenstand oder etwas aus deinen besonderen Besitztümern.\n\nAlternativ kannst du eine Anwendung an Vorräten aufbrauchen, um einen zusätzlichen kleinen Gegenstand/Platz (☐) zu markieren.\n\nWas auch immer du hervorholst, es muss etwas sein, dass du die ganze Zeit über hättest dabeihaben können. Der SL oder ein Spieler kann ein Veto gegen unangemessene Gegenstände einlegen."
     }
   },
   "healers-arts": {
@@ -1732,23 +1732,23 @@
   "interfere": {
     "name": {
       "source": "Interfere",
-      "text": ""
+      "text": "Hindern"
     },
     "description": {
       "source": "When you try to foil another PC’s action and neither of you back down, roll...\n\n... +STR to power through or test your might\n\n... +DEX to employ speed, agility, or finesse\n\n... +CON to endure or hold steady\n\n... +INT to apply expertise or enact a clever plan\n\n... +WIS to exert willpower or rely on your senses\n\n... +CHA to charm, bluff, impress, or fit in\n\n**_On a 10+_**, they pick 1 from the list below; **_on a 7-9_**, they pick 1 from the list below but you are left off-balance, exposed, or otherwise vulnerable.\n\n- Do it anyway, but with disadvantage on their (next) roll\n- Relent, change course, or otherwise allow their move to be foiled",
-      "text": ""
+      "text": "Wenn du **_versuchst, die Handlung eines anderen SCs zu vereiteln und keiner von euch nachgibt_**, würfle …\n\n… +ST, um dich mit roher Kraft durchzusetzen oder deine Stärke unter Beweis zu stellen.\n\n… +GE, um Geschwindigkeit, Beweglichkeit oder Finesse einzusetzen.\n\n… +KO, um etwas auszuhalten oder standhaft zu bleiben.\n\n… +IN, um Fachwissen anzuwenden oder einen cleveren Plan umzusetzen.\n\n… +WE, um Willenskraft zu zeigen oder dich auf deine Sinne zu verlassen.\n\n… +CH, um zu schmeicheln, zu bluffen, zu beeindrucken oder dich anzupassen.\n\n**Bei einer 10+** wählt er eines aus der folgenden Liste. **Bei 7-9** wählt er eines aus der folgenden Liste, aber du wirst aus dem Gleichgewicht gebracht, bist ungeschützt oder anderweitig verwundbar.\n\n- Tu es trotzdem, aber würfle deinen (nächsten) Wurf mit Nachteil.\n- Gib nach, ändere deine Vorgehensweise oder lass auf andere Weise zu, dass deine Handlung vereitelt wird."
     },
     "moveResults/success/value": {
       "source": "They pick 1 from the list.",
-      "text": ""
+      "text": "Er wählt eines aus der Liste."
     },
     "moveResults/partial/value": {
       "source": "They pick 1 from the list but you are left off-balance, exposed, or otherwise vulnerable.",
-      "text": ""
+      "text": "Er wählt eines aus der folgenden Liste, aber du wirst aus dem Gleichgewicht gebracht, bist ungeschützt oder anderweitig verwundbar."
     },
     "moveResults/failure/value": {
       "source": "Makes a hard GM move (Up to GM interpretation).",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "intimidating": {
@@ -1816,11 +1816,11 @@
   "keep-company": {
     "name": {
       "source": "Keep Company",
-      "text": ""
+      "text": "Gesellschaft leisten"
     },
     "description": {
       "source": "When you **_spend a stretch of time together_**, ask the others if they want to Keep Company. If they do, take turns asking a PC or NPC one of the following.\n\n- What do you do that's annoying/endearing?\n- What do I do that you find annoying/endearing?\n- Who or what seems to be on your mind?\n- What do we find ourselves talking about?\n- How do you/we pass the time?\n- What new thing do you reveal about yourself?",
-      "text": ""
+      "text": "Wenn du **_längere Zeit zusammen mit anderen verbringst_**, frage die anderen, ob sie Gesellschaft leisten wollen. Wenn ja, frage abwechselnd einen SC oder NSC eine der folgenden Fragen.\n\n- Was tust du, das ärgerlich/liebenswert ist?\n- Was tue ich, das du ärgerlich/liebenswert findest?\n- An wen oder was denkst du gerade? \n- Worüber unterhalten wir uns?\n- Wie vertreiben wir uns die Zeit?\n- Was verrätst du Neues über dich?"
     }
   },
   "keep-the-home-fires-burning": {
@@ -1836,23 +1836,23 @@
   "know-things": {
     "name": {
       "source": "Know Things",
-      "text": ""
+      "text": "Wissen kundtun"
     },
     "description": {
       "source": "When you **_consult your accumulated knowledge_**, roll +INT: **on a 10+**, The GM will tell you something interesting and useful about the topic at hand; **_On a 7-9_**, the GM will tell you something interesting—it's on you to make it useful;**_either way_**, the GM might ask “how do you know this?”",
-      "text": ""
+      "text": "Wenn du **_auf dein angesammeltes Wissen zurückgreifst_**, würfle +IN. **Bei einer 10+** verrät dir der SL etwas Interessantes und Nützliches über das aktuelle Thema. **Bei 7–9** verrät dir der SL etwas Interessantes – du musst selbst herausfinden, wie du es nützlich einsetzen kannst. **In beiden Fällen** kann der SL fragen: „Woher weißt du das?“ Antworte wahrheitsgemäß."
     },
     "moveResults/success/value": {
       "source": "The GM will tell you something interesting and useful about the topic at hand.",
-      "text": ""
+      "text": "Der SL verrät dir etwas Interessantes und Nützliches über das aktuelle Thema."
     },
     "moveResults/partial/value": {
       "source": "the GM will tell you something interesting—it's on you to make it useful.",
-      "text": ""
+      "text": "Der SL verrät dir etwas Interessantes – du musst selbst herausfinden, wie du es nützlich einsetzen kannst."
     },
     "moveResults/failure/value": {
       "source": "Your maneuver fails and you suffer your enemy's attack. (Up to GM interpretation)",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "knowledge-is-power": {
@@ -1888,23 +1888,23 @@
   "let-fly": {
     "name": {
       "source": "Let Fly",
-      "text": ""
+      "text": "Salve angeben"
     },
     "description": {
       "source": "When you **_take an easy shot with a ranged weapon_**, deal your damage. If **_the shot is tricky or you’re under pressure_**, first roll +DEX: **on a 10+**, you have a clear shot, deal your damage; **on a 7-9**, pick 1:\n\n- Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)\n- Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage\n- Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage\n- Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice",
-      "text": ""
+      "text": "Wenn du **_mit einer Fernkampfwaffe in aller Ruhe einen sicheren Schuss abgibst_**, füge deinen Schaden zu. Wenn **_der Schuss knifflig ist oder du unter Druck stehst_**, würfle +GE. **Bei einer 10+** hast du ein freies Schussfeld, füge deinen Schaden zu. **Bei 7–9** wähle eines:\n\n- Füge deinen Schaden zu, aber reduziere deine Munition (Markiere den nächsten Status deiner Waffe. Wähle dies nicht, wenn deine Waffe keinen solchen Status hat).\n- Halte still und warte auf ein freies Schussfeld. Wenn der Moment gekommen ist (der SL entscheidet), füge deinen Schaden zu.\n- Bewege dich, um ein freies Schussfeld zu bekommen – und setzt dich dadurch einer Gefahr aus oder gib einen Vorteil auf (der SL sagt, wie) und füge dann deinen Schaden zu.\n- Gib den Schuss überstürzt ab und füge deinen Schaden zu, was einen Preis oder eine Komplikation nach Wahl des SL zur Folge hat."
     },
     "moveResults/success/value": {
       "source": "You have a clear shot, deal your damage.",
-      "text": ""
+      "text": "Du hast ein freies Schussfeld, füge deinen Schaden zu."
     },
     "moveResults/partial/value": {
       "source": "Pick 1:\n\n- Deal your damage, but deplete your ammo (mark the next status by your weapon; don’t pick this if your weapon lacks such statuses)\n- Hold steady and wait for a clear shot; when the moment arrives (GM’s call), deal your damage\n- Move to get a clear shot - exposing yourself to danger or giving up some advantage (GM says how) - then deal your damage\n- Rush the shot and deal your damage, leading to a cost or complication of the GM’s choice",
-      "text": ""
+      "text": "Wähle eines:\n\n- Füge deinen Schaden zu, aber reduziere deine Munition (Markiere den nächsten Status deiner Waffe. Wähle dies nicht, wenn deine Waffe keinen solchen Status hat).\n- Halte still und warte auf ein freies Schussfeld. Wenn der Moment gekommen ist (der SL entscheidet), füge deinen Schaden zu.\n- Bewege dich, um ein freies Schussfeld zu bekommen – und setzt dich dadurch einer Gefahr aus oder gib einen Vorteil auf (der SL sagt, wie) und füge dann deinen Schaden zu.\n- Gib den Schuss überstürzt ab und füge deinen Schaden zu, was einen Preis oder eine Komplikation nach Wahl des SL zur Folge hat."
     },
     "moveResults/failure/value": {
       "source": "Up to GM",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "lets-make-a-deal": {
@@ -2084,11 +2084,11 @@
   "make-camp": {
     "name": {
       "source": "Make Camp",
-      "text": ""
+      "text": "Lager aufschlagen"
     },
     "description": {
       "source": "When you **_settle in to rest in an unsafe area_**, answer the GM's questions about your campsite. Each member of the party must consume 1 use of supplies or provisions; if you use a mess kit (requires fire & water), then 1 use can provide for up to four people.\n\nIf you **_eat and drink your fill, and get at least a few hours of sleep_**, pick 1:\n\n- Regain HP equal to ½ your max (round up)\n- Clear a debility\n\nIf your rest was particularly peaceful, comfortable, or enjoyable, you also gain advantage on your next roll.",
-      "text": ""
+      "text": "Wenn du **_in einer unsicheren Gegend Rast machst_**, beantworte die Fragen des SL zu deinem Lagerplatz. Jedes Mitglied der Gruppe muss 1 Anwendung von Versorgung oder Vorräten verbrauchen. Wenn ihr ein Kochgeschirr benutzt (erfordert Feuer & Wasser), kann 1 Anwendung bis zu vier Personen versorgen.\n\nWenn du dich satt isst und ausreichend trinkst und mindestens ein paar Stunden schläfst, wähle 1:\n\n- Erhalte TP in Höhe von ½ deiner maximalen TP zurück (aufgerundet).\n- Beseitige eine Beeinträchtigung.\nWenn deine Rast **_besonders friedlich, komfortabel oder angenehm war_**, erhältst du außerdem einen Vorteil auf deinen nächsten Wurf."
     }
   },
   "many-hands-make-light-work": {
@@ -2282,21 +2282,21 @@
   "order-followers": {
     "name": {
       "source": "Order Followers",
-      "text": ""
+      "text": "Gefolgsleute befehligen"
     },
     "description": {
       "source": "When you **_direct your follower to do something that would trigger a player move_**, and they do it, they trigger the move. If the move involves rolling, you roll for them. Instead of rolling +STAT, roll and:\n\n- if they have at least one appropriate tag or move, add +1, or +2 if they're also *exceptional*;\n- if they have no relevant tag or move, add +0; and\n- if any of their tags would get in the way, roll with disadvantage.\n\nWhen a follower is without orders or they act on their own initiative, the GM says what they do and how it goes.",
-      "text": ""
+      "text": "Wenn du **_deinem Gefolgsmann befiehlst, etwas zu tun_**, das einen Spielzug auslösen würde, und er es tut, löst er diesen Spielzug aus. Wenn der Spielzug einen Wurf erfordert, würfelst du für ihn.\n\nAnstatt +ATTRIBUT zu würfeln, würfle und …\n\n… addiere +1, wenn er mindestens eine passende Eigenschaft oder einen passenden Spielzug besitzt, oder +2, wenn er darin außerdem außergewöhnlich ist;\n\n… addiere +0, wenn er keine relevante Eigenschaft und keinen passenden Spielzug besitzt; und\n\n… würfle mit Nachteil, wenn eine seiner Eigenschaften ihm dabei im Weg stehen würde.\n\nWenn **_ein Gefolgsmann keine Anweisungen hat oder aus eigener Initiative handelt_**, sagt der SL, was er tut, und entscheidet, wie es ausgeht."
     }
   },
   "outfit": {
     "name": {
       "source": "Outfit",
-      "text": ""
+      "text": "Ausrüsten"
     },
     "description": {
       "source": "When you **_prepare for an expedition in a friendly community_**, mark as many ◇ on your Inventory insert as you wish to carry, either on specific items or in \"undefined.\" Mark up to 3 ◇ for a _light_ load (quick and quiet), 4–6 ◇ for a _normal_ load, or 7–9 ◇ for a _heavy_ load (noisy, slow, quick to tire). Also, mark a number of □ in the Small items section equal to 4+Prosperity (on specific items or \"undefined\").\n\nYou can select:\n\n- Items printed on the Inventory insert\n- Other common, mundane items\n- Any of your special possessions\n- Special items for which you Trade & Barter\n\nTell the GM what you're bringing, and answer their questions about your gear and where you got it.",
-      "text": ""
+      "text": "Wenn du **_dich in einer befreundeten Gemeinschaft auf eine Expedition vorbereitest_**, markiere auf deiner Inventar-Beilage so viele ◇, wie du mitnehmen möchtest – entweder bei spezifischen Gegenständen oder unter „undefiniert“. Markiere bis zu 3 ◇ für eine leichte Last (schnell und leise), 4–6 ◇ für eine normale Last oder 7–9 ◇ für eine schwere Last (laut, langsam und schnell ermüdend). Markiere außerdem im Abschnitt Kleine Gegenstände eine Anzahl von ☐ in Höhe von 4 + Wohlstand (bei spezifischen Gegenständen oder unter „Undefiniert“).\n\nDu kannst folgendes wählen:\n\n- Gegenstände, die auf der Inventar-Beilage aufgeführt sind\n- Andere gewöhnliche Alltagsgegenstände\n- Beliebige deiner besonderen Besitztümer\n- Besondere Gegenstände, für die du handeln & tauschen musst\nSag dem SL, was du mitnimmst, und beantworte seine Fragen zu deiner Ausrüstung und woher du sie hast."
     }
   },
   "overchannel": {
@@ -2382,45 +2382,45 @@
   "persuade-vs-npcs": {
     "name": {
       "source": "Persuade (vs. NPCs)",
-      "text": ""
+      "text": "Überreden (bei NSCs)"
     },
     "description": {
       "source": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +DEX: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
-      "text": ""
+      "text": "Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein."
     },
     "moveResults/success/value": {
       "source": "They either do as you want or reveal the easiest way to convince them",
-      "text": ""
+      "text": "Er tut, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen."
     },
     "moveResults/partial/value": {
       "source": "They reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
-      "text": ""
+      "text": "Er verrät dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein."
     },
     "moveResults/failure/value": {
       "source": "Up to GM",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "persuade-vs-pcs": {
     "name": {
       "source": "Persuade (vs. PCs)",
-      "text": ""
+      "text": "Überreden (bei SCs)"
     },
     "description": {
       "source": "When you **_press or entice a PC and they resist_**, ask their player: “Could I possibly get you to do this, yes or no?” If they say “no,” let it drop.\n\nIf they say “yes,” you can roll +CHA: **on a 10+**, they mark XP if they do what you want, and if they don’t, they must say how you could convince them; **on a 7-9**, they mark XP if they do what you want (but can refuse or make a counter-offer if they like).",
-      "text": ""
+      "text": "Wenn du **_einen SC unter Druck setzt oder zu etwas bewegen möchtest und er sich widersetzt_**, frage seinen Spieler: „Könnte ich dich möglicherweise dazu bringen, das zu tun – ja oder nein?“ Wenn die Antwort „Nein“ lautet, lass es gut sein.\n\nWenn die Antwort „Ja“ lautet, würfle+CH. **Bei einer 10+** markiert der andere Spieler EP, wenn er tut, was du möchtest. Wenn er es nicht tut, muss er offenlegen, wie du ihn überzeugen könntest. **Bei 7–9** markiert er EP, wenn er tut, was du möchtest (er kann sich aber weigern oder, wenn er möchte, ein Gegenangebot machen)."
     },
     "moveResults/success/value": {
       "source": "They mark XP if they do what you want, and if they don’t, they must say how you could convince them.",
-      "text": ""
+      "text": "Der andere Spieler markiert EP, wenn er tut, was du möchtest. Wenn er es nicht tut, muss er offenlegen, wie du ihn überzeugen könntest. "
     },
     "moveResults/partial/value": {
       "source": "They mark XP if they do what you want (but can refuse or make a counter-offer if they like).",
-      "text": ""
+      "text": "Der andere Spieler markiert EP, wenn er tut, was du möchtest (er kann sich aber weigern oder, wenn er möchte, ein Gegenangebot machen)."
     },
     "moveResults/failure/value": {
       "source": "Up to GM",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "piety": {
@@ -2708,11 +2708,11 @@
   "recover": {
     "name": {
       "source": "Recover",
-      "text": ""
+      "text": "Ausruhen"
     },
     "description": {
       "source": "When you **_take time to catch your breath and tend to what ails you_**, expend 1 use of supplies and regain HP equal to 4+Prosperity. You can't gain this benefit again until you take more damage.\n\nWhen you **_tend to a debility or a problematic wound_**, say how. The GM will either say that it's taken care of or tell you what else is required to do so.",
-      "text": ""
+      "text": "Wenn du **_dir Zeit nimmst, um zu verschnaufen und dich um deine Beschwerden zu kümmern_**, verbrauche 1 Anwendung von Vorräten und erhalte 4+Wohlstand TP zurück. Du kannst diesen Vorteil erst wieder erhalten, wenn du erneut Schaden erleidest.\n\nWenn du **_dich um eine Beeinträchtigung oder eine problematische Wunde kümmerst_**, beschreibe, wie du dabei vorgehst. Der SL sagt entweder, dass sie behandelt ist, oder erklärt dir, was noch erforderlich ist, um dies zu erreichen."
     }
   },
   "relentless": {
@@ -2728,23 +2728,23 @@
   "requisition": {
     "name": {
       "source": "Requisition",
-      "text": ""
+      "text": "Anfordern"
     },
     "description": {
       "source": "When you **_borrow some of the steading's assets for an expedition_** (like the horses or a plow), roll +Fortunes: **on a 10+**, go ahead, but bring it back safely; **on a 7-9**, you'll need to do some convincing; **on a 6-**, don't mark XP—you can take the asset with you if you want, but if you do, reduce Fortunes by 1.",
-      "text": ""
+      "text": "Wenn du **_für eine Expedition einige Besitztümer der Siedlung ausleihst_** (z. B. die Pferde oder einen Pflug), würfle +Schicksal. **Bei einer 10+** kannst du sie einfach mitnehmen – aber bring sie sicher zurück. **Bei 7–9** musst du erst jemanden überzeugen. **Bei einer 6-** markierst du keine EP – du kannst die Besitztümer trotzdem mitnehmen, wenn du möchtest. Wenn du das tust, reduziere Schicksal um 1."
     },
     "moveResults/success/value": {
       "source": "Go ahead, but bring it back safely.",
-      "text": ""
+      "text": "Du kannst sie einfach mitnehmen – aber bring sie sicher zurück."
     },
     "moveResults/partial/value": {
       "source": "You'll need to do some convincing.",
-      "text": ""
+      "text": "Du musst erst jemanden überzeugen."
     },
     "moveResults/failure/value": {
       "source": "Don't mark XP. You can take the asset with you if you want, but if you do, reduce Fortunes by 1.",
-      "text": ""
+      "text": "Du markierst keine EP – du kannst die Besitztümer trotzdem mitnehmen, wenn du möchtest. Wenn du das tust, reduziere Schicksal um 1."
     }
   },
   "resonance": {
@@ -2782,11 +2782,11 @@
   "return-triumphant": {
     "name": {
       "source": "Return Triumphant",
-      "text": ""
+      "text": "Triumphierend heimkehren"
     },
     "description": {
       "source": "When you **_return home in triumph_**, having saved your fellows, put down the threat, seized the opportunity, etc., then clear one of the steading's debilities (_diminished_, _lacking_, or _malcontent_).\n\nIf the steading has no debilities marked, then increase Fortunes by 1.",
-      "text": ""
+      "text": "Wenn du **_triumphierend nach Hause zurückkehrst_**, nachdem du deine Gefährten gerettet, eine Bedrohung beseitigt, eine Gelegenheit ergriffen oder Ähnliches erreicht hast, beseitige eine Beeinträchtigung der Siedlung (*Geschwächt*, *Mangel* oder *Unzufriedenheit*). Wenn bei der Siedlung keine Beeinträchtigungen markiert sind, erhöhe stattdessen Schicksal um 1."
     }
   },
   "rise-like-the-sun": {
@@ -2976,23 +2976,23 @@
   "seek-insight": {
     "name": {
       "source": "Seek Insight",
-      "text": ""
+      "text": "Gewissheit erlangen"
     },
     "description": {
       "source": "When you **_study a situation or person_**, looking to the GM for insight, roll +WIS: **on a 10+**, ask the GM 3 questions from the list below; **on a 7-9**, ask 1; **either way**, take advantage on your next move to act on the answers\n\n- What happened here recently?\n- What is about to happen?\n- What should I be on the lookout for?\n- What here is useful or valuable to me?\n- Who or what is really in control here?\n- What here is not what it appears to be?",
-      "text": ""
+      "text": "Wenn du **_eine Situation oder Person eingehend betrachtest_** und den SL um Erkenntnisse bittest, würfle +WE. **Bei einer 10+** stelle dem SL drei der folgenden Fragen. **Bei 7-9** stelle nur eine dieser Fragen. **In beiden Fällen** erhältst du einen Vorteil auf deinen nächsten Spielzug, bei dem du aufgrund der Antworten handelst.\n\n- Was ist hier geschehen?\n- Was wird jetzt geschehen?\n- Worauf sollte ich achten?\n- Was hier ist für mich nützlich oder wertvoll?\n- Wer oder was hat hier wirklich die Kontrolle?\n- Was ist hier nicht so, wie es zu sein scheint?"
     },
     "moveResults/success/value": {
       "source": "ask the GM 3 questions from the list above",
-      "text": ""
+      "text": "Stelle dem SL drei der Fragen."
     },
     "moveResults/partial/value": {
       "source": "ask the GM 1 question from the list above",
-      "text": ""
+      "text": "Stelle dem SL eine der Fragen. "
     },
     "moveResults/failure/value": {
       "source": "GM Move (**announce trouble, reveal an unwelcome truth, advance towards impending doom, use up their resources, turn their move back on them,** etc.)",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "set-up-strike": {
@@ -3342,33 +3342,33 @@
   "strengthen-your-bond": {
     "name": {
       "source": "Strengthen Your Bond",
-      "text": ""
+      "text": "Das Band stärken"
     },
     "description": {
       "source": "When you **_pay your followers cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).\n\nSpend your followers Loyalty 1-for-1 to have them:\n\n- Overcome their fear to do as you say\n- Resist acting on their instinct/tags/traits\n- Do something they don't want to do (so long as it's not abhorent or suicidal)\n\nWhen a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.",
-      "text": ""
+      "text": "Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).\n\nGib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:\n\n- seine Angst überwindet und das tut, was du ihm befohlen hast\n- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;\n- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist)."
     }
   },
   "struggle-as-one": {
     "name": {
       "source": "Struggle as One",
-      "text": ""
+      "text": "Gemeinsam vorgehen"
     },
     "description": {
       "source": "When you **_Defy Danger as a group_**, establish the party's approach and each roll +STAT (per Defy Danger): **on a 6-**, you find yourself in a spot, the GM will describe it or ask you to; **on a 7-9**, you pull your weight; **on a 10+**, you do well enough to get someone else out of a spot, if you can tell us how.\n\nIf you roll a 6- but someone saves you, don't mark XP.",
-      "text": ""
+      "text": "Wenn ihr **_als Gruppe einer Gefahr trotzt_**, legt die Vorgehensweise der Gruppe fest und jeder würfelt +ATTRIBUT (gemäß Gefahr trotzen). **Bei einer 6-** gerätst du in eine missliche Lage. Der SL beschreibt, was passiert, oder bittet dich, es selbst zu beschreiben. **Bei 7–9** leistest du deinen Beitrag. **Bei einer 10+** machst du deine Sache gut genug, um jemand anderen aus einer misslichen Lage zu befreien, sofern du erklären kannst, wie.\n\nWenn du eine 6- würfelst, aber jemand dich rettet, markiere keine EP."
     },
     "moveResults/success/value": {
       "source": "You do well enough to get someone else out of a spot, if you can tell us how.",
-      "text": ""
+      "text": "Du machst deine Sache gut genug, um jemand anderen aus einer misslichen Lage zu befreien, sofern du erklären kannst, wie."
     },
     "moveResults/partial/value": {
       "source": "You pull your weight.",
-      "text": ""
+      "text": "Du leistest deinen Beitrag. "
     },
     "moveResults/failure/value": {
       "source": "You find yourself in a spot—the GM will describe it or ask you to.",
-      "text": ""
+      "text": "Du gerätst in eine missliche Lage. Der SL beschreibt, was passiert, oder bittet dich, es selbst zu beschreiben."
     }
   },
   "suck-the-poison-out": {

@@ -2,205 +2,205 @@
   "barrier-pass": {
     "name": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "assets/resources/trade-with-mammoth-herders-ivory-wool-meat": {
       "source": "Trade with mammoth herders (ivory, wool, meat)",
-      "text": ""
+      "text": "Handel mit Mammuthirten (Elfenbein, Wolle, Fleisch)"
     },
     "assets/resources/trade-with-other-fortress-monasteries": {
       "source": "Trade with other fortress-monasteries",
-      "text": ""
+      "text": "Handel mit anderen Festungsklöstern"
     },
     "assets/resources/taxes-from-nearby-farm-valleys": {
       "source": "Taxes from nearby farm valleys",
-      "text": ""
+      "text": "Abgaben aus den nahegelegenen Bergbauernhöfen"
     },
     "assets/resources/farming-terraced-gardens-barley": {
       "source": "Farming (terraced gardens, barley)",
-      "text": ""
+      "text": "Ackerbau (Terrassengärten, Gerste)"
     },
     "assets/resources/livestock-goats-sheep-milk-fine-wool-meat": {
       "source": "Livestock (goats, sheep, milk, fine wool, meat)",
-      "text": ""
+      "text": "Viehzucht (Ziegen, Schafe, Milch, feine Wolle, Fleisch)"
     },
     "assets/resources/timber-from-foothills": {
       "source": "Timber (from Foothills)",
-      "text": ""
+      "text": "Holz (aus dem Vorgebirge)"
     },
     "assets/resources/parchment-vellum-ink": {
       "source": "Parchment, vellum, ink",
-      "text": ""
+      "text": "Pergament, Velin, Tinte"
     },
     "assets/resources/trades-smithing-weaving-tanning-scribing": {
       "source": "Trades: smithing, weaving, tanning, scribing",
-      "text": ""
+      "text": "Handwerk: Schmieden, Weben, Gerben, Schreiberhandwerk"
     },
     "assets/fortifications/a-score-of-guardians": {
       "source": "A score of guardians",
-      "text": ""
+      "text": "Etwa zwanzig Wächter"
     },
     "assets/fortifications/a-handful-of-adepts-page-328": {
       "source": "A handful of adepts (page 328)",
-      "text": ""
+      "text": "Eine Handvoll Adepten (Seite 328)"
     },
     "assets/fortifications/a-number-of-tulpas-page-324": {
       "source": "A number of tulpas (page 324)",
-      "text": ""
+      "text": "Eine Reihe von Tulpas (Seite 324)"
     },
     "assets/fortifications/blunt-weapons-nets-bolas-bronze-shields-and-mail": {
       "source": "Blunt weapons, nets, bolas, bronze shields and mail",
-      "text": ""
+      "text": "Stumpfe Waffen, Netze, Bolas, Bronzeschilde und Ringpanzer"
     },
     "assets/fortifications/exceptional-fortifications": {
       "source": "Exceptional fortifications",
-      "text": ""
+      "text": "Hervorragende Befestigungsanlagen"
     }
   },
   "gordins-delve": {
     "name": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "assets/resources/trade-with-marshedge-wheat-flax-rope-textiles-herbs-glass": {
       "source": "Trade with Marshedge (wheat, flax, rope, textiles, herbs, glass)",
-      "text": ""
+      "text": "Handel mit Mooresrand (Weizen, Flachs, Seile, Textilien, Kräuter, Glas)"
     },
     "assets/resources/trade-with-stonetop-barley-potatoes-furs-whisky": {
       "source": "Trade with Stonetop (barley, potatoes, furs, whisky)",
-      "text": ""
+      "text": "Handel mit Stonetop (Gerste, Kartoffeln, Pelze, Whisky)"
     },
     "assets/resources/mining-iron-copper-lead-tin-silver": {
       "source": "Mining (iron, copper, lead, tin, silver)",
-      "text": ""
+      "text": "Bergbau (Eisen, Kupfer, Blei, Zinn, Silber)"
     },
     "assets/resources/trades-smithing-tinkering": {
       "source": "Trades (smithing, tinkering)",
-      "text": ""
+      "text": "Handwerk (Schmiedekunst, Kesselflickerei)"
     },
     "assets/resources/timber": {
       "source": "Timber",
-      "text": ""
+      "text": "Holz"
     },
     "assets/resources/goats": {
       "source": "Goats",
-      "text": ""
+      "text": "Ziegen"
     },
     "assets/resources/aqueduct": {
       "source": "Aqueduct",
-      "text": ""
+      "text": "Aquädukt"
     },
     "assets/fortifications/maker-ramparts": {
       "source": "Maker-ramparts",
-      "text": ""
+      "text": "Festungswälle der Schöpfer"
     },
     "assets/fortifications/unassailable-position": {
       "source": "Unassailable position",
-      "text": ""
+      "text": "Uneinnehmbare Stellung"
     }
   },
   "hillfolk": {
     "name": {
       "source": "Hillfolk",
-      "text": ""
+      "text": "Hügelvolk"
     },
     "assets/resources/trade-with-other-bands": {
       "source": "Trade with other bands",
-      "text": ""
+      "text": "Handel mit anderen Sippen "
     },
     "assets/resources/trade-with-marshedge-rope-textiles-herbs-pottery": {
       "source": "Trade with Marshedge (rope, textiles, herbs, pottery)",
-      "text": ""
+      "text": "Handel mit Mooresrand (Seile, Textilien, Kräuter, Töpferwaren)"
     },
     "assets/resources/trade-with-stonetop-whisky-potatoes-oats": {
       "source": "Trade with Stonetop (whisky, potatoes, oats)",
-      "text": ""
+      "text": "Handel mit Stonetop (Whisky, Kartoffeln, Hafer)"
     },
     "assets/resources/trade-with-lygos-etc-salt-tools": {
       "source": "Trade with Lygos, etc. (salt, tools)",
-      "text": ""
+      "text": "Handel mit Lygos usw. (Salz, Werkzeuge)"
     },
     "assets/resources/horses-sheep-goats-hounds": {
       "source": "Horses, sheep, goats, hounds",
-      "text": ""
+      "text": "Pferde, Schafe, Ziegen, Jagdhunde"
     },
     "assets/resources/wool-milk": {
       "source": "Wool, milk",
-      "text": ""
+      "text": "Wolle, Milch"
     },
     "assets/resources/forage-fruits-nuts-veggies-honey": {
       "source": "Forage (fruits, nuts, veggies, honey)",
-      "text": ""
+      "text": "Sammeln (Früchte, Nüsse, Gemüse, Honig)"
     },
     "assets/resources/hunting-meat-fur-hides": {
       "source": "Hunting (meat, fur, hides)",
-      "text": ""
+      "text": "Jagd (Fleisch, Fell, Häute)"
     },
     "assets/resources/gathering-timber-sap-flint": {
       "source": "Gathering (timber, sap, flint)",
-      "text": ""
+      "text": "Sammeln (Holz, Harz, Feuerstein)"
     },
     "assets/fortifications/mounted-warriors": {
       "source": "Mounted warriors",
-      "text": ""
+      "text": "Berittene Krieger"
     },
     "assets/fortifications/flint-tipped-weapons-crude": {
       "source": "Flint-tipped weapons (crude)",
-      "text": ""
+      "text": "Waffen mit Feuersteinspitzen (Grob)"
     }
   },
   "marshedge": {
     "name": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "assets/resources/trade-with-lygos-fine-goods-spices-etc": {
       "source": "Trade with Lygos (fine goods, spices, etc.)",
-      "text": ""
+      "text": "Handel mit Lygos (feine Waren, Gewürze usw.)"
     },
     "assets/resources/trade-with-manmarch-timber-salt-amber": {
       "source": "Trade with Manmarch (timber, salt, amber)",
-      "text": ""
+      "text": "Handel mit der Grenzmark (Holz, Pelze, Bernstein)"
     },
     "assets/resources/trade-with-gordins-delve-metal-tools": {
       "source": "Trade with Gordin’s Delve (metal, tools)",
-      "text": ""
+      "text": "Handel mit Gordins Binge (Metall, Werkzeuge)"
     },
     "assets/resources/trade-with-stonetop-whisky-fur": {
       "source": "Trade with Stonetop (whisky, fur)",
-      "text": ""
+      "text": "Handel mit Stonetop (Whisky, Pelze)"
     },
     "assets/resources/farming-wheat-hemp-wild-rice-herbs": {
       "source": "Farming (wheat, hemp, wild rice, herbs)",
-      "text": ""
+      "text": "Ackerbau (Weizen, Hanf, Wildreis, Kräuter)"
     },
     "assets/resources/trades-textiles-pottery-glass-rope-medicine": {
       "source": "Trades (textiles, pottery, glass, rope, medicine)",
-      "text": ""
+      "text": "Handwerk (Textilien, Töpferei, Glas, Seile, Medizin)"
     },
     "assets/resources/forage-herbs-peat-clay": {
       "source": "Forage (herbs, peat, clay)",
-      "text": ""
+      "text": "Sammeln (Kräuter, Torf, Lehm)"
     },
     "assets/resources/marketplace": {
       "source": "Marketplace",
-      "text": ""
+      "text": "Marktplatz"
     },
     "assets/resources/windmill": {
       "source": "Windmill",
-      "text": ""
+      "text": "Windmühle"
     },
     "assets/fortifications/the-guard-page-280": {
       "source": "The Guard (page 280)",
-      "text": ""
+      "text": "Die Wache (Seite 149)"
     },
     "assets/fortifications/wooden-palisade": {
       "source": "Wooden palisade",
-      "text": ""
+      "text": "Hölzerne Palisade"
     },
     "assets/fortifications/bendis-root-braziers": {
       "source": "Bendis root braziers",
-      "text": ""
+      "text": "Kohlenbecken mit Bendiswurzel"
     }
   },
   "north-manmarch-hamlet": {
@@ -796,89 +796,89 @@
   "the-frozen-wastes": {
     "name": {
       "source": "The Frozen Wastes",
-      "text": ""
+      "text": "Eisige Ödlande"
     },
     "assets/resources/trade-with-other-mammoth-herders": {
       "source": "Trade with other mammoth herders",
-      "text": ""
+      "text": "Handel mit anderen Mammuthirten"
     },
     "assets/resources/trade-with-a-farming-valley": {
       "source": "Trade with a farming valley",
-      "text": ""
+      "text": "Handel mit einem Talbauernhof"
     },
     "assets/resources/trade-with-a-fortress-monastery": {
       "source": "Trade with a fortress-monastery",
-      "text": ""
+      "text": "Handel mit einem Festungskloster"
     },
     "assets/resources/mammoths-wool-ivory-bone-dung": {
       "source": "Mammoths (wool, ivory, bone, dung)",
-      "text": ""
+      "text": "Mammuts (Wolle, Elfenbein, Knochen, Dung)"
     },
     "assets/resources/sleds-sledges-of-bone-hide-timber": {
       "source": "Sleds/sledges of bone, hide, timber",
-      "text": ""
+      "text": "Schlitten aus Knochen, Haut, Holz"
     },
     "assets/resources/hunting-wild-mammoths-caribou-hare-fish": {
       "source": "Hunting (wild mammoths, caribou, hare, fish)",
-      "text": ""
+      "text": "Jagd (wilde Mammuts, Karibu, Hasen, Fisch)"
     },
     "assets/resources/gathering-timber-ivory-bone-flint-herbs-dark-ice-page-322": {
       "source": "Gathering (timber, ivory, bone, flint, herbs, dark ice (page 322)",
-      "text": ""
+      "text": "Sammeln (Holz, Elfenbein, Knochen, Feuerstein, Kräuter, dunkles Eis (Seite 322))"
     },
     "assets/fortifications/mammoth-mounted-warriors": {
       "source": "Mammoth-mounted warriors",
-      "text": ""
+      "text": "Krieger auf Mammuts"
     },
     "assets/fortifications/hounds-and-hunting-drakes": {
       "source": "Hounds and hunting drakes",
-      "text": ""
+      "text": "Jagdhunde und Jagddrachenechsen"
     },
     "assets/fortifications/spears-javelins-tipped-with-dark-ice-flint-bone-or-bronze-crude": {
       "source": "Spears/javelins tipped with dark ice, flint, bone, or bronze (crude)",
-      "text": ""
+      "text": "Speere/Wurfspeere mit Spitzen aus dunklem Eis, Feuerstein, Knochen oder Bronze (Grob)"
     }
   },
   "the-labyrinth": {
     "name": {
       "source": "The Labyrinth",
-      "text": ""
+      "text": "Das Labyrinth"
     },
     "assets/resources/gathering-fungus-fish-water": {
       "source": "Gathering (fungus, fish, water)",
-      "text": ""
+      "text": "Sammeln (Pilze, Fische, Wasser)"
     },
     "assets/resources/farming-fungus-grubs-bugs": {
       "source": "Farming (fungus, grubs, bugs)",
-      "text": ""
+      "text": "Ackerbau (Pilze, Larven, Käfer)"
     },
     "assets/resources/scavenging-forge-lord-sites": {
       "source": "Scavenging (Forge Lord sites)",
-      "text": ""
+      "text": "Plündern (Stätten der Schmiedefürsten)"
     },
     "assets/resources/raiding-neighboring-tribes": {
       "source": "Raiding (neighboring tribes)",
-      "text": ""
+      "text": "Raubzüge (benachbarte Stämme)"
     },
     "assets/resources/cannibalism": {
       "source": "Cannibalism",
-      "text": ""
+      "text": "Kannibalismus"
     },
     "assets/fortifications/warlike-culture": {
       "source": "Warlike culture",
-      "text": ""
+      "text": "Kriegerische Kultur"
     },
     "assets/fortifications/bone-clubs-spears-tipped-with-obsidian": {
       "source": "Bone clubs/spears tipped with obsidian",
-      "text": ""
+      "text": "Knochenknüppel/Speere mit Obsidianspitzen"
     },
     "assets/fortifications/corrupted-gifts": {
       "source": "Corrupted gifts",
-      "text": ""
+      "text": "Korrumpierte Gaben"
     },
     "assets/fortifications/magical-artifacts": {
       "source": "Magical artifacts",
-      "text": ""
+      "text": "Magische Artefakte"
     }
   },
   "the-whitefang-mountains-fortress-monastery": {
