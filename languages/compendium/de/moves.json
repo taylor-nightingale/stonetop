@@ -2878,89 +2878,89 @@
   "seasons-change-autumn": {
     "name": {
       "source": "Seasons Change: Autumn",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Herbst"
     },
     "description": {
       "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\nWhen the harvest is complete, roll 1d4; the steading generates that much Surplus.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": ""
+      "text": "Wenn **_der Herbst hereinbricht und das Land reif für die Ernte ist_**, würfelt derjenige, der am entschlossensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.\n\nWenn **_die Ernte abgeschlossen ist_**, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss."
     },
     "moveResults/success/value": {
       "source": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn.\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss."
     },
     "moveResults/failure/value": {
       "source": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
-      "text": ""
+      "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss."
     }
   },
   "seasons-change-spring": {
     "name": {
       "source": "Seasons Change: Spring",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Frühling"
     },
     "description": {
       "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": ""
+      "text": "Wenn **_der Frühling über das Land hereinbricht_**, würfelt derjenige, der am hoffnungsvollsten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn.\n\nSetze dann Schicksal auf +1 zurück."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nSetze dann Schicksal auf +1 zurück."
     },
     "moveResults/failure/value": {
       "source": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1.",
-      "text": ""
+      "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück."
     }
   },
   "seasons-change-summer": {
     "name": {
       "source": "Seasons Change: Summer",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Sommer"
     },
     "description": {
       "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes: **on a 10+**, pick 2 seasonal gains; **on a 7-9**, pick 1 seasonal gain; **on a 6-**, a threat to the steading makes itself known or gets worse (and don't mark XP).\n\nWhatever the result, the steading generates 1d4-1 Surplus. Then, reset Fortunes to +1.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": ""
+      "text": "Wenn **_sich die heißen Sommertage über das Land legen_**, würfelt derjenige, der am zufriedensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 2 saisonale Gewinne. **Bei 7–9** wähle 1 saisonalen Gewinn. **Bei einer 6-** zeichnet sich eine Bedrohung für die Siedlung ab oder verschlimmert sich (markiere keine EP).\n\nUnabhängig vom Ergebnis erzeugt die Siedlung 1W4−1 Überschuss. Anschließend wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "Pick 2 seasonal gains.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
-      "text": ""
+      "text": "Wähle 2 saisonalen Gewinne.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück."
     },
     "moveResults/failure/value": {
       "source": "A threat to the steading makes itself known or gets worse (and don't mark XP).\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
-      "text": ""
+      "text": "Eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück."
     }
   },
   "seasons-change-winter": {
     "name": {
       "source": "Seasons Change: Winter",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Winter"
     },
     "description": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and Meet with Disaster. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
-      "text": ""
+      "text": "Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und wähle 1:\n\n- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.\n- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.\n- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.\n- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.\nWürfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).\n\nThen reset Fortunes to +1.",
-      "text": ""
+      "text": "Der Winter ist vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt.\n\nSetze dann Schicksal auf +1 zurück."
     },
     "moveResults/partial/value": {
       "source": "The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.\n\nThen reset Fortunes to +1.",
-      "text": ""
+      "text": "Die Siedlung muss vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein.\n\nSetze dann Schicksal auf +1 zurück."
     },
     "moveResults/failure/value": {
       "source": "As a 7-9, but also threats abound (and don't mark XP).\n\nThen reset Fortunes to +1.",
-      "text": ""
+      "text": "Wie bei 7-9 aber die Bedrohungen nehmen überhand (markiere keine EP).n\nSetze dann Schicksal auf +1 zurück."
     }
   },
   "second-intent": {
