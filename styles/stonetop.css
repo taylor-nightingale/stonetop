@@ -6017,11 +6017,11 @@ button.stonetop-xp-toggle {
    that was meant to remove it cut the rays off Fortunes, which bleeds to its outline. The plinth we
    drew under it was a flat solid rectangle — the heavier, deader element of the two at any size.
 
-   The cost is that the frame can no longer repaint in the accent on hover or focus, so state is a
-   filter on the art plus a ring drawn OUTSIDE it.
+   The cost is that the frame can no longer repaint in the accent on hover or focus — see the rule
+   below for why it never needs to.
 
-   Absent gracefully: with no art installed the img 404s, HideBrokenImages hides it, and the tile is
-   a name and a value like the other four. */
+   Absent gracefully: with no art installed the img 404s, HideBrokenImages tags it, and the panel
+   goes with it — the tile is a name and a value like the other four. */
 
 .stonetop.sheet.steading .steading-archpair {
 	display: grid;
@@ -6076,24 +6076,58 @@ button.stonetop-xp-toggle {
 
 /* No border, no radius, no inset: the panel is the picture. `aspect-ratio` is the measured one
    (450x448 at 600dpi — square within half a percent), declared so the row reserves the right height
-   before the image has loaded and does not jump. */
+   before the image has loaded and does not jump.
+
+   The panel is PAINTED, not printed: the woodcut is a pure-alpha silhouette, so the season's tint is
+   laid down as a flat fill and the art cuts it to shape. Same device as the season glyph beside the
+   ledger line and the one in the turn panel — the marks that say which season it is all carry the
+   season's colour, and the arch is the largest of them.
+
+   The two paths are declared HERE, stylesheet-relative, exactly as the four season glyphs are, and
+   for the same reason: a relative url() inside a custom property resolves against the stylesheet
+   that USES the variable, so the path cannot be handed in on the element — it resolves inside
+   styles/ and 404s, and a mask image that fails to load does not merely go untinted, it renders the
+   element fully transparent. `../assets/…` is also what survives a route prefix, which an absolute
+   /systems/… would not. They are the paths SteadingDefaults hands the <img>; a test holds the two
+   sides together rather than a comment. */
+.stonetop.sheet.steading .steading-fortunes {
+	--steading-arch-art: url("../assets/content/steading/fortunes.png");
+}
+
+.stonetop.sheet.steading .steading-surplus {
+	--steading-arch-art: url("../assets/content/steading/surplus.png");
+}
+
 .stonetop.sheet.steading .steading-arch {
 	grid-area: badge;
 	position: relative;
 	display: block;
 	width: 100%;
 	aspect-ratio: 1;
-	color: var(--st-decor);
 	margin-bottom: 0.25rem;
+	background: var(--steading-season-tint, var(--st-accent));
+	/* `bottom center / contain` is the <img>'s own object-position and object-fit: the mask has to
+	   sit exactly where the picture sat, or the arch shifts the moment it is tinted. */
+	mask: var(--steading-arch-art) no-repeat bottom center / contain;
+	-webkit-mask: var(--steading-arch-art) no-repeat bottom center / contain;
 }
 
+/* The image no longer paints — the mask above draws it — but it still LOADS, which is what tags a
+   missing file (installBrokenImageHider) and keeps the box the row reserved. */
 .stonetop.sheet.steading .steading-arch .steading-tile-badge {
 	display: block;
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
 	object-position: bottom center;
-	filter: var(--st-art-filter);
+	visibility: hidden;
+}
+
+/* Absent gracefully, which now has to be said out loud. A mask image that fails to load does not
+   hide its element — it leaves it unmasked — so a world without the art installed would get a solid
+   season-coloured square where the arch was. The broken <img> is the signal for both. */
+.stonetop.sheet.steading .steading-arch:has(> img.stonetop-broken-img) {
+	display: none;
 }
 
 /* No hover treatment on the panel itself. The picture is decorative — the rating's name and value

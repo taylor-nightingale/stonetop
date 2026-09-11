@@ -48,6 +48,11 @@ const block = season => `
       <span class="steading-season-mark" aria-hidden="true"></span>
       Autumn, year 1
     </p>
+    <div class="steading-tile steading-fortunes steading-tile--arched">
+      <span class="steading-arch" id="a-${season}" aria-hidden="true">
+        <img class="steading-tile-badge" alt="">
+      </span>
+    </div>
   </div>`;
 
 const fixture = theme => `
@@ -62,6 +67,7 @@ const probesFor = season => ({
 	[`${season}-current`]: { selector: `#w-${season} .steading-wheel-season.is-current`, properties: ["background-color", "color"] },
 	[`${season}-line`]:    { selector: `#w-${season} .steading-season-line`, properties: ["color"] },
 	[`${season}-mark`]:    { selector: `#w-${season} .steading-season-mark`, properties: ["background-color", "mask-image", "width"] },
+	[`${season}-arch`]:    { selector: `#a-${season}`, properties: ["background-color", "mask-image"] },
 });
 
 // rgb(...) → [r,g,b]
@@ -130,6 +136,24 @@ describeMaybe("the season tint, in a real renderer", () => {
 			expect(parseFloat(mark.get("width")), SEASONS[i]).toBeGreaterThan(0);
 		}
 		expect(new Set(marks.map(m => m.get("background-color"))).size).toBe(4);
+	});
+
+	// The arch is the largest thing on the sheet carrying the season's colour, and it carries it the
+	// hard way: a flat fill cut to the woodcut's alpha. TWO things can silently fail there and both
+	// look plausible — an unresolved tint paints every season in the sheet accent, and an unresolved
+	// mask (the art path comes from the template, not this stylesheet) leaves a solid square where
+	// the arch was — and that is what it did, because the path was being handed in on the element and
+	// a relative url() in a custom property resolves against the stylesheet that USES it. Neither is
+	// visible to a text reading of the CSS.
+	it("cuts the season's tint to the arch, in every season", () => {
+		const arches = SEASONS.map(season => result().get(`${season}-arch`));
+		for (const [i, arch] of arches.entries()) {
+			expect(arch.missing, SEASONS[i]).toBe(false);
+			expect(arch.get("mask-image"), SEASONS[i]).not.toBe("none");
+			expect(arch.get("background-color"), SEASONS[i])
+				.not.toBe(result().get(`${UNKNOWN}-arch`).get("background-color"));
+		}
+		expect(new Set(arches.map(a => a.get("background-color"))).size).toBe(4);
 	});
 
 	// The season is stated in words as well as tinted, so that text has to actually compute a colour.

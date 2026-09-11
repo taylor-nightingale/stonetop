@@ -30,7 +30,13 @@
 
 	      Decorative: the rating's name and value are right beneath, so the picture names nothing the
 	      reader cannot already read. Absent gracefully — with no art installed the img 404s,
-	      HideBrokenImages hides it, and the tile is a name and a value like the other four. --}}
+	      HideBrokenImages tags it, and the panel goes with it.
+
+	      The woodcut is a pure-alpha silhouette, and the stylesheet paints it in the season's tint by
+	      masking a flat fill with it. The path it masks with is the stylesheet's own (keyed off the
+	      rating's class), NOT this one: a relative url() in a custom property resolves against the
+	      sheet that uses the variable, so a path handed in from here resolves inside styles/ and
+	      404s — and a mask that fails to load takes the whole arch with it. --}}
 	{{#if attrData.badge}}
 		<span class="steading-arch" aria-hidden="true">
 			<img class="steading-tile-badge" src="{{attrData.badge}}" alt="">
