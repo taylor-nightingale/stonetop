@@ -375,58 +375,86 @@ describe("the season wheel", () => {
 		expect(root.querySelectorAll('[data-action="advanceSeason"]')).toHaveLength(0);
 	});
 
-	// The box is the season the steading is IN, so it holds THAT season's move; every other season's
-	// is one segment of the wheel away. What this replaced was a separate "The other seasons" list —
-	// three full rows spending a screen of height on reference, numbered by an `ol` nobody had
-	// written a rule for.
+	// The box is the season the steading is IN, so it holds THAT season's move. What this replaced
+	// was a separate "The other seasons" list — three full rows spending a screen of height on
+	// reference, numbered by an `ol` nobody had written a rule for.
 	it("puts the current season's move in the box", async () => {
 		const root = await render(await makeSheet({ season: "spring" }));
 		expect(root.querySelector(".steading-season-box").textContent).toContain("Seasons Change: Spring");
 		expect(root.querySelector(".steading-others-list")).toBeNull();
 	});
 
-	it("hangs every season's own move off its segment of the wheel", async () => {
-		const root  = await render(await makeSheet({ season: "spring" }));
-		const names = [...root.querySelectorAll(".steading-wheel-move .stonetop-item-name")]
-			.map(n => n.textContent.trim());
+	// The wheel says what time of year it is and nothing else. It used to hang each season's whole
+	// move off its segment, which made a control of a label and put the four moves on one tab.
+	it("carries no control at all — it states the year", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		const wheel = root.querySelector(".steading-wheel");
+		expect(wheel.querySelectorAll("button")).toHaveLength(0);
+		expect(wheel.querySelectorAll("[data-action]")).toHaveLength(0);
+		expect(root.querySelector(".steading-wheel-move")).toBeNull();
+	});
+
+	// The same move is drawn on the tab and in the rail, and the two must not mint the same region
+	// id, or one disclosure would drive whichever the document found first.
+	it("mints no id twice across the sheet", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		const ids  = [...root.querySelectorAll("[id]")].map(e => e.id);
+		expect(new Set(ids).size).toBe(ids.length);
+	});
+});
+
+// The four Seasons Change moves are the steading's own moves, so they are read where its moves are
+// read: the rail, beside the homefront ones, on every tab — not hung off a wheel segment on the one
+// tab the wheel is drawn on.
+describe("the rail's seasonal moves", () => {
+	const railGroup = (root, title) => [...root.querySelectorAll(".steading-rail .stonetop-move-group")]
+		.find(g => g.querySelector(".stonetop-move-group-title")?.textContent.includes(title));
+
+	it("lists all four, spring to winter, under Seasonal Moves", async () => {
+		const root  = await render(await makeSheet({ season: "autumn" }));
+		const group = railGroup(root, "Seasonal Moves");
+		const names = [...group.querySelectorAll(".stonetop-item-name")].map(n => n.textContent.trim());
 		expect(names).toEqual([
 			"Seasons Change: Spring", "Seasons Change: Summer",
 			"Seasons Change: Autumn", "Seasons Change: Winter",
 		]);
 	});
 
-	// Each segment opens its own move and nothing else — the region a segment controls has to be
-	// that season's, or every segment opens spring.
-	it("gives each segment its own region to open, shut to begin with", async () => {
+	// Shut to begin with, like every other rail row: six moves printed in full is a column nobody
+	// can read past.
+	it("draws each as a disclosure row, shut, over its own region", async () => {
 		const root     = await render(await makeSheet({ season: "spring" }));
-		const controls = [...root.querySelectorAll(".steading-wheel-name")]
-			.map(b => b.getAttribute("aria-controls"));
-		expect(new Set(controls).size).toBe(4);
-		for (const id of controls) expect(root.querySelector(`#${id}`).hidden).toBe(true);
-	});
-
-	// The same move drawn twice on one tab must not mint the same region id twice, or the box's own
-	// disclosure and the wheel's would drive whichever the document found first.
-	it("does not collide with the box's own region for the same move", async () => {
-		const root = await render(await makeSheet({ season: "spring" }));
-		const ids  = [...root.querySelectorAll(".steading-seasons [id]")].map(e => e.id);
-		expect(new Set(ids).size).toBe(ids.length);
+		const controls = [...railGroup(root, "Seasonal Moves").querySelectorAll("[aria-controls]")];
+		expect(controls).toHaveLength(4);
+		expect(new Set(controls.map(c => c.getAttribute("aria-controls"))).size).toBe(4);
+		for (const control of controls) {
+			expect(control.getAttribute("aria-expanded")).toBe("false");
+			expect(root.querySelector(`#${control.getAttribute("aria-controls")}`).hidden).toBe(true);
+		}
 	});
 
 	// Reference is about WEIGHT, not capability: a table that wants to roll a season's move on its
 	// own terms is not something the sheet should decide it cannot. Every rendering of a move goes
 	// through the same row, so every rendering rolls and posts to chat.
-	it("keeps every season's move rollable and postable wherever it is drawn", async () => {
+	it("keeps every season's move rollable and postable, as the box's is", async () => {
 		const root  = await render(await makeSheet({ season: "spring" }));
-		const wheel = root.querySelector(".steading-season-head");
-		expect(wheel.querySelectorAll(".move-rollable")).toHaveLength(4);
-		expect(wheel.querySelectorAll('[data-action="moveToChat"]')).toHaveLength(4);
+		const group = railGroup(root, "Seasonal Moves");
+		expect(group.querySelectorAll(".move-rollable")).toHaveLength(4);
+		expect(group.querySelectorAll('[data-action="moveToChat"]')).toHaveLength(4);
 		expect(root.querySelector(".steading-season-box .move-rollable")).not.toBeNull();
+	});
+
+	// A steading has all four from the day it exists, so the acquisition tick asserts a state that
+	// does not exist — and costs a column of a 220px rail.
+	it("offers no acquisition tick, exactly as the homefront group does not", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		expect(railGroup(root, "Seasonal Moves").querySelectorAll(".stonetop-item-check")).toHaveLength(0);
+		expect(railGroup(root, "Homefront Moves").querySelectorAll(".stonetop-item-check")).toHaveLength(0);
 	});
 
 	it("leaves the homefront moves rollable too", async () => {
 		const root = await render(await makeSheet({ season: "spring" }));
-		expect(root.querySelectorAll(".steading-rail .move-rollable").length).toBeGreaterThan(0);
+		expect(railGroup(root, "Homefront Moves").querySelectorAll(".move-rollable").length).toBeGreaterThan(0);
 	});
 });
 
@@ -478,21 +506,17 @@ describe("the season tab's one box", () => {
 		.find(row => row.querySelector(`[data-move-slug="${slug}"]`));
 
 	// The move's full text ran into the numbered list it introduced, and was not what anyone had the
-	// tab open to read. It is not in the box at all now — it is the wheel's, shut, on the segment for
-	// the season it belongs to, exactly like the other three. The box is that same move as steps.
-	it("leaves the move's own text to the wheel, shut, and keeps no row of its own", async () => {
-		const root    = await render(await makeSheet({ season: "autumn" }));
-		const box     = root.querySelector(".steading-season-box");
-		const current = root.querySelector(".steading-wheel-season.is-current");
-		const button  = current.querySelector(".steading-wheel-name");
+	// tab open to read. It is not in the box at all now — it is in the rail, shut, with the other
+	// three. The box is that same move as steps.
+	it("leaves the move's own text to the rail and keeps no row of its own", async () => {
+		const root = await render(await makeSheet({ season: "autumn" }));
+		const box  = root.querySelector(".steading-season-box");
+		const rail = root.querySelector(".steading-rail");
 
-		expect(button.getAttribute("aria-expanded")).toBe("false");
-		const disclosed = root.querySelector(`#${button.getAttribute("aria-controls")}`);
-		expect(disclosed.hasAttribute("hidden")).toBe(true);
-		expect(moveRowFor(disclosed, "seasons-change-autumn")).not.toBeUndefined();
+		expect(moveRowFor(rail, "seasons-change-autumn")).not.toBeUndefined();
 
 		// Rows for moves an IMPROVEMENT confers do belong in the box — this is about the season's own
-		// move, which the box states as steps and the wheel states as words.
+		// move, which the box states as steps and the rail states as words.
 		expect(moveRowFor(box, "seasons-change-autumn")).toBeUndefined();
 		expect(box.querySelector(".steading-turn-steps")).not.toBeNull();
 	});

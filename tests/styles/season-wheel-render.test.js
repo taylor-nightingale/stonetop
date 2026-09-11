@@ -12,9 +12,12 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
  * that says nothing about heights at all.
  *
  * So the claims here are geometric, and each one is a thing a reader sees: the four segments are one
- * pill, the current one's tint fills its segment, the word is centred in it, and the segment is a
- * real target — at the sheet's own size and at the largest Font Size step, since the height is meant
- * to come from the type rather than from a px core happens to pin buttons to.
+ * pill, the current one's tint fills its segment, and the word is centred in it — at the sheet's own
+ * size and at the largest Font Size step, since the height is meant to come from the type.
+ *
+ * Nothing in the pill is a control any more: the segments used to disclose each season's Seasons
+ * Change move, which now lives in the rail under Seasonal Moves. So the fixture is spans, and the
+ * target-size claims went with the buttons.
  */
 const STYLES = path.resolve(process.cwd(), "styles");
 const sheet = f => path.join(STYLES, f);
@@ -32,9 +35,8 @@ const SEASONS = ["Spring", "Summer", "Autumn", "Winter"];
 const CURRENT = 0;
 
 const segment = (name, current) => `
-	<li class="steading-wheel-season${current ? " is-current" : ""}"${current ? ' aria-current="true"' : ""} data-disclosure-row>
-		<button type="button" class="steading-wheel-name" data-action="toggleSeasonMove"
-		        data-disclosure data-view-state aria-expanded="false">${name}</button>
+	<li class="steading-wheel-season${current ? " is-current" : ""}"${current ? ' aria-current="true"' : ""}>
+		<span class="steading-wheel-name">${name}</span>
 	</li>`;
 
 const fixture = `
@@ -105,28 +107,18 @@ describe.skipIf(!canProbe())("the season wheel", () => {
 					expect(off, `${name} rides off centre`).toBeLessThanOrEqual(1.5);
 				}
 			});
-
-			// SC 2.5.8. Each segment opens that season's move, so it is a control, not a label — and
-			// its height is the type's, which is what has to keep clearing the floor as the type grows.
-			it("keeps every segment a real target", () => {
-				for (const [i, name] of SEASONS.entries()) {
-					const seg = m.get(`seg${i}`).values;
-					expect(seg.boxHeight, `${name} is too small to hit`).toBeGreaterThanOrEqual(24);
-					expect(seg.boxWidth, `${name} is too narrow to hit`).toBeGreaterThanOrEqual(24);
-				}
-			});
 		});
 	}
 
-	// The whole segment opens the move, not the four characters of the word: the button is the
-	// segment, so there is no dead strip of tint beside it.
-	it("hands the whole segment to the control that opens the move", () => {
+	// The tint is the segment's, and the word is what the segment is sized by: a name narrower than
+	// the tint it sits on would leave a dead strip of colour beside it.
+	it("fills each segment with the word that names it", () => {
 		const m = measureAt(16);
 		for (const [i, name] of SEASONS.entries()) {
-			const seg = m.get(`seg${i}`).values;
-			const button = m.get(`name${i}`).values;
-			expect(button.boxHeight, `${name}'s control is shorter than its segment`).toBeCloseTo(seg.boxHeight, 1);
-			expect(button.boxWidth, `${name}'s control is narrower than its segment`).toBeCloseTo(seg.boxWidth, 1);
+			const seg  = m.get(`seg${i}`).values;
+			const word = m.get(`name${i}`).values;
+			expect(word.boxHeight, `${name} is shorter than its segment`).toBeCloseTo(seg.boxHeight, 1);
+			expect(word.boxWidth, `${name} is narrower than its segment`).toBeCloseTo(seg.boxWidth, 1);
 		}
 	});
 });

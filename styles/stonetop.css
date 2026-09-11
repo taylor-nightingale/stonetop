@@ -7574,9 +7574,9 @@ button.stonetop-xp-toggle {
 	flex-wrap: wrap;
 }
 
-/* One pill, four segments. Still a list rather than a way to SET the season — the year runs
-   forwards, and the only thing that moves it is rolling the incoming season's move. Each segment
-   opens that season's own move below the wheel. */
+/* One pill, four segments. A list, not a way to SET the season — the year runs forwards, and the
+   only thing that moves it is the turn control under the box. The four Seasons Change moves are
+   read in the rail, under Seasonal Moves; nothing in the pill is a control. */
 .stonetop.sheet.steading .steading-wheel {
 	display: inline-flex;
 	margin: 0;
@@ -7600,45 +7600,11 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
-/* The segment's own control fills it, so the whole pill segment is the hit target rather than the
-   four characters of the word inside it. Unstyled as a button: the pill IS the affordance. */
+/* The word fills its segment, so the tint it sits on is padded evenly around it. The padding is in
+   rem, so the pill's height comes from the type and grows with the Font Size setting. */
 .stonetop.sheet.steading .steading-wheel-name {
 	display: block;
-	width: auto;
-	/* `height` as well as `min-height`: core pins every button to `--button-size`, which sizes the
-	   segment to a fixed 28px and leaves the padding below doing nothing — so the pill would keep
-	   its px height while the words in it grew with the Font Size setting. Auto hands the height
-	   back to the type. The padding then clears the 24px target on its own (SC 2.5.8) and scales
-	   with the rest of the sheet, since it is in rem. */
-	height: auto;
-	min-height: 0;
-	margin: 0;
 	padding: 0.25rem 0.7rem;
-	border: none;
-	border-radius: 0;
-	background: none;
-	color: inherit;
-	font: inherit;
-	line-height: inherit;
-}
-
-.stonetop.sheet.steading .steading-wheel-season.is-open .steading-wheel-name,
-.stonetop.sheet.steading .steading-wheel-name:hover {
-	color: var(--st-accent);
-}
-
-.stonetop.sheet.steading .steading-wheel-season.is-current.is-open .steading-wheel-name,
-.stonetop.sheet.steading .steading-wheel-season.is-current .steading-wheel-name:hover {
-	color: var(--st-paper);
-}
-
-/* The disclosed move, below the wheel and across the head's full width — a segment is a quarter of
-   a narrow pill and a move does not fit in one. */
-.stonetop.sheet.steading .steading-wheel-move {
-	flex-basis: 100%;
-	margin: 0;
-	padding: 0;
-	list-style: none;
 }
 
 /* The current season is marked three ways — the tint, the weight, and the word itself in the text

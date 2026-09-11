@@ -67,11 +67,6 @@ export function createStonetopSteadingSheetClass(Base) {
 				// through the same one implementation.
 				toggleFolkList:        toggleDisclosure,
 				toggleImprovementCard: toggleDisclosure,
-				// The wheel's segments, each opening that season's own Seasons Change move, and the
-				// turn control itself. Disclosures, never a way to SET the season: the one thing that
-				// moves the wheel is the turn control below the box.
-				toggleSeasonMove:      toggleDisclosure,
-				toggleTurn:            toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
 					const id = this.rosterFocus.id;
 					if (!id) return void ui.notifications?.info(game.i18n.localize("stonetop.steading.folk.focusRowFirst"));

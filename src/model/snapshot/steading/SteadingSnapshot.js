@@ -164,18 +164,6 @@ export class SeasonsSnapshot {
 		this.unclaimedMoments = built.unclaimedMoments;
 	}
 
-	/**
-	 * The wheel, each segment carrying its own move.
-	 *
-	 * What this replaced was a separate list of "the other seasons" — three full move rows, numbered
-	 * by an `ol` nobody had written a rule for, taking a screen of height to answer "what happens in
-	 * summer?" three seasons early. The wheel already names all four and is where someone looks to
-	 * ask that, so the answer lives there.
-	 */
-	get wheel() {
-		return (this.turnover?.wheel ?? []).map(s => new SeasonWheelEntry(s, this.moveFor(s.moveSlug)));
-	}
-
 	/** The seasons category's move for a slug, or null — the tab's one lookup. */
 	moveFor(moveSlug) {
 		return (this.moves?.moves ?? []).find(m => m.slug === moveSlug) ?? null;
@@ -197,23 +185,6 @@ export class SeasonPick {
 
 	get labelKey() { return this.step.labelKey; }
 	get count()    { return this.step.count; }
-}
-
-/**
- * One segment of the wheel: a season, and the Seasons Change move that belongs to it.
- *
- * A pair with a name rather than two lists the template has to keep in step — the wheel is drawn
- * once and each segment discloses its own move, so the two facts travel together.
- */
-export class SeasonWheelEntry {
-	constructor(season, move) {
-		this.season = season;   // SeasonSnapshot
-		this.move   = move;     // MoveSnapshot, or null where the steading has no such move
-	}
-
-	get key()       { return this.season.key; }
-	get labelKey()  { return this.season.labelKey; }
-	get isCurrent() { return this.season.isCurrent; }
 }
 
 export class SteadingSnapshot {
@@ -273,6 +244,18 @@ export class SteadingSnapshot {
 	 */
 	get homefrontMoves() {
 		return this.moves.find(category => category.key === "homefront") ?? null;
+	}
+
+	/**
+	 * The seasonal category — the four Seasons Change moves — as the rail renders it.
+	 *
+	 * Off the Seasons snapshot rather than `moves`, which lists only the categories that never
+	 * claimed a tab: the seasons category is built by the tab that owns it, and this is the one
+	 * other surface that draws it. Asked of the snapshot for the same reason homefront is — which
+	 * category the rail's second group is, is a fact about the steading and not about the markup.
+	 */
+	get seasonalMoves() {
+		return this.seasons?.moves ?? null;
 	}
 }
 

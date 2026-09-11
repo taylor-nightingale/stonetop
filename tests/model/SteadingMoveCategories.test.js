@@ -41,7 +41,7 @@ describe("SteadingMoveCategories", () => {
 
 	it("labels each category for the move group heading", () => {
 		expect(SteadingMoveCategories.byKey("homefront").label).toBe("Homefront Moves");
-		expect(SteadingMoveCategories.byKey("seasons").label).toBe("Seasons Change");
+		expect(SteadingMoveCategories.byKey("seasons").label).toBe("Seasonal Moves");
 	});
 
 	it("orders the seasons spring to winter rather than alphabetically", () => {

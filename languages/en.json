@@ -101,8 +101,8 @@
         "prosperity": "Pros",
         "defenses": "Def"
       },
-      "railShow": "Show Fortunes, Surplus and homefront moves",
-      "railHide": "Hide Fortunes, Surplus and homefront moves",
+      "railShow": "Show Fortunes, Surplus and the steading's moves",
+      "railHide": "Hide Fortunes, Surplus and the steading's moves",
       "headings": {
         "npcTraits": "NPC Traits",
         "npcTraitsNote": "Assign as needed; choose from this list or make up your own.",

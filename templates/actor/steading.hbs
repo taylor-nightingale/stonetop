@@ -75,6 +75,26 @@
 				    unacquirable=true
 				    disclosure=true}}
 			{{/if}}
+			{{!-- The four Seasons Change moves, as a second group of the same kind. They used to hang
+			      off the wheel's segments, which put a whole move inside a control whose job is to
+			      say what time of year it is — and put them on one tab, reachable only from there.
+			      The rail is where this steading's moves are read and rolled, so they are here, beside
+			      the homefront ones, at every width and on every tab.
+
+			      The season the steading is IN is still performed in the Season tab's box, as the
+			      numbered steps the move prescribes. A move is not a thing the sheet rations: both
+			      renderings go through the same row, so it rolls and posts identically in either. --}}
+			{{#if stonetop.seasonalMoves}}
+				{{> "stonetop.move-group"
+				    title=stonetop.seasonalMoves.label
+				    note=stonetop.seasonalMoves.note
+				    moves=stonetop.seasonalMoves.moves
+				    categoryKey=stonetop.seasonalMoves.key
+				    allowAdditional=false
+				    alwaysShowResource=true
+				    unacquirable=true
+				    disclosure=true}}
+			{{/if}}
 		</div>
 
 	<div class="stonetop-rail-main steading-main">

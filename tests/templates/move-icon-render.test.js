@@ -36,14 +36,13 @@ describe("move icon rendering", () => {
 		}
 	});
 
-	// The seasons tab used to hand-roll its own glyph markup; it renders through move-group now.
-	// The Season tab no longer renders a move GROUP, and the box no longer renders a move at all —
-	// every season's move hangs off its own segment of the wheel, and the box is the current one
-	// broken into steps. So the wheel is where the shared row has to be, and neither file is allowed
-	// an icon of its own, which is what this file is actually about.
-	it("renders the seasons tab's moves through the shared move row", () => {
-		expect(read("templates/actor/partials/steading-season-wheel.hbs"))
-			.toContain('{{> "stonetop.move-row"');
+	// The seasons tab used to hand-roll its own glyph markup; the four moves render through the
+	// shared group now, in the rail beside the homefront ones. Nothing on the Season tab draws a
+	// move: the wheel states the year, and the box is the current season broken into steps. So
+	// neither of those files is allowed an icon of its own, which is what this file is about.
+	it("renders the seasonal moves through the shared move group, in the rail", () => {
+		expect(read("templates/actor/steading.hbs"))
+			.toContain("moves=stonetop.seasonalMoves.moves");
 		for (const file of ["templates/actor/partials/steading-season-box.hbs",
 		                    "templates/actor/partials/steading-season-wheel.hbs"]) {
 			expect(read(file)).not.toContain("<img class=\"steading-season-icon\"");

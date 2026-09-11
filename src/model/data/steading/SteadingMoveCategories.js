@@ -4,10 +4,12 @@ import { Seasons } from "./Seasons.js";
 // special lists. A category is a `moveType` in the moves compendium, stamped onto the seeded item as
 // its `categoryKey`.
 //
-// A category also says WHERE it renders. Most land in the Moves tab's list; one that carries its own
-// section of the book (the seasons) claims a tab of its own. Keeping that on the category is what
-// lets SteadingMoves partition without anyone naming a particular key: adding a second tabbed
-// category is a flag here plus the class that renders it, not an edit to the steading.
+// A category also says WHO BUILDS it. Most are built as a list by SteadingMoves; one that carries
+// its own section of the book (the seasons) is built by the tab that owns that section, which asks
+// for it by key. Keeping that on the category is what lets SteadingMoves partition without anyone
+// naming a particular key: adding a second such category is a flag here plus the class that builds
+// it, not an edit to the steading. Both groups are READ in the rail — where they render and who
+// assembles them are different questions.
 
 export class SteadingMoveCategory {
 	// `order` names the slugs that have a meaningful reading order. Anything absent from it (a move
@@ -52,7 +54,10 @@ const _CATEGORIES = [
 	new SteadingMoveCategory("homefront", "Homefront Moves", { hidden: HOMEFRONT_HIDDEN }),
 	// The seasons run spring → winter, not A–Z: an alphabetical list would open on Autumn. The order
 	// is the Seasons model's, so a season renamed there can't silently sort to the back here.
-	new SteadingMoveCategory(Seasons.CATEGORY, "Seasons Change", { order: Seasons.moveSlugs(), ownTab: true }),
+	//
+	// "Seasonal Moves", not "Seasons Change": the label heads the rail's group, beside Homefront
+	// Moves, and every move under it is already named "Seasons Change: <season>".
+	new SteadingMoveCategory(Seasons.CATEGORY, "Seasonal Moves", { order: Seasons.moveSlugs(), ownTab: true }),
 ];
 
 export class SteadingMoveCategories {
