@@ -93,33 +93,13 @@
         {
           "any": 1,
           "of": [
-            {
-              "all": [
-                "bringing-them"
-              ]
-            },
-            {
-              "all": [
-                "resident-in"
-              ]
-            }
+            "bringing-them",
+            "resident-in"
           ]
         },
-        {
-          "all": [
-            "making-compelling"
-          ]
-        },
-        {
-          "all": [
-            "convincing-least"
-          ]
-        },
-        {
-          "all": [
-            "two-successful"
-          ]
-        }
+        "making-compelling",
+        "convincing-least",
+        "two-successful"
       ]
     },
     "effects": [
@@ -173,5 +153,9 @@
       }
     ]
   },
-  "folder": "1UlzxDTaEInlMvWC"
+  "folder": "1UlzxDTaEInlMvWC",
+  "_prose": [
+    "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\".",
+    "Henceforth, when **_spring bursts forth_** **_and Stonetop has at least 1 Surplus_**, Stonetop gains +1 Surplus from trade. Also, when you **_Trade & Barter_** **_for timber, ivory, fine wool, goats,_** **_sheep, parchment, vellum, or ink_**, you have advantage."
+  ]
 }

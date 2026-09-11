@@ -1,27 +1,24 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { gluedPayoffRow, seasonalClausesIn } from "../../scripts/import/seasonalClauses.js";
+import { seasonalClausesIn } from "../../scripts/import/seasonalClauses.js";
 
 // The sweep runs over the REAL sources, so it is tested against them: a fixture would let the
 // heuristic drift away from the prose it actually parses and still pass. The counts below are the
 // discrimination itself — if a hand edit to an improvement's payoff changes what is lifted, that is
 // exactly the thing this file exists to say out loud.
 //
-// The prose comes from `_prose` in the model rather than from the pack. It used to be in both: the
-// pack's copy was stripped because it was a second statement of everything `system.effects` says and
-// BOTH were extracted for translation. The pack still supplies the requirement rows, which is what
-// the glue check reads.
+// The prose comes from each improvement's `_prose` rather than from its rows. It used to be in both:
+// the row copy was stripped because it was a second statement of everything `system.effects` says and
+// BOTH were extracted for translation.
 
-const ROOT  = "packs/src/steading-improvements";
-const MODEL = JSON.parse(readFileSync("data/improvement-effects.json", "utf8"));
+const ROOT = "packs/src/steading-improvements";
 
 function improvements() {
 	return ["stonetop", "additional"].flatMap(dir =>
 		readdirSync(join(ROOT, dir)).filter(f => f.endsWith(".json")).sort().map(f => {
-			const doc  = JSON.parse(readFileSync(join(ROOT, dir, f), "utf8"));
-			const slug = doc.system.slug;
-			return { slug, dir, list: doc.system?.choices?.list ?? [], prose: MODEL[slug]?._prose ?? [] };
+			const doc = JSON.parse(readFileSync(join(ROOT, dir, f), "utf8"));
+			return { slug: doc.system.slug, dir, prose: doc._prose ?? [] };
 		}));
 }
 
@@ -124,37 +121,5 @@ describe("unrecognised phrasing", () => {
 		]);
 		expect(clauses).toEqual([]);
 		expect(unmatched).toHaveLength(1);
-	});
-});
-
-/**
- * A Book II box-parser bug has, before now, run an improvement's whole payoff paragraph onto the end
- * of its last requirement row. That used to be worked around silently — the region-finder took the
- * tail of the glued row too — which meant the bug could persist indefinitely without anyone seeing
- * it. Now it is reported, because glued prose is prose the strip cannot reach: it stays in the pack
- * and gets translated a second time with every other check passing.
- */
-describe("a payoff glued onto a requirement row", () => {
-	it("finds none in the real sources", () => {
-		expect(improvements().filter(i => gluedPayoffRow(i.list)).map(i => i.slug)).toEqual([]);
-	});
-
-	it("catches the paragraph when a requirement row runs on into it", () => {
-		expect(gluedPayoffRow([
-			{ content: { text: "A requirement" }, track: { max: 1 } },
-			{ content: { text: "Protecting the orchard. Henceforth, the steading generates +1 Surplus in summer." }, track: { max: 1 } },
-		])).toMatch(/^Henceforth, the steading generates/);
-	});
-
-	// A row that merely OPENS with the marker is not the bug — and there is no such row in the
-	// sources, so treating one as glued would report a fault that is not there.
-	it("does not flag a row that opens with the marker", () => {
-		expect(gluedPayoffRow([
-			{ content: { text: "Henceforth this is somehow a requirement" }, track: { max: 1 } },
-		])).toBeNull();
-	});
-
-	it("has nothing to say about an improvement with no requirement rows", () => {
-		expect(gluedPayoffRow([{ content: { text: "Henceforth, something." } }])).toBeNull();
 	});
 });

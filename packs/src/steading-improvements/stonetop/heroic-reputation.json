@@ -95,36 +95,12 @@
     "requires": {
       "any": 3,
       "of": [
-        {
-          "all": [
-            "impress-hillfolk"
-          ]
-        },
-        {
-          "all": [
-            "brave-lake"
-          ]
-        },
-        {
-          "all": [
-            "save-marshedge"
-          ]
-        },
-        {
-          "all": [
-            "save-gordins-delve"
-          ]
-        },
-        {
-          "all": [
-            "save-beyond-marshedge"
-          ]
-        },
-        {
-          "all": [
-            "hire-minstrel"
-          ]
-        }
+        "impress-hillfolk",
+        "brave-lake",
+        "save-marshedge",
+        "save-gordins-delve",
+        "save-beyond-marshedge",
+        "hire-minstrel"
       ]
     },
     "effects": [
@@ -137,5 +113,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, gain the following move:\n\nWhen you first meet someone from beyond Stonetop, roll +Fortunes: **on a 10+**, say what they've heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they've heard; **on a 6-**, the GM decides what they've heard."
+  ]
 }

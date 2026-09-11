@@ -72,26 +72,10 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "timber"
-          ]
-        },
-        {
-          "all": [
-            "engineer-foreman"
-          ]
-        },
-        {
-          "all": [
-            "rope-nails-pitch"
-          ]
-        },
-        {
-          "all": [
-            "pull-together"
-          ]
-        }
+        "timber",
+        "engineer-foreman",
+        "rope-nails-pitch",
+        "pull-together"
       ]
     },
     "effects": [
@@ -130,5 +114,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.\n\nHenceforth, when you take advantage of the palisade, you have advantage to Deploy."
+  ]
 }

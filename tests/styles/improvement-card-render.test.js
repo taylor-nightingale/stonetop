@@ -219,7 +219,8 @@ describe.skipIf(!canProbe())("the improvement card's type scale", () => {
 				whensDash:   { selector: "#card-whens",  properties: ["content"], pseudo: "::after" },
 				secondWhen:  { selector: "#card-when-2", properties: ["content"], pseudo: "::before" },
 				firstWhen:   { selector: "#card-when-1", properties: ["content"], pseudo: "::before" },
-				payoffMark:  { selector: "#card-auto-row", properties: ["content", "width", "mask-image"], pseudo: "::before" },
+				payoffMark:  { selector: "#card-auto-clause", properties: ["content", "width", "mask-image"], pseudo: "::before" },
+				payoffRowMark: { selector: "#card-auto-row", properties: ["content"], pseudo: "::before" },
 				seasonMark:  { selector: "#season-row",    properties: ["content"], pseudo: "::before" },
 			},
 		})) styles.set(k, v);
@@ -276,9 +277,13 @@ describe.skipIf(!canProbe())("the improvement card's type scale", () => {
 		expect(styles.get("whensDash").get("content")).toBe('" — "');
 	});
 
+	// Drawn on the row's first CELL, which is the box that holds its first line of text. The row's own
+	// box is the Apply's 24px, and it carries no mark of its own — see the bullet rules' comment.
 	it("marks the payoff rows with the book's swirl and leaves the season panel's table unmarked", () => {
 		expect(styles.get("payoffMark").get("mask-image")).not.toBe("none");
 		expect(parseFloat(styles.get("payoffMark").get("width"))).toBeGreaterThan(0);
+		expect(styles.get("payoffRowMark").get("content")).toBe("none");
 		expect(styles.get("seasonMark").get("content")).toBe("none");
 	});
+
 });

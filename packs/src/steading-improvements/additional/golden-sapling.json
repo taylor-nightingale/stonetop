@@ -54,21 +54,9 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "retrieve-acorn"
-          ]
-        },
-        {
-          "all": [
-            "plant-acorn"
-          ]
-        },
-        {
-          "all": [
-            "nurture-protect"
-          ]
-        }
+        "retrieve-acorn",
+        "plant-acorn",
+        "nurture-protect"
       ]
     },
     "effects": [
@@ -103,5 +91,9 @@
       }
     ]
   },
-  "folder": "1UlzxDTaEInlMvWC"
+  "folder": "1UlzxDTaEInlMvWC",
+  "_prose": [
+    "When you **_mark all the requirements_**, add \"Golden Sapling\" to the Resources list and automatically mark the **Greater Harvest** improvement.",
+    "Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus."
+  ]
 }

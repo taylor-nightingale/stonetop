@@ -71,23 +71,11 @@
         {
           "any": 1,
           "of": [
-            {
-              "all": [
-                "engineer-foreman"
-              ]
-            },
-            {
-              "all": [
-                "build-on-fields"
-              ]
-            }
+            "engineer-foreman",
+            "build-on-fields"
           ]
         },
-        {
-          "all": [
-            "pull-together"
-          ]
-        }
+        "pull-together"
       ]
     },
     "effects": [
@@ -125,5 +113,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is."
+  ]
 }

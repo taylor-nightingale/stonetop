@@ -83,31 +83,11 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "building-site"
-          ]
-        },
-        {
-          "all": [
-            "engineer-foreman"
-          ]
-        },
-        {
-          "all": [
-            "furnishings"
-          ]
-        },
-        {
-          "all": [
-            "pull-together"
-          ]
-        },
-        {
-          "all": [
-            "staff"
-          ]
-        }
+        "building-site",
+        "engineer-foreman",
+        "furnishings",
+        "pull-together",
+        "staff"
       ]
     },
     "effects": [
@@ -149,5 +129,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Fortunes by 1. Name the inn, add it to both the Resources list and map.\n\nHenceforth, when the seasons change, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.\n\nOnce per season, when you expend 1 Surplus and bring folks together at the inn (to talk, to celebrate, to recuperate), clear one of the steading's debilities."
+  ]
 }

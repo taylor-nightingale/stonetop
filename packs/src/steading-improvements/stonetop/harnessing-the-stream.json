@@ -62,21 +62,9 @@
     "requires": {
       "any": 2,
       "of": [
-        {
-          "all": [
-            "reservoir"
-          ]
-        },
-        {
-          "all": [
-            "water-uphill"
-          ]
-        },
-        {
-          "all": [
-            "aqueducts"
-          ]
-        }
+        "reservoir",
+        "water-uphill",
+        "aqueducts"
       ]
     },
     "effects": [
@@ -118,5 +106,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus."
+  ]
 }

@@ -2,7 +2,7 @@
 // actually says.
 //
 // The book states the rule in prose above each list — "Requires all of the following:", "Requires 1
-// of the following:", "any 3 of the following:" — and build-improvements.js threw that away, emitting
+// of the following:", "any 3 of the following:" — and the box parser threw that away, emitting
 // every requirement as a tracked entry row. Completion was therefore "every box ticked", which is
 // wrong wherever the book says "N of": Greater Harvest is done at 1 of 2 and could never read so.
 //

@@ -82,28 +82,12 @@
         {
           "any": 2,
           "of": [
-            {
-              "all": [
-                "herd-of-horses"
-              ]
-            },
-            {
-              "all": [
-                "cooperating-hillfolk"
-              ]
-            },
-            {
-              "all": [
-                "cunning-plan"
-              ]
-            }
+            "herd-of-horses",
+            "cooperating-hillfolk",
+            "cunning-plan"
           ]
         },
-        {
-          "all": [
-            "successful-hunt"
-          ]
-        }
+        "successful-hunt"
       ]
     },
     "effects": [
@@ -127,5 +111,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, add \"Aurochs hunting (meat, hide, horn)\" to the Resources list.\n\nHenceforth, when you **_lead the aurochs hunt in spring,_** roll +Defenses: **on a 10+**, gain 1d4 Surplus; **on a 7-9**, gain 1d4 Surplus but pick 1 from the list below; **on a 6-**, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town's horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they'll be wiped out"
+  ]
 }

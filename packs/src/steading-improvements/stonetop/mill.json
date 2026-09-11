@@ -83,31 +83,11 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "engineer-foreman"
-          ]
-        },
-        {
-          "all": [
-            "power-source"
-          ]
-        },
-        {
-          "all": [
-            "building-site"
-          ]
-        },
-        {
-          "all": [
-            "pull-together"
-          ]
-        },
-        {
-          "all": [
-            "full-time-miller"
-          ]
-        }
+        "engineer-foreman",
+        "power-source",
+        "building-site",
+        "pull-together",
+        "full-time-miller"
       ]
     },
     "effects": [
@@ -152,5 +132,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of ◇ supplies has 1 extra use."
+  ]
 }

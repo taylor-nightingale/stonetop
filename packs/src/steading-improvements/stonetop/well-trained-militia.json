@@ -120,39 +120,15 @@
       {
         "requires": {
           "all": [
-            {
-              "all": [
-                "veteran-warrior"
-              ]
-            },
+            "veteran-warrior",
             {
               "any": 2,
               "of": [
-                {
-                  "all": [
-                    "archery"
-                  ]
-                },
-                {
-                  "all": [
-                    "cavalry"
-                  ]
-                },
-                {
-                  "all": [
-                    "formations"
-                  ]
-                },
-                {
-                  "all": [
-                    "readiness"
-                  ]
-                },
-                {
-                  "all": [
-                    "skirmishing"
-                  ]
-                }
+                "archery",
+                "cavalry",
+                "formations",
+                "readiness",
+                "skirmishing"
               ]
             }
           ]
@@ -187,5 +163,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence **on a 7-9**, not the GM).\n\nWhen the militia has trained in 2+ tactics, increase Defenses by 1.\n\nEach summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic."
+  ]
 }

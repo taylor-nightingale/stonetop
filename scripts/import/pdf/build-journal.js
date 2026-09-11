@@ -18,6 +18,7 @@ import { buildPageMap, linkPageRefs, linkNpcs, loadNpcSlugs } from "./crossref.j
 import { linkArtifacts } from "../build-artifacts.js";
 import { loadArcanaIndex, linkArcana } from "./arcana.js";
 import { extractImprovements, improvementUuid } from "./improvements.js";
+import { danglingImprovementLinks, improvementSlugs } from "../improvementModel.js";
 import { applyManualEdits } from "./manual-edits.js";
 import { extractChrome, extractSwirls } from "./images.js";
 import { formatPageRange } from "./pages.js";
@@ -74,6 +75,7 @@ const dedup = new Map();
 const scratch = mkdtempSync(path.join(os.tmpdir(), "ww-img-"));
 
 const flags = [];
+const knownImprovements = improvementSlugs();
 
 // Pass 1 — extract + render each article's body, and harvest its printed page numbers. We need the
 // full printed-page → article map before we can rewrite "(page N)" cross-refs, so render first and
@@ -97,9 +99,15 @@ for (const [i, r] of build.entries()) {
 		});
 		art = extractArticle(pages, { title: r.title, pageRules, pageImages });
 		annotateTables(art, { slug, title: r.title }); // stamp dice tables → inline @DrawTable links
-		// Stamp each "Steading improvement" call-out's title item with its generated item UUID so the
-		// renderer links it (the item itself is written by build-improvements.js; UUIDs are deterministic).
-		for (const imp of extractImprovements(art)) if (imp.titleItem) imp.titleItem.improvementUuid = improvementUuid(imp.slug);
+		// Stamp each "Steading improvement" call-out's title item with its item's UUID so the renderer
+		// links it (UUIDs are deterministic from the slug). The items are hand-authored, so check the
+		// link lands: nothing regenerates one to match what the box now parses as.
+		const linked = new Set();
+		for (const imp of extractImprovements(art)) {
+			linked.add(imp.slug);
+			if (imp.titleItem) imp.titleItem.improvementUuid = improvementUuid(imp.slug);
+		}
+		for (const problem of danglingImprovementLinks(linked, knownImprovements)) flags.push(`! ${r.title}: ${problem}`);
 		body = renderHtml(art, { chrome: { chain: chromeChain } });
 	} catch (e) { flags.push(`! ${r.title}: failed — ${e.message}`); continue; }
 

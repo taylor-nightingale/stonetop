@@ -11,9 +11,9 @@ export class SteadingImprovement {
 		this.name      = name;
 		this.choices   = choices;
 		this.sortOrder = sortOrder;
-		// What it takes to build, and what it does once built — the hand-authored model merged onto
-		// the item by scripts/import/build-improvement-effects.js. Empty for a custom improvement
-		// authored in a world, which simply has no results the sheet can reason about.
+		// What it takes to build, and what it does once built — hand-authored on the item and checked
+		// by scripts/import/review-improvement-model.js. Empty for a custom improvement authored in a
+		// world, which simply has no results the sheet can reason about.
 		this.requires  = parseRequirement(requires);
 		// Results inherit the improvement's own requirement unless they narrow it — see
 		// ImprovementEffect.fromRaw. Without that, every result of an owned-but-unbuilt improvement

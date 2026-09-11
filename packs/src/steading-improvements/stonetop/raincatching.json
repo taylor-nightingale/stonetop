@@ -61,21 +61,9 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "engineer-foreman"
-          ]
-        },
-        {
-          "all": [
-            "slate-terracotta"
-          ]
-        },
-        {
-          "all": [
-            "pull-together"
-          ]
-        }
+        "engineer-foreman",
+        "slate-terracotta",
+        "pull-together"
       ]
     },
     "effects": [
@@ -117,5 +105,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Fortunes by 1, add \"Raincatching\" to the Resources list.\n\nHenceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus."
+  ]
 }

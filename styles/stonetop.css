@@ -305,26 +305,56 @@ body,
 	padding-left: calc(var(--bullet) + var(--bullet-gap));
 }
 
+/* The mark hangs on the box that holds the first LINE OF TEXT, which is the line it centres on — the
+   same thing a UA marker does. In a list of prose that box is the item itself: an `<li>` holding its
+   own words starts its first line at its own top, so the two are one box.
+
+   A statement row is the other case, and it needs naming because nothing in its markup says so: the
+   `--sourced` list makes every row a `subgrid` (see .steading-statement-lines--sourced), so the row's
+   words live in cells and the row's own height is the tallest thing in it — a 24px Apply, whose
+   baseline sits 1.5px lower inside its own box than a bare span's (a border plus the slack of its
+   target). Baseline alignment then lowers the row's text to meet the control, and a mark measured
+   from the row's top stays where the text no longer is. So it hangs on the row's first cell, which
+   holds that first line.
+
+   It cannot be one selector: the marker has to be absolutely positioned (inline, it would be a grid
+   ITEM of the row and take one of the subgrid's columns), and an absolutely positioned pseudo can
+   only measure from its own element's box. Nor can either case use a real `::marker`: `display:
+   list-item grid` computes to `list-item` — the grid is dropped, and with it the columns the rows are
+   aligned by — and a marker takes no `mask`, which is how the swirl is tinted to the theme. */
 .stonetop.sheet ul:not(.stonetop-unmarked) li,
+.stonetop.sheet ul:not(.stonetop-unmarked) li.steading-statement-line > :first-child,
 .stonetop-advice ul li {
 	position: relative;
 }
 
-.stonetop.sheet ul:not(.stonetop-unmarked) li::before,
+.stonetop.sheet ul:not(.stonetop-unmarked) li:not(.steading-statement-line)::before,
+.stonetop.sheet ul:not(.stonetop-unmarked) li.steading-statement-line > :first-child::before,
 .stonetop-advice ul li::before {
 	content: '';
 	position: absolute;
 	left: calc(-1 * (var(--bullet) + var(--bullet-gap)));
-	/* Centred on the first LINE BOX rather than nudged down by a hand-measured em: `1lh` is this
-	   item's own line height, so the swirl sits on the first line of a one-line item and a five-line
-	   one alike, at any font size. The old 12px/0.28em pair was fitted to one text size and slid off
-	   the line at every other. */
+	/* Centred on the first LINE BOX rather than nudged down by a hand-measured em: `1lh` is the line
+	   height of the box this is drawn on, so the swirl sits on the first line of a one-line item and
+	   a five-line one alike, at any font size. The old 12px/0.28em pair was fitted to one text size
+	   and slid off the line at every other. */
 	top: calc((1lh - var(--bullet)) / 2);
 	width: var(--bullet);
 	height: var(--bullet);
 	background-color: var(--st-decor);
 	mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
 	-webkit-mask: url('../assets/ui/decor/swirl.png') no-repeat center / contain;
+}
+
+/* Opting OUT of the marker opts out of the marker's gutter. The swirl is drawn at `-(bullet + gap)`
+   from its item, so the list's own left padding IS the space it lives in — which makes the indent and
+   the marker one decision, and this is where both halves of it are made. A structural list that
+   zeroed its padding in its own rule instead took the gutter away while leaving `li::before`
+   drawing, and the marker then landed outside its own list: the failure the comment above describes,
+   and the reason two panels of the season box carried a `padding-left` that only put it back. */
+.stonetop.sheet ul.stonetop-unmarked,
+.stonetop-advice ul.stonetop-unmarked {
+	padding-left: 0;
 }
 
 /* A portrait or icon that opens the file picker is a button, so it has to BE one: core binds only
@@ -6850,8 +6880,20 @@ button.stonetop-xp-toggle {
 	display: grid;
 	gap: 2px;
 	margin: 0;
-	padding: 0;
 	list-style: none;
+
+	/* Its ROWS' size, on the list. The rows state it themselves, so this changes no text — what it
+	   fixes is the swirl a bulleted list takes: the gutter is an em of the LIST and the marker's
+	   offset an em of the ROW, and with the list left at whatever it inherited (core's 14px on
+	   `.window-content`) those were ems of two different fonts, so the marker sat 1.1px outside the
+	   space it was positioned into. */
+	font-size: var(--fs-note);
+
+	/* No `padding: 0` here. A bulleted list's indent IS the gutter its marker is drawn into, and
+	   zeroing it is what put the swirl of every bulleted panel in the season box out in the step
+	   numeral's column, 16.5px left of the prose above it. The indent belongs to the shared bullet
+	   rule — as it does for the move row's rollnotes — and the table shape of these rows gets none,
+	   from the opt-out rule beside it. */
 }
 
 /* --fs-note, the scale's role for consequence prose, which is what every one of these rows is. It
@@ -7086,19 +7128,15 @@ button.stonetop-xp-toggle {
    The indent absorbs the marker's gutter rather than adding to it, so the words stay in the column
    they were already in and the swirl takes the space the bare indent was holding. */
 .stonetop.sheet.steading .steading-payoff .steading-statement-lines {
-	font-size: var(--fs-note);
 	/* The column the requirement rows above reach past their checkbox: a control's width plus the
 	   row's own gap. Said as that arithmetic rather than as the px it comes to, so the two lists in
 	   one card cannot drift apart when Foundry's font setting moves the control scale. It was a bare
 	   1.5em, which landed 2.5px short of it — and short of a different amount at every font step. */
 	--payoff-indent: calc(var(--control-check) + var(--item-header-gap));
 
-	/* The swirl sits IN that indent rather than beside it: the marker takes the gutter and the words
-	   stay in the requirement rows' column. `.steading-statement-lines` zeroes the padding these rows
-	   share with the season panel's table, so the gutter the marker is positioned into is restored
-	   here — the same restoration, from the same two properties, that .steading-effect-lines makes. */
+	/* The swirl sits IN that indent rather than beside it: the marker takes the gutter the bullet
+	   rule gives the list, and the words stay in the requirement rows' column. */
 	margin-left: calc(var(--payoff-indent) - var(--bullet) - var(--bullet-gap));
-	padding-left: calc(var(--bullet) + var(--bullet-gap));
 	gap: 3px;
 }
 
@@ -7755,16 +7793,12 @@ button.stonetop-xp-toggle {
 }
 
 /* What bends a step, and what waits on the roll it sits under. Set in from the step's line, like the
-   pick, so they read as belonging to that step rather than as a new block beneath it.
+   pick, so they read as belonging to that step rather than as a new block beneath it — the swirl in
+   the gutter the bullet rule gives the list, which lands it on the column the step's own words start
+   from.
 
-   Bulleted with the book's own swirl. `.steading-statement-lines` zeroes the padding these rows share
-   with the statement's table, which would leave the marker drawing into the text it marks — so the
-   gutter it is positioned into is restored here, from the same two custom properties the generic
-   rule declares. */
-.stonetop.sheet.steading .steading-effect-lines {
-	padding-left: calc(var(--bullet) + var(--bullet-gap));
-}
-
+   Bulleted with the book's own swirl, and nothing about that is stated here: these rows are
+   `.steading-statement-lines` without the opt-out, which is the whole of the claim. */
 .stonetop.sheet.steading .steading-turn-results,
 .stonetop.sheet.steading .steading-turn-outcomes {
 	margin: 3px 0 0;

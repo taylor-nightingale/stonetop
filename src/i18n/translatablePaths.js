@@ -206,6 +206,12 @@ export const TEXT_PATHS = {
 // untranslatable in silence.
 export const UNTRANSLATED_PATHS = {
 	improvement: {
+		// Not a field Foundry ever sees: an authoring-only key, stripped from the document on its way
+		// into the compiled pack (dropAuthoringKeys). It is the book's own payoff sentence, kept beside
+		// the effects modelled from it so the review can check one against the other — quoted English,
+		// checked against Book I/II, and never rendered.
+		"_prose[]":                                "The book's own sentence, kept for review. Authoring-only — stripped at compile, never rendered.",
+		"_review":                                 "A note to whoever reviews the model. Authoring-only — stripped at compile, never rendered.",
 		"system.effects[].change.formula":         "A dice expression (\"2d6 + @population\"), not prose. Translating it would break the roll.",
 		"system.effects[].advantage.moves[]":      "Move slugs; the reminder resolves them to the moves' own rows.",
 		"system.effects[].set.value":              "A stored value — a number, or one of Size's tier keys, translated through stonetop.steading.tier.size.*",

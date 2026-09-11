@@ -83,31 +83,11 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "two-three"
-          ]
-        },
-        {
-          "all": [
-            "supplies-furnishings"
-          ]
-        },
-        {
-          "all": [
-            "5-6"
-          ]
-        },
-        {
-          "all": [
-            "extra-wagon"
-          ]
-        },
-        {
-          "all": [
-            "four-seasons"
-          ]
-        }
+        "two-three",
+        "supplies-furnishings",
+        "5-6",
+        "extra-wagon",
+        "four-seasons"
       ]
     },
     "effects": [
@@ -163,5 +143,9 @@
       }
     ]
   },
-  "folder": "1UlzxDTaEInlMvWC"
+  "folder": "1UlzxDTaEInlMvWC",
+  "_prose": [
+    "When you **_mark all the requirements_**, add \"Logging: timber, wood\" to the resources list and increase Fortunes by 1.",
+    "Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation."
+  ]
 }

@@ -3,38 +3,17 @@
 // Pure and dependency-free so it can be tested against the real sources.
 //
 // The job used to be two: find the improvement's effect region inside its choice list, then read the
-// seasons out of it. The first half is gone — the payoff prose is no longer in the pack (it was a
-// second copy of everything `system.effects` says, and both halves were extracted for translation),
-// so the region arrives already isolated as `_prose` in data/improvement-effects.json.
+// seasons out of it. The first half is gone — the payoff prose is no longer a row in the pack (it was
+// a second copy of everything `system.effects` says, and both halves were extracted for translation),
+// so the region arrives already isolated as the improvement's `_prose`.
 //
 // What remains is the half a keyword sweep gets wrong: which of the book's many phrasings for a
-// season a clause is using. That still feeds the drift detector — an improvement whose prose names a
-// season with nothing modelled to fire in one has fallen behind the book.
+// season a clause is using. That feeds the drift detector — an improvement whose prose names a season
+// with nothing modelled to fire in one has fallen behind the book.
 
 import { Seasons } from "../../src/model/data/steading/Seasons.js";
 
 const ALL = Seasons.all().map(s => s.key);
-
-// The phrase that opens an improvement's payoff sentence. Only used to CATCH one thing now: a Book II
-// box-parser bug that glues the whole payoff paragraph onto the end of the last requirement row
-// instead of giving it a row of its own. That used to be worked around silently here; it is reported
-// instead, because a glued payoff is prose the strip cannot reach — it would sit inside a requirement
-// row, translated twice, with nothing saying so.
-const EFFECT_MARKER = /(?:when you\s+)?\**_*(?:meet the requirements|mark all (?:of )?the requirements)\**_*|Henceforth/i;
-
-/**
- * A requirement row with the improvement's payoff paragraph run onto the end of it, or null.
- *
- * Mid-string only: a row that merely STARTS with "Henceforth" is not a thing the sources contain, but
- * a requirement row whose text runs on into the payoff is exactly the bug.
- */
-export function gluedPayoffRow(list = []) {
-	const lastTracked = list.reduce((last, row, i) => (row.track ? i : last), -1);
-	if (lastTracked < 0) return null;
-	const text  = list[lastTracked]?.content?.text ?? "";
-	const match = text.match(EFFECT_MARKER);
-	return match && match.index > 0 ? text.slice(match.index) : null;
-}
 
 /**
  * The book's own trigger phrases, in the order they must be tried: the SET phrases first, since

@@ -18,8 +18,10 @@ export class ImprovementData extends foundry.abstract.TypeDataModel {
 			//
 			// The book states this in prose above each list ("Requires 1 of the following:") and the
 			// rows record only the boxes, so completion used to be "every box ticked" — wrong for the
-			// six improvements the book gives a choice. Authored in data/improvement-effects.json and
-			// merged by scripts/import/build-improvement-effects.js.
+			// six improvements the book gives a choice. Authored by hand on each improvement source and
+			// checked by scripts/import/review-improvement-model.js. A nested term is written however it
+			// reads best — a bare slug, a list, or a group; parseRequirement takes all three. Only the
+			// value stored HERE has to be a group, because an ObjectField will not validate a string.
 			requires:  new f.ObjectField({ nullable: true, initial: null }),
 
 			// What the improvement DOES: each result, what has to be true for it to hold, and when it

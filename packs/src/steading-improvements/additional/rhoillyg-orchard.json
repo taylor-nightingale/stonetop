@@ -112,46 +112,18 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "sack-full"
-          ]
-        },
-        {
-          "all": [
-            "herbalist-considerable"
-          ]
-        },
+        "sack-full",
+        "herbalist-considerable",
         {
           "any": 1,
           "of": [
-            {
-              "all": [
-                "year-so"
-              ]
-            },
-            {
-              "all": [
-                "advice-knowledgeable"
-              ]
-            }
+            "year-so",
+            "advice-knowledgeable"
           ]
         },
-        {
-          "all": [
-            "full-spring"
-          ]
-        },
-        {
-          "all": [
-            "pulling-together"
-          ]
-        },
-        {
-          "all": [
-            "protecting-orchard"
-          ]
-        }
+        "full-spring",
+        "pulling-together",
+        "protecting-orchard"
       ]
     },
     "effects": [
@@ -203,5 +175,9 @@
       }
     ]
   },
-  "folder": "1UlzxDTaEInlMvWC"
+  "folder": "1UlzxDTaEInlMvWC",
+  "_prose": [
+    "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Rhoillyg Orchard\" to both the Resources list and the steading map. Henceforth, the steading generates +1 Surplus in summer and another +1 Surplus when the autumn harvest is complete."
+  ],
+  "_review": "MIS-EXTRACTED. improvements.js glued each header onto the end of the preceding row ('An herbalist of considerable skill and patience And either of these, to germinate the seeds:'), and the outcome prose onto the last requirement. The real structure is: both (seeds, herbalist) / either of these (experimentation, advice) / each of these (spring, pulling together, protecting). Modelled here as all-of pending the extractor fix."
 }

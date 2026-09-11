@@ -61,21 +61,9 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "veteran-warrior"
-          ]
-        },
-        {
-          "all": [
-            "six-warriors"
-          ]
-        },
-        {
-          "all": [
-            "village-leaders"
-          ]
-        }
+        "veteran-warrior",
+        "six-warriors",
+        "village-leaders"
       ]
     },
     "effects": [
@@ -109,5 +97,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.\n\nWhen you specifically involve the watch in a move, treat Defenses as 1 higher than they are."
+  ]
 }

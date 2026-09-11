@@ -94,6 +94,25 @@ export function stampPackVersion(version) {
 	};
 }
 
+// Keys a source file carries for the people editing it, never for Foundry: an improvement's `_prose`
+// (the book's own payoff sentence, the surface its modelled effects are reviewed against) and the
+// `_review` note beside it. compilePack writes source JSON verbatim, so without this they would sit in
+// the compiled pack, ship to every client, and be dropped unread by the DataModel on load.
+const AUTHORING_KEYS = ["_prose", "_review"];
+
+export function dropAuthoringKeys(doc) {
+	for (const key of AUTHORING_KEYS) delete doc[key];
+}
+
+/** Everything the compile does to a source document on its way into the pack. */
+export function packTransform(version) {
+	const stamp = stampPackVersion(version);
+	return (doc) => {
+		stamp(doc);
+		dropAuthoringKeys(doc);
+	};
+}
+
 async function systemVersion() {
 	return JSON.parse(await fs.readFile("system.json", "utf8")).version;
 }
@@ -114,7 +133,7 @@ async function main() {
 		await fs.rm(dest, { recursive: true, force: true });
 		await fs.mkdir(dest, { recursive: true });
 		try {
-			await compilePack(src, dest, { nedb: false, log: true, recursive: true, transformEntry: stampPackVersion(version) });
+			await compilePack(src, dest, { nedb: false, log: true, recursive: true, transformEntry: packTransform(version) });
 		} catch (err) {
 			// Node v24 + abstract-level teardown race: iterator cleanup races with DB close.
 			// All files are written before this throws, so it's safe to ignore.

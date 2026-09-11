@@ -12,13 +12,19 @@ describe("build-packs builder list", () => {
 		}
 	});
 
-	it("covers every build-* script under scripts/import", () => {
+	// Two things at once: a new builder that nobody listed here never runs in a rebuild, and a listed
+	// script that is not a builder has to be a deliberate one — the review pass writes no source, but
+	// it fails the rebuild when the hand-authored improvement model has drifted from the pack.
+	const NOT_BUILDERS = ["scripts/import/review-improvement-model.js"];
+
+	it("covers every build-* script under scripts/import, and lists nothing else unaccounted for", () => {
 		const onDisk = ["scripts/import", "scripts/import/pdf"]
 			.flatMap((dir) => readdirSync(join(root, dir))
 				.filter((f) => f.startsWith("build-"))
 				.map((f) => `${dir}/${f}`))
 			.sort();
-		expect([...BUILDERS].sort()).toEqual(onDisk);
+		expect([...BUILDERS].filter((b) => !NOT_BUILDERS.includes(b)).sort()).toEqual(onDisk);
+		expect(BUILDERS).toEqual(expect.arrayContaining(NOT_BUILDERS));
 	});
 
 	// build-arcana writes nothing without these — it is a report generator by default, so a flagless

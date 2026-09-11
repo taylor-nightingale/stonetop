@@ -137,56 +137,20 @@
         {
           "any": 1,
           "of": [
-            {
-              "all": [
-                "req-harnessing-stream"
-              ]
-            },
-            {
-              "all": [
-                "req-raincatching"
-              ]
-            },
-            {
-              "all": [
-                "req-mill"
-              ]
-            }
+            "req-harnessing-stream",
+            "req-raincatching",
+            "req-mill"
           ]
         },
         {
           "any": 3,
           "of": [
-            {
-              "all": [
-                "chandler"
-              ]
-            },
-            {
-              "all": [
-                "glassblower"
-              ]
-            },
-            {
-              "all": [
-                "weaver"
-              ]
-            },
-            {
-              "all": [
-                "potter"
-              ]
-            },
-            {
-              "all": [
-                "smith"
-              ]
-            },
-            {
-              "all": [
-                "other-tradesperson"
-              ]
-            }
+            "chandler",
+            "glassblower",
+            "weaver",
+            "potter",
+            "smith",
+            "other-tradesperson"
           ]
         }
       ]
@@ -204,5 +168,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1."
+  ]
 }

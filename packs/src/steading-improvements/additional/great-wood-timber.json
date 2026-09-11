@@ -65,26 +65,10 @@
     },
     "requires": {
       "all": [
-        {
-          "all": [
-            "proof-that"
-          ]
-        },
-        {
-          "all": [
-            "crew-brave"
-          ]
-        },
-        {
-          "all": [
-            "skilled-carpenter"
-          ]
-        },
-        {
-          "all": [
-            "pulling-together"
-          ]
-        }
+        "proof-that",
+        "crew-brave",
+        "skilled-carpenter",
+        "pulling-together"
       ]
     },
     "effects": [
@@ -131,5 +115,9 @@
       }
     ]
   },
-  "folder": "1UlzxDTaEInlMvWC"
+  "folder": "1UlzxDTaEInlMvWC",
+  "_prose": [
+    "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Timber from the Great Wood\" to the Resources list.",
+    "Henceforth, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter."
+  ]
 }

@@ -5,8 +5,8 @@ import { StepAdjustment } from "../../src/model/data/steading/ImprovementEffect.
 import { SeasonProcedure } from "../../src/model/data/steading/SeasonProcedure.js";
 import { Seasons } from "../../src/model/data/steading/Seasons.js";
 
-// What bends a step of the season is authored in data/improvement-effects.json and merged onto the
-// pack sources. Six improvements bend one, at three different places, and the sheet renders each
+// What bends a step of the season is authored on the improvement itself. Six improvements bend one,
+// at three different places, and the sheet renders each
 // differently — so a bend authored without saying WHERE it hooks would be drawn as the wrong kind.
 
 const ROOT = path.resolve("packs/src/steading-improvements");

@@ -4,24 +4,27 @@
 // pick rows each carrying a `track.max` counted from the box's □ checkboxes. Document order is
 // preserved, so the group reads exactly like the printed box.
 //
-// Shared by build-improvements.js (writes the items) and build-journal.js (links each callout title
-// to its item). Pure over the extractArticle() document — no PDF/Foundry access — so it is unit
-// tested directly in tests/import/pdf/improvements.test.js. Reuses arcana-parse's markdown/slug
-// helpers rather than re-deriving them.
+// Used by build-journal.js to link each callout title to its item. The items themselves are no longer
+// generated: steading-improvements/additional/ was frozen once it had been hand-corrected past the
+// point the parser could reproduce, and both halves of the pack are hand-authored now. So this reads
+// the box only to recover the slug the journal links against — which build-journal checks resolves to
+// an item that exists, since nothing regenerates one to match any more.
+//
+// Pure over the extractArticle() document — no PDF/Foundry access — so it is unit tested directly in
+// tests/import/pdf/improvements.test.js. Reuses arcana-parse's markdown/slug helpers rather than
+// re-deriving them.
 import { joinMd, unlockSlug, titleCase } from "./arcana-parse.js";
 import { classifyHeader } from "../improvementRequirements.js";
 import { deterministicId } from "../ids.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
 const SYSTEM = "stonetop";
-// Both the hand-authored Stonetop-core improvements and the Book II wonder improvements live in the
-// one `steading-improvements` pack (under the stonetop/ and additional/ source folders respectively).
-// build-improvements.js owns + regenerates the additional/ folder; this constant scopes the UUIDs and
-// deterministic item IDs it stamps.
+// Both the Stonetop-core improvements and the Book II wonder improvements live in the one
+// `steading-improvements` pack (under the stonetop/ and additional/ source folders respectively).
+// This constant scopes the UUIDs and deterministic item IDs stamped for them.
 export const IMPROVEMENTS_PACK = "steading-improvements";
 
-/** The compendium UUID a generated improvement item resolves to (deterministic from its slug, so
- *  the journal can link to it without the item build having run first). */
+/** The compendium UUID an improvement item resolves to (deterministic from its slug). */
 export const improvementUuid = (slug) =>
 	`Compendium.${SYSTEM}.${IMPROVEMENTS_PACK}.Item.${deterministicId(IMPROVEMENTS_PACK, slug)}`;
 

@@ -51,16 +51,8 @@
     "requires": {
       "any": 1,
       "of": [
-        {
-          "all": [
-            "double-yield"
-          ]
-        },
-        {
-          "all": [
-            "clear-fields"
-          ]
-        }
+        "double-yield",
+        "clear-fields"
       ]
     },
     "effects": [
@@ -88,5 +80,8 @@
       }
     ]
   },
-  "folder": "K6GCg2kg3hRVE3nl"
+  "folder": "K6GCg2kg3hRVE3nl",
+  "_prose": [
+    "When you **_meet the requirements_**, increase Fortunes by 1. Henceforth, when **_the autumn harvest is complete_**, gain +1d4 Surplus."
+  ]
 }

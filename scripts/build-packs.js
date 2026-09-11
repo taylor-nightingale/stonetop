@@ -18,7 +18,6 @@ export const BUILDERS = [
 	"scripts/import/pdf/build-journal.js",
 	"scripts/import/build-artifacts.js",
 	"scripts/import/pdf/build-tables.js",
-	"scripts/import/pdf/build-improvements.js",
 	"scripts/import/pdf/build-steadfasts.js",
 	// Not a pack: writes the tag definitions into languages/en.json. Listed here so a reprint
 	// refreshes them along with everything else derived from the books.
@@ -37,13 +36,10 @@ export const BUILDERS = [
 	// Book I's reference articles — "Gear & Possessions" and "If You Want To…" — into the reference
 	// pack. LAST: its value tables link the items build-items.js has just written.
 	"scripts/import/build-book-one.js",
-	// Merges the hand-authored improvement model (data/improvement-effects.json) onto every
-	// improvement item — what it requires, and what each of its results does. A pass over the pack
-	// SOURCES rather than the PDF, and it must run AFTER build-improvements.js: that script clears
-	// and regenerates steading-improvements/additional/, so a field written before it is dropped by
-	// the next full rebuild. It covers the hand-authored stonetop/ half too, which no other builder
-	// touches, and FAILS rather than writing when the model and the pack have drifted apart.
-	"scripts/import/build-improvement-effects.js",
+	// Not a builder: writes nothing but its review file. The steading improvements are hand-authored
+	// on both halves now, so this checks what they require and what each of their results does against
+	// the rows they actually have, and FAILS the rebuild when they have drifted apart.
+	"scripts/import/review-improvement-model.js",
 	// Lifts each steading article's per-season "Impressions" lines into its steadfast. After
 	// build-journal (which writes the article it reads) and after build-steadfasts (which owns the
 	// steadfasts folder, though it protects the hand-authored stonetop.json by name).
