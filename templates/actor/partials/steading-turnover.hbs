@@ -5,22 +5,34 @@
       and then every rating edited by hand. The list is written from the improvements' own structured
       results, and applying it is one act.
 
+      What is LEFT here, now that most of a season is shown where it happens: the clauses the sheet can
+      only state, and the moves a season hands the table. The batch that writes what the season still
+      owes went with the bills — the upkeep is what it writes.
+
       Params: turnover (TurnoverSnapshot). --}}
 <div class="steading-turnover">
 
-	{{#if turnover.hasClauses}}
+	{{#if turnover.hasOwnClauses}}
 		{{#if turnover.applied}}
 			{{!-- Already written. Still shown — what the season did is worth reading after the fact —
 			      but with nothing left to press. --}}
 			<p class="steading-turnover-applied">{{localize "stonetop.steading.effects.alreadyApplied"}}</p>
 		{{/if}}
-		{{!-- The results themselves. `showAdjustments=false`: the ones that BEND A STEP are collected
-		      under that step below, and a result stated in both places is the wall this was rebuilt to
-		      remove. --}}
-		{{> "stonetop.steading-statement" statement=turnover.statement showAdvisory=true
-		    showAdjustments=false showSource=true showDelta=true
-		    applyAllAction="applyTurnover"
-		    applyAllLabel="stonetop.steading.effects.applySeason"}}
+		{{!-- What the season owes that its own steps do not already show: `owed` and `advisoryOwed`
+		      leave out the results collected against a step, against the roll they wait on, and in the
+		      upkeep — a result stated in both places is the wall this was rebuilt to remove. The Apply
+		      below still writes all of them, and its totals still count them. --}}
+		{{!-- With the clause. What is left in this list is what no step of the season claimed, so
+		      there is nothing above a row here that has stated its trigger — and these are the
+		      clauses the sheet cannot judge, which is exactly what the book's own wording says. --}}
+		{{> "stonetop.steading-statement" statement=turnover.statement
+		    automaticLines=turnover.statement.owed advisoryLines=turnover.statement.advisoryOwed
+		    moveSlugs=turnover.statement.grantedMoveSlugs showSource=true showDelta=true
+		    showPhrase=true}}
+	{{else if turnover.hasClauses}}
+		{{!-- Everything this season brings is shown where it happens — in the step it bends, the result
+		      row it waits on, the step that generates it, the bills above. Nothing to add here, and a
+		      heading over an empty list would read as a section that failed to load. --}}
 	{{else}}
 		{{!-- Not an error and not an empty state to apologise for: a season in which nothing Stonetop
 		      has built fires is an ordinary season. --}}

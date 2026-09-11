@@ -87,3 +87,29 @@ describe.skipIf(!canProbe())("the statement's two columns", () => {
 		expect(cardRow.textLeft).toBeLessThan(box.get("shortClause").textLeft);
 	});
 });
+
+// The two columns are one SENTENCE — "Mill — the steading generates +1 Surplus" — and the dash is
+// what says so. It is drawn by the source's own ::after, which has no node to query: the computed
+// style of the pseudo-element is the only way to ask whether the mark is there at all.
+//
+// The rule used to be scoped to `.steading-turn-step`, so the three lists that are NOT steps — the
+// upkeep, the season's own list, a moment's panel — read as a name and then an unrelated clause with
+// a gap between them. This fixture is deliberately none of those things: a bare sourced list, which
+// is the shape every one of them takes.
+describe.skipIf(!canProbe())("the dash between a source and its result", () => {
+	let dash;
+
+	beforeAll(() => {
+		dash = probe.render({
+			bodyHtml: FIXTURE, bodyClass: "game vtt theme-light",
+			probes: {
+				after: { selector: "#short .steading-statement-source", pseudo: "::after", properties: ["content"] },
+			},
+		}).get("after");
+	}, 120000);
+
+	it("joins them outside a numbered step, not only inside one", () => {
+		expect(dash.missing).toBe(false);
+		expect(dash.get("content")).toContain("—");
+	});
+});

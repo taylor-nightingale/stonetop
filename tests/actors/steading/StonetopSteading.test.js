@@ -4,6 +4,7 @@ import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingS
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { steadingRepos, FakeSteadingArtRepository } from "../../fakes/FakeSteadingRepos.js";
+import { SeasonStepAddress } from "../../../src/model/data/steading/SeasonStepAddress.js";
 
 const fakeImprovementsRepo = {getBySlug: async () => null};
 const fakeMoves = new FakeMoveRepository();
@@ -105,11 +106,48 @@ describe("StonetopSteading — notes", () => {
 // A step of the season's move that rolls dice of its own — winter's 1d4+Population. Not every roll
 // a move calls for lands on 10+/7-9/6-: this one is a NUMBER, and reading it as a move result would
 // put "success" on a 10 that means ten Surplus gone.
+//
+// Addressed by its INDEX: the dice, the rating, which way it moves Surplus and what this steading's
+// improvements do to all three are answered by the step itself, from the season's own move.
+
+// The season's move as it sits on the actor — an embedded copy, which is how every steading carries
+// its moves, so the step the roll finds is the one the sheet drew.
+const seasonMove = (season, steps, moveResults = null) => ({
+	_id: `move-${season}`, name: `Seasons Change: ${season}`, type: "move",
+	system: { slug: `seasons-change-${season}`, categoryKey: "seasons", moveType: "seasons",
+		description: "", rollStat: "fortunes", steps, moveResults },
+});
+
+// Winter's own results. Its 7-9 and 6- each consume a SECOND 1d4+Population, which the move states
+// in its results and the step hangs its dice on.
+const WINTER_RESULTS = {
+	success: { label: "10+", value: "The winter is relatively mild." },
+	partial: { label: "7-9", value: "Consume additional Surplus equal to 1d4+Population." },
+	failure: { label: "6-",  value: "As a 7-9, but also threats abound." },
+};
+
+const WINTER_TIERED = {
+	kind: "roll", stat: "fortunes", tiers: true, text: "Then, roll +Fortunes.",
+	results: {
+		partial: { die: "1d4", stat: "population", affects: "consumption" },
+		failure: { die: "1d4", stat: "population", affects: "consumption" },
+	},
+};
+
+const WINTER_STEPS = [
+	{ kind: "roll", die: "1d4", stat: "population", affects: "consumption", text: "rolls 1d4+Population" },
+	{ kind: "consume", affects: "consumption", text: "consumes that much" },
+	{ kind: "roll", stat: "fortunes", tiers: true, text: "Then, roll +Fortunes." },
+];
+
 describe("StonetopSteading.rollSeasonStep", () => {
-	const withRecorder = () => {
+	const withRecorder = (total = null, { season = "winter", steps = WINTER_STEPS } = {}) => {
 		const actor = new FakeSteadingBuilder().build();
+		actor.system.season = season;
+		actor.items.push(seasonMove(season, steps));
 		const rolled = [];
-		actor.rollFormula = async (label, formula) => { rolled.push({ label, formula }); };
+		actor.evaluateFormula = async formula => { rolled.push({ formula }); return { total }; };
+		actor.postFormulaCard = async card => rolled[rolled.length - 1].card = card;
 		const steading = new StonetopSteading(actor, steadingRepos({
 			improvements: fakeImprovementsRepo, moves: fakeMoves,
 		}));
@@ -119,7 +157,7 @@ describe("StonetopSteading.rollSeasonStep", () => {
 	it("adds the rating at its current value", async () => {
 		const { actor, rolled, steading } = withRecorder();
 		actor.system.attributes.population = 2;
-		expect(await steading.rollSeasonStep("1d4", "population")).toBe(true);
+		expect(await steading.rollSeasonStep(0)).toBe(true);
 		expect(rolled[0].formula).toBe("1d4 + 2");
 	});
 
@@ -128,30 +166,242 @@ describe("StonetopSteading.rollSeasonStep", () => {
 	// place on the sheet that disagreed about what the rating is. (Only `lacking` bends a rating
 	// today, and it bends Prosperity; no season step names it, so the mechanism is what is asserted.)
 	it("rolls the rating as the steading's debilities leave it", async () => {
-		const { actor, rolled, steading } = withRecorder();
+		const { actor, rolled, steading } = withRecorder(null, {
+			steps: [{ kind: "roll", die: "1d4", stat: "prosperity" }],
+		});
 		actor.system.attributes.prosperity = 2;
 		actor.system.debilities = { ...actor.system.debilities, lacking: true };
-		await steading.rollSeasonStep("1d4", "prosperity");
+		await steading.rollSeasonStep(0);
 		expect(rolled[0].formula).toBe("1d4 + 1");
 	});
 
 	// Null from resolveBonus means "not a rating at all", which is not the same as a rating at 0 —
 	// a step naming something the steading does not have rolls nothing rather than rolling bare dice.
 	it("rolls nothing for a rating the steading does not have", async () => {
-		const { rolled, steading } = withRecorder();
-		expect(await steading.rollSeasonStep("1d4", "courage")).toBe(false);
+		const { rolled, steading } = withRecorder(null, {
+			steps: [{ kind: "roll", die: "1d4", stat: "courage" }],
+		});
+		expect(await steading.rollSeasonStep(0)).toBe(false);
 		expect(rolled).toHaveLength(0);
 	});
 
 	it("rolls bare dice when the step adds no rating", async () => {
-		const { rolled, steading } = withRecorder();
-		await steading.rollSeasonStep("1d4", null);
-		expect(rolled[0].formula).toBe("1d4 + 0");
+		const { rolled, steading } = withRecorder(null, { steps: [{ kind: "generate", die: "1d4-1" }] });
+		await steading.rollSeasonStep(0);
+		expect(rolled[0].formula).toBe("1d4-1 + 0");
 	});
 
 	it("rolls nothing for a step that names no dice", async () => {
 		const { rolled, steading } = withRecorder();
-		expect(await steading.rollSeasonStep(null, "population")).toBe(false);
+		expect(await steading.rollSeasonStep(1)).toBe(false);
+		expect(rolled).toHaveLength(0);
+	});
+
+	// The move's own roll is not this control's: it posts a card with tiers and leaves Surplus alone.
+	it("rolls nothing for the move's own tiered roll", async () => {
+		const { rolled, steading } = withRecorder();
+		expect(await steading.rollSeasonStep(2)).toBe(false);
+		expect(rolled).toHaveLength(0);
+	});
+
+	it("rolls nothing for a step that is not there", async () => {
+		const { rolled, steading } = withRecorder();
+		expect(await steading.rollSeasonStep(9)).toBe(false);
+		expect(rolled).toHaveLength(0);
+	});
+});
+
+// The card the roll posts. "Roll 1d4 + Population" is what a BUTTON says; a chat card is a record,
+// so it is titled by what the season did and carries the formula as its receipt.
+describe("StonetopSteading.rollSeasonStep — the card it posts", () => {
+	const cardFor = async (steps, { season = "winter", total = 3, surplus = 5 } = {}) => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.season = season;
+		actor.system.attributes.surplus    = surplus;
+		actor.system.attributes.population = 2;
+		actor.items.push(seasonMove(season, steps));
+		let posted = null;
+		actor.evaluateFormula = async () => ({ total });
+		actor.postFormulaCard = async card => { posted = card; };
+		const steading = new StonetopSteading(actor, steadingRepos({
+			improvements: fakeImprovementsRepo, moves: fakeMoves,
+		}));
+		await steading.rollSeasonStep(0);
+		return posted;
+	};
+
+	it("titles the card by the season and the side of it the step is on", async () => {
+		const card = await cardFor(WINTER_STEPS);
+		expect(card.name).toBe("stonetop.steading.seasons.names.winter — Consumption");
+	});
+
+	it("titles a generation step by what it generates", async () => {
+		const card = await cardFor([{ kind: "generate", die: "1d4-1", affects: "generation" }],
+			{ season: "summer" });
+		expect(card.name).toBe("stonetop.steading.seasons.names.summer — Generation");
+	});
+
+	// A homebrew step that names no direction moves nothing, so there is nothing to name it by.
+	it("titles a step that says which way nothing goes by the roll alone", async () => {
+		const card = await cardFor([{ kind: "roll", die: "1d4", stat: "population" }]);
+		expect(card.name).toBe("stonetop.steading.seasons.names.winter — Roll");
+	});
+
+	// The rating NAMED, not the number it came to — the dice row prints that beside it.
+	it("carries the formula with the rating named", async () => {
+		const card = await cardFor(WINTER_STEPS);
+		expect(card.formula).toBe("1d4 + stonetop.steading.attr.population");
+	});
+
+	it("carries bare dice as the formula when the step adds no rating", async () => {
+		const card = await cardFor([{ kind: "generate", die: "1d4-1", affects: "generation" }]);
+		expect(card.formula).toBe("1d4-1");
+	});
+
+	it("hands the card the evaluated roll, so the dice animate", async () => {
+		const card = await cardFor(WINTER_STEPS);
+		expect(card.roll.total).toBe(3);
+	});
+
+	// Applied BEFORE it is reported: what the roll did to Surplus is the news, and it is not known
+	// until it has been done.
+	it("carries what the roll did to Surplus", async () => {
+		const card = await cardFor(WINTER_STEPS);
+		expect({ from: card.applied.from, to: card.applied.to }).toEqual({ from: 5, to: 2 });
+	});
+
+	it("carries no record for a step that moves nothing", async () => {
+		const card = await cardFor([{ kind: "roll", die: "1d4", stat: "population" }]);
+		expect(card.applied).toBeNull();
+	});
+});
+
+// The roll used to post a card and stop, which left the table doing the one piece of arithmetic the
+// sheet had just performed for them. `affects` is the STEP's own word for which way its result moves
+// Surplus, so the sign comes off the move's data rather than being guessed from the dice.
+describe("StonetopSteading.rollSeasonStep — moving Surplus", () => {
+	const withRecorder = (total, { steps = WINTER_STEPS } = {}) => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.season = "winter";
+		actor.items.push(seasonMove("winter", steps));
+		actor.evaluateFormula = async () => ({ total });
+		actor.postFormulaCard = async () => {};
+		const steading = new StonetopSteading(actor, steadingRepos({
+			improvements: fakeImprovementsRepo, moves: fakeMoves,
+		}));
+		return { actor, steading };
+	};
+
+	it("spends what a consumption step rolled", async () => {
+		const { actor, steading } = withRecorder(3);
+		actor.system.attributes.surplus = 5;
+		await steading.rollSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(2);
+	});
+
+	// "If there's not enough, reduce Surplus to 0 and Meet with Disaster." The floor is the book's;
+	// the Disaster is the table's, and the step's own text is what says so.
+	it("floors consumption at 0 rather than going negative", async () => {
+		const { actor, steading } = withRecorder(6);
+		actor.system.attributes.surplus = 2;
+		await steading.rollSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(0);
+	});
+
+	it("gains what a generation step rolled", async () => {
+		const { actor, steading } = withRecorder(2, {
+			steps: [{ kind: "generate", die: "1d4-1", affects: "generation" }],
+		});
+		actor.system.attributes.surplus = 1;
+		await steading.rollSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(3);
+	});
+
+	// A step that names no direction is a roll and nothing more — a homebrew Seasons Change, or a
+	// step whose dice decide something the sheet does not hold.
+	it("moves nothing for a step that does not say which way", async () => {
+		const { actor, steading } = withRecorder(3, {
+			steps: [{ kind: "roll", die: "1d4", stat: "population" }],
+		});
+		actor.system.attributes.surplus = 5;
+		await steading.rollSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(5);
+	});
+});
+
+// The second consumption winter's 7-9 and 6- call for. It is the same roll made in a different
+// place, so it goes through the same handler, addressed by the tier it belongs to rather than by a
+// step index it does not have.
+describe("StonetopSteading.rollSeasonStep — a result of the move's own roll", () => {
+	const winter = (total, { surplus = 6, population = 2 } = {}) => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.season = "winter";
+		actor.system.attributes.surplus    = surplus;
+		actor.system.attributes.population = population;
+		actor.items.push(seasonMove("winter", [
+			{ kind: "roll", die: "1d4", stat: "population", affects: "consumption" },
+			WINTER_TIERED,
+		], WINTER_RESULTS));
+		const rolled = [];
+		actor.evaluateFormula = async formula => { rolled.push({ formula }); return { total }; };
+		actor.postFormulaCard = async card => rolled[rolled.length - 1].card = card;
+		const steading = new StonetopSteading(actor, steadingRepos({
+			improvements: fakeImprovementsRepo, moves: fakeMoves,
+		}));
+		return { actor, rolled, steading };
+	};
+
+	it("rolls the tier's own dice, with the rating added at its current value", async () => {
+		const { rolled, steading } = winter(3);
+		expect(await steading.rollSeasonStep(SeasonStepAddress.of(1, "partial"))).toBe(true);
+		expect(rolled[0].formula).toBe("1d4 + 2");
+	});
+
+	it("consumes what it rolled", async () => {
+		const { actor, steading } = winter(3);
+		await steading.rollSeasonStep(SeasonStepAddress.of(1, "failure"));
+		expect(actor.system.attributes.surplus).toBe(3);
+	});
+
+	// Recorded apart from the step's, so rolling the 7-9 does not read as having rolled winter's
+	// opening consumption, and either can be given back on its own.
+	it("records what it did against its own tier", async () => {
+		const { actor, steading } = winter(3);
+		await steading.rollSeasonStep(SeasonStepAddress.of(1, "partial"));
+		expect(actor.system.seasonStepsApplied["1:partial"]).toEqual({ total: 3, due: 3, from: 6, to: 3 });
+		expect(actor.system.seasonStepsApplied["1"]).toBeUndefined();
+	});
+
+	it("gives it back on its own", async () => {
+		const { actor, steading } = winter(3);
+		await steading.rollSeasonStep(SeasonStepAddress.of(1, "partial"));
+		expect(await steading.revertSeasonStep(SeasonStepAddress.of(1, "partial"))).toBe(true);
+		expect(actor.system.attributes.surplus).toBe(6);
+		expect(actor.system.seasonStepsApplied["1:partial"]).toBeUndefined();
+	});
+
+	// Winter's two consumptions are two rolls: paying one leaves the other still to make.
+	it("leaves the season's opening consumption still to roll", async () => {
+		const { actor, steading } = winter(3);
+		await steading.rollSeasonStep(SeasonStepAddress.of(1, "partial"));
+		await steading.rollSeasonStep(SeasonStepAddress.of(0));
+		expect(actor.system.attributes.surplus).toBe(0);
+		expect(Object.keys(actor.system.seasonStepsApplied).sort()).toEqual(["0", "1:partial"]);
+	});
+
+	// A mild winter costs nothing, so there is nothing to roll on it.
+	it("rolls nothing for a result that costs nothing", async () => {
+		const { rolled, steading } = winter(3);
+		expect(await steading.rollSeasonStep(SeasonStepAddress.of(1, "success"))).toBe(false);
+		expect(rolled).toHaveLength(0);
+	});
+
+	// A control whose dataset went missing addresses nothing, rather than addressing step 0 —
+	// winter's whole consumption.
+	it("rolls nothing for an address that is not one", async () => {
+		const { rolled, steading } = winter(3);
+		expect(await steading.rollSeasonStep(null)).toBe(false);
+		expect(await steading.rollSeasonStep(SeasonStepAddress.parse("1:mild"))).toBe(false);
 		expect(rolled).toHaveLength(0);
 	});
 });
@@ -342,5 +592,64 @@ describe("StonetopSteading — prosperity as characters read it", () => {
 		const actor = new FakeSteadingBuilder().build();
 		actor.system.attributes.prosperity = -1;
 		expect(new StonetopSteading(actor, steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves })).prosperity).toBe(-1);
+	});
+});
+
+// A roll that moves Surplus with nothing on screen to say why is worse than no automation at all —
+// the number changes and the reader has to go and read the chat log to find out what happened. The
+// step records what it did, says so, and offers it back.
+describe("StonetopSteading.revertSeasonStep", () => {
+	const rolled = async (total, affects, surplus) => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.system.season = "winter";
+		actor.items.push(seasonMove("winter", [{ kind: "roll", die: "1d4", affects }]));
+		actor.evaluateFormula = async () => ({ total });
+		actor.postFormulaCard = async () => {};
+		actor.system.attributes.surplus = surplus;
+		const steading = new StonetopSteading(actor, steadingRepos({
+			improvements: fakeImprovementsRepo, moves: fakeMoves,
+		}));
+		await steading.rollSeasonStep(0);
+		return { actor, steading };
+	};
+
+	it("records what the roll did to Surplus", async () => {
+		const { actor } = await rolled(3, "consumption", 5);
+		expect(actor.system.seasonStepsApplied["0"]).toEqual({ total: 3, due: 3, from: 5, to: 2 });
+	});
+
+	it("gives back what a consumption step took", async () => {
+		const { actor, steading } = await rolled(3, "consumption", 5);
+		await steading.revertSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(5);
+	});
+
+	it("takes back what a generation step paid", async () => {
+		const { actor, steading } = await rolled(2, "generation", 1);
+		await steading.revertSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(1);
+	});
+
+	// The floor means the delta is not always the roll: a 6 against 2 Surplus spends 2, so reverting
+	// gives back 2. Restoring `from` would agree here and disagree the moment anyone edited Surplus
+	// in between, which is why the record is read as a delta.
+	it("gives back only what a short consumption actually took", async () => {
+		const { actor, steading } = await rolled(6, "consumption", 2);
+		expect(actor.system.attributes.surplus).toBe(0);
+		await steading.revertSeasonStep(0);
+		expect(actor.system.attributes.surplus).toBe(2);
+	});
+
+	// Reverted, the step offers the roll again — so the record has to be gone, not merely zeroed.
+	it("forgets the record, so the step offers its roll again", async () => {
+		const { actor, steading } = await rolled(3, "consumption", 5);
+		await steading.revertSeasonStep(0);
+		expect(actor.system.seasonStepsApplied["0"]).toBeUndefined();
+	});
+
+	it("does nothing for a step that was never rolled", async () => {
+		const { actor, steading } = await rolled(3, "consumption", 5);
+		expect(await steading.revertSeasonStep(1)).toBe(false);
+		expect(actor.system.attributes.surplus).toBe(2);
 	});
 });

@@ -107,19 +107,28 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you take advantage of the stone wall_**"
         },
-        "text": "when you take advantage of the stone wall, you have advantage to Deploy"
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "deploy"
+          ]
+        },
+        "text": "you have advantage to Deploy"
       },
       {
         "when": {
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "when **_winter grips the land_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "result",
           "amount": -1
         },
         "text": "the steading consumes 1 less Surplus than normal"

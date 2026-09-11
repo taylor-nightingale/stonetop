@@ -77,7 +77,8 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "autumn-harvest"
+          "moment": "autumn-harvest",
+          "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {
           "target": "surplus",

@@ -64,6 +64,21 @@ export const SteadingDefaults = {
 		}),
 	},
 
+	/**
+	 * One rating by slug, wherever this object files it.
+	 *
+	 * The book crowns Fortunes and Surplus and rules the other four plainly, and the shape here keeps
+	 * that split because the sheet draws it. A caller that only wants "the rating called `population`"
+	 * should not have to know which half it lives in — which is what every caller used to do by hand.
+	 *
+	 * Guarded by the type rather than by a list of names, so `rating("debilities")` is null instead of
+	 * an array pretending to be a rating.
+	 */
+	rating(slug) {
+		const found = this.attributes[slug] ?? this[slug];
+		return found instanceof RatingDefinition ? found : null;
+	},
+
 	// `hindersMoves` lists the move slugs an active debility rolls at disadvantage. The book scopes
 	// *diminished* to three named moves rather than to a rating, so a bare Population roll — or a
 	// future move that happens to roll +Population — is untouched.

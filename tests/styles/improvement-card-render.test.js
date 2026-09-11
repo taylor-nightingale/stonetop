@@ -124,3 +124,161 @@ describe.skipIf(!canProbe() || !iconFont)("the improvement card's chips and payo
 		expect(parseFloat(shown.get("payoffHead").get("margin-top"))).toBe(0);
 	});
 });
+
+
+// ── The card's type scale, and the two lists inside it ──────────────────────────
+//
+// An improvement card holds two lists of the same kind of thing: what the work REQUIRES and what it
+// GIVES YOU. They were set at different sizes, in different faces, on different rhythms, in columns
+// 2.5px apart, and only one of them was marked as a list. Every one of those is invisible to a test
+// that reads the stylesheet as text — each rule looked reasonable on its own, and the fault was in
+// what they came to together, against core's stylesheet and Foundry's own font step.
+//
+// The scale is declared BY ROLE (stonetop.css:128) and there are exactly two roles in this card:
+// prose that introduces a list (--fs-body) and the rows under it (--fs-note). Anything else showing
+// up here is a role being borrowed for something it does not describe — which is how the Apply ended
+// up at --fs-fine, "page refs and fine print", a step under the result it applies.
+
+const CARD = `
+<div class="application app stonetop sheet actor steading" style="width: 700px">
+  <div class="window-content">
+    <p id="role-body" style="font-size: var(--fs-body)">Sample</p>
+    <p id="role-note" style="font-size: var(--fs-note)">Sample</p>
+
+    <div class="steading-improvement-card steading-block is-open">
+      <div class="steading-improvement-body">
+
+        <div class="stonetop-choice-entry">
+          <div class="stonetop-choice-description" id="card-desc">A shallow creek flows just below the town.</div>
+          <div class="stonetop-choice-description" id="card-requires"><strong>Requires</strong> 2 of the following:</div>
+          <div class="stonetop-choice-track stonetop-row">
+            <div class="stonetop-choice-track-checks"><input type="checkbox" class="stonetop-cg-track"></div>
+            <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row" id="card-req-row">A reservoir for the Stream to pool in</span>
+          </div>
+        </div>
+
+        <div class="steading-payoff">
+          <p class="steading-payoff-head" id="card-head">When you <strong><em>meet the requirements</em></strong>:</p>
+          <div class="steading-statement">
+            <ul class="steading-statement-lines" id="card-auto-list">
+              <li class="steading-statement-line" id="card-auto-row">
+                <span class="steading-statement-clause" id="card-auto-clause">increase Fortunes by 1</span>
+                <button type="button" class="steading-statement-line-btn" id="card-apply">Apply</button>
+              </li>
+              <li class="steading-statement-line">
+                <span class="steading-statement-clause">add them to the Resources list</span>
+                <button type="button" class="steading-statement-line-btn">Apply</button>
+              </li>
+            </ul>
+          </div>
+
+          <p class="steading-payoff-head">Henceforth:</p>
+          <div class="steading-statement">
+            <ul class="steading-statement-lines steading-statement-lines--advisory">
+              <li class="steading-statement-line" id="card-adv-row">
+                <span class="steading-statement-whens" id="card-whens"><span class="steading-statement-when" id="card-when-1">Spring</span><span class="steading-statement-when" id="card-when-2">Summer</span></span>
+                <span class="steading-statement-clause" id="card-adv-clause">the steading generates 1 Surplus</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- The same partial as the season tab renders it: a table with controls in it, not a list of
+         clauses, so it passes no bulleted and keeps its opt-out. -->
+    <div class="steading-statement">
+      <ul class="steading-statement-lines steading-statement-lines--sourced stonetop-unmarked">
+        <li class="steading-statement-line" id="season-row">
+          <span class="steading-statement-source">Mill</span>
+          <span class="steading-statement-clause">the steading generates +1 Surplus</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>`;
+
+// Every element in the card that carries text, and the role its content has.
+const PROSE = ["card-desc", "card-requires", "card-head"];
+const ROWS  = ["card-req-row", "card-auto-row", "card-auto-clause", "card-apply", "card-adv-row",
+	"card-whens", "card-adv-clause"];
+
+describe.skipIf(!canProbe())("the improvement card's type scale", () => {
+	const styles = new Map();
+	const geometry = new Map();
+
+	beforeAll(() => {
+		const textProbes = Object.fromEntries([...PROSE, ...ROWS, "role-body", "role-note", "card-auto-list"]
+			.map(id => [id, { selector: `#${id}`, properties: ["font-size", "margin-bottom"] }]));
+
+		for (const [k, v] of probe.render({
+			bodyHtml: CARD, bodyClass: "game vtt theme-light",
+			probes: {
+				...textProbes,
+				whensDash:   { selector: "#card-whens",  properties: ["content"], pseudo: "::after" },
+				secondWhen:  { selector: "#card-when-2", properties: ["content"], pseudo: "::before" },
+				firstWhen:   { selector: "#card-when-1", properties: ["content"], pseudo: "::before" },
+				payoffMark:  { selector: "#card-auto-row", properties: ["content", "width", "mask-image"], pseudo: "::before" },
+				seasonMark:  { selector: "#season-row",    properties: ["content"], pseudo: "::before" },
+			},
+		})) styles.set(k, v);
+
+		for (const [k, v] of probe.measure({
+			bodyHtml: CARD, bodyClass: "game vtt theme-light",
+			targets: {
+				reqRow:    "#card-req-row",
+				autoRow:   "#card-auto-row",
+				advClause: "#card-adv-clause",
+				whens:     "#card-whens",
+			},
+		})) geometry.set(k, v);
+	}, 120000);
+
+	const px = name => parseFloat(styles.get(name).get("font-size"));
+
+	it("sets the card's prose at the scale's primary-description role", () => {
+		for (const id of PROSE) expect(px(id), id).toBe(px("role-body"));
+	});
+
+	it("sets every row under it — the controls included — at the row role", () => {
+		for (const id of ROWS) expect(px(id), id).toBe(px("role-note"));
+	});
+
+	// The fault this catches: the payoff list had no size of its own, so it inherited core's
+	// `.window-content` 14px — a size on no role of ours — and its `1.5em` indent was then an em of a
+	// font the card does not contain.
+	it("leaves nothing in the card inheriting a size from outside the scale", () => {
+		const scale = new Set([px("role-body"), px("role-note")]);
+		for (const id of [...PROSE, ...ROWS, "card-auto-list"]) expect(scale, id).toContain(px(id));
+	});
+
+	it("brings the payoff rows to the column the requirement rows reach past their checkbox", () => {
+		expect(geometry.get("autoRow").textLeft).toBeCloseTo(geometry.get("reqRow").textLeft, 0);
+	});
+
+	// Core sets `ul li { margin-bottom: 0.25rem }` on every list in a sheet. Carried on top of the
+	// list's own gap it put the payoff on a 31px pitch under requirement rows running at 22.5px.
+	it("spaces the rows by the list's gap and nothing else", () => {
+		expect(parseFloat(styles.get("card-auto-row").get("margin-bottom"))).toBe(0);
+	});
+
+	it("puts a Henceforth result's seasons on the first line of the clause they introduce", () => {
+		expect(geometry.get("whens").firstLineMiddle)
+			.toBeCloseTo(geometry.get("advClause").firstLineMiddle, 0);
+	});
+
+	// "Spring — Summer —" reads as spring THROUGH summer, which is the opposite of what a result
+	// firing in two seasons and not the one between them does.
+	it("conjoins the seasons and closes the group with the dash", () => {
+		expect(styles.get("firstWhen").get("content")).toBe("none");
+		expect(styles.get("secondWhen").get("content")).toBe('" & "');
+		expect(styles.get("whensDash").get("content")).toBe('" — "');
+	});
+
+	it("marks the payoff rows with the book's swirl and leaves the season panel's table unmarked", () => {
+		expect(styles.get("payoffMark").get("mask-image")).not.toBe("none");
+		expect(parseFloat(styles.get("payoffMark").get("width"))).toBeGreaterThan(0);
+		expect(styles.get("seasonMark").get("content")).toBe("none");
+	});
+});

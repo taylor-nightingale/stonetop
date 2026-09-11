@@ -12,6 +12,8 @@ import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder
 import { Seasons } from "../../../src/model/data/steading/Seasons.js";
 import { renderTemplate } from "../../fakes/renderTemplate.js";
 import { renderSheetPart } from "../../fakes/renderSheetPart.js";
+import { readFileSync } from "fs";
+import path from "path";
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
@@ -62,10 +64,31 @@ const WATCH = improvement("standing-watch", "Standing Watch", {
 });
 const PALISADE = improvement("palisade", "Palisade", { tracks: [["timber", 4]] });
 
+// A clause the sheet can only STATE — it cannot know whether the market was active. What the general
+// list still holds, now that everything it can write is shown where it happens.
+const MARKET = improvement("market", "Market", {
+	tracks: [["traders", 1]],
+	effects: [{ when: { kind: "turn", seasons: ["winter"],
+			phrase: "when **_winter grips the land and the market is active_**" },
+		change: { target: "surplus", amount: 1 }, condition: true,
+		text: "the market generates 1 Surplus" }],
+});
+
 // Its completion changes nothing the sheet can write — Size is a tier, not a delta.
 const TOWNSHIP = improvement("township", "Township", {
 	tracks: [["population", 1]],
-	effects: [{ when: { kind: "completed" }, text: "change Size to town and its Population to +0" }],
+	effects: [
+		{ when: { kind: "completed" }, text: "change Size to town and its Population to +0" },
+		// "roll 2d6+Population to consume Surplus, instead of 1d4+Population" — the dice themselves.
+		{ when: { kind: "turn", seasons: ["winter"] },
+		  adjustment: { step: "consumption", at: "formula", die: "2d6", stat: "population" },
+		  text: "roll 2d6+Population to consume Surplus, instead of 1d4+Population" },
+		// "the town generates Surplus equal to Population+1" — arithmetic over a rating the sheet
+		// knows, which is not a die however it is written.
+		{ when: { kind: "turn", seasons: ["spring", "summer"] },
+		  change: { target: "surplus", formula: "@population + 1" },
+		  text: "the town generates Surplus equal to Population+1" },
+	],
 });
 
 // A moment WITHIN autumn — not the turn. The harvest coming in is something the table says has
@@ -74,6 +97,23 @@ const ORCHARD = improvement("rhoillyg-orchard", "Rhoillyg Orchard", {
 	tracks: [["saplings", 1]],
 	effects: [{ when: { kind: "moment", moment: "autumn-harvest" },
 		change: { target: "surplus", amount: 1 }, text: "the orchard yields +1 Surplus" }],
+});
+
+// A moment clause the book ROLLS for — "gain +1d4 Surplus". Dice, so the step's own dice take it up
+// rather than an amount doing.
+const GREATER = improvement("greater-harvest", "Greater Harvest", {
+	tracks: [["fields", 1]],
+	effects: [{ when: { kind: "moment", moment: "autumn-harvest" },
+		change: { target: "surplus", formula: "1d4" }, text: "gain +1d4 Surplus" }],
+});
+
+// A moment in ANY season, and one the table pays for: the gathering costs a Surplus, which is
+// part of the book's own clause and nothing the sheet can judge.
+const INN = improvement("inn", "The Inn", {
+	tracks: [["innkeeper", 1]],
+	effects: [{ when: { kind: "moment", moment: "inn-gathering",
+			phrase: "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**" },
+		condition: true, text: "clear one of the steading's debilities" }],
 });
 
 // A moment that hands the table a MOVE instead of a delta: the hunt is led by rolling it.
@@ -90,20 +130,36 @@ const HERD = improvement("herd-of-horses", "Herd of Horses", {
 		text: "any yearlings become horses, any foals become yearlings" }],
 });
 
-// Two improvements that BEND winter's consumption rather than adding to the season. Never applied —
-// they change an arithmetic the sheet does not perform — and they belong beside the step, which is
-// the one place they were never shown.
+// Improvements that BEND winter's consumption rather than adding to the season, at the three places
+// the book bends it: the dice, a term inside them, and what you pay once they are rolled. They belong
+// against the step they bend, which is the one place they were never shown.
 const WALL = improvement("stone-wall", "Stone Wall", {
 	tracks: [["stone", 1]],
 	effects: [{ when: { kind: "turn", seasons: ["winter"] },
-		adjustment: { step: "consumption", amount: -1 },
+		adjustment: { step: "consumption", at: "result", amount: -1 },
 		text: "consumes 1 less Surplus than normal" }],
 });
 const HOUSING = improvement("additional-housing", "Additional Housing", {
 	tracks: [["homes", 1]],
 	effects: [{ when: { kind: "turn", seasons: ["winter"] },
-		adjustment: { step: "consumption", term: "population" },
+		adjustment: { step: "consumption", at: "term", term: "population", amount: -1 },
 		text: "consider Population to be 1 lower than it is" }],
+});
+// "when the steading generates Surplus, even just 1, it generates +1" — every season, so it lands on
+// summer's generation step and on nothing at all in winter.
+const SAPLING = improvement("golden-sapling", "Golden Sapling", {
+	tracks: [["sapling", 1]],
+	effects: [{ when: { kind: "turn", seasons: [] },
+		adjustment: { step: "generation", at: "result", amount: 1 },
+		text: "when the steading generates Surplus, even just 1, it generates +1 Surplus" }],
+});
+// The one improvement that waits on the season's OWN roll — it belongs against the roll it waits on.
+const STREAM = improvement("harnessing-the-stream", "Harnessing the Stream", {
+	tracks: [["stream", 1]],
+	effects: [{ when: { kind: "turn", seasons: ["winter"],
+			phrase: "when **_winter grips the land and you roll a 7+ with Fortunes_**" },
+		change: { target: "surplus", amount: 1 }, condition: true, outcome: "7+",
+		text: "the steading generates 1 Surplus" }],
 });
 
 // The track values that make an improvement BUILT — every requirement box filled. A clause is the
@@ -117,11 +173,17 @@ const BUILT = {
 	"aurochs-hunting":  { "aurochs-hunting": { hunters: 1 } },
 	"stone-wall":        { "stone-wall": { stone: 1 } },
 	"additional-housing": { "additional-housing": { homes: 1 } },
+	"golden-sapling":     { "golden-sapling": { sapling: 1 } },
+	"harnessing-the-stream": { "harnessing-the-stream": { stream: 1 } },
+	"greater-harvest":     { "greater-harvest": { fields: 1 } },
+	market:                { market: { traders: 1 } },
+	inn:                   { inn: { innkeeper: 1 } },
 };
 
 function catalog() {
 	const repo = new FakeSteadingImprovementRepository();
-	repo._improvements.push(MILL, WATCH, PALISADE, TOWNSHIP, HERD, ORCHARD, AUROCHS, WALL, HOUSING);
+	repo._improvements.push(MILL, WATCH, PALISADE, TOWNSHIP, HERD, ORCHARD, AUROCHS, WALL, HOUSING,
+		SAPLING, STREAM, GREATER, MARKET, INN);
 	return repo;
 }
 
@@ -129,26 +191,17 @@ function catalog() {
 // control and hangs each season's own off the wheel, so a fixture without them proves nothing.
 const SEASON_MOVE_NAMES = { spring: "Spring", summer: "Summer", autumn: "Autumn", winter: "Winter" };
 
-// The procedure each move carries (packs/src/moves/seasons/*.json). The steps are what the sheet
-// draws the turn from, so a fixture without them would exercise the fallback rather than the season.
-const SEASON_STEPS = {
-	spring: [{ kind: "roll", stat: "fortunes", tiers: true },
-	         { kind: "pick", from: "seasonal-gains", count: 1 },
-	         { kind: "reset", target: "fortunes" }],
-	summer: [{ kind: "roll", stat: "fortunes", tiers: true },
-	         { kind: "pick", from: "seasonal-gains", count: 2 },
-	         { kind: "generate", die: "1d4-1" },
-	         { kind: "reset", target: "fortunes" }],
-	autumn: [{ kind: "roll", stat: "fortunes", tiers: true },
-	         { kind: "pick", from: "seasonal-gains", count: 1 },
-	         { kind: "moment", moment: "autumn-harvest", die: "1d4" },
-	         { kind: "reset", target: "fortunes" }],
-	winter: [{ kind: "roll", die: "1d4", stat: "population" },
-	         { kind: "consume" },
-	         { kind: "pick", from: "winter-losses", count: 1 },
-	         { kind: "roll", stat: "fortunes", tiers: true },
-	         { kind: "reset", target: "fortunes" }],
-};
+// The procedure each move carries, read from the pack sources themselves. It used to be a copy
+// written out here, which drifted the moment the pack changed — autumn's steps were reordered and
+// every step gained the move's own words, and this fixture went on asserting the old shape.
+// The four moves exactly as the pack authors them — the steps AND the result tiers, because the box
+// draws the move's own results and a fixture carrying only half of one would draw half a season.
+const SEASON_MOVES = Object.fromEntries(Seasons.all().map(season => [
+	season.key,
+	JSON.parse(readFileSync(
+		path.resolve(process.cwd(), `packs/src/moves/seasons/${season.moveSlug}.json`), "utf8",
+	)).system,
+]));
 
 function seasonalMoveRepo() {
 	const repo = new FakeMoveRepository();
@@ -157,7 +210,8 @@ function seasonalMoveRepo() {
 			.withName(`Seasons Change: ${SEASON_MOVE_NAMES[s.key]}`)
 			.withMoveType("seasons")
 			.withRollStat("fortunes")
-			.withSteps(SEASON_STEPS[s.key])
+			.withSteps(SEASON_MOVES[s.key].steps)
+			.withMoveResults(SEASON_MOVES[s.key].moveResults)
 			.build());
 	}
 	// One homefront move as well, so the tab is exercised with a second move group beside the
@@ -178,10 +232,11 @@ function seasonalMoveRepo() {
 	return repo;
 }
 
-async function makeSheet({ owned = [], season, year, values, turnoverApplied } = {}) {
+async function makeSheet({ owned = [], season, year, values, turnoverApplied, size } = {}) {
 	const actor = new FakeSteadingBuilder().build();
 	actor.system.improvements      = owned;
 	actor.system.improvementValues = values ?? {};
+	if (size !== undefined) actor.system.attributes.size = size;
 	if (season !== undefined) actor.system.season = season;
 	if (year !== undefined) actor.system.year = year;
 	if (turnoverApplied !== undefined) actor.system.turnoverApplied = turnoverApplied;
@@ -272,14 +327,34 @@ describe("the season wheel", () => {
 		expect([sheet.actor.system.season, sheet.actor.system.year]).toEqual(["spring", 3]);
 	});
 
-	// Rolling IS the turn — one act, so one control. The roll goes out as an ordinary move roll of
-	// the INCOMING season's Seasons Change, not as a second kind of card.
-	it("rolls the incoming season's move as it turns", async () => {
+	// The turn is silent. It used to roll the incoming season's move with it, which put the card out
+	// ahead of the steps it is step one of and made "roll Seasons Change again" mean "turn the season
+	// again". The wheel moves; the dice are the table's, in the box.
+	it("turns the wheel without rolling or posting anything", async () => {
 		const sheet = await makeSheet({ season: "autumn" });
 		stubConfirm(true);
 		await render(sheet, true);
 
 		await act(sheet, "turnSeason", null);
+		expect(sheet.actor.system.season).toBe("winter");
+		// Every card this tab can post goes out through `rollItem`, so an empty list is the whole of
+		// "nothing was posted" here.
+		expect(sheet.actor.rolledItems).toEqual([]);
+	});
+
+	// Where the roll lives instead: step one of the section the turn just handed the steading. It is
+	// the season the box IS, so a turn followed by a roll posts the season the steading is now in.
+	it("rolls that season's move from the section that describes it", async () => {
+		const sheet = await makeSheet({ season: "autumn" });
+		stubConfirm(true);
+		await render(sheet, true);
+		await act(sheet, "turnSeason", null);
+
+		const root = await render(sheet);
+		const die  = root.querySelector(".steading-season-box .move-rollable");
+		expect(die.dataset.moveSlug).toBe("seasons-change-winter");
+
+		await sheet.actor.typedActor.rollMoveBySlug(die.dataset.moveSlug);
 		expect(sheet.actor.rolledItems.map(r => r.item.system.slug)).toEqual(["seasons-change-winter"]);
 		expect(sheet.actor.system.season).toBe("winter");
 	});
@@ -300,12 +375,13 @@ describe("the season wheel", () => {
 		expect(root.querySelectorAll('[data-action="advanceSeason"]')).toHaveLength(0);
 	});
 
-	// The incoming season's move is in the turn control; every season's move is also one segment of
-	// the wheel away. What this replaced was a separate "The other seasons" list — three full rows
-	// spending a screen of height on reference, numbered by an `ol` nobody had written a rule for.
-	it("puts the incoming season's move in the turn control", async () => {
+	// The box is the season the steading is IN, so it holds THAT season's move; every other season's
+	// is one segment of the wheel away. What this replaced was a separate "The other seasons" list —
+	// three full rows spending a screen of height on reference, numbered by an `ol` nobody had
+	// written a rule for.
+	it("puts the current season's move in the box", async () => {
 		const root = await render(await makeSheet({ season: "spring" }));
-		expect(root.querySelector(".steading-turn").textContent).toContain("Seasons Change: Summer");
+		expect(root.querySelector(".steading-season-box").textContent).toContain("Seasons Change: Spring");
 		expect(root.querySelector(".steading-others-list")).toBeNull();
 	});
 
@@ -329,9 +405,9 @@ describe("the season wheel", () => {
 		for (const id of controls) expect(root.querySelector(`#${id}`).hidden).toBe(true);
 	});
 
-	// The same move drawn twice on one tab must not mint the same region id twice, or the turn
-	// control's disclosure and the wheel's would drive whichever the document found first.
-	it("does not collide with the turn control's own region for the same move", async () => {
+	// The same move drawn twice on one tab must not mint the same region id twice, or the box's own
+	// disclosure and the wheel's would drive whichever the document found first.
+	it("does not collide with the box's own region for the same move", async () => {
 		const root = await render(await makeSheet({ season: "spring" }));
 		const ids  = [...root.querySelectorAll(".steading-seasons [id]")].map(e => e.id);
 		expect(new Set(ids).size).toBe(ids.length);
@@ -345,7 +421,7 @@ describe("the season wheel", () => {
 		const wheel = root.querySelector(".steading-season-head");
 		expect(wheel.querySelectorAll(".move-rollable")).toHaveLength(4);
 		expect(wheel.querySelectorAll('[data-action="moveToChat"]')).toHaveLength(4);
-		expect(root.querySelector(".steading-turn .move-rollable")).not.toBeNull();
+		expect(root.querySelector(".steading-season-box .move-rollable")).not.toBeNull();
 	});
 
 	it("leaves the homefront moves rollable too", async () => {
@@ -354,46 +430,71 @@ describe("the season wheel", () => {
 	});
 });
 
-// The tab is filed by WHEN a thing is done. It used to run wheel → a four-step turn panel, always
-// open → moments → the other seasons, with the board under all of it: the loudest element was the one
-// act performed ONCE a season, and everything used THROUGHOUT one sat below it.
-describe("the season tab's order", () => {
-	it("opens shut: the turn is a control, not a panel", async () => {
+// The tab used to split one season across two blocks: a "Turn to <next>" disclosure holding the
+// INCOMING season's numbered steps, and a "During <current>" section holding the gain in force, the
+// turnover checklist and the adjustments. So the list and everything it produced were never the same
+// season, and the box could be headed "Winter" over a line reading "Autumn, year 3".
+describe("the season tab's one box", () => {
+	it("is the season the steading is in, open, with that season's move", async () => {
 		const root = await render(await makeSheet({ season: "autumn" }));
-		const toggle = root.querySelector('[data-action="toggleTurn"]');
-		expect(toggle.getAttribute("aria-expanded")).toBe("false");
-		expect(root.querySelector(`#${toggle.getAttribute("aria-controls")}`).hidden).toBe(true);
+		const box  = root.querySelector(".steading-season-box");
+		expect(box.dataset.season).toBe("autumn");
+		expect(box.querySelector(".steading-season-box-title").textContent)
+			.toContain("Seasons Change: Autumn");
+		expect(root.querySelector('[data-action="toggleTurn"]')).toBeNull();
 	});
 
-	// It names the ACT. Headed with the incoming season it read as a contradiction of the standing
-	// line right beside it — "The turn of the season Winter" over "Autumn, year 3".
-	it("names the act rather than posing as the tab's title", async () => {
-		const root = await render(await makeSheet({ season: "autumn" }));
-		// The test harness leaves a nested {{localize}} as its key, so the SEASON is asserted by key —
-		// what matters here is that the control names the incoming one and the line names the current.
-		expect(root.querySelector(".steading-turn-title").textContent).toContain("names.winter");
+	// Turning the wheel is still one act and one control — it just names the season it brings rather
+	// than heading the whole tab with a season the steading is not in yet.
+	it("names the season the control brings, not the one the box is", async () => {
+		const root    = await render(await makeSheet({ season: "autumn" }));
+		const advance = root.querySelector('[data-action="turnSeason"]');
+		// The harness leaves a nested {{localize}} as its key, so the season is asserted by key.
+		expect(advance.textContent).toContain("names.winter");
 		expect(root.querySelector(".steading-season-stated").textContent).toContain("names.autumn");
 	});
 
-	// Everything the season you are IN is owed, out where it is used. The turnover was step 4 of the
-	// turn panel, which put what autumn owes inside the act of leaving autumn for winter.
-	it("puts what this season owes on the open surface, not inside the turn", async () => {
-		const root  = await render(await makeSheet({
+	// What the season owes now sits under the steps that describe that same season — which is what
+	// made the adjustments reach the right step at last (they were built for the current season all
+	// along, beside a list drawn for the next one).
+	it("puts what this season owes under this season's steps, in the same box", async () => {
+		const root = await render(await makeSheet({
 			season: "autumn", owned: ["rhoillyg-orchard"], values: BUILT["rhoillyg-orchard"],
 		}));
-		const during = root.querySelector(".steading-during");
-		expect(during.querySelector(".stonetop-move-group-title").textContent).toContain("names.autumn");
-		expect(during.querySelector(".steading-turnover")).not.toBeNull();
-		expect(during.querySelector(".steading-moments")).not.toBeNull();
-		expect(root.querySelector(".steading-turn .steading-turnover")).toBeNull();
+		const box = root.querySelector(".steading-season-box");
+		expect(box.querySelector(".steading-during-owed .steading-during-label").textContent)
+			.toContain("names.autumn");
+		expect(box.querySelector(".steading-turnover")).not.toBeNull();
+		// The orchard's harvest is inside autumn's fourth step, which is the harvest.
+		expect(box.querySelectorAll(".steading-turn-step")[3].textContent).toContain("the orchard yields");
+		expect(box.innerHTML.indexOf("steading-turn-steps"))
+			.toBeLessThan(box.innerHTML.indexOf("steading-during-owed"));
+		expect(root.querySelector(".steading-during")).toBeNull();
 	});
 
-	// Picked at the roll, but in force all season — "take +1 to Pull Together this season" is a rule
-	// the table reads until the wheel turns, so it does not live behind the turn's disclosure.
-	it("keeps the season's gain out where it can be read", async () => {
-		const root = await render(await makeSheet({ season: "spring" }));
-		expect(root.querySelector(".steading-during-gain")).not.toBeNull();
-		expect(root.querySelector(".steading-turn .steading-during-gain")).toBeNull();
+	// A move ROW, addressed by the move it draws: the row itself carries the owned id, and the slug is
+	// on the die inside it.
+	const moveRowFor = (root, slug) => [...root.querySelectorAll(".stonetop-item")]
+		.find(row => row.querySelector(`[data-move-slug="${slug}"]`));
+
+	// The move's full text ran into the numbered list it introduced, and was not what anyone had the
+	// tab open to read. It is not in the box at all now — it is the wheel's, shut, on the segment for
+	// the season it belongs to, exactly like the other three. The box is that same move as steps.
+	it("leaves the move's own text to the wheel, shut, and keeps no row of its own", async () => {
+		const root    = await render(await makeSheet({ season: "autumn" }));
+		const box     = root.querySelector(".steading-season-box");
+		const current = root.querySelector(".steading-wheel-season.is-current");
+		const button  = current.querySelector(".steading-wheel-name");
+
+		expect(button.getAttribute("aria-expanded")).toBe("false");
+		const disclosed = root.querySelector(`#${button.getAttribute("aria-controls")}`);
+		expect(disclosed.hasAttribute("hidden")).toBe(true);
+		expect(moveRowFor(disclosed, "seasons-change-autumn")).not.toBeUndefined();
+
+		// Rows for moves an IMPROVEMENT confers do belong in the box — this is about the season's own
+		// move, which the box states as steps and the wheel states as words.
+		expect(moveRowFor(box, "seasons-change-autumn")).toBeUndefined();
+		expect(box.querySelector(".steading-turn-steps")).not.toBeNull();
 	});
 });
 
@@ -441,72 +542,259 @@ describe("searching the improvement board", () => {
 });
 
 // The tab drew ONE procedure — roll it, pick 1 seasonal gain, reset Fortunes — which is Spring's,
-// and wrong for the other three.
+// and wrong for the other three. It draws the move of the season the steading is IN, so the season
+// asked for below is the season whose steps are expected.
 describe("each season's own procedure", () => {
-	const stepsOf = root => [...root.querySelectorAll(".steading-turn-step .steading-turn-label")]
-		.map(l => l.textContent.replace(/\s+/g, " ").trim());
+	// A step's line is the move's own words where it has them, and the generic label only where it
+	// does not — so the line is read from whichever the step rendered.
+	const stepsOf = root => [...root.querySelectorAll(".steading-turn-step")]
+		.map(li => (li.querySelector(".steading-turn-text") ?? li.querySelector(".steading-turn-label"))
+			?.textContent.replace(/\s+/g, " ").trim() ?? "");
 
-	// Turning to spring: the simple three.
 	it("draws spring's three steps", async () => {
-		const root = await render(await makeSheet({ season: "winter" }));
+		const root = await render(await makeSheet({ season: "spring" }));
 		expect(stepsOf(root)).toHaveLength(3);
 	});
 
 	// Winter is two rolls with a choice between them, and a generation step summer has that it does
 	// not. Order is DATA now, so the tab draws what winter's move actually says.
 	it("draws winter's five, in winter's order", async () => {
-		const root  = await render(await makeSheet({ season: "autumn" }));
+		const root  = await render(await makeSheet({ season: "winter" }));
 		const steps = stepsOf(root);
 		expect(steps).toHaveLength(5);
-		expect(steps[0]).toContain("1d4");
+		expect(steps[0]).toContain("1d4+Population");
 		expect(steps[1]).toContain("consumes");
 	});
 
 	it("draws summer's generation step, which no other season has", async () => {
-		const root = await render(await makeSheet({ season: "spring" }));
+		const root = await render(await makeSheet({ season: "summer" }));
 		expect(stepsOf(root).join(" ")).toContain("1d4-1");
+	});
+
+	// The steps say what the move says. "Roll it" and "Roll 1d4" dropped the trigger, the roller and
+	// winter's Meet with Disaster clause — the whole reason the list read as a stub of the move.
+	it("gives each step the move's own words", async () => {
+		const root = await render(await makeSheet({ season: "winter" }));
+		const steps = stepsOf(root);
+		expect(steps[0]).toContain("whoever is weariest");
+		expect(steps[1]).toContain("Meet with Disaster");
 	});
 
 	// Winter's opening roll had no control at all: the panel's one button rolled +Fortunes, which is
 	// the FOURTH thing winter does.
 	it("gives winter's 1d4+Population roll its own control", async () => {
-		const root = await render(await makeSheet({ season: "autumn" }));
+		const root = await render(await makeSheet({ season: "winter" }));
 		const die  = root.querySelector('[data-action="rollSeasonStep"]');
-		expect(die.dataset.die).toBe("1d4");
-		expect(die.dataset.stat).toBe("population");
+		expect(die.dataset.step).toBe("0");
+		expect(die.closest(".steading-turn-step").textContent).toContain("1d4+Population");
 	});
 
 	// Rolled as the steading, adding the rating at its current value — through the same resolveBonus
 	// every other roll on this sheet goes through.
 	it("rolls it as the steading, with Population added", async () => {
-		const sheet = await makeSheet({ season: "autumn" });
+		const sheet = await makeSheet({ season: "winter" });
 		sheet.actor.system.attributes.population = 2;
 		const root  = await render(sheet, true);
 		const rolled = [];
-		sheet.actor.rollFormula = async (label, formula) => rolled.push({ label, formula });
+		sheet.actor.evaluateFormula = async formula => { rolled.push({ formula }); return { total: 2 }; };
+		sheet.actor.postFormulaCard = async () => {};
 
 		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
 		expect(rolled[0].formula).toBe("1d4 + 2");
 	});
 
-	// A season with no formula roll offers no such control — spring's steps are all the move's own.
+	/**
+	 * "In winter, the village consumes 1d4 + Population. If Stonetop has shrunk to a hamlet, it
+	 * consumes only 1d2 + Population. If it has grown to a town, it consumes 2d6 + Population."
+	 *
+	 * The dice follow the Size. They used to follow the Township improvement, which says the same
+	 * thing on its own page — so a steading that shrank to a hamlet had nothing saying so.
+	 */
+	it("rolls the dice this steading's size calls for, and says which size", async () => {
+		const sheet = await makeSheet({ season: "winter", size: "town" });
+		sheet.actor.system.attributes.population = 2;
+		const root = await render(sheet, true);
+		const step = root.querySelector(".steading-turn-step");
+		expect(step.querySelector(".steading-turn-size").textContent).toContain("2d6");
+		expect(step.querySelector('[data-action="rollSeasonStep"]').textContent).toContain("2d6");
+
+		const rolled = [];
+		sheet.actor.evaluateFormula = async formula => { rolled.push(formula); return { total: 5 }; };
+		sheet.actor.postFormulaCard = async () => {};
+		await act(sheet, "rollSeasonStep", step.querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0]).toBe("2d6 + 2");
+	});
+
+	// A village rolls what winter's own line already names, so nothing is said twice.
+	it("says nothing of size where the size changes nothing", async () => {
+		const root = await render(await makeSheet({ season: "winter", size: "village" }));
+		expect(root.querySelector(".steading-turn-size")).toBeNull();
+		expect(root.querySelector('[data-action="rollSeasonStep"]').closest(".steading-turn-step").textContent)
+			.toContain("1d4+Population");
+	});
+
+	// A season with no dice of its own offers no such control — spring's steps are all the move's own.
 	it("offers no formula roll in a season that calls for none", async () => {
-		const root = await render(await makeSheet({ season: "winter" }));
+		const root = await render(await makeSheet({ season: "spring" }));
 		expect(root.querySelector('[data-action="rollSeasonStep"]')).toBeNull();
 	});
 
-	// The pick step points at the surface below rather than repeating the picker: what you pick is in
-	// force all season, so it lives where it can be read all season.
+	// Summer's "generates 1d4-1 Surplus" and autumn's "roll 1d4" at the harvest name dice too, and
+	// had no control until the step said so in the book's own words and the gap became visible.
+	it("gives summer's generation and autumn's harvest their dice too", async () => {
+		const summer = await render(await makeSheet({ season: "summer" }));
+		expect(summer.querySelector('[data-action="rollSeasonStep"]').dataset.step).toBe("2");
+
+		const autumn = await render(await makeSheet({ season: "autumn" }));
+		expect(autumn.querySelector('[data-action="rollSeasonStep"]').dataset.step).toBe("3");
+	});
+
+	// Winter's 7-9 and 6- each consume a SECOND 1d4+Population. It was prose in the middle of the
+	// step's line — no control, no record, no undo — beside an opening consumption that had all three.
+	it("draws the move's results as rows, and rolls the one that costs a second consumption", async () => {
+		const sheet = await makeSheet({ season: "winter" });
+		sheet.actor.system.attributes.surplus    = 6;
+		sheet.actor.system.attributes.population = 2;
+		const root = await render(sheet, true);
+
+		const tiers = [...root.querySelectorAll(".stonetop-result-row")];
+		expect(tiers.map(t => t.querySelector(".stonetop-result-notation").textContent.trim()))
+			.toEqual(["10+", "7-9", "6-"]);
+		expect(tiers[1].textContent).toContain("consume additional Surplus equal to 1d4+Population");
+
+		// A mild winter costs nothing; the two that do carry the control.
+		expect(tiers[0].querySelector('[data-action="rollSeasonStep"]')).toBeNull();
+		const roll = tiers[1].querySelector('[data-action="rollSeasonStep"]');
+		expect(roll.dataset.step).toBe("3:partial");
+
+		sheet.actor.evaluateFormula = async () => ({ total: 4 });
+		sheet.actor.postFormulaCard = async () => {};
+		await act(sheet, "rollSeasonStep", roll);
+		expect(sheet.actor.system.attributes.surplus).toBe(2);
+		// Recorded against its own tier, so winter's opening consumption is still to roll.
+		expect(sheet.actor.system.seasonStepsApplied["3:partial"].total).toBe(4);
+		expect(sheet.actor.system.seasonStepsApplied["0"]).toBeUndefined();
+	});
+
+	// What the move came up is the steading's own record, so the row the dice landed on is lit on
+	// every screen the sheet is open on — and only that row.
+	it("lights the result the season's own move rolled", async () => {
+		const sheet = await makeSheet({ season: "winter" });
+		await sheet.actor.typedActor.recordMoveOutcome("seasons-change-winter",
+			{ key: "partial", label: "Weak Hit" });
+
+		const root = await render(sheet, true);
+		expect(root.querySelector(".stonetop-result-row--partial").classList).toContain("is-rolled");
+		expect(root.querySelector(".stonetop-result-row--success").classList).not.toContain("is-rolled");
+		expect(root.querySelector(".stonetop-result-row--partial").getAttribute("aria-current")).toBe("true");
+	});
+
+	// Another move's roll says nothing about which of winter's three results the steading is living
+	// with, and the aurochs hunt is rolled from this very tab.
+	it("lights nothing when the move rolled was not the season's", async () => {
+		const sheet = await makeSheet({ season: "winter" });
+		await sheet.actor.typedActor.recordMoveOutcome("lead-the-aurochs-hunt",
+			{ key: "success", label: "Strong Hit!" });
+
+		const root = await render(sheet, true);
+		expect(root.querySelector(".is-rolled")).toBeNull();
+	});
+
+	// Turning the wheel ends the season that was rolled, and the result goes with it.
+	it("puts the light out when the wheel turns", async () => {
+		const sheet = await makeSheet({ season: "winter" });
+		await sheet.actor.typedActor.recordMoveOutcome("seasons-change-winter",
+			{ key: "failure", label: "Miss" });
+		stubConfirm(true);
+		await render(sheet, true);
+
+		await act(sheet, "turnSeason", null);
+		expect((await render(sheet)).querySelector(".is-rolled")).toBeNull();
+	});
+
+	// Rolling MOVES Surplus, so the row then says what it did and offers to give it back.
+	it("gives back what a result's roll took", async () => {
+		const sheet = await makeSheet({ season: "winter" });
+		sheet.actor.system.attributes.surplus = 6;
+		let root = await render(sheet, true);
+		sheet.actor.evaluateFormula = async () => ({ total: 4 });
+		sheet.actor.postFormulaCard = async () => {};
+		await act(sheet, "rollSeasonStep", root.querySelector('[data-step="3:partial"]'));
+
+		root = await render(sheet);
+		const tier = [...root.querySelectorAll(".stonetop-result-row")][1];
+		expect(tier.textContent).toContain("Consumed 4 Surplus");
+		await act(sheet, "revertSeasonStep", tier.querySelector('[data-action="revertSeasonStep"]'));
+		expect(sheet.actor.system.attributes.surplus).toBe(6);
+	});
+
+	// Spring, summer and autumn state their results too — the tier sentence used to sit on the PICK
+	// step, describing the roll from under the wrong line — but none of them costs a roll.
+	it.each(["spring", "summer", "autumn"])("draws %s's results without offering a roll on any", async season => {
+		const root  = await render(await makeSheet({ season }));
+		const tiers = [...root.querySelectorAll(".stonetop-result-row")];
+		expect(tiers).toHaveLength(3);
+		expect(tiers.some(t => t.querySelector('[data-action="rollSeasonStep"]'))).toBe(false);
+	});
+
+	// The move's own roll gets no button in the box: it has already happened — it is what brought the
+	// steading into this season — and the advance control below the box is what performed it.
+	it("offers exactly one control that rolls the season's move, and it is the advance", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		const steps = root.querySelector(".steading-turn-steps");
+		expect(steps.querySelector('[data-action="turnSeason"]')).toBeNull();
+		expect(root.querySelectorAll('[data-action="turnSeason"]')).toHaveLength(1);
+	});
+});
+
+// The user, on the old layout: "'pick 1 from what winter takes' is the wrong place to say that", and
+// "the picking of the content should be inline in the seasons change box". The pick step used to
+// render a note pointing at a "During <season>" block further down the tab.
+//
+// It can only be inline because the box is the CURRENT season's: spring, summer and autumn all write
+// the same `seasonal-gains` group and turning the wheel clears it, so a picker inside a box headed
+// "Turn to Summer" would have shown spring's gain, invited a change, and then been wiped by the roll.
+describe("the season's pick, in the step that calls for it", () => {
+	const pickIn = root => root.querySelector(".steading-turn-step .steading-turn-pick");
+
 	it("offers winter the losses its move names, not the seasonal gains", async () => {
 		const root = await render(await makeSheet({ season: "winter" }));
-		const gain = root.querySelector(".steading-during-gain");
-		expect(gain.textContent).toContain("Reduce Population by 1");
-		expect(gain.textContent).not.toContain("Population boom");
+		expect(pickIn(root).textContent).toContain("Reduce Population by 1");
+		expect(pickIn(root).textContent).not.toContain("Population boom");
 	});
 
 	it("offers spring the seasonal gains", async () => {
 		const root = await render(await makeSheet({ season: "spring" }));
-		expect(root.querySelector(".steading-during-gain").textContent).toContain("Population boom");
+		expect(pickIn(root).textContent).toContain("Population boom");
+	});
+
+	// The pick renders in the step, and nowhere else — a second copy on the tab would be two places
+	// to tick one choice.
+	it("draws the choice once, inside the steps", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		expect(root.querySelectorAll(".steading-turn-pick")).toHaveLength(1);
+		expect(root.querySelector(".steading-during-gain")).toBeNull();
+	});
+
+	// The wiring claim, and the reason this is an integration test: a tick inside the box has to reach
+	// the actor through the shared choice machinery — ChoiceGroupWiring on the sheet root, the
+	// steading's ChoiceStores, SteadingChoices' controller — none of which a unit test over a mocked
+	// repo would exercise. The picker was in a different block until now, so nothing proved it still
+	// wrote from here.
+	it("writes a gain picked inside the box through to the steading", async () => {
+		const sheet = await makeSheet({ season: "spring" });
+		const root  = await render(sheet, true);
+		const tick  = root.querySelector(".steading-turn-pick input.stonetop-cg-pick");
+		expect(tick).not.toBeNull();
+		expect(tick.dataset.cgContext).toBe("steading");
+		expect(tick.dataset.cgGroup).toBe("seasonal-gains");
+
+		tick.checked = true;
+		tick.dispatchEvent(new root.ownerDocument.defaultView.Event("change", { bubbles: true }));
+		await new Promise(resolve => setTimeout(resolve, 0));
+
+		expect(JSON.stringify(sheet.actor.system.choiceValues ?? {}))
+			.toContain(tick.dataset.cgOption);
 	});
 });
 
@@ -517,10 +805,15 @@ describe("each season's own procedure", () => {
 // built") over rows that each re-opened with the trigger the heading had not stated — so the part
 // that differed between rows was buried behind a clause they all shared.
 describe("the season's results, stated once", () => {
+	// The market's conditional Surplus is what the general list still holds: everything the sheet can
+	// write is shown where it happens, and a heading over an empty list is not drawn at all.
 	const winterSteading = () => makeSheet({
 		season: "winter",
-		owned: ["standing-watch", "stone-wall", "additional-housing"],
-		values: { ...BUILT["standing-watch"], ...BUILT["stone-wall"], ...BUILT["additional-housing"] },
+		owned: ["standing-watch", "stone-wall", "additional-housing", "market"],
+		values: {
+			...BUILT["standing-watch"], ...BUILT["stone-wall"], ...BUILT["additional-housing"],
+			...BUILT.market,
+		},
 	});
 
 	it("heads the season's results with WHEN they fire, not with where they came from", async () => {
@@ -533,38 +826,28 @@ describe("the season's results, stated once", () => {
 
 	// Source in one column, result in the other.
 	it("splits each row into the improvement and what it does", async () => {
-		const root = await render(await winterSteading());
-		const row  = root.querySelector(".steading-during-owed .steading-statement-line");
+		const root = await render(await makeSheet({
+			season: "autumn", owned: ["standing-watch"], values: BUILT["standing-watch"],
+		}));
+		const row = root.querySelector(".steading-upkeep .steading-statement-line");
 		expect(row.querySelector(".steading-statement-source").textContent).toBe("Standing Watch");
 		expect(row.querySelector(".steading-statement-clause").textContent.trim())
 			.toBe("the watch consumes 1 Surplus or it disbands");
 	});
 
-	// Under a heading that names the STEP — the one place they were never shown. Five improvements
-	// bend winter's consumption, and every one of them used to sit in the same undifferentiated wall
-	// as the results that simply add Surplus.
-	it("gathers what bends a step under the step it bends", async () => {
-		const root  = await render(await winterSteading());
-		const block = root.querySelector(".steading-adjustments");
-		expect(block.querySelector(".steading-adjustments-head").textContent)
-			.toBe("stonetop.steading.effects.step.consumption");
-		expect([...block.querySelectorAll(".steading-statement-source")].map(e => e.textContent))
-			.toEqual(["Stone Wall", "Additional Housing"]);
-	});
-
-	// Exactly once: an adjustment gathered under its step is not also a line in the general list.
+	// Exactly once: a result shown against the step it bends is not also a line in the general list.
 	it("does not also list an adjustment among the season's results", async () => {
 		const root = await render(await winterSteading());
-		const owed = root.querySelector(".steading-during-owed").textContent;
-		expect(owed).toContain("consumes 1 Surplus or it disbands");
+		const owed = root.querySelector(".steading-during-owed")?.textContent ?? "";
 		expect(owed).not.toContain("consumes 1 less Surplus than normal");
+		expect(owed).not.toContain("consider Population to be 1 lower");
 	});
 
 	// Never a control: an adjustment changes an arithmetic the sheet does not perform.
 	it("offers no control on an adjustment", async () => {
 		const root = await render(await winterSteading());
-		expect(root.querySelectorAll('.steading-adjustments [data-action="applyEffectLine"]'))
-			.toHaveLength(0);
+		const step = root.querySelectorAll(".steading-turn-step")[0];
+		expect(step.querySelectorAll('[data-action="applyEffectLine"]')).toHaveLength(0);
 	});
 
 	// A heading over nothing would read as a step this steading does differently when it does not.
@@ -585,20 +868,191 @@ describe("the season's results, stated once", () => {
 	});
 });
 
+// The third of the user's complaints about the tab: it "isn't content aware of improvements that
+// modify it". Five improvements bend winter's consumption and every one used to sit in a list headed
+// "when the steading consumes Surplus", nowhere near the step that consumes — and the step's own
+// control rolled a hardcoded 1d4+Population whatever the steading had built.
+describe("a season's steps, bent by what the steading built", () => {
+	const rolling = async (sheet, total) => {
+		const root = await render(sheet, true);
+		const rolled = [];
+		sheet.actor.evaluateFormula = async formula => { rolled.push({ formula }); return { total }; };
+		sheet.actor.postFormulaCard = async card => rolled[rolled.length - 1].card = card;
+		return { root, rolled };
+	};
+
+	const stepOne = root => root.querySelectorAll(".steading-turn-step")[0];
+
+	// "roll 2d6+Population to consume Surplus, instead of 1d4+Population" — and the control says
+	// which improvement did it, because a table looking at dice the book does not name needs to know.
+	it("rolls the dice a township replaced them with, and names it", async () => {
+		const sheet = await makeSheet({ season: "winter", owned: ["township"], values: BUILT.township });
+		sheet.actor.system.attributes.population = 2;
+		const { root, rolled } = await rolling(sheet, 5);
+		// The book's own sentence, under the step, attributed — and the dice it describes on the
+		// control, which is what says the sheet took it at its word.
+		const bend = stepOne(root).querySelector(".steading-effect-lines .steading-statement-line");
+		expect(bend.querySelector(".steading-statement-source").textContent).toBe("Township");
+		expect(bend.textContent).toContain("instead of 1d4+Population");
+		expect(stepOne(root).querySelector('[data-action="rollSeasonStep"]').textContent)
+			.toContain("2d6");
+
+		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0].formula).toBe("2d6 + 2");
+	});
+
+	// Three improvements bending one step, each stating itself in the book's own sentence, and the
+	// control rolling what they come to. The sheet used to print its own summary of them instead —
+	// "Rolls 2d6 + Population, counted −1 — Additional Housing, Township" — which said neither which
+	// improvement did which nor what was counted −1.
+	it("lists every bend on the step, in the book's words, with its source", async () => {
+		const sheet = await makeSheet({
+			season: "winter",
+			owned: ["township", "additional-housing", "stone-wall"],
+			values: { ...BUILT.township, ...BUILT["additional-housing"], ...BUILT["stone-wall"] },
+		});
+		const { root } = await rolling(sheet, 4);
+		const rows = [...stepOne(root).querySelectorAll(".steading-effect-lines .steading-statement-line")];
+		expect(rows.map(r => r.querySelector(".steading-statement-source").textContent))
+			.toEqual(["Township", "Additional Housing", "Stone Wall"]);
+		expect(stepOne(root).textContent).not.toContain("counted");
+	});
+
+	// "consider Population to be 1 lower than it is" — the formula is the book's; what changes is
+	// what Population counts as inside it.
+	it("counts a rating as additional housing leaves it", async () => {
+		const sheet = await makeSheet({
+			season: "winter", owned: ["additional-housing"], values: BUILT["additional-housing"],
+		});
+		sheet.actor.system.attributes.population = 2;
+		const { root, rolled } = await rolling(sheet, 3);
+		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0].formula).toBe("1d4 + 1");
+	});
+
+	// A different hook, after the roll: the dice stay the book's, and what changes is what you pay.
+	it("states what a stone wall pays under the step, not in its dice", async () => {
+		const sheet = await makeSheet({
+			season: "winter", owned: ["stone-wall"], values: BUILT["stone-wall"],
+		});
+		sheet.actor.system.attributes.surplus = 8;
+		const { root, rolled } = await rolling(sheet, 6);
+		expect(stepOne(root).querySelector(".steading-turn-results").textContent)
+			.toContain("consumes 1 less Surplus than normal");
+		// The dice stay the book's, so the control stays a verb.
+		expect(stepOne(root).querySelector('[data-action="rollSeasonStep"]').textContent)
+			.not.toContain("1d4");
+
+		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0].formula).toBe("1d4 + 0");
+		// Rolled 6, paid 5: what the sheet performs is what the steading actually owes.
+		expect(sheet.actor.system.attributes.surplus).toBe(3);
+	});
+
+	// And it says so afterwards, both numbers: the roll the table watched, and what was paid.
+	it("says what it paid and what was rolled", async () => {
+		const sheet = await makeSheet({
+			season: "winter", owned: ["stone-wall"], values: BUILT["stone-wall"],
+		});
+		sheet.actor.system.attributes.surplus = 8;
+		const { root } = await rolling(sheet, 6);
+		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
+
+		const after = await render(sheet, true);
+		const said  = stepOne(after).querySelector(".stonetop-applied").textContent;
+		expect(said).toContain("Consumed 5 Surplus (8 → 3)");
+		expect(said).toContain("6 was rolled");
+	});
+
+	// Nothing hangs on a step no season of this steading has: the sapling generates +1 whenever the
+	// steading generates at all, and winter generates nothing.
+	it("keeps a bend with no step of its own in the general list", async () => {
+		const root = await render(await makeSheet({
+			season: "winter", owned: ["golden-sapling"], values: BUILT["golden-sapling"],
+		}));
+		expect(root.querySelector(".steading-adjustments").textContent)
+			.toContain("it generates +1 Surplus");
+	});
+
+	it("hangs it on the generation step in a season that has one", async () => {
+		const root = await render(await makeSheet({
+			season: "summer", owned: ["golden-sapling"], values: BUILT["golden-sapling"],
+		}));
+		expect(root.querySelector(".steading-adjustments")).toBeNull();
+		expect(root.querySelectorAll(".steading-turn-step")[2].textContent)
+			.toContain("it generates +1 Surplus");
+	});
+
+	// "if you roll a 7+ with Fortunes" — a fact about the move's own roll, so it belongs inside the
+	// RESULTS of that roll rather than floating in a list beside the season. A 7+ is two of them.
+	it("hangs what waits on the season's roll inside the results it waits on", async () => {
+		const root = await render(await makeSheet({
+			season: "winter", owned: ["harnessing-the-stream"], values: BUILT["harnessing-the-stream"],
+		}));
+		const tiered = root.querySelectorAll(".steading-turn-step")[3];
+		const rowFor = key => tiered.querySelector(`.stonetop-result-row--${key}`).textContent;
+		expect(rowFor("success")).toContain("Harnessing the Stream");
+		expect(rowFor("partial")).toContain("Harnessing the Stream");
+		expect(rowFor("failure")).not.toContain("Harnessing the Stream");
+		// The row is the condition; stating it again inside the row would be saying it twice.
+		expect(tiered.textContent).not.toContain("you roll a 7+ with Fortunes");
+		expect(root.querySelector(".steading-during-owed")?.textContent ?? "")
+			.not.toContain("Harnessing the Stream");
+	});
+});
+
+// The steading's own bills — the watch's Surplus "or it disbands", the militia's week of practice.
+// Nothing in Seasons Change says any of it, so they are not among the move's numbered steps; and they
+// are not payouts either, so they are not in the list of what the season owes.
+describe("what the steading keeps up", () => {
+	const watching = () => makeSheet({
+		season: "winter", owned: ["standing-watch"], values: BUILT["standing-watch"],
+	});
+
+	it("gives the steading's own bills a section outside the numbered steps", async () => {
+		const root = await render(await watching());
+		const upkeep = root.querySelector(".steading-upkeep");
+		expect(upkeep.textContent).toContain("Standing Watch");
+		expect(upkeep.closest(".steading-turn-step")).toBeNull();
+		expect(root.querySelector(".steading-during-owed")?.textContent ?? "")
+			.not.toContain("or it disbands");
+	});
+
+	// Moved, not disowned: it is still one of the season's automatic lines, so it keeps its own
+	// control and the season's Apply still writes it.
+	it("keeps its control, and writes what it says", async () => {
+		const sheet = await watching();
+		sheet.actor.system.attributes.surplus = 4;
+		const root = await render(sheet, true);
+		const apply = root.querySelector('.steading-upkeep [data-action="applyEffectLine"]');
+		expect(apply).not.toBeNull();
+
+		await act(sheet, "applyEffectLine", apply);
+		expect(sheet.actor.system.attributes.surplus).toBe(3);
+	});
+});
+
 // Autumn's move ends "when the harvest is complete, roll 1d4; the steading generates that much
 // Surplus" — the book's own half of a moment improvements also fire at.
 describe("a moment's own half", () => {
 	const momentOf = (root, key) => root.querySelector(`.steading-moment[data-moment="${key}"]`);
+	// The step the moment's own improvements are folded into. Found by the words rather than by
+	// position: a steading that also GENERATES in autumn is given a step of its own for that, and
+	// every step after it shifts down one.
+	const harvestStep = root => [...root.querySelectorAll(".steading-turn-step")]
+		.find(step => step.textContent.includes("the harvest is complete"));
 
-	it("states what the season itself does at the moment, beside what the buildings do", async () => {
+	// The season's own half and the steading's are ONE step now: autumn's fourth step is the harvest,
+	// and what the orchard adds to it is read there rather than in a panel below the list.
+	it("states the steading's half inside the step that is the moment", async () => {
 		const root = await render(await makeSheet({
 			season: "autumn", owned: ["rhoillyg-orchard"], values: BUILT["rhoillyg-orchard"],
 		}));
-		const harvest = momentOf(root, "autumn-harvest");
+		const harvest = harvestStep(root);
+		expect(harvest.textContent).toContain("the harvest is complete");
 		const sources = [...harvest.querySelectorAll(".steading-statement-source")].map(e => e.textContent);
-		expect(sources[0]).toBe("stonetop.steading.seasons.theSeason");
-		expect(sources).toContain("Rhoillyg Orchard");
-		expect(harvest.textContent).toContain("1d4");
+		expect(sources).toEqual(["Rhoillyg Orchard"]);
+		expect(momentOf(root, "autumn-harvest")).toBeNull();
 	});
 
 	// Spring's hunt is not something spring's move calls for — it exists only because Aurochs Hunting
@@ -741,14 +1195,17 @@ describe("resetting Fortunes", () => {
 });
 
 describe("the season's statement", () => {
+	// The steading's own bills — what the general statement still writes, now that what it GENERATES
+	// belongs to the step that generates it.
+	const watching = extra => makeSheet({
+		season: "autumn", owned: ["standing-watch"], values: BUILT["standing-watch"], ...extra,
+	});
+
 	// Assembled from what this steading has BUILT. The catalog knows about the Mill either way; the
 	// statement must only speak for improvements the steading owns and has finished.
 	it("lists a result of a built improvement that fires this season", async () => {
-		const root = await render(await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill }));
-		const lines = statementText(root);
-		expect(lines).toHaveLength(1);
-		expect(lines[0]).toContain("Mill");
-		expect(lines[0]).toContain("+1 Surplus");
+		const root = await render(await watching());
+		expect(root.querySelector(".steading-upkeep").textContent).toContain("Standing Watch");
 	});
 
 	it("says nothing about an improvement the steading does not own", async () => {
@@ -765,47 +1222,52 @@ describe("the season's statement", () => {
 	it("carries an every-season result into every season", async () => {
 		for (const key of ["spring", "summer", "autumn", "winter"]) {
 			const root = await render(await makeSheet({
-				season: key, owned: ["standing-watch"], values: BUILT["standing-watch"],
+				season: key, owned: ["mill", "standing-watch"],
+				values: { ...BUILT.mill, ...BUILT["standing-watch"] },
 			}));
-			expect(statementRows(root)).toHaveLength(1);
+			// The watch's own bill is upkeep and has its own section in every season; the mill's
+			// Surplus is generated, so it is on the step that generates, and only in autumn.
+			expect(root.querySelector(".steading-upkeep").textContent).toContain("Standing Watch");
+			expect(root.querySelector(".steading-turn-steps").textContent.includes("Mill"))
+				.toBe(key === "autumn");
 		}
 	});
 
 	// The consequence, stated before anyone commits — six people share this document.
 	it("says what the season comes to before it is applied", async () => {
-		const root = await render(await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill }));
-		expect(root.querySelector(".steading-turnover .steading-statement-totals").textContent.replace(/\s+/g, " "))
+		const root = await render(await watching());
+		expect(root.querySelector(".steading-upkeep .steading-statement-totals").textContent.replace(/\s+/g, " "))
 			.toContain("surplus");
 	});
 
 	// One control per result, pressed through the sheet's own action router — so this proves the
 	// wiring reaches the actor, not just that the method works.
 	it("applies one line through the sheet's own wiring, and records what it wrote", async () => {
-		const sheet = await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill });
+		const sheet = await watching();
 		const root = await render(sheet, true);
 		sheet.actor.system.attributes.surplus = 2;
 
-		const button = root.querySelector('.steading-turnover [data-action="applyEffectLine"]');
+		const button = root.querySelector('.steading-upkeep [data-action="applyEffectLine"]');
 		await act(sheet, "applyEffectLine", button);
 
-		expect(sheet.actor.system.attributes.surplus).toBe(3);
+		expect(sheet.actor.system.attributes.surplus).toBe(1);
 		expect(sheet.actor.system.turnoverApplied[button.dataset.lineId]).toBeTruthy();
 	});
 
 	// The whole point of recording WHAT was written: a mis-click is recoverable, on a document six
 	// people share.
 	it("takes one line back through the sheet's own wiring", async () => {
-		const sheet = await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill });
+		const sheet = await watching();
 		let root = await render(sheet, true);
 		sheet.actor.system.attributes.surplus = 2;
 
-		const applyBtn = root.querySelector('.steading-turnover [data-action="applyEffectLine"]');
+		const applyBtn = root.querySelector('.steading-upkeep [data-action="applyEffectLine"]');
 		const lineId = applyBtn.dataset.lineId;
 		await act(sheet, "applyEffectLine", applyBtn);
-		expect(sheet.actor.system.attributes.surplus).toBe(3);
+		expect(sheet.actor.system.attributes.surplus).toBe(1);
 
 		root = await render(sheet, true);
-		const revertBtn = root.querySelector(`.steading-turnover [data-action="revertEffectLine"][data-line-id="${lineId}"]`);
+		const revertBtn = root.querySelector(`.steading-upkeep [data-action="revertEffectLine"][data-line-id="${lineId}"]`);
 		expect(revertBtn).not.toBeNull();
 		await act(sheet, "revertEffectLine", revertBtn);
 
@@ -816,11 +1278,10 @@ describe("the season's statement", () => {
 	// Applied lines stay listed — what the season did is worth reading after the fact — and offer
 	// Revert instead of Apply.
 	it("shows an applied line as applied, still listed", async () => {
-		const root = await render(await makeSheet({
-			season: "autumn", owned: ["mill"], values: BUILT.mill,
-			turnoverApplied: { "mill:3": { change: { target: "surplus", amount: 1 } } },
+		const root = await render(await watching({
+			turnoverApplied: { "standing-watch:0": { change: { target: "surplus", amount: -1 } } },
 		}));
-		const row = statementRows(root)[0];
+		const row = root.querySelector(".steading-upkeep .steading-statement-line");
 		expect(row.classList.contains("is-applied")).toBe(true);
 		expect(row.querySelector('[data-action="applyEffectLine"]')).toBeNull();
 		expect(row.querySelector('[data-action="revertEffectLine"]')).not.toBeNull();
@@ -828,12 +1289,12 @@ describe("the season's statement", () => {
 
 	// The point of the whole thing: the season changes the steading.
 	it("writes the season's arithmetic when applied", async () => {
-		const sheet = await makeSheet({ season: "autumn", owned: ["mill"], values: BUILT.mill });
+		const sheet = await watching();
 		const root = await render(sheet, true);
 		sheet.actor.system.attributes.surplus = 2;
 
 		await act(sheet, "applyTurnover", root.querySelector('[data-action="applyTurnover"]'));
-		expect(sheet.actor.system.attributes.surplus).toBe(3);
+		expect(sheet.actor.system.attributes.surplus).toBe(1);
 	});
 
 	// "Apply all" is not a different mechanism — it is every line still owed, so a line already
@@ -1008,20 +1469,124 @@ describe("the improvement board", () => {
 describe("the moments within a season", () => {
 	const moments   = root => [...root.querySelectorAll(".steading-moment")];
 	const momentOf  = (root, key) => root.querySelector(`.steading-moment[data-moment="${key}"]`);
-	const momentText = m => [...m.querySelectorAll(".steading-statement-line")]
-		.map(r => r.textContent.replace(/\s+/g, " ").trim());
+	// Autumn's harvest step: "when the harvest is complete, roll 1d4; the steading generates that much
+	// Surplus". Found by the words, not by position — a steading that also generates in autumn is
+	// given a step of its own for that, and every step after it shifts down one.
+	const harvestStep = root => [...root.querySelectorAll(".steading-turn-step")]
+		.find(step => step.textContent.includes("the harvest is complete"));
 
-	const inAutumn = () => makeSheet({
-		season: "autumn", owned: ["rhoillyg-orchard"], values: BUILT["rhoillyg-orchard"],
+	const inAutumn = (owned = ["rhoillyg-orchard"]) => makeSheet({
+		season: "autumn", owned,
+		values: Object.assign({}, ...owned.map(slug => BUILT[slug])),
 	});
 
-	it("gives the harvest its own panel, apart from the turn's statement", async () => {
+	/**
+	 * The harvest is ONE event. It used to be two: the move's own 1d4 with a roll control up in the
+	 * numbered steps, and the orchard's +1 in a panel below with an Apply of its own — so a table
+	 * rolled the season, applied it, scrolled down and paid the orchard separately.
+	 */
+	it("reads what the steading brings inside the step that is the moment", async () => {
 		const root = await render(await inAutumn());
-		const harvest = momentOf(root, "autumn-harvest");
-		expect(harvest).not.toBeNull();
-		expect(momentText(harvest).join(" ")).toContain("the orchard yields +1 Surplus");
+		expect(harvestStep(root).textContent).toContain("the orchard yields +1 Surplus");
+		expect(moments(root)).toHaveLength(0);
 		// And NOT on the turn: arriving in autumn is not the harvest coming in.
 		expect(statementText(root).join(" ")).not.toContain("the orchard yields");
+	});
+
+	// No control of its own: the step's roll is the act that pays it.
+	it("offers nothing to apply beside the roll", async () => {
+		const root = await render(await inAutumn());
+		expect(harvestStep(root).querySelector(".steading-statement-apply")).toBeNull();
+		expect(harvestStep(root).querySelector('[data-action="applyEffectLine"]')).toBeNull();
+		expect(harvestStep(root).querySelector('[data-action="rollSeasonStep"]')).not.toBeNull();
+	});
+
+	// One roll, and it pays the season's 1d4 and the orchard's +1 together.
+	it("rolls the season's dice and what the steading adds, in one act", async () => {
+		const sheet = await inAutumn();
+		const root  = await render(sheet, true);
+		const before = sheet.actor.system.attributes.surplus;
+		sheet.actor.evaluateFormula = async () => ({ total: 3 });
+		sheet.actor.postFormulaCard = async () => {};
+
+		await act(sheet, "rollSeasonStep", harvestStep(root).querySelector('[data-action="rollSeasonStep"]'));
+		expect(sheet.actor.system.attributes.surplus).toBe(before + 4);
+	});
+
+	// Greater Harvest's "+1d4 Surplus" is dice, so it joins the dice: the control offers the whole
+	// harvest rather than the season's half of it.
+	it("puts a rolled clause into the dice the control offers", async () => {
+		const sheet = await inAutumn(["greater-harvest"]);
+		const root  = await render(sheet, true);
+		const rolled = [];
+		sheet.actor.evaluateFormula = async formula => { rolled.push(formula); return { total: 5 }; };
+		sheet.actor.postFormulaCard = async () => {};
+
+		expect(harvestStep(root).querySelector('[data-action="rollSeasonStep"]').textContent)
+			.toContain("1d4 + 1d4");
+		await act(sheet, "rollSeasonStep", harvestStep(root).querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0]).toBe("1d4 + 1d4 + 0");
+	});
+
+	// Rolling MOVES Surplus, so the step then says what it did and offers to give it back — the same
+	// record every other step of the season keeps, and the reason no second Apply is needed.
+	it("says what the harvest did, and gives it back", async () => {
+		const sheet = await inAutumn();
+		let root = await render(sheet, true);
+		const before = sheet.actor.system.attributes.surplus;
+		sheet.actor.evaluateFormula = async () => ({ total: 3 });
+		sheet.actor.postFormulaCard = async () => {};
+		await act(sheet, "rollSeasonStep", harvestStep(root).querySelector('[data-action="rollSeasonStep"]'));
+
+		root = await render(sheet);
+		expect(harvestStep(root).textContent).toContain("4 Surplus");
+		await act(sheet, "revertSeasonStep", harvestStep(root).querySelector('[data-action="revertSeasonStep"]'));
+		expect(sheet.actor.system.attributes.surplus).toBe(before);
+	});
+
+	/**
+	 * Rolling the harvest is not applying the season. The mill's autumn Surplus is a TURN result in
+	 * this fixture, paid by the step that generates — a different step, with a record of its own —
+	 * so the harvest's roll must leave it exactly where it was.
+	 */
+	it("leaves what the season itself owes unpaid", async () => {
+		const sheet = await inAutumn(["rhoillyg-orchard", "mill"]);
+		const root  = await render(sheet, true);
+		const generates = [...root.querySelectorAll(".steading-turn-step")]
+			.find(step => step.textContent.includes("Mill"));
+		sheet.actor.evaluateFormula = async () => ({ total: 1 });
+		sheet.actor.postFormulaCard = async () => {};
+		const harvestRoll = harvestStep(root).querySelector('[data-action="rollSeasonStep"]');
+		await act(sheet, "rollSeasonStep", harvestRoll);
+
+		expect(Object.keys(sheet.actor.system.seasonStepsApplied)).toEqual([harvestRoll.dataset.step]);
+		expect(generates.querySelector('[data-action="applySeasonStep"]')).not.toBeNull();
+	});
+
+	// Next autumn is owed its own harvest: the step's record is season-scoped, and the turn clears it.
+	it("offers the harvest again once the wheel has come round", async () => {
+		stubConfirm(true);
+		const sheet = await inAutumn();
+		let root = await render(sheet, true);
+		sheet.actor.evaluateFormula = async () => ({ total: 1 });
+		sheet.actor.postFormulaCard = async () => {};
+		await act(sheet, "rollSeasonStep", harvestStep(root).querySelector('[data-action="rollSeasonStep"]'));
+		for (const _ of Seasons.all()) await act(sheet, "turnSeason", null);
+
+		root = await render(sheet);
+		expect(harvestStep(root).querySelector('[data-action="rollSeasonStep"]')).not.toBeNull();
+	});
+
+	/**
+	 * A moment no step of the season numbers keeps its panel and its Apply — the gathering at the inn
+	 * can happen in any season, and no Seasons Change move calls for it.
+	 */
+	it("keeps a panel for a moment the season's move does not number", async () => {
+		const sheet = await makeSheet({
+			season: "spring", owned: ["aurochs-hunting"], values: BUILT["aurochs-hunting"],
+		});
+		const root = await render(sheet);
+		expect(momentOf(root, "aurochs-hunt")).not.toBeNull();
 	});
 
 	// The hunt is a spring moment. An autumn sheet is not offered it, however many hunters there are.
@@ -1032,49 +1597,168 @@ describe("the moments within a season", () => {
 		expect(moments(root)).toHaveLength(0);
 	});
 
+	/**
+	 * A moment panel reads like the improvement's own card: the book's clause, then the result,
+	 * one sentence. The gathering's cost used to arrive as a tail in the sheet's voice — "clear
+	 * one of the steading's debilities only if you expend 1 Surplus" — which said the fiction a
+	 * second time and read as an afterthought to the thing it qualifies.
+	 */
+	it("reads a moment as the book's own sentence, clause first", async () => {
+		const root = await render(await makeSheet({ season: "spring", owned: ["inn"], values: BUILT.inn }));
+		const clause = momentOf(root, "inn-gathering").querySelector(".steading-statement-clause");
+		expect(clause.textContent.trim()).toBe(
+			"once per season, when you expend 1 Surplus and bring folks together at the inn, "
+			+ "clear one of the steading's debilities");
+		expect(clause.textContent).not.toContain("only if");
+	});
+
 	// Every autumn has a harvest; a steading with nothing that fires at one is not shown an empty
-	// panel headed with a thing it has left undone.
+	// panel headed with a thing it has left undone — nor a step full of nothing.
 	it("shows no moment nothing fires at", async () => {
 		const root = await render(await makeSheet({ season: "autumn", owned: ["palisade"] }));
 		expect(moments(root)).toHaveLength(0);
+		expect(harvestStep(root).querySelector(".steading-turn-moment")).toBeNull();
+	});
+});
+
+/**
+ * What the steading GENERATES is part of the season's generation, not a list beside it. It used to
+ * sit in "When spring comes" with an Apply per line, while the season's own generation was a
+ * numbered step with a roll — one act, in two places, paid twice.
+ */
+describe("what the steading generates", () => {
+	const generationStep = root => [...root.querySelectorAll(".steading-turn-step")]
+		.find(step => step.textContent.includes("Township"));
+
+	const asATown = (season) => makeSheet({
+		season, owned: ["township"], values: BUILT.township,
 	});
 
-	it("writes what the harvest does, once, and says afterwards that it did", async () => {
-		const sheet = await inAutumn();
-		let root = await render(sheet);
-		const before = sheet.actor.system.attributes.surplus;
+	// Spring's move generates nothing of its own, so the sheet numbers a step for what the steading
+	// generates — one control, one record, one Revert.
+	it("is numbered as a step of a season whose move generates nothing", async () => {
+		const sheet = await asATown("spring");
+		sheet.actor.system.attributes.population = 2;
+		const root = await render(sheet, true);
 
-		await act(sheet, "applyMoment", momentOf(root, "autumn-harvest").querySelector(".steading-statement-apply"));
-		expect(sheet.actor.system.attributes.surplus).toBe(before + 1);
+		const step = generationStep(root);
+		expect(step).not.toBeUndefined();
+		expect(step.textContent).toContain("Surplus equal to Population+1");
+		// And not in the general list, which is where it used to be stated.
+		expect(root.querySelector(".steading-during-owed")?.textContent ?? "").not.toContain("Township");
+	});
 
+	// "Population+1" is arithmetic over a rating the sheet knows — not a die, however it is written.
+	it("works the amount out and writes it once", async () => {
+		const sheet = await asATown("spring");
+		sheet.actor.system.attributes.population = 2;
+		sheet.actor.system.attributes.surplus    = 1;
+		let root = await render(sheet, true);
+
+		const apply = generationStep(root).querySelector('[data-action="applySeasonStep"]');
+		expect(apply.textContent).toContain("3");
+		await act(sheet, "applySeasonStep", apply);
+		expect(sheet.actor.system.attributes.surplus).toBe(4);
+
+		// Rolled nothing, so it says what it generated and offers it back — never "0 was rolled".
 		root = await render(sheet);
-		const harvest = momentOf(root, "autumn-harvest");
-		expect(harvest.querySelector(".steading-moment-state")).not.toBeNull();
-		// Nothing left to press: a second Apply would pay the harvest twice.
-		expect(harvest.querySelector(".steading-statement-apply")).toBeNull();
+		const step = generationStep(root);
+		expect(step.textContent).not.toContain("was rolled");
+		await act(sheet, "revertSeasonStep", step.querySelector('[data-action="revertSeasonStep"]'));
+		expect(sheet.actor.system.attributes.surplus).toBe(1);
 	});
 
-	// Applying the harvest is not applying the season, and neither stands in for the other.
-	it("leaves the turn's own statement unapplied", async () => {
-		const sheet = await makeSheet({
-			season: "autumn", owned: ["rhoillyg-orchard", "mill"],
-			values: { ...BUILT["rhoillyg-orchard"], ...BUILT.mill },
-		});
-		const root = await render(sheet);
-		await act(sheet, "applyMoment", momentOf(root, "autumn-harvest").querySelector(".steading-statement-apply"));
-		expect(sheet.actor.system.turnoverApplied.turn).toBeFalsy();
-		expect(root.querySelector('.steading-turnover [data-action="applyTurnover"]')).not.toBeNull();
+	// Summer's move DOES generate, so the gains ride its roll: one roll, one amount, one record.
+	it("rides the roll of a season that generates for itself", async () => {
+		const sheet = await asATown("summer");
+		sheet.actor.system.attributes.population = 2;
+		sheet.actor.system.attributes.surplus    = 0;
+		const root = await render(sheet, true);
+
+		const step = generationStep(root);
+		expect(step.textContent).toContain("1d4-1");
+		expect(step.querySelector('[data-action="applySeasonStep"]')).toBeNull();
+
+		sheet.actor.evaluateFormula = async () => ({ total: 2 });
+		sheet.actor.postFormulaCard = async () => {};
+		await act(sheet, "rollSeasonStep", step.querySelector('[data-action="rollSeasonStep"]'));
+		expect(sheet.actor.system.attributes.surplus).toBe(5);
 	});
 
-	// Next autumn is owed its own harvest.
-	it("offers the harvest again once the wheel has come round", async () => {
-		stubConfirm(true);
-		const sheet = await inAutumn();
-		let root = await render(sheet);
-		await act(sheet, "applyMoment", momentOf(root, "autumn-harvest").querySelector(".steading-statement-apply"));
-		for (const _ of Seasons.all()) await act(sheet, "turnSeason", null);
-		root = await render(sheet);
-		expect(momentOf(root, "autumn-harvest").querySelector(".steading-statement-apply")).not.toBeNull();
+	// The season's own Apply must not pay it a second time: the step's record is the step's, and the
+	// turnover's records are per line.
+	it("is never paid again by the season's own Apply", async () => {
+		const sheet = await asATown("spring");
+		sheet.actor.system.attributes.population = 2;
+		sheet.actor.system.attributes.surplus    = 1;
+		const root = await render(sheet, true);
+
+		await act(sheet, "applySeasonStep",
+			generationStep(root).querySelector('[data-action="applySeasonStep"]'));
+		expect(sheet.actor.system.attributes.surplus).toBe(4);
+
+		const applyAll = root.querySelector('.steading-turnover [data-action="applyTurnover"]');
+		if (applyAll) await act(sheet, "applyTurnover", applyAll);
+		expect(sheet.actor.system.attributes.surplus).toBe(4);
+	});
+});
+
+/**
+ * "the steading generates 1 Surplus, if you roll a 7+ with Fortunes" is not a condition the sheet
+ * cannot judge. The reader judges it by pressing the button on the row the dice landed on.
+ */
+describe("what a result row pays out", () => {
+	const rowFor = (root, key) => root.querySelector(`.stonetop-result-row--${key}`);
+
+	const withStream = () => makeSheet({
+		season: "winter", owned: ["harnessing-the-stream"], values: BUILT["harnessing-the-stream"],
+	});
+
+	it("offers the roll's own payout on every row its range covers", async () => {
+		const root = await render(await withStream(), true);
+		expect(rowFor(root, "success").querySelector('[data-action="applyEffectLine"]')).not.toBeNull();
+		expect(rowFor(root, "partial").querySelector('[data-action="applyEffectLine"]')).not.toBeNull();
+		expect(rowFor(root, "failure").querySelector('[data-action="applyEffectLine"]')).toBeNull();
+	});
+
+	it("writes it, and gives it back", async () => {
+		const sheet = await withStream();
+		sheet.actor.system.attributes.surplus = 2;
+		let root = await render(sheet, true);
+
+		const apply = rowFor(root, "success").querySelector('[data-action="applyEffectLine"]');
+		await act(sheet, "applyEffectLine", apply);
+		expect(sheet.actor.system.attributes.surplus).toBe(3);
+
+		root = await render(sheet, true);
+		const revert = rowFor(root, "success").querySelector('[data-action="revertEffectLine"]');
+		expect(revert).not.toBeNull();
+		await act(sheet, "revertEffectLine", revert);
+		expect(sheet.actor.system.attributes.surplus).toBe(2);
+	});
+
+	// Applied on one row, it reads as applied on the other — it is one result, and it was paid once.
+	it("says on both rows that it has been paid", async () => {
+		const sheet = await withStream();
+		let root = await render(sheet, true);
+		await act(sheet, "applyEffectLine",
+			rowFor(root, "success").querySelector('[data-action="applyEffectLine"]'));
+
+		root = await render(sheet, true);
+		for (const key of ["success", "partial"]) {
+			expect(rowFor(root, key).querySelector('[data-action="applyEffectLine"]')).toBeNull();
+			expect(rowFor(root, key).querySelector('[data-action="revertEffectLine"]')).not.toBeNull();
+		}
+	});
+
+	// The season's batch cannot know what was rolled, so it never writes one of these.
+	it("is never written by the season's own Apply", async () => {
+		const sheet = await withStream();
+		sheet.actor.system.attributes.surplus = 2;
+		const root = await render(sheet, true);
+		const applyAll = root.querySelector('.steading-turnover [data-action="applyTurnover"]');
+		if (applyAll) await act(sheet, "applyTurnover", applyAll);
+		expect(sheet.actor.system.attributes.surplus).toBe(2);
 	});
 });
 
@@ -1095,10 +1779,13 @@ describe("a move an improvement confers", () => {
 		expect(row.querySelector(".stonetop-move-body").textContent).toContain("+Defenses");
 	});
 
-	// Collected by WHEN it fires, so the row is the only thing that can say why it is there.
-	it("names the improvement that conferred it", async () => {
-		const root = await render(await springHunt());
-		expect(grantedRow(root).querySelector(".stonetop-item-source").textContent).toContain("Aurochs Hunting");
+	// And it says nothing else. The improvement's name used to ride along as a caption, which landed
+	// between the move's name and the move's own words — the one place on a row nothing else may
+	// stand, and wide enough to push the name itself out of the row's first line.
+	it("hangs no caption between the move's name and its own words", async () => {
+		const row = grantedRow(await render(await springHunt()));
+		expect(row.querySelector(".stonetop-item-source")).toBeNull();
+		expect(row.querySelector(".stonetop-move-gloss").textContent).toContain("lead the aurochs hunt");
 	});
 
 	// The move is not the steading's, so there is no owned id on the row to roll through: the die
@@ -1262,11 +1949,23 @@ describe("what a card says an improvement is for", () => {
 		]);
 	});
 
-	// Nothing to compress — Township's completion changes a tier, not a number — so no chip is
-	// invented for it. Compressing prose anyway is how the old summary sentence went wrong.
-	it("chips nothing for an improvement whose results are only prose", async () => {
+	/**
+	 * Only what a result already states as data. Township's completion changes a TIER and its winter
+	 * clause changes an arithmetic — neither is a number to compress, and inventing one for them is
+	 * how the old summary sentence went wrong. Its spring Surplus is a number, and chips as one.
+	 */
+	it("chips only the results that state a number", async () => {
 		const root = await render(await makeSheet({ owned: ["township"], values: BUILT.township }));
-		expect(cardFor(root, "township").querySelector(".steading-effect-chips")).toBeNull();
+		expect(chipsOf(cardFor(root, "township"))).toEqual([
+			"stonetop.steading.seasons.names.spring stonetop.steading.seasons.names.summer "
+			+ "stonetop.steading.attr.population+1 stonetop.steading.attr.surplus",
+		]);
+	});
+
+	// An improvement with no structured results at all says nothing rather than something invented.
+	it("chips nothing for an improvement whose results are only prose", async () => {
+		const root = await render(await makeSheet({ owned: ["palisade"], values: BUILT.palisade }));
+		expect(cardFor(root, "palisade").querySelector(".steading-effect-chips")).toBeNull();
 	});
 
 	// On an unfinished improvement a chip is what it WILL do, and the card says so by dimming it.

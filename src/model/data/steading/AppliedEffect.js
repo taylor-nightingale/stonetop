@@ -16,9 +16,15 @@
  * be a guess that looks like a fact.
  */
 export class AppliedEffect {
-	constructor({ change = null, entry = null, legacy = false }) {
+	constructor({ change = null, set = null, entry = null, legacy = false }) {
 		// {target, amount} — the rating delta this line added.
 		this.change = change;
+		// {target, from, to} — the rating this line SET, and what it was before.
+		//
+		// `from` is the whole reason a set is recorded differently from a delta. A delta inverts by
+		// arithmetic against whatever the rating holds now; a set overwrote a value, and the only way
+		// back is to have kept it. Township turning Population to +0 is otherwise a one-way door.
+		this.set    = set;
 		// {list, text} — the entry this line appended to one of the evidence lists.
 		this.entry  = entry;
 		this.legacy = legacy;
@@ -30,13 +36,21 @@ export class AppliedEffect {
 	 * Only the halves the sheet actually performs: a rolled amount, a condition it cannot evaluate and
 	 * an adjustment to a step it never runs all write nothing, so there is nothing to record and
 	 * nothing to revert.
+	 *
+	 * @param from  the value a SET is about to replace, supplied by the caller rather than read here —
+	 *              the same reason inverseUpdate takes the current state, and what lets a caller
+	 *              applying several lines at once record each against the value its own turn saw.
 	 */
-	static fromLine(line) {
+	static fromLine(line, { from = undefined } = {}) {
 		const change = line.effect.change?.isAutomatic
 			? { target: line.effect.change.target, amount: line.effect.change.amount }
 			: null;
+		const written = line.effect.set;
+		const set = written
+			? { target: written.target, from: from ?? written.unsetValue, to: written.value }
+			: null;
 		const entry = line.listEntry ? { list: line.listEntry.list, text: line.listEntry.text } : null;
-		return new AppliedEffect({ change, entry });
+		return new AppliedEffect({ change, set, entry });
 	}
 
 	/** A record as stored. Anything unrecognised reads as a legacy apply rather than as nothing. */
@@ -46,6 +60,11 @@ export class AppliedEffect {
 		return new AppliedEffect({
 			change: raw.change?.target && Number.isInteger(raw.change?.amount)
 				? { target: raw.change.target, amount: raw.change.amount }
+				: null,
+			// `from` may legitimately be 0 or "" — the two values a rating reads as when it was never
+			// set — so its presence is what is checked, never its truth.
+			set: raw.set?.target && raw.set.from !== undefined && raw.set.to !== undefined
+				? { target: raw.set.target, from: raw.set.from, to: raw.set.to }
 				: null,
 			entry: raw.entry?.list && typeof raw.entry?.text === "string"
 				? { list: raw.entry.list, text: raw.entry.text }
@@ -57,13 +76,14 @@ export class AppliedEffect {
 	toRaw() {
 		return {
 			...(this.change ? { change: { ...this.change } } : {}),
+			...(this.set    ? { set:    { ...this.set } }    : {}),
 			...(this.entry  ? { entry:  { ...this.entry } }  : {}),
 			...(this.legacy ? { legacy: true } : {}),
 		};
 	}
 
 	/** Whether this record can be undone — it knows what it wrote, and it wrote something. */
-	get isRevertable() { return !this.legacy && Boolean(this.change || this.entry); }
+	get isRevertable() { return !this.legacy && Boolean(this.change || this.set || this.entry); }
 
 	/**
 	 * The update that undoes this, against what the steading currently holds.
@@ -77,6 +97,10 @@ export class AppliedEffect {
 			const target = this.change.target;
 			return { [`system.attributes.${target}`]: (attributes[target] ?? 0) - this.change.amount };
 		}
+		// Restored, not recomputed: what a set replaced is the only inverse it has, and it was kept at
+		// apply time for exactly this. Unlike a delta this ignores where the rating stands now — a set
+		// asserted a value, so undoing it asserts the previous one.
+		if (this.set) return { [`system.attributes.${this.set.target}`]: this.set.from };
 		// Removed by VALUE, not by position: the list is edited by hand between seasons, and an index
 		// recorded at apply time would by now point at somebody else's entry.
 		return {

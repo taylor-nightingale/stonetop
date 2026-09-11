@@ -1,15 +1,27 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
-const migrateCharacter = vi.fn(async () => {});
+const migrateCharacter      = vi.fn(async () => {});
+const migrateMovePackData   = vi.fn(async () => {});
+const migrateSteadingMoves  = vi.fn(async () => {});
 
 vi.mock("../../src/migration/migrateCharacter.js", () => ({
 	migrateCharacter: (...args) => migrateCharacter(...args),
 }));
 vi.mock("../../src/migration/migrateNpc.js",           () => ({ migrateNpc:      async () => {} }));
 vi.mock("../../src/migration/migrateSteading.js",      () => ({ migrateSteading: async () => {} }));
-vi.mock("../../src/migration/migrateSteadingMoves.js", () => ({ migrateSteadingMoves: async () => {} }));
+vi.mock("../../src/migration/migrateSteadingMoves.js", () => ({
+	migrateSteadingMoves: (...args) => migrateSteadingMoves(...args),
+}));
 vi.mock("../../src/migration/migrateWorldItems.js",    () => ({ migrateWorldItems: async () => {} }));
 vi.mock("../../src/migration/migrateGrantStamps.js",   () => ({ migrateGrantStamps: async () => {} }));
+vi.mock("../../src/migration/migrateSteadingFolk.js",  () => ({ migrateSteadingFolk: async () => {} }));
+vi.mock("../../src/migration/migrateNeighborPlaces.js", () => ({ migrateNeighborPlaces: async () => {} }));
+vi.mock("../../src/migration/migrateSteadingImpressions.js",
+	() => ({ migrateSteadingImpressions: async () => {} }));
+vi.mock("../../src/migration/migrateSteadingApplied.js", () => ({ migrateSteadingApplied: async () => {} }));
+vi.mock("../../src/migration/migrateMovePackData.js", () => ({
+	migrateMovePackData: (...args) => migrateMovePackData(...args),
+}));
 vi.mock("../../src/actors/character/repositories/FoundryInsertRepository.js", () => ({
 	FoundryInsertRepository: class {},
 }));
@@ -20,9 +32,15 @@ function character(name) {
 	return { name, type: "character", getFlag: () => ({}), setFlag: async () => {} };
 }
 
+function steading(name) {
+	return { name, type: "steading" };
+}
+
 beforeEach(() => {
 	migrateCharacter.mockClear();
 	migrateCharacter.mockImplementation(async () => {});
+	migrateMovePackData.mockClear();
+	migrateSteadingMoves.mockClear();
 	vi.stubGlobal("game", { actors: [], packs: { get: () => null }, system: { version: "1.0.3" } });
 });
 
@@ -49,5 +67,37 @@ describe("MigrationRunner.run — reporting failures", () => {
 		});
 		expect(await new MigrationRunner({}).run()).toEqual(["Brakken"]);
 		expect(migrateCharacter).toHaveBeenCalledTimes(3);
+	});
+});
+
+// A steading's Seasons Change and homefront moves are embedded copies taken at creation, exactly
+// like a character's. The refresh existed but was only ever called down the character branch, so a
+// procedure added to the pack never reached a steading already in play.
+describe("MigrationRunner.run — steadings", () => {
+	it("refreshes a steading's embedded moves from the pack", async () => {
+		const place = steading("Stonetop");
+		const repos = { moves: { name: "moveRepo" } };
+		game.actors = [place];
+		await new MigrationRunner(repos).run();
+		expect(migrateMovePackData).toHaveBeenCalledWith(place, repos.moves);
+	});
+
+	// The backfill's restamp files each move into the category its stored moveType names, and that
+	// type is one of the fields the pack refresh corrects. Restamped first, a move whose type changed
+	// in the packs is filed from the stale value and nothing re-files it — the Seasons Change moves
+	// end up under homefront and the Season tab reports no seasonal moves at all.
+	it("refreshes the pack data before backfilling, so the restamp reads a current moveType", async () => {
+		const order = [];
+		migrateMovePackData.mockImplementation(async () => { order.push("refresh"); });
+		migrateSteadingMoves.mockImplementation(async () => { order.push("backfill"); });
+		game.actors = [steading("Stonetop")];
+		await new MigrationRunner({ moves: {} }).run();
+		expect(order).toEqual(["refresh", "backfill"]);
+	});
+
+	it("does not refresh moves for an npc", async () => {
+		game.actors = [{ name: "A boar", type: "npc" }];
+		await new MigrationRunner({}).run();
+		expect(migrateMovePackData).not.toHaveBeenCalled();
 	});
 });

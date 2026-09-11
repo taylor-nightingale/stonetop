@@ -1,0 +1,24 @@
+{{!-- What one result of the season's own roll costs the steading, inside the result it costs it.
+
+      The body of a result row on the seasons tab — rendered by stonetop.move-result-row through its
+      `bodyPartial` slot, with a SeasonTierSnapshot as its context. Passed as a context and never as
+      hash params: a partial invoked with hash args gets a flattened copy, and a tier answers
+      everything about itself through prototype getters, every one of which is lost in that copy. --}}
+
+{{!-- What the steading has built that waits on the roll landing HERE — "the steading generates 1
+      Surplus, if you roll a 7+ with Fortunes". It used to float above these rows with its qualifier
+      on a second line, where nothing said which result it meant; the result it means is the row it
+      is printed in, so the qualifier is dropped and the row says it. A 7+ is two rows and is stated
+      under both.
+
+      With its own Apply, because the roll has HAPPENED: the reader answers "did you roll a 7+?" by
+      pressing the button on the row they landed on, and the season's own batch never writes these —
+      it cannot know what was rolled. --}}
+{{#if hasOutcomes}}
+	<div class="steading-turn-outcomes">
+		{{> "stonetop.steading-statement" automaticLines=writableOutcomes
+		    advisoryLines=statedOutcomes showSource=true showDelta=false bulleted=true}}
+	</div>
+{{/if}}
+
+{{#if rollsDice}}{{> "stonetop.steading-turn-roll" }}{{/if}}

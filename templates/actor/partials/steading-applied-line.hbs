@@ -1,0 +1,30 @@
+{{!-- What one dice-rolling step of a Seasons Change move DID to Surplus — an AppliedStepRoll,
+      passed as the context.
+
+      Rendered in two places off the one partial: on the sheet, under the step that rolled it, and on
+      the roll's own chat card, which used to report the dice and say nothing about the number they
+      had just moved. Same record, same words, so the card and the sheet cannot come to disagree
+      about what a season cost. --}}
+<p class="stonetop-applied">
+	<span class="stonetop-applied-what">
+		{{localize labelKey amount=amount from=from to=to}}
+	</span>
+	{{!-- What was OWED, where that is worth saying: because the steading could not pay it, or
+	      because an improvement made it something other than what the dice said. Never both —
+	      being short is the more urgent of the two, and it names the same number. --}}
+	{{#if wasShort}}
+		<span class="stonetop-applied-short">
+			{{localize "stonetop.steading.seasons.steps.applied.short" due=due}}
+		</span>
+		{{!-- Named, not merely implied by the shortfall: the move's own words send the table to the
+		      Disaster, and the line that records the shortfall is where a reader is looking. Plain
+		      text — the step's prose above already renders the linked reference. --}}
+		<span class="stonetop-applied-disaster">
+			{{localize "stonetop.steading.seasons.steps.applied.disaster"}}
+		</span>
+	{{else if wasAdjusted}}
+		<span class="stonetop-applied-rolled">
+			{{localize "stonetop.steading.seasons.steps.applied.rolled" total=total}}
+		</span>
+	{{/if}}
+</p>

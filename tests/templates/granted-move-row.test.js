@@ -1,18 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { renderPartial } from "../fakes/renderTemplate.js";
 
-// A result that confers a MOVE renders as that move's own row. Which leaves one thing for the
-// template to decide: whether the row says where the move came from.
+// A result that confers a MOVE renders as that move's own row: the move's name, its die, its own
+// words behind a disclosure — not a fragment of it beside a detached button.
 //
-// Every other move row on the sheet sits under a heading that answers that — a category, a playbook,
-// an arcanum. A conferred move does not: it is collected by WHEN it fires, among the results of a
-// season, so the improvement's name is the only thing on the row explaining why it is there. Except
-// on that improvement's own card, which is already saying it.
-//
-// The statement partial reads that from `showSource`, and the row is TWO block frames down from it
-// (`{{#each}}` over the slugs, `{{#with}}` over the lookup) — a path depth nothing else pins, and one
-// that fails silently in both directions: too shallow and every card repeats its own name, too deep
-// and the season's statement stops saying which improvement conferred the hunt.
+// And nothing else. The row used to carry the conferring improvement's name as a caption, which put
+// it in the only place on a move row that is spoken for: between the name and the move's own words.
+// A snapshot still CAN carry a `sourceLabel` — an arcanum move's "Requires: Battery" — so the
+// suppression is the template's, and it is worth pinning: the partial is shared, and the caption
+// would come back the moment a disclosure row were handed one.
 
 const MOVE = {
 	slug: "news-at-the-inn", name: "News at the Inn", ownedId: null, rollStat: "fortunes",
@@ -24,7 +20,8 @@ const render = showSource => renderPartial("stonetop.steading-statement", {
 	editable: true,
 	sheetIdPrefix: "sheet-1",
 	stonetop: { grantedMoves: { [MOVE.slug]: MOVE } },
-	statement: { grantedMoveSlugs: [MOVE.slug], automatic: [], advisory: [], hasAutomatic: false },
+	statement: {},
+	moveSlugs: [MOVE.slug],
 	showSource,
 });
 
@@ -36,11 +33,14 @@ describe("a conferred move's row", () => {
 		expect(html).not.toContain("steading-statement-move\"");
 	});
 
-	it("names the improvement that conferred it where the surface does not", () => {
-		expect(render(true)).toContain('class="stonetop-item-source">Inn<');
+	// The row's second line is the gloss — the move's own trigger — and the first is the move's name.
+	// A caption between them separates a move from the words that say what it does.
+	it("hangs no source caption between the name and the move's own words", () => {
+		expect(render(true)).not.toContain("stonetop-item-source");
+		expect(render(true)).toContain('class="stonetop-move-gloss">news reaches the inn<');
 	});
 
-	it("says nothing about the source on the card that IS the source", () => {
+	it("says nothing about the source on the card that IS the source either", () => {
 		expect(render(false)).not.toContain("stonetop-item-source");
 	});
 });

@@ -16,7 +16,7 @@ import path from "path";
 const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
 const css = read("styles/stonetop.css");
 // The plate lives in the turn panel now, at its bottom right — not at the foot of the tab.
-const partial = read("templates/actor/partials/steading-season-turn.hbs");
+const partial = read("templates/actor/partials/steading-season-box.hbs");
 
 const PLATE = "steading-seasons-plate";
 
@@ -63,7 +63,7 @@ describe("seasons plate layout", () => {
 
 	// A float must not escape the control that holds it into the section below.
 	it("is contained by the body it floats inside", () => {
-		expect(ruleBlock(".stonetop.sheet.steading .steading-turn-body")).toContain("display: flow-root");
+		expect(ruleBlock(".stonetop.sheet.steading .steading-season-box")).toContain("display: flow-root");
 	});
 
 	// Before the text it makes room for: a float only affects the line boxes that come after it.

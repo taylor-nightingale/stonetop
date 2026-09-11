@@ -141,9 +141,10 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "inn-gathering"
+          "moment": "inn-gathering",
+          "phrase": "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**"
         },
-        "condition": "you expend 1 Surplus",
+        "condition": true,
         "text": "clear one of the steading's debilities"
       }
     ]

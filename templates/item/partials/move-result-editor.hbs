@@ -1,0 +1,8 @@
+{{!-- The field that AUTHORS one result of a move — the body of a result row on the move's own item
+      sheet, rendered through stonetop.move-result-row's `bodyPartial` slot with a MoveResultField as
+      its context.
+
+      Markdown, not the enriched html: the row's read-only twin renders `text`, this edits `raw`. --}}
+<textarea name="system.moveResults.{{key}}.value" rows="3"
+          placeholder="{{localize placeholderKey}}"
+          aria-label="{{localize placeholderKey}}">{{raw}}</textarea>

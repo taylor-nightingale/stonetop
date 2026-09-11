@@ -141,6 +141,13 @@ export function problemsFor(slug, entry, doc, moveSlugs = null) {
 		if (e.grantsMove && moveSlugs && !moveSlugs.has(e.grantsMove)) {
 			problems.push(`${slug}: effects[${i}] grants move "${e.grantsMove}", which is not in the moves pack`);
 		}
+		// Advantage is a REMINDER drawn on the named move's own row, so a slug that resolves to nothing
+		// is a reminder nobody will ever see — silently, since there is no row for it to be absent from.
+		for (const move of e.advantage?.moves ?? []) {
+			if (moveSlugs && !moveSlugs.has(move)) {
+				problems.push(`${slug}: effects[${i}] grants advantage on "${move}", which is not in the moves pack`);
+			}
+		}
 	});
 
 	// The drift detector: if the improvement's own prose names a season but nothing was modelled to

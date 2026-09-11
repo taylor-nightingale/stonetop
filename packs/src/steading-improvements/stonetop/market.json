@@ -140,13 +140,14 @@
             "spring",
             "summer",
             "autumn"
-          ]
+          ],
+          "phrase": "when **_the seasons change to spring, summer, or autumn, and the market is active, and Population is +1 or better_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "the market is active and Population is +1 or better",
+        "condition": true,
         "text": "the market generates 1 Surplus"
       }
     ]

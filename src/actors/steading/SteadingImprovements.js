@@ -91,24 +91,19 @@ export class SteadingImprovements {
 	}
 
 	/**
-	 * Every move the owned improvements confer: slug → the improvement that confers it.
+	 * The slugs of every move the owned improvements confer.
 	 *
-	 * A move row states where it came from, and a conferred move's row is the only one on the sheet
-	 * whose source is not the surface it sits on — the aurochs hunt fires in spring's statement, and
-	 * "Aurochs Hunting" is what says why it is there.
-	 *
-	 * Asked once per render and resolved once, because the same move can be granted in more than one
-	 * place and because a pack lookup per line would be a lookup per line. First grant wins the
-	 * label, matching the order the board lists them in.
+	 * A set, because the same move can be granted in more than one place and a pack lookup per line
+	 * would be a lookup per line. Asked once per render and resolved once.
 	 */
-	async grantedMoveSources() {
-		const sources = new Map();
+	async grantedMoveSlugs() {
+		const slugs = new Set();
 		for (const imp of await this.owned()) {
 			for (const effect of imp.effects.all()) {
-				if (effect.grantsMove && !sources.has(effect.grantsMove)) sources.set(effect.grantsMove, imp.name);
+				if (effect.grantsMove) slugs.add(effect.grantsMove);
 			}
 		}
-		return sources;
+		return slugs;
 	}
 
 	/**

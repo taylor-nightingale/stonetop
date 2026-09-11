@@ -177,22 +177,25 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you leverage the horses to Pull Together_**"
         },
-        "text": "when you leverage the horses to Pull Together, it takes half as long and costs half as much"
+        "text": "it takes half as long and costs half as much"
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Requisition half the herd or less_**"
         },
-        "text": "when you Requisition half the herd or less, treat a 6- as a 7-9"
+        "text": "treat a 6- as a 7-9"
       },
       {
         "when": {
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "when **_the seasons change to summer_**"
         },
         "text": "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)"
       },
@@ -201,9 +204,10 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "when **_winter grips the land_**"
         },
-        "condition": "1 Surplus per 6 grown or yearling horses",
+        "condition": true,
         "text": "the herd consumes 1 Surplus per 6 grown or yearling horses; for every Surplus not consumed, 1d6 horses are lost"
       }
     ]

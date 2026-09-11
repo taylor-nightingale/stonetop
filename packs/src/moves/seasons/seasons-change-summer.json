@@ -10,15 +10,15 @@
     "moveResults": {
       "success": {
         "label": "10+",
-        "value": "Pick 2 seasonal gains.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1."
+        "value": "Pick 2 seasonal gains."
       },
       "partial": {
         "label": "7-9",
-        "value": "Pick 1 seasonal gain.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1."
+        "value": "Pick 1 seasonal gain."
       },
       "failure": {
         "label": "6-",
-        "value": "A threat to the steading makes itself known or gets worse (and don't mark XP).\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1."
+        "value": "A threat to the steading makes itself known or gets worse (and don't mark XP)."
       }
     },
     "rollStat": "fortunes",
@@ -26,7 +26,8 @@
       {
         "kind": "roll",
         "stat": "fortunes",
-        "tiers": true
+        "tiers": true,
+        "text": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes."
       },
       {
         "kind": "pick",
@@ -35,11 +36,14 @@
       },
       {
         "kind": "generate",
-        "die": "1d4-1"
+        "die": "1d4-1",
+        "text": "The steading generates 1d4-1 Surplus.",
+        "affects": "generation"
       },
       {
         "kind": "reset",
-        "target": "fortunes"
+        "target": "fortunes",
+        "text": "Then, reset Fortunes to +1."
       }
     ],
     "slug": "seasons-change-summer"

@@ -18,13 +18,18 @@
       Context = an ImprovementPayoff. --}}
 <div class="steading-payoff">
 
+	{{!-- Bulleted, both halves: each is a list of clauses under a line of prose, which is what the
+	      book's swirl marks. The season's own panel passes nothing — there the same rows are a table
+	      with controls in it, and a bullet on those would be marking a form. --}}
 	{{#if hasCompletion}}
 		<p class="steading-payoff-head">{{rich (localize "stonetop.steading.effects.onCompletion")}}</p>
 		{{!-- No source: on an improvement's own card the source IS the card, and gluing it on produced
 		      "Additional Housing increase Fortunes by 1". No delta chip either — the chip row on the
 		      shut card already states the number, and the line's own words contain it. --}}
-		{{> "stonetop.steading-statement" statement=completion showAdvisory=true
-		    showAdjustments=true showSource=false showDelta=false}}
+		{{> "stonetop.steading-statement" statement=completion
+		    automaticLines=completion.automatic advisoryLines=completion.advisory
+		    moveSlugs=completion.grantedMoveSlugs showSource=false showDelta=false bulleted=true
+		    showPhrase=true}}
 	{{/if}}
 
 	{{#if hasHenceforth}}
@@ -32,11 +37,13 @@
 		{{!-- The timing, because "Henceforth" says these fire later without saying when — and the
 		      line's own words no longer say it either, since the trigger came out of them with the
 		      prose. No delta: the words that remain already contain the number. --}}
-		{{!-- showAdjustments: a result that bends a step is part of what this improvement DOES, and the
-		      card is the one place that states the whole payoff. The season tab collects them under
-		      the step instead; here there is no step to collect them under. --}}
-		{{> "stonetop.steading-statement" statement=henceforth showAdvisory=true
-		    showAdjustments=true showSource=false showDelta=false showTiming=true}}
+		{{!-- Every line, adjustments and upkeep included: they are part of what this improvement DOES,
+		      and the card is the one place that states the whole payoff. The season tab collects them
+		      against the steps they bend; here there is no step to collect them under. --}}
+		{{> "stonetop.steading-statement" statement=henceforth
+		    automaticLines=henceforth.automatic advisoryLines=henceforth.advisory
+		    moveSlugs=henceforth.grantedMoveSlugs showSource=false showDelta=false showTiming=true
+		    showPhrase=true bulleted=true}}
 	{{/if}}
 
 </div>

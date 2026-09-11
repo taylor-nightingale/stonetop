@@ -134,7 +134,8 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "autumn-harvest"
+          "moment": "autumn-harvest",
+          "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {
           "target": "surplus",
@@ -144,9 +145,10 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Outfit from Stonetop or Have What You Need after doing so_**"
         },
-        "text": "when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use"
+        "text": "each of supplies has 1 extra use"
       }
     ]
   },

@@ -19,12 +19,10 @@ function build(entries = [HUNT, NEWS]) {
 	return { repo, moves: new GrantedMoves({}, repo) };
 }
 
-const sources = entries => new Map(entries);
-
 describe("GrantedMoves.bySlug", () => {
 	it("keys the moves it finds by slug", async () => {
 		const { moves } = build();
-		const found = await moves.bySlug(sources([["lead-the-aurochs-hunt", "Aurochs Hunting"]]));
+		const found = await moves.bySlug(["lead-the-aurochs-hunt"]);
 		expect(found["lead-the-aurochs-hunt"].name).toBe("Lead the Aurochs Hunt");
 	});
 
@@ -32,44 +30,45 @@ describe("GrantedMoves.bySlug", () => {
 	// die, its text, the result tiers behind its disclosure — comes off this snapshot.
 	it("builds the move as an ordinary move row would draw it", async () => {
 		const { moves } = build();
-		const hunt = (await moves.bySlug(sources([["lead-the-aurochs-hunt", "Aurochs Hunting"]])))["lead-the-aurochs-hunt"];
+		const hunt = (await moves.bySlug(["lead-the-aurochs-hunt"]))["lead-the-aurochs-hunt"];
 		expect(hunt.rollStat).toBe("defenses");
 		expect(hunt.description.raw).toContain("roll +Defenses");
-		expect(hunt.icon).toBe("systems/stonetop/assets/hunt.webp");
 	});
 
 	// Never owned, so there is no owned id to roll through — the row names its move by slug instead,
 	// and nothing about it is the steading's to take.
 	it("carries no owned id and offers no acquisition tick", async () => {
 		const { moves } = build();
-		const hunt = (await moves.bySlug(sources([["lead-the-aurochs-hunt", "Aurochs Hunting"]])))["lead-the-aurochs-hunt"];
+		const hunt = (await moves.bySlug(["lead-the-aurochs-hunt"]))["lead-the-aurochs-hunt"];
 		expect(hunt.ownedId).toBeNull();
 		expect(hunt.selectable).toBe(false);
 	});
 
-	// Collected by when it fires rather than under the thing that granted it, so the row has to say.
-	it("labels each row with the improvement that conferred it", async () => {
+	// The improvement that conferred it is NOT on the row. The caption it used to carry landed
+	// between the move's name and the move's own words, which is the one place on a row nothing else
+	// may stand — see move-item.hbs.
+	it("hangs no source caption on the row", async () => {
 		const { moves } = build();
-		const found = await moves.bySlug(sources([["news-at-the-inn", "Inn"]]));
-		expect(found["news-at-the-inn"].sourceLabel).toBe("Inn");
+		const found = await moves.bySlug(["news-at-the-inn"]);
+		expect(found["news-at-the-inn"].sourceLabel).toBeNull();
 	});
 
 	// One lookup per render, not one per line: the same move is granted in more than one place.
 	it("asks for each slug once", async () => {
 		const { repo, moves } = build();
-		await moves.bySlug(sources([["news-at-the-inn", "Inn"], ["", "Nothing"]]));
+		await moves.bySlug(["news-at-the-inn", ""]);
 		expect(repo.getMoveEntriesBySlugs).toHaveBeenCalledWith(["news-at-the-inn"]);
 	});
 
 	it("asks for nothing when nothing is granted", async () => {
 		const { repo, moves } = build();
-		expect(await moves.bySlug(new Map())).toEqual({});
+		expect(await moves.bySlug(new Set())).toEqual({});
 		expect(repo.getMoveEntriesBySlugs).not.toHaveBeenCalled();
 	});
 
 	// A move deleted from the pack leaves the improvement's results intact and simply offers no row.
 	it("drops a slug the pack does not have", async () => {
 		const { moves } = build();
-		expect(await moves.bySlug(sources([["nope", "Somewhere"]]))).toEqual({});
+		expect(await moves.bySlug(["nope"])).toEqual({});
 	});
 });

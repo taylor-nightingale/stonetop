@@ -35,6 +35,32 @@ describe("EffectChip — what an improvement is for", () => {
 		expect(chip.timingKeys).toEqual(["stonetop.steading.seasons.moments.autumn-harvest"]);
 	});
 
+	// The bug: Township's spring chip read "@population + 1 Surplus". See formulaLabel.
+	it("names the rating a formula refers to instead of printing the reference", () => {
+		const [chip] = chipsOf([{ when: { kind: "turn", seasons: ["spring"] },
+			change: { target: "surplus", formula: "@population + 1" },
+			text: "the town generates Surplus equal to Population+1" }]);
+		expect(chip.amount).toBe("stonetop.steading.attr.population+1");
+	});
+
+	// Subject then value, the list-entry shape: a set says "this rating becomes this", and "+0" in the
+	// delta position would read as a delta.
+	it("states a set as the rating and the value it takes", () => {
+		const [chip] = chipsOf([{ when: { kind: "completed" }, set: { target: "population", value: 0 },
+			text: "change Population to +0" }]);
+		expect(chip.subjectKey).toBe("stonetop.steading.attr.population");
+		expect(chip.text).toBe("+0");
+		expect(chip.amount).toBe("");
+	});
+
+	// The tier's own WORD, not the slug the steading stores for it.
+	it("states a set of Size by its tier word", () => {
+		const [chip] = chipsOf([{ when: { kind: "completed" }, set: { target: "size", value: "town" },
+			text: "change Size to town" }]);
+		expect(chip.subjectKey).toBe("stonetop.steading.attr.size");
+		expect(chip.text).toBe("stonetop.steading.tier.size.town");
+	});
+
 	it("names the seasons a turn result fires in", () => {
 		const [chip] = chipsOf([{ when: { kind: "turn", seasons: ["autumn"] },
 			change: { target: "surplus", amount: 1 }, text: "+1 Surplus" }]);

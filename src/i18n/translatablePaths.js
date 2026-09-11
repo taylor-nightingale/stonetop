@@ -84,6 +84,9 @@ const MOVE = [
 	// translator sees. The move references resolve to their own translated names.
 	"system.requirement.note",
 	"system.choices.list[].input.placeholder",
+	// A Seasons Change step's own line — the move's words for that step, quoted from its description.
+	// Prose on the same footing as the description it is quoted from, so it translates the same way.
+	"system.steps[].text",
 	...rowPaths("system.choices.list[]"),
 ];
 
@@ -156,12 +159,16 @@ const INSERT = [
 const IMPROVEMENT = [
 	"name",
 	"system.description",
-	// A result's own sentence, and the condition the sheet cannot evaluate. Both are the book's words
-	// lifted out of the prose beside them, so they translate with that prose or the turnover is the
-	// one English thing left on a translated sheet. `requires` is slugs — nothing to translate.
+	// A result's own sentence — the book's words lifted out of the prose beside them, so it
+	// translates with that prose or the turnover is the one English thing left on a translated
+	// sheet. `requires` is slugs and `condition` is a flag — nothing to translate in either.
 	"system.effects[].text",
-	"system.effects[].condition",
+	// The book's trigger clause, in markdown — "when **_summer comes and you roll a 7+ with
+	// Fortunes_**". Prose like the sentence it opens, and the improvement's card reads the two as one.
+	"system.effects[].when.phrase",
 	"system.effects[].listEntry.text",
+	// The tier a result SETS is a stored value, not prose — Size's word is translated once through
+	// stonetop.steading.tier.size.*, which is where the chip and the ledger both read it from.
 	...rowPaths("system.choices.list[]"),
 ];
 
@@ -200,7 +207,8 @@ export const TEXT_PATHS = {
 export const UNTRANSLATED_PATHS = {
 	improvement: {
 		"system.effects[].change.formula":         "A dice expression (\"2d6 + @population\"), not prose. Translating it would break the roll.",
-		"system.effects[].adjustment.replaceFormula": "As above — the formula a step is replaced by.",
+		"system.effects[].advantage.moves[]":      "Move slugs; the reminder resolves them to the moves' own rows.",
+		"system.effects[].set.value":              "A stored value — a number, or one of Size's tier keys, translated through stonetop.steading.tier.size.*",
 	},
 	move: {
 		"system.requirement.moves[]": "Move slugs; the label resolves them to the moves' own names.",

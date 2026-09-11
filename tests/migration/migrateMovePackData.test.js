@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { migrateMovePackData } from "../../src/migration/migrateCharacter.js";
+import { migrateMovePackData } from "../../src/migration/migrateMovePackData.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakeMoveRepository } from "../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../fakes/FakeCompendiumMoveBuilder.js";
@@ -78,6 +78,43 @@ describe("migrateMovePackData — refreshes authored fields", () => {
 		const actor = makeActor([embeddedMove()]);
 		await migrateMovePackData(actor, makeRepo(packDeathsDoor()));
 		expect(updateFor(actor).system.xpOnMiss).toBe(true);
+	});
+
+	// The bug this refresh was extended for: the Seasons Change steps were added to the pack after
+	// steadings were already in play, and an embedded copy carrying [] makes the Season tab fall
+	// back to a single "roll it" with no picks.
+	it("refreshes a move's steps", async () => {
+		const steps = [{ kind: "roll", die: "1d4", stat: "population" }, { kind: "consume" }];
+		const doc = new FakeCompendiumMoveBuilder().withName("Deaths Door").withSteps(steps).build();
+		const actor = makeActor([embeddedMove({ steps: [] })]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).system.steps).toEqual(steps);
+	});
+
+	it("empties the steps of a move the pack no longer gives any", async () => {
+		const actor = makeActor([embeddedMove({ steps: [{ kind: "roll" }] })]);
+		await migrateMovePackData(actor, makeRepo(packDeathsDoor()));
+		expect(updateFor(actor).system.steps).toEqual([]);
+	});
+
+	// The pack's art. The four Seasons Change moves were the only moves in the pack carrying an icon;
+	// removing them left every world in play still showing the old PNGs, because nothing refreshed
+	// `img`. A rename is preserved below — an icon is not a rename.
+	it("refreshes the move's icon from the pack", async () => {
+		const doc = new FakeCompendiumMoveBuilder().withName("Deaths Door").build();
+		doc.img = "icons/svg/item-bag.svg";
+		const actor = makeActor([{ ...embeddedMove(), img: "systems/stonetop/assets/old.png" }]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).img).toBe("icons/svg/item-bag.svg");
+	});
+
+	// moveType is the reference category a move is filed under, so a stale one draws the move in the
+	// wrong section of the sheet.
+	it("refreshes the move type", async () => {
+		const doc = new FakeCompendiumMoveBuilder().withName("Deaths Door").withMoveType("seasons").build();
+		const actor = makeActor([embeddedMove({ moveType: "homefront" })]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).system.moveType).toBe("seasons");
 	});
 });
 

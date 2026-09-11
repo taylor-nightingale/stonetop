@@ -1617,7 +1617,7 @@
       "text": ""
     },
     "description": {
-      "source": "When you first meet someone from beyond Stonetop, roll +Fortunes.",
+      "source": "When you **_first meet someone from beyond Stonetop_**, roll +Fortunes: **on a 10+**, say what they’ve heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they’ve heard; **on a 6-**, the GM decides what they’ve heard.",
       "text": ""
     },
     "moveResults/success/value": {
@@ -1945,7 +1945,7 @@
       "text": ""
     },
     "description": {
-      "source": "When you **_lead the aurochs hunt in spring,_** roll +Defenses.",
+      "source": "When you **_lead the aurochs hunt in spring,_** roll +Defenses: **on a 10+**, gain 1d4 Surplus; **on a 7-9**, gain 1d4 Surplus, but pick 1 from the list below; **on a 6-**, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town’s horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they’ll be wiped out",
       "text": ""
     },
     "moveResults/success/value": {
@@ -2341,7 +2341,7 @@
       "text": ""
     },
     "description": {
-      "source": "When the seasons change, whoever is friendliest rolls +Fortunes.",
+      "source": "When **_the seasons change_**, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.",
       "text": ""
     },
     "moveResults/success/value": {
@@ -2979,19 +2979,31 @@
       "text": ""
     },
     "description": {
-      "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\nWhen the harvest is complete, roll 1d4; the steading generates that much Surplus.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
+      "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\nWhen **_the harvest is complete_**, roll 1d4; the steading generates that much Surplus.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
       "text": ""
     },
     "moveResults/success/value": {
-      "source": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
+      "source": "Pick 1 seasonal gain.",
       "text": ""
     },
     "moveResults/partial/value": {
-      "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
+      "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.",
       "text": ""
     },
     "moveResults/failure/value": {
-      "source": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.",
+      "source": "Threats abound (and don't mark XP).",
+      "text": ""
+    },
+    "steps/0/text": {
+      "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes.",
+      "text": ""
+    },
+    "steps/2/text": {
+      "source": "Whatever the result, reset Fortunes to +1.",
+      "text": ""
+    },
+    "steps/3/text": {
+      "source": "When **_the harvest is complete_**, roll 1d4; the steading generates that much Surplus.",
       "text": ""
     }
   },
@@ -3005,15 +3017,23 @@
       "text": ""
     },
     "moveResults/success/value": {
-      "source": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1.",
+      "source": "Pick 1 seasonal gain.",
       "text": ""
     },
     "moveResults/partial/value": {
-      "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1.",
+      "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.",
       "text": ""
     },
     "moveResults/failure/value": {
-      "source": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1.",
+      "source": "Threats abound (and don't mark XP).",
+      "text": ""
+    },
+    "steps/0/text": {
+      "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes.",
+      "text": ""
+    },
+    "steps/2/text": {
+      "source": "Reset Fortunes to +1.",
       "text": ""
     }
   },
@@ -3027,15 +3047,27 @@
       "text": ""
     },
     "moveResults/success/value": {
-      "source": "Pick 2 seasonal gains.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
+      "source": "Pick 2 seasonal gains.",
       "text": ""
     },
     "moveResults/partial/value": {
-      "source": "Pick 1 seasonal gain.\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
+      "source": "Pick 1 seasonal gain.",
       "text": ""
     },
     "moveResults/failure/value": {
-      "source": "A threat to the steading makes itself known or gets worse (and don't mark XP).\n\nThe steading generates 1d4-1 Surplus. Then reset Fortunes to +1.",
+      "source": "A threat to the steading makes itself known or gets worse (and don't mark XP).",
+      "text": ""
+    },
+    "steps/0/text": {
+      "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes.",
+      "text": ""
+    },
+    "steps/2/text": {
+      "source": "The steading generates 1d4-1 Surplus.",
+      "text": ""
+    },
+    "steps/3/text": {
+      "source": "Then, reset Fortunes to +1.",
       "text": ""
     }
   },
@@ -3045,19 +3077,39 @@
       "text": ""
     },
     "description": {
-      "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and Meet with Disaster. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
+      "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
       "text": ""
     },
     "moveResults/success/value": {
-      "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).\n\nThen reset Fortunes to +1.",
+      "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).",
       "text": ""
     },
     "moveResults/partial/value": {
-      "source": "The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.\n\nThen reset Fortunes to +1.",
+      "source": "The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.",
       "text": ""
     },
     "moveResults/failure/value": {
-      "source": "As a 7-9, but also threats abound (and don't mark XP).\n\nThen reset Fortunes to +1.",
+      "source": "As a 7-9, but also threats abound (and don't mark XP).",
+      "text": ""
+    },
+    "steps/0/text": {
+      "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population.",
+      "text": ""
+    },
+    "steps/1/text": {
+      "source": "The steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}.",
+      "text": ""
+    },
+    "steps/2/text": {
+      "source": "Then, pick 1:",
+      "text": ""
+    },
+    "steps/3/text": {
+      "source": "Then, roll +Fortunes.",
+      "text": ""
+    },
+    "steps/4/text": {
+      "source": "Reset Fortunes to +1.",
       "text": ""
     }
   },

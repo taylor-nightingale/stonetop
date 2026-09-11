@@ -15,8 +15,13 @@ import {GrantedMoves} from "./GrantedMoves.js";
 import {SteadingChoices} from "./SteadingChoices.js";
 import {SteadingSeasons} from "./SteadingSeasons.js";
 import {SteadingSeason} from "./SteadingSeason.js";
+import {SeasonStepRolls} from "./SeasonStepRolls.js";
+import {AppliedStepRoll} from "../../model/data/steading/AppliedStepRoll.js";
+import {EFFECT_STEPS} from "../../model/data/steading/ImprovementEffect.js";
+import {FormulaRollCard} from "../../model/snapshot/FormulaRollCard.js";
 import {SeasonSnapshot} from "../../model/snapshot/steading/TurnoverSnapshot.js";
 import {SteadingRolls} from "./SteadingRolls.js";
+import {SteadingRollNotes} from "./SteadingRollNotes.js";
 import {RollModes} from "../RollModes.js";
 import {SteadingDropRouter} from "./SteadingDropRouter.js";
 import {ChoiceStores} from "../character/ChoiceStores.js";
@@ -37,7 +42,8 @@ export class StonetopSteading {
 	#actor;
 	#places; #attributes; #debilities; #folk; #suggestions; #neighborPlaces;
 	#content; #assets; #improvements; #effects; #moves; #grantedMoves; #choices; #season; #seasons;
-	#rolls; #drops; #choiceStores; #art;
+	#steps;
+	#rolls; #rollNotes; #drops; #choiceStores; #art;
 
 	constructor(actor, repos = FoundrySteadingRepositoryFactory.create()) {
 		this.#actor          = actor;
@@ -46,6 +52,7 @@ export class StonetopSteading {
 		// Rolls before attributes: a rating tile names the debility bending it, and rolls is the one
 		// place that knows a debility bends anything at all.
 		this.#rolls          = new SteadingRolls(actor, this.#debilities);
+		this.#steps          = new SeasonStepRolls(actor);
 		this.#attributes     = new SteadingAttributes(actor, this.#rolls);
 		this.#folk           = new Folk(actor, repos.npcs);
 		this.#suggestions    = new FolkSuggestions(actor, this.#folk);
@@ -56,6 +63,9 @@ export class StonetopSteading {
 		// What the improvements propose to do to the steading, and doing it. Built FROM the
 		// improvements, so it is composed after them and handed to the board rather than held by it.
 		this.#effects        = new SteadingEffects(actor, this.#improvements);
+		// Why a move row might not roll a flat 2d6 — built from the improvements AND the debilities,
+		// because Deploy can be spoken for by both at once and neither knows about the other.
+		this.#rollNotes      = new SteadingRollNotes(actor, this.#improvements, this.#debilities);
 		this.#moves          = new SteadingMoves(actor, repos.moves);
 		// Moves an improvement confers rather than moves the steading owns — looked up in the pack, so
 		// they never join the Moves tab. See GrantedMoves.
@@ -64,7 +74,7 @@ export class StonetopSteading {
 		// The stored season and the turnover it drives. Built from the improvements, because the
 		// checklist is assembled from what this steading has actually built.
 		this.#season         = new SteadingSeason(actor, this.#effects, this.#choices);
-		this.#seasons        = new SteadingSeasons(this.#choices, this.#moves, repos.art, this.#season);
+		this.#seasons        = new SteadingSeasons(this.#choices, this.#moves, repos.art, this.#season, this.#steps);
 		// Kept as well as handed to the seasons: the Play tab's own plate is asked for at snapshot
 		// time, where there is no region class to own it.
 		this.#art            = repos.art;
@@ -94,6 +104,13 @@ export class StonetopSteading {
 	get isLacking()                                 { return this.#rolls.isLacking; }
 
 	get rollMode() { return this.#actor.getFlag("stonetop", "rollMode") ?? "normal"; }
+
+	// What a move roll came up, offered to the season: its own Seasons Change is the one move whose
+	// result the sheet keeps, so the result row the dice landed on is the one lit under the step.
+	// Every other move's roll is handed over and dropped here (see SteadingSeason#recordRoll).
+	async recordMoveOutcome(moveSlug, outcome) {
+		await this.#season.recordRoll(moveSlug, outcome);
+	}
 
 	async setRollMode(mode) {
 		await this.#actor.setFlag("stonetop", "rollMode", mode);
@@ -174,36 +191,130 @@ export class StonetopSteading {
 	get year()   { return this.#season.year; }
 
 	/**
-	 * Turn the season — one act, because in the fiction it IS one act.
+	 * Turn the season — and only that. Nothing is rolled and nothing is posted.
 	 *
-	 * Rolling the incoming season's Seasons Change move is what turning the wheel means ("when spring
-	 * bursts forth upon the land, whoever is the most hopeful rolls +Fortunes"), so the sheet does not
-	 * offer an abstract "advance" beside the move that advances it. The wheel turns first and the roll
-	 * follows: the season changes whatever the dice say, and the card should be posted by a steading
-	 * already in the season it is about.
+	 * The turn used to roll the incoming season's Seasons Change move with it, on the reading that
+	 * rolling that move IS turning the wheel. It made the wheel the thing that rolled: the card went
+	 * out before the table had read a word of the season it was entering, ahead of the steps it is
+	 * step one of, and a table wanting the move again had to turn the season to get it. Seasons
+	 * Change is rolled where the section that describes it says to roll it, by a steading already in
+	 * the season — this hands it that season and stops.
 	 */
 	async turnSeason() {
-		const moveSlug = this.season.next.moveSlug;
 		await this.#season.turn();
-		await this.#moves.roll(moveSlug);
 	}
 
 	/**
-	 * Roll one step of the season's move that is not the move's own roll — winter's 1d4+Population.
+	 * Roll one step of the season's move that is not the move's own roll — winter's 1d4+Population,
+	 * summer's 1d4-1 Surplus, autumn's 1d4 at the harvest — and move Surplus by what it came to.
+	 *
+	 * Addressed by its INDEX alone. Everything else about the step — its dice, its rating, which way
+	 * it moves Surplus, and what the steading's own improvements do to all three — is answered by the
+	 * step itself, so the control that offers 2d6+Population in a township cannot describe one roll
+	 * while this makes another.
 	 *
 	 * The rating is added at its CURRENT value, debilities and all, through the same resolveBonus
 	 * every other roll on this sheet goes through: winter consuming less because the steading is
-	 * diminished is not a special case, it is what the rating means.
+	 * diminished is not a special case, it is what the rating means. What an improvement bends is a
+	 * separate question, asked of the step — Additional Housing does not change Population, it changes
+	 * what Population counts as here.
+	 *
+	 * `affects` is the step's own word for which way its result moves Surplus, so the sign comes off
+	 * the move's data rather than being guessed from the dice. Consumption floors at 0 — "if there's
+	 * not enough, reduce Surplus to 0 and Meet with Disaster", and the Disaster is the table's, not
+	 * the sheet's.
+	 *
+	 * The address is a step OR one of its result rows: winter's 7-9 and 6- each consume another
+	 * 1d4+Population, and a row that rolls answers the same questions the step does, so nothing here
+	 * asks which of the two it was handed.
 	 */
-	async rollSeasonStep(die, stat) {
-		if (!die) return false;
-		const bonus = stat ? this.resolveBonus(stat) : 0;
-		if (bonus === null) return false;
-		const label = stat
-			? game.i18n.format("stonetop.steading.seasons.steps.rollFormula",
-				{ die, stat: game.i18n.localize(`stonetop.steading.attr.${stat}`) })
-			: game.i18n.format("stonetop.steading.seasons.steps.rollDice", { die });
-		await this.#actor.rollFormula(label, `${die} + ${bonus}`);
+	async rollSeasonStep(address) {
+		const step = await this.#seasons.stepAt(address);
+		if (!step?.roll?.die) return false;
+		const { die, stat } = step.roll;
+		const resolved = stat ? this.resolveBonus(stat) : 0;
+		if (resolved === null) return false;
+		const bonus = step.roll.bonusFrom(resolved);
+		// Rolled, applied, THEN reported: what the roll did to Surplus is the news, and it is not
+		// known until it has been done. The card is titled by what the season did rather than by the
+		// dice it called for — "Roll 1d4 + Population" is an instruction, and a chat card is a record.
+		const roll = await this.#actor.evaluateFormula(`${die} + ${bonus}`);
+		const applied = await this.#applySurplusRoll(step, roll?.total ?? null);
+		await this.#actor.postFormulaCard(new FormulaRollCard({
+			name:    this.#stepCardTitle(step),
+			roll,
+			formula: this.#stepCardFormula(step),
+			applied,
+		}));
+		return true;
+	}
+
+	/** What the season did, named by the side of the season it did it on. */
+	#stepCardTitle(step) {
+		const key = EFFECT_STEPS.includes(step.affects) ? step.affects : "roll";
+		return game.i18n.format(`stonetop.steading.seasons.steps.card.${key}`,
+			{ season: game.i18n.localize(this.season.labelKey) });
+	}
+
+	/** The formula in the words the control offered it in — the rating NAMED, not its value. */
+	#stepCardFormula(step) {
+		const { die } = step.roll;
+		return step.statLabelKey
+			? game.i18n.format("stonetop.steading.seasons.steps.card.formula",
+				{ die, stat: game.i18n.localize(step.statLabelKey) })
+			: die;
+	}
+
+	/**
+	 * What the step actually moves, which is not always what the dice said: a stone wall consumes 1
+	 * less than the winter roll, and the golden sapling generates 1 more than the harvest. Both are
+	 * recorded — the dice, and what was owed after them — because "there was not enough" is only
+	 * true against the amount that was owed.
+	 *
+	 * `rolled: false` is a step with no dice at all, whose whole amount is what the steading's own
+	 * improvements pay. Recorded with no total, so nothing claims a roll that never happened.
+	 */
+	async #applySurplusRoll(step, total, { rolled = true } = {}) {
+		if (!Number.isFinite(total)) return null;
+		const due  = step.amountFor(total);
+		const from = this.surplusCurrent;
+		// Consumption floors at 0: "if there's not enough, reduce Surplus to 0 and Meet with Disaster".
+		const to = step.affects === "consumption" ? Math.max(0, from - due)
+			: step.affects === "generation" ? from + due
+				: null;
+		if (to === null) return null;
+		await this.setSurplus(to);
+		// A step that rolled nothing records no total: "0 was rolled" under a line that never called
+		// for dice would be reporting a roll nobody made.
+		const applied = new AppliedStepRoll({ total: rolled ? total : null, due, from, to });
+		await this.#steps.record(step.address, applied);
+		// Handed back as well as recorded: the roll's own card says what it did, and the record is
+		// what says it.
+		return applied;
+	}
+
+	/**
+	 * Write what a step of the season pays with no dice at all — the steading's own gains, in a season
+	 * whose move generates nothing of its own.
+	 *
+	 * The same act as rolling one, minus the roll: the amount is what the improvements come to, it is
+	 * recorded against the step's address like any other, and `revertSeasonStep` gives it back. No
+	 * chat card — nothing was rolled, and applying a result posts none either.
+	 */
+	async applySeasonStep(address) {
+		const step = await this.#seasons.stepAt(address);
+		// A step with dice is ROLLED. Applying one would pay its improvements and quietly skip the
+		// dice the move asks for.
+		if (!step || step.roll?.die) return false;
+		return Boolean(await this.#applySurplusRoll(step, 0, { rolled: false }));
+	}
+
+	/** Give back what a step's roll took or paid, and forget it — the step offers the roll again. */
+	async revertSeasonStep(address) {
+		const applied = this.#steps.get(address);
+		if (!applied) return false;
+		await this.setSurplus(Math.max(0, this.surplusCurrent - applied.delta));
+		await this.#steps.forget(address);
 		return true;
 	}
 
@@ -343,12 +454,15 @@ export class StonetopSteading {
 	// ── Rendering ──────────────────────────────────────────────────────────────
 
 	async buildSnapshot() {
+		// Before the rest: the move rows are built FROM these, and a reminder is not something a row
+		// can go and look up for itself.
+		const rollNotes = await this.#rollNotes.bySlug();
 		const [improvements, moves, seasons, resourcesPlate, grantedMoves] = await Promise.all([
 			this.#improvements.buildSnapshot(this.#effects, this.#season.season),
-			this.#moves.buildSnapshot(),
+			this.#moves.buildSnapshot(rollNotes),
 			this.#seasons.buildSnapshot(),
 			this.#art.resourcesPlate(),
-			this.#improvements.grantedMoveSources().then(sources => this.#grantedMoves.bySlug(sources)),
+			this.#improvements.grantedMoveSlugs().then(slugs => this.#grantedMoves.bySlug(slugs)),
 		]);
 		return new SteadingSnapshot({
 			fortunes: new RatingSnapshot(SteadingDefaults.fortunes, {

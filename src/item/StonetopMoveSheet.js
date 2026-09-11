@@ -4,6 +4,7 @@ import { setField as setChoicesField, newGroup } from "../utils/choiceGroupEdit.
 import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
+import { TIER_KEYS, DEFAULT_TIER_LABELS } from "../model/data/MoveResults.js";
 import { richTextToHtml } from "../migration/richTextToHtml.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { GrantRegistry } from "./GrantRegistry.js";
@@ -21,6 +22,43 @@ export function moveSheetRichText(system) {
 		partial:     rich(r.partial?.value ?? ""),
 		failure:     rich(r.failure?.value ?? ""),
 	};
+}
+
+/**
+ * One result row as the sheet AUTHORS it: the tier, the notation it is printed with, the text as it
+ * reads, and the markdown the textarea edits.
+ *
+ * All three tiers, always — a move with only a 10+ written still needs somewhere to write the other
+ * two — which is why this is not MoveResults.fromRaw, whose job is the opposite: the tiers a move
+ * actually has, for the surfaces that only read them.
+ */
+export class MoveResultField {
+	constructor({ key, label, text, raw }) {
+		this.key   = key;
+		this.label = label;
+		// The authored result, enriched by the sheet's one enrich pass — the same RichText the view
+		// mode renders, not a second copy of it.
+		this.text  = text;
+		// The stored markdown, which is what a textarea edits. The enriched html never goes near it.
+		this.raw   = raw;
+	}
+
+	/** What the empty textarea suggests writing there. */
+	get placeholderKey() { return `stonetop.item.move.results.${this.key}Placeholder`; }
+}
+
+/**
+ * The three result rows, sharing the RichText instances the sheet already enriched — the same
+ * objects, so enrichment reaches both the rows and anything else holding them.
+ */
+export function moveResultFields(system, richText = {}) {
+	const authored = system?.moveResults ?? {};
+	return TIER_KEYS.map(key => new MoveResultField({
+		key,
+		label: authored[key]?.label || DEFAULT_TIER_LABELS[key],
+		text:  richText[key] ?? rich(authored[key]?.value ?? ""),
+		raw:   authored[key]?.value ?? "",
+	}));
 }
 
 // Every key `resolveBonus` can answer, so a stored value always has an option to sit on. A key
@@ -105,6 +143,9 @@ export function createStonetopMoveSheetClass(Base) {
 			context.showResults      = context.isRollable;
 			context.rich             = moveSheetRichText(this.item.system);
 			await enrichRichTextTree(context.rich, this.item?.getRollData?.() ?? {});
+			// The three results as the shared row partial draws them — the same partial the season box
+			// draws a move's results with, so a move's 10+/7-9/6- is one thing wherever it is read.
+			context.moveResults      = moveResultFields(this.item.system, context.rich);
 			if (context.system.choices) {
 				context.choiceSnapshot = buildChoiceGroup(context.system.choices, new ChoiceValues());
 				// A move's choice group may grant moves/followers inline; resolve them so the view-mode

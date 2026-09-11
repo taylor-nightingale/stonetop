@@ -119,13 +119,15 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "**_every winter_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "result",
           "amount": -1
         },
-        "text": "consumes 1 less Surplus"
+        "text": "the steading consumes 1 less Surplus"
       }
     ]
   },

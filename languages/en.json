@@ -197,25 +197,44 @@
         "stated": "{season}, year {year}",
         "whenComes": "When {season} comes",
         "theSeason": "the season itself",
-        "turnoverEmpty": "Nothing Stonetop has built fires this season.",
+        "turnoverEmpty": "Nothing Stonetop has built happens this season.",
+        "upkeep": "What the steading keeps up",
         "turnTitle": "The turn of the season",
-        "turnTo": "Turn to {season}",
+        "seasonComes": "{season} comes",
         "during": "During {season}",
-        "turnConfirm": "Roll Seasons Change: {season}? The season turns, and this season's checklist and seasonal gain are cleared.",
-        "rollMove": "Roll {move}",
+        "turnConfirm": "Turn to {season}?",
         "resetFortunes": "Reset Fortunes to +{value}",
         "steps": {
           "roll": "Roll it",
+          "rollShort": "Roll",
           "rollFormula": "Roll {die} + {stat}",
           "rollDice": "Roll {die}",
+          "sizeRoll": "As a {size}, the steading rolls {die} + {stat}",
+          "card": {
+            "consumption": "{season} — Consumption",
+            "generation": "{season} — Generation",
+            "roll": "{season} — Roll",
+            "formula": "{die} + {stat}"
+          },
           "consume": "The steading consumes that much Surplus",
           "generate": "The steading generates {die} Surplus",
+          "generateGains": "What the steading generates",
+          "applyGains": "Generate {amount} Surplus",
           "momentGenerate": "roll {die}; the steading generates that much Surplus",
           "reset": "Reset Fortunes",
-          "pickBelow": "below, where it stays in force all season",
+          "resetShort": "Reset to +{value}",
           "pick": {
             "seasonal-gains": "Pick {count} from the seasonal gains",
             "winter-losses": "Pick {count} from what winter takes"
+          },
+          "applied": {
+            "spent": "Consumed {amount} Surplus ({from} → {to})",
+            "gained": "Generated {amount} Surplus ({from} → {to})",
+            "unchanged": "Surplus unchanged",
+            "rolled": "— {total} was rolled",
+            "short": "— {due} was owed; there was not enough",
+            "disaster": "Meet with Disaster",
+            "revert": "Undo"
           }
         },
         "moments": {
@@ -258,7 +277,6 @@
           "consumption": "When the steading consumes Surplus",
           "generation": "When the steading generates Surplus"
         },
-        "onlyIf": "only if",
         "applySeason": "Apply the season",
         "alreadyApplied": "This season has been applied.",
         "applyMoment": "Apply",
@@ -270,6 +288,10 @@
         "henceforth": "**_Henceforth_**:",
         "applyLine": "Apply: {result}",
         "revertLine": "Revert: {result}"
+      },
+      "rollNote": {
+        "canApply": "{source} — {mode} can be applied",
+        "applies": "{source} — {mode} applies"
       }
     },
     "followers": {
@@ -626,6 +648,7 @@
       "miss": "Miss",
       "weakHit": "Weak Hit",
       "strongHit": "Strong Hit!",
+      "rolled": "Rolled",
       "xpMarked": "You mark XP.",
       "xpUndo": "Undo",
       "xpMark": "Mark XP"

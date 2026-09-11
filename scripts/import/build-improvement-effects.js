@@ -66,6 +66,11 @@ function fires(when = {}) {
 function verdict(effect) {
 	if (effect.grantsMove) return `GRANTS THE MOVE "${effect.grantsMove}" — rolled`;
 	if (effect.adjustment) return "ADJUSTS a step — stated";
+	// Before the condition, because an advantage clause is REMINDED about whether or not it carries
+	// one — the condition only changes what the reminder says. Four of the five carry one.
+	if (effect.advantage) {
+		return `REMINDS on ${effect.advantage.moves.join(", ")}${effect.condition ? " — conditional" : ""}`;
+	}
 	if (effect.condition)  return "CONDITIONAL — stated";
 	if (effect.change?.formula) return "ROLLED — stated";
 	if (Number.isInteger(effect.change?.amount)) {
@@ -73,6 +78,7 @@ function verdict(effect) {
 		return `APPLIES ${c.amount > 0 ? "+" : ""}${c.amount} ${c.target}`;
 	}
 	if (effect.listEntry) return `APPLIES → ${effect.listEntry.list}: "${effect.listEntry.text}"`;
+	if (effect.set) return `APPLIES ${effect.set.target} = ${JSON.stringify(effect.set.value)}`;
 	return "fiction — stated";
 }
 
@@ -172,9 +178,12 @@ export function buildImprovementEffects({ write = true } = {}) {
 		`parser should not be trusted with. **This file is the review surface:** each improvement's\n` +
 		`requirement is printed as the book would say it, and each result beside the sentence it came\n` +
 		`from. Check it against Book I/II.\n\n` +
-		`A result is APPLIED only when it is a plain integer change or a list entry, with no condition\n` +
-		`and no step adjustment. Everything else is stated — a die to roll, a condition the sheet cannot\n` +
-		`evaluate, an arithmetic it does not perform, or pure fiction.\n\n` +
+		`A result is APPLIED only when it is a plain integer change, a rating set outright, or a list\n` +
+		`entry — with no condition and no step adjustment. Everything else is stated: a die to roll, a\n` +
+		`condition the sheet cannot evaluate, an arithmetic it does not perform, or pure fiction.\n\n` +
+		`A REMINDS result changes no roll. It marks the moves it names, so the table can see what the\n` +
+		`steading is entitled to and pick the roll mode themselves — which is the only honest reading of\n` +
+		`the four clauses that wait on fiction ("when you take advantage of the palisade").\n\n` +
 		`${sections.join("\n\n")}\n`;
 	if (write) writeFileSync(REVIEW, review);
 

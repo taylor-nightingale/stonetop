@@ -112,9 +112,10 @@
           ]
         },
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Deploy using one of the militia's trained tactics_**"
         },
-        "text": "when you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
+        "text": "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
       },
       {
         "requires": {
@@ -175,7 +176,8 @@
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "**_each summer_**"
         },
         "change": {
           "target": "surplus",

@@ -91,13 +91,15 @@
       {
         "when": {
           "kind": "turn",
-          "seasons": []
+          "seasons": [],
+          "phrase": "when **_the steading generates Surplus, even just 1_**"
         },
         "adjustment": {
           "step": "generation",
+          "at": "result",
           "amount": 1
         },
-        "text": "when the steading generates Surplus, even just 1, it generates +1 Surplus"
+        "text": "it generates +1 Surplus"
       }
     ]
   },

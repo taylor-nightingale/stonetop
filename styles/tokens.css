@@ -44,7 +44,9 @@
 		--st-danger-veil:   color-mix(in srgb, var(--st-danger) 8%, transparent);
 		--st-danger-wash:   color-mix(in srgb, var(--st-danger) 16%, transparent);
 		--st-warning-veil:  color-mix(in srgb, var(--st-warning) 16%, transparent);
+		--st-warning-wash:  color-mix(in srgb, var(--st-warning) 30%, transparent);
 		--st-positive-veil: color-mix(in srgb, var(--st-positive) 14%, transparent);
+		--st-positive-wash: color-mix(in srgb, var(--st-positive) 28%, transparent);
 		--st-info-veil:     color-mix(in srgb, var(--st-info) 14%, transparent);
 		--st-arcane-veil:   color-mix(in srgb, var(--st-arcane) 14%, transparent);
 	}

@@ -18,24 +18,41 @@
       when. The heading states the trigger; the row says only WHICH improvement and WHAT IT DOES, in
       their own columns, so the part that differs between rows is the part the eye lands on.
 
-      Params: statement (TurnoverStatement), showAdvisory — whether to list the results the sheet
-      cannot do; showAdjustments — whether results that BEND A STEP belong in that list, or are being
-      collected under the step they bend somewhere else (the season tab does the latter); showSource
-      — false where the source is already the surrounding card; showDelta — false where the line's own
-      words already state the number; showTiming — true only where the surrounding section does not
-      already say WHEN (an improvement's Henceforth half; never the season's own panel, where the
-      timing is the panel); applyAllAction/applyAllSlug/applyAllLabel — an optional group-level "apply
+      Except where the caller asks for the line's own `phrase` — the book's trigger clause, on a
+      surface with no step, tier or panel around the row to have said it. The clause opens the
+      sentence the result finishes, and it is the one place a result's qualifier is stated: "only if
+      the market is active" was the fiction the clause already carried, said a second time in the
+      sheet's voice. A line that has a clause withholds its timing chip, the whole group with it:
+      the em dash that closes the group is drawn by the span, so an empty one left a stray dash in
+      front of a clause that had said its own "when".
+
+      WHICH LINES, from the caller. The statement knows every result that fires; which of them THIS
+      block lists is the caller's question, because the season's box shows several of them elsewhere —
+      against the step they bend, against the roll they wait on, in the upkeep the steading owes — and
+      a result stated twice is the undifferentiated wall this was rebuilt to remove. An improvement's
+      own card hands over everything, having no steps to collect anything under.
+
+      Params: statement (TurnoverStatement, for the totals its Apply would write); automaticLines /
+      advisoryLines / moveSlugs — the lines and granted moves THIS block lists; showSource — false
+      where the source is already the surrounding card; showDelta — false where the line's own words
+      already state the number; showTiming — true only where the surrounding section does not already
+      say WHEN (an improvement's Henceforth half; never the season's own panel, where the timing is
+      the panel); showPhrase — true where nothing around the row has stated the trigger, so the
+      clause and the result read as the book's own sentence, and false where a step or a result row
+      IS the trigger; bulleted — true where the rows read as a list of clauses under a line of prose
+      and take the book's swirl, false where they are a table with controls in it and a bullet would be
+      marking a form; applyAllAction/applyAllSlug/applyAllLabel — an optional group-level "apply
       everything still owed", for the season turnover where 5-10 lines from different improvements
       fire at once. --}}
 <div class="steading-statement">
 
-	{{#if statement.hasAutomatic}}
-		<ul class="steading-statement-lines{{#if showSource}} steading-statement-lines--sourced{{/if}} stonetop-unmarked">
-			{{#each statement.automatic}}
+	{{#if automaticLines.length}}
+		<ul class="steading-statement-lines{{#if showSource}} steading-statement-lines--sourced{{/if}}{{#unless bulleted}} stonetop-unmarked{{/unless}}">
+			{{#each automaticLines}}
 				<li class="steading-statement-line{{#if isApplied}} is-applied{{/if}}">
-					{{#if ../showTiming}}<span class="steading-statement-whens">{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}</span>{{/if}}
+					{{#if (and ../showTiming timingKeys.length)}}<span class="steading-statement-whens">{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}</span>{{/if}}
 					{{#if ../showSource}}<span class="steading-statement-source">{{source}}</span>{{/if}}
-					<span class="steading-statement-clause">{{rich text}}</span>
+					<span class="steading-statement-clause">{{#if (and ../showPhrase phrase)}}{{rich phrase}}, {{/if}}{{rich text}}</span>
 
 					{{#if ../showDelta}}
 						{{#with delta}}
@@ -76,27 +93,20 @@
 
 	{{!-- Advisory lines are shown where the improvement's own words are NOT — the Season tab, where
 	      "because of what Stonetop has built" is the whole point. --}}
-	{{#if (and showAdvisory statement.advisory)}}
+	{{#if advisoryLines.length}}
 		{{!-- No control: nothing here is the sheet's to do. Shown so the table can do it. --}}
-		<ul class="steading-statement-lines steading-statement-lines--advisory{{#if showSource}} steading-statement-lines--sourced{{/if}} stonetop-unmarked">
-			{{#each statement.advisory}}
-				{{#unless (and adjustment (not ../showAdjustments))}}
+		<ul class="steading-statement-lines steading-statement-lines--advisory{{#if showSource}} steading-statement-lines--sourced{{/if}}{{#unless bulleted}} stonetop-unmarked{{/unless}}">
+			{{#each advisoryLines}}
 					<li class="steading-statement-line">
-						{{#if ../showTiming}}<span class="steading-statement-whens">{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}</span>{{/if}}
+						{{#if (and ../showTiming timingKeys.length)}}<span class="steading-statement-whens">{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}</span>{{/if}}
 						{{#if ../showSource}}<span class="steading-statement-source">{{source}}</span>{{/if}}
-						<span class="steading-statement-clause">
-							{{rich text}}
-							{{#if condition}}
-								<span class="steading-statement-condition">{{localize "stonetop.steading.effects.onlyIf"}} {{condition}}</span>
-							{{/if}}
-						</span>
+						<span class="steading-statement-clause">{{#if (and ../showPhrase phrase)}}{{rich phrase}}, {{/if}}{{rich text}}</span>
 						{{#if ../showDelta}}
 							{{#with delta}}
 								<span class="steading-statement-delta is-advisory">{{amount}} {{localize subjectKey}}</span>
 							{{/with}}
 						{{/if}}
 					</li>
-				{{/unless}}
 			{{/each}}
 		</ul>
 	{{/if}}
@@ -106,18 +116,21 @@
 
 	      What this replaced was a fragment of the move printed as an advisory line AND a "Roll X"
 	      button under it: two half-renderings, neither of which was a move, and neither showing the
-	      result tiers that ARE the move. The row states which improvement conferred it, since these
-	      are collected by when they fire rather than under the thing that granted them — except on
-	      that thing's own card, which is already saying it.
+	      result tiers that ARE the move.
+
+	      The row does NOT name the improvement that conferred it. It used to, since these are
+	      collected by when they fire rather than under the thing that granted them — but the caption
+	      landed between the move's name and the move's own words, which is the one place on a row
+	      nothing else may stand.
 
 	      Not edit-gated: rolling a move writes nothing to the steading, and a locked sheet still gets
 	      to roll. --}}
-	{{#if statement.grantedMoveSlugs}}
+	{{#if moveSlugs.length}}
 		<ul class="steading-statement-moves stonetop-unmarked">
-			{{#each statement.grantedMoveSlugs}}
+			{{#each moveSlugs}}
 				{{#with (lookup @root.stonetop.grantedMoves this)}}
 					{{> "stonetop.move-row" showCheck=false categoryKey="granted" allowAdditional=false
-					    alwaysShowResource=false disclosure=true noSource=(not ../../showSource)}}
+					    alwaysShowResource=false disclosure=true}}
 				{{/with}}
 			{{/each}}
 		</ul>

@@ -135,22 +135,31 @@ export class SteadingMoves {
 	//
 	// Descriptions are left as RichText for the shared enrichRichTextTree pass (run in the sheet's
 	// getData) — buildMoveSnapshot wraps them, no bespoke enrichHTML here.
-	async buildSnapshot() {
-		const built = await Promise.all(SteadingMoveCategories.inMovesList().map(c => this._buildCategory(c)));
+	async buildSnapshot(rollNotes = new Map()) {
+		const built = await Promise.all(SteadingMoveCategories.inMovesList()
+			.map(c => this._buildCategory(c, rollNotes)));
 		return built.filter(Boolean);
 	}
 
-	/** One category by key, for the tab that owns it. Null when the steading carries none of its moves. */
-	async categorySnapshot(categoryKey) {
+	/**
+	 * One category by key, for the tab that owns it. Null when the steading carries none of its moves.
+	 *
+	 * `rollNotes` is what the row reminds the table with — see SteadingRollNotes. Passed IN rather than
+	 * asked for, because it is composed from the improvements and the debilities and a move has no way
+	 * to reach either. The Seasons Change category is asked for without any: no advantage clause names
+	 * a seasons move and no debility hinders one, so there is nothing for those rows to say.
+	 */
+	async categorySnapshot(categoryKey, rollNotes = new Map()) {
 		const category = SteadingMoveCategories.byKey(categoryKey);
-		return category ? this._buildCategory(category) : null;
+		return category ? this._buildCategory(category, rollNotes) : null;
 	}
 
-	async _buildCategory(category) {
+	async _buildCategory(category, rollNotes = new Map()) {
 		const items = this._visibleMovesIn(category);
 		if (!items.length) return null;
 		const moves = await Promise.all(items.map(item =>
-			buildMoveSnapshot(item, category.key, computeSelectable(item), this._resourceController)
+			buildMoveSnapshot(item, category.key, computeSelectable(item), this._resourceController,
+				null, rollNotes.get(item.system?.slug ?? toSlug(item.name)) ?? null)
 		));
 		return new MoveCategorySnapshotBuilder()
 			.withKey(category.key)

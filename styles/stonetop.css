@@ -2159,6 +2159,46 @@ button.stonetop-view-toggle.is-active {
 	grid-row: 2;
 }
 
+/* ── The roll reminder: the row's third line ──
+   WHY this move might not roll a flat 2d6 — advantage a built improvement permits, or a debility
+   hindering it. Information and not a control: the roll-mode control stays the table's, so this is a
+   span, and it is set in the GLOSS's register rather than in the badge register.
+
+   That last part is not cosmetic. Small caps, letter-spacing and an outlined pill are what
+   `.steading-improvement-attention` wears for `owed` and `this season` — which really are states of
+   the row — and wearing the same costume was half of why this line read as "advantage is already on".
+   Plain italic is what the sheet uses for text ABOUT a row.
+
+   Same columns as the gloss, one row lower. The header's `grid-template-rows` declares two; a third is
+   implicit and auto-sized, so a row with nothing to remind anybody of costs no height at all. It stays
+   when the row opens: it qualifies the roll, and the controls it qualifies are on the line above.
+
+   The BULLET is the shared swirl, and its indent is deliberately left to the shared rule
+   (`ul:not(.stonetop-unmarked)`, above). Zeroing the padding here is what put the swirl out in the
+   caret's column and clipped it against the rail: the swirl is drawn at `-(bullet + gap)` from the
+   item, so the list's own left padding IS the gutter it lives in. With that padding intact the swirl
+   sits exactly on the text column the name and the gloss start from. Only the UA's block margin is
+   overridden. */
+.stonetop-item-header > .stonetop-move-rollnotes {
+	grid-column: 2 / -1;
+	grid-row: 3;
+	margin: 0;
+	min-width: 0;
+}
+
+.stonetop-move-rollnote {
+	font-style: italic;
+	font-size: var(--fs-micro);
+	color: var(--st-ink-soft);
+	line-height: 1.4;
+}
+
+/* The fiction an entitlement waits on, in the book's own words and dimmer than the offer itself —
+   it is the qualifier, not the news. Italic already, from the line. */
+.stonetop-move-rollnote-clause {
+	color: var(--st-ink-faint);
+}
+
 .stonetop.sheet button.stonetop-move-disclosure:hover .stonetop-move-disclosure-name {
 	text-decoration: underline;
 }
@@ -2356,7 +2396,7 @@ button.stonetop-view-toggle.is-active {
 .stonetop-choice-track {
 	display: flex;
 	align-items: start;
-	gap: 6px;
+	gap: var(--item-header-gap);
 	margin-bottom: 3px;
 }
 
@@ -3043,15 +3083,23 @@ button.stonetop-view-toggle.is-active {
    One `--tier-color` per outcome carries the tier colour down to the total, the badge and the result
    rule; the tier is named once instead of once per element. */
 
+/* Sized here rather than left to core's chat `h3`, which set a move's name at display size and
+   wrapped a seven-word one across two lines. */
 .stonetop-roll-title {
 	display: flex;
 	align-items: center;
 	gap: 0.3em;
+	margin: 0 0 0.35em;
+	font-size: var(--fs-heading);
 	line-height: 1.25;
 }
 
 .stonetop-roll-line {
-	--tier-color: var(--st-ink-soft);
+	/* A roll with no 10+/7-9/6- has no tier colour, but it still has a total to state — so the
+	   fallback is ink, not the soft grey that made the plate read as a disabled badge. ONE plate for
+	   every roll: a season step, a move and an inline [[/r]] differ in what they mean, not in how a
+	   total looks. */
+	--tier-color: var(--st-ink);
 	display: flex;
 	align-items: center;
 	gap: 0.6em;
@@ -3103,27 +3151,59 @@ button.stonetop-view-toggle.is-active {
 	font-size: var(--fs-fine);
 }
 
-.stonetop-die {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 1.6em;
-	height: 1.6em;
-	background: var(--st-chip-fill);
-	color: var(--st-chip-ink);
-	border-radius: 3px;
-	font-weight: bold;
+/* The roll as the sheet named it — "1d4 + Population" — in the slot a tiered roll gives its outcome,
+   so the readout column is never a blank beside the total. */
+.stonetop-roll-formula {
+	color: var(--st-ink-soft);
+	font-size: var(--fs-fine);
+	line-height: 1.2;
 }
 
-.stonetop-die--dropped {
-	opacity: 0.35;
-	background: var(--st-ink-soft);
-	text-decoration: line-through;
+/* Foundry's own dice, drawn by Foundry's own rules.
+   The dice row carries core's `dice-tooltip` class, which is what core scopes its dice display to —
+   so the die faces, the min/max tints and the discarded fade all reach these dice without a single
+   value being copied here. Copying them meant three colour literals and a root-absolute asset path,
+   both of which the style contracts reject, and both of which would go stale the day core changed.
+   Nothing else core scopes to `.dice-tooltip` reaches us: the rules that size and collapse one are
+   scoped to `.dice-roll` / `.inline-roll`, which a card is neither.
+
+   Laid out as a row here rather than left to core's floats, which are shaped for a tooltip's width. */
+.stonetop-roll-dice .dice-rolls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: visible;
 }
 
-.stonetop-dice-separator { opacity: 0.4; }
+.stonetop-roll-dice .dice-rolls .roll {
+	float: none;
+	margin-right: 0;
+}
 
-.stonetop-roll-mod { font-weight: bold; }
+/* What a season step's roll did to Surplus. Unscoped, because the partial that prints it is rendered
+   both under the step on the steading sheet and on the roll's own chat card. */
+.stonetop-applied {
+	margin: 3px 0;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+.stonetop-applied-what {
+	color: var(--st-ink);
+}
+
+/* "there was not enough" — the book's Meet with Disaster, which is the table's to play out. */
+.stonetop-applied-short {
+	font-style: italic;
+}
+
+.stonetop-applied-disaster {
+	color: var(--st-danger);
+	font-weight: 600;
+}
 
 .stonetop-move-result {
 	margin-top: 0.5em;
@@ -3866,8 +3946,14 @@ button.stonetop-xp-toggle {
 	margin-bottom: 8px;
 }
 
+/* A choice entry's own words — prose introducing the rows beneath it, so it takes the scale's
+   primary-description role. It was set at --fs-label ("form labels, emphasised inline text"), which
+   is not what this text is: on an improvement card it sits directly above rows set at --fs-note and
+   directly beside a heading set at --fs-body, and matched the latter only because the steading block
+   lifts --fs-body to the 1rem --fs-label already sits at. One step apart everywhere else, and equal
+   there by coincidence. */
 .stonetop-choice-description {
-	font-size: var(--fs-label);
+	font-size: var(--fs-body);
 	font-style: normal;
 	font-weight: normal;
 	font-family: var(--font-primary);
@@ -6768,13 +6854,22 @@ button.stonetop-xp-toggle {
 	list-style: none;
 }
 
+/* --fs-note, the scale's role for consequence prose, which is what every one of these rows is. It
+   used to be --fs-fine ("source labels, page refs, fine print") here and --fs-note in the payoff's
+   own override — one partial, one row shape, rendering at two roles depending on which panel it
+   landed in. It reads at the size of a result either way now, and the override is gone. */
 .stonetop.sheet.steading .steading-statement-line {
 	display: flex;
 	gap: 0.4rem;
 	align-items: flex-start;
-	font-size: var(--fs-fine);
+	font-size: var(--fs-note);
 	color: var(--st-ink-soft);
 	line-height: 1.4;
+	/* The list's `gap` is the one thing that spaces these rows. Core sets `ul li { margin-bottom:
+	   0.25rem }` on every list in a sheet, which this list was carrying ON TOP of its own gap — two
+	   spacing mechanisms stacked, so a payoff row sat on a 31px pitch under requirement rows running
+	   at 22.5px, and neither number was written anywhere. */
+	margin: 0;
 }
 
 .stonetop.sheet.steading .steading-statement-clause { flex: 1 1 auto; min-width: 0; }
@@ -6814,6 +6909,16 @@ button.stonetop-xp-toggle {
 	min-width: 0;
 }
 
+/* The source and its clause are ONE sentence read across two columns — "Raincatching — the steading
+   generates 1 Surplus" — so the dash that joins them is drawn here, on every surface that asks for a
+   source: the numbered steps, the upkeep, the season's own list, a moment's panel. It was scoped to
+   the steps alone, which left the three lists below them reading as a name and an unrelated clause
+   with a gap between. The source is never conditionally hidden the way a timing chip is, so there is
+   no row where this dash is left standing on its own. */
+.stonetop.sheet.steading .steading-statement-source::after {
+	content: " —";
+}
+
 /* The last two columns are PINNED, because both are optional. Left to auto-placement, a row with no
    delta would put its Apply in the delta's column and the buttons down the list would not line up —
    which is the same failure the source column was fixed for, one column to the right. */
@@ -6843,8 +6948,11 @@ button.stonetop-xp-toggle {
 	/* SC 2.5.8: a real target, not a text link. */
 	min-height: 24px;
 	padding: 0 0.5rem;
-	font-size: var(--fs-fine);
-	line-height: 1.4;
+	/* The row's size, whatever role that row is set at — a control is not a role on the type scale,
+	   it belongs to the words beside it. Pinned to --fs-fine, it rendered a step under the result it
+	   applied and put a second size on a line that had no reason for one. */
+	font-size: inherit;
+	line-height: inherit;
 	border: 1px solid var(--st-rule);
 	border-radius: 2px;
 	background: none;
@@ -6867,16 +6975,11 @@ button.stonetop-xp-toggle {
    it happened and not what it wrote, so there is no inverse to press. */
 .stonetop.sheet.steading .steading-statement-line-state {
 	flex: 0 0 auto;
-	font-size: var(--fs-fine);
+	/* The control's size, for the same reason: it stands where the control would. */
+	font-size: inherit;
 	color: var(--st-ink-soft);
 	font-style: italic;
 	white-space: nowrap;
-}
-
-.stonetop.sheet.steading .steading-statement-condition {
-	display: block;
-	font-style: italic;
-	opacity: 0.85;
 }
 
 /* The arithmetic, stated. An advisory delta is dimmed: it is what the book says, not what the sheet
@@ -6957,10 +7060,12 @@ button.stonetop-xp-toggle {
 }
 
 /* The payoff reads as the second half of ONE card, so it takes the card's own two levels rather
-   than inventing any: its headings are set exactly like "Requires either one of these:"
-   (.stonetop-choice-description) and its items exactly like the requirement rows beneath that
-   (.stonetop-choice-track-desc). The first version of this used the sheet's UI face at soft ink,
-   which put two lines of a different typeface in the middle of a card of book prose. */
+   than inventing any: its headings share the TOKEN "Requires either one of these:" is set at
+   (.stonetop-choice-description, --fs-body) and its items the one the requirement rows beneath that
+   are set at (.stonetop-choice-track-desc, --fs-note). Shared tokens, not matched sizes: these two
+   used to sit on --fs-body and --fs-label and looked level only because the steading block lifts
+   the first to the 1rem the second already sits at. The first version of this used the sheet's UI
+   face at soft ink, which put two lines of a different typeface in a card of book prose. */
 .stonetop.sheet.steading .steading-payoff-head {
 	margin: 8px 0 3px;
 	font-size: var(--fs-body);
@@ -6972,19 +7077,42 @@ button.stonetop-xp-toggle {
 
 /* Tabbed in under their heading, at the indent the sheet already uses for the book's own nested
    rows (.stonetop-choice--indent). The requirement rows above reach the same column via their
-   checkbox; these have no checkbox and get there by the indent, so the two lists line up. */
+   checkbox; these have no checkbox and get there by the swirl, so the two lists line up.
+
+   The list states its OWN size, which is its rows'. It had none, so it inherited core's
+   `.window-content` 14px — a size on no role of our scale — and `1.5em` was then an em of that:
+   an indent measured in a font the card does not contain. It is an em of the text it indents now.
+
+   The indent absorbs the marker's gutter rather than adding to it, so the words stay in the column
+   they were already in and the swirl takes the space the bare indent was holding. */
 .stonetop.sheet.steading .steading-payoff .steading-statement-lines {
-	margin-left: 1.5em;
+	font-size: var(--fs-note);
+	/* The column the requirement rows above reach past their checkbox: a control's width plus the
+	   row's own gap. Said as that arithmetic rather than as the px it comes to, so the two lists in
+	   one card cannot drift apart when Foundry's font setting moves the control scale. It was a bare
+	   1.5em, which landed 2.5px short of it — and short of a different amount at every font step. */
+	--payoff-indent: calc(var(--control-check) + var(--item-header-gap));
+
+	/* The swirl sits IN that indent rather than beside it: the marker takes the gutter and the words
+	   stay in the requirement rows' column. `.steading-statement-lines` zeroes the padding these rows
+	   share with the season panel's table, so the gutter the marker is positioned into is restored
+	   here — the same restoration, from the same two properties, that .steading-effect-lines makes. */
+	margin-left: calc(var(--payoff-indent) - var(--bullet) - var(--bullet-gap));
+	padding-left: calc(var(--bullet) + var(--bullet-gap));
 	gap: 3px;
 }
 
-/* One row height whether or not the row has a control, so a line with an Apply and a line without
-   keep the same rhythm. It is the control's own target height (SC 2.5.8) — the row is sized to what
-   it MAY have to hold rather than to what this particular row happens to hold. */
+/* Rows take their content's height. They were pinned to the control's 24px target whether or not
+   they had a control, which is what put the payoff on a 31px pitch under requirement rows running
+   at 22.5px — two rhythms in one card. The control carries its own target now (see below), so a
+   list of results is as tall as its results and a list with Apply on every row is uniformly taller
+   by exactly the control.
+
+   Baseline, not center: a `when` is one line and the clause it leads into may be two, and centring
+   put "Spring" 8.8px below the line it introduces — reading as a label for the block rather than as
+   the opening words of the sentence. */
 .stonetop.sheet.steading .steading-payoff .steading-statement-line {
-	min-height: 24px;
-	align-items: center;
-	font-size: var(--fs-note);
+	align-items: baseline;
 	line-height: 1.3;
 	color: inherit;
 }
@@ -6996,12 +7124,12 @@ button.stonetop-xp-toggle {
    than at the far edge of a mostly empty row. There is no source column here — the card is it. */
 .stonetop.sheet.steading .steading-payoff .steading-statement-clause { flex: 0 1 auto; }
 
-/* Fills the row it is in, so it cannot be the thing that makes that row taller than its neighbours.
-   Its SIZING cannot be set here — core styles every button unlayered, so it outranks the layer
-   however specific this gets; that half lives at the end of this file, with the rating-name button
-   that had the same 28px problem. */
+/* Sits on the line it belongs to, and holds its own 24px target there (SC 2.5.8) rather than
+   borrowing it from a row pinned to that height. Its SIZING cannot be set here — core styles every
+   button unlayered, so it outranks the layer however specific this gets; that half lives at the end
+   of this file, with the rating-name button that had the same 28px problem. */
 .stonetop.sheet.steading .steading-payoff .steading-statement-line-btn {
-	align-self: stretch;
+	align-self: baseline;
 }
 
 /* WHEN a Henceforth result fires — set as the lead-in of its own line, in the book's voice. It was
@@ -7012,7 +7140,14 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .steading-statement-when::after { content: " — "; }
+/* The dash belongs to the WHENS, not to each one of them. On its own the em dash separates the
+   timing from the result; repeated after every season it made a list of two into a range —
+   "Spring — Summer —" reads as spring THROUGH summer, and a result that fires in two seasons and
+   not the one between them was saying the opposite of what it does. Seasons are conjoined; the
+   dash closes the group. */
+.stonetop.sheet.steading .steading-statement-when + .steading-statement-when::before { content: " & "; }
+
+.stonetop.sheet.steading .steading-statement-whens::after { content: " — "; }
 
 
 /* What Stonetop has built that bends a STEP of the season, gathered under the step it bends. Set
@@ -7186,6 +7321,11 @@ button.stonetop-xp-toggle {
 	font-style: italic;
 	opacity: 0.8;
 }
+
+/* Conjoined, as on a statement's line. A chip lays its whens out as flex items, so two of them were
+   separated by a gap and nothing else: "Spring Summer" left the reader to guess whether that was a
+   list or a span. */
+.stonetop.sheet.steading .steading-effect-when + .steading-effect-when::before { content: "& "; }
 
 .stonetop.sheet.steading .steading-effect-amount {
 	font-weight: 600;
@@ -7375,7 +7515,14 @@ button.stonetop-xp-toggle {
 	overflow: hidden;
 }
 
+/* `margin: 0` because core gives every `ol li` a 0.25rem bottom margin and takes it back on
+   `:last-child`. Inside a stretch row that is not a spacing choice, it is four segments of two
+   different heights: the pill grows to fit the tallest hypothetical item (a segment PLUS its
+   margin), the last one stretches into all of it, and the other three end 4px above the pill's
+   floor — so winter alone painted its tint to the bottom edge, and every word sat 2px above the
+   pill's centre. */
 .stonetop.sheet.steading .steading-wheel-season {
+	margin: 0;
 	font-size: var(--fs-fine);
 	color: var(--st-ink-soft);
 	white-space: nowrap;
@@ -7386,9 +7533,15 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-wheel-name {
 	display: block;
 	width: auto;
+	/* `height` as well as `min-height`: core pins every button to `--button-size`, which sizes the
+	   segment to a fixed 28px and leaves the padding below doing nothing — so the pill would keep
+	   its px height while the words in it grew with the Font Size setting. Auto hands the height
+	   back to the type. The padding then clears the 24px target on its own (SC 2.5.8) and scales
+	   with the rest of the sheet, since it is in rem. */
+	height: auto;
 	min-height: 0;
 	margin: 0;
-	padding: 0.15rem 0.7rem;
+	padding: 0.25rem 0.7rem;
 	border: none;
 	border-radius: 0;
 	background: none;
@@ -7463,51 +7616,26 @@ button.stonetop-xp-toggle {
 	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
 }
 
-/* ── Turning the wheel ── */
+/* ── The season the steading is in ── */
 
-/* Shut, this is one line. It was the tab's largest element and is the thing done least often, so it
-   reads as a control at rest and only becomes a panel once someone opens it. */
-.stonetop.sheet.steading .steading-turn {
+/* The tab's primary block, and always open. It was a shut disclosure headed "Turn to <next>", which
+   made the thing done ONCE a season the loudest element and hid the steps the table works from all
+   season behind a caret. Establishes the block formatting the plate floats inside, so the float can
+   never escape into the wheel or the board below. */
+.stonetop.sheet.steading .steading-season-box {
+	display: flow-root;
 	border: 1px solid var(--st-decor);
 	border-radius: 2px;
-	padding: 6px 10px;
-	gap: 8px;
+	padding: 8px 10px 10px;
 }
 
-.stonetop.sheet.steading .steading-turn.is-open {
-	padding-bottom: 10px;
-}
-
-.stonetop.sheet.steading .steading-turn-heading {
-	margin: 0;
-	font-size: var(--fs-body);
-	font-weight: normal;
-}
-
-/* The whole line is the control. Not styled as a button — the caret and the season's glyph say what
-   it is, and a filled button here would compete with the roll inside it. */
-.stonetop.sheet.steading .steading-turn-disclosure {
+.stonetop.sheet.steading .steading-season-box-heading {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	width: 100%;
-	min-height: 0;
-	margin: 0;
-	padding: 2px 0;
-	border: none;
-	border-radius: 0;
-	background: none;
-	color: var(--st-ink);
-	font: inherit;
-	text-align: left;
-}
-
-.stonetop.sheet.steading .steading-turn-disclosure:hover .steading-turn-title {
-	color: var(--st-accent);
-}
-
-.stonetop.sheet.steading .steading-turn.is-open .stonetop-move-caret {
-	transform: rotate(90deg);
+	margin: 0 0 8px;
+	font-size: var(--fs-body);
+	font-weight: normal;
 }
 
 /* The season's own glyph, masked so it takes the season tint rather than the sheet's art filter —
@@ -7522,19 +7650,29 @@ button.stonetop-xp-toggle {
 	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
 }
 
-.stonetop.sheet.steading .steading-turn-title {
+.stonetop.sheet.steading .steading-season-box-title {
 	min-width: 0;
 	color: var(--steading-season-tint, var(--st-accent));
 }
 
-/* The body the heading discloses. It establishes the block formatting the plate floats inside, so
-   the float can never escape into the section below it. */
-.stonetop.sheet.steading .steading-turn-body {
-	display: flow-root;
+/* Turning the wheel: one control, small, and after the season it ends. Trailing rather than leading
+   because it is used once where everything above it is used throughout. */
+.stonetop.sheet.steading .steading-season-advance {
+	display: flex;
+	justify-content: flex-end;
 	margin-top: 8px;
 }
 
-/* The ritual, numbered — this IS a sequence, and the numbers say the order the move prescribes. */
+.stonetop.sheet.steading .steading-season-advance-button {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	width: auto;
+	min-height: 26px;
+	padding: 0.2rem 0.7rem;
+	font-size: var(--fs-note);
+}
+
 .stonetop.sheet.steading .steading-turn-steps {
 	display: grid;
 	gap: 9px;
@@ -7577,6 +7715,15 @@ button.stonetop-xp-toggle {
 	align-items: center;
 	gap: 0.4rem;
 	width: auto;
+	/* The label is a sentence — "Roll 1d4 + Population" — and at the top of the Font Size setting it
+	   is wider than the column a result row leaves it. Capped and allowed to wrap rather than left
+	   to push out of the row it belongs to. */
+	max-width: 100%;
+	text-align: left;
+	/* Core sizes every button to one line of the UI font (`height: var(--input-height)`), so a label
+	   that wraps spills out of it. The height follows the label; the minimum keeps a one-line button
+	   a comfortable target. */
+	height: auto;
 	min-height: 24px;
 	padding: 0.25rem 0.7rem;
 	border: 1px solid var(--st-accent);
@@ -7589,6 +7736,11 @@ button.stonetop-xp-toggle {
 /* A step's own roll — winter's 1d4+Population. Outlined rather than filled: the filled button on
    this panel is the one that TURNS the season, and two solid buttons would read as two ways to do
    the same thing. */
+.stonetop.sheet.steading .steading-turn-roll > span {
+	min-width: 0;
+	overflow-wrap: break-word;
+}
+
 .stonetop.sheet.steading .steading-turn-roll.is-plain {
 	background: none;
 	color: var(--st-accent);
@@ -7602,20 +7754,79 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .steading-turn-reset {
+/* What bends a step, and what waits on the roll it sits under. Set in from the step's line, like the
+   pick, so they read as belonging to that step rather than as a new block beneath it.
+
+   Bulleted with the book's own swirl. `.steading-statement-lines` zeroes the padding these rows share
+   with the statement's table, which would leave the marker drawing into the text it marks — so the
+   gutter it is positioned into is restored here, from the same two custom properties the generic
+   rule declares. */
+.stonetop.sheet.steading .steading-effect-lines {
+	padding-left: calc(var(--bullet) + var(--bullet-gap));
+}
+
+.stonetop.sheet.steading .steading-turn-results,
+.stonetop.sheet.steading .steading-turn-outcomes {
+	margin: 3px 0 0;
+}
+
+/* What the steading's SIZE makes of a step's dice — winter's 2d6+Population in a town. Under the
+   step's own line, which is the book's and says 1d4, so the control's dice are accounted for. */
+.stonetop.sheet.steading .steading-turn-size {
+	margin: 3px 0 0;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+/* What the steading has built that fires at a moment the move numbers — the mill at the harvest.
+   Inside the step, above its roll control, because the roll is what pays it. */
+.stonetop.sheet.steading .steading-turn-moment {
+	margin: 3px 0 0;
+	font-size: var(--fs-fine);
+}
+
+/* The move's own result tiers, under the roll they answer — drawn by the shared result-row rules
+   above, so the season box reads a move's 10+/7-9/6- exactly as the move's own sheet does. What is
+   left here is where the block sits in the step. */
+.stonetop.sheet.steading .steading-turn-tiers {
+	margin: 5px 0 0;
+	padding: 0;
+}
+
+/* What the steading has built that waits on this row of the roll. Inside the row, under its words,
+   because the row is the condition — so the clause carries its source and nothing else. */
+.stonetop.sheet.steading .stonetop-result-body .steading-turn-outcomes {
+	font-size: var(--fs-fine);
+}
+
+/* A tier that costs the steading a roll — winter's 7-9 and 6-. Its control sits under the words
+   rather than beside them: the row's text is a full sentence, and a button on its baseline would
+   push the sentence into a column narrow enough to wrap twice. */
+.stonetop.sheet.steading .stonetop-result-body .steading-turn-roll,
+.stonetop.sheet.steading .stonetop-result-body .steading-turn-reset {
+	margin-top: 3px;
+}
+
+/* What a step's roll actually did to Surplus. Stated rather than left to the chat log: the number on
+   the sheet changed, and the reader is entitled to see why without scrolling somewhere else. */
+
+/* The choice, in the step that calls for it. Set in from the step's own text so the rows read as
+   belonging to that line rather than as a new block under it. */
+.stonetop.sheet.steading .steading-turn-pick {
+	margin-top: 4px;
+}
+
+/* The two small controls a step carries besides its die: the reset the move ends on, and the Apply
+   on a step that pays what the steading generates with no dice to roll for it. */
+.stonetop.sheet.steading .steading-turn-reset,
+.stonetop.sheet.steading .steading-turn-apply {
 	width: auto;
 	min-height: 24px;
 	padding: 0.15rem 0.6rem;
 	font-size: var(--fs-fine);
 }
 
-/* The season's own move, under the control that rolls it. A bare list wrapper: the row inside is the
-   same move row every other surface draws, so nothing here restyles one. */
-.stonetop.sheet.steading .steading-turn-move {
-	margin: 6px 0 0;
-	padding: 0;
-	list-style: none;
-}
+.stonetop.sheet.steading .steading-turn-apply { margin-top: 3px; }
 
 /* The book's own line for the season, in its own voice. */
 .stonetop.sheet.steading .steading-season-impression {
@@ -7626,18 +7837,25 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-/* ── During the season: what it owes, and the moments within it ── */
+/* ── What the season owes, and the moments within it ── */
 
-/* The tab's working surface — used throughout a season, where the turn is used once. Its parts are
-   separated by rules rather than by boxes: they are three halves of one answer to "what does autumn
-   owe us", not three panels. */
-.stonetop.sheet.steading .steading-during-gain + .steading-during-owed,
-.stonetop.sheet.steading .steading-during-owed + .steading-moments {
+/* Everything the box holds after its numbered steps, separated by rules rather than by boxes: they
+   are parts of one answer to "what does autumn owe us", not panels of their own. Written as direct
+   children rather than as a chain of `+` pairs so that a part which renders nothing — the
+   adjustments block is absent entirely when nothing bends a step — cannot break the run. */
+.stonetop.sheet.steading .steading-season-box > .steading-during-owed,
+.stonetop.sheet.steading .steading-season-box > .steading-upkeep,
+.stonetop.sheet.steading .steading-season-box > .steading-adjustments,
+.stonetop.sheet.steading .steading-season-box > .steading-moments {
 	margin-top: 8px;
 	padding-top: 8px;
 	border-top: 1px solid var(--st-rule);
 }
 
+/* The steading's own bills for the season, headed as its own part of the box. Set exactly as the
+   "When winter comes" heading below it: they are two halves of the same answer — what the season
+   owes, and what the steading owes for what it built — and a second look would say otherwise. */
+.stonetop.sheet.steading .steading-upkeep-label,
 .stonetop.sheet.steading .steading-during-label {
 	display: flex;
 	align-items: baseline;
@@ -7760,19 +7978,6 @@ button.stonetop-xp-toggle {
 
 
 
-
-/* A move's icon, wherever a move renders — moves tab, side-bar, arcanum cards, seasons, chat.
-   A chat message is outside any .stonetop root, so it names that context rather than inheriting. */
-.stonetop .stonetop-move-icon,
-.chat-message .stonetop-move-icon {
-	width: 20px;
-	height: 20px;
-	flex: 0 0 20px;
-	object-fit: contain;
-	border: none;
-	vertical-align: text-bottom;
-	margin-right: 2px;
-}
 
 /* ── Notes tab ───────────────────────────────────────────────────────────────── */
 
@@ -8019,90 +8224,133 @@ button.stonetop-xp-toggle {
 
 /* -- Move Results -------------------------------------------- */
 
-.move-sheet-results {
+/* A move's three results, wherever they are read: the item sheet that AUTHORS them and the season
+   box that ROLLS them. Both drew the same authored field and had drawn it twice — a labelled table
+   here, a two-column list of accent-coloured notation there — so they are one component now
+   (templates/actor/partials/move-result-row.hbs) and one set of rules.
+
+   A table, deliberately: the notation runs down one band and the results beside it, so a reader
+   finds the tier they rolled by running down an edge instead of reading three sentences. The band
+   is the full height of its row — the row is the unit, and a chip floating at the top of a
+   four-line result reads as a bullet rather than as the row's own label. */
+
+.stonetop-result-rows {
 	display: flex;
 	flex-direction: column;
 	border-bottom: 1px solid var(--st-rule-soft);
 }
 
-.move-sheet-result {
-	display: flex;
+.stonetop-result-row {
+	display: grid;
+	grid-template-columns: auto 1fr;
 	align-items: stretch;
 	border-top: 1px solid var(--st-rule-soft);
 }
 
-.move-sheet-result:first-child {
+.stonetop-result-row:first-child {
 	border-top: none;
 }
 
-.move-sheet-result-label {
+.stonetop-result-label {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	gap: 1px;
 	min-width: 2.8rem;
 	padding: 0.5rem 0.4rem;
 	font-size: var(--fs-note);
 	font-weight: bold;
 	letter-spacing: 0.02em;
-	flex-shrink: 0;
+	text-align: center;
 }
 
-.move-sheet-result-label--success {
+.stonetop-result-row--success .stonetop-result-label {
 	background: var(--st-positive-veil);
 	color: var(--st-positive);
 }
 
-.move-sheet-result-label--partial {
+.stonetop-result-row--partial .stonetop-result-label {
 	background: var(--st-warning-veil);
 	color: var(--st-warning);
 }
 
-.move-sheet-result-label--failure {
+.stonetop-result-row--failure .stonetop-result-label {
 	background: var(--st-danger-veil);
 	color: var(--st-danger-strong);
 }
 
-.move-sheet-result textarea {
-	flex: 1;
+/* min-width:0 is what lets a long result wrap instead of widening the grid column and pushing the
+   sheet sideways. */
+.stonetop-result-body {
+	min-width: 0;
+	padding: 0.4rem 0.6rem;
+	border-left: 1px solid var(--st-rule-soft);
+	font-size: var(--fs-note);
+	line-height: 1.4;
+}
+
+.stonetop-result-text p {
+	margin: 0.3em 0;
+}
+
+.stonetop-result-text p:first-child {
+	margin-top: 0;
+}
+
+.stonetop-result-text ul {
+	margin: 0.3em 0;
+	padding-left: 1.2em;
+}
+
+/* Authoring: the textarea IS the body, so the padding and the rule that separate the result from
+   its band are the body's and the field brings none of its own. */
+.stonetop-result-body textarea {
+	display: block;
+	width: 100%;
 	background: transparent;
 	border: none;
-	border-left: 1px solid var(--st-rule-soft);
 	color: inherit;
 	font-family: inherit;
-	font-size: var(--fs-body);
+	font-size: var(--fs-note);
 	line-height: 1.4;
-	padding: 0.4rem 0.6rem;
+	padding: 0;
 	resize: vertical;
 }
 
-.move-sheet-result textarea:focus {
+.stonetop-result-body textarea:focus {
 	outline: none;
 	background: var(--st-paper-veil-soft);
 }
 
-.move-sheet-result textarea::placeholder {
+.stonetop-result-body textarea::placeholder {
 	color: var(--st-ink-muted);
 }
 
-.move-sheet-result-text {
-	flex: 1;
-	padding: 0.4rem 0.6rem;
-	font-size: var(--fs-body);
-	line-height: 1.4;
-	border-left: 1px solid var(--st-rule-soft);
+/* The row the dice landed on.
+
+   The three results stay READABLE — the table rolled a 7-9 and the 10+ above it is what they didn't
+   get, which is half of what a result means — so this lifts one row rather than hiding two: the
+   rolled row keeps its full colour and takes a stronger band, and the rows it wasn't recede.
+
+   Never colour alone (WCAG 1.4.1): the band says so in words, under the notation. */
+.stonetop-result-rows:has(.is-rolled) .stonetop-result-row:not(.is-rolled) {
+	opacity: 0.55;
 }
 
-.move-sheet-result-text p {
-	margin: 0.3em 0;
-}
+.stonetop-result-row--success.is-rolled .stonetop-result-label { background: var(--st-positive-wash); }
+.stonetop-result-row--partial.is-rolled .stonetop-result-label { background: var(--st-warning-wash); }
+.stonetop-result-row--failure.is-rolled .stonetop-result-label { background: var(--st-danger-wash); }
 
-.move-sheet-result-text p:first-child {
-	margin-top: 0;
-}
+.stonetop-result-row--success.is-rolled .stonetop-result-body { background: var(--st-positive-veil); }
+.stonetop-result-row--partial.is-rolled .stonetop-result-body { background: var(--st-warning-veil); }
+.stonetop-result-row--failure.is-rolled .stonetop-result-body { background: var(--st-danger-veil); }
 
-.move-sheet-result-text ul {
-	margin: 0.3em 0;
-	padding-left: 1.2em;
+.stonetop-result-rolled {
+	font-size: var(--fs-micro);
+	font-weight: normal;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
 }
 
 /* -- Details ------------------------------------------------- */
@@ -10004,12 +10252,13 @@ button.stonetop-xp-toggle {
 }
 
 /* The same unlayered-button problem, in the improvement payoff: core's fixed height and vertical
-   padding put an Apply at 26.7px inside a 24px row, so the one line that had a control sat taller
-   than the lines that did not and the little list lost its rhythm. The row already states the height
-   a control needs (SC 2.5.8); the button's job is to fill it, not to set it. */
+   padding put an Apply at 26.7px, taller than the target it needs and taller than the words beside
+   it. The button states its own 24px (SC 2.5.8) and nothing else — it used to take that height from
+   a row pinned to 24px whether or not it held a control, which cost every controlless list in the
+   card 4.5px a row against the requirement rows above. */
 .stonetop.sheet.steading .steading-payoff .steading-statement-line-btn {
 	height: auto;
-	min-height: 0;
+	min-height: 24px;
 	padding-block: 0;
 }
 

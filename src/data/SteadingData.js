@@ -73,6 +73,16 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			// autumn. It is also the guard on a sheet six people share — applying skips what is
 			// already recorded, so the second person to press Apply pays nothing.
 			turnoverApplied:   new f.ObjectField(),
+			// What each dice-rolling step of this season's move did to Surplus, keyed by the step's
+			// index in the move's own procedure — an AppliedStepRoll, so the step can say what it did
+			// and give it back. Season-scoped alongside turnoverApplied and cleared with it: next
+			// winter's consumption is a new roll, not a re-run of this one.
+			seasonStepsApplied: new f.ObjectField(),
+			// The tier the season's own Seasons Change roll last landed in — "success", "partial",
+			// "failure", or "" for a season nobody has rolled yet. Season-scoped with the two above:
+			// the highlight it draws belongs to the season that was rolled, so turning the wheel
+			// clears it rather than leaving winter's 6- lit under spring's results.
+			seasonRollOutcome: new f.StringField({ initial: "" }),
 			// Which completion results have been applied, keyed by LINE id, each an AppliedEffect.
 			// DURABLE and not season-scoped — an improvement is finished once, and its +1 Fortunes is
 			// not owed again next spring. Was keyed by improvement SLUG and held a bare `true`, which

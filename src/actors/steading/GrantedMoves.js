@@ -1,6 +1,5 @@
 import { FoundryMoveRepository } from "../character/repositories/FoundryMoveRepository.js";
 import { buildMoveSnapshot } from "../embeddedMoves.js";
-import { toSlug } from "../../utils/slug.js";
 
 /**
  * The moves the steading's improvements confer — resolved from the pack, never embedded.
@@ -27,12 +26,10 @@ export class GrantedMoves {
 	 * The named moves as MoveSnapshots, keyed by slug — one lookup per render for the whole sheet,
 	 * since the same move can be granted in more than one place.
 	 *
-	 * @param sources Map of move slug → the name of the improvement conferring it, which becomes the
-	 *                row's source label. Every other move row sits under a heading that says where it
-	 *                came from; these are collected by WHEN they fire, so each has to say it itself.
+	 * @param slugs the move slugs the owned improvements confer.
 	 */
-	async bySlug(sources = new Map()) {
-		const wanted = [...sources.keys()].filter(Boolean);
+	async bySlug(slugs = []) {
+		const wanted = [...slugs].filter(Boolean);
 		if (!wanted.length) return {};
 		const entries = await this._repo.getMoveEntriesBySlugs(wanted);
 		const found = {};
@@ -40,13 +37,11 @@ export class GrantedMoves {
 			// Never selectable and never checked: a conferred move is not something the steading takes,
 			// so the acquisition tick has nothing to record. No ResourceController either — these are
 			// not owned items, so there is nothing for a resource box to persist onto.
-			const slug = entry.system?.slug ?? toSlug(entry.name ?? "");
 			// Built from an entry with NO id: `_id` on a pack entry is the pack's, and a row stamped
 			// with it as its owned id would claim an item the steading does not have — the roll would
 			// look for it, fail to find it, and fall through to a bare stat roll. The row names its
 			// move by slug instead (see StonetopActor#_onRoll).
-			const move = buildMoveSnapshot({ ...entry, _id: null }, GrantedMoves.CATEGORY, false, null,
-			                               null, sources.get(slug) ?? null);
+			const move = buildMoveSnapshot({ ...entry, _id: null }, GrantedMoves.CATEGORY, false, null);
 			if (move.slug) found[move.slug] = move;
 		}
 		return found;

@@ -1,5 +1,6 @@
 import { enrichRichTextTree } from "./enrichRichText.js";
 import { rich } from "../model/snapshot/RichText.js";
+import { MoveResults } from "../model/data/MoveResults.js";
 
 const TEMPLATE = "systems/stonetop/templates/chat/move-roll.hbs";
 
@@ -23,14 +24,12 @@ export async function postDescriptionCard(speaker, { name, icon = null, descript
 	return ChatMessage.create({ speaker, content: await renderRollCard(card, rollData) });
 }
 
-const TIER_KEYS = ["success", "partial", "failure"];
-
-/** Move results ({success: {label, value}, …}) → ordered card tiers; null when there are none. */
+/**
+ * Move results ({success: {label, value}, …}) → ordered card tiers; null when there are none.
+ *
+ * The tiers themselves are MoveResults, which the Seasons Change box reads as well — the card and
+ * the box print the same authored results, so neither owns the tier order.
+ */
 export function buildResultTiers(moveResults) {
-	if (!moveResults) return null;
-	const tiers = TIER_KEYS
-		.map(key => ({ key, tier: moveResults[key] }))
-		.filter(({ tier }) => tier?.value)
-		.map(({ key, tier }) => ({ key, label: tier.label ?? "", text: rich(tier.value) }));
-	return tiers.length ? tiers : null;
+	return MoveResults.fromRaw(moveResults)?.tiers ?? null;
 }

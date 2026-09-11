@@ -175,7 +175,8 @@
           "kind": "turn",
           "seasons": [
             "spring"
-          ]
+          ],
+          "phrase": "**_each spring_**"
         },
         "change": {
           "target": "surplus",
@@ -185,9 +186,10 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Outfit from Stonetop or Have What You Need after doing so_**"
         },
-        "text": "when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
+        "text": "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
       },
       {
         "when": {

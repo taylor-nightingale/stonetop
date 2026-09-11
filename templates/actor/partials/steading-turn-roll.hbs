@@ -1,0 +1,68 @@
+{{!-- The control for one roll of a Seasons Change move that MOVES Surplus.
+
+      Two things roll one: a step of its own — winter's opening 1d4+Population, summer's 1d4-1,
+      autumn's 1d4 at the harvest — and a result row of the move's own roll, which is winter's 7-9
+      and 6- consuming another 1d4+Population. They are the same roll made in two places, so they are
+      one control: the same dice, the same record of what it did, the same offer to give it back.
+
+      Context is whichever of the two it belongs to — a SeasonStepSnapshot or a SeasonTierSnapshot.
+      Both answer where they are (`address`), what they roll (`roll`), and what they have already
+      done (`applied`), so nothing here asks which it was handed. Passed WITHOUT hash params: a
+      partial invoked with hash args gets a flattened copy of its context, and both of these answer
+      everything through prototype getters, every one of which is lost in that copy.
+
+      Rolling MOVES Surplus, so once it has, this says what it did and offers to give it back rather
+      than offering the roll again: a number that changed with nothing on screen to say why is worse
+      than no automation at all. Every branch is edit-gated — they write.
+
+      A step with no dice gets an Apply instead of a roll. That is the step the sheet adds in a season
+      whose move generates nothing of its own, so that what the steading generates is paid where the
+      season generates rather than in a list beside it. --}}
+{{#with applied}}
+	{{!-- Passed as CONTEXT, not hash params: prototype getters are lost in the flattened copy a
+	      partial invoked with hash args gets. --}}
+	{{> stonetop.steading-applied-line}}
+	{{#if @root.editable}}
+		<button type="button" class="steading-turn-reset"
+		        data-action="revertSeasonStep" data-step="{{../address.key}}">
+			{{localize "stonetop.steading.seasons.steps.applied.revert"}}
+		</button>
+	{{/if}}
+{{else}}
+	{{#if @root.editable}}
+		{{#if die}}
+		{{!-- Its ADDRESS and nothing else: the dice, the rating, which way it moves Surplus and what
+		      the improvements do to all three are answered by the step itself, so a control that offers
+		      2d6+Population in a township cannot describe one roll while the handler makes another. --}}
+		<button type="button" class="steading-turn-roll is-plain"
+		        data-action="rollSeasonStep" data-step="{{address.key}}">
+			<i class="fas fa-dice-d6" aria-hidden="true"></i>
+			{{!-- The dice, wherever they are not the ones the line above just named: the control is the
+			      one place the roll this steading actually makes belongs, and it is what says the sheet
+			      took the improvements at their word. Short to a verb only where the line already stated
+			      the formula and nothing bent it — "Roll 1d4+Population" under "…rolls 1d4+Population"
+			      is it twice. --}}
+			<span>
+				{{~#if roll.isAdjusted~}}
+					{{#if stat}}{{localize "stonetop.steading.seasons.steps.rollFormula"
+					            die=die stat=(localize statLabelKey)}}{{else}}{{localize
+					            "stonetop.steading.seasons.steps.rollDice" die=die}}{{/if}}
+				{{~else if text~}}
+					{{localize "stonetop.steading.seasons.steps.rollShort"}}
+				{{~else~}}
+					{{localize labelKey die=die stat=(localize statLabelKey)}}
+				{{~/if~}}
+			</span>
+		</button>
+		{{else}}
+			{{!-- A step with no dice at all: the one the sheet adds for the steading's own gains, in a
+			      season whose move generates nothing of its own. The amount is what those gains come
+			      to, so the control states it and writes it — recorded and reverted exactly as a roll
+			      is, because it is the same step minus the roll. --}}
+			<button type="button" class="steading-turn-apply"
+			        data-action="applySeasonStep" data-step="{{address.key}}">
+				{{localize "stonetop.steading.seasons.steps.applyGains" amount=gainTotal}}
+			</button>
+		{{/if}}
+	{{/if}}
+{{/with}}

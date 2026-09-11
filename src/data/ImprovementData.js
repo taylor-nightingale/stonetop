@@ -27,14 +27,31 @@ export class ImprovementData extends foundry.abstract.TypeDataModel {
 			// "+1 Defenses" waits on two trained tactics while its summer upkeep does not.
 			effects:   new f.ArrayField(new f.SchemaField({
 				requires:  new f.ObjectField({ nullable: true, initial: null }),
-				when:      new f.ObjectField({ nullable: true, initial: null }),
+				// {kind, seasons, moment} and the book's own words for the trigger, in `phrase` — read
+			// as one sentence with `text` on the improvement's own card, which is the one surface
+			// with no season around it to have stated the trigger already.
+			when:      new f.ObjectField({ nullable: true, initial: null }),
 				text:      new f.StringField({ initial: "" }),
-				condition: new f.StringField({ initial: "" }),
+				// Whether the sheet can TELL that the clause in `when.phrase` holds — "as long as the
+				// camp is in operation", "the market is active". A flag and not a sentence: the words
+				// are the phrase's, and a result carrying this is stated and never applied.
+				condition: new f.BooleanField({ initial: false }),
 				change:    new f.ObjectField({ nullable: true, initial: null }),
+				// A rating SET to a value rather than moved by one — Township's Size and Population.
+				// Size is settable and never addable, so it can only ever appear here.
+				set:       new f.ObjectField({ nullable: true, initial: null }),
 				listEntry: new f.ObjectField({ nullable: true, initial: null }),
 				adjustment: new f.ObjectField({ nullable: true, initial: null }),
+				// The results of the season's OWN roll a result waits on, in the book's notation —
+				// "if you roll a 7+ with Fortunes". Not a condition the sheet cannot evaluate but a
+				// fact about the move's own roll, so the season's box prints it inside the result
+				// rows it covers ("7+" being the 10+ row and the 7-9 row both).
+				outcome:   new f.StringField({ initial: "" }),
 				// A move slug — the improvement confers a move the table rolls (the Aurochs Hunt).
 				grantsMove: new f.StringField({ initial: "" }),
+				// `{moves: [slug]}` — moves this improvement says the steading rolls with advantage.
+				// A reminder on those moves' rows and nothing more; the roll mode stays the table's.
+				advantage: new f.ObjectField({ nullable: true, initial: null }),
 			})),
 		};
 	}

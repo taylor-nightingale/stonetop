@@ -1,4 +1,4 @@
-import { EFFECT_TARGETS } from "../../model/data/steading/ImprovementEffect.js";
+import { EFFECT_SET_TARGETS } from "../../model/data/steading/ImprovementEffect.js";
 import { AppliedEffect } from "../../model/data/steading/AppliedEffect.js";
 import { ImprovementPayoff } from "../../model/snapshot/steading/ImprovementPayoff.js";
 import { TurnoverLine, TurnoverStatement } from "../../model/snapshot/steading/TurnoverStatement.js";
@@ -28,10 +28,15 @@ export class SteadingEffects {
 
 	get _stored() { return this._actor.system?.improvementValues ?? {}; }
 
-	/** The steading's current ratings, so a statement can say before → after. */
+	/**
+	 * The steading's current ratings, so a statement can say before → after.
+	 *
+	 * Every rating a result can touch, Size included — a result that SETS one needs the value it is
+	 * replacing, and Size is settable while never being addable.
+	 */
 	get _ratings() {
 		const attributes = this._actor.system?.attributes ?? {};
-		return Object.fromEntries(EFFECT_TARGETS.map(t => [t, attributes[t] ?? 0]));
+		return Object.fromEntries(EFFECT_SET_TARGETS.map(t => [t, attributes[t] ?? 0]));
 	}
 
 	/**
@@ -47,10 +52,19 @@ export class SteadingEffects {
 		return AppliedEffect.fromRaw(store[id]);
 	}
 
+	/**
+	 * One result as a line of THIS steading's statement.
+	 *
+	 * Resolved against the steading's own ratings, so Township's "Surplus equal to Population+1" is
+	 * the number it is worth this season rather than an expression the sheet refuses to write. Dice
+	 * are left alone — those are the table's — and the record is still filed against the effect's own
+	 * id, which the arithmetic does not touch.
+	 */
 	_lineFor(improvement, effect, index, { earned = true } = {}) {
 		const id = TurnoverLine.idFor(improvement.slug, index);
 		return new TurnoverLine({
-			id, source: improvement.name, effect, earned, applied: this._recordFor(effect, id),
+			id, source: improvement.name, effect: effect.resolvedFor(this._ratings),
+			earned, applied: this._recordFor(effect, id),
 		});
 	}
 
@@ -111,21 +125,29 @@ export class SteadingEffects {
 	 * what the season's "apply all" is: not a different mechanism, just every pending line at once.
 	 */
 	async applyLines(lines) {
-		const pending = lines.filter(l => l.isPending);
+		// What a control may write, which is not only what the season's batch would: a result waiting on
+		// the move's own roll is written from the row the dice landed on, and never from anywhere else.
+		const pending = lines.filter(l => l.canWrite);
 		if (!pending.length) return false;
 
 		const update = {};
 		const attributes = this._actor.system?.attributes ?? {};
 		const assets     = this._actor.system?.assets ?? {};
 
+		// One running value per rating rather than a running delta, because a SET is not a delta: the
+		// two have to fold together into the same final number, and each line has to be recorded
+		// against the value ITS OWN turn saw so that reverting it puts back what it actually replaced.
 		const ratings = new Map();
+		const valueOf = target => ratings.has(target) ? ratings.get(target) : attributes[target];
 		const additions = new Map();
 		for (const line of pending) {
-			const record = AppliedEffect.fromLine(line);
+			const target = line.effect.change?.target ?? line.effect.set?.target ?? null;
+			const record = AppliedEffect.fromLine(line, { from: target === null ? undefined : valueOf(target) });
 			if (record.change) {
-				const { target, amount } = record.change;
-				ratings.set(target, (ratings.get(target) ?? attributes[target] ?? 0) + amount);
+				const { amount } = record.change;
+				ratings.set(target, (valueOf(target) ?? 0) + amount);
 			}
+			if (record.set) ratings.set(target, record.set.to);
 			if (record.entry) {
 				// Evidence lists are plain string arrays; an entry already written is not written twice,
 				// since re-applying is a thing that happens on a shared sheet.

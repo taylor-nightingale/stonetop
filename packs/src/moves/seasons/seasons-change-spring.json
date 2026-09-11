@@ -10,15 +10,15 @@
     "moveResults": {
       "success": {
         "label": "10+",
-        "value": "Pick 1 seasonal gain.\n\nThen reset Fortunes to +1."
+        "value": "Pick 1 seasonal gain."
       },
       "partial": {
         "label": "7-9",
-        "value": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.\n\nThen reset Fortunes to +1."
+        "value": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse."
       },
       "failure": {
         "label": "6-",
-        "value": "Threats abound (and don't mark XP).\n\nThen reset Fortunes to +1."
+        "value": "Threats abound (and don't mark XP)."
       }
     },
     "rollStat": "fortunes",
@@ -26,7 +26,8 @@
       {
         "kind": "roll",
         "stat": "fortunes",
-        "tiers": true
+        "tiers": true,
+        "text": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes."
       },
       {
         "kind": "pick",
@@ -35,7 +36,8 @@
       },
       {
         "kind": "reset",
-        "target": "fortunes"
+        "target": "fortunes",
+        "text": "Reset Fortunes to +1."
       }
     ],
     "slug": "seasons-change-spring"

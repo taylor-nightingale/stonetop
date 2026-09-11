@@ -42,37 +42,18 @@
 		</section>
 
 		{{#if showResults}}
-		<section class="move-sheet-results">
-			<div class="move-sheet-result">
-				<span class="move-sheet-result-label move-sheet-result-label--success">10+</span>
-				{{#if editable}}
-				<textarea name="system.moveResults.success.value" rows="3"
-				          placeholder="{{localize "stonetop.item.move.results.successPlaceholder"}}"
-		       aria-label="{{localize 'stonetop.item.move.results.successPlaceholder'}}">{{system.moveResults.success.value}}</textarea>
+		{{!-- The move's three results, drawn by the partial the season box draws them with. Edit mode
+		      and view mode are one branch around the loop rather than one inside each row: what
+		      changes is whether the body is a textarea or the text it authored. --}}
+		<section class="stonetop-result-rows">
+			{{#each moveResults}}
+				{{#if @root.editable}}
+				{{> stonetop.move-result-row key=key label=label
+				    bodyPartial="stonetop.move-result-editor" body=this}}
 				{{else}}
-				<div class="move-sheet-result-text">{{rich rich.success}}</div>
+				{{> stonetop.move-result-row key=key label=label text=text}}
 				{{/if}}
-			</div>
-			<div class="move-sheet-result">
-				<span class="move-sheet-result-label move-sheet-result-label--partial">7-9</span>
-				{{#if editable}}
-				<textarea name="system.moveResults.partial.value" rows="3"
-				          placeholder="{{localize "stonetop.item.move.results.partialPlaceholder"}}"
-		       aria-label="{{localize 'stonetop.item.move.results.partialPlaceholder'}}">{{system.moveResults.partial.value}}</textarea>
-				{{else}}
-				<div class="move-sheet-result-text">{{rich rich.partial}}</div>
-				{{/if}}
-			</div>
-			<div class="move-sheet-result">
-				<span class="move-sheet-result-label move-sheet-result-label--failure">6−</span>
-				{{#if editable}}
-				<textarea name="system.moveResults.failure.value" rows="3"
-				          placeholder="{{localize "stonetop.item.move.results.failurePlaceholder"}}"
-		       aria-label="{{localize 'stonetop.item.move.results.failurePlaceholder'}}">{{system.moveResults.failure.value}}</textarea>
-				{{else}}
-				<div class="move-sheet-result-text">{{rich rich.failure}}</div>
-				{{/if}}
-			</div>
+			{{/each}}
 		</section>
 		{{/if}}
 

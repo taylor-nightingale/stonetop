@@ -2,6 +2,7 @@ import { migrateCharacter } from "./migrateCharacter.js";
 import { migrateNpc } from "./migrateNpc.js";
 import { migrateSteading } from "./migrateSteading.js";
 import { migrateSteadingMoves } from "./migrateSteadingMoves.js";
+import { migrateMovePackData } from "./migrateMovePackData.js";
 import { migrateSteadingFolk } from "./migrateSteadingFolk.js";
 import { migrateNeighborPlaces } from "./migrateNeighborPlaces.js";
 import { migrateSteadingImpressions } from "./migrateSteadingImpressions.js";
@@ -32,7 +33,15 @@ export class MigrationRunner {
 					await migrateNpc(actor);
 				} else if (actor.type === "steading") {
 					await migrateSteading(actor, steadfastDefaults);
-					// Not gated on migrateSteading's legacy check: every steading, however new,
+					// Ungated, and the counterpart to the character's own call: a steading's
+					// homefront and Seasons Change moves are copies taken at creation, so a move
+					// the pack gained a procedure for since then is still carrying none.
+					// BEFORE the backfill, because the backfill's restamp files each move into the
+					// category its stored `moveType` names — and that is one of the fields this
+					// refresh corrects. Restamping first reads the stale type, files the move into
+					// the wrong category, and nothing re-files it afterwards.
+					await migrateMovePackData(actor, this._repos.moves);
+					// Also not gated on migrateSteading's legacy check: every steading, however new,
 					// needs homefront moves that were added since it was created.
 					await migrateSteadingMoves(actor);
 					// Also ungated: the roster merge and the asset state have to reach a steading

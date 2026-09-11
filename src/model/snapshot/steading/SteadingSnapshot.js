@@ -1,5 +1,6 @@
 import { rich } from "../RichText.js";
 import { SeasonProcedure } from "../../data/steading/SeasonProcedure.js";
+import { buildSeasonSteps } from "./SeasonStepSnapshot.js";
 
 /**
  * One rating as a ledger tile draws it — the number stated outright, the word the book gives that
@@ -37,7 +38,7 @@ export class RatingSnapshot {
 		// a hint that restates the current value is noise.
 		this.startingNote = (starting == null || starting === current)
 			? ""
-			: game.i18n.format("stonetop.steading.startingValue", { value: formatStartingValue(def.slug, starting) });
+			: game.i18n.format("stonetop.steading.startingValue", { value: formatRatingValue(def.slug, starting) });
 
 		// "→ 0 lacking" — the number you actually roll, and what made it that. A bare "−1" printed
 		// beside the stored value reads as a second value rather than as arithmetic on the first.
@@ -89,7 +90,7 @@ function formatDelta(delta) {
 
 // Surplus is a raw count and Size a tier name; the ±N ratings are signed (including +0), matching
 // the roll-display convention (ActorRolling.js).
-export function formatStartingValue(slug, value) {
+export function formatRatingValue(slug, value) {
 	if (slug === "size" || slug === "surplus") return `${value}`;
 	return `${value >= 0 ? "+" : ""}${value}`;
 }
@@ -109,7 +110,7 @@ export class ContentSection {
 export class SeasonsSnapshot {
 	// `moves` is the ordinary MoveCategorySnapshot — the seasonal glyphs ride on each move's own
 	// icon, so this tab renders through the same move-group as the Moves tab.
-	constructor({ moves = null, pick = null, plate = null, turnover = null }) {
+	constructor({ moves = null, pick = null, plate = null, turnover = null, applied = {}, outcome = null }) {
 		this.moves = moves;
 		// The choice THIS season hands the table — a SeasonPick, or null for a season that hands
 		// none. Built from the current season's own move, so winter offers losses rather than being
@@ -121,30 +122,46 @@ export class SeasonsSnapshot {
 		// null until the art installer has actually produced it. Referencing it regardless would 404
 		// on every render for everyone who hasn't installed (or who only owns Book II).
 		this.plate = plate;
-	}
 
-	/**
-	 * The Seasons Change move that turns the season — the NEXT season's, because that is the one you
-	 * roll when the season changes TO it. Rolling it is what advancing the wheel means, which is why
-	 * the tab shows this one move beside the advance control.
-	 *
-	 * Asked of the snapshot rather than filtered in the template: "which of these four do we roll
-	 * now" is a fact about the seasons, and a Handlebars comparison would put it in markup where
-	 * nothing tests it.
-	 */
-	get nextMove() {
-		return this.moveFor(this.turnover?.next?.moveSlug);
-	}
+		// The Seasons Change move of the season the steading is IN, and the procedure it prescribes.
+		//
+		// The current season's, not the incoming one's. The tab used to render the INCOMING season's
+		// steps — you roll a season's move to enter it — while every piece of state beside them (the
+		// gain in force, the turnover checklist, the adjustments) belonged to the season the steading
+		// was already in. So the numbered list and the things it produced were never the same season.
+		//
+		// Built once, as OWN properties rather than getters, because a step carries the move's words
+		// as a RichText and enrichRichTextTree walks own enumerable keys — a getter is invisible to
+		// it, so the text would never be enriched and every roll and @UUID in a step would render as
+		// source. Building once also stops the template getting a fresh procedure on each mention.
+		this.currentMove = this.moveFor(this.turnover?.season?.moveSlug);
 
-	/**
-	 * What turning the wheel involves, step by step — the INCOMING season's, because that is the
-	 * move you roll to enter it.
-	 *
-	 * Read off the move rather than hardcoded: the tab drew Spring's four steps for all four
-	 * seasons, so winter's first roll had no control and summer's second gain did not exist.
-	 */
-	get procedure() {
-		return SeasonProcedure.from(this.nextMove);
+		// Each step with everything this steading brings to it: the dice it actually rolls after the
+		// improvements that bend them, what it actually pays, what it has already done to Surplus,
+		// and the choice it calls for. The partial used to reach back up to the root for the last
+		// two, which is the shape of the object that was missing.
+		const built = buildSeasonSteps({
+			procedure: SeasonProcedure.from(this.currentMove),
+			statement: this.turnover?.statement ?? null,
+			applied,
+			pick,
+			// The moments this season's move numbers are steps like any other — what fires at the
+			// harvest is rolled and paid at the harvest, not in a panel below the list.
+			moments: this.turnover?.moments ?? [],
+			// Winter's dice are the steading's Size's — 1d2 in a hamlet, 2d6 in a town.
+			size:    this.turnover?.size ?? null,
+			// Which of the move's three results the table is living with, so the step that rolls
+			// them lights the row the dice landed on.
+			outcome,
+		});
+		this.steps = built.steps;
+		// The bends no step of this season claimed — the Golden Sapling's generation in a season that
+		// generates nothing. Stated in the general list rather than dropped.
+		this.adjustments = built.adjustments;
+		// The moments no step numbers — the gathering at the inn, the aurochs hunt in a spring whose
+		// move does not name it. These keep a panel of their own, with their own Apply; the harvest
+		// does not, because the step that rolls it is where it is paid.
+		this.unclaimedMoments = built.unclaimedMoments;
 	}
 
 	/**
@@ -157,30 +174,6 @@ export class SeasonsSnapshot {
 	 */
 	get wheel() {
 		return (this.turnover?.wheel ?? []).map(s => new SeasonWheelEntry(s, this.moveFor(s.moveSlug)));
-	}
-
-	/**
-	 * The season the steading is IN, step by step — what its own results are collected against.
-	 *
-	 * Not the same move as `procedure`: that one is the season being rolled INTO. This is the season
-	 * whose harvest is owed and whose consumption the steading's buildings bend.
-	 */
-	get currentProcedure() {
-		return SeasonProcedure.from(this.moveFor(this.turnover?.season?.moveSlug));
-	}
-
-	/**
-	 * This season's moment steps, by moment key — the season's OWN half of an occasion improvements
-	 * also fire at. Autumn's move ends "when the harvest is complete, roll 1d4; the steading generates
-	 * that much", which belongs in the harvest's own section beside the mill and the orchard rather
-	 * than nowhere.
-	 */
-	get momentSteps() {
-		const steps = {};
-		for (const step of this.currentProcedure?.steps ?? []) {
-			if (step.kind === "moment" && step.moment) steps[step.moment] = step;
-		}
-		return steps;
 	}
 
 	/** The seasons category's move for a slug, or null — the tab's one lookup. */

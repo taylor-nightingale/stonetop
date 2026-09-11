@@ -13,10 +13,18 @@
       It now sits inside "During <season>", which says that already — and each moment's own title
       says which moment it is.
 
-      Params: turnover (TurnoverSnapshot), momentSteps (the season's own moment steps by key). --}}
+      The season's OWN half of a moment — autumn's "when the harvest is complete, roll 1d4" — used to
+      be repeated in here, sourced to "The season". It is a numbered step of the move now, in the same
+      box, in the book's own words: this panel is what the steading has BUILT that fires at the moment.
+
+      A moment the season's move NUMBERS is not here: autumn's fourth step is the harvest, and what
+      fires at it is folded into that step's own roll. A panel repeating it under the list was the
+      same harvest offered twice, once with dice and once with an Apply.
+
+      Params: moments (MomentSnapshot[]) — the ones no step claimed. --}}
 <div class="steading-moments">
 
-	{{#each turnover.moments}}
+	{{#each moments}}
 		<article class="steading-moment{{#if applied}} is-applied{{/if}}" data-moment="{{key}}">
 
 			<h4 class="steading-moment-title">
@@ -28,24 +36,12 @@
 				{{/if}}
 			</h4>
 
-			{{!-- The SEASON's own half of the moment, where it has one. Autumn's move ends "when the
-			      harvest is complete, roll 1d4; the steading generates that much Surplus" — the book's
-			      own line, which belongs in the harvest's section beside the mill and the orchard
-			      rather than only inside the move's text. Sourced to the season, not an improvement,
-			      because nothing built causes it. --}}
-			{{#with (lookup ../momentSteps key)}}
-				{{#if noteKey}}
-					<ul class="steading-statement-lines steading-statement-lines--sourced stonetop-unmarked">
-						<li class="steading-statement-line">
-							<span class="steading-statement-source">{{localize "stonetop.steading.seasons.theSeason"}}</span>
-							<span class="steading-statement-clause">{{localize noteKey die=die}}</span>
-						</li>
-					</ul>
-				{{/if}}
-			{{/with}}
-
-			{{> "stonetop.steading-statement" statement=statement showAdvisory=true
-			    showAdjustments=true showSource=true showDelta=true
+			{{!-- With the clause: the panel's title names the moment, and nothing else here says what
+			      the book asks of the table at it — the Inn's gathering costs a Surplus, and that was
+			      a tail reading "only if you expend 1 Surplus" hung off the end of the result. --}}
+			{{> "stonetop.steading-statement" statement=statement
+			    automaticLines=statement.automatic advisoryLines=statement.advisory
+			    moveSlugs=statement.grantedMoveSlugs showSource=true showDelta=true showPhrase=true
 			    applyAllAction="applyMoment" applyAllSlug=key
 			    applyAllLabel="stonetop.steading.effects.applyMoment"}}
 

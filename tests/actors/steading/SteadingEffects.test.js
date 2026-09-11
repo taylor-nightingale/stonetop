@@ -24,6 +24,19 @@ const MILL = () => new SteadingImprovement("mill", "Mill", {
 	],
 });
 
+// Township, as the pack holds it: the one improvement that ASSERTS two ratings on completion rather
+// than moving them, and the only one that touches Size at all.
+const TOWNSHIP = () => new SteadingImprovement("township", "Township", {
+	slug: "township",
+	list: [{ type: "entry", slug: "government", content: { text: "a formal government" }, track: { max: 1 } }],
+}, 0, {
+	requires: "government",
+	effects: [
+		{ when: { kind: "completed" }, set: { target: "size", value: "town" }, text: "change Size to town" },
+		{ when: { kind: "completed" }, set: { target: "population", value: 0 }, text: "change Population to +0" },
+	],
+});
+
 // Standing Watch: an upkeep every season, and a fortifications entry on completion.
 const WATCH = () => new SteadingImprovement("standing-watch", "Standing Watch", {
 	slug: "standing-watch",
@@ -42,7 +55,7 @@ const WATCH = () => new SteadingImprovement("standing-watch", "Standing Watch", 
 
 function build({ owned = ["mill"], ticks = {}, attributes = {}, applied = {}, turnover = {} } = {}) {
 	const repo = new FakeSteadingImprovementRepository();
-	repo._improvements.push(MILL(), WATCH());
+	repo._improvements.push(MILL(), WATCH(), TOWNSHIP());
 	const actor = new FakeActorBuilder().withSystem({
 		improvements: owned,
 		improvementValues: ticks,
@@ -55,8 +68,9 @@ function build({ owned = ["mill"], ticks = {}, attributes = {}, applied = {}, tu
 }
 
 const BUILT_MILL = { mill: { site: 1, miller: 1 } };
-const mill  = ({ repo }) => repo._improvements[0];
-const watch = ({ repo }) => repo._improvements[1];
+const mill      = ({ repo }) => repo._improvements[0];
+const watch     = ({ repo }) => repo._improvements[1];
+const township  = ({ repo }) => repo._improvements[2];
 
 describe("the payoff of one improvement", () => {
 	// The card is the only place the payoff is stated now — the prose that used to say it was stripped
@@ -307,5 +321,63 @@ describe("the moves a statement's results confer", () => {
 	it("names nothing where no result confers a move", () => {
 		const ctx = build({ ticks: BUILT_MILL });
 		expect(ctx.effects.payoffFor(mill(ctx)).completion.grantedMoveSlugs).toEqual([]);
+	});
+});
+
+// Township's completion used to be one sentence with no payload, so the card offered nothing to press
+// on the improvement that changes the most about a steading.
+describe("a result that sets a rating rather than moving it", () => {
+	const BUILT = { township: { government: 1 } };
+
+	it("writes the tier and the number, and records both", async () => {
+		const ctx = build({ owned: ["township"], ticks: BUILT, attributes: { population: 3, size: "village" } });
+		const payoff = ctx.effects.payoffFor(township(ctx));
+		expect(payoff.completion.pending.length).toBe(2);
+
+		await ctx.effects.apply(payoff.completion);
+		expect(ctx.actor.system.attributes.size).toBe("town");
+		expect(ctx.actor.system.attributes.population).toBe(0);
+		expect(ctx.actor.system.improvementsApplied["township:1"].set)
+			.toEqual({ target: "population", from: 3, to: 0 });
+	});
+
+	// The whole reason a set records `from`: Population went to +0 from somewhere, and only the record
+	// knows where.
+	it("puts back the values it replaced", async () => {
+		const ctx = build({ owned: ["township"], ticks: BUILT, attributes: { population: 3, size: "village" } });
+		await ctx.effects.apply(ctx.effects.payoffFor(township(ctx)).completion);
+
+		await ctx.effects.revertLine("township:1");
+		expect(ctx.actor.system.attributes.population).toBe(3);
+		await ctx.effects.revertLine("township:0");
+		expect(ctx.actor.system.attributes.size).toBe("village");
+	});
+
+	// Each line independently, because each was applied independently.
+	it("reverts one line without disturbing the other", async () => {
+		const ctx = build({ owned: ["township"], ticks: BUILT, attributes: { population: 3, size: "village" } });
+		await ctx.effects.apply(ctx.effects.payoffFor(township(ctx)).completion);
+
+		await ctx.effects.revertLine("township:0");
+		expect(ctx.actor.system.attributes.size).toBe("village");
+		expect(ctx.actor.system.attributes.population).toBe(0);
+	});
+
+	// A steading that never chose a Size stores "" for it, and that is what a revert has to put back —
+	// not a tier the table never picked.
+	it("records an unset rating as unset", async () => {
+		const ctx = build({ owned: ["township"], ticks: BUILT, attributes: { size: "" } });
+		await ctx.effects.applyLine("township:0");
+		expect(ctx.actor.system.improvementsApplied["township:0"].set)
+			.toEqual({ target: "size", from: "", to: "town" });
+		await ctx.effects.revertLine("township:0");
+		expect(ctx.actor.system.attributes.size).toBe("");
+	});
+
+	// Unbuilt, it is a promise. The card states it; nothing writes it.
+	it("writes nothing while the requirement does not hold", async () => {
+		const ctx = build({ owned: ["township"], attributes: { population: 3, size: "village" } });
+		expect(await ctx.effects.applyLine("township:0")).toBe(false);
+		expect(ctx.actor.system.attributes.size).toBe("village");
 	});
 });

@@ -25,6 +25,7 @@ export class RequirementSnapshot {
  * @property {string|null} requiresLabel
  * @property {ResourceSnapshot|null} resource
  * @property {string} gloss - the move's own trigger, for a collapsed disclosure row
+ * @property {RollModeNotes|null} rollNotes - why it might not roll 2d6; steading moves only
  */
 export class MoveSnapshot {
 	constructor(b) {
@@ -39,7 +40,9 @@ export class MoveSnapshot {
 		this.gloss         = MoveGloss.from(b._description);
 		this.rollStat      = b._rollStat;
 		this.source        = b._source;
-		this.sourceLabel   = b._sourceLabel;
+		// The caption beside the name, or null where the row is not to carry one — only an arcanum's
+		// back move sets it.
+		this.sourceLabel   = b._sourceLabel ?? null;
 		this.selection     = b._selection;
 		this.selectable    = b._selectable;
 		this.requirement   = b._requirement;
@@ -49,9 +52,14 @@ export class MoveSnapshot {
 		// The move's own procedure, where it has one — the four Seasons Change moves. Read through
 		// SeasonProcedure; null on every other move, like `resource` and `choices`.
 		this.steps         = b._steps ?? null;
-		// Null unless someone deliberately set the move's image — see moveIcon(). Rendered by
-		// move-item, so every surface that shows a move shows it the same way.
-		this.icon          = b._icon ?? null;
+		// The move's three authored result tiers, raw as the item carries them. Read through
+		// MoveResults by whatever prints them: the chat card, and the Seasons Change box, which draws
+		// them as the rows of the season's own roll rather than authoring a second copy.
+		this.moveResults   = b._moveResults ?? null;
+		// Why this move might not roll a flat 2d6 — a RollModeNotes, or null where nothing speaks for
+		// it. A reminder the row draws, never a change to the roll: only the steading builds these, so
+		// on a character's moves tab the slot is empty and nothing renders.
+		this.rollNotes     = b._rollNotes ?? null;
 	}
 }
 
@@ -71,7 +79,8 @@ export class MoveSnapshotBuilder {
 	withResource(v)      { this._resource      = v; return this; }
 	withChoices(v)       { this._choices       = v; return this; }
 	withSteps(v)         { this._steps         = v; return this; }
-	withIcon(v)          { this._icon          = v; return this; }
+	withMoveResults(v)   { this._moveResults   = v; return this; }
+	withRollNotes(v)     { this._rollNotes     = v; return this; }
 	build()              { return new MoveSnapshot(this); }
 
 	// An inline arcanum back move ({id, name, text, subtitle?}) shaped as a MoveSnapshot so it renders
@@ -96,6 +105,8 @@ export class MoveSnapshotBuilder {
 			.withResource(null)
 			.withChoices(null)
 			.withSteps(null)
+			.withMoveResults(null)
+			.withRollNotes(null)
 			.build();
 	}
 }

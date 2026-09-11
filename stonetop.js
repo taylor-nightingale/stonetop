@@ -23,6 +23,7 @@ import { onPreUpdateSteadingPeople, onUpdateSteadingPeople } from "./src/hooks/S
 import { onUpdateLinkedActor, onDeleteLinkedActor } from "./src/hooks/LinkedActorChanged.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
 import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
+import { onRenderRollMessage } from "./src/chat/inlineRollCard.js";
 import { onUpdateActor, onSteadingCreatedOrDeleted } from "./src/hooks/SteadingChanged.js";
 import { info } from "./src/utils/logger.js";
 import { registerStonetopHelpers } from "./src/handlebars/helpers.js";
@@ -214,6 +215,9 @@ Hooks.on("createActor", onCreateActor);
 // -- RENDER CHAT MESSAGE ---------------------------------------
 // Binds the "Mark XP" control on 6- roll cards.
 Hooks.on("renderChatMessageHTML", onRenderChatMessage);
+// Redraws core's own [[/r 1d6]] roll message as a Stonetop card, so every roll in the log reads the
+// same whichever control rolled it.
+Hooks.on("renderChatMessageHTML", onRenderRollMessage);
 // -- STEADING CHANGES ------------------------------------------
 // Character sheets show steading data (Prosperity); keep them live.
 Hooks.on("updateActor", onUpdateActor);

@@ -68,9 +68,15 @@ export function createStonetopActorClass(BaseActor) {
 		}
 
 		// Roll stated dice with no result tiers — a season step that asks for 1d4+Population, not for
-		// a move. Same entry point as rollItem, so the chat card comes out of the same pipeline.
-		async rollFormula(label, formula) {
-			await this._rolling.rollFormula(label, formula);
+		// a move. Returns the evaluated roll WITHOUT posting: a season step moves Surplus by what its
+		// dice came to, and its card says what that did, so the applying happens between the two.
+		async evaluateFormula(formula) {
+			return this._rolling.evaluateFormula(formula);
+		}
+
+		// Report one of those rolls — a FormulaRollCard. Same chat pipeline as every other card.
+		async postFormulaCard(card) {
+			return this._rolling.postFormulaCard(card);
 		}
 
 		// Post an owned item's full text (description + all result tiers) to chat, without rolling.

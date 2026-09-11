@@ -105,13 +105,15 @@
           "kind": "turn",
           "seasons": [
             "spring"
-          ]
+          ],
+          "phrase": "when **_spring breaks forth and you roll a 7+ with Fortunes_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "you roll a 7+ with Fortunes",
+        "condition": true,
+        "outcome": "7+",
         "text": "the steading generates 1 Surplus"
       }
     ]

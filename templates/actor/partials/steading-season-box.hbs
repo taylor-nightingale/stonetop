@@ -1,0 +1,110 @@
+{{!-- The season the steading is IN, as its own Seasons Change move performs it.
+
+      This replaced two things: a "Turn to <next>" disclosure holding the INCOMING season's steps, and
+      a "During <current>" section holding everything the current season owed. They were separate
+      because turning happens once and the rest is used all season — but splitting them meant the
+      numbered steps described a season the steading was not in, while every piece of state on the tab
+      (the gain in force, the turnover checklist, the adjustments) belonged to the one it was. The box
+      could be headed "Winter" with the line under it reading "Autumn, year 3".
+
+      One box, and it is the current season's, so a step and the state that step produces are finally
+      the same season's. Turning the wheel is the small control below it — the once-a-season act stays
+      small, and the all-season surface is the large one.
+
+      Params: seasons (SeasonsSnapshot). --}}
+<section class="steading-season-box steading-block" data-season="{{seasons.turnover.season.key}}">
+
+	<h3 class="steading-season-box-heading">
+		{{!-- The season's glyph, tinted to the season it belongs to. Both the image and the tint come
+		      from the `data-season` on this section — the stylesheet owns the four paths, because a
+		      url() written here would be a document path resolved against the stylesheet, and an
+		      install served under a route prefix would 404 on it. --}}
+		<span class="steading-turn-glyph" aria-hidden="true"></span>
+		<span class="steading-season-box-title">
+			{{#if seasons.currentMove}}{{seasons.currentMove.name}}
+			{{else}}{{localize "stonetop.steading.seasons.during"
+			        season=(localize seasons.turnover.season.labelKey)}}{{/if}}
+		</span>
+	</h3>
+
+	{{!-- The book's harvest plate, floated so the steps run beside it rather than under it. Its
+	      silhouette slants up and to the right, so wrapping to its bounding box would leave the wedge
+	      on its left blank and break the text against an invisible straight edge; `shape-outside`
+	      reads the PNG's own alpha instead and the text follows the art.
+
+	      The path is runtime (the art installer produces it), so it is passed as a custom property
+	      here — a url() in the stylesheet cannot take one. Installer-provided and copyrighted, so
+	      absent in a world without Book I art: the template asks before it draws. --}}
+	{{#if seasons.plate}}
+		<img class="steading-seasons-plate" src="{{seasons.plate}}" alt=""
+		     style="--plate: url('{{seasons.plate}}')">
+	{{/if}}
+
+	{{!-- The steps the move carries, in the order it gives them, each in the move's own words. The
+	      tab used to draw Spring's — roll it, pick 1 gain, reset — for all four seasons, so winter's
+	      opening 1d4+Population roll had no control and its +Fortunes roll, which is the FOURTH thing
+	      winter does, was the one button at the top. --}}
+	{{#if seasons.steps.length}}
+		<ol class="steading-turn-steps">
+			{{#each seasons.steps}}
+				{{> "stonetop.steading-turn-step"}}
+			{{/each}}
+		</ol>
+	{{else}}
+		<p class="stonetop-moves-empty">{{localize "stonetop.steading.seasons.movesEmpty"}}</p>
+	{{/if}}
+
+	{{!-- What the steading pays to keep what it has built. Outside the numbered steps because nothing
+	      in Seasons Change says any of it — these are the steading's own bills, and reading them among
+	      the move's own steps made them look like something the season did. --}}
+	{{> "stonetop.steading-upkeep" statement=seasons.turnover.statement}}
+
+	{{!-- What this steading's own buildings add to the season, under the steps that describe it.
+	      Headed by the TRIGGER, in the book's own terms — "When winter comes" — so that no row under
+	      it has to say when it fires.
+
+	      Only where there is something left to say. Most of what a season brings is shown where it
+	      happens now — in the step it bends, the result row it waits on, the step that generates it,
+	      the bills above — and a heading over an empty list reads as a section that failed to load.
+	      A season in which nothing fires at all still says so, which is not the same thing. --}}
+	{{#if (or seasons.turnover.hasOwnClauses (not seasons.turnover.hasClauses))}}
+	<div class="steading-during-owed">
+		<h4 class="steading-during-label">
+			{{localize "stonetop.steading.seasons.whenComes"
+			           season=(localize seasons.turnover.season.labelKey)}}
+		</h4>
+		{{> "stonetop.steading-turnover" turnover=seasons.turnover}}
+	</div>
+	{{/if}}
+
+	{{!-- The bends no step of this season claimed — the Golden Sapling's +1 on any generation, in a
+	      season that generates nothing. Everything else hangs on the step it bends, up in the list. --}}
+	{{> "stonetop.steading-adjustments" groups=seasons.adjustments.unclaimedGroups}}
+
+	{{!-- The named points WITHIN the season that something built fires at — the harvest coming in, the
+	      hunt being led. The sheet cannot know when those happen, so each is an offer the table takes
+	      up rather than a schedule. Only moments something actually fires at appear.
+
+	      And only the ones no step of the move numbers: autumn's fourth step IS the harvest, so what
+	      fires at it is rolled and paid up there. What is left is the gathering at the inn, and a hunt
+	      in a spring whose move does not name it. --}}
+	{{#if seasons.unclaimedMoments.length}}
+		{{> "stonetop.steading-moments" moments=seasons.unclaimedMoments}}
+	{{/if}}
+
+</section>
+
+{{!-- Turning the wheel, and only that: it hands the steading the next season and posts nothing. The
+      season's own Seasons Change is rolled from the box above, once the box is that season's — the
+      card belongs after the steps it is step one of, not ahead of a season nobody has read yet. It
+      asks before it fires, because the turn discards this season's checklist and gain. Outside the
+      box because it is the one thing here that is not about the season the box is: it ends it. --}}
+{{#if @root.editable}}
+	<div class="steading-season-advance">
+		<button type="button" class="steading-season-advance-button" data-action="turnSeason">
+			<span>{{localize "stonetop.steading.seasons.seasonComes"
+			      season=(localize seasons.turnover.next.labelKey)}}</span>
+			<i class="fas fa-arrow-right" aria-hidden="true"></i>
+		</button>
+	</div>
+{{/if}}

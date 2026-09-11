@@ -117,6 +117,40 @@ describe("SteadingSeason.turn", () => {
 		expect(actor.system.turnoverApplied).toEqual({});
 	});
 
+	// And what this season's steps did to Surplus: next winter's consumption is a new roll.
+	it("clears what this season's steps rolled", async () => {
+		const { actor, season } = build({ season: "winter" });
+		actor.system.seasonStepsApplied = { 0: { total: 5, due: 5, from: 3, to: 0 } };
+		await season.turn();
+		expect(actor.system.seasonStepsApplied).toEqual({});
+	});
+
+	// BY NAME, because Foundry MERGES an object-field update: assigning `{}` — or null and then `{}`,
+	// which is what this did — leaves every key exactly where it was, so a season that had been
+	// applied still read as applied after the wheel turned. Only `-=key` removes one, and that is a
+	// claim about the update this SENDS, which is the whole of the fix.
+	it("removes each record by name, since an object update merges", async () => {
+		const { actor, season } = build({
+			season: "autumn", applied: { "mill:0": { change: { target: "surplus", amount: 1 } } },
+		});
+		const sent = [];
+		const update = actor.update.bind(actor);
+		actor.update = data => { sent.push(data); return update(data); };
+
+		await season.turn();
+		expect(Object.keys(sent[0])).toContain("system.turnoverApplied.-=mill:0");
+		expect(Object.keys(sent[0])).not.toContain("system.turnoverApplied");
+	});
+
+	// And the result the last season was living with: a 6- that stayed lit into spring would be the
+	// sheet reporting a roll nobody made.
+	it("clears the result the season's own move came up", async () => {
+		const { actor, season } = build({ season: "winter" });
+		actor.system.seasonRollOutcome = "failure";
+		await season.turn();
+		expect(season.rolledOutcome).toBeNull();
+	});
+
 	// The move just rolled is what grants the next gain, so last season's pick cannot stay ticked —
 	// and only that group is cleared.
 	it("clears the seasonal gain and nothing else", async () => {
@@ -127,6 +161,47 @@ describe("SteadingSeason.turn", () => {
 		await season.turn();
 		expect(actor.system.choiceValues[SEASONAL_GAINS_GROUP]).toBeUndefined();
 		expect(actor.system.choiceValues["other-group"]).toEqual({ keep: 1 });
+	});
+});
+
+// The tier the season's own Seasons Change landed in, kept so the box can light the result the
+// table is living with rather than asking them to remember a total.
+describe("SteadingSeason — what the season's own move came up", () => {
+	const outcome = key => ({ key, label: key });
+
+	it("has no result until the move is rolled", () => {
+		expect(build({ season: "winter" }).season.rolledOutcome).toBeNull();
+	});
+
+	it("keeps what this season's own move rolled", async () => {
+		const { season } = build({ season: "winter" });
+		expect(await season.recordRoll("seasons-change-winter", outcome("partial"))).toBe(true);
+		expect(season.rolledOutcome).toBe("partial");
+	});
+
+	// Every move the steading makes is offered here. The tier an aurochs hunt landed in says nothing
+	// about which of winter's three results the steading is living with.
+	it("ignores a roll of any other move", async () => {
+		const { season } = build({ season: "winter" });
+		expect(await season.recordRoll("lead-the-aurochs-hunt", outcome("success"))).toBe(false);
+		expect(season.rolledOutcome).toBeNull();
+	});
+
+	// A move with no tiers at all — a bare rating roll — lands nowhere, and lighting a row off it
+	// would be the sheet inventing a result.
+	it("ignores a roll that landed in no tier", async () => {
+		const { season } = build({ season: "winter" });
+		expect(await season.recordRoll("seasons-change-winter", null)).toBe(false);
+		expect(season.rolledOutcome).toBeNull();
+	});
+
+	// The box invites the table to roll the season as many times as it asks for, and the row they are
+	// living with is the one they just rolled.
+	it("keeps the latest roll", async () => {
+		const { season } = build({ season: "winter" });
+		await season.recordRoll("seasons-change-winter", outcome("success"));
+		await season.recordRoll("seasons-change-winter", outcome("failure"));
+		expect(season.rolledOutcome).toBe("failure");
 	});
 });
 
@@ -205,27 +280,34 @@ describe("SteadingSeason — the season's statement", () => {
 		expect(winter[0].id).toBe("herd-of-horses:1");
 	});
 
-	// The Mill's +1 and the watch's −1 cancel; the statement says so rather than listing two deltas
-	// and leaving the table to do the arithmetic.
-	it("nets the season out", async () => {
+	/**
+	 * Both are listed; only the bill is counted. What the steading GENERATES is paid by the season's
+	 * generation step, whose record is the step's own — counting it here as well would let "Apply the
+	 * season" pay a Surplus that step had already paid.
+	 */
+	it("counts the season's bills and leaves its gains to the step that generates them", async () => {
 		const snap = await build({
 			season: "autumn", owned: ["mill", "standing-watch"], improvements: [MILL, WATCH],
 			attributes: { surplus: 3 },
 		}).season.buildSnapshot();
-		expect(snap.statement.totals).toEqual([]);
 		expect(snap.statement.lines).toHaveLength(2);
+		expect(snap.statement.gains.map(l => l.source)).toEqual(["Mill"]);
+		expect(snap.statement.totals.map(t => [t.target, t.delta])).toEqual([["surplus", -1]]);
 	});
 });
 
 describe("SteadingSeason.applyTurnover", () => {
+	// The watch's Surplus, not the mill's: what the steading GENERATES is paid by the season's
+	// generation step now, so the turnover's own Apply writes the bills and what is neither.
 	const autumn = extra => build({
-		season: "autumn", owned: ["mill"], improvements: [MILL], attributes: { surplus: 2 }, ...extra,
+		season: "autumn", owned: ["standing-watch"], improvements: [WATCH], attributes: { surplus: 2 },
+		...extra,
 	});
 
 	it("writes what the season does", async () => {
 		const { actor, season } = autumn();
 		await season.applyTurnover();
-		expect(actor.system.attributes.surplus).toBe(3);
+		expect(actor.system.attributes.surplus).toBe(1);
 	});
 
 	// Six people share this sheet; the second to press it must not pay the season twice.
@@ -233,7 +315,14 @@ describe("SteadingSeason.applyTurnover", () => {
 		const { actor, season } = autumn();
 		expect(await season.applyTurnover()).toBe(true);
 		expect(await season.applyTurnover()).toBe(false);
-		expect(actor.system.attributes.surplus).toBe(3);
+		expect(actor.system.attributes.surplus).toBe(1);
+	});
+
+	// A gain is listed with the season and written by the step that generates it.
+	it("leaves what the steading generates to the generation step", async () => {
+		const { actor, season } = autumn({ owned: ["mill"], improvements: [MILL] });
+		expect(await season.applyTurnover()).toBe(false);
+		expect(actor.system.attributes.surplus).toBe(2);
 	});
 
 	it("says on the snapshot that it has been applied", async () => {
@@ -260,7 +349,7 @@ describe("SteadingSeason.applyTurnover", () => {
 		for (let i = 0; i < 4; i++) await season.turn();
 		expect((await season.buildSnapshot()).applied).toBe(false);
 		await season.applyTurnover();
-		expect(actor.system.attributes.surplus).toBeGreaterThan(paid);
+		expect(actor.system.attributes.surplus).toBeLessThan(paid);
 	});
 });
 

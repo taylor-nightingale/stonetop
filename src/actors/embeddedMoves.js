@@ -106,11 +106,9 @@ export async function decrementMove(actor, categoryKey, moveSlug) {
 // resource def into a live ResourceSnapshot keyed by the move slug in the "moves" namespace.
 // `requirement` (optional) is the RequirementSnapshot the caller already built — see
 // MoveRequirements#snapshotFor. Callers with no character (an item-sheet preview, a steading) pass
-// none; those moves carry no requirements. `sourceLabel` (optional) is the caption beside the name,
-// for a row whose surroundings do not already say where the move came from — a move an improvement
-// confers, listed among the results of a season.
+// none; those moves carry no requirements.
 export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null,
-                                  sourceLabel = null) {
+                                  rollNotes = null) {
 	const sys    = item?.system ?? null;
 	const slug   = sys?.slug ?? toSlug(item?.name ?? "");
 	const resDef = sys?.resource ?? null;
@@ -131,7 +129,6 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withDescription(rich(sys?.description ?? ""))
 		.withRollStat(sys?.rollStat ?? null)
 		.withSource({ type: categoryKey })
-		.withSourceLabel(sourceLabel)
 		.withSelection(new ValueMax(sys?.instanceCount ?? 0, sys?.repeatMax ?? 1))
 		.withSelectable(selectable)
 		.withRequirement(requirement)
@@ -139,21 +136,8 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withResource(resource)
 		.withChoices(choices)
 		.withSteps(sys?.steps ?? null)
-		.withIcon(moveIcon(item))
+		.withMoveResults(sys?.moveResults ?? null)
+		.withRollNotes(rollNotes)
 		.build();
 }
 
-// A move's icon is its item image — the field every move sheet already offers a picker for, so any
-// move (pack-authored or homebrew) can have one. Foundry gives every item a default image, though,
-// and rendering that would put the same placeholder on all ~93 moves; an icon only shows when
-// someone deliberately chose it.
-export function moveIcon(item) {
-	const img = item?.img ?? null;
-	return img && img !== defaultItemIcon() ? img : null;
-}
-
-function defaultItemIcon() {
-	return globalThis.Item?.implementation?.DEFAULT_ICON
-		?? globalThis.CONFIG?.Item?.documentClass?.DEFAULT_ICON
-		?? "icons/svg/item-bag.svg";
-}

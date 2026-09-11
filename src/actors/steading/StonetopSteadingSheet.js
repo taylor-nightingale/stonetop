@@ -11,6 +11,7 @@ import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
 import { BoardView } from "./BoardView.js";
 import { toggleDisclosure } from "../../utils/Disclosure.js";
+import { SeasonStepAddress } from "../../model/data/steading/SeasonStepAddress.js";
 
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
@@ -68,7 +69,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				toggleImprovementCard: toggleDisclosure,
 				// The wheel's segments, each opening that season's own Seasons Change move, and the
 				// turn control itself. Disclosures, never a way to SET the season: the one thing that
-				// moves the wheel is rolling the incoming season's move.
+				// moves the wheel is the turn control below the box.
 				toggleSeasonMove:      toggleDisclosure,
 				toggleTurn:            toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
@@ -78,13 +79,13 @@ export function createStonetopSteadingSheetClass(Base) {
 				}),
 
 				// --- the season ---
-				// Rolling the incoming season's Seasons Change move IS turning the wheel, so there is
-				// one control for both. It lives here and nowhere else: the season is DISPLAYED
+				// Turning the wheel, and nothing else — the season's move is rolled inside the box
+				// that describes it. The control lives here and nowhere else: the season is DISPLAYED
 				// wherever the ratings are, but a turn-the-season click reachable from anywhere is a
 				// foot-gun on a sheet six people can edit.
 				//
-				// It asks first, because it discards this season's checklist and gain — and the
-				// question names the roll, since the roll is what the reader is about to do.
+				// It asks first, because it discards this season's checklist and gain. The question
+				// names the season it brings, which is the whole of what pressing it does.
 				turnSeason: editOnly(async function () {
 					const next = this._stonetopSteading.season.next;
 					const ok = await foundry.applications.api.DialogV2.confirm({
@@ -96,12 +97,28 @@ export function createStonetopSteadingSheetClass(Base) {
 					if (ok) await this._stonetopSteading.turnSeason();
 				}),
 
-				// A step of the season's move that rolls dice of its own — winter's 1d4+Population, which
-				// had no control at all while the panel drew spring's three steps for every season. Not
-				// edit-gated: rolling posts a card and writes nothing to the steading.
-				rollSeasonStep(ev, target) {
-					return this._stonetopSteading.rollSeasonStep(target.dataset.die, target.dataset.stat);
-				},
+				// A roll of the season's move that rolls dice of its own — winter's 1d4+Population,
+				// summer's 1d4-1 Surplus, autumn's 1d4 at the harvest, and the second 1d4+Population
+				// winter's 7-9 and 6- call for. Edit-gated now that it MOVES Surplus by what it rolled:
+				// the card alone left the table doing the one piece of arithmetic the sheet had just
+				// done for them.
+				rollSeasonStep: editOnly(function (ev, target) {
+					return this._stonetopSteading.rollSeasonStep(SeasonStepAddress.parse(target.dataset.step));
+				}),
+
+				// The same write with no dice in it: a step the sheet added for the steading's own gains,
+				// in a season whose move generates nothing of its own. Recorded and reverted exactly as
+				// a rolled step is — it is the same step, minus the roll.
+				applySeasonStep: editOnly(function (ev, target) {
+					return this._stonetopSteading.applySeasonStep(SeasonStepAddress.parse(target.dataset.step));
+				}),
+
+				// Give back what a step's roll took or paid. The record is season-scoped, so the offer
+				// lasts as long as the season does and goes when the wheel turns — a season that is
+				// over is not one you un-spend.
+				revertSeasonStep: editOnly(function (ev, target) {
+					return this._stonetopSteading.revertSeasonStep(SeasonStepAddress.parse(target.dataset.step));
+				}),
 
 				// The one instruction in Seasons Change that applies on every result, and the sheet
 				// used to leave it entirely unsaid. Not gated on having rolled: the table decides when

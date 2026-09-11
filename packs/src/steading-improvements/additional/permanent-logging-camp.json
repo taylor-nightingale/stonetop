@@ -136,13 +136,15 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "**_in winter, as long as the camp is in operation_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "result",
           "amount": -1
         },
-        "condition": "as long as the camp is in operation",
+        "condition": true,
         "text": "the steading consumes 1 less Surplus than usual"
       },
       {
@@ -150,7 +152,8 @@
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "**_every summer_**"
         },
         "change": {
           "target": "surplus",

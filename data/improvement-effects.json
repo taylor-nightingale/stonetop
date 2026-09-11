@@ -19,17 +19,45 @@
     "trailing rows do not match it — so a Book II parser change that rewords a payoff fails loudly",
     "instead of quietly deleting the evidence. Never translated; it is checked against Book I/II.",
     "",
-    "`text` is DISPLAY COPY, not a quotation. Every result renders under a heading that already states",
-    "its trigger ('When you meet the requirements:', 'Henceforth:' plus a timing chip), so the text says",
-    "only WHAT THE RESULT DOES — never 'when winter grips the land', never 'when the autumn harvest is",
-    "complete'. The qualifier goes in `condition`, which renders as 'only if …'. A result that grants a",
-    "MOVE says the shape of the roll and no more: the move's own tiers live on the move item and are",
-    "translated there.",
+    "`text` is DISPLAY COPY, not a quotation, and it says only WHAT THE RESULT DOES — never 'when",
+    "winter grips the land', never 'when the autumn harvest is complete'. The season's own box renders",
+    "it under the step, the roll tier or the season that already states the trigger, so a result that",
+    "restated it there would say it twice. The qualifier is part of `when.phrase`, in the book's own",
+    "words. A result that grants a MOVE says the shape of the roll and no more: the move's own tiers",
+    "live on the move item and are translated there.",
+    "",
+    "`when.phrase` is the other half: the book's own leading clause, in markdown, lowercase and with no",
+    "trailing comma — 'when **_summer comes and you roll a 7+ with Fortunes_**'. It is the ONE place a",
+    "result's trigger and its qualifier are written, and every surface that has not already stated them",
+    "reads it as the opening of the sentence `text` finishes; the timing chip is dropped there, because",
+    "the clause has said it. A clause carrying one is filed under 'Henceforth:' whatever its `kind`,",
+    "since it states its own trigger — which is why the palisade's advantage sits there rather than",
+    "under 'When you meet the requirements:'. Author one for every clause the book gives a trigger;",
+    "NOT for a plain completion result, not where the 'when' is only the result's own narrowed",
+    "`requires` (Well-Trained Militia's +1 Defenses), and not on a result that grants a MOVE, which",
+    "renders as that move's own row.",
     "There is no `lapsed`: 'if you cease to meet the requirements, decrease Prosperity by 1' is the",
     "same result's requirement going false again.",
     "",
-    "A result is APPLIED by the sheet only when it carries a plain integer `change` or a `listEntry`",
-    "and has no `condition` and no `adjustment`. Everything else is stated and left to the table.",
+    "`condition: true` says the sheet CANNOT TELL whether the clause holds — 'as long as the camp is in",
+    "operation', 'the market is active'. A flag and not a sentence: the words are in `when.phrase`, and",
+    "they were authored twice for years, once in the book's voice and once in the sheet's.",
+    "",
+    "A result is APPLIED by the sheet only when it carries a plain integer `change`, a `set`, or a",
+    "`listEntry`, and has no `condition` and no `adjustment`. Everything else is stated and left to the",
+    "table.",
+    "",
+    "`set` asserts a rating rather than moving it — Township's \"change Size to town and its Population",
+    "to +0\". A delta cannot say \"to +0\", and Size is a named tier that is settable and never addable, so",
+    "it can appear in a `set` and nowhere else. One rating per result: each gets its own Apply, and its",
+    "own Revert, which restores the value it replaced.",
+    "",
+    "`advantage: {moves: [slug]}` is a REMINDER and changes no roll. The moves it names show what the",
+    "steading is entitled to on their own rows, and the table picks the roll mode themselves — which is",
+    "the only honest reading of the four clauses that wait on fiction (\"when you take advantage of the",
+    "palisade\"), and the right one for Township's, which waits on nothing. The move's row prints those",
+    "four clauses after the reminder, so it reads \"advantage can be applied when …\" rather than",
+    "claiming it outright.",
     "",
     "Results are addressed as `<slug>:<index into this list>` by the sheet's per-line opt-outs, so",
     "REORDERING an improvement's effects moves those ticks. Harmless in practice — opt-outs are",
@@ -73,14 +101,16 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "when you **_consume Surplus in winter_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "term",
           "term": "population",
           "amount": -1
         },
-        "text": "when consuming Surplus, consider Population to be 1 lower than it is"
+        "text": "consider Population to be 1 lower than it is"
       }
     ]
   },
@@ -187,7 +217,8 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "autumn-harvest"
+          "moment": "autumn-harvest",
+          "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {
           "target": "surplus",
@@ -235,13 +266,15 @@
           "kind": "turn",
           "seasons": [
             "spring"
-          ]
+          ],
+          "phrase": "when **_spring breaks forth and you roll a 7+ with Fortunes_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "you roll a 7+ with Fortunes",
+        "condition": true,
+        "outcome": "7+",
         "text": "the steading generates 1 Surplus"
       }
     ]
@@ -281,22 +314,25 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you leverage the horses to Pull Together_**"
         },
-        "text": "when you leverage the horses to Pull Together, it takes half as long and costs half as much"
+        "text": "it takes half as long and costs half as much"
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Requisition half the herd or less_**"
         },
-        "text": "when you Requisition half the herd or less, treat a 6- as a 7-9"
+        "text": "treat a 6- as a 7-9"
       },
       {
         "when": {
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "when **_the seasons change to summer_**"
         },
         "text": "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)"
       },
@@ -305,9 +341,10 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "when **_winter grips the land_**"
         },
-        "condition": "1 Surplus per 6 grown or yearling horses",
+        "condition": true,
         "text": "the herd consumes 1 Surplus per 6 grown or yearling horses; for every Surplus not consumed, 1d6 horses are lost"
       }
     ]
@@ -381,9 +418,10 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "inn-gathering"
+          "moment": "inn-gathering",
+          "phrase": "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**"
         },
-        "condition": "you expend 1 Surplus",
+        "condition": true,
         "text": "clear one of the steading's debilities"
       }
     ]
@@ -424,13 +462,14 @@
             "spring",
             "summer",
             "autumn"
-          ]
+          ],
+          "phrase": "when **_the seasons change to spring, summer, or autumn, and the market is active, and Population is +1 or better_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "the market is active and Population is +1 or better",
+        "condition": true,
         "text": "the market generates 1 Surplus"
       }
     ]
@@ -472,7 +511,8 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "autumn-harvest"
+          "moment": "autumn-harvest",
+          "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {
           "target": "surplus",
@@ -482,9 +522,10 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Outfit from Stonetop or Have What You Need after doing so_**"
         },
-        "text": "when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use"
+        "text": "each of supplies has 1 extra use"
       }
     ]
   },
@@ -523,9 +564,16 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you take advantage of the palisade_**"
         },
-        "text": "when you take advantage of the palisade, you have advantage to Deploy"
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "deploy"
+          ]
+        },
+        "text": "you have advantage to Deploy"
       }
     ]
   },
@@ -566,13 +614,15 @@
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "when **_summer comes and you roll a 7+ with Fortunes_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "you roll a 7+ with Fortunes",
+        "condition": true,
+        "outcome": "7+",
         "text": "the steading generates 1 Surplus"
       }
     ]
@@ -601,7 +651,8 @@
       },
       {
         "when": {
-          "kind": "turn"
+          "kind": "turn",
+          "phrase": "at **_the start of each season_**"
         },
         "change": {
           "target": "surplus",
@@ -611,9 +662,10 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you specifically involve the watch in a move_**"
         },
-        "text": "when you specifically involve the watch in a move, treat Defenses as 1 higher than they are"
+        "text": "treat Defenses as 1 higher than they are"
       }
     ]
   },
@@ -642,19 +694,28 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you take advantage of the stone wall_**"
         },
-        "text": "when you take advantage of the stone wall, you have advantage to Deploy"
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "deploy"
+          ]
+        },
+        "text": "you have advantage to Deploy"
       },
       {
         "when": {
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "when **_winter grips the land_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "result",
           "amount": -1
         },
         "text": "the steading consumes 1 less Surplus than normal"
@@ -679,13 +740,35 @@
         "when": {
           "kind": "completed"
         },
-        "text": "change Size to town and its Population to +0"
+        "set": {
+          "target": "size",
+          "value": "town"
+        },
+        "text": "change Size to town"
       },
       {
         "when": {
           "kind": "completed"
         },
-        "text": "when you Muster, Pull Together, or Trade & Barter, you have advantage"
+        "set": {
+          "target": "population",
+          "value": 0
+        },
+        "text": "change Population to +0"
+      },
+      {
+        "when": {
+          "kind": "completed",
+          "phrase": "when **_you Muster, Pull Together, or Trade & Barter_**"
+        },
+        "advantage": {
+          "moves": [
+            "muster",
+            "pull-together",
+            "trade-barter"
+          ]
+        },
+        "text": "you have advantage"
       },
       {
         "when": {
@@ -693,7 +776,8 @@
           "seasons": [
             "spring",
             "summer"
-          ]
+          ],
+          "phrase": "when **_the seasons change to spring or summer_**"
         },
         "change": {
           "target": "surplus",
@@ -706,11 +790,8 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
-        },
-        "adjustment": {
-          "step": "consumption",
-          "replaceFormula": "2d6 + @population"
+          ],
+          "phrase": "when **_winter grips the land_**"
         },
         "text": "roll 2d6+Population to consume Surplus, instead of 1d4+Population"
       }
@@ -765,7 +846,8 @@
           "kind": "turn",
           "seasons": [
             "spring"
-          ]
+          ],
+          "phrase": "**_each spring_**"
         },
         "change": {
           "target": "surplus",
@@ -775,9 +857,10 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Outfit from Stonetop or Have What You Need after doing so_**"
         },
-        "text": "when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
+        "text": "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
       },
       {
         "when": {
@@ -796,9 +879,10 @@
       {
         "requires": "veteran-warrior",
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Deploy using one of the militia's trained tactics_**"
         },
-        "text": "when you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
+        "text": "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
       },
       {
         "requires": {
@@ -831,7 +915,8 @@
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "**_each summer_**"
         },
         "change": {
           "target": "surplus",
@@ -869,20 +954,34 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "**_as long as you trade aetherium to the outside world_**"
         },
         "change": {
           "target": "prosperity",
           "amount": 1
         },
-        "condition": "as long as you trade aetherium to the outside world",
-        "text": "as long as you trade aetherium to the outside world, increase Prosperity by 1"
+        "condition": true,
+        "text": "increase Prosperity by 1"
       },
       {
         "when": {
           "kind": "completed"
         },
-        "text": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop, and you have advantage to Trade & Barter for aetherium items with special characteristics"
+        "text": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop"
+      },
+      {
+        "when": {
+          "kind": "completed",
+          "phrase": "when **_you Trade & Barter for aetherium items with special characteristics (+2 Value)_**"
+        },
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "trade-barter"
+          ]
+        },
+        "text": "you have advantage"
       }
     ]
   },
@@ -918,13 +1017,15 @@
       {
         "when": {
           "kind": "turn",
-          "seasons": []
+          "seasons": [],
+          "phrase": "when **_the steading generates Surplus, even just 1_**"
         },
         "adjustment": {
           "step": "generation",
+          "at": "result",
           "amount": 1
         },
-        "text": "when the steading generates Surplus, even just 1, it generates +1 Surplus"
+        "text": "it generates +1 Surplus"
       }
     ]
   },
@@ -973,13 +1074,15 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "**_every winter_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "result",
           "amount": -1
         },
-        "text": "consumes 1 less Surplus"
+        "text": "the steading consumes 1 less Surplus"
       }
     ]
   },
@@ -1023,13 +1126,15 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "**_in winter, as long as the camp is in operation_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "result",
           "amount": -1
         },
-        "condition": "as long as the camp is in operation",
+        "condition": true,
         "text": "the steading consumes 1 less Surplus than usual"
       },
       {
@@ -1037,7 +1142,8 @@
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "**_every summer_**"
         },
         "change": {
           "target": "surplus",
@@ -1094,7 +1200,8 @@
           "kind": "turn",
           "seasons": [
             "summer"
-          ]
+          ],
+          "phrase": "**_in summer_**"
         },
         "change": {
           "target": "surplus",
@@ -1105,13 +1212,14 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "autumn-harvest"
+          "moment": "autumn-harvest",
+          "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "text": "another +1 Surplus"
+        "text": "the steading generates another +1 Surplus"
       }
     ]
   },
@@ -1182,20 +1290,28 @@
           "kind": "turn",
           "seasons": [
             "spring"
-          ]
+          ],
+          "phrase": "when **_spring bursts forth and Stonetop has at least 1 Surplus_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "Stonetop has at least 1 Surplus",
+        "condition": true,
         "text": "Stonetop gains +1 Surplus from trade"
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**"
         },
-        "text": "when you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink, you have advantage"
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "trade-barter"
+          ]
+        },
+        "text": "you have advantage"
       }
     ]
   }

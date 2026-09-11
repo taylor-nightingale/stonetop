@@ -1,5 +1,8 @@
 import { Seasons } from "../../data/steading/Seasons.js";
 import { Moments } from "../../data/steading/Moments.js";
+import { formulaLabel } from "../../data/steading/formulaLabel.js";
+import { SteadingDefaults } from "../../data/steading/SteadingDefaults.js";
+import { formatRatingValue } from "./SteadingSnapshot.js";
 
 /** The list an entry is written onto, by the heading the sheet already draws over it. */
 const LIST_LABELS = {
@@ -19,9 +22,9 @@ const LIST_LABELS = {
  * amount, and the thing changed. `+1 Fortunes`, `Autumn +1 Surplus`, `Resources: Mill` — the numbers
  * the sentence contains, which are exactly what a glance cannot get from the sentence itself.
  *
- * Results with no structured payload get NO chip. Township changing Size, Roadbuilding letting you
- * build roads: there is nothing to compress, and compressing it anyway is how the old summary went
- * wrong.
+ * Results with no structured payload get NO chip. Roadbuilding letting you build roads, Additional
+ * Housing's new homes on the map: there is nothing to compress, and compressing it anyway is how the
+ * old summary went wrong.
  */
 export class EffectChip {
 	constructor({ timingKeys = [], amount = "", subjectKey = null, text = "", moveSlug = null, earned = false }) {
@@ -68,8 +71,31 @@ export class EffectChip {
 	static forChange(change, { timingKeys = [], earned = false } = {}) {
 		return new EffectChip({
 			timingKeys, earned,
-			amount:     change.formula ?? `${change.amount < 0 ? "−" : "+"}${Math.abs(change.amount)}`,
+			// A formula through formulaLabel: it is authored as a ROLL expression, and `@population`
+			// printed raw reads as a typo rather than as a rating.
+			amount:     change.formula ? formulaLabel(change.formula)
+				: `${change.amount < 0 ? "−" : "+"}${Math.abs(change.amount)}`,
 			subjectKey: `stonetop.steading.attr.${change.target}`,
+		});
+	}
+
+	/**
+	 * A rating SET rather than moved — `Size: town`, `Population: +0`.
+	 *
+	 * Subject then value, the shape a list-entry chip already uses, because that is what a set is: this
+	 * rating becomes this. A bare "+0 Population" in the delta position would read as a delta, which is
+	 * the one thing a set is not — and for Size it would be nonsense, Size having no arithmetic.
+	 *
+	 * The value in the words the ledger writes it in: signed for a ±N rating (a "+0" the book prints
+	 * too), bare for Surplus, and the tier's own word for Size rather than the slug stored for it.
+	 */
+	static forSet(set, { timingKeys = [], earned = false } = {}) {
+		const rating = SteadingDefaults.rating(set.target);
+		if (!rating) return null;
+		return new EffectChip({
+			timingKeys, earned,
+			subjectKey: `stonetop.steading.attr.${set.target}`,
+			text: rating.isNumeric ? formatRatingValue(set.target, set.value) : rating.tierLabel(set.value),
 		});
 	}
 
@@ -99,6 +125,7 @@ export class EffectChip {
 		};
 		return [
 			effect.change     ? EffectChip.forChange(effect.change, context)       : null,
+			effect.set        ? EffectChip.forSet(effect.set, context)             : null,
 			effect.listEntry  ? EffectChip.forListEntry(effect.listEntry, context) : null,
 			effect.grantsMove ? EffectChip.forGrantedMove(effect.grantsMove, context) : null,
 		].filter(Boolean);

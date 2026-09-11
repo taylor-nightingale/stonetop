@@ -3,9 +3,12 @@
  *
  * The book writes every improvement's payoff as two sentences — "When you ***meet the requirements***,
  * increase Fortunes by 1 and add any new homes to the map. **Henceforth**, when you consume Surplus
- * in winter, consider Population to be 1 lower than it is." — and `system.effects` already carries
- * that split as `trigger.isCompletion`. So the card renders two headed groups rather than one list,
- * and the heading states the trigger so no line has to.
+ * in winter, consider Population to be 1 lower than it is." — and `system.effects` carries that
+ * split as `trigger.isCompletion`, sharpened by whether the clause states its own trigger. So the
+ * card renders two headed groups rather than one list.
+ *
+ * The heading states the trigger for the clauses that do not state their own; the rest open with the
+ * book's own "when …", which is why a clause carrying one belongs under Henceforth however it fires.
  *
  * Two statements rather than one with a filter, because they answer to different rules: the
  * completion half is the card's to apply, and the Henceforth half is `stated` — its results fire at
@@ -45,7 +48,12 @@ export class ImprovementPayoff {
 				earned:  effect.holds(ticked),
 				applied: recordFor(effect, id),
 			});
-			(effect.trigger.isCompletion ? completion : henceforth).push(line);
+			// Split on whether the clause STATES ITS OWN TRIGGER, not on `kind` alone. The palisade's
+			// "when you take advantage of the palisade" is stored as completion-triggered because it
+			// holds from the moment the palisade stands — but the book prints it under Henceforth, and
+			// under "When you meet the requirements:" it now reads as a second "when" inside the first.
+			// Nothing the sheet can apply carries a phrase, so no line loses a control by moving.
+			(effect.trigger.isCompletion && !effect.trigger.phrase ? completion : henceforth).push(line);
 		}
 		return new ImprovementPayoff({
 			completion: new TurnoverStatement(completion, ratings, { stated }),

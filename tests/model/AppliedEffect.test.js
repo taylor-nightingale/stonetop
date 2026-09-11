@@ -21,6 +21,33 @@ describe("AppliedEffect", () => {
 			expect(applied.change).toBeNull();
 		});
 
+		// The value it REPLACED, which is the only inverse a set has. Township turning Population to
+		// +0 is otherwise a one-way door.
+		it("records what a set replaced as well as what it wrote", () => {
+			const applied = AppliedEffect.fromLine(
+				lineFor({ text: "change Population to +0", set: { target: "population", value: 0 } }),
+				{ from: 3 });
+			expect(applied.set).toEqual({ target: "population", from: 3, to: 0 });
+			expect(applied.change).toBeNull();
+			expect(applied.isRevertable).toBe(true);
+		});
+
+		it("records a set of Size by its tier word", () => {
+			const applied = AppliedEffect.fromLine(
+				lineFor({ text: "change Size to town", set: { target: "size", value: "town" } }),
+				{ from: "village" });
+			expect(applied.set).toEqual({ target: "size", from: "village", to: "town" });
+		});
+
+		// 0 and "" are what the two kinds of rating read as when nothing has ever set them, so a caller
+		// with nothing to hand over still leaves a revertable record rather than an undefined one.
+		it("falls back to the rating's unset value when the caller supplies none", () => {
+			expect(AppliedEffect.fromLine(lineFor({ text: "to +0", set: { target: "population", value: 2 } })).set)
+				.toEqual({ target: "population", from: 0, to: 2 });
+			expect(AppliedEffect.fromLine(lineFor({ text: "to town", set: { target: "size", value: "town" } })).set)
+				.toEqual({ target: "size", from: "", to: "town" });
+		});
+
 		// A rolled amount is not written by the sheet, so there is nothing to record — and recording
 		// the formula would make revert subtract a die.
 		it("records nothing for an amount the sheet does not write", () => {
@@ -35,6 +62,11 @@ describe("AppliedEffect", () => {
 			for (const original of [
 				new AppliedEffect({ change: { target: "surplus", amount: -2 } }),
 				new AppliedEffect({ entry: { list: "fortifications", text: "Palisade" } }),
+				new AppliedEffect({ set: { target: "size", from: "village", to: "town" } }),
+				// The two values that are falsy but real: a record whose presence was checked for truth
+				// would come back from storage as a set that never happened.
+				new AppliedEffect({ set: { target: "population", from: 3, to: 0 } }),
+				new AppliedEffect({ set: { target: "size", from: "", to: "hamlet" } }),
 				new AppliedEffect({ legacy: true }),
 			]) {
 				expect(AppliedEffect.fromRaw(original.toRaw())).toEqual(original);
@@ -82,6 +114,19 @@ describe("AppliedEffect", () => {
 		it("treats an absent rating as zero", () => {
 			expect(new AppliedEffect({ change: { target: "defenses", amount: 1 } }).inverseUpdate())
 				.toEqual({ "system.attributes.defenses": -1 });
+		});
+
+		it("puts back the value a set replaced", () => {
+			expect(new AppliedEffect({ set: { target: "size", from: "village", to: "town" } })
+				.inverseUpdate({ attributes: { size: "town" } })).toEqual({ "system.attributes.size": "village" });
+		});
+
+		// The opposite of a delta on purpose. A set asserted a value, so undoing it asserts the previous
+		// one — where the rating stands now is not part of the arithmetic, because there is none.
+		it("restores a set regardless of where the rating stands now", () => {
+			const applied = new AppliedEffect({ set: { target: "population", from: 3, to: 0 } });
+			expect(applied.inverseUpdate({ attributes: { population: 0 } })).toEqual({ "system.attributes.population": 3 });
+			expect(applied.inverseUpdate({ attributes: { population: 2 } })).toEqual({ "system.attributes.population": 3 });
 		});
 
 		// By VALUE: the list is edited by hand between seasons, so an index recorded at apply time

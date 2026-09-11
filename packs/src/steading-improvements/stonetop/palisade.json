@@ -117,9 +117,16 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you take advantage of the palisade_**"
         },
-        "text": "when you take advantage of the palisade, you have advantage to Deploy"
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "deploy"
+          ]
+        },
+        "text": "you have advantage to Deploy"
       }
     ]
   },

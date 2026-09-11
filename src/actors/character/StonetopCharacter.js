@@ -368,6 +368,11 @@ export class StonetopCharacter {
 		return this._debilities.applyRollMode(stat, rollMode);
 	}
 
+	// Every roll offers the tier it landed in to the actor that made it. Nothing on a character's
+	// sheet waits on one — the card says what was rolled, and the XP mark is offered on the card
+	// itself — so the offer is taken and dropped. The steading's is not (see StonetopSteading).
+	async recordMoveOutcome(_moveSlug, _outcome) {}
+
 	async onDropMove(itemData) {
 		return this._moves.onDropMove(itemData);
 	}

@@ -35,18 +35,26 @@ const STEPS = {
 	         { kind: "reset", target: "fortunes" }],
 };
 
-const seasonMove = name => new FakeCompendiumMoveBuilder()
+// The move's own authored results, where a test is about the rows the tiered step draws.
+const RESULTS = {
+	success: { label: "10+", value: "a mild season" },
+	partial: { label: "7-9", value: "it costs you" },
+	failure: { label: "6-",  value: "it costs you more" },
+};
+
+const seasonMove = (name, { results = null } = {}) => new FakeCompendiumMoveBuilder()
 	.withName(name)
 	.withMoveType("seasons")
 	.withSteps(STEPS[name.replace("Seasons Change: ", "").toLowerCase()] ?? [])
+	.withMoveResults(results)
 	.build();
 
 // A real SteadingMoves behind it: SteadingSeasons asks for its own category by key, so a fake that
 // just handed back a category would prove nothing about that wiring.
-function build({ moveNames = [], plate = null } = {}) {
+function build({ moveNames = [], plate = null, results = null } = {}) {
 	const actor = new FakeSteadingBuilder().build();
 	const repo  = new FakeMoveRepository();
-	moveNames.forEach(n => repo.addBasic(seasonMove(n)));
+	moveNames.forEach(n => repo.addBasic(seasonMove(n, { results })));
 	const choices = new SteadingChoices(actor);
 	const moves   = new SteadingMoves(actor, repo);
 	const repos   = steadingRepos({ moves: repo });
@@ -93,6 +101,25 @@ describe("SteadingSeasons.buildSnapshot", () => {
 
 		expect(snapshot.moves.key).toBe(Seasons.CATEGORY);
 		expect(snapshot.moves.moves.map(m => m.slug)).toEqual(Seasons.moveSlugs());
+	});
+
+	// The tier the season's own move came up travels with the steps, so the box lights the row the
+	// dice landed on. It is the steading's own record, not something the snapshot works out.
+	it("lights the result the season's own move came up", async () => {
+		const { seasons, moves, season } = build({ moveNames: allFour(), results: RESULTS });
+		await moves.seedReferenceMoves();
+		await season.recordRoll(season.season.moveSlug, { key: "partial", label: "7-9" });
+
+		const tiers = (await seasons.buildSnapshot()).steps.find(step => step.hasTiers).tiers;
+		expect(tiers.filter(t => t.isRolled).map(t => t.key)).toEqual(["partial"]);
+	});
+
+	it("lights nothing on a season nobody has rolled", async () => {
+		const { seasons, moves } = build({ moveNames: allFour(), results: RESULTS });
+		await moves.seedReferenceMoves();
+
+		const tiers = (await seasons.buildSnapshot()).steps.find(step => step.hasTiers).tiers;
+		expect(tiers.some(t => t.isRolled)).toBe(false);
 	});
 
 	it("drops a season whose move the steading no longer carries", async () => {

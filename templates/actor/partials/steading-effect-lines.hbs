@@ -1,0 +1,24 @@
+{{!-- Improvement results stated with their source and nothing to press.
+
+      The one row shape for what the sheet shows and never writes: what bends a step of the season,
+      and what bends a step no season of this steading has. They were near-copies of the same markup,
+      and the difference between them is which list is handed in, not how a row looks.
+
+      Bulleted, unlike the statement's own rows: these read as a short list of clauses under a line of
+      prose, which is what the book's swirl is for. The rows the statement draws are a table with
+      controls in it, and a bullet on those would be marking a form.
+
+      Each row opens with the book's own clause where the line has one — "in winter, as long as the
+      camp is in operation" — because the qualifier a bend waits on is part of that clause and has
+      nowhere else to be said. It used to be written a second time in the sheet's voice, as an "only
+      if …" tail, off the end of a sentence the clause had already qualified.
+
+      Params: lines (TurnoverLine[]), extraClass — a class for the block that owns them. --}}
+<ul class="steading-effect-lines steading-statement-lines steading-statement-lines--sourced {{extraClass}}">
+	{{#each lines}}
+		<li class="steading-statement-line">
+			<span class="steading-statement-source">{{source}}</span>
+			<span class="steading-statement-clause">{{#if phrase}}{{rich phrase}}, {{/if}}{{rich text}}</span>
+		</li>
+	{{/each}}
+</ul>

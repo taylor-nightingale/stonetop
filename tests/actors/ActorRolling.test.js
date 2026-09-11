@@ -4,9 +4,12 @@ import { RollRequest } from "../../src/actors/RollRequest.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakeStonetopCharacter } from "../fakes/FakeStonetopCharacter.js";
 import { FakeRoll } from "../fakes/foundry/FakeRoll.js";
+import { FakeDiceTerm } from "../fakes/foundry/FakeDiceTerm.js";
 import { FakeChatMessage } from "../fakes/foundry/FakeChatMessage.js";
 import { FakeDialog } from "../fakes/foundry/FakeDialog.js";
 import { renderTemplate as renderRealTemplate } from "../fakes/renderTemplate.js";
+import { FormulaRollCard } from "../../src/model/snapshot/FormulaRollCard.js";
+import { AppliedStepRoll } from "../../src/model/data/steading/AppliedStepRoll.js";
 
 // -- helpers -------------------------------------------------------------------
 
@@ -17,6 +20,12 @@ function makeRolling({ die, bonuses = {} } = {}) {
 		actor.typedActor.withBonus(stat, bonus);
 	}
 	return new ActorRolling(actor);
+}
+
+// A one-die roll that totalled something other than its die — the shape every formula roll has once
+// a rating is added to it.
+function formulaRoll(die, total) {
+	return { dice: [FakeDiceTerm.kept([die], 4)], total };
 }
 
 function statRequest(stat, rollMode = "normal") {
@@ -40,7 +49,10 @@ beforeEach(() => {
 		d.description ? d.description.render() : "",
 		d.resultText ? d.resultText.render() : "",
 		...(d.results ?? []).map(r => `${r.label} ${r.text.render()}`),
-		d.dice ? d.dice.diceGroups.flatMap(g => g.values).join(",") : "",
+		d.dice ? d.dice.rolls.map(r => r.result).join(",") : "",
+		d.dice?.formula ?? "",
+		d.dice?.mod ?? "",
+		d.applied ? d.applied.labelKey : "",
 		d.xpLine ?? "",
 	].join(" | ");
 });
@@ -89,32 +101,75 @@ describe("ActorRolling.execute — damage", () => {
 	});
 });
 
-// -- rollFormula ---------------------------------------------------------------
+// -- formula rolls -------------------------------------------------------------
 
 // Not every roll a move calls for is a 2d6 landing on 10+/7-9/6-. Winter's Seasons Change opens by
 // rolling 1d4+Population to see what the season costs, and the answer is a NUMBER: read as a move
 // result, a 10 that means ten Surplus gone would come back "success".
-describe("ActorRolling.rollFormula", () => {
+//
+// Rolling and reporting are two calls, because what the roll DID belongs on the card and is not
+// known until the caller has applied it.
+describe("ActorRolling.evaluateFormula", () => {
 	it("rolls exactly the formula it is handed", async () => {
-		await makeRolling().rollFormula("Roll 1d4 + Population", "1d4 + 2");
+		await makeRolling().evaluateFormula("1d4 + 2");
 		expect(FakeRoll.lastInstance.formula).toBe("1d4 + 2");
 	});
 
-	it("posts a card titled by the step that asked for it", async () => {
-		await makeRolling().rollFormula("Roll 1d4 + Population", "1d4 + 2");
-		expect(FakeChatMessage.lastCreated.content).toContain("Roll 1d4 + Population");
+	it("hands back the evaluated roll, so the caller can move what it came to", async () => {
+		FakeRoll.setNextTotal(5);
+		expect((await makeRolling().evaluateFormula("1d4 + 2")).total).toBe(5);
+	});
+
+	it("posts nothing on its own", async () => {
+		await makeRolling().evaluateFormula("1d4 + 2");
+		expect(FakeChatMessage.lastCreated).toBeNull();
+	});
+});
+
+describe("ActorRolling.postFormulaCard", () => {
+	const card = (over = {}) => new FormulaRollCard({
+		name: "Winter — Consumption", roll: formulaRoll(1, 0), formula: "1d4 + Population", ...over,
+	});
+
+	it("posts a card titled by what the season did", async () => {
+		await makeRolling().postFormulaCard(card());
+		expect(FakeChatMessage.lastCreated.content).toContain("Winter — Consumption");
+	});
+
+	// The rating is named on the formula line; the dice row carries what it came to. Between them a
+	// 1 that totalled 0 is accounted for, which is exactly what the card used to leave out.
+	it("states the formula it was named with", async () => {
+		await makeRolling().postFormulaCard(card());
+		expect(FakeChatMessage.lastCreated.content).toContain("1d4 + Population");
+	});
+
+	it("states the modifier the dice did not account for", async () => {
+		await makeRolling().postFormulaCard(card());
+		expect(FakeChatMessage.lastCreated.content).toContain("-1");
 	});
 
 	// No tiers on the card: there is no 10+/7-9/6- to report, and a badge saying one would be
 	// reading a quantity as an outcome.
 	it("reports no result tier", async () => {
-		await makeRolling().rollFormula("Roll 1d4", "1d4");
+		await makeRolling().postFormulaCard(card({ formula: null }));
 		expect(FakeChatMessage.lastCreated.content).not.toContain("stonetop.roll.outcome");
 	});
 
 	it("sends the roll along with the message, so the dice animate", async () => {
-		await makeRolling().rollFormula("Roll 1d4", "1d4");
+		await makeRolling().postFormulaCard(card());
 		expect(FakeChatMessage.lastCreated.rolls).toHaveLength(1);
+	});
+
+	// The record the step keeps of what it moved — the card says it in the same words the sheet does.
+	it("says what the roll did, where the caller applied it", async () => {
+		const applied = new AppliedStepRoll({ total: 3, from: 5, to: 2 });
+		await makeRolling().postFormulaCard(card({ applied }));
+		expect(FakeChatMessage.lastCreated.content).toContain(applied.labelKey);
+	});
+
+	it("says nothing about what it did when it moved nothing", async () => {
+		await makeRolling().postFormulaCard(card());
+		expect(FakeChatMessage.lastCreated.content).not.toContain("applied");
 	});
 });
 
@@ -327,6 +382,43 @@ describe("ActorRolling.execute — ask stat", () => {
 });
 
 // -- execute — XP on a miss ------------------------------------------------------
+
+// Every move roll hands the tier it landed in back to the actor that made it, because a sheet can
+// have something waiting on it — the steading keeps its own Seasons Change result so the season box
+// can light the row the dice landed on. Offered from here rather than from each roll site: the die
+// on a move row, the die in the season box and the turn's own rollItem are three paths to one roll.
+describe("ActorRolling.execute — the tier it landed in", () => {
+	const moveRequest = slug => RollRequest.fromItem({
+		name: "Seasons Change: Winter",
+		system: { rollStat: "fortunes", slug, description: "", moveResults: null },
+	}, null, "normal");
+
+	it("hands the actor the move and the tier it rolled", async () => {
+		const rolling = makeRolling({ bonuses: { fortunes: 0 } });
+		FakeRoll.setNextTotal(8);
+		await rolling.execute(moveRequest("seasons-change-winter"));
+		expect(rolling._actor.typedActor.outcomes).toEqual([
+			{ moveSlug: "seasons-change-winter", outcome: expect.objectContaining({ key: "partial" }) },
+		]);
+	});
+
+	it("offers a bare rating roll too, with no move to name", async () => {
+		const rolling = makeRolling({ bonuses: { str: 0 } });
+		FakeRoll.setNextTotal(12);
+		await rolling.execute(statRequest("str"));
+		expect(rolling._actor.typedActor.outcomes).toEqual([
+			{ moveSlug: null, outcome: expect.objectContaining({ key: "success" }) },
+		]);
+	});
+
+	// A roll that never happened has no tier to offer: a move with no rating rolls nothing and posts
+	// its text instead.
+	it("offers nothing where nothing was rolled", async () => {
+		const rolling = makeRolling();
+		await rolling.execute(statRequest("loyalty"));
+		expect(rolling._actor.typedActor.outcomes).toEqual([]);
+	});
+});
 
 describe("ActorRolling.execute — XP on a 6-", () => {
 	function moveRequest({ xpOnMiss } = {}) {

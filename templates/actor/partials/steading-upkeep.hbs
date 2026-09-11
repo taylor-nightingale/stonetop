@@ -1,0 +1,25 @@
+{{!-- What the steading pays each season to keep what it has built.
+
+      The watch's Surplus "or it disbands", the weapons the smith maintains each spring, the militia's
+      week of practice, the logging camp's keep. Not a step of Seasons Change — nothing in the move
+      says any of it — so it is not numbered among the steps, and not left in the general list either,
+      where a bill read exactly like a payout.
+
+      Its own section, outside the procedure and before what the season owes, because it is the one
+      part of the turn the steading brings on itself. Each line keeps its control: these are plain
+      arithmetic, and the season's own Apply still writes them, since the section they moved to is
+      still this season's.
+
+      Params: statement (TurnoverStatement). --}}
+{{#if statement.upkeep.length}}
+	<div class="steading-upkeep">
+		<h4 class="steading-upkeep-label">{{localize "stonetop.steading.seasons.upkeep"}}</h4>
+		{{!-- The batch, because this is what it writes. "Apply the season" used to sit under the general
+		      list, which now holds only clauses the sheet cannot write — a button under rows it does
+		      not touch, and none under the rows it does. It still applies everything the season owes,
+		      and its totals still say what that comes to. --}}
+		{{> "stonetop.steading-statement" statement=statement automaticLines=statement.upkeep
+		    showSource=true showDelta=true applyAllAction="applyTurnover"
+		    applyAllLabel="stonetop.steading.effects.applySeason"}}
+	</div>
+{{/if}}

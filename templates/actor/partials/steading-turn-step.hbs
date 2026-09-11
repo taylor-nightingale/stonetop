@@ -5,59 +5,167 @@
       (its label, its dice, how many it offers) is answered by the step itself, and this partial
       only asks which control to draw.
 
-      Context is a SeasonStep, and it is passed WITHOUT hash params on purpose: a partial invoked
-      with hash args gets a flattened copy of its context, and a step answers everything about itself
-      through prototype getters — every one of which is lost in that copy, silently, leaving a
-      numbered row with no label and no control. The position comes from `@index`, which a partial
-      inherits from the enclosing {{#each}} for free. --}}
+      Context is a SeasonStepSnapshot — the step, plus everything this steading brings to it: the dice
+      it actually rolls, what it actually pays, what it has already done, and the choice it calls for.
+      It is passed WITHOUT hash params on purpose: a partial invoked with hash args gets a flattened
+      copy of its context, and a step answers everything about itself through prototype getters —
+      every one of which is lost in that copy, silently, leaving a numbered row with no label and no
+      control. --}}
 <li class="steading-turn-step">
-	<span class="steading-turn-num" aria-hidden="true">{{inc @index}}</span>
+	<span class="steading-turn-num" aria-hidden="true">{{number}}</span>
 	<div class="steading-turn-body-step">
 
-		<h4 class="steading-turn-label">
-			{{localize labelKey die=die count=count stat=(localize statLabelKey)}}
-		</h4>
+		{{!-- The move's own words for this step. `labelKey` is the fallback, for a homebrew Seasons
+		      Change whose steps carry no authored text: "Roll it" reads poorly next to "when winter
+		      grips the land", but it beats a numbered row with no line at all. --}}
+		{{#if text}}
+			<div class="steading-turn-text stonetop-rich">{{rich text}}</div>
+		{{else}}
+			<h4 class="steading-turn-label">
+				{{localize labelKey die=die count=count stat=(localize statLabelKey)}}
+			</h4>
 
-		{{#if noteKey}}
-			<p class="steading-turn-note">{{localize noteKey die=die}}</p>
-		{{/if}}
-
-		{{#if isTieredRoll}}
-			{{!-- The move's OWN roll, and rolling it is what turns the wheel — so this is the one
-			      control on the tab that advances the season, not a second "advance" beside it. It
-			      asks before it fires. --}}
-			{{#if @root.editable}}
-				<button type="button" class="steading-turn-roll" data-action="turnSeason">
-					<i class="fas fa-dice-d6" aria-hidden="true"></i>
-					<span>{{localize "stonetop.steading.seasons.rollMove" move=@root.stonetop.seasons.nextMove.name}}</span>
-				</button>
+			{{#if noteKey}}
+				<p class="steading-turn-note">{{localize noteKey die=die}}</p>
 			{{/if}}
 		{{/if}}
 
-		{{#if isFormulaRoll}}
-			{{!-- Winter's 1d4+Population, which had no control at all: the panel's one button rolled
-			      +Fortunes, which is winter's FOURTH step. Not edit-gated — rolling posts a card and
-			      writes nothing, so a locked sheet still rolls. --}}
-			<button type="button" class="steading-turn-roll is-plain" data-view-state
-			        data-action="rollSeasonStep" data-die="{{die}}" data-stat="{{stat}}">
+		{{!-- Every control below carries a short verb where the step has the move's own words, and the
+		      descriptive label only where it does not. The line has just said whose roll it is, at what,
+		      and why; a button repeating "Roll +Fortunes" under "Then, roll +Fortunes." is the sentence
+		      twice.
+
+		      The move's own roll and a step's own dice are two different controls, and the difference is
+		      what they write: the first posts a card, the second moves Surplus. Neither turns the
+		      wheel — that is the advance control below the box, and it rolls nothing. --}}
+
+		{{#if isTieredRoll}}
+			{{!-- The move's own roll, as a NORMAL move roll: the 2d6+Fortunes with its 10+/7-9/6- tiers,
+			      posted to chat, leaving the wheel exactly where it stands.
+
+			      This is where Seasons Change is rolled. The turn control below only advances the wheel,
+			      so the roll is the table's to make when they reach it — as many times as the season
+			      asks for. Goes through the same `.rollable[data-roll]` path as every other move on the
+			      sheet, addressed by slug — so the tiers, the debilities and the roll mode are the ones
+			      every move gets. --}}
+			<button type="button" class="rollable move-rollable steading-turn-roll is-plain"
+			        data-view-state data-roll="{{step.stat}}"
+			        data-move-slug="{{@root.stonetop.seasons.currentMove.slug}}">
 				<i class="fas fa-dice-d6" aria-hidden="true"></i>
-				<span>{{localize labelKey die=die stat=(localize statLabelKey)}}</span>
+				<span>{{#if text}}{{localize "stonetop.steading.seasons.steps.rollShort"}}{{else}}{{localize labelKey}}{{/if}}</span>
 			</button>
+
+			{{!-- What the move says happens on each result, as three rows rather than one sentence
+			      holding all three. The words are the move's OWN result tiers — the same ones its chat
+			      card prints — so nothing here is authored twice.
+
+			      A row rolls where its tier costs the steading a roll: winter's 7-9 and 6- each consume
+			      another 1d4+Population, which was prose in the middle of a clause, with no control, no
+			      record and no way to undo it, beside a first consumption that had all three. --}}
+			{{#if hasTiers}}
+				{{!-- Drawn by the partial the move's own item sheet draws its results with: one move,
+				      one set of three results, one way of reading them. The row the DICE landed on is
+				      lit — the season keeps what its move came up, so what the table is living with is
+				      the row that says so rather than a tier they have to remember.
+
+				      What the row COSTS — the clauses waiting on this result, the roll the tier
+				      consumes — is the tier's own body partial, handed the tier itself so its getters
+				      survive the trip (see stonetop.move-result-row). --}}
+				<div class="steading-turn-tiers stonetop-result-rows">
+					{{#each tiers}}
+						{{> stonetop.move-result-row key=key label=label text=text rolled=isRolled
+						    bodyPartial="stonetop.steading-tier-body" body=this}}
+					{{/each}}
+				</div>
+			{{/if}}
+		{{/if}}
+
+		{{!-- What the steading has built that belongs to THIS step — the mill's +1 and Greater
+		      Harvest's 1d4 at the autumn harvest, the town's Population+1 where the season generates.
+		      Read here, and paid here: the amounts are inside the control below rather than in a panel
+		      under the list with an Apply of its own, which had the table paying one event twice in
+		      two places.
+
+		      No control on any row: the step's own control is the act, and reverting it gives back
+		      everything it wrote. Stated through the statement partial with nothing in its applicable
+		      list, so a moment that hands the table a MOVE still shows it as the move it is. --}}
+		{{#if hasContribution}}
+			<div class="steading-turn-moment">
+				{{#with contribution}}
+					{{> "stonetop.steading-statement" statement=statement advisoryLines=lines
+					    moveSlugs=statement.grantedMoveSlugs
+					    showSource=true showDelta=false bulleted=true}}
+				{{/with}}
+			</div>
+		{{/if}}
+
+		{{#if movesSurplus}}
+			{{!-- Any step that MOVES Surplus: winter's 1d4+Population, summer's 1d4-1, autumn's 1d4 at
+			      the harvest, and the one the sheet adds for the steading's own gains in a season whose
+			      move generates nothing. Winter's had no control at all — the panel's one button rolled
+			      +Fortunes, which is winter's FOURTH step — and the other two had none either, which
+			      only became obvious once the step said "roll 1d4" in the book's own words. --}}
+
+			{{!-- What the steading's SIZE makes of the dice — 1d2+Population in a hamlet, 2d6+Population
+			      in a town. The step's own line is the book's and says 1d4, so a control offering 2d6
+			      with nothing between them would read as the sheet disagreeing with the move it draws.
+			      Shown only where the size actually changes them. --}}
+			{{#if hasSizeRoll}}
+				{{#with sizeRoll}}
+					<p class="steading-turn-size">
+						{{localize labelKey size=(localize sizeLabelKey) die=die stat=(localize statLabelKey)}}
+					</p>
+				{{/with}}
+			{{/if}}
+
+			{{!-- What this steading has built that bends this step — each in the book's own sentence,
+			      under the step it bends. "Consider Population to be 1 lower than it is." "Consumes 1
+			      less Surplus than normal."
+
+			      The sheet does NOT narrate what it made of them. A first attempt printed its own
+			      summary — "Rolls 2d6 + Population, counted −1 — Additional Housing, Township" — which
+			      stacked a second formula under the move's own, said neither which improvement did
+			      which nor what was counted −1, and meant nothing to a reader. What the sheet made of
+			      them is on the control below, which rolls the dice it names. --}}
+			{{#if hasAdjustments}}
+				{{> "stonetop.steading-effect-lines" lines=adjustments extraClass="steading-turn-results"}}
+			{{/if}}
+
+			{{> "stonetop.steading-turn-roll" }}
 		{{/if}}
 
 		{{#if isReset}}
 			{{#if @root.editable}}
+				{{!-- The value, always. The step's line is the book's — "reset Fortunes to +1" — but a
+				      malcontent steading resets to +0, and this control is the only thing that knows
+				      it. Shortened, not stripped. --}}
 				<button type="button" class="steading-turn-reset" data-action="resetFortunes">
-					{{localize "stonetop.steading.seasons.resetFortunes" value=@root.stonetop.fortunesReset}}
+					{{#if text}}
+						{{localize "stonetop.steading.seasons.steps.resetShort" value=@root.stonetop.fortunesReset}}
+					{{else}}
+						{{localize "stonetop.steading.seasons.resetFortunes" value=@root.stonetop.fortunesReset}}
+					{{/if}}
 				</button>
 			{{/if}}
 		{{/if}}
 
 		{{#if isPick}}
-			{{!-- No picker here: what you pick is in force until the wheel turns again, so it lives on
-			      the season's working surface where it can be read all season. This step says the
-			      choice is yours to make; "During <season>" is where you make it. --}}
-			<p class="steading-turn-note">{{localize "stonetop.steading.seasons.steps.pickBelow"}}</p>
+			{{!-- The choice, made where the move says to make it. It used to be a note pointing at a
+			      block further down the tab — "below, where it stays in force all season" — which named
+			      the wrong place for the one thing the step is about.
+
+			      It can only be here because the box is the CURRENT season's: spring, summer and autumn
+			      all write the same `seasonal-gains` group and turning the wheel clears it, so a picker
+			      inside a box headed "Turn to Summer" would have shown spring's gain, invited a change,
+			      and then been wiped by the roll.
+
+			      The step carries the group: the step describes the choice, and the group holds what
+			      has been ticked. --}}
+			{{#with pick.group}}
+				<div class="steading-turn-pick">
+					{{> "stonetop.choice-group" cgContext="steading"}}
+				</div>
+			{{/with}}
 		{{/if}}
 
 	</div>

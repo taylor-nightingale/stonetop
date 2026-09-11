@@ -173,7 +173,7 @@ describe("SteadingImprovements.buildSnapshot — stored track state", () => {
 	});
 });
 
-describe("SteadingImprovements.grantedMoveSources", () => {
+describe("SteadingImprovements.grantedMoveSlugs", () => {
 	// The pack holds the move; the improvement only names it. Collected here so the sheet resolves
 	// the whole set in one lookup rather than one per line.
 	const withMoves = () => {
@@ -198,30 +198,23 @@ describe("SteadingImprovements.grantedMoveSources", () => {
 		return repo;
 	};
 
-	it("names every move the owned improvements confer, once", async () => {
+	it("names every move the owned improvements confer", async () => {
 		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
-		expect([...(await imp.grantedMoveSources()).keys()])
+		expect([...(await imp.grantedMoveSlugs())])
 			.toEqual(["news-at-the-inn", "lead-the-aurochs-hunt"]);
 	});
 
-	// The row it renders as is collected by WHEN it fires, not under the thing that granted it, so
-	// the improvement's name is the only thing on the row saying why the move is there.
-	it("names the improvement that confers each one", async () => {
+	// Two improvements can confer the same move — the Inn and a reputation both bring news to the
+	// inn — and the sheet wants one row and one pack lookup for it, not two.
+	it("names a move two improvements share once", async () => {
 		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
-		expect((await imp.grantedMoveSources()).get("lead-the-aurochs-hunt")).toBe("Aurochs Hunting");
+		expect([...(await imp.grantedMoveSlugs())].filter(s => s === "news-at-the-inn")).toHaveLength(1);
 	});
 
-	// Two improvements can confer the same move; the first to do so is what the row says, matching
-	// the order the board lists them in.
-	it("keeps the first improvement to confer a move it shares", async () => {
-		const imp = new SteadingImprovements(makeActor(["inn", "aurochs-hunting"]), withMoves());
-		expect((await imp.grantedMoveSources()).get("news-at-the-inn")).toBe("Inn");
-	});
-
-	// Whether it is BUILT is not asked: the sheet needs the move's name wherever the line is shown,
-	// and the line is shown before the improvement is finished.
+	// Whether it is BUILT is not asked: the sheet needs the move wherever the line is shown, and the
+	// line is shown before the improvement is finished.
 	it("names nothing for an improvement the steading does not own", async () => {
 		const imp = new SteadingImprovements(makeActor(["palisade"]), withMoves());
-		expect(await imp.grantedMoveSources()).toEqual(new Map());
+		expect(await imp.grantedMoveSlugs()).toEqual(new Set());
 	});
 });

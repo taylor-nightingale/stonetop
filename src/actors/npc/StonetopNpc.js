@@ -27,6 +27,10 @@ export class StonetopNpc {
 	// here uniformly.
 	async onCreate() {}
 
+	// See StonetopCharacter#recordMoveOutcome — nothing on an NPC sheet waits on the tier a roll
+	// landed in, so the offer every roll makes is taken and dropped.
+	async recordMoveOutcome(_moveSlug, _outcome) {}
+
 	get hp()             { return this._actor.system?.hp?.value     ?? 0; }
 	get maxHp()          { return this._actor.system?.hp?.max       ?? 0; }
 	get armor()          { return this._actor.system?.armor          ?? ""; }

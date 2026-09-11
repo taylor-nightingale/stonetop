@@ -22,11 +22,19 @@ const load = rel => JSON.parse(readFileSync(path.join(root, rel), "utf8"));
 describe("pack move icons", () => {
 	const withIcons = moveFiles().map(f => [f, load(f)]).filter(([, m]) => m.img);
 
-	it("gives every Seasons Change move its season's glyph", () => {
+	// The four Seasons Change moves are the only moves in the pack carrying an icon, and they carry
+	// one for the COMPENDIUM directory, which lists items by their image. No sheet and no chat card
+	// draws a move icon — see tests/templates/move-icon-render.test.js.
+	it("gives every Seasons Change move its season's glyph, for the compendium listing", () => {
 		for (const season of Seasons.all()) {
 			const file = `packs/src/moves/seasons/${season.moveSlug}.json`;
 			expect(load(file).img).toBe(`systems/stonetop/assets/content/seasons/season-${season.key}.png`);
 		}
+	});
+
+	it("is the only move in the pack that carries one", () => {
+		expect(withIcons.map(([file]) => file).sort())
+			.toEqual(Seasons.all().map(s => `packs/src/moves/seasons/${s.moveSlug}.json`).sort());
 	});
 
 	it("points every move icon at a file that actually ships", () => {

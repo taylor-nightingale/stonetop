@@ -148,20 +148,28 @@
           "kind": "turn",
           "seasons": [
             "spring"
-          ]
+          ],
+          "phrase": "when **_spring bursts forth and Stonetop has at least 1 Surplus_**"
         },
         "change": {
           "target": "surplus",
           "amount": 1
         },
-        "condition": "Stonetop has at least 1 Surplus",
+        "condition": true,
         "text": "Stonetop gains +1 Surplus from trade"
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**"
         },
-        "text": "when you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink, you have advantage"
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "trade-barter"
+          ]
+        },
+        "text": "you have advantage"
       }
     ]
   },

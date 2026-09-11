@@ -13,7 +13,11 @@
       "text": ""
     },
     "effects/2/text": {
-      "source": "when consuming Surplus, consider Population to be 1 lower than it is",
+      "source": "consider Population to be 1 lower than it is",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when you **_consume Surplus in winter_**",
       "text": ""
     },
     "choices/0/text": {
@@ -51,15 +55,23 @@
       "text": ""
     },
     "effects/1/text": {
-      "source": "as long as you trade aetherium to the outside world, increase Prosperity by 1",
-      "text": ""
-    },
-    "effects/1/condition": {
-      "source": "as long as you trade aetherium to the outside world",
+      "source": "increase Prosperity by 1",
       "text": ""
     },
     "effects/2/text": {
-      "source": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop, and you have advantage to Trade & Barter for aetherium items with special characteristics",
+      "source": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "you have advantage",
+      "text": ""
+    },
+    "effects/1/when/phrase": {
+      "source": "**_as long as you trade aetherium to the outside world_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_you Trade & Barter for aetherium items with special characteristics (+2 Value)_**",
       "text": ""
     },
     "effects/0/listEntry/text": {
@@ -213,7 +225,11 @@
       "text": ""
     },
     "effects/2/text": {
-      "source": "when the steading generates Surplus, even just 1, it generates +1 Surplus",
+      "source": "it generates +1 Surplus",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when **_the steading generates Surplus, even just 1_**",
       "text": ""
     },
     "effects/0/listEntry/text": {
@@ -251,7 +267,15 @@
       "text": ""
     },
     "effects/2/text": {
-      "source": "the steading has a ready supply of timber for improvements and other projects, and consumes 1 less Surplus",
+      "source": "the steading has a ready supply of timber for improvements and other projects",
+      "text": ""
+    },
+    "effects/3/text": {
+      "source": "the steading consumes 1 less Surplus",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "**_every winter_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -292,6 +316,10 @@
       "source": "gain +1d4 Surplus",
       "text": ""
     },
+    "effects/1/when/phrase": {
+      "source": "when **_the autumn harvest is complete_**",
+      "text": ""
+    },
     "choices/0/text": {
       "source": "Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.",
       "text": ""
@@ -326,8 +354,8 @@
       "source": "the steading generates 1 Surplus",
       "text": ""
     },
-    "effects/2/condition": {
-      "source": "you roll a 7+ with Fortunes",
+    "effects/2/when/phrase": {
+      "source": "when **_spring breaks forth and you roll a 7+ with Fortunes_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -369,11 +397,11 @@
       "text": ""
     },
     "effects/2/text": {
-      "source": "when you leverage the horses to Pull Together, it takes half as long and costs half as much",
+      "source": "it takes half as long and costs half as much",
       "text": ""
     },
     "effects/3/text": {
-      "source": "when you Requisition half the herd or less, treat a 6- as a 7-9",
+      "source": "treat a 6- as a 7-9",
       "text": ""
     },
     "effects/4/text": {
@@ -384,8 +412,20 @@
       "source": "the herd consumes 1 Surplus per 6 grown or yearling horses; for every Surplus not consumed, 1d6 horses are lost",
       "text": ""
     },
-    "effects/5/condition": {
-      "source": "1 Surplus per 6 grown or yearling horses",
+    "effects/2/when/phrase": {
+      "source": "when **_you leverage the horses to Pull Together_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_you Requisition half the herd or less_**",
+      "text": ""
+    },
+    "effects/4/when/phrase": {
+      "source": "when **_the seasons change to summer_**",
+      "text": ""
+    },
+    "effects/5/when/phrase": {
+      "source": "when **_winter grips the land_**",
       "text": ""
     },
     "choices/0/text": {
@@ -492,8 +532,8 @@
       "source": "clear one of the steading's debilities",
       "text": ""
     },
-    "effects/3/condition": {
-      "source": "you expend 1 Surplus",
+    "effects/3/when/phrase": {
+      "source": "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -542,8 +582,8 @@
       "source": "the market generates 1 Surplus",
       "text": ""
     },
-    "effects/1/condition": {
-      "source": "the market is active and Population is +1 or better",
+    "effects/1/when/phrase": {
+      "source": "when **_the seasons change to spring, summer, or autumn, and the market is active, and Population is +1 or better_**",
       "text": ""
     },
     "choices/0/text": {
@@ -597,7 +637,15 @@
       "text": ""
     },
     "effects/3/text": {
-      "source": "when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use",
+      "source": "each of supplies has 1 extra use",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when **_the autumn harvest is complete_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_you Outfit from Stonetop or Have What You Need after doing so_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -647,7 +695,11 @@
       "text": ""
     },
     "effects/2/text": {
-      "source": "when you take advantage of the palisade, you have advantage to Deploy",
+      "source": "you have advantage to Deploy",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when **_you take advantage of the palisade_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -696,12 +748,16 @@
       "source": "the steading consumes 1 less Surplus than usual",
       "text": ""
     },
-    "effects/2/condition": {
-      "source": "as long as the camp is in operation",
-      "text": ""
-    },
     "effects/3/text": {
       "source": "the logging camp consumes 1 Surplus, or else it ceases operation",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "**_in winter, as long as the camp is in operation_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "**_every summer_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -754,8 +810,8 @@
       "source": "the steading generates 1 Surplus",
       "text": ""
     },
-    "effects/2/condition": {
-      "source": "you roll a 7+ with Fortunes",
+    "effects/2/when/phrase": {
+      "source": "when **_summer comes and you roll a 7+ with Fortunes_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -801,7 +857,15 @@
       "text": ""
     },
     "effects/3/text": {
-      "source": "another +1 Surplus",
+      "source": "the steading generates another +1 Surplus",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "**_in summer_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_the autumn harvest is complete_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -897,7 +961,15 @@
       "text": ""
     },
     "effects/2/text": {
-      "source": "when you specifically involve the watch in a move, treat Defenses as 1 higher than they are",
+      "source": "treat Defenses as 1 higher than they are",
+      "text": ""
+    },
+    "effects/1/when/phrase": {
+      "source": "at **_the start of each season_**",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when **_you specifically involve the watch in a move_**",
       "text": ""
     },
     "effects/0/listEntry/text": {
@@ -935,11 +1007,19 @@
       "text": ""
     },
     "effects/1/text": {
-      "source": "when you take advantage of the stone wall, you have advantage to Deploy",
+      "source": "you have advantage to Deploy",
       "text": ""
     },
     "effects/2/text": {
       "source": "the steading consumes 1 less Surplus than normal",
+      "text": ""
+    },
+    "effects/1/when/phrase": {
+      "source": "when **_you take advantage of the stone wall_**",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when **_winter grips the land_**",
       "text": ""
     },
     "effects/0/listEntry/text": {
@@ -977,19 +1057,35 @@
       "text": ""
     },
     "effects/0/text": {
-      "source": "change Size to town and its Population to +0",
+      "source": "change Size to town",
       "text": ""
     },
     "effects/1/text": {
-      "source": "when you Muster, Pull Together, or Trade & Barter, you have advantage",
+      "source": "change Population to +0",
       "text": ""
     },
     "effects/2/text": {
-      "source": "the town generates Surplus equal to Population+1",
+      "source": "you have advantage",
       "text": ""
     },
     "effects/3/text": {
+      "source": "the town generates Surplus equal to Population+1",
+      "text": ""
+    },
+    "effects/4/text": {
       "source": "roll 2d6+Population to consume Surplus, instead of 1d4+Population",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "when **_you Muster, Pull Together, or Trade & Barter_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_the seasons change to spring or summer_**",
+      "text": ""
+    },
+    "effects/4/when/phrase": {
+      "source": "when **_winter grips the land_**",
       "text": ""
     },
     "choices/0/text": {
@@ -1038,12 +1134,16 @@
       "source": "Stonetop gains +1 Surplus from trade",
       "text": ""
     },
-    "effects/2/condition": {
-      "source": "Stonetop has at least 1 Surplus",
+    "effects/3/text": {
+      "source": "you have advantage",
       "text": ""
     },
-    "effects/3/text": {
-      "source": "when you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink, you have advantage",
+    "effects/2/when/phrase": {
+      "source": "when **_spring bursts forth and Stonetop has at least 1 Surplus_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -1101,11 +1201,19 @@
       "text": ""
     },
     "effects/3/text": {
-      "source": "when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items",
+      "source": "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items",
       "text": ""
     },
     "effects/4/text": {
       "source": "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "**_each spring_**",
+      "text": ""
+    },
+    "effects/3/when/phrase": {
+      "source": "when **_you Outfit from Stonetop or Have What You Need after doing so_**",
       "text": ""
     },
     "effects/1/listEntry/text": {
@@ -1159,7 +1267,7 @@
       "text": ""
     },
     "effects/0/text": {
-      "source": "when you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)",
+      "source": "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)",
       "text": ""
     },
     "effects/1/text": {
@@ -1168,6 +1276,14 @@
     },
     "effects/2/text": {
       "source": "the militia must spend 1 Surplus and a week or so practicing, or else lose its training in 1 tactic",
+      "text": ""
+    },
+    "effects/0/when/phrase": {
+      "source": "when **_you Deploy using one of the militia's trained tactics_**",
+      "text": ""
+    },
+    "effects/2/when/phrase": {
+      "source": "**_each summer_**",
       "text": ""
     },
     "choices/0/text": {

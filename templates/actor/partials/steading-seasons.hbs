@@ -1,71 +1,17 @@
-{{!-- The Season tab, filed by WHEN a thing is done.
+{{!-- The Season tab: the wheel, the season you are in, and the control that ends it.
 
-      It used to run wheel → the full four-step turn panel → moments → the other seasons, with the
-      improvement board under all of it. So the largest, loudest element was the one act performed
-      ONCE a season, and everything used THROUGHOUT one sat below it, below the fold.
+      It used to run wheel → a "Turn to <next>" panel → a "During <current>" section → the improvement
+      board, which split one season across two blocks: the numbered steps described the season being
+      rolled INTO while the gain, the checklist and the adjustments all belonged to the one the
+      steading was IN. The box could be headed "Winter" over a line reading "Autumn, year 3".
 
-      The cut is when, not what: the turn is a control, shut until the table is ready to turn, and
-      "During <season>" is the working surface — the gain in force, what the steading's buildings owe
-      this season, and the moments within it. The board follows, second now rather than fifth.
+      One box now, and it is the current season's. Turning the wheel is the small control under it.
 
       Params: seasons (SeasonsSnapshot). --}}
 <div class="steading-seasons">
 
 	{{> "stonetop.steading-season-wheel" seasons=seasons}}
 
-	{{> "stonetop.steading-season-turn" seasons=seasons}}
-
-	{{!-- Everything the season you are IN is owed, in one place. Each of these was previously a step
-	      of the turn panel or a section under it, which put what autumn owes inside the act of
-	      leaving autumn for winter. --}}
-	<section class="steading-during steading-block">
-
-		{{> "stonetop.section-heading"
-		    title=(localize "stonetop.steading.seasons.during"
-		           season=(localize seasons.turnover.season.labelKey))}}
-
-		{{!-- What this season handed the table on the way in, in force until the wheel turns again.
-		      Picked at the roll — "on a 10+, pick 2 seasonal gains" — but what you picked is a rule
-		      read all season ("take +1 to Pull Together this season"), so it stays out here rather
-		      than behind the turn's disclosure.
-
-		      Which list, and how many, is this season's own move's business: spring and autumn offer
-		      one gain, summer two, and winter offers no gains at all — it takes. The tab used to hand
-		      every season the same six gains at "pick 1". --}}
-		{{#if seasons.pick}}
-			<div class="steading-during-gain">
-				<h4 class="steading-during-label">
-					{{localize seasons.pick.labelKey count=seasons.pick.count}}
-				</h4>
-				{{#with seasons.pick.group}}{{> "stonetop.choice-group" cgContext="steading"}}{{/with}}
-			</div>
-		{{/if}}
-
-		{{!-- Headed by the TRIGGER, in the book's own terms — "When winter comes" — so that no row
-		      under it has to say when it fires. What the heading said before was
-		      "Because of what Stonetop has built", a noun that names the SOURCE of every row while
-		      each row went on to restate its own trigger: the half that differed between rows was
-		      buried behind a clause they all shared. --}}
-		<div class="steading-during-owed">
-			<h4 class="steading-during-label">
-				{{localize "stonetop.steading.seasons.whenComes"
-				           season=(localize seasons.turnover.season.labelKey)}}
-			</h4>
-			{{> "stonetop.steading-turnover" turnover=seasons.turnover}}
-		</div>
-
-		{{!-- The results that bend a STEP of the season rather than adding to it, gathered under the
-		      step. Separate from the block above because they are a different kind of thing: not what
-		      the season pays out, but how the season's own arithmetic works for this steading. --}}
-		{{> "stonetop.steading-adjustments" statement=seasons.turnover.statement}}
-
-		{{!-- The named points WITHIN the season that something built fires at — the harvest coming in,
-		      the hunt being led. The sheet cannot know when those happen, so each is an offer the
-		      table takes up rather than a schedule. Only moments something actually fires at appear. --}}
-		{{#if seasons.turnover.hasMoments}}
-			{{> "stonetop.steading-moments" turnover=seasons.turnover momentSteps=seasons.momentSteps}}
-		{{/if}}
-
-	</section>
+	{{> "stonetop.steading-season-box" seasons=seasons}}
 
 </div>

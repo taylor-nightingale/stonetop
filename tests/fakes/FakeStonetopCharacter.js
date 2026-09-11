@@ -20,6 +20,14 @@ export class FakeStonetopCharacter {
 		return [];
 	}
 
+	// Every roll offers the tier it landed in to the actor that made it (ActorRolling#execute).
+	// `outcomes` is what was offered, so a test can assert what the roll handed over.
+	outcomes = [];
+
+	async recordMoveOutcome(moveSlug, outcome) {
+		this.outcomes.push({ moveSlug, outcome });
+	}
+
 	// XP marking (ActorRolling's 6- rule). `xpMarks` counts landed marks.
 	xpMarks = 0;
 

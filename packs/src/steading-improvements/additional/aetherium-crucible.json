@@ -132,20 +132,34 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "**_as long as you trade aetherium to the outside world_**"
         },
         "change": {
           "target": "prosperity",
           "amount": 1
         },
-        "condition": "as long as you trade aetherium to the outside world",
-        "text": "as long as you trade aetherium to the outside world, increase Prosperity by 1"
+        "condition": true,
+        "text": "increase Prosperity by 1"
       },
       {
         "when": {
           "kind": "completed"
         },
-        "text": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop, and you have advantage to Trade & Barter for aetherium items with special characteristics"
+        "text": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop"
+      },
+      {
+        "when": {
+          "kind": "completed",
+          "phrase": "when **_you Trade & Barter for aetherium items with special characteristics (+2 Value)_**"
+        },
+        "condition": true,
+        "advantage": {
+          "moves": [
+            "trade-barter"
+          ]
+        },
+        "text": "you have advantage"
       }
     ]
   },

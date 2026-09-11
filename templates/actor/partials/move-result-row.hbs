@@ -1,0 +1,37 @@
+{{!-- One result of a move: its notation in a band, and what the move says happens there.
+
+      The move item sheet and the season box both draw a move's 10+/7-9/6-, and they had drawn them
+      twice — a labelled table on the item sheet, a two-column list of accent-coloured notation in
+      the season box — off the same authored `system.moveResults`. One partial, so the three results
+      of a move are one thing wherever they are read.
+
+      Params: key (success/partial/failure — the tint), label (the move's own notation), text (the
+      result, a RichText or a string; omitted where the caller's own body renders it instead),
+      rolled (this is the row the dice landed on), and the SLOT: `bodyPartial`, the name of a partial
+      to render under the text, with `body` as its context.
+
+      The slot is what keeps the two surfaces one component while they differ in what a row can DO:
+      the item sheet's body is the textarea that authors the text, and the season's is everything the
+      steading has built that waits on this result, plus the roll that result costs.
+
+      It is a NAMED PARTIAL and not a `{{#> }}` block on purpose. Handlebars renders partial-block
+      content with the prototype-access runtime options stripped, silently — every getter inside the
+      block reads as undefined, so the season's rows lost their controls and their clauses with
+      nothing thrown and no blank where they had been (verified against Handlebars 4.7.9). Passing
+      the object through `body` and rendering it as an ordinary partial keeps it whole: a hash param
+      is a reference, so the row a body partial receives is the snapshot itself, getters included.
+
+      `rolled` is a reading of the dice, not a state of the move, so it is never said in colour
+      alone: the band says it in words, because colour is not a thing every reader gets (WCAG 1.4.1),
+      and `aria-current` is what says it to the ones who hear the page. --}}
+<div class="stonetop-result-row stonetop-result-row--{{key}}{{#if rolled}} is-rolled{{/if}}"
+     {{#if rolled}}aria-current="true"{{/if}}>
+	<span class="stonetop-result-label">
+		<span class="stonetop-result-notation">{{label}}</span>
+		{{#if rolled}}<span class="stonetop-result-rolled">{{localize "stonetop.rollResults.rolled"}}</span>{{/if}}
+	</span>
+	<div class="stonetop-result-body">
+		{{#if (hasText text)}}<div class="stonetop-result-text stonetop-rich">{{rich text}}</div>{{/if}}
+		{{#if bodyPartial}}{{> (lookup . "bodyPartial") body}}{{/if}}
+	</div>
+</div>

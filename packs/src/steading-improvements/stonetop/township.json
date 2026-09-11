@@ -115,13 +115,35 @@
         "when": {
           "kind": "completed"
         },
-        "text": "change Size to town and its Population to +0"
+        "set": {
+          "target": "size",
+          "value": "town"
+        },
+        "text": "change Size to town"
       },
       {
         "when": {
           "kind": "completed"
         },
-        "text": "when you Muster, Pull Together, or Trade & Barter, you have advantage"
+        "set": {
+          "target": "population",
+          "value": 0
+        },
+        "text": "change Population to +0"
+      },
+      {
+        "when": {
+          "kind": "completed",
+          "phrase": "when **_you Muster, Pull Together, or Trade & Barter_**"
+        },
+        "advantage": {
+          "moves": [
+            "muster",
+            "pull-together",
+            "trade-barter"
+          ]
+        },
+        "text": "you have advantage"
       },
       {
         "when": {
@@ -129,7 +151,8 @@
           "seasons": [
             "spring",
             "summer"
-          ]
+          ],
+          "phrase": "when **_the seasons change to spring or summer_**"
         },
         "change": {
           "target": "surplus",
@@ -142,11 +165,8 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
-        },
-        "adjustment": {
-          "step": "consumption",
-          "replaceFormula": "2d6 + @population"
+          ],
+          "phrase": "when **_winter grips the land_**"
         },
         "text": "roll 2d6+Population to consume Surplus, instead of 1d4+Population"
       }

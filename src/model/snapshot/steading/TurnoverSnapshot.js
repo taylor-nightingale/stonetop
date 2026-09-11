@@ -6,7 +6,7 @@ import { rich } from "../RichText.js";
  * steading has not built.
  */
 export class TurnoverSnapshot {
-	constructor({ season, next, year, wheel, impression = "", statement = null, moments = [] }) {
+	constructor({ season, next, year, wheel, impression = "", statement = null, moments = [], size = null }) {
 		this.season  = season;          // SeasonSnapshot — the current one
 		// The season the wheel turns to. Carried because turning it is not an abstract act: you roll
 		// that season's own Seasons Change move, and the tab has to put the two together.
@@ -23,9 +23,26 @@ export class TurnoverSnapshot {
 		// turning is not the harvest coming in, and a mill paid out the moment autumn arrived would be
 		// paid a month early. Only moments something actually fires at are here.
 		this.moments   = moments;
+		// How big the steading is. Here because a season's own dice depend on it — winter consumes
+		// 1d2+Population in a hamlet and 2d6+Population in a town — and the steps are built from this
+		// snapshot rather than from the actor.
+		this.size      = size;
 	}
 
 	get hasClauses() { return Boolean(this.statement && !this.statement.isEmpty); }
+
+	/**
+	 * Whether the general list has anything of its OWN to show.
+	 *
+	 * Most of what a season brings is now shown where it happens — in the step it bends, the result
+	 * row it waits on, the step that generates it, the bills the steading keeps up — and a heading
+	 * with nothing under it reads as a section that failed to load. What is left here is what belongs
+	 * nowhere else: a clause the sheet can only state, and a move the season hands the table.
+	 */
+	get hasOwnClauses() {
+		return Boolean(this.statement?.owed.length || this.statement?.advisoryOwed.length
+			|| this.statement?.grantedMoveSlugs.length);
+	}
 
 	/**
 	 * Everything this season owed has been written.

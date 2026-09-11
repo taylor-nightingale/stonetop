@@ -39,33 +39,85 @@ describe("TurnoverStatement.adjustments", () => {
 	});
 });
 
-describe("TurnoverStatement.adjustmentGroups", () => {
-	const grouped = () => new TurnoverStatement([
-		bends("Stone Wall", "consumption", "consumes 1 less than normal"),
-		bends("Golden Sapling", "generation", "generates 1 extra"),
-		bends("Additional Housing", "consumption", "count Population as 1 lower"),
-	]).adjustmentGroups;
-
-	it("gathers them under the step each one bends", () => {
-		expect(grouped().map(g => [g.step, g.lines.map(l => l.source)])).toEqual([
-			["consumption", ["Stone Wall", "Additional Housing"]],
-			["generation", ["Golden Sapling"]],
-		]);
+// Four kinds of result the season's own BOX shows somewhere of its own — against the step they bend,
+// inside the result rows of the roll they wait on, in the upkeep the steading owes, and in the step
+// that generates what they pay. The general list has to leave those out, or a result is stated twice.
+describe("what the season's steps show for themselves", () => {
+	const upkeep = pays("Standing Watch", -1, "consumes 1 Surplus, or it disbands");
+	const gain   = pays("Mill", 1, "generates +1 Surplus");
+	const wall   = bends("Stone Wall", "consumption", "consumes 1 less than normal");
+	const stream = line("Harnessing the Stream", {
+		when: { kind: "turn", seasons: ["spring"] }, change: { target: "surplus", amount: 1 },
+		condition: true, outcome: "7+", text: "generates 1 Surplus",
 	});
 
-	// The heading is what states when they apply, so no row has to.
-	it("names each group by the step, for a heading", () => {
-		expect(grouped()[0].labelKey).toBe("stonetop.steading.effects.step.consumption");
+	// A bill the steading pays for what it built, not anything Seasons Change says.
+	it("knows the steading's own bills from what the season pays out", () => {
+		const statement = new TurnoverStatement([upkeep, gain, wall]);
+		expect(statement.upkeep.map(l => l.source)).toEqual(["Standing Watch"]);
 	});
 
-	// A heading over nothing would read as a step this steading does differently when it does not.
-	it("makes no group for a step nothing bends", () => {
-		const groups = new TurnoverStatement([bends("Stone Wall", "consumption", "1 less")])
-			.adjustmentGroups;
-		expect(groups.map(g => g.step)).toEqual(["consumption"]);
+	it("knows what waits on the season's own roll", () => {
+		expect(new TurnoverStatement([stream, gain]).outcomeGated.map(l => l.source))
+			.toEqual(["Harnessing the Stream"]);
 	});
 
-	it("makes no groups at all for a season nothing bends", () => {
-		expect(new TurnoverStatement([pays("Mill", 1, "+1")]).adjustmentGroups).toEqual([]);
+	// What the steading generates is the season's generation, so it goes to the step that generates.
+	it("knows what the steading generates this season", () => {
+		expect(new TurnoverStatement([upkeep, gain, wall, stream]).gains.map(l => l.source))
+			.toEqual(["Mill"]);
+	});
+
+	// Both halves filtered the same way, so a line moved to a step leaves whichever list it was in.
+	it("leaves all four out of the general list", () => {
+		const statement = new TurnoverStatement([upkeep, gain, wall, stream]);
+		expect(statement.owed.map(l => l.source)).toEqual([]);
+		expect(statement.advisoryOwed.map(l => l.source)).toEqual([]);
+	});
+
+	/**
+	 * A gain is left out of what "Apply the season" writes, unlike the upkeep beside it. Both moved to
+	 * a section of the box — but the upkeep's rows keep their own per-line records, while a gain is
+	 * paid by the generation step, whose record is the step's. Counted here as well, the season's
+	 * Apply would pay a Surplus the step had already paid.
+	 */
+	it("never lets the season's own Apply pay a gain twice", () => {
+		const statement = new TurnoverStatement([upkeep, gain], { surplus: 4 });
+		expect(statement.automatic.map(l => l.source)).toEqual(["Standing Watch"]);
+		expect(statement.totals.map(t => [t.target, t.delta])).toEqual([["surplus", -1]]);
+	});
+
+	// Moved, not dropped: the section it moved to is still this season's, so the season's own Apply
+	// still writes it and the totals still count it.
+	it("still writes the upkeep when the season is applied", () => {
+		const statement = new TurnoverStatement([upkeep, wall], { surplus: 4 });
+		expect(statement.pending.map(l => l.source)).toEqual(["Standing Watch"]);
+		expect(statement.totals.map(t => [t.target, t.delta, t.to])).toEqual([["surplus", -1, 3]]);
+	});
+});
+
+// Township asserts two ratings on completion. The footer still has to read "3 → 0", because before →
+// after is what makes a batch reviewable before anybody commits to it.
+describe("TurnoverStatement.totals — a rating set rather than moved", () => {
+	const sets = (source, target, value) =>
+		line(source, { set: { target, value }, text: `change ${target}` });
+
+	it("states a set as the before and after it produces", () => {
+		const statement = new TurnoverStatement([sets("Township", "population", 0)], { population: 3 });
+		expect(statement.totals.map(t => [t.target, t.from, t.to])).toEqual([["population", 3, 0]]);
+	});
+
+	// A tier word is not arithmetic; "hamlet → town" is not something to add up, and the line's own
+	// words already say it.
+	it("leaves Size out of the arithmetic", () => {
+		const statement = new TurnoverStatement([sets("Township", "size", "town")], { size: "village" });
+		expect(statement.totals).toEqual([]);
+		// Still applied, though — it is only the FOOTER that has nothing to say about it.
+		expect(statement.pending.length).toBe(1);
+	});
+
+	// A set that changes nothing is not a change, the same rule a +0 delta already answers to.
+	it("says nothing for a set to the value already held", () => {
+		expect(new TurnoverStatement([sets("Township", "population", 3)], { population: 3 }).totals).toEqual([]);
 	});
 });

@@ -58,14 +58,18 @@ export class ActorRolling {
 		const xpOffer = outcome.isMiss && request.xpOnMiss
 			&& typeof this._actor.typedActor.markXp === "function";
 
+		// The tier is offered to the actor that made the roll, because a sheet can have something
+		// waiting on it: the steading keeps its own Seasons Change result so the box lights the row
+		// the dice landed on. Offered from here rather than from each roll site — the die on a move
+		// row, the die in the season box and the turn's own rollItem are three paths to one roll.
+		await this._actor.typedActor.recordMoveOutcome(request.moveSlug, outcome);
+
 		// The card carries name, outcome and dice as three separate facts, so the template can put
 		// the outcome where it reads — a badge on the dice line — instead of in the headline.
 		const card = {
 			name: request.titleFor(statKey),
-			icon: request.icon,
 			dice: this._display.build(roll, {
 				rollMode: effectiveMode,
-				bonus:    request.stat !== "prompt" ? bonus : null,
 				statKey:  request.stat !== "prompt" ? statKey : null,
 			}),
 			outcome,
@@ -90,7 +94,7 @@ export class ActorRolling {
 
 	async _postDescription(speaker, request) {
 		return postDescriptionCard(speaker,
-			{name: request.label, icon: request.icon, description: request.description, moveResults: request.moveResults},
+			{name: request.label, description: request.description, moveResults: request.moveResults},
 			this._rollData);
 	}
 
@@ -107,18 +111,29 @@ export class ActorRolling {
 	}
 
 	/**
-	 * A roll of stated dice, with no result tiers — winter's `1d4+Population`.
+	 * Evaluate stated dice, with no result tiers — winter's `1d4+Population`.
 	 *
 	 * Not every roll a move calls for is a 2d6 that lands on 10+/7-9/6-. Winter opens by rolling
 	 * 1d4+Population to see what the season costs, and the answer is a NUMBER: reading it as a move
-	 * result would put "success" on a 10 that means ten Surplus gone. Same shape as a damage roll,
-	 * which is the other roll in this system that is just dice.
+	 * result would put "success" on a 10 that means ten Surplus gone.
+	 *
+	 * Rolling and REPORTING are two calls rather than one, because what the roll did is part of what
+	 * the card says: a season step moves Surplus by what the dice came to, and the caller has to
+	 * apply that before there is anything to report. The evaluated roll comes back so it can.
 	 */
-	async rollFormula(label, formula) {
+	async evaluateFormula(formula) {
+		return new Roll(formula).evaluate();
+	}
+
+	/** Post what one of those rolls came to, and what it did — a FormulaRollCard. */
+	async postFormulaCard(card) {
 		const speaker = ChatMessage.getSpeaker({actor: this._actor});
-		const roll = await new Roll(formula).evaluate();
-		const card = { name: label, dice: this._display.build(roll, {}) };
-		return ChatMessage.create({speaker, content: await renderRollCard(card, this._rollData), rolls: [roll]});
+		const content = await renderRollCard({
+			name:    card.name,
+			dice:    this._display.build(card.roll, {formula: card.formula}),
+			applied: card.applied,
+		}, this._rollData);
+		return ChatMessage.create({speaker, content, rolls: [card.roll]});
 	}
 
 	_rollingFormula(rollMode, bonus) {

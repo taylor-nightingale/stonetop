@@ -2,10 +2,11 @@ import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "fs";
 import path from "path";
 
-// One renderer: move-item.hbs is the single body every move surface goes through (moves tab,
-// side-bar, arcanum cards, choice-row grants, the seasons tab), so the icon is emitted once and
-// every surface matches. A second <img> keyed off a move's icon anywhere else means two renderings
-// that can drift.
+// No move surface in play draws a move's icon. The pack still carries one on the four Seasons Change
+// moves, because the COMPENDIUM directory lists items by their image and the season glyphs read well
+// there — but on a sheet, and on a chat card, they were noise beside a name that already said which
+// move it was. This file is the guard that the capability stays gone rather than creeping back into
+// one surface at a time, which is how it arrived.
 
 const root = process.cwd();
 const read = rel => readFileSync(path.resolve(root, rel), "utf8");
@@ -20,38 +21,31 @@ function hbsFiles(dir, found = []) {
 }
 
 describe("move icon rendering", () => {
-	it("is emitted by move-item, guarded so a move without one renders unchanged", () => {
-		const template = read("templates/actor/partials/move-item.hbs");
-		expect(template).toContain("{{#if icon}}");
-		expect(template).toContain('class="stonetop-move-icon" src="{{icon}}"');
+	it("is drawn by no move template at all", () => {
+		for (const file of hbsFiles("templates")) {
+			expect(read(file), file).not.toContain("stonetop-move-icon");
+		}
 	});
 
-	// The chat card is a separate template, but takes its icon from the same move data.
-	it("is emitted by the chat card too", () => {
-		expect(read("templates/chat/move-roll.hbs")).toContain('class="stonetop-move-icon" src="{{icon}}"');
-	});
-
-	it("is styled once, for every surface", () => {
-		const css = read("styles/stonetop.css");
-		expect(css.match(/\.stonetop-move-icon\s*\{/g)).toHaveLength(1);
+	// The pack keeps them: a compendium directory lists items by their image, and the four season
+	// glyphs are the one place a move image earns its keep.
+	it("keeps the season glyphs in the pack, for the compendium listing", () => {
+		for (const season of ["spring", "summer", "autumn", "winter"]) {
+			const move = JSON.parse(read(`packs/src/moves/seasons/seasons-change-${season}.json`));
+			expect(move.img).toBe(`systems/stonetop/assets/content/seasons/season-${season}.png`);
+		}
 	});
 
 	// The seasons tab used to hand-roll its own glyph markup; it renders through move-group now.
-	it("has no second per-move icon renderer", () => {
-		const others = hbsFiles("templates")
-			.filter(f => !f.endsWith("move-item.hbs") && !f.endsWith("move-roll.hbs"))
-			.filter(f => read(f).includes("stonetop-move-icon") || /season-icon/.test(read(f)));
-		expect(others).toEqual([]);
-	});
-
-	// The Season tab no longer renders one move GROUP: the incoming season's move is in the turn
-	// control and each season's own move hangs off its segment of the wheel. Both still go through
-	// the shared move partials, which is what this file is actually about — the tab has never been
-	// allowed a bespoke icon of its own.
+	// The Season tab no longer renders a move GROUP, and the box no longer renders a move at all —
+	// every season's move hangs off its own segment of the wheel, and the box is the current one
+	// broken into steps. So the wheel is where the shared row has to be, and neither file is allowed
+	// an icon of its own, which is what this file is actually about.
 	it("renders the seasons tab's moves through the shared move row", () => {
-		for (const file of ["templates/actor/partials/steading-season-turn.hbs",
+		expect(read("templates/actor/partials/steading-season-wheel.hbs"))
+			.toContain('{{> "stonetop.move-row"');
+		for (const file of ["templates/actor/partials/steading-season-box.hbs",
 		                    "templates/actor/partials/steading-season-wheel.hbs"]) {
-			expect(read(file)).toContain('{{> "stonetop.move-row"');
 			expect(read(file)).not.toContain("<img class=\"steading-season-icon\"");
 		}
 	});
@@ -65,7 +59,7 @@ describe("move icon rendering", () => {
 	// rather than the document — and an absolute one would skip an install's route prefix and 404.
 	// The stylesheet owns the four paths, relative to itself.
 	it("draws the season glyph by mask, and leaves its path to the stylesheet", () => {
-		for (const file of ["templates/actor/partials/steading-season-turn.hbs", "templates/actor/steading.hbs"]) {
+		for (const file of ["templates/actor/partials/steading-season-box.hbs", "templates/actor/steading.hbs"]) {
 			expect(read(file)).not.toContain("stonetop-move-icon");
 			expect(read(file)).not.toContain("--steading-glyph:");
 		}

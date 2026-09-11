@@ -36,7 +36,7 @@ const PROSE = ("When the hot days of summer settle across the land, whoever is m
 // shape-outside forced off, which is what a var() that failed to resolve would produce.
 const turn = (id, extraStyle) => `
 	<section class="steading-turn steading-block is-open" data-season="summer" id="${id}">
-		<div class="steading-turn-body" id="${id}-body">
+		<div class="steading-season-box" id="${id}-body">
 			<img class="steading-seasons-plate" id="${id}-plate" src="${PLATE}" alt=""
 			     style="--plate: url('${PLATE}'); ${extraStyle}">
 			<p class="stonetop-item-description" id="${id}-text">${PROSE}</p>

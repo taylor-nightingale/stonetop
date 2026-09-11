@@ -91,7 +91,8 @@
       },
       {
         "when": {
-          "kind": "turn"
+          "kind": "turn",
+          "phrase": "at **_the start of each season_**"
         },
         "change": {
           "target": "surplus",
@@ -101,9 +102,10 @@
       },
       {
         "when": {
-          "kind": "completed"
+          "kind": "completed",
+          "phrase": "when **_you specifically involve the watch in a move_**"
         },
-        "text": "when you specifically involve the watch in a move, treat Defenses as 1 higher than they are"
+        "text": "treat Defenses as 1 higher than they are"
       }
     ]
   },

@@ -112,14 +112,16 @@
           "kind": "turn",
           "seasons": [
             "winter"
-          ]
+          ],
+          "phrase": "when you **_consume Surplus in winter_**"
         },
         "adjustment": {
           "step": "consumption",
+          "at": "term",
           "term": "population",
           "amount": -1
         },
-        "text": "when consuming Surplus, consider Population to be 1 lower than it is"
+        "text": "consider Population to be 1 lower than it is"
       }
     ]
   },
