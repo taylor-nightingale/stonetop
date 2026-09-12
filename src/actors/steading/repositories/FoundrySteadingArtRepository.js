@@ -1,4 +1,4 @@
-import { hasArtFile } from "../../../art/foundryArt.js";
+import { hasArtFile, artFileUrl } from "../../../art/foundryArt.js";
 
 // Which installer-provided illustrations this world actually has. The art store is populated by the
 // in-Foundry installer from the user's own books, so a path that exists in one world is missing in
@@ -14,17 +14,20 @@ export class FoundrySteadingArtRepository {
 	// installer never learns to recognize.
 	static RESOURCES_PLATE = "stonetop-art/wonders/35054ea8d15b39521589bc2cab68c9f309301fe645948ac9fd0ed37d920da6c7.png";
 
-	/** The Seasons Change harvest plate's path, or null when this world hasn't installed it. */
+	/** The Seasons Change harvest plate's url, or null when this world hasn't installed it. */
 	async seasonsPlate() {
 		return this.#installed(FoundrySteadingArtRepository.SEASONS_PLATE);
 	}
 
-	/** The plate that sits under the Resources list, or null when this world hasn't installed it. */
+	/** The url of the plate under the Resources list, or null when this world hasn't installed it. */
 	async resourcesPlate() {
 		return this.#installed(FoundrySteadingArtRepository.RESOURCES_PLATE);
 	}
 
+	// The ROUTED url, not the stored path. Both plates are drawn by an `<img>`, which would resolve
+	// the relative path itself — but the seasons plate is also handed to `shape-outside`, and a
+	// relative url() in CSS resolves against the stylesheet rather than the document. See artFileUrl.
 	async #installed(path) {
-		return (await hasArtFile(path)) ? path : null;
+		return (await hasArtFile(path)) ? artFileUrl(path) : null;
 	}
 }

@@ -82,6 +82,22 @@ export async function hasArtFile(relPath, picker = filePicker()) {
 	return promise;
 }
 
+/**
+ * One installed art file's URL, routed for this install.
+ *
+ * The stored path ("stonetop-art/…") is relative, which an `<img src>` resolves against the DOCUMENT
+ * and gets right. A url() inside CSS does not: `shape-outside: var(--plate)` resolves the url
+ * against the STYLESHEET the declaration lives in, even when the custom property was set on the
+ * element — so a relative path there became /systems/stonetop/styles/stonetop-art/… and 404'd, and
+ * `shape-outside` silently computed to `none` with the text wrapping to the plate's plain box.
+ *
+ * Routed rather than simply prefixed with "/", because an install served under a route prefix
+ * would 404 on an absolute path just the same.
+ */
+export function artFileUrl(relPath) {
+	return route(relPath);
+}
+
 /** Test seam: forget what has been probed (the installer having just run, say). */
 export function clearArtFileCache() {
 	_artFileCache.clear();

@@ -4,28 +4,30 @@ import path from "path";
 
 // The harvest plate is a copyrighted illustration the art installer provides, absent in most worlds.
 //
-// It has been three layouts. A grid row shared with the Seasonal gains, which needed a reserved art
-// column and a `:has()` collapse to take it back. Then in flow at the turn panel's bottom right,
-// where nothing sat beside it — capped at 45%, so more than half of its own line was empty. It is
-// FLOATED now, inside the turn control, with the season's move running beside it and wrapping to the
-// art's own silhouette rather than to its box.
+// It rides BEHIND the numbered steps now, as a watermark in the bottom-right corner. It got there by
+// elimination. Every arrangement that put it in the flow had to reconcile two content heights — the
+// art's and the steps' — and CSS cannot bottom-align a float, so each one ended up measuring: a
+// strut sized in JavaScript, a ResizeObserver, and the shared result rows rebuilt out of grid so
+// their text could wrap to the art's silhouette. The measured position was also a discontinuous
+// function of the sheet's width, so the plate visibly crawled and then jumped 55px as you dragged.
 //
-// What survives every one of those: the plate is absent from the DOM in a world without the art,
-// not merely empty.
+// A background participates in no layout. Nothing is measured, so nothing can drift.
+//
+// What survives every layout this has had: the plate is absent in a world without the art, not
+// merely empty.
 
 const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
 const css = read("styles/stonetop.css");
-// The plate lives in the turn panel now, at its bottom right — not at the foot of the tab.
 const partial = read("templates/actor/partials/steading-season-box.hbs");
 
-const PLATE = "steading-seasons-plate";
-
 const ruleBlock = selector => {
-	const at = css.indexOf(`${selector} {`);
+	const at = css.indexOf(`\n${selector} {`);
 	return at < 0 ? null : css.slice(at, css.indexOf("}", at));
 };
 
-describe("seasons plate layout", () => {
+const MARK = ".stonetop.sheet.steading .steading-turn-steps::after";
+
+describe("the seasons plate watermark", () => {
 	// The tab is a column of stages, in the order the ritual runs. Nothing in it is sized against
 	// the plate, so an absent plate costs the panels above it nothing.
 	it("stacks the tab rather than reserving a column for the art", () => {
@@ -34,58 +36,72 @@ describe("seasons plate layout", () => {
 		expect(block).not.toContain("32%");
 	});
 
-	// Decoration, capped — at full width it is the heaviest thing on the page.
-	it("caps the plate rather than letting it take the panel's full width", () => {
-		expect(ruleBlock(`.stonetop.sheet.steading .${PLATE}`)).toContain("max-width");
+	// Out of flow entirely. This is the claim the whole design rests on: with the art taking no part
+	// in layout there is no height to reconcile, so nothing has to be measured and nothing can drift.
+	it("puts the art out of flow, behind the steps", () => {
+		const block = ruleBlock(MARK);
+		expect(block).toContain("position: absolute");
+		expect(block).toContain("pointer-events: none");
+		expect(block).toContain("z-index: 0");
 	});
 
-	// Floated, so the move's text runs beside it and it costs no height of its own. Never absolute:
-	// positioned out of flow it would sit on top of whatever the turn control holds.
-	it("floats, and stays in flow", () => {
-		const block = ruleBlock(`.stonetop.sheet.steading .${PLATE}`);
-		expect(block).toContain("float: right");
-		expect(block).not.toContain("position: absolute");
+	// The corner is what keeps it off the words. Spread across the section at any strength you can
+	// see, the foliage sits behind the result rows; pulled into the corner only the last row has
+	// anything behind it at all.
+	it("masks the mark into the bottom-right corner", () => {
+		const block = ruleBlock(MARK);
+		expect(block).toContain("right: 0");
+		expect(block).toContain("bottom: 0");
+		expect(block).toMatch(/mask-image: radial-gradient\(.*100% 100%/);
 	});
 
-	// The point of floating it: text follows the ART, not its bounding box. The silhouette slants up
-	// and to the right, so the lower-left of the box is transparent — wrapping to the box would break
-	// every line against an invisible straight edge with a blank wedge behind it.
-	it("wraps text to the art's own silhouette", () => {
-		expect(ruleBlock(`.stonetop.sheet.steading .${PLATE}`)).toContain("shape-outside: var(--plate)");
+	// Sized by the plate's own proportions, so the corner it hugs is the corner of the art rather
+	// than of some box the art happens to sit in.
+	it("gives the mark the plate's aspect ratio", () => {
+		expect(ruleBlock(MARK)).toContain("aspect-ratio: 2499 / 1170");
 	});
 
-	// The path is produced at runtime by the art installer, so it arrives on the ELEMENT: a url() in
-	// the stylesheet would resolve against the stylesheet, and shape-outside needs the real image.
-	it("takes its shape url from the element, not the stylesheet", () => {
-		expect(partial).toContain("--plate: url('{{seasons.plate}}')");
-		expect(css).not.toContain("shape-outside: url(");
+	// Nothing about the art is a float any more, anywhere.
+	it("leaves no float or shape behind", () => {
+		expect(css).not.toContain("shape-outside");
+		expect(css).not.toContain("steading-seasons-plate");
+		expect(partial).not.toContain("steading-seasons-plate");
 	});
 
-	// A float must not escape the control that holds it into the section below.
-	it("is contained by the body it floats inside", () => {
-		expect(ruleBlock(".stonetop.sheet.steading .steading-season-box")).toContain("display: flow-root");
+	// The steps must own a stacking context above the mark, or a result row's coloured band and a
+	// lit tier both get painted underneath the art.
+	it("lifts the steps above the mark", () => {
+		const block = ruleBlock(".stonetop.sheet.steading .steading-turn-step");
+		expect(block).toContain("z-index: 1");
+		expect(block).toContain("position: relative");
 	});
 
-	// Before the text it makes room for: a float only affects the line boxes that come after it.
-	it("is emitted ahead of the move it wraps", () => {
-		expect(partial.indexOf(PLATE)).toBeLessThan(partial.indexOf("steading-turn-steps"));
-	});
+	// A url() the stylesheet cannot know: the installer produces the path at runtime. With no
+	// property set the fallback draws nothing, which is every world without Book I art.
+	it("takes the path from the element, and draws nothing without one", () => {
+		expect(ruleBlock(MARK)).toContain("var(--seasons-plate, none)");
+		expect(partial).toContain("--seasons-plate: url('{{seasons.plate}}')");
 
-	// A plate div rendered unconditionally — empty, or with a hidden img inside — would put a gap
-	// under every tab in every world with no art installed.
-	it("emits the plate only when the world has the art", () => {
-		const plateAt = partial.indexOf(PLATE);
-		expect(plateAt).toBeGreaterThan(-1);
-
-		const guard = partial.lastIndexOf("{{#if seasons.plate}}", plateAt);
+		// the ATTRIBUTE, not the prose: the comment above it names the property too
+		const at = partial.indexOf(`style="--seasons-plate`);
+		const guard = partial.lastIndexOf("{{#if seasons.plate}}", at);
 		expect(guard).toBeGreaterThan(-1);
-		expect(partial.slice(guard, plateAt)).not.toContain("{{/if}}");
+		expect(partial.slice(guard, at)).not.toContain("{{/if}}");
 	});
 
-	// The container query that hides the plate on a narrow sheet had NEVER fired: the container was
-	// declared on `.tab[data-tab="seasons"]` and the tab is `season`, so it matched nothing.
+	// The container query that hides it on a narrow sheet had once been declared on
+	// `.tab[data-tab="seasons"]`, and the tab is `season` — so it matched nothing at all.
 	it("declares the query container on the tab that actually exists", () => {
 		expect(css).toContain('.stonetop.sheet.steading .tab[data-tab="season"] {');
 		expect(css).not.toContain('.tab[data-tab="seasons"]');
+	});
+
+	// `content: none`, not `display: none`: a generated box with no content is never generated, and
+	// there is no element here to hide.
+	it("drops the mark on a narrow sheet", () => {
+		const query = css.slice(css.indexOf("@container steading-seasons (max-width: 620px)"));
+		const body = query.slice(0, query.indexOf("\n}\n"));
+		expect(body).toContain("steading-turn-steps::after");
+		expect(body).toContain("content: none");
 	});
 });

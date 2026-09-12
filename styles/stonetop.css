@@ -7724,6 +7724,10 @@ button.stonetop-xp-toggle {
 	grid-template-columns: 1.3rem 1fr;
 	gap: 0.5rem;
 	align-items: start;
+	/* Above the harvest watermark. Sharing its stacking context would paint a step's own backgrounds
+	   — a result row's band, the lit tier — underneath the art. */
+	position: relative;
+	z-index: 1;
 }
 
 .stonetop.sheet.steading .steading-turn-num {
@@ -7976,39 +7980,54 @@ button.stonetop-xp-toggle {
 	filter: var(--st-art-filter);
 }
 
-/* The book's harvest plate, FLOATED so the season's move runs beside it rather than under it.
+/* The book's harvest plate, as a watermark in the bottom-right corner of the numbered steps.
 
-   In flow it was a small picture on its own line with nothing beside it — capped at 45% of the
-   panel, so more than half the row was empty. Floated it can be bigger and still cost no height.
+   BEHIND the steps rather than beside them, and that is the whole design. Every arrangement that put
+   the art in the flow had to reconcile two content heights — the art's and the steps' — and CSS has
+   no way to bottom-align a float, so each one ended up measuring: a strut sized in JavaScript, a
+   resize observer, and the result rows rebuilt out of grid so their text could wrap to the art's
+   silhouette. The plate participates in no layout here. Nothing is measured, so nothing drifts when
+   the sheet is resized, and the steps lay out exactly as they do in a world with no art at all.
 
-   `shape-outside` reads the PNG's own alpha, so the text follows the ART rather than its bounding
-   box: the silhouette slants up and to the right, which leaves the whole lower-left of the box
-   transparent — wrapping to the box would break every line against an invisible straight edge with
-   a blank wedge behind it. The url is passed in on the element (`--plate`), because the path is
-   produced at runtime by the art installer and a url() written here would resolve against the
-   stylesheet. Same-origin, which shape-outside requires, since Foundry serves it.
+   The corner is the point of the radial mask: spread across the section at any strength you can see,
+   the foliage sits behind the result rows and competes with them. Pulled into the corner it reads as
+   a vignette and only the last row has anything behind it.
 
-   `shape-margin` keeps the text off the art's edge the way a margin would off a box. */
-.stonetop.sheet.steading .steading-seasons-plate {
-	float: right;
-	width: 40%;
-	max-width: 22rem;
-	height: auto;
-	margin: 0 0 4px 10px;
-	shape-outside: var(--plate);
-	shape-image-threshold: 0.1;
-	shape-margin: 0.6rem;
-	filter: var(--st-art-filter);
-	border: none;
+   `--seasons-plate` is set on the element by the template, because the installer produces the path
+   at runtime. Absent in a world without Book I art, where the fallback draws nothing. */
+.stonetop.sheet.steading .steading-turn-steps {
+	position: relative;
 }
 
-/* Narrow sheet: the plate goes. It is decoration — the move's text is the content, and a float
-   taking 40% of a narrow column would leave the text in a gutter. */
+.stonetop.sheet.steading .steading-turn-steps::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 52%;
+	/* The plate's own proportions, so the corner it hugs is the corner of the art. */
+	aspect-ratio: 2499 / 1170;
+	background: var(--seasons-plate, none) no-repeat right bottom / contain;
+	filter: var(--st-art-filter);
+	opacity: 0.22;
+	/* Strongest in the corner, gone before it reaches the steps' text.
+	   `currentColor` rather than a colour: a mask reads only the ALPHA channel, so what is wanted
+	   here is "opaque", and naming a colour for it would put a literal in structural CSS for a value
+	   whose hue is never used. */
+	mask-image: radial-gradient(120% 150% at 100% 100%, currentColor 20%, transparent 70%);
+	-webkit-mask-image: radial-gradient(120% 150% at 100% 100%, currentColor 20%, transparent 70%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Narrow sheet: the mark goes. It is decoration, and on a column this narrow it has nowhere to be
+   that is not directly behind the words. */
 @container steading-seasons (max-width: 620px) {
-	.stonetop.sheet.steading .steading-seasons-plate {
-		display: none;
+	.stonetop.sheet.steading .steading-turn-steps::after {
+		content: none;
 	}
 }
+
 
 
 

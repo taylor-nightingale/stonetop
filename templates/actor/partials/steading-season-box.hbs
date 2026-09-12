@@ -27,25 +27,24 @@
 		</span>
 	</h3>
 
-	{{!-- The book's harvest plate, floated so the steps run beside it rather than under it. Its
-	      silhouette slants up and to the right, so wrapping to its bounding box would leave the wedge
-	      on its left blank and break the text against an invisible straight edge; `shape-outside`
-	      reads the PNG's own alpha instead and the text follows the art.
-
-	      The path is runtime (the art installer produces it), so it is passed as a custom property
-	      here — a url() in the stylesheet cannot take one. Installer-provided and copyrighted, so
-	      absent in a world without Book I art: the template asks before it draws. --}}
-	{{#if seasons.plate}}
-		<img class="steading-seasons-plate" src="{{seasons.plate}}" alt=""
-		     style="--plate: url('{{seasons.plate}}')">
-	{{/if}}
-
 	{{!-- The steps the move carries, in the order it gives them, each in the move's own words. The
 	      tab used to draw Spring's — roll it, pick 1 gain, reset — for all four seasons, so winter's
 	      opening 1d4+Population roll had no control and its +Fortunes roll, which is the FOURTH thing
 	      winter does, was the one button at the top. --}}
+	{{!-- The book's harvest plate rides BEHIND the steps, as a watermark in the bottom-right corner —
+	      see `.steading-turn-steps::after`. The path arrives as a custom property because the
+	      installer produces it at runtime; the stylesheet cannot write a url() it does not know.
+
+	      Behind rather than beside: every arrangement that put the art IN the flow had to reconcile
+	      its height against the steps' — a float cannot be bottom-aligned in CSS, so that took a
+	      measured strut, a resize observer, and the result rows rebuilt out of grid so text could
+	      wrap to the art's shape. As a background it participates in no layout at all.
+
+	      Installer-provided and copyrighted, so absent in most worlds: with no property set, the
+	      `var(--seasons-plate, none)` in the rule draws nothing. --}}
 	{{#if seasons.steps.length}}
-		<ol class="steading-turn-steps">
+		<ol class="steading-turn-steps"
+		    {{#if seasons.plate}}style="--seasons-plate: url('{{seasons.plate}}')"{{/if}}>
 			{{#each seasons.steps}}
 				{{> "stonetop.steading-turn-step"}}
 			{{/each}}

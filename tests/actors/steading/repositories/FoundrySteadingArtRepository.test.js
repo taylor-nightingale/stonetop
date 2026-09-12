@@ -4,27 +4,33 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 // own default-picker lookup never runs.
 vi.mock("../../../../src/art/foundryArt.js", async importOriginal => {
 	const actual = await importOriginal();
-	return { ...actual, hasArtFile: vi.fn() };
+	// `artFileUrl` routes the stored path for this install; stubbed with the shape a route prefix
+	// gives, so the repository's contract — a URL, not the raw path — is what the tests assert.
+	return { ...actual, hasArtFile: vi.fn(), artFileUrl: vi.fn(p => `/${p}`) };
 });
 
 import { FoundrySteadingArtRepository } from "../../../../src/actors/steading/repositories/FoundrySteadingArtRepository.js";
-import { hasArtFile } from "../../../../src/art/foundryArt.js";
+import { hasArtFile, artFileUrl } from "../../../../src/art/foundryArt.js";
 
 const SEASONS   = "stonetop-art/steading/seasons.png";
 const RESOURCES = "stonetop-art/wonders/35054ea8d15b39521589bc2cab68c9f309301fe645948ac9fd0ed37d920da6c7.png";
 
-beforeEach(() => hasArtFile.mockReset());
+beforeEach(() => { hasArtFile.mockReset(); artFileUrl.mockClear(); });
 
 describe("FoundrySteadingArtRepository", () => {
-	it("gives the seasons plate's path when this world installed it", async () => {
+	// The ROUTED url, not the stored path: the seasons plate is handed to `shape-outside`, and a
+	// relative url() in CSS resolves against the stylesheet, not the document — which 404'd and left
+	// the text wrapping to the plate's plain box for as long as it was relative.
+	it("gives the seasons plate's routed url when this world installed it", async () => {
 		hasArtFile.mockResolvedValue(true);
-		expect(await new FoundrySteadingArtRepository().seasonsPlate()).toBe(SEASONS);
+		expect(await new FoundrySteadingArtRepository().seasonsPlate()).toBe(`/${SEASONS}`);
 		expect(hasArtFile).toHaveBeenCalledWith(SEASONS);
+		expect(artFileUrl).toHaveBeenCalledWith(SEASONS);
 	});
 
-	it("gives the resources plate's path when this world installed it", async () => {
+	it("gives the resources plate's routed url when this world installed it", async () => {
 		hasArtFile.mockResolvedValue(true);
-		expect(await new FoundrySteadingArtRepository().resourcesPlate()).toBe(RESOURCES);
+		expect(await new FoundrySteadingArtRepository().resourcesPlate()).toBe(`/${RESOURCES}`);
 		expect(hasArtFile).toHaveBeenCalledWith(RESOURCES);
 	});
 
@@ -41,6 +47,6 @@ describe("FoundrySteadingArtRepository", () => {
 		hasArtFile.mockImplementation(async path => path === RESOURCES);
 		const repo = new FoundrySteadingArtRepository();
 		expect(await repo.seasonsPlate()).toBeNull();
-		expect(await repo.resourcesPlate()).toBe(RESOURCES);
+		expect(await repo.resourcesPlate()).toBe(`/${RESOURCES}`);
 	});
 });
