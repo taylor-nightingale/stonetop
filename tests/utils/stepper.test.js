@@ -207,6 +207,37 @@ describe("activateSteppers", () => {
 		expect(input(root).value).toBe("3");
 	});
 
+	// The caret is tabindex="-1" decoration, so it must never end up holding the focus: the field it
+	// edits does, the way a native spinner leaves the caret in its input. That is what keeps the
+	// stepper :focus-within (a hover-revealed caret stays visible for the next click) and what the
+	// sheet's focus restore can name once the change has re-rendered the part.
+	it("leaves focus on the field it edits, not on the caret", () => {
+		const root = stepper();
+		up(root).focus(); // clicking a button focuses it, long before the handler runs
+
+		click(up(root));
+
+		expect(document.activeElement).toBe(input(root));
+	});
+
+	it("has moved the focus by the time the change fires", () => {
+		const root = stepper();
+		let focusedAtChange = null;
+		root.addEventListener("change", () => { focusedAtChange = document.activeElement; });
+
+		click(up(root));
+
+		expect(focusedAtChange).toBe(input(root));
+	});
+
+	it("leaves the focus alone for a disabled input", () => {
+		const root = stepper(`disabled`);
+
+		click(up(root));
+
+		expect(document.activeElement).not.toBe(input(root));
+	});
+
 	it("tolerates a missing root", () => {
 		expect(() => activateSteppers(null)).not.toThrow();
 	});

@@ -2,6 +2,10 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { createStonetopActorSheetV2Class } from "../../src/actors/StonetopActorSheetV2.js";
 import { Disclosure } from "../../src/utils/Disclosure.js";
+import { activateSteppers } from "../../src/utils/stepper.js";
+import { renderPartial } from "../fakes/renderTemplate.js";
+import { RatingSnapshot } from "../../src/model/snapshot/steading/SteadingSnapshot.js";
+import { SteadingDefaults } from "../../src/model/data/steading/SteadingDefaults.js";
 
 // A minimal stand-in for HandlebarsApplicationMixin(ActorSheetV2): a persistent root element
 // (unlike V1, V2 keeps the root across re-renders), the lifecycle hooks the class overrides, and
@@ -110,6 +114,36 @@ describe("StonetopActorSheetV2 base", () => {
 			sheet._preSyncPartState("form", document.createElement("div"), prior, state);
 
 			expect(state.focus).toBe(`.stonetop-follower-hp[data-slug="bo"]`);
+		});
+
+		// The ▲▼ carets are the sheet's one control that fires a change WITHOUT the pointer landing on
+		// the field — and a caret has no identity of its own, so the selector built from a focused one
+		// matched the first caret in the part: stepping any rating put the focus on Fortunes' ▲, and
+		// the caret under the pointer (hover-revealed on the line) vanished with it.
+		it("names the rating's own field after its caret is clicked, not the sheet's first caret", () => {
+			const { sheet } = makeSheet();
+			const ratings = html => {
+				const el = document.createElement("div");
+				el.innerHTML = html;
+				document.body.appendChild(el);
+				return el;
+			};
+			const tiles = [SteadingDefaults.fortunes, SteadingDefaults.surplus]
+				.map(def => renderPartial("stonetop.steading-stat-panel", {
+					attr: def.slug, attrData: new RatingSnapshot(def, { current: 1 }), editable: true,
+				})).join("");
+			const prior = ratings(tiles);
+			const newElement = ratings(tiles);
+			activateSteppers(prior);
+
+			const surplus = prior.querySelector('.steading-tile[data-attr="surplus"]');
+			surplus.querySelector(".stonetop-stepper-btn--up").focus();
+			surplus.querySelector(".stonetop-stepper-btn--up").click();
+
+			const state = {};
+			sheet._preSyncPartState("form", newElement, prior, state);
+
+			expect(newElement.querySelector(state.focus)).toBe(newElement.querySelector('.steading-attr-input[data-attr="surplus"]'));
 		});
 
 		it("keeps core's id-based selector when buildFocusSelector has nothing better", () => {

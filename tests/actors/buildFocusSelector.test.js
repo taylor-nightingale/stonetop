@@ -26,6 +26,43 @@ describe("buildFocusSelector", () => {
 		expect(buildFocusSelector(el, inContainer(el))).toBeNull();
 	});
 
+	it("prefers an id, which is unique by definition (regression: NPC hp and max-hp share a class)", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			id: "npc-max-hp",
+			className: "stonetop-creature-hp__input stonetop-step",
+		});
+		expect(buildFocusSelector(el, inContainer(el))).toBe("#npc-max-hp");
+	});
+
+	it("ignores an id a selector cannot carry unescaped", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			id: "sheet.part:1",
+			className: "stonetop-notes",
+		});
+		expect(buildFocusSelector(el, inContainer(el))).toBe(".stonetop-notes");
+	});
+
+	// HP, armor, XP and level all carry `.stonetop-resource__input` with no data hook between them,
+	// so the class alone matched the sheet's FIRST one: stepping XP put the caret in HP.
+	it("qualifies a class-only field by its change action", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			className: "stonetop-resource__input stonetop-char-xp stonetop-step",
+			dataset: { changeAction: "xp" },
+		});
+		expect(buildFocusSelector(el, inContainer(el)))
+			.toBe('.stonetop-resource__input[data-change-action="xp"]');
+	});
+
+	// A follower's hp and hp-max share their class AND their slug; the action is the only difference.
+	it("qualifies a slug-addressed field by its change action", () => {
+		const el = Object.assign(new FakeDOMElement(), {
+			className: "stonetop-creature-hp__input stonetop-follower-hp-max stonetop-step",
+			dataset: { slug: "guard", changeAction: "followerHpMax" },
+		});
+		expect(buildFocusSelector(el, inContainer(el)))
+			.toBe('.stonetop-creature-hp__input[data-slug="guard"][data-change-action="followerHpMax"]');
+	});
+
 	it("uses data-id when present", () => {
 		const el = Object.assign(new FakeDOMElement(), {
 			className: "stonetop-resident-name",

@@ -37,6 +37,13 @@ function step(btn) {
 	if (hasMax) next = Math.min(next, Number(input.max));
 
 	input.value = String(next);
+	// The caret is a tabindex="-1" affordance, not a focus target: the field it edits is, the way a
+	// native spinner leaves the caret in its input. Clicking a button focuses it (on mousedown, long
+	// before this handler's preventDefault), and the re-render that follows then restores focus to
+	// whatever the button resolves to — a caret has no identity of its own, so that was the FIRST
+	// caret on the sheet. It also kept the stepper you clicked from being :focus-within, so a
+	// hover-revealed caret vanished under the pointer and the next click hit nothing.
+	input.focus({ preventScroll: true });
 	// The value is what the sheet persists, so stepping has to look like typing.
 	input.dispatchEvent(new Event("change", { bubbles: true }));
 }
