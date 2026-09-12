@@ -2,1017 +2,1017 @@
   "1-surplus-of-various-trade-goods": {
     "name": {
       "source": "1 Surplus of various trade goods",
-      "text": ""
+      "text": "1 Überschuss an verschiedenen Handelswaren"
     }
   },
   "awl": {
     "name": {
       "source": "Awl",
-      "text": ""
+      "text": "Ahle"
     }
   },
   "barrel-of-whisky-common": {
     "name": {
       "source": "Barrel of whisky",
-      "text": ""
+      "text": "Fass Whisky"
     },
     "qualifier": {
       "source": "common",
-      "text": ""
+      "text": "gewöhnlich"
     }
   },
   "barrel-of-whisky-fine": {
     "name": {
       "source": "Barrel of whisky",
-      "text": ""
+      "text": "Fass Whisky"
     },
     "qualifier": {
       "source": "fine",
-      "text": ""
+      "text": "edel"
     }
   },
   "battleaxe-iron": {
     "name": {
       "source": "Battleaxe",
-      "text": ""
+      "text": "Streitaxt"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     }
   },
   "bedroll": {
     "name": {
       "source": "Bedroll",
-      "text": ""
+      "text": "Schlafsack"
     },
     "note": {
       "source": "recover 1d6 extra HP when you Make Camp",
-      "text": ""
+      "text": "erhalte 1W6 zusätzliche TP, wenn du ein Lager aufschlägst"
     }
   },
   "bendis-root": {
     "name": {
       "source": "Bendis root",
-      "text": ""
+      "text": "Bendiswurzel "
     },
     "note": {
       "source": "fumes repel perversions of nature; lasts ~1 hour",
-      "text": ""
+      "text": "Dämpfe vertreiben Perversionen der Natur"
     }
   },
   "bezoar": {
     "name": {
       "source": "Bezoar",
-      "text": ""
+      "text": "Bezoar"
     },
     "note": {
       "source": "swallow to cure any poison",
-      "text": ""
+      "text": "Heilt jedes Gift, wenn man es schluckt"
     }
   },
   "blanket": {
     "name": {
       "source": "Blanket",
-      "text": ""
+      "text": "Decke"
     }
   },
   "block-tackle": {
     "name": {
       "source": "Block & tackle",
-      "text": ""
+      "text": "Flaschenzug"
     }
   },
   "bow-arrows": {
     "name": {
       "source": "Bow & iron arrows",
-      "text": ""
+      "text": "Bogen & Eisenpfeile"
     },
     "note": {
       "source": "x piercing",
-      "text": ""
+      "text": "Durchdringung x"
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "wenig Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "bowstring": {
     "name": {
       "source": "Bowstring",
-      "text": ""
+      "text": "Bogensehne"
     }
   },
   "bullseye-lantern": {
     "name": {
       "source": "Bullseye lantern",
-      "text": ""
+      "text": "Blendlaterne"
     },
     "resource/labels/hours": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "candle": {
     "name": {
       "source": "Candle",
-      "text": ""
+      "text": "Kerze"
     },
     "note": {
       "source": "lasts ~1 hour",
-      "text": ""
+      "text": "brennt ca. 1 Stunde"
     }
   },
   "cart-or-sleigh": {
     "name": {
       "source": "Cart or sleigh",
-      "text": ""
+      "text": "Karren oder Schlitten"
     },
     "note": {
       "source": "requires donkey/mule/horse",
-      "text": ""
+      "text": "erfordert Esel/Maultier/Pferd"
     }
   },
   "chalk": {
     "name": {
       "source": "Chalk",
-      "text": ""
+      "text": "Kreide"
     }
   },
   "change-clothes": {
     "name": {
       "source": "Change of clothes",
-      "text": ""
+      "text": "Wechselkleidung"
     }
   },
   "charcoal": {
     "name": {
       "source": "Charcoal",
-      "text": ""
+      "text": "Holzkohle"
     }
   },
   "clay-jar": {
     "name": {
       "source": "Clay jar",
-      "text": ""
+      "text": "Tongefäß"
     }
   },
   "cloak": {
     "name": {
       "source": "Cloak",
-      "text": ""
+      "text": "Umhang "
     }
   },
   "cloth-rag": {
     "name": {
       "source": "Cloth/rag",
-      "text": ""
+      "text": "Stoff/Lappen"
     }
   },
   "comb": {
     "name": {
       "source": "Comb",
-      "text": ""
+      "text": "Kamm"
     }
   },
   "common-trade-tools": {
     "name": {
       "source": "Common trade tools",
-      "text": ""
+      "text": "Gängige Handwerkswerkzeuge"
     },
     "note": {
       "source": "for pottery, weaving, distilling, etc.; immobile",
-      "text": ""
+      "text": "für Töpferei, Weberei, Destillation usw.; Unbeweglich"
     }
   },
   "composite-bow": {
     "name": {
       "source": "Composite bow",
-      "text": ""
+      "text": "Kompositbogen"
     },
     "note": {
       "source": "+1 damage, x piercing",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung x"
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "geringe Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "coppers": {
     "name": {
       "source": "Handful of coppers",
-      "text": ""
+      "text": "Handvoll Kupfermünzen"
     }
   },
   "crossbow": {
     "name": {
       "source": "Crossbow",
-      "text": ""
+      "text": "Armbrust"
     },
     "note": {
       "source": "+1 damage, x piercing",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung x"
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "geringe Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "cuirass-boiled-leather": {
     "name": {
       "source": "Cuirass",
-      "text": ""
+      "text": "Kürass"
     },
     "qualifier": {
       "source": "boiled leather",
-      "text": ""
+      "text": "gekochtes Leder"
     },
     "note": {
       "source": "1 armor",
-      "text": ""
+      "text": "1 Rüstung"
     }
   },
   "cup": {
     "name": {
       "source": "Cup",
-      "text": ""
+      "text": "Becher"
     }
   },
   "empty-book-fine-vellum": {
     "name": {
       "source": "Empty book",
-      "text": ""
+      "text": "Leeres Buch"
     },
     "qualifier": {
       "source": "fine vellum",
-      "text": ""
+      "text": "edles Pergament"
     }
   },
   "empty-book-parchment": {
     "name": {
       "source": "Empty book",
-      "text": ""
+      "text": "Leeres Buch"
     },
     "qualifier": {
       "source": "parchment",
-      "text": ""
+      "text": "Pergament"
     }
   },
   "even-more-supplies": {
     "name": {
       "source": "Even more supplies",
-      "text": ""
+      "text": "Noch mehr Vorräte"
     },
     "note": {
       "source": "4+Prosperity uses",
-      "text": ""
+      "text": "4+Wohlstand Anwendungen"
     }
   },
   "extra-arrows": {
     "name": {
       "source": "Extra arrows",
-      "text": ""
+      "text": "Extra Pfeile"
     },
     "note": {
       "source": "x piercing",
-      "text": ""
+      "text": "Durchdringung x"
     },
     "resource/labels/plenty-left": {
       "source": "plenty left",
-      "text": ""
+      "text": "reichlich vorhanden"
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "wenig Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "extra-oil": {
     "name": {
       "source": "Extra oil",
-      "text": ""
+      "text": "Extraöl"
     },
     "note": {
       "source": "for lamp/lantern, useless as a weapon",
-      "text": ""
+      "text": "für Lampe/Laterne, als Waffe nutzlos"
     },
     "resource/labels/hours": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "extra-socks": {
     "name": {
       "source": "Extra socks",
-      "text": ""
+      "text": "Extra Socken"
     }
   },
   "fine-vellum-a-few-sheets": {
     "name": {
       "source": "Fine vellum.",
-      "text": ""
+      "text": "Edles Pergament"
     },
     "qualifier": {
       "source": "a few sheets",
-      "text": ""
+      "text": "ein paar Blätter"
     }
   },
   "firewood": {
     "name": {
       "source": "Firewood",
-      "text": ""
+      "text": "Brennholz"
     },
     "note": {
       "source": "enough to last 1 full night",
-      "text": ""
+      "text": "reicht für eine ganze Nacht"
     }
   },
   "firkin-of-whisky-fine": {
     "name": {
       "source": "Firkin of whisky",
-      "text": ""
+      "text": "Fässchen Whisky"
     },
     "qualifier": {
       "source": "fine",
-      "text": ""
+      "text": "edel"
     }
   },
   "glass-vial": {
     "name": {
       "source": "Glass vial",
-      "text": ""
+      "text": "Glasfläschchen"
     }
   },
   "gloves": {
     "name": {
       "source": "Gloves",
-      "text": ""
+      "text": "Handschuhe"
     }
   },
   "handful-of-silvers": {
     "name": {
       "source": "Handful of silvers",
-      "text": ""
+      "text": "Handvoll Silbermünzen"
     }
   },
   "hatchet": {
     "name": {
       "source": "Hatchet",
-      "text": ""
+      "text": "Beil"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     },
     "note": {
       "source": "x piercing",
-      "text": ""
+      "text": "Surchdringung x"
     }
   },
   "hauberk-cuirass-scale-iron-or-bronze": {
     "name": {
       "source": "Hauberk/cuirass/scale",
-      "text": ""
+      "text": "Hauberk/Kürass/Schuppen"
     },
     "qualifier": {
       "source": "iron or bronze",
-      "text": ""
+      "text": "Eisen oder Bronze"
     },
     "note": {
       "source": "2 armor",
-      "text": ""
+      "text": "2 Rüstung"
     }
   },
   "ink-vial-and-quills": {
     "name": {
       "source": "Ink",
-      "text": ""
+      "text": "Tinte"
     },
     "qualifier": {
       "source": "vial and quills",
-      "text": ""
+      "text": "Fläschchen und Federkiele"
     }
   },
   "instrument": {
     "name": {
       "source": "Instrument",
-      "text": ""
+      "text": "Instrument"
     },
     "note": {
       "source": "harp, lute, fiddle, etc.",
-      "text": ""
+      "text": "Harfe, Laute, Fiedel usw."
     }
   },
   "javelins": {
     "name": {
       "source": "Javelins",
-      "text": ""
+      "text": "Wurfspeere"
     },
     "qualifier": {
       "source": "a few, iron",
-      "text": ""
+      "text": "ein paar, Eisen"
     },
     "note": {
       "source": "x piercing, +1 damage",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung x"
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht)"
     }
   },
   "knife-dagger": {
     "name": {
       "source": "Knife or dagger",
-      "text": ""
+      "text": "Messer oder Dolch"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     }
   },
   "lantern": {
     "name": {
       "source": "Lantern",
-      "text": ""
+      "text": "Laterne"
     },
     "resource/labels/hours": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "little-box": {
     "name": {
       "source": "Little box",
-      "text": ""
+      "text": "Kleine Schachtel"
     }
   },
   "long-spear": {
     "name": {
       "source": "Long spear",
-      "text": ""
+      "text": "Langspeer"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     },
     "note": {
       "source": "x piercing",
-      "text": ""
+      "text": "Durchdringung x"
     }
   },
   "mace-or-flail-iron": {
     "name": {
       "source": "Mace or flail",
-      "text": ""
+      "text": "Streitkolben oder Flegel"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     }
   },
   "mallet": {
     "name": {
       "source": "Mallet",
-      "text": ""
+      "text": "Hammer"
     },
     "qualifier": {
       "source": "iron and/or wood",
-      "text": ""
+      "text": "Eisen and/oder Holz"
     }
   },
   "mattock": {
     "name": {
       "source": "Mattock",
-      "text": ""
+      "text": "Spitzhacke"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     }
   },
   "maul-iron": {
     "name": {
       "source": "Maul",
-      "text": ""
+      "text": "Vorschlaghammer"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     }
   },
   "mess-kit": {
     "name": {
       "source": "Mess kit",
-      "text": ""
+      "text": "Kochgeschirr "
     },
     "note": {
       "source": "requires fire & water, makes Supplies last longer",
-      "text": ""
+      "text": "erfordert Feuer & Wasser; lässt Vorräte länger reichen"
     }
   },
   "metal-tools": {
     "name": {
       "source": "Metal tools",
-      "text": ""
+      "text": "Metallwerkzeuge"
     },
     "note": {
       "source": "drill, prybar, saw, etc.",
-      "text": ""
+      "text": "Bohrer, Brecheisen, Säge usw."
     }
   },
   "mirror-hand-held-polished-bronze": {
     "name": {
       "source": "Mirror",
-      "text": ""
+      "text": "Spiegel"
     },
     "qualifier": {
       "source": "hand-held, polished bronze",
-      "text": ""
+      "text": "handgehalten, polierte Bronze"
     }
   },
   "more-supplies": {
     "name": {
       "source": "More supplies",
-      "text": ""
+      "text": "Mehr Vorräte"
     },
     "note": {
       "source": "4+Prosperity uses",
-      "text": ""
+      "text": "4+Wohlstand Anwendungen"
     }
   },
   "naphtha": {
     "name": {
       "source": "Naphtha",
-      "text": ""
+      "text": "Naphtha"
     },
     "note": {
       "source": "burns hot & sticky; damage d8, ignores armor",
-      "text": ""
+      "text": "brennt heiß und klebrig; Schaden 1W8, ignoriert Rüstung"
     },
     "resource/labels/uses": {
       "source": "uses",
-      "text": ""
+      "text": "Anwendungen"
     }
   },
   "needle-thread": {
     "name": {
       "source": "Needle & thread",
-      "text": ""
+      "text": "Nadel & Faden"
     }
   },
   "oil-lamp": {
     "name": {
       "source": "Oil lamp",
-      "text": ""
+      "text": "Öllampe"
     },
     "resource/labels/hours": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "parchment-a-few-sheets": {
     "name": {
       "source": "Parchment",
-      "text": ""
+      "text": "Pergament"
     },
     "qualifier": {
       "source": "a few sheets",
-      "text": ""
+      "text": "ein paar Blätter"
     }
   },
   "purse-of-coppers": {
     "name": {
       "source": "Purse of coppers",
-      "text": ""
+      "text": "Beutel voller Kupfermünzen"
     },
     "note": {
       "source": "~10 handfuls",
-      "text": ""
+      "text": "ca. 10 Handvoll"
     }
   },
   "purse-of-silvers": {
     "name": {
       "source": "Purse of silvers",
-      "text": ""
+      "text": "Beutel voller Silbermünzen"
     },
     "note": {
       "source": "~10 handfuls",
-      "text": ""
+      "text": "ca. 10 Handvoll"
     }
   },
   "rope": {
     "name": {
       "source": "Rope",
-      "text": ""
+      "text": "Seil"
     },
     "qualifier": {
       "source": "~25 ft",
-      "text": ""
+      "text": " ca. 25 Fuß"
     }
   },
   "rushlight": {
     "name": {
       "source": "Rushlight",
-      "text": ""
+      "text": "Kienspan "
     },
     "note": {
       "source": "lasts ~15-30 min",
-      "text": ""
+      "text": "brennt ca. 15–30 Minuten"
     }
   },
   "sack": {
     "name": {
       "source": "Sack",
-      "text": ""
+      "text": "Sack "
     },
     "note": {
       "source": "empty",
-      "text": ""
+      "text": "leer"
     }
   },
   "salt": {
     "name": {
       "source": "Salt",
-      "text": ""
+      "text": "Salz"
     },
     "note": {
       "source": "a little box",
-      "text": ""
+      "text": "eine kleine Schachtel"
     }
   },
   "sawdust": {
     "name": {
       "source": "Sawdust",
-      "text": ""
+      "text": "Sägespäne"
     }
   },
   "shield": {
     "name": {
       "source": "Shield",
-      "text": ""
+      "text": "Schild"
     },
     "note": {
       "source": "+1 armor, +1 Readiness on 7+ to Defend",
-      "text": ""
+      "text": "+1 Rüstung, +1 Bereitschaft bei einer 7+ zum Verteidigen"
     }
   },
   "short-sword-iron": {
     "name": {
       "source": "Short sword",
-      "text": ""
+      "text": "Kurzschwert"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     }
   },
   "shovel": {
     "name": {
       "source": "Shovel",
-      "text": ""
+      "text": "Schaufel"
     }
   },
   "silver-alloy-dagger": {
     "name": {
       "source": "Silver-alloy dagger",
-      "text": ""
+      "text": "Dolch aus einer Silberlegierung"
     }
   },
   "skin-of-whisky-fine": {
     "name": {
       "source": "Skin of whisky",
-      "text": ""
+      "text": "Trinkschlauch mit Whisky"
     },
     "qualifier": {
       "source": "fine",
-      "text": ""
+      "text": "edel"
     },
     "resource/labels/uses-share-a-use-with-someone-to-get-advantage-on-persuade": {
       "source": "uses; share a use with someone to get advantage on Persuade",
-      "text": ""
+      "text": "○○ Anwendungen; Teile eine Anwendung mit jemandem, um einen Vorteil auf Überreden zu erhalten"
     }
   },
   "slate-and-chalk": {
     "name": {
       "source": "Slate and chalk",
-      "text": ""
+      "text": "Schiefer und Kreide"
     }
   },
   "sledge": {
     "name": {
       "source": "Sledge/litter/travois",
-      "text": ""
+      "text": "Schlitten/Trage/Stangenschleife"
     },
     "qualifier": {
       "source": "roll-out",
-      "text": ""
+      "text": "zusammenrollbar"
     }
   },
   "sling": {
     "name": {
       "source": "Sling",
-      "text": ""
+      "text": "Schleuder "
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "geringe Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "small-metal-tool": {
     "name": {
       "source": "Small metal tool",
-      "text": ""
+      "text": "Kleines Metallwerkzeug"
     },
     "note": {
       "source": "chisel, file, shears, etc.",
-      "text": ""
+      "text": "Meißel, Feile, Schere usw."
     }
   },
   "snow-shoes": {
     "name": {
       "source": "Snow-shoes",
-      "text": ""
+      "text": "Schneeschuhe"
     }
   },
   "spare-parts-for-wagon-cart-sleigh": {
     "name": {
       "source": "Spare parts for wagon/cart/sleigh",
-      "text": ""
+      "text": "Ersatzteile für Wagen/Karren/Schlitten"
     },
     "note": {
       "source": "axles, wheels, etc.",
-      "text": ""
+      "text": "Achsen, Räder usw."
     },
     "resource/labels/uses": {
       "source": "uses",
-      "text": ""
+      "text": "Anwendungen"
     }
   },
   "spear": {
     "name": {
       "source": "Spear",
-      "text": ""
+      "text": "Speer"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     },
     "note": {
       "source": "x piercing",
-      "text": ""
+      "text": "Durchdringung x"
     }
   },
   "specialized-trade-tools": {
     "name": {
       "source": "Specialized trade tools",
-      "text": ""
+      "text": "Spezialisierte Handwerkswerkzeuge"
     },
     "note": {
       "source": "for smithing, glassblowing, scribing, etc.; immobile",
-      "text": ""
+      "text": "für Schmiedearbeiten, Glasbläserei, Schreibarbeiten usw.; Unbeweglich"
     }
   },
   "staff": {
     "name": {
       "source": "Staff",
-      "text": ""
+      "text": "Stab"
     }
   },
   "supplies": {
     "name": {
       "source": "Supplies",
-      "text": ""
+      "text": "Vorräte"
     },
     "note": {
       "source": "4+Prosperity uses",
-      "text": ""
+      "text": "4+Wohlstand Anwendungen"
     }
   },
   "sword-iron": {
     "name": {
       "source": "Sword",
-      "text": ""
+      "text": "Schwert"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     },
     "note": {
       "source": "+1 damage",
-      "text": ""
+      "text": "+1 Schaden"
     }
   },
   "tallow": {
     "name": {
       "source": "Tallow",
-      "text": ""
+      "text": "Talg"
     }
   },
   "thick-hides": {
     "name": {
       "source": "Thick hides",
-      "text": ""
+      "text": "Dicke Felle"
     },
     "note": {
       "source": "1 armor",
-      "text": ""
+      "text": "1 Rüstung"
     }
   },
   "tinderbox": {
     "name": {
       "source": "Tinderbox",
-      "text": ""
+      "text": "Zunderbüchse "
     }
   },
   "torch": {
     "name": {
       "source": "Torch",
-      "text": ""
+      "text": "Fackel"
     },
     "note": {
       "source": "lasts ~1 hour",
-      "text": ""
+      "text": "brennt ca. 1 Stunde"
     }
   },
   "twine-cord": {
     "name": {
       "source": "Twine/cord",
-      "text": ""
+      "text": "Bindfaden/Schnur"
     }
   },
   "uncommon-trade-tools": {
     "name": {
       "source": "Uncommon trade tools",
-      "text": ""
+      "text": "Ungewöhnliche Handwerkswerkzeuge"
     },
     "note": {
       "source": "for carpentry, chandlery, beekeeping, etc.; immobile",
-      "text": ""
+      "text": "für Tischlerei, Kerzenherstellung, Imkerei usw.; Unbeweglich"
     }
   },
   "vest-brigandine-fancy": {
     "name": {
       "source": "Vest",
-      "text": ""
+      "text": "Schuppenpanzer"
     },
     "qualifier": {
       "source": "brigandine, fancy",
-      "text": ""
+      "text": "Brigantine, verziert"
     },
     "note": {
       "source": "2 armor",
-      "text": ""
+      "text": "2 Rüstung"
     }
   },
   "wagon": {
     "name": {
       "source": "Wagon",
-      "text": ""
+      "text": "Wagen"
     },
     "note": {
       "source": "requires mule/horse",
-      "text": ""
+      "text": "erfordert Maultier/Pferd"
     }
   },
   "warhammer-iron": {
     "name": {
       "source": "Warhammer",
-      "text": ""
+      "text": "Kriegshammer"
     },
     "qualifier": {
       "source": "iron",
-      "text": ""
+      "text": "Eisen"
     },
     "note": {
       "source": "2 piercing",
-      "text": ""
+      "text": "Durchdringung 2"
     }
   },
   "waterskin": {
     "name": {
       "source": "Waterskin",
-      "text": ""
+      "text": "Wasserschlauch"
     }
   },
   "wax-tablet-and-stylus": {
     "name": {
       "source": "Wax tablet and stylus",
-      "text": ""
+      "text": "Wachstafel und Stift"
     }
   },
   "wheelbarrow": {
     "name": {
       "source": "Wheelbarrow",
-      "text": ""
+      "text": "Schubkarre"
     }
   },
   "whetstone": {
     "name": {
       "source": "Whetstone",
-      "text": ""
+      "text": "Wetzstein"
     }
   },
   "whisky": {
     "name": {
       "source": "Whisky",
-      "text": ""
+      "text": "Whisky"
     },
     "qualifier": {
       "source": "skin",
-      "text": ""
+      "text": "Trinkschlauch"
     }
   },
   "whistle": {
     "name": {
       "source": "Whistle",
-      "text": ""
+      "text": "Pfeife"
     }
   },
   "_folders": {
     "armor": {
       "source": "Armor",
-      "text": ""
+      "text": "Rüstung"
     },
     "exotic-stuff": {
       "source": "Exotic Stuff",
-      "text": ""
+      "text": "Exotische Dinge"
     },
     "light-sources": {
       "source": "Light Sources",
-      "text": ""
+      "text": "Lichtquellen"
     },
     "tools-trades": {
       "source": "Tools & Trades",
-      "text": ""
+      "text": "Werkzeuge & Handwerk"
     },
     "trade-goods": {
       "source": "Trade Goods",
-      "text": ""
+      "text": "Handelswaren"
     },
     "transport": {
       "source": "Transport",
-      "text": ""
+      "text": "Transport"
     },
     "weapons-of-war": {
       "source": "Weapons of War",
-      "text": ""
+      "text": "Kriegswaffen"
     },
     "writing-implements": {
       "source": "Writing Implements",
-      "text": ""
+      "text": "Schreibutensilien"
     },
     "basics": {
       "source": "Basics",
-      "text": ""
+      "text": "Kleinigkeiten"
     },
     "sundries": {
       "source": "Sundries",
-      "text": ""
+      "text": "Sonstiges"
     },
     "supplies": {
       "source": "Supplies",
-      "text": ""
+      "text": "Vorräte"
     },
     "travel": {
       "source": "Travel",
-      "text": ""
+      "text": "Reisen"
     },
     "warmth": {
       "source": "Warmth",
-      "text": ""
+      "text": "Wärme"
     },
     "weapons": {
       "source": "Weapons",
-      "text": ""
+      "text": "Waffen"
     },
     "inventory-insert-p-142": {
       "source": "Inventory insert (p. 142)",
-      "text": ""
+      "text": "Inventar-Beilage (S. 142)"
     },
     "special-items": {
       "source": "Special items",
-      "text": ""
+      "text": "Besondere Gegenstände"
     }
   }
 }

@@ -17,6 +17,9 @@ export const compendiumDir = (root = ".") => path.join(root, "languages", "compe
 export const languageDir    = (lang, root = ".") => path.join(compendiumDir(root), lang);
 export const authoringPath  = (lang, pack, root = ".") => path.join(languageDir(lang, root), `${pack}.json`);
 export const languageFilePath = (lang, root = ".") => path.join(root, "languages", `${lang}.json`);
+// Underscored so it can never collide with a pack name, and so extract/build — which both address
+// files by pack — leave it alone.
+export const awaitingPath   = (lang, root = ".") => path.join(languageDir(lang, root), "_awaiting.json");
 
 export async function listLanguages(root = ".") {
 	let entries;

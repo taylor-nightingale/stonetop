@@ -112,9 +112,14 @@ export class Reconciliation {
 	}
 
 	get isClean() {
-		return !this.countOf(EntryStatus.NEEDS_REVIEW)
-			&& !this.countOf(EntryStatus.ORPHANED)
-			&& !this.countOf(EntryStatus.BROKEN_MARKUP);
+		return !this.flaggedEntries.length;
+	}
+
+	/** Everything a human has to look at, tagged with the pack so it can be acknowledged by address. */
+	get flaggedEntries() {
+		return [EntryStatus.NEEDS_REVIEW, EntryStatus.BROKEN_MARKUP, EntryStatus.ORPHANED]
+			.flatMap(status => this.entriesWith(status))
+			.map(found => ({ ...found, pack: this.pack }));
 	}
 
 	toAuthoring() {

@@ -2,429 +2,429 @@
   "the-blessed": {
     "name": {
       "source": "The Blessed",
-      "text": ""
+      "text": "Der Gesegnete"
     },
     "description": {
       "source": "Danu, the Great Mother, provides. We need only learn her secrets: the names by which the trees call each other; the mark made with redberry juice to ward off impure spirits; the language of the wolves. A thousand such secrets Danu keeps, to share with only her true children. Her Blessed.",
-      "text": ""
+      "text": "Danu, die Große Mutter, sorgt für uns. Wir müssen nur ihre Geheimnisse lernen: die Namen, mit denen sich die Bäume einander rufen; das Zeichen, das mit dem Saft der roten Beeren gezeichnet wird, um unreine Geister abzuwehren; die Sprache der Wölfe. Tausend solcher Geheimnisse bewahrt Danu, um sie nur mit ihren wahren Kindern zu teilen. Ihre Gesegneten."
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Spirit Tongue, Call the Spirits, 1 from your Background, and 1 of your choice.",
-      "text": ""
+      "text": "Du beginnst mit Geisterzunge, Geister rufen, einem aus deinem Hintergrund sowie einem weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2, in addition to your sacred pouch",
-      "text": ""
+      "text": "Wähle 2, zusätzlich zu deinem heiligen Beutel"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "The Steplands",
-      "text": ""
+      "text": "Die Stufenlande"
     },
     "origin/3/region": {
       "source": "The Wild",
-      "text": ""
+      "text": "Die Wildnis"
     },
     "backgrounds/initiate/label": {
       "source": "Initiate",
-      "text": ""
+      "text": "Eingeweihter"
     },
     "backgrounds/initiate/description": {
       "source": "Stonetop has long been home to a sacred order, keepers of the old ways and speakers for Danu. You are one such initiate, the most gifted in generations. You gain the **Rites of the Land** move.\n\nThere are other initiates in Stonetop, serving the goddess and the village. They aid you as followers — see the Initiates of Danu insert. Who are they? Pick 2 or 3:",
-      "text": ""
+      "text": "Stonetop ist seit Langem die Heimat eines heiligen Ordens, der die alten Bräuche bewahrt und als Sprachrohr Danus dient. Du bist einer dieser Eingeweihten, der begabteste seit Generationen. Du erhältst den Spielzug Riten des Landes.\n\nIn Stonetop gibt es weitere Eingeweihte, die der Göttin und dem Dorf dienen. Sie unterstützen dich als Gefolgsleute – siehe die Beilage Eingeweihter Danus. Wer sind sie? Wähle 2 oder 3:"
     },
     "backgrounds/raised-by-wolves/label": {
       "source": "Raised by Wolves",
-      "text": ""
+      "text": "Von Wölfen aufgezogen"
     },
     "backgrounds/raised-by-wolves/description": {
       "source": "Maybe not by *wolves*, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?\n\nRegardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.\n\nFor some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP.",
-      "text": ""
+      "text": "Vielleicht waren es keine Wölfe, aber du bist in der Wildnis aufgewachsen. Die Tiere zu Lande und in der Luft waren deine Geschwister. Der seufzende Wind lehrte dich die Sprache. Die Bäume und Felsen waren dein Zuhause. Warst du einer des Waldvolks? Ausgesetzt oder verwaist? Wurdest du in den Wald gelockt?\n\nWie dem auch sei, du erhältst den Spielzug Spurloser Schritt (markiere ihn jetzt). Außerdem hast du einen Vorteil, wenn du **Nahrung suchst**.\n\nAus irgendeinem Grund bist du in Stonetop bekannt geworden und vielleicht nennst du es sogar dein Zuhause. Doch die Sitten der Menschen sind dir noch immer fremd. Einmal pro Sitzung, **wenn deine wilde Art jemanden vor den Kopf stößt oder dazu führt, dass sich jemand von dir abwendet**, markiere EP."
     },
     "backgrounds/vessel/label": {
       "source": "Vessel",
-      "text": ""
+      "text": "Gefäß"
     },
     "backgrounds/vessel/description": {
       "source": "A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the **Danu's Grasp** move. When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead.",
-      "text": ""
+      "text": "Ein Same von Danus Macht hat in deiner Seele Wurzeln geschlagen. Vielleicht war er schon immer dort und ist erst vor Kurzem aufgekeimt. Oder vielleicht wurde er während eines folgenschweren Ereignisses in dich eingepflanzt.\n\nWie dem auch sei, deine Träume werden von seltsamen Zeichen und Symbolen heimgesucht. Du spürst die mystische Kraft in Pflanzen, Steinen und der Erde. Und du hast den wachsenden Zorn der Erdmutter gespürt, während sich abscheuliche Dinge in Bewegung setzen. Du erhältst den Spielzug Danus Griff (markiere ihn jetzt).\n\nDanus Macht fließt durch dich, doch zu einem hohen Preis. Wenn du **1 Vorrat aus deinem heiligen Beutel ausgeben würdest**, kannst du stattdessen 2W4 TP verlieren."
     },
     "backgrounds/initiate/choices/enfys/text": {
       "source": "Enfys, your acolyte, beloved by birds",
-      "text": ""
+      "text": "Enfys, deine Schülerin, von den Vögeln geliebt"
     },
     "backgrounds/initiate/choices/afon/text": {
       "source": "Afon, strange and Fae-touched",
-      "text": ""
+      "text": "Afon, sonderbar und vom Feenvolk berührt"
     },
     "backgrounds/initiate/choices/gwendyl/text": {
       "source": "Gwendyl, your mentor, a talented healer",
-      "text": ""
+      "text": "Gwendyl, deine Mentorin, eine begabte Heilerin"
     },
     "backgrounds/initiate/choices/olwin/text": {
       "source": "Olwin, your anointed lover, seer of fates",
-      "text": ""
+      "text": "Olwin, dein gesalbter Verehrer, Schicksalsseher"
     },
     "backgrounds/initiate/choices/seren-the-eldest/text": {
       "source": "Seren the Eldest, wise and hard as winter",
-      "text": ""
+      "text": "Seren die Älteste, weise und hart wie der Winter"
     },
     "choices/sacred-pouch/0/title": {
       "source": "Sacred Pouch",
-      "text": ""
+      "text": "Heliger Beutel"
     },
     "choices/sacred-pouch/0/text": {
       "source": "Your sacred pouch (*magical*) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When **_anyone but you looks inside your sacred pouch and touches the materials therein_**, the Stock is ruined.\n\nWhen you **_have a few days of downtime in familiar terrain_**, you may replenish your Stock.\n\n When you **_Forage_**, you can produce Stock instead of provisions.",
-      "text": ""
+      "text": "Dein heiliger Beutel (*Magisch*) verbraucht keinen Platz in deinem Inventar. Er kann bis zu 3 Vorrat aufnehmen (heilige Kräuter, Pulver, Steine, Pigmente, Kreiden, Lehm und dergleichen). Jedes Mal, wenn du eine gerade Stufe erreichst, kann dein Beutel +1 Vorrat aufnehmen. Wenn **jemand außer dir in deinen heiligen Beutel schaut und die darin enthaltenen Materialien berührt**, wird der Vorrat unbrauchbar.\n\nWenn du **dich ein paar Tage in einer sicherern und bequemen Umgebung ausruhst**, kannst du deinen Vorrat wieder auffüllen.\n\nWenn du **Nahrung suchst**, kannst du statt Proviant Vorrat herstellen."
     },
     "choices/the-earth-mother/0/title": {
       "source": "The Earth Mother",
-      "text": ""
+      "text": "Die Erdmutter"
     },
     "choices/the-earth-mother/0/text": {
       "source": "Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... *(choose 1)*",
-      "text": ""
+      "text": "Danu wird seit langem von allen Völkern verehrt, wenn auch nicht immer Priester sie anbeten oder ihr dienen. Im Pavillon der Götter von Stonetop ist Danus Schrein … (Wähle 1)"
     },
     "choices/sacred-pouch/1/titleNote": {
       "source": "choose 1 on each line",
-      "text": ""
+      "text": "Wähle jeweils 1 aus jeder Zeile"
     },
     "choices/sacred-pouch/1/text": {
       "source": "Your sacred pouch is...",
-      "text": ""
+      "text": "Dein heiliger Beutel ist…"
     },
     "choices/sacred-pouch/5/titleNote": {
       "source": "choose 1",
-      "text": ""
+      "text": "Wähle 1"
     },
     "choices/sacred-pouch/5/text": {
       "source": "What remarkable trait does it possess?",
-      "text": ""
+      "text": "Welche außergewöhnliche Eigenschaft besitzt er?"
     },
     "choices/the-earth-mother/shrine-loved/text": {
       "source": "... loved, well-used, dripping with offerings and petitions.",
-      "text": ""
+      "text": "… beliebt, viel genutzt und von Opfergaben und Bittgesuchen überquellend."
     },
     "choices/the-earth-mother/shrine-token/text": {
       "source": "... little more than a token of respect, for her holy places are anywhere but here.",
-      "text": ""
+      "text": "… kaum mehr als eine Geste des Respekts, denn ihre heiligen Stätten liegen überall, nur nicht hier."
     },
     "choices/the-earth-mother/shrine-berth/text": {
       "source": "... given wide berth by most, and approached only with care and propitiation.",
-      "text": ""
+      "text": "… von den meisten gemieden und nur mit Vorsicht und unter Darbringung von Opfergaben aufgesucht."
     },
     "choices/the-earth-mother/shrine-neglected/text": {
       "source": "... neglected and all but forgotten, except by a few.",
-      "text": ""
+      "text": "… vernachlässigt und nahezu vergessen, abgesehen von einigen wenigen."
     },
     "choices/the-earth-mother/5/text": {
       "source": "What do the folk of Stonetop leave as offerings? *(choose 2–3)*",
-      "text": ""
+      "text": "Was bringen die Bewohner von Stonetop als Opfergaben dar? (Wähle 2 bis 3)"
     },
     "choices/the-earth-mother/fruits-of-harvest/text": {
       "source": "Fruits of harvest",
-      "text": ""
+      "text": "Erntefrüchte"
     },
     "choices/the-earth-mother/figurines/text": {
       "source": "Figurines/effigies",
-      "text": ""
+      "text": "Figuren/Abbildungen"
     },
     "choices/the-earth-mother/whisky/text": {
       "source": "Whisky/spirits",
-      "text": ""
+      "text": "Whisky/Spirituosen"
     },
     "choices/the-earth-mother/salt/text": {
       "source": "Salt/crystals",
-      "text": ""
+      "text": "Salz/Kristalle"
     },
     "choices/the-earth-mother/rain-water/text": {
       "source": "Pure rain water",
-      "text": ""
+      "text": "Reines Regenwasser"
     },
     "choices/the-earth-mother/metal-nails/text": {
       "source": "Metal nails/tools",
-      "text": ""
+      "text": "Nägel/Werkzeuge aus Metall"
     },
     "choices/the-earth-mother/blood/text": {
       "source": "Blood/burnt flesh",
-      "text": ""
+      "text": "Blut/verbranntes Fleisch"
     },
     "choices/the-earth-mother/incense/text": {
       "source": "Incense/sage bark",
-      "text": ""
+      "text": "Räucherwerk/Salbeirinde"
     },
     "choices/sacred-pouch/2/options/origin-heirloom/text": {
       "source": "an heirloom made just for you",
-      "text": ""
+      "text": "ein Erbstück"
     },
     "choices/sacred-pouch/2/options/origin-made-just-for-you/text": {
       "source": "made just for you",
-      "text": ""
+      "text": "nur für dich gemacht "
     },
     "choices/sacred-pouch/2/options/origin-own-work/text": {
       "source": "your own work",
-      "text": ""
+      "text": "dein eigenes Werk"
     },
     "choices/sacred-pouch/3/options/material-fur/text": {
       "source": "fur",
-      "text": ""
+      "text": "Fell"
     },
     "choices/sacred-pouch/3/options/material-drakescale/text": {
       "source": "drakescale",
-      "text": ""
+      "text": "Schuppen"
     },
     "choices/sacred-pouch/3/options/material-leather/text": {
       "source": "leather",
-      "text": ""
+      "text": "Leder"
     },
     "choices/sacred-pouch/3/options/material-woven/text": {
       "source": "woven",
-      "text": ""
+      "text": "gewebt"
     },
     "choices/sacred-pouch/3/options/material-demonflesh/text": {
       "source": "demonflesh",
-      "text": ""
+      "text": "Dämonenfleisch"
     },
     "choices/sacred-pouch/4/options/decor-unadorned/text": {
       "source": "unadorned",
-      "text": ""
+      "text": "schlicht"
     },
     "choices/sacred-pouch/4/options/decor-beadwork/text": {
       "source": "beadwork",
-      "text": ""
+      "text": "Perlenstickerei"
     },
     "choices/sacred-pouch/4/options/decor-rich-dyes/text": {
       "source": "rich dyes",
-      "text": ""
+      "text": "intensive Farben"
     },
     "choices/sacred-pouch/4/options/decor-runes/text": {
       "source": "runes",
-      "text": ""
+      "text": "Runen"
     },
     "choices/sacred-pouch/6/options/trait-indestructible/text": {
       "source": "It cannot be cut, torn, or burned by any natural means.",
-      "text": ""
+      "text": "Er kann mit keinerlei natürlichen Mitteln zerschnitten, zerrissen oder verbrannt werden."
     },
     "choices/sacred-pouch/6/options/trait-unnoticed/text": {
       "source": "Unless someone is specifically searching for your pouch, they will ignore its presence.",
-      "text": ""
+      "text": "Solange niemand gezielt nach deinem Beutel sucht, wird er seine Anwesenheit ignorieren."
     },
     "choices/sacred-pouch/6/options/trait-sealed/text": {
       "source": "So long as the pouch is sealed, nothing within can be detected or found by magic, nor can anything within escape or affect the outside world.",
-      "text": ""
+      "text": "Solange der Beutel verschlossen ist, kann nichts in seinem Inneren durch Magie wahrgenommen oder gefunden werden, und nichts darin kann entweichen oder die Außenwelt beeinflussen."
     },
     "choices/sacred-pouch/6/options/trait-unclean/text": {
       "source": "Unnatural and unclean creatures cannot bear to touch it.",
-      "text": ""
+      "text": "Unnatürliche und unreine Kreaturen können es nicht ertragen, ihn zu berühren."
     },
     "instinct/0/options/delight/text": {
       "source": "Delight",
-      "text": ""
+      "text": "Freude"
     },
     "instinct/0/options/delight/description": {
       "source": "To find beauty, in even the ugliest things.",
-      "text": ""
+      "text": "Die Schönheit selbst im Hässlichsten zu finden."
     },
     "instinct/0/options/detachment/text": {
       "source": "Detachment",
-      "text": ""
+      "text": "Losgelöstheit"
     },
     "instinct/0/options/detachment/description": {
       "source": "To remain unmoved, to be cold as winter.",
-      "text": ""
+      "text": "Unberührt zu bleiben, kalt wie der Winter zu sein."
     },
     "instinct/0/options/nurture/text": {
       "source": "Nurture",
-      "text": ""
+      "text": "Fürsorge"
     },
     "instinct/0/options/nurture/description": {
       "source": "To help others grow, learn, or improve.",
-      "text": ""
+      "text": "Anderen zu helfen, zu wachsen, zu lernen oder sich zu verbessern."
     },
     "instinct/0/options/preservation/text": {
       "source": "Preservation",
-      "text": ""
+      "text": "Bewahrung"
     },
     "instinct/0/options/preservation/description": {
       "source": "To protect the natural world.",
-      "text": ""
+      "text": "Die natürliche Welt zu schützen."
     },
     "instinct/0/options/reverence/text": {
       "source": "Reverence",
-      "text": ""
+      "text": "Ehrfurcht"
     },
     "instinct/0/options/reverence/description": {
       "source": "To honor the spirits and give them their due.",
-      "text": ""
+      "text": "Die Geister zu ehren und ihnen die gebührende Anerkennung zu erweisen."
     },
     "appearance/0/options/fresh-faced/text": {
       "source": "fresh-faced",
-      "text": ""
+      "text": "frisches Gesicht"
     },
     "appearance/0/options/hale-and-hearty/text": {
       "source": "hale & hearty",
-      "text": ""
+      "text": "rüstig und zäh "
     },
     "appearance/0/options/gray-and-wizened/text": {
       "source": "gray & wizened",
-      "text": ""
+      "text": "grau und runzlig"
     },
     "appearance/1/options/imperious-voice/text": {
       "source": "imperious voice",
-      "text": ""
+      "text": "herrische Stimme"
     },
     "appearance/1/options/raspy-voice/text": {
       "source": "raspy voice",
-      "text": ""
+      "text": "raue Stimme"
     },
     "appearance/1/options/soothing-voice/text": {
       "source": "soothing voice",
-      "text": ""
+      "text": "beruhigende Stimme"
     },
     "appearance/2/options/curvy/text": {
       "source": "curvy",
-      "text": ""
+      "text": "kurvig"
     },
     "appearance/2/options/strapping/text": {
       "source": "strapping",
-      "text": ""
+      "text": "kräftig gebaut"
     },
     "appearance/2/options/rail-thin/text": {
       "source": "rail-thin",
-      "text": ""
+      "text": "hager"
     },
     "appearance/2/options/solid/text": {
       "source": "solid",
-      "text": ""
+      "text": "stämmig"
     },
     "appearance/2/options/willowy/text": {
       "source": "willowy",
-      "text": ""
+      "text": "schlank"
     },
     "appearance/3/options/ceremonial-robes/text": {
       "source": "ceremonial robes",
-      "text": ""
+      "text": "Zeremonielle Gewänder"
     },
     "appearance/3/options/furs-leather/text": {
       "source": "furs, leather",
-      "text": ""
+      "text": "Pelze, Leder"
     },
     "appearance/3/options/work-clothes/text": {
       "source": "work clothes",
-      "text": ""
+      "text": "Arbeitskleidung"
     },
     "introductions/step3": {
       "source": "On your third turn, **describe your sacred pouch** and its remarkable trait. Then, **tell us about Danu's shrine** in Stonetop and how she is worshipped.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **beschreibe deinen heiligen Beutel** und seine außergewöhnliche Eigenschaft. **Erzähle uns anschließend von Danus Schrein** in Stonetop und davon, wie sie verehrt wird."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/heart-soul-entwined/text": {
       "source": "Whose heart & soul is entwined with yours?",
-      "text": ""
+      "text": "Wessen Herz und Seele sind mit deinen verbunden?"
     },
     "introductions/step4/secret-ways/text": {
       "source": "Who taught you the secret ways?",
-      "text": ""
+      "text": "Wer hat dich in die geheimen Wege eingeweiht?"
     },
     "introductions/step4/beloved-goddess/text": {
       "source": "Who is beloved by the goddess, your charge to nurture/guide/protect/heal?",
-      "text": ""
+      "text": "Wer wird von der Göttin geliebt und ist dir anvertraut, um ihn zu umsorgen, zu führen, zu beschützen oder zu heilen?"
     },
     "introductions/step6/spirits-whisper/text": {
       "source": "Which one of you do the spirits whisper of?",
-      "text": ""
+      "text": "Über wen von euch flüstern die Geister?"
     },
     "introductions/step6/sacred-rite/text": {
       "source": "Which one of you has joined me in a sacred rite?",
-      "text": ""
+      "text": "Wer von euch hat mit mir an einem heiligen Ritual teilgenommen?"
     },
     "introductions/step6/blood-oath/text": {
       "source": "Which of you has made a blood-oath with me?",
-      "text": ""
+      "text": "Wer von euch hat mit mir einen Bluteid geschworen?"
     },
     "introductions/step6/doubts-danu/text": {
       "source": "Which one of you doubts the power of Danu?",
-      "text": ""
+      "text": "Wer von euch zweifelt an der Macht Danus?"
     }
   },
   "the-fox": {
     "name": {
       "source": "The Fox",
-      "text": ""
+      "text": "Der Fuchs"
     },
     "description": {
       "source": "The elders tell a story about Fox, who knows lots of tricks, and Hedgehog, who knows one: how to curl up into a ball when there's danger. Fox can't eat Hedgehog when he's all curled up, so in the story Fox goes hungry. But you're not that Fox, and this is no story. You want that Hedgehog? Go get a knife.",
-      "text": ""
+      "text": "Die Ältesten erzählen von einer Geschichte über den Fuchs, der viele Tricks kennt, und den Igel, der nur einen kennt: wie man sich bei Gefahr zu einer Kugel zusammenrollt. Der Fuchs kann den Igel nicht fressen, solange dieser zusammengerollt ist, also geht der Fuchs in der Geschichte leer aus. Aber du bist nicht dieser Fuchs, und dies ist keine Geschichte. Du willst diesen Igel? Dann hol dir ein Messer."
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Ambush OR Skill at Arms; Danger Sense OR Perceptive; and 1 of your choice.",
-      "text": ""
+      "text": "Du beginnst mit Hinterhältiger Angriff oder Kampfkunst, Gefahrensinn oder Aufmerksam sowie einem weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2",
-      "text": ""
+      "text": "Wähle 2"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/3/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/4/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/the-natural/label": {
       "source": "The Natural",
-      "text": ""
+      "text": "Das Naturtalent"
     },
     "backgrounds/the-natural/description": {
       "source": "You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.\n\nSure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.\n\nWhen you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.",
-      "text": ""
+      "text": "Du bist hier in der Gegend aufgewachsen und hast dir schon immer schnell neue Dinge angeeignet. Lesen und Rechnen, klar und noch vieles mehr. Verstecken spielen. Steine werfen. Klettern. Kämpfen. Was auch immer du ausprobiert hast, du warst gut darin. So gut wie jeder andere, wenn nicht sogar besser.\n\nGewiss, du hast den Ruf, die Regeln zu beugen. Schmutzige Tricks anzuwenden. Aber wozu spielen, wenn man nicht auch gewinnen will? Und zu wem kommen sie, wenn es ein Problem zu lösen gibt? Zu dir natürlich.\n\nWenn du **_Gewissheit erlangst_**, kannst du stattdessen mit +INT statt +WE würfeln und „Welche Gelegenheit sieht sonst niemand?“ zur Liste der möglichen Fragen hinzufügen."
     },
     "backgrounds/a-life-of-crime/label": {
       "source": "A Life of Crime",
-      "text": ""
+      "text": "Ein Leben als Gesetzloser"
     },
     "backgrounds/a-life-of-crime/description": {
       "source": "You're new to Stonetop, having left behind a... *colorful* past. How did you get into that life? Why and how did you get out? Who and what do you leave behind?\n\nRegardless, these people have taken you in. Time to lead an honest life, right?\n\nYou start with either **Burgle** or **Light Fingers** (your choice) as an extra move, and either burglar tools or a hidden stash (your choice) as an additional special possession. Go mark them now.",
-      "text": ""
+      "text": "Du bist neu in Stonetop und hast eine... bewegte Vergangenheit hinter dir. Wie bist du in dieses Leben hineingeraten? Warum und wie bist du ausgestiegen? Wen und was hast du zurückgelassen?\n\nWie auch immer, diese Menschen haben dich aufgenommen. Zeit, ein ehrliches Leben zu führen, oder?\n\nDu beginnst entweder mit Einbruch oder Flinke Finger als zusätzlichen Spielzug (deine Wahl) und entweder Einbruchswerkzeug oder einem geheimen Versteck (deine Wahl) als zusätzlichen besonderen Besitz. Markiere sie jetzt."
     },
     "backgrounds/the-prodigal-returned/label": {
       "source": "The Prodigal Returned",
-      "text": ""
+      "text": "Der verloren gelaubte Sohn"
     },
     "backgrounds/the-prodigal-returned/description": {
       "source": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.\n\nWhen you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.",
-      "text": ""
+      "text": "Du bist vor langer Zeit fortgegangen, bist weit gereist und hast dich mit Hilfe deines Verstandes durchgeschlagen. Warum bist du gegangen? Mit welchen Taten prahlst du, und welche bereust du?\n\nDu hast dich immer danach gesehnt, nach Stonetop zurückzukehren, und nun bist du wieder da. Inzwischen bist du so etwas wie eine Berühmtheit und hast überall in der bekannten Welt Freunde (oder zumindest Leute, die dir nahestehen).\n\nWenn du **_erklärst, dass du außerhalb von Stonetop jemanden kennst_**, der dir helfen kann, nenne diese Person und würfle +CH. **Bei einer 10+** kann sie dir tatsächlich helfen (sag uns, warum sie dazu bereit ist). **Bei 7–9** kann sie dir helfen, aber wähle eins aus der folgenden Liste. **Bei einer 6-** wählt der SL 1 und zusätzlich noch etwas anderes.\n\n- Sie hegt noch immer einen Groll gegen dich.\n- Sie wird zuerst etwas von dir verlangen.\n- Sie hat solchen Dingen schon vor langer Zeit abgeschworen.\n- Du kannst ihr nicht wirklich, nun ja, vertrauen."
     },
     "choices/tall-tales-beginning/0/title": {
       "source": "There Was That Time You…",
@@ -552,499 +552,501 @@
     },
     "instinct/0/options/conscience/text": {
       "source": "Conscience",
-      "text": ""
+      "text": "Gewissen"
     },
     "instinct/0/options/conscience/description": {
       "source": "To feel guilty, to try to do right.",
-      "text": ""
+      "text": "Sich schuldig fühlen, versuchen, das Richtige zu tun."
     },
     "instinct/0/options/freedom/text": {
       "source": "Freedom",
-      "text": ""
+      "text": "Freiheit"
     },
     "instinct/0/options/freedom/description": {
       "source": "To chafe against rules, expectations, obligations.",
-      "text": ""
+      "text": "Sich gegen Regeln, Erwartungen und Verpflichtungen aufzulehnen."
     },
     "instinct/0/options/comfort/text": {
       "source": "Comfort",
-      "text": ""
+      "text": "Bequemlichkeit"
     },
     "instinct/0/options/comfort/description": {
       "source": "To enjoy yourself and avoid hardship.",
-      "text": ""
+      "text": "Das Leben genießen und Entbehrungen vermeiden."
     },
     "instinct/0/options/prestige/text": {
       "source": "Prestige",
-      "text": ""
+      "text": "Ansehen"
     },
     "instinct/0/options/prestige/description": {
       "source": "To impress others, to build a name for yourself.",
-      "text": ""
+      "text": "Andere beeindrucken, sich einen Namen machen."
     },
     "instinct/0/options/trickery/text": {
       "source": "Trickery",
-      "text": ""
+      "text": "Täuschung"
     },
     "instinct/0/options/trickery/description": {
       "source": "To deceive, misdirect, outthink.",
-      "text": ""
+      "text": "Täuschen, in die Irre führen, andere überlisten."
     },
     "appearance/0/options/young-pup/text": {
       "source": "young pup",
-      "text": ""
+      "text": "Jungspund"
     },
     "appearance/0/options/responsible-adult/text": {
       "source": "\"responsible\" adult",
-      "text": ""
+      "text": "mündiger Erwachsener"
     },
     "appearance/0/options/cagey-old-timer/text": {
       "source": "cagey old-timer",
-      "text": ""
+      "text": "gerissener alter Hase"
     },
     "appearance/1/options/a-pleasant-voice/text": {
       "source": "a pleasant voice",
-      "text": ""
+      "text": "angenehme Stimme"
     },
     "appearance/1/options/sharp-and-nasally/text": {
       "source": "sharp & nasally",
-      "text": ""
+      "text": "scharf & nasal"
     },
     "appearance/1/options/well-spoken/text": {
       "source": "well-spoken",
-      "text": ""
+      "text": "wortgewandt"
     },
     "appearance/2/options/lithe/text": {
       "source": "lithe",
-      "text": ""
+      "text": "geschmeidig "
     },
     "appearance/2/options/heavyset/text": {
       "source": "heavyset",
-      "text": ""
+      "text": "korpulent "
     },
     "appearance/2/options/gangly/text": {
       "source": "gangly",
-      "text": ""
+      "text": "hager"
     },
     "appearance/2/options/like-a-whippin-stick/text": {
       "source": "like a whippin' stick",
-      "text": ""
+      "text": "wie eine Bohnenstange"
     },
     "appearance/3/options/a-light-step/text": {
       "source": "a light step",
-      "text": ""
+      "text": "Leichtfüßig"
     },
     "appearance/3/options/a-brisk-stride/text": {
       "source": "a brisk stride",
-      "text": ""
+      "text": "ein flotter Schritt"
     },
     "appearance/3/options/more-like-a-strut/text": {
       "source": "more like a strut",
-      "text": ""
+      "text": "eher ein Stolzieren"
     },
     "introductions/step3": {
       "source": "On your third turn, **tell us your tall tales**. Feel free to embellish and exaggerate to the other players, but always answer the GM truthfully.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **erzähle von deinen abenteuerlichen Geschichten**. Du darfst sie gegenüber den anderen Spielern ruhig etwas ausschmücken und übertreiben, aber antwortet dem SL immer wahrheitsgemäß."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/heart-reins/text": {
       "source": "Who holds the reins to your heart?",
-      "text": ""
+      "text": "Wer hält dein Herz in seiner Hand?"
     },
     "introductions/step4/respect-world/text": {
       "source": "Whose respect means the world to you?",
-      "text": ""
+      "text": "Wessen Respekt ist dir über alles wichtig?"
     },
     "introductions/step4/unpayable-debt/text": {
       "source": "To whom do you owe a debt that cannot be repaid?",
-      "text": ""
+      "text": "Wem schuldest du eine Schuld, die nicht beglichen werden kann?"
     },
     "introductions/step6/hijinx/text": {
       "source": "Which one of you joined me in my latest hijinx?",
-      "text": ""
+      "text": "Wer von euch hat sich an meinem letzten Streich beteiligt?"
     },
     "introductions/step6/brings-problems/text": {
       "source": "Which one of you brings your problems to me?",
-      "text": ""
+      "text": "Wer von euch kommt mit seinen Problemen zu mir?"
     },
     "introductions/step6/saved-bacon/text": {
       "source": "Which one of you saved my bacon, mor'n once?",
-      "text": ""
+      "text": "Wer von euch hat mir mehr als einmal den Hintern gerettet?"
     },
     "introductions/step6/trusts-not/text": {
       "source": "Which one of you trusts me not one bit?",
-      "text": ""
+      "text": "Wer von euch traut mir nicht über den Weg?"
     }
   },
   "the-heavy": {
     "name": {
       "source": "The Heavy",
-      "text": ""
+      "text": "Der Brecher"
     },
     "description": {
       "source": "These are good people. Hard-working, honest. They look out for each other. But sometimes, looking out for each other ain't enough. Sometimes, good people need someone to stick up for them. Someone who's not afraid to get a little bloody. To get heavy. Yeah, someone like you.",
-      "text": ""
+      "text": "Es sind gute Leute. Fleißig, ehrlich. Sie halten zusammen und kümmern sich umeinander. Aber manchmal reicht es nicht aus, füreinander da zu sein. Manchmal brauchen gute Leute jemanden, der für sie einsteht. Jemanden, der keine Angst davor hat, sich ein bisschen die Hände schmutzig zu machen. Jemanden, der auch mal härter durchgreift. Jemanden wie ich."
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Dangerous, Hard to Kill, and either Armored OR Uncanny Reflexes.",
-      "text": ""
+      "text": "Du beginnst mit Gefährlich, Schwer zu töten und entweder Gerüstet oder Unheimliche Reflexe."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2",
-      "text": ""
+      "text": "Wähle 2"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/2/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/3/region": {
       "source": "The Steplands (Hillfolk)",
-      "text": ""
+      "text": "Die Stufenlande (Hügelvolk)"
     },
     "origin/4/region": {
       "source": "The Manmarch",
-      "text": ""
+      "text": "Die Grenzmark"
     },
     "origin/5/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/sheriff/label": {
       "source": "Sheriff",
-      "text": ""
+      "text": "Sheriff"
     },
     "backgrounds/sheriff/description": {
       "source": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.\n\nWhen you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do.",
-      "text": ""
+      "text": "Du sorgst in Stonetop für Ordnung und schützt den Ort vor Bedrohungen von außerhalb. Es ist vielleicht kein offizielles Amt, aber jeder weiß, dass du einen kühlen Kopf bewahren und deinen Worten Nachdruck verleihen kannst.\n\nWenn du **_einen Befehl oder eine Warnung aussprichst_**, würfle +CH. Bei einer 7+ müssen sie 1 wählen:\n\n- Tun, was du sagst\n- Sich verkriechen/in Deckung gehen/fliehen\n- Dich angreifen\n **Bei einer 10+** kannst du spüren, wofür sie sich entscheiden werden, und, wenn du willst, zuerst handeln. Wenn du das tust, hast du einen Vorteil."
     },
     "backgrounds/blood-soaked-past/label": {
       "source": "Blood-Soaked Past",
-      "text": ""
+      "text": "Blutige Vergangenheit"
     },
     "backgrounds/blood-soaked-past/description": {
       "source": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.\n\nWhen you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.\n\nWhen you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage.",
-      "text": ""
+      "text": "Du hast ein Leben voller Gewalt und einen Namen hinter dir gelassen, mit dem Mütter ihren Kindern Angst machten. Aus welchem Grund auch immer haben die Leute von Stonetop dich (wieder?) aufgenommen und behandeln dich wie einen der ihren.\n\nWenn du **_jemanden, der deinen schlechten Ruf kennt, mit Gewalt oder Drohungen überredest_**, kannst du +ST statt +CH würfeln. Wenn du außerdem den Spielzug Eindrucksvoll wählst, kannst du dich entscheiden, +KO statt +CH zu würfeln.\n\nWenn du **_kämpfst, um ohne Gnade oder Zögern zu töten_**, verursachst du +1W4 Schaden."
     },
     "backgrounds/storm-marked/label": {
       "source": "Storm-Marked",
-      "text": ""
+      "text": "Vom Sturm gezeichnet"
     },
     "backgrounds/storm-marked/description": {
       "source": "You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?\n\nYou start with the **Storm Markings** major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.",
-      "text": ""
+      "text": "Du wurdest von Tor (Regenbringer, Blitzeschleuderer, Bestientöter!) berührt und trägst Runenmale, ähnlich denen, die in den Stein gemeißelt sind. Sind sie ein Symbol deiner Stärke, Schnelligkeit und deines Mutes? Oder deren Quelle?\n\nDu beginnst mit dem Großen Arkanum Sturmzeichen. Kreuze eines der Kästchen auf der Vorderseite des Sturmzeichen-Blatts an und beschreibe hier den Moment, in dem du vom Blitz getroffen wurdest und unversehrt davongekommen bist:"
     },
     "choices/violence-fame/0/title": {
       "source": "Just About Everyone Here Talks About the Time You…",
-      "text": ""
+      "text": "Fast jeder hier spricht über die Zeit, als du…"
     },
     "choices/violence-fame/0/text": {
       "source": "*(pick 1 or 2)*",
-      "text": ""
+      "text": "(wähle 1 oder 2)"
     },
     "choices/violence-shadows/0/title": {
       "source": "But Folks Are Less Keen to Discuss…",
-      "text": ""
+      "text": "Aber die Leute reden weniger gern über… "
     },
     "choices/violence-shadows/0/text": {
       "source": "*(pick 1 or 2)*",
-      "text": ""
+      "text": "(wähle 1 oder 2)"
     },
     "choices/violence-fears/0/title": {
       "source": "What Keeps You Up at Night?",
-      "text": ""
+      "text": "Was hält dich nachts wach?"
     },
     "choices/violence-fears/0/text": {
       "source": "*(pick 1 or 2)*",
-      "text": ""
+      "text": "(wähle 1 oder 2)"
     },
     "choices/violence-fame/thunder-drake/text": {
       "source": "… drove off a thunder drake that got too close to town.",
-      "text": ""
+      "text": "… eine Donnerdrachenechse vertrieben hast, die eurem Dorf zu nahe kam."
     },
     "choices/violence-fame/hagr/text": {
       "source": "… killed that hagr in the Foothills.",
-      "text": ""
+      "text": "… den Hagr in den Vorbergen getötet hast."
     },
     "choices/violence-fame/crinwin-dozen/text": {
       "source": "… slew a dozen crinwin in one battle.",
-      "text": ""
+      "text": "… ein Dutzend Crinwin in einem einzigen Kampf erschlagen hast."
     },
     "choices/violence-fame/adventurers/text": {
       "source": "… tossed those adventurers out of town.",
-      "text": ""
+      "text": "… diese Abenteurer aus eurem Dorf fortgejagt hast."
     },
     "choices/violence-fame/ivan/text": {
       "source": "… bested Ivan, the scariest bandit in Brennan's gang, the Claws.",
-      "text": ""
+      "text": "… Ivan besiegt hast, den gefürchtetsten Banditen in Brennans Bande, den Klauen."
     },
     "choices/violence-fame/bleeding/text": {
       "source": "… dragged yourself (and another?) into town, bleeding from a dozen wounds.",
-      "text": ""
+      "text": "… dich (und jemand anderen?), aus einem Dutzend blutender Wunden zurück ins Dorf geschleppt hast."
     },
     "choices/violence-fame/lightning/text": {
       "source": "… were struck by lightning and woke up covered in these marks.",
-      "text": ""
+      "text": "… vom Blitz getroffen wurdest und mit diesen Malen übersät wieder aufgewacht bist."
     },
     "choices/violence-shadows/blood-look/text": {
       "source": "… the look in your eye when you spilled all that blood.",
-      "text": ""
+      "text": "… den Blick in deinen Augen, als du all das Blut vergossen hast."
     },
     "choices/violence-shadows/hard-cases/text": {
       "source": "… those hard cases who showed up looking for you.",
-      "text": ""
+      "text": "… die harten Kerle, die auftauchten und nach dir suchten."
     },
     "choices/violence-shadows/shouting/text": {
       "source": "… the shouting matches between you and your love.",
-      "text": ""
+      "text": "… die lautstarken Streitereien zwischen dir und deiner großen Liebe."
     },
     "choices/violence-shadows/claws/text": {
       "source": "… the time you spent as one of Brennan's Claws.",
-      "text": ""
+      "text": "… die Zeit, in der du zu Brennans Klauen gehörtest."
     },
     "choices/violence-shadows/urbgen/text": {
       "source": "… what happened to Urbgen, even if he did have it coming.",
-      "text": ""
+      "text": "… das, was Urbgen zugestoßen ist – selbst wenn er es verdient hatte."
     },
     "choices/violence-shadows/seizures/text": {
       "source": "… your uncontrollable seizures, where you claw those weird marks in the dirt.",
-      "text": ""
+      "text": "… deine unkontrollierbaren Anfälle, bei denen du diese seltsamen Zeichen in den Boden kratzt."
     },
     "choices/violence-fears/temper/text": {
       "source": "That thrice-damned temper of yours.",
-      "text": ""
+      "text": "Dein dreifach verfluchtes Temperament."
     },
     "choices/violence-fears/someone-coming/text": {
       "source": "The worry that someone's coming after you.",
-      "text": ""
+      "text": "Die Sorge, dass jemand hinter dir her ist."
     },
     "choices/violence-fears/crinwin-bolder/text": {
       "source": "The feeling that the crinwin are getting bolder.",
-      "text": ""
+      "text": "Das Gefühl, dass die Crinwin immer kühner werden."
     },
     "choices/violence-fears/brennan/text": {
       "source": "Wondering what Brennan's up to, now that he's the marshal of Marshedge.",
-      "text": ""
+      "text": "Die Frage, was Brennan im Schilde führt, jetzt, wo er der Marschall von Mooresrand ist."
     },
     "choices/violence-fears/dark-visions/text": {
       "source": "Dark visions of things moving in the earth, restless, whispering, and hungry.",
-      "text": ""
+      "text": "Dunkle Visionen von Dingen, die sich in der Erde bewegen –  ruhelos, flüsternd und hungrig."
     },
     "choices/violence-fears/family/text": {
       "source": "The question of who'll look after your family when you get yourself killed.",
-      "text": ""
+      "text": "Die Frage, wer sich um deine Familie kümmert, wenn du eines Tages getötet wirst."
     },
     "choices/violence-fears/truth/text": {
       "source": "The worry that they'll all learn the truth about you, sooner or later.",
-      "text": ""
+      "text": "Die Sorge, dass sie früher oder später alle die Wahrheit über dich erfahren werden."
     },
     "instinct/0/options/peace/text": {
       "source": "Peace",
-      "text": ""
+      "text": "Frieden"
     },
     "instinct/0/options/peace/description": {
       "source": "To avoid (further) bloodshed or violence.",
-      "text": ""
+      "text": "(Weiteres) Blutvergießen oder Gewalt zu vermeiden."
     },
     "instinct/0/options/pride/text": {
       "source": "Pride",
-      "text": ""
+      "text": "Stolz"
     },
     "instinct/0/options/pride/description": {
       "source": "To maintain your dignity, to demand respect.",
-      "text": ""
+      "text": "Die eigene Würde zu bewahren, Respekt einzufordern."
     },
     "instinct/0/options/recklessness/text": {
       "source": "Recklessness",
-      "text": ""
+      "text": "Unbesonnenheit"
     },
     "instinct/0/options/recklessness/description": {
       "source": "To act without thought to the consequences.",
-      "text": ""
+      "text": "Zu handeln, ohne über die Konsequenzen nachzudenken."
     },
     "instinct/0/options/trouble/text": {
       "source": "Trouble",
-      "text": ""
+      "text": "Ärger"
     },
     "instinct/0/options/trouble/description": {
       "source": "To stick your nose in where it's unwelcome.",
-      "text": ""
+      "text": "Sich in Dinge einzumischen, wo man nicht erwünscht ist."
     },
     "instinct/0/options/violence/text": {
       "source": "Violence",
-      "text": ""
+      "text": "Gewalt"
     },
     "instinct/0/options/violence/description": {
       "source": "To solve problems by force.",
-      "text": ""
+      "text": "Probleme mit Hilfe von Gewalt zu lösen."
     },
     "appearance/0/options/young-and-brash/text": {
       "source": "young & brash",
-      "text": ""
+      "text": "jung und übermütig"
     },
     "appearance/0/options/in-my-prime/text": {
       "source": "in my prime",
-      "text": ""
+      "text": "in den besten Jahren"
     },
     "appearance/0/options/old-and-leathery/text": {
       "source": "old & leathery",
-      "text": ""
+      "text": "alt & wettergegerbt"
     },
     "appearance/1/options/gravelly-voice/text": {
       "source": "gravelly voice",
-      "text": ""
+      "text": "raue Stimme"
     },
     "appearance/1/options/hearty-voice/text": {
       "source": "hearty voice",
-      "text": ""
+      "text": "kräftige Stimme"
     },
     "appearance/1/options/soft-spoken/text": {
       "source": "soft-spoken",
-      "text": ""
+      "text": "leise und ruhig"
     },
     "appearance/2/options/giant-frame/text": {
       "source": "giant frame",
-      "text": ""
+      "text": "riesige Statur"
     },
     "appearance/2/options/just-ripped/text": {
       "source": "just ripped",
-      "text": ""
+      "text": "durchtrainiert"
     },
     "appearance/2/options/stocky/text": {
       "source": "stocky",
-      "text": ""
+      "text": "stämmig"
     },
     "appearance/2/options/wiry/text": {
       "source": "wiry",
-      "text": ""
+      "text": "drahtig"
     },
     "appearance/3/options/distinctive-scars/text": {
       "source": "distinctive scars",
-      "text": ""
+      "text": "markante Narben"
     },
     "appearance/3/options/off-broken-nose/text": {
       "source": "off-broken nose",
-      "text": ""
+      "text": "gebrochene Nase"
     },
     "appearance/3/options/missing-bits/text": {
       "source": "missing bits",
-      "text": ""
+      "text": "fehlende Körperteile"
     },
     "introductions/step3": {
       "source": "On your third turn, **tell us about your history of violence**, and what keeps you up at night.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **erzähle uns von deiner gewaltsamen Geschichte** und davon, was dich Nachts wach hält."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/lover-spouse/text": {
       "source": "Who is your lover/spouse/betrothed?",
-      "text": ""
+      "text": "Wer ist dein Geliebter/Ehepartner/Verlobter?"
     },
     "introductions/step4/needs-protection/text": {
       "source": "Who most needs/deserves your protection?",
-      "text": ""
+      "text": "Wer braucht/verdient deinen Schutz am meisten?"
     },
     "introductions/step4/earn-forgiveness/text": {
       "source": "Whose forgiveness do you strive to earn?",
-      "text": ""
+      "text": "Wessen Vergebung bist du bestrebt zu erlangen?"
     },
     "introductions/step6/dragged-home/text": {
       "source": "Which one of you once dragged me home, bleeding and unconscious?",
-      "text": ""
+      "text": "Wer von euch hat mich einst blutend und bewusstlos nach Hause geschleppt?"
     },
     "introductions/step6/have-my-back/text": {
       "source": "Which one of you can I trust to always have my back?",
-      "text": ""
+      "text": "Wem von euch kann ich vertrauen, dass er mir immer den Rücken freihält?"
     },
     "introductions/step6/stayed-hand/text": {
       "source": "Which one of you has stayed my hand?",
-      "text": ""
+      "text": "Wer von euch hat mich schon einmal davon abgehalten, die Beherrschung zu verlieren? "
     },
     "introductions/step6/traded-blows/text": {
       "source": "Which one of you has traded blows with me?",
-      "text": ""
+      "text": "Wer von euch hat sich schon einmal mit mir geprügelt?"
     }
   },
   "the-judge": {
     "name": {
       "source": "The Judge",
-      "text": ""
+      "text": "Der Richter"
     },
     "description": {
       "source": "Look here at this little town, this candleflame in the darkness. Its very existence is an act of courage and faith. And Aratis has charged you to keep it: to settle its disputes; to chronicle its tales; to defend it from darkness and ruin. Take up your hammer, Judge. Your town needs you.",
-      "text": ""
+      "text": "Schau dir diesen kleinen Ort an, diese Kerzenflamme in der Dunkelheit. Schon seine bloße Existenz ist ein Akt der Tapferkeit und des Glaubens. Und Aratis hat dir aufgetragen, ihn zu bewahren: seine Streitigkeiten zu schlichten, seine Geschichten festzuhalten und ihn vor Dunkelheit und Verderben zu schützen. Nimm deinen Hammer zur Hand, Richter. Dieser Ort braucht dich."
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Censure, Chronicler of Stonetop, plus 2 more of your choice.",
-      "text": ""
+      "text": "Du beginnst mit Zurechtweisung, Chronist von Stonetop, sowie 2 weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 1, in addition to your symbol of authority and scribe's tools",
-      "text": ""
+      "text": "Wähle 1, zusätzlich zu deinem Autoritätssymbol und deinen Schreibutensilien"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/3/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/4/region": {
       "source": "Lygos or some other southern town",
-      "text": ""
+      "text": "Lygos oder eine andere Stadt weiter südlich"
     },
     "backgrounds/legacy/label": {
       "source": "Legacy",
-      "text": ""
+      "text": "Vermächtnis"
     },
     "backgrounds/legacy/description": {
       "source": "You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.\n\nWhen you **_Know Things about the people or history of Stonetop_**, you have advantage.\n\nWhen you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time.",
-      "text": ""
+      "text": "Du bist der jüngste in einer langen Reihe von Richtern – hier geboren, vom vorherigen Richter ausgebildet und dazu bestimmt, das Amt weiterzuführen. Die Chronik ist ein reichhaltiger Fundus an Überlieferungen, aber es gibt kein Stichwortverzeichnis – viel Glück also bei der Suche.\n\nWenn du **_über die Menschen oder die Geschichte von Stonetop Wissen kundtust_**, hast du einen Vorteil.\n\nWenn du **_Tage, Wochen oder Monate damit verbringst, die Chronik zu studieren_**, stell dem SL eine Frage, und er wird dir sagen, was du in dieser Zeit gelernt hast."
     },
     "backgrounds/missionary/label": {
       "source": "Missionary",
-      "text": ""
+      "text": "Missionar"
     },
     "backgrounds/prophet/label": {
       "source": "Prophet",
-      "text": ""
+      "text": "Prophet"
     },
     "backgrounds/prophet/description": {
       "source": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.",
-      "text": ""
+      "text": "Die Linie der Richter ist vor langer Zeit abgerissen, die Chronik verloren gegangen oder dem Verfall anheimgefallen. Aratis hat dich persönlich durch Träume, Omen und Visionen in ihren Dienst berufen. Einige im Ort nehmen dir die Autorität übel, die du dir anmaßt.",
+      "needsReview": true
     },
     "backgrounds/missionary/choices/0/text": {
       "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain. Add these Judges to the Neighbors section of the steading playbook (pick 2 more):",
-      "text": ""
+      "text": "Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):",
+      "needsReview": true
     },
     "backgrounds/missionary/choices/devin/text": {
       "source": "Devin (from Marshedge)",
@@ -1072,329 +1074,331 @@
     },
     "backgrounds/missionary/choices/8/text": {
       "source": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
-      "text": ""
+      "text": "Zusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht."
     },
     "choices/chronicle-plus/0/title": {
       "source": "The Chronicle",
-      "text": ""
+      "text": "Die Chronik"
     },
     "choices/chronicle-plus/0/text": {
       "source": "The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… *(choose 3)*",
-      "text": ""
+      "text": "Der Richter von Aratis hat die Aufgabe, die Chronik zu führen, eine Geschichte der Gemeinschaft, ihrer Menschen, ihres Wissens und ihrer Traditionen. Welche Art von Wissen die Chronik enthält, hängt von deinem Hintergrund ab, doch sie ist mehr als nur ein Buch; sie ist ein physischer Ort. Lege fest, wie sie aufgebaut ist.\n\nZu ihren Vorzügen gehört, dass sie … (wähle 3)"
     },
     "choices/chronicle-minus/0/title": {
       "source": "But Alas, It…",
-      "text": ""
+      "text": "Doch leider… "
     },
     "choices/chronicle-minus/0/text": {
       "source": "*(choose 2)*",
-      "text": ""
+      "text": "(wähle 2)"
     },
     "choices/lawkeeper-shrine/0/title": {
       "source": "The Lawkeeper",
-      "text": ""
+      "text": "Die Hüterin des Gesetzes"
     },
     "choices/lawkeeper-shrine/0/text": {
       "source": "Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… *(pick 1)*",
-      "text": ""
+      "text": "Ihre Richter sagen, dass Aratis schon seit jeher an der Seite der Menschheit steht, seit diese zum ersten Mal einen Stein auf den anderen stapelte und dies ihr Zuhause nannte.\n\nIm Pavillon der Götter von Stonetop ist Aratis’ Schrein… (wähle 1)"
     },
     "choices/lawkeeper-demands/0/title": {
       "source": "Of Her True Disciples, Aratis Demands…",
-      "text": ""
+      "text": "Von ihren wahren Jüngern verlangt Aratis…"
     },
     "choices/lawkeeper-demands/0/text": {
       "source": "*(choose 3)*",
-      "text": ""
+      "text": "(wähle 3)"
     },
     "choices/chronicle-plus/sturdy-vault/text": {
       "source": "… is a sturdy vault from the time of the Makers.",
-      "text": ""
+      "text": "… ein stabiles Gewölbe aus der Zeit der Schöpfer ist."
     },
     "choices/chronicle-plus/room-to-grow/text": {
       "source": "… has plenty of room to grow.",
-      "text": ""
+      "text": "… reichlich Platz für Erweiterungen bietet."
     },
     "choices/chronicle-plus/hidden-underground/text": {
       "source": "… is hidden underground.",
-      "text": ""
+      "text": "… unterirdisch verborgen liegt."
     },
     "choices/chronicle-plus/one-entrance/text": {
       "source": "… has but one entrance, magically sealed.",
-      "text": ""
+      "text": "… nur einen Eingang hat, der magisch versiegelt ist."
     },
     "choices/chronicle-plus/minor-magics/text": {
       "source": "… bears minor magics to preserve its contents.",
-      "text": ""
+      "text": "… mit kleineren Zaubern versehen ist, die ihren Inhalt bewahren."
     },
     "choices/chronicle-plus/warded/text": {
       "source": "… is warded against spirits and magic.",
-      "text": ""
+      "text": "… gegen Geister und Magie geschützt ist."
     },
     "choices/chronicle-plus/living-quarters/text": {
       "source": "… includes your living quarters & office.",
-      "text": ""
+      "text": "… deine Wohn- und Amtsräume umfasst."
     },
     "choices/chronicle-minus/outskirts/text": {
       "source": "… sits on the outskirts, near the Old Wall.",
-      "text": ""
+      "text": "… liegt sie am Stadtrand, nahe der Alten Mauer."
     },
     "choices/chronicle-minus/cramped/text": {
       "source": "… is cramped, chaotic, and overflowing.",
-      "text": ""
+      "text": "… ist sie beengt, chaotisch und überfüllt."
     },
     "choices/chronicle-minus/crude-cellar/text": {
       "source": "… is little more than a crude cellar.",
-      "text": ""
+      "text": "… ist sie kaum mehr als ein primitives Kellergewölbe."
     },
     "choices/chronicle-minus/haunted/text": {
       "source": "… seems to be haunted.",
-      "text": ""
+      "text": "… scheint es in ihr zu spuken."
     },
     "choices/chronicle-minus/dangerous-artifacts/text": {
       "source": "… contains a few dangerous artifacts.",
-      "text": ""
+      "text": "… enthält sie einige gefährliche Artefakte."
     },
     "choices/lawkeeper-shrine/shrine-hub/text": {
       "source": "… a hub of the community, a place of frequent rites, petitions, and celebrations.",
-      "text": ""
+      "text": "… ein Mittelpunkt der Gemeinschaft, ein Ort, an dem häufig Rituale, Bittgebete und Feierlichkeiten stattfinden."
     },
     "choices/lawkeeper-shrine/shrine-high-holiday/text": {
       "source": "… used only on high holidays, for each home keeps its own shrine above the hearth.",
-      "text": ""
+      "text": "… nur an hohen Feiertagen in Gebrauch, denn jedes Haus hat über der Feuerstelle seinen eigenen Schrein."
     },
     "choices/lawkeeper-shrine/shrine-neglected/text": {
       "source": "… neglected by most, tended only by you and a handful of believers.",
-      "text": ""
+      "text": "… von den meisten vernachlässigt, und wird nur von dir und einer Handvoll Gläubiger gepflegt."
     },
     "choices/lawkeeper-shrine/shrine-grim/text": {
       "source": "… a grim place of judgement and punishment, shunned by all but her chosen.",
-      "text": ""
+      "text": "… ein düsterer Ort des Gerichts und der Bestrafung, den alle außer ihren Auserwählten meiden."
     },
     "choices/lawkeeper-shrine/shrine-new/text": {
       "source": "… newly established, cramped and spare.",
-      "text": ""
+      "text": "… erst kürzlich errichtet, beengt und karg."
     },
     "choices/lawkeeper-demands/truth/text": {
       "source": "… truth, honesty, and forthrightness.",
-      "text": ""
+      "text": "… Wahrheit, Ehrlichkeit und Offenheit."
     },
     "choices/lawkeeper-demands/hospitality/text": {
       "source": "… hospitality, freely given to all who ask for it.",
-      "text": ""
+      "text": "… Gastfreundschaft, die jedem gewährt wird, der darum bittet."
     },
     "choices/lawkeeper-demands/punishment/text": {
       "source": "… the punishment of thieves & oathbreakers.",
-      "text": ""
+      "text": "… die Bestrafung von Dieben und Eidbrechern."
     },
     "choices/lawkeeper-demands/diet-dress/text": {
       "source": "… adherence to strict rules of diet and dress.",
-      "text": ""
+      "text": "… die Einhaltung strenger Regeln für Ernährung und Kleidung."
     },
     "choices/lawkeeper-demands/authority/text": {
       "source": "… respect for authority, property, and rank.",
-      "text": ""
+      "text": "… Respekt vor Autorität, Eigentum und Rang."
     },
     "instinct/0/options/ambition/text": {
       "source": "Ambition",
-      "text": ""
+      "text": "Ehrgeiz"
     },
     "instinct/0/options/ambition/description": {
       "source": "To increase your status or influence.",
-      "text": ""
+      "text": "Deinen Status oder deinen Einfluss zu mehren."
     },
     "instinct/0/options/dispassion/text": {
       "source": "Dispassion",
-      "text": ""
+      "text": "Unparteilichkeit"
     },
     "instinct/0/options/dispassion/description": {
       "source": "To disregard emotion or sentiment.",
-      "text": ""
+      "text": "Gefühle oder Sentimentalität außer Acht zu lassen."
     },
     "instinct/0/options/harmony/text": {
       "source": "Harmony",
-      "text": ""
+      "text": "Harmonie"
     },
     "instinct/0/options/harmony/description": {
       "source": "To seek a path that makes everyone happy.",
-      "text": ""
+      "text": "Einen Weg zu suchen, der alle zufriedenstellt."
     },
     "instinct/0/options/orthodoxy/text": {
       "source": "Orthodoxy",
-      "text": ""
+      "text": "Rechtgläubigkeit"
     },
     "instinct/0/options/orthodoxy/description": {
       "source": "To strictly adhere to rules and traditions.",
-      "text": ""
+      "text": "Sich strikt an Regeln und Traditionen zu halten."
     },
     "instinct/0/options/zeal/text": {
       "source": "Zeal",
-      "text": ""
+      "text": "Eifer"
     },
     "instinct/0/options/zeal/description": {
       "source": "To judge quickly and without doubt.",
-      "text": ""
+      "text": "Schnell und ohne Zweifel zu urteilen."
     },
     "appearance/0/options/eager-youth/text": {
       "source": "eager youth",
-      "text": ""
+      "text": "jugendlicher Eifer"
     },
     "appearance/0/options/in-my-prime/text": {
       "source": "in my prime",
-      "text": ""
+      "text": "in den besten Jahren"
     },
     "appearance/0/options/showing-my-years/text": {
       "source": "showing my years",
-      "text": ""
+      "text": "vom Alter gezeichnet"
     },
     "appearance/1/options/calm-voice/text": {
       "source": "calm voice",
-      "text": ""
+      "text": "ruhige Stimme"
     },
     "appearance/1/options/booming-voice/text": {
       "source": "booming voice",
-      "text": ""
+      "text": "dröhnende Stimme"
     },
     "appearance/1/options/a-voice-that-carries/text": {
       "source": "a voice that carries",
-      "text": ""
+      "text": "durchdringende Stimme"
     },
     "appearance/2/options/hard-body/text": {
       "source": "hard body",
-      "text": ""
+      "text": "abgehärteter Körper"
     },
     "appearance/2/options/powerful-frame/text": {
       "source": "powerful frame",
-      "text": ""
+      "text": "kräftige Statur"
     },
     "appearance/2/options/slim/text": {
       "source": "slim",
-      "text": ""
+      "text": "schlank"
     },
     "appearance/2/options/well-fed/text": {
       "source": "well-fed",
-      "text": ""
+      "text": "wohlgenährt"
     },
     "appearance/3/options/polished-gear/text": {
       "source": "polished gear",
-      "text": ""
+      "text": "gepflegte Ausrüstung"
     },
     "appearance/3/options/robes-of-office/text": {
       "source": "robes of office",
-      "text": ""
+      "text": "Amtsgewänder"
     },
     "appearance/3/options/modest-clothes/text": {
       "source": "modest clothes",
-      "text": ""
+      "text": "schlichte Kleidung"
     },
     "introductions/step3": {
       "source": "On your third turn, **describe the Chronicle**. Then, **tell us about Aratis and her shrine**, and what she demands of her true disciples.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **beschreibe die Chronik**. **Erzähle uns anschließend von Aratis und ihrem Schrein** und davon, was sie von ihren wahren Anhängern verlangt."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/lover-spouse/text": {
       "source": "Who is your lover/spouse/betrothed?",
-      "text": ""
+      "text": "Wer ist dein Geliebter/Ehepartner/Verlobter?"
     },
     "introductions/step4/apprentice/text": {
       "source": "Who is your apprentice?",
-      "text": ""
+      "text": "Wer ist dein Lehrling?"
     },
     "introductions/step4/wisest-elder/text": {
       "source": "Who is the wisest of the town elders?",
-      "text": ""
+      "text": "Wer ist der weiseste unter den Dorfältesten?"
     },
     "introductions/step6/disciple-aratis/text": {
       "source": "Which one of you is a true disciple of Aratis?",
-      "text": ""
+      "text": "Wer von euch ist ein wahrer Jünger von Aratis?"
     },
     "introductions/step6/closest-confidant/text": {
       "source": "Which one of you is my closest confidant?",
-      "text": ""
+      "text": "Wer von euch ist mein engster Vertrauter?"
     },
     "introductions/step6/unnatural-chaos/text": {
       "source": "Which one of you has stood beside me in battle against unnatural chaos?",
-      "text": ""
+      "text": "Wer von euch hat im Kampf gegen das übernatürliche Chaos an meiner Seite gestanden?"
     },
     "introductions/step6/passed-judgement/text": {
       "source": "Against which of you have I passed judgement?",
-      "text": ""
+      "text": "Über wen von euch habe ich ein Urteil gefällt?"
     }
   },
   "the-lightbearer": {
     "name": {
       "source": "The Lightbearer",
-      "text": ""
+      "text": "Der Lichtträger"
     },
     "description": {
       "source": "Imagine yourself and your kin in a cave lit by a single torch, entranced by shadow puppet stories. Imagine realizing there is a greater truth, and stepping out of the cave into the true Light of day. Would you not bring that Light back into the darkness, to set your people free?",
-      "text": ""
+      "text": "Stell dir vor, du und deine Sippe sitzt in einer Höhle, die nur von einer einzigen Fackel erhellt wird, gebannt von Schattenspielgeschichten. Stell dir vor, du erkennst, dass es eine größere Wahrheit gibt, und trittst aus der Höhle hinaus ins wahre Licht des Tages. Würdest du dieses Licht nicht zurück in die Dunkelheit bringen, um dein Volk zu befreien?"
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Consecrated Flame and Invoke the Sun God, plus 1 more of your choice.",
-      "text": ""
+      "text": "Du beginnst mit Geweihte Flamme, Den Sonnengott anrufen sowie einen weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2",
-      "text": ""
+      "text": "Wähle 2"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/3/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/4/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/auspicious-birth/label": {
       "source": "Auspicious Birth",
-      "text": ""
+      "text": "Verheißungsvolle Geburt"
     },
     "backgrounds/auspicious-birth/description": {
       "source": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
-      "text": ""
+      "text": "Du wurdest in Stonetop geboren, und diese Geburt wurde vom Gott des Lichts gesegnet. Bist du vielleicht während einer Sonnenfinsternis geboren worden oder im Licht eines strahlenden neuen Sterns? Hast du vielleicht ein sonnenförmiges Muttermal?\n\nWas auch immer das Zeichen sein mag, deine Verbindung zu Helior war schon früh offensichtlich. Du nimmst in Stonetop einen Ehrenplatz ein, obwohl es eine Lüge wäre zu behaupten, dass du nicht bei manchen Unbehagen auslöst.\n\nWenn du **_bei einem deiner Spielzüge eine Beeinträchtigung markieren müsstest_**, kannst du stattdessen den Kreis dieses Hintergrunds markieren, ohne dass dies negative Auswirkungen hat. Entferne die Markierung, wenn du ein Lager aufschlägst oder dich Erholst."
     },
     "backgrounds/itinerant-mystic/label": {
       "source": "Itinerant Mystic",
-      "text": ""
+      "text": "Wandernder Mystiker"
     },
     "backgrounds/itinerant-mystic/description": {
       "source": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.",
-      "text": ""
+      "text": "Sie halten dich für einen selbstgefälligen Sonderling, der hin und wieder auftaucht, in Rätseln spricht und mit dem Licht herumspielt. Sicher, sie wissen, dass du etwas Heiliges an dir hast, aber du bist ja auch kein Priester oder so. Priester reden vernünftig.\n\nWenn du **_dich auf Wanderschaft begibst_**, erhältst du 1 Rätsel, wenn du tagelang fort bist, 2, wenn du wochenlang fort bist, oder 3, wenn du monatelang fort bist. Zu Beginn des Spiels erhältst du 3 Rätsel. Gib Rätsel im Verhältnis 1:1 aus, um:\n\n- Genau dann und dort von deiner Wanderschaft zurückzukehren, wo du gebraucht wirst, und zwar vollständig ausgerüstet.\n- Wissen kundzutun, als hättest du eine 10+ gewürfelt, und dabei auf das zurückgreifst, was du während deiner Abwesenheit gelernt hast.\n- Zu haben, was du brauchst, um einen seltsam spezifischen, aber alltäglichen Gegenstand mit einem Wert von 1 oder weniger zu beschaffen."
     },
     "backgrounds/soul-on-fire/label": {
       "source": "Soul on Fire",
-      "text": ""
+      "text": "Entflammte Seele"
     },
     "backgrounds/soul-on-fire/description": {
       "source": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
-      "text": ""
+      "text": "Einst hast du ein weltliches Leben geführt, erfüllt von Angst und Zweifel, niederen Vergnügungen und kleinlichem Groll. Doch dann geschah etwas. Eine Verletzung, eine Krankheit, eine Begegnung mit dem Tod. Oder einfach ein Moment von so tiefem Elend und so großer Selbstverachtung, dass du dachtest, es könne nicht mehr schlimmer kommen.\n\nDort, in der Dunkelheit, fiel Heliors Licht auf dich. Es entfachte etwas in deiner Seele, richtete dich wieder auf und erfüllte dich mit einem tiefen Gefühl der Bestimmung.\n\nWenn du **_eine Gruppe überredest, indem du Nächstenliebe, Barmherzigkeit und Hoffnung predigst, und eine 7+ würfelst_**, wähle 1 zusätzlich zu dem üblichen Effekt:\n\n- Dein Name und deine Botschaft verbreiten sich. \n- Jemand tritt an dich heran – jetzt oder später –, begierig darauf, mehr zu erfahren."
     },
     "choices/helior-worship-spread/0/title": {
       "source": "Praise the day",
-      "text": ""
+      "text": "Die Verehrung Heliors ist...",
+      "needsReview": true
     },
     "choices/helior-worship-spread/0/text": {
       "source": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.",
-      "text": ""
+      "text": "Du bist der auserwählte Diener Heliors, dem Tagesbringer, dem Gott der Sonne und des Lichts, dem Leuchtfeuers der Hoffnung und Barmherzigkeit.",
+      "needsReview": true
     },
     "choices/helior-worship-spread/1/text": {
       "source": "The Worship of Helior Is… (choose 1)",
@@ -1402,603 +1406,605 @@
     },
     "choices/helior-worship-spread/ancient-widespread/text": {
       "source": "… ancient, widespread, and well-known.",
-      "text": ""
+      "text": "… uralt, weit verbreitet und allseits bekannt."
     },
     "choices/helior-worship-spread/lygos-south/text": {
       "source": "… most common in Lygos and the south.",
-      "text": ""
+      "text": "… in Lygos und im Süden am weitesten verbreitet."
     },
     "choices/helior-worship-spread/new-thing/text": {
       "source": "… a new thing, still unheard of by many.",
-      "text": ""
+      "text": "… etwas Neues, von dem viele noch nie gehört haben."
     },
     "choices/helior-worship-spread/old-forgotten/text": {
       "source": "… an old thing, forgotten by most.",
-      "text": ""
+      "text": "… etwas Altes, das die meisten vergessen haben."
     },
     "choices/helior-worship-spread/persecuted/text": {
       "source": "… widely persecuted.",
-      "text": ""
+      "text": "… weit verbreitetem Verbot und Verfolgung ausgesetzt."
     },
     "choices/helior-worship-practice/0/text": {
       "source": "He Is Worshipped Through… (choose 1 or 2)",
-      "text": ""
+      "text": "Er wird verehrt durch... (wähle 1 oder 2)"
     },
     "choices/helior-worship-practice/solemn-hymns/text": {
       "source": "… solemn hymns.",
-      "text": ""
+      "text": "… feierliche Hymnen"
     },
     "choices/helior-worship-practice/meditation/text": {
       "source": "… serene meditation.",
-      "text": ""
+      "text": "… stille Meditation"
     },
     "choices/helior-worship-practice/joyful-song/text": {
       "source": "… joyful song.",
-      "text": ""
+      "text": "… freudigen Gesang"
     },
     "choices/helior-worship-practice/ascetic-denial/text": {
       "source": "… ascetic denial.",
-      "text": ""
+      "text": "… asketische Entsagung"
     },
     "choices/helior-worship-practice/dancing/text": {
       "source": "… fervent dancing.",
-      "text": ""
+      "text": "… inbrünstigen Tanz"
     },
     "choices/helior-worship-practice/ceremonies/text": {
       "source": "… formal ceremonies.",
-      "text": ""
+      "text": "… förmliche Zeremonien"
     },
     "choices/helior-worship-practice/drugs/text": {
       "source": "… drugs & intoxicants.",
-      "text": ""
+      "text": "… Drogen und Rauschmittel"
     },
     "choices/helior-worship-practice/pain-sacrifice/text": {
       "source": "… pain & sacrifice.",
-      "text": ""
+      "text": "… Schmerz und Opfer"
     },
     "choices/helior-shrine/0/text": {
       "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has… (choose 1)",
-      "text": ""
+      "text": "Heliors Schrein im Götterpavillon von Stonetop... (wähle 1)"
     },
     "choices/helior-shrine/highest-honor/text": {
       "source": "… the place of highest honor, even if Tor is more popular.",
-      "text": ""
+      "text": "… hat den höchsten Ehrenplatz, auch wenn Tor beliebter ist."
     },
     "choices/helior-shrine/well-tended/text": {
       "source": "… been well-tended and given due respect.",
-      "text": ""
+      "text": "… wird stets gut gepflegt und mit gebührendem Respekt behandelt."
     },
     "choices/helior-shrine/recently-restored/text": {
       "source": "… recently been restored/established, perhaps by you.",
-      "text": ""
+      "text": "… wurde vor kurzem wiederhergestellt bzw. errichtet, vielleicht sogar von dir."
     },
     "choices/helior-shrine/seen-better-days/text": {
       "source": "… seen better days, for certain.",
-      "text": ""
+      "text": "… hat definitiv schon bessere Zeiten gesehen."
     },
     "choices/helior-predecessor/0/text": {
       "source": "Your Predecessor, the Previous Lightbearer… (choose 2 or 3)",
-      "text": ""
+      "text": "Dein Vorgänger, der vorherige Lichtbringer... (wähle 2 oder 3)"
     },
     "choices/helior-predecessor/lived-long-ago/text": {
       "source": "… lived long ago, a figure of legend.",
-      "text": ""
+      "text": "… lebte vor langer Zeit, eine legendäre Gestalt."
     },
     "choices/helior-predecessor/martyred/text": {
       "source": "… was martyred for their faith.",
-      "text": ""
+      "text": "… wurde für seinen Glauben zum Märtyrer."
     },
     "choices/helior-predecessor/died-facing/text": {
       "source": "… died facing a mighty sorcerer or demon.",
-      "text": ""
+      "text": "… starb im Kampf gegen einen mächtigen Zauberer oder Dämon."
     },
     "choices/helior-predecessor/wrote-works/text": {
       "source": "… wrote many works of sublime beauty.",
-      "text": ""
+      "text": "… verfasste zahlreiche Werke von erhabener Schönheit."
     },
     "choices/helior-predecessor/things-below/text": {
       "source": "… faced one of the Things Below.",
-      "text": ""
+      "text": "… stellte sich einem der Dinge aus der Tiefe."
     },
     "choices/helior-predecessor/died-peacefully/text": {
       "source": "… died in their bed, peacefully.",
-      "text": ""
+      "text": "… starb friedlich in seinem Bett."
     },
     "choices/helior-predecessor/ascended/text": {
       "source": "… ascended bodily into the heavens.",
-      "text": ""
+      "text": "… fuhr leibhaftig in den Himmel auf."
     },
     "choices/helior-predecessor/reincarnated/text": {
       "source": "… was reincarnated—as you.",
-      "text": ""
+      "text": "… wurde wiedergeboren – als du."
     },
     "choices/helior-powers-origin/0/text": {
       "source": "You Came Into Your Powers… (choose 1)",
-      "text": ""
+      "text": "Du erlangtest deine Kräfte… (wähle 1)"
     },
     "choices/helior-powers-origin/years-study/text": {
       "source": "… through years of study and devotion.",
-      "text": ""
+      "text": "… durch jahrelanges Studium und Hingabe. "
     },
     "choices/helior-powers-origin/predecessor/text": {
       "source": "… when your predecessor passed them on.",
-      "text": ""
+      "text": "… als dein Vorgänger sie an dich weitergab. "
     },
     "choices/helior-powers-origin/sudden/text": {
       "source": "… suddenly, at a moment of great need.",
-      "text": ""
+      "text": "… plötzlich, in einem Moment großer Not."
     },
     "choices/helior-powers-origin/visitation/text": {
       "source": "… after a visitation from Helior or one of his servants.",
-      "text": ""
+      "text": "… nach einer Erscheinung Helriors oder eines seiner Diener. "
     },
     "choices/helior-powers-origin/first-sight/text": {
       "source": "… when you first laid eyes upon the _______.",
-      "text": ""
+      "text": "… als du zum ersten Mal den Blick auf den _______ richtetest."
     },
     "instinct/0/options/charity/text": {
       "source": "Charity",
-      "text": ""
+      "text": "Nächstenliebe"
     },
     "instinct/0/options/charity/description": {
       "source": "To go without so that others are better off.",
-      "text": ""
+      "text": "Auf etwas zu verzichten, damit es anderen besser geht."
     },
     "instinct/0/options/hope/text": {
       "source": "Hope",
-      "text": ""
+      "text": "Hoffnung"
     },
     "instinct/0/options/hope/description": {
       "source": "To inspire others in the face of adversity.",
-      "text": ""
+      "text": "Andere im Angesicht des Unglücks zu inspirieren."
     },
     "instinct/0/options/mercy/text": {
       "source": "Mercy",
-      "text": ""
+      "text": "Barmherzigkeit"
     },
     "instinct/0/options/mercy/description": {
       "source": "To bring relief or comfort, to give second chances.",
-      "text": ""
+      "text": "Erleichterung oder Trost zu spenden und eine zweite Chance zu geben."
     },
     "instinct/0/options/praise/text": {
       "source": "Praise",
-      "text": ""
+      "text": "Lobpreisung"
     },
     "instinct/0/options/praise/description": {
       "source": "To spread the glory and worship of Helior.",
-      "text": ""
+      "text": "Den Ruhm und die Verehrung Heliors zu verbreiten."
     },
     "instinct/0/options/righteousness/text": {
       "source": "Righteousness",
-      "text": ""
+      "text": "Rechtschaffenheit"
     },
     "instinct/0/options/righteousness/description": {
       "source": "To refuse to suffer an injustice or a lesser evil.",
-      "text": ""
+      "text": "Sich zu weigern, Ungerechtigkeit oder einkleineres Übel hinzunehmen."
     },
     "appearance/0/options/a-youthful-glow/text": {
       "source": "a youthful glow",
-      "text": ""
+      "text": "jugendliche Ausstrahlung"
     },
     "appearance/0/options/well-weathered/text": {
       "source": "well-weathered",
-      "text": ""
+      "text": "wettergegerbt"
     },
     "appearance/0/options/old-and-merry/text": {
       "source": "old & merry",
-      "text": ""
+      "text": "alt und fröhlich"
     },
     "appearance/1/options/a-lifting-voice/text": {
       "source": "a lifting voice",
-      "text": ""
+      "text": "beschwingte Stimme"
     },
     "appearance/1/options/a-melodious-voice/text": {
       "source": "a melodious voice",
-      "text": ""
+      "text": "melodiöse Stimme"
     },
     "appearance/1/options/a-soft-voice/text": {
       "source": "a soft voice",
-      "text": ""
+      "text": "sanfte Stimme"
     },
     "appearance/2/options/beatific/text": {
       "source": "beatific",
-      "text": ""
+      "text": "selig"
     },
     "appearance/2/options/ethereal/text": {
       "source": "ethereal",
-      "text": ""
+      "text": "ätherisch"
     },
     "appearance/2/options/intense/text": {
       "source": "intense",
-      "text": ""
+      "text": "ernst"
     },
     "appearance/2/options/jovial/text": {
       "source": "jovial",
-      "text": ""
+      "text": "heiter"
     },
     "appearance/2/options/serene/text": {
       "source": "serene",
-      "text": ""
+      "text": "ruhig und gelassen"
     },
     "appearance/3/options/fine-robes/text": {
       "source": "fine robes",
-      "text": ""
+      "text": "prächtige Gewänder"
     },
     "appearance/3/options/threadbare-cloak/text": {
       "source": "threadbare cloak",
-      "text": ""
+      "text": "abgenutzter Mantel"
     },
     "appearance/3/options/working-clothes/text": {
       "source": "working clothes",
-      "text": ""
+      "text": "Arbeitskleidung"
     },
     "introductions/step3": {
       "source": "On your third turn, praise the day! **Tell us of Helior**, his worship and his shrine. **Tell us, too, of the prior Lightbearer** and how you gained your powers.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, preise den Tag! **Erzähle uns von Helior**, seiner Verehrung und seinem Schrein. **Erzähle uns außerdem von deinem Vorgänger, dem vorherigen Lichtbringer**, und davon, wie du deine Kräfte erlangt hast."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/heart-flames/text": {
       "source": "Who fans the flames of your heart?",
-      "text": ""
+      "text": "Wer schürt die Flammen deines Herzens?"
     },
     "introductions/step4/kindness-generosity/text": {
       "source": "Whose kindness and generosity warm your soul?",
-      "text": ""
+      "text": "Wessen Güte und Großzügigkeit erwärmen deine Seele?"
     },
     "introductions/step4/needs-light/text": {
       "source": "Who needs Helior's light, badly?",
-      "text": ""
+      "text": "Wer braucht dringend Heliors Licht?"
     },
     "introductions/step6/old-dear-friend/text": {
       "source": "Which one of you is an old and dear friend?",
-      "text": ""
+      "text": "Wer von euch ist ein alter und lieber Freund?"
     },
     "introductions/step6/shares-faith/text": {
       "source": "Which one of you shares my faith?",
-      "text": ""
+      "text": "Wer von euch teilt meinen Glauben?"
     },
     "introductions/step6/scoffs-mercy/text": {
       "source": "Which one of you scoffs at mercy and hope?",
-      "text": ""
+      "text": "Wer von euch spottet über Barmherzigkeit und Hoffnung?"
     },
     "introductions/step6/needs-guidance/text": {
       "source": "Which one of you will need my guidance soon?",
-      "text": ""
+      "text": "Wer von euch wird schon bald meine Führung brauchen?"
     }
   },
   "the-marshal": {
     "name": {
       "source": "The Marshal",
-      "text": ""
+      "text": "Der Marschall"
     },
     "description": {
       "source": "Hoping for peace isn't enough. Trouble always comes knocking. And that's why we need you: to run the drills, to man the towers, to take charge when things get bad. To be cold enough to send your neighbors to a sure death in order to keep Stonetop safe. That's the job, Marshal. You up for it?",
-      "text": ""
+      "text": "Auf Frieden zu hoffen, reicht nicht. Ärger klopft immer wieder an die Tür. Und genau deshalb brauchen wir dich: um die Übungen zu leiten, die Wachtürme zu besetzen und das Kommando zu übernehmen, wenn es brenzlig wird. Du musst kaltblütig genug sein, deine Nachbarn in den sicheren Tod zu schicken, damit Stonetop sicher bleibt. Das ist dein Job, Marschall. Bist du dem gewachsen?"
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Crew, Logistics, any moves from your Background, and 1 move of your choice.",
-      "text": ""
+      "text": "Du beginnst mit Truppe, Logistik, allen Spielzügen aus deinem Hintergrund, sowie einem weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2",
-      "text": ""
+      "text": "Wähle 2"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/2/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/3/region": {
       "source": "The Steplands (Hillfolk)",
-      "text": ""
+      "text": "Die Stufenlande (Hügelvolk)"
     },
     "origin/4/region": {
       "source": "The Manmarch",
-      "text": ""
+      "text": "Die Grenzmark"
     },
     "origin/5/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/scion/label": {
       "source": "Scion",
-      "text": ""
+      "text": "Spross"
     },
     "backgrounds/scion/description": {
       "source": "You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.\n\nYou start with the **Veteran Crew** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew).",
-      "text": ""
+      "text": "Du bist hier aufgewachsen und stammst aus einer alteingesessenen Familie. Einige der bedeutendsten Namen aus Stonetops Vergangenheit finden sich in deinem Stammbaum. Jeder im Dorf betrachtet deine Autorität als selbstverständlich, und deine Truppe ist eine feste Institution des Ortes.\n\nDu beginnst mit dem Spielzug Veteranentruppe, zusätzlich zu deinen üblichen Spielzügen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Respektiert (zusätzlich zu deiner restlichen Auswahl und denen, die sie durch Veteranentruppe erhalten)."
     },
     "backgrounds/penitent/label": {
       "source": "Penitent",
-      "text": ""
+      "text": "Büßer"
     },
     "backgrounds/penitent/description": {
       "source": "Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.\n\nWhen you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.\n\nWhen you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks).",
-      "text": ""
+      "text": "Bevor du hierherkamst, warst du Anführer einer Bande von Halunken: Banditen, Räuber oder blutige Söldner. Aber etwas hat sich geändert. Ein Moment der Wahrheit veranlasste dich und deine Gefolgsleute – zumindest einige von ihnen -, dieses Leben hinter sich zu lassen. Und aus welchem Grund auch immer haben die Menschen von Stonetop dich aufgenommen.\n\nWenn du **_deine blutige Vergangenheit heranziehst, um Wissen kundzutun_**, darfst du +ST statt +IN würfeln. Wenn du das tust, wird der SL dich fragen, wem du damals Unrecht getan hast oder wer noch einen Groll hegen könnte. Beantworte seine Frage jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Krieger (zusätzlich zu deiner restlichen Auswahl)."
     },
     "backgrounds/luminary/label": {
       "source": "Luminary",
-      "text": ""
+      "text": "Koryphäe"
     },
     "backgrounds/luminary/description": {
       "source": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
-      "text": ""
+      "text": "Du bist eine natürliche Führungspersönlichkeit – deine Worte inspirieren, deine Pläne bringen den Sieg, deine Taten sprechen sich weit und breit herum. Bist du von den Göttern berührt? Fließt uraltes Blut in deinen Adern? Oder bist du einfach der Held, den Stonetop in diesen schwierigen Zeiten braucht?\n\nDu beginnst zusätzlich zu deinen üblichen Spielzügen mit dem Spielzug Wir, die Wenigen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Ergeben (zusätzlich zu deiner restlichen Auswahl)."
     },
     "choices/war-stories-action/0/title": {
       "source": "War stories",
-      "text": ""
+      "text": "The last time the militia saw serious action, it was...",
+      "needsReview": true
     },
     "choices/war-stories-action/0/text": {
       "source": "The Last Time the Militia Saw Serious Action, It Was… (pick 1)",
-      "text": ""
+      "text": "wähle 1",
+      "needsReview": true
     },
     "choices/war-stories-action/crinwin-raid/text": {
       "source": "… to repel a nighttime raid by crinwin from the Great Wood.",
-      "text": ""
+      "text": "… musste sie einen nächtlichen Überfall der Crinwin aus dem Großen Wald abwehren."
     },
     "choices/war-stories-action/bandits/text": {
       "source": "… to drive off bandits who'd taken up near the Ruined Tower.",
-      "text": ""
+      "text": "… musste sie Banditen vertreiben, die sich nahe der Turmruine niedergelassen hatten."
     },
     "choices/war-stories-action/hillfolk/text": {
       "source": "… to fend off Hillfolk pursuing a blood feud.",
-      "text": ""
+      "text": "… musste sie sich gegen das Hügelvolk zur Wehr setzen, das eine Blutfehde führte. "
     },
     "choices/war-stories-action/brennan-claws/text": {
       "source": "… against Brennan and his Claws, before they settled in Marshedge.",
-      "text": ""
+      "text": "… ging es gegen Brennan und seine Klauen, bevor sie sich in Mooresrand niederließen."
     },
     "choices/war-stories-action/hagr/text": {
       "source": "… to face a brutish hagr, come down from the Foothills to wreak havoc.",
-      "text": ""
+      "text": "… musste sie sich einem brutalen Hagr stellen, der aus dem Vorgebirge herabgestiegen war, um Verwüstung anzurichten."
     },
     "choices/war-stories-action/beasts/text": {
       "source": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
-      "text": ""
+      "text": "… musste sie Bestien (Wölfe, Drachenechsen oder Bären vielleicht?) jagen, die das Dorf heimgesucht hatten."
     },
     "choices/war-stories-questions/0/text": {
       "source": "Answer At Least 3 of the Following",
-      "text": ""
+      "text": "Beantworte zu diesem Einsatz mindestens 3 der folgenden Fragen:"
     },
     "choices/war-stories-questions/when/text": {
       "source": "When exactly did it happen?",
-      "text": ""
+      "text": "Wann genau hat er stattgefunden?"
     },
     "choices/war-stories-questions/who-died/text": {
       "source": "Who lost their life, and who mourns them?",
-      "text": ""
+      "text": "Wer hat dabei sein Leben verloren, und wer trauert um ihn?"
     },
     "choices/war-stories-questions/who-maimed/text": {
       "source": "Who from Stonetop was maimed, and how?",
-      "text": ""
+      "text": "Wer aus Stonetop wurde verstümmelt, und wie?"
     },
     "choices/war-stories-questions/saved-day/text": {
       "source": "Who saved the day, and how?",
-      "text": ""
+      "text": "Wer hat den Tag gerettet, und wie?"
     },
     "choices/war-stories-questions/enemy-away/text": {
       "source": "How did the enemy get away, and whom do you still blame for it?",
-      "text": ""
+      "text": "Wie ist der Feind entkommen, und wem gibst du bis heute die Schuld dafür?"
     },
     "choices/war-stories-questions/honor/text": {
       "source": "Who comported themselves with honor?",
-      "text": ""
+      "text": "Wer hat sich ehrenhaft verhalten?"
     },
     "choices/war-stories-questions/bugging/text": {
       "source": "What's been bugging you about it ever since?",
-      "text": ""
+      "text": "Was stört dich seitdem daran?"
     },
     "choices/war-stories-questions/worried/text": {
       "source": "What's got you even more worried now?",
-      "text": ""
+      "text": "Was bereitet dir jetzt noch größere Sorgen?"
     },
     "instinct/0/options/authority/text": {
       "source": "Authority",
-      "text": ""
+      "text": "Autorität"
     },
     "instinct/0/options/authority/description": {
       "source": "To take charge and throw your weight around.",
-      "text": ""
+      "text": "Die Führung übernehmen und seine Autorität geltend machen."
     },
     "instinct/0/options/caution/text": {
       "source": "Caution",
-      "text": ""
+      "text": "Vorsicht"
     },
     "instinct/0/options/caution/description": {
       "source": "To keep everyone safe, to agonize over decisions.",
-      "text": ""
+      "text": "Für die Sicherheit aller sorgen, sich bei Entscheidungen den Kopf zerbrechen."
     },
     "instinct/0/options/drive/text": {
       "source": "Drive",
-      "text": ""
+      "text": "Tatendrang"
     },
     "instinct/0/options/drive/description": {
       "source": "To take on ever more responsibility.",
-      "text": ""
+      "text": "Immer mehr Verantwortung übernehmen."
     },
     "instinct/0/options/honor/text": {
       "source": "Honor",
-      "text": ""
+      "text": "Ehre"
     },
     "instinct/0/options/honor/description": {
       "source": "To keep your word, to follow a moral code.",
-      "text": ""
+      "text": "Sein Wort halten, einen Moralkodex befolgen."
     },
     "instinct/0/options/ruthlessness/text": {
       "source": "Ruthlessness",
-      "text": ""
+      "text": "Rücksichtslosigkeit"
     },
     "instinct/0/options/ruthlessness/description": {
       "source": "To do whatever it takes to win or survive.",
-      "text": ""
+      "text": "Alles tun, was nötig ist, um zu gewinnen oder zu überleben."
     },
     "appearance/0/options/upstart-youth/text": {
       "source": "upstart youth",
-      "text": ""
+      "text": "aufstrebender Jüngling"
     },
     "appearance/0/options/experienced-and-sober/text": {
       "source": "experienced & sober",
-      "text": ""
+      "text": "erfahren & besonnen"
     },
     "appearance/0/options/grizzled/text": {
       "source": "grizzled",
-      "text": ""
+      "text": "vom Leben gezeichnet"
     },
     "appearance/1/options/clear-voice/text": {
       "source": "clear voice",
-      "text": ""
+      "text": "klare Stimme"
     },
     "appearance/1/options/resonant-voice/text": {
       "source": "resonant voice",
-      "text": ""
+      "text": "klangvolle Stimme"
     },
     "appearance/1/options/rumbling-voice/text": {
       "source": "rumbling voice",
-      "text": ""
+      "text": "grollende Stimme"
     },
     "appearance/2/options/stern-frown/text": {
       "source": "stern frown",
-      "text": ""
+      "text": "strenges Stirnrunzeln"
     },
     "appearance/2/options/grim-set-jaw/text": {
       "source": "grim-set jaw",
-      "text": ""
+      "text": "grimmige Miene"
     },
     "appearance/2/options/knowing-smirk/text": {
       "source": "knowing smirk",
-      "text": ""
+      "text": "wissendes Grinsen"
     },
     "appearance/3/options/badge-of-office/text": {
       "source": "badge of office",
-      "text": ""
+      "text": "Amtsabzeichen"
     },
     "appearance/3/options/spit-and-polish/text": {
       "source": "spit & polish",
-      "text": ""
+      "text": "blitzblank poliert"
     },
     "appearance/3/options/timeworn-gear/text": {
       "source": "timeworn gear",
-      "text": ""
+      "text": "abgenutzte Ausrüstung"
     },
     "introductions/step3": {
       "source": "On your third turn, **tell us the town's war stories**, plus the answers to the questions you chose.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **erzähle uns von den Kriegsgeschichten des Dorfes** und beantworte die Fragen, die du ausgewählt hast."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/lover-spouse/text": {
       "source": "Who is your lover/spouse/betrothed?",
-      "text": ""
+      "text": "Wer ist dein Geliebter/Ehepartner/Verlobter?"
     },
     "introductions/step4/lieutenant/text": {
       "source": "Who is your lieutenant?",
-      "text": ""
+      "text": "Wer ist dein Stellvertreter?"
     },
     "introductions/step4/kin-dead-decisions/text": {
       "source": "Whose kin is dead because of your decisions?",
-      "text": ""
+      "text": "Wessen Angehörige sind aufgrund deiner Entscheidungen gestorben?"
     },
     "introductions/step6/part-of-crew/text": {
       "source": "Which one of you is or was part of my crew?",
-      "text": ""
+      "text": "Wer von euch ist oder war Teil meiner Truppe?"
     },
     "introductions/step6/promised-safe/text": {
       "source": "Which one of you have I promised to keep safe?",
-      "text": ""
+      "text": "Wem von euch habe ich versprochen, ihn zu beschützen?"
     },
     "introductions/step6/still-doubts/text": {
       "source": "Which one of you do I still have doubts about?",
-      "text": ""
+      "text": "Bei wem von euch habe ich noch immer Zweifel?"
     },
     "introductions/step6/ignored-orders/text": {
       "source": "Which one of you ignored my orders and got someone killed?",
-      "text": ""
+      "text": "Wer von euch hat meine Befehle ignoriert und dadurch den Tod eines Menschen verursacht?"
     }
   },
   "the-ranger": {
     "name": {
       "source": "The Ranger",
-      "text": ""
+      "text": "Der Waldläufer"
     },
     "description": {
       "source": "Your true home is out there. Away from the Old Roads, in the wild places, where you've faced storm and beast alike. But unknown forces are at work beyond the Ringwall, and you fear for your kith and kin. These are strange times. Guide them, ranger, and keep them safe when darkness falls.",
-      "text": ""
+      "text": "Deine wahre Heimat liegt dort draußen. Abseits der Alten Wege, in der Wildnis, wo du dich gleichermaßen Sturm und wilden Tieren gestellt hast. Doch jenseits des Ringwalls sind unbekannte Kräfte am Werk, und du fürchtest um deine Sippe und deine Angehörigen. Es sind seltsame Zeiten. Führe sie, Waldläufer, und beschütze sie, wenn die Dunkelheit hereinbricht."
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Home on the Range, any moves from your Background, plus 1 of your choice.",
-      "text": ""
+      "text": "Du beginnst mit In der Wildnis Zuhause, allen Spielzügen aus deinem Hintergrund, sowie einem weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2, in addition to your composite bow",
-      "text": ""
+      "text": "Wähle 2, zusätzlich zu deinem Kompositbogen"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/3/region": {
       "source": "The Steplands (Hillfolk)",
-      "text": ""
+      "text": "Die Stufenlande (Hügelvolk)"
     },
     "origin/4/region": {
       "source": "The Manmarch",
-      "text": ""
+      "text": "Die Grenzmark"
     },
     "origin/5/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/mighty-hunter/label": {
       "source": "Mighty Hunter",
-      "text": ""
+      "text": "Großer Jäger"
     },
     "backgrounds/mighty-hunter/description": {
       "source": "You are a hunter of the Great Wood, the best the town has seen in generations. You know every part of the Wood within a two-day march.\n\nYou start with both the **Expert Tracker** move and the **Stalker** move. Go mark them now.",
-      "text": ""
+      "text": "Du bist ein Jäger des Großen Waldes, der beste, den das Dorf seit Generationen gesehen hat. Du kennst jeden Teil des Waldes innerhalb von zwei Tagesmärschen.\n\nDu beginnst mit den beiden Spielzügen Erfahrener Spurenleser und Pirscher. Markiere sie jetzt."
     },
     "backgrounds/wide-wanderer/label": {
       "source": "Wide Wanderer",
-      "text": ""
+      "text": "Weitgereister Wanderer"
     },
     "backgrounds/wide-wanderer/description": {
       "source": "You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:\n\n- **Ennis** (from Marshedge)\n- **Shahar** (from Gordin's Delve)\n- **Yannic** (from the Hillfolk)\n- **Tovia** (from Lygos)\n- **Sasca** (from the northern Manmarch)\n\nYou start with the **Mental Map** move. Mark it now.\n\nWhen you *Know Things about the wider world*, you can roll +WIS instead of +INT. When you *arrive somewhere you've visited before* (your call), tell the GM when you were last here, and the GM will tell you how it's changed.",
-      "text": ""
+      "text": "Du hast einen Großteil der bekannten Welt und vielleicht auch Teile darüber hinaus bereist. Füge der Liste der Nachbarn im Stonetop-Spielbuch jeweils einen der folgenden Einträge hinzu und wähle für jeden ein Merkmal:\n\n- **Ennis** (aus Mooresrand)\n- **Shahar** (aus Gordins Binge)\n- **Yannic** (vom Hügelvolk)\n- **Tovia** (aus Lygos)\n- **Sasca** (aus der nördlichen Grenzmark)\n\nDu geginnst mit dem Spielzug Mentale Landkarte. Markiere ihn jetzt.\n\nWenn du **_über die weite Welt Wissen kundtust_**, kannst du +WE statt +IN würfeln.\n\nWenn du **_an einen Ort gelangst, den du schon einmal besucht hast_** (du entscheidest), sage dem SL, wann du zuletzt hier warst und der SL sagt dir dann, wie sich der Ort seitdem verändert "
     },
     "backgrounds/beast-bonded/label": {
       "source": "Beast-Bonded",
-      "text": ""
+      "text": "Tierverbunden"
     },
     "backgrounds/beast-bonded/description": {
       "source": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.\n\nWhen you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
-      "text": ""
+      "text": "Du bist in der Zivilisation aufgewachsen, doch deine Seele ist mit einem wilden Tier verbunden. Du stehst ihm näher als jedem Mann und jeder Frau. Wie kam diese Verbindung zustande? Wie lange ist es her? Wie dem auch sei, du beginnst mit dem Spielzug Tiergefährte. Markiere ihn jetzt.\n\nWenn du **_dich einige Augenblicke lang auf deinen Tiergefährten konzentrierst_**, kannst du jede der unten markierten Aktionen nutzen, unabhängig davon, wie weit ihr voneinander entfernt seid. Markiere auf der 1. Stufe 1 Aktion und anschließend jeweils eine weitere auf der 3., 5., 7. und 9. Stufe."
     },
     "backgrounds/beast-bonded/choices/gauge-distance/text": {
       "source": "Gauge its distance and direction from you",
@@ -2022,899 +2028,899 @@
     },
     "choices/wicked-threat/0/title": {
       "source": "Something Wicked This Way Comes",
-      "text": ""
+      "text": "Etwas Böses kommt auf uns zu"
     },
     "choices/wicked-threat/0/text": {
       "source": "You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? *(choose 1)*",
-      "text": ""
+      "text": "Du weißt aus eigener Erfahrung, dass dort draußen Ärger lauert, und ob es ihnen gefällt oder nicht, werden sich die Bewohner von Stonetop eines Tages damit auseinandersetzen müssen. Was genau bereitet dir solche Sorgen? (Wähle eines)"
     },
     "choices/wicked-questions/0/title": {
       "source": "Answer At Least 3 of the Following",
-      "text": ""
+      "text": "Beantworte dann mindestens 3 der folgenden Fragen zu dieser Bedrohung:"
     },
     "choices/wicked-threat/great-wood/text": {
       "source": "A dark, unwholesome presence lurking in the Great Wood.",
-      "text": ""
+      "text": "Eine dunkle, unheilvolle Präsenz, die im Großen Wald lauert."
     },
     "choices/wicked-threat/ruined-tower/text": {
       "source": "A strange, furtive figure seen near the Ruined Tower.",
-      "text": ""
+      "text": "Eine seltsame, heimliche Gestalt, die in der Nähe der Turmruine gesichtet wurde."
     },
     "choices/wicked-threat/foothills/text": {
       "source": "Something big & savage stalking the northern foothills.",
-      "text": ""
+      "text": "Etwas Großes und Wildes, das den nördlichen Teil der Stufenlande durchstreift."
     },
     "choices/wicked-threat/suarachan/text": {
       "source": "Whatever's made the lizard-like suarachan of Ferrier's Fen so bold.",
-      "text": ""
+      "text": "Was auch immer die echsenartigen Suarachan in Ferriers Moor so kühn gemacht hat."
     },
     "choices/wicked-threat/hillfolk/text": {
       "source": "That of which the Hillfolk refuse to speak.",
-      "text": ""
+      "text": "Das, worüber das Hügelvolk sich weigert zu sprechen."
     },
     "choices/wicked-questions/what-is-it/text": {
       "source": "What, exactly, do you think it is?",
-      "text": ""
+      "text": "Worum handelt es sich deiner Meinung nach genau?"
     },
     "choices/wicked-questions/what-saw/text": {
       "source": "What did you see, and how close did you have to get to see it?",
-      "text": ""
+      "text": "Was hast du gesehen, und wie nah musstest du herangehen, um es zu sehen?"
     },
     "choices/wicked-questions/what-lost/text": {
       "source": "Whom or what have you lost to it?",
-      "text": ""
+      "text": "Wen oder was hast du durch sie verloren?"
     },
     "choices/wicked-questions/left-behind/text": {
       "source": "What did it leave behind?",
-      "text": ""
+      "text": "Was hat es zurückgelassen?"
     },
     "choices/wicked-questions/what-wants/text": {
       "source": "What do you think it wants?",
-      "text": ""
+      "text": "Was glaubst du, was sie will?"
     },
     "choices/wicked-questions/disbeliever/text": {
       "source": "Who refuses to believe you?",
-      "text": ""
+      "text": "Wer weigert sich, dir zu glauben?"
     },
     "choices/wicked-questions/who-knows-more/text": {
       "source": "Who can tell you more, if you can only convince them?",
-      "text": ""
+      "text": "Wer könnte dir mehr darüber erzählen, wenn du ihn nur überzeugen könntest?"
     },
     "instinct/0/options/adventure/text": {
       "source": "Adventure",
-      "text": ""
+      "text": "Abenteuer"
     },
     "instinct/0/options/adventure/description": {
       "source": "To test yourself, to experience new things.",
-      "text": ""
+      "text": "Sich auf die Probe stellen, neue Dinge erleben."
     },
     "instinct/0/options/independence/text": {
       "source": "Independence",
-      "text": ""
+      "text": "Unabhängigkeit"
     },
     "instinct/0/options/independence/description": {
       "source": "To refuse help and push others away.",
-      "text": ""
+      "text": "Hilfe ablehnen und andere abweisen."
     },
     "instinct/0/options/stewardship/text": {
       "source": "Stewardship",
-      "text": ""
+      "text": "Fürsorge"
     },
     "instinct/0/options/stewardship/description": {
       "source": "To value beasts and natural places over people.",
-      "text": ""
+      "text": "Tiere und unberührte Natur höher schätzen als Menschen."
     },
     "instinct/0/options/tenacity/text": {
       "source": "Tenacity",
-      "text": ""
+      "text": "Beharrlichkeit"
     },
     "instinct/0/options/tenacity/description": {
       "source": "To be stubborn, to persist.",
-      "text": ""
+      "text": "Stur sein, hartnäckig bleiben."
     },
     "instinct/0/options/wonder/text": {
       "source": "Wonder",
-      "text": ""
+      "text": "Staunen"
     },
     "instinct/0/options/wonder/description": {
       "source": "To marvel at beauty, magnificence, splendor.",
-      "text": ""
+      "text": "Über Schönheit, Herrlichkeit und Pracht staunen."
     },
     "appearance/0/options/fledgling/text": {
       "source": "fledgling",
-      "text": ""
+      "text": "Jungspund "
     },
     "appearance/0/options/prime-specimen/text": {
       "source": "prime specimen",
-      "text": ""
+      "text": "Prachtexemplar "
     },
     "appearance/0/options/long-in-the-tooth/text": {
       "source": "long in the tooth",
-      "text": ""
+      "text": "in die Jahre gekommen"
     },
     "appearance/1/options/barking-voice/text": {
       "source": "barking voice",
-      "text": ""
+      "text": "bellende Stimme"
     },
     "appearance/1/options/growling-voice/text": {
       "source": "growling voice",
-      "text": ""
+      "text": "knurrende Stimme"
     },
     "appearance/1/options/sing-song-voice/text": {
       "source": "sing-song voice",
-      "text": ""
+      "text": "Singsangstimme"
     },
     "appearance/2/options/compact-and-sturdy/text": {
       "source": "compact & sturdy",
-      "text": ""
+      "text": "kompakt & stämmig"
     },
     "appearance/2/options/long-and-lean/text": {
       "source": "long & lean",
-      "text": ""
+      "text": "groß & schlank"
     },
     "appearance/2/options/wolfish/text": {
       "source": "wolfish",
-      "text": ""
+      "text": "wölfisch"
     },
     "appearance/3/options/shaggy/text": {
       "source": "shaggy",
-      "text": ""
+      "text": "zerzaust"
     },
     "appearance/3/options/threadbare/text": {
       "source": "threadbare",
-      "text": ""
+      "text": "vernachlässigt"
     },
     "appearance/3/options/well-groomed/text": {
       "source": "well-groomed",
-      "text": ""
+      "text": "gepflegt"
     },
     "introductions/step3": {
       "source": "On your third turn, **tell us what you're worried about** (see \"Something wicked this way comes\").",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **erzähle uns, worüber du dir Sorgen machst** (siehe „Etwas Böses kommt auf uns zu“)."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein engster Verwandter?"
     },
     "introductions/step4/always-return-home/text": {
       "source": "To whom do you always return home?",
-      "text": ""
+      "text": "Zu wem kehrst du immer nach Hause zurück?"
     },
     "introductions/step4/lost-without-you/text": {
       "source": "Who would be lost without you?",
-      "text": ""
+      "text": "Wer wäre ohne dich verloren?"
     },
     "introductions/step4/learn-from-you/text": {
       "source": "Who has much to learn from you?",
-      "text": ""
+      "text": "Wer kann viel von dir lernen?"
     },
     "introductions/step6/fears-wider-world/text": {
       "source": "Which one of you fears the wider world?",
-      "text": ""
+      "text": "Wer von euch fürchtet sich vor der weiten Welt?"
     },
     "introductions/step6/great-beauty/text": {
       "source": "Which one of you has shown me great beauty?",
-      "text": ""
+      "text": "Wer von euch hat mir etwas von großer Schönheit gezeigt?"
     },
     "introductions/step6/staring-horizon/text": {
       "source": "Which one of you have I caught sometimes staring out at the horizon?",
-      "text": ""
+      "text": "Wen von euch habe ich manchmal dabei ertappt, wie er auf den Horizont gestarrt hat?"
     },
     "introductions/step6/lacked-stomach/text": {
       "source": "Which one of you lacked the stomach to put something out of its misery?",
-      "text": ""
+      "text": "Wer von euch hatte nicht den Mumm, etwas von seinem Leid zu erlösen?"
     }
   },
   "the-seeker": {
     "name": {
       "source": "The Seeker",
-      "text": ""
+      "text": "Der Suchende"
     },
     "description": {
       "source": "Look at us. Huddling behind our walls, hearing evil in every passing noise. Cowards, all. All, but you. You fear not the unknown. You plunge into it, searching. Grasping at what has been lost. What will you find, o Seeker? Signs of a bright new age? Or signs of our doom?",
-      "text": ""
+      "text": "Sieh uns doch an. Wir kauern hinter unseren Mauern und hören in jedem Geräusch, das vorbeizieht, etwas Böse. Feiglinge, allesamt. Alle – bis auf dich. Du fürchtest das Unbekannte nicht. Du stürzt dich hinein, suchst. Du greifst nach dem, was verloren gegangen ist. Was wirst du finden, oh Suchender? Zeichen eines strahlenden neuen Zeitalters? Oder Zeichen unseres Untergangs?"
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +2, +1, +1, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +2, +1, +1, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Well Versed, Work With What You’ve Got, plus 1 from your Background.",
-      "text": ""
+      "text": "Du beginnst mit Bewandert, Arbeite mit dem, was du hast sowie einem weiteren aus deinem Hintergrund."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2, in addition to your scribe's tools",
-      "text": ""
+      "text": "Wähle 2, zusätzlich zu deinen Schreibutensilien"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "The Steplands (Hillfolk)",
-      "text": ""
+      "text": "Die Stufenlande (Hügelvolk)"
     },
     "origin/3/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/4/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/5/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/patriot/label": {
       "source": "Patriot",
-      "text": ""
+      "text": "Patriot"
     },
     "backgrounds/patriot/description": {
       "source": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.",
-      "text": ""
+      "text": "Diese Menschen sind deine Familie. Um dich herum breitet sich das Chaos aus, aber du willst verdammt sein, wenn du zulässt, dass deiner Familie etwas zustößt. Verdammt, in der Tat.\n\nDu hast nach dunkler Macht gesucht und sie dir zu eigen gemacht, um das zu schützen, was dir lieb und teuer ist. Oder vielleicht ist diese Macht über dich gekommen und du hast sie zum Wohle aller angenommen. So oder so, du strebst nach mehr.\n\nDu beginnst mit dem Spielzug Lass uns einen Handel abschließen und du bist bewandert in den Dingen aus der Tiefe (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:"
     },
     "backgrounds/antiquarian/label": {
       "source": "Antiquarian",
-      "text": ""
+      "text": "Antiquar"
     },
     "backgrounds/antiquarian/description": {
       "source": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.",
-      "text": ""
+      "text": "Die Vergangenheit birgt viele Geheimnisse, und du bist entschlossen, sie zu lüften. Jahrelange Studien im ganzen Land haben dich hierhergeführt, und du bist überzeugt, dass hier der Schlüssel zu deinen größten Entdeckungen liegt. Was erhoffst du zu finden? Was hält dich hier?\n\nAuf jeden Fall bedeuten deine Reisen und Studien, dass du mit dem Spielzug Polyglott beginnst und du bist bewandert in den Schöpfern und ihren Künsten (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:"
     },
     "backgrounds/witch-hunter/label": {
       "source": "Witch Hunter",
-      "text": ""
+      "text": "Hexenjäger"
     },
     "backgrounds/witch-hunter/description": {
       "source": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.",
-      "text": ""
+      "text": "Du hast dein Leben dem Aufspüren und Vernichten von Schrecken und ihren Dienern gewidmet. Was hat dich auf diesen Weg gebracht? Was musstest du opfern, um ihn zu beschreiten? Was hat dich dazu bewogen, Stonetop zu deiner Heimat zu machen?\n\nWie dem auch sei, du beginnst mit dem Spielzug Alles blutet und du bist bewandert in (wähle 1) den Feen, den Dingen aus der Tiefe oder der Schwarzen Pforte des Todes und dessen, was dahinter liegt (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:"
     },
     "backgrounds/patriot/choices/hectumel-codex/text": {
       "source": "The Hec'tumel Codex",
-      "text": ""
+      "text": "Der Hec'tumel-Kodex"
     },
     "backgrounds/patriot/choices/red-scepter/text": {
       "source": "The Red Scepter",
-      "text": ""
+      "text": "Das Rote Zepter"
     },
     "backgrounds/patriot/choices/staff-of-the-lidless-orb/text": {
       "source": "The Staff of the Lidless Orb",
-      "text": ""
+      "text": "Der Stab des lidlosen Auges"
     },
     "backgrounds/antiquarian/choices/norubas-ice-sphere/text": {
       "source": "Noruba's Ice Sphere",
-      "text": ""
+      "text": "Norubas Eissphäre"
     },
     "backgrounds/antiquarian/choices/azure-hand/text": {
       "source": "The Azure Hand",
-      "text": ""
+      "text": "Die Azurblaue Hand"
     },
     "backgrounds/antiquarian/choices/mindgem/text": {
       "source": "The Mindgem",
-      "text": ""
+      "text": "Der Seelenstein"
     },
     "backgrounds/witch-hunter/choices/demonhide-cloak/text": {
       "source": "The Demonhide Cloak",
-      "text": ""
+      "text": "Der Dämonenhaut-Umhang"
     },
     "backgrounds/witch-hunter/choices/redwood-effigy/text": {
       "source": "The Redwood Effigy",
-      "text": ""
+      "text": "Das Rotholz-Abbild"
     },
     "backgrounds/witch-hunter/choices/twisted-spear/text": {
       "source": "The Twisted Spear",
-      "text": ""
+      "text": "Der gewundene Speer"
     },
     "choices/collection/0/title": {
       "source": "Collection",
-      "text": ""
+      "text": "Sammlung"
     },
     "choices/collection/0/text": {
       "source": "In your travels and investigations you have acquired arcana—artifacts of power and mystery.",
-      "text": ""
+      "text": "Auf deinen Reisen und bei deinen Nachforschungen hast du arkane Artefakte voller Macht und Geheimnisse erworben."
     },
     "choices/arcana-major/0/title": {
       "source": "Major Arcanum",
-      "text": ""
+      "text": "Großes Arkanum"
     },
     "choices/arcana-major/0/text": {
       "source": "Your Background grants you 1 major arcanum.\n\nAnswer at least 2 questions about it:",
-      "text": ""
+      "text": "Dein Hintergrund verleiht dir ein großes Arkanum. Beantworte mindestens 2 Fragen dazu:"
     },
     "choices/arcana-minor/0/title": {
       "source": "Minor Arcana",
-      "text": ""
+      "text": "Kleine Arkana"
     },
     "choices/arcana-minor/0/text": {
       "source": "Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.",
-      "text": ""
+      "text": "Bitte den SL um die Karten für die kleinen Arkana. Ziehe zufällig 3 Karten und sieh dir beide Seiten an."
     },
     "choices/arcana-major/where-acquired/text": {
       "source": "Where did you acquire it?",
-      "text": ""
+      "text": "Wo hast du es erworben?"
     },
     "choices/arcana-major/wrested-from/text": {
       "source": "From whose grasp did you wrest it?",
-      "text": ""
+      "text": "Aus wessen Händen hast du es entrissen?"
     },
     "choices/arcana-major/who-else-wants/text": {
       "source": "Who else wants it?",
-      "text": ""
+      "text": "Wer möchte es sonst noch haben?"
     },
     "choices/arcana-major/what-cost/text": {
       "source": "What did it cost you?",
-      "text": ""
+      "text": "Was hat es dich gekostet?"
     },
     "choices/arcana-major/when-unlocked/text": {
       "source": "You’ve begun to unlock the mysteries of your major arcanum; mark 1 or on the front of its insert. When and how did that happen?",
-      "text": ""
+      "text": "Du hast begonnen, die Geheimnisse deines großen Arkanums zu entschlüsseln. Markiere auf dessen Vorderseite ein ▢ oder ○."
     },
     "choices/arcana-minor/mastered-location/text": {
       "source": "Choose one whose secrets you have unlocked. If it's portable, keep it on your person or hidden away. Where is it now? How did you come to master it?",
-      "text": ""
+      "text": "Wähle ein Arkanum, dessen Geheimnisse du entschlüsselt hast. Wenn es tragbar ist, trägst du es entweder bei dir oder bewahrst es an einem sicheren Ort auf. Wo befindet es sich jetzt? Wie hast du gelernt, es zu beherrschen?"
     },
     "choices/arcana-minor/found-location/text": {
       "source": "Choose another that you have not yet mastered. It is either in your possession or in a secret place known only to you. Where is it? How did you find it?",
-      "text": ""
+      "text": "Wähle ein anderes Arkanum, das du noch nicht beherrschst. Es befindet sich entweder in deinem Besitz oder an einem geheimen Ort, den nur du kennst. Wo befindet es sich? Wie hast du es gefunden?"
     },
     "choices/arcana-minor/sought-notes/text": {
       "source": "The third you have not yet found, but you have a lead on it. Give the card back to the GM but make note of it here. What do you know about it?",
-      "text": ""
+      "text": "Das dritte Arkanum hast du noch nicht gefunden, aber du hast eine Spur, die zu ihm führt. Gib dem SL die Karte zurück, aber notiere sie dir unten. Frage während des Spiels den SL, was du darüber weißt."
     },
     "instinct/0/options/cunning/text": {
       "source": "Cunning",
-      "text": ""
+      "text": "Gerissenheit"
     },
     "instinct/0/options/cunning/description": {
       "source": "To scheme, manipulate, and plot.",
-      "text": ""
+      "text": "Intrigieren, manipulieren und Ränke schmieden."
     },
     "instinct/0/options/curiosity/text": {
       "source": "Curiosity",
-      "text": ""
+      "text": "Neugier"
     },
     "instinct/0/options/curiosity/description": {
       "source": "To seek answers that maybe you oughtn't.",
-      "text": ""
+      "text": "Nach Antworten suchen, die man vielleicht besser nicht suchen sollte."
     },
     "instinct/0/options/hubris/text": {
       "source": "Hubris",
-      "text": ""
+      "text": "Überheblichkeit"
     },
     "instinct/0/options/hubris/description": {
       "source": "To assume you know best, that you can't fail.",
-      "text": ""
+      "text": "Annehmen, es besser zu wissen und nicht scheitern zu können."
     },
     "instinct/0/options/mystery/text": {
       "source": "Mystery",
-      "text": ""
+      "text": "Geheimnisse"
     },
     "instinct/0/options/mystery/description": {
       "source": "To avoid straight answers; to keep secrets.",
-      "text": ""
+      "text": "Direkte Antworten vermeiden und Geheimnisse bewahren."
     },
     "instinct/0/options/vision/text": {
       "source": "Vision",
-      "text": ""
+      "text": "Vision"
     },
     "instinct/0/options/vision/description": {
       "source": "To think big and pursue grandiose goals.",
-      "text": ""
+      "text": "Groß denken und weitreichende Ziele verfolgen."
     },
     "appearance/0/options/curiously-young/text": {
       "source": "curiously young",
-      "text": ""
+      "text": "seltsam jung"
     },
     "appearance/0/options/world-weary/text": {
       "source": "world-weary",
-      "text": ""
+      "text": "der Welt überdrüssig"
     },
     "appearance/0/options/bent-with-years/text": {
       "source": "bent with years",
-      "text": ""
+      "text": "vom Alter gebeugt"
     },
     "appearance/1/options/haunted-voice/text": {
       "source": "haunted voice",
-      "text": ""
+      "text": "unheimliche Stimme"
     },
     "appearance/1/options/rich-voice/text": {
       "source": "rich voice",
-      "text": ""
+      "text": "kräftige Stimme"
     },
     "appearance/1/options/whispery/text": {
       "source": "whispery",
-      "text": ""
+      "text": "flüsternde Stimme"
     },
     "appearance/2/options/ink-stained-fingers/text": {
       "source": "ink-stained fingers",
-      "text": ""
+      "text": "tintenverschmierte Finger"
     },
     "appearance/2/options/sinewy-hands/text": {
       "source": "sinewy hands",
-      "text": ""
+      "text": "sehnige Hände"
     },
     "appearance/2/options/soft-hands/text": {
       "source": "soft hands",
-      "text": ""
+      "text": "weiche Hände"
     },
     "appearance/3/options/bony-limbed/text": {
       "source": "bony limbed",
-      "text": ""
+      "text": "knochige Gliedmaßen"
     },
     "appearance/3/options/lean-and-lanky/text": {
       "source": "lean & lanky",
-      "text": ""
+      "text": "dünn und schmächtig"
     },
     "appearance/3/options/short/text": {
       "source": "short",
-      "text": ""
+      "text": "klein"
     },
     "appearance/3/options/thick-set/text": {
       "source": "thick-set",
-      "text": ""
+      "text": "stämmig"
     },
     "introductions/step3": {
       "source": "On your third turn, **describe your major arcana**. Tell us your answers to the questions you chose. then, **tell us about your minor arcana**, too.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **beschreibe dein großes Arkanum**. Nenne uns deine Antworten auf die Fragen, die du dazu ausgewählt hast. **Erzähle uns anschließend auch von deinen kleinen Arkana**."
     },
     "introductions/step4/closest-kin/text": {
       "source": "Who is your closest kin?",
-      "text": ""
+      "text": "Wer ist dein nächster Verwandter?"
     },
     "introductions/step4/spouse-lover-betrothed/text": {
       "source": "Who is your spouse/lover/betrothed?",
-      "text": ""
+      "text": "Wer ist dein Ehepartner/Geliebter/Verlobter?"
     },
     "introductions/step4/trust-more/text": {
       "source": "Whom do you trust, even more than yourself?",
-      "text": ""
+      "text": "Wem vertraust du sogar mehr als dir selbst?"
     },
     "introductions/step4/secretly-watch/text": {
       "source": "Whom do you secretly watch over, and why?",
-      "text": ""
+      "text": "Über wen wachst du insgeheim und warum?"
     },
     "introductions/step6/key-discovery/text": {
       "source": "Which one of you led me to a key discovery?",
-      "text": ""
+      "text": "Wer von euch hat mich zu einer wichtigen Entdeckung geführt?"
     },
     "introductions/step6/been-at-my-side/text": {
       "source": "Which one of you has been at my side the entire way?",
-      "text": ""
+      "text": "Wer von euch war die ganze Zeit an meiner Seite?"
     },
     "introductions/step6/fears-path/text": {
       "source": "Which one of you most fears the path I tread?",
-      "text": ""
+      "text": "Wer von euch fürchtet den Weg, den ich beschreite, am meisten?"
     },
     "introductions/step6/keeping-secrets/text": {
       "source": "Which one of you is keeping secrets from me?",
-      "text": ""
+      "text": "Wer von euch verheimlicht mir etwas?"
     }
   },
   "the-would-be-hero": {
     "name": {
       "source": "The Would-Be Hero",
-      "text": ""
+      "text": "Der Möchtegern-Held"
     },
     "description": {
       "source": "Most people hope for a quiet life. They spend their days a-worrying: about a leaky roof, a sick child, their crops. But you aren't like most people—you're on a different path. A path to adventure! There's greatness in you. Let's hope you live long enough for everyone else to see it.",
-      "text": ""
+      "text": "Die meisten Menschen hoffen auf ein ruhiges Leben. Sie verbringen ihre Tage damit, sich Sorgen zu machen: über ein undichtes Dach, ein krankes Kind, ihre Ernte. Aber du bist nicht wie die meisten Menschen - du gehst einen anderen Weg. Einen Weg voller Abenteuer! In dir steckt etwas Großes. Hoffen wir, dass du lange genug lebst, damit alle anderen es sehen können."
     },
     "statsNote": {
       "source": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
-      "text": ""
+      "text": "Verteile diese Werte auf deine Attribute: +1, +0, +0, +0, +0, −1"
     },
     "startingMovesNote": {
       "source": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
-      "text": ""
+      "text": "Du beginnst mit Wut ist ein Geschenk, Potenzial für Größe sowie 2 weiteren deiner Wahl."
     },
     "specialPossessions/pickNote": {
       "source": "Pick 2",
-      "text": ""
+      "text": "Wähle 2"
     },
     "origin/0/region": {
       "source": "Stonetop",
-      "text": ""
+      "text": "Stonetop"
     },
     "origin/1/region": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "origin/2/region": {
       "source": "The Steplands (Hillfolk)",
-      "text": ""
+      "text": "Die Stufenlande (Hügelvolk)"
     },
     "origin/3/region": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "origin/4/region": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Mooresrand"
     },
     "origin/5/region": {
       "source": "Lygos or some other point south",
-      "text": ""
+      "text": "Lygos oder ein anderer Ort weiter südlich"
     },
     "backgrounds/impetuous-youth/label": {
       "source": "Impetuous Youth",
-      "text": ""
+      "text": "Ungestüme Jugend"
     },
     "backgrounds/impetuous-youth/description": {
       "source": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!\n\nWhen you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.",
-      "text": ""
+      "text": "Stonetop war schon immer dein Zuhause, aber die Anforderungen des alltäglichen Lebens engen dich ein, und du hast dich schon immer nach etwas Größerem gesehnt. Aufregung! Gefahr!\n\nWenn du **_einen Spielzug machst und nur knapp scheiterst_**, kannst du alles geben und aus einer 6− eine 7–9, aus einer 7–9 eine 10+ und (falls relevant) aus einer 10–11 eine 12+ machen. Wenn du das tust, wähle eines (der SL bestimmt die Einzelheiten):\n\n- Du wirst verletzt (2W4 Schaden und eine konkrete Verletzung).\n- Sie verursachen Kollateralschäden, gefährden andere oder verschärfen die Situation auf andere Weise.\n- Etwas, das du bei dir trägst, geht verloren oder zerbricht."
     },
     "backgrounds/driven/label": {
       "source": "Driven",
-      "text": ""
+      "text": "Getrieben"
     },
     "backgrounds/destined/label": {
       "source": "Destined",
-      "text": ""
+      "text": "Ausersehen"
     },
     "backgrounds/destined/resource/title": {
       "source": "Omens",
-      "text": ""
+      "text": "Omen"
     },
     "backgrounds/driven/choices/0/text": {
       "source": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:",
-      "text": ""
+      "text": "Du hast einst ein einfaches Leben geführt, aber dann ist etwas passiert. Etwas hat dich verändert und dir eine schreckliche Aufgabe auferlegt. Was war es? Wähle 1:"
     },
     "backgrounds/driven/choices/loved-one/text": {
       "source": "A loved one was killed or abducted",
-      "text": ""
+      "text": "Ein geliebter Mensch wurde getötet oder entführt."
     },
     "backgrounds/driven/choices/gave-life/text": {
       "source": "Someone gave their life to save you",
-      "text": ""
+      "text": "Jemand gab sein Leben, um dich zu retten."
     },
     "backgrounds/driven/choices/idol/text": {
       "source": "Your idol sacrificed themselves to save many",
-      "text": ""
+      "text": "Dein Vorbild hat sich geopfert, um viele zu retten."
     },
     "backgrounds/driven/choices/dark-mystery/text": {
       "source": "You stumbled upon a dark mystery",
-      "text": ""
+      "text": "Du bist über ein dunkles Geheimnis gestolpert."
     },
     "backgrounds/driven/choices/mistake/text": {
       "source": "You must make amends for a terrible mistake",
-      "text": ""
+      "text": "Du musst einen schrecklichen Fehler wiedergutmachen."
     },
     "backgrounds/driven/choices/6/text": {
       "source": "You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.",
-      "text": ""
+      "text": "Du hast immer die Möglichkeit hell zu erstrahlen. Du kannst nach deinem Wurf 2 EP ausgeben, um +1 zu erhalten, selbst wenn du nicht genug EP für die nächste Stufe hast."
     },
     "backgrounds/destined/choices/0/text": {
       "source": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:",
-      "text": ""
+      "text": "Das Schicksal hat seine Hand auf dich gelegt. Wähle 3–4 der folgenden Begriffe, um dein Schicksal zu beschreiben:"
     },
     "backgrounds/destined/choices/1/options/anointed/text": {
       "source": "anointed",
-      "text": ""
+      "text": "gesalbt"
     },
     "backgrounds/destined/choices/1/options/marked/text": {
       "source": "marked at birth",
-      "text": ""
+      "text": "bei der Geburt gezeichnet"
     },
     "backgrounds/destined/choices/1/options/coming/text": {
       "source": "your coming foretold",
-      "text": ""
+      "text": "deine Ankunft wurde vorhergesagt"
     },
     "backgrounds/destined/choices/2/options/destroy/text": {
       "source": "destroy",
-      "text": ""
+      "text": "zerstören "
     },
     "backgrounds/destined/choices/2/options/discover/text": {
       "source": "discover",
-      "text": ""
+      "text": "entdecken "
     },
     "backgrounds/destined/choices/2/options/free/text": {
       "source": "free",
-      "text": ""
+      "text": "befreien "
     },
     "backgrounds/destined/choices/2/options/protect/text": {
       "source": "protect",
-      "text": ""
+      "text": "beschützen"
     },
     "backgrounds/destined/choices/2/options/restore/text": {
       "source": "restore",
-      "text": ""
+      "text": "wiederherstellen "
     },
     "backgrounds/destined/choices/3/options/unify/text": {
       "source": "unify",
-      "text": ""
+      "text": "vereinen "
     },
     "backgrounds/destined/choices/3/options/blood/text": {
       "source": "blood",
-      "text": ""
+      "text": "Blut"
     },
     "backgrounds/destined/choices/3/options/civilization/text": {
       "source": "civilization",
-      "text": ""
+      "text": "Zivilisation "
     },
     "backgrounds/destined/choices/3/options/darkness/text": {
       "source": "darkness",
-      "text": ""
+      "text": "Dunkelheit "
     },
     "backgrounds/destined/choices/4/options/earth/text": {
       "source": "earth & stone",
-      "text": ""
+      "text": "Erde & Stein"
     },
     "backgrounds/destined/choices/4/options/fire/text": {
       "source": "fire",
-      "text": ""
+      "text": "Feuer"
     },
     "backgrounds/destined/choices/4/options/ice/text": {
       "source": "ice",
-      "text": ""
+      "text": "Eis"
     },
     "backgrounds/destined/choices/4/options/light/text": {
       "source": "light",
-      "text": ""
+      "text": "Licht"
     },
     "backgrounds/destined/choices/4/options/life/text": {
       "source": "life",
-      "text": ""
+      "text": "Leben"
     },
     "backgrounds/destined/choices/4/options/storms/text": {
       "source": "storms",
-      "text": ""
+      "text": "Stürme"
     },
     "backgrounds/destined/choices/5/options/war/text": {
       "source": "war",
-      "text": ""
+      "text": "Krieg"
     },
     "backgrounds/destined/choices/5/options/water/text": {
       "source": "water",
-      "text": ""
+      "text": "Wasser"
     },
     "backgrounds/destined/choices/5/options/fae/text": {
       "source": "the Fae",
-      "text": ""
+      "text": "die Feen"
     },
     "backgrounds/destined/choices/5/options/gods/text": {
       "source": " the gods",
-      "text": ""
+      "text": "die Götter"
     },
     "backgrounds/destined/choices/5/options/makers/text": {
       "source": " the Makers",
-      "text": ""
+      "text": "die Schöpfer"
     },
     "backgrounds/destined/choices/6/options/stone/text": {
       "source": "the Stone",
-      "text": ""
+      "text": "der Stein"
     },
     "backgrounds/destined/choices/6/options/things/text": {
       "source": "the Things Below",
-      "text": ""
+      "text": "die Dinge aus der Tiefe"
     },
     "choices/fear-and-anger/0/title": {
       "source": "Fear & anger",
-      "text": ""
+      "text": "Angst & Wut"
     },
     "choices/fear-and-anger/0/text": {
       "source": "What Do You Fear Most? *(choose 1, maybe 2)*",
-      "text": ""
+      "text": "Was fürchtest du am meisten? (Wähle 1, eventuell 2)"
     },
     "choices/fear-and-anger/fire/text": {
       "source": "Fire, burning, the smell of charred flesh",
-      "text": ""
+      "text": "Feuer, Verbrennungen, der Geruch von verkohltem Fleisch"
     },
     "choices/fear-and-anger/not-serious/text": {
       "source": "That they won't take you seriously",
-      "text": ""
+      "text": "Dass sie dich nicht ernst nehmen werden"
     },
     "choices/fear-and-anger/not-cut-out/text": {
       "source": "That you really aren't cut out for this",
-      "text": ""
+      "text": "Dass du wirklich nicht dafür geschaffen bist"
     },
     "choices/fear-and-anger/death-loved-ones/text": {
       "source": "The death of your family or loved ones",
-      "text": ""
+      "text": "Der Tod deiner Familie oder geliebter Menschen"
     },
     "choices/fear-and-anger/alone/text": {
       "source": "Being alone and helpless",
-      "text": ""
+      "text": "Allein und hilflos zu sein"
     },
     "choices/fear-and-anger/violence/text": {
       "source": "Violence, bloodshed, and pain",
-      "text": ""
+      "text": "Gewalt, Blutvergießen und Schmerz"
     },
     "choices/fear-and-anger/monsters/text": {
       "source": "Monsters",
-      "text": ""
+      "text": "Ungeheuer"
     },
     "choices/fear-and-anger/capable-of/text": {
       "source": "What you're capable of",
-      "text": ""
+      "text": "Zu was du fähig bist"
     },
     "choices/fear-and-anger/must-do/text": {
       "source": "What you must do",
-      "text": ""
+      "text": "Was du tun musst"
     },
     "choices/fear-and-anger/10/text": {
       "source": "What Makes You Burn with Righteous Anger? *(choose 2, maybe 3)*",
-      "text": ""
+      "text": "Was lässt dich vor gerechtem Zorn entbrennen? (wähle 2, eventuell 3)"
     },
     "choices/fear-and-anger/bullying/text": {
       "source": "Bullying, slavery, and oppression",
-      "text": ""
+      "text": "Schikanen, Sklaverei und Unterdrückung"
     },
     "choices/fear-and-anger/cruelty/text": {
       "source": "Wanton cruelty and unnecessary suffering",
-      "text": ""
+      "text": "Mutwillige Grausamkeit und unnötiges Leiden"
     },
     "choices/fear-and-anger/injustice/text": {
       "source": "Injustice and inequality",
-      "text": ""
+      "text": "Ungerechtigkeit und Ungleichheit"
     },
     "choices/fear-and-anger/cowardice/text": {
       "source": "Cowardice, treachery, and selfishness",
-      "text": ""
+      "text": "Feigheit, Verrat und Egoismus"
     },
     "choices/fear-and-anger/despoiling/text": {
       "source": "The despoiling of beauty and innocence",
-      "text": ""
+      "text": "Die Zerstörung von Schönheit und Unschuld"
     },
     "choices/fear-and-anger/threats-loved-ones/text": {
       "source": "Threats to your loved ones",
-      "text": ""
+      "text": "Bedrohungen für deine Liebsten"
     },
     "choices/fear-and-anger/innocents/text": {
       "source": "Violence to children, animals, the innocent",
-      "text": ""
+      "text": "Gewalt gegen Kinder, Tiere, Unschuldige"
     },
     "choices/fear-and-anger/perversions/text": {
       "source": "Perversions of nature",
-      "text": ""
+      "text": "Perversionen der Natur"
     },
     "choices/fear-and-anger/when-trouble/text": {
       "source": "When did your fear or anger last cause you trouble?",
-      "text": ""
+      "text": "Wann hat dir deine Angst oder Wut das letzte Mal Probleme bereitet?"
     },
     "choices/fear-and-anger/what-did/text": {
       "source": "What did you do?",
-      "text": ""
+      "text": "Was hast du unternommen?"
     },
     "choices/fear-and-anger/how-turned/text": {
       "source": "How did it turn out?",
-      "text": ""
+      "text": "Wie ist es ausgegangen?"
     },
     "instinct/0/options/defiance/text": {
       "source": "Defiance",
-      "text": ""
+      "text": "Trotz"
     },
     "instinct/0/options/defiance/description": {
       "source": "To refuse to back down, give up, give in.",
-      "text": ""
+      "text": "Dich zu weigern, nachzugeben, aufzugeben oder klein beizugeben."
     },
     "instinct/0/options/doubt/text": {
       "source": "Doubt",
-      "text": ""
+      "text": "Selbstzweifel"
     },
     "instinct/0/options/doubt/description": {
       "source": "To question yourself, your actions, your worth.",
-      "text": ""
+      "text": "Dich selbst, deine Handlungen oder deinen eigenen Wert infrage zu stellen."
     },
     "instinct/0/options/earnestness/text": {
       "source": "Earnestness",
-      "text": ""
+      "text": "Ernsthaftigkeit"
     },
     "instinct/0/options/earnestness/description": {
       "source": "To prove yourself, to yourself and others.",
-      "text": ""
+      "text": "Dir selbst und anderen zu beweisen, was in dir steckt."
     },
     "instinct/0/options/optimism/text": {
       "source": "Optimism",
-      "text": ""
+      "text": "Optimismus"
     },
     "instinct/0/options/optimism/description": {
       "source": "To assume the best, and that things are simple.",
-      "text": ""
+      "text": "Vom Besten auszugehen und anzunehmen, dass die Dinge einfach sind."
     },
     "instinct/0/options/sacrifice/text": {
       "source": "Sacrifice",
-      "text": ""
+      "text": "Aufopferung"
     },
     "instinct/0/options/sacrifice/description": {
       "source": "To put the needs/wants of others above your own.",
-      "text": ""
+      "text": "Die Bedürfnisse und Wünsche anderer über deine eigenen zu stellen."
     },
     "appearance/0/options/still-a-child/text": {
       "source": "still a child",
-      "text": ""
+      "text": "noch ein Kind"
     },
     "appearance/0/options/young-and-beautiful/text": {
       "source": "young & beautiful",
-      "text": ""
+      "text": "jung und schön"
     },
     "appearance/0/options/all-grown-up/text": {
       "source": "all grown up",
-      "text": ""
+      "text": "schon voll erwachsen"
     },
     "appearance/1/options/quiet-voice/text": {
       "source": "quiet voice",
-      "text": ""
+      "text": "selbstbewusste Stimme"
     },
     "appearance/1/options/earnest-voice/text": {
       "source": "earnest voice",
-      "text": ""
+      "text": "ernste Stimme"
     },
     "appearance/1/options/soft-voice/text": {
       "source": "soft voice",
-      "text": ""
+      "text": "leise Stimme"
     },
     "appearance/2/options/big/text": {
       "source": "big",
-      "text": ""
+      "text": "groß"
     },
     "appearance/2/options/scrawny/text": {
       "source": "scrawny",
-      "text": ""
+      "text": "schmächtig"
     },
     "appearance/2/options/sinewy/text": {
       "source": "sinewy",
-      "text": ""
+      "text": "sehnig"
     },
     "appearance/2/options/slender/text": {
       "source": "slender",
-      "text": ""
+      "text": "schlank"
     },
     "appearance/2/options/thick/text": {
       "source": "thick",
-      "text": ""
+      "text": "korpulent"
     },
     "appearance/3/options/back-unbowed/text": {
       "source": "back unbowed",
-      "text": ""
+      "text": "gerader Rücken"
     },
     "appearance/3/options/jaw-firmly-set/text": {
       "source": "jaw firmly set",
-      "text": ""
+      "text": "entschlossenes Gesicht"
     },
     "appearance/3/options/soulful-eyes/text": {
       "source": "soulful eyes",
-      "text": ""
+      "text": "ausdrucksstarke Augen"
     },
     "introductions/step3": {
       "source": "On your third turn, **tell us of your fear & anger**, and of the last time they caused you trouble.",
-      "text": ""
+      "text": "Wenn du zum dritten Mal an der Reihe bist, **erzähle uns von deiner Angst und Wut** und dem letzten Mal, als sie dir Probleme bereitet haben."
     },
     "introductions/step4/heart-to-win/text": {
       "source": "Whose heart do you hope to win?",
-      "text": ""
+      "text": "Wessen Herz hoffst du zu gewinnen?"
     },
     "introductions/step4/counting-on-you/text": {
       "source": "Who is counting on you?",
-      "text": ""
+      "text": "Wer zählt auf dich?"
     },
     "introductions/step4/understands-path/text": {
       "source": "Who quietly understands the path you are on?",
-      "text": ""
+      "text": "Wer versteht insgeheim den Weg, den du beschreitest?"
     },
     "introductions/step4/prove-wrong/text": {
       "source": "Who do you intend to prove wrong?",
-      "text": ""
+      "text": "Wem willst du beweisen, dass er im Unrecht ist?"
     },
     "introductions/step6/closest-truest-friend/text": {
       "source": "Which one of you is my closest, truest friend?",
-      "text": ""
+      "text": "Wer von euch ist mein engster, treuester Freund?"
     },
     "introductions/step6/believes-in-me/text": {
       "source": "Which one of you believes in me, despite it all?",
-      "text": ""
+      "text": "Wer von euch glaubt trotz alledem an mich?"
     },
     "introductions/step6/promised-teach/text": {
       "source": "Which one of you has promised to teach me?",
-      "text": ""
+      "text": "Wer von euch hat versprochen, mich zu unterrichten?"
     },
     "introductions/step6/have-i-hurt/text": {
       "source": "Which one of you have I hurt, through what I have done or what I've failed to do?",
-      "text": ""
+      "text": "Wen von euch habe ich durch das verletzt, was ich getan oder versäumt habe?"
     }
   }
 }

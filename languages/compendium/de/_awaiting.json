@@ -1,0 +1,24 @@
+{
+  "playbooks": {
+    "the-judge": [
+      "backgrounds/prophet/description",
+      "backgrounds/missionary/choices/0/text"
+    ],
+    "the-lightbearer": [
+      "choices/helior-worship-spread/0/title",
+      "choices/helior-worship-spread/0/text"
+    ],
+    "the-marshal": [
+      "choices/war-stories-action/0/title",
+      "choices/war-stories-action/0/text"
+    ]
+  },
+  "moves": {
+    "amulets-talismans": [
+      "description"
+    ],
+    "danus-grasp": [
+      "description"
+    ]
+  }
+}

@@ -104,67 +104,67 @@
   "lightbearer-invocations-insert": {
     "name": {
       "source": "Invocations",
-      "text": ""
+      "text": "Anrufungen"
     },
     "description": {
       "source": "Lightbearer, you start knowing 2 Invocations. Each time you reach an even-numbered level, learn 1 new Invocation.\n\nWhile one Invocation is *ongoing*, you can't use another. You can end an Invocation whenever you wish, and it will end immediately if your holy light is extinguished. An invocation's range is equal to that of its light source.",
-      "text": ""
+      "text": "Lichtträger, du kennst zu Beginn zwei Anrufungen. Jedes Mal, wenn du eine gerade Stufe erreichst, erlernst du eine neue Anrufung.\n\nSolange eine Anrufungen andauert, kannst du keine andere nutzen. Du kannst eine Anrufung jederzeit beenden; sie endet sofort, wenn dein heiliges Licht erlischt. Die Reichweite einer Anrufung entspricht der Reichweite ihrer Lichtquelle."
     },
     "choices/lightbearer-invocations/bath-of-healing-light/subtitle": {
       "source": "Bath of Healing Light",
-      "text": ""
+      "text": "Heilendes Lichtbad"
     },
     "choices/lightbearer-invocations/bath-of-healing-light/text": {
       "source": "Cup your hands around your light and focus it. Your patient... (pick 2):\n\n- Regains 5 HP (can pick this twice)\n- Clears a debility (can pick this twice)\n- Has one of their problematic wounds stabilized\n- Recovers from a minor condition (drunk, etc.)\n **Reduced:** pick only 1 (instead of 2).\n **Empowered:** add these to your possible choices:\n\n- Regains 10 HP (can pick this twice)\n- Fully recovers from a problematic wound\n- Is cured of a dire affliction, poison, or disease",
-      "text": ""
+      "text": "Umschließe dein Licht mit deinen Händen und fokussiere es. Dein Patient … (wähle zwei):\n\n- Erhält 5 TP zurück (kann zweimal gewählt werden).Entfernt eine Beeinträchtigung (kann zweimal gewählt werden).\n- Hat eine seiner problematischen Wunden stabilisiert.\n- Erholt sich von einem geringfügigen Zustand (betrunken usw.)\n**Abgeschwächt:** Wähle nur eines statt zwei.\n\n**Verstärkt:** Füge deiner möglichen Auswahl Folgendes hinzu:\n\n- Erhält 10 TP zurück (kann zweimal gewählt werden).\n- Erholt sich vollständig von einer problematischen Wunde.\n- Wird von einem schweren Leiden, Gift oder einer Krankheit geheilt."
     },
     "choices/lightbearer-invocations/blinding-light/subtitle": {
       "source": "Blinding Light",
-      "text": ""
+      "text": "Blendendes Licht"
     },
     "choices/lightbearer-invocations/blinding-light/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/blinding-light/text": {
       "source": "Your light blazes. Any in range who look at it are temporarily blinded. Those not looking at it directly must avert their eyes. You are unaffected.\n\n**Reduced:** the light flares only for a moment.\n**Empowered:** if you wish, your allies are unaffected.",
-      "text": ""
+      "text": "Dein Licht erstrahlt gleißend hell. Alle in Reichweite, die es ansehen, werden vorübergehend geblendet. Wer nicht direkt hineinschaut, muss den Blick abwenden. Du selbst bist davon nicht betroffen.\n\n**Abgeschwächt:** Das Licht flammt nur einen kurzen Moment lang auf.\n\n**Verstärkt:** Wenn du es wünschst, sind deine Verbündeten nicht betroffen."
     },
     "choices/lightbearer-invocations/cleansing-light/subtitle": {
       "source": "Cleansing Light",
-      "text": ""
+      "text": "Reinigendes Licht"
     },
     "choices/lightbearer-invocations/cleansing-light/text": {
       "source": "Your light flares, dispelling magical effects within range. Potent, lasting magics are merely suppressed, and slowly return to power once removed from your light.\n\n**Reduced:** potent, lasting magics are unaffected; other magical effects are merely suppressed.\n**Empowered:** the invocation is *ongoing*; while it lasts, any magical effects created in or brought into range are dispelled/suppressed.",
-      "text": ""
+      "text": "Dein Licht flammt auf und bannt Magie innerhalb seiner Reichweite. Mächtige, anhaltende Magie wird lediglich unterdrückt und gewinnt langsam ihre Kraft zurück, sobald sie dem Licht nicht mehr ausgesetzt ist.\n\n**Abgeschwächt:** Starke, anhaltende Magie bleibt unbeeinträchtigt; andere Magie wird lediglich unterdrückt.\n\n**Verstärkt:** Die Anrufung ist Dauerhaft. Solange sie anhält, wird jede Magie, die in Reichweite kommt, gebannt bzw. unterdrückt."
     },
     "choices/lightbearer-invocations/cold-light-of-day/subtitle": {
       "source": "Cold Light of Day",
-      "text": ""
+      "text": "Das kalte Licht des Tages"
     },
     "choices/lightbearer-invocations/cold-light-of-day/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/cold-light-of-day/text": {
       "source": "All in your light appears as it really is, without the benefit of illusion, shapeshifting, or disguise.\n\n**Reduced:** it lasts only a few moments, just long enough to glimpse the truth.\n**Empowered:** illusions in the light are dispelled and shapeshifters in the light are momentarily stunned.",
-      "text": ""
+      "text": "Alles in deinem Licht erscheint so, wie es wirklich ist, ohne den Schutz von Illusionen, Gestaltwandlung oder Verkleidungen.\n\n**Abgeschwächt:** Es hält nur einige Augenblicke an, gerade lange genug, um einen Blick auf die Wahrheit zu erhaschen.\n\n**Verstärkt:** Illusionen in deinem Licht werden gebannt und Gestaltwandler in deinem Licht vorübergehend betäubt."
     },
     "choices/lightbearer-invocations/dancing-light/subtitle": {
       "source": "Dancing Light",
-      "text": ""
+      "text": "Tanzendes Licht"
     },
     "choices/lightbearer-invocations/dancing-light/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/dancing-light/text": {
       "source": "Your light takes to the air, floating as you direct it, untethered from its fuel. You can move it anywhere that you can see it, and even change its shape or color.\n\n**Reduced:** it dims, reducing its range by one step.\n**Empowered:** you can use another Invocation through the Dancing Light while it is *ongoing*.",
-      "text": ""
+      "text": "Dein Licht erhebt sich in die Luft und schwebt losgelöst von seiner Lichtquelle dorthin, wohin du es lenkst. Du kannst es überallhin bewegen, wo du es sehen kannst, und sogar seine Form oder Farbe verändern.\n\n**Abgeschwächt:** Es wird schwächer und seine Reichweite verringert sich um eine Stufe.\n\n**Verstärkt:** Du kannst eine weitere Anrufung nutzen, während das tanzende Licht andauert."
     },
     "choices/lightbearer-invocations/go-back-to-the-shadow/subtitle": {
       "source": "Go Back to the Shadow",
-      "text": ""
+      "text": "Zurück in den Schatten"
     },
     "choices/lightbearer-invocations/go-back-to-the-shadow/subtitleNote": {
       "source": "(ongoing)",
@@ -172,55 +172,55 @@
     },
     "choices/lightbearer-invocations/go-back-to-the-shadow/text": {
       "source": "Spirits of darkness in your light take 2d8 damage (ignores armor). Roll damage for each spirit separately. A spirit reduced to 0 HP is either banished from this world or back to whatever tethers it here.\n\n**Reduced:** affected spirits take only 1d8 damage.\n**Empowered:** a spirit reduced to 0 HP is either utterly destroyed OR it's banished from the world and anything tethering it here is destroyed (GM's choice).",
-      "text": ""
+      "text": "Geister der Finsternis in deinem Licht erleiden 2W8 Schaden (ignoriert Rüstung). Würfle den Schaden für jeden Geist einzeln. Ein Geist, der alle TP verliert, wird entweder aus dieser Welt verbannt oder kehrt dorthin zurück, was ihn an diese Welt bindet.\n\n**Abgeschwächt:** Betroffene Geister erleiden nur 1W8 Schaden.\n\n**Verstärkt:** Ein Geist, der alle TP verliert, wird entweder vollständig vernichtet oder aus dieser Welt verbannt und alles, was ihn an diese Welt bindet, wird zerstört (SL entscheidet)."
     },
     "choices/lightbearer-invocations/hold-back-the-darkness/subtitle": {
       "source": "Hold Back the Darkness",
-      "text": ""
+      "text": "Halte die Finsternis zurück"
     },
     "choices/lightbearer-invocations/hold-back-the-darkness/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/hold-back-the-darkness/text": {
       "source": "Spirits and creatures of darkness are repelled by your light and cannot approach. The cowardly or mindless flee outright. Those forced into range of your light deal damage with disadvantage.\n\n**Reduced:** you must maintain an unbroken litany of prayers in order to maintain the effect.\n**Empowered:** affected entities that are forced into range of your light are vulnerable to mundane weapons, their supernatural defenses suppressed.",
-      "text": ""
+      "text": "Geister und Kreaturen der Finsternis werden von deinem Licht zurückgedrängt und können sich ihm nicht nähern. Die Feigen oder Willenlosen ergreifen sofort die Flucht. Diejenigen, die in die Reichweite deines Lichts gezwungen werden, verursachen Schaden mit Nachteil.\n\n**Abgeschwächt:** Du musst eine ununterbrochene Litanei von Gebeten sprechen, um die Wirkung aufrechtzuerhalten.\n\n**Verstärkt:** Betroffene Wesen, die in die Reichweite deines Lichts gezwungen werden, sind durch gewöhnliche Waffen verwundbar; ihre übernatürlichen Abwehrkräfte werden unterdrückt."
     },
     "choices/lightbearer-invocations/moth-to-a-flame/subtitle": {
       "source": "Moth to a Flame",
-      "text": ""
+      "text": "Wie eine Motte zum Licht"
     },
     "choices/lightbearer-invocations/moth-to-a-flame/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/moth-to-a-flame/text": {
       "source": "Name an individual or type of mortal creature. They gaze raptly at your light and will follow it, slowly. The effect ends if they take damage.\n\n**Reduced:** it lasts only briefly OR only some of the named creatures are affected (GM's choice).\n**Empowered:** the effect continues for a few moments after they first take damage. Taking damage a second time ends the effect immediately.",
-      "text": ""
+      "text": "Nenne eine Person oder eine Art von sterblichem Wesen. Sie starren gebannt in dein Licht und folgen ihm langsam. Die Wirkung endet, sobald sie Schaden erleiden.\n\n**Abgeschwächt:** Die Wirkung hält nur kurz an oder betrifft nur einige der genannten Wesen (SL entscheidet).\n\n**Verstärkt:** Die Wirkung hält noch einige Augenblicke an, nachdem sie zum ersten Mal Schaden erlitten haben. Erleiden sie ein zweites Mal Schaden, endet die Wirkung sofort."
     },
     "choices/lightbearer-invocations/terrible-as-the-dawn/subtitle": {
       "source": "Terrible as the Dawn",
-      "text": ""
+      "text": "Schrecklich wie die Morgendämmerung"
     },
     "choices/lightbearer-invocations/terrible-as-the-dawn/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/terrible-as-the-dawn/text": {
       "source": "Name an individual or type of mortal creature. Your light fills them with dread, causing them to recoil and back away. The cowardly flee outright.\n\n**Reduced:** all mortal creatures but you are affected, including your allies.\n**Empowered:** even the brave must cower or flee.",
-      "text": ""
+      "text": "Nenne eine Person oder eine Art von sterblichem Wesen. Dein Licht erfüllt sie mit Grauen und lässt sie zurückschrecken. Die Feigen unter ihnen ergreifen sofort die Flucht.\n\n**Abgeschwächt:** Alle sterblichen Wesen außer dir sind davon betroffen, einschließlich deiner Verbündeten.\n\n**Verstärkt:** Selbst die Mutigen müssen sich ducken oder die Flucht ergreifen."
     },
     "choices/lightbearer-invocations/warmth-of-the-sun/subtitle": {
       "source": "Dancing Light",
-      "text": ""
+      "text": "Die Wärme der Sonne"
     },
     "choices/lightbearer-invocations/warmth-of-the-sun/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/warmth-of-the-sun/text": {
       "source": "While in your light, you and your allies are free of fear and doubt, and unharmed by extreme cold.\n\n**Reduced:** only one person in the light is protected.\n**Empowered:** the light also protects from necromantic and life-draining effects.",
-      "text": ""
+      "text": "Solange du und deine Verbündeten sich in deinem Licht befinden, sind sie frei von Angst und Zweifeln und nehmen durch extreme Kälte keinen Schaden.\n\n**Abgeschwächt:** Nur eine Person im Licht ist geschützt.\n\n**Verstärkt:** Das Licht schützt außerdem vor nekromantischen und lebensentziehenden Effekten."
     }
   },
   "revenant": {

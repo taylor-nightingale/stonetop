@@ -4,12 +4,16 @@
 // Untranslated strings are not a failure — a translation in progress is the normal state, and an
 // untranslated string simply shows English. Entries needing review and orphans ARE a failure: they
 // mean a translator's work no longer lines up with the packs and someone has to look.
+//
+// Unless someone already has. `_awaiting.json` lists the entries a human has triaged and handed to
+// the translator; those still print, but only drift nobody has seen yet goes red.
 import { pathToFileURL } from "url";
 import { englishCatalogForPack } from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
-import { TRANSLATED_PACKS, listLanguages, readAuthoring } from "./files.js";
+import { TRANSLATED_PACKS, awaitingPath, listLanguages, readAuthoring, readJson } from "./files.js";
 import { reconcileTagLabels } from "./tagLabels.js";
-import { detail, summarise } from "./report.js";
+import { AwaitingTranslator } from "./awaiting.js";
+import { detail, staleLines, summarise } from "./report.js";
 
 export async function check({ root = "." } = {}) {
 	const languages = await listLanguages(root);
@@ -19,18 +23,28 @@ export async function check({ root = "." } = {}) {
 	}
 	let clean = true;
 	for (const lang of languages) {
+		const awaiting = AwaitingTranslator.fromJson(await readJson(awaitingPath(lang, root), {}));
+		const flagged  = [];
+
+		const report = (result) => {
+			console.log(summarise(result));
+			for (const line of detail(result, awaiting)) console.log(line);
+			flagged.push(...result.flaggedEntries);
+		};
+
 		for (const pack of TRANSLATED_PACKS) {
 			const english = await englishCatalogForPack(pack, root);
-			const result  = reconcile(lang, pack, english, await readAuthoring(lang, pack, root));
-			console.log(summarise(result));
-			for (const line of detail(result)) console.log(line);
-			if (!result.isClean) clean = false;
+			report(reconcile(lang, pack, english, await readAuthoring(lang, pack, root)));
 		}
+		report(await reconcileTagLabels(lang, root));
 
-		const tags = await reconcileTagLabels(lang, root);
-		console.log(summarise(tags));
-		for (const line of detail(tags)) console.log(line);
-		if (!tags.isClean) clean = false;
+		const unacknowledged = flagged.filter(f => !awaiting.has(f.pack, f.slug, f.entry.key));
+		const stale          = awaiting.staleAgainst(flagged);
+		for (const line of staleLines(stale)) console.log(line);
+
+		const waiting = flagged.length - unacknowledged.length;
+		console.log(`${lang}: ${waiting} awaiting translator, ${unacknowledged.length} new`);
+		if (unacknowledged.length) clean = false;
 	}
 	if (!clean) console.error("\nRun `npm run i18n:extract` to refresh the files, then resolve the entries above.");
 	return clean;

@@ -2,79 +2,79 @@
   "afon": {
     "name": {
       "source": "Afon, a Fellow Initiate",
-      "text": ""
+      "text": "Afon, ein Miteingeweihter"
     },
     "damage": {
       "source": "bronze hatchet [[/r 1d6]] (_hand_)",
-      "text": ""
+      "text": "Bronzebeil [[/r 1d6]] (_Hand_)"
     },
     "armor": {
       "source": "2",
-      "text": ""
+      "text": "2"
     },
     "moves": {
       "source": "- Weave a minor glamor\n- Appear or disappear unexpectedly\n- Speak an uncomfortable truth",
-      "text": ""
+      "text": "- Wirke einen einfachen Zauber\n- Erscheine oder Verschwinde unerwartet\n- Sprich eine unbequeme Wahrheit aus"
     },
     "instinct/selected/to-act-impulsively": {
       "source": "to act impulsively",
-      "text": ""
+      "text": "Impulsiv handeln"
     },
     "cost/selected/wonder-joy": {
       "source": "wonder, joy",
-      "text": ""
+      "text": "Wunder, Freude"
     },
     "choices/choices/0/title": {
       "source": "Pick 1 on each line",
-      "text": ""
+      "text": "Wähle eines in jeder Zeile"
     },
     "choices/choices/1/options/he/text": {
       "source": "he",
-      "text": ""
+      "text": "männlich"
     },
     "choices/choices/1/options/she/text": {
       "source": "she",
-      "text": ""
+      "text": "weiblich"
     },
     "choices/choices/1/options/they/text": {
       "source": "they",
-      "text": ""
+      "text": "androgyn"
     },
     "choices/choices/2/options/comes-and-goes/text": {
       "source": "comes and goes",
-      "text": ""
+      "text": "kommt und geht"
     },
     "choices/choices/2/options/in-the-wood/text": {
       "source": "in the Wood",
-      "text": ""
+      "text": "in den Wäldern"
     },
     "choices/choices/2/options/a-hut-near-town/text": {
       "source": "a hut near town",
-      "text": ""
+      "text": "in der Nähe des Dorfes"
     },
     "choices/choices/3/options/aloof/text": {
       "source": "aloof",
-      "text": ""
+      "text": "unnahbar"
     },
     "choices/choices/3/options/bawdy-and-lewd/text": {
       "source": "bawdy and lewd",
-      "text": ""
+      "text": "aufreizend und unzüchtig"
     },
     "choices/choices/3/options/unnerving/text": {
       "source": "unnerving",
-      "text": ""
+      "text": "irritierend"
     },
     "choices/choices/4/options/rites-of-ecstasy/text": {
       "source": "rites of ecstasy",
-      "text": ""
+      "text": "Riten der Ekstase"
     },
     "choices/choices/4/options/rites-of-intoxication/text": {
       "source": "rites of intoxication",
-      "text": ""
+      "text": "… des Rausches"
     },
     "choices/choices/4/options/rites-of-moonlight/text": {
       "source": "rites of moonlight",
-      "text": ""
+      "text": "… des Mondlichts"
     }
   },
   "all-mighty-thistlewisk": {
@@ -132,171 +132,171 @@
   "animal-companion": {
     "name": {
       "source": "Animal Companion",
-      "text": ""
+      "text": "Tiergefährte"
     },
     "instinct/options/to-bully-and-threaten": {
       "source": "To bully and threaten",
-      "text": ""
+      "text": "Einschüchtern und bedrohen"
     },
     "instinct/options/to-fill-its-belly": {
       "source": "To fill its belly",
-      "text": ""
+      "text": "Sich den Bauch vollschlagen"
     },
     "instinct/options/to-get-distracted": {
       "source": "To get distracted",
-      "text": ""
+      "text": "Sich ablenken lassen"
     },
     "instinct/options/to-give-chase": {
       "source": "To give chase",
-      "text": ""
+      "text": "Die Verfolgung aufnehmen"
     },
     "instinct/options/to-make-mischief": {
       "source": "To make mischief",
-      "text": ""
+      "text": "Unfug treiben"
     },
     "instinct/options/to-startle-and-panic": {
       "source": "To startle and panic",
-      "text": ""
+      "text": "Erschrecken und in Panik versetzen"
     },
     "instinct/options/to-run-rampant": {
       "source": "to run rampant",
-      "text": ""
+      "text": "Ungebremst wüten"
     },
     "cost/options/play-grooming-training-affection": {
       "source": "Play, grooming, training, affection",
-      "text": ""
+      "text": "Spiel, Pflege, Training, Zuneigung"
     },
     "cost/options/time-off-on-its-own-free-to-roam": {
       "source": "Time off on its own, free to roam",
-      "text": ""
+      "text": "Zeit für sich, frei herumstreifen dürfen"
     },
     "cost/options/cozy-quarters-comfort-ample-food": {
       "source": "Cozy quarters, comfort, ample food",
-      "text": ""
+      "text": "Behagliche Unterkunft, Komfort, reichlich Futter"
     },
     "companion/catalog/bird/damage": {
       "source": "[[/r 1d4]] (hand)",
-      "text": ""
+      "text": "[[/r 1d4]] (Hand)"
     },
     "companion/catalog/bird/armor": {
       "source": "1 (size)",
-      "text": ""
+      "text": "1 (Größe)"
     },
     "companion/catalog/critter/damage": {
       "source": "[[/r 1d4]] (hand)",
-      "text": ""
+      "text": "[[/r 1d4]] (Hand)"
     },
     "companion/catalog/critter/armor": {
       "source": "1 (size)",
-      "text": ""
+      "text": "1 (Größe)"
     },
     "companion/catalog/brute/damage": {
       "source": "[[/r 1d6]] (hand)",
-      "text": ""
+      "text": "[[/r 1d6]] (Hand)"
     },
     "companion/catalog/brute/armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "companion/catalog/predator/damage": {
       "source": "[[/r 1d8]] (hand, grabby)",
-      "text": ""
+      "text": "[[/r 1d8]] (Hand, Fesselnd)"
     },
     "companion/catalog/predator/armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "companion/catalog/steed/damage": {
       "source": "[[/r 1d6+1]] (hand, close)",
-      "text": ""
+      "text": "[[/r 1d6+1]] (Hand, Kurz)"
     },
     "companion/catalog/steed/armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "companion/catalog/bird/variants/falcon": {
       "source": "falcon",
-      "text": ""
+      "text": "Falke"
     },
     "companion/catalog/bird/variants/eagle": {
       "source": "eagle",
-      "text": ""
+      "text": "Adler"
     },
     "companion/catalog/bird/variants/owl": {
       "source": "owl",
-      "text": ""
+      "text": "Eule"
     },
     "companion/catalog/bird/variants/buzzard": {
       "source": "buzzard",
-      "text": ""
+      "text": "Bussard"
     },
     "companion/catalog/bird/variants/magpie": {
       "source": "magpie",
-      "text": ""
+      "text": "Elster"
     },
     "companion/catalog/critter/variants/cat": {
       "source": "cat",
-      "text": ""
+      "text": "Katze"
     },
     "companion/catalog/critter/variants/fox": {
       "source": "fox",
-      "text": ""
+      "text": "Fuchs"
     },
     "companion/catalog/critter/variants/possum": {
       "source": "possum",
-      "text": ""
+      "text": "Opossum"
     },
     "companion/catalog/critter/variants/raccoon": {
       "source": "raccoon",
-      "text": ""
+      "text": "Waschbär"
     },
     "companion/catalog/critter/variants/weasel": {
       "source": "weasel",
-      "text": ""
+      "text": "Wiesel"
     },
     "companion/catalog/brute/variants/bear": {
       "source": "bear",
-      "text": ""
+      "text": "Bär"
     },
     "companion/catalog/brute/variants/boar": {
       "source": "boar",
-      "text": ""
+      "text": "Wildschwein"
     },
     "companion/catalog/brute/variants/wolverine": {
       "source": "wolverine",
-      "text": ""
+      "text": "Vielfraß"
     },
     "companion/catalog/brute/variants/aurochs": {
       "source": "aurochs",
-      "text": ""
+      "text": "Auerochse"
     },
     "companion/catalog/brute/variants/drake": {
       "source": "drake",
-      "text": ""
+      "text": "Drachenechse"
     },
     "companion/catalog/predator/variants/hound": {
       "source": "hound",
-      "text": ""
+      "text": "Hund"
     },
     "companion/catalog/predator/variants/wolf": {
       "source": "wolf",
-      "text": ""
+      "text": "Wolf"
     },
     "companion/catalog/predator/variants/cougar": {
       "source": "cougar",
-      "text": ""
+      "text": "Puma"
     },
     "companion/catalog/predator/variants/drake": {
       "source": "drake",
-      "text": ""
+      "text": "Drachenechse"
     },
     "companion/catalog/steed/variants/horse": {
       "source": "horse",
-      "text": ""
+      "text": "Pferd"
     },
     "companion/catalog/steed/variants/mule": {
       "source": "mule",
-      "text": ""
+      "text": "Maultier"
     }
   },
   "astor": {
@@ -328,15 +328,15 @@
   "blank": {
     "name": {
       "source": "New Follower",
-      "text": ""
+      "text": "Neuer Gefolgsmann"
     },
     "damage": {
       "source": "[[/r 1d6]]",
-      "text": ""
+      "text": "[[/r 1d6]]"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     }
   },
   "bronze-protector": {
@@ -372,191 +372,191 @@
   "crew": {
     "name": {
       "source": "Crew",
-      "text": ""
+      "text": "Truppe"
     },
     "description": {
       "source": "Marshal, your Crew is a half-dozen strong by default. Treat them as a follower with the group tag. All starting values here are subject to change in play.",
-      "text": ""
+      "text": "Marschall, deine Truppe besteht standardmäßig aus einem halben Dutzend Leuten. Behandle sie wie einen Gefolgsmann mit der Eigenschaft Gruppe. Alle hier aufgeführten Startwerte können  sich im Laufe des Spiels noch ändern."
     },
     "damage": {
       "source": "d6",
-      "text": ""
+      "text": "1W6"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "membersNote": {
       "source": "When one stands out, give them a name, a tag, and one or more traits.",
-      "text": ""
+      "text": "Wenn jemand aus der Gruppe besonders hervorsticht, gib ihm einen Namen, eine Eigenschaft und eine oder mehrere Merkmale."
     },
     "memberSuggestions/traits/s-kid-sibling-parent-cousin": {
       "source": "__'s kid/sibling/parent/cousin/__",
-      "text": ""
+      "text": "__’s Kind/Geschwister/Elternteil/Cousin/__"
     },
     "memberSuggestions/traits/bald": {
       "source": "bald",
-      "text": ""
+      "text": "Glatze"
     },
     "memberSuggestions/traits/crush-on": {
       "source": "crush on __",
-      "text": ""
+      "text": "verknallt in ___"
     },
     "memberSuggestions/traits/grudge-against": {
       "source": "grudge against __",
-      "text": ""
+      "text": "hat einen Groll gegen ___"
     },
     "memberSuggestions/traits/hates": {
       "source": "hates __",
-      "text": ""
+      "text": "hasst ___"
     },
     "memberSuggestions/traits/idolizes": {
       "source": "idolizes __",
-      "text": ""
+      "text": "vergöttert ___"
     },
     "memberSuggestions/traits/jokes": {
       "source": "jokes",
-      "text": ""
+      "text": "macht Witze"
     },
     "memberSuggestions/traits/messy": {
       "source": "messy",
-      "text": ""
+      "text": "unordentlich"
     },
     "memberSuggestions/traits/missing-eye-finger-hand": {
       "source": "missing eye/finger/hand/__",
-      "text": ""
+      "text": "fehlendes Auge/Finger/Hand/___"
     },
     "memberSuggestions/traits/misses-their-kids": {
       "source": "misses their kids",
-      "text": ""
+      "text": "vermisst seine Kinder"
     },
     "memberSuggestions/traits/nightmares": {
       "source": "nightmares",
-      "text": ""
+      "text": "Albträume"
     },
     "memberSuggestions/traits/recently-married": {
       "source": "recently married",
-      "text": ""
+      "text": "frisch verheiratet"
     },
     "memberSuggestions/traits/religious": {
       "source": "religious",
-      "text": ""
+      "text": "religiös"
     },
     "memberSuggestions/traits/scars": {
       "source": "scars",
-      "text": ""
+      "text": "Narben"
     },
     "memberSuggestions/traits/skinny": {
       "source": "skinny",
-      "text": ""
+      "text": "dürr"
     },
     "memberSuggestions/traits/sharp-tongued": {
       "source": "sharp-tongued",
-      "text": ""
+      "text": "Scharfzüngig"
     },
     "memberSuggestions/traits/sings": {
       "source": "sings",
-      "text": ""
+      "text": "singt"
     },
     "memberSuggestions/traits/snores": {
       "source": "snores",
-      "text": ""
+      "text": "schnarcht"
     },
     "memberSuggestions/traits/tells-tall-tales": {
       "source": "tells tall tales",
-      "text": ""
+      "text": "erzählt übertriebene Geschichten"
     },
     "memberSuggestions/traits/too-serious": {
       "source": "too serious",
-      "text": ""
+      "text": "zu ernst"
     },
     "memberSuggestions/traits/troubles-at-home": {
       "source": "troubles at home",
-      "text": ""
+      "text": "Probleme zu Hause"
     },
     "memberSuggestions/traits/whistles": {
       "source": "whistles",
-      "text": ""
+      "text": "Pfeift"
     },
     "memberSuggestions/traits/whittler": {
       "source": "whittler",
-      "text": ""
+      "text": "Schnitzt (Holz)"
     },
     "instinct/options/to-bicker-infight-and-hold-grudges": {
       "source": "To bicker, infight, and hold grudges",
-      "text": ""
+      "text": "Streiten, zanken und Groll hegen"
     },
     "instinct/options/to-hew-to-tradition-and-superstition": {
       "source": "To hew to tradition and superstition",
-      "text": ""
+      "text": "An Traditionen und Aberglauben festhalten"
     },
     "instinct/options/to-indulge-their-baser-instincts": {
       "source": "To indulge their baser instincts",
-      "text": ""
+      "text": "Ihren niederen Instinkten nachgeben"
     },
     "instinct/options/to-lord-over-others": {
       "source": "To lord over others",
-      "text": ""
+      "text": "Über andere herrschen"
     },
     "instinct/options/to-take-needless-risks": {
       "source": "To take needless risks",
-      "text": ""
+      "text": "Unnötige Risiken eingehen"
     },
     "instinct/options/to-take-things-too-far": {
       "source": "To take things too far",
-      "text": ""
+      "text": "Die Dinge zu weit treiben"
     },
     "cost/options/merry-making-as-a-group": {
       "source": "Merry-making, as a group",
-      "text": ""
+      "text": "Gemeinsames Feiern"
     },
     "cost/options/public-recognition-and-respect-honor": {
       "source": "Public recognition and respect, honor",
-      "text": ""
+      "text": "Öffentliche Anerkennung, Respekt und Ehre"
     },
     "cost/options/risks-taken-by-you-to-help-them": {
       "source": "Risks taken, by you, to help them",
-      "text": ""
+      "text": "Risiken, die du eingehst, um ihnen zu helfen"
     },
     "cost/options/victories-won-against-worthy-foes": {
       "source": "Victories won against worthy foes",
-      "text": ""
+      "text": "Siege gegen würdige Gegner"
     },
     "cost/options/wealth-gained-for-themselves-or-stonetop": {
       "source": "Wealth gained for themselves or Stonetop",
-      "text": ""
+      "text": "Reichtum, der für sie selbst oder Stonetop gewonnen wird"
     }
   },
   "dog": {
     "name": {
       "source": "Dog",
-      "text": ""
+      "text": "Hund"
     },
     "damage": {
       "source": "[[/r d6]] (_hand_, _grabby_)",
-      "text": ""
+      "text": "[[/r d6]] (_Hand_, _Fesselnd_)"
     },
     "instinct/selected/to-get-distracted": {
       "source": "to get distracted",
-      "text": ""
+      "text": "Sich ablenken lassen"
     },
     "cost/selected/training": {
       "source": "training",
-      "text": ""
+      "text": "Training"
     }
   },
   "donkey": {
     "name": {
       "source": "Donkey",
-      "text": ""
+      "text": "Esel"
     },
     "damage": {
       "source": "[[/r d4+2]] (_hand_, _forceful_)",
-      "text": ""
+      "text": "[[/r d4+2]] (_Hand_, _Wuchtig_)"
     },
     "instinct/selected/to-be-stubborn": {
       "source": "to be stubborn",
-      "text": ""
+      "text": "Stur sein"
     }
   },
   "dool-spirit": {
@@ -596,179 +596,179 @@
     },
     "damage": {
       "source": "bronze knife [[/r 1d4]] (_hand_)",
-      "text": ""
+      "text": "Bronzemesser [[/r 1d4]] (_Hand_)"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "moves": {
       "source": "- Speak with birds\n- Ask a difficult question\n- Wander off",
-      "text": ""
+      "text": "- Sprich mit Vögeln\n- Stelle eine schwierige Frage\n- Schweife ab"
     },
     "instinct/selected/to-get-distracted": {
       "source": "to get distracted",
-      "text": ""
+      "text": "Sich ablenken lassen"
     },
     "cost/selected/knowledge-secret-lore": {
       "source": "knowledge, secret lore",
-      "text": ""
+      "text": "Wissen, geheime Überlieferungen"
     },
     "choices/choices/0/title": {
       "source": "Pick 1 on each line",
-      "text": ""
+      "text": "Wähle eines in jeder Zeile"
     },
     "choices/choices/1/options/he/text": {
       "source": "he",
-      "text": ""
+      "text": "männlich"
     },
     "choices/choices/1/options/she/text": {
       "source": "she",
-      "text": ""
+      "text": "weiblich"
     },
     "choices/choices/1/options/they/text": {
       "source": "they",
-      "text": ""
+      "text": "androgyn"
     },
     "choices/choices/2/options/just-a-child/text": {
       "source": "just a child",
-      "text": ""
+      "text": "noch ein Kind"
     },
     "choices/choices/2/options/on-the-cusp/text": {
       "source": "on the cusp",
-      "text": ""
+      "text": "an der Schwelle"
     },
     "choices/choices/2/options/a-young-adult/text": {
       "source": "a young adult",
-      "text": ""
+      "text": "ein junger Erwachsener"
     },
     "choices/choices/3/options/carefully-chosen/text": {
       "source": "carefully chosen",
-      "text": ""
+      "text": "sorgfältig ausgewählt"
     },
     "choices/choices/3/options/marked-by-danu/text": {
       "source": "marked by Danu",
-      "text": ""
+      "text": "von Danu gezeichnet"
     },
     "choices/choices/3/options/orphaned/text": {
       "source": "orphaned",
-      "text": ""
+      "text": "verwaist"
     },
     "choices/choices/4/options/carefree/text": {
       "source": "carefree",
-      "text": ""
+      "text": "sorglos"
     },
     "choices/choices/4/options/curious/text": {
       "source": "curious",
-      "text": ""
+      "text": "neugierig"
     },
     "choices/choices/4/options/moody/text": {
       "source": "moody",
-      "text": ""
+      "text": "launisch"
     },
     "choices/choices/4/options/secretive/text": {
       "source": "secretive",
-      "text": ""
+      "text": "verschwiegen"
     }
   },
   "goat": {
     "name": {
       "source": "Goat",
-      "text": ""
+      "text": "Ziege"
     },
     "specialQuality": {
       "source": "butcher for ◇ provisions (○○○○○○ uses)",
-      "text": ""
+      "text": "kann für Proviant geschlachtet werden (○○○○○○ Anwendungen)"
     },
     "damage": {
       "source": "[[/r d4]] (_hand_)",
-      "text": ""
+      "text": "[[/r d4]] (_Hand_)"
     },
     "instinct/selected/to-explore": {
       "source": "to explore",
-      "text": ""
+      "text": "Erkunden"
     }
   },
   "gwendyl": {
     "name": {
       "source": "Gwendyl, Your Mentor",
-      "text": ""
+      "text": "Gwendyl, deine Mentorin"
     },
     "damage": {
       "source": "iron knife [[/r 1d6]] (_hand_)",
-      "text": ""
+      "text": "Eisenmesser [[/r 1d6]] (_Hand_)"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "moves": {
       "source": "- Tend to the sick, injured, women in labor\n- Weave a talisman of fertility or good luck\n- Point out a flaw in a person or plan",
-      "text": ""
+      "text": "- Kümmere dich um Kranke, Verletzte, Frauen in den Wehen\n- Webe einen Talisman der Fruchtbarkeit oder des Glücks\n- Weise auf einen Fehler in einer Person oder einem Plan hin"
     },
     "instinct/selected/to-take-offense": {
       "source": "to take offense",
-      "text": ""
+      "text": "Sich beleidigt fühlen"
     },
     "cost/selected/consideration-affection": {
       "source": "consideration, affection",
-      "text": ""
+      "text": "Rücksichtnahme, Zuneigung"
     },
     "choices/choices/0/title": {
       "source": "Pick 1 on each line",
-      "text": ""
+      "text": "Wähle eines in jeder Zeile"
     },
     "choices/choices/1/options/he/text": {
       "source": "he",
-      "text": ""
+      "text": "männlich"
     },
     "choices/choices/1/options/she/text": {
       "source": "she",
-      "text": ""
+      "text": "weiblich"
     },
     "choices/choices/1/options/they/text": {
       "source": "they",
-      "text": ""
+      "text": "androgyn"
     },
     "choices/choices/2/options/a-big-family/text": {
       "source": "a big family",
-      "text": ""
+      "text": "eine große Familie"
     },
     "choices/choices/2/options/has-taken-you-in/text": {
       "source": "has taken you in",
-      "text": ""
+      "text": "hat dich aufgenommen"
     },
     "choices/choices/2/options/lives-alone/text": {
       "source": "lives alone",
-      "text": ""
+      "text": "lebt allein"
     },
     "choices/choices/3/options/blunt/text": {
       "source": "blunt",
-      "text": ""
+      "text": "schroff"
     },
     "choices/choices/3/options/demanding/text": {
       "source": "demanding",
-      "text": ""
+      "text": "anspruchsvoll"
     },
     "choices/choices/3/options/put-upon/text": {
       "source": "put upon",
-      "text": ""
+      "text": "fordernd"
     },
     "choices/choices/3/options/suffers-no-fools/text": {
       "source": "suffers no fools",
-      "text": ""
+      "text": "duldet keine Narren"
     },
     "choices/choices/4/options/rites-of-earth-and-soil/text": {
       "source": "rites of earth & soil",
-      "text": ""
+      "text": "Riten der Erde und des Bodens"
     },
     "choices/choices/4/options/rites-of-mourning/text": {
       "source": "rites of mourning",
-      "text": ""
+      "text": "… Trauer"
     },
     "choices/choices/4/options/rites-of-petition/text": {
       "source": "rites of petition",
-      "text": ""
+      "text": "… Fürbitte"
     }
   },
   "halix": {
@@ -800,19 +800,19 @@
   "horse": {
     "name": {
       "source": "Horse",
-      "text": ""
+      "text": "Pferd"
     },
     "damage": {
       "source": "[[/r d6+3]] (_hand_, _close_, _forceful_)",
-      "text": ""
+      "text": "[[/r d6+3]] (_Hand_, _Kurz_, _Wuchtig_)"
     },
     "instinct/selected/to-panic": {
       "source": "to panic",
-      "text": ""
+      "text": "In Panik geraten"
     },
     "cost/selected/care-grooming": {
       "source": "care & grooming",
-      "text": ""
+      "text": "Betreuung & Pflege"
     }
   },
   "mantle-wraiths": {
@@ -848,205 +848,205 @@
   "mule": {
     "name": {
       "source": "Mule",
-      "text": ""
+      "text": "Maultier"
     },
     "damage": {
       "source": "[[/r d6+1]] (_hand_, _close_)",
-      "text": ""
+      "text": "[[/r d6+1]] (_Hand_, _Kurz_)"
     },
     "instinct/selected/to-avoid-danger": {
       "source": "to avoid danger",
-      "text": ""
+      "text": "Gefahren meiden"
     },
     "cost/selected/care-grooming": {
       "source": "care & grooming",
-      "text": ""
+      "text": "Betreuung & Pflege"
     }
   },
   "olwin": {
     "name": {
       "source": "Olwin, Your Anointed Lover",
-      "text": ""
+      "text": "Olwin, dein gesalbter Verehrer"
     },
     "damage": {
       "source": "iron spear [[/r 1d6]] (_close, thrown_)",
-      "text": ""
+      "text": "Eisenspeer [[/r 1d6]] (_Kurz, Geworfen_)"
     },
     "armor": {
       "source": "1",
-      "text": ""
+      "text": "1"
     },
     "moves": {
       "source": "- Perform a divination\n- Speak a (dire) prophecy\n- Make a big deal about something",
-      "text": ""
+      "text": "- Führe eine Weissagung durch\n- Verkünde eine (schreckliche) Prophezeiung\n- Mache aus etwas ein großes Gehabe"
     },
     "instinct/selected/to-lack-discretion": {
       "source": "to lack discretion",
-      "text": ""
+      "text": "Taktlos sein"
     },
     "cost/selected/tenderness-respect": {
       "source": "tenderness, respect",
-      "text": ""
+      "text": "Zärtlichkeit, Respekt"
     },
     "choices/choices/0/title": {
       "source": "Pick 1 on each line",
-      "text": ""
+      "text": "Wähle eines in jeder Zeile"
     },
     "choices/choices/1/options/he/text": {
       "source": "he",
-      "text": ""
+      "text": "männlich"
     },
     "choices/choices/1/options/she/text": {
       "source": "she",
-      "text": ""
+      "text": "weiblich"
     },
     "choices/choices/1/options/they/text": {
       "source": "they",
-      "text": ""
+      "text": "androgyn"
     },
     "choices/choices/2/options/betrothed/text": {
       "source": "betrothed",
-      "text": ""
+      "text": "verlobt"
     },
     "choices/choices/2/options/true-love/text": {
       "source": "true love",
-      "text": ""
+      "text": "wahre Liebe"
     },
     "choices/choices/2/options/ceremonial/text": {
       "source": "ceremonial",
-      "text": ""
+      "text": "zeremoniell"
     },
     "choices/choices/2/options/complicated/text": {
       "source": "complicated",
-      "text": ""
+      "text": "kompliziert"
     },
     "choices/choices/3/options/contrary/text": {
       "source": "contrary",
-      "text": ""
+      "text": "konträr"
     },
     "choices/choices/3/options/dramatic/text": {
       "source": "dramatic",
-      "text": ""
+      "text": "dramatisch"
     },
     "choices/choices/3/options/passionate/text": {
       "source": "passionate",
-      "text": ""
+      "text": "leidenschaftlich"
     },
     "choices/choices/3/options/tormented/text": {
       "source": "tormented",
-      "text": ""
+      "text": "quälend"
     },
     "choices/choices/4/options/rites-of-blood/text": {
       "source": "rites of blood",
-      "text": ""
+      "text": "Riten des Blutes"
     },
     "choices/choices/4/options/rites-of-fire/text": {
       "source": "rites of fire",
-      "text": ""
+      "text": "… Feuers"
     },
     "choices/choices/4/options/rites-of-sacred-union/text": {
       "source": "rites of sacred union",
-      "text": ""
+      "text": "… heiligen Bundes"
     }
   },
   "pig": {
     "name": {
       "source": "Pig",
-      "text": ""
+      "text": "Schwein"
     },
     "specialQuality": {
       "source": "butcher for ◇ provisions (d6+10 uses)",
-      "text": ""
+      "text": "kann für Proviant geschlachtet werden (○○○○○○ Anwendungen)"
     },
     "damage": {
       "source": "[[/r d4]] (_hand_)",
-      "text": ""
+      "text": "[[/r d4]] (_Hand_)"
     },
     "instinct/selected/to-eat-anything": {
       "source": "to eat anything",
-      "text": ""
+      "text": "Alles fressen"
     }
   },
   "seren-the-eldest": {
     "name": {
       "source": "Seren the Eldest",
-      "text": ""
+      "text": "Seren die Älteste"
     },
     "damage": {
       "source": "walking stick [[/r 1d4]] (_close_)",
-      "text": ""
+      "text": "Gehstock [[/r 1d4]] (_Kurz_)"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "moves": {
       "source": "- Consult the spirits, or abjure them\n- Spin a tale to make a point\n- Use shame and guilt as leverage",
-      "text": ""
+      "text": "- Befrage die Geister oder währe sie ab\n- Erzähle eine Geschichte, um einen Punkt zu verdeutlichen\n- Setze Scham und Schuldgefühle als Druckmittel ein"
     },
     "instinct/selected/to-hew-to-tradition": {
       "source": "to hew to tradition",
-      "text": ""
+      "text": "An Tradition festhalten"
     },
     "cost/selected/deference-good-sense-shown": {
       "source": "deference, good sense shown",
-      "text": ""
+      "text": "Ehrerbietung, gesundes Urteilsvermögen"
     },
     "choices/choices/0/title": {
       "source": "Pick 1 on each line",
-      "text": ""
+      "text": "Wähle eines in jeder Zeile"
     },
     "choices/choices/1/options/he/text": {
       "source": "he",
-      "text": ""
+      "text": "männlich"
     },
     "choices/choices/1/options/she/text": {
       "source": "she",
-      "text": ""
+      "text": "weiblich"
     },
     "choices/choices/1/options/they/text": {
       "source": "they",
-      "text": ""
+      "text": "androgyn"
     },
     "choices/choices/2/options/dismissed/text": {
       "source": "dismissed",
-      "text": ""
+      "text": "zurückgetreten"
     },
     "choices/choices/2/options/pitied/text": {
       "source": "pitied",
-      "text": ""
+      "text": "bemitleidet"
     },
     "choices/choices/2/options/feared/text": {
       "source": "feared",
-      "text": ""
+      "text": "gefürchtet"
     },
     "choices/choices/2/options/venerated/text": {
       "source": "venerated",
-      "text": ""
+      "text": "verehrt"
     },
     "choices/choices/3/options/cagey/text": {
       "source": "cagey",
-      "text": ""
+      "text": "verschlossen"
     },
     "choices/choices/3/options/friendly-but-firm/text": {
       "source": "friendly but firm",
-      "text": ""
+      "text": "freundlich, aber bestimmt"
     },
     "choices/choices/3/options/imperious/text": {
       "source": "imperious",
-      "text": ""
+      "text": "gebieterisch"
     },
     "choices/choices/4/options/rites-of-iron/text": {
       "source": "rites of iron",
-      "text": ""
+      "text": "Rituale des Eisens"
     },
     "choices/choices/4/options/rites-of-secret-naming/text": {
       "source": "rites of secret naming",
-      "text": ""
+      "text": "… geheimen Namens"
     },
     "choices/choices/4/options/rites-of-winter/text": {
       "source": "rites of winter",
-      "text": ""
+      "text": "… Winters"
     }
   },
   "servant-of-daagon": {
@@ -1186,19 +1186,19 @@
   "sheep": {
     "name": {
       "source": "Sheep",
-      "text": ""
+      "text": "Schaf"
     },
     "specialQuality": {
       "source": "butcher for ◇ provisions (○○○○○○ uses)",
-      "text": ""
+      "text": "kann für Proviant geschlachtet werden (○○○○○○ Anwendungen)"
     },
     "damage": {
       "source": "[[/r d4]] (_hand_)",
-      "text": ""
+      "text": "[[/r d4]] (_Hand_)"
     },
     "instinct/selected/to-follow-the-herd": {
       "source": "to follow the herd",
-      "text": ""
+      "text": "Der Herde folgen"
     }
   },
   "spirit-in-the-cloak": {
@@ -1402,23 +1402,23 @@
   "_folders": {
     "arcana": {
       "source": "arcana",
-      "text": ""
+      "text": "Arkana"
     },
     "livestock": {
       "source": "Livestock",
-      "text": ""
+      "text": "Domestizierte Tiere"
     },
     "the-blessed": {
       "source": "The Blessed",
-      "text": ""
+      "text": "Der Gesegnete"
     },
     "the-marshal": {
       "source": "The Marshal",
-      "text": ""
+      "text": "Der Marschall"
     },
     "the-ranger": {
       "source": "The Ranger",
-      "text": ""
+      "text": "Der Waldläufer"
     }
   }
 }

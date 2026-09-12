@@ -156,15 +156,15 @@
   "a-good-dog": {
     "name": {
       "source": "A good dog",
-      "text": ""
+      "text": "Ein guter Hund"
     },
     "label": {
       "source": "A good dog",
-      "text": ""
+      "text": "Ein guter Hund"
     },
     "description": {
       "source": "follower (retriever or herder, keen-nosed, clever); HP 6; Damage d6 (hand, grabby); Instinct to play; Cost: affection.",
-      "text": ""
+      "text": "Gefolgsmann (Apportierhund oder Schäferhund, Feine Spürnase, Klug); TP 6; Schaden 1W6 (*Hand, Fesselnd*); Instinkt: zu spielen; Kosten: Zuneigung."
     }
   },
   "a-hunk-of-amber": {
@@ -438,23 +438,23 @@
   "apiary": {
     "name": {
       "source": "Apiary",
-      "text": ""
+      "text": "Bienenstöcke"
     },
     "label": {
       "source": "Apiary",
-      "text": ""
+      "text": "Bienenstöcke"
     },
     "description": {
       "source": "beeswax, candles (*close, area*, lasts ~1 hr), honey, ◇ bee smokers, ◇ hat & veils, etc.",
-      "text": ""
+      "text": "Bienenwachs, Kerzen (Kurz, brennen ca. 1 Stunde), Honig, ◇ Bienenraucher, ◇ Hut und Schleier, usw."
     },
     "outfitItems/bee-smokers/name": {
       "source": "Bee smokers",
-      "text": ""
+      "text": "Bienenraucher"
     },
     "outfitItems/hat-veils/name": {
       "source": "Hat & veils",
-      "text": ""
+      "text": "Hut und Schleier"
     }
   },
   "artificial-limb": {
@@ -470,23 +470,23 @@
   "aviary": {
     "name": {
       "source": "Aviary",
-      "text": ""
+      "text": "Vogelhaus"
     },
     "label": {
       "source": "Aviary",
-      "text": ""
+      "text": "Vogelhaus"
     },
     "description": {
       "source": "thick gloves, bird hoods, tethers, seed, ◇ messenger birds, ◇ birdcages, etc.",
-      "text": ""
+      "text": "dicke Handschuhe, Vogelhauben, Anbindehalter, Saatgut, ◇ Botenvögel, ◇ Vogelkäfige, usw."
     },
     "outfitItems/messenger-birds/name": {
       "source": "Messenger birds",
-      "text": ""
+      "text": "Botenvögel"
     },
     "outfitItems/birdcages/name": {
       "source": "Birdcages",
-      "text": ""
+      "text": "Vogelkäfige"
     }
   },
   "barrel-of-anthracite": {
@@ -520,15 +520,15 @@
   "books-and-scrolls": {
     "name": {
       "source": "Books & scrolls",
-      "text": ""
+      "text": "Bücher und Schriftrollen"
     },
     "label": {
       "source": "Books & scrolls",
-      "text": ""
+      "text": "Bücher und Schriftrollen"
     },
     "description": {
       "source": "expend a use to consult your collection and turn a Know Things roll you just made into a 10+",
-      "text": ""
+      "text": "Gib eine Anwendung aus, um deine Sammlung zu konsultieren und einen gerade abgelegten Wurf auf Wissen kundtun, in eine 10+ zu verwandeln."
     }
   },
   "brass-sphere": {
@@ -580,93 +580,93 @@
   "burglars-kit": {
     "name": {
       "source": "Burglar's kit",
-      "text": ""
+      "text": "Einbrecherausrüstung"
     },
     "label": {
       "source": "Burglar's kit",
-      "text": ""
+      "text": "Einbrecherausrüstung"
     },
     "description": {
       "source": "picks, files, snippets, wire, ◇ prybars, ◇ hacksaws, ◇ a lantern (○○○○○ hours, *close, area*), ◇ a grappling hook, etc.",
-      "text": ""
+      "text": "Dietriche, Feilen, Kneifzangen, Draht, ◇ Brechstange, ◇ Bügelsäge, ◇ eine Laterne (○○○○○ Stunden, Lang, Bereich), ◇ ein Kletterhaken usw."
     },
     "outfitItems/prybars/name": {
       "source": "Prybars",
-      "text": ""
+      "text": "Brechstange"
     },
     "outfitItems/hacksaws/name": {
       "source": "Hacksaws",
-      "text": ""
+      "text": "Bügelsäge"
     },
     "outfitItems/lantern/name": {
       "source": "Lantern",
-      "text": ""
+      "text": "Laterne"
     },
     "outfitItems/burglar-grappling-hook/name": {
       "source": "Grappling hook",
-      "text": ""
+      "text": "Kletterhaken"
     },
     "outfitItems/lantern/resource/labels/hours": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "carpenters-tools": {
     "name": {
       "source": "Carpenter's tools",
-      "text": ""
+      "text": "Tischlerwerkzeug"
     },
     "label": {
       "source": "Carpenter's tools",
-      "text": ""
+      "text": "Tischlerwerkzeug"
     },
     "description": {
       "source": "chisels, files, nails, pitch, ◇ prybars, ◇ saws, ◇◇ firkins, barrels, etc.",
-      "text": ""
+      "text": "Meißel, Feilen, Nägel, Pech, ◇ Brecheisen, ◇ Sägen, ◇◇ kleine Fässchen, Fässer usw."
     },
     "outfitItems/prybars/name": {
       "source": "Prybars",
-      "text": ""
+      "text": "Brecheisen"
     },
     "outfitItems/saws/name": {
       "source": "Saws",
-      "text": ""
+      "text": "Sägen"
     },
     "outfitItems/firkins/name": {
       "source": "Firkins",
-      "text": ""
+      "text": "Kleine Fässchen"
     }
   },
   "chandlery": {
     "name": {
       "source": "Chandlery",
-      "text": ""
+      "text": "Kerzenmacherei"
     },
     "label": {
       "source": "Chandlery",
-      "text": ""
+      "text": "Kerzenmacherei"
     },
     "description": {
       "source": "beeswax, candles (_close_, _area_, lasts ~1 hr), wicks, scented herbs, soap, lye, ash, etc.",
-      "text": ""
+      "text": "Kerzen (brennen ca. 1 Stunde, Kurz), Dochte, duftende Kräuter, Seife, Lauge, Asche usw."
     }
   },
   "chirurgeons-tools": {
     "name": {
       "source": "Chirurgeon's tools",
-      "text": ""
+      "text": "Chirurgische Instrumente"
     },
     "label": {
       "source": "Chirurgeon's tools",
-      "text": ""
+      "text": "Chirurgische Instrumente"
     },
     "description": {
       "source": "catgut, straps, bandages, tubes, poultices, willow bark, ◇ bonesaws, etc.",
-      "text": ""
+      "text": "Darmsaiten, Knochensägen, Riemen, Schläuche, Umschläge, Verbände, Weidenrinde usw."
     },
     "outfitItems/bonesaws/name": {
       "source": "Bonesaws",
-      "text": ""
+      "text": "Knochensägen"
     }
   },
   "clockwork-bird": {
@@ -690,49 +690,49 @@
   "collected-offerings": {
     "name": {
       "source": "Collected offerings",
-      "text": ""
+      "text": "Gesammelte Opfergaben"
     },
     "label": {
       "source": "Collected offerings",
-      "text": ""
+      "text": "Gesammelte Opfergaben"
     },
     "description": {
       "source": "Expend a use to produce something valuable to a spirit of the wild. Restore 1 use each season.",
-      "text": ""
+      "text": " Gib 1 Anwendung aus, um etwas Wertvolles für einen Naturgeist hervorzubringen. Stelle jede Jahreszeit 1 Anwendung wieder her."
     },
     "resource/labels/uses": {
       "source": "uses",
-      "text": ""
+      "text": "Anwendungen"
     }
   },
   "composite-bow": {
     "name": {
       "source": "Composite bow",
-      "text": ""
+      "text": "Kompositbogen"
     },
     "label": {
       "source": "Composite bow",
-      "text": ""
+      "text": "Kompositbogen"
     },
     "description": {
       "source": "◇ (*far*, +1 damage, x piercing; ○ low ammo, ○ all out)",
-      "text": ""
+      "text": "◇ (*Fern*, +1 Schaden, Durchdringung x, ○ geringe Munition, ○ alle verbraucht"
     },
     "outfitItems/composite-bow/name": {
       "source": "Composite Bow",
-      "text": ""
+      "text": "Kompositbogen"
     },
     "outfitItems/composite-bow/note": {
       "source": "+1 damage, _x_ piercing",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung _x_"
     },
     "outfitItems/composite-bow/resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "geringe Munition"
     },
     "outfitItems/composite-bow/resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "crystal-knife": {
@@ -748,45 +748,45 @@
   "distillery": {
     "name": {
       "source": "Distillery",
-      "text": ""
+      "text": "Brennerei"
     },
     "label": {
       "source": "Distillery",
-      "text": ""
+      "text": "Brennerei"
     },
     "description": {
       "source": "skins of fine whisky (○○ uses, grants advantage to Persuade), copper tubes, malt, ◇◇ firkins, stills, barrels, etc.",
-      "text": ""
+      "text": "Trinkschlauch mit edlen Whisky (○○ Anwendung, gewährt einen Vorteil auf Überreden), Kupferrohre, Malz, ◇◇ kleine Fässchen, Brennblasen, Fässer usw."
     },
     "resource/title": {
       "source": "Skins of fine whisky",
-      "text": ""
+      "text": "Trinkschläuche mit edlen Whisky"
     },
     "outfitItems/firkins/name": {
       "source": "Firkins",
-      "text": ""
+      "text": "Kleine Fässchen"
     }
   },
   "engineers-tools": {
     "name": {
       "source": "Engineer's tools",
-      "text": ""
+      "text": "Ingenieurswerkzeuge"
     },
     "label": {
       "source": "Engineer's tools",
-      "text": ""
+      "text": "Ingenieurswerkzeuge"
     },
     "description": {
       "source": "rulers, tapes, rods, plumb-bobs, ◇ tripods, ◇ block & tackles, wheelbarrow, etc.",
-      "text": ""
+      "text": "Lineale, Maßbänder, Messstangen, Senklote, ◇ Stative, ◇ Flaschenzüge, Schubkarren, usw."
     },
     "outfitItems/engineer-tripod/name": {
       "source": "Tripod",
-      "text": ""
+      "text": "Stative"
     },
     "outfitItems/engineer-block/name": {
       "source": "Block & Tackle",
-      "text": ""
+      "text": "Flaschenzüge"
     }
   },
   "ever-burning-ember": {
@@ -820,87 +820,87 @@
   "glassworks": {
     "name": {
       "source": "Glassworks",
-      "text": ""
+      "text": "Glasbläserei"
     },
     "label": {
       "source": "Glassworks",
-      "text": ""
+      "text": "Glasbläserei"
     },
     "description": {
       "source": "vials, charms, lenses, sand, marbles, bellows, crucible, ◇ lanterns (○○○○○ _hours_, _close_, _area_), etc.",
-      "text": ""
+      "text": "Fläschchen, Anhänger, Linsen, Sand, Murmeln, Blasebälge, Schmelztiegel, ◇ Laternen (○○○○○ Stunden, Lang, Bereich), usw."
     },
     "outfitItems/lantern/name": {
       "source": "Lantern",
-      "text": ""
+      "text": "Laterne"
     },
     "outfitItems/lantern/resource/labels/hours": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "goat-herd": {
     "name": {
       "source": "Goat herd",
-      "text": ""
+      "text": "Ziegenherde"
     },
     "label": {
       "source": "Goat herd",
-      "text": ""
+      "text": "Ziegenherde"
     },
     "description": {
       "source": "milk, cheese, pelts, meat, blood, horn, wool, etc. Each season, 1 in 4 chance of having a bezoar (swallow it to cure poison).",
-      "text": ""
+      "text": "Milch, Käse, Felle, Fleisch, Blut, Horn, Wolle, etc. In jeder Jahreszeit besteht eine 25%ige Chance, einen Bezoar zu erhalten (heilt jedes Gift, wenn man es schluckt)."
     }
   },
   "heap-of-expectations": {
     "name": {
       "source": "A heap of expectations",
-      "text": ""
+      "text": "Ein Haufen Erwartungen"
     },
     "label": {
       "source": "A heap of expectations",
-      "text": ""
+      "text": "Ein Haufen Erwartungen"
     },
     "description": {
       "source": "of little use",
-      "text": ""
+      "text": "von geringem Nutzen"
     }
   },
   "herb-garden": {
     "name": {
       "source": "Herb garden",
-      "text": ""
+      "text": "Kräutergarten"
     },
     "label": {
       "source": "Herb garden",
-      "text": ""
+      "text": "Kräutergarten"
     },
     "description": {
       "source": "shears, mortars & pestles, herbs, seeds, remedies, mild poisons, ◇ spades, etc. Each spring, [[/r 1d4]] uses of bendis root (*reach, area*, burns ~1 hr, fumes repel perversions of nature).",
-      "text": ""
+      "text": "Scheren, Mörser & Stößel, Kräuter, Samen, Heilmittel, milde Gifte, ◇ Spaten usw. Jeden Frühling [[/r 1d4]] Anwendungen Bendiswurzel (*Lang, Bereich*, brennt ca. 1 Stunde, Dämpfe vertreiben Perversionen der Natur)."
     },
     "resource/title": {
       "source": "Bendis root",
-      "text": ""
+      "text": "Bendiswurzel"
     },
     "outfitItems/spades/name": {
       "source": "Spades",
-      "text": ""
+      "text": "Spaten"
     }
   },
   "hidden-stash": {
     "name": {
       "source": "Hidden stash",
-      "text": ""
+      "text": "Geheimes Versteck"
     },
     "label": {
       "source": "Hidden stash",
-      "text": ""
+      "text": "Geheimes Versteck"
     },
     "description": {
       "source": "each use produces valuables worth a purse of silvers (Value 2).",
-      "text": ""
+      "text": "jede Anwendung liefert Wertgegenstände im Wert eines Beutels Silber (Wert 2)."
     }
   },
   "hideouts": {
@@ -920,91 +920,91 @@
   "holy-relics": {
     "name": {
       "source": "Holy relics",
-      "text": ""
+      "text": "Heilige Reliquien"
     },
     "label": {
       "source": "Holy relics",
-      "text": ""
+      "text": "Heilige Reliquien"
     },
     "description": {
       "source": "if you have one in inventory when you Invoke the Sun God, you can mark a use in lieu of choosing a consequence.",
-      "text": ""
+      "text": "Wenn du beim Anrufen des Sonnengottes eine davon im Gepäck hast, kannst du eine Anwendung markieren, statt eine Konsequenz zu wählen."
     }
   },
   "hounds": {
     "name": {
       "source": "Hounds",
-      "text": ""
+      "text": "Jagdhunde"
     },
     "label": {
       "source": "Hounds",
-      "text": ""
+      "text": "Jagdhunde"
     },
     "description": {
       "source": "2-3 followers (*alert, keen-nosed, fierce, overprotective*); HP 6; Damage d6 (*hand, grabby*); Instinct: to bark & threaten; Cost: affection.",
-      "text": ""
+      "text": "2–3 Gefolgsleute (Fährtenleser, feine Nasen, Schnell); TP 6; Schaden 1W6 (*Hand, Fesselnd*); Instinkt: Verfolgung aufnehmen; Kosten: Ausbildung."
     }
   },
   "husbandry-tools": {
     "name": {
       "source": "Husbandry tools",
-      "text": ""
+      "text": "Hilfsmittel zur Tierpflege"
     },
     "label": {
       "source": "Husbandry tools",
-      "text": ""
+      "text": "Hilfsmittel zur Tierpflege"
     },
     "description": {
       "source": "brushes, muzzles, collars, feed, ◇ whips, ◇ bridles, etc. Gain advantage to Persuade domestic beasts (livestock, dogs, etc.).",
-      "text": ""
+      "text": "Bürsten, Maulkörbe, Halsbänder, Futter, ◇ Peitschen, ◇ Zaumzeug, etc. Du erhältst einen Vorteil, um domestizierte Tiere (Vieh, Hunde, etc.) zu überreden."
     },
     "outfitItems/husbandry-whips/name": {
       "source": "Whips",
-      "text": ""
+      "text": "Peitschen"
     },
     "outfitItems/husbandry-bridles/name": {
       "source": "Bridles",
-      "text": ""
+      "text": "Zaumzeug"
     }
   },
   "laboratory": {
     "name": {
       "source": "Laboratory",
-      "text": ""
+      "text": "Laboratorium"
     },
     "label": {
       "source": "Laboratory",
-      "text": ""
+      "text": "Laboratorium"
     },
     "description": {
       "source": "chemics, reagents, vials, measures, ◇ scales, ◇ decanters, etc. Every season, produce [[/r 1d4-1]] uses of ◇ naphtha (*thrown, area, dangerous, ignores armor*)",
-      "text": ""
+      "text": "Chemikalien, Reagenzien, Fläschchen, Messgeräte, ◇ Waagen, ◇ Dekanter, usw. Produziere jede Jahreszeit [[/r 1d4-1]] Anwendungen Naphtha (Geworfen, Bereich, Gefährlich, Ignoriert Rüstung)."
     },
     "outfitItems/laboratory-scales/name": {
       "source": "Scales",
-      "text": ""
+      "text": "Waagen"
     },
     "outfitItems/laboratory-decanters/name": {
       "source": "Decanters",
-      "text": ""
+      "text": "Dekanter"
     },
     "outfitItems/laboratory-naptha/name": {
       "source": "Naptha",
-      "text": ""
+      "text": "Naptha"
     }
   },
   "lay-of-the-land": {
     "name": {
       "source": "Lay of the land",
-      "text": ""
+      "text": "Geländekenntnis"
     },
     "label": {
       "source": "Lay of the land",
-      "text": ""
+      "text": "Geländekenntnis"
     },
     "description": {
       "source": "expend a use to know where to find ___, without having to Know Things; GM can veto",
-      "text": ""
+      "text": "Gib eine Anwendung aus, um zu wissen, wo du ___ finden kannst, ohne Wissen kundtun zu müssen (die SL kann ein Veto einlegen)."
     }
   },
   "length-of-braided-leather": {
@@ -1020,29 +1020,29 @@
   "luthiers-tools": {
     "name": {
       "source": "Luthier's tools",
-      "text": ""
+      "text": "Instumentenbauerwerkzeuge"
     },
     "label": {
       "source": "Luthier's tools",
-      "text": ""
+      "text": "Instumentenbauerwerkzeuge"
     },
     "description": {
       "source": "gut strings, pegs, wood, varnish, ◇ chisels, ◇ clamps; instruments, repairs, etc.",
-      "text": ""
+      "text": "Meißel, Feilen, Darmsaiten, verschiedene Hölzer, Beizen, eine Laute, eine Fiedel usw."
     }
   },
   "mastiffs": {
     "name": {
       "source": "Mastiffs",
-      "text": ""
+      "text": "Mastiffs"
     },
     "label": {
       "source": "Mastiffs",
-      "text": ""
+      "text": "Mastiffs"
     },
     "description": {
       "source": "2-3 followers (*alert, keen-nosed, fierce, overprotective*); HP 6; Damage d6 (*hand, grabby*); Instinct: to bark & threaten; Cost: affection.",
-      "text": ""
+      "text": "2-3 Gefolgsleute (*Wachsam, Feiner Geruchssinn, Wild, Überfürsorglich*); 6 TP; 1W6 Schaden (*Hand, Fesselnd*); Instinkt: bellen & drohen; Kosten: Zuneigung."
     }
   },
   "moonlight-raiment": {
@@ -1058,23 +1058,23 @@
   "mummers-kit": {
     "name": {
       "source": "Mummer's kit",
-      "text": ""
+      "text": "Gauklerausrüstung"
     },
     "label": {
       "source": "Mummer's kit",
-      "text": ""
+      "text": "Gauklerausrüstung"
     },
     "description": {
       "source": "juggling balls, whirlybird seeds, motley, ribbons, bells, ◇ puppets, ◇ a fiddle, etc.",
-      "text": ""
+      "text": "Jonglierbälle, Ahornsamen, bunte Kleidung, Bänder, Glöckchen, ◇ Puppen, ◇ eine Fiedel, usw."
     },
     "outfitItems/mummer-puppets/name": {
       "source": "Puppets",
-      "text": ""
+      "text": "Puppen"
     },
     "outfitItems/mummer-fiddle/name": {
       "source": "A fiddle",
-      "text": ""
+      "text": "Eine Fiedel"
     }
   },
   "orichalcum-spear": {
@@ -1112,83 +1112,83 @@
   "paraphernalia": {
     "name": {
       "source": "Paraphernalia",
-      "text": ""
+      "text": "Zauberutensilien"
     },
     "label": {
       "source": "Paraphernalia",
-      "text": ""
+      "text": "Zauberutensilien"
     },
     "description": {
       "source": "crystals, incense, talismans, blood, bone, horn, eye of newt, ◇ braziers, ◇◇ a cauldron, etc.",
-      "text": ""
+      "text": "Kristalle, Räucherwerk, Talismane, Blut, Knochen, Horn, Froschaugen, ◇ Kohlenbecken, ◇◇ ein Kessel, usw."
     },
     "outfitItems/paraphernalia-braziers/name": {
       "source": "Braziers",
-      "text": ""
+      "text": "Kohlenbecken"
     },
     "outfitItems/paraphernalia-cauldron/name": {
       "source": "A cauldron",
-      "text": ""
+      "text": "Ein Kessel"
     }
   },
   "personal-symbol": {
     "name": {
       "source": "Personal symbol",
-      "text": ""
+      "text": "Persönliches Symbol"
     },
     "label": {
       "source": "Personal symbol",
-      "text": ""
+      "text": "Persönliches Symbol"
     },
     "description": {
       "source": "a banner, insignia, or seal that marks you as the Marshal of Stonetop. Recognized throughout the Manmarch.",
-      "text": ""
+      "text": "ein Banner, ein Abzeichen oder ein Siegel, das dich als Marschall von Stonetop ausweist."
     }
   },
   "personal-token": {
     "name": {
       "source": "Personal token, fraught with meaning",
-      "text": ""
+      "text": "Persönliches Zeichen, voller Bedeutung"
     },
     "label": {
       "source": "Personal token, fraught with meaning",
-      "text": ""
+      "text": "Persönliches Zeichen, voller Bedeutung"
     },
     "description": {
       "source": "(pick 1)",
-      "text": ""
+      "text": "(wähle 1)"
     },
     "choices/0/options/family-heirloom/text": {
       "source": "◇◇ A shield, bearing ___’s crest",
-      "text": ""
+      "text": "◇◇ Ein Schild mit dem Wappen von ___"
     },
     "choices/0/options/cloak/text": {
       "source": "◇ A wool cloak, woven just for you by ___",
-      "text": ""
+      "text": "◇ Ein Wollmantel, der von ___ eigens für dich gewebt wurde"
     },
     "choices/0/options/letter/text": {
       "source": "A letter, spattered with tears & blood",
-      "text": ""
+      "text": "Ein Brief, bespritzt mit Tränen und Blut"
     },
     "choices/0/options/flute/text": {
       "source": "A flute, a gift from someone you loved",
-      "text": ""
+      "text": "Eine Flöte, ein Geschenk von jemandem, den du geliebt hast"
     },
     "choices/0/options/locket/text": {
       "source": "A fine locket, holding a strand of hair",
-      "text": ""
+      "text": "Ein edles Medaillon, in dem eine Haarsträhne aufbewahrt wird"
     },
     "choices/0/options/tinderbox/text": {
       "source": "A tinderbox, lovingly engraved",
-      "text": ""
+      "text": "Eine Zunderbüchse, liebevoll verziert"
     },
     "choices/0/options/family-heirloom/outfitItems/shield-bearing-a-crest/name": {
       "source": "Shield, bearing a crest",
-      "text": ""
+      "text": "Schild mit Wappen"
     },
     "choices/0/options/cloak/outfitItems/wool-cloak-woven/name": {
       "source": "Wool cloak, woven just for you",
-      "text": ""
+      "text": "Ein Wollmantel, der eigens für dich gewebt wurde"
     }
   },
   "power-crystal": {
@@ -1208,37 +1208,37 @@
   "sacred-pouch": {
     "name": {
       "source": "Sacred pouch (*magical*)",
-      "text": ""
+      "text": "Heiliger Beutel (*Magisch)*"
     },
     "label": {
       "source": "Sacred pouch (*magical*)",
-      "text": ""
+      "text": "Heiliger Beutel (*Magisch)*"
     },
     "description": {
       "source": "See playbook tab",
-      "text": ""
+      "text": "Siehe Klassenbuch Registerkarte"
     },
     "resource/title": {
       "source": "Stock",
-      "text": ""
+      "text": "Vorrat"
     }
   },
   "scribes-tools": {
     "name": {
       "source": "Scribe's tools",
-      "text": ""
+      "text": "Schreibutensilien"
     },
     "label": {
       "source": "Scribe's tools",
-      "text": ""
+      "text": "Schreibutensilien"
     },
     "description": {
       "source": "parchment, ink, pigments, vials, quills, ◇ a notebook, etc.",
-      "text": ""
+      "text": "Pergament, Tinte, Pigmente, Fläschchen, Federkiele, ◇ ein Notizbuch, usw."
     },
     "outfitItems/notebook/name": {
       "source": "Notebook",
-      "text": ""
+      "text": "Notizbuch"
     }
   },
   "self-burning-lamp": {
@@ -1296,53 +1296,53 @@
   "smithy": {
     "name": {
       "source": "Smithy",
-      "text": ""
+      "text": "Schmiede "
     },
     "label": {
       "source": "Smithy",
-      "text": ""
+      "text": "Schmiede "
     },
     "description": {
       "source": "(or access to it): iron goods, ingots, thick gloves, ◇ tongs, ◇ bellows, an anvil, etc.",
-      "text": ""
+      "text": "(oder Zugang dazu): Eisenwaren, Barren, dicke Handschuhe, ◇ Zangen, ◇ Blasebälge, Amboss usw."
     },
     "outfitItems/smithy-tongs/name": {
       "source": "Tongs",
-      "text": ""
+      "text": "Zangen"
     },
     "outfitItems/smithy-bellows/name": {
       "source": "Bellows",
-      "text": ""
+      "text": "Blasebälge"
     }
   },
   "stoneworkers-tools": {
     "name": {
       "source": "Stoneworker's tools",
-      "text": ""
+      "text": "Steinmetzwerkzeuge"
     },
     "label": {
       "source": "Stoneworker's tools",
-      "text": ""
+      "text": "Steinmetzwerkzeuge"
     },
     "description": {
       "source": "chisels, drills, ◇ prybars, ◇ spikes, ◇ block & tackles, wheelbarrow, etc.",
-      "text": ""
+      "text": "Meißel, Bohrer, ◇ Brecheisen, ◇ Spitzeisen, ◇ Flaschenzüge, Schubkarre, usw."
     },
     "outfitItems/stoneworkers-prybars/name": {
       "source": "Prybars",
-      "text": ""
+      "text": "Brecheisen"
     },
     "outfitItems/stoneworkers-spikes/name": {
       "source": "Spikes",
-      "text": ""
+      "text": "Spitzeisen"
     },
     "outfitItems/stoneworkers-block-tackle/name": {
       "source": "Block & tackles",
-      "text": ""
+      "text": "Flaschenzüge"
     },
     "outfitItems/stoneworkers-wheelbarrow/name": {
       "source": "Wheelbarrow",
-      "text": ""
+      "text": "Schubkarre"
     }
   },
   "storm-cloud-potion": {
@@ -1358,73 +1358,73 @@
   "symbol-of-authority": {
     "name": {
       "source": "Symbol of authority (pick 1)",
-      "text": ""
+      "text": "Symbol der Autorität (wähle 1)"
     },
     "label": {
       "source": "Symbol of authority (pick 1)",
-      "text": ""
+      "text": "Symbol der Autorität (wähle 1)"
     },
     "choices/0/options/authority-black-iron-maul/text": {
       "source": "◇◇ Black iron maul",
-      "text": ""
+      "text": "◇◇ Schlägel aus schwarzen Eisen"
     },
     "choices/0/options/authority-black-iron-maul/description": {
       "source": "utterly immune to all magic (*close, forceful, awkward*, +1 damage)",
-      "text": ""
+      "text": ", völlig immun gegen jegliche Magie (*Kurz, Wuchtig, Unhandlich*, +1 Schaden)"
     },
     "choices/0/options/authority-makerglass-shield/text": {
       "source": "◇◇ Makerglass shield",
-      "text": ""
+      "text": "◇◇ Schild aus Schöpferglas"
     },
     "choices/0/options/authority-makerglass-shield/description": {
       "source": "etched with Aratis's symbol (*indestructible*, +1 armor, +1 Readiness on a Defend 7+)",
-      "text": ""
+      "text": "mit eingeätzten Symbol von Aratis (*Unzerstörbar*, +1 Rüstung, +1 Bereitschaft bei Verteidigung 7+)"
     },
     "choices/0/options/authority-helm/text": {
       "source": "Helm",
-      "text": ""
+      "text": "Helm"
     },
     "choices/0/options/authority-helm/description": {
       "source": "set with a dark ice \"jewel.\" Grants advantage to resist mind-affecting magic.",
-      "text": ""
+      "text": "mit einem \"Juwel\" aus dunklem Eis. Gewährt einen Vorteil beim Widerstand gegen bewusstseinsbeeinflussende Magie."
     },
     "choices/0/options/authority-black-iron-maul/outfitItems/black-iron-maul/name": {
       "source": "Black iron maul, utterly immune to all magic",
-      "text": ""
+      "text": "Schlägel aus schwarzen Eisen, völlig immun gegen jegliche Magie"
     },
     "choices/0/options/authority-black-iron-maul/outfitItems/black-iron-maul/note": {
       "source": "*close, forceful, awkward*, +1 damage",
-      "text": ""
+      "text": "*Kurz, Wuchtig, Unhandlich*, +1 Schaden"
     },
     "choices/0/options/authority-makerglass-shield/outfitItems/makerglass-shield/name": {
       "source": "Makerglass shield, etched with Aratis's symbol",
-      "text": ""
+      "text": "Schild aus Schöpferglas, mit eingeätzten Symbol von Aratis"
     },
     "choices/0/options/authority-makerglass-shield/outfitItems/makerglass-shield/note": {
       "source": "*indestructible*, +1 armor, +1 Readiness on a Defend 7+",
-      "text": ""
+      "text": "*Unzerstörbar*, +1 Rüstung, +1 Bereitschaft bei Verteidigung 7+"
     }
   },
   "tannery": {
     "name": {
       "source": "Tannery",
-      "text": ""
+      "text": "Gerberei "
     },
     "label": {
       "source": "Tannery",
-      "text": ""
+      "text": "Gerberei "
     },
     "description": {
       "source": "(or access to it): lime, acid, salts, thick gloves, ◇ a boiled leather cuirass (1 armor), etc.",
-      "text": ""
+      "text": "(oder Zugang dazu): Kalk, Säure, Salze, dicke Handschuhe, ◇ ein Kürass aus gekochtem Leder (1 Rüstung) usw."
     },
     "outfitItems/tannery-cuirass/name": {
       "source": "A boiled leather cuirass",
-      "text": ""
+      "text": "Ein Kürass aus gekochtem Leder"
     },
     "outfitItems/tannery-cuirass/note": {
       "source": "1 armor",
-      "text": ""
+      "text": "1 Rüstung"
     }
   },
   "the-red-pennant": {
@@ -1466,29 +1466,29 @@
   "trade-contacts": {
     "name": {
       "source": "Trade contacts",
-      "text": ""
+      "text": "Handelskontakte"
     },
     "label": {
       "source": "Trade contacts",
-      "text": ""
+      "text": "Handelskontakte"
     },
     "description": {
       "source": "small amounts of salt, glass, silk, spice, medicinal herbs, pigments, ivory, etc.",
-      "text": ""
+      "text": "kleine Mengen an Salz, Glas, Seide, Gewürzen, Heilkräutern, Pigmenten, Elfenbein, usw."
     }
   },
   "trapping-gear": {
     "name": {
       "source": "Trapping gear",
-      "text": ""
+      "text": "Fallenstellerausrüstung"
     },
     "label": {
       "source": "Trapping gear",
-      "text": ""
+      "text": "Fallenstellerausrüstung"
     },
     "description": {
       "source": "snares, pelts, musk, bait, etc. When you _**Forage**_, get +1 use of provisions.",
-      "text": ""
+      "text": "Schlingen, Felle, Moschus, Köder usw. Wenn du _**Nahrung suchst**_, erhältst du +1 Anwendung an Proviant."
     }
   },
   "two-mirrors": {
@@ -1512,153 +1512,153 @@
   "weapons-of-war-heavy": {
     "name": {
       "source": "Weapons of war",
-      "text": ""
+      "text": "Kriegswaffen"
     },
     "label": {
       "source": "Weapons of war",
-      "text": ""
+      "text": "Kriegswaffen"
     },
     "description": {
       "source": "choose up to 3 (now or later)",
-      "text": ""
+      "text": "Wähle bis zu 3 (jetzt oder später)"
     },
     "choices/0/options/sword/text": {
       "source": "◇ Sword, iron (*close*, +1 damage)",
-      "text": ""
+      "text": "◇ Schwert, Eisen (*Kurz*, +1 Schaden)"
     },
     "choices/0/options/battleaxe/text": {
       "source": "◇ Battleaxe, iron (*close, messy*)",
-      "text": ""
+      "text": "◇ Streitaxt, Eisen (*Kurz, Brutal*)"
     },
     "choices/0/options/warhammer/text": {
       "source": "◇ Warhammer, iron (*close*, 2 piercing)",
-      "text": ""
+      "text": "◇ Kriegshammer, Eisen (*Kurz*, Durchdringung 2)"
     },
     "choices/0/options/mace-or-flail/text": {
       "source": "◇ Mace or flail, iron (*close, forceful*)",
-      "text": ""
+      "text": "◇ Streitkolben oder Flegel, Eisen (*Kurz, Wuchtig*)"
     },
     "choices/0/options/crossbow/text": {
       "source": "◇ Crossbow (*far*, +1 damage, *reload*, x piercing)",
-      "text": ""
+      "text": "◇ Armbrust (*Fern*, +1 Schaden, *Nachladen*, Durchdringung x)"
     },
     "choices/0/options/sword/outfitItems/sword/name": {
       "source": "Sword, iron",
-      "text": ""
+      "text": "Schwert, Eisen"
     },
     "choices/0/options/sword/outfitItems/sword/note": {
       "source": "*close*, +1 damage",
-      "text": ""
+      "text": "*Kurz, +1 Schaden*"
     },
     "choices/0/options/battleaxe/outfitItems/battleaxe/name": {
       "source": "Battleaxe, iron",
-      "text": ""
+      "text": "Streitaxt, Eisen"
     },
     "choices/0/options/battleaxe/outfitItems/battleaxe/note": {
       "source": "*close, messy*",
-      "text": ""
+      "text": "*Kurz, Brutal*"
     },
     "choices/0/options/warhammer/outfitItems/warhammer/name": {
       "source": "Warhammer, iron",
-      "text": ""
+      "text": "Kriegshammer, Eisen"
     },
     "choices/0/options/warhammer/outfitItems/warhammer/note": {
       "source": "*close*, 2 piercing",
-      "text": ""
+      "text": "*Kurz*, Durchdringung 2"
     },
     "choices/0/options/mace-or-flail/outfitItems/mace-or-flail/name": {
       "source": "Mace or flail, iron",
-      "text": ""
+      "text": "Streitkolben oder Flegel, Eisen"
     },
     "choices/0/options/mace-or-flail/outfitItems/mace-or-flail/note": {
       "source": "*close, forceful*",
-      "text": ""
+      "text": "*Kurz, Wuchtig*"
     },
     "choices/0/options/crossbow/outfitItems/crossbow/name": {
       "source": "Crossbow",
-      "text": ""
+      "text": "Armbrust"
     },
     "choices/0/options/crossbow/outfitItems/crossbow/note": {
       "source": "*far*, +1 damage, *reload, x* piercing",
-      "text": ""
+      "text": "*Fern*, +1 Schaden, *Nachladen*, Durchdringung x"
     },
     "choices/0/options/crossbow/outfitItems/crossbow/resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "geringe Munition"
     },
     "choices/0/options/crossbow/outfitItems/crossbow/resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "weapons-of-war-marshal": {
     "name": {
       "source": "Weapons of war",
-      "text": ""
+      "text": "Kriegswaffen"
     },
     "label": {
       "source": "Weapons of war",
-      "text": ""
+      "text": "Kriegswaffen"
     },
     "description": {
       "source": "choose up to 3 (now or later)",
-      "text": ""
+      "text": "Wähle bis zu drei (jetzt oder später)"
     },
     "choices/0/options/sword/text": {
       "source": "◇ Sword, iron (*close*, +1 damage)",
-      "text": ""
+      "text": "◇ Schwert, Eisen (*Kurz*, +1 Schaden)"
     },
     "choices/0/options/long-spear/text": {
       "source": "◇◇ Long spear, fine steel (*reach*, 2 piercing)",
-      "text": ""
+      "text": "◇◇ Langspeer, feiner Stahl (*Lang*, Durchdringung 2)"
     },
     "choices/0/options/battleaxe/text": {
       "source": "◇ Battleaxe, iron (*close, messy*)",
-      "text": ""
+      "text": "◇ Streitaxt, Eisen (*Kurz, Brutal*)"
     },
     "choices/0/options/composite-bow/text": {
       "source": "◇ Composite bow (*far*, +1 damage, x piercing; ○ low ammo, ○ all out)",
-      "text": ""
+      "text": "◇ Kompositbogen (*Fern*, +1 Schaden, Durchdringend x"
     },
     "choices/0/options/sword/outfitItems/sword/name": {
       "source": "Sword, iron",
-      "text": ""
+      "text": "Schwert, Eisen"
     },
     "choices/0/options/sword/outfitItems/sword/note": {
       "source": "+1 damage",
-      "text": ""
+      "text": "+1 Schaden"
     },
     "choices/0/options/long-spear/outfitItems/long-spear/name": {
       "source": "Long spear, fine steel",
-      "text": ""
+      "text": "Langspeer, feiner Stahl"
     },
     "choices/0/options/long-spear/outfitItems/long-spear/note": {
       "source": "2 piercing",
-      "text": ""
+      "text": "Durchdringung 2"
     },
     "choices/0/options/battleaxe/outfitItems/battleaxe/name": {
       "source": "Battleaxe, iron",
-      "text": ""
+      "text": "Streitaxt, Eisen"
     },
     "choices/0/options/battleaxe/outfitItems/battleaxe/note": {
       "source": "*close, messy*",
-      "text": ""
+      "text": "*Kurz, Brutal*"
     },
     "choices/0/options/composite-bow/outfitItems/composite-bow/name": {
       "source": "Composite Bow",
-      "text": ""
+      "text": "Kompositbogen"
     },
     "choices/0/options/composite-bow/outfitItems/composite-bow/note": {
       "source": "+1 damage, _x_ piercing",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung _x_"
     },
     "choices/0/options/composite-bow/outfitItems/composite-bow/resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": ""
+      "text": "geringe Munition"
     },
     "choices/0/options/composite-bow/outfitItems/composite-bow/resource/labels/all-out": {
       "source": "all out",
-      "text": ""
+      "text": "alle verbraucht"
     }
   },
   "_folders": {
