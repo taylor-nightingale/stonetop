@@ -59,6 +59,8 @@ export class SeasonStepSnapshot {
 	get die()          { return this.roll?.die ?? null; }
 	get stat()         { return this.roll?.stat ?? null; }
 	get statLabelKey() { return this.roll?.statLabelKey ?? this.step.statLabelKey ?? null; }
+	/** What the control prints after the rating — "− 2" — or null where the roll adds nothing. */
+	get modifierLabel() { return this.roll?.modifierLabel ?? null; }
 
 	get hasAdjustments() { return this.adjustments.length > 0; }
 	get hasTiers()       { return this.tiers.length > 0; }
@@ -69,24 +71,38 @@ export class SeasonStepSnapshot {
 	tierFor(key) { return this.tiers.find(tier => tier.key === key) ?? null; }
 
 	/**
-	 * What the results change about the amount, as a signed number the roll's total is moved by.
+	 * What the results change about the amount, as a signed number.
 	 *
 	 * The signs already agree: Stone Wall's −1 is one less Surplus consumed, the Golden Sapling's +1
 	 * is one more generated. Conditional ones are left out — the logging camp reduces the winter
 	 * consumption "as long as the camp is in operation", which is not a thing the sheet can know, and
 	 * the system's standing rule is that a condition it cannot evaluate is stated and never applied.
+	 *
+	 * Static as well as a getter because `buildSeasonSteps` needs the answer BEFORE the step exists:
+	 * a step that rolls folds this into its dice, and the roll is built to construct the step with.
 	 */
-	get resultDelta() {
-		return this.results
+	static resultDeltaOf(results = [], contribution = null) {
+		return results
 			.filter(line => !line.isConditional)
 			.reduce((total, line) => total + (line.adjustment.amount ?? 0), 0)
 			// The mill's +1 at the harvest, the town's Population+1 in spring: the same arithmetic
 			// arriving by a different route — what the steading adds to what this step pays out.
-			+ (this.contribution?.delta ?? 0);
+			+ (contribution?.delta ?? 0);
 	}
 
+	get resultDelta() { return SeasonStepSnapshot.resultDeltaOf(this.results, this.contribution); }
+
+	/**
+	 * The part of it the dice do NOT already carry.
+	 *
+	 * A step that rolls has it in its bonus — the total on the dice is the Surplus that moves, which
+	 * is the one number the table should have to read. A step with no dice of its own has nowhere to
+	 * put it, and its whole amount is this.
+	 */
+	get unrolledDelta() { return this.roll?.die ? 0 : this.resultDelta; }
+
 	/** What the step actually moves for a rolled total — never below nothing at all. */
-	amountFor(total) { return Math.max(0, total + this.resultDelta); }
+	amountFor(total) { return Math.max(0, total + this.unrolledDelta); }
 
 	/**
 	 * What a step with no dice of its own pays — the whole of what the steading's improvements bring.
@@ -183,6 +199,8 @@ export class SeasonTierSnapshot {
 	get die()          { return this.roll?.die ?? null; }
 	get stat()         { return this.roll?.stat ?? null; }
 	get statLabelKey() { return this.roll?.statLabelKey ?? this.result.statLabelKey ?? null; }
+	/** Always null — nothing bends a tier's own roll — but the shared control asks both for it. */
+	get modifierLabel() { return this.roll?.modifierLabel ?? null; }
 	/** The control's fallback wording, for the same reason a step has one: a row always has words. */
 	get labelKey()     { return "stonetop.steading.seasons.steps.rollFormula"; }
 
@@ -255,8 +273,15 @@ export function buildSeasonSteps({ procedure = null, statement = null, applied =
 		// The dice BEFORE any improvement: winter's are the steading's Size's, and Township's clause
 		// about a town's 2d6 is what a town rolls because it is a town.
 		const sized  = step.dieFor?.(size) ?? null;
-		const roll   = adjustments.rollFor(step, index, sized)
-			.withExtraDice(contribution?.dice ?? [], contribution?.sources ?? []);
+		// What the step's results make it pay, folded into the dice rather than taken off the total
+		// afterwards: the number the table watches is the Surplus that moves. A step with no dice of
+		// its own keeps it — see `unrolledDelta`.
+		const results = adjustments.resultsFor(index);
+		const roll = adjustments.rollFor(step, index, sized)
+			.withExtraDice(contribution?.dice ?? [], contribution?.sources ?? [])
+			.withResultDelta(SeasonStepSnapshot.resultDeltaOf(results, contribution),
+				[...results.filter(line => !line.isConditional).map(line => line.source),
+					...(contribution?.sources ?? [])]);
 		return new SeasonStepSnapshot({
 			step,
 			index,
@@ -268,7 +293,7 @@ export function buildSeasonSteps({ procedure = null, statement = null, applied =
 			// of them: it posts a card and moves nothing, which is why it names no die here.
 			roll: !step.isTieredRoll && roll.die ? roll : null,
 			adjustments: adjustments.linesFor(index),
-			results:     adjustments.resultsFor(index),
+			results,
 			applied:  applied?.[String(index)] ?? null,
 			pick:     step.isPick ? pick : null,
 			tiers:    buildTiers(step, index, applied, step.isTieredRoll ? outcomes : [], outcome),

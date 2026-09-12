@@ -18,22 +18,30 @@ import { EFFECT_STEPS } from "../../data/steading/ImprovementEffect.js";
  *
  * A die and a rating rather than a formula string, because that is the pair `rollSeasonStep` takes —
  * so the rating still resolves through resolveBonus, debilities and all, and there is no `@` path to
- * parse. `termDelta` is the other half: Additional Housing does not change the formula, it changes
- * what Population counts as inside it.
+ * parse. The two deltas are the rest of it: Additional Housing does not change the formula, it
+ * changes what Population counts as inside it (`termDelta`), and Stone Wall changes what the dice
+ * come to once they land (`resultDelta`). Both are in the roll, so one number answers what the
+ * season costs.
  */
 export class AdjustedStepRoll {
-	constructor({ die = null, stat = null, termDelta = 0, sources = [], resized = false } = {}) {
+	constructor({ die = null, stat = null, termDelta = 0, resultDelta = 0, sources = [], resized = false } = {}) {
 		this.die       = die;
 		this.stat      = stat;
 		this.termDelta = termDelta;
+		// What the step pays LESS (or more) once the dice land — Stone Wall's "1 less Surplus than
+		// normal". Kept apart from `termDelta` because the two are different sentences and each still
+		// reads as its own line under the step; they meet only in the arithmetic, where the roll adds
+		// both so the total the table watches IS what the steading pays.
+		this.resultDelta = resultDelta;
 		// Whether the steading's SIZE already changed these dice before any improvement did — winter's
 		// 2d6 in a town. Kept apart from `sources`, which are improvements by name: the size is not one
 		// of them, and it says so under the step in its own words.
 		this.resized   = resized;
 		// The improvements that made it so, by name. Not rendered from here — each states itself, in
 		// its own words, in the list under the step — but a roll has to know whether anything bent it,
-		// because that is what decides whether the control names the dice at all.
-		this.sources   = sources;
+		// because that is what decides whether the control names the dice at all. Deduped: one
+		// improvement that both bends the dice and changes what they cost is one source, not two.
+		this.sources   = [...new Set(sources)];
 	}
 
 	/**
@@ -54,16 +62,58 @@ export class AdjustedStepRoll {
 	withExtraDice(dice = [], sources = []) {
 		if (!dice.length) return this;
 		return new AdjustedStepRoll({
-			die:       [this.die, ...dice].filter(Boolean).join(" + "),
-			stat:      this.stat,
-			termDelta: this.termDelta,
-			sources:   [...this.sources, ...sources],
-			resized:   this.resized,
+			die:         [this.die, ...dice].filter(Boolean).join(" + "),
+			stat:        this.stat,
+			termDelta:   this.termDelta,
+			resultDelta: this.resultDelta,
+			sources:     [...this.sources, ...sources],
+			resized:     this.resized,
+		});
+	}
+
+	/**
+	 * The same roll paying what the step's results make it pay — Stone Wall's −1 inside the dice.
+	 *
+	 * The book hooks those results AFTER the roll ("consumes 1 less Surplus than normal"), and the
+	 * sheet used to as well: it rolled 2d6+Population and quietly paid one less. Two numbers for one
+	 * cost, and the table had to read the applied line to find the one that mattered. Folded into the
+	 * roll, the total on the dice is the Surplus that leaves the stores. What each improvement SAID is
+	 * still read, unsummarised, in its own line under the step.
+	 */
+	withResultDelta(delta = 0, sources = []) {
+		if (!delta) return this;
+		return new AdjustedStepRoll({
+			die:         this.die,
+			stat:        this.stat,
+			termDelta:   this.termDelta,
+			resultDelta: this.resultDelta + delta,
+			sources:     [...this.sources, ...sources],
+			resized:     this.resized,
 		});
 	}
 
 	/** The rating as this step counts it: resolveBonus answers what it IS, this what it counts as. */
-	bonusFrom(resolved) { return resolved + this.termDelta; }
+	bonusFrom(resolved) { return resolved + this.modifier; }
+
+	/** Everything this roll adds beyond the rating itself — what the control has to print. */
+	get modifier() { return this.termDelta + this.resultDelta; }
+
+	/**
+	 * The modifier as a reader sees it — "− 2" — or null where there is nothing to print.
+	 *
+	 * A true minus sign, because this is prose on a button and not an expression: "2d6 + Population
+	 * − 2" is the formula the table is being offered. `expressionFrom` is the other half, and it
+	 * writes ASCII because Foundry has to parse it.
+	 */
+	get modifierLabel() {
+		return this.modifier ? `${this.modifier < 0 ? "\u2212" : "+"} ${Math.abs(this.modifier)}` : null;
+	}
+
+	/** The dice expression for a rating that resolved to this — what Foundry evaluates. */
+	expressionFrom(resolved) {
+		const bonus = this.bonusFrom(resolved);
+		return bonus < 0 ? `${this.die} - ${Math.abs(bonus)}` : `${this.die} + ${bonus}`;
+	}
 }
 
 /**

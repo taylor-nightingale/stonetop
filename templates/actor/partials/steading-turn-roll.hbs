@@ -41,12 +41,21 @@
 			      one place the roll this steading actually makes belongs, and it is what says the sheet
 			      took the improvements at their word. Short to a verb only where the line already stated
 			      the formula and nothing bent it — "Roll 1d4+Population" under "…rolls 1d4+Population"
-			      is it twice. --}}
+			      is it twice.
+
+			      The modifier is spelled out where there is one — "Roll 2d6 + Population − 2" — because
+			      what the improvements come to is the whole reason this steading's winter is not the
+			      one the line above describes, and the total it rolls is the Surplus that leaves. --}}
 			<span>
 				{{~#if roll.isAdjusted~}}
-					{{#if stat}}{{localize "stonetop.steading.seasons.steps.rollFormula"
-					            die=die stat=(localize statLabelKey)}}{{else}}{{localize
-					            "stonetop.steading.seasons.steps.rollDice" die=die}}{{/if}}
+					{{#if stat}}{{#if modifierLabel}}{{localize
+					            "stonetop.steading.seasons.steps.rollFormulaMod"
+					            die=die stat=(localize statLabelKey) mod=modifierLabel}}{{else}}{{localize
+					            "stonetop.steading.seasons.steps.rollFormula"
+					            die=die stat=(localize statLabelKey)}}{{/if}}{{else}}{{#if modifierLabel}}{{localize
+					            "stonetop.steading.seasons.steps.rollDiceMod"
+					            die=die mod=modifierLabel}}{{else}}{{localize
+					            "stonetop.steading.seasons.steps.rollDice" die=die}}{{/if}}{{/if}}
 				{{~else if text~}}
 					{{localize "stonetop.steading.seasons.steps.rollShort"}}
 				{{~else~}}

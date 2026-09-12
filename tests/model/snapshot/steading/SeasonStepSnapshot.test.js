@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { buildSeasonSteps, SeasonStepSnapshot } from "../../../../src/model/snapshot/steading/SeasonStepSnapshot.js";
+import { AdjustedStepRoll } from "../../../../src/model/snapshot/steading/SeasonAdjustments.js";
 import { SeasonProcedure } from "../../../../src/model/data/steading/SeasonProcedure.js";
 import { StepAdjustment } from "../../../../src/model/data/steading/ImprovementEffect.js";
 import { AppliedStepRoll } from "../../../../src/model/data/steading/AppliedStepRoll.js";
@@ -43,10 +44,22 @@ describe("what a step actually pays", () => {
 		expect(step([WALL, CAMP]).resultDelta).toBe(-1);
 	});
 
-	it("moves the rolled total by it, and never below nothing at all", () => {
+	// A step with no dice of its own has nowhere to put the delta, so its whole amount is this.
+	it("moves the total by it where no roll carried it, and never below nothing at all", () => {
 		expect(step([WALL]).amountFor(6)).toBe(5);
 		expect(step([SAPLING]).amountFor(0)).toBe(1);
 		expect(step([WALL]).amountFor(0)).toBe(0);
+	});
+
+	// A step that ROLLS has it in its bonus already — taking it off the total again is paying it twice.
+	it("leaves the total alone where the dice already carried it", () => {
+		const rolling = new SeasonStepSnapshot({
+			step: procedure("winter").steps[0], index: 0, results: [WALL],
+			roll: new AdjustedStepRoll({ die: "1d4", stat: "population" }).withResultDelta(-1, ["Stone Wall"]),
+		});
+		expect(rolling.resultDelta).toBe(-1);
+		expect(rolling.unrolledDelta).toBe(0);
+		expect(rolling.amountFor(6)).toBe(6);
 	});
 });
 
@@ -84,6 +97,45 @@ describe("buildSeasonSteps", () => {
 		}).at(0);
 		expect(withBoth.adjustments).toHaveLength(2);
 		expect(withBoth.resultDelta).toBe(-1);
+	});
+
+	// The whole of it in one formula: "2d6 + Population − 2" for a town that counts Population 1
+	// lower and pays 1 less. Two hooks, two sentences under the step, one number on the dice.
+	it("folds what a step pays into the dice it rolls", () => {
+		const winterStep = buildSeasonSteps({
+			procedure: procedure("winter"), size: "town",
+			statement: { adjustments: [
+				WALL,
+				{ source: "Additional Housing", isConditional: false,
+				  adjustment: StepAdjustment.fromRaw({ step: "consumption", at: "term", term: "population", amount: -1 }) },
+			] },
+		}).at(0);
+		expect(winterStep.die).toBe("2d6");
+		expect(winterStep.roll.bonusFrom(2)).toBe(0);
+		expect(winterStep.roll.expressionFrom(2)).toBe("2d6 + 0");
+		expect(winterStep.modifierLabel).toBe("\u2212 2");
+		// Rolled 7 with Population 2, so 7 Surplus leaves — the total on the dice, not a number
+		// arrived at afterwards.
+		expect(winterStep.amountFor(7)).toBe(7);
+	});
+
+	// A clause the sheet cannot judge stays out of the dice as it stays out of everything else.
+	it("keeps a reduction the table has to judge off the dice", () => {
+		const winterStep = buildSeasonSteps({
+			procedure: procedure("winter"), statement: { adjustments: [CAMP] },
+		}).at(0);
+		expect(winterStep.roll.modifier).toBe(0);
+		expect(winterStep.modifierLabel).toBeNull();
+	});
+
+	// Stone Wall alone leaves the dice the book's and only bends what they come to — but that is still
+	// not the roll the line above describes, so the control has to say so.
+	it("names the formula once a result adjustment has bent it", () => {
+		const winterStep = buildSeasonSteps({
+			procedure: procedure("winter"), statement: { adjustments: [WALL] },
+		}).at(0);
+		expect(winterStep.roll.isAdjusted).toBe(true);
+		expect(winterStep.roll.sources).toEqual(["Stone Wall"]);
 	});
 
 	// A step that rolls nothing offers no dice: the consume line states what the roll above it did.

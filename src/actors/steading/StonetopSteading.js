@@ -231,14 +231,13 @@ export class StonetopSteading {
 	async rollSeasonStep(address) {
 		const step = await this.#seasons.stepAt(address);
 		if (!step?.roll?.die) return false;
-		const { die, stat } = step.roll;
+		const { stat } = step.roll;
 		const resolved = stat ? this.resolveBonus(stat) : 0;
 		if (resolved === null) return false;
-		const bonus = step.roll.bonusFrom(resolved);
 		// Rolled, applied, THEN reported: what the roll did to Surplus is the news, and it is not
 		// known until it has been done. The card is titled by what the season did rather than by the
 		// dice it called for — "Roll 1d4 + Population" is an instruction, and a chat card is a record.
-		const roll = await this.#actor.evaluateFormula(`${die} + ${bonus}`);
+		const roll = await this.#actor.evaluateFormula(step.roll.expressionFrom(resolved));
 		const applied = await this.#applySurplusRoll(step, roll?.total ?? null);
 		await this.#actor.postFormulaCard(new FormulaRollCard({
 			name:    this.#stepCardTitle(step),
@@ -256,13 +255,18 @@ export class StonetopSteading {
 			{ season: game.i18n.localize(this.season.labelKey) });
 	}
 
-	/** The formula in the words the control offered it in — the rating NAMED, not its value. */
+	/**
+	 * The formula in the words the control offered it in — the rating NAMED, not its value, and the
+	 * modifier the steading's improvements put on it spelled out beside it.
+	 */
 	#stepCardFormula(step) {
-		const { die } = step.roll;
-		return step.statLabelKey
-			? game.i18n.format("stonetop.steading.seasons.steps.card.formula",
-				{ die, stat: game.i18n.localize(step.statLabelKey) })
-			: die;
+		const { die, modifierLabel: mod } = step;
+		const key = step.statLabelKey
+			? (mod ? "card.formulaMod" : "card.formula")
+			: (mod ? "card.diceMod" : null);
+		if (!key) return die;
+		return game.i18n.format(`stonetop.steading.seasons.steps.${key}`,
+			{ die, mod, stat: step.statLabelKey ? game.i18n.localize(step.statLabelKey) : "" });
 	}
 
 	/**

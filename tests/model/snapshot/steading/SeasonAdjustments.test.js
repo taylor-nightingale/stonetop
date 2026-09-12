@@ -79,7 +79,9 @@ describe("SeasonAdjustments — what a step actually rolls", () => {
 		expect([roll.die, roll.stat, roll.termDelta, roll.isAdjusted]).toEqual(["1d4", "population", 0, false]);
 	});
 
-	it("adds nothing to the roll for a result adjustment", () => {
+	// `rollFor` answers what the DICE hooks make of the step; what the result hooks make of it is
+	// folded in afterwards, by the one caller that knows them — see buildSeasonSteps.
+	it("keeps a result adjustment out of rollFor, and hands it back as a result", () => {
 		const adjustments = new SeasonAdjustments([WALL], winter());
 		expect(adjustments.rollFor(winter().steps[0], 0).isAdjusted).toBe(false);
 		expect(adjustments.resultsFor(0).map(l => l.source)).toEqual(["Stone Wall"]);
@@ -162,5 +164,52 @@ describe("AdjustedStepRoll", () => {
 	it("reads as unadjusted until something adjusts it", () => {
 		expect(new AdjustedStepRoll({ die: "1d4" }).isAdjusted).toBe(false);
 		expect(new AdjustedStepRoll({ die: "1d4", sources: ["Township"] }).isAdjusted).toBe(true);
+	});
+
+	// One improvement bending the dice AND what they cost is one source. It decides only whether the
+	// control names the formula, and naming it twice would not name it harder.
+	it("counts each source once", () => {
+		expect(new AdjustedStepRoll({ die: "1d4", sources: ["Mill", "Mill"] }).sources).toEqual(["Mill"]);
+	});
+
+	// "consumes 1 less Surplus than normal" — the book takes it off after the roll, and the sheet used
+	// to as well. In the dice, the total the table watches IS the Surplus that leaves the stores.
+	it("takes a result delta into the bonus, and names what put it there", () => {
+		const roll = new AdjustedStepRoll({ die: "2d6", stat: "population", termDelta: -1 })
+			.withResultDelta(-1, ["Stone Wall"]);
+		expect([roll.termDelta, roll.resultDelta, roll.modifier]).toEqual([-1, -1, -2]);
+		expect(roll.bonusFrom(2)).toBe(0);
+		expect(roll.sources).toEqual(["Stone Wall"]);
+		expect(roll.isAdjusted).toBe(true);
+	});
+
+	// A new roll rather than a mutated one, and nothing at all where there is nothing to fold in.
+	it("answers with itself where the delta is nothing", () => {
+		const roll = new AdjustedStepRoll({ die: "1d4" });
+		expect(roll.withResultDelta(0, ["Stone Wall"])).toBe(roll);
+	});
+
+	it("carries the result delta through extra dice", () => {
+		const roll = new AdjustedStepRoll({ die: "1d4" })
+			.withResultDelta(1, ["Golden Sapling"])
+			.withExtraDice(["1d4"], ["Greater Harvest"]);
+		expect([roll.die, roll.resultDelta]).toEqual(["1d4 + 1d4", 1]);
+		expect(roll.sources).toEqual(["Golden Sapling", "Greater Harvest"]);
+	});
+
+	// Prose on a button, so a true minus sign — "Roll 2d6 + Population − 2".
+	it("prints the modifier for a reader, and nothing where it is nothing", () => {
+		expect(new AdjustedStepRoll({ die: "2d6", termDelta: -1 }).withResultDelta(-1).modifierLabel)
+			.toBe("\u2212 2");
+		expect(new AdjustedStepRoll({ die: "1d4" }).withResultDelta(1).modifierLabel).toBe("+ 1");
+		expect(new AdjustedStepRoll({ die: "1d4" }).modifierLabel).toBeNull();
+	});
+
+	// And ASCII for Foundry, which has to parse it. "1d4 + -1" evaluates, and reads like a bug.
+	it("writes an expression Foundry can parse, negatives and all", () => {
+		const wall = new AdjustedStepRoll({ die: "1d4", stat: "population" }).withResultDelta(-1);
+		expect(wall.expressionFrom(0)).toBe("1d4 - 1");
+		expect(wall.expressionFrom(1)).toBe("1d4 + 0");
+		expect(wall.expressionFrom(3)).toBe("1d4 + 2");
 	});
 });

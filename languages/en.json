@@ -208,13 +208,17 @@
           "roll": "Roll it",
           "rollShort": "Roll",
           "rollFormula": "Roll {die} + {stat}",
+          "rollFormulaMod": "Roll {die} + {stat} {mod}",
           "rollDice": "Roll {die}",
+          "rollDiceMod": "Roll {die} {mod}",
           "sizeRoll": "As a {size}, the steading rolls {die} + {stat}",
           "card": {
             "consumption": "{season} — Consumption",
             "generation": "{season} — Generation",
             "roll": "{season} — Roll",
-            "formula": "{die} + {stat}"
+            "formula": "{die} + {stat}",
+            "formulaMod": "{die} + {stat} {mod}",
+            "diceMod": "{die} {mod}"
           },
           "consume": "The steading consumes that much Surplus",
           "generate": "The steading generates {die} Surplus",

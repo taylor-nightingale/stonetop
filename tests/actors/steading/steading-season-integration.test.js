@@ -263,6 +263,29 @@ const act = (sheet, name, target) => {
 	return (entry.handler ?? entry).call(sheet, { type: "click", preventDefault() {} }, target);
 };
 
+/**
+ * Roll `total` on the step's own dice, and honour the modifier the sheet appended to them.
+ *
+ * What the steading's improvements come to lives INSIDE the expression now — "2d6 + 0" for a town
+ * that counts Population one lower and consumes one less — so a fake answering a fixed number
+ * whatever it was handed would be testing the dice and none of what the steading built.
+ *
+ * Only the TRAILING term is read, which is the one `expressionFrom` writes. Everything before it is
+ * the step's own dice expression, summer's `1d4-1` included, and `total` is what those came to.
+ *
+ * Returns the list the calls land in — the formula, and the card each one posted.
+ */
+const rollsDice = (sheet, total) => {
+	const rolled = [];
+	sheet.actor.evaluateFormula = async formula => {
+		rolled.push({ formula });
+		const [, sign, amount] = formula.match(/\s([+-])\s(\d+)$/) ?? [];
+		return { total: total + (amount ? Number(`${sign}${amount}`) : 0) };
+	};
+	sheet.actor.postFormulaCard = async card => { rolled[rolled.length - 1].card = card; };
+	return rolled;
+};
+
 const statementRows = root => [...root.querySelectorAll(".steading-turnover .steading-statement-line")];
 const statementText = root => statementRows(root).map(r => r.textContent.replace(/\s+/g, " ").trim());
 const cards        = root => [...root.querySelectorAll(".steading-improvement-card")];
@@ -897,13 +920,9 @@ describe("the season's results, stated once", () => {
 // "when the steading consumes Surplus", nowhere near the step that consumes — and the step's own
 // control rolled a hardcoded 1d4+Population whatever the steading had built.
 describe("a season's steps, bent by what the steading built", () => {
-	const rolling = async (sheet, total) => {
-		const root = await render(sheet, true);
-		const rolled = [];
-		sheet.actor.evaluateFormula = async formula => { rolled.push({ formula }); return { total }; };
-		sheet.actor.postFormulaCard = async card => rolled[rolled.length - 1].card = card;
-		return { root, rolled };
-	};
+	const rolling = async (sheet, total) => ({
+		root: await render(sheet, true), rolled: rollsDice(sheet, total),
+	});
 
 	const stepOne = root => root.querySelectorAll(".steading-turn-step")[0];
 
@@ -954,27 +973,50 @@ describe("a season's steps, bent by what the steading built", () => {
 		expect(rolled[0].formula).toBe("1d4 + 1");
 	});
 
-	// A different hook, after the roll: the dice stay the book's, and what changes is what you pay.
-	it("states what a stone wall pays under the step, not in its dice", async () => {
+	// A different hook — the book takes it off after the roll — but the sheet puts it in the dice, so
+	// the total the table watches is the Surplus that leaves the stores.
+	it("rolls what a stone wall pays, rather than quietly paying less than it rolled", async () => {
 		const sheet = await makeSheet({
 			season: "winter", owned: ["stone-wall"], values: BUILT["stone-wall"],
 		});
 		sheet.actor.system.attributes.surplus = 8;
 		const { root, rolled } = await rolling(sheet, 6);
+		// The book's own sentence still reads under the step, unsummarised.
 		expect(stepOne(root).querySelector(".steading-turn-results").textContent)
 			.toContain("consumes 1 less Surplus than normal");
-		// The dice stay the book's, so the control stays a verb.
-		expect(stepOne(root).querySelector('[data-action="rollSeasonStep"]').textContent)
-			.not.toContain("1d4");
+		// And the control names the dice, because they are no longer the ones the line above gave.
+		const control = stepOne(root).querySelector('[data-action="rollSeasonStep"]').textContent;
+		expect(control).toContain("1d4");
+		expect(control).toContain("\u2212 1");
 
 		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
-		expect(rolled[0].formula).toBe("1d4 + 0");
-		// Rolled 6, paid 5: what the sheet performs is what the steading actually owes.
+		expect(rolled[0].formula).toBe("1d4 - 1");
+		// The dice said 6, so the roll came to 5 — and 5 is what was consumed.
 		expect(sheet.actor.system.attributes.surplus).toBe(3);
 	});
 
-	// And it says so afterwards, both numbers: the roll the table watched, and what was paid.
-	it("says what it paid and what was rolled", async () => {
+	// What the user reported: a town that counts Population one lower and consumes one less rolls
+	// 2d6 + Population − 2, in one formula, and nothing is taken off afterwards.
+	it("rolls both bends as one formula", async () => {
+		const sheet = await makeSheet({
+			season: "winter", owned: ["stone-wall", "additional-housing"],
+			values: { ...BUILT["stone-wall"], ...BUILT["additional-housing"] }, size: "town",
+		});
+		sheet.actor.system.attributes.population = 2;
+		sheet.actor.system.attributes.surplus    = 9;
+		const { root, rolled } = await rolling(sheet, 7);
+		const control = stepOne(root).querySelector('[data-action="rollSeasonStep"]').textContent;
+		expect(control).toContain("2d6");
+		expect(control).toContain("\u2212 2");
+
+		await act(sheet, "rollSeasonStep", root.querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0].formula).toBe("2d6 + 0");
+		expect(sheet.actor.system.attributes.surplus).toBe(2);
+	});
+
+	// And it says so afterwards in ONE number: there is no longer a rolled total to reconcile against
+	// what was paid, because the roll IS what was paid.
+	it("says what it paid, with no second number to reconcile", async () => {
 		const sheet = await makeSheet({
 			season: "winter", owned: ["stone-wall"], values: BUILT["stone-wall"],
 		});
@@ -985,7 +1027,7 @@ describe("a season's steps, bent by what the steading built", () => {
 		const after = await render(sheet, true);
 		const said  = stepOne(after).querySelector(".stonetop-applied").textContent;
 		expect(said).toContain("Consumed 5 Surplus (8 → 3)");
-		expect(said).toContain("6 was rolled");
+		expect(said).not.toContain("was rolled");
 	});
 
 	// Nothing hangs on a step no season of this steading has: the sapling generates +1 whenever the
@@ -1525,15 +1567,16 @@ describe("the moments within a season", () => {
 		expect(harvestStep(root).querySelector('[data-action="rollSeasonStep"]')).not.toBeNull();
 	});
 
-	// One roll, and it pays the season's 1d4 and the orchard's +1 together.
+	// One roll, and it pays the season's 1d4 and the orchard's +1 together — in one formula, so the
+	// total on the dice is the Surplus that arrives.
 	it("rolls the season's dice and what the steading adds, in one act", async () => {
 		const sheet = await inAutumn();
 		const root  = await render(sheet, true);
 		const before = sheet.actor.system.attributes.surplus;
-		sheet.actor.evaluateFormula = async () => ({ total: 3 });
-		sheet.actor.postFormulaCard = async () => {};
+		const rolled = rollsDice(sheet, 3);
 
 		await act(sheet, "rollSeasonStep", harvestStep(root).querySelector('[data-action="rollSeasonStep"]'));
+		expect(rolled[0].formula).toBe("1d4 + 1");
 		expect(sheet.actor.system.attributes.surplus).toBe(before + 4);
 	});
 
@@ -1558,8 +1601,7 @@ describe("the moments within a season", () => {
 		const sheet = await inAutumn();
 		let root = await render(sheet, true);
 		const before = sheet.actor.system.attributes.surplus;
-		sheet.actor.evaluateFormula = async () => ({ total: 3 });
-		sheet.actor.postFormulaCard = async () => {};
+		rollsDice(sheet, 3);
 		await act(sheet, "rollSeasonStep", harvestStep(root).querySelector('[data-action="rollSeasonStep"]'));
 
 		root = await render(sheet);
@@ -1703,9 +1745,10 @@ describe("what the steading generates", () => {
 		expect(step.textContent).toContain("1d4-1");
 		expect(step.querySelector('[data-action="applySeasonStep"]')).toBeNull();
 
-		sheet.actor.evaluateFormula = async () => ({ total: 2 });
-		sheet.actor.postFormulaCard = async () => {};
+		const rolled = rollsDice(sheet, 2);
 		await act(sheet, "rollSeasonStep", step.querySelector('[data-action="rollSeasonStep"]'));
+		// The town's Population+1 rides the season's own 1d4-1: one formula, one total, one record.
+		expect(rolled[0].formula).toBe("1d4-1 + 3");
 		expect(sheet.actor.system.attributes.surplus).toBe(5);
 	});
 
