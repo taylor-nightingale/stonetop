@@ -142,10 +142,7 @@
       },
       {
         "when": {
-          "kind": "turn",
-          "seasons": [
-            "winter"
-          ],
+          "kind": "completed",
           "phrase": "when **_winter grips the land_**"
         },
         "text": "roll 2d6+Population to consume Surplus, instead of 1d4+Population"

@@ -99,7 +99,6 @@
           "target": "surplus",
           "amount": 1
         },
-        "condition": true,
         "outcome": "7+",
         "text": "the steading generates 1 Surplus"
       }

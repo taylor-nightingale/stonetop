@@ -188,4 +188,24 @@ export class SteadingEffects {
 	async apply(statement) {
 		return this.applyLines(statement.pending);
 	}
+
+	/**
+	 * Write the results the season's own roll just landed on — Raincatching's Surplus, on a 7+.
+	 *
+	 * Written from the roll rather than from a button on the row, because by the time the row is
+	 * drawn the question it asks ("did you roll a 7+?") has already been answered by the dice. The
+	 * row keeps its Revert.
+	 *
+	 * Nothing is taken BACK here. The box invites the table to roll the season as many times as it
+	 * asks for, and a 7+ followed by a 6- leaves the Surplus standing for them to revert or keep —
+	 * the sheet does not reach into the steading and remove what it already paid. A second 7+ writes
+	 * nothing, because applying skips what is already recorded.
+	 *
+	 * A line whose clause the sheet cannot JUDGE is still left to the table, roll or no roll: the
+	 * dice answer the outcome and say nothing about whether the market was active.
+	 */
+	async applyOutcome(statement, tierKey) {
+		return this.applyLines(statement.outcomeGated
+			.filter(line => line.firesOnTier(tierKey) && !line.isConditional));
+	}
 }

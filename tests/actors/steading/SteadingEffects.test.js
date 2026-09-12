@@ -53,9 +53,35 @@ const WATCH = () => new SteadingImprovement("standing-watch", "Standing Watch", 
 	],
 });
 
+// Raincatching, as the pack holds it: a summer payout waiting on the season's own roll landing on a
+// 7+ — the 10+ row and the 7-9 row both.
+const RAINCATCHING = () => new SteadingImprovement("raincatching", "Raincatching", {
+	slug: "raincatching",
+	list: [{ type: "entry", slug: "conduits", content: { text: "roofs and conduits" }, track: { max: 1 } }],
+}, 0, {
+	requires: "conduits",
+	effects: [
+		{ when: { kind: "turn", seasons: ["summer"] }, change: { target: "surplus", amount: 1 },
+		  outcome: "7+", text: "the steading generates 1 Surplus" },
+	],
+});
+
+// A homebrew improvement pairing the roll with a clause the sheet cannot judge. The dice answer the
+// outcome and say nothing about whether the market was active, so it stays the table's.
+const MARKET = () => new SteadingImprovement("market", "Market", {
+	slug: "market",
+	list: [{ type: "entry", slug: "stalls", content: { text: "the stalls" }, track: { max: 1 } }],
+}, 0, {
+	requires: "stalls",
+	effects: [
+		{ when: { kind: "turn", seasons: ["summer"] }, change: { target: "surplus", amount: 1 },
+		  outcome: "7+", condition: true, text: "the market generates 1 Surplus, if it is active" },
+	],
+});
+
 function build({ owned = ["mill"], ticks = {}, attributes = {}, applied = {}, turnover = {} } = {}) {
 	const repo = new FakeSteadingImprovementRepository();
-	repo._improvements.push(MILL(), WATCH(), TOWNSHIP());
+	repo._improvements.push(MILL(), WATCH(), TOWNSHIP(), RAINCATCHING(), MARKET());
 	const actor = new FakeActorBuilder().withSystem({
 		improvements: owned,
 		improvementValues: ticks,
@@ -277,6 +303,71 @@ describe("applying a whole statement", () => {
 		await ctx.effects.apply(ctx.effects.payoffFor(mill(ctx)).completion);
 		// The "extra use" line has no payload at all; nothing but the two automatic ones moved.
 		expect(ctx.actor.system.attributes.surplus).toBe(0);
+	});
+});
+
+// Pressing Apply on the row the dice landed on asked the table to answer a question the dice had
+// just answered in front of them. The roll knows where it landed, so it pays what landing there owes.
+describe("the results the season's own roll lands on", () => {
+	const BUILT_RAIN = { raincatching: { conduits: 1 } };
+	const summer     = effects => effects.statementFor("turn", { season: new Season("summer") });
+
+	it("writes the line the roll landed on", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: BUILT_RAIN });
+		expect(await effects.applyOutcome(await summer(effects), "success")).toBe(true);
+		expect(actor.system.attributes.surplus).toBe(1);
+	});
+
+	// A 7+ is the 10+ row and the 7-9 row both.
+	it("writes it on a partial as readily as on a full success", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: BUILT_RAIN });
+		await effects.applyOutcome(await summer(effects), "partial");
+		expect(actor.system.attributes.surplus).toBe(1);
+	});
+
+	it("writes nothing on a roll the clause does not cover", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: BUILT_RAIN });
+		expect(await effects.applyOutcome(await summer(effects), "failure")).toBe(false);
+		expect(actor.system.attributes.surplus).toBe(0);
+	});
+
+	// The box invites the table to roll the season as many times as it asks for.
+	it("pays a second 7+ nothing", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: BUILT_RAIN });
+		await effects.applyOutcome(await summer(effects), "success");
+		expect(await effects.applyOutcome(await summer(effects), "partial")).toBe(false);
+		expect(actor.system.attributes.surplus).toBe(1);
+	});
+
+	// Never taken back: what a later roll misses is the table's to revert or to keep.
+	it("leaves what it wrote standing when a later roll misses", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: BUILT_RAIN });
+		await effects.applyOutcome(await summer(effects), "success");
+		await effects.applyOutcome(await summer(effects), "failure");
+		expect(actor.system.attributes.surplus).toBe(1);
+		expect(actor.system.turnoverApplied["raincatching:0"]).toBeTruthy();
+	});
+
+	it("records it as a season-scoped line, revertable from its row", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: BUILT_RAIN });
+		await effects.applyOutcome(await summer(effects), "success");
+		expect(actor.system.turnoverApplied["raincatching:0"].change)
+			.toEqual({ target: "surplus", amount: 1 });
+		expect(await effects.revertLine("raincatching:0")).toBe(true);
+		expect(actor.system.attributes.surplus).toBe(0);
+	});
+
+	it("leaves a clause the sheet cannot judge to the table", async () => {
+		const { actor, effects } = build({ owned: ["market"], ticks: { market: { stalls: 1 } } });
+		expect(await effects.applyOutcome(await summer(effects), "success")).toBe(false);
+		expect(actor.system.attributes.surplus).toBe(0);
+	});
+
+	// An unbuilt cistern generates nothing, whatever the dice say.
+	it("writes nothing for an improvement that is not built", async () => {
+		const { actor, effects } = build({ owned: ["raincatching"], ticks: {} });
+		expect(await effects.applyOutcome(await summer(effects), "success")).toBe(false);
+		expect(actor.system.attributes.surplus).toBe(0);
 	});
 });
 

@@ -13,7 +13,10 @@ const ROOT = path.resolve("packs/src/steading-improvements");
 const DIRS = ["stonetop", "additional"];
 
 let adjusting;
+let outcomeGated;
 let procedures;
+let bySlug;
+let winterSteps;
 
 beforeAll(async () => {
 	const docs = [];
@@ -26,6 +29,13 @@ beforeAll(async () => {
 	adjusting = docs.flatMap(doc => (doc.system.effects ?? [])
 		.filter(effect => effect.adjustment)
 		.map(effect => ({ slug: doc.system.slug, name: doc.name, ...effect })));
+	outcomeGated = docs.flatMap(doc => (doc.system.effects ?? [])
+		.filter(effect => effect.outcome)
+		.map(effect => ({ slug: doc.system.slug, ...effect })));
+	bySlug = Object.fromEntries(docs.map(doc => [doc.system.slug, doc]));
+
+	winterSteps = JSON.parse(await fs.readFile(
+		path.resolve("packs/src/moves/seasons", "seasons-change-winter.json"), "utf8")).system.steps;
 
 	procedures = Object.fromEntries(await Promise.all(Seasons.all().map(async season => {
 		const raw = await fs.readFile(
@@ -91,5 +101,49 @@ describe("the improvements that bend a step", () => {
 		expect(homeless).toEqual([
 			"golden-sapling in spring", "golden-sapling in winter",
 		]);
+	});
+});
+
+// The other half of the Township decision above. The clause is still the book's, so it still reads on
+// the improvement — but it fires nowhere: a turn trigger would put it in winter's own panel, restating
+// dice the step has already rolled, under a heading for what the steading still owes.
+describe("the winter dice a town rolls", () => {
+	it("are the winter move's own, by size", () => {
+		const roll = winterSteps.find(step => step.kind === "roll" && step.affects === "consumption");
+		expect(roll.dieBySize).toEqual({ hamlet: "1d2", village: "1d4", town: "2d6" });
+	});
+
+	it("are never a result Township fires at the turn of a season", () => {
+		const turning = (bySlug["township"].system.effects ?? []).filter(e => e.when?.kind === "turn");
+		expect(turning.map(e => e.text)).toEqual([
+			"the town generates Surplus equal to Population+1",
+		]);
+	});
+
+	// Stated on the improvement all the same, in the book's own voice: a completion clause carrying its
+	// own "when" is what ImprovementPayoff files under Henceforth, which is where the book prints it.
+	it("are stated on the improvement, with the clause the book opens them with", () => {
+		const clause = (bySlug["township"].system.effects ?? [])
+			.find(e => e.text.startsWith("roll 2d6+Population"));
+		expect(clause.when).toEqual({
+			kind: "completed", phrase: "when **_winter grips the land_**",
+		});
+	});
+});
+
+
+// A clause waiting on the season's own roll is paid BY that roll (see SteadingSeason#recordRoll), and
+// what holds it back from being paid is `condition` — the flag for a clause the sheet cannot judge.
+// Neither of these two carries one: the only thing they wait on is the roll, which the sheet knows.
+describe("the improvements that wait on the season's own roll", () => {
+	it("are the two the book gives a 7+", () => {
+		expect(outcomeGated.map(e => `${e.slug} ${e.outcome}`).sort())
+			.toEqual(["harnessing-the-stream 7+", "raincatching 7+"]);
+	});
+
+	// Marked conditional, they would be stated and left to the table for ever — the roll would land on
+	// the row and pay nothing.
+	it("state no condition beyond the roll itself", () => {
+		expect(outcomeGated.filter(e => e.condition).map(e => e.slug)).toEqual([]);
 	});
 });

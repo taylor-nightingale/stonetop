@@ -61,6 +61,10 @@ const HERD = { slug: "herd-of-horses", name: "Herd of Horses", effects: [
 	{ when: { kind: "turn", seasons: ["winter"] }, text: "the herd consumes 1 Surplus" },
 ] };
 const PALISADE = { slug: "palisade", name: "Palisade", effects: [] };
+const RAINCATCHING = { slug: "raincatching", name: "Raincatching", effects: [
+	{ when: { kind: "turn", seasons: ["summer"] }, change: { target: "surplus", amount: 1 },
+	  outcome: "7+", text: "the steading generates 1 Surplus" },
+] };
 const ORCHARD = { slug: "rhoillyg-orchard", name: "Rhoillyg Orchard", effects: [
 	{ when: { kind: "moment", moment: "autumn-harvest" }, change: { target: "surplus", amount: 1 },
 	  text: "the orchard yields +1 Surplus" },
@@ -202,6 +206,56 @@ describe("SteadingSeason — what the season's own move came up", () => {
 		await season.recordRoll("seasons-change-winter", outcome("success"));
 		await season.recordRoll("seasons-change-winter", outcome("failure"));
 		expect(season.rolledOutcome).toBe("failure");
+	});
+
+	// What the steading has BUILT that waits on this roll is paid by the roll — the row used to carry
+	// an Apply asking the table to answer a question the dice had just answered in front of them.
+	describe("and what the roll pays", () => {
+		const inSummer = (rest = {}) => build({
+			season: "summer", owned: ["raincatching"], improvements: [RAINCATCHING], ...rest,
+		});
+
+		it("writes the clause the roll landed on", async () => {
+			const { actor, season } = inSummer();
+			await season.recordRoll("seasons-change-summer", outcome("success"));
+			expect(actor.system.attributes.surplus).toBe(1);
+		});
+
+		it("writes nothing on a roll the clause does not cover", async () => {
+			const { actor, season } = inSummer();
+			await season.recordRoll("seasons-change-summer", outcome("failure"));
+			expect(actor.system.attributes.surplus).toBe(0);
+		});
+
+		// Rolled again because the table asked for it, not because the first one did not count.
+		it("pays a second 7+ nothing, and leaves a later miss alone", async () => {
+			const { actor, season } = inSummer();
+			await season.recordRoll("seasons-change-summer", outcome("success"));
+			await season.recordRoll("seasons-change-summer", outcome("partial"));
+			await season.recordRoll("seasons-change-summer", outcome("failure"));
+			expect(actor.system.attributes.surplus).toBe(1);
+		});
+
+		// The tier an aurochs hunt landed in says nothing about the cistern.
+		it("pays nothing for a roll of any other move", async () => {
+			const { actor, season } = inSummer();
+			await season.recordRoll("lead-the-aurochs-hunt", outcome("success"));
+			expect(actor.system.attributes.surplus).toBe(0);
+		});
+
+		// The cistern is not built, and a 10+ does not fill it.
+		it("pays nothing for an improvement that is not built", async () => {
+			const { actor, season } = inSummer({ unbuilt: true });
+			await season.recordRoll("seasons-change-summer", outcome("success"));
+			expect(actor.system.attributes.surplus).toBe(0);
+		});
+
+		// Summer's clause in summer only: the record is season-scoped and cleared when the wheel turns.
+		it("pays nothing in a season the clause does not fire in", async () => {
+			const { actor, season } = inSummer({ season: "winter" });
+			await season.recordRoll("seasons-change-winter", outcome("success"));
+			expect(actor.system.attributes.surplus).toBe(0);
+		});
 	});
 });
 

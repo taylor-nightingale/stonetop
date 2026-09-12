@@ -48,10 +48,16 @@ export class SteadingSeason {
 	 *
 	 * The latest roll wins. The box invites the table to roll the season as many times as it asks
 	 * for, and what is highlighted is the roll they just made.
+	 *
+	 * What the steading has built that WAITS on this roll is written here too — Raincatching's summer
+	 * Surplus, the stream's in spring. The row used to carry an Apply, which asked the table to
+	 * answer a question the dice had just answered in front of them; the roll knows where it landed,
+	 * so it pays what landing there owes. Only ever paid, never taken back — see applyOutcome.
 	 */
 	async recordRoll(moveSlug, outcome) {
 		if (!outcome?.key || moveSlug !== this.season.moveSlug) return false;
 		await this._actor.update({ "system.seasonRollOutcome": outcome.key });
+		await this._effects.applyOutcome(await this.statement(), outcome.key);
 		return true;
 	}
 
