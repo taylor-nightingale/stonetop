@@ -220,12 +220,13 @@ body,
 	scrollbar-width: none;
 }
 
-/* ApplicationV2 sheets: the rule above
-   deliberately excludes `.application` so core V2 windows keep their native look; our own V2
-   sheets opt back into the parchment here. Text/input/prosemirror colors come from core's own
-   light theme: the V2 sheet bases declare `themed theme-light` in DEFAULT_OPTIONS.classes, which
-   both blocks the client dark theme (core skips sheets already "themed") and resolves every
-   core form variable to its light value. Only the parchment art is ours. */
+/* ApplicationV2 sheets: the rule above deliberately excludes `.application` so core V2 windows
+   keep their native look; our own V2 sheets opt back into the parchment here.
+
+   The sheet follows the chosen theme like everything else — core pushes `themed theme-<scheme>`
+   onto the sheet root, from the client's `applications` colour scheme or from a per-document
+   sheet-theme override, and every colour below resolves from the matching parchment tokens. This
+   used to say the bases pin `theme-light` in DEFAULT_OPTIONS.classes; they no longer do. */
 .application.stonetop.sheet .window-content {
 	background: var(--st-paper) var(--st-paper-image);
 	background-blend-mode: var(--st-paper-blend);
@@ -718,18 +719,27 @@ body,
    mystery-man.svg specifically — the same problem, solved once instead of per file.
 
    Only <img> elements: our decor is mostly background-image, where `filter` would repaint
-   the element's content too. Those follow the theme by swapping the asset instead. */
-.stonetop.sheet img[src*="icons/svg/"],
-.application.journal-entry img[src*="icons/svg/"],
-.application.compendium-directory img[src*="icons/svg/"] {
+   the element's content too. Those follow the theme by swapping the asset instead.
+
+   One surface list, shared by both rules, because stating it per rule let them drift: the
+   compendium and journal copies named only stonetop-art/, so the 220 pack documents whose
+   img is under assets/content/ — wonder markers, playbook badges, season plates — stayed
+   black on a dark compendium. `.directory-item` carries the same rows in the sidebar. */
+:is(
+	.stonetop.sheet,
+	.application.journal-entry,
+	.application.compendium-directory,
+	.directory-item
+) img[src*="icons/svg/"] {
 	filter: var(--st-core-icon-filter);
 }
 
-.stonetop.sheet img[src*="stonetop-art/"],
-.stonetop.sheet img[src*="assets/ui/"],
-.stonetop.sheet img[src*="assets/content/"],
-.application.journal-entry img[src*="stonetop-art/"],
-.application.compendium-directory img[src*="stonetop-art/"] {
+:is(
+	.stonetop.sheet,
+	.application.journal-entry,
+	.application.compendium-directory,
+	.directory-item
+) img:is([src*="stonetop-art/"], [src*="assets/ui/"], [src*="assets/content/"]) {
 	filter: var(--st-art-filter);
 }
 
