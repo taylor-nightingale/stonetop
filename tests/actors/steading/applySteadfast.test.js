@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { applySteadfast, matchSteadfastByName } from "../../../src/actors/steading/applySteadfast.js";
+import { applySteadfast, matchSteadfastByName, seedSteadfast } from "../../../src/actors/steading/applySteadfast.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
 
 describe("matchSteadfastByName", () => {
@@ -36,8 +36,8 @@ const steadfast = () => ({
 	},
 });
 
-function makeSteading(overrides = {}) {
-	return new FakeActorBuilder().withType("steading").withSystem({
+function makeSteading(overrides = {}, name = "Test Actor") {
+	return new FakeActorBuilder().withType("steading").withName(name).withSystem({
 		steadfast: "",
 		residentPeople: [{ id: "1", name: "Afon" }],
 		neighborPeople: [{ id: "2", name: "Brin" }],
@@ -94,5 +94,45 @@ describe("applySteadfast", () => {
 		actor.system.attributes.prosperity = 3;
 		expect(source.system.improvements).toEqual(["market", "mill"]);
 		expect(source.system.attributes.prosperity).toBe(0);
+	});
+});
+
+// Creating a steading seeds it from a steadfast without taking the steadfast's name: the GM picking
+// Stonetop's starting numbers is not asking for their village to be called Stonetop.
+describe("seedSteadfast", () => {
+	it("keeps the name the steading was created with", async () => {
+		const actor = makeSteading({}, "Havenrock");
+		await seedSteadfast(actor, steadfast());
+		expect(actor.name).toBe("Havenrock");
+	});
+
+	it("seeds the same definition fields and baseline applySteadfast does", async () => {
+		const actor = makeSteading({}, "Havenrock");
+		await seedSteadfast(actor, steadfast());
+		expect(actor.system.steadfast).toBe("stonetop");
+		expect(actor.system.attributes).toEqual(steadfast().system.attributes);
+		expect(actor.system.assets).toEqual(steadfast().system.assets);
+		expect(actor.system.residents).toEqual({ names: "Aderyn", traits: ["curious"] });
+		expect(actor.system.improvements).toEqual(["market", "mill"]);
+		expect(actor.system.startingAttributes).toEqual(steadfast().system.attributes);
+	});
+
+	it("leaves the steading's runtime state untouched", async () => {
+		const actor = makeSteading({}, "Havenrock");
+		await seedSteadfast(actor, steadfast());
+		expect(actor.system.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
+		expect(actor.system.debilities.diminished).toBe(true);
+		expect(actor.system.improvementValues).toEqual({ market: { offer: 1 } });
+	});
+
+	it("names an unnamed steading after the steadfast", async () => {
+		// Blank, and Foundry's placeholder for a create dialog whose name box was left empty.
+		CONFIG.Actor = { typeLabels: { steading: "Steading" } };
+		for (const name of ["", "Steading", "Steading (2)"]) {
+			const actor = makeSteading({}, name);
+			await seedSteadfast(actor, steadfast());
+			expect(actor.name).toBe("Stonetop");
+		}
+		delete CONFIG.Actor;
 	});
 });

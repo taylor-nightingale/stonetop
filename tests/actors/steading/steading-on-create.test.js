@@ -6,12 +6,13 @@ vi.mock("../../../src/actors/steading/applySteadfast.js", async importOriginal =
 	return {
 		...actual,
 		applySteadfast: vi.fn(async () => {}),
+		seedSteadfast:  vi.fn(async () => {}),
 		loadSteadfast:  vi.fn(async () => null),
 	};
 });
 
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
-import { applySteadfast, loadSteadfast } from "../../../src/actors/steading/applySteadfast.js";
+import { applySteadfast, loadSteadfast, seedSteadfast } from "../../../src/actors/steading/applySteadfast.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
@@ -32,12 +33,13 @@ const homefrontItems = actor => [...actor.items].filter(i => i.system?.categoryK
 
 beforeEach(() => {
 	applySteadfast.mockClear();
+	seedSteadfast.mockClear();
 	loadSteadfast.mockReset();
 	loadSteadfast.mockResolvedValue(null);
 });
 
 describe("StonetopSteading.onCreate", () => {
-	it("applies the Stonetop steadfast to a brand-new steading and seeds its homefront moves", async () => {
+	it("seeds the Stonetop steadfast into a brand-new steading and seeds its homefront moves", async () => {
 		const stonetop = { type: "steadfast", name: "Stonetop" };
 		loadSteadfast.mockResolvedValue(stonetop);
 		const { steading, actor } = make({ steadfast: "" });
@@ -45,7 +47,9 @@ describe("StonetopSteading.onCreate", () => {
 		await steading.onCreate();
 
 		expect(loadSteadfast).toHaveBeenCalledWith("stonetop");
-		expect(applySteadfast).toHaveBeenCalledWith(actor, stonetop);
+		// Seeded, not applied: creation keeps the name the GM typed (see seedSteadfast).
+		expect(seedSteadfast).toHaveBeenCalledWith(actor, stonetop);
+		expect(applySteadfast).not.toHaveBeenCalled();
 		expect(homefrontItems(actor)).toHaveLength(1);
 	});
 
@@ -55,7 +59,7 @@ describe("StonetopSteading.onCreate", () => {
 		await steading.onCreate();
 
 		expect(loadSteadfast).not.toHaveBeenCalled();
-		expect(applySteadfast).not.toHaveBeenCalled();
+		expect(seedSteadfast).not.toHaveBeenCalled();
 		expect(homefrontItems(actor)).toHaveLength(1);
 	});
 
@@ -64,7 +68,7 @@ describe("StonetopSteading.onCreate", () => {
 
 		await steading.onCreate();
 
-		expect(applySteadfast).not.toHaveBeenCalled();
+		expect(seedSteadfast).not.toHaveBeenCalled();
 		expect(homefrontItems(actor)).toHaveLength(1);
 	});
 });

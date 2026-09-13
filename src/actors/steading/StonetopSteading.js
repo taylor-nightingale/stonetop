@@ -29,7 +29,7 @@ import {applyPick} from "../character/ChoiceGroupController.js";
 import {FoundrySteadingRepositoryFactory} from "./repositories/FoundrySteadingRepositoryFactory.js";
 import {SteadingPeopleDelta} from "./SteadingPeopleDelta.js";
 import {startingValue} from "./startingValue.js";
-import {applySteadfast, loadSteadfast, matchSteadfastByName} from "./applySteadfast.js";
+import {applySteadfast, loadSteadfast, matchSteadfastByName, seedSteadfast} from "./applySteadfast.js";
 
 /**
  * A steading, as the rest of the system talks to one.
@@ -410,14 +410,15 @@ export class StonetopSteading {
 
 	// Post-create initialization, once, on the creating client (CreateActor hook → typedActor
 	// dispatch; async pack loads can't run preCreate). A brand-new steading adopts the Stonetop
-	// steadfast so it opens with out-of-the-box values — one that already has a steadfast
-	// (duplicated, imported, created from a template) is left alone. Then the reference moves seed as
-	// owned items — idempotent, so a duplicated actor isn't re-seeded; after this they're ordinary
-	// items the GM can edit, delete, or re-add via drag-drop.
+	// steadfast so it opens with out-of-the-box values — under the name it was created with, since
+	// seeding the book's numbers is not a request to be called Stonetop. One that already has a
+	// steadfast (duplicated, imported, created from a template) is left alone. Then the reference
+	// moves seed as owned items — idempotent, so a duplicated actor isn't re-seeded; after this
+	// they're ordinary items the GM can edit, delete, or re-add via drag-drop.
 	async onCreate() {
 		if (!this.#actor.system?.steadfast) {
 			const steadfast = await loadSteadfast("stonetop");
-			if (steadfast) await applySteadfast(this.#actor, steadfast);
+			if (steadfast) await seedSteadfast(this.#actor, steadfast);
 		}
 		await this.#moves.seedReferenceMoves();
 	}

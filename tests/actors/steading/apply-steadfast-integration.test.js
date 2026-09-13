@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
-import { applySteadfast } from "../../../src/actors/steading/applySteadfast.js";
+import { applySteadfast, seedSteadfast } from "../../../src/actors/steading/applySteadfast.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeActorBuilder } from "../../fakes/FakeActorBuilder.js";
@@ -12,8 +12,8 @@ import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 // hand-built mocks) miss — e.g. applySteadfast writing a field the snapshot reads under another name.
 const stonetop = JSON.parse(readFileSync(new URL("../../../packs/src/steadfasts/stonetop.json", import.meta.url)));
 
-function blankSteading() {
-	return new FakeActorBuilder().withType("steading").withSystem({
+function blankSteading(name = "Test Actor") {
+	return new FakeActorBuilder().withType("steading").withName(name).withSystem({
 		steadfast: "",
 		notes: "", rollMode: "normal",
 		debilities: { diminished: false, lacking: false, malcontent: false },
@@ -29,6 +29,29 @@ function blankSteading() {
 
 const movesRepo = new FakeMoveRepository();
 const improvementsRepo = { getBySlug: async () => null };
+
+describe("seed a newly created steading from the real Stonetop steadfast (integration)", () => {
+	it("keeps the created name while taking Stonetop's starting values", async () => {
+		const actor = blankSteading("Havenrock");
+		await seedSteadfast(actor, stonetop);
+		expect(actor.name).toBe("Havenrock");
+		expect(actor.system.steadfast).toBe("stonetop");
+		expect(actor.system.improvements).toHaveLength(17);
+		expect(actor.system.attributes).toEqual(stonetop.system.attributes);
+		expect(actor.system.startingAttributes).toEqual(stonetop.system.attributes);
+	});
+
+	it("renders the same snapshot an applied steadfast does, under the created name", async () => {
+		const actor = blankSteading("Havenrock");
+		await seedSteadfast(actor, stonetop);
+		const snap = await new StonetopSteading(actor, steadingRepos({ improvements: improvementsRepo, moves: movesRepo })).buildSnapshot();
+
+		expect(snap.attributes.size.current).toBe("village");
+		expect(snap.fortunes.current).toBe(1);
+		expect(snap.surplus.current).toBe(1);
+		expect(snap.placesOfInterest).toHaveLength(6);
+	});
+});
 
 describe("apply Stonetop steadfast → steading (integration)", () => {
 	it("records the steadfast and copies its owned improvements (all 17 core)", async () => {

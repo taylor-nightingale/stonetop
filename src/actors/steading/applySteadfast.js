@@ -1,5 +1,6 @@
 import { Impressions } from "../../model/data/steading/Impressions.js";
 import { Seasons } from "../../model/data/steading/Seasons.js";
+import { isUnnamedActor } from "../unnamedActor.js";
 // Apply a steadfast's definition to a steading actor: copy the shared profile fields onto the actor
 // (independent copies it then edits in play — the character/playbook pattern, where the actor's live
 // state lives on the actor, seeded from the definition) and record which steadfast it came from. The
@@ -7,9 +8,11 @@ import { Seasons } from "../../model/data/steading/Seasons.js";
 // left untouched.
 const PROFILE_FIELDS = ["attributes", "assets", "placesOfInterest", "neighborPlaces", "residents", "improvements", "impressions"];
 
-export async function applySteadfast(actor, steadfast) {
+// The update a steadfast writes onto a steading: its profile fields as independent copies, which
+// steadfast they came from, and the starting baselines derived from them.
+function steadfastUpdate(actor, steadfast) {
 	const src = steadfast.system;
-	const update = { "system.steadfast": src.slug, name: steadfast.name };
+	const update = { "system.steadfast": src.slug };
 	for (const field of PROFILE_FIELDS) update[`system.${field}`] = structuredClone(src[field]);
 	// The steadfast's attributes are its starting values; keep an immutable copy so the "Starts at …"
 	// notes stay correct after the live `attributes` are edited in play.
@@ -20,6 +23,21 @@ export async function applySteadfast(actor, steadfast) {
 	const impression = Impressions.fromRaw(src.impressions)
 		.pickFor(Seasons.byKey(actor.system?.season));
 	update["system.seasonImpression"] = impression ?? "";
+	return update;
+}
+
+// Adopt a steadfast wholesale, the steading taking its name too: the drop path and the name
+// combobox's picker, where naming the steading after the place is the point of the gesture.
+export async function applySteadfast(actor, steadfast) {
+	await actor.update({ ...steadfastUpdate(actor, steadfast), name: steadfast.name });
+}
+
+// Seed a brand-new steading with a steadfast's values while keeping the name its creator typed —
+// picking Stonetop's starting numbers is not a request to be called Stonetop. An actor nobody named
+// (the create dialog's blank box leaves Foundry's placeholder behind) does take the steadfast's name.
+export async function seedSteadfast(actor, steadfast) {
+	const update = steadfastUpdate(actor, steadfast);
+	if (isUnnamedActor(actor)) update.name = steadfast.name;
 	await actor.update(update);
 }
 
