@@ -6,6 +6,7 @@ import { Tags } from "../../model/data/Tags.js";
 import { normalizeGroupTags, hasGroupTag, GROUP_TAG } from "../../model/data/groupTag.js";
 import { newMember } from "../../utils/followerMemberEdit.js";
 import { blankCompanion } from "../../utils/followerCompanionEdit.js";
+import { CompanionCatalog } from "../../model/data/character/CompanionCatalog.js";
 import { OutfitPage, toOutfitItemSnapshot, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
 import { INVENTORY_INSERT_PAGE } from "../../model/data/character/inventoryInsertPage.js";
 import { GrantedItems } from "../GrantedItems.js";
@@ -312,14 +313,17 @@ export class CharacterFollowers {
 	// Pick a Type: pre-fill the editable hp/armor/damage from its template, set the chosen type,
 	// and reset the options pool + pre-checked defaults to that type's. (Pre-fill, not computed —
 	// the user can type over hp/armor/damage afterwards.)
-	async setCompanionType(slug, typeSlug) {
+	// `typeValue` arrives from the combobox, so it is the type's NAME — what the player sees. The SLUG
+	// is what gets stored: a name is prose, and a stored one stops resolving the moment the catalog is
+	// retyped or translated, taking the type's pickCount and pre-checked defaults with it. The type
+	// Selection carries no options of its own for the same reason — the snapshot names the catalog.
+	async setCompanionType(slug, typeValue) {
 		const item = _findFollowerItem(this._actor, slug);
 		if (!item) return;
 		const companion = _companion(item);
-		const wanted = _text(typeSlug);
-		const t = (companion.catalog ?? []).find(x => x.slug === wanted || x.name === wanted);
+		const t = CompanionCatalog.fromCompanion(companion).typeFor(_text(typeValue));
 		if (!t) return;
-		companion.type    = { selected: [t.name], options: (companion.catalog ?? []).map(x => x.name), multi: false, allowCustom: true };
+		companion.type    = { selected: [t.slug], options: [], multi: false, allowCustom: true };
 		companion.options = { selected: [...(t.defaults ?? [])], options: [...(t.options ?? [])], multi: true, allowCustom: true };
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: {
 			companion,

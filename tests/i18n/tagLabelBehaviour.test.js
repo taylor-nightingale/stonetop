@@ -61,11 +61,12 @@ describe("no tag field is translatable in place", () => {
 		expect(Object.keys(excluded)).toContain("system.companion.catalog[].options[]");
 	});
 
-	// CharacterFollowers resolves the chosen companion by `x.name === wanted` and stores that name,
-	// so translating it silently loses the type's pickCount and pre-checked defaults.
-	it("keeps the companion type name out, since it is matched by name", () => {
-		expect(TEXT_PATHS.follower).not.toContain("system.companion.catalog[].name");
-		expect(Object.keys(UNTRANSLATED_PATHS.follower)).toContain("system.companion.catalog[].name");
+	// A companion type is identified by its slug and only displayed by its name, so the name is free to
+	// be translated. Its options/defaults are tags and stay out — they are labelled through tagLabels.
+	it("lets the companion type NAME be translated, but not its tags", () => {
+		expect(TEXT_PATHS.follower).toContain("system.companion.catalog[].name");
+		expect(TEXT_PATHS.follower).not.toContain("system.companion.catalog[].options[]");
+		expect(TEXT_PATHS.follower).not.toContain("system.companion.catalog[].defaults[]");
 	});
 
 	it("never extracts a tag from a real follower shape", () => {
@@ -81,8 +82,9 @@ describe("no tag field is translatable in place", () => {
 			},
 		};
 		const sources = translatableEntries(follower, TEXT_PATHS.follower).map(e => e.text);
-		for (const tag of ["group", "tiny", "horde", "Bird"]) expect(sources).not.toContain(tag);
+		for (const tag of ["group", "tiny", "horde"]) expect(sources).not.toContain(tag);
 		expect(sources).toContain("Small and many.");
+		expect(sources).toContain("Bird");   // a type's display label, not a tag
 	});
 });
 

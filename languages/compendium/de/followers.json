@@ -174,6 +174,10 @@
       "source": "Cozy quarters, comfort, ample food",
       "text": "Behagliche Unterkunft, Komfort, reichlich Futter"
     },
+    "companion/catalog/bird/name": {
+      "source": "Bird",
+      "text": ""
+    },
     "companion/catalog/bird/damage": {
       "source": "[[/r 1d4]] (hand)",
       "text": "[[/r 1d4]] (Hand)"
@@ -181,6 +185,10 @@
     "companion/catalog/bird/armor": {
       "source": "1 (size)",
       "text": "1 (Größe)"
+    },
+    "companion/catalog/critter/name": {
+      "source": "Critter",
+      "text": ""
     },
     "companion/catalog/critter/damage": {
       "source": "[[/r 1d4]] (hand)",
@@ -190,6 +198,10 @@
       "source": "1 (size)",
       "text": "1 (Größe)"
     },
+    "companion/catalog/brute/name": {
+      "source": "Brute",
+      "text": ""
+    },
     "companion/catalog/brute/damage": {
       "source": "[[/r 1d6]] (hand)",
       "text": "[[/r 1d6]] (Hand)"
@@ -198,6 +210,10 @@
       "source": "0",
       "text": "0"
     },
+    "companion/catalog/predator/name": {
+      "source": "Predator",
+      "text": ""
+    },
     "companion/catalog/predator/damage": {
       "source": "[[/r 1d8]] (hand, grabby)",
       "text": "[[/r 1d8]] (Hand, Fesselnd)"
@@ -205,6 +221,10 @@
     "companion/catalog/predator/armor": {
       "source": "0",
       "text": "0"
+    },
+    "companion/catalog/steed/name": {
+      "source": "Steed",
+      "text": ""
     },
     "companion/catalog/steed/damage": {
       "source": "[[/r 1d6+1]] (hand, close)",

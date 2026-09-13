@@ -8,9 +8,17 @@ export class FakeCompendiumMoveBuilder {
 	_repeatMax = null;
 	_resource = null;
 	_choices = null;
+	_slug = null;
 
 	withName(name) {
 		this._name = name;
+		return this;
+	}
+
+	// Pin the slug so it disagrees with the name — what every move looks like in a translated world,
+	// where Babele localizes `name` and leaves `system.slug` alone.
+	withSlug(slug) {
+		this._slug = slug;
 		return this;
 	}
 
@@ -71,7 +79,7 @@ export class FakeCompendiumMoveBuilder {
 
 	build() {
 		const name = this._name;
-		const slug = toSlug(name);
+		const slug = this._slug ?? toSlug(name);
 		const system = {
 			slug,
 			rollStat: this._rollStat,

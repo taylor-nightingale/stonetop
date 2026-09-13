@@ -371,23 +371,23 @@ describe("CharacterPlaybook.moveGrants", () => {
 	});
 });
 
-// ── getBackgroundMoveNames ────────────────────────────────────────────────────
+// ── getBackgroundMoveSlugs ────────────────────────────────────────────────────
 
-describe("CharacterPlaybook.getBackgroundMoveNames", () => {
+describe("CharacterPlaybook.getBackgroundMoveSlugs", () => {
 	it("returns the move slugs for the matching background slug", async () => {
 		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]));
-		expect(await pb.getBackgroundMoveNames("vessel")).toEqual(new Set(["channel"]));
+		expect(await pb.getBackgroundMoveSlugs("vessel")).toEqual(new Set(["channel"]));
 	});
 
 	it("returns empty Set when slug does not match any background", async () => {
 		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]));
-		expect(await pb.getBackgroundMoveNames("unknown-slug")).toEqual(new Set());
+		expect(await pb.getBackgroundMoveSlugs("unknown-slug")).toEqual(new Set());
 	});
 
 	it("returns empty Set when no playbook item is in actor.items", async () => {
 		const actor = new FakeCharacterActorBuilder().build();
 		const pb = makePlaybook(actor);
-		expect(await pb.getBackgroundMoveNames("herbalist")).toEqual(new Set());
+		expect(await pb.getBackgroundMoveSlugs("herbalist")).toEqual(new Set());
 	});
 });
 

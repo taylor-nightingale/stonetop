@@ -2,7 +2,7 @@ import { Move } from "../../../model/data/Move.js";
 import { FoundryPackStore } from "./FoundryPackStore.js";
 import { WorldItemStore } from "./WorldItemStore.js";
 
-const MOVE_FIELDS = ["system.requirement", "system.rollStat", "system.description",
+const MOVE_FIELDS = ["system.slug", "system.requirement", "system.rollStat", "system.description",
                      "system.repeatMax", "system.resource", "system.choices",
                      "system.moveResults", "system.moveType"];
 

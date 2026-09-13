@@ -12,6 +12,7 @@ import { migrateChoiceRow } from "./migrateChoices.js";
 import { migrateArcanumUnlockSlugs } from "./migrateArcanumUnlockSlugs.js";
 import { ChoiceGroupDefs } from "../model/data/ChoiceGroupDefs.js";
 import { Selection } from "../model/data/Selection.js";
+import { CompanionCatalog } from "../model/data/character/CompanionCatalog.js";
 import { richTextToHtml } from "./richTextToHtml.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
 import { Tags } from "../model/data/Tags.js";
@@ -95,6 +96,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateFollowers(actor, repos.followers, resourceController);
 	await migrateArcanaFollowerPackData(actor, repos.followers);
 	await migrateArcanaOwnedFollowers(actor, repos.followers, resourceController);
+	await migrateCompanionTypeSlugs(actor);
 
 	const moves = new CharacterMoveGrants(repos.moves, actor, new GrantedItems(actor));
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
@@ -722,6 +724,33 @@ export async function migrateArcanumPackData(actor, arcanaRepo, outfitSync = nul
 		const item = [...actor.items].find(i => i._id === _id);
 		if (item) await outfitSync?.syncItem(item);
 	}
+}
+
+// ── S. Animal-companion type picks stored by name → by slug ──────────────────
+
+// A companion's chosen type used to be stored as the type's NAME, which is prose: retyping the
+// catalog or translating the pack leaves the pick pointing at nothing, and the card silently loses
+// the type's pickCount and its pre-checked defaults. Re-key each pick to the type's slug, matched
+// against that follower's OWN catalog. Idempotent — a pick already stored as a slug resolves to
+// itself and is skipped.
+
+export async function migrateCompanionTypeSlugs(actor) {
+	const updates = [];
+	for (const item of actor.items) {
+		if (item.type !== "follower") continue;
+		const companion = item.system?.companion;
+		const stored    = Selection.fromStored(companion?.type, { multi: false }).value;
+		if (!stored) continue;
+		const slug = CompanionCatalog.fromCompanion(companion).slugFor(stored);
+		if (!slug || slug === stored) continue;
+		// `companion` is one atomic ObjectField, so the whole object is written back — a partial path
+		// would drop its siblings (see CharacterFollowers §companion).
+		updates.push({ _id: item._id, system: { companion: {
+			...foundry.utils.deepClone(companion),
+			type: { selected: [slug], options: [], multi: false, allowCustom: true },
+		} } });
+	}
+	if (updates.length) await actor.updateEmbeddedDocuments("Item", updates);
 }
 
 // ── O. Refresh an embedded possession's authored fields from the pack ─────────

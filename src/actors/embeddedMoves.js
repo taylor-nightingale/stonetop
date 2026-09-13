@@ -12,6 +12,13 @@ import { toSlug } from "../utils/slug.js";
 // (CharacterMoves, SteadingMoves) COMPOSE these; the category vocabulary and seeding decisions stay
 // with them. Nothing here knows about a specific actor type.
 
+// A move's identity. `system.slug` is authoritative; toSlug(name) is the fallback for legacy items
+// that were embedded before slugs were stamped. Never match a move on its name alone — the name is
+// localized in a translated world and the slug is not, so the two disagree by design.
+export function moveSlugOf(item) {
+	return item?.system?.slug ?? toSlug(item?.name ?? "");
+}
+
 // Stamp the category/acquisition fields onto a move document object before it is embedded. `acquired`
 // seeds it as owned (instanceCount 1) — a move seeded acquired renders checked-by-default but stays a
 // normal, toggleable move (unless the caller renders it locked).
@@ -35,16 +42,13 @@ export function withCategoryFields(obj, categoryKey, acquired = true, opts = {})
 
 export function findMoveItem(actor, categoryKey, moveSlug) {
 	return [...actor.items].find(
-		i => i.type === "move" && i.system?.categoryKey === categoryKey && toSlug(i.name) === moveSlug
+		i => i.type === "move" && i.system?.categoryKey === categoryKey && moveSlugOf(i) === moveSlug
 	) ?? null;
 }
 
-// Category-agnostic lookup by the stored slug (system.slug is authoritative; toSlug(name) is the
-// fallback for legacy items).
+// Category-agnostic lookup, for callers that hold a slug but not the category it was filed under.
 export function findMoveItemBySlug(actor, moveSlug) {
-	return [...actor.items].find(
-		i => i.type === "move" && (i.system?.slug ?? toSlug(i.name)) === moveSlug
-	) ?? null;
+	return [...actor.items].find(i => i.type === "move" && moveSlugOf(i) === moveSlug) ?? null;
 }
 
 /**
@@ -110,7 +114,7 @@ export async function decrementMove(actor, categoryKey, moveSlug) {
 export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null,
                                   rollNotes = null) {
 	const sys    = item?.system ?? null;
-	const slug   = sys?.slug ?? toSlug(item?.name ?? "");
+	const slug   = moveSlugOf(item);
 	const resDef = sys?.resource ?? null;
 	const resource = resourceController
 		? resourceController.buildSnapshot("moves", resDef, slug)

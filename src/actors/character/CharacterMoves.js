@@ -7,11 +7,11 @@ import {
 	computeSelectable,
 	buildMoveSnapshot,
 	findMoveItemBySlug,
+	moveSlugOf,
 	openMoveSheet,
 	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
-import { toSlug } from "../../utils/slug.js";
 
 export class CharacterMoves {
 	constructor(moveRepo, actor, resourceController, factory, grantedItems = new GrantedItems(actor), requirements) {
@@ -31,7 +31,7 @@ export class CharacterMoves {
 	get acquiredSlugs() {
 		return new Set([...this._actor.items]
 			.filter(i => i.type === "move" && (i.system?.acquired ?? false))
-			.map(i => toSlug(i.system?.slug ?? i.name ?? "")));
+			.map(i => moveSlugOf(i)));
 	}
 
 	// Which move items the character owns, and why. Delegated so a caller that only grants — the
@@ -52,9 +52,9 @@ export class CharacterMoves {
 	// A move the player dropped in. Matched on the STORED slug, like every other move lookup — matching
 	// on the name alone let a renamed move in as a second copy of one already there.
 	async addMoveToOther(moveData) {
-		const moveSlug = moveData.system?.slug ?? toSlug(moveData.name);
+		const moveSlug = moveSlugOf(moveData);
 		const existing = [...this._actor.items].filter(i => i.type === "move" && i.system?.categoryKey === "other");
-		if (existing.some(i => (i.system?.slug ?? toSlug(i.name)) === moveSlug)) return false;
+		if (existing.some(i => moveSlugOf(i) === moveSlug)) return false;
 		await this._grantedItems.addAuthored([{
 			...moveData,
 			name: moveData.name,
@@ -71,8 +71,7 @@ export class CharacterMoves {
 
 	async deleteMove(moveSlug) {
 		const item = [...this._actor.items].find(
-			i => i.type === "move" && i.system?.categoryKey === "other"
-				&& (i.system?.slug ?? toSlug(i.name)) === moveSlug
+			i => i.type === "move" && i.system?.categoryKey === "other" && moveSlugOf(i) === moveSlug
 		);
 		if (!item) return;
 		await this._actor.deleteEmbeddedDocuments("Item", [item._id]);
@@ -171,9 +170,7 @@ export class CharacterMoves {
 	}
 
 	countOwnedBySlug(moveSlug) {
-		const item = [...this._actor.items].find(
-			i => i.type === "move" && toSlug(i.name) === moveSlug
-		);
+		const item = findMoveItemBySlug(this._actor, moveSlug);
 		return item?.system?.instanceCount ?? 0;
 	}
 
@@ -190,10 +187,8 @@ export class CharacterMoves {
 	}
 
 	async onDropMove(itemData) {
-		const itemSlug = toSlug(itemData.name);
-		const existing = [...this._actor.items].find(
-			i => i.type === "move" && toSlug(i.name) === itemSlug
-		);
+		const itemSlug = moveSlugOf(itemData);
+		const existing = findMoveItemBySlug(this._actor, itemSlug);
 		if (existing) {
 			if (computeSelectable(existing)) {
 				await this.incrementMove(existing.system?.categoryKey, itemSlug);

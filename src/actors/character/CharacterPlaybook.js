@@ -29,7 +29,8 @@ export class CharacterPlaybook {
 		return this._selection.slug;
 	}
 
-	async getBackgroundMoveNames(bgSelectedSlug) {
+	/** The slugs of the moves a background grants — `backgrounds[].moves` is a slug list, not names. */
+	async getBackgroundMoveSlugs(bgSelectedSlug) {
 		const data = await this.getData();
 		if (!data) return new Set();
 		return new Set(data.backgrounds?.find(b => b.slug === bgSelectedSlug)?.moves ?? []);
@@ -38,14 +39,14 @@ export class CharacterPlaybook {
 	async selectBackground(slug) {
 		const catKey = `playbook-${this.getSlug()}`;
 		const oldSlug = this._background.selectedSlug;
-		const oldMoveNames = await this.getBackgroundMoveNames(oldSlug);
+		const oldMoveSlugs = await this.getBackgroundMoveSlugs(oldSlug);
 		await this._background.selectBackground(slug);
-		const newMoveNames = await this.getBackgroundMoveNames(slug);
-		for (const name of oldMoveNames) {
-			if (!newMoveNames.has(name)) await this._moves.decrementMove(catKey, name);
+		const newMoveSlugs = await this.getBackgroundMoveSlugs(slug);
+		for (const moveSlug of oldMoveSlugs) {
+			if (!newMoveSlugs.has(moveSlug)) await this._moves.decrementMove(catKey, moveSlug);
 		}
-		for (const name of newMoveNames) {
-			if (!oldMoveNames.has(name)) await this._moves.incrementMove(catKey, name);
+		for (const moveSlug of newMoveSlugs) {
+			if (!oldMoveSlugs.has(moveSlug)) await this._moves.incrementMove(catKey, moveSlug);
 		}
 		// A background's own moves are items only it grants, so the switch hands the old one's back
 		// before handing out the new one's.

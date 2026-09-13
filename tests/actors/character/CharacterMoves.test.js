@@ -1267,3 +1267,66 @@ describe("CharacterMoves.sendToChat", () => {
 		expect(actor.chatItems).toHaveLength(0);
 	});
 });
+
+// ── A move whose name disagrees with its slug ─────────────────────────────────
+
+// Babele localizes a move's `name` and never touches `system.slug`, so in a translated world the two
+// disagree for every move a character owns. The sheet renders a row from the STORED slug, so every
+// lookup has to match on that slug — deriving one from the name finds nothing, and the symptom is a
+// checkbox that silently does not tick.
+describe("CharacterMoves — a move whose name disagrees with its slug", () => {
+	const translated = (extra = b => b) =>
+		extra(new FakeCompendiumMoveBuilder().withName("Bollwerk").withSlug("bulwark")).build();
+
+	it("increments the move named by its stored slug", async () => {
+		const repo  = new FakeMoveRepository([translated(b => b.withRepeatMax(2))]);
+		const actor = makeActor();
+		const m     = makeMoves({repo, actor});
+		await initPlaybook(m, repo);
+		await m.incrementMove("playbook-the-heavy", "bulwark");
+		expect(actor.updatedDocs[0]?.system.instanceCount).toBe(1);
+	});
+
+	it("decrements it by its stored slug", async () => {
+		const repo  = new FakeMoveRepository([translated(b => b.asStarting().withRepeatMax(2))]);
+		const actor = makeActor();
+		const m     = makeMoves({repo, actor});
+		await initPlaybook(m, repo);
+		await m.decrementMove("playbook-the-heavy", "bulwark");
+		expect(actor.updatedDocs.at(-1)?.system.instanceCount).toBe(0);
+	});
+
+	it("counts it by its stored slug", async () => {
+		const repo  = new FakeMoveRepository([translated(b => b.asStarting().withRepeatMax(2))]);
+		const m     = makeMoves({repo, actor: makeActor()});
+		await initPlaybook(m, repo);
+		expect(m.countOwnedBySlug("bulwark")).toBe(1);
+	});
+
+	it("does not count it under a slug derived from the translated name", async () => {
+		const repo = new FakeMoveRepository([translated(b => b.asStarting())]);
+		const m    = makeMoves({repo});
+		await initPlaybook(m, repo);
+		expect(m.countOwnedBySlug("bollwerk")).toBe(0);
+	});
+
+	it("recognises a re-drop of one it already owns rather than adding a second copy", async () => {
+		const dropped = translated();
+		const repo    = new FakeMoveRepository([dropped]);
+		const actor   = makeActor();
+		const m       = makeMoves({repo, actor});
+		await initPlaybook(m, repo);
+		const before = actor.createdDocs.length;
+		await m.onDropMove(dropped);
+		expect(actor.createdDocs.length).toBe(before);
+	});
+
+	it("deletes a dropped-in move by its stored slug", async () => {
+		const dropped = translated();
+		const actor   = makeActor();
+		const m       = makeMoves({repo: new FakeMoveRepository(), actor});
+		await m.addMoveToOther(dropped);
+		await m.deleteMove("bulwark");
+		expect(actor.deletedIds).toHaveLength(1);
+	});
+});

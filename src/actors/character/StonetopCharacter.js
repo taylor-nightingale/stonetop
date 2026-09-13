@@ -307,16 +307,16 @@ export class StonetopCharacter {
 		return this._playbookRepo?.getAllPlaybooks() ?? [];
 	}
 
-	async incrementMove(categoryKey, moveName) {
-		await this._moves.incrementMove(categoryKey, moveName);
+	async incrementMove(categoryKey, moveSlug) {
+		await this._moves.incrementMove(categoryKey, moveSlug);
 	}
 
-	async decrementMove(categoryKey, moveName) {
-		await this._moves.decrementMove(categoryKey, moveName);
+	async decrementMove(categoryKey, moveSlug) {
+		await this._moves.decrementMove(categoryKey, moveSlug);
 	}
 
-	async deleteMove(moveName) {
-		await this._moves.deleteMove(moveName);
+	async deleteMove(moveSlug) {
+		await this._moves.deleteMove(moveSlug);
 	}
 
 	async _onCreateDescendantDocuments(documents) {

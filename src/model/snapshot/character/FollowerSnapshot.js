@@ -14,6 +14,7 @@
  * @property {RichText}                  description
  * @property {ChoiceGroup|null}         choices
  */
+import { CompanionCatalog } from "../../data/character/CompanionCatalog.js";
 import { Selection } from "../../data/Selection.js";
 import { hasGroupTag } from "../../data/groupTag.js";
 import { rich } from "../RichText.js";
@@ -63,19 +64,16 @@ export class FollowerSnapshot {
 			traitSelection: memberSel(m.traits, this.memberSuggestions.traits),
 		}));
 		// Animal companion (only meaningful when isCompanion). One grouped object holds the chosen
-		// type + options (raw Selections) and the catalog of selectable types. The Type dropdown's
-		// options are the catalog names; the options-pool's options ride on the stored selection.
+		// type + options (raw Selections) and the catalog of selectable types.
 		const c = b._companion ?? {};
 		this.isCompanion    = !!c.enabled;
-		const catalog       = Array.isArray(c.catalog) ? c.catalog : [];
-		// The Type dropdown's options are ALWAYS the catalog names — not whatever is stored on the
-		// `type` selection (which is empty until a type is first picked). fromStored ignores its
-		// `options` arg for an object value, so set it explicitly.
-		this.companionTypeSelection = Selection.fromStored(c.type, { multi: false });
-		this.companionTypeSelection.options = catalog.map(t => t.name);
+		const catalog       = CompanionCatalog.fromCompanion(c);
+		// The pick is STORED as a slug and SHOWN as the type's name, so the Type combobox — which is
+		// both the label and the thing typed back — is built from names on both sides: the catalog's,
+		// never whatever the stored `type` selection happens to carry.
+		const chosen        = catalog.typeFor(Selection.fromStored(c.type, { multi: false }).value);
+		this.companionTypeSelection = Selection.single(chosen?.name ?? null, { options: catalog.names });
 		this.companionOptionsSelection = Selection.fromStored(c.options, { multi: true });
-		const chosen        = catalog.find(t => this.companionTypeSelection.values.includes(t.name)
-			|| this.companionTypeSelection.values.includes(t.slug));
 		this.companionPickCount   = chosen?.pickCount ?? 0;
 		this.companionStartOptions = chosen?.defaults ?? []; // the pre-checked "(start with …)" picks
 		// Inventory (shared outfit catalog + this follower's checked map). null when the catalog

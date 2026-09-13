@@ -1050,8 +1050,10 @@ describe("CharacterFollowers — an edit keeps the global tagList (migrate-on-di
 
 // -- Animal companion (Ranger) -------------------------------------------------
 describe("CharacterFollowers — animal companion", () => {
+	// Slug and name deliberately differ, as they do in the pack ("bird" / "Bird"): a fixture where they
+	// match cannot tell a pick stored by slug from one stored by name.
 	const BIRD = {
-		slug: "bird", name: "bird", variants: ["falcon"],
+		slug: "bird", name: "Bird", variants: ["falcon"],
 		hp: { value: 5, max: 5 }, armor: "1 (size)", damage: "d4 (hand)",
 		pickCount: 4,
 		options: ["+4 HP", "fast", "tiny", "__"], defaults: ["tiny"],
@@ -1071,19 +1073,46 @@ describe("CharacterFollowers — animal companion", () => {
 
 	it("setCompanionType pre-fills hp/armor/damage and resets the options pool + defaults", async () => {
 		const cf = makeCompanion();
-		await cf.setCompanionType("comp", "bird");
+		await cf.setCompanionType("comp", "Bird");
 		const sys = sysOf(cf);
 		expect(sys.hp).toEqual({ value: 5, max: 5 });
 		expect(sys.armor).toBe("1 (size)");
 		expect(sys.damage).toBe("d4 (hand)");
-		expect(sys.companion.type.selected).toEqual(["bird"]);
 		expect(sys.companion.options.options).toEqual(["+4 HP", "fast", "tiny", "__"]);
 		expect(sys.companion.options.selected).toEqual(["tiny"]);
 	});
 
-	it("toggleCompanionOption adds and removes within the pool (whole object written back)", async () => {
+	// The combobox hands back what the player sees — the name. What gets stored is the slug, so the
+	// pick survives the catalog being retyped or translated underneath it.
+	it("stores the picked type by slug, not by the name the combobox sent", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "Bird");
+		expect(sysOf(cf).companion.type.selected).toEqual(["bird"]);
+	});
+
+	it("stores the slug when handed one directly, so a re-set is idempotent", async () => {
 		const cf = makeCompanion();
 		await cf.setCompanionType("comp", "bird");
+		expect(sysOf(cf).companion.type.selected).toEqual(["bird"]);
+	});
+
+	// The snapshot names the catalog every render, so storing a second copy of the names in world data
+	// would only be one more thing to fall out of date.
+	it("keeps no options list on the stored type selection", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "Bird");
+		expect(sysOf(cf).companion.type.options).toEqual([]);
+	});
+
+	it("ignores a value that names no type in the catalog", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "Wyvern");
+		expect(sysOf(cf).companion.type.selected).toEqual([]);
+	});
+
+	it("toggleCompanionOption adds and removes within the pool (whole object written back)", async () => {
+		const cf = makeCompanion();
+		await cf.setCompanionType("comp", "Bird");
 		await cf.toggleCompanionOption("comp", "fast");
 		expect(sysOf(cf).companion.options.selected).toEqual(["tiny", "fast"]);
 		await cf.toggleCompanionOption("comp", "tiny");
@@ -1095,7 +1124,7 @@ describe("CharacterFollowers — animal companion", () => {
 
 	it("editing armor keeps the companion type/options intact (migrate-on-diff guard)", async () => {
 		const cf = makeCompanion();
-		await cf.setCompanionType("comp", "bird");
+		await cf.setCompanionType("comp", "Bird");
 		await cf.setArmor("comp", "2");
 		const c = sysOf(cf).companion;
 		expect(c.type.selected).toEqual(["bird"]);
@@ -1105,14 +1134,26 @@ describe("CharacterFollowers — animal companion", () => {
 
 	it("buildSnapshot exposes isCompanion + type options from the catalog + pickCount", async () => {
 		const cf = makeCompanion();
-		await cf.setCompanionType("comp", "bird");
+		await cf.setCompanionType("comp", "Bird");
 		const [snap] = await cf.buildSnapshot();
 		expect(snap.isCompanion).toBe(true);
-		expect(snap.companionTypeSelection.values).toEqual(["bird"]);
-		expect(snap.companionTypeSelection.options).toContain("bird");
+		// Stored as a slug, shown as the name — the combobox is both the label and the thing typed back.
+		expect(snap.companionTypeSelection.values).toEqual(["Bird"]);
+		expect(snap.companionTypeSelection.options).toContain("Bird");
 		expect(snap.companionOptionsSelection.multi).toBe(true);
 		expect(snap.companionPickCount).toBe(4);
 		expect(snap.companionStartOptions).toEqual(["tiny"]); // the "(start with …)" defaults
+	});
+
+	// What a world holds before the migration runs. It has to keep resolving, or the card loses the
+	// type's pickCount and its pre-checked defaults.
+	it("still resolves a pick stored as a name", async () => {
+		const cf = makeCompanion();
+		sysOf(cf).companion.type = { selected: ["Bird"], options: [], multi: false, allowCustom: true };
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.companionTypeSelection.values).toEqual(["Bird"]);
+		expect(snap.companionPickCount).toBe(4);
+		expect(snap.companionStartOptions).toEqual(["tiny"]);
 	});
 
 	it("a non-companion follower reports isCompanion false", async () => {
@@ -1125,7 +1166,7 @@ describe("CharacterFollowers — animal companion", () => {
 	it("the Type dropdown lists the catalog even before a type is picked", async () => {
 		const cf = makeCompanion(); // no setCompanionType yet
 		const [snap] = await cf.buildSnapshot();
-		expect(snap.companionTypeSelection.options).toEqual(["bird"]);
+		expect(snap.companionTypeSelection.options).toEqual(["Bird"]);
 		expect(snap.companionTypeSelection.values).toEqual([]);
 	});
 });

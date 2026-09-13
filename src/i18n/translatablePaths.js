@@ -136,6 +136,9 @@ const FOLLOWER = [
 	"system.instinct.selected[]",
 	"system.cost.options[]",
 	"system.cost.selected[]",
+	// The type's display label. A companion's chosen type is stored by SLUG, so translating the name
+	// moves nothing — see CompanionCatalog.
+	"system.companion.catalog[].name",
 	"system.companion.catalog[].damage",
 	"system.companion.catalog[].armor",
 	"system.companion.catalog[].variants[]",
@@ -222,10 +225,6 @@ export const UNTRANSLATED_PATHS = {
 	follower: {
 		"system.tagOptions[]": "A tag — translated once through stonetop.tagLabels, not per follower.",
 		"system.companion.catalog[].options[]": "Tags, and they render as tag chips; see tagLabels.",
-		// CharacterFollowers resolves the chosen companion with `x.slug === wanted || x.name === wanted`
-		// and stores `t.name`, so a translated name stops resolving and silently loses the type's
-		// pickCount and pre-checked defaults.
-		"system.companion.catalog[].name": "Matched by name when resolving the chosen companion type.",
 	},
 	steadfast: {
 		"system.residents.names":         "Personal names.",
