@@ -36,10 +36,20 @@
 						},
 						{
 							"type": "entry",
+							"slug": "wear-rune-laden",
 							"content": {
 								"title": null,
-								"text": "When you **_wear the Rune-laden Scales and stand fast against a magical attack_**, roll +CON: **on a 10+**, the magic washes over you, unpleasant perhaps but with no ill effect; **on a 7-9**, you’re only partially affected—suffer half damage (if any) and a reduced effect; **on a 6-**, mark XP, and the magic affects you fully."
-							}
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "wear-rune-laden",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
 						{
 							"type": "entry",
@@ -57,6 +67,13 @@
 							},
 							"track": {
 								"max": 5
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the mysteries of the armor. Gain a move of your choice (see reverse), but also mark a consequence. Then, erase all marks."
 							}
 						}
 					]

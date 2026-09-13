@@ -58,7 +58,12 @@
 	      rather than stopping where the controls begin — and the button's accessible name stays
 	      "Bolster" instead of the move's whole trigger read aloud after it. Opening the move's own
 	      sheet is then a button in the body. --}}
-	{{#if disclosure}}
+	{{!-- A move the book prints with no name draws none: the row is the move's own words. It still HAS
+	      a name — the roll button and the chat card below say it — so nothing here goes unannounced. A
+	      disclosure row is the exception: there the name IS the control that opens the text, so a
+	      nameless move keeps it rather than collapsing behind nothing. --}}
+	{{#if (and nameless (not disclosure))}}
+	{{else if disclosure}}
 	<button type="button" class="stonetop-item-name stonetop-move-disclosure" data-action="toggleMoveBody"
 	        data-disclosure data-view-state data-move-slug="{{slug}}"
 	        aria-expanded="{{#if startOpen}}true{{else}}false{{/if}}"

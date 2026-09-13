@@ -38,10 +38,20 @@
 						},
 						{
 							"type": "entry",
+							"slug": "brandish-azure-hand",
 							"content": {
 								"title": null,
-								"text": "When you **_brandish the Azure Hand at a source of elemental energy_**, roll +CON: **on a 10+**, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; **on a 7-9**, as a 10+, but the vortex is unstable and maintaining it requires all your focus.\n- Direct the energy into a vessel able to contain it\n- Discharge the energy harmlessly into the earth\n- Fling the energy, rolling +INT to Let Fly (*thrown*, *dangerous*), inflicting damage and other effects of the GM’s choosing\n- Use the energy to fuel or empower some other magic.\n\n**On a 6-**, instead of marking XP, mark 1:"
-							}
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "brandish-azure-hand",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
 						{
 							"type": "entry",
@@ -52,6 +62,20 @@
 							},
 							"track": {
 								"max": 4
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "Each time you mark 1, ask the GM how the power goes out of control."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the mysteries of the Azure Hand—choose one of the moves on the reverse, and erase all marks above."
 							}
 						}
 					]

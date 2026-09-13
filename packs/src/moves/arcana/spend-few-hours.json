@@ -1,0 +1,28 @@
+{
+	"_id": "710faebc89f5901f",
+	"_key": "!items!710faebc89f5901f",
+	"name": "Spend a few hours staring into the stones and listening to their whispers",
+	"type": "move",
+	"system": {
+		"slug": "spend-few-hours",
+		"moveType": null,
+		"description": "When you **_spend a few hours staring into the stones and listening to their whispers_**, name someone you know but on whom you have never used this power before. Then, roll +INT: **on a 10+**, the stones reveal a secret about them; **on a 7-9**, the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires); **on a 6-**, the stones pry a secret from you.",
+		"rollStat": "int",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "the stones reveal a secret about them"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires)"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "the stones pry a secret from you."
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

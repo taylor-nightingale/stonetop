@@ -87,7 +87,13 @@ export class OwnedArcanum {
 	outfitGrant() {
 		const sys = this._item.system ?? {};
 		const source = "arcana:" + sys.slug;
-		const sideItem = sys.flipped ? sys.back?.item : sys.front?.item;
+		// `itemSameAsFront` is how a back says it is still the same object you are carrying (the
+		// Blood-quenched Sword is a sword on both sides), so the flip must resolve it the way the card
+		// does — reading the raw `back.item` alone took the gear out of the outfit on every flip. A back
+		// that resolves to no item is a card whose object is GONE: the Mindgem is installed into the
+		// Mighty Servant's helm and stops being something you carry.
+		const backItem = sys.back?.itemSameAsFront ? sys.front?.item : sys.back?.item;
+		const sideItem = sys.flipped ? backItem : sys.front?.item;
 		const base = sideItem?.inventoryColumn ? [{...sideItem, slug: sys.slug}] : [];
 		return OutfitGrant.forContainer(source, base, sys, sys.choiceValues ?? {});
 	}

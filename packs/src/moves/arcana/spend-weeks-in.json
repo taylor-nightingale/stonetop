@@ -1,0 +1,28 @@
+{
+	"_id": "0760778181e5eaf5",
+	"_key": "!items!0760778181e5eaf5",
+	"name": "Spend weeks in ascetic contemplation of the incommunicable words within you",
+	"type": "move",
+	"system": {
+		"slug": "spend-weeks-in",
+		"moveType": null,
+		"description": "When you **_spend weeks in ascetic contemplation of the incommunicable words within you_**, roll +WIS: **on a 10+**, you gain insight into the power within you—mark 1 below; **on a 7-9**, gain advantage on your next attempt to contemplate the words.",
+		"rollStat": "wis",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "you gain insight into the power within you—mark 1 below"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "gain advantage on your next attempt to contemplate the words."
+			},
+			"failure": {
+				"label": "6-",
+				"value": ""
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

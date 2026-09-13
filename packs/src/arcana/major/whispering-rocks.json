@@ -21,10 +21,20 @@
 						},
 						{
 							"type": "entry",
+							"slug": "spend-few-hours",
 							"content": {
 								"title": null,
-								"text": "When you **_spend a few hours staring into the stones and listening to their whispers_**, name someone you know but on whom you have never used this power before. Then, roll +INT: **on a 10+**, the stones reveal a secret about them; **on a 7-9**, the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires); **on a 6-**, the stones pry a secret from you."
-							}
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "spend-few-hours",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
 						{
 							"type": "entry",
@@ -42,6 +52,13 @@
 							},
 							"track": {
 								"max": 5
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the mysteries of the rocks, and are able to use Shadow Magic (see reverse).\n\nWhen **_one of the rocks is shattered_**, cross off one of the Shadow Magic options; it is no longer available."
 							}
 						}
 					]

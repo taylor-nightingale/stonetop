@@ -256,6 +256,24 @@
       "text": "Du wirst von einem Tier von ungewöhnlicher Treue und Klugheit begleitet. Siehe hierzu für weitere Einzelheiten in die Beilage Tiergefährte."
     }
   },
+  "anoint-figurine-own": {
+    "name": {
+      "source": "Anoint a figurine with your own blood and then sleep in its presence",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_anoint a figurine with your own blood and then sleep in its presence_**, roll +CON: **on a 10+**, you dream lucidly of the spirit in the figurine, which speaks an archaic but intelligible dialect—it might be persuaded to reveal its name, or the name of its fellow spirit, or the method of calling them forth; **on a 7-9**, you dream of the spirit, but the dream is fleeting, strange, and disorienting—ask the GM what you learn of the spirit.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "you dream lucidly of the spirit in the figurine, which speaks an archaic but intelligible dialect—it might be persuaded to reveal its name, or the name of its fellow spirit, or the method of calling them forth",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "you dream of the spirit, but the dream is fleeting, strange, and disorienting—ask the GM what you learn of the spirit.",
+      "text": ""
+    }
+  },
   "arcane-adept": {
     "name": {
       "source": "Arcane Adept",
@@ -492,6 +510,28 @@
     "moveResults/failure/value": {
       "source": "The GM makes a move.",
       "text": "Der SL macht einen Spielzug."
+    }
+  },
+  "brandish-azure-hand": {
+    "name": {
+      "source": "Brandish the Azure Hand at a source of elemental energy",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_brandish the Azure Hand at a source of elemental energy_**, roll +CON: **on a 10+**, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; **on a 7-9**, as a 10+, but the vortex is unstable and maintaining it requires all your focus.\n- Direct the energy into a vessel able to contain it\n- Discharge the energy harmlessly into the earth\n- Fling the energy, rolling +INT to Let Fly (*thrown*, *dangerous*), inflicting damage and other effects of the GM’s choosing\n- Use the energy to fuel or empower some other magic.\n\n**On a 6-**, instead of marking XP, mark 1:",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "as a 10+, but the vortex is unstable and maintaining it requires all your focus.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "instead of marking XP, mark 1:",
+      "text": ""
     }
   },
   "break-bread": {
@@ -862,6 +902,28 @@
       "text": "Solange du nicht benommen bist, wirst du niemals überrascht – nicht einmal im Schlaf oder wenn du eine 6− würfelst. Wenn du **_eine plötzliche Bedrohung abwehrst_** (für dich selbst oder einen Verbündeten), hast du bei dem Spielzug, den du daraufhin ausführst, einen Vorteil."
     }
   },
+  "consult-mindgem-about": {
+    "name": {
+      "source": "Consult the Mindgem about the Makers, their arts, or their history",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_consult the Mindgem about the Makers, their arts, or their history_**, ask a question and roll +INT: **on a 7+**, it answers but **on a 10+**, pick 1; **on a 7-9**, pick 2:\n- The answer is cryptic, vague, or lacking crucial context\n- It takes a long time—hours or even days—to get the answer\n- Your mind is left reeling; take disadvantage on your next roll\n\n**On a 6-**, choose 1:\n- It wastes your time with irrelevant histories and data\n- It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "it answers but pick 1",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "it answers but pick 2:",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "choose 1:",
+      "text": ""
+    }
+  },
   "convalesce": {
     "name": {
       "source": "Convalesce",
@@ -1221,6 +1283,24 @@
       "text": "Wenn **_eine Spielsitzung endet_**, erläutere, wie du deinem Instinkt gefolgt bist oder mit ihm gerungen hast. Wenn du es kannst, markiere EP.\n\nBeschreibe, wie sich deine Beziehung oder Meinung zu einem SC, NSC oder einer Gruppe verändert hat. Wenn du es kannst, markiere EP.\n\nBeantwortet diese Fragen gemeinsam in der Gruppe. Für jedes „Ja“ markiert jeder EP.\n\n- Haben wir mehr über die Welt oder ihre Geschichte erfahren?\n- Haben wir eine Bedrohung für Stonetop oder die Region besiegt?\n- Haben wir unser Ansehen bei unseren Nachbarn verbessert?\n- Haben wir Stonetop nachhaltig verbessert oder konkrete Fortschritte dabei gemacht?\n\nLobt etwas an der Spielsitzung (in der Spielwelt oder am Spieltisch), das euch gefallen oder das ihr zu schätzen gewusst habt.\n\nÄußere zum Schluss einen Wunsch für zukünftige Spielsitzungen: mehr von …, weniger von …, eine Gelegenheit, … zu tun, mit … auf eine andere Weise umzugehen usw. Wünsche können sich sowohl darauf beziehen, was in der Spielwelt geschieht, als auch auf das Geschehen am Spieltisch. Der SL wird sich dazu Notizen machen."
     }
   },
+  "enter-ecstatic-delirium": {
+    "name": {
+      "source": "Enter an ecstatic delirium and allow the Ineffable Words to pour forth",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_enter an ecstatic delirium and allow the Ineffable Words to pour forth_**, roll +CON: **on a 10+**, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; **on a 7-9**, the 10+ result applies, but choose 1 from the list below.\n- The Truth is cryptic, vague, incomplete\n- You are overcome, collapsing in a full-body seizure\n- You draw unwanted attention",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the 10+ result applies, but choose 1 from the list below.",
+      "text": ""
+    }
+  },
   "everything-bleeds": {
     "name": {
       "source": "Everything Bleeds",
@@ -1467,6 +1547,28 @@
       "text": ""
     }
   },
+  "gaze-deeply-ice": {
+    "name": {
+      "source": "Gaze deeply into the Ice Sphere and ponder a situation, puzzle, or mystery",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_gaze deeply into the Ice Sphere and ponder a situation, puzzle, or mystery_**, ask the GM one of the questions below. The GM will answer honestly.\n- Who benefits (or would benefit) from __?\n- What about __ isn’t what it seems to be?\n- How could I learn more about __?\n- What’s the most likely outcome if __?\n- What am I overlooking?\n\nAfter the GM answers, roll +INT: **on a 10+**, hold 2 Acumen; **on a 7-9**, hold 1. While acting on the GM’s answer, you can spend Acumen 1-for-1 to:\n- Ask another question from the list above, and get an honest answer\n- Treat a 6- that you rolled as a 7-9, or a 7-9 as a 10+ **On a 6-**, your connection to your body weakens—mark a debility and mark 1 circle. The debility lasts until you spend a few days living wholly in your body and averting your gaze from the Ice Sphere.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "hold 2 Acumen",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "hold 1. While acting on the GM’s answer, you can spend Acumen 1-for-1 to:",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "your connection to your body weakens—mark a debility and mark 1 circle. The debility lasts until you spend a few days living wholly in your body and averting your gaze from the Ice Sphere.",
+      "text": ""
+    }
+  },
   "giant-slayer": {
     "name": {
       "source": "Giant Slayer",
@@ -1494,6 +1596,28 @@
     },
     "description": {
       "source": "When you **_perform the secret rite_**, hold 3 Conduit instead of 1 (and increase your max Conduit to 3). You no longer need the effigy on your person to use Surrogate Suffering. However, any magic that divines your location or spies on you also targets the effigy.",
+      "text": ""
+    }
+  },
+  "grip-staff-close": {
+    "name": {
+      "source": "Grip the staff, close your eyes, and see through the Lidless Orb",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_grip the staff, close your eyes, and see through the Lidless Orb_**, roll +CON: **on a 10+**, choose 3 from the list below; **on a 7-9**, choose 1.\n- The orb sees through darkness, natural or magical\n- The orb sees through illusion, glamour, and invisibility\n- The orb can see strong emotions as auras radiating from people and lingering\n- on places\n- You can move about and operate effectively while seeing through the orb (otherwise, not so much) Whatever you choose, the effect lasts until you open your eyes or let go of the staff.\n\n**On a 6-**, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "choose 3 from the list below",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "choose 1.",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.",
       "text": ""
     }
   },
@@ -2921,6 +3045,28 @@
       "text": "Einmal pro Jahreszeit, wenn du **_die heiligen Rituale leitest_**, erhältst du 1 Gunst. Opferst du zusätzlich 1 Überschuss, erhältst du stattdessen 4 Gunst. Gib Gunst im Verhältnis 1:1 anstelle von Vorrat aus.\n\nWenn du **_etwas oder jemanden, den du von Herzen liebst, öffentlich opferst_**, beseitige entweder eine Beeinträchtigung der Siedlung oder erhalte einen Vorteil, wenn die Siedlung das nächste Mal +Schicksal würfelt."
     }
   },
+  "roil-anger": {
+    "name": {
+      "source": "Roil with anger",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_roil with anger_**, you do +1 damage until you calm down. But when you **_try to control your_** **_temper_**, roll +WIS: **on a 10+**, you keep your cool and act as you wish; **on a 7-9**, choose 1 from the list below; **on a 6-**, you just lose it—tell the GM what damn fool thing you end up doing.\n- Take some deep breaths and count to ten, fuming all the while\n- Vent your rage, but tell us how and on what",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "you keep your cool and act as you wish",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "choose 1 from the list below",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "you just lose it—tell the GM what damn fool thing you end up doing.",
+      "text": ""
+    }
+  },
   "roots-of-the-elder-tree": {
     "name": {
       "source": "Roots of the Elder Tree",
@@ -3369,6 +3515,68 @@
     "description": {
       "source": "When you **_demand that someone does what is clearly good and right_**, you have advantage to Persuade. If they refuse, gain +1 Resolve.",
       "text": "Wenn du **_von jemandem verlangst, etwas zu tun, das offensichtlich gut und richtig ist_**, hast du beim Überreden einen Vorteil. Wenn die Person sich weigert, erhältst du +1 Entschlossenheit."
+    }
+  },
+  "spend-few-days": {
+    "name": {
+      "source": "Spend a few days practicing, playing",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "mark 1 circle",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "mark 1 circle, but you summon an irate zephyr spirit",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "you make no progress but do manage to summon an irate zephyr.",
+      "text": ""
+    }
+  },
+  "spend-few-hours": {
+    "name": {
+      "source": "Spend a few hours staring into the stones and listening to their whispers",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend a few hours staring into the stones and listening to their whispers_**, name someone you know but on whom you have never used this power before. Then, roll +INT: **on a 10+**, the stones reveal a secret about them; **on a 7-9**, the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires); **on a 6-**, the stones pry a secret from you.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the stones reveal a secret about them",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires)",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "the stones pry a secret from you.",
+      "text": ""
+    }
+  },
+  "spend-weeks-in": {
+    "name": {
+      "source": "Spend weeks in ascetic contemplation of the incommunicable words within you",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend weeks in ascetic contemplation of the incommunicable words within you_**, roll +WIS: **on a 10+**, you gain insight into the power within you—mark 1 below; **on a 7-9**, gain advantage on your next attempt to contemplate the words.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "you gain insight into the power within you—mark 1 below",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "gain advantage on your next attempt to contemplate the words.",
+      "text": ""
     }
   },
   "spirit-tongue": {
@@ -4077,6 +4285,50 @@
     "moveResults/failure/value": {
       "source": "Each ally holds 1 Inspiration, but you have disadvantage on all rolls until you share your nagging doubts with someone else.",
       "text": "Jeder Verbündete nimmt 1 Inspiration, aber du hast bei allen Proben einen Nachteil, bis du deine nagenden Zweifel mit jemand anderem teilst."
+    }
+  },
+  "wear-ring-press": {
+    "name": {
+      "source": "Wear the ring and press it firmly into the skin of a living thing",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wear the ring and press it firmly into the skin of a living thing_**, the ring draws the life-force from your victim. If your victim is helpless or unable to struggle, they are reduced to 0 HP (see below).\n\nIf **_your victim struggles_**, roll +CON: **on a 10+**, deal 1d10 damage (ignores armor) and they are left reeling (a PC or follower marks a debility, an NPC or monster grants advantage on any moves made against it until it recovers); **on a 7-9**, deal 1d10 damage (ignores armor) but you suffer whatever counterattack they dish out; **on a 6-**, ask the GM what happens (which may or may not involve marking a consequence; see reverse).",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "deal 1d10 damage (ignores armor) and they are left reeling (a PC or follower marks a debility, an NPC or monster grants advantage on any moves made against it until it recovers)",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "deal 1d10 damage (ignores armor) but you suffer whatever counterattack they dish out",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "ask the GM what happens (which may or may not involve marking a consequence; see reverse).",
+      "text": ""
+    }
+  },
+  "wear-rune-laden": {
+    "name": {
+      "source": "Wear the Rune-laden Scales and stand fast against a magical attack",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_wear the Rune-laden Scales and stand fast against a magical attack_**, roll +CON: **on a 10+**, the magic washes over you, unpleasant perhaps but with no ill effect; **on a 7-9**, you’re only partially affected—suffer half damage (if any) and a reduced effect; **on a 6-**, mark XP, and the magic affects you fully.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "the magic washes over you, unpleasant perhaps but with no ill effect",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "you’re only partially affected—suffer half damage (if any) and a reduced effect",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "mark XP, and the magic affects you fully.",
+      "text": ""
     }
   },
   "well-read": {

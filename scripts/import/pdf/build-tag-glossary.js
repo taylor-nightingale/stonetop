@@ -60,7 +60,9 @@ function main() {
 
 	const strings = JSON.parse(readFileSync(OUT, "utf8"));
 	strings.stonetop.tagGlossary = glossary;
-	writeFileSync(OUT, JSON.stringify(strings, null, "\t") + "\n");
+	// Two spaces, as the file is committed and as the i18n authoring writer emits it (scripts/i18n/
+	// files.js) — writing tabs here reindented all ~925 lines on every run, burying the real change.
+	writeFileSync(OUT, JSON.stringify(strings, null, 2) + "\n");
 
 	const counts = Object.entries(glossary).map(([k, v]) => `${Object.keys(v).length} ${k}`);
 	console.log(`${OUT}: ${bySlug.size} tag definitions (${counts.join(", ")})`);

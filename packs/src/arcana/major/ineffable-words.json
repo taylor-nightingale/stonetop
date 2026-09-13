@@ -21,17 +21,37 @@
 						},
 						{
 							"type": "entry",
+							"slug": "enter-ecstatic-delirium",
 							"content": {
 								"title": null,
-								"text": "When you **_enter an ecstatic delirium and allow the Ineffable Words to pour forth_**, roll +CON: **on a 10+**, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; **on a 7-9**, the 10+ result applies, but choose 1 from the list below.\n- The Truth is cryptic, vague, incomplete\n- You are overcome, collapsing in a full-body seizure\n- You draw unwanted attention"
-							}
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "enter-ecstatic-delirium",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
 						{
 							"type": "entry",
+							"slug": "spend-weeks-in",
 							"content": {
 								"title": null,
-								"text": "When you **_spend weeks in ascetic contemplation of the incommunicable words within you_**, roll +WIS: **on a 10+**, you gain insight into the power within you—mark 1 below; **on a 7-9**, gain advantage on your next attempt to contemplate the words."
-							}
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "spend-weeks-in",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
 						{
 							"type": "entry",

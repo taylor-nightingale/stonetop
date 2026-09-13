@@ -1,0 +1,86 @@
+{
+  "_id": "qpbN6QXITHRkpfjN",
+  "_key": "!tables!qpbN6QXITHRkpfjN",
+  "name": "Mysteries of the Mindgem",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "LyKTDXCD3yQw4Zk9",
+      "_key": "!tables.results!qpbN6QXITHRkpfjN.LyKTDXCD3yQw4Zk9",
+      "type": "text",
+      "name": "",
+      "description": "To punish Victory against Hillfolk, sorcerers, the Things Below",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "U5ooDhn0u4ht4b9f",
+      "_key": "!tables.results!qpbN6QXITHRkpfjN.U5ooDhn0u4ht4b9f",
+      "type": "text",
+      "name": "",
+      "description": "To preserve Acquiring artifacts of the past, safely hiding them away",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "UoykumCTGTvOo5Pl",
+      "_key": "!tables.results!qpbN6QXITHRkpfjN.UoykumCTGTvOo5Pl",
+      "type": "text",
+      "name": "",
+      "description": "To purge Destroying artifacts of the Green Lords or Things Below",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "9IKJMChiodDh4ikM",
+      "_key": "!tables.results!qpbN6QXITHRkpfjN.9IKJMChiodDh4ikM",
+      "type": "text",
+      "name": "",
+      "description": "To build Progress towards building an enormous, enigmatic edifice",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d4",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 8001,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

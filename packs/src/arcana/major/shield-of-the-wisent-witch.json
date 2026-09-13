@@ -60,6 +60,13 @@
 							"track": {
 								"max": 5
 							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the shield’s mysteries, and can use Spirits of the Herd (see reverse)."
+							}
 						}
 					]
 				}

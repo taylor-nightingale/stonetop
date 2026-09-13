@@ -130,6 +130,12 @@ describe("MoveSnapshotBuilder.forArcanum", () => {
 		expect(m.selection).toEqual({ value: 1, max: 1 });
 	});
 
+	// The book prints no heading over an arcanum's FRONT move; the name is identity only.
+	it("carries the no-name-printed fact through to the row", () => {
+		expect(MoveSnapshotBuilder.forArcanum({ id: "roil-anger", name: "Roil with anger", nameless: true }).nameless).toBe(true);
+		expect(MoveSnapshotBuilder.forArcanum({ id: "battery", name: "Battery" }).nameless).toBe(false);
+	});
+
 	it("carries a subtitle through as the move sourceLabel (null when absent)", () => {
 		expect(MoveSnapshotBuilder.forArcanum({ name: "Resonance", subtitle: "Requires: Battery" }).sourceLabel).toBe("Requires: Battery");
 		expect(MoveSnapshotBuilder.forArcanum({ name: "Unquenched" }).sourceLabel).toBeNull();

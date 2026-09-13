@@ -26,7 +26,7 @@ function totalPages() {
 const ranges = articleRanges(loadOutline(PDF), totalPages());
 const tmp = mkdtempSync(path.join(os.tmpdir(), "ww-tbl-"));
 mkdirSync(OUT, { recursive: true });
-// rebuild fresh, but leave the arcana- tables (owned by build-arcana --write-minor) in place.
+// rebuild fresh, but leave the arcana- tables (owned by build-arcana: --write-arcana + --write-minor) in place.
 for (const f of readdirSync(OUT).filter((n) => n.endsWith(".json") && !n.startsWith("arcana-"))) rmSync(path.join(OUT, f));
 
 const flags = [];

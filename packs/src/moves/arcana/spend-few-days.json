@@ -1,0 +1,28 @@
+{
+	"_id": "b43c23646897b737",
+	"_key": "!items!b43c23646897b737",
+	"name": "Spend a few days practicing, playing",
+	"type": "move",
+	"system": {
+		"slug": "spend-few-days",
+		"moveType": null,
+		"description": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr.",
+		"rollStat": "cha",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "mark 1 circle"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "mark 1 circle, but you summon an irate zephyr spirit"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "you make no progress but do manage to summon an irate zephyr."
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

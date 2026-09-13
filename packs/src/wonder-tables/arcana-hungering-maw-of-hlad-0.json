@@ -1,0 +1,70 @@
+{
+  "_id": "0oSluIqz0yEwaHlJ",
+  "_key": "!tables!0oSluIqz0yEwaHlJ",
+  "name": "Hungering Maw of Hlad",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "H3UpSgkt1oCWBFCO",
+      "_key": "!tables.results!0oSluIqz0yEwaHlJ.H3UpSgkt1oCWBFCO",
+      "type": "text",
+      "name": "",
+      "description": "Their soul is wounded but they’ll live, suffering from unnatural, compulsive hungers; should they die in this state, they become a wraith.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "M5xCHWZpY8zxsxAv",
+      "_key": "!tables.results!0oSluIqz0yEwaHlJ.M5xCHWZpY8zxsxAv",
+      "type": "text",
+      "name": "",
+      "description": "Their soul is wounded and their body gives up; they become a wraith.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "flags": {}
+    },
+    {
+      "_id": "LbCThvsjnuzeZW6L",
+      "_key": "!tables.results!0oSluIqz0yEwaHlJ.LbCThvsjnuzeZW6L",
+      "type": "text",
+      "name": "",
+      "description": "Their soul is consumed and utterly destroyed by the ring—mark 1 below.",
+      "img": null,
+      "documentUuid": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 8000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "stonetop": {
+      "source": "wider-world"
+    }
+  }
+}

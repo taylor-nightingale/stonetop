@@ -1270,16 +1270,20 @@
       "source": "The Mighty Servant",
       "text": ""
     },
+    "specialQuality": {
+      "source": "living stone, tireless",
+      "text": ""
+    },
     "damage": {
       "source": "stone fists d10+1 (hand, close, disadvantage)",
       "text": ""
     },
     "armor": {
-      "source": "4",
+      "source": "4 made of stone",
       "text": ""
     },
     "moves": {
-      "source": "- living stone, tireless",
+      "source": "- Perform a mighty feat of strength\n- Carry on implacably",
       "text": ""
     },
     "instinct/selected/to-misunderstand": {

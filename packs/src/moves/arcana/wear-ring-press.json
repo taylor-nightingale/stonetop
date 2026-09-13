@@ -1,0 +1,28 @@
+{
+	"_id": "fab54c8b57fe2526",
+	"_key": "!items!fab54c8b57fe2526",
+	"name": "Wear the ring and press it firmly into the skin of a living thing",
+	"type": "move",
+	"system": {
+		"slug": "wear-ring-press",
+		"moveType": null,
+		"description": "When you **_wear the ring and press it firmly into the skin of a living thing_**, the ring draws the life-force from your victim. If your victim is helpless or unable to struggle, they are reduced to 0 HP (see below).\n\nIf **_your victim struggles_**, roll +CON: **on a 10+**, deal 1d10 damage (ignores armor) and they are left reeling (a PC or follower marks a debility, an NPC or monster grants advantage on any moves made against it until it recovers); **on a 7-9**, deal 1d10 damage (ignores armor) but you suffer whatever counterattack they dish out; **on a 6-**, ask the GM what happens (which may or may not involve marking a consequence; see reverse).",
+		"rollStat": "con",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "deal 1d10 damage (ignores armor) and they are left reeling (a PC or follower marks a debility, an NPC or monster grants advantage on any moves made against it until it recovers)"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "deal 1d10 damage (ignores armor) but you suffer whatever counterattack they dish out"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "ask the GM what happens (which may or may not involve marking a consequence; see reverse)."
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

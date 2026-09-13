@@ -46,12 +46,16 @@
       "source": "When you **_bear the Azure Hand_**, you sense sources, currents, and reservoirs of energy much like you sense the pull of gravity or the position of your own hand. You can closely study such energy and Seek Insight about it.",
       "text": ""
     },
-    "front/choices/azure-hand/2/text": {
-      "source": "When you **_brandish the Azure Hand at a source of elemental energy_**, roll +CON: **on a 10+**, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; **on a 7-9**, as a 10+, but the vortex is unstable and maintaining it requires all your focus.\n- Direct the energy into a vessel able to contain it\n- Discharge the energy harmlessly into the earth\n- Fling the energy, rolling +INT to Let Fly (*thrown*, *dangerous*), inflicting damage and other effects of the GM’s choosing\n- Use the energy to fuel or empower some other magic.\n\n**On a 6-**, instead of marking XP, mark 1:",
-      "text": ""
-    },
     "front/choices/azure-hand/marks/text": {
       "source": "Marks",
+      "text": ""
+    },
+    "front/choices/azure-hand/4/text": {
+      "source": "Each time you mark 1, ask the GM how the power goes out of control.",
+      "text": ""
+    },
+    "front/choices/azure-hand/5/text": {
+      "source": "When you **_make the last mark_**, you unlock the mysteries of the Azure Hand—choose one of the moves on the reverse, and erase all marks above.",
       "text": ""
     },
     "back/title": {
@@ -192,10 +196,6 @@
       "source": "When you **_mark a figurine’s eyes with blood and likewise mark your own eyelids_**, you see through the eyes of the figurine whenever you close your eyes, for as long as the blood remains.",
       "text": ""
     },
-    "front/choices/blackwood-fetishes/2/text": {
-      "source": "When you **_anoint a figurine with your own blood and then sleep in its presence_**, roll +CON: **on a 10+**, you dream lucidly of the spirit in the figurine, which speaks an archaic but intelligible dialect—it might be persuaded to reveal its name, or the name of its fellow spirit, or the method of calling them forth; **on a 7-9**, you dream of the spirit, but the dream is fleeting, strange, and disorienting—ask the GM what you learn of the spirit.",
-      "text": ""
-    },
     "front/choices/blackwood-fetishes/3/text": {
       "source": "When you **_learn the name of one of the bound spirits_**, or the sign that draws them forth and binds them, mark 1:",
       "text": ""
@@ -252,6 +252,10 @@
     },
     "front/choices/blood-quenched-sword/marks/text": {
       "source": "Marks",
+      "text": ""
+    },
+    "front/choices/blood-quenched-sword/6/text": {
+      "source": "When you **_make the last mark_**, you unlock the Sword’s mysteries; gain Unquenched (see reverse).",
       "text": ""
     },
     "back/title": {
@@ -622,12 +626,12 @@
       "source": "A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there’s some magic here.",
       "text": ""
     },
-    "front/choices/cracked-flute/1/text": {
-      "source": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr.",
-      "text": ""
-    },
     "front/choices/cracked-flute/marks/text": {
       "source": "Marks",
+      "text": ""
+    },
+    "front/choices/cracked-flute/3/text": {
+      "source": "When you **_mark all three circles_**, you unlock the mysteries of the flute.",
       "text": ""
     },
     "back/title": {
@@ -1169,11 +1173,23 @@
       "text": ""
     },
     "front/choices/hectumel-codex/1/text": {
-      "source": "When you **_first run your fingers over the inscriptions_**, your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.\n\n**Call the Pale Lizard.** Cast this spell at night. Hec’tumel (*Slithering One! Death Is Its Eyes!*) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.\n\nWhen **_Hec’tumel spends the night teaching you a spell from the Codex_**, mark 1:",
+      "source": "When you **_first run your fingers over the inscriptions_**, your dreams that night are filled with images of a pale, reptilian creature with skulls for eyes, slithering through darksome caverns. You awake with an alien incantation on your tongue, its words emblazoned in your mind. You can Cast a Codex Spell, and know Call the Pale Lizard.",
+      "text": ""
+    },
+    "front/choices/hectumel-codex/2/text": {
+      "source": "**Call the Pale Lizard.** Cast this spell at night. Hec’tumel (*Slithering One! Death Is Its Eyes!*) manifests in the shadows until sunrise or until dismissed. It has no power unless given a host and no knowledge of the present except that which you give it. It knows much of the ancient past and the arcane arts, and can teach you if you make it worth its while. It cannot lie, but need not answer fully.",
+      "text": ""
+    },
+    "front/choices/hectumel-codex/3/text": {
+      "source": "When **_Hec’tumel spends the night teaching you a spell from the Codex_**, mark 1:",
       "text": ""
     },
     "front/choices/hectumel-codex/marks/text": {
       "source": "Marks",
+      "text": ""
+    },
+    "front/choices/hectumel-codex/5/text": {
+      "source": "Each time you **_make a mark_**, choose one of the **Codex Spells** (see reverse)—you can now cast it. When you **_make the last mark_**, you have unlocked the mysteries of the Codex and gain the Darksome Vessel move (see reverse).",
       "text": ""
     },
     "back/title": {
@@ -1334,16 +1350,12 @@
       "source": "A ring of black metal bands, woven in an intricate pattern beyond the skills of modern smiths. The way the bands twist on each other seems to defy reality, and the weak-willed find themselves pondering the bands for minutes or hours. The metal is always cold. Always.",
       "text": ""
     },
-    "front/choices/hungering-maw-of-hlad/1/text": {
-      "source": "When you **_wear the ring and press it firmly into the skin of a living thing_**, the ring draws the life-force from your victim. If your victim is helpless or unable to struggle, they are reduced to 0 HP (see below).\n\nIf **_your victim struggles_**, roll +CON: **on a 10+**, deal 1d10 damage (ignores armor) and they are left reeling (a PC or follower marks a debility, an NPC or monster grants advantage on any moves made against it until it recovers); **on a 7-9**, deal 1d10 damage (ignores armor) but you suffer whatever counterattack they dish out; **on a 6-**, ask the GM what happens (which may or may not involve marking a consequence; see reverse).",
-      "text": ""
-    },
     "front/choices/hungering-maw-of-hlad/2/text": {
-      "source": "When you **_use the ring to reduce an intelligent victim to 0 HP_**, roll 1d6: **1d6** effect",
+      "source": "When you **_use the ring to reduce an intelligent victim to 0 HP_**, roll 1d6:\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.0oSluIqz0yEwaHlJ]{1d6}",
       "text": ""
     },
     "front/choices/hungering-maw-of-hlad/3/text": {
-      "source": "When you **_make the last mark_**, you unlock the ring’s mysteries. Gain Siphon (see reverse) and erase all the marks. Each time you mark the third circle, gain another move from the reverse. If you **_have_** **_all the moves_**, mark a consequence instead.\n\n*magical*",
+      "source": "When you **_make the last mark_**, you unlock the ring’s mysteries. Gain Siphon (see reverse) and erase all the marks. Each time you mark the third circle, gain another move from the reverse. If you **_have_** **_all the moves_**, mark a consequence instead.",
       "text": ""
     },
     "front/choices/hungering-maw-of-hlad/marks/text": {
@@ -1394,14 +1406,6 @@
     },
     "front/choices/ineffable-words/0/text": {
       "source": "Syllables of the first language, words of pure thought and will, emblazoned on your soul and tongue by some angelic force or being. A gift, perhaps. Or a terrible, terrible affliction.\n\nTheir power thrums inside you, pulsing against the crude vessel of your flesh and blood. Sometimes, under stress or simply out of the blue, you are struck with shakes and seizures. And when the tremors pass and your senses return, you find that you have scratched strange symbols in the dirt or on the walls. Sometimes in your own blood.",
-      "text": ""
-    },
-    "front/choices/ineffable-words/1/text": {
-      "source": "When you **_enter an ecstatic delirium and allow the Ineffable Words to pour forth_**, roll +CON: **on a 10+**, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; **on a 7-9**, the 10+ result applies, but choose 1 from the list below.\n- The Truth is cryptic, vague, incomplete\n- You are overcome, collapsing in a full-body seizure\n- You draw unwanted attention",
-      "text": ""
-    },
-    "front/choices/ineffable-words/2/text": {
-      "source": "When you **_spend weeks in ascetic contemplation of the incommunicable words within you_**, roll +WIS: **on a 10+**, you gain insight into the power within you—mark 1 below; **on a 7-9**, gain advantage on your next attempt to contemplate the words.",
       "text": ""
     },
     "front/choices/ineffable-words/3/text": {
@@ -1668,8 +1672,8 @@
       "source": "A chunk of makerglass the size of a human head; inspection reveals facets within facets, a thousandfold. When you **_touch the glass with bare skin and open your mind to it_**, you contact the intelligence within— lonely, confused, longing for meaning and connection.\n\nIt will happily speak with you, mind-to-mind. It knows much about the past, but naught of its own history or purpose. At least, not yet.",
       "text": ""
     },
-    "front/choices/mindgem/1/text": {
-      "source": "When you **_consult the Mindgem about the Makers, their arts, or their history_**, ask a question and roll +INT: **on a 7+**, it answers but **on a 10+**, pick 1; **on a 7-9**, pick 2:\n- The answer is cryptic, vague, or lacking crucial context\n- It takes a long time—hours or even days—to get the answer\n- Your mind is left reeling; take disadvantage on your next roll\n\n**On a 6-**, choose 1:\n- It wastes your time with irrelevant histories and data\n- It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).\n\nThe Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem’s body and unlock its mysteries:",
+    "front/choices/mindgem/2/text": {
+      "source": "The Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem’s body and unlock its mysteries:",
       "text": ""
     },
     "front/choices/mindgem/recover-chassis/text": {
@@ -1681,11 +1685,15 @@
       "text": ""
     },
     "front/choices/mindgem/recover-repair/text": {
-      "source": "Recover and repair the intricate bronze helm (*awkward, big*) that serves as a casing for the Mindgem",
+      "source": "Recover and repair the intricate ◇◇ bronze helm (*awkward, big*) that serves as a casing for the Mindgem",
       "text": ""
     },
     "front/choices/mindgem/puzzle-out/text": {
       "source": "Puzzle out how to assemble all the pieces",
+      "text": ""
+    },
+    "front/choices/mindgem/7/text": {
+      "source": "When you’ve completed all the requirements, gain the Mighty Servant (see reverse).",
       "text": ""
     },
     "back/title": {
@@ -1694,6 +1702,10 @@
     },
     "back/choices/consequences/title": {
       "source": "Consequences",
+      "text": ""
+    },
+    "back/choices/intro/0/text": {
+      "source": "When **_the Mighty Servant makes a move at your behest_** (see Order Followers), on a 6-, in addition to whatever the GM says, mark a consequence.",
       "text": ""
     },
     "back/choices/consequences/mindgem-c1/text": {
@@ -1717,7 +1729,7 @@
       "text": ""
     },
     "back/choices/consequences/mindgem-c6/text": {
-      "source": "It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant’s new cost (replacing \"wonder, excitement, joy\"). **1d4** purpose cost",
+      "source": "It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant’s new cost (replacing \"wonder, excitement, joy\").\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.qpbN6QXITHRkpfjN]{1d4}",
       "text": ""
     },
     "back/choices/consequences/mindgem-c7/text": {
@@ -1782,10 +1794,6 @@
     },
     "front/choices/norubas-ice-sphere/1/text": {
       "source": "When you **_peer into the Ice Sphere_**, your mind is cleared of strong emotions.",
-      "text": ""
-    },
-    "front/choices/norubas-ice-sphere/2/text": {
-      "source": "When you **_gaze deeply into the Ice Sphere and ponder a situation, puzzle, or mystery_**, ask the GM one of the questions below. The GM will answer honestly.\n- Who benefits (or would benefit) from @Blank[0]?\n- What about @Blank[1] isn’t what it seems to be?\n- How could I learn more about @Blank[2]?\n- What’s the most likely outcome if @Blank[3]?\n- What am I overlooking?\n\nAfter the GM answers, roll +INT: **on a 10+**, hold 2 Acumen; **on a 7-9**, hold 1. While acting on the GM’s answer, you can spend Acumen 1-for-1 to:\n- Ask another question from the list above, and get an honest answer\n- Treat a 6- that you rolled as a 7-9, or a 7-9 as a 10+ **On a 6-**, your connection to your body weakens—mark a debility and mark 1 circle. The debility lasts until you spend a few days living wholly in your body and averting your gaze from the Ice Sphere.",
       "text": ""
     },
     "front/choices/norubas-ice-sphere/3/text": {
@@ -2319,11 +2327,23 @@
       "text": ""
     },
     "front/choices/redwood-effigy/1/text": {
-      "source": "When you **_perform the secret rite_**, which requires privacy, a few hours, and a drop of your own fresh blood, hold 1 Conduit (max 1 Conduit, at least to start).\n\n**SURROGATE SUFFERING** When you **_suffer physical harm while carrying the effigy on your person_**, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.\n\nRecord the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the **_effigy is destroyed_**, you suffer all this harm at once.\n\n**_Each time the effigy suffers harm on your behalf_**, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse).",
+      "source": "When you **_perform the secret rite_**, which requires privacy, a few hours, and a drop of your own fresh blood, hold 1 Conduit (max 1 Conduit, at least to start).",
       "text": ""
     },
     "front/choices/redwood-effigy/2/text": {
-      "source": "When you **_make the last mark_**, you unlock the effigy’s mysteries and gain Suffering Unleashed (see reverse).\n\n*magical*",
+      "source": "**SURROGATE SUFFERING** When you **_suffer physical harm while carrying the effigy on your person_**, you can spend 1 Conduit. If you do, the effigy suffers that harm in your place. You suffer no more than a passing inconvenience, and the effigy bears faint signs of the trauma it has endured in your stead.",
+      "text": ""
+    },
+    "front/choices/redwood-effigy/3/text": {
+      "source": "Record the diverted harm on the image of the effigy above: a brief description of the injury, the HP that would have been lost, and any debilities you would have marked. Write small, in pencil. If the **_effigy is destroyed_**, you suffer all this harm at once.",
+      "text": ""
+    },
+    "front/choices/redwood-effigy/4/text": {
+      "source": "**_Each time the effigy suffers harm on your behalf_**, mark 1. If all 3 marks are already marked, then mark a consequence instead (see reverse).",
+      "text": ""
+    },
+    "front/choices/redwood-effigy/5/text": {
+      "source": "When you **_make the last mark_**, you unlock the effigy’s mysteries and gain Suffering Unleashed (see reverse).",
       "text": ""
     },
     "front/choices/redwood-effigy/marks/text": {
@@ -2530,16 +2550,16 @@
       "source": "When you **_wear the Rune-laden Scales_**, you are perfectly comfortable in cold weather and suffer no harm from exposure or magic that might otherwise freeze your flesh. You have no such immunity to secondary effects of ice-magic, such as slipping, being impaled by an icicle, becoming encased in a block of ice, or the like.",
       "text": ""
     },
-    "front/choices/rune-laden-scales/2/text": {
-      "source": "When you **_wear the Rune-laden Scales and stand fast against a magical attack_**, roll +CON: **on a 10+**, the magic washes over you, unpleasant perhaps but with no ill effect; **on a 7-9**, you’re only partially affected—suffer half damage (if any) and a reduced effect; **on a 6-**, mark XP, and the magic affects you fully.",
-      "text": ""
-    },
     "front/choices/rune-laden-scales/3/text": {
       "source": "When you **_wear the Rune-laden Scales and defeat a wielder of chaotic magic_**, mark 1:",
       "text": ""
     },
     "front/choices/rune-laden-scales/marks/text": {
       "source": "Marks",
+      "text": ""
+    },
+    "front/choices/rune-laden-scales/5/text": {
+      "source": "When you **_make the last mark_**, you unlock the mysteries of the armor. Gain a move of your choice (see reverse), but also mark a consequence. Then, erase all marks.",
       "text": ""
     },
     "back/title": {
@@ -2856,6 +2876,10 @@
       "source": "Marks",
       "text": ""
     },
+    "front/choices/shield-of-the-wisent-witch/5/text": {
+      "source": "When you **_make the last mark_**, you unlock the shield’s mysteries, and can use Spirits of the Herd (see reverse).",
+      "text": ""
+    },
     "back/title": {
       "source": "Mysteries of the Shield of the Wisent Witch",
       "text": ""
@@ -3032,10 +3056,6 @@
       "source": "A sphere of greenish glass, etched with a cat’s-eye design and set atop a staff of rough, pitted black iron. The orb catches the light and seems to glow, and the pupil seems to widen in the dark and narrow to a slit in daylight.\n\nAnd sometimes, you could swear, it seems to look about on its own.\n\nBut that’s preposterous.",
       "text": ""
     },
-    "front/choices/staff-of-the-lidless-orb/1/text": {
-      "source": "When you **_grip the staff, close your eyes, and see through the Lidless Orb_**, roll +CON: **on a 10+**, choose 3 from the list below; **on a 7-9**, choose 1.\n- The orb sees through darkness, natural or magical\n- The orb sees through illusion, glamour, and invisibility\n- The orb can see strong emotions as auras radiating from people and lingering\n- on places\n- You can move about and operate effectively while seeing through the orb (otherwise, not so much) Whatever you choose, the effect lasts until you open your eyes or let go of the staff.\n\n**On a 6-**, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.",
-      "text": ""
-    },
     "front/choices/staff-of-the-lidless-orb/2/text": {
       "source": "When you **_make the last mark_**, you unlock the mysteries of the Staff and can use Power of the Lidless Orb (see reverse). Mark one of the four effects (your choice); you can produce that effect.",
       "text": ""
@@ -3134,10 +3154,6 @@
     },
     "front/choices/storm-markings/0/text": {
       "source": "A series of branching, tree-like markings coursing up and down your skin. Usually pale blue, almost like veins, but when you become agitated they seem to glow, pulse, and ripple with light.\n\nThe markings are usually seen as a blessing of Tor (rainmaker, thunderhead, slayer-of-beasts). But like most blessings of the gods, they are also a great burden.",
-      "text": ""
-    },
-    "front/choices/storm-markings/1/text": {
-      "source": "When you **_roil with anger_**, you do +1 damage until you calm down. But when you **_try to control your_** **_temper_**, roll +WIS: **on a 10+**, you keep your cool and act as you wish; **on a 7-9**, choose 1 from the list below; **on a 6-**, you just lose it—tell the GM what damn fool thing you end up doing.\n- Take some deep breaths and count to ten, fuming all the while\n- Vent your rage, but tell us how and on what",
       "text": ""
     },
     "front/choices/storm-markings/2/text": {
@@ -3612,6 +3628,14 @@
       "source": "Pierce your own hand through with the Spear, giving it a shard of your soul and reducing your max HP by 1d4+1.",
       "text": ""
     },
+    "front/choices/twisted-spear/8/text": {
+      "source": "When you **_complete a task_**, mark it off.",
+      "text": ""
+    },
+    "front/choices/twisted-spear/9/text": {
+      "source": "When you **_have marked 3 tasks_**, you unlock the mysteries of the Twisted Spear. Choose one of the moves on the reverse; you can use that move as long as you wield the Spear. Each time you mark a task thereafter, gain another move from the reverse.",
+      "text": ""
+    },
     "back/title": {
       "source": "Mysteries of the Twisted Spear",
       "text": ""
@@ -3754,16 +3778,16 @@
       "source": "Jagged hunks of black volcanic glass. Surely the swirling movement in their depths is a trick of light. And, surely, those hushed voices you’ve been hearing are just the sighing wind. Surely.",
       "text": ""
     },
-    "front/choices/whispering-rocks/1/text": {
-      "source": "When you **_spend a few hours staring into the stones and listening to their whispers_**, name someone you know but on whom you have never used this power before. Then, roll +INT: **on a 10+**, the stones reveal a secret about them; **on a 7-9**, the stones reveal a secret, but you must first reveal a secret to the stones (about your hopes, fears, regrets, desires); **on a 6-**, the stones pry a secret from you.",
-      "text": ""
-    },
     "front/choices/whispering-rocks/2/text": {
       "source": "When you **_reveal a secret to the stones_**, or they pry one from your mind, mark 1:",
       "text": ""
     },
     "front/choices/whispering-rocks/marks/text": {
       "source": "Marks",
+      "text": ""
+    },
+    "front/choices/whispering-rocks/4/text": {
+      "source": "When you **_make the last mark_**, you unlock the mysteries of the rocks, and are able to use Shadow Magic (see reverse).\n\nWhen **_one of the rocks is shattered_**, cross off one of the Shadow Magic options; it is no longer available.",
       "text": ""
     },
     "back/title": {

@@ -67,6 +67,13 @@
 							"track": {
 								"max": 5
 							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_make the last mark_**, you unlock the Sword’s mysteries; gain Unquenched (see reverse)."
+							}
 						}
 					]
 				}

@@ -15,6 +15,7 @@ export class RequirementSnapshot {
  * @property {string|null} id          - compendium document ID
  * @property {string|null} ownedId     - last actor item ID (for rolling); null if not acquired
  * @property {string} name
+ * @property {boolean} nameless     - the book prints no name over it; the row shows none
  * @property {string} description
  * @property {string|null} rollStat    - stat key | "ask" | "prompt" | null
  * @property {{ type: string }} source
@@ -33,6 +34,9 @@ export class MoveSnapshot {
 		this.ownedId       = b._ownedId;
 		this.slug          = b._slug;
 		this.name          = b._name;
+		// The book printed no name over this move, so the row draws none — the name is still what the
+		// chat card, the roll button's accessible name and every lookup use to refer to it.
+		this.nameless      = b._nameless === true;
 		this.description   = b._description;
 		// What a collapsed row says about itself: the move's own emphasised trigger, lifted from the
 		// text above. Derived here rather than at a render site so every surface that shows a move row
@@ -68,6 +72,7 @@ export class MoveSnapshotBuilder {
 	withOwnedId(v)       { this._ownedId       = v; return this; }
 	withSlug(v)          { this._slug          = v; return this; }
 	withName(v)          { this._name          = v; return this; }
+	withNameless(v)      { this._nameless      = v; return this; }
 	withDescription(v)   { this._description   = v; return this; }
 	withRollStat(v)      { this._rollStat      = v; return this; }
 	withSource(v)        { this._source        = v; return this; }
@@ -94,6 +99,7 @@ export class MoveSnapshotBuilder {
 			.withOwnedId(null)
 			.withSlug(move.id ?? null)
 			.withName(move.name ?? "")
+			.withNameless(move.nameless === true)
 			.withDescription(rich(move.text ?? ""))
 			.withRollStat(null)
 			.withSource({ type: "arcanum" })

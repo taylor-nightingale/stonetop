@@ -22,7 +22,8 @@
     },
     "rollStat": "omens",
     "slug": "destined",
-    "xpOnMiss": false
+    "xpOnMiss": false,
+    "nameless": true
   },
   "folder": "dgktpzqUfX5DWqqE"
 }

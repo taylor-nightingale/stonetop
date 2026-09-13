@@ -1,0 +1,28 @@
+{
+	"_id": "59630ac351bd97aa",
+	"_key": "!items!59630ac351bd97aa",
+	"name": "Wear the Rune-laden Scales and stand fast against a magical attack",
+	"type": "move",
+	"system": {
+		"slug": "wear-rune-laden",
+		"moveType": null,
+		"description": "When you **_wear the Rune-laden Scales and stand fast against a magical attack_**, roll +CON: **on a 10+**, the magic washes over you, unpleasant perhaps but with no ill effect; **on a 7-9**, you’re only partially affected—suffer half damage (if any) and a reduced effect; **on a 6-**, mark XP, and the magic affects you fully.",
+		"rollStat": "con",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "the magic washes over you, unpleasant perhaps but with no ill effect"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "you’re only partially affected—suffer half damage (if any) and a reduced effect"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "mark XP, and the magic affects you fully."
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

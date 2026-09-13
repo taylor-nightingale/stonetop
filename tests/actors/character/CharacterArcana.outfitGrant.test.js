@@ -62,3 +62,34 @@ describe("CharacterArcana.outfitGrantFor", () => {
 		expect(grant.items.every(i => i.system.source === undefined)).toBe(true);
 	});
 });
+
+describe("CharacterArcana.outfitGrantFor — a back that says it is the same object", () => {
+	// `itemSameAsFront` is how a major back says the thing in your hands has not changed (the
+	// Blood-quenched Sword is a sword on both sides). Reading the raw `back.item` — which those cards
+	// leave null — took the gear out of the outfit on every flip.
+	const sameAsFront = ({ flipped }) => ({
+		_id: "arc2", type: "arcanum", name: "Blood-quenched Sword",
+		system: { slug: "blood-quenched-sword", flipped, choiceValues: {},
+			front: { item: cardItem("Blood-quenched Sword") },
+			back:  { item: null, itemSameAsFront: true } },
+	});
+
+	it("keeps the front's gear when the card is flipped", () => {
+		expect(CharacterArcana.outfitGrantFor(sameAsFront({ flipped: true })).items.map(i => i.name))
+			.toEqual(["Blood-quenched Sword"]);
+	});
+
+	it("drops the gear when the back resolves to no item — the card's object is gone", () => {
+		// The Mindgem is installed into the Mighty Servant's helm: once the mysteries are unlocked it is
+		// not something the character carries any more.
+		const consumed = {
+			_id: "arc3", type: "arcanum", name: "Mindgem",
+			system: { slug: "mindgem", flipped: true, choiceValues: {},
+				front: { item: cardItem("Mindgem") },
+				back:  { item: null, itemSameAsFront: false } },
+		};
+		expect(CharacterArcana.outfitGrantFor(consumed).items).toEqual([]);
+		consumed.system.flipped = false;
+		expect(CharacterArcana.outfitGrantFor(consumed).items.map(i => i.name)).toEqual(["Mindgem"]);
+	});
+});

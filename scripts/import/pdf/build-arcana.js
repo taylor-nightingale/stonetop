@@ -49,6 +49,26 @@ const isLabel = (b, re) => (b.type === "heading" || b.type === "title") && re.te
 // inline `moves` into standalone move pack files and replace them with `moveSlugs`. No-op if the back
 // already uses `moveSlugs` (e.g. a preserved hand-authored back). Move `_id` is derived from the slug
 // so re-runs are stable.
+// Dice tables printed on a card (the Mindgem's 1d4 of purposes, the Hungering Maw's 1d6) become
+// wonder-tables RollTables the reader can draw from the card itself, referenced inline by
+// @DrawTableInline. The `arcana-` prefix keeps build-tables out of them; each builder clears only the
+// files for the tier it is about to rewrite, so running one flag never deletes the other's tables.
+const TABLE_OUT = `packs/src/${TABLE_PACK}`;
+function clearArcanaTables(slugs) {
+	if (!existsSync(TABLE_OUT)) return;
+	for (const f of readdirSync(TABLE_OUT)) {
+		const m = /^arcana-(.+)-\d+\.json$/.exec(f);
+		if (m && slugs.has(m[1])) rmSync(path.join(TABLE_OUT, f));
+	}
+}
+function writeArcanaTables(slug, specs, sortBase) {
+	mkdirSync(TABLE_OUT, { recursive: true });
+	(specs ?? []).forEach((rt, i) => {
+		writeFileSync(path.join(TABLE_OUT, `arcana-${slug}-${i}.json`), JSON.stringify(toRollTableDoc({ rollTable: rt }, { sort: sortBase + i }), null, 2) + "\n");
+	});
+	return (specs ?? []).length;
+}
+
 const ARCANA_MOVES_DIR = "packs/src/moves/arcana";
 const ARCANA_MOVES_FOLDER = "ArcanaMoves00001"; // packs/src/moves/_folders/arcana.json
 const arcanaMoveId = (slug) => createHash("sha1").update("arcana-move:" + slug).digest("hex").slice(0, 16);
@@ -68,6 +88,8 @@ function writeArcanaMove(m, resourceBySlug) {
 		system: { slug, moveType: null, description: m.text ?? "",
 			...(rollStat ? { rollStat } : {}), ...(moveResults ? { moveResults } : {}),
 			...(resource ? { resource } : {}),
+			// The book prints no heading over this one — the card shows the move's words alone.
+			...(m.nameless ? { nameless: true } : {}),
 			...(m.requirement ? { requirement: m.requirement } : {}) }, folder: ARCANA_MOVES_FOLDER };
 	writeFileSync(path.join(ARCANA_MOVES_DIR, `${slug}.json`), JSON.stringify(doc, null, "\t") + "\n");
 	return slug;
@@ -81,17 +103,16 @@ function emitArcanaMoves(back, resourceBySlug = new Map()) {
 	return out;
 }
 
-// A front-granted move (the Codex's CAST A CODEX SPELL) rides on `front._frontMove`; write its move file
-// and strip the transient field (the move-grant unlock entry is already in place from parseFront).
-function emitFrontMove(front, resourceBySlug = new Map()) {
-	if (!front?._frontMove) return front;
-	writeArcanaMove(front._frontMove, resourceBySlug);
-	const out = {}; for (const [k, v] of Object.entries(front)) { if (k !== "_frontMove") out[k] = v; }
-	return out;
+// Front-granted moves (the Codex's CAST A CODEX SPELL, and every rollable "When you **_…_**" trigger)
+// ride on `front._frontMoves`; write their move files. The grant entries are already in place from
+// parseFront, and stripTransient drops the staging field on write.
+function emitFrontMoves(front, resourceBySlug = new Map()) {
+	for (const m of front?._frontMoves ?? []) writeArcanaMove(m, resourceBySlug);
+	return front;
 }
 
-// parseFront hangs transient staging fields on the front for the emitters above (`_frontMove`,
-// `_frontFollower`). None of them belong in pack data whether or not their emitter ran (minor fronts run
+// parseFront hangs transient staging fields on the front for the emitters above (`_frontMoves`,
+// `_rollTables`, `_frontFollower`). None of them belong in pack data whether or not their emitter ran (minor fronts run
 // neither), so every write goes through here — one gate, rather than each emitter being trusted to clean up.
 function stripTransient(side) {
 	const out = {};
@@ -350,8 +371,14 @@ function emitFrontFollower(rec, front) {
 	frontFollowerLines.push(`- \`${slug}\` ← ${rec.slug}  (FRONT-resident, kind=${doc.system.kind ?? "creature"}, img: ${img.split("/").pop()})`);
 }
 
+// A major back whose card CONSUMES the front's ◇ item: the Mindgem is installed into the Servant's
+// bronze helm, so the unlocked side carries no outfit item and flipping the card takes the gem out of
+// the character's load. Every other major back still shows (and keeps) the gear the front printed —
+// the book prints no item line on ANY major back, so this can only be authored, not parsed.
+const BACK_ITEM_CONSUMED = new Set(["mindgem"]);
+
 const reviewBody = [];
-let parsedCount = 0, flagged = 0;
+let parsedCount = 0, flagged = 0, majorTables = 0, majorTablesCleared = false;
 for (const rec of bySlug.values()) {
 	const front = parsedFront.get(rec.slug);
 	if (!front) continue;
@@ -364,6 +391,7 @@ for (const rec of bySlug.values()) {
 	// --write-arcana overwrites MAJOR arcana only (front + back); minor fronts are still divergent
 	// (WIP), so they're left untouched (their hand-authored follower wiring stays intact).
 	if (WRITE_ARCANA && rec.tier === "major") {
+		if (!majorTablesCleared) { clearArcanaTables(new Set([...bySlug.values()].filter((r) => r.tier === "major").map((r) => r.slug))); majorTablesCleared = true; }
 		// The parser is now authoritative for every major back (front→back span segmentation handles the
 		// cards that used to come up empty), so no hand-authored back fallback.
 		let back = parsed.back;
@@ -378,8 +406,13 @@ for (const rec of bySlug.values()) {
 		// Promote parsed inline moves → move pack files + `back.moveSlugs`, then fold every back section
 		// (spells / moves / followers / consequences) into the ordered `back.choices` array of groups.
 		back = foldBackChoices(emitArcanaMoves(back, resourceBySlug), followerGroup);
-		// A front-granted move (the Codex's CAST A CODEX SPELL) → its move pack file; strips `_frontMove`.
-		const outFront = storedTags(stripTransient(emitFrontMove(front, resourceBySlug)));
+		if (BACK_ITEM_CONSUMED.has(rec.slug)) back.itemSameAsFront = false;
+		// Front-granted moves (the Codex's CAST A CODEX SPELL, every rollable trigger) → their move pack
+		// files; the card's dice tables → RollTable pack files. stripTransient drops both staging fields.
+		const outFront = storedTags(stripTransient(emitFrontMoves(front, resourceBySlug)));
+		majorTables += writeArcanaTables(rec.slug, front._rollTables, 8000 + majorTables);
+		majorTables += writeArcanaTables(rec.slug, back.rollTables, 8000 + majorTables);
+		delete back.rollTables;
 		const sys = edited({ slug: rec.slug, front: outFront, back: storedTags(back), major: true }, rec.slug);
 		const out = { _id: rec.doc._id, _key: rec.doc._key, name: rec.doc.name, type: "arcanum",
 			...(rec.doc.img ? { img: rec.doc.img } : {}), system: sys, flags: {}, folder: rec.doc.folder };
@@ -414,9 +447,7 @@ let minorWritten = 0, minorTables = 0; const minorUnmatched = [], minorEmptyFron
 const BACK_ITEM_FROM_FRONT = new Set(["redwood-basin"]);
 if (WRITE_MINOR) {
 	const minorRange = ranges.find((r) => r.tier === "minor");
-	const TABLE_OUT = `packs/src/${TABLE_PACK}`;
-	mkdirSync(TABLE_OUT, { recursive: true });
-	for (const f of readdirSync(TABLE_OUT).filter((n) => n.startsWith("arcana-"))) rmSync(path.join(TABLE_OUT, f));
+	clearArcanaTables(new Set([...bySlug.values()].filter((r) => r.tier === "minor").map((r) => r.slug)));
 	const gtmp = mkdtempSync(path.join(os.tmpdir(), "arc-grid-"));
 	const { pages, pageRules, pageImages } = loadArticlePages(PDF, minorRange, { imgDir: gtmp, imgPrefix: "minor" });
 	const cards = [];
@@ -433,13 +464,14 @@ if (WRITE_MINOR) {
 		if (BACK_ITEM_FROM_FRONT.has(rec.slug) && front.item && !back.item) back.item = structuredClone(front.item);
 		if (back.item || back.resource) resItemReview.push(
 			`- \`${rec.slug}\`${back.item ? ` item="${back.item.name}"${back.item.resource ? ` +resource=${JSON.stringify(back.item.resource)}` : ""}` : ""}${back.resource ? ` back.resource=${JSON.stringify(back.resource)}` : ""}`);
-		(back.rollTables ?? []).forEach((rt, i) => {
-			writeFileSync(path.join(TABLE_OUT, `arcana-${rec.slug}-${i}.json`), JSON.stringify(toRollTableDoc({ rollTable: rt }, { sort: 9000 + minorTables }), null, 2) + "\n");
-			minorTables++;
-		});
+		minorTables += writeArcanaTables(rec.slug, back.rollTables, 9000 + minorTables);
 		delete back.rollTables;
 		back = foldBackChoices(back, followerGroup); // minors have only a follower group (no moves/consequences) → [intro?, followers?]
-		const system = edited({ slug: rec.slug, front: storedTags(stripTransient(front)), back: storedTags(back) }, rec.slug);
+		// A minor card can print a rollable trigger too (the Cracked Flute's "spend a few days practicing,
+		// playing the flute where the wind can hear you"). parseFront promotes it to a move grant like any
+		// other, so its move file has to be written here as well — a grant whose move was never emitted
+		// renders as an empty row.
+		const system = edited({ slug: rec.slug, front: storedTags(stripTransient(emitFrontMoves(front, resourceBySlug))), back: storedTags(back) }, rec.slug);
 		// A front with no content is always a parse failure — every card prints a description — and it
 		// used to ship silently (`diverge` compares against the doc we're about to overwrite, so an empty
 		// front matching an already-empty front looked clean).

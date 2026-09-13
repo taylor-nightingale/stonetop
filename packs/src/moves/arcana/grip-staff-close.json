@@ -1,0 +1,28 @@
+{
+	"_id": "14670e68ecc66964",
+	"_key": "!items!14670e68ecc66964",
+	"name": "Grip the staff, close your eyes, and see through the Lidless Orb",
+	"type": "move",
+	"system": {
+		"slug": "grip-staff-close",
+		"moveType": null,
+		"description": "When you **_grip the staff, close your eyes, and see through the Lidless Orb_**, roll +CON: **on a 10+**, choose 3 from the list below; **on a 7-9**, choose 1.\n- The orb sees through darkness, natural or magical\n- The orb sees through illusion, glamour, and invisibility\n- The orb can see strong emotions as auras radiating from people and lingering\n- on places\n- You can move about and operate effectively while seeing through the orb (otherwise, not so much) Whatever you choose, the effect lasts until you open your eyes or let go of the staff.\n\n**On a 6-**, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.",
+		"rollStat": "con",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "choose 3 from the list below"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "choose 1."
+			},
+			"failure": {
+				"label": "6-",
+				"value": "the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to."
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

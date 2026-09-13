@@ -20,6 +20,10 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			// "You mark XP when you roll for a move and get a 6-, unless the move says otherwise" —
 			// false is how a move says otherwise.
 			xpOnMiss: new f.BooleanField({ initial: true }),
+			// Some moves are printed with no name at all — an arcanum's front trigger, the Would-Be
+			// Hero's Destined. They still need one to be referred to (a slug, a chat card, a screen
+			// reader), but a row that shows it as a heading shows a heading the book never printed.
+			nameless: new f.BooleanField({ initial: false }),
 			requirement: new f.SchemaField({
 				// Move SLUGS, resolved to the referenced moves' names for display — so the label reads in
 				// whatever language those moves are showing.

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, stripMarkers, joinSplitItemLine, uniqueUnlockSlugs, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, triggerMove, moveGrantEntry, withTableLink, isCardFurniture, isStatBlockFragment, stripMarkers, joinSplitItemLine, uniqueUnlockSlugs, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -428,6 +428,28 @@ describe("parseMoveRoll", () => {
 	});
 });
 
+describe("parseMoveRoll — a shared 'on a 7+' outcome", () => {
+	// "on a 7+" is not a fourth tier; it is the part 10+ and 7-9 have in common, printed once. Each tier
+	// card is read on its own, so the shared outcome has to open both — otherwise the Mindgem's 10+ card
+	// says "pick 1" and never says that the gem answers you.
+	const text = "When you **_consult the Mindgem_**, ask a question and roll +INT: **on a 7+**, it answers but **on a 10+**, pick 1; **on a 7-9**, pick 2:";
+	it("opens both hit tiers with it, and leaves the miss alone", () => {
+		const { rollStat, moveResults } = parseMoveRoll(text + "\n\n**On a 6-**, choose 1:");
+		expect(rollStat).toBe("int");
+		expect(moveResults.success.value).toBe("it answers but pick 1");
+		expect(moveResults.partial.value).toBe("it answers but pick 2:");
+		expect(moveResults.failure.value).toBe("choose 1:");
+	});
+	it("leaves an ordinary three-tier move exactly as it was", () => {
+		const { moveResults } = parseMoveRoll("Roll +STR: **on a 10+**, deal damage; **on a 7-9**, deal damage and take some; **on a 6-**, the GM says.");
+		expect(moveResults).toEqual({
+			success: { label: "10+", value: "deal damage" },
+			partial: { label: "7-9", value: "deal damage and take some" },
+			failure: { label: "6-", value: "the GM says." },
+		});
+	});
+});
+
 describe("resourceTracks — right-aligned ○ resource pips on a move header", () => {
 	// Marker / text line factories with real geometry (the load pipeline injects each ○/□ as its own
 	// far-right `marker` line; the body/header are ACaslon text lines).
@@ -479,7 +501,7 @@ describe("resourceTracks — right-aligned ○ resource pips on a move header", 
 	});
 });
 
-describe("parseFront — major unlock (Marks track + trigger + trailing trim)", () => {
+describe("parseFront — major unlock (Marks track + trigger + trailing instruction)", () => {
 	const front = parseFront([
 		_heading("Azure Hand"),
 		_para("◇ , close, magical"),
@@ -495,11 +517,14 @@ describe("parseFront — major unlock (Marks track + trigger + trailing trim)", 
 		expect(marks.track).toEqual({ max: 4 });
 		expect(marks.content.text).toBe("Marks");
 	});
-	it("folds the description into a leading content entry, keeps the trigger, drops the trailing unlock line", () => {
+	it("folds the description into a leading content entry, keeps the trigger and the trailing unlock line", () => {
 		const list = front.choices[0].list;
-		expect(list.at(-1).slug).toBe("marks");                  // trailing 'last mark … unlock' dropped
 		expect(list[0].content.text).toContain("thick staff");   // description is the first entry now
 		expect(list[1].content.text).toContain("bear the Azure Hand");
+		// The gate instruction under the track is the card telling you what the marks are FOR — content,
+		// not furniture, and the book prints it.
+		expect(list.at(-1).content.text).toBe("When you make the last mark, you unlock the mysteries.");
+		expect(list.at(-1).track).toBeUndefined();
 	});
 	it("counts inline ◇ pips on the item line so a 2-pip item weighs 2", () => {
 		const f = parseFront([
@@ -1164,5 +1189,147 @@ describe("parseBack — a stat block inside Moves gives its swallowed trigger ba
 	it("still drops the rest of the stat block, and the Consequences section is unaffected", () => {
 		expect(back.moves[0].text).not.toContain("Instinct to devour");
 		expect(back.consequences.list).toHaveLength(1);
+	});
+});
+
+describe("parseTrack — a checkbox row's ◇ load pips are not ticks", () => {
+	it("counts only the boxes when the row carries both", () => {
+		// The Mindgem's tasks name gear you recover, and the book writes what each weighs into the
+		// sentence: one task, a ◇ heart. Counting the pips gave the row two checkboxes.
+		expect(parseTrack("□ Recover its ◇ “heart,” a chunk of makerglass")).toEqual({ max: 1, text: "Recover its “heart,” a chunk of makerglass" });
+		expect(parseTrack("□ Recover the intricate ◇ ◇ bronze helm")).toEqual({ max: 1, text: "Recover the intricate bronze helm" });
+	});
+	it("still counts a pip run that carries no box (a resource/Marks track)", () => {
+		expect(parseTrack("○ ○ ○")).toEqual({ max: 3, text: "" });
+	});
+});
+
+describe("triggerMove (a rollable front trigger → a nameless move)", () => {
+	const text = "When you **_consult the Mindgem about the Makers_**, ask a question and roll +INT: **on a 10+**, it answers.";
+	it("names the move with the book's own trigger phrase, and marks it nameless", () => {
+		// The book prints no heading over a front move, so the name exists to be referred to (chat, a
+		// screen reader, a lookup) and never to be drawn as a title.
+		expect(triggerMove(text)).toMatchObject({
+			id: "consult-mindgem-about",
+			name: "Consult the Mindgem about the Makers",
+			nameless: true,
+			text,
+		});
+	});
+	it("is not a move when the trigger does not roll", () => {
+		expect(triggerMove("When you **_touch the glass with bare skin_**, you contact the intelligence within.")).toBeNull();
+	});
+	it("is not a move when the block has no trigger phrase to name it", () => {
+		expect(triggerMove("Roll +INT to remember something.")).toBeNull();
+	});
+});
+
+describe("moveGrantEntry", () => {
+	it("is a row with no content of its own — the move IS the row", () => {
+		expect(moveGrantEntry("roil-anger")).toEqual({
+			type: "entry", slug: "roil-anger", content: { title: null, text: null },
+			grants: [{ type: "move", slug: "roil-anger", locations: ["inline"] }],
+		});
+	});
+});
+
+describe("withTableLink (a dice table referenced from the row that sends you to it)", () => {
+	it("appends the inline draw and drops the column-header echo", () => {
+		const text = "The GM will pick 1 or have you roll 1d4 on the table below. **1d4** purpose cost";
+		expect(withTableLink(text, { link: "@DrawTableInline[uuid]{1d4}", formula: "1d4" }))
+			.toBe("The GM will pick 1 or have you roll 1d4 on the table below.\n\n@DrawTableInline[uuid]{1d4}");
+	});
+	it("leaves prose that never echoed the header alone", () => {
+		expect(withTableLink("Roll on the table below.", { link: "@L", formula: "1d6" })).toBe("Roll on the table below.\n\n@L");
+	});
+});
+
+describe("isCardFurniture (what the column split strands at a card's edge)", () => {
+	it("catches the item's own tag line, a bare italic tag, and a ○ resource line", () => {
+		expect(isCardFurniture(", reach, magical", ", reach, magical")).toBe(true);
+		expect(isCardFurniture("*magical*", "magical")).toBe(true);
+		expect(isCardFurniture("Casting penalty", "Casting penalty ○")).toBe(true);
+	});
+	it("keeps the card's own prose", () => {
+		expect(isCardFurniture("When you’ve completed all the requirements, gain the Mighty Servant (see reverse).", "")).toBe(false);
+	});
+});
+
+describe("isStatBlockFragment (a follower's block, stranded as loose paragraphs)", () => {
+	it("catches the labels, the bare Armor number and a multi-field line", () => {
+		expect(isStatBlockFragment("**HP** **Armor**")).toBe(true);
+		expect(isStatBlockFragment("4")).toBe(true);
+		expect(isStatBlockFragment("Max 24 Made of stone **Damage** stone fists d10+1")).toBe(true);
+		expect(isStatBlockFragment("**Cost** wonder, excitement, joy (Loyalty)")).toBe(true);
+	});
+	it("keeps prose that merely mentions the follower", () => {
+		expect(isStatBlockFragment("When **_the Mighty Servant makes a move at your behest_**, on a 6-, mark a consequence.")).toBe(false);
+	});
+});
+
+describe("parseFront — a rollable trigger becomes an inline move, in the book's order", () => {
+	const front = parseFront([
+		_heading("Mindgem"),
+		_para("◇ ◇ , slow, indestructible"),
+		_para("A chunk of makerglass the size of a human head."),
+		_rule(),
+		_para("When you **_consult the Mindgem_**, ask a question and roll +INT: **on a 10+**, it answers."),
+		_list(["ä The answer is cryptic"]),
+		_rule(),
+		_para("To assemble the Mindgem’s body:"),
+		_list(["□ Recover its ◇ “heart”"], ["□ Puzzle out how to assemble all the pieces"]),
+		_para("When you’ve completed all the requirements, gain the Mighty Servant (see reverse)."),
+	], { name: "Mindgem", slug: "mindgem", major: true });
+	const list = front.choices[0].list;
+
+	it("puts the move grant where the trigger was printed, not at the end of the card", () => {
+		expect(list.map((e) => e.slug)).toEqual([undefined, "consult-mindgem", undefined, "recover-heart", "puzzle-out", undefined]);
+		expect(list[1].grants).toEqual([{ type: "move", slug: "consult-mindgem", locations: ["inline"] }]);
+	});
+	it("gives the move the whole block — its option bullets included", () => {
+		expect(front._frontMoves).toHaveLength(1);
+		expect(front._frontMoves[0].text).toBe("When you **_consult the Mindgem_**, ask a question and roll +INT: **on a 10+**, it answers.\n- The answer is cryptic");
+	});
+	it("ends the trigger at the rule, so the paragraph under it is the card's own row", () => {
+		expect(list[2].content.text).toBe("To assemble the Mindgem’s body:");
+	});
+	it("keeps each task a single checkbox and the ◇ load pips the book prints in it", () => {
+		expect(list[3].track).toEqual({ max: 1 });
+		expect(list[3].content.text).toBe("Recover its ◇ \"heart\"");
+	});
+	it("keeps the closing instruction under the task list", () => {
+		expect(list.at(-1).content.text).toBe("When you’ve completed all the requirements, gain the Mighty Servant (see reverse).");
+	});
+});
+
+describe("parseBack — a major card's own prose and its dice table", () => {
+	const back = parseBack([
+		_heading("Mysteries of the Mindgem"),
+		_para("When **_the Mighty Servant makes a move at your behest_**, on a 6-, mark a consequence."),
+		_para("**HP** **Armor**"),
+		_para("Max 24 Made of stone **Damage** stone fists d10+1"),
+		_heading("Consequences"),
+		_list(["□ It remembers its original purpose. Roll 1d4 below. **1d4** purpose cost"]),
+		{ type: "table", rows: [
+			{ roll: { text: "1" }, rest: [_line("To punish")] },
+			{ roll: { text: "2" }, rest: [_line("To preserve")] },
+			{ roll: { text: "3" }, rest: [_line("To purge")] },
+			{ roll: { text: "4" }, rest: [_line("To build")] },
+		] },
+	], { slug: "mindgem", name: "Mindgem", major: true });
+
+	it("keeps the prose printed before the first section as the back's own", () => {
+		expect(back.description).toBe("When **_the Mighty Servant makes a move at your behest_**, on a 6-, mark a consequence.");
+	});
+	it("drops the follower stat-block fragments the column split strands beside it", () => {
+		expect(back.description).not.toContain("Armor");
+		expect(back.description).not.toContain("stone fists");
+	});
+	it("promotes the dice table to a RollTable the consequence links inline", () => {
+		expect(back.rollTables).toHaveLength(1);
+		expect(back.rollTables[0]).toMatchObject({ formula: "1d4", name: "Mysteries of the Mindgem" });
+		expect(back.rollTables[0].results.map((r) => r.description)).toEqual(["To punish", "To preserve", "To purge", "To build"]);
+		const row = back.consequences.list[0];
+		expect(row.content.text).toBe(`It remembers its original purpose. Roll 1d4 below.\n\n@DrawTableInline[${back.rollTables[0].uuid}]{1d4}`);
 	});
 });

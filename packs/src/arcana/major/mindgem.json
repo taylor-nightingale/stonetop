@@ -30,9 +30,26 @@
 						},
 						{
 							"type": "entry",
+							"slug": "consult-mindgem-about",
 							"content": {
 								"title": null,
-								"text": "When you **_consult the Mindgem about the Makers, their arts, or their history_**, ask a question and roll +INT: **on a 7+**, it answers but **on a 10+**, pick 1; **on a 7-9**, pick 2:\n- The answer is cryptic, vague, or lacking crucial context\n- It takes a long time—hours or even days—to get the answer\n- Your mind is left reeling; take disadvantage on your next roll\n\n**On a 6-**, choose 1:\n- It wastes your time with irrelevant histories and data\n- It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).\n\nThe Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem’s body and unlock its mysteries:"
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "consult-mindgem-about",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "The Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem’s body and unlock its mysteries:"
 							}
 						},
 						{
@@ -54,18 +71,18 @@
 							},
 							"slug": "recover-heart",
 							"track": {
-								"max": 2
+								"max": 1
 							}
 						},
 						{
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "Recover and repair the intricate bronze helm (*awkward, big*) that serves as a casing for the Mindgem"
+								"text": "Recover and repair the intricate ◇◇ bronze helm (*awkward, big*) that serves as a casing for the Mindgem"
 							},
 							"slug": "recover-repair",
 							"track": {
-								"max": 3
+								"max": 1
 							}
 						},
 						{
@@ -78,6 +95,13 @@
 							"track": {
 								"max": 1
 							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you’ve completed all the requirements, gain the Mighty Servant (see reverse)."
+							}
 						}
 					]
 				}
@@ -87,8 +111,20 @@
 			"title": "Mysteries of the Mindgem",
 			"item": null,
 			"resource": null,
-			"itemSameAsFront": true,
+			"itemSameAsFront": false,
 			"choices": [
+				{
+					"slug": "intro",
+					"list": [
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When **_the Mighty Servant makes a move at your behest_** (see Order Followers), on a 6-, in addition to whatever the GM says, mark a consequence."
+							}
+						}
+					]
+				},
 				{
 					"slug": "mindgem",
 					"list": [
@@ -179,7 +215,7 @@
 							"slug": "mindgem-c6",
 							"content": {
 								"title": null,
-								"text": "It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant’s new cost (replacing \"wonder, excitement, joy\"). **1d4** purpose cost"
+								"text": "It remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant’s new cost (replacing \"wonder, excitement, joy\").\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.qpbN6QXITHRkpfjN]{1d4}"
 							},
 							"track": {
 								"max": 1

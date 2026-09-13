@@ -115,12 +115,17 @@ export function numberBlanks(system) {
 }
 
 /** A run of N checkbox glyphs → `{max:N}` plus the residual text. Counts box/circle/diamond glyphs
- *  anywhere, plus a *pure* run of the font's text-layer circle glyph ("l l l l l"). */
+ *  anywhere, plus a *pure* run of the font's text-layer circle glyph ("l l l l l").
+ *
+ *  A row that carries a □ box is a CHECKBOX row, and then only its boxes count: the other glyphs on
+ *  it are the book's item-weight ◇ pips written into the sentence (the Mindgem's "Recover its ◇
+ *  heart" / "the intricate ◇◇ bronze helm" — one task, gear that weighs 1 and 2), not extra ticks. */
 export function parseTrack(raw) {
-	const boxes = (raw.match(MARK) || []).length;
+	const boxes = (raw.match(/[□◻]/g) || []).length;
+	const marks = boxes || (raw.match(MARK) || []).length;
 	const stripped = raw.replace(MARK, "").trim();
 	const lRun = /^(?:l\s*)+$/.test(stripped) ? (stripped.match(/l/g) || []).length : 0;
-	return { max: boxes + lRun, text: lRun ? "" : stripped.replace(/\s{2,}/g, " ").trim() };
+	return { max: marks + lRun, text: lRun ? "" : stripped.replace(/\s{2,}/g, " ").trim() };
 }
 
 /** Strip the "(Loyalty ◯◯◯)" annotation from a follower cost line. Loyalty is always max 3 (the
@@ -312,8 +317,10 @@ const ROLL_STAT = { str: "str", strength: "str", dex: "dex", dexterity: "dex", c
 // book's markdown noise — the bold can wrap or split it ("**on a** **10+**"), and a comma/colon can sit
 // inside or after the bold ("**on a 7-9,**"). The `[*\s]*` separators swallow any mix of asterisks and
 // spaces on either side of the tier token. Global + case-insensitive so all three tiers are scanned.
-const TIER_RE = /[*\s]*on\s+a[*\s]*(10\s*\+|7\s*[-–]\s*9|6\s*[-–])[,:*\s]*/gi;
-const TIER_KEY = (tok) => (/10/.test(tok) ? "success" : /7/.test(tok) ? "partial" : "failure");
+const TIER_RE = /[*\s]*on\s+a[*\s]*(10\s*\+|7\s*\+|7\s*[-–]\s*9|6\s*[-–])[,:*\s]*/gi;
+// "on a 7+" is not a fourth tier: it is what 10+ and 7-9 have in common, said once (the Mindgem's
+// "on a 7+, it answers but on a 10+, pick 1; on a 7-9, pick 2"). Its outcome opens BOTH of them.
+const TIER_KEY = (tok) => (/10/.test(tok) ? "success" : /7\s*\+/.test(tok) ? "shared" : /7/.test(tok) ? "partial" : "failure");
 const cleanTier = (s) => (s || "").replace(/^[\s,;:]+/, "").replace(/[\s,;]+$/, "").trim();
 
 /** Extract the three result-tier outcomes from a rollable move's text. Each tier's value runs from the
@@ -332,17 +339,20 @@ function extractMoveResults(text) {
 		if (hits.some((h) => h.key === key)) continue;
 		hits.push({ key, start: m.index, end: m.index + m[0].length });
 	}
-	if (!hits.some((h) => h.key === "success")) return null;
-	const values = { success: "", partial: "", failure: "" };
+	if (!hits.some((h) => h.key === "success" || h.key === "shared")) return null;
+	const values = { success: "", partial: "", failure: "", shared: "" };
 	for (let i = 0; i < hits.length; i++) {
 		const nextMarker = hits[i + 1] ? hits[i + 1].start : Infinity;
 		const nl = t.indexOf("\n", hits[i].end);
 		const stop = Math.min(nextMarker, nl < 0 ? Infinity : nl, t.length);
 		values[hits[i].key] = cleanTier(t.slice(hits[i].end, stop));
 	}
+	// A shared 7+ outcome is written into both hit tiers — each card has to read on its own, since the
+	// reader sees one tier at a time. With nothing else on a tier, the shared outcome IS that tier.
+	const withShared = (v) => (values.shared && v ? `${values.shared} ${v}` : values.shared || v);
 	return {
-		success: { label: "10+", value: values.success },
-		partial: { label: "7-9", value: values.partial },
+		success: { label: "10+", value: withShared(values.success) },
+		partial: { label: "7-9", value: withShared(values.partial) },
 		failure: { label: "6-",  value: values.failure },
 	};
 }
@@ -433,6 +443,73 @@ export function majorMoveName(text) {
 	return { name: words.slice(0, n).join(" "), rest: words.slice(n).join(" ") };
 }
 
+/** Qualify a `table` block as a RollTable spec ({id, uuid, name, formula, results}) plus the inline
+ *  `@DrawTableInline` reference that stands in its place in the card's text — or null for the
+ *  footer-strip false positives (the card-number furniture every arcanum page carries). `key` makes
+ *  the id stable and distinct per side, since a card can print a table on either. */
+export function arcanumTable(block, { slug, name, key }) {
+	const q = qualifyTable(block);
+	if (!q) return null;
+	const id = deterministicId(TABLE_PACK, `${slug}#${key}`);
+	return { spec: { id, uuid: tableUuid(id), name, formula: q.formula, results: q.results },
+		link: `@DrawTableInline[${tableUuid(id)}]{${q.formula}}` };
+}
+
+/** Attach a table's inline reference to the row that introduces it ("roll 1d4 on the table below").
+ *  The book's column header echoes into that row's text as a trailing "**1d4** purpose cost" — the
+ *  table renders its own rows, so the echo is dropped rather than printed twice. */
+export function withTableLink(text, { link, formula }) {
+	const body = String(text ?? "").replace(new RegExp(`\\s*\\*\\*\\s*${formula}\\s*\\*\\*[^.\\n]*$`, "i"), "").trim();
+	return body ? `${body}\n\n${link}` : link;
+}
+
+/** The card row that grants a move — the move IS the row, so it carries no content of its own. */
+export function moveGrantEntry(moveSlug) {
+	return { type: "entry", slug: moveSlug, content: { title: null, text: null },
+		grants: [{ type: "move", slug: moveSlug, locations: ["inline"] }] };
+}
+
+/** A front trigger block that ROLLS, as a move def ({id, name, text, nameless}) — else null.
+ *
+ *  The book prints these moves without a name (only the back's mysteries get ALL-CAPS headers), so
+ *  the name here is identity, not a label: it is the trigger's own bold-italic phrase, which is what
+ *  the reader would call the move, and `nameless` keeps the card from showing it as a heading the
+ *  book never printed. The slug is derived from the same phrase so it survives a reprint's rewording
+ *  of the surrounding prose. */
+export function triggerMove(text) {
+	const { rollStat } = parseMoveRoll(text ?? "");
+	if (!rollStat) return null;
+	const phrase = (String(text).match(/\*\*_([^_]+)_\*\*/) || [])[1]?.trim();
+	if (!phrase) return null;
+	const name = phrase.charAt(0).toUpperCase() + phrase.slice(1);
+	return { id: unlockSlug(phrase, 3), name, text, nameless: true };
+}
+
+/** A fragment of a follower's stat block, stranded as a loose paragraph by the column split (a major
+ *  card prints its follower's block in the right-hand column, and the layout parser doesn't recognise
+ *  it as a stat block). Every field of it lives on the follower item, which the card renders inline —
+ *  so these are dropped rather than repeated as the card's own prose. Recognised by the book's own
+ *  field labels: a paragraph that leads with one, carries two or more, or is the bare Armor number. */
+const CREATURE_FIELD = /\b(?:HP|Armor|Max\.?\s*\d|Damage|Instinct|Cost|Special qualit\w*|Loyalty)\b/gi;
+export function isStatBlockFragment(md) {
+	const t = stripMarkers(md ?? "").replace(/[*_]/g, "").trim();
+	if (!t) return false;
+	if (/^\d+$/.test(t)) return true;
+	if (/^(?:HP|Armor|Max\.?|Damage|Instinct|Cost|Special qualit)/i.test(t)) return true;
+	return (t.match(CREATURE_FIELD) || []).length >= 2;
+}
+
+/** Card furniture that the column split strands at the end of a front: the item's own tag line
+ *  (", reach, magical"), a bare short italic tag ("*magical*"), or a ○ resource track ("Casting
+ *  penalty ○", which frontMoveResources reads off the raw page instead). Never prose. */
+export function isCardFurniture(md, raw = "") {
+	const t = (md ?? "").trim();
+	if (!t) return true;
+	if (/^,/.test(t.replace(/^[◇○□◻\s*_]+/, ""))) return true;
+	if (/^\*[^*]+\*$/.test(t) && t.length < 40) return true;
+	return /[○◯]/.test(raw) && !/[.:]/.test(stripMarkers(t));
+}
+
 // ─── blocks → front/back ──────────────────────────────────────────────────────
 const markerKind = (line) => { const t = (line?.text || "").trim(); return /^[□◻]/.test(t) ? "square" : /^◇/.test(t) ? "diamond" : /^[○◯]/.test(t) ? "circle" : null; };
 const rawOf = (lines) => (lines || []).map((l) => l.text).join(" ");
@@ -509,9 +586,25 @@ export function parseFront(blocks, { name, slug, major = false }) {
 		// here too — pulling it aside just keeps it out of the follower's moves.
 	}
 	let item = null, pips = 0;
-	const seq = []; // ordered { kind, text?, lines? }
+	const rollTables = []; // transient RollTable specs; build-arcana emits the pack files, then strips this
+	let seq = []; // ordered { kind, text?, lines? }
 
 	for (const b of blocks) {
+		// The book's horizontal rules separate one trigger's block from the next. Carried into the seq so
+		// the major branch can close an open trigger on one — without that, a paragraph set under a rule
+		// reads as a continuation of the trigger above it (the Mindgem's "The Mindgem knows that a body
+		// was crafted for it …" was being swallowed by the Consult move). Only once there is content to
+		// separate: a leading rule would otherwise stand between the card title and its ◇ item line.
+		if (b.type === "rule") { if (seq.length) seq.push({ kind: "rule" }); continue; }
+		// A dice table printed on the front belongs to the trigger that sends you to it (the Hungering
+		// Maw's "reduce an intelligent victim to 0 HP, roll 1d6:"). It becomes a RollTable the reader can
+		// draw from the card; build-arcana writes the pack file from `_rollTables`.
+		if (b.type === "table") {
+			if (!major) continue; // minor fronts print no dice tables; their backs are handled in parseBack
+			const t = arcanumTable(b, { slug, name, key: `front-table-${rollTables.length}` });
+			if (t) { rollTables.push(t.spec); seq.push({ kind: "table", table: { link: t.link, formula: t.spec.formula } }); }
+			continue;
+		}
 		if (b.type !== "para" && b.type !== "list") continue;
 		const raw = b.type === "list" ? rawOf(b.items.flat()) : rawOf(b.lines);
 		// pips-only block ("◇" / "◇ ◇") sets the item load
@@ -537,11 +630,12 @@ export function parseFront(blocks, { name, slug, major = false }) {
 	}
 	front.item = item;
 
-	// A rollable ALL-CAPS front header (the Hec'tumel Codex's "CAST A CODEX SPELL") is a front-granted
-	// MOVE, not an unlock option: pull that para (and its following option bullets) out of the seq into a
-	// move def + a move-grant unlock entry. Gated tightly — an ALL-CAPS bold run-in that is rollable
-	// (`roll +X`) — so only the Codex's front move matches. build-arcana emits the move file from `_frontMove`.
-	let frontMove = null;
+	// Front-granted MOVES. Every front move the book prints is a rollable block; two shapes carry one:
+	// an ALL-CAPS bold run-in header (the Hec'tumel Codex's "CAST A CODEX SPELL"), pulled out of the seq
+	// here and appended below, and a rollable "When you **_…_**" trigger, promoted in place by the major
+	// branch (see flushCur). build-arcana emits a move pack file per entry of `_frontMoves`.
+	const frontMoves = [];
+	let namedFrontMove = null;
 	{
 		const i = seq.findIndex((s) => {
 			if (s.kind !== "para") return false;
@@ -556,22 +650,21 @@ export function parseFront(blocks, { name, slug, major = false }) {
 			let j = i + 1;
 			for (; j < seq.length && seq[j].kind === "li"; j++)
 				text += "\n- " + stripMarkers(joinMd(seq[j].lines)).replace(/^[ä••\-\s]+/, "");
-			frontMove = { id: toSlug(name), name, text };
+			namedFrontMove = { id: toSlug(name), name, text };
 			seq.splice(i, j - i);
 		}
 	}
-	const attachFrontMove = () => {
-		if (!frontMove) return;
-		front._frontMove = frontMove;
-		(front.unlock ??= { slug, list: [] }).list.push({
-			type: "entry", slug: frontMove.id, content: { title: null, text: null },
-			grants: [{ type: "move", slug: frontMove.id, locations: ["inline"] }],
-		});
+	const attachNamedFrontMove = () => {
+		if (!namedFrontMove) return;
+		frontMoves.push(namedFrontMove);
+		(front.unlock ??= { slug, list: [] }).list.push(moveGrantEntry(namedFrontMove.id));
 	};
 	// Fold the parsed front into the ArcanumFront shape: one choices group whose FIRST entry is the
-	// description (a content-only entry), followed by the unlock rows. `_frontMove` is left for build-arcana.
+	// description (a content-only entry), followed by the unlock rows. `_frontMoves` is left for build-arcana.
 	const finalize = () => {
-		attachFrontMove();
+		attachNamedFrontMove();
+		if (frontMoves.length) front._frontMoves = frontMoves;
+		if (rollTables.length) front._rollTables = rollTables;
 		const list = [];
 		if (front.description) list.push({ type: "entry", content: { title: null, text: front.description } });
 		list.push(...(front.unlock?.list ?? []));
@@ -587,31 +680,58 @@ export function parseFront(blocks, { name, slug, major = false }) {
 	const isTriggerPara = (s) => s.kind === "para" && /^When you \*\*_/i.test(joinMd(s.lines).trim());
 	if (seq.some(isTriggerPara)) {
 		const firstTrig = seq.findIndex(isTriggerPara);
-		front.description = seq.slice(0, firstTrig).map((s) => joinMd(s.lines)).filter(Boolean).join("\n\n") || null;
+		front.description = seq.slice(0, firstTrig).filter((s) => s.kind !== "rule" && s.kind !== "table").map((s) => joinMd(s.lines)).filter(Boolean).join("\n\n") || null;
 		const list = [];
 		let cur = null;
-		const flushCur = () => { if (cur) list.push(cur); cur = null; };
+		// A finished trigger that ROLLS is a move, not a card row: it becomes a move-grant entry in
+		// place, so the card keeps the book's order and the move's own item carries the roll. Promotion
+		// happens on flush, once the trigger has accreted its option bullets — the move's text is the
+		// whole block, exactly as the row would have read.
+		const flushCur = () => {
+			if (!cur) return;
+			const move = triggerMove(cur.content.text);
+			if (move) { frontMoves.push(move); list.push(moveGrantEntry(move.id)); }
+			else list.push(cur);
+			cur = null;
+		};
 		for (const s of seq.slice(firstTrig)) {
+			// Furniture is dropped before anything can absorb it: the item's tag line lands at the foot of
+			// several cards (the Twisted Spear's ", reach, magical"), where an open trigger would otherwise
+			// swallow it as a continuation of the move's own text.
+			if (s.kind === "para" && !isTriggerPara(s) && isCardFurniture(joinMd(s.lines), rawOf(s.lines))) continue;
 			if (isTriggerPara(s)) {
 				flushCur();
 				cur = { type: "entry", content: { title: null, text: stripMarkers(joinMd(s.lines)) } };
+			} else if (s.kind === "rule") {
+				flushCur(); // the rule under a trigger's block ends it
+			} else if (s.kind === "table") {
+				// The table belongs to the row that sends you to it: the open trigger, else the last row.
+				const host = cur ?? list[list.length - 1];
+				if (host) host.content.text = withTableLink(host.content.text, s.table);
 			} else if (s.kind === "li") {
 				const raw = rawOf(s.lines);
 				const { max, text: residual } = parseTrack(raw);
 				if (max > 0 && !residual && isLoadPipRow(raw)) continue;
 				if (max > 0 && !residual) { flushCur(); list.push({ type: "entry", slug: "marks", content: { title: null, text: "Marks" }, track: { max } }); }
-				else if (max > 0) { flushCur(); const t = stripMarkers(joinMd(s.lines)); const row = { type: "entry", content: { title: null, text: t } }; if (t) row.slug = unlockSlug(t); row.track = { max }; list.push(row); }
+				// A task checkbox keeps the ◇ load pips written into its sentence — the Mindgem's heart and
+				// bronze helm are gear you recover, and the book prints what each weighs.
+				else if (max > 0) { flushCur(); const t = stripMarkers(joinMd(s.lines, { keepDiamonds: true })); const row = { type: "entry", content: { title: null, text: t } }; if (t) row.slug = unlockSlug(t); row.track = { max }; list.push(row); }
 				else if (cur) cur.content.text += "\n- " + stripMarkers(joinMd(s.lines)).replace(/^[ä••\-\s]+/, ""); // an option bullet of the current trigger
-			} else if (cur) cur.content.text += "\n\n" + stripMarkers(joinMd(s.lines)); // a continuation para (trailing orphans drop with no cur)
+			} else if (cur) cur.content.text += "\n\n" + stripMarkers(joinMd(s.lines)); // a continuation para
+			// A paragraph with no trigger open is the card's own prose — the instruction under the task
+			// list ("When you've completed all the requirements, gain the Mighty Servant"), or the gate
+			// line under the Marks track. Content, so it stands as its own row.
+			else list.push({ type: "entry", content: { title: null, text: stripMarkers(joinMd(s.lines)) } });
 		}
 		flushCur();
-		// Drop the trailing gate instruction ("When you make the last mark, you unlock …") after the track.
-		if (list.some((e) => e.track)) while (list.length && !list[list.length - 1].track) list.pop();
 		front.unlock = { slug, list };
 		return finalize();
 	}
 
 	// description = paras before the first option (li); unlock = the intro para + every li/para after.
+	// Rules are a MAJOR-branch signal (they close a trigger's block); a minor card's own rules carry no
+	// such structure, so they leave the seq before the positional logic below counts on it.
+	seq = seq.filter((s) => s.kind !== "rule" && s.kind !== "table");
 	const firstLi = seq.findIndex((s) => s.kind === "li");
 	if (firstLi < 0) {
 		front.description = seq.map((s) => joinMd(s.lines)).filter(Boolean).join("\n\n") || null;
@@ -675,6 +795,8 @@ function parseMajorBack(blocks, { slug, name }) {
 	let spellsTitle = null; // the "Spells of the Codex" heading text → the spells choice-group title
 	let cur = null;         // the move/consequence currently accreting following paras/bullets
 	const consX = [];       // each consequence row's start x0, parallel to back.consequences.list
+	const intro = [];       // the card's own prose, printed before the first section
+	const rollTables = [];  // transient RollTable specs; build-arcana emits the pack files, then strips this
 	const flush = () => {
 		if (!cur) return;
 		const text = cur.text.replace(/\n{3,}/g, "\n\n").trim();
@@ -723,7 +845,27 @@ function parseMajorBack(blocks, { slug, name }) {
 			}
 			continue;
 		}
-		if (b.type === "boxstart" || b.type === "boxend" || b.type === "table" || b.type === "image") continue;
+		if (b.type === "table") {
+			// A dice table the card's own text sends you to (the Mindgem's 1d4 of purposes) → a RollTable,
+			// referenced inline from the row that introduces it: the open one, else the last one written.
+			const t = arcanumTable(b, { slug, name: back.title ?? name ?? "Table", key: `table-${rollTables.length}` });
+			if (!t) continue; // the card-number furniture strip every arcanum page carries
+			rollTables.push(t.spec);
+			const host = cur ?? back.consequences?.list?.[back.consequences.list.length - 1] ?? null;
+			if (cur) cur.text = withTableLink(cur.text, { link: t.link, formula: t.spec.formula });
+			else if (host) host.content.text = withTableLink(host.content.text, { link: t.link, formula: t.spec.formula });
+			continue;
+		}
+		if (b.type === "boxstart" || b.type === "boxend" || b.type === "image") continue;
+		// Prose printed before the back's first section is the card's own — the Mindgem's "When the Mighty
+		// Servant makes a move at your behest … mark a consequence", which governs the whole card. It leads
+		// the back's body, ahead of the follower and the consequences.
+		if (!section && b.type === "para") {
+			const md = joinMd(b.lines);
+			const text = stripMarkers(md);
+			if (text && !isCardFurniture(md, rawOf(b.lines)) && !isStatBlockFragment(md)) intro.push(text);
+			continue;
+		}
 		if (section === "moves") {
 			if (b.type === "list") for (const it of b.items) {
 				const head = majorMoveName(it[0]?.text || "");
@@ -779,6 +921,8 @@ function parseMajorBack(blocks, { slug, name }) {
 	// heading wasn't captured. Cards whose heading IS captured keep it verbatim (e.g. the possessive
 	// "Mysteries of Noruba's Ice Sphere", which drops the "the").
 	if (!back.title && name) back.title = `Mysteries of the ${name}`;
+	if (intro.length) back.description = intro.join("\n\n"); // foldBackChoices leads the body with it
+	if (rollTables.length) back.rollTables = rollTables;
 	return back;
 }
 

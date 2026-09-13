@@ -1,0 +1,28 @@
+{
+	"_id": "4549305f6bd4a7bc",
+	"_key": "!items!4549305f6bd4a7bc",
+	"name": "Consult the Mindgem about the Makers, their arts, or their history",
+	"type": "move",
+	"system": {
+		"slug": "consult-mindgem-about",
+		"moveType": null,
+		"description": "When you **_consult the Mindgem about the Makers, their arts, or their history_**, ask a question and roll +INT: **on a 7+**, it answers but **on a 10+**, pick 1; **on a 7-9**, pick 2:\n- The answer is cryptic, vague, or lacking crucial context\n- It takes a long time—hours or even days—to get the answer\n- Your mind is left reeling; take disadvantage on your next roll\n\n**On a 6-**, choose 1:\n- It wastes your time with irrelevant histories and data\n- It answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).",
+		"rollStat": "int",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "it answers but pick 1"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "it answers but pick 2:"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "choose 1:"
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

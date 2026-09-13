@@ -1,0 +1,28 @@
+{
+	"_id": "a0acfe2c371c9749",
+	"_key": "!items!a0acfe2c371c9749",
+	"name": "Brandish the Azure Hand at a source of elemental energy",
+	"type": "move",
+	"system": {
+		"slug": "brandish-azure-hand",
+		"moveType": null,
+		"description": "When you **_brandish the Azure Hand at a source of elemental energy_**, roll +CON: **on a 10+**, you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below; **on a 7-9**, as a 10+, but the vortex is unstable and maintaining it requires all your focus.\n- Direct the energy into a vessel able to contain it\n- Discharge the energy harmlessly into the earth\n- Fling the energy, rolling +INT to Let Fly (*thrown*, *dangerous*), inflicting damage and other effects of the GM’s choosing\n- Use the energy to fuel or empower some other magic.\n\n**On a 6-**, instead of marking XP, mark 1:",
+		"rollStat": "con",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "you gather the energy about the Hand in a swirling vortex for as long as you grip the staff or until you choose 1 from the list below"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "as a 10+, but the vortex is unstable and maintaining it requires all your focus."
+			},
+			"failure": {
+				"label": "6-",
+				"value": "instead of marking XP, mark 1:"
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

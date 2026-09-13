@@ -1,0 +1,28 @@
+{
+	"_id": "1b4e9248bdb7c11c",
+	"_key": "!items!1b4e9248bdb7c11c",
+	"name": "Roil with anger",
+	"type": "move",
+	"system": {
+		"slug": "roil-anger",
+		"moveType": null,
+		"description": "When you **_roil with anger_**, you do +1 damage until you calm down. But when you **_try to control your_** **_temper_**, roll +WIS: **on a 10+**, you keep your cool and act as you wish; **on a 7-9**, choose 1 from the list below; **on a 6-**, you just lose it—tell the GM what damn fool thing you end up doing.\n- Take some deep breaths and count to ten, fuming all the while\n- Vent your rage, but tell us how and on what",
+		"rollStat": "wis",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "you keep your cool and act as you wish"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "choose 1 from the list below"
+			},
+			"failure": {
+				"label": "6-",
+				"value": "you just lose it—tell the GM what damn fool thing you end up doing."
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

@@ -1,0 +1,28 @@
+{
+	"_id": "e0b03f62a2c3a9a2",
+	"_key": "!items!e0b03f62a2c3a9a2",
+	"name": "Enter an ecstatic delirium and allow the Ineffable Words to pour forth",
+	"type": "move",
+	"system": {
+		"slug": "enter-ecstatic-delirium",
+		"moveType": null,
+		"description": "When you **_enter an ecstatic delirium and allow the Ineffable Words to pour forth_**, roll +CON: **on a 10+**, you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue; **on a 7-9**, the 10+ result applies, but choose 1 from the list below.\n- The Truth is cryptic, vague, incomplete\n- You are overcome, collapsing in a full-body seizure\n- You draw unwanted attention",
+		"rollStat": "con",
+		"moveResults": {
+			"success": {
+				"label": "10+",
+				"value": "you speak Truth, revealing something new and interesting about the current situation—ask the GM what, and all present understand this Truth as though it were spoken in their native tongue"
+			},
+			"partial": {
+				"label": "7-9",
+				"value": "the 10+ result applies, but choose 1 from the list below."
+			},
+			"failure": {
+				"label": "6-",
+				"value": ""
+			}
+		},
+		"nameless": true
+	},
+	"folder": "ArcanaMoves00001"
+}

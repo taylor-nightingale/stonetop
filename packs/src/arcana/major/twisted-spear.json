@@ -87,6 +87,20 @@
 							"track": {
 								"max": 1
 							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_complete a task_**, mark it off."
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_have marked 3 tasks_**, you unlock the mysteries of the Twisted Spear. Choose one of the moves on the reverse; you can use that move as long as you wield the Spear. Each time you mark a task thereafter, gain another move from the reverse."
+							}
 						}
 					]
 				}

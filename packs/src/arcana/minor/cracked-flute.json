@@ -29,10 +29,20 @@
 						},
 						{
 							"type": "entry",
+							"slug": "spend-few-days",
 							"content": {
 								"title": null,
-								"text": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr."
-							}
+								"text": null
+							},
+							"grants": [
+								{
+									"type": "move",
+									"slug": "spend-few-days",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						},
 						{
 							"type": "entry",
@@ -43,6 +53,13 @@
 							},
 							"track": {
 								"max": 3
+							}
+						},
+						{
+							"type": "entry",
+							"content": {
+								"title": null,
+								"text": "When you **_mark all three circles_**, you unlock the mysteries of the flute."
 							}
 						}
 					]

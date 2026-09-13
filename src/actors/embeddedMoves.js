@@ -130,6 +130,7 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withOwnedId(item?._id ?? null)
 		.withSlug(slug)
 		.withName(item?.name ?? slug)
+		.withNameless(sys?.nameless === true)
 		.withDescription(rich(sys?.description ?? ""))
 		.withRollStat(sys?.rollStat ?? null)
 		.withSource({ type: categoryKey })

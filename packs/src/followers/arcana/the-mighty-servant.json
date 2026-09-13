@@ -11,9 +11,9 @@
 			"value": 0,
 			"max": 24
 		},
-		"armor": "4",
+		"armor": "4 made of stone",
 		"damage": "stone fists d10+1 (hand, close, disadvantage)",
-		"specialQuality": "",
+		"specialQuality": "living stone, tireless",
 		"instinct": {
 			"selected": [
 				"to misunderstand"
@@ -33,7 +33,7 @@
 			}
 		],
 		"description": "",
-		"moves": "- living stone, tireless",
+		"moves": "- Perform a mighty feat of strength\n- Carry on implacably",
 		"cost": {
 			"selected": [
 				"wonder, excitement, joy, discovery"
