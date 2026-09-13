@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { autoRollDice, toRollableMarkup, enrichGameText, clearEnrichCache } from "../../src/utils/enrichGameText.js";
+import { autoRollDice, toRollableMarkup, toRollableBlocks, enrichGameText, clearEnrichCache } from "../../src/utils/enrichGameText.js";
 
 describe("enrichGameText caching", () => {
 	it("serves a second identical call from cache (skips enrichHTML)", async () => {
@@ -77,6 +77,45 @@ describe("toRollableMarkup (markdown + dice, Foundry tokens protected)", () => {
 	it("returns empty string for empty input", () => {
 		expect(toRollableMarkup("")).toBe("");
 		expect(toRollableMarkup(null)).toBe("");
+	});
+});
+
+describe("toRollableMarkup — authored line breaks", () => {
+	it("keeps a single newline as a line break", () => {
+		expect(toRollableMarkup("Line one\nLine two", { autoRoll: false }))
+			.toBe("Line one<br />Line two");
+	});
+
+	it("keeps a blank line as a blank line", () => {
+		expect(toRollableMarkup("First.\n\nSecond.", { autoRoll: false }))
+			.toBe("First.<br /><br />Second.");
+	});
+
+	it("still rolls dice across the line breaks", () => {
+		expect(toRollableMarkup("Bite d6\nClaw d8"))
+			.toBe("Bite [[/r d6]]<br />Claw [[/r d8]]");
+	});
+
+	it("protects a Foundry token that spans blocks of text", () => {
+		expect(toRollableMarkup("See @UUID[Actor.abc]{Garm}\n\nand roll [[/r 2d6]]"))
+			.toBe("See @UUID[Actor.abc]{Garm}<br /><br />and roll [[/r 2d6]]");
+	});
+});
+
+describe("toRollableBlocks", () => {
+	it("returns one entry per blank-line-separated block", () => {
+		expect(toRollableBlocks("Bites for d6.\n\nRuns off."))
+			.toEqual(["Bites for [[/r d6]].", "Runs off."]);
+	});
+
+	it("returns an already-HTML value as a single block", () => {
+		expect(toRollableBlocks("<p>Saved by the editor</p>", { autoRoll: false }))
+			.toEqual(["<p>Saved by the editor</p>"]);
+	});
+
+	it("returns no blocks for empty input", () => {
+		expect(toRollableBlocks("")).toEqual([]);
+		expect(toRollableBlocks(null)).toEqual([]);
 	});
 });
 

@@ -26,7 +26,7 @@
 	<span>Text</span>
 	{{!-- Rich body text: seeded with HTML (content.textHtml = md→HTML) and saved back as HTML through
 	      the choiceGroupEditorMixin change handler (whole-group atomic write). --}}
-	<prose-mirror class="choices-rich-text"
+	<prose-mirror class="choices-rich-text stonetop-grow-editor"
 	       data-choices-target="{{_target}}" data-choices-row-index="{{_rowIndex}}" {{#if _hasOptionIndex}}data-choices-option-index="{{_optionIndex}}"{{/if}} data-choices-field="content.text"
 	       value="{{editorHtml content.text}}"></prose-mirror>
 </label>

@@ -8632,7 +8632,9 @@ button.stonetop-xp-toggle {
 }
 
 /* content.text rich editor: a <prose-mirror> seeded with HTML, saved back as HTML. Match the field
-   frame the plain inputs use and give the editor a sensible editing height. */
+   frame the plain inputs use and give the editor a sensible floor to start from — it grows past it
+   with the text (.stonetop-grow-editor), which is what makes the 4rem below a floor rather than the
+   decoration it was while core's 150px governed the box. */
 .choices-field--rich { align-items: stretch; }
 .choices-field .choices-rich-text {
 	flex: 1;
@@ -8641,8 +8643,8 @@ button.stonetop-xp-toggle {
 	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	padding: 0.15rem 0.35rem;
+	min-height: 4rem;
 }
-.choices-field .choices-rich-text .editor-content { min-height: 4rem; }
 .choices-field .choices-rich-text:focus-within { border-color: var(--st-accent); }
 
 .choices-field input[type="text"]:focus,
@@ -8889,6 +8891,11 @@ button.stonetop-xp-toggle {
 }
 .stonetop-editable.is-editing .stonetop-editable__display { display: none; }
 .stonetop-editable.is-editing .stonetop-editable__edit { display: block; }
+/* The pencil opens a box the size of the text it is editing. `field-sizing` (from
+   .stonetop-grow-field on the element) grows a textarea from its MINIMUM, and a textarea's minimum
+   is its `rows` default — two lines, which is a floor and not a fit, and is why a long description
+   used to open as a two-line scroller with the notes below it never moving. */
+textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop-edit-toggle {
 	flex: 0 0 auto;
 	align-self: baseline;
@@ -8926,6 +8933,32 @@ button.stonetop-xp-toggle {
 	overflow: hidden;
 	white-space: pre-wrap;
 	word-break: break-word;
+}
+
+/* The same behaviour for a <prose-mirror>: as tall as what it holds, so writing pushes whatever is
+   under it down rather than scrolling inside a box of someone else's choosing.
+
+   Core lays the element out for the opposite. `.editor-container` is `flex: 1` and `.editor-content`
+   is `position: absolute; inset: 0`, so the text being typed is out of flow and contributes no
+   height whatsoever — the box can only ever be the size some outside rule names, and core's own
+   floor (`--min-height: 150px`) is what every editor fell back to. Put the content back in flow and
+   the element sizes to it. v14 ships this as `prose-mirror.content-sized`; v13 is our
+   `compatibility.minimum` and has no such rule, so it is spelled out here instead.
+
+   No `resize` counterpart: `resize` applies only to a non-`visible` overflow, so it cannot coexist
+   with content sizing — and a box already the height of its text has nothing left to drag for. */
+.stonetop-grow-editor {
+	/* Core's 150px floor is the fixed height this class exists to escape. Each surface names its
+	   own floor below; the shared rule only grants the growth. */
+	--min-height: 0;
+}
+.stonetop-grow-editor .editor-container {
+	flex: 0 0 auto;
+	overflow: visible;
+}
+.stonetop-grow-editor .editor-content {
+	position: static;
+	overflow: visible;
 }
 
 /* ── Tag chips (structured tags: toggle to select, free-text to add) ───────────── */
@@ -8983,16 +9016,13 @@ button.stonetop-xp-toggle {
 }
 
 /* ── Character Notes tab: bio + notes as ProseMirror editors ─────────────────── */
-/* The height belongs on <prose-mirror> itself. Core lays the element out as a flex column whose
+/* The floor belongs on <prose-mirror> itself. Core lays the element out as a flex column whose
    toolbar band is a `flex: 0 0 42px` item and whose editor is `flex: 1`; any other `display` here
-   makes that band a 0-height block, and its 26px buttons then spill out under the absolutely
-   positioned .editor-content, which swallows the clicks. `overflow` is what enables `resize` —
-   it clips nothing that matters, since core renders the format dropdown detached from the sheet. */
+   makes that band a 0-height block, and its 26px buttons then spill out under the .editor-content,
+   which swallows the clicks. Height above the floor comes from .stonetop-grow-editor, so a long
+   bio lengthens the tab instead of scrolling inside a 20em window. */
 .stonetop-notes-editor {
-	height: 20em;
 	min-height: 10em;
-	resize: vertical;
-	overflow: hidden;
 	margin-bottom: 12px;
 	border: 1px solid var(--st-rule);
 	border-radius: 3px;
@@ -9197,14 +9227,14 @@ button.stonetop-xp-toggle {
 .stonetop-insert-sheet-name { flex: 1 1 auto; font-size: var(--fs-title); font-weight: bold; }
 .stonetop-insert-sheet-body { display: flex; flex-direction: column; gap: 8px; }
 .stonetop-insert-sheet-label { font-weight: bold; font-size: var(--fs-note); text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; }
-.stonetop-insert-sheet-description { width: 100%; min-height: 120px; resize: vertical; }
 .stonetop-insert-sheet-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--st-rule); padding-top: 8px; }
 .stonetop-insert-sheet-section-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.stonetop-insert-sheet-section .editor-content { min-height: 120px; border: 1px solid var(--st-rule); border-radius: 3px; padding: 4px 6px; resize: vertical; overflow: auto; }
-/* Active ProseMirror: core pins .editor-content absolutely (inset: 0) inside the
-   .editor-container it injects, so the drag-resize must live on the container. */
-.stonetop-insert-sheet-section .editor-container { height: 220px; min-height: 120px; resize: vertical; overflow: hidden; }
-.stonetop-insert-sheet-section .editor-container .editor-content { min-height: 0; resize: none; }
+.stonetop-insert-sheet-section .editor-content { min-height: 120px; border: 1px solid var(--st-rule); border-radius: 3px; padding: 4px 6px; }
+/* Active ProseMirror: the floor goes on the element, not on the .editor-container core injects, so
+   that .stonetop-grow-editor can take the box above it as the description grows. The floor is
+   already held there, so the content inside it must not carry a second one. */
+.stonetop-insert-sheet-section .stonetop-grow-editor { min-height: 120px; }
+.stonetop-insert-sheet-section .editor-container .editor-content { min-height: 0; }
 .stonetop-insert-sheet-instinct-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .stonetop-insert-sheet-instinct-row { display: flex; align-items: center; gap: 6px; }
 .stonetop-insert-sheet-instinct-row .insert-instinct-string { flex: 1 1 auto; }

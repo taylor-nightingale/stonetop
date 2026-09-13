@@ -5,11 +5,11 @@
 		      ChangeActionRouter, which saves it through a domain method — the character sheet keeps
 		      `name` (and the core form-submit path) for the fields core owns. --}}
 		{{> "stonetop.section-heading" title=(localize "stonetop.sheet.notes.bio")}}
-		<prose-mirror class="stonetop-notes-editor" data-change-action="bio"
+		<prose-mirror class="stonetop-notes-editor stonetop-grow-editor" data-change-action="bio"
 		              value="{{editorHtml stonetop.bio}}"></prose-mirror>
 
 		{{> "stonetop.section-heading" title=(localize "stonetop.sheet.notes.notes")}}
-		<prose-mirror class="stonetop-notes-editor" data-change-action="charNotes"
+		<prose-mirror class="stonetop-notes-editor stonetop-grow-editor" data-change-action="charNotes"
 		              value="{{editorHtml stonetop.notes}}"></prose-mirror>
 
 	</section>

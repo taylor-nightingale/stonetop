@@ -7,7 +7,7 @@ describe("richTextToHtml", () => {
 	});
 
 	it("keeps single newlines as line breaks inside one paragraph", () => {
-		expect(richTextToHtml("Line one\nLine two")).toBe("<p>Line one<br>Line two</p>");
+		expect(richTextToHtml("Line one\nLine two")).toBe("<p>Line one<br />Line two</p>");
 	});
 
 	it("splits blank-line-separated blocks into paragraphs", () => {

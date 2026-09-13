@@ -14,7 +14,7 @@ describe("migrateCharacterNotes", () => {
 		const actor = makeActor({ description: "A wanderer.\nFar from home.\n\nSeeking the barrow." });
 		await migrateCharacterNotes(actor);
 		expect(actor.system.description)
-			.toBe("<p>A wanderer.<br>Far from home.</p><p>Seeking the barrow.</p>");
+			.toBe("<p>A wanderer.<br />Far from home.</p><p>Seeking the barrow.</p>");
 	});
 
 	it("converts the plain-text notes to paragraph HTML", async () => {

@@ -8,7 +8,7 @@
 <span class="stonetop-editable">
 	<span class="stonetop-editable__display">{{rich field}}</span>
 	{{#if multiline}}
-	<textarea class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}" aria-label="{{#if label}}{{label}}{{else}}{{placeholder}}{{/if}}">{{field.raw}}</textarea>
+	<textarea class="stonetop-editable__edit stonetop-grow-field {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}" aria-label="{{#if label}}{{label}}{{else}}{{placeholder}}{{/if}}">{{field.raw}}</textarea>
 	{{else}}
 	<input class="stonetop-editable__edit {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} type="text" value="{{field.raw}}" data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}" aria-label="{{#if label}}{{label}}{{else}}{{placeholder}}{{/if}}">
 	{{/if}}
