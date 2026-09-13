@@ -1791,9 +1791,15 @@ body,
    26px button. A strip runs the sheet's full height, so EVERY line of the tab is against it — and
    padding three named controls left the resource list, the fortifications and the assets each
    missing their first characters under it. A column of text that starts underneath the furniture is
-   the thing this had to stop doing; the region steps aside once and nothing inside it has to know. */
-.stonetop-rail-layout[data-side="left"] > .stonetop-rail-main { padding-left: var(--rail-toggle-gutter); }
-.stonetop-rail-layout[data-side="right"] > .stonetop-rail-main { padding-right: var(--rail-toggle-gutter); }
+   the thing this had to stop doing; the region steps aside once and nothing inside it has to know.
+
+   Margin, not padding, because on the character sheet this region IS the scrolling box — `.sheet-body`
+   and `.stonetop-rail-main` are one element. Padding moves the content inward and leaves the border
+   box where it was, and a scrollbar is drawn at the BORDER edge: the tab cleared the strip while its
+   own scrollbar stayed underneath it, so a shut rail took the scrollbar away. A margin moves the box,
+   and the track comes with it. */
+.stonetop-rail-layout[data-side="left"] > .stonetop-rail-main { margin-left: var(--rail-toggle-gutter); }
+.stonetop-rail-layout[data-side="right"] > .stonetop-rail-main { margin-right: var(--rail-toggle-gutter); }
 
 /* Narrow layout: the rail stops being an inline column and becomes an overlay the toggle slides out
    on top of the current tab, so the tab content gets the full width by default. */

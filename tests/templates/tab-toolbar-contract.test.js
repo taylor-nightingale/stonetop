@@ -118,9 +118,13 @@ describe("tab toolbar contract", () => {
 	// The REGION steps aside, once, rather than the two or three controls that used to share a corner
 	// with a 26px button: a strip is against every line of the tab, not just the top one, and paying
 	// per control cost the Play tab the first characters of every row in it.
+	//
+	// A MARGIN, because on the character sheet that region is the scrolling box itself — padding
+	// moved its content and left its border box, and so its scrollbar, under the strip. The geometry
+	// that proves it is in tests/styles/rail-drawer.test.js; this only pins which property is used.
 	it("steps the whole tab aside for the folded rail, on both sides", () => {
 		for (const side of ["left", "right"]) {
-			const rule = `.stonetop-rail-layout[data-side="${side}"] > .stonetop-rail-main { padding-${side === "left" ? "left" : "right"}: var(--rail-toggle-gutter); }`;
+			const rule = `.stonetop-rail-layout[data-side="${side}"] > .stonetop-rail-main { margin-${side === "left" ? "left" : "right"}: var(--rail-toggle-gutter); }`;
 			expect(css, `a ${side}-hand rail's tab does not step aside for the strip`).toContain(rule);
 		}
 

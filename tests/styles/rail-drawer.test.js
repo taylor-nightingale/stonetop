@@ -223,11 +223,89 @@ describe.skipIf(!canProbe())("the rail as a drawer", () => {
 		expect(r.get("main").values.boxLeft).toBeLessThan(60);
 	});
 
-	// Shut, the toggle is over the TAB rather than over the rail, so the tab's own corner steps aside.
+	// Shut, the strip is at the sheet's own edge and the region beside the rail begins after it —
+	// they sit side by side rather than one over the other. This used to assert the opposite (the
+	// region running under the strip, with only its text stepping aside), which is the geometry that
+	// hid a scrolling tab's scrollbar; see the scrollbar tests below.
 	it("keeps the toggle reachable and clear of the tab when the rail is shut", () => {
 		const r = measure({ side: "left", open: false, shut: true, width: 1400 });
 		const toggle = r.get("toggle").values;
+		const main = r.get("main").values;
 		expect(toggle.boxWidth).toBeGreaterThanOrEqual(24);
-		expect(r.get("main").values.boxLeft).toBeLessThanOrEqual(toggle.boxLeft);
+		expect(toggle.boxLeft, "the strip is not at the sheet's edge").toBeLessThanOrEqual(main.boxLeft);
+		expect(overlaps(toggle, main), `the strip ${rect(toggle)} is over the tab ${rect(main)}`).toBe(false);
+	});
+});
+
+/**
+ * The region beside the rail, when that region is itself the scrolling box.
+ *
+ * On the character sheet `.sheet-body` and `.stonetop-rail-main` are ONE element, so what steps
+ * aside for the folded strip is the scroll container. A padding could not do it: padding moves the
+ * content and leaves the border box where it was, and a scrollbar is drawn at the BORDER edge — so
+ * the tab's text cleared the strip while the scrollbar it needs sat underneath it, and putting the
+ * rail away took the scrollbar away with it.
+ *
+ * Geometry, because that is the whole of the claim: no computed value distinguishes a gutter that
+ * moves the box from one that moves only what is in it.
+ */
+const SCROLLER_TARGETS = { toggle: ".stonetop-rail-toggle", body: ".stonetop-rail-main" };
+
+// Markup copied from character.hbs: the rail layout with its body and rail as siblings, the body
+// carrying both classes. The tall child is what makes it actually scroll.
+const scrollingFixture = ({ shut, width }) => `
+${FONT_AWESOME}
+<div class="application stonetop sheet character themed theme-light" style="width: ${width}px; height: 700px">
+  <div class="window-content"><div class="sheet-wrapper"><section class="sheet-main flexcol">
+    <nav class="sheet-tabs tabs" data-group="primary"><button type="button" class="item">Moves</button></nav>
+    <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="right">
+      <button type="button" class="stonetop-rail-toggle" aria-label="Rail">
+        <i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
+        <span class="stonetop-rail-fold" aria-hidden="true"><i class="fas fa-bolt stonetop-rail-mark"></i></span>
+      </button>
+      <section class="sheet-body stonetop-rail-main">
+        <div class="tab active" data-tab="moves" style="height: 3000px">a tab long enough to scroll</div>
+      </section>
+      <div class="stonetop-rail stonetop-moves-rail"><button type="button">Roll</button></div>
+    </div>
+  </section></div></div>
+</div>`;
+
+const measureScroller = opts => probe.measure({
+	bodyHtml: scrollingFixture(opts), bodyClass: "game themed theme-light",
+	rootAttrs: 'style="font-size: 16px"', targets: SCROLLER_TARGETS,
+	chromeFlags: [`--window-size=${opts.width + 50},800`],
+});
+
+describe.skipIf(!canProbe())("a shut rail and the tab's scrollbar", () => {
+	// The regression: the scrolling box ran the full width of the layout, so its track was under the
+	// strip and a reader who put the rail away lost the scrollbar entirely.
+	it("ends the scrolling region before the strip when the rail is shut", () => {
+		const r = measureScroller({ shut: true, width: 1400 });
+		const toggle = r.get("toggle").values;
+		const body = r.get("body").values;
+		expect(body.boxLeft + body.boxWidth, "the scrolling box runs under the strip, taking its scrollbar with it")
+			.toBeLessThanOrEqual(toggle.boxLeft);
+	});
+
+	// Below the breakpoint an untouched rail is already a shut drawer, so the strip — and the same
+	// fault — is there with no class in the markup saying anything about it.
+	it("ends it before the strip at a drawer's width too", () => {
+		const r = measureScroller({ shut: false, width: 760 });
+		const toggle = r.get("toggle").values;
+		const body = r.get("body").values;
+		expect(toggle.boxHeight, "no strip at this width").toBeGreaterThan(300);
+		expect(body.boxLeft + body.boxWidth).toBeLessThanOrEqual(toggle.boxLeft);
+	});
+
+	// Open and inline, the toggle is a pill out in the channel beyond the region, so the region keeps
+	// the full width it is given — the gutter is spent only where a strip is actually standing.
+	it("gives the region its whole width back while the rail is open", () => {
+		const r = measureScroller({ shut: false, width: 1400 });
+		const toggle = r.get("toggle").values;
+		const body = r.get("body").values;
+		expect(toggle.boxHeight, "the toggle is not the open pill").toBeLessThan(40);
+		expect(body.boxLeft + body.boxWidth, "the region is paying for a strip that is not there")
+			.toBeLessThanOrEqual(toggle.boxLeft);
 	});
 });
