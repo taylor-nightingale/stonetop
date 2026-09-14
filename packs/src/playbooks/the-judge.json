@@ -179,18 +179,23 @@
 				"slug": "prophet",
 				"label": "Prophet",
 				"description": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.",
-				"choices": [
-					{
-						"type": "entry",
-						"grants":{
-							"type": "move",
-							"slug": "commune-with-aratis",
-							"locations": [
-								"inline"
+				"choices": {
+					"slug": "prophet",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "commune-with-aratis",
+									"locations": [
+										"inline"
+									]
+								}
 							]
 						}
-					}
-				]
+					]
+				}
 			}
 		],
 		"specialPossessions": {

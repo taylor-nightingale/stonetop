@@ -54,6 +54,7 @@ export class FakeCharacterActorBuilder {
 	_scaffold = new FakeActorScaffold("Brakken");
 	_rollMode = null;
 	_playbookSlug = null;
+	_backgroundSlug = "";
 	_level = 1;
 	_armor = 0;
 	_damage = null;
@@ -122,6 +123,11 @@ export class FakeCharacterActorBuilder {
 		return this;
 	}
 
+	withBackground(slug) {
+		this._backgroundSlug = slug;
+		return this;
+	}
+
 	withRollMode(rollMode) {
 		this._rollMode = rollMode;
 		return this;
@@ -138,6 +144,7 @@ export class FakeCharacterActorBuilder {
 	buildSystem() {
 		return {
 			playbookSlug: this._playbookSlug ?? "",
+			background: {selected: this._backgroundSlug},
 			description: this._description,
 			notes: this._notes,
 			stats: this._statBuilder.build(),

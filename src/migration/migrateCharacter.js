@@ -17,6 +17,7 @@ import { richTextToHtml } from "./richTextToHtml.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
 import { Tags } from "../model/data/Tags.js";
 import { migrateMovePackData } from "./migrateMovePackData.js";
+import { migrateBackgroundGrants } from "./migrateBackgroundGrants.js";
 
 const SCOPE = "stonetop";
 
@@ -71,6 +72,9 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateMovePackData(actor, repos.moves);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookPackData(actor, repos.playbooks);
+	// Straight after the refresh above, which is what puts the current background definitions on the
+	// item: the refresh updates what a background SAYS, this re-applies what it HANDS OUT.
+	await migrateBackgroundGrants(actor, repos.moves);
 
 	const outfitItems         = new ActorOutfitItems(actor);
 	const resourceController  = new ResourceController(actor);

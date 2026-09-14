@@ -3,8 +3,8 @@ import {IntroductionsSnapshot} from "../../model/snapshot/character/PlaybookSnap
 import {ChoiceValues} from "../../model/snapshot/character/ChoiceGroup.js";
 import {buildChoiceGroup} from "../../model/snapshot/character/buildChoiceGroup.js";
 import {InstinctController} from "./InstinctController.js";
-import {ChoiceGroupDefs} from "../../model/data/ChoiceGroupDefs.js";
 import {GrantSource, ItemGrantSet} from "../../model/data/ItemGrant.js";
+import {Background} from "../../model/data/character/Background.js";
 import {rich} from "../../model/snapshot/RichText.js";
 
 export class CharacterPlaybook {
@@ -33,7 +33,7 @@ export class CharacterPlaybook {
 	async getBackgroundMoveSlugs(bgSelectedSlug) {
 		const data = await this.getData();
 		if (!data) return new Set();
-		return new Set(data.backgrounds?.find(b => b.slug === bgSelectedSlug)?.moves ?? []);
+		return new Set(Background.find(data, bgSelectedSlug)?.moveSlugs ?? []);
 	}
 
 	async selectBackground(slug) {
@@ -50,10 +50,10 @@ export class CharacterPlaybook {
 		}
 		// A background's own moves are items only it grants, so the switch hands the old one's back
 		// before handing out the new one's.
-		if (oldSlug) await this._moves.removeCategory(_backgroundCategoryKey(oldSlug));
-		const background = this._background.selectedBackground(await this.getData());
-		const granted    = _grantedMoveSlugs(background);
-		await this._moves.addCategory(_backgroundCategoryKey(slug), background?.label, granted, granted);
+		if (oldSlug) await this._moves.removeCategory(Background.categoryKeyFor(oldSlug));
+		const background = Background.of(this._background.selectedBackground(await this.getData()));
+		const granted    = background?.grantedMoveSlugs ?? [];
+		await this._moves.addCategory(Background.categoryKeyFor(slug), background?.label, granted, granted);
 	}
 
 	// What choosing a playbook does to the character itself. The items it grants are not here — those
@@ -71,16 +71,16 @@ export class CharacterPlaybook {
 	}
 
 	_backgroundMoves(stonetopPlaybook) {
-		return this._background.selectedBackground(stonetopPlaybook)?.moves ?? [];
+		return Background.of(this._background.selectedBackground(stonetopPlaybook))?.moveSlugs ?? [];
 	}
 
 	/** The moves the chosen background hands you of its own: whatever its choice group links (the same
 	 *  structural collector an arcanum's card asks). They live in a category of the background's, which
 	 *  is what keeps them on the background and off the moves tab. */
 	async backgroundMoveGrants(stonetopPlaybook) {
-		const background = this._background.selectedBackground(stonetopPlaybook);
-		const slugs      = _grantedMoveSlugs(background);
-		const catKey     = _backgroundCategoryKey(this._background.selectedSlug);
+		const background = Background.of(this._background.selectedBackground(stonetopPlaybook));
+		const slugs      = background?.grantedMoveSlugs ?? [];
+		const catKey     = Background.categoryKeyFor(this._background.selectedSlug);
 		if (!slugs.length) return ItemGrantSet.empty(GrantSource.forCategoryKey(catKey));
 		return this._moves.categoryGrants(catKey, background.label, slugs, slugs);
 	}
@@ -145,14 +145,4 @@ export class CharacterPlaybook {
 			.withIntroductions(introductions)
 			.build();
 	}
-}
-
-// Prefixed so `GrantSource.forCategoryKey` reads the background back out of it, and the moves tab
-// knows the category renders somewhere else.
-function _backgroundCategoryKey(backgroundSlug) {
-	return `background-${backgroundSlug}`;
-}
-
-function _grantedMoveSlugs(background) {
-	return ChoiceGroupDefs.grants(background ?? {}, "move").map(g => g.slug);
 }
