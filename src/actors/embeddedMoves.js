@@ -146,3 +146,31 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.build();
 }
 
+/**
+ * A move as the CATALOG holds it — a compendium or world index entry resolved by slug — in the shape
+ * buildMoveSnapshot reads an owned item in.
+ *
+ * The one thing that must not carry over is the id. `ownedId` is what a row publishes as
+ * `data-item-id` and what the roll handler resolves against the ACTOR's items; a catalog entry's
+ * `_id` is a compendium id, so handing it over points the roll at an item the actor does not have.
+ * It is the move's COMPENDIUM id, which is what `id` is for, so that is where it goes.
+ */
+class CatalogMoveItem {
+	constructor(entry) {
+		this._id    = null;
+		this.name   = entry?.name ?? null;
+		this.system = { ...(entry?.system ?? {}), compendiumId: entry?._id ?? null };
+	}
+}
+
+/**
+ * The MoveSnapshot for a move nobody owns: one a rendered row names by slug — a background the
+ * character has not taken, an item sheet previewing what it grants — resolved out of the catalog.
+ *
+ * Same shape as an owned move's, because it is the same row: what differs is that it has no owned
+ * id, so the row draws no `data-item-id` and the die rolls the move from its source instead.
+ */
+export function buildCatalogMoveSnapshot(entry, categoryKey = "reference") {
+	return buildMoveSnapshot(new CatalogMoveItem(entry), categoryKey, false, null);
+}
+

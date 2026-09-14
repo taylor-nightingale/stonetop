@@ -370,16 +370,20 @@ export class CharacterFollowers {
 	}
 
 	/**
-	 * The character's followers, normalized for the sheet — the single authority, derived entirely from
-	 * the actor:
-	 *  - `bySlug`: every follower card once — owned instances + definition previews for referenced-but-
-	 *    unowned followers (see buildSnapshot). A card resolves its slug against this.
+	 * The character's followers, normalized for the sheet:
+	 *  - `bySlug`: every follower card the sheet can draw, keyed by slug — the character's own, plus
+	 *    the ones a rendered row names but the character does not have (`referenced`). A card resolves
+	 *    its slug against this, and an owned follower always wins: that one carries the live loyalty
+	 *    and inventory.
 	 *  - `tab`: the OWNED followers whose granting authority placed them on the tab (`showOnTab`). A
-	 *    card-bound follower (the Ring) and an un-owned preview are both absent here.
+	 *    card-bound follower (the Ring) and a follower merely named by a row are both absent here.
+	 *
+	 * @param {Object<string, FollowerSnapshot>} [referenced] cards named by a row the character has
+	 *   not taken — a background it is still deciding on.
 	 */
-	async buildFollowersSnapshot() {
+	async buildFollowersSnapshot(referenced = {}) {
 		const owned  = await this.buildSnapshot();
-		const bySlug = Object.fromEntries(owned.map(f => [f.slug, f]));
+		const bySlug = { ...referenced, ...Object.fromEntries(owned.map(f => [f.slug, f])) };
 		const tab    = [...this._actor.items]
 			.filter(i => i.type === "follower" && i.system?.owned === true && i.system?.showOnTab !== false)
 			.map(i => i.system?.slug)

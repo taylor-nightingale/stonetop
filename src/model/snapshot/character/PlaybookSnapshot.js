@@ -76,6 +76,16 @@ export class BackgroundSection {
 		this.selected = selected;
 		this.options  = options;
 	}
+
+	/**
+	 * Every option's choice group — the UNCHOSEN ones too, because the tab draws them all: a reader
+	 * picks a background by reading what each one gives them, which is the whole reason they are on
+	 * screen before a choice is made. Those groups name moves and followers by slug, and the sheet's
+	 * registries have to be able to resolve every one of them, not only the taken background's.
+	 */
+	get choiceGroups() {
+		return this.options.map(option => option.choices).filter(Boolean);
+	}
 }
 
 

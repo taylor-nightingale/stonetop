@@ -95,6 +95,18 @@ export class CharacterMoves {
 		return true;
 	}
 
+	// The same, for a move the character does NOT have: a background it has not taken grants one, and
+	// that row is drawn so the reader can weigh it up. Its die already rolls from the catalog
+	// (`roll`, via resolveMoveBySlug) — the chat bubble beside it was the only control on the row that
+	// silently did nothing. Last resort, so an owned copy and an arcanum's inline text both win: see
+	// StonetopCharacter#sendMoveToChat.
+	async sendCatalogToChat(moveSlug) {
+		const item = await resolveMoveBySlug(this._actor, moveSlug, this._moveRepo);
+		if (!item) return false;
+		await this._actor.sendItemToChat(item);
+		return true;
+	}
+
 	/** Open this move's own item sheet — see embeddedMoves.openMoveSheet. */
 	async openSheet(moveSlug) {
 		return openMoveSheet(this._actor, moveSlug, this._moveRepo);
@@ -123,7 +135,13 @@ export class CharacterMoves {
 		await this._resourceController.setText("moves", moveSlug, value);
 	}
 
-	async buildSnapshot() {
+	/**
+	 * @param {Object<string, MoveSnapshot>} [referenced] moves a rendered row names by slug that the
+	 *   character does not own — a background it has not taken grants one, and the row is on screen so
+	 *   the reader can decide. They seed the registry; an owned move of the same slug replaces its
+	 *   entry below, because that one carries the item id the die rolls against.
+	 */
+	async buildSnapshot(referenced = {}) {
 		const allMoveItems = [...this._actor.items].filter(i => i.type === "move");
 		const resourceController = this._resourceController;
 		const acquired           = this.acquiredSlugs;
@@ -132,7 +150,7 @@ export class CharacterMoves {
 		// any choice row) resolves against, so it renders rollable with its resource. Built for EVERY move,
 		// including the categories kept off the tab below.
 		const snapById = new Map();
-		const bySlug   = {};
+		const bySlug   = { ...referenced };
 		for (const item of allMoveItems) {
 			const snap = buildMoveSnapshot(item, item.system?.categoryKey ?? "other",
 				computeSelectable(item), resourceController,

@@ -203,7 +203,22 @@ describe("StonetopCharacter — a background's own moves (integration)", () => {
 
 		await character._onCreateDescendantDocuments([item]);
 
-		expect((await character.buildSnapshot()).moves.bySlug["destined"]).toBeUndefined();
+		expect((await character.buildSnapshot()).moves.bySlug["destined"]?.ownedId).toBeFalsy();
+	});
+
+	// Not owned is not the same as not on screen. The tab draws every background so a reader can weigh
+	// them up, and the Destined row is where Destined is printed — it has to resolve before the choice
+	// it exists to inform has been made.
+	it("still resolves the move, so the background can be read before it is taken", async () => {
+		withMovesPack(move("Serenity"), new FakeCompendiumMoveBuilder().withName("Destined").withRollStat("omens").build());
+		const { character, item } = characterWithBackground("impetuous-youth");
+
+		await character._onCreateDescendantDocuments([item]);
+
+		const snap = (await character.buildSnapshot()).moves.bySlug["destined"];
+		expect(snap?.name).toBe("Destined");
+		expect(snap.rollStat).toBe("omens");
+		expect(snap.ownedId, "an untaken background's move reads as owned").toBeFalsy();
 	});
 
 	it("hands the move over on choosing that background, and back on leaving it", async () => {
@@ -214,8 +229,23 @@ describe("StonetopCharacter — a background's own moves (integration)", () => {
 		await character.selectBackground("destined");
 		expect((await character.buildSnapshot()).moves.bySlug["destined"]?.ownedId).toBeTruthy();
 
+		// Still readable on the row it is printed on — what leaving the background takes back is the
+		// character's own copy, not the page.
 		await character.selectBackground("impetuous-youth");
-		expect((await character.buildSnapshot()).moves.bySlug["destined"]).toBeUndefined();
+		expect((await character.buildSnapshot()).moves.bySlug["destined"]?.ownedId).toBeFalsy();
+	});
+
+	// The character's own copy carries their marks and the id the die rolls against, so it must not be
+	// displaced by the catalog entry that seeds the registry under the same slug.
+	it("prefers the character's own copy over the catalog's", async () => {
+		withMovesPack(move("Serenity"), new FakeCompendiumMoveBuilder().withName("Destined").withRollStat("omens").build());
+		const { character, item } = characterWithBackground("destined");
+
+		await character._onCreateDescendantDocuments([item]);
+
+		const snap = (await character.buildSnapshot()).moves.bySlug["destined"];
+		expect(snap.ownedId).toBeTruthy();
+		expect(snap.selection.value).toBe(1);
 	});
 
 	// The background names its own track, so the move it grants can roll +it.

@@ -5,12 +5,18 @@ import {ChoiceStores} from "./ChoiceStores.js";
 import {applyPick} from "./ChoiceGroupController.js";
 import {ItemGrantRouter} from "./ItemGrantRouter.js";
 import {GrantSource} from "../../model/data/ItemGrant.js";
+import {GrantRegistry} from "../../item/GrantRegistry.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
 		this._actor = actor;
 		this._playbookRepo = repos.playbooks ?? null;
 		this._steadingRepo = repos.steading ?? null;
+		// The catalogs the slug references on a rendered row resolve against — see buildSnapshot.
+		// Passed in rather than constructed there: GrantRegistry would otherwise reach for Foundry's
+		// own repositories and quietly ignore whichever ones this character was given.
+		this._moveRepo     = repos.moves ?? null;
+		this._followerRepo = repos.followers ?? null;
 		const parts = CharacterSubsystems.build(actor, repos);
 		this._stats              = parts.stats;
 		this._origin             = parts.origin;
@@ -118,16 +124,22 @@ export class StonetopCharacter {
 		const level = this._vitals.level;
 		const {checked} = this._inventory;
 		const actor = this._actor;
-		const [arcana, outfit, inserts, playbook, playbookData, armorBreakdown, moves, possessions, followers] = await Promise.all([
+		// The playbook comes first because the registries below are built from what it draws. Every
+		// background is on screen, taken or not — that is how a reader decides — and each one names its
+		// moves and followers by slug. The character owns only the taken background's, so without this
+		// the rest resolved to nothing and the row for a move you were weighing up rendered empty.
+		const playbook   = await this._playbook.buildPlaybookSnapshot();
+		const referenced = await GrantRegistry.fromChoiceGroups(playbook?.background.choiceGroups ?? [],
+			{ moveRepo: this._moveRepo, followerRepo: this._followerRepo });
+		const [arcana, outfit, inserts, playbookData, armorBreakdown, moves, possessions, followers] = await Promise.all([
 			this._arcana.buildSnapshot(checked, this._resourceController),
 			this._inventory.buildSnapshot(level),
 			this._inserts.buildSnapshot(),
-			this._playbook.buildPlaybookSnapshot(),
 			this._playbook.getData(),
 			this._inventory.getArmorBreakdown(),
-			this._moves.buildSnapshot(),
+			this._moves.buildSnapshot(referenced.moves.bySlug),
 			this._possessions.buildSnapshot(level),
-			this._followers.buildFollowersSnapshot()
+			this._followers.buildFollowersSnapshot(referenced.followers.bySlug)
 		]);
 		const vitals = await this._vitals.buildVitalsSnapshot(playbookData, armorBreakdown);
 		return new CharacterSnapshotBuilder()
@@ -179,10 +191,16 @@ export class StonetopCharacter {
 	}
 
 	// The sheet's per-move chat button: owned move items first (moves tab, side-bar, major-arcana
-	// moves), then the inline arcanum moves that have no item behind them.
+	// moves), then the inline arcanum moves that have no item behind them, then the catalog — a move a
+	// row names that the character does not have, which is what an untaken background's row is.
+	//
+	// The order is the precedence, not an accident of where each path was written: the character's own
+	// copy is the one carrying their marks, an arcanum's inline move is text that exists nowhere else,
+	// and the catalog answers for everything left.
 	async sendMoveToChat(moveSlug) {
 		if (await this._moves.sendToChat(moveSlug)) return;
-		await this._arcana.sendArcanumMoveToChat(moveSlug);
+		if (await this._arcana.sendArcanumMoveToChat(moveSlug)) return;
+		await this._moves.sendCatalogToChat(moveSlug);
 	}
 
 	// The die on a rendered move row, when the row names its move by slug rather than by an owned id

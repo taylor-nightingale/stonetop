@@ -1268,6 +1268,40 @@ describe("CharacterMoves.sendToChat", () => {
 	});
 });
 
+// ── sendCatalogToChat ─────────────────────────────────────────────────────────
+
+// The chat bubble on a row for a move the character does NOT have — a background it has not taken
+// draws one, so the reader can decide. Its die already rolled from the catalog; the bubble beside it
+// was the one control on the row that silently did nothing.
+describe("CharacterMoves.sendCatalogToChat", () => {
+	const destined = () => new FakeCompendiumMoveBuilder()
+		.withName("Destined").withRollStat("omens").build();
+
+	it("posts a move the character does not own, out of the catalog", async () => {
+		const actor = makeActor();
+		const moves = makeMoves({actor, repo: new FakeMoveRepository([destined()])});
+		expect(await moves.sendCatalogToChat("destined")).toBe(true);
+		expect(actor.chatItems[0].name).toBe("Destined");
+	});
+
+	// The character's own copy carries their marks, so it is the one that gets posted when it exists.
+	it("prefers the character's own copy", async () => {
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({_id: "m9", type: "move", name: "Destined", system: {slug: "destined", categoryKey: "background-destined"}})
+			.build();
+		const moves = makeMoves({actor, repo: new FakeMoveRepository([destined()])});
+		expect(await moves.sendCatalogToChat("destined")).toBe(true);
+		expect(actor.chatItems[0]._id).toBe("m9");
+	});
+
+	it("returns false (and posts nothing) for a slug the catalog does not know either", async () => {
+		const actor = makeActor();
+		const moves = makeMoves({actor});
+		expect(await moves.sendCatalogToChat("not-a-move")).toBe(false);
+		expect(actor.chatItems).toHaveLength(0);
+	});
+});
+
 // ── A move whose name disagrees with its slug ─────────────────────────────────
 
 // Babele localizes a move's `name` and never touches `system.slug`, so in a translated world the two
