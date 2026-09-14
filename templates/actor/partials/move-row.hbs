@@ -7,11 +7,13 @@
       "selected only" filter hides (CSS-only, see .tab.moves.hide-unselected). Context is a MoveSnapshot;
       params: showCheck, categoryKey, allowAdditional, disclosure, startOpen (forwarded to
       move-item). `is-open` is the row half of a disclosure's state — Disclosure toggles it there, so
-      a row the template ships OPEN has to say so itself. --}}
+      a row the template ships OPEN has to say so itself. `stonetop-item--nameless` says the row draws
+      no name line, so its controls belong on the move's own first line instead — see the CSS. A
+      disclosure row is never that: there the name IS the control that opens the text. --}}
 {{#if rollStat}}
-<li class="item stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row data-item-id="{{ownedId}}">
+<li class="item stonetop-item{{#if (and nameless (not disclosure))}} stonetop-item--nameless{{/if}}{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row data-item-id="{{ownedId}}">
 {{else}}
-<li class="stonetop-item{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row>
+<li class="stonetop-item{{#if (and nameless (not disclosure))}} stonetop-item--nameless{{/if}}{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row>
 {{/if}}
 	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource disclosure=disclosure startOpen=startOpen}}
 </li>

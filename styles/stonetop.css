@@ -2025,6 +2025,58 @@ button.stonetop-view-toggle.is-active {
 	--item-name-indent: 0px;
 }
 
+/* ── A move the book prints with no name ────────────────────────────────────────
+   The header is a LABEL line. Emptied of its label it still took one, so the die and the chat bubble
+   stood on a blank strip above the paragraph they act on — reading as decoration, belonging to
+   nothing, and leaving the row saying nothing about itself at all.
+
+   The fix is not to invent a heading. These moves are nameless because the name the book does not
+   print would either repeat the group label the row already sits under or, for an arcanum's front
+   trigger, repeat the first emphasised words of the very paragraph beneath it.
+
+   So the row's first line stops being a label line and becomes the move's OWN first line, with the
+   controls on it — the same places they hold on a named row, measured from the thing that identifies
+   the move. `display: contents` is what lets that happen without a second markup shape: the header
+   stops generating a box, its children become the row's, and a float in it is a float beside the
+   move's text. Floated rather than given a column of their own, because a column is reserved down
+   the row's whole height — 44px off every line of a paragraph, in a 220px rail.
+
+   Never a disclosure row: there the name is the control that opens the text, so the row keeps it. */
+.stonetop-item--nameless {
+	/* The line the controls sit on is a DESCRIPTION line, not a name's — different size, different
+	   leading. Derived from the two values that set it, so it still holds when the type scale moves. */
+	--nameless-line: calc(var(--fs-note) * 1.4);
+}
+
+.stonetop-item--nameless > .stonetop-item-header {
+	display: contents;
+}
+
+/* Into the gutter the description's own indent already leaves for it, level with the first line —
+   the offset the check carries for a name's line box is the wrong one here. */
+.stonetop-item--nameless > .stonetop-item-header > .stonetop-item-check {
+	float: left;
+	margin-top: calc((var(--nameless-line) - var(--control-check)) / 2);
+}
+
+/* A box exactly one line of the move's text tall, so its contents centre on that line by
+   construction rather than by an offset that has to be kept in step with the leading. The delete
+   button rides with them: a nameless move reaches "Other Moves" only by being dragged there, but
+   when it does its control is a control like the rest. */
+.stonetop-item--nameless > .stonetop-item-header > .stonetop-item-controls,
+.stonetop-item--nameless > .stonetop-item-header > .stonetop-other-move-delete {
+	float: right;
+	height: var(--nameless-line);
+	margin-left: var(--item-header-gap);
+}
+
+/* The indent exists to clear the acquisition check. Half these rows are inline grants that have
+   none — an arcanum's card, a playbook's choice group — and there the gutter indents the move's text
+   past nothing. */
+.stonetop-item--nameless:not(:has(> .stonetop-item-header > .stonetop-item-check)) {
+	--item-name-indent: 0px;
+}
+
 .stonetop-item-check,
 .stonetop-cg-track {
 	appearance: none !important;
@@ -2191,12 +2243,19 @@ button.stonetop-view-toggle.is-active {
 .stonetop-item-header > .stonetop-move-disclosure > .stonetop-move-caret { grid-column: 1; }
 .stonetop-item-header > .stonetop-move-disclosure > .stonetop-move-disclosure-name { grid-column: 2; }
 
+/* The row's controls as ONE thing. Both rows that group them (a disclosure, and a nameless row) place
+   the group as a unit, so what it IS — a line of controls, spaced like the header spaces them — is
+   stated once here, and only WHERE it goes is left to each row. */
 .stonetop-item-header > .stonetop-item-controls {
-	grid-column: 3;
-	grid-row: 1;
 	display: flex;
 	align-items: center;
 	gap: var(--item-header-gap);
+}
+
+/* The disclosure grid's third column. */
+.stonetop-item-header:has(> .stonetop-move-disclosure) > .stonetop-item-controls {
+	grid-column: 3;
+	grid-row: 1;
 }
 
 /* From the name's column to the row's right edge. */

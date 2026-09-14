@@ -61,7 +61,12 @@
 	{{!-- A move the book prints with no name draws none: the row is the move's own words. It still HAS
 	      a name — the roll button and the chat card below say it — so nothing here goes unannounced. A
 	      disclosure row is the exception: there the name IS the control that opens the text, so a
-	      nameless move keeps it rather than collapsing behind nothing. --}}
+	      nameless move keeps it rather than collapsing behind nothing.
+
+	      Dropping the name is not enough on its own. The header is a LABEL line, and emptied of its
+	      label it still took a line — so the die and the chat bubble stood on a blank strip above the
+	      paragraph they act on, reading as decoration belonging to nothing. The row says so with a
+	      class (move-row.hbs) and the CSS puts them on the move's own first line instead. --}}
 	{{#if (and nameless (not disclosure))}}
 	{{else if disclosure}}
 	<button type="button" class="stonetop-item-name stonetop-move-disclosure" data-action="toggleMoveBody"
@@ -82,8 +87,13 @@
 	{{#if (and sourceLabel (not disclosure))}}<span class="stonetop-item-source">{{sourceLabel}}</span>{{/if}}
 	{{!-- On a disclosure row the controls are one group, so they can hold the first line together
 	      while the gloss runs the full width underneath them. Opened and closed around the same
-	      controls both variants render, so there is still one set of them. --}}
-	{{#if disclosure}}<span class="stonetop-item-controls">{{/if}}
+	      controls both variants render, so there is still one set of them.
+
+	      A nameless row groups them for the same reason and a different layout: with no name there is
+	      no label line, so the group is floated onto the move's OWN first line rather than left
+	      standing on an empty one above it. Either way it is one group, so it can be placed as one
+	      thing — see .stonetop-item--nameless in the CSS. --}}
+	{{#if (or disclosure nameless)}}<span class="stonetop-item-controls">{{/if}}
 	{{!-- Any move that rolls shows its die, ticked or not: the check marks what the character has
 	      taken, not what the table is allowed to roll. --}}
 	{{!-- A <button>, not a <span>: the die is a control, so it has to be reachable by the keyboard and
@@ -113,7 +123,7 @@
 		{{> "stonetop.resource-input" input=resource.input moveSlug=slug}}
 	</span>
 	{{/if}}
-	{{#if disclosure}}</span>{{/if}}
+	{{#if (or disclosure nameless)}}</span>{{/if}}
 	{{!-- The row's second line, and the last thing in the header so it wraps under everything above
 	      it rather than under the name alone. No dash in front of it: it is its own line, not a
 	      continuation of the name. --}}
