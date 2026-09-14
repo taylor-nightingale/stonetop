@@ -19,7 +19,7 @@
       "max": 22
     },
     "armor": "3 (carapace)",
-    "damage": "smaller claw d12+3 (_reach_, _grabby_), bigger claw d12+5 with advan- tage (_reach_, _forceful_, _messy_, 3 piercing)",
+    "damage": "smaller claw d12+3 (_reach_, _grabby_), bigger claw d12+5 with advantage (_reach_, _forceful_, _messy_, 3 piercing)",
     "specialQuality": "heals injuries in a few hours, regenerates limbs in a few days",
     "instinct": {
       "selected": [

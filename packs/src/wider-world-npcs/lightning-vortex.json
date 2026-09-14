@@ -31,7 +31,7 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Manifest a crackling pillar of lightning\n- Change position, incredibly fast (costs 1 HP)\n- Stun someone that they zap (costs 1d4 HP)\n- Fling a lightning bolt (+near, +forceful, +loud, ignores armor; costs 1d4 HP)\n- Tear the lightning from unattended aetherium, gaining 1d4 HP\n\nA lightning vortex absorbs power from, well, lightning. When it is struck by light- ning (mundane or magical), it gains HP instead of taking damage.",
+    "moves": "- Manifest a crackling pillar of lightning\n- Change position, incredibly fast (costs 1 HP)\n- Stun someone that they zap (costs 1d4 HP)\n- Fling a lightning bolt (+near, +forceful, +loud, ignores armor; costs 1d4 HP)\n- Tear the lightning from unattended aetherium, gaining 1d4 HP\n\nA lightning vortex absorbs power from, well, lightning. When it is struck by lightning (mundane or magical), it gains HP instead of taking damage.",
     "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
     "notes": ""
   },

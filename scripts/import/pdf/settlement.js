@@ -2,6 +2,7 @@
 // card the Wider-World place articles print (layout.js emits it as a `settlement` block). Shared by
 // render-html.js (renders the box as a bordered card) and build-steadfasts.js (turns the box into a
 // steadfast item's starting ratings + resource/fortification lists). Pure over the block's `lines`.
+import { joinWrapped } from "./dehyphen.js";
 
 /** The starting ratings a place's settlement box carries, plus the lists that back Prosperity
  *  (resources) and Defenses (fortifications). Size is a tier string; the ±N ratings are numbers. */
@@ -54,9 +55,7 @@ function joinText(lines) {
 	let out = "";
 	for (const l of lines) {
 		const raw = l.text.replace(/\s+/g, " ").trim();
-		if (!out) out = raw;
-		else if (/[A-Za-z]-$/.test(out) && /^[a-z]/.test(raw)) out = out.slice(0, -1) + raw; // de-hyphenate a split word
-		else out += " " + raw;
+		out = joinWrapped(out, raw);
 	}
 	return out.replace(/\s{2,}/g, " ").trim();
 }

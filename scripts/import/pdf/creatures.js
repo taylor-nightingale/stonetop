@@ -4,6 +4,7 @@ import { toSlug } from "../../../src/utils/slug.js";
 import { normalizeGroupTags } from "../../../src/model/data/groupTag.js";
 import { newMember } from "../../../src/utils/followerMemberEdit.js";
 import { stripLoyalty, stripMarkers } from "./arcana-parse.js";
+import { joinWrapped, MD_CLOSERS, WrapLog } from "./dehyphen.js";
 
 // The GM-locked journal pack the monsters link back to (built later, with deterministic ids).
 export const JOURNAL_PACK = "wider-world-and-other-wonders";
@@ -101,17 +102,19 @@ export function splitTagChoices(rawLines) {
 // someone's been swallowed…"), not a wrap of the previous move.
 const looksTransition = (t) => /^[A-Z]/.test(t) && t.split(/\s+/).length > 4;
 
-/** Parse a stat block's lines into structured creature data. */
-export function parseStatBlock(lines) {
-	const out = { name: "", tagList: [], tagOptions: [], hp: { value: 0, max: 0 }, armor: "", damage: "", specialQuality: "", instinct: "", instinctOptions: [], cost: "", costOptions: [], moves: [], description: [] };
+/** Parse a stat block's lines into structured creature data. `log` collects the line-break hyphens
+ *  the parse had to judge, for the builder's review report. */
+export function parseStatBlock(lines, { log = new WrapLog() } = {}) {
+	const out = { name: "", tagList: [], tagOptions: [], hp: { value: 0, max: 0 }, armor: "", damage: "", specialQuality: "", instinct: "", instinctOptions: [], cost: "", costOptions: [], moves: [], description: "" };
 	const text = (l) => stripMarkers(l.text);
+	const joinWrap = (acc, next, opts) => joinWrapped(acc, next, { ...opts, log });
 
 	// The name is the first name-font line; anything before it is an in-character intro → description.
 	let nameIdx = lines.findIndex(isNameFont);
 	if (nameIdx < 0) nameIdx = lines.findIndex((l) => text(l));
-	if (nameIdx < 0) return { ...out, description: "" };
+	if (nameIdx < 0) return out;
 	out.name = text(lines[nameIdx]);
-	for (let j = 0; j < nameIdx; j++) if (text(lines[j])) out.description.push(text(lines[j]));
+	for (let j = 0; j < nameIdx; j++) if (text(lines[j])) out.description = joinWrap(out.description, text(lines[j]));
 
 	// Tags follow the name and may wrap across lines (the book's "Solitary, large, fae, …,/ corrupted")
 	// until the first field or move. Real tag lines/wraps are comma-delimited or a single word; a
@@ -131,7 +134,10 @@ export function parseStatBlock(lines) {
 		if (key === "hp") { const n = parseInt(val, 10); if (!Number.isNaN(n)) out.hp = { value: n, max: n }; }
 		else out[key] = val;
 	};
-	const extendField = (key, val, sep = " ") => { if (key !== "hp") out[key] = out[key] ? `${out[key]}${sep}${val}` : val; };
+	// A ";" segment of the same printed line ("Special qualities fireproof; holds …") keeps its separator;
+	// a continuation line is a wrap, so it goes through the line-break hyphen rule.
+	const extendField = (key, val) => { if (key !== "hp") out[key] = out[key] ? `${out[key]}; ${val}` : val; };
+	const wrapField   = (key, val) => { if (key !== "hp") out[key] = joinWrap(out[key], val); };
 
 	let field = null;          // the field key currently being filled (so wrap lines extend it)
 	const pickRaw = { instinct: "", cost: "" }; // raw (marker-preserving) instinct/cost text → pick options
@@ -158,7 +164,7 @@ export function parseStatBlock(lines) {
 			for (const seg of t.split(/\s*;\s*/)) {
 				const m = FIELDS.find(([re]) => re.test(seg));
 				if (m) { setField(m[1], seg.replace(m[0], "").trim()); field = m[1]; if (m[1] === "damage") damageStart = k; if (m[1] in pickRaw) pickRaw[m[1]] = lines[k].text; }
-				else if (field) extendField(field, seg, "; ");
+				else if (field) extendField(field, seg);
 			}
 			continue;
 		}
@@ -166,15 +172,15 @@ export function parseStatBlock(lines) {
 		// A non-field, non-bullet line: extend the current field, continue/transition a move, or prose.
 		if (mode === "moves") {
 			const last = out.moves[out.moves.length - 1];
-			if (movePer === "move" && !looksTransition(t) && last && !last.prose) last.text += ` ${t}`;     // wrap of the current move
-			else if (movePer === "prose" && last?.prose) last.text += ` ${t}`;                              // wrap of the transition
-			else { out.moves.push({ text: t, prose: true }); movePer = "prose"; }                           // a transition sentence between move groups
+			if (movePer === "move" && !looksTransition(t) && last && !last.prose) last.text = joinWrap(last.text, t);  // wrap of the current move
+			else if (movePer === "prose" && last?.prose) last.text = joinWrap(last.text, t);                          // wrap of the transition
+			else { out.moves.push({ text: t, prose: true }); movePer = "prose"; }                                     // a transition sentence between move groups
 		} else if (field) {
-			extendField(field, t);
+			wrapField(field, t);
 			if (field === "damage") damageWrap.push(k);
 			if (field in pickRaw) pickRaw[field] += "  " + lines[k].text;
 		} else {
-			out.description.push(t);
+			out.description = joinWrap(out.description, t);
 		}
 	}
 	// Instinct / Cost pick-lists: an arcana follower may offer several □-boxed choices (2+-space
@@ -193,10 +199,14 @@ export function parseStatBlock(lines) {
 	// as markdown. Drop everything up to the "Damage" label, then append wrap lines.
 	if (damageStart >= 0) {
 		let md = spansItalicMd(lines[damageStart].spans).replace(/^.*?\bdamage\b[:\s]*/i, "");
-		for (const wi of damageWrap) md += " " + spansItalicMd(lines[wi].spans);
+		let prevRaw = text(lines[damageStart]);
+		for (const wi of damageWrap) {
+			const nextRaw = text(lines[wi]);
+			md = joinWrap(md, spansItalicMd(lines[wi].spans), { prevRaw, nextRaw, closers: MD_CLOSERS });
+			prevRaw = nextRaw;
+		}
 		out.damage = md;
 	}
-	out.description = out.description.join(" ").trim();
 	// Collapse column-gap whitespace artifacts and straighten curly double-quotes in every string field.
 	for (const key of ["armor", "damage", "specialQuality", "instinct", "cost", "description"])
 		out[key] = out[key].replace(/[“”]/g, '"').replace(/\s{2,}/g, " ").trim();

@@ -6,6 +6,7 @@
 // Pure helpers (parseTrack/stripMarkers/splitLoyalty/parseItemLine/unlockSlug/joinMd) are unit-tested
 // in tests/import/pdf/arcana-parse.test.js. parseFront/parseBack are exercised via build-arcana's
 // divergence report against the hand-authored JSON.
+import { joinWrapped, MD_CLOSERS } from "./dehyphen.js";
 import { isItalic, isBoldBody, isDingbat } from "./fonts.js";
 import { toSlug } from "../../../src/utils/slug.js";
 import { qualifyTable, tableUuid, TABLE_PACK } from "./tables.js";
@@ -46,8 +47,7 @@ export function joinMd(lines, { keepDiamonds = false } = {}) {
 		const raw = l.text.trim();
 		if (prev == null) out = h;
 		else if (/^(?:…|\.\.\.)/.test(raw)) out += "\n" + h;
-		else if (/[A-Za-z]-$/.test(prev) && /^[a-z]/.test(raw)) out = out.replace(/-((?:[*_]+)?)$/, "$1") + h;
-		else out += " " + h;
+		else out = joinWrapped(out, h, { prevRaw: prev, nextRaw: raw, closers: MD_CLOSERS });
 		prev = raw;
 	}
 	// Straighten curly double-quotes (the book's typography) to ASCII " — keeps the JSON clean.

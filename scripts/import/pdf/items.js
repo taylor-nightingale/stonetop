@@ -18,6 +18,7 @@ import { loadStext } from "./stext.js";
 import { loadMarkers } from "./rules.js";
 import { spliceGlyph } from "./load.js";
 import { isAvara, isItalic, isFell } from "./fonts.js";
+import { explainWrap, healWrap } from "./dehyphen.js";
 import { TagGlossary } from "../../../src/model/data/TagGlossary.js";
 
 /** One row of a value table, as the book prints it. `weight` is the ◇ count (0 = a "small" item,
@@ -71,8 +72,9 @@ export function statMarkdown(lines) {
 			// we add below would leave it in the middle of the word.
 			const last = toks[toks.length - 1];
 			const next = (l.spans ?? []).map(spanText).join("").trimStart();
-			if (last && /-$/.test(last.text) && /^[a-z]/.test(next)) last.text = last.text.slice(0, -1);
-			else if (last) last.text += " ";
+			const wrap = last ? explainWrap(last.text, next) : null;
+			if (wrap?.heal) last.text = healWrap(last.text);
+			else if (last && !wrap.tight) last.text += " ";
 		}
 		for (const sp of l.spans ?? []) {
 			const t = spanText(sp);
@@ -177,9 +179,13 @@ export function rowClusters(lines) {
 function chars(lines) {
 	const out = [];
 	for (const l of lines) {
+		const next = lineText(l);
 		if (out.length) {
-			if (out[out.length - 1].c === "-") out.pop();          // de-hyphenate a split word
-			else if (out[out.length - 1].c !== " ") out.push({ c: " ", italic: false });
+			// The accumulated tail is read back as text so the line-break hyphen rule sees the word it
+			// ends on; only the last few characters can matter to it.
+			const wrap = explainWrap(out.slice(-40).map((o) => o.c).join(""), next);
+			if (wrap.heal) out.pop();                                                  // de-hyphenate a split word
+			else if (!wrap.tight && out[out.length - 1].c !== " ") out.push({ c: " ", italic: false });
 		}
 		for (const s of l.spans ?? []) {
 			for (const c of spanText(s)) {

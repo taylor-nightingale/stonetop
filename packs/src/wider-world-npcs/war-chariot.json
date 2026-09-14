@@ -18,7 +18,7 @@
     },
     "armor": "1 (wood/iron construction)",
     "damage": "trample and wheel-scythes d8+5 (_hand_, _close_, _forceful_, _messy_, 1 piercing), or iron battleaxe d8+3 (_close_, _messy_, _forceful_), or long bow d8 (_far_)",
-    "specialQuality": "pulled by two tonner- horns; carries a driver, two warriors",
+    "specialQuality": "pulled by two tonnerhorns; carries a driver, two warriors",
     "instinct": {
       "selected": [
         "to rush inexorably forward"

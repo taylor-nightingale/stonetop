@@ -28,7 +28,7 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Burrow into soil\n- Wait for prey half-buried\n- Withdraw into its shell (Armor 5)\n\nLike a snapping turtle, but 6 feet long and 400 pounds, with big, badger-like claws. Way faster than you think. It’ll dig itself under a layer of soil, and wait long enough for the gwead to start growing over it. Then, when something comes near? SNAP! An intact shell is worth quite a bit (immo- bile, Value 2). But good luck killing one without cracking the shell.",
+    "moves": "- Burrow into soil\n- Wait for prey half-buried\n- Withdraw into its shell (Armor 5)\n\nLike a snapping turtle, but 6 feet long and 400 pounds, with big, badger-like claws. Way faster than you think. It’ll dig itself under a layer of soil, and wait long enough for the gwead to start growing over it. Then, when something comes near? SNAP! An intact shell is worth quite a bit (immobile, Value 2). But good luck killing one without cracking the shell.",
     "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
     "notes": ""
   },

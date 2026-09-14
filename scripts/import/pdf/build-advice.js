@@ -53,7 +53,9 @@ function main() {
 	// hand-authored or another builder's, so only `stonetop.advice` is replaced.
 	const strings = JSON.parse(readFileSync(OUT, "utf8"));
 	strings.stonetop.advice = Object.fromEntries(advice.topics.map((t) => [t.key, { title: t.title }]));
-	writeFileSync(OUT, JSON.stringify(strings, null, "\t") + "\n");
+	// Two spaces, as the file is committed and as build-tag-glossary/scripts/i18n/files.js write it —
+	// tabs here reindented all ~925 lines on every run, burying the real change.
+	writeFileSync(OUT, JSON.stringify(strings, null, 2) + "\n");
 
 	console.log(`${OUT}: ${advice.topics.length} advice topic titles from pages ${range.pdfPage}-${range.endPage}`);
 	console.log(`  (the prose is built into the reference pack by build-book-one.js)`);

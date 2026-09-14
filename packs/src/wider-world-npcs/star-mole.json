@@ -19,7 +19,7 @@
       "max": 7
     },
     "armor": "0",
-    "damage": "caustic spit or blood d6 w/disad- vantage (_hand_, _close_, _messy_, 1 piercing)",
+    "damage": "caustic spit or blood d6 w/disadvantage (_hand_, _close_, _messy_, 1 piercing)",
     "specialQuality": "blind; tremorsense; bioluminescent",
     "instinct": {
       "selected": [

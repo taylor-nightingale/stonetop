@@ -17,7 +17,7 @@
       "max": 1
     },
     "armor": "4 (tiny, metal fittings, made of crystal)",
-    "damage": "lightning 1d6+2 (_near_, _forceful_, _reload_, ignores armor) A glowing gem, set in a fixture of aethe- rium. Found in pairs, or sets of up to six. Each set is keyed to something (a pass phrase, a hand signal, a color of robes, a style of locket, etc.). Get too close without the key, and _zzzolt_, they start blasting.",
+    "damage": "lightning 1d6+2 (_near_, _forceful_, _reload_, ignores armor) A glowing gem, set in a fixture of aetherium. Found in pairs, or sets of up to six. Each set is keyed to something (a pass phrase, a hand signal, a color of robes, a style of locket, etc.). Get too close without the key, and _zzzolt_, they start blasting.",
     "specialQuality": "",
     "instinct": {
       "selected": [],

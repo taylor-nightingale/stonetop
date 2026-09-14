@@ -84,23 +84,6 @@ export const MANUAL_EDITS = {
 			note: "bugs.md 14b: service/favor — split 'Weeks of guided study' from the guide sub-header",
 		},
 	],
-	// A hyphen that ends a line is usually the book breaking a word ("aethe-" + "rium"), and the
-	// renderer heals it by dropping the hyphen. These two are real compounds that happen to break at
-	// their own hyphen, so healing them fuses a word that should keep it.
-	"ustrina": [
-		{
-			find: "goldembroidered cloak",
-			replace: "gold-embroidered cloak",
-			note: "real compound fused by the line-break de-hyphenator",
-		},
-	],
-	"primordial-powers": [
-		{
-			find: "with punchedout stencils",
-			replace: "with punched-out stencils",
-			note: "real compound fused by the line-break de-hyphenator",
-		},
-	],
 };
 
 // The same treatment for the arcana pack source, keyed by arcanum slug and applied by build-arcana.js

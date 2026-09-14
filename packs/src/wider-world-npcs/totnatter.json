@@ -19,7 +19,7 @@
     },
     "armor": "2",
     "damage": "venomous bite d10+1 (_reach_, _close_, _hand_, 1 piercing)",
-    "specialQuality": "thermal vision; extra- ordinary sense of smell",
+    "specialQuality": "thermal vision; extraordinary sense of smell",
     "instinct": {
       "selected": [
         "to toy with its food"

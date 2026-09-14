@@ -3,6 +3,7 @@ import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { extractArticle } from "../../../scripts/import/pdf/layout.js";
 import { parseStatBlock, toFollowerDoc, toNpcDoc, splitTagChoices } from "../../../scripts/import/pdf/creatures.js";
+import { WrapLog } from "../../../scripts/import/pdf/dehyphen.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
 const L = (text, font = "ACaslonPro-Regular", size = 9) => ({ text, font, size, spans: [{ font, size, text }], bbox: [0, 0, 0, 0] });
@@ -417,5 +418,61 @@ describe("toFollowerDoc — pick-list options carry into the selection fields", 
 		expect(doc.system.tagOptions).toEqual([]);
 		expect(doc.system.instinct).toMatchObject({ selected: ["to play and frolic"], options: [] });
 		expect(doc.system.cost).toMatchObject({ selected: ["entertainment"], options: [] });
+	});
+});
+
+describe("parseStatBlock — the book's line-break hyphens", () => {
+	it("heals a word the book broke across a move's wrapped lines", () => {
+		const c = parseStatBlock([
+			L("Fundamental", "Avara-Bold", 9), L("elemental"), L("HP 20; Armor 2"),
+			L("ä Strike with the funda-"), L("mental force it embodies"),
+		]);
+		expect(c.moves[0].text).toBe("Strike with the fundamental force it embodies");
+	});
+
+	it("heals a word broken across a field's wrapped lines", () => {
+		const c = parseStatBlock([
+			L("Shaksa", "Avara-Bold", 9), L("undead"), L("HP 18; Armor 1"),
+			L("Special qualities vulnera-"), L("ble to rain and running water"),
+		]);
+		expect(c.specialQuality).toBe("vulnerable to rain and running water");
+	});
+
+	it("heals a word broken across the damage value, which is rebuilt from spans for its italics", () => {
+		// The lightning sconce's damage line: the book's italic weapon tags survive as markdown while the
+		// wrapped word behind them is healed (the wrap itself falls in plain text, as it does in print).
+		const span = (text, font = "ACaslonPro-Regular") => ({ font, size: 9, text });
+		const dmg = { text: "Damage lightning 1d6+2 (near, forceful), set in a fixture of aethe-", font: "ACaslonPro-Bold", size: 9, bbox: [0, 0, 0, 0],
+			spans: [span("Damage", "ACaslonPro-Bold"), span(" lightning 1d6+2 ("), span("near", "ACaslonPro-Italic"),
+				span(", "), span("forceful", "ACaslonPro-Italic"), span("), set in a fixture of aethe-")] };
+		const wrap = { text: "rium. Found in pairs.", font: "ACaslonPro-Regular", size: 9, bbox: [0, 0, 0, 0],
+			spans: [span("rium. Found in pairs.")] };
+		const c = parseStatBlock([L("Lightning sconce", "Avara-Bold", 9), L("construct"), L("HP 8; Armor 0"), dmg, wrap]);
+		expect(c.damage).toBe("lightning 1d6+2 (_near_, _forceful_), set in a fixture of aetherium. Found in pairs.");
+	});
+
+	it("keeps the hyphen of a compound the book spells with one", () => {
+		const c = parseStatBlock([
+			L("Voidblight", "Avara-Bold", 9), L("horror"), L("HP 22; Armor 1"),
+			L("ä Appear as salamanders made of star-"), L("filled night"),
+		]);
+		expect(c.moves[0].text).toBe("Appear as salamanders made of star-filled night");
+	});
+
+	it("keeps the hyphen of a listed compound that breaks before its own second hyphen", () => {
+		const c = parseStatBlock([
+			L("Lithic servant", "Avara-Bold", 9), L("construct"), L("HP 14; Armor 3"),
+			L("ä Make a stone-"), L("on-stone grinding noise as they move"),
+		]);
+		expect(c.moves[0].text).toBe("Make a stone-on-stone grinding noise as they move");
+	});
+
+	it("records the judgement calls in a caller's log and stays quiet about plain word breaks", () => {
+		const log = new WrapLog();
+		parseStatBlock([
+			L("Specter", "Avara-Bold", 9), L("undead"), L("HP 10; Armor 0"),
+			L("ä Haunt a pin-"), L("ing ghost or a soul long-"), L("and cruelly-bound"),
+		], { log });
+		expect(log.report()).toEqual(["long-and — kept (suspended)"]);
 	});
 });

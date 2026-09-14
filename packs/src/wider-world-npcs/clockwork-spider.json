@@ -19,7 +19,7 @@
     },
     "armor": "2 (metal), 0 vs. crushing",
     "damage": "many little pincers d4 (_hand_, _grabby_)",
-    "specialQuality": "fireproof, blind, tremor- sense, active only for short periods",
+    "specialQuality": "fireproof, blind, tremorsense, active only for short periods",
     "instinct": {
       "selected": [
         "to get in the way"

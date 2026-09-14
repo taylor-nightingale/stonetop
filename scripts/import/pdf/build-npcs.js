@@ -10,6 +10,7 @@ import { loadOutline, articleRanges } from "./outline.js";
 import { extractArticle } from "./layout.js";
 import { loadArticlePages } from "./load.js";
 import { parseStatBlock, toNpcDoc, MONSTER_PACK } from "./creatures.js";
+import { WrapLog } from "./dehyphen.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { formatPageRange } from "./pages.js";
 import { toSlug } from "../../../src/utils/slug.js";
@@ -35,6 +36,9 @@ mkdirSync(OUT, { recursive: true });
 for (const f of readdirSync(OUT).filter((n) => n.endsWith(".json"))) rmSync(path.join(OUT, f)); // rebuild fresh
 
 const seen = new Map(); // slug -> source article (to flag cross-article name collisions)
+// Every line-break hyphen the parse had to judge rather than simply heal — a reprint that breaks a new
+// compound at its own hyphen shows up here instead of being silently fused (see dehyphen.js).
+const wraps = new WrapLog();
 const flags = [];
 let written = 0, iconMatched = 0;
 
@@ -48,7 +52,7 @@ for (const r of ranges) {
 
 	const page = formatPageRange(art.pageNumbers);
 	for (const sb of statBlocks(art)) {
-		const creature = parseStatBlock(sb.lines);
+		const creature = parseStatBlock(sb.lines, { log: wraps });
 		if (!creature.name) { flags.push(`? ${r.title}: stat block with no detected name (hp=${creature.hp.value}) — skipped`); continue; }
 		// The creature's marker icon (a creature-type glyph) is shipped trade dress; resolve it to that
 		// asset by hash, falling back to the npc default when the stat block has no icon or an unknown one.
@@ -65,3 +69,5 @@ rmSync(tmp, { recursive: true, force: true });
 
 console.log(`\nwrote ${written} npc(s) to ${OUT}/ (${iconMatched} with a marker icon, ${written - iconMatched} using the npc default)`);
 if (flags.length) console.log(`\n${flags.length} note(s) for review:\n` + flags.join("\n"));
+const wrapReport = wraps.report();
+if (wrapReport.length) console.log(`\n${wrapReport.length} line-break hyphen(s) judged rather than healed:\n` + wrapReport.join("\n"));

@@ -21,7 +21,7 @@
       "max": 18
     },
     "armor": "2 (thick hides/furs, skill)",
-    "damage": "orichalcum sword d10+2 w/ad- vantage (_close_, _messy_, 2 piercing) or bronze knife d10 w/advantage (_hand_, 1 piercing)",
+    "damage": "orichalcum sword d10+2 w/advantage (_close_, _messy_, 2 piercing) or bronze knife d10 w/advantage (_hand_, 1 piercing)",
     "specialQuality": "spirit-sight; immune to mental manipulation; inured to cold, hunger, pain, deprivation; hard to surprise",
     "instinct": {
       "selected": [

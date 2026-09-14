@@ -1,3 +1,4 @@
+import { joinWrapped } from "./dehyphen.js";
 import { toSlug } from "../../../src/utils/slug.js";
 
 // Book I prints gear terms in two typefaces, and that distinction IS the rule (p. 94: "Terms in
@@ -14,10 +15,6 @@ const isHeading  = (font) => /(^|\+)Avara/.test(font);
 const ENTRY = /^([^:]{1,40}):\s*(.*)$/;
 
 const leadFont = (line) => line.spans?.[0]?.font ?? line.font ?? "";
-
-/** Join a wrapped definition line, healing the book's hyphenated line breaks ("require-" + "ments"). */
-const joinWrapped = (definition, text) =>
-	definition.endsWith("-") ? definition.slice(0, -1) + text : `${definition} ${text}`;
 
 /**
  * Collect glossary entries from a run of stext lines.

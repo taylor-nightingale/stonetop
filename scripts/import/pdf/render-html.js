@@ -2,6 +2,7 @@ import { escapeHtml } from "../html.js";
 import { isAvara, isItalic, isBoldBody } from "./fonts.js";
 import { isGlyphFont, glyphText } from "./glyphs.js";
 import { segmentSettlement } from "./settlement.js";
+import { joinWrapped, HTML_CLOSERS, MD_CLOSERS } from "./dehyphen.js";
 
 // Renders the structured article document produced by `extractArticle` (layout.js) to HTML. The
 // document is renderer-agnostic — assets are referenced by an opaque ref and resolved here via
@@ -20,13 +21,13 @@ const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
  */
 export const HTML_EMPHASIS = {
 	wrap:    { b: ["<strong>", "</strong>"], i: ["<em>", "</em>"], bi: ["<strong><em>", "</em></strong>"] },
-	closers: /-((?:<\/(?:strong|em)>)*)$/,
+	closers: HTML_CLOSERS,
 	escape:  escapeHtml,
 };
 
 export const MARKDOWN_EMPHASIS = {
 	wrap:    { b: ["**", "**"], i: ["*", "*"], bi: ["***", "***"] },
-	closers: /-(\**)$/,
+	closers: MD_CLOSERS,
 	escape:  (s) => s,
 };
 
@@ -74,8 +75,7 @@ export function joinLines(lines, style = HTML_EMPHASIS) {
 		else if (/^(?:…|\.\.\.)/.test(raw)) html += "<br>" + h;
 		// De-hyphenate a word split across lines — even when the word is emphasized, so the
 		// trailing hyphen sits just inside a closing tag (e.g. "<strong>Dan-</strong>" + "gers").
-		else if (/[A-Za-z]-$/.test(prevRaw) && /^[a-z]/.test(raw)) html = html.replace(style.closers, "$1") + h;
-		else html += " " + h;
+		else html = joinWrapped(html, h, { prevRaw, nextRaw: raw, closers: style.closers });
 		prevRaw = raw;
 	}
 	return html.replace(/[ \t]{2,}/g, " ").trim();

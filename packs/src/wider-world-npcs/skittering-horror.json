@@ -19,7 +19,7 @@
       "max": 7
     },
     "armor": "4 (resilience), 0 vs. bronze",
-    "damage": "scythe-like limbs d6+2 w/advan- tage (_hand_, _close_, messy, 2 piercing except vs. bronze)",
+    "damage": "scythe-like limbs d6+2 w/advantage (_hand_, _close_, messy, 2 piercing except vs. bronze)",
     "specialQuality": "spider-climb; blind; senses life (heat, heartbeats, breathing, movement, etc.); disoriented by intense noise/heat",
     "instinct": {
       "selected": [
