@@ -30,7 +30,10 @@ const steadfast = () => ({
 		attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
 		assets: { items: ["wagon"], resources: ["Farming"], fortifications: ["militia"], coinage: [{ title: "silver", purses: 0, handfuls: 0, coins: 0 }] },
 		placesOfInterest: [{ name: "The Stone", linkUuid: "" }],
-		neighborPlaces: [{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", names: "Abben" }],
+		neighborPlaces: [
+			{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", names: "Abben", size: "town", travel: "10 days" },
+			{ slug: "lygos",     name: "Lygos",     subtitle: "", note: "", names: "",      size: "",     travel: "40 days" },
+		],
 		residents: { names: "Aderyn", traits: ["curious"] },
 		improvements: ["market", "mill"],
 	},
@@ -84,6 +87,25 @@ describe("applySteadfast", () => {
 		expect(actor.system.neighborPeople).toEqual([{ id: "2", name: "Brin" }]);
 		expect(actor.system.debilities.diminished).toBe(true);
 		expect(actor.system.improvementValues).toEqual({ market: { offer: 1 } });
+	});
+
+	// A steadfast has no travel times to give — they are measured from ONE steading — so copying its
+	// rows wholesale would blank what the table measured, with nothing able to put it back.
+	it("keeps the travel times the steading had measured", async () => {
+		const actor = makeSteading({ neighborPlaces: [
+			{ slug: "marshedge", name: "Marshedge", note: "", names: "", size: "", travel: "4 days, the West Road" },
+			{ slug: "lygos",     name: "Lygos",     note: "", names: "", size: "", travel: "months" },
+		] });
+		await applySteadfast(actor, steadfast());
+		expect(actor.system.neighborPlaces.map(p => p.travel)).toEqual(["4 days, the West Road", "months"]);
+	});
+
+	it("still takes the steadfast's size, which IS the steadfast's to define", async () => {
+		const actor = makeSteading({ neighborPlaces: [
+			{ slug: "marshedge", name: "Marshedge", note: "", names: "", size: "hamlet", travel: "4 days" },
+		] });
+		await applySteadfast(actor, steadfast());
+		expect(actor.system.neighborPlaces[0]).toMatchObject({ size: "town", travel: "4 days" });
 	});
 
 	it("copies independently — editing the steading does not mutate the steadfast", async () => {

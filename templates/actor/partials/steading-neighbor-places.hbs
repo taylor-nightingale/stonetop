@@ -1,22 +1,87 @@
-{{!-- The neighboring places list — each a framed panel with an editable Notes field and (if the
-      place seeds them) a read-only Names pool. Shared by the steading's Folk tab and the steadfast
-      sheet. Params: places (array of {slug, name, subtitle, note, names}), showNames.
+{{!-- The neighbouring communities — each a headed row carrying its two facts and the notes kept on
+      it. Shared by the steading's Places tab and the steadfast sheet.
+      Params: title, places (NeighborPlace snapshots), showNames, showTravel, editableSize.
 
-      `showNames` is false on the steading, where those pools are rendered in the Folk reference
-      column as individually clickable entries; a second, inert copy of the same words beneath them
-      would be the wall this tab exists to retire. The steadfast sheet is a definition with no roster
-      to click into, so it keeps the plain list. --}}
+      The GROUP takes the section heading and its rule; a place's own name sits a level below it. Five
+      sibling headings with nothing naming them is what this used to be, and "Marshedge" says what it
+      is only to someone who already knows.
+
+      Each of the three flags marks a place where the two sheets genuinely differ, rather than a
+      style choice:
+
+      `showNames` is false on the steading, where those pools are rendered in Folk's reference column
+      as individually clickable entries; a second, inert copy of the same words would be the wall
+      that tab exists to retire. The steadfast is a definition with no roster to click into, so it
+      keeps the plain list.
+
+      `editableSize` is true only on the steadfast. Size is DEFINITIONAL — the book's tier word for
+      the place — so it is authored where the definition lives and kept in step there by
+      migrateNeighborPlaces, which would silently revert an edit made anywhere else. The steading
+      reads the word and nothing more.
+
+      `showTravel` is the exact opposite, and true only on the steading: travel is measured FROM
+      HERE, so it is not a fact about the neighbour and a steadfast a dozen places sit at cannot
+      state it. It is free text because the book states it in prose and inconsistently ("About 15
+      miles", "a long day's march") — really a Chart a Course answer that moves with route and
+      season. --}}
 <section class="steading-neighbor-places">
+	{{#if title}}{{> "stonetop.section-heading" title=title}}{{/if}}
 	{{#each places}}
 		<section class="steading-neighbor-place steading-block">
-			{{> "stonetop.section-heading" title=name note=subtitle}}
+			<div class="steading-neighbor-head">
+				<h4 class="steading-neighbor-name">{{name}}{{#if (hasText subtitle)}} <span class="steading-neighbor-subtitle">{{subtitle}}</span>{{/if}}</h4>
+				{{!-- The facts sit on a rule at the right of the heading — the sheet's one idiom for a
+				      value — and a fact with nothing in it is left out rather than drawn empty. The
+				      steadfast sheet is the exception and always draws both, because it is where they are
+				      authored: a field you cannot see is a field you cannot fill in. --}}
+				<div class="steading-neighbor-facts">
+					{{#if ../editableSize}}
+						{{!-- Always drawn here: this is where a Size is CHOSEN. A select with nothing
+						      matching would silently show its first option, so a place whose Size nobody has
+						      chosen would read as "hamlet" — the snapshot supplies a blank leading option
+						      instead. Bound by class on the steadfast item sheet rather than stamped with a
+						      data-change-action: that vocabulary belongs to the ACTOR sheets' router, and no
+						      steading routes this one — a steading never writes a neighbour's Size. --}}
+						<span class="steading-neighbor-fact">
+							<span class="steading-neighbor-fact-label">{{localize "stonetop.steading.neighbors.size"}}</span>
+							<select class="steading-neighbor-size-select" data-id="{{slug}}"
+							        aria-label="{{localize 'stonetop.a11y.neighborSize' place=name}}"
+							        {{#unless @root.editable}}disabled{{/unless}}>
+								{{#each sizeOptions}}
+									<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+								{{/each}}
+							</select>
+						</span>
+					{{else if (hasText sizeLabel)}}
+						{{!-- A fact with nothing in it is not a fact. The groupings among these rows are
+						      regions rather than steadings and the book gives them no size at all, so the
+						      label and an em dash would be two pieces of furniture saying nothing. --}}
+						<span class="steading-neighbor-fact">
+							<span class="steading-neighbor-fact-label">{{localize "stonetop.steading.neighbors.size"}}</span>
+							<span class="steading-neighbor-fact-value">{{sizeLabel}}</span>
+						</span>
+					{{/if}}
+					{{#if (or ../editableTravel (and ../showTravel (hasText travel)))}}
+						<span class="steading-neighbor-fact">
+							<span class="steading-neighbor-fact-label">{{localize "stonetop.steading.neighbors.travel"}}</span>
+							<input type="text" class="steading-neighbor-travel" data-change-action="neighborPlaceTravel" data-id="{{slug}}"
+							       value="{{travel}}" aria-label="{{localize 'stonetop.a11y.neighborTravel' place=name}}">
+						</span>
+					{{/if}}
+				</div>
+			</div>
+			{{!-- The shared grow-field: it wraps, breaks a long unbroken word rather than running off
+			      the side, and gets taller as the note does. A note about a neighbour is written over a
+			      campaign, so a fixed box would scroll its own beginning out of sight. --}}
 			<label class="steading-neighbor-text-field">
-				<span>Notes</span>
-				<textarea class="stonetop-neighbor-place-note" data-change-action="neighborPlaceNote" data-id="{{slug}}" placeholder="Notes">{{note}}</textarea>
+				<span>{{localize "stonetop.steading.neighbors.notes"}}</span>
+				<textarea rows="2" class="stonetop-neighbor-place-note stonetop-grow-field"
+				          data-change-action="neighborPlaceNote" data-id="{{slug}}"
+				          placeholder="{{localize 'stonetop.steading.neighbors.notes'}}">{{note}}</textarea>
 			</label>
-			{{#if (and showNames names)}}
+			{{#if (and ../showNames names)}}
 				<div class="steading-neighbor-text-field">
-					<span>Names</span>
+					<span>{{localize "stonetop.steading.neighbors.names"}}</span>
 					<p class="steading-names-text">{{names}}</p>
 				</div>
 			{{/if}}

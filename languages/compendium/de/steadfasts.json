@@ -836,8 +836,16 @@
       "source": "Marshedge",
       "text": ""
     },
+    "neighborPlaces/marshedge/travel": {
+      "source": "10 days",
+      "text": ""
+    },
     "neighborPlaces/gordins-delve/name": {
       "source": "Gordin's Delve",
+      "text": ""
+    },
+    "neighborPlaces/gordins-delve/travel": {
+      "source": "4 days",
       "text": ""
     },
     "neighborPlaces/steplands/name": {
@@ -848,6 +856,10 @@
       "source": "Hillfolk",
       "text": ""
     },
+    "neighborPlaces/steplands/travel": {
+      "source": "4 days",
+      "text": ""
+    },
     "neighborPlaces/lygos/name": {
       "source": "Lygos",
       "text": ""
@@ -856,12 +868,24 @@
       "source": "and other points south",
       "text": ""
     },
+    "neighborPlaces/lygos/travel": {
+      "source": "40 days",
+      "text": ""
+    },
+    "neighborPlaces/barrier-pass/name": {
+      "source": "Barrier Pass",
+      "text": ""
+    },
+    "neighborPlaces/barrier-pass/travel": {
+      "source": "5 days",
+      "text": ""
+    },
     "neighborPlaces/other/name": {
       "source": "Other places",
       "text": ""
     },
     "neighborPlaces/other/subtitle": {
-      "source": "Barrier Pass, the Manmarch, etc.",
+      "source": "The Manmarch, etc.",
       "text": ""
     }
   },

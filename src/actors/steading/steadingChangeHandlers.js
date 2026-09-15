@@ -44,8 +44,10 @@ export function steadingChangeHandlers(s, { availableSteadfasts }) {
 		personHome:       el => s.updatePersonHome(el.dataset.id, el.value),
 		// Folk owns the one-per-line parse.
 
-		// Neighboring places
-		neighborPlaceNote:  el => s.updateNeighborPlaceNote(el.dataset.id, el.value),
+		// Neighboring places. Size is definitional and edited on the steadfast item sheet, so the
+		// steading emits no action for it — it reads the word and nothing more.
+		neighborPlaceNote:   el => s.updateNeighborPlaceNote(el.dataset.id, el.value),
+		neighborPlaceTravel: el => s.updateNeighborPlaceTravel(el.dataset.id, el.value),
 
 		// Places of Interest
 		placeField: el => s.setPlaceValue(parseInt(el.dataset.index), el.value),

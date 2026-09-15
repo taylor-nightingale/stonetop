@@ -73,12 +73,18 @@ export class FakeSteadingBuilder {
 					{ name: "Pavilion of the Gods",   linkUuid: "" },
 					{ name: "Watchtowers",            linkUuid: "" },
 				],
+				// Mirrors packs/src/steadfasts/stonetop.json. Only the two that are actually steadings carry a
+				// Size; the Steplands, Lygos and "Other places" are regions, and the book gives them none.
+				// Mirrors packs/src/steadfasts/stonetop.json. Only the places that are actually steadings
+				// carry a Size; the Steplands, Lygos and "Other places" are regions, and the book gives them
+				// none. Travel times are the GM playbook's printed table, "From Stonetop via the Roads to…".
 				neighborPlaces: [
-					{ slug: "marshedge",    name: "Marshedge",       subtitle: "",                                  note: "", names: "Abben, Ailen, Brin, Brogan, Catlin, Coln, Daedre, Dermos, Ennin, Finnen, Gilor, Isbeal, Kiran, Lile, Lim, Mathuin, Mirne, Noren, Owan, Ragan, Renan, Seadha, Seann, Tierney, Ulliam" },
-					{ slug: "gordins-delve",name: "Gordin's Delve",  subtitle: "Choose from other lists; everyone comes to Gordin's Delve from somewhere else.", note: "", names: "" },
-					{ slug: "steplands",    name: "The Steplands",   subtitle: "Hillfolk",                          note: "", names: "Adm, Blej, Cirl, Davth, Elst, Gwilm, Gwenl, Henri, Ines, Jenfir, Jown, Juda, Kiln, Laurl, Loic, Merrn, Maikl, Nanzl, Nolwn, Quent, Reegn, Ropr, Sabi, Stren, Yanz" },
-					{ slug: "lygos",        name: "Lygos",            subtitle: "and other points south",           note: "", names: "Agatte, Aref, Alix, Baraz, Canan, Darya, Demetra, Elene, Elios, Fotios, Faruza, Golza, Iasos, Iona, Kyriakos, Marika, Maayan, Osher, Natasa, Nivola, Rinat, Stamat, Thecla, Zhaleh" },
-					{ slug: "other",        name: "Other places",     subtitle: "Barrier Pass, the Manmarch, etc.", note: "", names: "" },
+					{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", size: "town", travel: "10 days", names: "Abben, Ailen, Brin, Brogan, Catlin, Coln, Daedre, Dermos, Ennin, Finnen, Gilor, Isbeal, Kiran, Lile, Lim, Mathuin, Mirne, Noren, Owan, Ragan, Renan, Seadha, Seann, Tierney, Ulliam" },
+					{ slug: "gordins-delve", name: "Gordin's Delve", subtitle: "", note: "", size: "town", travel: "4 days", names: "" },
+					{ slug: "steplands", name: "The Steplands", subtitle: "Hillfolk", note: "", size: "", travel: "4 days", names: "Adm, Blej, Cirl, Davth, Elst, Gwilm, Gwenl, Henri, Ines, Jenfir, Jown, Juda, Kiln, Laurl, Loic, Merrn, Maikl, Nanzl, Nolwn, Quent, Reegn, Ropr, Sabi, Stren, Yanz" },
+					{ slug: "lygos", name: "Lygos", subtitle: "and other points south", note: "", size: "", travel: "40 days", names: "Agatte, Aref, Alix, Baraz, Canan, Darya, Demetra, Elene, Elios, Fotios, Faruza, Golza, Iasos, Iona, Kyriakos, Marika, Maayan, Osher, Natasa, Nivola, Rinat, Stamat, Thecla, Zhaleh" },
+					{ slug: "barrier-pass", name: "Barrier Pass", subtitle: "", note: "", size: "village", travel: "5 days", names: "" },
+					{ slug: "other", name: "Other places", subtitle: "The Manmarch, etc.", note: "", size: "", travel: "", names: "" },
 				],
 				residents: {
 					names: "Aderyn, Aeronwen, Afanen, Afon, Alun, Andras, Aneirin, Awstin, Bedwyr, Berwyn, Betrys, Braith, Briallen, Bronwen, Bryn, Cadi, Cadoc, Cadwygan, Caron, Cefin, Ceinwen, Ceridwyn, Cerys, Colwyn, Deiniol, Dilwen, Dylis, Eifion, Eirlys, Eluned, Emrys, Enfys, Eurwen, Gaenor, Garet, Gethin, Glyndir, Heledd, Hywel, Ifan, Iorwerth, Iwan, Lewela, Leuca, Linos, Mado, Maldwyn, Malon, Mared, Marged, Martyn, Meirion, Menwen, Mererid, Neirin, Nia, Ofydd, Olwyn, Owain, Padrig, Parry, Pryce, Pryder, Rheinal, Rhisiart, Rhosyn, Rydderch, Sawyl, Siana, Sioned, Talfryn, Tegid, Tiwlip, Tomos, Tudyr, Winifred, Yorath",

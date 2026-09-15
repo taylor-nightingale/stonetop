@@ -288,11 +288,31 @@
 
 			</div>
 
-			{{!-- The neighbouring places themselves: what the steading knows about each. Their NAME pools
-			      are rendered above, in the reference column, so the panel carries only the notes. --}}
-			{{> "stonetop.steading-neighbor-places" places=stonetop.neighborPlaces showNames=false}}
-
 		</div>{{!-- /tab folk --}}
+
+		{{!-- Places — the map, at both its scales: the landmarks inside the walls and the communities
+		      outside them. The neighbours' NAME pools stay on Folk, in the reference column, because
+		      inventing a stranger from Marshedge is a Folk job; what the steading knows ABOUT
+		      Marshedge is this one. --}}
+		<div class="tab {{tabs.places.cssClass}}" data-group="primary" data-tab="places"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-places" aria-labelledby="{{sheetIdPrefix}}-tab-places">
+
+			<div class="steading-split-grid">
+
+				<section class="steading-split-column">
+					{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest linkHint=true}}
+				</section>
+
+				<div class="steading-split-divider" aria-hidden="true"></div>
+
+				<section class="steading-split-column">
+					{{> "stonetop.steading-neighbor-places" title=(localize "stonetop.steading.headings.neighbors")
+					   places=stonetop.neighborPlaces showNames=false showTravel=true}}
+				</section>
+
+			</div>
+
+		</div>{{!-- /tab places --}}
 
 		{{!-- Season — the ritual: the Seasons Change move, the gains picker, and the improvement board --}}
 		<div class="tab {{tabs.season.cssClass}}" data-group="primary" data-tab="season"
@@ -310,19 +330,14 @@
 
 		</div>{{!-- /tab season --}}
 
-		{{!-- Chronicle — the record: places of interest, notes, and the safety-tools content page --}}
+		{{!-- Chronicle — the record: notes and the safety-tools content page. The places of interest it
+		      used to lead with have gone to Places, beside the communities they share a scale with. --}}
 		<div class="tab {{tabs.chronicle.cssClass}}" data-group="primary" data-tab="chronicle"
 		     role="tabpanel" id="{{sheetIdPrefix}}-panel-chronicle" aria-labelledby="{{sheetIdPrefix}}-tab-chronicle">
 
-			<div class="steading-notes-grid">
+			<div class="steading-split-grid">
 
-				<section class="steading-notes-column">
-					{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest linkHint=true}}
-				</section>
-
-				<div class="steading-notes-divider" aria-hidden="true"></div>
-
-				<section class="steading-notes-column steading-notes-content-column">
+				<section class="steading-split-column steading-notes-content-column">
 					{{#each stonetop.content}}
 						<div class="steading-notes-field steading-notes-content-field steading-block">
 							{{> "stonetop.section-heading" title=label note=note}}
@@ -332,9 +347,9 @@
 					{{/each}}
 				</section>
 
-				<div class="steading-notes-divider" aria-hidden="true"></div>
+				<div class="steading-split-divider" aria-hidden="true"></div>
 
-				<section class="steading-notes-column">
+				<section class="steading-split-column">
 					<div class="steading-notes-field steading-block">
 						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
 						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}" class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>

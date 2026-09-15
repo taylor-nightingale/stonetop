@@ -189,6 +189,10 @@ const STEADFAST = [
 	"system.placesOfInterest[].description",
 	"system.neighborPlaces[].name",
 	"system.neighborPlaces[].subtitle",
+	// "10 days" — the GM playbook's Travel Times table, in its own words. Prose, and a duration is
+	// one of the things every language writes differently. Size beside it is NOT here: it stores a
+	// tier key, translated once through stonetop.steading.tier.size.*.
+	"system.neighborPlaces[].travel",
 ];
 
 export const TEXT_PATHS = {

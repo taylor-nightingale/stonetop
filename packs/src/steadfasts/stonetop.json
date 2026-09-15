@@ -99,35 +99,54 @@
 				"name": "Marshedge",
 				"subtitle": "",
 				"note": "",
-				"names": "Abben, Ailen, Brin, Brogan, Catlin, Coln, Daedre, Dermos, Ennin, Finnen, Gilor, Isbeal, Kiran, Lile, Lim, Mathuin, Mirne, Noren, Owan, Ragan, Renan, Seadha, Seann, Tierney, Ulliam"
+				"names": "Abben, Ailen, Brin, Brogan, Catlin, Coln, Daedre, Dermos, Ennin, Finnen, Gilor, Isbeal, Kiran, Lile, Lim, Mathuin, Mirne, Noren, Owan, Ragan, Renan, Seadha, Seann, Tierney, Ulliam",
+				"size": "town",
+				"travel": "10 days"
 			},
 			{
 				"slug": "gordins-delve",
 				"name": "Gordin's Delve",
 				"subtitle": "",
 				"note": "",
-				"names": ""
+				"names": "",
+				"size": "town",
+				"travel": "4 days"
 			},
 			{
 				"slug": "steplands",
 				"name": "The Steplands",
 				"subtitle": "Hillfolk",
 				"note": "",
-				"names": "Adm, Blej, Cirl, Davth, Elst, Gwilm, Gwenl, Henri, Ines, Jenfir, Jown, Juda, Kiln, Laurl, Loic, Merrn, Maikl, Nanzl, Nolwn, Quent, Reegn, Ropr, Sabi, Stren, Yanz"
+				"names": "Adm, Blej, Cirl, Davth, Elst, Gwilm, Gwenl, Henri, Ines, Jenfir, Jown, Juda, Kiln, Laurl, Loic, Merrn, Maikl, Nanzl, Nolwn, Quent, Reegn, Ropr, Sabi, Stren, Yanz",
+				"size": "",
+				"travel": "4 days"
 			},
 			{
 				"slug": "lygos",
 				"name": "Lygos",
 				"subtitle": "and other points south",
 				"note": "",
-				"names": "Agatte, Aref, Alix, Baraz, Canan, Darya, Demetra, Elene, Elios, Fotios, Faruza, Golza, Iasos, Iona, Kyriakos, Marika, Maayan, Osher, Natasa, Nivola, Rinat, Stamat, Thecla, Zhaleh"
+				"names": "Agatte, Aref, Alix, Baraz, Canan, Darya, Demetra, Elene, Elios, Fotios, Faruza, Golza, Iasos, Iona, Kyriakos, Marika, Maayan, Osher, Natasa, Nivola, Rinat, Stamat, Thecla, Zhaleh",
+				"size": "",
+				"travel": "40 days"
+			},
+			{
+				"slug": "barrier-pass",
+				"name": "Barrier Pass",
+				"subtitle": "",
+				"note": "",
+				"names": "",
+				"size": "village",
+				"travel": "5 days"
 			},
 			{
 				"slug": "other",
 				"name": "Other places",
-				"subtitle": "Barrier Pass, the Manmarch, etc.",
+				"subtitle": "The Manmarch, etc.",
 				"note": "",
-				"names": ""
+				"names": "",
+				"size": "",
+				"travel": ""
 			}
 		],
 		"residents": {

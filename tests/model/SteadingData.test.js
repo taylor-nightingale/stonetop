@@ -44,6 +44,31 @@ describe("SteadingData defaults (blank = empty place)", () => {
 	});
 });
 
+// Travel rides the shared neighbour shape, seeded from the steadfast that owns the rows — "from
+// here" is unambiguous because only Stonetop's steadfast has neighbour rows at all (build-steadfasts
+// writes an empty list for every steadfast it generates).
+describe("SteadingData — a neighbouring place's travel time", () => {
+	it("carries travel on the neighbour shape, defaulting to empty", () => {
+		const d = new SteadingData({ neighborPlaces: [{ slug: "marshedge", name: "Marshedge", size: "town" }] });
+		expect(d.neighborPlaces).toEqual(
+			[{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", names: "", size: "town", travel: "" }],
+		);
+	});
+
+	it("stores whatever prose the table wrote, since the book states these inconsistently", () => {
+		const d = new SteadingData({ neighborPlaces: [{ slug: "steplands", travel: "at least a few days' travel" }] });
+		expect(d.neighborPlaces[0].travel).toBe("at least a few days' travel");
+	});
+
+	// The steadfast is where the book's printed times are AUTHORED, so it holds the field too — that
+	// is what makes seeding possible at all.
+	it("holds the same field on a steadfast, which is where the book's times are authored", async () => {
+		const { SteadfastData } = await import("../../src/data/SteadfastData.js");
+		const s = new SteadfastData({ neighborPlaces: [{ slug: "marshedge", travel: "10 days" }] });
+		expect(s.neighborPlaces[0].travel).toBe("10 days");
+	});
+});
+
 describe("SteadingData with applied values", () => {
 	it("stores actual rating numbers and the size tier", () => {
 		const d = new SteadingData({ attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 } });

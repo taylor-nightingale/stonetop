@@ -54,7 +54,8 @@
 		{{!-- Neighbouring places --}}
 		{{#if stonetop.neighbors.places.length}}
 		<section class="stonetop-steadfast-section">
-			{{> "stonetop.steading-neighbor-places" places=stonetop.neighbors.places showNames=true}}
+			{{> "stonetop.steading-neighbor-places" title=(localize "stonetop.steading.headings.neighbors")
+			   places=stonetop.neighbors.places showNames=true editableSize=true editableTravel=true}}
 		</section>
 		{{/if}}
 

@@ -197,18 +197,25 @@ export function createStonetopSteadingSheetClass(Base) {
 		// data-action="tab" (core's built-in action → changeTab), and context.tabs comes out of
 		// super._prepareContext via _prepareTabs.
 		//
-		// Four tabs, filed by WHEN you use them rather than by which book page they came off.
+		// Tabs filed by WHEN you use them rather than by which book page they came off.
 		//
 		// Play is open essentially the whole session, so it carries the things a steading move needs:
 		// the homefront moves themselves, and the two ratings that lead evidence lists. Folk is the
-		// people, Season the ritual, Chronicle the record. The seven page-order tabs split single jobs
-		// across tabs — rolling a move meant Moves, then the header, then Overview — which is the cost
-		// this pays off.
+		// people, Places the map, Season the ritual, Chronicle the record. The seven page-order tabs
+		// split single jobs across tabs — rolling a move meant Moves, then the header, then Overview —
+		// which is the cost this pays off.
+		//
+		// Places of interest and the neighbouring communities are ONE concept at two scales, so they
+		// get one tab: the Stone and the Granary, and Marshedge and the Steplands. They sat apart only
+		// because the printed playbook prints them on different pages — Book II files them together
+		// itself, running Stonetop's entry as Size · Population · Prosperity · Resources · Defenses ·
+		// Places, one block.
 		static TABS = {
 			primary: {
 				tabs: [
 					{ id: "play",      label: "stonetop.steading.tabs.play" },
 					{ id: "folk",      label: "stonetop.steading.tabs.folk" },
+					{ id: "places",    label: "stonetop.steading.tabs.places" },
 					{ id: "season",    label: "stonetop.steading.tabs.season" },
 					{ id: "chronicle", label: "stonetop.steading.tabs.chronicle" },
 				],

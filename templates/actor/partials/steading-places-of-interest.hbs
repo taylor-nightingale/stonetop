@@ -1,9 +1,9 @@
 {{!-- The Places of Interest panel — a lettered (A, B, C…) list of place-name inputs plus an add
-      button. Shared by the steading notes tab and the steadfast sheet.
+      button. Shared by the steading's Places tab and the steadfast sheet.
       Params: places (array of {key, index, value, docLink}); linkHint (steading only — shows the
       drag-to-link hint, since only the steading sheet wires the document-link drop). --}}
 <div class="steading-notes-field steading-block">
-	{{> "stonetop.section-heading" title="Places of Interest"}}
+	{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.placesOfInterest")}}
 	<div class="stonetop-places-list">
 		{{#each places}}
 			<div class="stonetop-places-row" data-index="{{index}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
@@ -19,8 +19,11 @@
 			</div>
 		{{/each}}
 	</div>
-	<button type="button" class="stonetop-place-add stonetop-icon-btn" data-action="addPlace" title="Add place" aria-label="Add place">
-		<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt="">
+	{{!-- The list's last row, and it says what it makes — the same add control the rating lists use. A
+	      bare + at the foot of a column named neither the list it joins nor what a row is. --}}
+	<button type="button" class="stonetop-place-add stonetop-list-add" data-action="addPlace"
+	        aria-label="{{localize 'stonetop.steading.lists.addPlace'}}">
+		<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.lists.addPlace"}}</span>
 	</button>
 	{{#if linkHint}}<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>{{/if}}
 </div>

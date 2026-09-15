@@ -158,6 +158,9 @@ export class StonetopSteading {
 	async unlinkPerson(id)                     { await this.#folk.unlinkDocument(id); }
 	async linkPerson(id, uuid)                 { await this.#folk.linkDocument(id, uuid); }
 	async updateNeighborPlaceNote(id, value)   { await this.#neighborPlaces.updateNote(id, value); }
+	// How far that place is from HERE. The steading's own record — a steadfast cannot state it, and
+	// the neighbour's Size beside it is the opposite case: definitional, so this sheet only reads it.
+	async updateNeighborPlaceTravel(id, value) { await this.#neighborPlaces.updateTravel(id, value); }
 
 	// ── Linked NPC actors ──────────────────────────────────────────────────────
 	// Creating actors and folders is privileged work, so these run on the active GM's client (see

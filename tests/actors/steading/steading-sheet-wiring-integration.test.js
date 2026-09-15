@@ -200,6 +200,30 @@ describe("steading sheet wiring — assets and places (integration)", () => {
 
 		expect(actor.system.placesOfInterest[0].name).toBe("The Old Mill");
 	});
+
+	// A neighbour's travel time, addressed by SLUG. The row's other new field, Size, is deliberately
+	// absent from this vocabulary: it is the steadfast's to define, so nothing here writes it.
+	it("records how far a neighbouring place is, by slug", async () => {
+		const { sheet, actor } = await makeWiredSheet();
+
+		await fireChange(sheet,
+			`<input data-change-action="neighborPlaceTravel" data-id="marshedge" value="4 days, the West Road">`,
+			"input");
+
+		expect(actor.system.neighborPlaces.find(p => p.slug === "marshedge").travel)
+			.toBe("4 days, the West Road");
+	});
+
+	it("leaves a neighbour's note and size alone when its travel time lands", async () => {
+		const { sheet, actor } = await makeWiredSheet();
+		await sheet.actor.typedActor.updateNeighborPlaceNote("marshedge", "Owes us grain");
+
+		await fireChange(sheet,
+			`<input data-change-action="neighborPlaceTravel" data-id="marshedge" value="months">`, "input");
+
+		expect(actor.system.neighborPlaces.find(p => p.slug === "marshedge"))
+			.toMatchObject({ note: "Owes us grain", size: "town", travel: "months" });
+	});
 });
 
 // Unlinking keeps the row and drops only its `@UUID` link, but a mis-aimed ✕ still loses work the

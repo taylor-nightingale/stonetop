@@ -107,7 +107,14 @@
         "npcTraits": "NPC Traits",
         "npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
         "placesOfInterest": "Places of Interest",
-        "notes": "Notes"
+        "notes": "Notes",
+        "neighbors": "Neighbouring Communities"
+      },
+      "neighbors": {
+        "size": "Size",
+        "travel": "Travel",
+        "notes": "Notes",
+        "names": "Names"
       },
       "lists": {
         "resources": "Resources",
@@ -118,7 +125,8 @@
         "addAsset": "add an asset",
         "assetsOut": "{count} out",
         "assetOut": "requisitioned",
-        "assetHome": "at home"
+        "assetHome": "at home",
+        "addPlace": "add a place"
       },
       "tier": {
         "defenses": {
@@ -165,6 +173,7 @@
       "tabs": {
         "play": "Play",
         "folk": "Folk",
+        "places": "Places",
         "season": "Season",
         "chronicle": "Chronicle"
       },
@@ -836,6 +845,8 @@
       "npcTraits": "Traits",
       "assetItem": "Asset",
       "placeField": "Place of interest",
+      "neighborSize": "Size of {place}",
+      "neighborTravel": "Travel to {place} from here",
       "ratingExtra": "Rating note",
       "playbookSelect": "Playbook",
       "optionType": "Option type",

@@ -13,6 +13,38 @@ export function steadingRatingsSchema(f) {
 	};
 }
 
+// One neighbouring place. Every field is here, on the shared shape, but they are not all the same
+// KIND of thing, and what a steadfast is allowed to do to each is what separates them:
+//
+//   synced  name, subtitle, names, size — the definition. The steadfast always wins.
+//   seeded  travel — the steadfast fills a blank and never overwrites a written one.
+//   record  note — the table's own. A steadfast never touches it.
+//
+// applySteadfast and migrateNeighborPlaces both apply exactly that, which is what keeps a
+// correction to the book reaching every world while nothing the table wrote is ever lost.
+//
+// Travel is only meaningful as "from HERE", and here is whichever place the rows hang off — so it
+// reads as a property of the steadfast that owns them rather than of the neighbour named in one.
+// That holds because build-steadfasts.js writes `neighborPlaces: []` for every steadfast it
+// generates: Stonetop's is the only one with rows at all, so the only travel times that can exist
+// are Stonetop's, which is precisely what the book prints.
+export function neighborPlaceFields(f) {
+	return {
+		slug:     new f.StringField({ initial: "" }),
+		name:     new f.StringField({ initial: "" }),
+		subtitle: new f.StringField({ initial: "" }),
+		note:     new f.StringField({ initial: "" }),
+		names:    new f.StringField({ initial: "" }),
+		// The book's own tier word for the place ("town"), or "" where it names none — the groupings
+		// among Stonetop's neighbours are regions, not steadings, and have no size.
+		size:     new f.StringField({ initial: "" }),
+		// How long the journey takes, in the book's own words. Free text because the GM playbook's
+		// Travel Times table prints plain durations ("4 days", "3-4 hours") and a route is really a
+		// Chart a Course answer that moves with the season anyway.
+		travel:   new f.StringField({ initial: "" }),
+	};
+}
+
 // The shared "steading definition" shape, composed into BOTH SteadfastData (the template) and
 // SteadingData (a live steading actor) so the two can't drift. A steadfast holds these as its
 // starting values; applying it copies them onto the actor, which then edits its own copy in play.
@@ -46,13 +78,7 @@ export function steadingProfileSchema(f) {
 			linkUuid: new f.StringField({ initial: "" }),
 		})),
 
-		neighborPlaces: new f.ArrayField(new f.SchemaField({
-			slug:     new f.StringField({ initial: "" }),
-			name:     new f.StringField({ initial: "" }),
-			subtitle: new f.StringField({ initial: "" }),
-			note:     new f.StringField({ initial: "" }),
-			names:    new f.StringField({ initial: "" }),
-		})),
+		neighborPlaces: new f.ArrayField(new f.SchemaField(neighborPlaceFields(f))),
 
 		// The resident name/trait pool (suggestions for generating residents), not the residents
 		// themselves — on a steading actor the actual people live in `folk`.

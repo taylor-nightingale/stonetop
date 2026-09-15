@@ -78,7 +78,11 @@ export class DebilitySnapshot {
 
 // A blank leading option, ticked, when the stored value matches none of them — the honest rendering
 // of "not chosen yet", which a bare select cannot express on its own.
-function withUnsetOption(options) {
+//
+// Exported because every select over a NAMED rating needs it, not just this sheet's own Size: the
+// neighbouring places each carry the book's tier word too, and a steadfast that has not chosen one
+// would read as "hamlet" without it.
+export function withUnsetOption(options) {
 	if (options.some(o => o.selected)) return options;
 	return [{ value: "", label: game.i18n.localize("stonetop.steading.tier.unset"), band: "", selected: true }, ...options];
 }

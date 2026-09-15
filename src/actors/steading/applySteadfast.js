@@ -14,6 +14,7 @@ function steadfastUpdate(actor, steadfast) {
 	const src = steadfast.system;
 	const update = { "system.steadfast": src.slug };
 	for (const field of PROFILE_FIELDS) update[`system.${field}`] = structuredClone(src[field]);
+	update["system.neighborPlaces"] = withSeededTravel(update["system.neighborPlaces"], actor.system?.neighborPlaces);
 	// The steadfast's attributes are its starting values; keep an immutable copy so the "Starts at …"
 	// notes stay correct after the live `attributes` are edited in play.
 	update["system.startingAttributes"] = structuredClone(src.attributes);
@@ -24,6 +25,18 @@ function steadfastUpdate(actor, steadfast) {
 		.pickFor(Seasons.byKey(actor.system?.season));
 	update["system.seasonImpression"] = impression ?? "";
 	return update;
+}
+
+// Travel is SEEDED, not copied and not kept: the steadfast supplies the book's printed time where the
+// steading has none, and stands aside where the table has written its own. Copying would blank a
+// measured time on every re-apply with nothing able to put it back; keeping would stop the book's
+// figures ever arriving at all. Filling the blank is the only rule that does both.
+//
+// The rest of the row is not like this and is copied wholesale above — see neighborPlaceFields for
+// which fields a steadfast owns outright and which one it never touches.
+function withSeededTravel(places, current) {
+	const written = new Map((current ?? []).map(place => [place.slug, (place.travel ?? "").trim()]));
+	return (places ?? []).map(place => ({ ...place, travel: written.get(place.slug) || place.travel || "" }));
 }
 
 // Adopt a steadfast wholesale, the steading taking its name too: the drop path and the name

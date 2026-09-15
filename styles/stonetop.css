@@ -6909,11 +6909,10 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-/* ── Neighbouring places ──────────────────────────────────────────────────────
-   The notes kept on each place. On the STEADFAST sheet this is a column beside the roster, as it has
-   always been. On the steading's Folk tab it is a short block UNDER the roster now — their name
-   pools have moved into the reference column — so it lays out as a row of panels rather than a
-   scrolling stack, which would put five headings in a tall ladder below the table. */
+/* ── Neighbouring communities ─────────────────────────────────────────────────
+   What the steading knows about each place outside its walls. A column on both sheets: the
+   steadfast's, where it sits beside the roster, and the steading's Places tab, where it stands
+   opposite the landmarks inside the walls — the same concept at the other scale. */
 
 .stonetop.sheet.steading .steading-neighbor-places {
 	flex: 1;
@@ -6923,23 +6922,101 @@ button.stonetop-xp-toggle {
 	overflow-y: auto;
 }
 
-.stonetop.sheet.steading [data-tab="folk"] > .steading-neighbor-places {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-	overflow: visible;
-}
-
 .stonetop.sheet.steading .steading-neighbor-place {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
 }
 
-.stonetop.sheet.steading .steading-neighbor-place h2 small {
-	font-size: var(--fs-micro);
+/* The name on the left, its two facts pushed to the right of the same line — so a place with
+   nothing filled in still reads as a place, and the facts line up down the column. Wraps rather
+   than crushes: at a narrow width the facts drop under the name instead of squeezing it to an
+   ellipsis. */
+.stonetop.sheet.steading .steading-neighbor-head {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 2px 0.75rem;
+}
+
+.stonetop.sheet.steading .steading-neighbor-name {
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-body);
 	font-weight: normal;
+	color: var(--st-ink);
+	margin: 0;
+	border: none;
+}
+
+.stonetop.sheet.steading .steading-neighbor-subtitle {
+	font-family: var(--font-primary);
+	font-size: var(--fs-micro);
 	font-style: italic;
 	color: var(--st-ink-soft);
+}
+
+/* The facts follow the name along the line, exactly as the ledger runs Population and Prosperity
+   after the steading's own. NOT pushed to the right edge: right-aligning a pair whose two halves are
+   different widths on every row ("town" against "village", "4 days" against "10 days") lands their
+   rules at a different x in each one, and a column of rules that almost line up reads as broken. */
+.stonetop.sheet.steading .steading-neighbor-facts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px 0.9rem;
+}
+
+/* A label and its value on a rule — the SAME pair the ledger line draws for Population and
+   Prosperity, so a fact about a neighbour reads as the same kind of thing as a fact about home.
+   That means the book's own face for both halves, small caps for the label and roman for the
+   value; a second family here was the one thing making these look bolted on.
+
+   One step down from the ledger's sizes, because these sit under a place's name rather than across
+   the masthead — the relationship between the two halves is what carries, not the absolute size. */
+.stonetop.sheet.steading .steading-neighbor-fact {
+	display: flex;
+	align-items: baseline;
+	gap: 0.3rem;
+	border-bottom: 1px solid var(--st-rule);
+	padding: 0 0.2rem 1px;
+}
+
+.stonetop.sheet.steading .steading-neighbor-fact-label {
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-micro);
+	color: var(--st-ink-soft);
+}
+
+.stonetop.sheet.steading .steading-neighbor-fact-value,
+.stonetop.sheet.steading .steading-neighbor-size-select,
+.stonetop.sheet.steading .steading-neighbor-travel {
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-note);
+	font-weight: bold;
+	line-height: 1.2;
+	color: var(--st-ink);
+	border: 0;
+	border-radius: 0;
+	background: none;
+	padding: 0;
+	height: auto;
+	box-shadow: none;
+}
+
+.stonetop.sheet.steading .steading-neighbor-size-select {
+	appearance: none;
+	-webkit-appearance: none;
+	width: auto;
+}
+
+/* The rule under a fact is the fact's own width, so the two sit side by side as a matched pair.
+   Left to itself a text input takes a default ~20 character measure and draws a rule three times
+   the length of the one beside it — which is what made these read as misaligned rather than as two
+   facts. `field-sizing` makes the box the width of what is written in it, exactly as the value
+   beside it already is; the floor keeps a short time from collapsing to nothing to click. */
+.stonetop.sheet.steading .steading-neighbor-travel {
+	field-sizing: content;
+	min-width: 4ch;
+	max-width: 100%;
 }
 
 .stonetop.sheet.steading .steading-neighbor-text-field {
@@ -6948,23 +7025,33 @@ button.stonetop-xp-toggle {
 	gap: 1px;
 }
 
+/* The same label the facts above it wear. It used to be uppercased and bolded, which on the Fell
+   small-caps face means real small caps flattened into full capitals and a weight the cut does not
+   have synthesised on top — so "NOTES" shouted over the place's own name. See the note over
+   .steading-tile-title, which is the same trap. */
 .stonetop.sheet.steading .steading-neighbor-text-field span {
+	font-family: "StonetopUI", serif;
 	font-size: var(--fs-micro);
-	font-weight: bold;
 	color: var(--st-ink-soft);
-	text-transform: uppercase;
-	letter-spacing: 0.3px;
 }
 
+/* The note itself grows with what is written in it — .stonetop-grow-field on the element supplies
+   `field-sizing: content` and the wrapping. Two rows is the FLOOR, not the fit: an empty note still
+   has to read as somewhere to write, and `field-sizing` grows a textarea up from its `rows`.
+
+   Core gives a textarea a min-height of several lines, and `field-sizing` can only grow a field UP
+   FROM its minimum — so core's floor has to go or the growth never shows. `2lh` replaces it: two
+   lines of THIS field's own text, so an empty note still reads as somewhere to write and the floor
+   moves with the type scale instead of being a px guess about it. `rows` is the same floor again for
+   a browser without `field-sizing`, where the box simply stays two lines. */
 .stonetop.sheet.steading .steading-neighbor-text-field textarea {
-	resize: none;
+	min-height: 2lh;
 	border: none;
 	border-bottom: 1px solid var(--st-rule-veil);
 	background: transparent;
 	font-size: var(--fs-fine);
 	font-family: var(--font-primary);
 	line-height: 1.4;
-	min-height: 36px;
 	padding: 1px 2px;
 }
 
@@ -8107,21 +8194,23 @@ button.stonetop-xp-toggle {
 
 
 
-/* ── Notes tab ───────────────────────────────────────────────────────────────── */
+/* ── The split tabs ───────────────────────────────────────────────────────────
+   Two columns with a decorative rule between them. Used by Places (landmarks | communities) and by
+   Chronicle (the content policy | the notes box), which is why it is no longer named for either. */
 
-.stonetop.sheet.steading .steading-notes-grid {
+.stonetop.sheet.steading .steading-split-grid {
 	display: flex;
 	gap: 0;
 	min-height: 300px;
 }
 
-.stonetop.sheet.steading .steading-notes-column {
+.stonetop.sheet.steading .steading-split-column {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 }
 
-.stonetop.sheet.steading .steading-notes-divider {
+.stonetop.sheet.steading .steading-split-divider {
 	width: 8px;
 	flex-shrink: 0;
 	margin: 0 4px;

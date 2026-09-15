@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { steadingProfileSchema, steadingRatingsSchema } from "../../src/data/steadingProfileSchema.js";
+import { steadingProfileSchema, steadingRatingsSchema, neighborPlaceFields } from "../../src/data/steadingProfileSchema.js";
 
 // The shared shape used by BOTH SteadfastData and SteadingData, so the two can't drift. Built from
 // the fake foundry.data.fields the test setup installs; a blank profile is an empty place.
@@ -36,6 +36,23 @@ describe("steadingProfileSchema", () => {
 		expect(b.neighborPlaces).toEqual([]);
 		expect(b.residents).toEqual({ names: "", traits: [] });
 		expect(b.improvements).toEqual([]);
+	});
+
+	// One shape, three kinds of field: synced (name/subtitle/names/size), seeded (travel) and record
+	// (note). What separates them is not the schema but what a steadfast is allowed to do to each —
+	// see applySteadfast and migrateNeighborPlaces, which both apply exactly that.
+	it("shapes a neighbouring place with the book's size and its travel time", () => {
+		expect(Object.keys(neighborPlaceFields(f)).sort())
+			.toEqual(["name", "names", "note", "size", "slug", "subtitle", "travel"]);
+	});
+
+	it("defaults a neighbouring place's size to unset rather than the first tier", () => {
+		const profile = new f.SchemaField(steadingProfileSchema(f)).initialize({
+			neighborPlaces: [{ slug: "steplands", name: "The Steplands" }],
+		});
+		expect(profile.neighborPlaces).toEqual(
+			[{ slug: "steplands", name: "The Steplands", subtitle: "", note: "", names: "", size: "", travel: "" }],
+		);
 	});
 
 	it("shapes a coinage row and a place of interest as typed records", () => {

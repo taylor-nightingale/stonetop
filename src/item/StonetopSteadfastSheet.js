@@ -98,9 +98,19 @@ export function createStonetopSteadfastSheetClass(Base) {
 				await s.placesOfInterest.setPlaceValue(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
 			});
 
-			// Neighbouring places (note per place)
+			// Neighbouring places. Size is authored HERE and nowhere else — it is what the book calls
+			// the place, so it belongs to the definition, and migrateNeighborPlaces keeps every
+			// steading's copy in step with it. The steading sheet only reads the word.
 			bindAll(root, ".stonetop-neighbor-place-note", "change", async ev => {
 				await s.neighborPlaces.updateNote(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			bindAll(root, ".steading-neighbor-size-select", "change", async ev => {
+				await s.neighborPlaces.updateSize(ev.currentTarget.dataset.id, ev.currentTarget.value);
+			});
+			// And the travel times, for the same reason: the steading shows a time only once it has
+			// one, so a row the book prints nothing for is given its time here or nowhere.
+			bindAll(root, ".steading-neighbor-travel", "change", async ev => {
+				await s.neighborPlaces.updateTravel(ev.currentTarget.dataset.id, ev.currentTarget.value);
 			});
 
 			// Resident name/trait pool
