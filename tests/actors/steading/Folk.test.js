@@ -200,6 +200,12 @@ describe("Folk.usesName", () => {
 		expect(folk.usesName("Bryn")).toBe(true);
 	});
 
+	it("ignores the punctuation a hurried row carries", async () => {
+		const { folk, id } = await withOne();
+		await folk.updateName(id, "Bryn,");
+		expect(folk.usesName("Bryn")).toBe(true);
+	});
+
 	it("is false for a name nobody has", async () => {
 		const { folk, id } = await withOne();
 		await folk.updateName(id, "Bryn");
@@ -226,11 +232,62 @@ describe("Folk.usesTrait", () => {
 		expect(folk.usesTrait("cheery")).toBe(true);
 	});
 
-	// "mute" is a trait; "immaculate" is not one just because "immaculate appearance" is.
-	it("matches whole traits, not fragments of them", async () => {
+	// The reported bug: the traits cell is one free-text textarea and tables write into it by hand,
+	// separating what they write with spaces, semicolons, newlines — whatever reads well. Nothing
+	// here is cut on a separator, so all of these are read the same way.
+	it.each([
+		["spaces",     "cheery mute"],
+		["semicolons", "cheery; mute"],
+		["newlines",   "cheery\nmute"],
+		["commas",     "cheery, mute"],
+		["sentences",  "Cheery. Mute."],
+		["bullets",    "- cheery\n- mute"],
+	])("reads a row whose traits are separated by %s", async (_, written) => {
+		const { folk, id } = await withOne();
+		await folk.updateTraits(id, written);
+		expect(folk.usesTrait("cheery")).toBe(true);
+		expect(folk.usesTrait("mute")).toBe(true);
+	});
+
+	it("finds a trait written into a sentence", async () => {
+		const { folk, id } = await withOne();
+		await folk.updateTraits(id, "cheery, but knows all the gossip");
+		expect(folk.usesTrait("knows all the gossip")).toBe(true);
+	});
+
+	it("reads a hand-typed trait against the pool's own spelling of it", async () => {
+		const { folk, id } = await withOne();
+		await folk.updateTraits(id, "eagle eye");
+		expect(folk.usesTrait("eagle-eye")).toBe(true);
+	});
+
+	// The cost of reading a cell as a sentence, which is the only way a space-separated one can be
+	// read: a short trait inside a longer phrase counts as written. Stated so a change to it is
+	// deliberate rather than a surprise.
+	it("counts a short trait contained in a longer phrase", async () => {
 		const { folk, id } = await withOne();
 		await folk.updateTraits(id, "immaculate appearance");
-		expect(folk.usesTrait("immaculate")).toBe(false);
+		expect(folk.usesTrait("immaculate")).toBe(true);
+	});
+
+	it("still matches whole phrases, not pieces of words", async () => {
+		const { folk, id } = await withOne();
+		await folk.updateTraits(id, "commutes to Marshedge");
+		expect(folk.usesTrait("mute")).toBe(false);
+	});
+
+	it("finds a trait written on any row, not only the first", async () => {
+		const { folk } = await withOne();
+		await folk.addNamed("Cadoc");
+		const second = folk.buildSnapshot()[1].id;
+		await folk.updateTraits(second, "drunkard");
+		expect(folk.usesTrait("drunkard")).toBe(true);
+	});
+
+	it("is false for a trait nobody wrote", async () => {
+		const { folk, id } = await withOne();
+		await folk.updateTraits(id, "cheery");
+		expect(folk.usesTrait("mute")).toBe(false);
 	});
 
 	it("is false for a blank trait", async () => {

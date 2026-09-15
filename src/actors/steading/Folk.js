@@ -64,15 +64,12 @@ export class Folk {
 
 	/** Whether someone on the roster already goes by that name — how a name list knows to dim it. */
 	usesName(name) {
-		const key = String(name ?? "").trim().toLowerCase();
-		return !!key && this._list.all().some(p => p.bareName.toLowerCase() === key);
+		return this._list.all().some(p => p.hasName(name));
 	}
 
-	/** Whether that trait is already written on anybody's row. */
+	/** Whether that trait is already written on anybody's row — how the trait pool knows to dim it. */
 	usesTrait(trait) {
-		const key = String(trait ?? "").trim().toLowerCase();
-		return !!key && this._list.all().some(p =>
-			Person.traitTokens(p.traits).some(t => t.toLowerCase() === key));
+		return this._list.all().some(p => p.hasTrait(trait));
 	}
 
 	// Someone is filed under the home written on their row — `NPCs/Marshedge` — and a blank home is the

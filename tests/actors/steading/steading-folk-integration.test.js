@@ -54,6 +54,14 @@ function focusRow(sheet, root, id) {
 		.dispatchEvent(new Event("focusin", { bubbles: true }));
 }
 
+/** Type into one of a row's cells and commit it, as leaving the field does. */
+async function type(root, selector, value) {
+	const field = root.querySelector(selector);
+	field.value = value;
+	field.dispatchEvent(new Event("change", { bubbles: true }));
+	await Promise.resolve();
+}
+
 function search(sheet, root, query) {
 	const box = root.querySelector(".steading-folk-search");
 	box.value = query;
@@ -159,6 +167,54 @@ describe("scan, then click (integration)", () => {
 		const next = await render(sheet);
 
 		expect(entryFor(next, "Bryn"), "the used name left the list").toBeTruthy();
+		expect(entryFor(next, "Bryn").classList.contains("is-used")).toBe(true);
+		expect(entryFor(next, "Cadoc").classList.contains("is-used")).toBe(false);
+	});
+
+	/**
+	 * The same dimming, reached the way most rows are actually filled in: by typing.
+	 *
+	 * A roster built by hand never went through the reference lists, so nothing about it is in the
+	 * lists' spelling — the traits are separated by whatever read well at the table, which is
+	 * usually not commas. Detection is computed on every render out of what the row says, which is
+	 * also why a world full of rows typed months ago starts dimming the moment this tab next draws.
+	 */
+	it("dims traits typed into the row by hand, however they were separated", async () => {
+		const sheet = makeSheet();
+		let root = await render(sheet, true);
+		await act(sheet, "addPerson", root.querySelector(".steading-folk-add"));
+		root = await render(sheet);
+
+		await type(root, ".stonetop-person-traits", "Cheery; mute, all thumbs — eagle eye");
+
+		const next = await render(sheet);
+		for (const trait of ["cheery", "mute", "all thumbs", "eagle-eye"]) {
+			expect(entryFor(next, trait).classList.contains("is-used"), trait).toBe(true);
+		}
+		expect(entryFor(next, "drunkard").classList.contains("is-used")).toBe(false);
+	});
+
+	it("dims a trait written into a sentence", async () => {
+		const sheet = makeSheet();
+		let root = await render(sheet, true);
+		await act(sheet, "addPerson", root.querySelector(".steading-folk-add"));
+		root = await render(sheet);
+
+		await type(root, ".stonetop-person-traits", "a cheery sort who knows all the gossip");
+
+		const next = await render(sheet);
+		expect(entryFor(next, "knows all the gossip").classList.contains("is-used")).toBe(true);
+	});
+
+	it("dims a name typed into the row by hand", async () => {
+		const sheet = makeSheet();
+		let root = await render(sheet, true);
+		await act(sheet, "addPerson", root.querySelector(".steading-folk-add"));
+		root = await render(sheet);
+
+		await type(root, ".stonetop-person-name", "bryn (she/her)");
+
+		const next = await render(sheet);
 		expect(entryFor(next, "Bryn").classList.contains("is-used")).toBe(true);
 		expect(entryFor(next, "Cadoc").classList.contains("is-used")).toBe(false);
 	});

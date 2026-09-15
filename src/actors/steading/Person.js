@@ -1,3 +1,5 @@
+import {RosterText} from "./RosterText.js";
+
 /** A fresh person id. Exported so the migration can stamp one onto a legacy row that has none. */
 export function newPersonId() {
 	return Math.random().toString(36).slice(2, 10);
@@ -42,22 +44,32 @@ export class Person {
 	/**
 	 * The same person with one more trait written on their row.
 	 *
-	 * Traits are one free-text field holding a comma-separated list — that is what the book's sheet
-	 * prints and what a GM types into — so appending is a string join, not a push. A trait already on
-	 * the row is not repeated: clicking the same entry twice in the reference list is a slip, and the
-	 * list dims used entries precisely so it reads as one.
+	 * Traits are one free-text field — that is what the book's sheet prints and what a GM types into
+	 * — so appending is a string join, not a push, and a comma is what this end of it writes even
+	 * though nothing reads one. A trait the row already says is not repeated: clicking the same entry
+	 * twice in the reference list is a slip, and the list dims used entries precisely so it reads as
+	 * one.
 	 */
 	withTraitAdded(trait) {
 		const addition = (trait ?? "").trim();
-		if (!addition) return this;
-		if (Person.traitTokens(this.traits).some(t => t.toLowerCase() === addition.toLowerCase())) return this;
+		if (!addition || this.hasTrait(addition)) return this;
 		const existing = (this.traits ?? "").trim().replace(/,$/, "");
 		return this.withTraits(existing ? `${existing}, ${addition}` : addition);
 	}
 
-	/** The traits written on a row, as the separate things they are. */
-	static traitTokens(traits) {
-		return (traits ?? "").split(",").map(t => t.trim()).filter(Boolean);
+	/**
+	 * Whether this person's row says that trait — how the NPC-trait pool knows to dim an entry.
+	 *
+	 * Asked of the whole cell, because there is nothing dependable to cut it up on: the field is free
+	 * text and tables write their traits separated by spaces as readily as by commas (see RosterText).
+	 */
+	hasTrait(trait) {
+		return RosterText.mentions(this.traits, trait);
+	}
+
+	/** Whether this person goes by that name — how a region's name list knows to dim an entry. */
+	hasName(name) {
+		return RosterText.same(this.bareName, name);
 	}
 
 	/**

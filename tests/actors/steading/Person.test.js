@@ -84,13 +84,61 @@ describe("Person#withTraitAdded", () => {
 	});
 });
 
-describe("Person.traitTokens", () => {
-	it("splits on commas and trims", () => {
-		expect(Person.traitTokens(" cheery , all thumbs ")).toEqual(["cheery", "all thumbs"]);
+describe("Person.hasTrait", () => {
+	const withTraits = traits => Person.fromRaw({ id: "a", name: "Bryn", traits });
+
+	// The whole point: the cell is free text, and what separates the traits in it is whatever the
+	// table happened to type. All of these say the same two things.
+	it.each(["cheery mute", "cheery, mute", "cheery; mute", "cheery\nmute", "Cheery. Mute."])(
+		"reads both traits out of %j", written => {
+			const p = withTraits(written);
+			expect(p.hasTrait("cheery")).toBe(true);
+			expect(p.hasTrait("mute")).toBe(true);
+		});
+
+	it("finds a trait written inside a sentence", () => {
+		expect(withTraits("cheery and knows all the gossip").hasTrait("knows all the gossip")).toBe(true);
 	});
 
-	it("is empty for a blank field", () => {
-		expect(Person.traitTokens("")).toEqual([]);
+	it("reads past a spelling of the separators inside the trait itself", () => {
+		expect(withTraits("eagle eye").hasTrait("eagle-eye")).toBe(true);
+	});
+
+	it("does not find a trait nobody wrote", () => {
+		expect(withTraits("cheery").hasTrait("mute")).toBe(false);
+	});
+
+	it("is false for a blank trait", () => {
+		expect(withTraits("cheery").hasTrait("")).toBe(false);
+	});
+
+	it("is false on a row with no traits", () => {
+		expect(withTraits("").hasTrait("cheery")).toBe(false);
+	});
+});
+
+describe("Person.hasName", () => {
+	const named = name => Person.fromRaw({ id: "a", name });
+
+	it("ignores case and punctuation", () => {
+		expect(named("Bryn,").hasName("bryn")).toBe(true);
+	});
+
+	it("looks past the parenthetical a row carries", () => {
+		expect(named("Bryn (she/her)").hasName("Bryn")).toBe(true);
+	});
+
+	// Unlike a trait: a name cell holds one name, so containment is not a match.
+	it("is false when the row merely contains the name", () => {
+		expect(named("Bryn the Baker").hasName("Bryn")).toBe(false);
+	});
+
+	it("is false for a different name", () => {
+		expect(named("Bryn").hasName("Cadoc")).toBe(false);
+	});
+
+	it("is false on a nameless row", () => {
+		expect(named("").hasName("Bryn")).toBe(false);
 	});
 });
 

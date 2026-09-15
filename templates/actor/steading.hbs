@@ -252,13 +252,15 @@
 					      column. --}}
 					<div class="steading-notes-field steading-block">
 						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
-						{{!-- The same field as the note kept on a neighbouring place: a rule to write on that
-						      grows with what is written, and a placeholder saying what goes on it. `stonetop-notes`
-						      stays FIRST in the list — buildFocusSelector rebuilds the caret's selector from the
-						      first stonetop-/steading- class it finds, and the other two are shared idioms that
-						      would match every note on the sheet. --}}
+						{{!-- The same field as the note kept on a neighbouring place: a framed box that grows
+						      with what is written, and a placeholder saying what goes on it. Nothing here draws
+						      the frame — it is the one core gives a textarea, kept rather than stripped, which
+						      is what makes the two boxes the same object without either of them describing it.
+						      `stonetop-notes` stays FIRST in the list — buildFocusSelector rebuilds the caret's
+						      selector from the first stonetop-/steading- class it finds, and the grower is a
+						      shared idiom that would match every note on the sheet. --}}
 						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}"
-						          class="stonetop-notes stonetop-note-line stonetop-grow-field"
+						          class="stonetop-notes stonetop-grow-field"
 						          placeholder="{{localize 'stonetop.steading.headings.notes'}}"
 						          data-change-action="notes">{{stonetop.notes}}</textarea>
 					</div>

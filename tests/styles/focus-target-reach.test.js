@@ -115,14 +115,14 @@ describe.skipIf(!canProbe())("what a focus ring actually surrounds", () => {
 			["the tab scroller both sheets use", "body",
 				`<div class="stonetop-rail-layout" data-side="left"><div class="stonetop-rail"></div>
 					<div class="sheet-body" id="scroll-body"><div class="tab active" data-tab="play">
-						<textarea id="field-body" class="stonetop-notes stonetop-note-line stonetop-grow-field"></textarea>
+						<textarea id="field-body" class="stonetop-notes stonetop-grow-field"></textarea>
 					</div></div>
 				</div>`],
 			["the Places tab's neighbours column", "neighbors",
 				`<section class="steading-neighbor-places" id="scroll-neighbors">
 					<section class="steading-neighbor-place steading-block"><label class="steading-neighbor-text-field">
 						<span>Notes</span>
-						<textarea id="field-neighbors" rows="2" class="stonetop-neighbor-place-note stonetop-grow-field stonetop-note-line"></textarea>
+						<textarea id="field-neighbors" rows="2" class="stonetop-neighbor-place-note stonetop-grow-field"></textarea>
 					</label></section>
 				</section>`],
 			["the Folk tab's reference column", "folk",

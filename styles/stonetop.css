@@ -7121,8 +7121,9 @@ button.stonetop-xp-toggle {
 }
 
 /* The note itself grows with what is written in it — .stonetop-grow-field on the element supplies
-   `field-sizing: content` and the wrapping, .stonetop-note-line the rule it is written on. All this
-   adds is the size, which is the only thing about it that is this place's rather than the idiom's.
+   `field-sizing: content` and the wrapping, and the frame around it is the one core gives a
+   textarea. All this adds is the FLOOR, which is the only thing about the box that is this place's
+   rather than the idiom's; the type it shares with the steading's scratchpad, stated once below.
 
    Core gives a textarea a min-height of several lines, and `field-sizing` can only grow a field UP
    FROM its minimum — so core's floor has to go or the growth never shows. `2lh` replaces it: two
@@ -7131,7 +7132,6 @@ button.stonetop-xp-toggle {
    a browser without `field-sizing`, where the box simply stays two lines. */
 .stonetop.sheet.steading .steading-neighbor-text-field textarea {
 	min-height: 2lh;
-	font-size: var(--fs-fine);
 }
 
 /* ── Improvements tab ────────────────────────────────────────────────────────── */
@@ -8304,16 +8304,24 @@ button.stonetop-xp-toggle {
 }
 
 /* The sheet's writing area — the steading's notes. It is the same field as the note kept on each
-   neighbouring place, at the size the column gives it: .stonetop-note-line draws the rule under it
-   and .stonetop-grow-field grows it, so all this names is the type and the stretch.
+   neighbouring place, at the size the column gives it, so all this names is the STRETCH.
 
-   It was RULED like a printed playbook for a while, on the grounds that a tall empty box under a
-   heading reads as blank parchment. The ruling is what that actually looked like — eight grey lines
-   where every other field on the sheet has one, a box pretending to be a page. The placeholder is
-   what says "write here" now, which is what it says on every other note on this sheet. */
+   It carried the sheet's one-rule idiom for a while — no frame, a single line under what was
+   written — on the grounds that a framed box is furniture. Beside the Places tab that is not how it
+   read: every other note on this sheet is a box you can see the edges of, and the scratchpad was the
+   one writing surface that looked like it had been rubbed out. So the frame core gives a textarea is
+   kept here exactly as it is kept there, and neither surface draws one of its own. */
 .stonetop.sheet.steading .steading-notes-field textarea {
 	flex: 1;
-	font-size: var(--fs-note);
+}
+
+/* One field at two sizes, said once: the steading's scratchpad on Play and the note kept on each
+   neighbouring place. Each of them names its own floor and stretch above, because the column each
+   sits in is what decides those; everything else about them has to be the same or they stop reading
+   as the same thing, which is what happened when one of them was quietly left unframed. */
+.stonetop.sheet.steading .steading-neighbor-text-field textarea,
+.stonetop.sheet.steading .steading-notes-field textarea {
+	font-size: var(--fs-fine);
 }
 
 /* The Content tab: the three agreement lists, and the book's own procedure beside them.
@@ -9133,34 +9141,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	overflow: hidden;
 	white-space: pre-wrap;
 	word-break: break-word;
-}
-
-/* A writing box drawn as ONE RULE under what is written, and nothing else — the sheet's own idiom
-   for "write here", the same one every value on it wears. Core's frame comes off entirely: its
-   border, its rounded corner and the inset shadow that draws a box even when the border is gone.
-   Focus moves the rule to the accent rather than adding anything, so the box never changes shape
-   as the caret enters it.
-
-   Shared, because the steading's scratchpad and the note kept on each neighbouring place are the
-   same field at two sizes. Size is the surface's to name — its floor and its type — and that is all
-   either of them declares on top of this.
-
-   Lives in `@layer system`, which core declares after `elements.forms`, so the layer alone beats
-   core's textarea theming and this needs no specificity of its own to win. */
-.stonetop-note-line {
-	border: none;
-	border-bottom: 1px solid var(--st-rule-veil);
-	border-radius: 0;
-	box-shadow: none;
-	background: transparent;
-	font-family: var(--font-primary);
-	line-height: 1.4;
-	padding: 1px 2px;
-}
-
-.stonetop-note-line:focus {
-	outline: none;
-	border-bottom-color: var(--st-accent);
 }
 
 /* The same behaviour for a <prose-mirror>: as tall as what it holds, so writing pushes whatever is

@@ -101,7 +101,7 @@ const notes = `
 	<div class="steading-notes-field steading-block">
 		<h3 class="stonetop-move-group-title">Notes</h3>
 		<div class="stonetop-panel-divider" aria-hidden="true"></div>
-		<textarea class="stonetop-notes stonetop-note-line stonetop-grow-field" placeholder="Notes"></textarea>
+		<textarea class="stonetop-notes stonetop-grow-field" placeholder="Notes"></textarea>
 	</div>`;
 
 // The book's whisky jugs, at the intrinsic size the extracted plate actually has (650x431) — the
@@ -516,13 +516,16 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			}
 		});
 
-		// A box this size has to SAY it is one, and it says it the way every other field on this sheet
-		// does: ONE rule under what is written, plus a placeholder naming what goes on it. It was
-		// ruled like a printed page for a while, on the same reasoning — but eight grey lines where
-		// the rest of the sheet has one is a box pretending to be paper, which is what it looked like.
-		// Core's own answer (an inset shadow and a rounded corner) is the boxed field this sheet has
-		// taken off everything else, so that comes off here too.
-		it("says it is somewhere to write, without being a box", () => {
+		// A box this size has to SAY it is one, and it says it as a BOX — the frame core gives a
+		// textarea, kept rather than stripped, plus a placeholder naming what goes on it.
+		//
+		// It was ruled like a printed page for a while (eight grey lines: a box pretending to be
+		// paper), and then stripped to the sheet's one-rule idiom with the frame taken off. Beside
+		// the Places tab that read as the one writing surface somebody had rubbed out, since the note
+		// on every neighbouring place is a box you can see the edges of. So the two are one field
+		// now — steading-notes-box.test.js is where that equality is held; this only asserts that the
+		// scratchpad is framed at all, and still grows.
+		it("says it is somewhere to write, as a box", () => {
 			const seen = probe.render({
 				bodyHtml: fixture(1107), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
 				probes: {
@@ -535,13 +538,13 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			});
 			const notes = seen.get("notes");
 			expect(notes.missing, "the notes box did not render").toBe(false);
-			// The ruling is gone — no lined paper, and nothing else painted behind the text either.
+			// The ruling is gone — no lined paper painted behind the text.
 			expect(notes.get("background-image"), "the writing area is still ruled").toBe("none");
-			// What replaces it: the sheet's own one-rule idiom, and nothing closing the other sides.
+			// The frame closes on every side, which is what tells it apart from a rule to write on.
 			expect(parseFloat(notes.get("border-bottom-width"))).toBeGreaterThan(0);
-			expect(notes.get("border-top-width")).toBe("0px");
-			expect(notes.get("box-shadow"), "core's inset box is still drawn round it").toBe("none");
-			expect(notes.get("border-radius")).toBe("0px");
+			expect(parseFloat(notes.get("border-top-width"))).toBeGreaterThan(0);
+			expect(notes.get("box-shadow"), "core's inset box is not drawn round it").not.toBe("none");
+			expect(parseFloat(notes.get("border-radius"))).toBeGreaterThan(0);
 			// And it grows with what is written in it, like every other note on these sheets.
 			expect(notes.get("field-sizing"), "the box does not grow with its text").toBe("content");
 		});
