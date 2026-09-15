@@ -31,6 +31,32 @@ describe("markdownBlocks", () => {
 			.toEqual(['<pre class="code "><code>first\nsecond</code></pre>']);
 	});
 
+	it("keeps a fill-in-the-blank out of the emphasis pass", () => {
+		expect(markdownBlocks("\u25c7\u25c7 A shield, bearing ___\u2019s crest"))
+			.toEqual(["\u25c7\u25c7 A shield, bearing ___\u2019s crest"]);
+		expect(markdownBlocks("How is ________ weak or vulnerable?"))
+			.toEqual(["How is ________ weak or vulnerable?"]);
+		expect(markdownBlocks("Can I trust them (to _____)?"))
+			.toEqual(["Can I trust them (to _____)?"]);
+	});
+
+	it("keeps two blanks in one line as two blanks, not a bold run between them", () => {
+		expect(markdownBlocks("__\u2019s kid/sibling/parent/cousin/__"))
+			.toEqual(["__\u2019s kid/sibling/parent/cousin/__"]);
+	});
+
+	it("still renders emphasis around a blank", () => {
+		expect(markdownBlocks("When you **_Seek Insight_**, how is ___ weak?"))
+			.toEqual(["When you <strong><em>Seek Insight</em></strong>, how is ___ weak?"]);
+		expect(markdownBlocks("a _close_ blank ___ here"))
+			.toEqual(["a <em>close</em> blank ___ here"]);
+	});
+
+	it("leaves a blank inside a code block alone", () => {
+		expect(markdownBlocks("```\nname ___ here\n```"))
+			.toEqual(['<pre class="code "><code>name ___ here</code></pre>']);
+	});
+
 	it("leaves a shielded sentinel untouched", () => {
 		expect(markdownBlocks("see \uf8ff0\uf8ff now\nand again"))
 			.toEqual(["see \uf8ff0\uf8ff now<br />and again"]);

@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import fs from "node:fs";
+import path from "node:path";
 import { ChoiceValues } from "../../../../src/model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../../../../src/model/snapshot/character/buildChoiceGroup.js";
 import { RichText } from "../../../../src/model/snapshot/RichText.js";
@@ -49,5 +51,22 @@ describe("buildChoiceGroup — optional section title", () => {
 	});
 	it("defaults `title` to null when the group def has none (follower groups)", () => {
 		expect(buildChoiceGroup({ slug: "g", list: [] }).title).toBeNull();
+	});
+});
+
+describe("buildChoiceGroup — the Lightbearer's write-in origin", () => {
+	const lightbearer = JSON.parse(fs.readFileSync(
+		path.join(process.cwd(), "packs/src/playbooks/the-lightbearer.json"), "utf8"));
+	const origin = lightbearer.system.choices.find(g => g.slug === "helior-powers-origin");
+	const row    = () => buildChoiceGroup(origin, new ChoiceValues()).list.find(r => r.slug === "first-sight");
+
+	// The last "You Came Into Your Powers…" option is open-ended, so it needs somewhere to write the
+	// answer — the same inline box the Judge's intro questions use.
+	it("gives the open-ended option an inline write-in box", () => {
+		expect(row().input).toMatchObject({ slug: "first-sight-input", type: "inline", value: "" });
+	});
+
+	it("keeps the printed blank in the label instead of bolding the line", () => {
+		expect(row().content.text.render()).toBe("… when you first laid eyes upon the _______.");
 	});
 });

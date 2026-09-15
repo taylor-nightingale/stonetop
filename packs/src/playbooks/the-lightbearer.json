@@ -498,6 +498,9 @@
             },
             "track": {
               "max": 1
+            },
+            "input": {
+              "type": "inline"
             }
           }
         ]
