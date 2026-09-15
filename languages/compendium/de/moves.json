@@ -860,7 +860,7 @@
     },
     "moveResults/failure/value": {
       "source": "The GM makes a move.",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "condemn": {
@@ -1607,7 +1607,7 @@
     },
     "description": {
       "source": "When you **_grip the staff, close your eyes, and see through the Lidless Orb_**, roll +CON: **on a 10+**, choose 3 from the list below; **on a 7-9**, choose 1.\n- The orb sees through darkness, natural or magical\n- The orb sees through illusion, glamour, and invisibility\n- The orb can see strong emotions as auras radiating from people and lingering\n- on places\n- You can move about and operate effectively while seeing through the orb (otherwise, not so much) Whatever you choose, the effect lasts until you open your eyes or let go of the staff.\n\n**On a 6-**, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.",
-      "text": ""
+      "text": "Wenn du **_den Stab umfasst, die Augen schließt und durch die lidlose Kugel siehst_**, würfle +KO. **Bei einer 10+** wähle 3 aus der folgenden Liste. **Bei 7–9** wähle 1.\n\n\n- Die Kugel sieht durch natürliche oder magische Dunkelheit hindurch.\n- Die Kugel sieht durch Illusionen, Trugbilder und Unsichtbarkeit hindurch.\n- Die Kugel kann starke Emotionen als Auren erkennen, die von Menschen ausstrahlen und an Orten verweilen.\n- Du kannst dich bewegen und effektiv handeln, während du durch die Kugel siehst (andernfalls eher nicht).\n\nWas auch immer du wählst, der Effekt hält an, bis du die Augen öffnest oder den Stab loslässt.\n\nBei einer 6− zeigt dir die Kugel eine schreckliche Vision von einem fernen Ort oder einer fernen Zeit. Markiere 1 (oder siehe unten) und frage den SL, was du siehst. Solange die Vision andauert, nimmst du die Welt um dich herum nicht wahr und du hast bei deinem ersten Wurf, nachdem du wieder zu dir gekommen bist, einen Nachteil."
     },
     "moveResults/success/value": {
       "source": "choose 3 from the list below",
@@ -1741,7 +1741,7 @@
   "heroic-reputation": {
     "name": {
       "source": "Heroic Reputation",
-      "text": ""
+      "text": "Heldenhafter Ruf"
     },
     "description": {
       "source": "When you **_first meet someone from beyond Stonetop_**, roll +Fortunes: **on a 10+**, say what they’ve heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they’ve heard; **on a 6-**, the GM decides what they’ve heard.",
@@ -2477,7 +2477,7 @@
     },
     "moveResults/partial/value": {
       "source": "Ask 1 question.",
-      "text": ""
+      "text": "Stelle 1 Frage."
     },
     "moveResults/failure/value": {
       "source": "Ask 1 question, but the GM describes some trouble that stems from the inn or its guests.",
@@ -3053,7 +3053,7 @@
     },
     "description": {
       "source": "When you **_roil with anger_**, you do +1 damage until you calm down. But when you **_try to control your_** **_temper_**, roll +WIS: **on a 10+**, you keep your cool and act as you wish; **on a 7-9**, choose 1 from the list below; **on a 6-**, you just lose it—tell the GM what damn fool thing you end up doing.\n- Take some deep breaths and count to ten, fuming all the while\n- Vent your rage, but tell us how and on what",
-      "text": ""
+      "text": "Wenn du **_vor Wut kochst_**, verursachst du +1 Schaden, bis du dich wieder beruhigt hast. Wenn du **_jedoch versuchst, dein Temperament zu zügeln_**, würfle +WE. **Bei einer 10+** behältst du einen kühlen Kopf und handelst, wie du willst. **Bei 7–9** wählst du 1 aus der folgenden Liste. **Bei einer 6-** drehst du einfach durch – sag dem SL, was für eine Dummheiten du am Ende anstellst.\n- Atme einige Male tief durch und zähle bis zehn, während du die ganze Zeit vor Wut kochst.\n- Lass deiner Wut freien Lauf, aber erzähle uns, wie und worüber."
     },
     "moveResults/success/value": {
       "source": "you keep your cool and act as you wish",
@@ -3147,15 +3147,15 @@
       "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
       "needsReview": true
     },
-    "steps/0/text": {
+    "steps/when-autumn-falls-and-the-land/text": {
       "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes.",
       "text": ""
     },
-    "steps/2/text": {
+    "steps/whatever-the-result-reset-fortunes-to/text": {
       "source": "Whatever the result, reset Fortunes to +1.",
       "text": ""
     },
-    "steps/3/text": {
+    "steps/when-the-harvest-is-complete-roll/text": {
       "source": "When **_the harvest is complete_**, roll 1d4; the steading generates that much Surplus.",
       "text": ""
     }
@@ -3184,11 +3184,11 @@
       "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück.",
       "needsReview": true
     },
-    "steps/0/text": {
+    "steps/when-spring-bursts-forth-upon-the/text": {
       "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes.",
       "text": ""
     },
-    "steps/2/text": {
+    "steps/reset-fortunes-to-1/text": {
       "source": "Reset Fortunes to +1.",
       "text": ""
     }
@@ -3217,15 +3217,15 @@
       "text": "Eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
       "needsReview": true
     },
-    "steps/0/text": {
+    "steps/when-the-hot-days-of-summer/text": {
       "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes.",
       "text": ""
     },
-    "steps/2/text": {
+    "steps/the-steading-generates-1d4-1-surplus/text": {
       "source": "The steading generates 1d4-1 Surplus.",
       "text": ""
     },
-    "steps/3/text": {
+    "steps/then-reset-fortunes-to-1/text": {
       "source": "Then, reset Fortunes to +1.",
       "text": ""
     }
@@ -3255,23 +3255,23 @@
       "text": "Wie bei 7-9 aber die Bedrohungen nehmen überhand (markiere keine EP).n\nSetze dann Schicksal auf +1 zurück.",
       "needsReview": true
     },
-    "steps/0/text": {
+    "steps/when-winter-grips-the-land-whoever/text": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population.",
       "text": ""
     },
-    "steps/1/text": {
+    "steps/the-steading-consumes-that-much-surplus/text": {
       "source": "The steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}.",
       "text": ""
     },
-    "steps/2/text": {
+    "steps/then-pick-1/text": {
       "source": "Then, pick 1:",
       "text": ""
     },
-    "steps/3/text": {
+    "steps/then-roll-fortunes/text": {
       "source": "Then, roll +Fortunes.",
       "text": ""
     },
-    "steps/4/text": {
+    "steps/reset-fortunes-to-1/text": {
       "source": "Reset Fortunes to +1.",
       "text": ""
     }
@@ -3539,7 +3539,7 @@
     },
     "description": {
       "source": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr.",
-      "text": ""
+      "text": "Wenn du **_einige Tage lang übst und dabei die Flöte dort spielst, wo der Wind dich hören kann_**, würfle +CH. **Bei einer 10+** markiere 1 Kreis. **Bei 7–9** markiere 1 Kreis, aber du beschwörst einen zornigen Zephyrgeist. Bei einer **6−** machst du keine Fortschritte, schaffst es aber dennoch, einen zornigen Zephyrgeist zu beschwören."
     },
     "moveResults/success/value": {
       "source": "mark 1 circle",
@@ -3615,7 +3615,7 @@
     },
     "moveResults/success/value": {
       "source": "the effect occurs as described",
-      "text": ""
+      "text": "Der Effekt tritt wie beschrieben ein"
     },
     "moveResults/partial/value": {
       "source": "the effect occurs, but only if you mark 1 Consequence",

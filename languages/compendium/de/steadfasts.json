@@ -312,75 +312,75 @@
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "impressions/0/text": {
+    "impressions/drip-drip-drip-of-snow-melting/text": {
       "source": "Drip drip drip of snow melting from roofs, collecting in jugs and puddles",
       "text": ""
     },
-    "impressions/1/text": {
+    "impressions/petrichor-smell-on-a-southerly-breeze/text": {
       "source": "Petrichor smell on a southerly breeze",
       "text": ""
     },
-    "impressions/2/text": {
+    "impressions/hopeful-green-poking-through-deadbrown-grass/text": {
       "source": "Hopeful green poking through deadbrown grass and soil",
       "text": ""
     },
-    "impressions/3/text": {
+    "impressions/bare-skin-reveling-in-the-still/text": {
       "source": "Bare skin reveling in the still-chilly sun; cheerful voices; smiles and songs",
       "text": ""
     },
-    "impressions/4/text": {
+    "impressions/blinding-sun-outside-cave-like-dark/text": {
       "source": "Blinding sun outside, cave-like dark inside",
       "text": ""
     },
-    "impressions/5/text": {
+    "impressions/crops-swaying-and-rippling-in-the/text": {
       "source": "Crops swaying and rippling in the breeze",
       "text": ""
     },
-    "impressions/6/text": {
+    "impressions/fireflies-like-galaxies-over-the-fields/text": {
       "source": "Fireflies like galaxies over the fields at dusk",
       "text": ""
     },
-    "impressions/7/text": {
+    "impressions/dark-storm-clouds-looming-in-the/text": {
       "source": "Dark storm clouds looming in the south, rumbling, flashing",
       "text": ""
     },
-    "impressions/8/text": {
+    "impressions/crackoom-of-thunder-blinding-flash-as/text": {
       "source": "CRACKOOM of thunder, blinding flash as lightning touches the Stone",
       "text": ""
     },
-    "impressions/9/text": {
+    "impressions/crops-bobbing-heavy-with-seed-the/text": {
       "source": "Crops bobbing heavy with seed, the Great Wood aflame with color",
       "text": ""
     },
-    "impressions/10/text": {
+    "impressions/work-song-shouts-and-laughter-grunts/text": {
       "source": "Work-song, shouts and laughter, grunts of effort",
       "text": ""
     },
-    "impressions/11/text": {
+    "impressions/rosy-cheeks-breath-visible-in-the/text": {
       "source": "Rosy cheeks, breath visible in the morning air",
       "text": ""
     },
-    "impressions/12/text": {
+    "impressions/cold-steady-rain/text": {
       "source": "Cold, steady rain",
       "text": ""
     },
-    "impressions/13/text": {
+    "impressions/roofs-covered-in-thick-white-blankets/text": {
       "source": "Roofs covered in thick white blankets",
       "text": ""
     },
-    "impressions/14/text": {
+    "impressions/trodden-down-paths-in-the-snow/text": {
       "source": "Trodden-down paths in the snow, brown and gray",
       "text": ""
     },
-    "impressions/15/text": {
+    "impressions/cloaks-drawn-tight-against-a-bitter/text": {
       "source": "Cloaks drawn tight against a bitter wind",
       "text": ""
     },
-    "impressions/16/text": {
+    "impressions/families-gathered-round-the-hearth-hands/text": {
       "source": "Families gathered ‘round the hearth, hands busy with inside chores",
       "text": ""
     },
-    "impressions/17/text": {
+    "impressions/yeasty-smell-of-fermenting-barley/text": {
       "source": "Yeasty smell of fermenting barley",
       "text": ""
     },
@@ -432,19 +432,19 @@
       "source": "Some bows",
       "text": "Einige Bögen"
     },
-    "assets/items/0/text": {
+    "assets/items/a-pair-of-hardy-draft-horses/text": {
       "source": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
       "text": "Zwei robuste Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege."
     },
-    "assets/items/1/text": {
+    "assets/items/a-pair-of-horse-drawn-plows/text": {
       "source": "A pair of horse-drawn plows, iron",
       "text": "Zwei von Pferden gezogene Pflüge, Eisen"
     },
-    "assets/items/2/text": {
+    "assets/items/a-pair-of-carts-plus-horse/text": {
       "source": "A pair of carts (plus horse harness)",
       "text": "Zwei Karren (einschließlich Pferdegeschirr)"
     },
-    "assets/items/3/text": {
+    "assets/items/a-wagon-plus-horse-harness/text": {
       "source": "A wagon (plus horse harness)",
       "text": "Ein Wagen (einschließlich Pferdegeschirr)"
     },
@@ -730,7 +730,7 @@
     },
     "residents/traits/curious": {
       "source": "curious",
-      "text": ""
+      "text": "neugierig"
     },
     "residents/traits/happy-go-lucky": {
       "source": "happy-go-lucky",
@@ -808,27 +808,27 @@
       "source": "will eat anything",
       "text": ""
     },
-    "placesOfInterest/0/name": {
+    "placesOfInterest/the-stone/name": {
       "source": "The Stone",
       "text": "Der Stein"
     },
-    "placesOfInterest/1/name": {
+    "placesOfInterest/the-granary/name": {
       "source": "The Granary",
       "text": "Der Getreidespeicher"
     },
-    "placesOfInterest/2/name": {
+    "placesOfInterest/public-house-stables/name": {
       "source": "Public House & Stables",
       "text": "Schänke & Stallungen"
     },
-    "placesOfInterest/3/name": {
+    "placesOfInterest/cistern/name": {
       "source": "Cistern",
       "text": "Zisterne"
     },
-    "placesOfInterest/4/name": {
+    "placesOfInterest/pavilion-of-the-gods/name": {
       "source": "Pavilion of the Gods",
       "text": "Pavillon der Götter"
     },
-    "placesOfInterest/5/name": {
+    "placesOfInterest/watchtowers/name": {
       "source": "Watchtowers",
       "text": "Wachtürme"
     },
@@ -874,7 +874,7 @@
     },
     "neighborPlaces/barrier-pass/name": {
       "source": "Barrier Pass",
-      "text": ""
+      "text": "Barrierenpass"
     },
     "neighborPlaces/barrier-pass/travel": {
       "source": "5 days",
@@ -886,8 +886,7 @@
     },
     "neighborPlaces/other/subtitle": {
       "source": "The Manmarch, etc.",
-      "text": "Barrierenpass, die Grenzmark, usw.",
-      "needsReview": true
+      "text": "die Grenzmark, usw."
     },
     "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming": {
       "source": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",

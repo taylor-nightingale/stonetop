@@ -51,13 +51,13 @@ describe("translatableEntries", () => {
 		expect(byKey(after, "backgrounds/patriot/description").path).toBe("system.backgrounds.1.description");
 	});
 
-	it("falls back to the index for elements with no slug", () => {
+	it("names a slugless element by its own content rather than its index", () => {
 		const source = { system: { appearance: { list: [
 			{ content: { text: "upstart youth" } },
 			{ slug: "weathered", content: { text: "weathered" } },
 		] } } };
 		const entries = translatableEntries(source, ["system.appearance.list[].content.text"]);
-		expect(keys(entries)).toEqual(["appearance/0/text", "appearance/weathered/text"]);
+		expect(keys(entries)).toEqual(["appearance/upstart-youth/text", "appearance/weathered/text"]);
 	});
 
 	it("drops the structural list and content segments from the key", () => {
@@ -164,13 +164,62 @@ describe("keys for array elements with no slug", () => {
 		]);
 	});
 
-	it("still keys objects by slug, and falls back to index only for slugless objects", () => {
+	it("prefers a slug, and names the rest by content", () => {
 		const source = { system: { choices: [{ slug: "g", list: [
 			{ slug: "row-a", content: { text: "A" } },
 			{ content: { text: "B" } },
 		] }] } };
 		expect(keys(translatableEntries(source, ["system.choices[].list[].content.text"])))
-			.toEqual(["choices/g/row-a/text", "choices/g/1/text"]);
+			.toEqual(["choices/g/row-a/text", "choices/g/b/text"]);
+	});
+
+	// The reason this branch exists at all: steading improvements are 56% slugless rows, and an
+	// insertion near the top used to slide every translation below it onto its neighbour's sentence.
+	it("keeps a slugless row's key stable when a row is inserted above it", () => {
+		const row  = text => ({ content: { text } });
+		const path = ["system.choices[].list[].content.text"];
+		const before = translatableEntries({ system: { choices: [{ slug: "g", list: [row("And then:"), row("Pull together.")] }] } }, path);
+		const after  = translatableEntries({ system: { choices: [{ slug: "g", list: [row("Requires:"), row("And then:"), row("Pull together.")] }] } }, path);
+		expect(keys(before)).toContain("choices/g/pull-together/text");
+		expect(keys(after)).toContain("choices/g/pull-together/text");
+	});
+
+	it("names a row by its title in preference to its text", () => {
+		const source = { system: { choices: [{ slug: "g", list: [
+			{ content: { title: "Praise the day", text: "You are the appointed servant…" } },
+		] }] } };
+		expect(keys(translatableEntries(source, ["system.choices[].list[].content.title"])))
+			.toEqual(["choices/g/praise-the-day/title"]);
+	});
+
+	// Shapes with no `content` block at all: an effect, a step, an origin, a member.
+	it("names a content-less object by its own text, name or region", () => {
+		const entries = translatableEntries(
+			{ system: { effects: [{ text: "increase Fortunes by 1" }], origin: [{ region: "Stonetop" }] } },
+			["system.effects[].text", "system.origin[].region"]);
+		expect(keys(entries)).toEqual(["effects/increase-fortunes-by-1/text", "origin/stonetop/region"]);
+	});
+
+	it("truncates a long name so a key stays readable", () => {
+		const long = "When you meet the requirements, increase Fortunes by 1 and add it to the map";
+		const entries = translatableEntries({ system: { effects: [{ text: long }] } }, ["system.effects[].text"]);
+		expect(keys(entries)).toEqual(["effects/when-you-meet-the-requirements-increase/text"]);
+	});
+
+	it("still falls back to the index for a row that carries no words of its own", () => {
+		const source = { system: { choices: [{ slug: "g", list: [
+			{ type: "pick", pickCount: 1, options: [{ slug: "sword", text: "Sword" }] },
+		] }] } };
+		expect(keys(translatableEntries(source, ["system.choices[].list[].options[].text"])))
+			.toEqual(["choices/g/0/options/sword/text"]);
+	});
+
+	it("disambiguates two slugless rows that say the same thing", () => {
+		const source = { system: { choices: [{ slug: "g", list: [
+			{ content: { text: "Same" } }, { content: { text: "Same" } },
+		] }] } };
+		expect(keys(translatableEntries(source, ["system.choices[].list[].content.text"])))
+			.toEqual(["choices/g/same/0/text", "choices/g/same/1/text"]);
 	});
 
 	// Two rows sharing a slug is a data bug; letting the key collide is how the extractor reports it.

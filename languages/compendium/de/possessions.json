@@ -182,7 +182,7 @@
     },
     "outfitItems/a-hunk-of-amber/note": {
       "source": "Value 2",
-      "text": ""
+      "text": "Wert 2"
     }
   },
   "a-large-urn": {
@@ -433,7 +433,7 @@
     },
     "outfitItems/an-oversized-ring/note": {
       "source": "Value 4",
-      "text": ""
+      "text": "Wert 4"
     }
   },
   "apiary": {
@@ -575,7 +575,7 @@
     },
     "outfitItems/bronze-ring/note": {
       "source": "hours",
-      "text": ""
+      "text": "Stunden"
     }
   },
   "burglars-kit": {
@@ -729,7 +729,7 @@
     },
     "outfitItems/composite-bow/resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": "geringe Munition"
+      "text": "wenig Munition"
     },
     "outfitItems/composite-bow/resource/labels/all-out": {
       "source": "all out",
@@ -1507,7 +1507,7 @@
     },
     "outfitItems/two-mirrors/note": {
       "source": "Value 4",
-      "text": ""
+      "text": "Wert 4"
     }
   },
   "weapons-of-war-heavy": {
@@ -1585,7 +1585,7 @@
     },
     "choices/0/options/crossbow/outfitItems/crossbow/resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": "geringe Munition"
+      "text": "wenig Munition"
     },
     "choices/0/options/crossbow/outfitItems/crossbow/resource/labels/all-out": {
       "source": "all out",
@@ -1655,7 +1655,7 @@
     },
     "choices/0/options/composite-bow/outfitItems/composite-bow/resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": "geringe Munition"
+      "text": "wenig Munition"
     },
     "choices/0/options/composite-bow/outfitItems/composite-bow/resource/labels/all-out": {
       "source": "all out",

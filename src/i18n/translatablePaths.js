@@ -255,10 +255,46 @@ const UNKEYED_SEGMENTS = new Set(["system", "list", "content"]);
 // Content beats index because an index moves: insert one asset near the top of a list and every
 // translation below it silently slides onto the wrong string. A content key survives reordering and
 // insertion, and a reworded string orphans its own translation — which is the correct signal.
+// How a slugless object names itself, best first: a title is what a reader calls the row, its text
+// is the row, and the bare fields cover the shapes that carry no `content` block at all — effects,
+// steps, origins, members.
+const NAME_SOURCES = [
+	element => element?.content?.title,
+	element => element?.content?.subtitle,
+	element => element?.content?.text,
+	element => element?.text,
+	element => element?.name,
+	element => element?.region,
+	element => element?.label,
+];
+
+// Long enough to stay unique in practice, short enough that a key is still readable in a diff.
+const KEY_WORDS = 6;
+
+function contentSegment(element) {
+	for (const read of NAME_SOURCES) {
+		const value = read(element);
+		if (typeof value !== "string" || !value.trim()) continue;
+		const segment = toSlug(value).split("-").slice(0, KEY_WORDS).join("-");
+		if (segment) return segment;
+	}
+	return null;
+}
+
+// A slugless object has to be addressable by something other than its position: insert one row near
+// the top of a list and every index below it shifts, silently re-pointing each translation onto its
+// neighbour's sentence. The row's own content is the only stable identity available — the row IS its
+// words. That does make the key change when the English changes, which is the right trade: the entry
+// then comes back flagged for a human instead of staying quietly attached to a different string.
+//
+// Position remains the last resort, for rows that carry no words of their own (a picker that holds
+// nothing but its options).
 function keySegmentFor(element, index) {
 	const slug = element?.slug;
 	if (typeof slug === "string" && slug.trim()) return { segment: slug, fromContent: false };
 	if (typeof element === "string" && element.trim()) return { segment: toSlug(element), fromContent: true };
+	const named = contentSegment(element);
+	if (named) return { segment: named, fromContent: true };
 	return { segment: String(index), fromContent: false };
 }
 

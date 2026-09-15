@@ -21,6 +21,10 @@ export class AwaitingEntry {
 	get label() {
 		return `${this.pack}/${this.slug} ${this.key}`;
 	}
+
+	withKey(key) {
+		return new AwaitingEntry(this.pack, this.slug, key);
+	}
 }
 
 export class AwaitingTranslator {
@@ -59,6 +63,22 @@ export class AwaitingTranslator {
 	staleAgainst(flagged) {
 		const stillFlagged = (entry) => flagged.some(f => entry.matches(f.pack, f.slug, f.entry.key));
 		return this.entries.filter(entry => !stillFlagged(entry));
+	}
+
+	/**
+	 * The same acknowledgements after a key-scheme change. An acknowledgement addresses an entry, so
+	 * it has to follow that entry to its new key — otherwise every renamed entry reads as new drift
+	 * and the build goes red over work a human has already triaged.
+	 *
+	 * @param {string} pack
+	 * @param {Map<string, Map<string, string>>} renames  slug → old key → new key
+	 */
+	renamed(pack, renames) {
+		return new AwaitingTranslator(this.entries.map(entry => {
+			if (entry.pack !== pack) return entry;
+			const key = renames.get(entry.slug)?.get(entry.key);
+			return key ? entry.withKey(key) : entry;
+		}));
 	}
 
 	/** Only the entries for one pack, so a per-pack report need not scan the whole file. */

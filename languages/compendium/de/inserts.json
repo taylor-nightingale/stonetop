@@ -8,19 +8,19 @@
       "source": "When you *die but your soul lingers*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",
       "text": ""
     },
-    "choices/terrible-purpose/0/title": {
+    "choices/terrible-purpose/terrible-purpose/title": {
       "source": "Terrible Purpose",
       "text": ""
     },
-    "choices/terrible-purpose/0/text": {
+    "choices/terrible-purpose/terrible-purpose/text": {
       "source": "Choose 1:",
       "text": ""
     },
-    "choices/consequences/0/title": {
+    "choices/consequences/consequences/title": {
       "source": "Consequences",
-      "text": ""
+      "text": "Konsequenzen"
     },
-    "choices/consequences/0/text": {
+    "choices/consequences/consequences/text": {
       "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
       "text": ""
     },
@@ -168,7 +168,7 @@
     },
     "choices/lightbearer-invocations/go-back-to-the-shadow/subtitleNote": {
       "source": "(ongoing)",
-      "text": ""
+      "text": "(Dauerhaft)"
     },
     "choices/lightbearer-invocations/go-back-to-the-shadow/text": {
       "source": "Spirits of darkness in your light take 2d8 damage (ignores armor). Roll damage for each spirit separately. A spirit reduced to 0 HP is either banished from this world or back to whatever tethers it here.\n\n**Reduced:** affected spirits take only 1d8 damage.\n**Empowered:** a spirit reduced to 0 HP is either utterly destroyed OR it's banished from the world and anything tethering it here is destroyed (GM's choice).",
@@ -232,19 +232,19 @@
       "source": "When you *die but cling stubbornly to your body*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",
       "text": ""
     },
-    "choices/terrible-purpose/0/title": {
+    "choices/terrible-purpose/terrible-purpose/title": {
       "source": "Terrible Purpose",
       "text": ""
     },
-    "choices/terrible-purpose/0/text": {
+    "choices/terrible-purpose/terrible-purpose/text": {
       "source": "Choose 1:",
       "text": ""
     },
-    "choices/consequences/0/title": {
+    "choices/consequences/consequences/title": {
       "source": "Consequences",
-      "text": ""
+      "text": "Konsequenzen"
     },
-    "choices/consequences/0/text": {
+    "choices/consequences/consequences/text": {
       "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
       "text": ""
     },
@@ -334,43 +334,43 @@
       "source": "When you *die but call one of the Things Below by name and beseech them to intercede*, they do. Death is averted, but you gain this insert and 1 Mark.",
       "text": ""
     },
-    "choices/your-master/0/title": {
+    "choices/your-master/your-master/title": {
       "source": "Your Master",
       "text": ""
     },
-    "choices/your-master/0/text": {
+    "choices/your-master/your-master/text": {
       "source": "The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.",
       "text": ""
     },
-    "choices/impulse/0/title": {
+    "choices/impulse/impulse/title": {
       "source": "Impulse",
       "text": ""
     },
-    "choices/impulse/0/text": {
+    "choices/impulse/impulse/text": {
       "source": "Ask the GM to choose 1, to represent your master's nature and will:",
       "text": ""
     },
-    "choices/terrible-purpose/0/title": {
+    "choices/terrible-purpose/terrible-purpose/title": {
       "source": "Terrible Purpose",
       "text": ""
     },
-    "choices/terrible-purpose/0/text": {
+    "choices/terrible-purpose/terrible-purpose/text": {
       "source": "Choose 1:",
       "text": ""
     },
-    "choices/consequences/0/title": {
+    "choices/consequences/consequences/title": {
       "source": "Consequences",
-      "text": ""
+      "text": "Konsequenzen"
     },
-    "choices/consequences/0/text": {
+    "choices/consequences/consequences/text": {
       "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
       "text": ""
     },
-    "choices/marks/0/title": {
+    "choices/marks/marks/title": {
       "source": "Marks",
-      "text": ""
+      "text": "Markierungen"
     },
-    "choices/marks/0/text": {
+    "choices/marks/marks/text": {
       "source": "When you first gain this insert, the GM will choose 1 Mark based on your master's nature. Gain more when a move tells you to do so.",
       "text": ""
     },

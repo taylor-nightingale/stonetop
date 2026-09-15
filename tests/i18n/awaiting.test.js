@@ -72,3 +72,34 @@ describe("AwaitingTranslator", () => {
 		expect(AwaitingTranslator.fromJson(file).toJson()).toEqual(file);
 	});
 });
+
+describe("AwaitingTranslator.renamed", () => {
+	const awaiting = () => AwaitingTranslator.fromJson({
+		moves:  { bolster: ["description"] },
+		arcana: { mindgem: ["front/choices/0/text"] },
+	});
+	const renames = new Map([["mindgem", new Map([["front/choices/0/text", "front/choices/a-clear-gem/text"]])]]);
+
+	it("moves an acknowledgement to the entry's new key", () => {
+		expect(awaiting().renamed("arcana", renames).has("arcana", "mindgem", "front/choices/a-clear-gem/text")).toBe(true);
+		expect(awaiting().renamed("arcana", renames).has("arcana", "mindgem", "front/choices/0/text")).toBe(false);
+	});
+
+	it("leaves other packs alone", () => {
+		expect(awaiting().renamed("arcana", renames).has("moves", "bolster", "description")).toBe(true);
+	});
+
+	it("leaves a key the rename map does not mention", () => {
+		expect(awaiting().renamed("moves", new Map()).has("moves", "bolster", "description")).toBe(true);
+	});
+
+	it("does not change how many entries are acknowledged", () => {
+		expect(awaiting().renamed("arcana", renames).size).toBe(awaiting().size);
+	});
+
+	it("leaves the original untouched", () => {
+		const original = awaiting();
+		original.renamed("arcana", renames);
+		expect(original.has("arcana", "mindgem", "front/choices/0/text")).toBe(true);
+	});
+});

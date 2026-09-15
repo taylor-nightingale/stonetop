@@ -10,7 +10,8 @@
 import { pathToFileURL } from "url";
 import { englishCatalogForPack } from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
-import { TRANSLATED_PACKS, awaitingPath, listLanguages, readAuthoring, readJson } from "./files.js";
+import { TRANSLATED_PACKS, awaitingPath, listLanguages, readJson } from "./files.js";
+import { corpusFor } from "./corpus.js";
 import { reconcileTagLabels } from "./tagLabels.js";
 import { AwaitingTranslator } from "./awaiting.js";
 import { detail, staleLines, summarise } from "./report.js";
@@ -32,9 +33,14 @@ export async function check({ root = "." } = {}) {
 			flagged.push(...result.flaggedEntries);
 		};
 
+		// The same corpus pass extract performs, in memory only: without it an orphan that extract
+		// would relocate to another pack reads here as unresolved drift and fails the build.
+		const corpus = await corpusFor(lang, root);
+		corpus.apply();
+
 		for (const pack of TRANSLATED_PACKS) {
 			const english = await englishCatalogForPack(pack, root);
-			report(reconcile(lang, pack, english, await readAuthoring(lang, pack, root)));
+			report(reconcile(lang, pack, english, corpus.packs.get(pack).authoring));
 		}
 		report(await reconcileTagLabels(lang, root));
 

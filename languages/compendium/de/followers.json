@@ -24,7 +24,7 @@
       "source": "wonder, joy",
       "text": "Wunder, Freude"
     },
-    "choices/choices/0/title": {
+    "choices/choices/pick-1-on-each-line/title": {
       "source": "Pick 1 on each line",
       "text": "Wähle eines in jeder Zeile"
     },
@@ -212,7 +212,7 @@
     },
     "companion/catalog/predator/name": {
       "source": "Predator",
-      "text": ""
+      "text": "Raubtier"
     },
     "companion/catalog/predator/damage": {
       "source": "[[/r 1d8]] (hand, grabby)",
@@ -634,7 +634,7 @@
       "source": "knowledge, secret lore",
       "text": "Wissen, geheime Überlieferungen"
     },
-    "choices/choices/0/title": {
+    "choices/choices/pick-1-on-each-line/title": {
       "source": "Pick 1 on each line",
       "text": "Wähle eines in jeder Zeile"
     },
@@ -734,7 +734,7 @@
       "source": "consideration, affection",
       "text": "Rücksichtnahme, Zuneigung"
     },
-    "choices/choices/0/title": {
+    "choices/choices/pick-1-on-each-line/title": {
       "source": "Pick 1 on each line",
       "text": "Wähle eines in jeder Zeile"
     },
@@ -908,7 +908,7 @@
       "source": "tenderness, respect",
       "text": "Zärtlichkeit, Respekt"
     },
-    "choices/choices/0/title": {
+    "choices/choices/pick-1-on-each-line/title": {
       "source": "Pick 1 on each line",
       "text": "Wähle eines in jeder Zeile"
     },
@@ -1012,7 +1012,7 @@
       "source": "deference, good sense shown",
       "text": "Ehrerbietung, gesundes Urteilsvermögen"
     },
-    "choices/choices/0/title": {
+    "choices/choices/pick-1-on-each-line/title": {
       "source": "Pick 1 on each line",
       "text": "Wähle eines in jeder Zeile"
     },
@@ -1082,35 +1082,35 @@
       "source": "to devour",
       "text": ""
     },
-    "choices/servant-of-daagon/1/subtitle": {
+    "choices/servant-of-daagon/tags/subtitle": {
       "source": "Tags",
       "text": ""
     },
-    "choices/servant-of-daagon/3/subtitle": {
+    "choices/servant-of-daagon/no-appearing/subtitle": {
       "source": "No. Appearing",
       "text": ""
     },
-    "choices/servant-of-daagon/5/subtitle": {
+    "choices/servant-of-daagon/size/subtitle": {
       "source": "Size",
       "text": ""
     },
-    "choices/servant-of-daagon/7/subtitle": {
+    "choices/servant-of-daagon/traits/subtitle": {
       "source": "Traits",
       "text": ""
     },
-    "choices/servant-of-daagon/7/text": {
+    "choices/servant-of-daagon/traits/text": {
       "source": "Choose a number equal to the assigned die.",
       "text": ""
     },
-    "choices/servant-of-daagon/9/subtitle": {
+    "choices/servant-of-daagon/moves/subtitle": {
       "source": "Moves",
-      "text": ""
+      "text": "Spielzüge"
     },
-    "choices/servant-of-daagon/9/text": {
+    "choices/servant-of-daagon/moves/text": {
       "source": "Choose a number equal to the assigned die.",
       "text": ""
     },
-    "choices/servant-of-daagon/0/text": {
+    "choices/servant-of-daagon/each-time-you-call-up-the/text": {
       "source": "Each time you **_Call Up the Deep Ones_**, roll five d4s and assign each to a different aspect, then set this card's HP, damage and tags to match.",
       "text": ""
     },

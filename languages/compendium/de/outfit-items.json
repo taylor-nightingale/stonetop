@@ -200,7 +200,7 @@
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": "geringe Munition"
+      "text": "wenig Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
@@ -224,7 +224,7 @@
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": "geringe Munition"
+      "text": "wenig Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",
@@ -434,7 +434,7 @@
     },
     "resource/labels/all-out": {
       "source": "all out",
-      "text": "alle verbraucht)"
+      "text": "alle verbraucht"
     }
   },
   "knife-dagger": {
@@ -732,7 +732,7 @@
     },
     "resource/labels/low-ammo": {
       "source": "low ammo",
-      "text": "geringe Munition"
+      "text": "wenig Munition"
     },
     "resource/labels/all-out": {
       "source": "all out",

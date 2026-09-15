@@ -210,6 +210,36 @@ function rehomeOrphans(strings, authored) {
 	return rehomed;
 }
 
+// A title that was folded into the row below it. The new English is the old title followed by the
+// old text, and the translation of each half already exists — the title's under the orphaned key,
+// the remainder under the live one, where on its own it reads as a fragment. Four Lightbearer rows
+// were shipping "(wähle 1)" as the whole of a heading because of exactly this.
+//
+// Composition is allowed only when the English proves it: the live English must START with the
+// orphan's English, so the two halves are known to be in that order and nothing else came between.
+// It joins two human translations rather than writing one — but it is still a join, so every one is
+// reported rather than applied silently.
+function composeFoldedOrphans(strings, authored, onCompose) {
+	const composed = { ...authored };
+	for (const [key, orphan] of Object.entries(authored)) {
+		if (strings.has(key) || !translated(orphan) || !orphan.source) continue;
+
+		const hosts = [...strings].filter(([liveKey, english]) =>
+			english !== orphan.source
+			&& english.startsWith(orphan.source)
+			&& translated(composed[liveKey])
+			&& !composed[liveKey].text.includes(orphan.text.trim()));
+		if (hosts.length !== 1) continue;
+
+		const [hostKey, english] = hosts[0];
+		const text = `${orphan.text.trim()} ${composed[hostKey].text.trim()}`;
+		composed[hostKey] = { source: english, text };
+		delete composed[key];
+		onCompose?.({ key, hostKey, text });
+	}
+	return composed;
+}
+
 // The same German at two addresses is not two translations. An incoming installment still files a
 // string under the key it had before that row gained a slug, so once the identical German is live
 // at the new key the leftover is a duplicate, not lost work. This is the one case where an orphan
@@ -235,13 +265,16 @@ function withoutDuplicateOrphans(strings, authored) {
  * @param {Map<string, Map<string, Map<string, string>>>} english  type → slug → key → English
  * @param {object} authoring  the translator's file, slug → key → {source, text, ...}
  */
-export function reconcile(lang, pack, english, authoring = {}) {
+export function reconcile(lang, pack, english, authoring = {}, { onCompose } = {}) {
 	const documentsByType = new Map();
 
 	for (const [type, bySlug] of english) {
 		const documents = [];
 		for (const [slug, strings] of bySlug) {
-			const authored = withoutDuplicateOrphans(strings, rehomeOrphans(strings, authoring?.[slug] ?? {}));
+			const rehomed  = rehomeOrphans(strings, authoring?.[slug] ?? {});
+			const folded   = composeFoldedOrphans(strings, rehomed, composed =>
+				onCompose?.({ pack, slug, ...composed }));
+			const authored = withoutDuplicateOrphans(strings, folded);
 			const entries  = [...strings].map(([key, text]) => reconcileEntry(key, text, authored[key]));
 
 			// Anything the translator has that the packs no longer do. Kept, never deleted: a key can

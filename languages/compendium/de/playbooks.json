@@ -20,19 +20,19 @@
       "source": "Pick 2, in addition to your sacred pouch",
       "text": "Wähle 2, zusätzlich zu deinem heiligen Beutel"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/the-steplands/region": {
       "source": "The Steplands",
       "text": "Die Stufenlande"
     },
-    "origin/3/region": {
+    "origin/the-wild/region": {
       "source": "The Wild",
       "text": "Die Wildnis"
     },
@@ -80,35 +80,35 @@
       "source": "Seren the Eldest, wise and hard as winter",
       "text": "Seren die Älteste, weise und hart wie der Winter"
     },
-    "choices/sacred-pouch/0/title": {
+    "choices/sacred-pouch/sacred-pouch/title": {
       "source": "Sacred Pouch",
       "text": "Heliger Beutel"
     },
-    "choices/sacred-pouch/0/text": {
+    "choices/sacred-pouch/sacred-pouch/text": {
       "source": "Your sacred pouch (*magical*) doesn't take up space in your inventory. It can hold up to 3 Stock (sacred herbs, powders, stones, pigments, chalks, clay, and so forth). Each time you gain an even-numbered level, your pouch can hold +1 Stock. When **_anyone but you looks inside your sacred pouch and touches the materials therein_**, the Stock is ruined.\n\nWhen you **_have a few days of downtime in familiar terrain_**, you may replenish your Stock.\n\n When you **_Forage_**, you can produce Stock instead of provisions.",
       "text": "Dein heiliger Beutel (*Magisch*) verbraucht keinen Platz in deinem Inventar. Er kann bis zu 3 Vorrat aufnehmen (heilige Kräuter, Pulver, Steine, Pigmente, Kreiden, Lehm und dergleichen). Jedes Mal, wenn du eine gerade Stufe erreichst, kann dein Beutel +1 Vorrat aufnehmen. Wenn **jemand außer dir in deinen heiligen Beutel schaut und die darin enthaltenen Materialien berührt**, wird der Vorrat unbrauchbar.\n\nWenn du **dich ein paar Tage in einer sicherern und bequemen Umgebung ausruhst**, kannst du deinen Vorrat wieder auffüllen.\n\nWenn du **Nahrung suchst**, kannst du statt Proviant Vorrat herstellen."
     },
-    "choices/the-earth-mother/0/title": {
+    "choices/the-earth-mother/the-earth-mother/title": {
       "source": "The Earth Mother",
       "text": "Die Erdmutter"
     },
-    "choices/the-earth-mother/0/text": {
+    "choices/the-earth-mother/the-earth-mother/text": {
       "source": "Danu has long been revered by all peoples, though not always worshipped or served by priests. In Stonetop's Pavilion of the Gods, Danu's shrine is... *(choose 1)*",
       "text": "Danu wird seit langem von allen Völkern verehrt, wenn auch nicht immer Priester sie anbeten oder ihr dienen. Im Pavillon der Götter von Stonetop ist Danus Schrein … (Wähle 1)"
     },
-    "choices/sacred-pouch/1/titleNote": {
+    "choices/sacred-pouch/your-sacred-pouch-is/titleNote": {
       "source": "choose 1 on each line",
       "text": "Wähle jeweils 1 aus jeder Zeile"
     },
-    "choices/sacred-pouch/1/text": {
+    "choices/sacred-pouch/your-sacred-pouch-is/text": {
       "source": "Your sacred pouch is...",
       "text": "Dein heiliger Beutel ist…"
     },
-    "choices/sacred-pouch/5/titleNote": {
+    "choices/sacred-pouch/what-remarkable-trait-does-it-possess/titleNote": {
       "source": "choose 1",
       "text": "Wähle 1"
     },
-    "choices/sacred-pouch/5/text": {
+    "choices/sacred-pouch/what-remarkable-trait-does-it-possess/text": {
       "source": "What remarkable trait does it possess?",
       "text": "Welche außergewöhnliche Eigenschaft besitzt er?"
     },
@@ -128,7 +128,7 @@
       "source": "... neglected and all but forgotten, except by a few.",
       "text": "… vernachlässigt und nahezu vergessen, abgesehen von einigen wenigen."
     },
-    "choices/the-earth-mother/5/text": {
+    "choices/the-earth-mother/what-do-the-folk-of-stonetop/text": {
       "source": "What do the folk of Stonetop leave as offerings? *(choose 2–3)*",
       "text": "Was bringen die Bewohner von Stonetop als Opfergaben dar? (Wähle 2 bis 3)"
     },
@@ -382,23 +382,23 @@
       "source": "Pick 2",
       "text": "Wähle 2"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/3/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/4/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -426,23 +426,23 @@
       "source": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.\n\nWhen you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.",
       "text": "Du bist vor langer Zeit fortgegangen, bist weit gereist und hast dich mit Hilfe deines Verstandes durchgeschlagen. Warum bist du gegangen? Mit welchen Taten prahlst du, und welche bereust du?\n\nDu hast dich immer danach gesehnt, nach Stonetop zurückzukehren, und nun bist du wieder da. Inzwischen bist du so etwas wie eine Berühmtheit und hast überall in der bekannten Welt Freunde (oder zumindest Leute, die dir nahestehen).\n\nWenn du **_erklärst, dass du außerhalb von Stonetop jemanden kennst_**, der dir helfen kann, nenne diese Person und würfle +CH. **Bei einer 10+** kann sie dir tatsächlich helfen (sag uns, warum sie dazu bereit ist). **Bei 7–9** kann sie dir helfen, aber wähle eins aus der folgenden Liste. **Bei einer 6-** wählt der SL 1 und zusätzlich noch etwas anderes.\n\n- Sie hegt noch immer einen Groll gegen dich.\n- Sie wird zuerst etwas von dir verlangen.\n- Sie hat solchen Dingen schon vor langer Zeit abgeschworen.\n- Du kannst ihr nicht wirklich, nun ja, vertrauen."
     },
-    "choices/tall-tales-beginning/0/title": {
+    "choices/tall-tales-beginning/there-was-that-time-you/title": {
       "source": "There Was That Time You…",
       "text": "Da war zum Beispiel die Sache, als du … (wähle 1 pro Geschichte)"
     },
-    "choices/tall-tales-beginning/0/text": {
+    "choices/tall-tales-beginning/there-was-that-time-you/text": {
       "source": "Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. *(choose 1 per tale)*",
       "text": "Jemand wie du gerät in alle möglichen Schwierigkeiten, ob nun absichtlich oder nicht. Kombiniere die folgenden Elemente, um ein paar deiner denkwürdigsten Abenteuer zu erschaffen, und schreibe sie unten in dieser Spalte auf."
     },
-    "choices/tall-tales-ending/0/title": {
+    "choices/tall-tales-ending/and-you-ended-up/title": {
       "source": "And You Ended Up…",
       "text": "Und du bist schließlich…"
     },
-    "choices/tall-tales-ending/0/titleNote": {
+    "choices/tall-tales-ending/and-you-ended-up/titleNote": {
       "source": "(choose 1 or 2 per tale)",
       "text": "(wähle 1 oder 2 pro Geschichte)"
     },
-    "choices/tall-tales-legacy/0/title": {
+    "choices/tall-tales-legacy/but-all-youve-got-left-to/title": {
       "source": "But All You've Got Left to Show for It Is…",
       "text": "Aber alles, was dir davon geblieben ist, ist …"
     },
@@ -700,27 +700,27 @@
       "source": "Pick 2",
       "text": "Wähle 2"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/2/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/3/region": {
+    "origin/the-steplands-hillfolk/region": {
       "source": "The Steplands (Hillfolk)",
       "text": "Die Stufenlande (Hügelvolk)"
     },
-    "origin/4/region": {
+    "origin/the-manmarch/region": {
       "source": "The Manmarch",
       "text": "Die Grenzmark"
     },
-    "origin/5/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -748,27 +748,27 @@
       "source": "You've been touched by Tor (Rain-maker, Thunderhead, Slayer-of-Beasts!) and bear runic markings similar to those etched into the Stone. When did the marks manifest? Are they a symbol of your strength, speed, and courage? Or their source?\n\nYou start with the **Storm Markings** major arcanum. Mark one of the boxes on the front of the Storm Markings sheet, and describe here the time you were struck by lightning and walked away unharmed.",
       "text": "Du wurdest von Tor (Regenbringer, Blitzeschleuderer, Bestientöter!) berührt und trägst Runenmale, ähnlich denen, die in den Stein gemeißelt sind. Sind sie ein Symbol deiner Stärke, Schnelligkeit und deines Mutes? Oder deren Quelle?\n\nDu beginnst mit dem Großen Arkanum Sturmzeichen. Kreuze eines der Kästchen auf der Vorderseite des Sturmzeichen-Blatts an und beschreibe hier den Moment, in dem du vom Blitz getroffen wurdest und unversehrt davongekommen bist:"
     },
-    "choices/violence-fame/0/title": {
+    "choices/violence-fame/just-about-everyone-here-talks-about/title": {
       "source": "Just About Everyone Here Talks About the Time You…",
       "text": "Fast jeder hier spricht über die Zeit, als du…"
     },
-    "choices/violence-fame/0/text": {
+    "choices/violence-fame/just-about-everyone-here-talks-about/text": {
       "source": "*(pick 1 or 2)*",
       "text": "(wähle 1 oder 2)"
     },
-    "choices/violence-shadows/0/title": {
+    "choices/violence-shadows/but-folks-are-less-keen-to/title": {
       "source": "But Folks Are Less Keen to Discuss…",
       "text": "Aber die Leute reden weniger gern über… "
     },
-    "choices/violence-shadows/0/text": {
+    "choices/violence-shadows/but-folks-are-less-keen-to/text": {
       "source": "*(pick 1 or 2)*",
       "text": "(wähle 1 oder 2)"
     },
-    "choices/violence-fears/0/title": {
+    "choices/violence-fears/what-keeps-you-up-at-night/title": {
       "source": "What Keeps You Up at Night?",
       "text": "Was hält dich nachts wach?"
     },
-    "choices/violence-fears/0/text": {
+    "choices/violence-fears/what-keeps-you-up-at-night/text": {
       "source": "*(pick 1 or 2)*",
       "text": "(wähle 1 oder 2)"
     },
@@ -1002,23 +1002,23 @@
       "source": "Pick 1, in addition to your symbol of authority and scribe's tools",
       "text": "Wähle 1, zusätzlich zu deinem Autoritätssymbol und deinen Schreibutensilien"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/3/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/4/region": {
+    "origin/lygos-or-some-other-southern-town/region": {
       "source": "Lygos or some other southern town",
       "text": "Lygos oder eine andere Stadt weiter südlich"
     },
@@ -1045,10 +1045,9 @@
     },
     "backgrounds/prophet/description": {
       "source": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.",
-      "text": "Die Linie der Richter ist vor langer Zeit abgerissen, die Chronik verloren gegangen oder dem Verfall anheimgefallen. Aratis hat dich persönlich durch Träume, Omen und Visionen in ihren Dienst berufen. Einige im Ort nehmen dir die Autorität übel, die du dir anmaßt.\n\nWenn du **_einige Tage damit verbringst, mit Aratis über eine Bedrohung für Stonetop oder die Zivilisation als Ganzes Zwiesprache zu halten_**, würfle +WE. Bei einer 7+ offenbart dir Aratis die Vorgehensweise, die sie von dir erwartet. Bei einer 10+ erhältst du außerdem 2 Gunst. Während du nach ihren Anweisungen handelst, kannst du 1 Gunst ausgeben, um +1 auf einen gerade abgelegten Wurf zu erhalten.",
-      "needsReview": true
+      "text": "Die Linie der Richter ist vor langer Zeit abgerissen, die Chronik verloren gegangen oder dem Verfall anheimgefallen. Aratis hat dich persönlich durch Träume, Omen und Visionen in ihren Dienst berufen. Einige im Ort nehmen dir die Autorität übel, die du dir anmaßt."
     },
-    "backgrounds/missionary/choices/0/text": {
+    "backgrounds/missionary/choices/you-are-part-of-a-larger/text": {
       "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain. Add these Judges to the Neighbors section of the steading playbook (pick 2 more):",
       "text": "Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):",
       "needsReview": true
@@ -1077,39 +1076,39 @@
       "source": "Unz (from the Hillfolk)",
       "text": ""
     },
-    "backgrounds/missionary/choices/8/text": {
+    "backgrounds/missionary/choices/you-have-an-aviary-in-addition/text": {
       "source": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
       "text": "Zusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht."
     },
-    "choices/chronicle-plus/0/title": {
+    "choices/chronicle-plus/the-chronicle/title": {
       "source": "The Chronicle",
       "text": "Die Chronik"
     },
-    "choices/chronicle-plus/0/text": {
+    "choices/chronicle-plus/the-chronicle/text": {
       "source": "The Judge of Aratis is charged with maintaining the Chronicle, a history of the community, its people, their knowledge, and their traditions. It is more than a mere book; it is a physical place. On the plus side, it… *(choose 3)*",
       "text": "Der Richter von Aratis hat die Aufgabe, die Chronik zu führen, eine Geschichte der Gemeinschaft, ihrer Menschen, ihres Wissens und ihrer Traditionen. Welche Art von Wissen die Chronik enthält, hängt von deinem Hintergrund ab, doch sie ist mehr als nur ein Buch; sie ist ein physischer Ort. Lege fest, wie sie aufgebaut ist.\n\nZu ihren Vorzügen gehört, dass sie … (wähle 3)"
     },
-    "choices/chronicle-minus/0/title": {
+    "choices/chronicle-minus/but-alas-it/title": {
       "source": "But Alas, It…",
       "text": "Doch leider… "
     },
-    "choices/chronicle-minus/0/text": {
+    "choices/chronicle-minus/but-alas-it/text": {
       "source": "*(choose 2)*",
       "text": "(wähle 2)"
     },
-    "choices/lawkeeper-shrine/0/title": {
+    "choices/lawkeeper-shrine/the-lawkeeper/title": {
       "source": "The Lawkeeper",
       "text": "Die Hüterin des Gesetzes"
     },
-    "choices/lawkeeper-shrine/0/text": {
+    "choices/lawkeeper-shrine/the-lawkeeper/text": {
       "source": "Her Judges say that Aratis has been with humanity since they first stacked one stone upon another and called it home. In Stonetop's Pavilion of the Gods, Aratis's shrine is… *(pick 1)*",
       "text": "Ihre Richter sagen, dass Aratis schon seit jeher an der Seite der Menschheit steht, seit diese zum ersten Mal einen Stein auf den anderen stapelte und dies ihr Zuhause nannte.\n\nIm Pavillon der Götter von Stonetop ist Aratis’ Schrein… (wähle 1)"
     },
-    "choices/lawkeeper-demands/0/title": {
+    "choices/lawkeeper-demands/of-her-true-disciples-aratis-demands/title": {
       "source": "Of Her True Disciples, Aratis Demands…",
       "text": "Von ihren wahren Jüngern verlangt Aratis…"
     },
-    "choices/lawkeeper-demands/0/text": {
+    "choices/lawkeeper-demands/of-her-true-disciples-aratis-demands/text": {
       "source": "*(choose 3)*",
       "text": "(wähle 3)"
     },
@@ -1351,23 +1350,23 @@
       "source": "Pick 2",
       "text": "Wähle 2"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/3/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/4/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -1395,17 +1394,17 @@
       "source": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
       "text": "Einst hast du ein weltliches Leben geführt, erfüllt von Angst und Zweifel, niederen Vergnügungen und kleinlichem Groll. Doch dann geschah etwas. Eine Verletzung, eine Krankheit, eine Begegnung mit dem Tod. Oder einfach ein Moment von so tiefem Elend und so großer Selbstverachtung, dass du dachtest, es könne nicht mehr schlimmer kommen.\n\nDort, in der Dunkelheit, fiel Heliors Licht auf dich. Es entfachte etwas in deiner Seele, richtete dich wieder auf und erfüllte dich mit einem tiefen Gefühl der Bestimmung.\n\nWenn du **_eine Gruppe überredest, indem du Nächstenliebe, Barmherzigkeit und Hoffnung predigst, und eine 7+ würfelst_**, wähle 1 zusätzlich zu dem üblichen Effekt:\n\n- Dein Name und deine Botschaft verbreiten sich. \n- Jemand tritt an dich heran – jetzt oder später –, begierig darauf, mehr zu erfahren."
     },
-    "choices/helior-worship-spread/0/title": {
+    "choices/helior-worship-spread/praise-the-day/title": {
       "source": "Praise the day",
       "text": "Die Verehrung Heliors ist...",
       "needsReview": true
     },
-    "choices/helior-worship-spread/0/text": {
+    "choices/helior-worship-spread/praise-the-day/text": {
       "source": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.",
       "text": "Du bist der auserwählte Diener Heliors, dem Tagesbringer, dem Gott der Sonne und des Lichts, dem Leuchtfeuers der Hoffnung und Barmherzigkeit.",
       "needsReview": true
     },
-    "choices/helior-worship-spread/1/text": {
+    "choices/helior-worship-spread/the-worship-of-helior-is-choose/text": {
       "source": "The Worship of Helior Is… (choose 1)",
       "text": ""
     },
@@ -1429,15 +1428,9 @@
       "source": "… widely persecuted.",
       "text": "… weit verbreitetem Verbot und Verfolgung ausgesetzt."
     },
-    "choices/helior-worship-practice/0/text": {
+    "choices/helior-worship-practice/he-is-worshipped-through-choose-1/text": {
       "source": "He Is Worshipped Through… (choose 1 or 2)",
-      "text": "(wähle 1 oder 2)",
-      "needsReview": true
-    },
-    "choices/helior-worship-practice/0/title": {
-      "source": "He Is Worshipped Through…",
-      "text": "Er wird verehrt durch...",
-      "orphaned": true
+      "text": "Er wird verehrt durch... (wähle 1 oder 2)"
     },
     "choices/helior-worship-practice/solemn-hymns/text": {
       "source": "… solemn hymns.",
@@ -1471,15 +1464,9 @@
       "source": "… pain & sacrifice.",
       "text": "… Schmerz und Opfer"
     },
-    "choices/helior-shrine/0/text": {
+    "choices/helior-shrine/in-stonetops-pavilion-of-the-gods/text": {
       "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has… (choose 1)",
-      "text": "(wähle 1)",
-      "needsReview": true
-    },
-    "choices/helior-shrine/0/title": {
-      "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
-      "text": "Heliors Schrein im Götterpavillon von Stonetop...",
-      "orphaned": true
+      "text": "Heliors Schrein im Götterpavillon von Stonetop... (wähle 1)"
     },
     "choices/helior-shrine/highest-honor/text": {
       "source": "… the place of highest honor, even if Tor is more popular.",
@@ -1497,15 +1484,9 @@
       "source": "… seen better days, for certain.",
       "text": "… hat definitiv schon bessere Zeiten gesehen."
     },
-    "choices/helior-predecessor/0/text": {
+    "choices/helior-predecessor/your-predecessor-the-previous-lightbearer-choose/text": {
       "source": "Your Predecessor, the Previous Lightbearer… (choose 2 or 3)",
-      "text": "(wähle 2 oder 3)",
-      "needsReview": true
-    },
-    "choices/helior-predecessor/0/title": {
-      "source": "Your Predecessor, the Previous Lightbearer…",
-      "text": "Dein Vorgänger, der vorherige Lichtbringer...",
-      "orphaned": true
+      "text": "Dein Vorgänger, der vorherige Lichtbringer... (wähle 2 oder 3)"
     },
     "choices/helior-predecessor/lived-long-ago/text": {
       "source": "… lived long ago, a figure of legend.",
@@ -1539,15 +1520,9 @@
       "source": "… was reincarnated—as you.",
       "text": "… wurde wiedergeboren – als du."
     },
-    "choices/helior-powers-origin/0/text": {
+    "choices/helior-powers-origin/you-came-into-your-powers-choose/text": {
       "source": "You Came Into Your Powers… (choose 1)",
-      "text": "(wähle 1)",
-      "needsReview": true
-    },
-    "choices/helior-powers-origin/0/title": {
-      "source": "You Came Into Your Powers…",
-      "text": "Du erlangtest deine Kräfte…",
-      "orphaned": true
+      "text": "Du erlangtest deine Kräfte… (wähle 1)"
     },
     "choices/helior-powers-origin/years-study/text": {
       "source": "… through years of study and devotion.",
@@ -1723,27 +1698,27 @@
       "source": "Pick 2",
       "text": "Wähle 2"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/2/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/3/region": {
+    "origin/the-steplands-hillfolk/region": {
       "source": "The Steplands (Hillfolk)",
       "text": "Die Stufenlande (Hügelvolk)"
     },
-    "origin/4/region": {
+    "origin/the-manmarch/region": {
       "source": "The Manmarch",
       "text": "Die Grenzmark"
     },
-    "origin/5/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -1771,12 +1746,12 @@
       "source": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
       "text": "Du bist eine natürliche Führungspersönlichkeit – deine Worte inspirieren, deine Pläne bringen den Sieg, deine Taten sprechen sich weit und breit herum. Bist du von den Göttern berührt? Fließt uraltes Blut in deinen Adern? Oder bist du einfach der Held, den Stonetop in diesen schwierigen Zeiten braucht?\n\nDu beginnst zusätzlich zu deinen üblichen Spielzügen mit dem Spielzug Wir, die Wenigen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Ergeben (zusätzlich zu deiner restlichen Auswahl)."
     },
-    "choices/war-stories-action/0/title": {
+    "choices/war-stories-action/war-stories/title": {
       "source": "War stories",
       "text": "The last time the militia saw serious action, it was...",
       "needsReview": true
     },
-    "choices/war-stories-action/0/text": {
+    "choices/war-stories-action/war-stories/text": {
       "source": "The Last Time the Militia Saw Serious Action, It Was… (pick 1)",
       "text": "wähle 1",
       "needsReview": true
@@ -1805,7 +1780,7 @@
       "source": "… to hunt down beasts (wolves, drakes, or bears maybe?) who'd been preying on the village.",
       "text": "… musste sie Bestien (Wölfe, Drachenechsen oder Bären vielleicht?) jagen, die das Dorf heimgesucht hatten."
     },
-    "choices/war-stories-questions/0/text": {
+    "choices/war-stories-questions/answer-at-least-3-of-the/text": {
       "source": "Answer At Least 3 of the Following",
       "text": "Beantworte zu diesem Einsatz mindestens 3 der folgenden Fragen:"
     },
@@ -1987,27 +1962,27 @@
       "source": "Pick 2, in addition to your composite bow",
       "text": "Wähle 2, zusätzlich zu deinem Kompositbogen"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/3/region": {
+    "origin/the-steplands-hillfolk/region": {
       "source": "The Steplands (Hillfolk)",
       "text": "Die Stufenlande (Hügelvolk)"
     },
-    "origin/4/region": {
+    "origin/the-manmarch/region": {
       "source": "The Manmarch",
       "text": "Die Grenzmark"
     },
-    "origin/5/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -2055,15 +2030,15 @@
       "source": "Lend it your strength — lose 1d6 HP, and it regains an equal amount",
       "text": ""
     },
-    "choices/wicked-threat/0/title": {
+    "choices/wicked-threat/something-wicked-this-way-comes/title": {
       "source": "Something Wicked This Way Comes",
       "text": "Etwas Böses kommt auf uns zu"
     },
-    "choices/wicked-threat/0/text": {
+    "choices/wicked-threat/something-wicked-this-way-comes/text": {
       "source": "You know firsthand that trouble is out there, and like it or not, one of these days the folk of Stonetop are going to have to face it. What is it that you're so worried about? *(choose 1)*",
       "text": "Du weißt aus eigener Erfahrung, dass dort draußen Ärger lauert, und ob es ihnen gefällt oder nicht, werden sich die Bewohner von Stonetop eines Tages damit auseinandersetzen müssen. Was genau bereitet dir solche Sorgen? (Wähle eines)"
     },
-    "choices/wicked-questions/0/title": {
+    "choices/wicked-questions/answer-at-least-3-of-the/title": {
       "source": "Answer At Least 3 of the Following",
       "text": "Beantworte dann mindestens 3 der folgenden Fragen zu dieser Bedrohung:"
     },
@@ -2261,27 +2236,27 @@
       "source": "Pick 2, in addition to your scribe's tools",
       "text": "Wähle 2, zusätzlich zu deinen Schreibutensilien"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/the-steplands-hillfolk/region": {
       "source": "The Steplands (Hillfolk)",
       "text": "Die Stufenlande (Hügelvolk)"
     },
-    "origin/3/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/4/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/5/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -2345,27 +2320,27 @@
       "source": "The Twisted Spear",
       "text": "Der gewundene Speer"
     },
-    "choices/collection/0/title": {
+    "choices/collection/collection/title": {
       "source": "Collection",
       "text": "Sammlung"
     },
-    "choices/collection/0/text": {
+    "choices/collection/collection/text": {
       "source": "In your travels and investigations you have acquired arcana—artifacts of power and mystery.",
       "text": "Auf deinen Reisen und bei deinen Nachforschungen hast du arkane Artefakte voller Macht und Geheimnisse erworben."
     },
-    "choices/arcana-major/0/title": {
+    "choices/arcana-major/major-arcanum/title": {
       "source": "Major Arcanum",
       "text": "Großes Arkanum"
     },
-    "choices/arcana-major/0/text": {
+    "choices/arcana-major/major-arcanum/text": {
       "source": "Your Background grants you 1 major arcanum.\n\nAnswer at least 2 questions about it:",
       "text": "Dein Hintergrund verleiht dir ein großes Arkanum. Beantworte mindestens 2 Fragen dazu:"
     },
-    "choices/arcana-minor/0/title": {
+    "choices/arcana-minor/minor-arcana/title": {
       "source": "Minor Arcana",
       "text": "Kleine Arkana"
     },
-    "choices/arcana-minor/0/text": {
+    "choices/arcana-minor/minor-arcana/text": {
       "source": "Ask the GM for the minor arcana cards. Draw 3 at random and review both sides.",
       "text": "Bitte den SL um die Karten für die kleinen Arkana. Ziehe zufällig 3 Karten und sieh dir beide Seiten an."
     },
@@ -2551,27 +2526,27 @@
       "source": "Pick 2",
       "text": "Wähle 2"
     },
-    "origin/0/region": {
+    "origin/stonetop/region": {
       "source": "Stonetop",
       "text": "Stonetop"
     },
-    "origin/1/region": {
+    "origin/barrier-pass/region": {
       "source": "Barrier Pass",
       "text": "Barrierenpass"
     },
-    "origin/2/region": {
+    "origin/the-steplands-hillfolk/region": {
       "source": "The Steplands (Hillfolk)",
       "text": "Die Stufenlande (Hügelvolk)"
     },
-    "origin/3/region": {
+    "origin/gordins-delve/region": {
       "source": "Gordin's Delve",
       "text": "Gordins Binge"
     },
-    "origin/4/region": {
+    "origin/marshedge/region": {
       "source": "Marshedge",
       "text": "Mooresrand"
     },
-    "origin/5/region": {
+    "origin/lygos-or-some-other-point-south/region": {
       "source": "Lygos or some other point south",
       "text": "Lygos oder ein anderer Ort weiter südlich"
     },
@@ -2595,7 +2570,7 @@
       "source": "Omens",
       "text": "Omen"
     },
-    "backgrounds/driven/choices/0/text": {
+    "backgrounds/driven/choices/you-once-led-a-simple-life/text": {
       "source": "You once led a simple life, but something happened. Something changed you, burdened you with terrible purpose. What was it? Choose 1:",
       "text": "Du hast einst ein einfaches Leben geführt, aber dann ist etwas passiert. Etwas hat dich verändert und dir eine schreckliche Aufgabe auferlegt. Was war es? Wähle 1:"
     },
@@ -2619,11 +2594,11 @@
       "source": "You must make amends for a terrible mistake",
       "text": "Du musst einen schrecklichen Fehler wiedergutmachen."
     },
-    "backgrounds/driven/choices/6/text": {
+    "backgrounds/driven/choices/you-always-have-the-option-to/text": {
       "source": "You always have the option to Burn Brightly; you can spend 2 XP after you roll to add +1, even if you don't have enough XP to level.",
       "text": "Du hast immer die Möglichkeit hell zu erstrahlen. Du kannst nach deinem Wurf 2 EP ausgeben, um +1 zu erhalten, selbst wenn du nicht genug EP für die nächste Stufe hast."
     },
-    "backgrounds/destined/choices/0/text": {
+    "backgrounds/destined/choices/fate-has-laid-her-hand-upon/text": {
       "source": "Fate has laid her hand upon you. Choose 3-4 of the items below to describe your destiny:",
       "text": "Das Schicksal hat seine Hand auf dich gelegt. Wähle 3–4 der folgenden Begriffe, um dein Schicksal zu beschreiben:"
     },
@@ -2727,11 +2702,11 @@
       "source": "the Things Below",
       "text": "die Dinge aus der Tiefe"
     },
-    "choices/fear-and-anger/0/title": {
+    "choices/fear-and-anger/fear-anger/title": {
       "source": "Fear & anger",
       "text": "Angst & Wut"
     },
-    "choices/fear-and-anger/0/text": {
+    "choices/fear-and-anger/fear-anger/text": {
       "source": "What Do You Fear Most? *(choose 1, maybe 2)*",
       "text": "Was fürchtest du am meisten? (Wähle 1, eventuell 2)"
     },
@@ -2771,7 +2746,7 @@
       "source": "What you must do",
       "text": "Was du tun musst"
     },
-    "choices/fear-and-anger/10/text": {
+    "choices/fear-and-anger/what-makes-you-burn-with-righteous/text": {
       "source": "What Makes You Burn with Righteous Anger? *(choose 2, maybe 3)*",
       "text": "Was lässt dich vor gerechtem Zorn entbrennen? (wähle 2, eventuell 3)"
     },

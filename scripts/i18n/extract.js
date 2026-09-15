@@ -4,12 +4,32 @@
 //
 // Safe to re-run: existing translations are kept, `source` is refreshed to the current English, and
 // anything that drifted is marked in the file for a human to look at. Nothing is ever deleted.
+//
+// Before reconciling, the corpus is settled as a whole — translations follow strings that moved to
+// another pack, and identical English reuses the German it already has. Both are decided on
+// byte-identical English, so neither writes a translation; see corpus.js.
 import { pathToFileURL } from "url";
 import { englishCatalogForPack } from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
-import { TRANSLATED_PACKS, listLanguages, readAuthoring, writeAuthoring } from "./files.js";
+import { corpusFor } from "./corpus.js";
+import { TRANSLATED_PACKS, listLanguages, writeAuthoring } from "./files.js";
 import { TAG_PACK, reconcileTagLabels } from "./tagLabels.js";
 import { detail, summarise } from "./report.js";
+
+/** What the corpus pass did, printed once rather than buried per pack. */
+function reportCorpus({ relocations, fills, conflicts }, compositions) {
+	for (const { from, to } of relocations) {
+		console.log(`  moved       ${from.label}\n           -> ${to.label}  (same English, another pack)`);
+	}
+	for (const { slug, key, hostKey } of compositions) {
+		console.log(`  composed    ${slug} ${key} + ${hostKey}  (folded heading rejoined)`);
+	}
+	if (fills.length) console.log(`  reused      ${fills.length} translations for identical English`);
+	for (const { address, english, germans } of conflicts) {
+		console.log(`  ambiguous   ${address.label}: ${JSON.stringify(english.slice(0, 50))} is translated `
+			+ `${germans.length} ways — left untranslated for a human`);
+	}
+}
 
 export async function extract({ lang, root = "." } = {}) {
 	const languages = lang ? [lang] : await listLanguages(root);
@@ -20,9 +40,14 @@ export async function extract({ lang, root = "." } = {}) {
 
 	const results = [];
 	for (const language of languages) {
+		const corpus  = await corpusFor(language, root);
+		const settled = corpus.apply();
+		const compositions = [];
+
 		for (const pack of TRANSLATED_PACKS) {
 			const english = await englishCatalogForPack(pack, root);
-			const result  = reconcile(language, pack, english, await readAuthoring(language, pack, root));
+			const result  = reconcile(language, pack, english, corpus.packs.get(pack).authoring,
+				{ onCompose: composed => compositions.push(composed) });
 			await writeAuthoring(language, pack, result.toAuthoring(), root);
 			console.log(summarise(result));
 			for (const line of detail(result)) console.log(line);
@@ -36,6 +61,8 @@ export async function extract({ lang, root = "." } = {}) {
 		console.log(summarise(tags));
 		for (const line of detail(tags)) console.log(line);
 		results.push(tags);
+
+		reportCorpus(settled, compositions);
 	}
 	return results;
 }
