@@ -2,19 +2,19 @@
   "a-bejeweled-helm": {
     "name": {
       "source": "A bejeweled helm",
-      "text": ""
+      "text": "Ein mit Edelsteinen besetzter Helm"
     },
     "description": {
       "source": "◇ *magical*, *loud*, *dangerous*, 1d4+1 uses\n\nBronze, battered, and adorned with seven fittings, 1d4+1 of which bear purple gems that hum ominously. When you **_don the_** **_helm_**, you sense the gems’ power and how to use them but can hear nothing over their incessant noise.\n\nWhen you **_unleash a gem’s power_**, pick a target you can see and roll +WIS: **on a 10+**, your target freezes in time and space for as long as you wear the helm and maintain focus; **on a 7-9**, you must focus for a few seconds, but then the effect kicks in as per a 10+.\n\n**_While your target remains frozen_**, the gem hums louder and louder, painfully so. When **_the effect ends_**, the gem crumbles to dust.\n\nWhen you **_try to maintain focus_**, roll +CON: **on a 10+**, you’re fine for now; **on a** **7-9**, either mark a debility or let the effect end; **on a 6-**, mark a debility and either let the effect end or ask the GM how time and space start to go haywire around you.\n\nWhile frozen, the target (and anything on their person) is inviolate—they cannot be harmed, moved, or otherwise interacted with. They rejoin the timeline as if no time had passed for them, with whatever momentum they previously had.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Laut*, *Gefährlich*, 1W4+1 Anwendungen\n\nBronze, abgenutzt und mit sieben Beschlägen versehen, von denen 1W4+1 mit violetten, unheilvoll summenden Edelsteinen besetzt sind. Wenn du **_den Helm aufsetzt_**, spürst du die Macht der Steine und weißt instinktiv, wie man sie nutzt – gleichzeitig übertönt ihr permanentes Dröhnen jedes andere Geräusch.\n\nWenn du **_die Kraft eines Steins entfesselst_**, wähle ein Ziel, das du sehen kannst, und würfle +WE. **Bei einer 10+** erstarrt dein Ziel in Zeit und Raum, solange du den Helm trägst und dich konzentrierst. **Bei 7–9** musst du dich erst einige Sekunden konzentrieren, dann tritt der Effekt wie bei einer 10+ ein.\n\n**_Solange dein Ziel eingefroren ist_**, wird das Juwel immer lauter – schmerzhaft laut. Wenn der Effekt endet, zerfällt der Stein zu Staub.\n\nWenn du **_versuchst, die Konzentration aufrechtzuerhalten_**, würfle +KO. **Bei einer 10+** geht es dir vorerst gut. **Bei 7–9** markiere entweder eine Beeinträchtigung oder lass den Effekt enden. **Bei einer 6–** markiere eine Beeinträchtigung und lass entweder den Effekt enden oder frage die SL, wie Zeit und Raum um dich herum aus den Fugen geraten.\n\nWährend der Effekt anhält, ist das Ziel (und alles an ihm) unantastbar – es kann weder verletzt noch bewegt werden, noch kann man anderweitig mit ihm interagieren. Es kehrt in die Zeitlinie zurück, als wäre für es keine Zeit vergangen, mit all seiner ursprünglichen Bewegung und Dynamik.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte}.*"
     },
     "outfitItems/a-bejeweled-helm/name": {
       "source": "A bejeweled helm",
-      "text": ""
+      "text": "Ein mit Edelsteinen besetzter Helm"
     },
     "outfitItems/a-bejeweled-helm/note": {
       "source": "1d4+1 uses",
-      "text": ""
+      "text": "1W4+1 Anwendungen"
     }
   },
   "a-big-stone-coffer": {
@@ -40,11 +40,11 @@
   "a-blackened-splinter": {
     "name": {
       "source": "A blackened splinter",
-      "text": ""
+      "text": "Ein geschwärzter Splitter"
     },
     "description": {
       "source": "*crude*, *magical*, *fireproof*\n\nUndead who see it are drawn to it, or else deeply agitated by its presence. When you **_touch the splinter to an undead entity,_** they see the Last Door yawning open before them. Roll 4d6. If the total is greater than the entity’s current HP, they are drawn through the Last Door and leave this world for good. Otherwise, they are transfixed for a few moments before the Door slams shut. Regardless, the splinter vanishes.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
-      "text": ""
+      "text": "*Grob*, *Magisch*, *Feuerresistent*\n\nUntote, die den Splitter erblicken, werden entweder von ihm angezogen oder durch seine bloße Gegenwart zutiefst beunruhigt. Wenn du **_einen Untoten mit dem Splitter berührst_**, erscheint ihm die Letzte Pforte, die sich vor ihm öffnet. Würfle 4W6. Ist das Ergebnis höher als die aktuellen Trefferpunkte dieses Wesens, wird es durch die Letzte Pforte gezogen und verlässt diese Welt für immer. Andernfalls ist es für einige Augenblicke wie gelähmt, ehe sich die Pforte wieder schließt. In jedem Fall verschwindet der Splitter.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Der Tod und die Unsterblichen}.*"
     }
   },
   "a-chalky-potion": {
@@ -128,15 +128,15 @@
   "a-fossilized-horn": {
     "name": {
       "source": "A fossilized horn",
-      "text": ""
+      "text": "Ein versteinertes Horn"
     },
     "description": {
       "source": "◇ *magical*\n\nA spiral thing, maybe 2’ long, the remnant of some long-gone **incarnation** (page 300). Those sensitive to the spirit world can sense its lingering, radiant power.\n\nWhen you **_bear the fossilized horn_**, you have advantage on any move to impress, intimidate, or threaten a spirit (though it grants no special ability to communicate with spirits in the first place). Should you roll a 6- on any such roll, the spirit can choose to destroy the horn and end its effect, in addition to whatever else the GM says.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\nEin spiralförmiges Gebilde, etwa 2 Fuß lang, Überrest einer längst vergangenen Inkarnation. Wer für die Geisterwelt empfänglich ist, kann seine anhaltende, strahlende Macht spüren.\n\nWenn du **_das versteinerten Horn bei dir trägst_**, hast du Vorteil bei allen Spielzügen, um Geister zu beeindrucken, einzuschüchtern oder zu bedrohen (es verleiht jedoch keine Fähigkeit, mit Geistern zu kommunizieren). Solltest du bei einem solchen Wurf eine 6- würfeln, kann der Geist beschließen, das Horn zu zerstören und dessen Wirkung zu beenden, zusätzlich zu allem, was die SL sonst noch festlegt.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte}.*"
     },
     "outfitItems/a-fossilized-horn/name": {
       "source": "A fossilized horn",
-      "text": ""
+      "text": "Ein versteinertes Horn"
     }
   },
   "a-fur-lined-bedroll": {
@@ -198,39 +198,40 @@
   "a-lead-bracelet": {
     "name": {
       "source": "A lead bracelet",
-      "text": ""
+      "text": "Ein bleierner Armreif"
     },
     "description": {
       "source": "*magical*, Value 1\n\nThis heavy, black metal torc is set with a red gem. It feels good upon your wrist. Makes you feel important.\n\nWhen you **_wear the torc and threaten_** **_someone that you consider beneath you_**, lose HP equal to the torc’s current Cost (1d4 to start). They are filled with fear; the craven will flee, cower, or grovel, and even the brave will flinch and hesitate. Each time you use the torc, the Cost increases by 1 die size (max 1d10).\n\nWhen you **_wear the torc for a week without_** **_anyone questioning your authority_**, decrease the Cost by one step (min 1d4).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders}.*",
-      "text": ""
+      "text": "*Magisch*, Wert 1\n\nDieser schwere, schwarze Metalltorques ist mit einem roten Edelstein besetzt. Er fühlt sich angenehm an deinem Handgelenk an. Er gibt dir das Gefühl, wichtig zu sein.\n\nWenn du **_den Reif trägst und jemanden bedrohst, den du als dir unterlegen betrachtest_**, verlierst du TP in Höhe der aktuellen Kosten des Reifs (anfangs 1W4). Die betroffene Person wird von Angst erfüllt; Feiglinge werden fliehen, sich ducken oder um Gnade winseln, und selbst Mutige werden zurückschrecken und zögern. Jedes Mal, wenn du den Reif benutzt, erhöhen sich die Kosten um eine Würfelgröße (max. 1W10).\n\nWenn du **_den Reif eine Woche lang trägst, ohne dass jemand deine Autorität infrage stellt_**, verringern sich die Kosten um eine Größe (min. 1W4).\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Grabhügelerbauer}.*"
     }
   },
   "a-pale-wooden-sword": {
     "name": {
       "source": "A pale wooden sword",
-      "text": ""
+      "text": "Ein blasses Holzschwert"
     },
     "description": {
       "source": "◇ *close*, *crude*, *magical*\n\nCarved from a dool tree with a silver knife, and polished with oils infused with moonlight. The grip is worn smooth but the “blade” is chipped and notched, unlikely to stand up to iron or bronze.\n\nWhen you **_wield the sword against a_** **_manifest undead spirit_**, you can hurt it (deal damage normally). If you reduce it to 0 HP, the manifest form dissipates but the spirit can reform at its tether normally.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
-      "text": ""
+      "text": "◇, *Kurz*, *Grob*, *Magisch*\n\nAus dem Holz eines Dool-Baumes geschnitzt, mit einer silbernen Klinge versehen und mit mondlichtgetränkten Ölen poliert. Der Griff ist glatt, aber die „Klinge“ ist angeschlagen und voller Kerben – kaum geeignet, um Eisen oder Bronze zu widerstehen.\n\nWenn du **_dieses Schwert gegen einen manifestierten untoten Geist führst_**, kannst du ihm normalen Schaden zufügen. Werden seine TP auf 0 reduziert, löst sich seine Manifestierung auf. Der Geist kann sich jedoch wie gewohnt an seiner Fessel erneut manifestieren.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Der Tod und die Unsterblichen}.*"
     },
     "outfitItems/a-pale-wooden-sword/name": {
       "source": "A pale wooden sword",
-      "text": ""
+      "text": "Ein blasses Holzschwert"
     }
   },
   "a-pot-of-gold": {
     "name": {
       "source": "A pot of “gold”",
-      "text": ""
+      "text": "Ein Topf voller „Gold“"
     },
     "description": {
       "source": "◇◇ *magical*\n\nA small bronze cauldron, full of glittering coins. At least, that’s what it seems.\n\nWhen you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a ◇ purse of gold (Value 4).\n\nAny “coins” removed from the pot revert to their true form when…\n\n… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
-      "text": ""
+      "text": "◇◇, *Magisch*\n\nEin kleiner Bronzekessel, gefüllt mit glitzernden Münzen. Zumindest scheint es so.\n\nWenn du **_den Topf mit kleinen natürlichen Dingen (Blätter, Steine, Eicheln usw.) füllst und ihn eine Jahreszeit lang vor Licht geschützt aufbewahrst_**, wird sein Inhalt verzaubert und verwandelt sich in einen Beutel voller Gold (Wert 4).\n\nAlle „Münzen“, die aus dem Topf entfernt werden, verwandeln sich wieder in ihre wahre Form, wenn …\n\n… ein ehrlicher Händler sie berührt; … ihr aktueller Besitzer lügt;<br>… jemand die Illusion durchschaut;<br>… etwas den Zauber aufhebt; oder<br>… der Neumond kommt und vergeht.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*",
+      "needsReview": true
     },
     "outfitItems/a-pot-of-gold/name": {
       "source": "A pot of “gold”",
-      "text": ""
+      "text": "Ein Topf voller „Gold“"
     }
   },
   "a-scarred-slab-of-marble": {
@@ -246,19 +247,19 @@
   "a-sealed-amphora": {
     "name": {
       "source": "A sealed amphora",
-      "text": ""
+      "text": "Eine versiegelte Amphore"
     },
     "description": {
       "source": "◇◇ *fragile*, *magical*, 3 uses\n\nA ceramic, two-armed jug with a wax seal. Inside is water of life, the quintessence of water, so pure that it washes away all impurity, corruption, poison, or disease from any living thing. It becomes sullied and loses its potency when used, or if left unsealed for more than a minute or so.\n\nThe amphora itself is a perfect vessel: as long as it is sealed, no substance within will rot, putrefy, or otherwise spoil.\n<figure class=\"art\"></figure>\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers}.*",
-      "text": ""
+      "text": "◇◇, *Zerbrechlich*, *Magisch*, 3 Anwendungen\n\nEin keramischer, zweihändiger Krug mit Wachssiegel. Im Inneren befindet sich das Wasser des Lebens, die Quintessenz des Wassers – so rein, dass es jede Unreinheit, Verderbnis, jedes Gift oder jede Krankheit aus einem lebenden Wesen wäscht. Es wird jedoch verunreinigt und verliert seine Wirkung, sobald es benutzt wird oder länger als etwa eine Minute unversiegelt bleibt.\n\nDie Amphore selbst ist ein perfektes Gefäß: Solange sie versiegelt ist, wird keine Substanz in ihrem Inneren verrotten, faulen oder anderweitig verderben.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte}.*"
     },
     "outfitItems/a-sealed-amphora/name": {
       "source": "A sealed amphora",
-      "text": ""
+      "text": "Eine versiegelte Amphore"
     },
     "outfitItems/a-sealed-amphora/note": {
       "source": "3 uses",
-      "text": ""
+      "text": "3 Anwendungen"
     }
   },
   "a-serpentine-armband": {
@@ -294,11 +295,11 @@
   "a-spindle-of-fine-thread": {
     "name": {
       "source": "A spindle of fine thread",
-      "text": ""
+      "text": "Eine Spindel mit feinem Faden"
     },
     "description": {
       "source": "*magical*\n\nA length of fiber, maybe 50 feet long, spun by a ghost from all the hair that ever fell from her daughters’ heads. The thread is light, and fine, and almost unbreakably strong, but it can be handled only by one who has seen the Last Door. Only the edge of a silver blade can cut it. It can be used to bind a ghost fast, if you’re clever and can handle the thread yourself.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
-      "text": ""
+      "text": "*Magisch*\n\nEin Faden von etwa 50 Fuß Länge, gesponnen von einem Geist aus all dem Haar, das jemals von den Köpfen ihrer Töchter gefallen ist. Der Faden ist leicht, fein und beinahe unzerreißbar stark, aber er kann nur von jemandem gehandhabt werden, der die Letzte Pforte gesehen hat.  Nur die Schneide einer silbernen Klinge kann ihn durchtrennen. Er kann genutzt werden, um einen Geist zu fesseln – sofern man geschickt ist und den Faden selbst handhaben kann.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Der Tod und die Unsterblichen}.*"
     }
   },
   "a-stone-cup": {
@@ -314,29 +315,29 @@
   "a-sturdy-banded-box": {
     "name": {
       "source": "A sturdy, banded box",
-      "text": ""
+      "text": "Eine robuste, mit Bändern verstärkte Schatulle"
     },
     "description": {
       "source": "◇ *magical*\n\n6” by 4” by 3”, made of thick rowan wood and banded with bronze. It’s not much to look at. It slips easily from one’s mind.\n\nWhen you **_let a drop of your blood fall into_** **_the empty chest_**, name a promise you have made, an oath you have given, or a debt that you owe. Your blood becomes a bead of lead as it falls into the chest, and the promise, oath, or debt holds no power over you as long as the chest is sealed.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\n6 × 4 × 3 Zoll groß, aus dickem Ebereschenholz gefertigt und mit Bronze umrandet. Sie ist nicht besonders auffällig. Man vergisst sie leicht.\n\nWenn du **_einen Tropfen deines Blutes in die leere Schatulle fallen lässt_**, nenne ein Versprechen, das du gegeben hast, einen Eid, den du geschworen hast, oder eine Schuld, die du hast. Dein Blut verwandelt sich in eine Bleikugel, sobald es in die Schatulle fällt, und das Versprechen, der Eid oder die Schuld haben keine Macht mehr über dich, solange die Schatulle versiegelt ist.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*"
     },
     "outfitItems/a-sturdy-banded-box/name": {
       "source": "A sturdy, banded box",
-      "text": ""
+      "text": "Eine robuste, mit Bändern verstärkte Schatulle"
     }
   },
   "a-tattered-standard": {
     "name": {
       "source": "A tattered standard",
-      "text": ""
+      "text": "Ein zerschlissenes Banner"
     },
     "description": {
       "source": "◇◇ *magical*\n\nThreadbare, ancient, but remarkably well-preserved. Embroidered with a stylized aurochs whose horns encompass the sun. It fills you with hope and pride to look upon it, as well it should. For this was the standard of the Heol-Tarv, a heroic band who gave their lives in hopeless battle against the **Anan Gllo** (page 81), securing their people’s escape.\n\nWhen you **_unfurl the tattered standard and_** **_hold it aloft for all to see_**, you and your allies are immune to supernatural fear and unshaken by undead or otherwise unnatural foes.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying}.*",
-      "text": ""
+      "text": "◇◇, *Magisch*\n\nAbgenutzt, uralt, aber bemerkenswert gut erhalten. Bestickt mit einem stilisierten Auerochsen, dessen Hörner die Sonne umschließen. Wenn man es betrachtet, erfüllt es einen mit Hoffnung und Stolz – und das zu Recht.\n\nDenn dies war das Banner der Heol-Tarv, einer helden-haften Gruppe, die ihr Leben in einem aussichtslosen Kampf gegen die Anan Gllo opferte und damit die Flucht ihres Volkes sicherte.\n\nWenn du **_die zerschlissene Banner entrollst und es sichtbar emporhältst_**, sind du und deine Verbündeten immun gegen übernatürliche Furcht und bleiben unerschüttert gegenüber Untote oder anderen widernatürlichen Feinden.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Der Tod und die Unsterblichen}.*"
     },
     "outfitItems/a-tattered-standard/name": {
       "source": "A tattered standard",
-      "text": ""
+      "text": "Ein zerschlissenes Banner"
     }
   },
   "a-tightly-woven-net": {
@@ -366,11 +367,11 @@
   "a-wooden-mask": {
     "name": {
       "source": "A wooden mask",
-      "text": ""
+      "text": "Eine Holzmaske"
     },
     "description": {
       "source": "*fragile*, *magical*\n\nCarved from pale elder wood in the shape of a bird’s head, but with small horns and fangs. The inside is chiseled with glyphs like those that the Forest Folk used to make.\n\n**Something interesting:** You recognize glyphs for “beast,” “spirit,” “forest,” and… “peace?” Or maybe “treaty.”\n\n**Something useful:** When you **_wear the_** **_wooden mask_**, beasts of the Great Wood will do you no harm, though your companions have no such protection. Perversions of nature are unaffected. If you **_harm a beast of_** **_the Great Wood while wearing the mask_**, it loses all power and rapidly rots away.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{Forest Folk}.*",
-      "text": ""
+      "text": "*Fragil*, *Magisch*\n\nAus hellem Holunderholz geschnitzt und in Form eines Vogelkopfes gestaltet, allerdings mit kleinen Hörnern und Fangzähnen. Die Innenseite ist mit Glyphen versehen, wie sie einst vom Waldvolk verwendet wurden.\n\n**Etwas Interessantes:** Du erkennst die Glyphen für „Tier“, „Geist“, „Wald“ und … „Frieden“ oder vielleicht „Pakt“.\n\n**Etwas Nützliches:** Wenn du **_die Holzmaske trägst_**, werden die Tiere des Großen Waldes dir nichts antun, deine Gefährten genießen diesen Schutz jedoch nicht. Perversionen der Natur sind davon nicht betroffen. Wenn du **_einem Tier des Großen Waldes Schaden zufügst, während du die Maske trägst_**, verliert sie augenblicklich all ihre Macht und zerfällt rasch zu Moder.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{Waldvolk}.*"
     }
   },
   "aetherium-urn": {
@@ -410,11 +411,11 @@
   "an-old-bronze-dagger": {
     "name": {
       "source": "An old bronze dagger",
-      "text": ""
+      "text": "Ein alter Bronzedolch"
     },
     "description": {
       "source": "*hand*, *magical*\n\nTinged green, but sharp and sturdy. In the chaotic days after the Makers fell, it was the weapon of a desperate father. He killed his own brother with it, to protect his children’s food. He killed others, too, to make sure his family had enough. So many, many others.\n\nThe dagger holds a shard of that father’s desperate will. When you **_Seek Insight_** **_about someone while carrying the dagger_**, add the following to the list of questions you can ask. If **_your hand is on the hilt_**, you can ask one of these questions for free, even on a 6-.\n\n- What of mine do they most want?\n- How am I most vulnerable to them?\n- What do they carry that is useful to me?\n\nIf a PC keeps the dagger, treat it as a threat (a *MacGuffin*; **Instinct** to cause paranoia).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders}.*",
-      "text": ""
+      "text": "*Hand*, *Magisch*\n\nGrünlich angelaufen, aber scharf und robust. In den chaotischen Tagen nach dem Sturz der Schöpfer war er die Waffe eines verzweifelten Vaters. Er tötete damit seinen eigenen Bruder, um die Nahrung seiner Kinder zu schützen. Er tötete auch andere, um sicherzustellen, dass seine Familie genug hatte. So viele, viele andere.\n\nDer Dolch birgt einen Splitter des verzweifelten Willens dieses Vaters. Wenn du **_über jemanden Gewissheit erlangst, während du den Dolch trägst_**, füge der Liste der Fragen, die du stellen kannst die folgenden hinzu. Wenn **_deine Hand den Griff umfasst_**, kannst du eine dieser Fragen kostenlos stellen, selbst bei einer 6-.\n\n- Was von meinem Besitz wollen sie am meisten? \n- Wie bin ich ihnen gegenüber am verwundbarsten?\n- Was tragen sie bei sich, das für mich nützlich ist?\n\nWenn ein SC den Dolch behält, behandle ihn als Bedrohung (Typ: MacGuffin; **Instinkt:** Paranoia verursachen).\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Grabhügelerbauer}.*"
     }
   },
   "an-oversized-ring": {
@@ -460,11 +461,11 @@
   "artificial-limb": {
     "name": {
       "source": "Artificial limb",
-      "text": ""
+      "text": "Künstliche Gliedmaße"
     },
     "description": {
       "source": "*crude*, *magical* (?), Value 3\n\nA clockwork hand, foot, arm, or leg, with straps and buckles to attach it. Impossibly intricate, and with practice it’s nearly as functional as the real thing. It cannot feel, though, and is prone to jamming up and needing repairs.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "*Grob*, *Magisch (?)*, Wert 3\n\nEine Hand, ein Fuß, ein Arm oder ein Bein aus Uhrwerk, mit Riemen und Schnallen zur Befestigung. Unfassbar kompliziert gefertigt und mit etwas Übung beinahe so funktional wie ein echtes Körperteil. Es kann jedoch nichts fühlen und neigt dazu, sich zu verklemmen und repariert werden zu müssen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     }
   },
   "aviary": {
@@ -492,29 +493,29 @@
   "barrel-of-anthracite": {
     "name": {
       "source": "Barrel of anthracite",
-      "text": ""
+      "text": "Fass mit Anthrazit"
     },
     "description": {
       "source": "*immobile*, *dangerous*, Value 3\n\nLumps of lustrous, gray-black stone, like coal but drier and much more useful. A small lump catches fire as readily as dry wood and burns all night with the heat of a good cook-fire. It casts only dim light (*close*, *area*) and there’s almost no smoke, but the smell is something awful.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "*Unbeweglich*, *Gefährlich*, Wert 3\n\nKlumpen aus glänzendem, grauschwarzem Gestein, ähnlich wie Kohle, jedoch trockener und wesentlich nützlicher. Ein kleiner Klumpen entzündet sich so leicht wie trockenes Holz und brennt die ganze Nacht mit der Hitze eines guten Kochfeuers. Er strahlt nur ein schwaches Licht aus (*Kurz*, *Bereich*) und es entsteht beinahe kein Rauch, aber der Geruch ist abscheulich.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     }
   },
   "bloodshot-amber": {
     "name": {
       "source": "Bloodshot amber",
-      "text": ""
+      "text": "Blutunterlaufener Bernstein"
     },
     "description": {
       "source": "◇ each, *magical*\n\n1d4 fist-sized gems, riddled with red-black intrusions.\n\nWhen you **_drip blood onto an amber_**, name a manifest spirit in your presence and roll +CHA. If the spirit has an intact **tether** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{358}), roll with disadvantage. **On a** **10+**, the spirit is imprisoned in the amber; **on a 7-9**, the amber starts to suck the spirit in, but it may yet fight back; **on a 6-**, the spirit wrests free and the amber shatters.\n\nWhen you **_imprison a spirit in a bloodshot_** **_amber_**, it is wracked with pain and cannot manifest. Only one spirit can be imprisoned at a time. When you **_touch the amber with_** **_bare skin_**, you can communicate with the spirit within and release it if you want (even if you weren’t the one who imprisoned it).\n\nWhen a bloodshot amber is found, it likely contains a spirit that has been trapped in agony for centuries.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.z8rAsGkDl5lJd8GG]{Fomoraij}.*",
-      "text": ""
+      "text": "◇ je Stück, *Magisch*\n\n1W4 faustgroße Edelsteine, durchzogen von rot-schwarzen Einsprengseln.\n\nWenn du **_Blut auf einen Bernstein tropfen lässt_**, nenne einen manifestierten Geist in deiner Gegenwart und würfle +CH. Wenn der Geist über eine intakte **Fessel** (Seite @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{358}) verfügt, würfle mit Nachteil. **Bei einer 10+** wird der Geist im Bernstein gefangen. **Bei 7–9** beginnt der Bernstein, den Geist in sich hineinzusaugen, doch dieser kann sich noch wehren. **Bei einer 6−** kann sich der Geist losreißen und der Bernstein zerspringt.\n\nWenn du **_einen Geist in einem blutunterlaufenen Bernstein gefangen hältst_**, wird er von Schmerzen gepeinigt und kann sich nicht manifestieren. Es kann jeweils nur ein Geist gefangen gehalten werden. Wenn du **_den Bernstein mit bloßer Haut berührst_**, kannst du mit dem Geist darin kommunizieren und ihn befreien, wenn du möchtest (selbst wenn du nicht derjenige warst, der ihn gefangen gehalten hat).\n\nWenn ein blutunterlaufener Bernstein gefunden wird, enthält er wahrscheinlich einen Geist, der seit Jahrhunderten in Qualen gefangen ist.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.z8rAsGkDl5lJd8GG]{Fomoraij}.*"
     },
     "outfitItems/bloodshot-amber/name": {
       "source": "Bloodshot amber",
-      "text": ""
+      "text": "Blutunterlaufener Bernstein"
     },
     "outfitItems/bloodshot-amber/note": {
       "source": "each",
-      "text": ""
+      "text": "je Stück"
     }
   },
   "books-and-scrolls": {
@@ -534,29 +535,29 @@
   "brass-sphere": {
     "name": {
       "source": "Brass sphere",
-      "text": ""
+      "text": "Messingkugel"
     },
     "description": {
       "source": "◇ *magical*, Value 2\n\nA heavy lump of smooth metal that fits in one’s hand. When you touch the sphere with bare flesh, it glows with an orange light (*reach*, *area*, hours). It recharges an hour of light for every hour that it sits in a hot fire or coals.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "◇, *Magisch*, Wert 2\n\nEin schwerer Klumpen aus glattem Metall, der in eine Hand passt. Wenn man die Kugel mit bloßer Haut berührt, leuchtet sie in einem orangefarbenen Licht (*Lang*, *Bereich*, ○○○ Stunden). Für jede Stunde, die sie in einem heißen Feuer oder in Glut liegt, lädt sie sich eine Stunde Leuchtdauer auf.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     },
     "outfitItems/brass-sphere/name": {
       "source": "Brass sphere",
-      "text": ""
+      "text": "Messingkugel"
     },
     "outfitItems/brass-sphere/note": {
       "source": "Value 2",
-      "text": ""
+      "text": "Wert 2"
     }
   },
   "bright-sticks": {
     "name": {
       "source": "Bright-sticks",
-      "text": ""
+      "text": "Leuchstäbe"
     },
     "description": {
       "source": "*fragile*, *dangerous*, Value 1\n\nA small box containing 3d4 stiff metal rods, about the size of incense sticks. Snap one, and each piece bursts into a blindingly bright, blisteringly hot flame (d8 damage, *messy*) for a few seconds while it burns away to ash.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "*Fragil*, *Gefährlich*, Wert 1\n\nEine kleine Schachtel mit 3W4 steifen Metallstäbchen, etwa so groß wie Räucherstäbchen. Bricht man eines davon, entflammt jedes Stück für einige Sekunden in einer blendend hellen, glühend heißen Flamme (W8 Schaden, *Brutal*), bevor es vollständig zu Asche verbrennt.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     }
   },
   "bronze-ring": {
@@ -672,19 +673,19 @@
   "clockwork-bird": {
     "name": {
       "source": "Clockwork bird",
-      "text": ""
+      "text": "Uhrwerk-Vogel"
     },
     "description": {
       "source": "◇ *fragile*, *magical*, Value 3\n\nMade of tin and set with agate eyes. When you wind it up and let it run, it will dance and chirp loudly for a few minutes. When you wind it up and twist one of its feathers just so, it will sit and wait, only starting to dance and chirp when a creature enters its line of sight.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "◇, *Fragil*, *Magisch*, Wert 3\n\nAus Zinn gefertigt und mit Achataugen versehen. Wenn man ihn aufzieht und laufen lässt, tanzt er einige Minuten lang und zwitschert laut. Zieht man ihn auf und dreht eine seiner Federn auf eine bestimmte Weise, setzt er sich hin und wartet; erst wenn ein Lebewesen in sein Sichtfeld tritt, beginnt er zu tanzen und zu zwitschern.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     },
     "outfitItems/clockwork-bird/name": {
       "source": "Clockwork bird",
-      "text": ""
+      "text": "Uhrwerk-Vogel"
     },
     "outfitItems/clockwork-bird/note": {
       "source": "Value 3",
-      "text": ""
+      "text": "Wert 3"
     }
   },
   "collected-offerings": {
@@ -738,11 +739,11 @@
   "crystal-knife": {
     "name": {
       "source": "Crystal knife",
-      "text": ""
+      "text": "Kristallmesser"
     },
     "description": {
       "source": "*hand*, *crude*, *magical*\n\nA blade of knapped quartz, with the hilt wrapped in glyph-covered leather. It gleams to those with the forest eyes.\n\nWhen you **_wield the crystal knife as a_** **_weapon_**, you can harm the manifest form of any spirit, ignoring armor and dealing +1d4 damage. If the 1d4 comes up a 4, though, the knife shatters into useless shards.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{Forest Folk}.*",
-      "text": ""
+      "text": "*Hand*, *Grob*, *Magisch*\n\nEine aus Quarz geschliffene Klinge, deren Griff mit glyphenbedecktem Leder umwickelt ist. Für diejenigen mit den Augen des Waldes schimmert es.\n\nWenn du **_das Kristallmesser als Waffe führst_**, kannst du die manifestierte Form jedes Geistes verletzen, wobei du Rüstung ignorierst und +1W4 Schaden verursachst. Wenn der W4 jedoch eine 4 zeigt, zerspringt das Messer in nutzlose Splitter.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.GaDYK1VEJEi6tHDa]{Waldvolk}.*"
     }
   },
   "distillery": {
@@ -792,19 +793,19 @@
   "ever-burning-ember": {
     "name": {
       "source": "Ever-burning ember",
-      "text": ""
+      "text": "Ewig brennende Glut"
     },
     "description": {
       "source": "◇ *fragile*, *magical*, Value 3\n\nThis ceramic pot has a number of thin slits along its shoulder and a ring of rune-etched brass around its neck. The pot is always hot, painful to touch, but it won’t cause blisters outright. Inside is a glowing ember of redwood with a fire spirit bound inside. The ember will smolder forever as long it stays in the pot and isn’t completely submerged.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "◇, *Fragil*, *Magisch*, Wert 3\n\nDieser Keramiktopf weist entlang seiner Schulter mehrere schmale Schlitze auf und ist am Hals mit einem Ring aus runenverziertem Messing umgeben. Der Topf ist stets heiß; eine Berührung ist schmerzhaft, verursacht jedoch keine Blasen. Im Inneren befindet sich eine glühende Kohle aus Rotholz, in der ein Feuergeist gebunden ist. Die Kohle glimmt ewig, solange sie im Topf verbleibt und nicht vollständig untergetaucht wird.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     },
     "outfitItems/ever-burning-ember/name": {
       "source": "Ever-burning ember",
-      "text": ""
+      "text": "Ewig brennende Glut"
     },
     "outfitItems/ever-burning-ember/note": {
       "source": "Value 3",
-      "text": ""
+      "text": "Value 3"
     }
   },
   "floating-sash": {
@@ -1048,11 +1049,11 @@
   "moonlight-raiment": {
     "name": {
       "source": "Moonlight raiment",
-      "text": ""
+      "text": "Mondlichtgewand"
     },
     "description": {
       "source": "*magical*, *beautiful*, *fragile*\n\nA gossamer robe, a joy against your skin. When you **_wear the raiment in dim light_**, you become more pleasing to the eye. If normally ugly, you become plain. If plain, you become beautiful. If beautiful, you become luminous, breathtaking, magnificent.\n\nAlas, when **_the moonlight raiment is soiled_** **_or torn while you wear it_**, mark a debility. The debility cannot be cleared until the raiment is cleaned or repaired using Fae magic, or you burn it away into silvery ash.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
-      "text": ""
+      "text": "*Magisch*, *Wunderschön*, *Zerbrechlich*\n\nEin hauchdünnes Gewand, eine Wohltat auf deiner Haut. Wenn du **_das Gewand im schwachen Licht trägst_**, wirst du für das Auge anziehender. Bist du normalerweise hässlich, wirst du durchschnittlich. Bist du durchschnittlich, wirst du schön. Bist du schön, wirst du strahlend, atemberaubend, prächtig.\n\nWehe, wenn **_das Mondlichtgewand beschmutzt oder zerrissen wird, während du es trägst_**, markiere eine Beeinträchtigung. Die Beeinträchtigung kann nicht beseitigt werden, bis das Gewand mit Feenmagie gereinigt oder repariert wurde oder du es zu silberner Asche verbrennst.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*"
     }
   },
   "mummers-kit": {
@@ -1094,19 +1095,19 @@
   "pale-metal-gauntlets": {
     "name": {
       "source": "Pale metal gauntlets",
-      "text": ""
+      "text": "Handschuhe aus blassem Metall"
     },
     "description": {
       "source": "◇ *fireproof*, *magical*, Value 3\n\nMade of a pale metal, lighter than it should be, and intricately carved with geometric patterns. The insides are an impossibly fine chainmail of the same metal. They seem to absorb heat, and are often damp.\n\nWhen you **_wear the pale metal gauntlets_**, you can pick up and manipulate even white-hot steel without harming your hands (the rest of you, though, has no special protection from heat).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "◇, *Feuerfest*, *Magisch*, Wert 3\n\nSie bestehen aus einem blassen Metall, das leichter ist, als es sein sollte, und sind aufwendig mit geometrischen Mustern verziert. Die Innenseite besteht aus einem unglaublich feinen Kettenhemd aus demselben Metall. Sie scheinen Wärme zu absorbieren und sind häufig feucht.\n\nWenn du die Handschuhe aus blassem Metall trägst, kannst du selbst weißglühenden Stahl anfassen und damit hantieren, ohne dir die Hände zu verletzen (der Rest deines Körpers ist jedoch nicht besonders vor Hitze geschützt).\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     },
     "outfitItems/pale-metal-gauntlets/name": {
       "source": "Pale metal gauntlets",
-      "text": ""
+      "text": "Handschuhe aus blassem Metall"
     },
     "outfitItems/pale-metal-gauntlets/note": {
       "source": "Value 3",
-      "text": ""
+      "text": "Wert 3"
     }
   },
   "paraphernalia": {
@@ -1208,11 +1209,11 @@
   "sacred-pouch": {
     "name": {
       "source": "Sacred pouch (*magical*)",
-      "text": "Heiliger Beutel (*Magisch)*"
+      "text": "Heiliger Beutel (*Magisch*)"
     },
     "label": {
       "source": "Sacred pouch (*magical*)",
-      "text": "Heiliger Beutel (*Magisch)*"
+      "text": "Heiliger Beutel (*Magisch*)"
     },
     "description": {
       "source": "See playbook tab",
@@ -1244,19 +1245,19 @@
   "self-burning-lamp": {
     "name": {
       "source": "Self-burning lamp",
-      "text": ""
+      "text": "Selbstbrennende Lampe"
     },
     "description": {
       "source": "◇ *reach*, *area*, hours, Value 2\n\nA bronze oil-lamp with a small valve on the top. When you screw the nozzle open, a hot blue flame pops out of the nozzle. When you screw the nozzle shut, the flame snuffs out. The lamp itself gets blisteringly hot while running, and once empty of fuel, only the Ustrina know how to refill it.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*",
-      "text": ""
+      "text": "◇, *Lang*, *Bereich*, ○○○○○ Stunden, Wert 2\n\nEine bronzene Öllampe mit einem kleinen Ventil an der Oberseite. Wenn man die Düse aufschraubt, schießt eine heiße blaue Flamme aus der Düse. Wenn man die Düse wieder zudreht, erlischt die Flamme. Die Lampe selbst wird glühend heiß, wenn sie läuft, und sobald ihr Brennstoff aufgebraucht ist, wissen nur die Ustrina, wie man sie wieder auffüllt.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina}.*"
     },
     "outfitItems/self-burning-lamp/name": {
       "source": "Self-burning lamp",
-      "text": ""
+      "text": "Selbstbrennende Lampe"
     },
     "outfitItems/self-burning-lamp/note": {
       "source": "hours, Value 2",
-      "text": ""
+      "text": "Stunden, Wert 2"
     }
   },
   "silvery-horn": {
@@ -1430,37 +1431,37 @@
   "the-red-pennant": {
     "name": {
       "source": "The Red Pennant",
-      "text": ""
+      "text": "Der Rote Wimpel"
     },
     "description": {
       "source": "◇◇ *magical*, Blood\n\nA woolen flag hanging from a crossbar at the end of a sturdy long spear. It’s tattered, crimson, with a crudely embroidered boot for a device. It hangs heavy. Like it’s wet.\n\nWhen you **_fly the Red Pennant in battle_**, all who fight on your side feel bloodlust boil within them. Hold 3 Blood. While the battle rages, you can spend Blood 1-for-1 to will your allies to:\n\n- Rush forward, driving back their foes\n- Hold fast, making their foes pay for every inch\n- Fight savagely, giving no quarter\nIf spending Blood results in you Ordering Followers or Deploying, or another PC Clashing, the roll has advantage. Each time you spend Blood, those affected gain some small, animalistic or stony trait (little horns, weird eyes, crag-like wrinkles, etc.).\n\nWhen you **_spend the last Blood or the battle_** **_ends_**, the Red Pennant’s color fades and a few (~1 in 6) of those manifested traits will linger, especially in those who fought hardest. It will not function again until you soak it in the blood of fallen foes.\n\nThis is the battle standard of the **Bloody** **Boots** (page 112), their most sacred relic. Don’t expect them to just let it go.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
-      "text": ""
+      "text": "◇◇, *Magisch*, Blut\n\nEine Fahne aus Wolle, die an einer Querstange am Ende eines stabilen, langen Speers hängt. Sie ist zerfetzt, purpurrot und trägt als Emblem einen grob gestickten Stiefel. Sie hängt schwer. Als wäre sie nass.\n\nWenn du **_im Kampf den roten Wimpel hisst_**, spürt jeder, der an deiner Seite kämpft, wie die Kampfeslust in ihm aufsteigt. Nimm 3 Punkte Blut. Solange der Kampf andauert, kannst du jeweils 1 Punkt Blut ausgeben, um deine Verbündeten dazu zu bewegen:\n\n- Vorzustürmen und ihre Feinde zurückzudrängen\n- Standzuhalten und ihre Feinde jeden Zentimeter teuer bezahlen zu lassen\n- Mit äußerster Wildheit zu kämpfen und keine Gnade zu zeigen\n\nWenn das Ausgeben von Blut dazu führt, dass du Gefolgsleuten Befehle erteilst, Truppen aufstellst oder ein anderer SC in den Nahkampf geht, erhält der Wurf Vorteil. Jedes Mal, wenn du Blut ausgibst, erhalten die Betroffenen eine kleine, animalische oder steinartige Eigenschaft (kleine Hörner, seltsame Augen, felsartige Falten usw.).\n\nWenn du **_das letzte Blut ausgibst oder die Schlacht endet_**, verblasst die Farbe des Roten Wimpels und einige (ca. 1 von 6) dieser manifestierten Eigenschaften bleiben bestehen, insbesondere bei denen, die am härtesten gekämpft haben. Er funktioniert erst wieder, wenn du ihn im Blut gefallener Feinde tränkst.\n\nDies ist die Schlachtstandarte der **Blutigen Stiefel**, ihr heiligstes Relikt. Erwarte nicht, dass sie sie einfach so hergeben.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*"
     },
     "outfitItems/the-red-pennant/name": {
       "source": "The Red Pennant",
-      "text": ""
+      "text": "Der Rote Wimpel"
     },
     "outfitItems/the-red-pennant/note": {
       "source": "Blood",
-      "text": ""
+      "text": "Blut"
     }
   },
   "the-three-star-crown": {
     "name": {
       "source": "The Three-star Crown",
-      "text": ""
+      "text": "Die Drei-Sterne-Krone"
     },
     "description": {
       "source": "◇ *magical*, *beautiful*, Value 4\n\nA circlet of whitest gold, set with three black sapphires that shine like stars. It was made by a renowned smith, an apprentice of the **Forge Lords** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{156}), at the command of a petty warlord. The warlord was so pleased, he maimed the smith’s hands so that she could never make its rival. The smith killed herself in despair, cursing the crown to steal the hopes of all who wore it.\n\nWhen you **_wear the crown and interact_** **_with someone who fears or respects you_**, you roll +CHA with advantage. Alas, **_each time_** **_you don the crown_**, roll +WIS: **on a 10+**, tell the GM one of your hopes and why you doubt it can be achieved; **on a 7-9**, tell them a hope you have abandoned; **on a 6-**, you fall into a deep despair that lasts until you rouse yourself to face a mortal danger.\n\nIf **_the crown is destroyed_**—the gems shattered, the metal reduced to slag— then the despair is lifted and all lost hopes are restored.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Wunderschön*, Wert 4\n\nEin Stirnreif aus reinstem Weißgold, besetzt mit drei schwarzen Saphiren, die wie Sterne leuchten. Er wurde von einem berühmten Schmied, einem Lehrling der **Schmiedefürsten** (Seite @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{156}), im Auftrag eines kleineren Kriegsherrn angefertigt. Der Kriegsherr war derart zufrieden mit dem Werk, dass er dem Schmied die Hände verstümmeln ließ, damit er niemals ein ebenbürtiges Stück anfertigen konnte. Der Schmied nahm sich daraufhin aus Verzweiflung das Leben und verfluchte die Krone, um allen, die sie trugen, die Hoffnung zu rauben.\n\nWenn du **_die Krone trägst und mit jemandem interagierst, der dich fürchtet oder respektiert_**, würfle +CH mit Vorteil. Doch **_jedes Mal, wenn du die Krone aufsetzt_**, würfle +WE. **Bei einer 10+** nennst du dem SL eine deiner Hoffnungen und warum du bezweifelst, dass sie erreicht werden kann. **Bei 7-9** nennst du ihm eine Hoffnung, die du aufgegeben hast. **Bei einer 6-** verfällst du in eine tiefe Verzweiflung, die anhält, bis du dich aufraffst, einer tödlichen Gefahr entgegenzutreten.\n\nWenn **_die Krone zerstört wird_** – die Edelsteine zerschmettert und das Metall zu Schlacke eingeschmolzen –, wird die Verzweiflung aufgehoben und alle verlorenen Hoffnungen kehren zurück.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Grabhügelerbauer}.*"
     },
     "outfitItems/the-three-star-crown/name": {
       "source": "The Three-star Crown",
-      "text": ""
+      "text": "Die Drei-Sterne-Krone"
     },
     "outfitItems/the-three-star-crown/note": {
       "source": "Value 4",
-      "text": ""
+      "text": "Wert 4"
     }
   },
   "trade-contacts": {
@@ -1618,7 +1619,7 @@
     },
     "choices/0/options/composite-bow/text": {
       "source": "◇ Composite bow (*far*, +1 damage, x piercing; ○ low ammo, ○ all out)",
-      "text": "◇ Kompositbogen (*Fern*, +1 Schaden, Durchdringend x"
+      "text": "◇ Kompositbogen (*Fern*, +1 Schaden, Durchdringend x)"
     },
     "choices/0/options/sword/outfitItems/sword/name": {
       "source": "Sword, iron",

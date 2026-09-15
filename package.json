@@ -11,6 +11,8 @@
     "pack": "node scripts/compendium-pack/pack.js",
     "unpack": "node scripts/compendium-pack/unpack.js",
     "i18n:extract": "node scripts/i18n/extract.js",
+    "i18n:merge": "node scripts/i18n/mergeTranslations.js",
+    "i18n:handoff": "node scripts/i18n/handoff.js",
     "i18n:check": "node scripts/i18n/check.js",
     "i18n:build": "node scripts/i18n/buildBabele.js",
     "extract-art": "node scripts/import/pdf/extract-art.js",

@@ -428,127 +428,127 @@
     },
     "choices/tall-tales-beginning/0/title": {
       "source": "There Was That Time You…",
-      "text": ""
+      "text": "Da war zum Beispiel die Sache, als du … (wähle 1 pro Geschichte)"
     },
     "choices/tall-tales-beginning/0/text": {
       "source": "Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. *(choose 1 per tale)*",
-      "text": ""
+      "text": "Jemand wie du gerät in alle möglichen Schwierigkeiten, ob nun absichtlich oder nicht. Kombiniere die folgenden Elemente, um ein paar deiner denkwürdigsten Abenteuer zu erschaffen, und schreibe sie unten in dieser Spalte auf."
     },
     "choices/tall-tales-ending/0/title": {
       "source": "And You Ended Up…",
-      "text": ""
+      "text": "Und du bist schließlich…"
     },
     "choices/tall-tales-ending/0/titleNote": {
       "source": "(choose 1 or 2 per tale)",
-      "text": ""
+      "text": "(wähle 1 oder 2 pro Geschichte)"
     },
     "choices/tall-tales-legacy/0/title": {
       "source": "But All You've Got Left to Show for It Is…",
-      "text": ""
+      "text": "Aber alles, was dir davon geblieben ist, ist …"
     },
     "choices/tall-tales-beginning/lost-great-wood/text": {
       "source": "… got lost in the Great Wood.",
-      "text": ""
+      "text": "… dich im Großen Wald verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-flats/text": {
       "source": "… got lost in the Flats.",
-      "text": ""
+      "text": "… in der Ebene verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-steplands/text": {
       "source": "… got lost in the Steplands.",
-      "text": ""
+      "text": "… in den Stufenlanden verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-ferrers-fen/text": {
       "source": "… got lost in Ferrier's Fen.",
-      "text": ""
+      "text": "… im Ferriers Moor verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-foothills/text": {
       "source": "… got lost in the Foothills.",
-      "text": ""
+      "text": "… im Vorgebirge verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-huffel-peaks/text": {
       "source": "… got lost in the Huffel Peaks.",
-      "text": ""
+      "text": "… in den Huffelgipfeln verlaufen hast"
     },
     "choices/tall-tales-beginning/crinwin-raid/text": {
       "source": "… were on watch when the crinwin raided.",
-      "text": ""
+      "text": " … Wache gehalten hast, als die Crinwin einfielen"
     },
     "choices/tall-tales-beginning/ruined-tower/text": {
       "source": "… dared each other to explore the Ruined Tower.",
-      "text": ""
+      "text": "… dich mit anderen dazu herausgefordert hast, die Turmruine zu erkunden"
     },
     "choices/tall-tales-beginning/hillfolk/text": {
       "source": "… managed to rile up a small band of Hillfolk.",
-      "text": ""
+      "text": "… es geschafft hast, eine kleine Gruppe des Hügelvolks gegen dich aufzubringen"
     },
     "choices/tall-tales-beginning/labyrinth/text": {
       "source": "… braved the Labyrinth, just a little.",
-      "text": ""
+      "text": "… dich ein kleines Stück weit ins Labyrinth gewagt hast"
     },
     "choices/tall-tales-beginning/old-mans-book/text": {
       "source": "… stole that crazy old man's book.",
-      "text": ""
+      "text": "… das Buch dieses verrückten alten Mannes gestohlen hast"
     },
     "choices/tall-tales-beginning/barrow-mounds/text": {
       "source": "… went poking about the old Barrow Mounds.",
-      "text": ""
+      "text": "… in den alten Grabhügeln herumgestöbert hast"
     },
     "choices/tall-tales-ending/running/text": {
       "source": "… running for your life from something.",
-      "text": ""
+      "text": "… um dein Leben vor … davongerannt"
     },
     "choices/tall-tales-ending/well-placed-blow/text": {
       "source": "… landing a well-placed blow.",
-      "text": ""
+      "text": "… einen gut platzierten Treffer gelandet"
     },
     "choices/tall-tales-ending/strange-gather/text": {
       "source": "… interrupting a strange, creepy gathering.",
-      "text": ""
+      "text": "… in eine seltsame, unheimliche Versammlung geplatzt"
     },
     "choices/tall-tales-ending/big-beast/text": {
       "source": "… stumbling on a beast, bigger'n anything.",
-      "text": ""
+      "text": "… über ein Ungeheuer gestolpert, größer als alles, was du je gesehen hast"
     },
     "choices/tall-tales-ending/treasure/text": {
       "source": "… with a sack full of treasure.",
-      "text": ""
+      "text": "… mit einem Sack voller Schätze davongekommen"
     },
     "choices/tall-tales-ending/someone-fight/text": {
       "source": "… getting someone to fight them for you.",
-      "text": ""
+      "text": "… dazu gekommen, sie für dich kämpfen zu lassen"
     },
     "choices/tall-tales-ending/ghost/text": {
       "source": "… face to face with a ghost/Fae/demon.",
-      "text": ""
+      "text": "… einem Geist/einer Fee/einem Dämon Auge in Auge gegenübergestanden"
     },
     "choices/tall-tales-ending/strange-runes/text": {
       "source": "… finding those strange old runes.",
-      "text": ""
+      "text": "… auf diese seltsamen alten Runen gestoßen"
     },
     "choices/tall-tales-ending/fine-looking/text": {
       "source": "… getting to know that fine-looking fellow/lady/person/couple.",
-      "text": ""
+      "text": "… diesen gut aussehenden Kerl/diese gut aussehende Frau/diese gut aussehende Person/dieses gut aussehende Paar kennengelernt"
     },
     "choices/tall-tales-legacy/story-no-one-believes/text": {
       "source": "… a story no one believes.",
-      "text": ""
+      "text": "… eine Geschichte, die niemand glaubt."
     },
     "choices/tall-tales-legacy/nasty-scar/text": {
       "source": "… a nasty scar; wanna see?",
-      "text": ""
+      "text": "… eine hässliche Narbe – willst du sie sehen?"
     },
     "choices/tall-tales-legacy/nightmares/text": {
       "source": "… the occasional nightmare.",
-      "text": ""
+      "text": "… gelegentliche Albträume."
     },
     "choices/tall-tales-legacy/map-with-runes/text": {
       "source": "… this map with runes no one can read.",
-      "text": ""
+      "text": "… diese Karte mit Runen, die niemand lesen kann."
     },
     "choices/tall-tales-legacy/mystery-key/text": {
       "source": "… this key that opens who-knows-what.",
-      "text": ""
+      "text": "… dieser Schlüssel, der wer weiß was öffnet."
     },
     "instinct/0/options/conscience/text": {
       "source": "Conscience",
@@ -1034,13 +1034,18 @@
       "source": "Missionary",
       "text": "Missionar"
     },
+    "backgrounds/missionary/description": {
+      "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.\n\nWhen you **_call upon the Judge of another steading for aid or information_**, they are oathbound to give it. You are likewise oathbound to support them.\n\nYou have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
+      "text": "Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):\n\nWenn du **_den Richter einer anderen Siedlung um Hilfe oder Informationen bittest_**, ist dieser durch einen Eid verpflichtet, sie dir zu gewähren. Ebenso bist du durch einen Eid verpflichtet, ihn zu unterstützen.\n\nZusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht.",
+      "orphaned": true
+    },
     "backgrounds/prophet/label": {
       "source": "Prophet",
       "text": "Prophet"
     },
     "backgrounds/prophet/description": {
       "source": "The line of Judges was broken long ago, the Chronicle lost or fallen into ruin. Aratis has called you personally to her service through dreams, omens, and visions. Some in town resent the authority you've assumed.",
-      "text": "Die Linie der Richter ist vor langer Zeit abgerissen, die Chronik verloren gegangen oder dem Verfall anheimgefallen. Aratis hat dich persönlich durch Träume, Omen und Visionen in ihren Dienst berufen. Einige im Ort nehmen dir die Autorität übel, die du dir anmaßt.",
+      "text": "Die Linie der Richter ist vor langer Zeit abgerissen, die Chronik verloren gegangen oder dem Verfall anheimgefallen. Aratis hat dich persönlich durch Träume, Omen und Visionen in ihren Dienst berufen. Einige im Ort nehmen dir die Autorität übel, die du dir anmaßt.\n\nWenn du **_einige Tage damit verbringst, mit Aratis über eine Bedrohung für Stonetop oder die Zivilisation als Ganzes Zwiesprache zu halten_**, würfle +WE. Bei einer 7+ offenbart dir Aratis die Vorgehensweise, die sie von dir erwartet. Bei einer 10+ erhältst du außerdem 2 Gunst. Während du nach ihren Anweisungen handelst, kannst du 1 Gunst ausgeben, um +1 auf einen gerade abgelegten Wurf zu erhalten.",
       "needsReview": true
     },
     "backgrounds/missionary/choices/0/text": {
@@ -1426,7 +1431,13 @@
     },
     "choices/helior-worship-practice/0/text": {
       "source": "He Is Worshipped Through… (choose 1 or 2)",
-      "text": "Er wird verehrt durch... (wähle 1 oder 2)"
+      "text": "(wähle 1 oder 2)",
+      "needsReview": true
+    },
+    "choices/helior-worship-practice/0/title": {
+      "source": "He Is Worshipped Through…",
+      "text": "Er wird verehrt durch...",
+      "orphaned": true
     },
     "choices/helior-worship-practice/solemn-hymns/text": {
       "source": "… solemn hymns.",
@@ -1462,7 +1473,13 @@
     },
     "choices/helior-shrine/0/text": {
       "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has… (choose 1)",
-      "text": "Heliors Schrein im Götterpavillon von Stonetop... (wähle 1)"
+      "text": "(wähle 1)",
+      "needsReview": true
+    },
+    "choices/helior-shrine/0/title": {
+      "source": "In Stonetop's Pavilion of the Gods, Helior's Shrine Has…",
+      "text": "Heliors Schrein im Götterpavillon von Stonetop...",
+      "orphaned": true
     },
     "choices/helior-shrine/highest-honor/text": {
       "source": "… the place of highest honor, even if Tor is more popular.",
@@ -1482,7 +1499,13 @@
     },
     "choices/helior-predecessor/0/text": {
       "source": "Your Predecessor, the Previous Lightbearer… (choose 2 or 3)",
-      "text": "Dein Vorgänger, der vorherige Lichtbringer... (wähle 2 oder 3)"
+      "text": "(wähle 2 oder 3)",
+      "needsReview": true
+    },
+    "choices/helior-predecessor/0/title": {
+      "source": "Your Predecessor, the Previous Lightbearer…",
+      "text": "Dein Vorgänger, der vorherige Lichtbringer...",
+      "orphaned": true
     },
     "choices/helior-predecessor/lived-long-ago/text": {
       "source": "… lived long ago, a figure of legend.",
@@ -1518,7 +1541,13 @@
     },
     "choices/helior-powers-origin/0/text": {
       "source": "You Came Into Your Powers… (choose 1)",
-      "text": "Du erlangtest deine Kräfte… (wähle 1)"
+      "text": "(wähle 1)",
+      "needsReview": true
+    },
+    "choices/helior-powers-origin/0/title": {
+      "source": "You Came Into Your Powers…",
+      "text": "Du erlangtest deine Kräfte…",
+      "orphaned": true
     },
     "choices/helior-powers-origin/years-study/text": {
       "source": "… through years of study and devotion.",

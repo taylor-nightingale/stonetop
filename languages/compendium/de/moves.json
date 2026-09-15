@@ -479,15 +479,16 @@
   "bolster": {
     "name": {
       "source": "Bolster",
-      "text": ""
+      "text": "Vorbereiten"
     },
     "description": {
       "source": "When you **_prepare for what's coming or seek the favor of the gods_**, say how and answer the GM's questions. Then, hold Preparation based on the amount of time you devote:\n\n- A week or so: 1 Preparation\n- A month or so: 2 Preparation\n- The better part of a season: 3 Preparation\n\nWhen you **_make any roll to which your efforts might apply_**, you may spend 1 Preparation to add +1 to that roll, after it is made (maximum +1 per roll).",
-      "text": ""
+      "text": "Wenn du **_dich auf das, was dir bevorsteht, vorbereitest oder die Gunst der Götter suchst_**, beschreibe, wie du dabei vorgehst, und beantworte die Fragen des SL. Nimm dann entsprechend der Zeit, die du dafür aufgewendet hast, Vorbereitung:\n\n- Etwa eine Woche: 1 Vorbereitung\n- Etwa einen Monat: 2 Vorbereitung\n- Den größten Teil einer Jahreszeit: 3 Vorbereitung\n Wenn du **_würfelst und deine Vorbereitung Einfluss auf das Ergebnis haben könnte_**, kannst du nach dem Würfeln 1 Vorbereitung ausgeben, um +1 auf das Ergebnis zu erhalten (maximal +1 je Wurf).",
+      "needsReview": true
     },
     "resource/title": {
       "source": "Preparation",
-      "text": ""
+      "text": "Vorbereitung"
     }
   },
   "borrow-power": {
@@ -801,11 +802,11 @@
   "chosen-of-the-storm-bringer": {
     "name": {
       "source": "Chosen of the Storm-bringer",
-      "text": ""
+      "text": "Auserwählter des Sturmbringers"
     },
     "description": {
       "source": "Add these to the list of potential manifestations granted by Storm’s Fury:\n- Roll +CON to Let Fly with a bolt of lightning (2d6 damage, *thrown*, *forceful*, *loud*, *dangerous*, ignores armor)\n- Make a prodigious leap, buoyed by the wind\n- Summon a powerful gale with you at its center—dirt and debris swirl about, the wind is deafening, people must brace themselves to keep from getting bowled over, projectiles careen off course—and take disadvantage on all rolls as long as you sustain it",
-      "text": ""
+      "text": "Füge dies der Liste der Manifestationen hinzu, die durch Zorn des Sturms gewährt werden:\n- Würfle +KO, um einen Blitz zu entfesseln (2W6 Schaden, *Geworfen*, *Wuchtig*, *Laut*, *Gefährlich*, Ignoriert Rüstung).\n- Mache einen gewaltigen Sprung, angetrieben durch den Wind.\n- Beschwöre einen mächtigen Sturm herauf, in dessen Zentrum du stehst - Schmutz und Geröll wirbeln umher, der Wind ist ohrenbetäubend, Menschen müssen sich festhalten, um nicht umgeworfen zu werden, Geschosse werden abgelenkt - und erleide bei allen Würfen einen Nachteil, solange du ihn aufrechterhältst."
     }
   },
   "chronicler-of-stonetop": {
@@ -927,11 +928,11 @@
   "convalesce": {
     "name": {
       "source": "Convalesce",
-      "text": ""
+      "text": "Genesen"
     },
     "description": {
       "source": "When you **_rest for a few days, in safety and comfort_**, recover all your HP and clear all your debilities. When you **_rest for a few weeks under the care of a healer_**, heal any problematic wounds that can heal. If you **_have suffered a permanent injury or impairment_**, either retire or Make a Plan to adapt to it.",
-      "text": ""
+      "text": "Wenn du **_dich ein paar Tage in sicherer und bequemer Umgebung ausruhst_**, stellst du alle deine TP wieder her und beseitigst alle deine Beeinträchtigungen. Wenn du **_dich einige Wochen lang unter der Obhut eines Heilers ausruhst_**, heilen alle problematischen Wunden, die heilbar sind. Wenn du **_eine bleibende Verletzung oder Beeinträchtigung erlitten hast_**, zieh dich entweder aus dem Abenteurerleben zurück oder Schmiede einen Plan, um dich daran anzupassen."
     }
   },
   "countermeasures": {
@@ -1180,19 +1181,19 @@
   "deploy": {
     "name": {
       "source": "Deploy",
-      "text": ""
+      "text": "Einsetzen"
     },
     "description": {
       "source": "When you **_send a steading's people into danger or rally them against an attack_**, roll +Defenses: **on a 10+**, it goes as well as can be expected; **on a 7-9**, it works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.\n\n- It's less effective than you expected\n- Injuries abound; the steading marks *diminished* (disadvantage to Deploy, Muster, Pull Together)\n- The GM picks a named NPC involved in the action; they die",
-      "text": ""
+      "text": "Wenn du **_die Bewohner einer Siedlung in Gefahr schickst oder sie gegen einen Angriff mobilisierst_**, würfle +Verteidigung. **Bei einer 10+** verläuft alles so gut, wie man es erwarten kann. **Bei 7–9** funktioniert es, aber jemand wählt eines aus der folgenden Liste. Wenn die Siedlung aus einer Position der Stärke heraus handelt, wählst du. Andernfalls wählt der SL.\n\n- Es ist weniger effektiv, als du erwartet hast.\n- Es gibt zahlreiche Verletzte; markiere bei der Siedlung Geschwächt (Nachteil auf Einsetzen, Aufbieten oder Gemeinsam anpacken).\n- Der SL wählt einen bestimmten NSC aus, der an der Aktion beteiligt ist; er stirbt."
     },
     "moveResults/success/value": {
       "source": "It goes as well as can be expected.",
-      "text": ""
+      "text": "Es verläuft alles so gut, wie man es erwarten kann."
     },
     "moveResults/partial/value": {
       "source": "It works but someone picks 1 from the list below. If the steading is acting from a position of strength, you choose. Otherwise, the GM chooses.\n\n- It's less effective than you expected\n- Injuries abound; the steading marks *diminished* (disadvantage to Deploy, Muster, Pull Together)\n- The GM picks a named NPC involved in the action; they die",
-      "text": ""
+      "text": "Es funktioniert, aber jemand wählt eines aus der folgenden Liste. Wenn die Siedlung aus einer Position der Stärke heraus handelt, wählst du. Andernfalls wählt der SL.\n\n- Es ist weniger effektiv, als du erwartet hast.\n- Es gibt zahlreiche Verletzte; markiere bei der Siedlung Geschwächt (Nachteil auf Einsetzen, Aufbieten oder Gemeinsam anpacken).\n- Der SL wählt einen bestimmten NSC aus, der an der Aktion beteiligt ist; er stirbt."
     },
     "moveResults/failure/value": {
       "source": "The GM makes a move.",
@@ -1638,7 +1639,7 @@
     },
     "description": {
       "source": "When you **_lead one or more NPCs through danger_**, roll +CHA: **on a 10+**, you all make it through (Helior be praised); **_on a 7-9_**, the GM will tell you what's required to get everyone through safely.",
-      "text": "Wenn du **_einen oder mehrere NSC durch eine Gefahr führst, würfle +CH. **Bei einer 10+** kommt ihr alle sicher hindurch (gelobt sei Helior). **Bei 7–9** sagt dir der SL, was erforderlich ist, damit ihr alle sicher hindurchkommt."
+      "text": "Wenn du **_einen oder mehrere NSC durch eine Gefahr führst_**, würfle +CH. **Bei einer 10+** kommt ihr alle sicher hindurch (gelobt sei Helior). **Bei 7–9** sagt dir der SL, was erforderlich ist, damit ihr alle sicher hindurchkommt."
     },
     "moveResults/success/value": {
       "source": "You all make it through.",
@@ -2122,11 +2123,11 @@
   "level-up": {
     "name": {
       "source": "Level Up",
-      "text": ""
+      "text": "Stufenaufstieg"
     },
     "description": {
       "source": "When you **_have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level_**, follow these steps:\n\n- Subtract 6 + twice your current level from your XP.\n- Increase your level by 1.\n- Choose a new move from your playbook, or an insert class that you've unlocked.\n- If you are the Blessed (or have a sacred pouch) and your new level is even, increase your maximum Stock by 1.\n- If you are the Lightbearer (or have Invoke the Sun God) and your new level is even, choose a new Invocation.\n- Review your Instinct and Appearance. Change anything that no longer applies. Feel free to make up new options.",
-      "text": ""
+      "text": "Wenn du **_zu Hause eine längere Zeit ungestört verbringen kannst und mindestens 6 + das Doppelte deiner aktuellen Stufe an EP hast_**, führe die folgenden Schritte durch:\n- Ziehe 6 + das Doppelte deiner aktuellen Stufe von deinen EP ab.\n- Erhöhe deine Stufe um 1.\n- Wähle einen neuen Spielzug aus deinem Klassenbuch oder einer Beilage, die du freigeschaltet hast.\n- Wenn du der Gesegnete bist (oder einen heiligen Beutel besitzt) und deine neue Stufe gerade ist, erhöhe deinen maximalen Vorrat um 1.\n- Wenn du der Lichtträger bist (oder „Den Sonnengott anrufen“ besitzt) und deine neue Stufe gerade ist, wähle eine neue Anrufung.\n- Überprüfe deinen Instinkt und dein Aussehen (auf der Vorderseite deines Klassenbuchs). Ändere alles, was nicht mehr zutrifft. Du kannst dir jederzeit etwas Eigenes ausdenken."
     }
   },
   "light-fingers": {
@@ -2208,7 +2209,7 @@
     },
     "description": {
       "source": "When you **_have a steading Muster or Pull Together, or when you Requisition_**, you have advantage.",
-      "text": "Wenn du **_die Siedlung zusammenrufst oder zusammen an einem Strang ziehst, oder Anforderungen stellst_**, hast du einen Vorteil. "
+      "text": "Wenn du **_bei einer Siedlung Aufbieten, Gemeinsam anpacken, oder Anfordern durchführst_**, hast du einen Vorteil."
     }
   },
   "luminous-shield": {
@@ -2276,11 +2277,11 @@
   "make-a-plan": {
     "name": {
       "source": "Make a Plan",
-      "text": ""
+      "text": "Einen Plan schmieden"
     },
     "description": {
       "source": "When you **_wish to accomplish some project but don't know how to go about it_**, tell the GM what you hope to achieve. They'll say what's required. If you're stumped on how to accomplish one of the requirements, tell the GM and Make a Plan for that.",
-      "text": ""
+      "text": "Wenn du **_ein Vorhaben verwirklichen möchtest, aber dir nicht sicher bist, wie du dabei vorgehen sollst_**, sag dem SL, was du erreichen möchtest. Er wird dir sagen, was dafür nötig ist. Wenn du nicht weißt, wie du eine der Voraussetzungen erfüllen sollst, sprich mit dem SL darüber und schmiede einen Plan."
     }
   },
   "make-camp": {
@@ -2306,11 +2307,11 @@
   "meet-with-disaster": {
     "name": {
       "source": "Meet With Disaster",
-      "text": ""
+      "text": "Eine Katastrophe erleben"
     },
     "description": {
       "source": "When **_calamity befalls the steading or panic spreads_**, reduce Fortunes by 1 (min -1).\n **_When Fortunes would drop below -1 for any reason_** (not just calamity or panic), then the GM picks 1 instead:\n\n- The steading marks diminished from injuries/sickness/doubt (disadvantage to Deploy, Muster, Pull Together)\n- The steading marks lacking due to shortages/hoarding/distrust (treat Prosperity as 1 lower)\n- The steading marks malcontent from fear/anger/despair (Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual)\n- Folks start to leave; reduce Population by 1",
-      "text": ""
+      "text": "Wenn ein Unglück die Siedlung heimsucht oder sich Panik ausbreitet, reduziere Schicksal um 1 (min. -1).\n\nWenn  Schicksal aus irgendeinem Grund (nicht nur durch Unglück oder Panik) unter -1 sinken würde, wählt der SL stattdessen eines:\n\n- Markiere für die Siedlung Geschwächt aufgrund von\n\n- Verletzungen, Krankheit oder Zweifel (Nachteil auf Einsetzen, Aufbieten oder Gemeinsam anpacken).\n- Markiere für die Siedlung Mangel aufgrund von Knappheit, Horten oder Misstrauen (handhabe Wohlstand als 1 niedriger).\n- Markiere für die Siedlung Unzufriedenheit aufgrund von Angst, Wut oder Verzweiflung (Schicksal wird jede Jahreszeit auf +0 statt +1 zurückgesetzt; die Leute müssen häufiger Überredet werden als üblich).\n- Die Leute beginnen, die Siedlung zu verlassen; reduziere die Bevölkerung um 1."
     }
   },
   "mental-map": {
@@ -2392,19 +2393,19 @@
   "muster": {
     "name": {
       "source": "Muster",
-      "text": ""
+      "text": "Aufbieten"
     },
     "description": {
       "source": "When you **_press every able body into the defense of a steading_**, reduce Fortunes by 1 and roll +Population: **on a 7+**, the steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. **On a 10+**, also pick 2; **on a 7-9**, also pick 1.\n\n- Increase Defenses by 1 as long as the Muster holds\n- Everyone's willing to pitch in; don't reduce Fortunes after all\n- The muster holds together even without your presence\n- 1 or 2 individuals show real potential; ask the GM who and how",
-      "text": ""
+      "text": "Wenn du **_alle verfügbaren Bewohner zur Verteidigung einer Siedlung zusammenrufst_**, reduziere Schicksal um 1 und würfle +Bevölkerung. **Bei einer 7+** ist die Siedlung wachsam und bereit, sich der Bedrohung zu stellen, bis die Bedrohung vorüber ist, die Jahreszeit wechselt oder du aufhörst, das Aufgebot zu überwachen. **Bei einer 10+** wähle zusätzlich 2. **Bei 7–9** zusätzlich 1.\n\n- Erhöhe Verteidigung um 1, solange das Aufgebot besteht.\n- Alle sind bereit, mit anzupacken. Reduziere Schicksal doch nicht.\n- Das Aufgebot hält auch ohne deine Anwesenheit zusammen.\n- 1 oder 2 Personen zeigen echtes Potenzial. Frage den SL, wer und woran man das erkennt."
     },
     "moveResults/success/value": {
       "source": "The steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. Also pick 2.\n\n- Increase Defenses by 1 as long as the Muster holds\n- Everyone's willing to pitch in; don't reduce Fortunes after all\n- The muster holds together even without your presence\n- 1 or 2 individuals show real potential; ask the GM who and how",
-      "text": ""
+      "text": "Die Siedlung ist wachsam und bereit, sich der Bedrohung zu stellen, bis die Bedrohung vorüber ist, die Jahreszeit wechselt oder du aufhörst, das Aufgebot zu überwachen. Wähle zusätzlich 2.\n\n- Erhöhe Verteidigung um 1, solange das Aufgebot besteht.\n- Alle sind bereit, mit anzupacken. Reduziere Schicksal doch nicht.\n- Das Aufgebot hält auch ohne deine Anwesenheit zusammen.\n- 1 oder 2 Personen zeigen echtes Potenzial. Frage den SL, wer und woran man das erkennt."
     },
     "moveResults/partial/value": {
       "source": "The steading is alert and ready for action until the threat passes, the Seasons Change, or you cease to oversee the muster. Also pick 1.\n\n- Increase Defenses by 1 as long as the Muster holds\n- Everyone's willing to pitch in; don't reduce Fortunes after all\n- The muster holds together even without your presence\n- 1 or 2 individuals show real potential; ask the GM who and how",
-      "text": ""
+      "text": "Die Siedlung ist wachsam und bereit, sich der Bedrohung zu stellen, bis die Bedrohung vorüber ist, die Jahreszeit wechselt oder du aufhörst, das Aufgebot zu überwachen. Wähle zusätzlich 1.\n\n- Erhöhe Verteidigung um 1, solange das Aufgebot besteht.\n- Alle sind bereit, mit anzupacken. Reduziere Schicksal doch nicht.\n- Das Aufgebot hält auch ohne deine Anwesenheit zusammen.\n- 1 oder 2 Personen zeigen echtes Potenzial. Frage den SL, wer und woran man das erkennt."
     },
     "moveResults/failure/value": {
       "source": "The GM makes a move.",
@@ -2570,7 +2571,7 @@
     },
     "description": {
       "source": "When you **_lead your people to Pull Together or Deploy beyond sight of home_**, you have advantage.",
-      "text": "Wenn du **_deine Leute dabei anführst, an einen Strang zu ziehen oder sie jenseits der Heimat entsendest_**, hast du einen Vorteil."
+      "text": "Wenn du **_deine Leute dabei anführst, gemeinsam anzupacken oder sie jenseits der Heimat entsendest_**, hast du einen Vorteil."
     }
   },
   "payback": {
@@ -2742,23 +2743,23 @@
   "power-of-the-lidless-orb": {
     "name": {
       "source": "Power of the Lidless Orb",
-      "text": ""
+      "text": "Macht der lidlosen Kugel"
     },
     "description": {
       "source": "When you **_bear the staff and call upon the power of the Orb_**, choose one of the effects that you have marked:\n- Cast your sight afar, seeing either a time in the past of your current locale or the present of a distant place which you have previously visited. While you maintain the effect, you are blind to the world around you.\n- Hold the Orb before another creature’s gaze and steal its sense of sight, blinding them until you use this effect again. When you see through the Lidless Orb, you can choose to see using the currently stolen sense of sight.\n- Hold the Orb before a mortal being’s gaze, keeping it transfixed, mesmerized, and receptive to your suggestions. A weak-willed creature will obey outright; a strong-willed one might require convincing.\n- Point the Orb at a living victim and roll 2d4. If you roll higher than the victim’s current HP, it’s debilitated with nausea and vertigo while you remain in its presence (and possibly for some time thereafter). Otherwise, the victim reels momentarily but soon recovers.\n\nAfter you’ve chosen the effect, roll +CON: **on a 10+**, the effect occurs as described; **on a 7-9**, you decide either to mark a Consequence and have the effect occur, or to have the effect fail; **on a 6-**, ask the GM what happens (which may or may not involve marking a Consequence).",
-      "text": ""
+      "text": "Wenn du **_den Stab führst und die Macht der Kugel anrufst_**, wähle einen der Effekte, die du markiert hast:\n- Wirf deinen Blick in die Ferne und sieh entweder eine vergangene Zeit an deinem gegenwärtigen Aufenthaltsort oder die Gegenwart eines fernen Ortes, den du zuvor besucht hast. Solange du den Effekt aufrechterhältst, bist du blind für die Welt um dich herum.\n- Halte die Kugel vor den Blick einer anderen Kreatur und raube ihr ihren Sehsinn. Sie bleibt blind, bis du diesen Effekt erneut einsetzt. Wenn du durch die lidlose Kugel siehst, kannst du dich dafür entscheiden, mit dem gegenwärtig geraubten Sehsinn zu sehen.\n- Halte die Kugel vor den Blick eines Sterblichen und halte ihn gebannt, hypnotisiert und empfänglich für deine Vorschläge. Eine willensschwache Kreatur wird dir ohne Weiteres gehorchen; eine willensstarke Kreatur musst du möglicherweise erst überzeugen.\n- Richte die Kugel auf ein lebendes Opfer und würfle 2W4. Würfelst du höher als die aktuellen TP des Opfers, wird es von Übelkeit und Schwindelgefühlen überwältigt, solange du dich in seiner Gegenwart aufhältst (und möglicherweise noch einige Zeit darüber hinaus). Andernfalls taumelt das Opfer einen Augenblick lang, erholt sich aber bald wieder."
     },
     "moveResults/success/value": {
       "source": "the effect occurs as described",
-      "text": ""
+      "text": "Der Effekt tritt wie beschrieben ein"
     },
     "moveResults/partial/value": {
       "source": "you decide either to mark a Consequence and have the effect occur, or to have the effect fail",
-      "text": ""
+      "text": "Du entscheidest dich entweder dafür, eine Konsequenz zu markieren und den Effekt eintreten zu lassen, oder dafür, dass der Effekt fehlschlägt."
     },
     "moveResults/failure/value": {
       "source": "ask the GM what happens (which may or may not involve marking a Consequence).",
-      "text": ""
+      "text": "Frage den SL, was geschieht (was möglicherweise das Markieren einer Konsequenz beinhaltet)."
     }
   },
   "power-sink": {
@@ -2850,19 +2851,19 @@
   "pull-together": {
     "name": {
       "source": "Pull Together",
-      "text": ""
+      "text": "Gemeinsam anpacken"
     },
     "description": {
       "source": "When you **_set a community to work on improvements_**, to secure new resources, or to make major repairs, spend whatever the GM says is required (time, materiel, Surplus, etc.) and roll +Population: **on a 10+**, the job gets done; **on a 7-9**, pick 1:\n\n- It gets done, but other work doesn't; reduce Fortunes by 1\n- It gets done, but the work is shoddy, crude\n- It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)\n- There's an unforseen cost, requirement, or challenge; address it and the job gets done",
-      "text": ""
+      "text": "Wenn du **_eine Gemeinschaft dazu bringst, an Verbesserungen, der Erschließung neuer Ressourcen oder größeren Reparaturen zu arbeiten_**, gib aus, was der SL dafür verlangt (Zeit, Material, Überschuss usw.) und würfle +Bevölkerung. **Bei einer 10+** wird die Arbeit erledigt. **Bei 7–9** wähle eines:\n\n- Es wird zwar erledigt, aber andere Arbeiten werden vernachlässigt. Reduziere Wohlstand um 1.\n- Es wird zwar erledigt, aber die Arbeit ist nicht ordentlich ausgeführt und grob.\n- Es wird zwar erledigt, aber es hat eine Konsequenz (böses Blut, eine Verletzung, eine Bedrohung tritt zutage usw.).\n- Es gibt unvorhergesehene Kosten, Anforderungen oder Herausforderungen. Kümmere dich darum und die Arbeit wird erledigt."
     },
     "moveResults/success/value": {
       "source": "The job gets done.",
-      "text": ""
+      "text": "Die Arbeit wird erledigt."
     },
     "moveResults/partial/value": {
       "source": "Pick 1:\n\n- It gets done, but other work doesn't; reduce Fortunes by 1\n- It gets done, but the work is shoddy, crude\n- It gets done, but there's a consequence (bad blood, an injury, a threat unearthed, etc.)\n- There's an unforseen cost, requirement, or challenge; address it and the job gets done",
-      "text": ""
+      "text": "Wähle eines:\n\n- Es wird zwar erledigt, aber andere Arbeiten werden vernachlässigt. Reduziere Wohlstand um 1.\n- Es wird zwar erledigt, aber die Arbeit ist nicht ordentlich ausgeführt und grob.\n- Es wird zwar erledigt, aber es hat eine Konsequenz (böses Blut, eine Verletzung, eine Bedrohung tritt zutage usw.).\n- Es gibt unvorhergesehene Kosten, Anforderungen oder Herausforderungen. Kümmere dich darum und die Arbeit wird erledigt."
     },
     "moveResults/failure/value": {
       "source": "The GM makes a move.",
@@ -3020,7 +3021,7 @@
     },
     "description": {
       "source": "When you **_draw attention to yourself by word or deed_**, roll +CHA: **on a 10+**, everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look; **_on a 7-9_**, everyone turns and looks.",
-      "text": "Wenn du **_durch Worte oder Taten die Aufmerksamkeit auf dich lenkst, würfle +CH. **Bei einer 10+** drehen sich alle um und schauen dich an, und du hältst ihren Blick so lange fest, wie du ihnen Grund zum Hinschauen gibst. **Bei 7–9** drehen sich alle um und schauen dich an."
+      "text": "Wenn du **_durch Worte oder Taten die Aufmerksamkeit auf dich lenkst_**, würfle +CH. **Bei einer 10+** drehen sich alle um und schauen dich an, und du hältst ihren Blick so lange fest, wie du ihnen Grund zum Hinschauen gibst. **Bei 7–9** drehen sich alle um und schauen dich an."
     },
     "moveResults/success/value": {
       "source": "Everyone turns and looks, and you hold their gaze as long as you keep giving them reason to look.",
@@ -3124,23 +3125,27 @@
   "seasons-change-autumn": {
     "name": {
       "source": "Seasons Change: Autumn",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Herbst"
     },
     "description": {
       "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\nWhen **_the harvest is complete_**, roll 1d4; the steading generates that much Surplus.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": ""
+      "text": "Wenn **_der Herbst hereinbricht und das Land reif für die Ernte ist_**, würfelt derjenige, der am entschlossensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.\n\nWenn **_die Ernte abgeschlossen ist_**, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
+      "needsReview": true
     },
     "moveResults/success/value": {
       "source": "Pick 1 seasonal gain.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn.\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
+      "needsReview": true
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
+      "needsReview": true
     },
     "moveResults/failure/value": {
       "source": "Threats abound (and don't mark XP).",
-      "text": ""
+      "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
+      "needsReview": true
     },
     "steps/0/text": {
       "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes.",
@@ -3158,23 +3163,26 @@
   "seasons-change-spring": {
     "name": {
       "source": "Seasons Change: Spring",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Frühling"
     },
     "description": {
       "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": ""
+      "text": "Wenn **_der Frühling über das Land hereinbricht_**, würfelt derjenige, der am hoffnungsvollsten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "Pick 1 seasonal gain.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn.\n\nSetze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nSetze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "moveResults/failure/value": {
       "source": "Threats abound (and don't mark XP).",
-      "text": ""
+      "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "steps/0/text": {
       "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes.",
@@ -3188,23 +3196,26 @@
   "seasons-change-summer": {
     "name": {
       "source": "Seasons Change: Summer",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Sommer"
     },
     "description": {
       "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes: **on a 10+**, pick 2 seasonal gains; **on a 7-9**, pick 1 seasonal gain; **on a 6-**, a threat to the steading makes itself known or gets worse (and don't mark XP).\n\nWhatever the result, the steading generates 1d4-1 Surplus. Then, reset Fortunes to +1.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": ""
+      "text": "Wenn **_sich die heißen Sommertage über das Land legen_**, würfelt derjenige, der am zufriedensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 2 saisonale Gewinne. **Bei 7–9** wähle 1 saisonalen Gewinn. **Bei einer 6-** zeichnet sich eine Bedrohung für die Siedlung ab oder verschlimmert sich (markiere keine EP).\n\nUnabhängig vom Ergebnis erzeugt die Siedlung 1W4−1 Überschuss. Anschließend wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "Pick 2 seasonal gains.",
-      "text": ""
+      "text": "Wähle 2 saisonalen Gewinne.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain.",
-      "text": ""
+      "text": "Wähle 1 saisonalen Gewinn.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "moveResults/failure/value": {
       "source": "A threat to the steading makes itself known or gets worse (and don't mark XP).",
-      "text": ""
+      "text": "Eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "steps/0/text": {
       "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes.",
@@ -3222,23 +3233,27 @@
   "seasons-change-winter": {
     "name": {
       "source": "Seasons Change: Winter",
-      "text": ""
+      "text": "Jahreszeitenwechsel: Winter"
     },
     "description": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
-      "text": ""
+      "text": "Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und wähle 1:\n\n- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.\n- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.\n- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.\n- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.\nWürfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.",
+      "needsReview": true
     },
     "moveResults/success/value": {
       "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).",
-      "text": ""
+      "text": "Der Winter ist vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt.\n\nSetze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "moveResults/partial/value": {
       "source": "The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.",
-      "text": ""
+      "text": "Die Siedlung muss vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein.\n\nSetze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "moveResults/failure/value": {
       "source": "As a 7-9, but also threats abound (and don't mark XP).",
-      "text": ""
+      "text": "Wie bei 7-9 aber die Bedrohungen nehmen überhand (markiere keine EP).n\nSetze dann Schicksal auf +1 zurück.",
+      "needsReview": true
     },
     "steps/0/text": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population.",
@@ -3680,23 +3695,23 @@
   "storms-fury": {
     "name": {
       "source": "Storm’s Fury",
-      "text": ""
+      "text": "Wut des Sturms"
     },
     "description": {
       "source": "When you **_begin to roil with anger_**, your markings crackle with electricity and the air thrums with pressure. Roll +CON: **on a 10+**, hold 3 Fury; **on a 7-9**, hold 2 Fury; **on a 6-**, hold 2 Fury but also mark a consequence.\n\nYou may spend Fury 1-for-1 to manifest one of the following:\n- Imbue your next strike with the force of thunder (+1d6 damage, *forceful*, *loud*)\n- Move like lightning, closing the distance between you and a nearby foe before they can react\n- Bellow like the storm itself, drawing no small amount of attention and making craven foes cringe in fear\n\nWhen you **_have marked 3 consequences_**, you gain Chosen of the Storm-bringer.",
-      "text": ""
+      "text": "Wenn du **_anfängst, vor Wut zu kochen_**, knistern deine Zeichen vor Elektrizität und die Luft vibriert vor Druck. Würfle +KO. **Bei einer 10+** nimm 3 Wut. **Bei 7–9** nimm 2 Wut. **Bei einer 6–** nimm 2 Wut, aber markiere auch eine Konsequenz.\n\nDu kannst 1 Wut im Verhältnis 1:1 ausgeben, um eine der folgenden Optionen zu manifestieren:"
     },
     "moveResults/success/value": {
       "source": "hold 3 Fury",
-      "text": ""
+      "text": "Nimm 3 wut"
     },
     "moveResults/partial/value": {
       "source": "hold 2 Fury",
-      "text": ""
+      "text": "Nimm 2 Wut"
     },
     "moveResults/failure/value": {
       "source": "hold 2 Fury but also mark a consequence.",
-      "text": ""
+      "text": "Nimm 2 Wut aber markiere auch eine Konsequenz."
     }
   },
   "strengthen-your-bond": {
@@ -3928,23 +3943,23 @@
   "trade-barter": {
     "name": {
       "source": "Trade & Barter",
-      "text": ""
+      "text": "Handel & Tausch"
     },
     "description": {
       "source": "When you **_wish to acquire or sell a commonly available item_**, you can. When you **_seek to acquire or sell a special item_**, roll +Prosperity and subtract the item's Value. In winter, you have disadvantage. **On a 10+**, you can get it or sell it for a fair price; **on a 7-9**, when you're trying to buy, the GM picks 1:\n\n- You can get it, but it'll cost more than usual\n- ____ has it, but they aren't keen to give it up.\n- You can get get something close, but not quite right\n\n**On a 7-9 when you're looking to sell**, you can sell it now but you won't get its full worth.\n\n**On a 6- either way** don't mark XP. If you want to aquire/sell it, you'll need to travel to ____ or wait until next season.\n\nFor unique or truly exceptional items, don't Trade & Barter. Either get with the GM and Make a Plan or wait for a trade opportunity when Seasons Change.\n\nSee @UUID[Compendium.stonetop.reference.JournalEntry.YtD7j5PutvcvOHC6.JournalEntryPage.96v6UhrjmP0UfmIw]{Gear & Possessions} for what a Value is worth, and for the items you can acquire.",
-      "text": ""
+      "text": "Wenn du **_einen allgemein verfügbaren Gegenstand erwerben oder verkaufen möchtest_**, kannst du das einfach tun. Wenn du einen besonderen Gegenstand erwerben oder verkaufen möchtest, würfle +Wohlstand und ziehe den Wert des Gegenstands ab. Im Winter hast du einen Nachteil. **Bei einer 10+** kannst du ihn zu einem fairen Preis erwerben oder verkaufen. **Bei 7–9** wählt der SL eines, wenn du versuchst, ihn zu erwerben:\n\n- Du kannst ihn erwerben, aber es wird mehr kosten als üblich.\n- ___ besitzt ihn, ist aber nicht besonders daran interessiert, ihn herzugeben.\n- Du kannst etwas Vergleichbares bekommen, aber es entspricht nicht ganz dem, was du suchst.\n\n**Bei 7–9** kannst du es jetzt verkaufen, wenn du möchtest, aber du erhältst dafür nicht den vollen Wert.\n\n**Bei einer 6-**, so oder so, markiere keine EP. Wenn du es erwerben oder verkaufen willst, musst du nach __ reisen oder bis zur nächsten Jahreszeit warten.\n\nBei einzigartigen oder wirklich außergewöhnlichen Gegenständen wird Handel & Tausch nicht verwendet. Sprich stattdessen mit dem SL und Schmiede einen Plan oder warte auf eine Handelsgelegenheit beim Jahreszeitenwechsel.\n\nSiehe unter @UUID[Compendium.stonetop.reference.JournalEntry.YtD7j5PutvcvOHC6.JournalEntryPage.96v6UhrjmP0UfmIw]{Ausrüstung & Besitztümer} nach, welchen Wert eine Ressource hat und welche Gegenstände du dafür erwerben kannst."
     },
     "moveResults/success/value": {
       "source": "You can get it or sell it for a fair price.",
-      "text": ""
+      "text": "Du kannst ihn zu einem fairen Preis erwerben oder verkaufen"
     },
     "moveResults/partial/value": {
       "source": "When you're trying to buy, the GM picks 1:\n\n- You can get it, but it'll cost more than usual\n- ____ has it, but they aren't keen to give it up.\n- You can get get something close, but not quite right\n **On a 7-9 when you're looking to sell**, you can sell it now but you won't get its full worth.",
-      "text": ""
+      "text": "Wenn du versuchst, etwas zu erwerben, wählt der SL eines.\n\n- Du kannst ihn erwerben, aber es wird mehr kosten als üblich.\n- ___ besitzt ihn, ist aber nicht besonders daran interessiert, ihn herzugeben.\n- Du kannst etwas Vergleichbares bekommen, aber es entspricht nicht ganz dem, was du suchst.\n Wenn du möchtest, kannst du es jetzt verkaufen, aber du erhältst dafür nicht den vollen Wert."
     },
     "moveResults/failure/value": {
       "source": "Don't mark XP. If you want to aquire/sell it, you'll need to travel to ____ or wait until next season.",
-      "text": ""
+      "text": "Markiere keine EP. Wenn du es erwerben oder verkaufen willst, musst du nach __ reisen oder bis zur nächsten Jahreszeit warten."
     }
   },
   "trailblazer": {
@@ -4036,7 +4051,7 @@
     },
     "description": {
       "source": "When you **_are subject to physical or mental restraint_**, you may mark a debility to immediately break free of that restraint.",
-      "text": "Wenn du körperlichen oder geistigen Einschränkungen unterworfen bist_**, kannst du eine Beeinträchtigung markieren, um dich sofort davon zu befreien."
+      "text": "Wenn du **_körperlichen oder geistigen Einschränkungen unterworfen bist_**, kannst du eine Beeinträchtigung markieren, um dich sofort davon zu befreien."
     }
   },
   "unholy-vessel": {

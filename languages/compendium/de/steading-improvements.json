@@ -2,7 +2,7 @@
   "additional-housing": {
     "name": {
       "source": "Additional Housing",
-      "text": ""
+      "text": "Zusätzlicher Wohnraum"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -22,27 +22,33 @@
     },
     "choices/0/text": {
       "source": "It's getting crowded! We need more room to live.",
-      "text": ""
+      "text": "Es wird eng! Wir brauchen mehr Platz zum Leben."
     },
     "choices/1/text": {
       "source": "**Requires** either one of these:",
-      "text": ""
+      "text": "**Erfordert** eine der folgenden Voraussetzungen:"
     },
     "choices/engineer-foreman/text": {
       "source": "An *exceptional* engineer/foreman, to design much roomier houses on the current land",
-      "text": ""
+      "text": "Einen *außergewöhnlichen* Ingenieur/Bauleiter, der geräumigere Häuser auf dem vorhandenen Land entwirft"
     },
     "choices/build-on-fields/text": {
       "source": "Building on parts of the fields, resulting in -1 Surplus generated with each autumn's harvest",
-      "text": ""
+      "text": "Auf Teilen der Felder bauen, wodurch sich der mit jeder Herbsternte erzeugte Überschuss um 1 verringert"
     },
     "choices/4/text": {
       "source": "And then:",
-      "text": ""
+      "text": "Und anschließend: 5-mal gemeinsam anpacken, wobei jedes Mal 1 Jahreszeit, 1 Überschuss und eine Wagenladung Bauholz und anderer Materialien (Wert 2) benötigt werden, um Häuser zu bauen oder umzubauen.",
+      "needsReview": true
     },
     "choices/pull-together/text": {
       "source": "Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.",
       "text": ""
+    },
+    "choices/5/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1 and add any new homes to the map. Henceforth, **_when you consume Surplus in winter,_** consider Population to be 1 lower than it is.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und zeichne alle neuen Häuser auf der Karte ein.\n\nVon nun an gilt: Wenn du **_im Winter Überschuss verbrauchst_**, setze die Bevölkerung um 1 niedriger an, als sie tatsächlich ist.",
+      "orphaned": true
     }
   },
   "aetherium-crucible": {
@@ -110,7 +116,7 @@
   "aurochs-hunting": {
     "name": {
       "source": "Aurochs Hunting",
-      "text": ""
+      "text": "Auerochsenjagd"
     },
     "effects/0/text": {
       "source": "add \"Aurochs hunting (meat, hide, horn)\" to the Resources list",
@@ -126,37 +132,42 @@
     },
     "choices/0/text": {
       "source": "Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.",
-      "text": ""
+      "text": "Im Frühling bilden sich auf den Ebenen große Herden. Das Hügelvolk jagt sie seit jeher, doch in Stonetop hat man diese Kunst nie erlernt."
     },
     "choices/1/text": {
       "source": "**Requires** 2 of the following:",
-      "text": ""
+      "text": "**Erfordert** zwei der folgenden Voraussetzungen:"
     },
     "choices/herd-of-horses/text": {
       "source": "A Herd of Horses (and hunters to ride them)",
-      "text": ""
+      "text": "Eine Pferdeherde (und Jäger, die sie reiten können)"
     },
     "choices/cooperating-hillfolk/text": {
       "source": "Cooperating with the Hillfolk",
-      "text": ""
+      "text": "Zusammenarbeit mit den Hügelvolk"
     },
     "choices/cunning-plan/text": {
       "source": "A cunning plan",
-      "text": ""
+      "text": "Einen raffinierten Plan"
     },
     "choices/5/text": {
       "source": "And then:",
-      "text": ""
+      "text": "Und anschließend:"
     },
     "choices/successful-hunt/text": {
       "source": "A successful first hunt (played out in detail)",
-      "text": ""
+      "text": "Eine erfolgreiche erste Jagd (die im Detail ausgespielt wird)"
+    },
+    "choices/7/text": {
+      "source": "When you **_meet the requirements_**, add \"Aurochs hunting (meat, hide, horn)\" to the Resources list.\n\nHenceforth, when you **_lead the aurochs hunt in spring,_** roll +Defenses: **on a 10+**, gain 1d4 Surplus; **on a 7-9**, gain 1d4 Surplus but pick 1 from the list below; **on a 6-**, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town's horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they'll be wiped out",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, füge „Auerochsenjagd (Fleisch, Fell, Horn)“ zur Ressourcenliste hinzu.\n\nVon nun an gilt: Wenn du **_im Frühling die Auerochsenjagd anführst_**, würfle +Verteidigung. **Bei einer 10+** erhältst du 1W4 Überschuss. **Bei 7–9** erhältst du 1W4 Überschuss, aber wähle eines aus der folgenden Liste. **Bei einer 6-** wählst du eines aus der Liste – oder zwei und erhältst 1W4 Überschuss.\n\n- 1W4 Pferde des Dorfes werden lahm oder getötet.\n- Eine Reihe von Einheimischen wird verletzt. Markiere bei der Siedlung Geschwächt (Nachteil auf Truppen einsetzen, Truppen aufbieten oder Gemeinsam anpacken).\n- Der SL wählt einen bei der Jagd anwesenden NSC. Er wird getötet.\n- Das Hügelvolk fühlt sich auf irgendeine Weise beleidigt.\n- Die Herde ist geschwächt. Wenn du im nächsten Jahr jagst, wird sie vollständig ausgelöscht.",
+      "orphaned": true
     }
   },
   "expanded-trades": {
     "name": {
       "source": "Expanded Trades",
-      "text": ""
+      "text": "Ausgeweiteter Handel"
     },
     "effects/0/text": {
       "source": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)",
@@ -164,57 +175,62 @@
     },
     "choices/0/text": {
       "source": "Specialization is the key to prosperity!",
-      "text": ""
+      "text": "Spezialisierung ist der Schlüssel zum Wohlstand!"
     },
     "choices/1/text": {
       "source": "**Requires** one of the following improvements, to free up enough time to support more tradesfolk:",
-      "text": ""
+      "text": "**Erfordert** eine der folgenden Verbesserungen, um genügend Zeit für weitere Handwerker und Händler zu haben:"
     },
     "choices/req-harnessing-stream/text": {
       "source": "Harnessing the Stream",
-      "text": ""
+      "text": "Nutzbarmachung des Bachs"
     },
     "choices/req-raincatching/text": {
       "source": "Raincatching",
-      "text": ""
+      "text": "Regenauffangsystem"
     },
     "choices/req-mill/text": {
       "source": "Mill",
-      "text": ""
+      "text": "Mühle"
     },
     "choices/5/text": {
       "source": "And establishing at least 3 of the following:",
-      "text": ""
+      "text": "Und mindestens drei der folgenden Voraussetzungen:"
     },
     "choices/chandler/text": {
       "source": "A chandler with extensive tools and supplies (Value 3)",
-      "text": ""
+      "text": "Einen Kerzenmacher mit umfangreicher Ausstattung und ausreichenden Vorräten (Wert 3)"
     },
     "choices/glassblower/text": {
       "source": "A glassblower with a full glassworks (Value 3)",
-      "text": ""
+      "text": "Einen Glasbläser mit einer vollständig ausgestatteten Glashütte (Wert 3)"
     },
     "choices/weaver/text": {
       "source": "An *exceptional* weaver with good tools (Value 2) and a reliable supply of Whitefang wool",
-      "text": ""
+      "text": "Einen *außergewöhnlichen guten* Weber mit hochwertigem Werkzeug (Wert 2) und einer zuverlässigen Versorgung mit Weißfangwolle"
     },
     "choices/potter/text": {
       "source": "An *exceptional* potter with good tools (Value 2) and a reliable source of excellent clay",
-      "text": ""
+      "text": "Einen *außergewöhnlich guten* Töpfer mit hochwertigem Werkzeug (Wert 2) und einer zuverlässigen Quelle für hervorragenden Ton"
     },
     "choices/smith/text": {
       "source": "An *exceptional* smith with a newer, hotter forge (Value 3)",
-      "text": ""
+      "text": "Einen *außergewöhnlich guten* Schmied mit einer neueren, leistungsfähigeren Schmiede (Wert 3)"
     },
     "choices/other-tradesperson/text": {
       "source": "Some other *exceptional* tradesperson, with the appropriate tools and supplies (Value 2 or 3)",
-      "text": ""
+      "text": "Einen anderen *außergewöhnlich guten* Handwerker mit den entsprechenden Werkzeugen und Vorräten (Wert 2 oder 3)"
+    },
+    "choices/12/text": {
+      "source": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Wohlstand um 1. Wenn du **_die Voraussetzungen nicht mehr erfüllst_**, verringere Wohlstand um 1.",
+      "orphaned": true
     }
   },
   "golden-sapling": {
     "name": {
       "source": "Golden Sapling",
-      "text": ""
+      "text": "Goldener Setzling"
     },
     "effects/0/text": {
       "source": "add \"Golden Sapling\" to the Resources list",
@@ -238,25 +254,35 @@
     },
     "choices/0/text": {
       "source": "Requires all of the following, in order:",
-      "text": ""
+      "text": "Erfordert alle folgenden Voraussetzungen in der angegebenen Reihenfolge:"
     },
     "choices/retrieve-acorn/text": {
       "source": "Retrieve an ◇◇ acorn from the boughs of the Golden Oak in late autumn",
-      "text": ""
+      "text": "Sammle im Spätherbst eine ◇◇ Eichel aus den Ästen der Goldenen Eiche ein."
     },
     "choices/plant-acorn/text": {
       "source": "Plant the acorn in the fields near Stonetop, watering it with the lifeblood of a great virile beast, like an aurochs bull",
-      "text": ""
+      "text": "Pflanze die Eichel in den Feldern in der Nähe von Stonetop ein und tränke sie mit dem Lebenssaft eines großen, kräftigen Tieres, etwa eines Auerochsenbullen "
     },
     "choices/nurture-protect/text": {
       "source": "Nurture and protect the sapling through 4 years of growth",
-      "text": ""
+      "text": "Pflege und beschütze den Setzling 4 Jahre lang."
+    },
+    "choices/4/text": {
+      "source": "When you **_mark all the requirements_**, add \"Golden Sapling\" to the Resources list and automatically mark the **Greater Harvest** improvement.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, füge „Goldener Setzling“ zur Ressourcenliste hinzu und markiere automatisch die Verbesserung „Reichere Ernte“.",
+      "orphaned": true
+    },
+    "choices/5/text": {
+      "source": "Henceforth, when the steading generates Surplus, even just 1, it generates +1 Surplus.",
+      "text": "Von nun an erzeugt die Siedlung jedes Mal, wenn sie Überschuss erwirtschaftet, +1 Überschuss (selbst wenn es nur 1 Überschuss ist).",
+      "orphaned": true
     }
   },
   "great-wood-timber": {
     "name": {
       "source": "Great Wood Timber",
-      "text": ""
+      "text": "Holz aus dem Großen Wald"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -284,29 +310,39 @@
     },
     "choices/0/text": {
       "source": "Requires all of the following:",
-      "text": ""
+      "text": "Erfordert alle folgenden Voraussetzungen:"
     },
     "choices/proof-that/text": {
       "source": "Proof that trees can be felled without dire consequence",
-      "text": ""
+      "text": "Den Beweis, dass Bäume ohne schwerwiegende Folgen gefällt werden können"
     },
     "choices/crew-brave/text": {
       "source": "A crew of brave lumberjacks",
-      "text": ""
+      "text": "Eine Gruppe mutiger Holzfäller"
     },
     "choices/skilled-carpenter/text": {
       "source": "A skilled carpenter, working full time",
-      "text": ""
+      "text": "Einen erfahrenen Zimmermann, der in Vollzeit arbeitet"
     },
     "choices/pulling-together/text": {
       "source": "Pulling Together once, over a course of a few weeks, to generate the first load of timber.",
-      "text": ""
+      "text": "Einmal gemeinsam anpacken, um im Laufe mehrerer Wochen die erste Ladung Holz zu gewinnen."
+    },
+    "choices/5/text": {
+      "source": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Timber from the Great Wood\" to the Resources list.",
+      "text": "Wenn du **_alle Voraussetzungen erfüllt hast_**, erhöhe Schicksal um 1 und füge „Holz aus dem Großen Wald“ zur Ressourcenliste hinzu.",
+      "orphaned": true
+    },
+    "choices/6/text": {
+      "source": "Henceforth, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus every winter.",
+      "text": "Von nun an verfügt die Siedlung über eine zuverlässige Versorgung mit Bauholz für Verbesserungen und andere Projekte und verbraucht in jedem Winter 1 Überschuss weniger.",
+      "orphaned": true
     }
   },
   "greater-harvest": {
     "name": {
       "source": "Greater Harvest",
-      "text": ""
+      "text": "Reichere Ernte"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -322,25 +358,30 @@
     },
     "choices/0/text": {
       "source": "Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.",
-      "text": ""
+      "text": "Jenseits der Alten Mauer erstickt das Präriegras der Ebene jede Kulturpflanze, die wir anzubauen versuchen."
     },
     "choices/1/text": {
       "source": "**Requires** 1 of the following:",
-      "text": ""
+      "text": "**Erfordert** eine der folgenden Voraussetzungen:"
     },
     "choices/double-yield/text": {
       "source": "Doubling the yield of crops inside the Old Wall",
-      "text": ""
+      "text": "Verdopplung des Ernteertrags innerhalb der Alten Mauer"
     },
     "choices/clear-fields/text": {
       "source": "Clearing/taming new fields beyond the Old Wall",
-      "text": ""
+      "text": "Rodung/Urbarmachung neuer Felder jenseits der Alten Mauer"
+    },
+    "choices/4/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1. Henceforth, when **_the autumn harvest is complete_**, gain +1d4 Surplus.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**,, erhöhe Schicksal um 1. Sobald **_die Herbsternte abgeschlossen ist_**, erzeugt die Siedlung +1W4 Überschuss.",
+      "orphaned": true
     }
   },
   "harnessing-the-stream": {
     "name": {
       "source": "Harnessing the Stream",
-      "text": ""
+      "text": "Nutzbarmachung des Bachs"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -364,15 +405,16 @@
     },
     "choices/0/text": {
       "source": "A shallow creek flows just below the town. If only it could be harnessed!",
-      "text": ""
+      "text": "Direkt unterhalb des Dorfes fließt ein seichter Bach. Wenn wir ihn doch nur nutzbar machen könnten!"
     },
     "choices/1/text": {
       "source": "**Requires** 2 of the following:",
-      "text": ""
+      "text": "**Erfordert eine der folgenden Voraussetzungen:**"
     },
     "choices/reservoir/text": {
       "source": "A reservoir for the Stream to pool in",
-      "text": ""
+      "text": "Ein Reservoir, in dem sich das Wasser des Bachs sammeln kann, sowie eine Möglichkeit, das Wasser bergauf fließen zu lassen",
+      "needsReview": true
     },
     "choices/water-uphill/text": {
       "source": "Some way for water to flow uphill",
@@ -380,13 +422,18 @@
     },
     "choices/aqueducts/text": {
       "source": "A series of aqueducts, from the Stream's source to Stonetop",
-      "text": ""
+      "text": "Eine Reihe von Aquädukten, die von der Quelle des Bachs bis nach Stonetop führen"
+    },
+    "choices/4/text": {
+      "source": "When you **_meet the requirements_**, add them to the Resources list and increase Fortunes by 1. Henceforth, when spring breaks forth and you roll a 7+ with Fortunes, the steading generates 1 Surplus.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, füge die entsprechende Anlage der Ressourcenliste hinzu und erhöhe Schicksal um 1.\n\nVon nun an gilt: Wenn **_der Frühling anbricht und du mit Schicksal eine 7+ würfelst_**, erzeugt die Siedlung 1 Überschuss.",
+      "orphaned": true
     }
   },
   "herd-of-horses": {
     "name": {
       "source": "Herd of Horses",
-      "text": ""
+      "text": "Pferdeherde"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -430,49 +477,54 @@
     },
     "choices/0/text": {
       "source": "Imagine what we could do with a dozen fine steeds.",
-      "text": ""
+      "text": "Stell dir nur vor, was wir mit einem Dutzend edler Rösser alles anstellen könnten."
     },
     "choices/1/text": {
       "source": "**Requires** all of the following:",
-      "text": ""
+      "text": "**Erfordert** alle der folgenden Voraussetzungen:"
     },
     "choices/stable-site/text": {
       "source": "A site for a proper stable and corral",
-      "text": ""
+      "text": "Einen geeigneten Platz für einen richtigen Stall und eine Koppel"
     },
     "choices/build-stable/text": {
       "source": "Pulling Together to build the stable and corral, which requires a month and a wagonload of timber (Value 2). Add them to the map.",
-      "text": ""
+      "text": "Gemeinsam anpacken, um Stall und Koppel zu errichten; dies erfordert einen Monat und eine Wagenladung Bauholz (Wert 2). Zeichne sie auf der Karte ein."
     },
     "choices/skilled-rider/text": {
       "source": "Someone skilled in riding and training horses",
-      "text": ""
+      "text": "Jemanden, der sich mit dem Reiten und Abrichten von Pferden auskennt"
     },
     "choices/acquire-horses/text": {
       "source": "Acquiring a small herd of horses, about a dozen (through trade or by catching wild ones)",
-      "text": ""
+      "text": "Eine kleine Pferdeherde beschaffen, etwa ein Dutzend Tiere (durch Handel oder indem ihr Wildpferde einfangt)"
     },
     "choices/training-horses/text": {
       "source": "Training/breaking them to the saddle and plow",
-      "text": ""
+      "text": "Die Pferde an Sattel und Pflug gewöhnen und sie dafür ausbilden"
     },
     "choices/saddles-equipment/text": {
       "source": "Additional saddles, harness, plows, etc. (Value 2)",
-      "text": ""
+      "text": "Zusätzliche Sättel, Zaumzeug, Pflüge usw. (Wert 2)"
     },
     "choices/learn-to-ride/text": {
       "source": "Pulling Together to have a couple dozen villagers learn to ride, requiring a season and 1 Surplus.",
-      "text": ""
+      "text": "Gemeinsam anpacken, damit ein paar Dutzend Dorfbewohner das Reiten lernen; erfordert 1 Jahreszeit und 1 Überfluss"
     },
     "choices/mind-the-herd/text": {
       "source": "Someone to mind the herd and stable, full time.",
-      "text": ""
+      "text": "Jemanden, der sich in Vollzeit um Herde und Stall kümmert"
+    },
+    "choices/10/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1 and replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size.\n\nHenceforth: When you leverage the horses to Pull Together, it takes half as long and costs half as much. When you Requisition half the herd or less, treat a 6- as a 7-9. When the Seasons Change to summer, any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0). When winter grips the land, the herd consumes 1 Surplus per 6 grown or yearling horses. For every Surplus not consumed, 1d6 horses are lost.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und ersetze „Ein Paar kräftige Zugpferde“ auf der Liste der Besitztümer durch „Eine Pferdeherde“. Notiere dir ihre Größe. Von nun an gilt:\n\nWenn du die **_Pferde einsetzt, um gemeinsam anzupacken_**, dauert es nur noch halb so lange und kostet nur noch halb so viel. Wenn du **_höchstens die Hälfte der Herde anforderst_**, behandle eine 6- als 7–9.\n\nWenn **_der Sommer beginnt_**, werden alle Jährlinge zu Pferden (Wert 3, sobald sie ausgebildet sind), alle Fohlen zu Jährlingen (Wert 2), und die Herde bekommt Fohlen (Wert 1) in einer Anzahl von 1W4 + Schicksal (min. 0).\n\nWenn **_der Winter das Land fest im Griff hat_**, verbraucht die Herde 1 Überschuss je 6 ausgewachsene Pferde oder Jährlinge. Für jeden Überschuss, der nicht verbraucht wird, gehen 1W6 Pferde verloren.",
+      "orphaned": true
     }
   },
   "heroic-reputation": {
     "name": {
       "source": "Heroic Reputation",
-      "text": ""
+      "text": "Heldenhafter Ruf"
     },
     "effects/0/text": {
       "source": "gain the move: when you first meet someone from beyond Stonetop, roll +Fortunes",
@@ -480,41 +532,46 @@
     },
     "choices/0/text": {
       "source": "Few have heard of Stonetop's heroes. Yet.",
-      "text": ""
+      "text": "Nur wenige haben bisher von den Helden aus Stonetop gehört."
     },
     "choices/1/text": {
       "source": "**Requires** any 3 of the following:",
-      "text": ""
+      "text": "**Erfordert** drei der folgenden Voraussetzungen:"
     },
     "choices/impress-hillfolk/text": {
       "source": "Impressing a band of Hillfolk",
-      "text": ""
+      "text": "Eine Gruppe des Hügelvolks beeindrucken"
     },
     "choices/brave-lake/text": {
       "source": "Braving a lake and coming back with proof",
-      "text": ""
+      "text": "Einen See bezwingen und mit einem Beweis zurückkehren"
     },
     "choices/save-marshedge/text": {
       "source": "Saving many Marshedge residents' lives",
-      "text": ""
+      "text": "Vielen Bewohnern von Mooresrand das Leben retten"
     },
     "choices/save-gordins-delve/text": {
       "source": "Saving many Gordin's Delve residents' lives",
-      "text": ""
+      "text": " Vielen Bewohnern von Gordins Binge das Leben retten"
     },
     "choices/save-beyond-marshedge/text": {
       "source": "Saving someone from beyond Marshedge",
-      "text": ""
+      "text": "Jemandem jenseits von Mooresrand das Leben retten"
     },
     "choices/hire-minstrel/text": {
       "source": "Hiring a minstrel to tell your tales (Value 2)",
-      "text": ""
+      "text": "Einen Barden anheuern, der eure Taten besingt (Wert 2)"
+    },
+    "choices/8/text": {
+      "source": "When you **_meet the requirements_**, gain the following move:\n\nWhen you first meet someone from beyond Stonetop, roll +Fortunes: **on a 10+**, say what they've heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they've heard; **on a 6-**, the GM decides what they've heard.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhältst du den folgenden Spielzug:\n\nWenn du zum ersten Mal jemandem von außerhalb Stonetops begegnest, würfle +Schicksal. **Bei einer 10+** sagst du, was sie über dich oder Stonetop gehört hat, und du erhältst einen Vorteil auf deinen nächsten Spielzug gegen sie. **Bei 7–9** sagst du, was sie gehört hat. **Bei einer 6-** entscheidet der SL, was sie gehört hat.",
+      "orphaned": true
     }
   },
   "inn": {
     "name": {
       "source": "Inn",
-      "text": ""
+      "text": "Gasthaus"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -542,37 +599,42 @@
     },
     "choices/0/text": {
       "source": "The public house offers a common room and shelter for a few horses, but it's hardly a proper inn.",
-      "text": ""
+      "text": "Die Schänke bietet einen Schankraum und Platz für ein paar Pferde, ist aber kaum ein richtiges Gasthaus."
     },
     "choices/1/text": {
       "source": "**Requires** all of the following, in order:",
-      "text": ""
+      "text": "Erfordert alle folgenden Voraussetzungen, in dieser Reihenfolge:"
     },
     "choices/building-site/text": {
       "source": "A designated building site",
-      "text": ""
+      "text": "Einen ausgewiesenen Bauplatz"
     },
     "choices/engineer-foreman/text": {
       "source": "A competent engineer/foreman",
-      "text": ""
+      "text": "Einen fähigen Ingenieur/Bauleiter"
     },
     "choices/furnishings/text": {
       "source": "Furnishings, equipment, and material (Value 3)",
-      "text": ""
+      "text": "Einrichtung, Ausstattung und Baumaterial (Wert 3)"
     },
     "choices/pull-together/text": {
       "source": "Pulling Together 2 times, each requiring 1 season, 1 Surplus, and timber/supplies (Value 2)",
-      "text": ""
+      "text": "2-mal gemeinsam anpacken, was jeweils eine Jahreszeit, 1 Überschuss und Bauholz/Materialien (Wert 2) erfordert"
     },
     "choices/staff/text": {
       "source": "A small, devoted staff (innkeep, cook, ostler, etc.)",
-      "text": ""
+      "text": "Eine kleine, engagierte Belegschaft (Wirt, Koch, Stallknecht usw.)"
+    },
+    "choices/7/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1. Name the inn, add it to both the Resources list and map.\n\nHenceforth, when the seasons change, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.\n\nOnce per season, when you expend 1 Surplus and bring folks together at the inn (to talk, to celebrate, to recuperate), clear one of the steading's debilities.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1. Gib dem Gasthaus einen Namen füge es zur Ressourcenliste hinzu und zeichne es auf der Karte ein.\n\nVon nun an gilt: Wenn die Jahreszeit wechselt, würfelt die Person, die am freundlichsten ist, +Schicksal: **Bei einer 10+** stelle dem SL drei Fragen über die weite Welt. **Bei 7–9** stelle eine Frage. **Bei einer 6-** stelle eine Frage, aber der SL beschreibt Schwierigkeiten, die auf das Gasthaus oder seine Gäste zurückzuführen sind.\n\nEinmal pro Jahreszeit, wenn du **_1 Überschuss ausgibst und die Leute im Gasthaus zusammenbringst_** (um zu reden, zu feiern, sich zu erholen), streiche eine Beeinträchtigung der Siedlung.",
+      "orphaned": true
     }
   },
   "market": {
     "name": {
       "source": "Market",
-      "text": ""
+      "text": "Marktplatz"
     },
     "effects/0/text": {
       "source": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)",
@@ -588,41 +650,46 @@
     },
     "choices/0/text": {
       "source": "Stonetop is at most an afterthought for traders in the region. We need to change that.",
-      "text": ""
+      "text": "Stonetop ist für die Händler der Region bestenfalls eine Randnotiz. Das müssen wir ändern."
     },
     "choices/1/text": {
       "source": "**Requires** 1 of the following:",
-      "text": ""
+      "text": "**Erfordert** eine der folgenden Voraussetzungen:"
     },
     "choices/compelling-good/text": {
       "source": "A compelling good/service, exclusive to Stonetop",
-      "text": ""
+      "text": "Eine begehrte Ware oder Dienstleistung, die es ausschließlich in Stonetop gibt"
     },
     "choices/other-reason/text": {
       "source": "Establishing some other reason to visit Stonetop (place of pilgrimage, etc.)",
-      "text": ""
+      "text": "Einen anderen guten Grund, Stonetop zu besuchen (Wallfahrtsort o. Ä.)"
     },
     "choices/4/text": {
       "source": "And these:",
-      "text": ""
+      "text": "Und anschließend:"
     },
     "choices/market-site/text": {
       "source": "A dedicated market site (add it to the map)",
-      "text": ""
+      "text": "Einen eigenen Marktplatz (zeichne ihn auf der Karte ein)"
     },
     "choices/arbiter/text": {
       "source": "A trusted arbiter, able to enforce their own rulings on matters of trade",
-      "text": ""
+      "text": "Einen anerkannten Schlichter, der in Handelsfragen seine eigenen Entscheidungen durchsetzen kann"
     },
     "choices/four-seasons/text": {
       "source": "Four seasons in operation without notable incidents of violence, banditry, theft, etc.",
-      "text": ""
+      "text": "Vier Jahreszeiten, in denen der Marktplatz ohne nennenswerte Vorfälle wie Gewalt, Banditentum, Diebstahl o. Ä. betrieben wurde"
+    },
+    "choices/8/text": {
+      "source": "When you **_meet the requirements_**, increase Prosperity by 1. If you **_cease to meet the requirements_**, decrease Prosperity by 1.\n\nWhen the Seasons Change to spring, summer, or autumn and the market is active, and Population is +1 or better, the Market generates 1 Surplus.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe den Wohlstand um 1. Wenn du **_die Voraussetzungen nicht mehr erfüllst_**, verringere den Wohlstand um 1.\n\nWenn die Jahreszeiten zu Frühling, Sommer oder Herbst wechseln, der Marktplatz aktiv ist und die Bevölkerung mindestens +1 beträgt, erzeugt der Marktplatz 1 Überschuss.",
+      "orphaned": true
     }
   },
   "mill": {
     "name": {
       "source": "Mill",
-      "text": ""
+      "text": "Mühle"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -654,37 +721,42 @@
     },
     "choices/0/text": {
       "source": "We've got our pick of millstones. With a mill, we'd have better bread and more time for other crafts.",
-      "text": ""
+      "text": "Wir haben eine große Auswahl an Mühlsteinen. Mit einer Mühle hätten wir besseres Brot und mehr Zeit für andere Arbeiten."
     },
     "choices/1/text": {
       "source": "**Requires** all of the following:",
-      "text": ""
+      "text": "**Erfordert** alle folgenden Voraussetzungen:"
     },
     "choices/engineer-foreman/text": {
       "source": "An *exceptional* engineer/foreman",
-      "text": ""
+      "text": "Einen *herausragenden* Ingenieur/Bauleiter"
     },
     "choices/power-source/text": {
       "source": "A convenient, consistent power source (wind on a hill, a waterwheel, a Herd of Horses, magic, etc.)",
-      "text": ""
+      "text": "Eine geeignete, zuverlässige Energiequelle (Wind auf einem Hügel, ein Wasserrad, eine Herde Pferde, Magie usw.)"
     },
     "choices/building-site/text": {
       "source": "A building site able to harness that power source",
-      "text": ""
+      "text": "Einen Bauplatz, der diese Energiequelle nutzen kann"
     },
     "choices/pull-together/text": {
       "source": "Pulling Together 2 times, each requiring a season, 1 Surplus, a wagonload of timber (Value 2), and a bunch of rope and supplies (Value 2)",
-      "text": ""
+      "text": "2-mal gemeinsam anpacken, was jeweils eine Jahreszeit, 1 Überschuss, eine Wagenladung Bauholz (Wert 2) und reichlich Seil und Material (Wert 2) erfordert"
     },
     "choices/full-time-miller/text": {
       "source": "A full-time miller",
-      "text": ""
+      "text": "Einen hauptberuflichen Müller"
+    },
+    "choices/7/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Mill\" to the Resources list and draw it on the map.\n\nHenceforth, when the autumn harvest is complete, the steading generates +1 Surplus. Also, when you Outfit from Stonetop or Have What You Need after doing so, each of supplies has 1 extra use.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1, füge „Mühle“ zur Ressourcenliste hinzu und zeichne sie auf der Karte ein.\n\nVon nun an erzeugt die Siedlung nach Abschluss der Herbsternte +1 Überschuss. Außerdem haben alle Vorräte eine zusätzliche Anwendung, wenn du dich in Stonetop ausrüstest oder wenn du hast, was du brauchst.",
+      "orphaned": true
     }
   },
   "palisade": {
     "name": {
       "source": "Palisade",
-      "text": ""
+      "text": "Palisade"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -708,33 +780,38 @@
     },
     "choices/0/text": {
       "source": "A wall of sharpened logs, 10' tall, to keep evil at bay.",
-      "text": ""
+      "text": "Eine 10 Fuß hohe Wand aus angespitzten Baumstämmen, die das Böse fernhalten soll."
     },
     "choices/1/text": {
       "source": "**Requires** all of the following, in order:",
-      "text": ""
+      "text": "**Erfordert** alle folgenden Voraussetzungen, in dieser Reihenfolge:"
     },
     "choices/timber/text": {
       "source": "Lots of timber (~20-25 wagonloads, Value 3)",
-      "text": ""
+      "text": "Jede Menge Bauholz (etwa 20–25 Wagenladungen, Wert 3)"
     },
     "choices/engineer-foreman/text": {
       "source": "A competent engineer/foreman",
-      "text": ""
+      "text": "Einen fähigen Ingenieur/Bauleiter"
     },
     "choices/rope-nails-pitch/text": {
       "source": "Lots of rope, nails, pitch, etc. (Value 2)",
-      "text": ""
+      "text": "Jede Menge Seil, Nägel, Pech usw. (Wert 2)"
     },
     "choices/pull-together/text": {
       "source": "Pulling Together, costing a month and 1 Surplus.",
-      "text": ""
+      "text": "Gemeinsam anpacken, was 1 Monat und 1 Überfluss kostet"
+    },
+    "choices/6/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Palisade\" to the Fortifications list and draw it on the map.\n\nHenceforth, when you take advantage of the palisade, you have advantage to Deploy.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, steigt Schicksal um 1. Füge „Palisade“ zur Liste der Befestigungen hinzu und zeichne sie auf der Karte ein.\n\nVon nun an hast du einen Vorteil auf Aufgebot, wenn du die Palisade zu deinem Vorteil nutzt.",
+      "orphaned": true
     }
   },
   "permanent-logging-camp": {
     "name": {
       "source": "Permanent Logging Camp",
-      "text": ""
+      "text": "Dauerhaftes Holzfällerlager"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -766,37 +843,48 @@
     },
     "choices/0/text": {
       "source": "Suppose we built a few cabins and kept loggers up there year-round?",
-      "text": ""
+      "text": "Was wäre, wenn wir ein paar Hütten bauen und das ganze Jahr über Holzfäller dort unterbringen würden?"
     },
     "choices/1/text": {
       "source": "Requires all of the following:",
-      "text": ""
+      "text": "Erfordert alle folgenden Voraussetzungen:"
     },
     "choices/two-three/text": {
       "source": "Two or three permanent dwellings, just off the Highway",
-      "text": ""
+      "text": "Zwei oder drei dauerhafte Unterkünfte, direkt an der Großen Straße"
     },
     "choices/supplies-furnishings/text": {
       "source": "Supplies, furnishings, and tools for those dwellings (Value 2)",
-      "text": ""
+      "text": "Vorräte, Einrichtungsgegenstände und Werkzeuge für diese Unterkünfte (Wert 2)"
     },
     "choices/5-6/text": {
       "source": "5-6 capable adults, willing and able to relocate and log year-round",
-      "text": ""
+      "text": "5–6 fähige Erwachsene, die bereit und in der Lage sind, dorthin umzuziehen und das ganze Jahr über Holz zu fällen"
     },
     "choices/extra-wagon/text": {
       "source": "An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from Stonetop",
-      "text": ""
+      "text": "Ein zusätzlicher Wagen (Wert 3) und ein zusätzliches Pferd oder Maultier (Wert 3), um Holz nach Stonetop und zurück zu transportieren",
+      "needsReview": true
     },
     "choices/four-seasons/text": {
       "source": "Four seasons of operation, each generating a wagonload of timber (Value 2)",
-      "text": ""
+      "text": "Vier Jahreszeiten Betrieb, wobei jede eine Wagenladung Bauholz (Wert 2) erzeugt"
+    },
+    "choices/8/text": {
+      "source": "When you **_mark all the requirements_**, add \"Logging: timber, wood\" to the resources list and increase Fortunes by 1.",
+      "text": "Wenn du **_alle Voraussetzungen erfüllst_**, füge „Abholzung: Bauholz, Holz“ zur Ressourcenliste hinzu und erhöhe Schicksal um 1.",
+      "orphaned": true
+    },
+    "choices/9/text": {
+      "source": "Henceforth, as long as the camp is in operation, the steading has a ready supply of timber for improvements and other projects, and it consumes 1 less Surplus than usual in winter. However, the logging camp consumes 1 Surplus every summer or else it ceases operation.",
+      "text": "Solange das Holzfällerlager in Betrieb ist, verfügt die Siedlung fortan über einen ständigen Vorrat an Bauholz für Verbesserungen und andere Projekte und verbraucht im Winter 1 Überschuss weniger als üblich. Allerdings verbraucht das Holzfällerlager jeden Sommer 1 Überschuss, andernfalls stellt es den Betrieb ein.",
+      "orphaned": true
     }
   },
   "raincatching": {
     "name": {
       "source": "Raincatching",
-      "text": ""
+      "text": "Regenauffangsystem"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -820,23 +908,28 @@
     },
     "choices/0/text": {
       "source": "Filling the cistern takes so much work. Surely, we can do better!",
-      "text": ""
+      "text": "Das Füllen der Zisterne macht so viel Arbeit. Das können wir doch sicher besser!"
     },
     "choices/1/text": {
       "source": "**Requires** all of the following, in order:",
-      "text": ""
+      "text": "Erfordert alle folgenden Voraussetzungen, in dieser Reihenfolge:"
     },
     "choices/engineer-foreman/text": {
       "source": "An *exceptional* engineer/foreman, to design a cunning system of roofs, gutters, and conduits",
-      "text": ""
+      "text": "Einen *herausragenden* Ingenieur/Bauleiter, der ein ausgeklügeltes System aus Dächern, Dachrinnen und Leitungen entwirft"
     },
     "choices/slate-terracotta/text": {
       "source": "Enough slate/terracotta to roof all the buildings and construct the gutters and conduits (Value 3)",
-      "text": ""
+      "text": "Genügend Schiefer/Terrakotta, um alle Gebäude zu überdachen und die Dachrinnen und Leitungen zu bauen (Wert 3)"
     },
     "choices/pull-together/text": {
       "source": "Pulling Together 3 times, each requiring 1 season and 1 Surplus",
-      "text": ""
+      "text": "3-mal gemeinsam anpacken, was jeweils 1 Jahreszeit und 1 Überschuss erfordert"
+    },
+    "choices/5/text": {
+      "source": "When you **_meet the requirements_**, increase Fortunes by 1, add \"Raincatching\" to the Resources list.\n\nHenceforth, when summer comes and you roll a 7+ with Fortunes, the steading generates 1 Surplus.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und füge „Regenauffangsystem“ zur Ressourcenliste hinzu.\n\nVon nun an gilt: Wenn **_der Sommer kommt und du mit Schicksal eine 7+ würfelst_**, erzeugt die Siedlung 1 Überschuss.",
+      "orphaned": true
     }
   },
   "rhoillyg-orchard": {
@@ -916,7 +1009,7 @@
   "roadbuilding": {
     "name": {
       "source": "Roadbuilding",
-      "text": ""
+      "text": "Straßenbau"
     },
     "effects/0/text": {
       "source": "you can expand or repair the Makers' Roads. Every ~25 miles of road requires Pulling Together, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies",
@@ -924,33 +1017,38 @@
     },
     "choices/0/text": {
       "source": "Requires all of the following:",
-      "text": ""
+      "text": "Erfordert alle folgenden Voraussetzungen:"
     },
     "choices/unlock-secrets/text": {
       "source": "Unlock the secrets of **runic calligraphy**",
-      "text": ""
+      "text": "Entschlüssle die Geheimnisse der Runenkalligraphie"
     },
     "choices/teach-runes/text": {
       "source": "Teach the runes to at least 2 full-time artisans of quick mind and steady hand",
-      "text": ""
+      "text": "Bringe mindestens zwei Vollzeithandwerkern mit schnellem Verstand und ruhiger Hand die Runen bei"
     },
     "choices/secure-nigh/text": {
       "source": "Secure a nigh-unlimited source of basalt blocks",
-      "text": ""
+      "text": "Sichere dir eine nahezu unbegrenzte Quelle von Basaltblöcken"
     },
     "choices/recruit-foreman/text": {
       "source": "Recruit a foreman of considerable skill, who has studied construction of the Roads",
-      "text": ""
+      "text": "Stelle einen Vorarbeiter mit beachtlichem Können ein, der sich mit dem Straßenbau auskennt"
     },
     "choices/recruit-maintain/text": {
       "source": "Recruit and maintain a crew of ~50 skilled laborers and masons",
-      "text": ""
+      "text": "Stelle eine Mannschaft von etwa 50 Facharbeitern und Steinmetzen ein"
+    },
+    "choices/6/text": {
+      "source": "When you **_mark all the require_****_ments_**, you can expand or repair the Makers’ Roads. Every ~25 miles of road requires **Pulling Together**, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies.",
+      "text": "Wenn du **_alle Voraussetzungen erfüllst_**, kannst du die Straßen der Schöpfer ausbauen oder reparieren. Für jeweils ca. 25 Meilen Straße erfordert dies gemeinsam anzupacken, eine Jahreszeit Arbeit, 2 Überschuss zur Versorgung der Arbeiter sowie ein Beutel voller Silbermünzen für Löhne und Material.",
+      "orphaned": true
     }
   },
   "standing-watch": {
     "name": {
       "source": "Standing Watch",
-      "text": ""
+      "text": "Stehende Wache"
     },
     "effects/0/text": {
       "source": "add \"standing watch\" to the Fortifications list",
@@ -978,29 +1076,34 @@
     },
     "choices/0/text": {
       "source": "Some full-time warriors would make us all safer, no?",
-      "text": ""
+      "text": "Einige Krieger, die Vollzeit Dienst tun, würden uns doch alle sicherer machen, oder?"
     },
     "choices/1/text": {
       "source": "**Requires** all of the following:",
-      "text": ""
+      "text": "**Erfordert** alle folgenden Voraussetzungen:"
     },
     "choices/veteran-warrior/text": {
       "source": "A veteran warrior, able to command a crowd",
-      "text": ""
+      "text": "Einen erfahrenen Krieger, der in der Lage ist, eine Gruppe zu befehligen"
     },
     "choices/six-warriors/text": {
       "source": "At least 6 warriors, well-equipped and willing",
-      "text": ""
+      "text": "Mindestens 6 gut ausgerüstete und kampfbereite Krieger"
     },
     "choices/village-leaders/text": {
       "source": "The village leaders agreeing to support warriors who train and keep watch full-time",
-      "text": ""
+      "text": "Die Anführer der Siedlung sind bereit, Krieger zu unterstützen, die Vollzeit trainieren und Wache halten"
+    },
+    "choices/5/text": {
+      "source": "When you **_meet the requirements_**, add \"standing watch\" to the Fortifications list. At the start of each season, the watch consumes 1 Surplus or it disbands.\n\nWhen you specifically involve the watch in a move, treat Defenses as 1 higher than they are.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, füge „Stehende Wache“ zur Liste der Befestigungen hinzu.\n\nZu Beginn jeder Jahreszeit verbraucht die Wache 1 Überschuss – andernfalls löst sie sich auf.\n\nWenn du **_die Wache gezielt in einem Spielzug einbeziehst_**, behandle Verteidigung als 1 höher, als sie tatsächlich ist.",
+      "orphaned": true
     }
   },
   "stone-wall": {
     "name": {
       "source": "Stone Wall",
-      "text": ""
+      "text": "Steinmauer"
     },
     "effects/0/text": {
       "source": "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map",
@@ -1028,33 +1131,38 @@
     },
     "choices/0/text": {
       "source": "No mere palisade of wood, but a mighty rampart. We have the stone, after all...",
-      "text": ""
+      "text": "Keine bloße Palisade aus Holz, sondern ein mächtiger Wall. Wir haben schließlich den Stein…"
     },
     "choices/1/text": {
       "source": "**Requires** all of the following, in order:",
-      "text": ""
+      "text": "**Erfordert** alle folgenden Voraussetzungen, in dieser Reihenfolge:"
     },
     "choices/engineer-foreman/text": {
       "source": "An *exceptional* engineer/foreman",
-      "text": ""
+      "text": "Einen *außergewöhnlichen* Ingenieur/Bauleiter"
     },
     "choices/stonecutter/text": {
       "source": "A stonecutter with an able crew",
-      "text": ""
+      "text": "Einen Steinmetz mit einer fähigen Mannschaft"
     },
     "choices/equipment-tools/text": {
       "source": "Equipment, tools, and material (Value 3)",
-      "text": ""
+      "text": "Ausrüstung, Werkzeuge und Material (Wert 3)"
     },
     "choices/pull-together/text": {
       "source": "Pulling Together 4 times, each costing 1 season, 1 Surplus, and supplies (Value 2)",
-      "text": ""
+      "text": "4-mal gemeinsam anpacken , was jeweils eine Jahreszeit, 1 Überschuss und Vorräten (Wert 2) erfordert"
+    },
+    "choices/6/text": {
+      "source": "When you **_meet the requirements_**, add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map.\n\nHenceforth: When you take advantage of the stone wall, you have advantage to Deploy. When winter grips the land, the steading consumes 1 less Surplus than normal.",
+      "text": "Wenn du **_die Voraussetzungen erfüllst_**, füge „Steinmauer“ zur Liste der Befestigungen hinzu (streiche „Palisade“, falls du sie hast) und zeichne sie auf der Karte ein. Von nun an gilt:\n\nWenn du **_die Steinmauer zu deinem Vorteil nutzt_**, hast du beim Einsetzen einen Vorteil.\n\nWenn **_der Winter das Land fest im Griff hat_**, verbraucht die Siedlung 1 Überschuss weniger als gewöhnlich.",
+      "orphaned": true
     }
   },
   "township": {
     "name": {
       "source": "Township",
-      "text": ""
+      "text": "Stadtgründung"
     },
     "effects/0/text": {
       "source": "change Size to town",
@@ -1090,37 +1198,42 @@
     },
     "choices/0/text": {
       "source": "Will this ever be more than a backwater village?",
-      "text": ""
+      "text": "Wird dies jemals mehr sein als ein abgelegenes Dorf?"
     },
     "choices/1/text": {
       "source": "**Requires** all of the following:",
-      "text": ""
+      "text": "**Erfordert** alle folgenden Voraussetzungen:"
     },
     "choices/population-plus3/text": {
       "source": "Population +3 for 4 consecutive seasons",
-      "text": ""
+      "text": "Bevölkerung +3 für 4 aufeinanderfolgende Jahreszeiten"
     },
     "choices/additional-housing/text": {
       "source": "Additional Housing",
-      "text": ""
+      "text": "Zusätzlicher Wohnraum"
     },
     "choices/water-source/text": {
       "source": "Raincatching OR Harnessing the Stream",
-      "text": ""
+      "text": "Regenauffangsystem ODER Nutzbarmachung des Bachs"
     },
     "choices/other-improvements/text": {
       "source": "At least 4 other improvements",
-      "text": ""
+      "text": "Mindestens 4 weitere Verbesserungen"
     },
     "choices/formal-government/text": {
       "source": "A formal government of some sort",
-      "text": ""
+      "text": "Eine formelle Regierung irgendeiner Art"
+    },
+    "choices/7/text": {
+      "source": "When you mark all of the requirements, change Size to town and its Population to +0.\n\nHenceforth: When you Muster, Pull Together, or Trade & Barter, you have advantage. When the seasons change to spring or summer, the town generates Surplus equal to Population+1. But, when winter grips the land, roll 2d6+Population to consume Surplus instead of 1d4+Population.",
+      "text": "Wenn du **_alle Voraussetzungen erfüllst_**, ändere Größe in Stadt und die Bevölkerung auf +0. Von nun an gilt:\n\nWenn du **_Truppen aufbietest, Gemeinsam anpackst oder handelst & tauschst_**, hast du einen Vorteil.\n\nWenn **_der Frühling oder Sommer beginnt_**, erzeugt die Stadt Überschuss in Höhe von Bevölkerung +1.\n\nWenn jedoch **_der Winter das Land fest im Griff hat_**, würfle 2W6 + Bevölkerung, um Überschuss zu verbrauchen, statt 1W4 + Bevölkerung.",
+      "orphaned": true
     }
   },
   "trade-with-barrier-pass": {
     "name": {
       "source": "Trade with Barrier Pass",
-      "text": ""
+      "text": "Handel mit dem Barrierenpass"
     },
     "effects/0/text": {
       "source": "increase Fortunes by 1",
@@ -1152,41 +1265,51 @@
     },
     "choices/0/text": {
       "source": "Surely it would benefit both communities were we to trade with each other!",
-      "text": ""
+      "text": "Sicherlich würden beide Gemeinschaften davon profitieren, wenn wir miteinander Handel treiben würden!"
     },
     "choices/1/text": {
       "source": "Requires getting them to talk to you in the first place, which requires 1 of these:",
-      "text": ""
+      "text": "Dazu musst du zunächst dafür sorgen, dass sie mit dir sprechen – und dafür benötigst du eines der folgenden Dinge:"
     },
     "choices/bringing-them/text": {
       "source": "Bringing them a valuable artifact of the Rime Lords, as a gift or to trade",
-      "text": ""
+      "text": "Bringe ihnen ein wertvolles Artefakt der Frostfürsten als Geschenk oder zum Tausch"
     },
     "choices/resident-in/text": {
       "source": "A resident in good standing, vouching for you",
-      "text": ""
+      "text": "Ein angesehener Einwohner, der für dich bürgt"
     },
     "choices/4/text": {
       "source": "And then, all of the following:",
-      "text": ""
+      "text": "Und dann alle der folgenden Voraussetzungen:"
     },
     "choices/making-compelling/text": {
       "source": "Making a compelling offer",
-      "text": ""
+      "text": "Ein überzeugendes Angebot machen"
     },
     "choices/convincing-least/text": {
       "source": "Convincing at least two of the Honored Sages to accept",
-      "text": ""
+      "text": "Mindestens zwei der Ehrwürdigen Weisen davon überzeugen, es anzunehmen"
     },
     "choices/two-successful/text": {
       "source": "Two successful trade missions, each in a different season",
-      "text": ""
+      "text": "Zwei erfolgreiche Handelsmissionen durchführen, jeweils zu einer anderen Jahreszeit"
+    },
+    "choices/8/text": {
+      "source": "When you **_mark all the requirements_**, increase Fortunes by 1 and add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\".",
+      "text": "Wenn du **_alle Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und füge „Handel mit dem Barrierenpass (Holz, Elfenbein, Pergament, feine Wolle, Ziegen, Schafe)“ hinzu.",
+      "orphaned": true
+    },
+    "choices/9/text": {
+      "source": "Henceforth, when **_spring bursts forth_** **_and Stonetop has at least 1 Surplus_**, Stonetop gains +1 Surplus from trade. Also, when you **_Trade & Barter_** **_for timber, ivory, fine wool, goats,_** **_sheep, parchment, vellum, or ink_**, you have advantage.",
+      "text": "Von nun an gilt: Wenn **_der Frühling anbricht und Stonetop mindestens 1 Überschuss besitzt_**, erhält Stonetop durch den Handel +1 Überschuss. Außerdem hast du einen Vorteil, wenn du mit Holz, Elfenbein, feiner Wolle, Ziegen, Schafen, Pergament, Velinpapier oder Tinte handelst & tauschst.",
+      "orphaned": true
     }
   },
   "weapons-of-war": {
     "name": {
       "source": "Weapons of War",
-      "text": ""
+      "text": "Kriegswaffen"
     },
     "effects/0/text": {
       "source": "increase Defenses by 1",
@@ -1222,49 +1345,54 @@
     },
     "choices/0/text": {
       "source": "Spears are great, but how about axes, picks, swords?",
-      "text": ""
+      "text": "Speere sind großartig, aber wie wäre es mit Äxten, Spitzhacken und Schwertern?"
     },
     "choices/1/text": {
       "source": "**Requires** either this:",
-      "text": ""
+      "text": "**Erfordert** entweder Folgendes:"
     },
     "choices/buy-weapons/text": {
       "source": "Acquiring a few dozen good swords, battleaxes, maces, flails, warhammers, etc. (Value 3)",
-      "text": ""
+      "text": "Erwerb von ein paar Dutzend guten Schwertern, Streitäxten, Keulen, Flegeln, Kriegshämmern usw. (Wert 3)"
     },
     "choices/3/text": {
       "source": "Or all of these:",
-      "text": ""
+      "text": "Oder alles Folgende:"
     },
     "choices/smith-staff/text": {
       "source": "A smith, with a full staff and upgraded tools (Value 2)",
-      "text": ""
+      "text": "Einen Schmied mit vollständiger Belegschaft und verbesserten Werkzeugen (Wert 2)"
     },
     "choices/iron-ore/text": {
       "source": "A cartload of good iron ore (Value 2)",
-      "text": ""
+      "text": "Eine Wagenladung guten Eisenerzes (Wert 2)"
     },
     "choices/smith-seasons/text": {
       "source": "4 seasons of work by the smith",
-      "text": ""
+      "text": "4 Jahreszeiten Arbeit des Schmieds"
     },
     "choices/7/text": {
       "source": "And then:",
-      "text": ""
+      "text": "Und anschließend:"
     },
     "choices/veteran-warrior/text": {
       "source": "A veteran warrior, able to command a crowd",
-      "text": ""
+      "text": "Einen erfahrenen Krieger, der in der Lage ist, eine Menschenmenge zu befehligen"
     },
     "choices/train-militia/text": {
       "source": "Pulling Together to train the militia with these new weapons, requiring a season and 1 Surplus",
-      "text": ""
+      "text": "Gemeinsam anpacken, um die Miliz mit diesen neuen Waffen auszubilden; erfordert 1 Jahreszeit und 1 Überschuss"
+    },
+    "choices/10/text": {
+      "source": "When you **_meet the requirements_**, increase Defenses by 1 and add \"Weapons of War\" to the Fortifications list. Each spring, the village must expend 1 Surplus to maintain and replace the town's weapons.\n\nHenceforth, when you Outfit from Stonetop or Have What You Need after doing so, you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items, as if they were already on the inventory inserts. Battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity.",
+      "text": "Wenn du **_die Voraussetzungen erfüllt_**, erhöhte die Verteidigung um 1 und füge „Kriegswaffen“ zur Liste der Befestigungen hinzu. **_In jedem Frühjahr_** muss das Dorf 1 Überschuss aufwenden, um die Waffen der Siedlung instand zu halten und zu ersetzen.\n\nVon nun an gilt: Wenn du **_dich in Stonetop ausrüstest oder wenn du hast, was du brauchst_**, kannst du Streitkolben, Dreschflegel, Streitäxte, Kriegshämmer und alle Arten von Schwertern wie gewöhnliche Gegenstände behandeln, als wären sie bereits auf der Ausrüstungsbeilage aufgeführt. Streitäxte und Schwerter haben „Durchdringung x“, wobei x dem aktuellen Wohlstand der Siedlung entspricht.",
+      "orphaned": true
     }
   },
   "well-trained-militia": {
     "name": {
       "source": "Well-Trained Militia",
-      "text": ""
+      "text": "Gut ausgebildete Miliz"
     },
     "effects/0/text": {
       "source": "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)",
@@ -1288,49 +1416,54 @@
     },
     "choices/0/text": {
       "source": "Everyone can use a spear and shield, but some hard drilling could make us a force to be reckoned with.",
-      "text": ""
+      "text": "Jeder kann mit Speer und Schild umgehen, aber mit etwas intensivem Drill könnten wir zu einer ernstzunehmenden Streitmacht werden."
     },
     "choices/1/text": {
       "source": "**Requires** one of the following:",
-      "text": ""
+      "text": "**Erfordert** eine der folgenden Voraussetzungen:"
     },
     "choices/veteran-warrior/text": {
       "source": "A veteran warrior, able to command a crowd",
-      "text": ""
+      "text": "Einen erfahrenen Krieger, der in der Lage ist, eine Menschenmenge zu befehligen"
     },
     "choices/3/text": {
       "source": "For each tactic below, you must then Pull Together, requiring a season of drills and 1 Surplus.",
-      "text": ""
+      "text": "Für jede der folgenden Taktiken musst du gemeinsam anpacken, was jeweils eine Jahreszeit Drill und 1 Überschuss erfordert."
     },
     "choices/archery/text": {
       "source": "Archery: barrages, ranged ambushes, sniping, etc.",
-      "text": ""
+      "text": "Bogenschießen: Salven, Hinterhalte aus der Distanz, gezielte Schüsse usw."
     },
     "choices/cavalry/text": {
       "source": "Cavalry (requires a Herd of Horses): fighting from horseback, charges",
-      "text": ""
+      "text": "Kavallerie (erfordert eine Pferdeherde): Kampf vom Pferd aus, Sturmangriffe"
     },
     "choices/formations/text": {
       "source": "Formations: shield walls, wedges, phalanx, etc.",
-      "text": ""
+      "text": "Formationen: Schildwälle, Keile, Phalanx usw."
     },
     "choices/readiness/text": {
       "source": "Readiness: patrolling, reacting quickly to alarms",
-      "text": ""
+      "text": "Bereitschaft: Patrouillen, schnelles Reagieren auf Alarme"
     },
     "choices/skirmishing/text": {
       "source": "Skirmishing: ambushes, harassing, hit-and-run",
-      "text": ""
+      "text": "Scharmützel: Hinterhalte, Belästigungsangriffe, Vorstöße und Rückzüge"
+    },
+    "choices/9/text": {
+      "source": "When you Deploy using one of the militia's trained tactics, you are likely acting from a position of strength (you pick the consequence **on a 7-9**, not the GM).\n\nWhen the militia has trained in 2+ tactics, increase Defenses by 1.\n\nEach summer, the militia must spend 1 Surplus and a week or so practicing or else lose its training in 1 tactic.",
+      "text": "Wenn du **_die Miliz einsetzt, und sie wendet dabei eine der von ihr erlernten Taktiken an_**, handelt ihr wahrscheinlich aus einer Position der Stärke heraus (bei 7–9 wählst du die Konsequenz, nicht der SL).\n\nWenn **_die Miliz zwei oder mehr Taktiken erlernt hat_**, erhöhe die Verteidigung um 1.\n\n**_In jedem Sommer_** muss die Miliz 1 Überschuss aufwenden und einige Wochen trainieren, ansonsten verliert sie ihre Ausbildung in einer Taktik.",
+      "orphaned": true
     }
   },
   "_folders": {
     "additional": {
       "source": "additional",
-      "text": ""
+      "text": "Zusätzlich"
     },
     "stonetop": {
       "source": "stonetop",
-      "text": ""
+      "text": "Stonetop"
     }
   }
 }
