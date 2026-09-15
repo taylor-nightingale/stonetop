@@ -205,7 +205,7 @@ export class SteadingSnapshot {
 	constructor({
 								fortunes, surplus, attributes, debilities,
 								placesOfInterest, notes, folk, folkSuggestions, neighborPlaces,
-								content, assets, improvements,
+								content, assets, improvements, resourcesPlate,
 								moves, seasons, season, year, fortunesReset, rollMode, rollModes,
 								grantedMoves,
 							}) {
@@ -233,6 +233,9 @@ export class SteadingSnapshot {
 		// What "reset Fortunes" will actually set — +1, or +0 while the steading is malcontent. The
 		// button states the number rather than implying one.
 		this.fortunesReset = fortunesReset ?? 1;
+		// The whisky jugs under the Resources list, and null in a world whose owner has never run the
+		// art installer — the template asks before it draws.
+		this.resourcesPlate = resourcesPlate ?? null;
 		this.moves    = moves    ?? [];
 		this.seasons  = seasons  ?? null;
 		// Moves an improvement CONFERS, keyed by slug. Not the steading's moves: they are read on the

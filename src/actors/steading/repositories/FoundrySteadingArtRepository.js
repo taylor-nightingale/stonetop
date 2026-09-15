@@ -8,15 +8,25 @@ import { hasArtFile, artFileUrl } from "../../../art/foundryArt.js";
 // environment question, and this is the seam that answers it.
 export class FoundrySteadingArtRepository {
 	static SEASONS_PLATE = "stonetop-art/steading/seasons.png";
+	// The three whisky jugs from the village entry's Whisky section (Book of the Wider World,
+	// p.12-21), which the art installer stores under its own content hash. Written out in full rather
+	// than assembled: the shipped manifest is scanned out of the source, so a path built at runtime is
+	// a path the installer never learns to recognize.
+	static RESOURCES_PLATE = "stonetop-art/wonders/35054ea8d15b39521589bc2cab68c9f309301fe645948ac9fd0ed37d920da6c7.png";
 
 	/** The Seasons Change harvest plate's url, or null when this world hasn't installed it. */
 	async seasonsPlate() {
 		return this.#installed(FoundrySteadingArtRepository.SEASONS_PLATE);
 	}
 
-	// The ROUTED url, not the stored path. The plate is handed to CSS as well as to an `<img>`, and a
-	// relative url() in a stylesheet resolves against the stylesheet rather than the document. See
-	// artFileUrl.
+	/** The url of the plate under the Resources list, or null when this world hasn't installed it. */
+	async resourcesPlate() {
+		return this.#installed(FoundrySteadingArtRepository.RESOURCES_PLATE);
+	}
+
+	// The ROUTED url, not the stored path. Both plates are drawn by an `<img>`, which would resolve
+	// the relative path itself — but the seasons plate is also handed to `shape-outside`, and a
+	// relative url() in CSS resolves against the stylesheet rather than the document. See artFileUrl.
 	async #installed(path) {
 		return (await hasArtFile(path)) ? artFileUrl(path) : null;
 	}

@@ -241,19 +241,36 @@
 				<section class="steading-overview-column">
 					{{> "stonetop.steading-stat-panel" attr="prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity"}}
 					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items}}
-					{{!-- The steading's own scratchpad, closing the column the resources fill.
+					{{!-- The steading's own scratchpad.
 
 					      Here rather than with the safety agreements it used to sit beside: it is
 					      written to mid-scene, on the tab the table is on all session, and a
 					      scratchpad filed next to a content policy is what made that tab read as a
-					      drawer of leftovers. It closes the SHORTER column and stretches to fill it,
-					      which is the job the decorative plate used to do badly — the two columns of
-					      this tab are different lengths, and what levels them should be a box you
-					      write in rather than a picture you stop seeing. --}}
+					      drawer of leftovers. It is also what LEVELS the two columns, which are
+					      different lengths — it is the one thing on the tab that can use the height it
+					      is given, so it takes the slack and the plate below it simply closes the
+					      column. --}}
 					<div class="steading-notes-field steading-block">
 						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
-						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}" class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>
+						{{!-- The same field as the note kept on a neighbouring place: a rule to write on that
+						      grows with what is written, and a placeholder saying what goes on it. `stonetop-notes`
+						      stays FIRST in the list — buildFocusSelector rebuilds the caret's selector from the
+						      first stonetop-/steading- class it finds, and the other two are shared idioms that
+						      would match every note on the sheet. --}}
+						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}"
+						          class="stonetop-notes stonetop-note-line stonetop-grow-field"
+						          placeholder="{{localize 'stonetop.steading.headings.notes'}}"
+						          data-change-action="notes">{{stonetop.notes}}</textarea>
 					</div>
+					{{!-- The book's whisky jugs, closing the column the resources fill — the one line of that
+					      list the book itself illustrates, under the list that names it. Absent in a world
+					      that has never run the art installer, which is what the snapshot answering null
+					      rather than a path is for. --}}
+					{{#if stonetop.resourcesPlate}}
+						<figure class="steading-resources-plate">
+							<img src="{{stonetop.resourcesPlate}}" alt="">
+						</figure>
+					{{/if}}
 				</section>
 
 				<section class="steading-overview-column">

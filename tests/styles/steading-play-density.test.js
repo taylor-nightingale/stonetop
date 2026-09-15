@@ -101,8 +101,19 @@ const notes = `
 	<div class="steading-notes-field steading-block">
 		<h3 class="stonetop-move-group-title">Notes</h3>
 		<div class="stonetop-panel-divider" aria-hidden="true"></div>
-		<textarea class="stonetop-notes"></textarea>
+		<textarea class="stonetop-notes stonetop-note-line stonetop-grow-field" placeholder="Notes"></textarea>
 	</div>`;
+
+// The book's whisky jugs, at the intrinsic size the extracted plate actually has (650x431) — the
+// ratio is what decides how much of the column the picture takes, and a square stand-in would
+// overstate it by half. An empty SVG rather than a pixel, since only the box is being measured.
+const PLATE_SRC =
+	"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='650'%20height='431'%3E%3C/svg%3E";
+
+const plate = `
+	<figure class="steading-resources-plate">
+		<img src="${PLATE_SRC}" alt="">
+	</figure>`;
 
 const list = (attr, title, rows) => `
 	<div class="steading-overview-field">
@@ -129,7 +140,7 @@ const condition = (slug, active, effect) => `
 
 // Both densities at once, which is the situation the design has to resolve and neither half can be
 // tested from alone.
-const fixture = (width, { shut = false, lean = false } = {}) => `
+const fixture = (width, { shut = false, lean = false, heavy = false, plated = true } = {}) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
   <div class="window-content"><div class="sheet-wrapper">
    <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="left">
@@ -182,10 +193,13 @@ const fixture = (width, { shut = false, lean = false } = {}) => `
             ${fullTile("prosperity", "Prosperity", { note: "→ +0 lacking", noteKind: "adjustment" })}
             ${list("prosperity", "Resources", ["Farming (beans, potatoes, oats, barley)", "Distilling (whisky)"])}
             ${notes}
+            ${plated ? plate : ""}
           </section>
           <section class="steading-overview-column">
             ${fullTile("defenses", "Defenses", { note: "legendary" })}
-            ${list("defenses", "Fortifications, etc.", ["Village militia", "The Ringwall (low, stone)"])}
+            ${list("defenses", "Fortifications, etc.", heavy
+              ? ["Village militia", "The Ringwall (low, stone)", "Three watchtowers", "Spears & shields in every home", "Some bows", "A beacon on the Old Wall"]
+              : ["Village militia", "The Ringwall (low, stone)"])}
             ${lean ? "" : assetsField(["A pair of horse-drawn plows, iron", "A wagon (plus horse harness)"]) + coinage}
           </section>
         </div>
@@ -219,6 +233,8 @@ const TARGETS = {
 	unmarkedEffect: ".steading-debility:not(.is-active) .steading-debility-effect",
 	notes:          ".steading-play-grid .steading-notes-field",
 	notesBox:       ".steading-play-grid .steading-notes-field textarea",
+	plate:          ".steading-play-grid .steading-resources-plate",
+	plateImg:       ".steading-play-grid .steading-resources-plate img",
 	coinTable:      ".steading-coinage-table",
 	head:           '.steading-play-grid .steading-tile[data-attr="prosperity"]',
 	headLabel:      '.steading-play-grid .steading-tile[data-attr="prosperity"] .steading-tile-label',
@@ -452,10 +468,14 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 
 		// The acceptance the tab pass was written against: no worse than it was. 411px is the measure
 		// MEASURED on the shipped sheet before this pass, at a 1107px window with the rail open and the
-		// root at 16px — the width the three-column option was rejected at. Stated a pixel under, since
-		// sub-pixel layout rounding is not a regression and a column is not read to the half-pixel.
+		// root at 16px — the width the three-column option was rejected at. A guard against a column
+		// narrowed back toward that measure, not a claim to the half-pixel.
+		//
+		// 405 rather than the 410 first measured: the tab scroller now reserves the focus ring's reach
+		// at its left edge, which the ring was being clipped by, and the two columns split that 3px
+		// between them. Deliberate, and the smallest price there is for a ring a keyboard user can see.
 		it("is no narrower than the measure it had before the pass", () => {
-			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(410);
+			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(405);
 		});
 
 		// The two columns of this tab are different lengths — Prosperity leads eight resources, Defenses
@@ -471,13 +491,21 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		});
 
 		// Stated as a comparison rather than a height, because the whole point is that nothing measures
-		// anything: take the assets and the treasury off the other column and the box shrinks with it.
+		// anything: lengthen the other column and the box grows with it; shorten it and the box gives
+		// the height back. Measured against a LONGER right column rather than against the shipped one,
+		// because the tab as shipped need not have any slack to hand out at all — the left column also
+		// carries the plate — and a claim about what happens to the slack has to be made where there
+		// is some.
 		it("grows the notes box by exactly the slack the other column leaves", () => {
-			const full = measureAt(1107);
-			const lean = measureAt(1107, { lean: true });
-			expect(full.get("notesBox").values.boxHeight,
+			const heavy = measureAt(1107, { heavy: true });
+			const full  = measureAt(1107);
+			const lean  = measureAt(1107, { lean: true });
+			expect(heavy.get("notesBox").values.boxHeight,
 				"the notes box does not take up the other column's height")
-				.toBeGreaterThan(lean.get("notesBox").values.boxHeight);
+				.toBeGreaterThan(full.get("notesBox").values.boxHeight);
+			expect(full.get("notesBox").values.boxHeight,
+				"the notes box keeps height the other column no longer needs")
+				.toBeGreaterThanOrEqual(lean.get("notesBox").values.boxHeight);
 		});
 
 		// And a floor, for the steading with few resources and for the folded single-column width,
@@ -488,31 +516,84 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			}
 		});
 
-		// A box this size has to SAY it is one. Every other field on the sheet is a line on a rule,
-		// which is self-evident at the size of what goes in it; a quarter-column of empty parchment
-		// under a heading is not, and read as a rendering fault. It is ruled like the page the book
-		// leaves you — an affordance rather than a frame, since core's own answer (an inset shadow and
-		// a rounded corner) is the boxed field this sheet has taken off everything else.
+		// A box this size has to SAY it is one, and it says it the way every other field on this sheet
+		// does: ONE rule under what is written, plus a placeholder naming what goes on it. It was
+		// ruled like a printed page for a while, on the same reasoning — but eight grey lines where
+		// the rest of the sheet has one is a box pretending to be paper, which is what it looked like.
+		// Core's own answer (an inset shadow and a rounded corner) is the boxed field this sheet has
+		// taken off everything else, so that comes off here too.
 		it("says it is somewhere to write, without being a box", () => {
 			const seen = probe.render({
 				bodyHtml: fixture(1107), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
 				probes: {
 					notes: {
 						selector: ".steading-play-grid .steading-notes-field textarea",
-						properties: ["background-image", "background-attachment", "box-shadow", "border-radius", "padding-left"],
+						properties: ["background-image", "border-bottom-width", "border-top-width",
+							"box-shadow", "border-radius", "field-sizing"],
 					},
 				},
 			});
 			const notes = seen.get("notes");
 			expect(notes.missing, "the notes box did not render").toBe(false);
-			expect(notes.get("background-image"), "the writing area is not ruled")
-				.toContain("repeating-linear-gradient");
-			// Fixed, the rules would stay put while the words slid over them.
-			expect(notes.get("background-attachment")).toBe("local");
+			// The ruling is gone — no lined paper, and nothing else painted behind the text either.
+			expect(notes.get("background-image"), "the writing area is still ruled").toBe("none");
+			// What replaces it: the sheet's own one-rule idiom, and nothing closing the other sides.
+			expect(parseFloat(notes.get("border-bottom-width"))).toBeGreaterThan(0);
+			expect(notes.get("border-top-width")).toBe("0px");
 			expect(notes.get("box-shadow"), "core's inset box is still drawn round it").toBe("none");
 			expect(notes.get("border-radius")).toBe("0px");
-			// And what is written starts inside the page rather than hard against the column's edge.
-			expect(parseFloat(notes.get("padding-left"))).toBeGreaterThan(0);
+			// And it grows with what is written in it, like every other note on these sheets.
+			expect(notes.get("field-sizing"), "the box does not grow with its text").toBe("content");
+		});
+
+		// ── The plate that closes the column ──
+		//
+		// The book's whisky jugs, under the Resources list because that list's "Distilling (whisky)"
+		// line is what they draw. Decoration, so every claim here is about it staying out of the way:
+		// it goes last, it is capped, and it does not become what levels the columns.
+		describe("the plate under the Resources list", () => {
+			it("closes the column, below everything written in it", () => {
+				const m = measureAt(1107);
+				const notesBottom = m.get("notes").values.boxTop + m.get("notes").values.boxHeight;
+				expect(m.get("plate").values.boxTop,
+					"the plate is not the last thing in the column").toBeGreaterThanOrEqual(notesBottom);
+			});
+
+			// Capped at the vignette's width rather than the column's. At full width it ran over 500px
+			// of dense woodcut under a list of five short lines — the heaviest thing on the tab,
+			// illustrating the least.
+			it("stays a vignette rather than filling the column's width", () => {
+				const m = measureAt(1107);
+				expect(m.get("plateImg").values.boxWidth).toBeLessThanOrEqual(15 * 16);
+				expect(m.get("plateImg").values.boxWidth,
+					"the plate is as wide as the column it closes")
+					.toBeLessThan(m.get("col1").values.boxWidth * 0.75);
+			});
+
+			// The notes box is still what absorbs the difference between the two columns; the picture is
+			// a fixed object that the box makes room for. Stated as "the plate does not move": were it
+			// the flexible one, a longer right column would stretch it and the sheet would breathe a
+			// woodcut in and out as resources were added.
+			it("keeps its size while the notes box takes the slack", () => {
+				const heavy = measureAt(1107, { heavy: true });
+				const full  = measureAt(1107);
+				expect(heavy.get("plateImg").values.boxHeight, "the plate flexes with the column")
+					.toBeCloseTo(full.get("plateImg").values.boxHeight, 0);
+				expect(heavy.get("notesBox").values.boxHeight,
+					"the notes box is not the one taking the slack")
+					.toBeGreaterThan(full.get("notesBox").values.boxHeight);
+			});
+
+			// And it is the plate's height the notes box gave up to make room for it.
+			it("takes its room from the notes box, not from the tab", () => {
+				const plated   = measureAt(1107, { heavy: true });
+				const unplated = measureAt(1107, { heavy: true, plated: false });
+				expect(plated.get("col1").values.boxHeight, "the plate made the tab taller")
+					.toBeCloseTo(unplated.get("col1").values.boxHeight, 0);
+				expect(plated.get("notesBox").values.boxHeight,
+					"the notes box did not give up the height the plate took")
+					.toBeLessThan(unplated.get("notesBox").values.boxHeight);
+			});
 		});
 	});
 

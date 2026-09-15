@@ -150,6 +150,12 @@ figure.art:has(> img.stonetop-broken-img) {
 	   accent, which carries against both papers (5.1:1 light, and warm-1 on dark). */
 	--focus-ring-width: 0.125rem;
 	--focus-ring-offset: 0.0625rem;
+	/* How far the ring reaches OUTSIDE the box it surrounds. An `overflow` of anything but `visible`
+	   clips at the padding box, so a field flush against a scroll container's edge loses exactly this
+	   much of its ring — the left side of it, silently, on the one edge a reader tracks a column
+	   down. Every scroller on these sheets reserves this much room; see .stonetop-rail-layout
+	   .sheet-body, which is the tab scroller for the character and steading sheets both. */
+	--focus-ring-reach: calc(var(--focus-ring-width) + var(--focus-ring-offset));
 
 	/* The stat / vitals frames. Sized here rather than inline because the decor is a MASK at
 	   `mask-size: 100% 100%` — the art stretches to whatever box it is given, so scaling the box
@@ -1607,13 +1613,19 @@ body,
 /* `scrollbar-gutter: stable` keeps the scrollbar's track reserved whether or not the tab is
    currently scrolling, so nothing at the right edge is either overlapped or nudged when it appears.
    The inventory's small column ends in resource pips flush against that edge — the scrollbar sat on
-   top of Whisky's second ○ — and a tab that reflows the moment it overflows is its own bug. */
+   top of Whisky's second ○ — and a tab that reflows the moment it overflows is its own bug.
+
+   The LEFT padding is the focus ring's room. This is a scroll container, so it clips at its padding
+   box on the x-axis as well as the y — and every tab on both sheets lays its first column flush
+   against that edge, so the ring round whatever was focused lost its left side. The right edge needs
+   no such reservation: the stable gutter above already holds the content a scrollbar's width off the
+   clip edge, and the 2px is the nudge that keeps it off the track itself. */
 .stonetop-rail-layout .sheet-body {
 	min-width: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
 	scrollbar-gutter: stable;
-	padding-right: 2px;
+	padding-inline: var(--focus-ring-reach) 2px;
 }
 
 .stonetop-rail {
@@ -6536,6 +6548,9 @@ button.stonetop-xp-toggle {
 	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
+/* A scroll container, so it clips at its padding box on BOTH axes — the room is the focus ring's,
+   which a roster entry flush against the column's edge would otherwise lose the left side of. See
+   .stonetop-rail-layout .sheet-body. */
 .stonetop.sheet.steading .steading-folk-ref {
 	flex: 1;
 	min-width: 0;
@@ -6543,6 +6558,7 @@ button.stonetop-xp-toggle {
 	flex-direction: column;
 	gap: 6px;
 	overflow-y: auto;
+	padding-inline: var(--focus-ring-reach);
 }
 
 /* Thin sheets: the two columns become two rows.
@@ -6980,12 +6996,15 @@ button.stonetop-xp-toggle {
    steadfast's, where it sits beside the roster, and the steading's Places tab, where it stands
    opposite the landmarks inside the walls — the same concept at the other scale. */
 
+/* Scrolls, so the note on each place needs the focus ring's room reserved here or it is clipped
+   down its left edge — see .stonetop-rail-layout .sheet-body. */
 .stonetop.sheet.steading .steading-neighbor-places {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
 	overflow-y: auto;
+	padding-inline: var(--focus-ring-reach);
 }
 
 .stonetop.sheet.steading .steading-neighbor-place {
@@ -7102,8 +7121,8 @@ button.stonetop-xp-toggle {
 }
 
 /* The note itself grows with what is written in it — .stonetop-grow-field on the element supplies
-   `field-sizing: content` and the wrapping. Two rows is the FLOOR, not the fit: an empty note still
-   has to read as somewhere to write, and `field-sizing` grows a textarea up from its `rows`.
+   `field-sizing: content` and the wrapping, .stonetop-note-line the rule it is written on. All this
+   adds is the size, which is the only thing about it that is this place's rather than the idiom's.
 
    Core gives a textarea a min-height of several lines, and `field-sizing` can only grow a field UP
    FROM its minimum — so core's floor has to go or the growth never shows. `2lh` replaces it: two
@@ -7112,18 +7131,7 @@ button.stonetop-xp-toggle {
    a browser without `field-sizing`, where the box simply stays two lines. */
 .stonetop.sheet.steading .steading-neighbor-text-field textarea {
 	min-height: 2lh;
-	border: none;
-	border-bottom: 1px solid var(--st-rule-veil);
-	background: transparent;
 	font-size: var(--fs-fine);
-	font-family: var(--font-primary);
-	line-height: 1.4;
-	padding: 1px 2px;
-}
-
-.stonetop.sheet.steading .steading-neighbor-text-field textarea:focus {
-	outline: none;
-	border-bottom-color: var(--st-accent);
 }
 
 /* ── Improvements tab ────────────────────────────────────────────────────────── */
@@ -8181,6 +8189,34 @@ button.stonetop-xp-toggle {
    zero (the image inside is absolutely positioned and so out of flow), so the plate can never push
    the row taller than the gains — it matches that height exactly and stops there. `overflow: hidden`
    is belt-and-braces: whatever the image does, it is clipped to the frame. */
+/* ── The Resources plate ──
+   The book's whisky jugs, closing the Play tab's left column under the Resources list. It sits under
+   that list and no other because it is what that list's "Distilling (whisky)" line looks like — the
+   one resource the book itself draws. Last in the column, and the first thing to go when a world has
+   no art installed: the template asks the snapshot before it draws, and HideBrokenImages catches a
+   path that 404s anyway.
+
+   No auto top margin to push it to the foot: the notes box above it is `flex: 1`, so it has already
+   taken the column's slack and there is none left for a margin to absorb. Line art on transparent,
+   so it takes the sheet's art filter and sits straight on the parchment like every other plate.
+
+   Sized as the vignette it is, not as a plate that heads a section. At the column's full width it
+   ran over 500px of dense woodcut under a list of five short lines — the heaviest thing on the tab,
+   illustrating the least. Capped, it closes the column without competing with it. */
+.stonetop.sheet.steading .steading-resources-plate {
+	margin: 0 auto;
+	padding-top: 0.5rem;
+	max-width: 15rem;
+	min-width: 0;
+}
+
+.stonetop.sheet.steading .steading-resources-plate img {
+	display: block;
+	width: 100%;
+	height: auto;
+	filter: var(--st-art-filter);
+}
+
 /* The book's harvest plate, as a watermark in the bottom-right corner of the numbered steps.
 
    BEHIND the steps rather than beside them, and that is the whole design. Every arrangement that put
@@ -8267,43 +8303,17 @@ button.stonetop-xp-toggle {
 	flex-direction: column;
 }
 
-/* The sheet's writing area — the steading's notes. Every other field on this sheet is one line on a
-   rule, and that shape says "write here" by being the size of what goes in it. This one is not: it is
-   the height of whatever the column has left, and unframed it reads as blank parchment with a heading
-   over it — the thing that looks most like a bug on the tab.
+/* The sheet's writing area — the steading's notes. It is the same field as the note kept on each
+   neighbouring place, at the size the column gives it: .stonetop-note-line draws the rule under it
+   and .stonetop-grow-field grows it, so all this names is the type and the stretch.
 
-   So they are RULED, the way the printed playbook rules the space it leaves you. Core's inset shadow
-   and rounded corner still come off (that is a box round a field this sheet deliberately leaves
-   unframed, the same defect called out on the list rows above); what replaces them is lined paper,
-   which is an affordance rather than a container.
-
-   The pitch is the line-height, so what is typed sits ON the rules rather than between them, and the
-   two move together if the type scale does. `local` scrolls the ruling with the text — fixed, the
-   lines would stay put while the words slid over them. No top padding, or the first line starts
-   between rules. */
-.stonetop.sheet.steading .steading-notes-field textarea {
-	--writing-pitch: 1.5em;
-	background-color: transparent;
-	background-image: repeating-linear-gradient(to bottom,
-		transparent 0,
-		transparent calc(var(--writing-pitch) - 1px),
-		var(--st-rule-veil) calc(var(--writing-pitch) - 1px),
-		var(--st-rule-veil) var(--writing-pitch));
-	background-attachment: local;
-	box-shadow: none;
-	border: none;
-	border-radius: 0;
-	line-height: 1.5;
-	/* Indented from the ruling's own left end, so what is written starts inside the page rather than
-	   hard against the column's edge. */
-	padding: 0 0.4rem;
-}
-
+   It was RULED like a printed playbook for a while, on the grounds that a tall empty box under a
+   heading reads as blank parchment. The ruling is what that actually looked like — eight grey lines
+   where every other field on the sheet has one, a box pretending to be a page. The placeholder is
+   what says "write here" now, which is what it says on every other note on this sheet. */
 .stonetop.sheet.steading .steading-notes-field textarea {
 	flex: 1;
-	resize: none;
 	font-size: var(--fs-note);
-	font-family: var(--font-primary);
 }
 
 /* The Content tab: the three agreement lists, and the book's own procedure beside them.
@@ -8821,7 +8831,10 @@ button.stonetop-xp-toggle {
 /* content.text rich editor: a <prose-mirror> seeded with HTML, saved back as HTML. Match the field
    frame the plain inputs use and give the editor a sensible floor to start from — it grows past it
    with the text (.stonetop-grow-editor), which is what makes the 4rem below a floor rather than the
-   decoration it was while core's 150px governed the box. */
+   decoration it was while core's 150px governed the box.
+
+   The floor sits on .editor-content, the contenteditable, rather than on the <prose-mirror> frame
+   round it — see .stonetop-notes-editor for the dead strip a floor on the frame leaves. */
 .choices-field--rich { align-items: stretch; }
 .choices-field .choices-rich-text {
 	flex: 1;
@@ -8830,8 +8843,8 @@ button.stonetop-xp-toggle {
 	border: 1px solid var(--st-rule);
 	border-radius: 3px;
 	padding: 0.15rem 0.35rem;
-	min-height: 4rem;
 }
+.choices-field .choices-rich-text .editor-content { min-height: 4rem; }
 .choices-field .choices-rich-text:focus-within { border-color: var(--st-accent); }
 
 .choices-field input[type="text"]:focus,
@@ -9122,6 +9135,34 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	word-break: break-word;
 }
 
+/* A writing box drawn as ONE RULE under what is written, and nothing else — the sheet's own idiom
+   for "write here", the same one every value on it wears. Core's frame comes off entirely: its
+   border, its rounded corner and the inset shadow that draws a box even when the border is gone.
+   Focus moves the rule to the accent rather than adding anything, so the box never changes shape
+   as the caret enters it.
+
+   Shared, because the steading's scratchpad and the note kept on each neighbouring place are the
+   same field at two sizes. Size is the surface's to name — its floor and its type — and that is all
+   either of them declares on top of this.
+
+   Lives in `@layer system`, which core declares after `elements.forms`, so the layer alone beats
+   core's textarea theming and this needs no specificity of its own to win. */
+.stonetop-note-line {
+	border: none;
+	border-bottom: 1px solid var(--st-rule-veil);
+	border-radius: 0;
+	box-shadow: none;
+	background: transparent;
+	font-family: var(--font-primary);
+	line-height: 1.4;
+	padding: 1px 2px;
+}
+
+.stonetop-note-line:focus {
+	outline: none;
+	border-bottom-color: var(--st-accent);
+}
+
 /* The same behaviour for a <prose-mirror>: as tall as what it holds, so writing pushes whatever is
    under it down rather than scrolling inside a box of someone else's choosing.
 
@@ -9203,13 +9244,12 @@ textarea.stonetop-editable__edit { min-height: 0; }
 }
 
 /* ── Character Notes tab: bio + notes as ProseMirror editors ─────────────────── */
-/* The floor belongs on <prose-mirror> itself. Core lays the element out as a flex column whose
-   toolbar band is a `flex: 0 0 42px` item and whose editor is `flex: 1`; any other `display` here
-   makes that band a 0-height block, and its 26px buttons then spill out under the .editor-content,
-   which swallows the clicks. Height above the floor comes from .stonetop-grow-editor, so a long
-   bio lengthens the tab instead of scrolling inside a 20em window. */
+/* No `display` of our own. Core lays the element out as a flex column whose toolbar band is a
+   `flex: 0 0 42px` item and whose editor is `flex: 1`; any other `display` here makes that band a
+   0-height block, and its 26px buttons then spill out under the .editor-content, which swallows the
+   clicks. Height comes from .stonetop-grow-editor, so a long bio lengthens the tab instead of
+   scrolling inside a 20em window. */
 .stonetop-notes-editor {
-	min-height: 10em;
 	margin-bottom: 12px;
 	border: 1px solid var(--st-rule);
 	border-radius: 3px;
@@ -9217,7 +9257,16 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	font-family: var(--font-primary);
 	line-height: 1.4;
 }
-.stonetop-notes-editor .editor-content { padding: 4px 6px; }
+
+/* The floor goes on .editor-content, which IS the contenteditable — not on <prose-mirror>, which is
+   only the frame drawn round it. With .stonetop-grow-editor putting the content back in flow, a
+   floor on the frame leaves the writable element the height of its text and the rest of the box
+   dead: a click below the first line puts no caret in, and the focus ring wraps that one line
+   inside a 10em frame. Floored here, the writable area IS the box. */
+.stonetop-notes-editor .editor-content {
+	min-height: 10em;
+	padding: 4px 6px;
+}
 
 /* ── Hover ▲▼ stepper on number inputs (wrapper added by activateSteppers) ──────── */
 .stonetop-stepper {
@@ -9416,12 +9465,13 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop-insert-sheet-label { font-weight: bold; font-size: var(--fs-note); text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; }
 .stonetop-insert-sheet-section { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--st-rule); padding-top: 8px; }
 .stonetop-insert-sheet-section-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+/* One floor, on .editor-content, in both states — the rendered HTML before the editor activates and
+   the contenteditable after it does are the same element. It used to move to the <prose-mirror>
+   frame on activation so .stonetop-grow-editor could still grow the box; that left the writable
+   element the height of its text inside a 120px frame, so a click in the empty part of a short
+   description landed on nothing. The frame carries no floor of its own and sizes to a content box
+   that is already at least 120px, which grows exactly the same way. */
 .stonetop-insert-sheet-section .editor-content { min-height: 120px; border: 1px solid var(--st-rule); border-radius: 3px; padding: 4px 6px; }
-/* Active ProseMirror: the floor goes on the element, not on the .editor-container core injects, so
-   that .stonetop-grow-editor can take the box above it as the description grows. The floor is
-   already held there, so the content inside it must not carry a second one. */
-.stonetop-insert-sheet-section .stonetop-grow-editor { min-height: 120px; }
-.stonetop-insert-sheet-section .editor-container .editor-content { min-height: 0; }
 .stonetop-insert-sheet-instinct-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .stonetop-insert-sheet-instinct-row { display: flex; align-items: center; gap: 6px; }
 .stonetop-insert-sheet-instinct-row .insert-instinct-string { flex: 1 1 auto; }

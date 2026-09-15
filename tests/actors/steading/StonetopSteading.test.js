@@ -3,7 +3,7 @@ import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.
 import { SteadingSnapshot } from "../../../src/model/snapshot/steading/SteadingSnapshot.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
-import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
+import { steadingRepos, FakeSteadingArtRepository } from "../../fakes/FakeSteadingRepos.js";
 import { SeasonStepAddress } from "../../../src/model/data/steading/SeasonStepAddress.js";
 
 const fakeImprovementsRepo = {getBySlug: async () => null};
@@ -47,6 +47,21 @@ describe("StonetopSteading.buildSnapshot", () => {
 
 	it("snapshot includes content sections from SteadingContent", async () => {
 		expect((await make().buildSnapshot()).content).toHaveLength(3);
+	});
+
+	// The whisky jugs under the Resources list, and only in a world that installed them — the default
+	// fake art store has nothing, which is the world of anyone who has never run the installer.
+	it("carries no resources plate when the art store has none", async () => {
+		expect((await make().buildSnapshot()).resourcesPlate).toBeNull();
+	});
+
+	it("carries the resources plate the art store provides", async () => {
+		const steading = new StonetopSteading(new FakeSteadingBuilder().build(), steadingRepos({
+			improvements: fakeImprovementsRepo,
+			moves: fakeMoves,
+			art: new FakeSteadingArtRepository(null, "stonetop-art/wonders/plate.png"),
+		}));
+		expect((await steading.buildSnapshot()).resourcesPlate).toBe("stonetop-art/wonders/plate.png");
 	});
 });
 
