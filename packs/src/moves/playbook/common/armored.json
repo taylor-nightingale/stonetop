@@ -6,6 +6,18 @@
   "system": {
     "moveType": null,
     "description": "When you **_carry a shield_**, mark only ◆ (instead of ◆◆). Also, you can ignore the *cumbersome* tag on any armor you wear.\n\nIf you take this move at the start of play, add an ◇◇ iron hauberk, ◇◇ bronze cuirass, or ◇◇ scale coat to your inventory (all are 2 armor, warm, cumbersome).",
+    "outfitEffects": [
+      {
+        "slug": "shield",
+        "weight": 1
+      },
+      {
+        "slug": "hauberk-cuirass-scale-iron-or-bronze",
+        "removeTags": [
+          "cumbersome"
+        ]
+      }
+    ],
     "slug": "armored"
   },
   "folder": "iQmUxwLPUFZ74UJg"

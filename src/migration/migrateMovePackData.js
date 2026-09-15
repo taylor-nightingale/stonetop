@@ -50,6 +50,10 @@ export async function migrateMovePackData(actor, moveRepo) {
 				// steadings were already in play, so an unrefreshed copy carries [] and the Season
 				// tab falls back to a single "roll it".
 				steps:       sys.steps       ?? [],
+				// What the move does to the character's gear — Armored's shield. Authored after
+				// characters were already in play, so an unrefreshed copy carries [] and a Heavy who
+				// took Armored still marks ◇◇ for a shield.
+				outfitEffects: sys.outfitEffects ?? [],
 				// The reference category a move belongs to (seasons/homefront/basic/…). It decides
 				// which section of a sheet the move is drawn in, so a stale one files it wrongly.
 				moveType:    sys.moveType    ?? null,

@@ -178,6 +178,29 @@ describe("Tags — idempotence", () => {
 	});
 });
 
+describe("Tags — deselect", () => {
+	// The Armored move takes *cumbersome* off the armor its bearer wears (OutfitEffect).
+	it("removes a tag that is present", () => {
+		expect(Tags.gear("close, thrown", glossary).deselect("close").values).toEqual(["thrown"]);
+	});
+
+	it("leaves a list that never had it alone", () => {
+		expect(Tags.gear("close", glossary).deselect("thrown").values).toEqual(["close"]);
+	});
+
+	it("does not mutate the original", () => {
+		const before = Tags.gear("close, thrown", glossary);
+		before.deselect("close");
+		expect(before.values).toEqual(["close", "thrown"]);
+	});
+
+	it("keeps its suggestions and glossary", () => {
+		const after = Tags.gear("close, thrown", glossary).deselect("close");
+		expect(after.options).toContain("magical");
+		expect(after.resolved[0].definition).toBe("you can Let Fly with it.");
+	});
+});
+
 describe("Tags — select", () => {
 	// `addMember` stamps the group tag on a follower that may or may not already carry it.
 	it("adds a tag that is absent", () => {

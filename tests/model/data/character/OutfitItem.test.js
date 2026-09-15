@@ -55,3 +55,40 @@ describe("OutfitItem.fromDocument", () => {
 		expect(OutfitItem.fromDocument({ name: "Bare" }).name).toBe("Bare");
 	});
 });
+
+// A move that changes gear (Armored) asks the entity for a changed copy — it never pokes a field
+// onto the one the catalog holds, which every other character on the sheet is reading from.
+describe("OutfitItem — with-methods", () => {
+	it("gives back the same gear at a different load", () => {
+		const lighter = OutfitItem.fromDocument(SHIELD_DOC).withWeight(1);
+		expect(lighter.weight).toBe(1);
+		expect(lighter.slug).toBe("shield");
+		expect(lighter.name).toBe("Shield");
+		expect(lighter.armor).toEqual({ modifier: 1 });
+	});
+
+	it("leaves the original untouched", () => {
+		const shield = OutfitItem.fromDocument(SHIELD_DOC);
+		shield.withWeight(1);
+		expect(shield.weight).toBe(2);
+	});
+
+	it("drops one tag and keeps the rest", () => {
+		const armor = OutfitItem.fromDocument({
+			name: "Hauberk", system: { slug: "hauberk", weight: 2, tagList: ["warm", "cumbersome"] },
+		});
+		expect(armor.withoutTag("cumbersome").tags.values).toEqual(["warm"]);
+		expect(armor.tags.values).toEqual(["warm", "cumbersome"]);
+	});
+
+	it("is unchanged by dropping a tag it never carried", () => {
+		const shield = OutfitItem.fromDocument(SHIELD_DOC);
+		expect(shield.withoutTag("cumbersome").tags.values).toEqual([]);
+	});
+
+	// Nothing normalizes an entity built by hand, so the stored token list reaches `withoutTag` raw.
+	it("drops a tag off a raw stored token list", () => {
+		const armor = OutfitItem.fromDocument({ name: "Hauberk", system: { slug: "h", tagList: "warm, cumbersome" } });
+		expect(armor.withoutTag("cumbersome").tags.values).toEqual(["warm"]);
+	});
+});

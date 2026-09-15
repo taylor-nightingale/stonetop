@@ -9,6 +9,7 @@ import { FakeSteadingRepository } from "../../fakes/FakeSteadingRepository.js";
 import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 import { OutfitSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { ArmorBreakdown } from "../../../src/model/data/character/ArmorBreakdown.js";
+import { OutfitEffects } from "../../../src/model/data/character/OutfitEffect.js";
 
 // -- Fake helpers ---------------------------------------------------------------
 
@@ -33,6 +34,8 @@ function makeOutfitItem(overrides = {}) {
 		.withInventoryColumn(overrides.inventoryColumn ?? "regular")
 		.withResource(labels != null ? { max: labels.length, title: null, labels } : (overrides.resource ?? null))
 		.withQualifier(overrides.qualifier ?? "")
+		.withTags(overrides.tags ?? null)
+		.withArmor(overrides.armor ?? null)
 		.withOwnedId(overrides.ownedId ?? null)
 		.build();
 }
@@ -81,7 +84,7 @@ const activeLoad = snap => snap.load.options.find(o => o.active)?.slug ?? null;
 
 // The page is what the sheet draws. The real one names Book I p. 142's rows by slug, so these
 // fixtures bring their own — see pageOf: one section per column, listing exactly what the repo holds.
-function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null, steadingRepo = null, page = null) {
+function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCtrl = null, steadingRepo = null, page = null, moves = null) {
 	const inventoryRepo = repo ?? makeRepo();
 	return new CharacterInventory(
 		makeActor(inventoryState),
@@ -90,6 +93,7 @@ function makeCi(inventoryState = {}, repo = null, outfitItems = null, resourceCt
 		resourceCtrl ?? makeResourceController(),
 		steadingRepo,
 		page ?? inventoryRepo.page,
+		moves,
 	);
 }
 
@@ -614,3 +618,78 @@ describe("CharacterInventory.removeCustomItem", () => {
 		expect(outfitItems.deleteById).toHaveBeenCalledWith("item-42");
 	});
 });
+
+// -- What a taken move does to the gear ---------------------------------------
+
+// The Armored move: "When you carry a shield, mark only ◆ (instead of ◆◆). Also, you can ignore the
+// *cumbersome* tag on any armor you wear." Only the moves half is stubbed — the effects themselves
+// are the real OutfitEffects, so a change to how they apply fails here.
+describe("CharacterInventory — gear a move changes", () => {
+	const ARMORED = [
+		{ slug: "shield", weight: 1 },
+		{ slug: "hauberk", removeTags: ["cumbersome"] },
+	];
+
+	const armoredMoves = (entries = ARMORED) => ({ outfitEffects: OutfitEffects.from(entries) });
+
+	const gear = () => makeRepo([
+		makeOutfitItem({ slug: "shield",  name: "Shield",  weight: 2, armor: { modifier: 1 } }),
+		makeOutfitItem({ slug: "hauberk", name: "Hauberk", weight: 2, tags: ["warm", "cumbersome"] }),
+		makeOutfitItem({ slug: "rope",    name: "Rope",    weight: 1 }),
+	]);
+
+	const rowFor = (snap, slug) => regularItems(snap).find(i => i.slug === slug);
+
+	async function snapshotWith(moves, inventoryState = {}, outfitItems = null) {
+		return makeCi(inventoryState, gear(), outfitItems, null, null, null, moves).buildSnapshot(1);
+	}
+
+	it("draws the shield at the ◇◇ the book prints when no move says otherwise", async () => {
+		expect(rowFor(await snapshotWith(null), "shield").weight).toBe(2);
+	});
+
+	it("draws the shield at one ◇ for a character who has taken Armored", async () => {
+		expect(rowFor(await snapshotWith(armoredMoves()), "shield").weight).toBe(1);
+	});
+
+	it("counts the lighter shield toward load", async () => {
+		const snap = await snapshotWith(armoredMoves(), { checked: { shield: true } });
+		expect(snap.load.markedWeight).toBe(1);
+	});
+
+	it("counts the printed weight without the move", async () => {
+		const snap = await snapshotWith(null, { checked: { shield: true } });
+		expect(snap.load.markedWeight).toBe(2);
+	});
+
+	it("leaves gear the move says nothing about alone", async () => {
+		const snap = await snapshotWith(armoredMoves());
+		expect(rowFor(snap, "rope").weight).toBe(1);
+	});
+
+	it("takes cumbersome off the armor and keeps the rest of its tags", async () => {
+		const snap = await snapshotWith(armoredMoves());
+		expect(rowFor(snap, "hauberk").tags.map(t => t.label)).toEqual(["warm"]);
+	});
+
+	it("leaves cumbersome on for a character without the move", async () => {
+		const snap = await snapshotWith(null);
+		expect(rowFor(snap, "hauberk").tags.map(t => t.label)).toEqual(["warm", "cumbersome"]);
+	});
+
+	// Armor the book never printed on the inventory page — a player drops it in — is off-page gear,
+	// which reaches the column by a different route and has to be changed the same way.
+	it("reaches gear the page does not list", async () => {
+		const outfitItems = makeActorOutfitItems([
+			makeRawEmbeddedItem({ _id: "emb-h", slug: "hauberk", name: "Hauberk", weight: 2, tagList: ["warm", "cumbersome"] }),
+		]);
+		const snap = await makeCi({}, makeRepo(), outfitItems, null, null, null, armoredMoves()).buildSnapshot(1);
+		expect(regularItems(snap).find(i => i.slug === "hauberk").tags.map(t => t.label)).toEqual(["warm"]);
+	});
+
+	it("does not disturb what the shield does for Armor", async () => {
+		const ci = makeCi({ checked: { shield: true } }, gear(), null, null, null, null, armoredMoves());
+		expect(await ci.getArmor()).toBe(1);
+	});
+});
+

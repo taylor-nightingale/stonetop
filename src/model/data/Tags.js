@@ -101,6 +101,11 @@ export class Tags {
 		return new Tags(this.selection.select(tag), this.glossary, this.suggestions);
 	}
 
+	/** Idempotent remove — the tag ends up absent whether or not it was there. */
+	deselect(tag) {
+		return new Tags(this.selection.deselect(tag), this.glossary, this.suggestions);
+	}
+
 	/** The stored shape — the token list, identical for gear, creatures and members. */
 	toRaw() {
 		return this.values;

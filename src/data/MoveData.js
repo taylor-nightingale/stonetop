@@ -45,6 +45,11 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			// kind, a die, a count, which list to pick from); the words are the move's description,
 			// which renders beside them. See SeasonProcedure.
 			steps:         new f.ArrayField(new f.ObjectField()),
+			// What taking this move does to the character's gear — the Armored move's shield marking one
+			// ◇ instead of two, and its bearer ignoring *cumbersome*. STRUCTURE only (a gear slug, a
+			// weight, tags that stop applying); the words are the move's description, which is what a
+			// player reads. See OutfitEffect.
+			outfitEffects: new f.ArrayField(new f.ObjectField()),
 			categoryKey:   new f.StringField({ nullable: true, initial: null }),
 			categoryLabel: new f.StringField({ nullable: true, initial: null }),
 			categoryNote:  new f.StringField({ nullable: true, initial: null }),

@@ -142,3 +142,67 @@ describe("buildSnapshot — possessions: snapshot when playbook configured", () 
 		expect(snap.possessions.items[0].slug).toBe("apiary");
 	});
 });
+
+// ── outfit: what a taken move does to the gear ───────────────────────────────
+
+// End-to-end through the real subsystems: the character has to hand what its TAKEN moves say about
+// gear (CharacterMoves.outfitEffects) to the inventory, or the Armored move a Heavy took stays
+// prose and their shield goes on costing ◇◇. Only Foundry is faked.
+describe("buildSnapshot — outfit: gear a taken move changes", () => {
+	const ARMORED = [
+		{ slug: "shield", weight: 1 },
+		{ slug: "hauberk", removeTags: ["cumbersome"] },
+	];
+
+	function armoredItem({ acquired = true } = {}) {
+		return {
+			_id: "mv-armored", type: "move", name: "Armored",
+			system: { slug: "armored", acquired, categoryKey: "playbook-the-heavy", outfitEffects: ARMORED },
+		};
+	}
+
+	const gear = () => new FakeInventoryRepository([
+		new OutfitItemBuilder().withSlug("shield").withName("Shield").withWeight(2)
+			.withInventoryColumn("regular").withArmor({ modifier: 1 }).build(),
+		new OutfitItemBuilder().withSlug("hauberk").withName("Hauberk").withWeight(2)
+			.withInventoryColumn("regular").withTags(["warm", "cumbersome"]).build(),
+	]);
+
+	function makeCharacter(items) {
+		const actor = new FakeCharacterActorBuilder().withItems(items).build();
+		return new TestCharacterBuilder(actor).withInventoryRepo(gear()).build();
+	}
+
+	const rowFor = (snap, slug) =>
+		snap.outfit.regularSections.flatMap(s => s.runs.flatMap(r => r.items)).find(i => i.slug === slug);
+
+	it("marks one ◇ for the shield of a character who took Armored", async () => {
+		const snap = await makeCharacter([armoredItem()]).buildSnapshot();
+		expect(rowFor(snap, "shield").weight).toBe(1);
+	});
+
+	it("marks the printed ◇◇ when the move is only offered, not taken", async () => {
+		const snap = await makeCharacter([armoredItem({ acquired: false })]).buildSnapshot();
+		expect(rowFor(snap, "shield").weight).toBe(2);
+	});
+
+	it("counts the lighter shield toward the load band", async () => {
+		const character = makeCharacter([armoredItem()]);
+		await character.setInventoryItemChecked("shield", true);
+		const snap = await character.buildSnapshot();
+		expect(snap.outfit.load.markedWeight).toBe(1);
+	});
+
+	it("stops cumbersome applying to the armor worn", async () => {
+		const snap = await makeCharacter([armoredItem()]).buildSnapshot();
+		expect(rowFor(snap, "hauberk").tags.map(t => t.label)).toEqual(["warm"]);
+	});
+
+	it("leaves the shield's +1 Armor exactly as it was", async () => {
+		const character = makeCharacter([armoredItem()]);
+		await character.setInventoryItemChecked("shield", true);
+		const snap = await character.buildSnapshot();
+		expect(snap.vitals.armor).toBe(1);
+	});
+});
+

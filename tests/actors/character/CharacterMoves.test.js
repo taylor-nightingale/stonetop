@@ -1364,3 +1364,52 @@ describe("CharacterMoves — a move whose name disagrees with its slug", () => {
 		expect(actor.deletedIds).toHaveLength(1);
 	});
 });
+
+// ── outfitEffects ─────────────────────────────────────────────────────────────
+
+// What a move does to the character's gear (the Armored move's shield). Read off the moves the
+// character has TAKEN — an untaken move on the sheet is one being weighed up.
+describe("CharacterMoves.outfitEffects", () => {
+	function moveItem(slug, { acquired = true, outfitEffects = [] } = {}) {
+		return { _id: `move-${slug}`, type: "move", name: slug, system: { slug, acquired, outfitEffects } };
+	}
+
+	function movesWith(...items) {
+		const actor = new FakeCharacterActorBuilder().withItems(items).build();
+		return makeMoves({ actor });
+	}
+
+	const ARMORED = [{ slug: "shield", weight: 1 }, { slug: "hauberk-cuirass-scale-iron-or-bronze", removeTags: ["cumbersome"] }];
+
+	it("is empty for a character with no moves", () => {
+		expect(movesWith().outfitEffects.isEmpty).toBe(true);
+	});
+
+	it("collects what an acquired move declares", () => {
+		const effects = movesWith(moveItem("armored", { outfitEffects: ARMORED })).outfitEffects;
+		expect(effects.effects.map(e => e.slug)).toEqual(["shield", "hauberk-cuirass-scale-iron-or-bronze"]);
+	});
+
+	it("ignores a move the character has not taken", () => {
+		const effects = movesWith(moveItem("armored", { acquired: false, outfitEffects: ARMORED })).outfitEffects;
+		expect(effects.isEmpty).toBe(true);
+	});
+
+	it("ignores moves that say nothing about gear", () => {
+		expect(movesWith(moveItem("dangerous")).outfitEffects.isEmpty).toBe(true);
+	});
+
+	it("tolerates a move from a world that has never been refreshed", () => {
+		const actor = new FakeCharacterActorBuilder()
+			.withItems([{ _id: "m", type: "move", name: "Armored", system: { slug: "armored", acquired: true } }])
+			.build();
+		expect(makeMoves({ actor }).outfitEffects.isEmpty).toBe(true);
+	});
+
+	it("lists the moves the character has taken", () => {
+		const m = movesWith(moveItem("armored"), moveItem("dangerous", { acquired: false }));
+		expect(m.acquiredMoves.map(i => i.system.slug)).toEqual(["armored"]);
+		expect([...m.acquiredSlugs]).toEqual(["armored"]);
+	});
+});
+

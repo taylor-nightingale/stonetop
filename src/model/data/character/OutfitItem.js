@@ -31,6 +31,31 @@ export class OutfitItem {
 		this.ownedId         = b._ownedId ?? null;
 	}
 
+	/** This item with a different load. What the Armored move does to a shield: the gear is the same
+	 *  gear, it just costs its bearer less to carry. */
+	withWeight(weight) {
+		return this._rebuild().withWeight(weight).build();
+	}
+
+	/** This item with one tag gone — Armored again, which lets its bearer ignore *cumbersome*. */
+	withoutTag(tag) {
+		return this._rebuild().withTags(Tags.gear(this.tags).deselect(tag)).build();
+	}
+
+	_rebuild() {
+		return new OutfitItemBuilder()
+			.withSlug(this.slug)
+			.withName(this.name)
+			.withQualifier(this.qualifier)
+			.withWeight(this.weight)
+			.withTags(this.tags)
+			.withNote(this.note)
+			.withInventoryColumn(this.inventoryColumn)
+			.withResource(this.resource)
+			.withArmor(this.armor)
+			.withOwnedId(this.ownedId);
+	}
+
 	/** The name as the book prints it — "Rope, ~25 ft". The halves are stored apart because only the
 	 *  first is the item; rejoining them is what matches a printed row or a value-table entry. */
 	get fullName() {

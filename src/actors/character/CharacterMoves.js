@@ -12,6 +12,7 @@ import {
 	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
+import { OutfitEffects } from "../../model/data/character/OutfitEffect.js";
 
 export class CharacterMoves {
 	constructor(moveRepo, actor, resourceController, factory, grantedItems = new GrantedItems(actor), requirements) {
@@ -27,11 +28,20 @@ export class CharacterMoves {
 		this._grants             = new CharacterMoveGrants(moveRepo, actor, grantedItems);
 	}
 
-	/** The slugs of the moves this character has actually taken. Derived fresh: they take more. */
+	/** The moves this character has actually taken. Derived fresh: they take more. */
+	get acquiredMoves() {
+		return [...this._actor.items].filter(i => i.type === "move" && (i.system?.acquired ?? false));
+	}
+
+	/** The slugs of those moves. */
 	get acquiredSlugs() {
-		return new Set([...this._actor.items]
-			.filter(i => i.type === "move" && (i.system?.acquired ?? false))
-			.map(i => moveSlugOf(i)));
+		return new Set(this.acquiredMoves.map(i => moveSlugOf(i)));
+	}
+
+	/** What the taken moves do to this character's gear — Armored's shield and its *cumbersome*. An
+	 *  untaken move on the sheet is one being weighed up, and changes nothing about what is carried. */
+	get outfitEffects() {
+		return OutfitEffects.from(this.acquiredMoves.flatMap(i => i.system?.outfitEffects ?? []));
 	}
 
 	// Which move items the character owns, and why. Delegated so a caller that only grants — the

@@ -72,6 +72,12 @@ export class FakeCompendiumMoveBuilder {
 		return this;
 	}
 
+	// What the move does to the character's gear — the Armored move's shield. See OutfitEffect.
+	withOutfitEffects(outfitEffects) {
+		this._outfitEffects = outfitEffects;
+		return this;
+	}
+
 	withMoveResults(moveResults) {
 		this._moveResults = moveResults;
 		return this;
@@ -89,6 +95,7 @@ export class FakeCompendiumMoveBuilder {
 			resource: this._resource,
 			choices: this._choices,
 			steps: this._steps ?? [],
+			outfitEffects: this._outfitEffects ?? [],
 			moveType: this._moveType ?? null,
 			moveResults: this._moveResults ?? null,
 		};

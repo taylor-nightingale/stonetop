@@ -12,6 +12,7 @@ import { ResourceController } from "./ResourceController.js";
 import { GrantStamp } from "../../model/data/ItemGrant.js";
 import { OutfitPage, toOutfitItemSnapshot, loadBand, MAX_OUTFIT_MARKS } from "../../model/snapshot/character/outfitSections.js";
 import { INVENTORY_INSERT_PAGE } from "../../model/data/character/inventoryInsertPage.js";
+import { OutfitEffects } from "../../model/data/character/OutfitEffect.js";
 
 // The Prosperity gear table as the inventory insert prints it: fixed rungs, the steading's rating
 // only decides which one the character is standing on. A rating past either end marks the nearest
@@ -30,14 +31,23 @@ const _PROSPERITY_MAX = _PROSPERITY_ROWS.at(-1).value;
 export class CharacterInventory {
 	// `page` is the printed sheet this inventory reproduces — injected rather than reached for, so a
 	// test can render a two-row page and so a second layout would not mean a second CharacterInventory.
+	//
+	// `moves` is asked one question and nothing else: what the moves this character has TAKEN do to
+	// their gear (Armored). Inventory never reads a move item itself.
 	constructor(actor, inventoryRepo, outfitItems, resourceController, steadingRepo = null,
-	            page = INVENTORY_INSERT_PAGE) {
+	            page = INVENTORY_INSERT_PAGE, moves = null) {
 		this._actor = actor;
 		this._repo = inventoryRepo;
 		this._outfitItems = outfitItems;
 		this._resourceController = resourceController;
 		this._steadingRepo = steadingRepo;
 		this._page = page;
+		this._moves = moves;
+	}
+
+	/** Read fresh every time: a move taken mid-session changes what the gear costs to carry. */
+	get _outfitEffects() {
+		return this._moves?.outfitEffects ?? OutfitEffects.none();
 	}
 
 	get checked()     { return this._actor.system?.inventory?.checked     ?? {}; }
@@ -113,7 +123,7 @@ export class CharacterInventory {
 	/** The printed inventory page, resolved against the gear catalog. The page says what the sheet
 	 *  draws and where; the catalog says what each row IS. */
 	async _outfitPage() {
-		return new OutfitPage(this._page, await this._repo.bySlug(), _loc);
+		return new OutfitPage(this._page, this._outfitEffects.applyToCatalog(await this._repo.bySlug()), _loc);
 	}
 
 	async getArmor() {
@@ -125,7 +135,7 @@ export class CharacterInventory {
 		const resourceFn = oi => this._resourceController.buildSnapshot("inventory", oi.resource, oi.slug);
 		const mapItem   = oi => toOutfitItemSnapshot(oi, checked[oi.slug] ?? false, resourceFn(oi));
 
-		const embeddedItems = this._outfitItems.getAll().map(i => {
+		const embeddedItems = this._outfitEffects.applyAll(this._outfitItems.getAll().map(i => {
 			const sys = i.system ?? {};
 			// Only gear the player added themselves is theirs to delete; a container's grant goes when the
 			// container says so, and an unstamped item is exactly the one nobody granted.
@@ -140,7 +150,7 @@ export class CharacterInventory {
 				.withResource(sys.resource ?? null)
 				.withOwnedId(granted ? null : i._id)
 				.build();
-		});
+		}));
 
 		const page = await this._outfitPage();
 

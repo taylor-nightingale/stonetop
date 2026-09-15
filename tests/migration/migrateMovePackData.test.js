@@ -91,6 +91,22 @@ describe("migrateMovePackData — refreshes authored fields", () => {
 		expect(updateFor(actor).system.steps).toEqual(steps);
 	});
 
+	// The same staleness as the steps: Armored was authored with its shield after characters were
+	// already carrying one, and a Heavy who took it would otherwise still mark ◇◇.
+	it("refreshes what a move does to the character's gear", async () => {
+		const outfitEffects = [{ slug: "shield", weight: 1 }];
+		const doc = new FakeCompendiumMoveBuilder().withName("Deaths Door").withOutfitEffects(outfitEffects).build();
+		const actor = makeActor([embeddedMove({ outfitEffects: [] })]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).system.outfitEffects).toEqual(outfitEffects);
+	});
+
+	it("empties the gear effects of a move the pack no longer gives any", async () => {
+		const actor = makeActor([embeddedMove({ outfitEffects: [{ slug: "shield", weight: 1 }] })]);
+		await migrateMovePackData(actor, makeRepo(packDeathsDoor()));
+		expect(updateFor(actor).system.outfitEffects).toEqual([]);
+	});
+
 	it("empties the steps of a move the pack no longer gives any", async () => {
 		const actor = makeActor([embeddedMove({ steps: [{ kind: "roll" }] })]);
 		await migrateMovePackData(actor, makeRepo(packDeathsDoor()));

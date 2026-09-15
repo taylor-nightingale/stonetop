@@ -54,7 +54,7 @@ export class CharacterSubsystems {
 		const moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory, grantedItems, requirements);
 		const playbook    = new CharacterPlaybook(actor, background, factory, origin, vitals, moves, playbookSelection);
 		const possessions = new CharacterPossessions(actor, moves, repos.possessions, factory, outfitSync, grantedItems);
-		const inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, resourceController, repos.steading, repos.inventoryPage);
+		const inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, resourceController, repos.steading, repos.inventoryPage, moves);
 		const arcana      = new CharacterArcana(actor, repos.arcana, stats, followers, factory, moves, outfitSync, grantedItems);
 		const inserts     = new CharacterInserts(actor, factory, moves, repos.inserts, grantedItems);
 

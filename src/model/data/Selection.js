@@ -67,6 +67,12 @@ export class Selection {
 		return this._with({ selected: this.multi ? [...this.selected, value] : [value] });
 	}
 
+	/** New Selection with `value` absent from `selected` (idempotent) — the mirror of `select`. */
+	deselect(value) {
+		if (!this.has(value)) return this;
+		return this._with({ selected: this.selected.filter(v => v !== value) });
+	}
+
 	/** New Selection with `tag` toggled (multi) or set/cleared (single). */
 	toggle(tag) {
 		if (!this.multi) {
