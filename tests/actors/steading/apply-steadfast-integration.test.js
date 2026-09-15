@@ -17,7 +17,7 @@ function blankSteading(name = "Test Actor") {
 		steadfast: "",
 		notes: "", rollMode: "normal",
 		debilities: { diminished: false, lacking: false, malcontent: false },
-		content: { excluded: [], veiled: [], specialHandling: [], excludedText: "", veiledText: "", specialHandlingText: "" },
+		content: { excluded: [], veiled: [], specialHandling: [] },
 		attributes: { fortunes: 0, surplus: 0, size: "", population: 0, prosperity: 0, defenses: 0 },
 		assets: { items: [], resources: [], fortifications: [], coinage: [] },
 		placesOfInterest: [], neighborPlaces: [],

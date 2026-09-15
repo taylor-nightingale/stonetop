@@ -335,24 +335,37 @@
 
 		</div>{{!-- /tab season --}}
 
-		{{!-- Chronicle — the safety-tools content page. The places of interest it used to lead with have
-		      gone to Places, beside the communities they share a scale with, and the steading's notes
-		      to Play, where they are written to. One column while that is all it holds: a divider with
-		      nothing on its far side draws a line round an absence. --}}
-		<div class="tab {{tabs.chronicle.cssClass}}" data-group="primary" data-tab="chronicle"
-		     role="tabpanel" id="{{sheetIdPrefix}}-panel-chronicle" aria-labelledby="{{sheetIdPrefix}}-tab-chronicle">
+		{{!-- Content — the table's own agreements about what this game holds, and the book's procedure
+		      for changing them. The tab is named for what it keeps: "Chronicle" named a record it no
+		      longer holds, and a scratchpad filed beside a safety policy is what made it read as a
+		      drawer of leftovers. The places of interest it used to lead with are on Places now, and
+		      the steading's notes on Play, where they are written to.
 
-			<section class="steading-notes-content-column">
-				{{#each stonetop.content}}
-					<div class="steading-notes-field steading-notes-content-field steading-block">
-						{{> "stonetop.section-heading" title=label note=note}}
-						<textarea class="stonetop-content-textarea" data-change-action="contentText" data-type="{{slug}}"
-					          aria-label="{{localize 'stonetop.a11y.contentText' section=label.raw}}">{{text}}</textarea>
-					</div>
-				{{/each}}
-			</section>
+		      The procedure stands BESIDE the lists rather than above them, because it is read while
+		      they are — it is what the table reaches for mid-session, when someone has called time
+		      out — and it is quoted whole: the book prints it on the playbook itself (Book I p. 155),
+		      which makes it sheet copy rather than GM-chapter prose. --}}
+		<div class="tab {{tabs.content.cssClass}}" data-group="primary" data-tab="content"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-content" aria-labelledby="{{sheetIdPrefix}}-tab-content">
 
-		</div>{{!-- /tab chronicle --}}
+			<div class="steading-split-grid steading-content-grid">
+
+				<section class="steading-split-column">
+					{{#each stonetop.content}}
+						{{> "stonetop.steading-content-list" section=this}}
+					{{/each}}
+				</section>
+
+				<div class="steading-split-divider" aria-hidden="true"></div>
+
+				<section class="steading-split-column">
+					{{> "stonetop.section-heading" title=(localize "stonetop.steading.content.fromThePlaybook")}}
+					<div class="steading-content-procedure stonetop-rich">{{rich (localize "stonetop.steading.content.procedure")}}</div>
+				</section>
+
+			</div>
+
+		</div>{{!-- /tab content --}}
 
 	</section>{{!-- /sheet-body --}}
 

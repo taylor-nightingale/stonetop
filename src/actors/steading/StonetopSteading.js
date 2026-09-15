@@ -135,7 +135,9 @@ export class StonetopSteading {
 
 	// ── Content, assets, coinage ───────────────────────────────────────────────
 
-	async updateContentText(type, value)     { await this.#content.updateText(type, value); }
+	async addContentItem(section)                 { await this.#content.addItem(section); }
+	async removeContentItem(section, index)       { await this.#content.removeItem(section, index); }
+	async updateContentItem(section, index, value){ await this.#content.updateItem(section, index, value); }
 	async addAssetItem()                     { await this.#assets.addItem(); }
 	async removeAssetItem(index)             { await this.#assets.removeItem(index); }
 	async updateAssetItem(index, value)      { await this.#assets.updateItem(index, value); }
@@ -487,7 +489,6 @@ export class StonetopSteading {
 			folk:               this.#folk.buildSnapshot(),
 			folkSuggestions:    this.#suggestions.build(),
 			neighborPlaces:     this.#neighborPlaces.buildSnapshot(),
-			contentDescription: SteadingDefaults.content.description,
 			content:            this.#content.buildSnapshot(),
 			assets:             this.#assets.buildSnapshot(),
 			improvements,

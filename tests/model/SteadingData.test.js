@@ -34,7 +34,6 @@ describe("SteadingData defaults (blank = empty place)", () => {
 		expect(d.content.excluded).toEqual([]);
 		expect(d.content.veiled).toEqual([]);
 		expect(d.content.specialHandling).toEqual([]);
-		expect(d.content.excludedText).toBe("");
 	});
 
 	it("defaults the runtime instance lists + pick state to empty", () => {

@@ -303,7 +303,7 @@ describe("steading sheet wiring — the router itself (integration)", () => {
 			<input data-change-action="attribute" data-attr="population" value="3">
 			<textarea data-change-action="notes">x</textarea>
 			<input data-change-action="rollMode" value="adv">
-			<input data-change-action="contentText" data-type="history" value="y">
+			<textarea data-change-action="contentItem" data-slug="excluded" data-index="0">y</textarea>
 			<input type="checkbox" data-change-action="debility" data-slug="hungry">
 			<input data-change-action="personName" data-id="r1" value="Cerdig">
 			<input data-change-action="personHome" data-id="r1" value="Marshedge">

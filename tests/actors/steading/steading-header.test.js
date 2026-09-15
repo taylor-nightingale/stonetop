@@ -9,7 +9,7 @@ import { RollModes } from "../../../src/actors/RollModes.js";
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
-const TABS = ["play", "folk", "season", "chronicle"]
+const TABS = ["play", "folk", "season", "content"]
 	.map((id, i) => ({ id, label: `stonetop.steading.tabs.${id}`, active: i === 0, cssClass: i === 0 ? "active" : "" }));
 
 function renderHeader(overrides = {}) {

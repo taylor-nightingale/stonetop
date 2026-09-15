@@ -4,6 +4,7 @@ import { migrateSteading } from "./migrateSteading.js";
 import { migrateSteadingMoves } from "./migrateSteadingMoves.js";
 import { migrateMovePackData } from "./migrateMovePackData.js";
 import { migrateSteadingFolk } from "./migrateSteadingFolk.js";
+import { migrateSteadingContent } from "./migrateSteadingContent.js";
 import { migrateNeighborPlaces } from "./migrateNeighborPlaces.js";
 import { migrateSteadingImpressions } from "./migrateSteadingImpressions.js";
 import { migrateWorldItems } from "./migrateWorldItems.js";
@@ -47,6 +48,10 @@ export class MigrationRunner {
 					// Also ungated: the roster merge and the asset state have to reach a steading
 					// that already sits at a steadfast, which is every modern one.
 					await migrateSteadingFolk(actor);
+					// Also ungated: the content page's three boxes of free text became three lists,
+					// and the fold that produced them lives in migrateSteadingShape — this is what
+					// makes it survive a reload.
+					await migrateSteadingContent(actor);
 					// Also ungated: a neighbouring place's definition lives on the steadfast, and a
 					// steading seeded from an older copy of it is still carrying that copy.
 					await migrateNeighborPlaces(actor);

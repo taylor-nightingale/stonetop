@@ -22,17 +22,26 @@ describe("SteadingContent.buildSnapshot", () => {
 		make().buildSnapshot().forEach(s => expect(s.items).toEqual([]));
 	});
 
-	it("excluded section has correct note", () => {
-		const excluded = make().buildSnapshot().find(s => s.slug === "excluded");
-		expect(excluded.note.raw).toBe("(Not part of the game, on-camera or off)");
+	// The English lived in SteadingContent.js until 1.7.0, which made three headings on a shipped tab
+	// untranslatable. It is localized from the slug now, the way a debility is.
+	it("localizes each section's heading from its slug", () => {
+		expect(make().buildSnapshot().map(s => s.label.raw)).toEqual([
+			"stonetop.steading.content.sections.excluded.label",
+			"stonetop.steading.content.sections.veiled.label",
+			"stonetop.steading.content.sections.specialHandling.label",
+		]);
 	});
 
-	it("veiled section has correct note", () => {
-		const veiled = make().buildSnapshot().find(s => s.slug === "veiled");
-		expect(veiled.note.raw).toBe("(Part of the fiction, but only off-camera)");
+	it("localizes the gloss under the headings that have one", () => {
+		const notes = Object.fromEntries(make().buildSnapshot().map(s => [s.slug, s.note.raw]));
+		expect(notes.excluded).toBe("stonetop.steading.content.sections.excluded.note");
+		expect(notes.veiled).toBe("stonetop.steading.content.sections.veiled.note");
 	});
 
-	it("specialHandling section has null note", () => {
+	// The book prints no gloss under Special Handling, so there is no key for one — and an absent key
+	// has to come back as nothing rather than as the key itself, which is what a bare localize()
+	// would render into the heading.
+	it("leaves the note empty where the book prints none", () => {
 		expect(make().buildSnapshot().find(s => s.slug === "specialHandling").note.raw).toBe("");
 	});
 });

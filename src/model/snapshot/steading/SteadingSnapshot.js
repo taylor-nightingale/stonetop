@@ -56,7 +56,8 @@ export class RatingSnapshot {
 		// `startingNote` is deliberately NOT in this ranking. "was +0" is the least useful of the
 		// four and the most frequent, so it put a third element on nearly every rating and made the
 		// value itself ambiguous — `1  −1 lacking  was +0` reads as three numbers. The baseline is
-		// still carried on the snapshot for the chronicle to use; it simply is not shown here.
+		// still stored — a steadfast's starting ratings are part of its definition — and simply not
+		// shown.
 		[this.note, this.noteKind] =
 			this.adjustment ? [this.adjustment, "adjustment"] :
 			this.band       ? [this.band, "band"] :
@@ -99,15 +100,24 @@ export function formatRatingValue(slug, value) {
 	return `${value >= 0 ? "+" : ""}${value}`;
 }
 
+/**
+ * One of the three content-policy lists, as the Content tab states it: the book's heading for it,
+ * the gloss printed under that heading, and the entries the table has written.
+ *
+ * Localized from the slug, the way a debility is — the English lived in SteadingContent.js, which
+ * made three headings on a shipped tab untranslatable. Only two of the three carry a note (the book
+ * prints none under Special Handling), so an absent key means no note rather than an empty one.
+ */
 export class ContentSection {
-	constructor(slug, label, note, text, items = []) {
-		this.slug = slug;
-		this.label = rich(label);
-		this.note = rich(note);
-		this.text = text;          // edit-only (rendered into a textarea) — stays a raw string
+	constructor(slug, items = []) {
+		this.slug  = slug;
+		this.label = rich(game.i18n.localize(`stonetop.steading.content.sections.${slug}.label`));
+		this.note  = rich(localizeIfPresent(`stonetop.steading.content.sections.${slug}.note`));
 		this.items = items;
 	}
 }
+
+const localizeIfPresent = key => (game.i18n.has(key) ? game.i18n.localize(key) : "");
 
 
 
@@ -195,7 +205,7 @@ export class SteadingSnapshot {
 	constructor({
 								fortunes, surplus, attributes, debilities,
 								placesOfInterest, notes, folk, folkSuggestions, neighborPlaces,
-								contentDescription, content, assets, improvements,
+								content, assets, improvements,
 								moves, seasons, season, year, fortunesReset, rollMode, rollModes,
 								grantedMoves,
 							}) {
@@ -211,7 +221,6 @@ export class SteadingSnapshot {
 		// an NPC gets made, which is why the roster's search box cannot reach them.
 		this.folkSuggestions = folkSuggestions;
 		this.neighborPlaces = neighborPlaces;
-		this.contentDescription = contentDescription;
 		this.content = content;
 		this.assets = assets;
 		// The Season tab's project board (an ImprovementBoard), not a bare list — it knows its own

@@ -34,7 +34,7 @@ export class FakeSteadingBuilder {
 				notes:    "",
 				rollMode: "normal",
 				debilities: { diminished: false, lacking: false, malcontent: false },
-				content: { excluded: [], veiled: [], specialHandling: [], excludedText: "", veiledText: "", specialHandlingText: "" },
+				content: { excluded: [], veiled: [], specialHandling: [] },
 				attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
 				startingAttributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
 				assets: {

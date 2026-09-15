@@ -8259,18 +8259,18 @@ button.stonetop-xp-toggle {
 	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
-/* A heading over a writing area, filling whatever column it is in: the steading's notes on Play, the
-   three content fields on Chronicle, and the places-of-interest list. */
+/* A heading over a writing area, filling whatever column it is in: the steading's notes on Play, and
+   the places-of-interest list. */
 .stonetop.sheet.steading .steading-notes-field {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 }
 
-/* The sheet's writing areas — the steading's notes, and the content page's three. Every other field
-   on this sheet is one line on a rule, and that shape says "write here" by being the size of what
-   goes in it. These are not: they are the height of whatever the column has left, and unframed they
-   read as blank parchment with a heading over it — the thing that looks most like a bug on the tab.
+/* The sheet's writing area — the steading's notes. Every other field on this sheet is one line on a
+   rule, and that shape says "write here" by being the size of what goes in it. This one is not: it is
+   the height of whatever the column has left, and unframed it reads as blank parchment with a heading
+   over it — the thing that looks most like a bug on the tab.
 
    So they are RULED, the way the printed playbook rules the space it leaves you. Core's inset shadow
    and rounded corner still come off (that is a box round a field this sheet deliberately leaves
@@ -8281,8 +8281,7 @@ button.stonetop-xp-toggle {
    two move together if the type scale does. `local` scrolls the ruling with the text — fixed, the
    lines would stay put while the words slid over them. No top padding, or the first line starts
    between rules. */
-.stonetop.sheet.steading .steading-notes-field textarea,
-.stonetop.sheet.steading .stonetop-content-textarea {
+.stonetop.sheet.steading .steading-notes-field textarea {
 	--writing-pitch: 1.5em;
 	background-color: transparent;
 	background-image: repeating-linear-gradient(to bottom,
@@ -8307,58 +8306,26 @@ button.stonetop-xp-toggle {
 	font-family: var(--font-primary);
 }
 
-/* The whole Chronicle tab, not half of a split grid: the notes box that shared it has gone to Play.
-   Its own column, so the three content fields still divide the tab's height between them. */
-.stonetop.sheet.steading .steading-notes-content-column {
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-	min-height: 300px;
+/* The Content tab: the three agreement lists, and the book's own procedure beside them.
+
+   The lists take the wider half. They hold phrases the table wrote — "check in before a scene with
+   Tegwen" — while the procedure is fixed copy of a known length that never competes for measure. */
+.stonetop.sheet.steading .steading-content-grid .steading-split-column:first-child {
+	flex: 1.3;
 }
 
-.stonetop.sheet.steading .steading-notes-content-field {
-	flex: 1;
+.stonetop.sheet.steading .steading-content-section + .steading-content-section {
+	margin-top: 0.75rem;
 }
 
-.stonetop.sheet.steading .stonetop-content-textarea {
-	flex: 1;
-	resize: none;
+/* Quoted, not written in: ruled off down its left edge the way the book sets an aside, so it reads
+   as something the playbook says rather than another field with nothing typed in it yet. */
+.stonetop.sheet.steading .steading-content-procedure {
 	font-size: var(--fs-note);
-	font-family: var(--font-primary);
-}
-
-.stonetop.sheet.steading .steading-notes-content-field h2 small {
-	font-size: var(--fs-micro);
-	font-weight: normal;
-	font-style: italic;
+	line-height: 1.45;
 	color: var(--st-ink-soft);
-}
-
-.stonetop.sheet.steading .stonetop-steading-content-items {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-}
-
-.stonetop.sheet.steading .stonetop-steading-content-row {
-	display: flex;
-	align-items: center;
-	gap: 2px;
-}
-
-.stonetop.sheet.steading .stonetop-steading-content-row input[type="text"] {
-	flex: 1;
-	border: none;
-	border-bottom: 1px solid transparent;
-	background: transparent;
-	font-size: var(--fs-note);
-	font-family: var(--font-primary);
-	padding: 1px 2px;
-}
-
-.stonetop.sheet.steading .stonetop-steading-content-row input[type="text"]:focus {
-	border-bottom-color: var(--st-rule-veil);
-	outline: none;
+	border-left: 2px solid var(--st-decor);
+	padding-left: 0.6rem;
 }
 
 /* Places of Interest */
@@ -9146,7 +9113,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
    field-sizing drives the growth; no manual resize handle.
 
    Shared, because it is the same field wherever a single sentence is typed into a list — a choice
-   row's write-in blank, a steading's resources, fortifications and assets. */
+   row's write-in blank, a steading's resources, fortifications, assets and content agreements. */
 .stonetop-grow-field {
 	field-sizing: content;
 	resize: none;

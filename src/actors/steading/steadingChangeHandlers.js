@@ -28,7 +28,9 @@ export function steadingChangeHandlers(s, { availableSteadfasts }) {
 
 		debility:    el => s.setDebility(el.dataset.slug, el.checked),
 
-		contentText: el => s.updateContentText(el.dataset.type, el.value),
+		// The three content-policy lists. Keyed by section slug + row index, the same pair the
+		// ratings lists use — an entry is a line in a list, not a field with a name of its own.
+		contentItem: el => s.updateContentItem(el.dataset.slug, el.dataset.index, el.value),
 
 		// Assets + coinage
 		assetItem:          el => s.updateAssetItem(parseInt(el.dataset.index), el.value),

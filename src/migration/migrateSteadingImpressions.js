@@ -9,7 +9,7 @@ import { Seasons } from "../model/data/steading/Seasons.js";
 //
 // So: re-copy the definition, and stamp the current season if nothing has stamped one yet. The
 // stamp is left alone once set, because by then it is a record — the line THIS season was given,
-// which the chronicle will want to quote.
+// which the season band goes on showing until the wheel turns.
 //
 // Ungated and idempotent, like the other steading passes: the runner only fires when the world's
 // stored version is behind the system's, and re-running copies the same lines back.

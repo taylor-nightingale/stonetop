@@ -116,6 +116,24 @@
         "notes": "Notes",
         "names": "Names"
       },
+      "content": {
+        "fromThePlaybook": "From the playbook",
+        "addItem": "add",
+        "procedure": "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls \u201ctime out,\u201d_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what\u2019s wrong, player-to-player.\n\nIf **_content was included that shouldn\u2019t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don\u2019t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on.",
+        "sections": {
+          "excluded": {
+            "label": "Excluded Content",
+            "note": "(Not part of the game, on-camera or off)"
+          },
+          "veiled": {
+            "label": "Veiled Content",
+            "note": "(Part of the fiction, but only off-camera)"
+          },
+          "specialHandling": {
+            "label": "Special Handling"
+          }
+        }
+      },
       "lists": {
         "resources": "Resources",
         "fortifications": "Fortifications, etc.",
@@ -186,7 +204,7 @@
         "folk": "Folk",
         "places": "Places",
         "season": "Season",
-        "chronicle": "Chronicle"
+        "content": "Content"
       },
       "colName": "Name",
       "colOccupation": "Occupation",
@@ -870,7 +888,9 @@
       "choiceText": "Choice text",
       "choicePick": "Choose this option",
       "listItem": "List item",
-      "contentText": "{section} text",
+      "contentItem": "{section} entry",
+      "addContentItem": "Add to {section}",
+      "removeContentItem": "Remove from {section}",
       "moveTaken": "Taken",
       "edit": "Edit",
       "personName": "Villager name",

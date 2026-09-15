@@ -98,7 +98,7 @@ describe("a steading survives a reload (integration)", () => {
 		"a villager":      s => s.addPerson(),
 		"a place":         s => s.addPlace(),
 		"an asset":        s => s.addAssetItem(),
-		"content text":    s => s.updateContentText("history", "Founded on the bluff."),
+		"a content entry": s => s.addContentItem("excluded"),
 	};
 
 	for (const [what, edit] of Object.entries(edits)) {

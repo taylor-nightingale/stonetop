@@ -411,8 +411,11 @@ describe("what survives a re-render (integration)", () => {
 // says how many are — which is the thing the table forgets every single time.
 describe("requisitioned assets (integration)", () => {
 	const assetRows = root => [...root.querySelectorAll(".steading-asset-row")];
+	// Scoped to the ASSETS block by the one control only it stamps: the content lists render the same
+	// heading partial, and a note on one of those would otherwise answer for this one.
 	const headingNote = root =>
-		root.querySelector(".steading-overview-field .stonetop-section-note")?.textContent.trim() ?? "";
+		root.querySelector(".stonetop-asset-item-add")?.closest(".steading-overview-field")
+			?.querySelector(".stonetop-section-note")?.textContent.trim() ?? "";
 
 	it("says nothing in the heading while everything is at home", async () => {
 		const root = await render(makeSheet(), true);

@@ -97,7 +97,7 @@ describe("the steading ledger tile", () => {
 	describe("what the tile says about a value", () => {
 		// "was +0" is the least useful of the four things a rating can say and the most frequent, so
 		// it put a third element on nearly every rating and made the value ambiguous. The baseline is
-		// still on the snapshot for the chronicle; it just isn't shown beside the value.
+		// still stored as part of the steadfast's definition; it just isn't shown beside the value.
 		it("does not show where a rating started, even once it has moved", () => {
 			const root = tile(SteadingDefaults.attributes.prosperity, { current: 2, starting: 0 });
 			expect(root.querySelector(".steading-tile-note")).toBeNull();

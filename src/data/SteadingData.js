@@ -46,13 +46,14 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 				lacking:    new f.BooleanField({ initial: false }),
 				malcontent: new f.BooleanField({ initial: false }),
 			}),
+			// The table's content agreements: three LISTS, because the move that maintains them says
+			// "update the lists" and each entry is separately added and separately withdrawn. The
+			// free-text field each of these used to be beside is folded into them by
+			// migrateSteadingShape.
 			content: new f.SchemaField({
-				excluded:            new f.ArrayField(new f.StringField()),
-				veiled:              new f.ArrayField(new f.StringField()),
-				specialHandling:     new f.ArrayField(new f.StringField()),
-				excludedText:        new f.StringField({ initial: "" }),
-				veiledText:          new f.StringField({ initial: "" }),
-				specialHandlingText: new f.StringField({ initial: "" }),
+				excluded:        new f.ArrayField(new f.StringField()),
+				veiled:          new f.ArrayField(new f.StringField()),
+				specialHandling: new f.ArrayField(new f.StringField()),
 			}),
 
 			...steadingProfileSchema(f),

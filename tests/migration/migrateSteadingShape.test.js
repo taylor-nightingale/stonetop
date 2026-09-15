@@ -191,6 +191,60 @@ describe("migrateSteadingShape — assets get a state", () => {
 	});
 });
 
+// Step 9: the content page's three free-text boxes became three lists, so what a table typed into one
+// has to arrive as entries rather than be dropped on the floor with the field.
+describe("migrateSteadingShape — the content boxes become lists", () => {
+	const legacyContent = (content) => migrateSteadingShape({ content }).content;
+
+	it("makes one entry per line of what was typed", () => {
+		const content = legacyContent({
+			excluded: [],
+			excludedText: "Harm to children, on screen\nSexual violence",
+		});
+		expect(content.excluded).toEqual(["Harm to children, on screen", "Sexual violence"]);
+	});
+
+	it("appends to entries the section already had, rather than replacing them", () => {
+		const content = legacyContent({ veiled: ["Torture"], veiledText: "Animal death in detail" });
+		expect(content.veiled).toEqual(["Torture", "Animal death in detail"]);
+	});
+
+	// A box people wrote in has blank lines between paragraphs and trailing whitespace at the end of
+	// it; neither is an agreement.
+	it("makes no entry out of a blank line or stray whitespace", () => {
+		const content = legacyContent({
+			specialHandling: [],
+			specialHandlingText: "  Tegwen — check in before a scene with her  \n\n\n",
+		});
+		expect(content.specialHandling).toEqual(["Tegwen — check in before a scene with her"]);
+	});
+
+	it("drops the text field once it has been folded in", () => {
+		const content = legacyContent({ excluded: [], excludedText: "Sexual violence" });
+		expect(content).not.toHaveProperty("excludedText");
+	});
+
+	it("leaves a section alone when its box was empty", () => {
+		const content = legacyContent({ excluded: ["Sexual violence"], excludedText: "" });
+		expect(content.excluded).toEqual(["Sexual violence"]);
+		expect(content).not.toHaveProperty("excludedText");
+	});
+
+	// Idempotent by construction — the second run finds no text key at all — but it is the property
+	// that matters, because migrateData runs on every update this model ever migrates.
+	it("does not fold the same text in twice", () => {
+		const source = { content: { excluded: [], excludedText: "Sexual violence" } };
+		migrateSteadingShape(source);
+		migrateSteadingShape(source);
+		expect(source.content.excluded).toEqual(["Sexual violence"]);
+	});
+
+	it("touches nothing in a modern content diff", () => {
+		const diff = { content: { excluded: ["Sexual violence"], veiled: [], specialHandling: [] } };
+		expect(migrateSteadingShape(structuredClone(diff))).toEqual(diff);
+	});
+});
+
 // The rule the assets heal broke, stated once for all of them: migrateData runs on update DIFFS as
 // well as on whole sources, and a diff is a list of what the caller means to change. A heal may
 // transform a key that is present; introducing one that is not turns every edit into a write against
@@ -203,6 +257,7 @@ describe("migrateSteadingShape — a diff comes back saying only what it said", 
 		"the roster":    { folk: [{ id: "1", name: "Bryn", home: "" }] },
 		"a place link":  { placesOfInterest: [{ name: "The Stone", linkUuid: "" }] },
 		"the roll mode": { rollMode: "advantage" },
+		"a content list": { content: { excluded: ["Sexual violence"] } },
 	};
 
 	for (const [what, diff] of Object.entries(diffs)) {

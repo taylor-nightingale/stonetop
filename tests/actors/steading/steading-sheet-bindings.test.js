@@ -16,7 +16,7 @@ import { fire } from "../../fakes/domEvents.js";
 const FACADE_METHODS = [
 	"setFortunes", "setSurplus", "setRollMode", "setNotes", "renameOrApplySteadfast",
 	"setAttribute", "addAttributeItem", "removeAttributeItem", "updateAttributeItem",
-	"setDebility", "updateContentText",
+	"setDebility", "addContentItem", "removeContentItem", "updateContentItem",
 	"addAssetItem", "removeAssetItem", "updateAssetItem", "setAssetRequisitioned",
 	"updateCoinagePurses", "updateCoinageHandfuls", "updateCoinageCoins",
 	"addPerson", "addPersonNamed", "removePerson", "updatePersonName", "updatePersonOccupation",

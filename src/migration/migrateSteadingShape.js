@@ -21,6 +21,7 @@ export function migrateSteadingShape(source) {
 	_healImprovements(source);
 	_healResidents(source);
 	_healFolk(source);
+	_healContent(source);
 	// GUARDED, like every heal above it. Assigning unconditionally wrote `assets: undefined` into
 	// every partial update diff this model ever migrated — and a diff carrying an explicit undefined
 	// for a SchemaField is a diff that resets it, so a steading's resources and fortifications were
@@ -116,6 +117,31 @@ export function healAssets(assets) {
 		...assets,
 		items: assets.items.map(item => typeof item === "string" ? { text: item, requisitioned: false } : item),
 	};
+}
+
+// Each content section used to carry a free textarea beside its (never rendered) list. 1.7.0 makes
+// the list the only thing there, so what was typed into the box becomes entries — one per line, since
+// that is how a box of agreements gets written. Blank lines are not entries.
+//
+// Guarded on the key being present, like every heal above it: the three text fields are gone from
+// the schema, so Foundry's cleaning strips them from the in-memory source and this is the only place
+// that still sees them. migrateSteadingContent then writes the merged lists back to the database.
+export const CONTENT_TEXT_KEYS = {
+	excluded:        "excludedText",
+	veiled:          "veiledText",
+	specialHandling: "specialHandlingText",
+};
+
+function _healContent(source) {
+	const content = source.content;
+	if (!content) return;
+	for (const [section, textKey] of Object.entries(CONTENT_TEXT_KEYS)) {
+		const text = content[textKey];
+		if (typeof text !== "string") continue;
+		const entries = text.split("\n").map(line => line.trim()).filter(Boolean);
+		if (entries.length) content[section] = [...(content[section] ?? []), ...entries];
+		delete content[textKey];
+	}
 }
 
 // `residents` used to be the PEOPLE array; the name/trait pool lived at the root.

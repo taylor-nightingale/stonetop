@@ -41,6 +41,12 @@ export function createStonetopSteadingSheetClass(Base) {
 				addAttributeItem: editOnly(function (ev, target) {
 					return this._stonetopSteading.addAttributeItem(target.dataset.attr);
 				}),
+				// A line in one of the content-policy lists. The move that maintains them says
+				// "update the lists", so they are lists — the free textarea they replaced could be
+				// edited but never added to, which is not the same shape as the rule.
+				addContentItem:   editOnly(function (ev, target) {
+					return this._stonetopSteading.addContentItem(target.dataset.slug);
+				}),
 
 				// --- the reference lists, as targets ---
 				// A name replaces the focused row's name; with no row focused it creates the villager
@@ -186,6 +192,9 @@ export function createStonetopSteadingSheetClass(Base) {
 				removeAttributeItem: confirmedDelete(function (target) {
 					return this._stonetopSteading.removeAttributeItem(target.dataset.attr, target.dataset.index);
 				}),
+				removeContentItem: confirmedDelete(function (target) {
+					return this._stonetopSteading.removeContentItem(target.dataset.slug, target.dataset.index);
+				}),
 				// Granting an improvement is drag-drop (_onDropItem); this revokes one.
 				revokeImprovement: confirmedDelete(function (target) {
 					return this._stonetopSteading.revokeImprovement(target.dataset.slug);
@@ -201,9 +210,9 @@ export function createStonetopSteadingSheetClass(Base) {
 		//
 		// Play is open essentially the whole session, so it carries the things a steading move needs:
 		// the homefront moves themselves, and the two ratings that lead evidence lists. Folk is the
-		// people, Places the map, Season the ritual, Chronicle the record. The seven page-order tabs
-		// split single jobs across tabs — rolling a move meant Moves, then the header, then Overview —
-		// which is the cost this pays off.
+		// people, Places the map, Season the ritual, Content the table's own agreements. The seven
+		// page-order tabs split single jobs across tabs — rolling a move meant Moves, then the header,
+		// then Overview — which is the cost this pays off.
 		//
 		// Places of interest and the neighbouring communities are ONE concept at two scales, so they
 		// get one tab: the Stone and the Granary, and Marshedge and the Steplands. They sat apart only
@@ -217,7 +226,7 @@ export function createStonetopSteadingSheetClass(Base) {
 					{ id: "folk",      label: "stonetop.steading.tabs.folk" },
 					{ id: "places",    label: "stonetop.steading.tabs.places" },
 					{ id: "season",    label: "stonetop.steading.tabs.season" },
-					{ id: "chronicle", label: "stonetop.steading.tabs.chronicle" },
+					{ id: "content",   label: "stonetop.steading.tabs.content" },
 				],
 				initial: "play",
 			},

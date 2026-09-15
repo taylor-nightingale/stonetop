@@ -1,0 +1,35 @@
+{{!-- One of the three content-policy lists: the book's heading, its gloss, and the entries the
+      table has agreed on. Params: section (a ContentSection).
+
+      A LIST rather than the free textarea this used to be, because the move that maintains these
+      says "update the lists" — a box of prose can be rewritten but never added to, and the thing
+      being written down is a set of individual agreements, each of which is separately withdrawn.
+
+      Same row idiom as steading-ratings-list.hbs: an entry is a phrase, so it is a grow-textarea
+      rather than an input, and the add button says what it makes. The slug + index pair is what
+      lets buildFocusSelector put the caret back after a re-render. --}}
+<div class="steading-overview-field steading-content-section">
+	{{> "stonetop.section-heading" title=section.label note=section.note}}
+	<div class="steading-attr-list">
+		{{#each section.items}}
+			<div class="steading-attr-row">
+				<textarea rows="1" class="stonetop-content-item stonetop-grow-field" data-change-action="contentItem"
+				          data-slug="{{../section.slug}}" data-index="{{@index}}"
+				          aria-label="{{localize 'stonetop.a11y.contentItem' section=../section.label.raw}}">{{this}}</textarea>
+				<button class="stonetop-content-item-remove stonetop-icon-btn" data-action="removeContentItem" type="button"
+				        data-slug="{{../section.slug}}" data-index="{{@index}}" data-name="{{this}}"
+				        title="{{localize 'stonetop.a11y.removeContentItem' section=../section.label.raw}}"
+				        aria-label="{{localize 'stonetop.a11y.removeContentItem' section=../section.label.raw}}">
+					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+				</button>
+			</div>
+		{{/each}}
+		{{!-- Three add buttons sit on this tab at once, so the visible word is the short one and the
+		      accessible name says which list it joins. --}}
+		<button class="stonetop-content-item-add stonetop-list-add" data-action="addContentItem" type="button"
+		        data-slug="{{section.slug}}"
+		        aria-label="{{localize 'stonetop.a11y.addContentItem' section=section.label.raw}}">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.content.addItem"}}</span>
+		</button>
+	</div>
+</div>
