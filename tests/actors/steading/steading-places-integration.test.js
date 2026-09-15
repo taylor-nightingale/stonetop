@@ -4,6 +4,7 @@ import { renderPartial } from "../../fakes/renderTemplate.js";
 import { NeighborPlaces } from "../../../src/actors/steading/NeighborPlaces.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { steadingChangeHandlers } from "../../../src/actors/steading/steadingChangeHandlers.js";
+import { applySteadfast } from "../../../src/actors/steading/applySteadfast.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
@@ -94,6 +95,61 @@ describe("the Places tab — neighbouring communities", () => {
 			const { actor } = steading();
 			for (const root of [asSteading(actor), asSteadfast(actor)])
 				expect(root.querySelector('[data-change-action="neighborPlaceSize"]')).toBeNull();
+		});
+	});
+
+	// The tab's whole reason for existing, and the half of a row that has no other home: what this
+	// table knows about the place. It had no end-to-end cover at all, in either tab it has lived in.
+	describe("Notes — the table's own, and nothing else's", () => {
+		it("writes what the table typed all the way down to actor state", async () => {
+			const { actor, typed } = steading();
+			const note = row(asSteading(actor), "marshedge").querySelector(".stonetop-neighbor-place-note");
+			expect(note.tagName).toBe("TEXTAREA");
+			expect(note.dataset.changeAction).toBe("neighborPlaceNote");
+			note.value = "Owes us grain since the spring";
+
+			const handlers = steadingChangeHandlers(typed, { availableSteadfasts: () => [] });
+			await handlers[note.dataset.changeAction](note);
+
+			expect(actor.system.neighborPlaces.find(p => p.slug === "marshedge").note)
+				.toBe("Owes us grain since the spring");
+		});
+
+		it("reads back into the box it was typed in, and into no other row", async () => {
+			const { actor, typed } = steading();
+			const handlers = steadingChangeHandlers(typed, { availableSteadfasts: () => [] });
+			await handlers.neighborPlaceNote({ dataset: { id: "marshedge" }, value: "Owes us grain" });
+
+			const root = asSteading(actor);
+			expect(row(root, "marshedge").querySelector(".stonetop-neighbor-place-note").textContent)
+				.toBe("Owes us grain");
+			expect(row(root, "lygos").querySelector(".stonetop-neighbor-place-note").textContent).toBe("");
+		});
+
+		it("leaves the definitional half of the row alone when it lands", async () => {
+			const { actor, typed } = steading();
+			const handlers = steadingChangeHandlers(typed, { availableSteadfasts: () => [] });
+			await handlers.neighborPlaceNote({ dataset: { id: "marshedge" }, value: "Owes us grain" });
+
+			expect(actor.system.neighborPlaces.find(p => p.slug === "marshedge"))
+				.toMatchObject({ name: "Marshedge", size: "town", travel: "10 days" });
+		});
+
+		// The steadfast is a definition; a note is a record. Re-applying one used to blank every note
+		// on the sheet, which is the loss this tab can least afford — see applySteadfast.
+		it("survives the steadfast being applied over the top", async () => {
+			const { actor, typed } = steading();
+			const handlers = steadingChangeHandlers(typed, { availableSteadfasts: () => [] });
+			await handlers.neighborPlaceNote({ dataset: { id: "marshedge" }, value: "Owes us grain" });
+
+			await applySteadfast(actor, { name: "Stonetop", system: {
+				slug: "stonetop", attributes: {}, assets: {}, placesOfInterest: [], residents: {},
+				improvements: [], impressions: [],
+				neighborPlaces: [{ slug: "marshedge", name: "Marshedge", subtitle: "", note: "", names: "Abben", size: "town", travel: "10 days" }],
+			} });
+
+			expect(row(asSteading(actor), "marshedge").querySelector(".stonetop-neighbor-place-note").textContent)
+				.toBe("Owes us grain");
 		});
 	});
 

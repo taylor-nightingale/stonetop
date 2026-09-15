@@ -32,4 +32,26 @@ export class NeighborPlace {
 			raw.note ?? "", raw.names ?? "", raw.size ?? "", raw.travel ?? "",
 		);
 	}
+
+	/**
+	 * The row as the steadfast defines it, carrying forward whatever THIS table has already written
+	 * against it — the one description of the three kinds of field, which both the apply path and the
+	 * migration read rather than restating (they disagreed about `note`, and a re-apply blanked it).
+	 *
+	 * @param definition  the steadfast's row: name, subtitle, names and size, which it always wins.
+	 * @param stored      the steading's own copy of that row, or nothing for one the steadfast has
+	 *                    only just defined — whose record half is blank because this table has not
+	 *                    written it yet, whatever the definition happens to carry in those fields.
+	 */
+	static fromDefinition(definition, stored = null) {
+		const defined = NeighborPlace.fromRaw(definition);
+		const record  = stored ? NeighborPlace.fromRaw(stored) : null;
+		return NeighborPlace.fromRaw({
+			...defined,
+			// The table's own words. A steadfast never touches them.
+			note:   record?.note ?? "",
+			// Seeded: the book's printed time fills a blank, and never overwrites a measured one.
+			travel: record?.travel.trim() || defined.travel,
+		});
+	}
 }

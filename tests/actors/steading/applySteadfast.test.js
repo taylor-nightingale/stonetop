@@ -100,6 +100,26 @@ describe("applySteadfast", () => {
 		expect(actor.system.neighborPlaces.map(p => p.travel)).toEqual(["4 days, the West Road", "months"]);
 	});
 
+	// The bug this guards: every steadfast row carries `note: ""`, so copying the rows wholesale wiped
+	// the notes a table had kept on its neighbours all campaign — with nothing able to put them back.
+	// A note is not part of a definition, which is why re-applying one must not reach it.
+	it("keeps the notes the table wrote on its neighbours", async () => {
+		const actor = makeSteading({ neighborPlaces: [
+			{ slug: "marshedge", name: "Marshedge", note: "Owes us grain", names: "", size: "", travel: "" },
+			{ slug: "lygos",     name: "Lygos",     note: "Bought the whole clip", names: "", size: "", travel: "" },
+		] });
+		await applySteadfast(actor, steadfast());
+		expect(actor.system.neighborPlaces.map(p => p.note)).toEqual(["Owes us grain", "Bought the whole clip"]);
+	});
+
+	it("leaves a note blank for a place the steading had no row for at all", async () => {
+		const actor = makeSteading({ neighborPlaces: [
+			{ slug: "marshedge", name: "Marshedge", note: "Owes us grain", names: "", size: "", travel: "" },
+		] });
+		await applySteadfast(actor, steadfast());
+		expect(actor.system.neighborPlaces.find(p => p.slug === "lygos").note).toBe("");
+	});
+
 	it("still takes the steadfast's size, which IS the steadfast's to define", async () => {
 		const actor = makeSteading({ neighborPlaces: [
 			{ slug: "marshedge", name: "Marshedge", note: "", names: "", size: "hamlet", travel: "4 days" },
@@ -145,6 +165,17 @@ describe("seedSteadfast", () => {
 		expect(actor.system.residentPeople).toEqual([{ id: "1", name: "Afon" }]);
 		expect(actor.system.debilities.diminished).toBe(true);
 		expect(actor.system.improvementValues).toEqual({ market: { offer: 1 } });
+	});
+
+	// Seeding runs the same update, so it owes the same promise — a steading created from a template
+	// that already carries notes keeps them.
+	it("keeps the notes and measured travel times the steading already had", async () => {
+		const actor = makeSteading({ neighborPlaces: [
+			{ slug: "marshedge", name: "Marshedge", note: "Owes us grain", names: "", size: "", travel: "9 days if you push" },
+		] }, "Havenrock");
+		await seedSteadfast(actor, steadfast());
+		expect(actor.system.neighborPlaces.find(p => p.slug === "marshedge"))
+			.toMatchObject({ note: "Owes us grain", travel: "9 days if you push", size: "town" });
 	});
 
 	it("names an unnamed steading after the steadfast", async () => {

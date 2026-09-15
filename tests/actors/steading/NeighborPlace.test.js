@@ -19,6 +19,72 @@ describe("NeighborPlace.fromRaw", () => {
 	});
 });
 
+// The one description of what a steadfast owns and what the table does — read by BOTH the apply path
+// and migrateNeighborPlaces, which is what stops the two drifting apart again.
+describe("NeighborPlace.fromDefinition", () => {
+	const definition = {
+		slug: "marshedge", name: "Marshedge", subtitle: "on the Bluffs",
+		note: "", names: "Abben, Ailen", size: "town", travel: "10 days",
+	};
+
+	it("takes the whole definition for a place the table has no row for", () => {
+		expect(NeighborPlace.fromDefinition(definition)).toMatchObject({
+			slug: "marshedge", name: "Marshedge", subtitle: "on the Bluffs",
+			names: "Abben, Ailen", size: "town", travel: "10 days",
+		});
+	});
+
+	// Whatever a definition happens to carry in that field is not this table's words.
+	it("blanks the note on a row the steadfast has only just defined", () => {
+		expect(NeighborPlace.fromDefinition({ ...definition, note: "Trades in iron" }).note).toBe("");
+	});
+
+	it("keeps the note the table wrote, and never the definition's", () => {
+		const place = NeighborPlace.fromDefinition({ ...definition, note: "Trades in iron" },
+			{ slug: "marshedge", note: "Owes us grain" });
+		expect(place.note).toBe("Owes us grain");
+	});
+
+	it("keeps a note the table has since cleared, rather than refilling it", () => {
+		const place = NeighborPlace.fromDefinition({ ...definition, note: "Trades in iron" },
+			{ slug: "marshedge", note: "" });
+		expect(place.note).toBe("");
+	});
+
+	it("re-takes the definitional half over whatever the stored row still says", () => {
+		const place = NeighborPlace.fromDefinition(definition, {
+			slug: "marshedge", name: "Marsh Edge", subtitle: "", names: "Abben", size: "hamlet",
+		});
+		expect(place).toMatchObject({
+			name: "Marshedge", subtitle: "on the Bluffs", names: "Abben, Ailen", size: "town",
+		});
+	});
+
+	it("keeps a travel time the table measured itself", () => {
+		const place = NeighborPlace.fromDefinition(definition, { slug: "marshedge", travel: "9 days if you push" });
+		expect(place.travel).toBe("9 days if you push");
+	});
+
+	it("seeds the book's time into a blank one — including a row of nothing but spaces", () => {
+		for (const travel of ["", "   ", undefined])
+			expect(NeighborPlace.fromDefinition(definition, { slug: "marshedge", travel }).travel).toBe("10 days");
+	});
+
+	// A steadfast's own rows carry no travel at all: it cannot say how far away a place is.
+	it("leaves travel blank when neither side states one", () => {
+		const place = NeighborPlace.fromDefinition({ slug: "other", name: "Other places" }, { slug: "other" });
+		expect(place.travel).toBe("");
+	});
+
+	it("returns a NeighborPlace, and touches neither side", () => {
+		const stored = { slug: "marshedge", note: "Owes us grain", travel: "9 days" };
+		const place = NeighborPlace.fromDefinition(definition, stored);
+		expect(place).toBeInstanceOf(NeighborPlace);
+		expect(stored).toEqual({ slug: "marshedge", note: "Owes us grain", travel: "9 days" });
+		expect(definition.note).toBe("");
+	});
+});
+
 describe("NeighborPlace with-methods", () => {
 	it("withNote replaces only the note", () => {
 		const changed = marshedge().withNote("Desperate for grain");

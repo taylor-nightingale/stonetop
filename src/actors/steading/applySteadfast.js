@@ -1,4 +1,5 @@
 import { Impressions } from "../../model/data/steading/Impressions.js";
+import { NeighborPlace } from "./NeighborPlace.js";
 import { Seasons } from "../../model/data/steading/Seasons.js";
 import { isUnnamedActor } from "../unnamedActor.js";
 // Apply a steadfast's definition to a steading actor: copy the shared profile fields onto the actor
@@ -14,7 +15,7 @@ function steadfastUpdate(actor, steadfast) {
 	const src = steadfast.system;
 	const update = { "system.steadfast": src.slug };
 	for (const field of PROFILE_FIELDS) update[`system.${field}`] = structuredClone(src[field]);
-	update["system.neighborPlaces"] = withSeededTravel(update["system.neighborPlaces"], actor.system?.neighborPlaces);
+	update["system.neighborPlaces"] = withTableRecord(update["system.neighborPlaces"], actor.system?.neighborPlaces);
 	// The steadfast's attributes are its starting values; keep an immutable copy so the "Starts at …"
 	// notes stay correct after the live `attributes` are edited in play.
 	update["system.startingAttributes"] = structuredClone(src.attributes);
@@ -27,16 +28,15 @@ function steadfastUpdate(actor, steadfast) {
 	return update;
 }
 
-// Travel is SEEDED, not copied and not kept: the steadfast supplies the book's printed time where the
-// steading has none, and stands aside where the table has written its own. Copying would blank a
-// measured time on every re-apply with nothing able to put it back; keeping would stop the book's
-// figures ever arriving at all. Filling the blank is the only rule that does both.
+// Half of a neighbour's row is not the steadfast's to give, so copying one wholesale would take the
+// table's half with it: the note they have kept on the place all campaign, and the travel time they
+// measured themselves. Both are carried across from the steading's existing rows — see
+// NeighborPlace.fromDefinition, which states which field is which and is read by the migration too.
 //
-// The rest of the row is not like this and is copied wholesale above — see neighborPlaceFields for
-// which fields a steadfast owns outright and which one it never touches.
-function withSeededTravel(places, current) {
-	const written = new Map((current ?? []).map(place => [place.slug, (place.travel ?? "").trim()]));
-	return (places ?? []).map(place => ({ ...place, travel: written.get(place.slug) || place.travel || "" }));
+// Re-applying a steadfast IS meant to overwrite the definition; a note is simply not part of one.
+function withTableRecord(places, current) {
+	const stored = new Map((current ?? []).map(place => [place.slug, place]));
+	return (places ?? []).map(place => ({ ...NeighborPlace.fromDefinition(place, stored.get(place.slug)) }));
 }
 
 // Adopt a steadfast wholesale, the steading taking its name too: the drop path and the name
