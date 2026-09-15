@@ -465,11 +465,10 @@ export class StonetopSteading {
 		// Before the rest: the move rows are built FROM these, and a reminder is not something a row
 		// can go and look up for itself.
 		const rollNotes = await this.#rollNotes.bySlug();
-		const [improvements, moves, seasons, resourcesPlate, grantedMoves] = await Promise.all([
+		const [improvements, moves, seasons, grantedMoves] = await Promise.all([
 			this.#improvements.buildSnapshot(this.#effects, this.#season.season),
 			this.#moves.buildSnapshot(rollNotes),
 			this.#seasons.buildSnapshot(),
-			this.#art.resourcesPlate(),
 			this.#improvements.grantedMoveSlugs().then(slugs => this.#grantedMoves.bySlug(slugs)),
 		]);
 		return new SteadingSnapshot({
@@ -492,7 +491,6 @@ export class StonetopSteading {
 			content:            this.#content.buildSnapshot(),
 			assets:             this.#assets.buildSnapshot(),
 			improvements,
-			resourcesPlate,
 			moves,
 			seasons,
 			// Keyed by slug at the root, because a granted move is named in three unrelated places —

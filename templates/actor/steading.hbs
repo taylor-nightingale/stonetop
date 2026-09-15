@@ -241,22 +241,27 @@
 				<section class="steading-overview-column">
 					{{> "stonetop.steading-stat-panel" attr="prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity"}}
 					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items}}
-					{{!-- The book's own village-life plate, closing the column the resources fill.
-					      Decorative — it names nothing the list above it does not already say — and
-					      absent in a world that has never run the art installer, which is what the
-					      snapshot answering null rather than a path is for. --}}
-					{{#if stonetop.resourcesPlate}}
-						<figure class="steading-resources-plate">
-							<img src="{{stonetop.resourcesPlate}}" alt="">
-						</figure>
-					{{/if}}
+					{{!-- The steading's own scratchpad, closing the column the resources fill.
+
+					      Here rather than with the safety agreements it used to sit beside: it is
+					      written to mid-scene, on the tab the table is on all session, and a
+					      scratchpad filed next to a content policy is what made that tab read as a
+					      drawer of leftovers. It closes the SHORTER column and stretches to fill it,
+					      which is the job the decorative plate used to do badly — the two columns of
+					      this tab are different lengths, and what levels them should be a box you
+					      write in rather than a picture you stop seeing. --}}
+					<div class="steading-notes-field steading-block">
+						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
+						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}" class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>
+					</div>
 				</section>
 
 				<section class="steading-overview-column">
 					{{> "stonetop.steading-stat-panel" attr="defenses" attrData=stonetop.attributes.defenses rollable=true panelClass="steading-defenses"}}
 					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
-					{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage
-				    note=stonetop.assets.requisitionedNote requisition=true advice="coin"}}
+					{{> "stonetop.steading-assets" items=stonetop.assets.items
+				    note=stonetop.assets.requisitionedNote requisition=true}}
+					{{> "stonetop.steading-coinage" coinage=stonetop.assets.coinage advice="coin"}}
 				</section>
 
 			</div>
@@ -330,33 +335,22 @@
 
 		</div>{{!-- /tab season --}}
 
-		{{!-- Chronicle — the record: notes and the safety-tools content page. The places of interest it
-		      used to lead with have gone to Places, beside the communities they share a scale with. --}}
+		{{!-- Chronicle — the safety-tools content page. The places of interest it used to lead with have
+		      gone to Places, beside the communities they share a scale with, and the steading's notes
+		      to Play, where they are written to. One column while that is all it holds: a divider with
+		      nothing on its far side draws a line round an absence. --}}
 		<div class="tab {{tabs.chronicle.cssClass}}" data-group="primary" data-tab="chronicle"
 		     role="tabpanel" id="{{sheetIdPrefix}}-panel-chronicle" aria-labelledby="{{sheetIdPrefix}}-tab-chronicle">
 
-			<div class="steading-split-grid">
-
-				<section class="steading-split-column steading-notes-content-column">
-					{{#each stonetop.content}}
-						<div class="steading-notes-field steading-notes-content-field steading-block">
-							{{> "stonetop.section-heading" title=label note=note}}
-							<textarea class="stonetop-content-textarea" data-change-action="contentText" data-type="{{slug}}"
-						          aria-label="{{localize 'stonetop.a11y.contentText' section=label.raw}}">{{text}}</textarea>
-						</div>
-					{{/each}}
-				</section>
-
-				<div class="steading-split-divider" aria-hidden="true"></div>
-
-				<section class="steading-split-column">
-					<div class="steading-notes-field steading-block">
-						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
-						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}" class="stonetop-notes" data-change-action="notes">{{stonetop.notes}}</textarea>
+			<section class="steading-notes-content-column">
+				{{#each stonetop.content}}
+					<div class="steading-notes-field steading-notes-content-field steading-block">
+						{{> "stonetop.section-heading" title=label note=note}}
+						<textarea class="stonetop-content-textarea" data-change-action="contentText" data-type="{{slug}}"
+					          aria-label="{{localize 'stonetop.a11y.contentText' section=label.raw}}">{{text}}</textarea>
 					</div>
-				</section>
-
-			</div>
+				{{/each}}
+			</section>
 
 		</div>{{!-- /tab chronicle --}}
 

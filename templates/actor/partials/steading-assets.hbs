@@ -1,8 +1,8 @@
-{{!-- The Assets list plus the Coinage block below it, grouped one block per currency
-      (purses/handfuls/coins). Shared by the steading's Play tab and the steadfast sheet.
-      Params: items (Asset[]), coinage (array of {title, label, purses, handfuls, coins}), note (the
-      heading's "2 out"), requisition (whether an asset can be marked out), and optionally advice
-      (an "If you want to…" topic key).
+{{!-- The steading's assets — what it owns that is not a number. Shared by the steading's Play tab
+      and the steadfast sheet. The coinage that used to hang off the foot of this file is its own
+      block now (steading-coinage.hbs); one partial, one block.
+      Params: items (Asset[]), note (the heading's "2 out"), requisition (whether an asset can be
+      marked out).
 
       `requisition` is false on the steadfast: a steadfast is the DEFINITION of a place, and nothing
       is out on loan from a definition. --}}
@@ -25,7 +25,7 @@
 						<span>{{#if requisitioned}}{{localize "stonetop.steading.lists.assetOut"}}{{else}}{{localize "stonetop.steading.lists.assetHome"}}{{/if}}</span>
 					</label>
 				{{/if}}
-				<button class="stonetop-asset-item-remove stonetop-icon-btn" data-action="removeAssetItem" type="button" data-index="{{@index}}" data-name="{{text}}" title="Remove" aria-label="Remove">
+				<button class="stonetop-asset-item-remove stonetop-icon-btn" data-action="removeAssetItem" type="button" data-index="{{@index}}" data-name="{{text}}" title="{{localize 'stonetop.steading.lists.removeAsset'}}" aria-label="{{localize 'stonetop.steading.lists.removeAsset'}}">
 					<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 				</button>
 			</div>
@@ -36,39 +36,3 @@
 	</div>
 </div>
 
-<div class="steading-coinage">
-	{{#each coinage}}
-		<div class="steading-coinage-currency">
-			{{!-- This panel has no heading of its own, so the first currency's name row is the row the
-			      reader takes for one. The ? rides its end, after the hairline — which is a flex item,
-			      so it simply stops at the button instead of running underneath it. --}}
-			<span class="steading-coinage-name">{{label}}{{#if @first}}{{#if ../advice}}{{> "stonetop.advice-button" variant="inline" topic=../advice}}{{/if}}{{/if}}</span>
-			<div class="steading-coinage-fields">
-				<label class="steading-coinage-field">
-					<span>Purses</span>
-					<span class="stonetop-stepper">
-						<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" data-change-action="coinagePurses" min="0"
-						       data-title="{{title}}" value="{{purses}}">
-						{{> "stonetop.stepper-buttons"}}
-					</span>
-				</label>
-				<label class="steading-coinage-field">
-					<span>Handfuls</span>
-					<span class="stonetop-stepper">
-						<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" data-change-action="coinageHandfuls" min="0"
-						       data-title="{{title}}" value="{{handfuls}}">
-						{{> "stonetop.stepper-buttons"}}
-					</span>
-				</label>
-				<label class="steading-coinage-field">
-					<span>Coins</span>
-					<span class="stonetop-stepper">
-						<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" data-change-action="coinageCoins" min="0"
-						       data-title="{{title}}" value="{{coins}}">
-						{{> "stonetop.stepper-buttons"}}
-					</span>
-				</label>
-			</div>
-		</div>
-	{{/each}}
-</div>

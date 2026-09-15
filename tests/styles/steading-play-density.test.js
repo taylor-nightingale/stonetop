@@ -64,6 +64,46 @@ const fullTile = (attr, text, { arched = false, note = "", noteKind = "tier", ro
 		${note ? `<span class="steading-tile-note steading-tile-note--${noteKind}">${note}</span>` : ""}
 	</div>`;
 
+const assetsField = rows => `
+	<div class="steading-overview-field">
+		<h3 class="stonetop-move-group-title">Assets</h3>
+		<div class="stonetop-panel-divider" aria-hidden="true"></div>
+		<div class="steading-attr-list">
+			${rows.map(r => `<div class="steading-attr-row steading-asset-row">
+				<textarea rows="1" class="stonetop-asset-item stonetop-grow-field">${r}</textarea>
+				<label class="steading-asset-state"><input type="checkbox" class="stonetop-item-check"><span>at home</span></label>
+				<button class="stonetop-asset-item-remove stonetop-icon-btn" type="button"><img src="" alt=""></button>
+			</div>`).join("")}
+			<button class="stonetop-asset-item-add stonetop-list-add" type="button"><img src="" alt=""><span>add an asset</span></button>
+		</div>
+	</div>`;
+
+const coinCell = value => `
+	<td class="steading-coinage-cell"><span class="stonetop-stepper">
+		<input type="number" class="stonetop-coinage-input stonetop-step" value="${value}">
+		<button type="button" class="stonetop-stepper-btn stonetop-stepper-btn--up" data-step-dir="1">▲</button>
+		<button type="button" class="stonetop-stepper-btn stonetop-stepper-btn--down" data-step-dir="-1">▼</button>
+	</span></td>`;
+
+const coinage = `
+	<div class="steading-coinage">
+		<h3 class="stonetop-move-group-title">Coinage<button type="button" class="stonetop-advice-btn stonetop-advice-btn--inline stonetop-icon-btn" aria-label="advice">?</button></h3>
+		<div class="stonetop-panel-divider" aria-hidden="true"></div>
+		<table class="steading-coinage-table">
+			<thead><tr><th scope="col" class="steading-coinage-corner">Currency</th><th scope="col">Purses</th><th scope="col">Handfuls</th><th scope="col">Coins</th></tr></thead>
+			<tbody>
+				${["Silver", "Gold"].map(name => `<tr><th scope="row" class="steading-coinage-name">${name}</th>${coinCell(0)}${coinCell(0)}${coinCell(0)}</tr>`).join("")}
+			</tbody>
+		</table>
+	</div>`;
+
+const notes = `
+	<div class="steading-notes-field steading-block">
+		<h3 class="stonetop-move-group-title">Notes</h3>
+		<div class="stonetop-panel-divider" aria-hidden="true"></div>
+		<textarea class="stonetop-notes"></textarea>
+	</div>`;
+
 const list = (attr, title, rows) => `
 	<div class="steading-overview-field">
 		<h3 class="stonetop-move-group-title">${title}</h3>
@@ -89,7 +129,7 @@ const condition = (slug, active, effect) => `
 
 // Both densities at once, which is the situation the design has to resolve and neither half can be
 // tested from alone.
-const fixture = (width, { shut = false } = {}) => `
+const fixture = (width, { shut = false, lean = false } = {}) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
   <div class="window-content"><div class="sheet-wrapper">
    <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="left">
@@ -141,10 +181,12 @@ const fixture = (width, { shut = false } = {}) => `
           <section class="steading-overview-column">
             ${fullTile("prosperity", "Prosperity", { note: "→ +0 lacking", noteKind: "adjustment" })}
             ${list("prosperity", "Resources", ["Farming (beans, potatoes, oats, barley)", "Distilling (whisky)"])}
+            ${notes}
           </section>
           <section class="steading-overview-column">
             ${fullTile("defenses", "Defenses", { note: "legendary" })}
             ${list("defenses", "Fortifications, etc.", ["Village militia", "The Ringwall (low, stone)"])}
+            ${lean ? "" : assetsField(["A pair of horse-drawn plows, iron", "A wagon (plus horse harness)"]) + coinage}
           </section>
         </div>
       </div>
@@ -175,6 +217,9 @@ const TARGETS = {
 	debility3:      ".steading-conditions > .steading-debility:nth-of-type(3)",
 	markedEffect:   ".steading-debility.is-active .steading-debility-effect",
 	unmarkedEffect: ".steading-debility:not(.is-active) .steading-debility-effect",
+	notes:          ".steading-play-grid .steading-notes-field",
+	notesBox:       ".steading-play-grid .steading-notes-field textarea",
+	coinTable:      ".steading-coinage-table",
 	head:           '.steading-play-grid .steading-tile[data-attr="prosperity"]',
 	headLabel:      '.steading-play-grid .steading-tile[data-attr="prosperity"] .steading-tile-label',
 	headValue:      '.steading-play-grid .steading-tile[data-attr="prosperity"] .steading-tile-value',
@@ -382,6 +427,94 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 			});
 		});
 	}
+
+	// ── The measure, and what levels the two columns ───────────────────────────────────────────
+	//
+	// Play is two columns because a third costs a third of the measure, on exactly the lists this
+	// sheet says must never be truncated ("Tradesfolk (midwife, potter, publican, smith, tanner)"
+	// begins to wrap at three). So the measure is the thing to hold, and it is held here rather than
+	// worked out on paper: the arithmetic was right about the three-column case and still said nothing
+	// about what a sibling in the grid would do to it.
+	describe("the measure, and the box that closes the shorter column", () => {
+		// Derived, not a remembered number: the grid hands its whole width to two equal tracks and a
+		// single gap, so anything else taking measure — a third column, a fixed-width sibling — shows
+		// up as a column narrower than that share.
+		it.each([[1400], [1107]])("gives the whole grid to two equal columns (%ipx)", width => {
+			const m = measureAt(width);
+			const grid = m.get("grid").values;
+			const col1 = m.get("col1").values;
+			const col2 = m.get("col2").values;
+			const gap  = 1.25 * 16;
+			expect(col1.boxWidth, "the two columns are not equal").toBeCloseTo(col2.boxWidth, 0);
+			expect(col1.boxWidth, "something else on the tab is taking measure")
+				.toBeCloseTo((grid.boxWidth - gap) / 2, 0);
+		});
+
+		// The acceptance the tab pass was written against: no worse than it was. 411px is the measure
+		// MEASURED on the shipped sheet before this pass, at a 1107px window with the rail open and the
+		// root at 16px — the width the three-column option was rejected at. Stated a pixel under, since
+		// sub-pixel layout rounding is not a regression and a column is not read to the half-pixel.
+		it("is no narrower than the measure it had before the pass", () => {
+			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(410);
+		});
+
+		// The two columns of this tab are different lengths — Prosperity leads eight resources, Defenses
+		// leads four fortifications, the assets and the treasury. What used to level them was a
+		// decorative plate at the foot of the shorter one; what levels them now is the notes box, which
+		// is the one thing on the tab that can use the height it is given.
+		it("ends the two columns level, whatever they hold", () => {
+			for (const width of [1400, 1107]) {
+				const m = measureAt(width);
+				expect(m.get("col1").values.boxHeight, `columns fall out of step at ${width}px`)
+					.toBeCloseTo(m.get("col2").values.boxHeight, 0);
+			}
+		});
+
+		// Stated as a comparison rather than a height, because the whole point is that nothing measures
+		// anything: take the assets and the treasury off the other column and the box shrinks with it.
+		it("grows the notes box by exactly the slack the other column leaves", () => {
+			const full = measureAt(1107);
+			const lean = measureAt(1107, { lean: true });
+			expect(full.get("notesBox").values.boxHeight,
+				"the notes box does not take up the other column's height")
+				.toBeGreaterThan(lean.get("notesBox").values.boxHeight);
+		});
+
+		// And a floor, for the steading with few resources and for the folded single-column width,
+		// where there is no slack to take: an empty box one line tall is not one you write in.
+		it("never falls below a box worth writing in", () => {
+			for (const m of [measureAt(1107, { lean: true }), measureAt(500)]) {
+				expect(m.get("notesBox").values.boxHeight).toBeGreaterThanOrEqual(6 * 16 - 1);
+			}
+		});
+
+		// A box this size has to SAY it is one. Every other field on the sheet is a line on a rule,
+		// which is self-evident at the size of what goes in it; a quarter-column of empty parchment
+		// under a heading is not, and read as a rendering fault. It is ruled like the page the book
+		// leaves you — an affordance rather than a frame, since core's own answer (an inset shadow and
+		// a rounded corner) is the boxed field this sheet has taken off everything else.
+		it("says it is somewhere to write, without being a box", () => {
+			const seen = probe.render({
+				bodyHtml: fixture(1107), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
+				probes: {
+					notes: {
+						selector: ".steading-play-grid .steading-notes-field textarea",
+						properties: ["background-image", "background-attachment", "box-shadow", "border-radius", "padding-left"],
+					},
+				},
+			});
+			const notes = seen.get("notes");
+			expect(notes.missing, "the notes box did not render").toBe(false);
+			expect(notes.get("background-image"), "the writing area is not ruled")
+				.toContain("repeating-linear-gradient");
+			// Fixed, the rules would stay put while the words slid over them.
+			expect(notes.get("background-attachment")).toBe("local");
+			expect(notes.get("box-shadow"), "core's inset box is still drawn round it").toBe("none");
+			expect(notes.get("border-radius")).toBe("0px");
+			// And what is written starts inside the page rather than hard against the column's edge.
+			expect(parseFloat(notes.get("padding-left"))).toBeGreaterThan(0);
+		});
+	});
 
 	// The columns fold rather than squeezing their rows into ellipses.
 	describe("as it narrows", () => {

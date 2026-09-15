@@ -1,2 +1,5 @@
-<h3 class="stonetop-move-group-title">{{rich title}}{{#if (hasText note)}} <span class="stonetop-section-note">{{rich note}}</span>{{/if}}</h3>
+{{!-- Params: title, and optionally note (a grey aside after it) and advice (an "If you want to…"
+      topic key, drawn as the ? at the far end of the row — the placement advice-button.hbs's
+      `inline` variant is written for). --}}
+<h3 class="stonetop-move-group-title">{{rich title}}{{#if (hasText note)}} <span class="stonetop-section-note">{{rich note}}</span>{{/if}}{{#if advice}}{{> "stonetop.advice-button" variant="inline" topic=advice}}{{/if}}</h3>
 <div class="stonetop-panel-divider" aria-hidden="true"></div>

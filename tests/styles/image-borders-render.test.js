@@ -26,13 +26,15 @@ const probe = new RenderProbe([
 
 const PIXEL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
-// Every shape an image takes on our surfaces: bare in the markup, wrapped in a <figure> (which is
-// what a plate is), a control's icon, and a portrait.
+// Every shape an image takes on our surfaces: bare in the markup, wrapped in a <figure>, a control's
+// icon, and a portrait. The <figure> case carries no class of ours on purpose — the rule that strips
+// core's border is on the `img`, so it must hold whatever the picture is wrapped in, and a fixture
+// that names a specific plate only ever proves it for that plate.
 const FIXTURE = `
 <div class="application app stonetop sheet actor steading">
   <div class="window-content">
     <img id="p-bare" src="${PIXEL}">
-    <figure class="steading-resources-plate"><img id="p-plate" src="${PIXEL}"></figure>
+    <figure><img id="p-plate" src="${PIXEL}"></figure>
     <button class="stonetop-icon-btn"><img id="p-icon" src="${PIXEL}"></button>
     <img id="p-portrait" class="stonetop-actor-portrait-img" src="${PIXEL}">
   </div>

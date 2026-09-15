@@ -1,6 +1,8 @@
 // One coinage denomination for a steading — a named currency (silver, gold) with its purse/handful/coin
 // counts. An entity like `Person`: immutable `with…` updates and static factories, so no field-string
-// mutation leaks to callers. `label` is the capitalized display name; `title` stays the canonical key.
+// mutation leaks to callers. `title` is the canonical key and `labelKey` the string to display it
+// by — the name a player reads is authored copy, so it is localized rather than capitalized out of
+// the stored slug in JavaScript.
 export class Currency {
 	constructor(title, purses = 0, handfuls = 0, coins = 0) {
 		this.title    = title;
@@ -9,8 +11,9 @@ export class Currency {
 		this.coins    = coins;
 	}
 
-	get label() {
-		return this.title ? this.title[0].toUpperCase() + this.title.slice(1) : "";
+	/** The i18n key naming this currency, or "" for a currency with no title to name. */
+	get labelKey() {
+		return this.title ? `stonetop.steading.coinage.${this.title}` : "";
 	}
 
 	withPurses(purses)     { return Currency.fromRaw({ ...this, purses }); }

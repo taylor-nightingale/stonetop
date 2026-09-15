@@ -7,14 +7,23 @@ describe("Currency.of", () => {
 	});
 });
 
-describe("Currency.label", () => {
-	it("capitalizes the title for display", () => {
-		expect(Currency.of("silver").label).toBe("Silver");
-		expect(Currency.of("gold").label).toBe("Gold");
+// A currency's displayed name is authored copy, not a capitalization of the stored slug: "Silver"
+// built in JavaScript is a string no translator can reach, and the sheet says it out loud twice.
+describe("Currency.labelKey", () => {
+	it("names the i18n key for the currency", () => {
+		expect(Currency.of("silver").labelKey).toBe("stonetop.steading.coinage.silver");
+		expect(Currency.of("gold").labelKey).toBe("stonetop.steading.coinage.gold");
 	});
 
-	it("is empty for an empty title", () => {
-		expect(Currency.of("").label).toBe("");
+	// Never reached through Coinage, whose standard set is fixed — but a key ending in a dot is one
+	// Foundry answers with the key itself, which would print the whole path on the sheet.
+	it("is empty for an empty title, rather than a key with nothing on the end", () => {
+		expect(Currency.of("").labelKey).toBe("");
+	});
+
+	it("is not carried into a with-update's new instance as a stored field", () => {
+		expect(Currency.of("silver").withPurses(2).toJSON())
+			.toEqual({ title: "silver", purses: 2, handfuls: 0, coins: 0 });
 	});
 });
 
@@ -50,7 +59,7 @@ describe("Currency.fromRaw", () => {
 });
 
 describe("Currency.toJSON", () => {
-	it("serializes the stored fields without the derived label", () => {
+	it("serializes the stored fields without the derived label key", () => {
 		expect(new Currency("silver", 1, 2, 3).toJSON())
 			.toEqual({ title: "silver", purses: 1, handfuls: 2, coins: 3 });
 	});

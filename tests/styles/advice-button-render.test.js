@@ -46,14 +46,16 @@ const FIXTURE = `
     </div>
   </section>
   <div class="steading-coinage">
-    <div class="steading-coinage-currency">
-      <span class="steading-coinage-name">Silver${adviceButton("inline", "stonetop-icon-btn")}</span>
-      <div class="steading-coinage-fields">
-        <label class="steading-coinage-field"><span>Purses</span><input type="number" class="stonetop-coinage-input" value="0"></label>
-        <label class="steading-coinage-field"><span>Handfuls</span><input type="number" class="stonetop-coinage-input" value="0"></label>
-      </div>
-    </div>
-    <div class="steading-coinage-currency"><span class="steading-coinage-name">Gold</span></div>
+    <h3 class="stonetop-move-group-title">Coinage${adviceButton("inline", "stonetop-icon-btn")}</h3>
+    <div class="stonetop-panel-divider" aria-hidden="true"></div>
+    <table class="steading-coinage-table">
+      <thead><tr><th scope="col" class="steading-coinage-corner">Currency</th><th scope="col">Purses</th><th scope="col">Handfuls</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" class="steading-coinage-name">Silver</th>
+          <td class="steading-coinage-cell"><input type="number" class="stonetop-coinage-input" value="0"></td>
+          <td class="steading-coinage-cell"><input type="number" class="stonetop-coinage-input" value="0"></td></tr>
+      </tbody>
+    </table>
   </div>
   <!-- width pinned: in play the tab fills the sheet, and the claim is that the button keeps to one end of it -->
   <div class="tab followers" style="width: 640px">
@@ -83,10 +85,9 @@ const TARGETS = {
 	roll:    ".steading-prosperity .steading-stat-roll",
 	inline:  ".steading-prosperity .stonetop-advice-btn--inline",
 	coinage: ".steading-coinage",
-	coinName: ".steading-coinage .steading-coinage-name",
+	coinHeading: ".steading-coinage .stonetop-move-group-title",
 	coinAdvice: ".steading-coinage .stonetop-advice-btn--inline",
-	currency: ".steading-coinage-currency",
-	coinFields: ".steading-coinage-fields",
+	coinTable: ".steading-coinage-table",
 	toolbar:  ".tab.followers .stonetop-advice-toolbar",
 	labelled: ".tab.followers .stonetop-advice-btn--labelled",
 	grid:     ".stonetop-followers-grid",
@@ -126,19 +127,22 @@ describe.skipIf(!canProbe())("the advice ? button", () => {
 		expect(Math.abs(el("inline").boxMiddle - el("heading").boxMiddle)).toBeLessThan(4);
 	});
 
-	// The ? rides the currency's name, and the fields sit beside it on the same row now that coinage
-	// is one line per currency. What has to stay true is that nothing overlaps the glyph: the name and
-	// the fields must begin after it, not under it.
-	it("keeps the currency's fields clear of it", () => {
+	// The ? rides the coinage block's own HEADING — the placement every other ? on this sheet uses.
+	// It used to ride the first currency's name row, because the block had no heading, and that row
+	// then had to be ordered around the button to keep the hairline from running through the glyph.
+	//
+	// `margin-left: auto` only reaches the far end if the heading is a flex line, which a bare <h3>
+	// is not: the rule granting that is keyed off the button's presence, so this is the assertion
+	// that the cascade actually finds it.
+	it("rides the block's heading, flush with its far end", () => {
 		expect(el("coinAdvice").missing).toBe(false);
-		// Flush with the end of the name row it rides, and clear of the fields below.
-		expect(Math.abs(right(el("coinAdvice")) - right(el("coinName")))).toBeLessThan(2);
-		expect(el("coinFields").values.boxLeft)
-			.toBeGreaterThanOrEqual(el("coinAdvice").values.boxLeft + el("coinAdvice").values.boxWidth - 1);
+		expect(Math.abs(right(el("coinAdvice")) - right(el("coinHeading")))).toBeLessThan(2);
 	});
 
-	it("keeps the ? on the first currency's row only", () => {
-		expect(el("coinAdvice").boxMiddle).toBeCloseTo(el("coinName").boxMiddle, 0);
+	it("stays on the heading's line, with the table clear below it", () => {
+		expect(el("coinAdvice").boxMiddle).toBeCloseTo(el("coinHeading").boxMiddle, 0);
+		const bottom = el("coinAdvice").values.boxTop + el("coinAdvice").values.boxHeight;
+		expect(el("coinTable").values.boxTop).toBeGreaterThanOrEqual(bottom - 1);
 	});
 });
 

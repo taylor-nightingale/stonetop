@@ -126,7 +126,18 @@
         "assetsOut": "{count} out",
         "assetOut": "requisitioned",
         "assetHome": "at home",
-        "addPlace": "add a place"
+        "addPlace": "add a place",
+        "coinage": "Coinage",
+        "removeAsset": "Remove asset",
+        "removeItem": "Remove"
+      },
+      "coinage": {
+        "currency": "Currency",
+        "purses": "Purses",
+        "handfuls": "Handfuls",
+        "coins": "Coins",
+        "silver": "Silver",
+        "gold": "Gold"
       },
       "tier": {
         "defenses": {
@@ -844,6 +855,9 @@
       "steadingTabs": "Steading sections",
       "npcTraits": "Traits",
       "assetItem": "Asset",
+      "coinagePurses": "{currency} purses",
+      "coinageHandfuls": "{currency} handfuls",
+      "coinageCoins": "{currency} coins",
       "placeField": "Place of interest",
       "neighborSize": "Size of {place}",
       "neighborTravel": "Travel to {place} from here",

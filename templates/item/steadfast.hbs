@@ -42,7 +42,8 @@
 				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
 			</section>
 			<section class="steading-overview-column steading-assets-column">
-				{{> "stonetop.steading-assets" items=stonetop.assets.items coinage=stonetop.assets.coinage}}
+				{{> "stonetop.steading-assets" items=stonetop.assets.items}}
+			{{> "stonetop.steading-coinage" coinage=stonetop.assets.coinage}}
 			</section>
 		</section>
 

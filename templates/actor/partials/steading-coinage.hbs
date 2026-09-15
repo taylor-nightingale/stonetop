@@ -1,0 +1,61 @@
+{{!-- The steading's treasury: the standard currencies down the side, the three denominations across
+      the top. Shared by the steading's Play tab and the steadfast sheet.
+      Params: coinage (Currency[]), and optionally advice (an "If you want to…" topic key).
+
+      A real table, because this IS one — two currencies by three denominations — and the shape buys
+      three things the stacked rows could not. Each denomination is named ONCE instead of once per
+      currency, so the words no longer outnumber the numbers they caption. The six values line up in
+      columns, which is the only way to read a treasury: you compare silver to gold down a column.
+      And every field gets a row and a column header, where before both "Purses" fields carried the
+      accessible name "Purses" and nothing said which currency's.
+
+      The block is titled like every other block on the tab. It used to have no heading at all, which
+      left the first currency's name row doing double duty as one — and left the advice ? riding that
+      row behind a CSS `order` rule to keep the hairline from running through it. --}}
+<div class="steading-coinage">
+	{{> "stonetop.section-heading" title=(localize "stonetop.steading.lists.coinage") advice=advice}}
+
+	<table class="steading-coinage-table">
+		<thead>
+			<tr>
+				{{!-- The corner. Named for assistive tech and drawn empty: a column of currency names
+				      under the word "Currency" restates what the names already say. --}}
+				<th scope="col" class="steading-coinage-corner">{{localize "stonetop.steading.coinage.currency"}}</th>
+				<th scope="col">{{localize "stonetop.steading.coinage.purses"}}</th>
+				<th scope="col">{{localize "stonetop.steading.coinage.handfuls"}}</th>
+				<th scope="col">{{localize "stonetop.steading.coinage.coins"}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each coinage}}
+				<tr>
+					<th scope="row" class="steading-coinage-name">{{localize labelKey}}</th>
+					<td class="steading-coinage-cell">
+						<span class="stonetop-stepper">
+							<input type="number" class="stonetop-coinage-input stonetop-coinage-purses stonetop-step" data-change-action="coinagePurses" min="0"
+							       data-title="{{title}}" value="{{purses}}"
+							       aria-label="{{localize 'stonetop.a11y.coinagePurses' currency=(localize labelKey)}}">
+							{{> "stonetop.stepper-buttons"}}
+						</span>
+					</td>
+					<td class="steading-coinage-cell">
+						<span class="stonetop-stepper">
+							<input type="number" class="stonetop-coinage-input stonetop-coinage-handfuls stonetop-step" data-change-action="coinageHandfuls" min="0"
+							       data-title="{{title}}" value="{{handfuls}}"
+							       aria-label="{{localize 'stonetop.a11y.coinageHandfuls' currency=(localize labelKey)}}">
+							{{> "stonetop.stepper-buttons"}}
+						</span>
+					</td>
+					<td class="steading-coinage-cell">
+						<span class="stonetop-stepper">
+							<input type="number" class="stonetop-coinage-input stonetop-coinage-coins stonetop-step" data-change-action="coinageCoins" min="0"
+							       data-title="{{title}}" value="{{coins}}"
+							       aria-label="{{localize 'stonetop.a11y.coinageCoins' currency=(localize labelKey)}}">
+							{{> "stonetop.stepper-buttons"}}
+						</span>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

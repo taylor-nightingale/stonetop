@@ -419,6 +419,15 @@ body,
 	margin-bottom: 0;
 }
 
+/* A heading that carries the "If you want to…" ? — the `inline` variant pushes itself to the far end
+   with `margin-left: auto`, which needs a flex line to be pushed along. Keyed off the button rather
+   than off a modifier class, so a heading gets the behaviour by being given the control. */
+.stonetop.sheet .stonetop-move-group-title:has(.stonetop-advice-btn) {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+}
+
 /* Sub-heading scale: section-sub-heading h4 matches the choice-track subtitle h4 (0.95rem). */
 .stonetop.sheet .stonetop-move-group-sub-heading {
 	font-size: var(--fs-subheading);
@@ -5808,11 +5817,15 @@ button.stonetop-xp-toggle {
 /* Two columns. The third was the arch pair over the homefront moves; both are the rail's now, and
    what is left is exactly the book's pairing — a rating over the evidence that justifies it. Each of
    these two is wider than all three were. */
+/* `align-items: stretch` so the two columns end level: the tab's left column is the shorter of the
+   two, and the notes box that closes it is the one thing on it that can absorb the difference. The
+   fields keep `flex: 0 0 auto` below, so stretching the COLUMN never stretches a list past its own
+   rows — only the notes box, which asks for the slack by being `flex: 1`. */
 .stonetop.sheet.steading .steading-play-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1.25rem;
-	align-items: start;
+	align-items: stretch;
 	height: auto;
 	min-height: 0;
 }
@@ -5832,10 +5845,22 @@ button.stonetop-xp-toggle {
 }
 
 /* The lists size to their contents here. `flex: 1` + a 200px floor is for a column that must fill a
-   tab; in a grid whose rows are `start`-aligned it only stretches one field past its own content. */
+   tab; in a grid whose rows stretch it would stretch one list past its own rows. */
 .stonetop.sheet.steading .steading-play-grid .steading-overview-field {
 	flex: 0 0 auto;
 	min-height: 0;
+}
+
+/* The steading's scratchpad, closing the Resources column. It is the only thing on this tab that
+   WANTS the leftover height, so it is the only thing given it — which is what levels the two columns
+   without anything measuring either. The floor is what the box is worth writing in when there is no
+   leftover at all: a steading with few resources, or the folded single-column width. */
+.stonetop.sheet.steading .steading-play-grid .steading-notes-field {
+	flex: 1 1 auto;
+}
+
+.stonetop.sheet.steading .steading-play-grid .steading-notes-field textarea {
+	min-height: 6rem;
 }
 
 /* ── The rating head ──
@@ -6354,73 +6379,92 @@ button.stonetop-xp-toggle {
 	outline: none;
 }
 
-/* Coinage — one ROW per currency: its name, then Purses, Handfuls and Coins each as a caption beside
-   its own stepper.
+/* Coinage — a TABLE: the currencies down the side, the three denominations across the top.
 
-   It was two stacked blocks of three captioned fields with core's ▲▼ underneath — about 200px, at
-   the foot of the taller of Play's two columns, and most of the reason that column ran 693px against
-   the other's 408px. It is a treasury: six numbers nobody reads mid-scene, given more height than
-   the fortifications above them.
+   Two earlier shapes are buried here and both failed the same way. It began as two stacked blocks of
+   three captioned fields with core's ▲▼ underneath — about 200px at the foot of Play's taller column,
+   a treasury of six numbers nobody reads mid-scene given more height than the fortifications above
+   it. Compacted to one row per currency it fitted in 58px, but it still captioned every field: six
+   words for six numbers, "Purses Handfuls Coins" printed once for silver and again for gold, and the
+   values themselves free to land wherever each row's captions happened to end.
 
-   The captions all stay. "Silver 0/0/0" would be shorter still and would not say what the three
-   numbers are, and a number whose unit you have to remember is not a saving. */
+   A table states each denomination ONCE and lines the values up under it, which is the only way a
+   treasury is read — silver against gold, down a column. It is also the honest markup: a row header
+   and a column header per field, where before both purse fields were labelled "Purses" and nothing
+   said whose.
+
+   `width: auto` rather than a stretched table: six two-character numbers pulled across the full
+   column would read as a schedule. It sizes to its contents and sits at the start of the block. */
 
 .stonetop.sheet.steading .steading-coinage {
 	flex: 0 0 auto;
 	margin-top: 8px;
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
 }
 
-.stonetop.sheet.steading .steading-coinage-currency {
-	display: flex;
-	align-items: baseline;
-	flex-wrap: wrap;
-	gap: 2px 12px;
+.stonetop.sheet.steading .steading-coinage-table {
+	width: auto;
+	margin: 4px 0 0;
+	border: none;
+	border-collapse: collapse;
+	background: none;
 }
 
-/* The currency names the row, so it leads it and does not trail a rule across it: in a single row
-   the hairline had nothing left to reach and would have run through the fields. */
-.stonetop.sheet.steading .steading-coinage-name {
-	display: flex;
-	align-items: baseline;
-	gap: 6px;
-	flex: 0 0 3.5rem;
+.stonetop.sheet.steading .steading-coinage-table th,
+.stonetop.sheet.steading .steading-coinage-table td {
+	border: none;
+	background: none;
+	padding: 1px 0 1px 14px;
+	text-align: center;
+	vertical-align: baseline;
+}
+
+/* Core styles a <thead> as the head of a data grid — a tinted bar with a 1px border and an 8px
+   radius — and stripes alternate <tbody> rows. On this sheet a caption is smaller type over a
+   hairline and a row is a row, so both come off. The thead's chrome is its OWN, not its cells': the
+   th rules above cannot reach it. */
+.stonetop.sheet.steading .steading-coinage-table thead,
+.stonetop.sheet.steading .steading-coinage-table tbody tr {
+	background: none;
+	border: none;
+	border-radius: 0;
+}
+
+/* Both axes of this table are captions, and they are captions of the same thing — so they take one
+   treatment, the sheet's small-caps label face. The folk roster's header row is bold roman, which is
+   right there because nothing under it is a label; here it would put two faces in one small block.
+   The hairline is what both tables share: a caption sits on a rule. */
+.stonetop.sheet.steading .steading-coinage-table thead th {
 	font-family: "StonetopUI", serif;
+	font-weight: normal;
+	font-size: var(--fs-micro);
+	letter-spacing: 0.04em;
+	color: var(--st-ink-soft);
+	padding-bottom: 3px;
+	border-bottom: 1px solid var(--st-rule-veil);
+}
+
+/* The currency names the row, so it leads it: first column, flush left, no padding of its own. Named
+   through the table, because the rule centring every cell carries an element selector — and without
+   the extra class here it outranked this one and centred the names with the numbers. */
+.stonetop.sheet.steading .steading-coinage-table .steading-coinage-name {
+	padding-left: 0;
+	text-align: left;
+	font-family: "StonetopUI", serif;
+	font-weight: normal;
 	font-size: var(--fs-fine);
 	letter-spacing: 0.04em;
 	color: var(--st-ink-soft);
+	white-space: nowrap;
 }
 
-/* This panel has no heading, so the first currency's name row carries the advice ?. Generated
-   content is always the last box, so without this the hairline would trail PAST the button and run
-   straight through the glyph; ordering the button past the hairline ends the line at it instead. */
-.stonetop.sheet.steading .steading-coinage-name .stonetop-advice-btn {
-	order: 1;
-}
-
-.stonetop.sheet.steading .steading-coinage-fields {
-	display: flex;
-	align-items: baseline;
-	flex-wrap: wrap;
-	gap: 2px 14px;
-	flex: 1 1 auto;
-	min-width: 0;
-}
-
-/* Caption BESIDE its stepper, on one line — the same shape a rating has ("Population ▾ 2 ▴"), which
-   is the point: one idiom for a named number on this sheet. */
-.stonetop.sheet.steading .steading-coinage-field {
-	display: flex;
-	align-items: baseline;
-	gap: 0.35rem;
-	min-width: 0;
-}
-
-.stonetop.sheet.steading .steading-coinage-field > span {
-	font-size: var(--fs-micro);
-	color: var(--st-ink-soft);
+/* Named for assistive tech, not drawn: a column of currency names under the word "Currency" says
+   nothing the names do not. */
+.stonetop.sheet.steading .steading-coinage-corner {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
 	white-space: nowrap;
 }
 
@@ -6428,15 +6472,37 @@ button.stonetop-xp-toggle {
    height and shape of an `o`; at 15px in a field two characters wide the treasury read as a row of
    letters. A rating's value is set at this step for the same reason, so the two now match — which is
    also the point: a number on this sheet looks like a number wherever it is. */
-.stonetop.sheet.steading .steading-coinage-field input[type="number"] {
+.stonetop.sheet.steading .steading-coinage-cell input[type="number"] {
 	width: auto;
 	min-width: 1.5ch;
 	field-sizing: content;
 	text-align: center;
 	font-size: var(--fs-subheading);
 	font-family: var(--font-serif);
+	/* A value on a rule, the sheet's one idiom for an editable number — the same treatment a rating's
+	   stepper gets three rows up, where the rule is invisible until the field is focused. Core draws
+	   a number input as a rounded, tinted, inset-shadowed box; six of those in a treasury is the only
+	   grid of boxes left on the tab. */
+	border: 0;
+	border-bottom: 1px solid transparent;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	height: auto;
 	padding: 1px 2px;
 }
+
+.stonetop.sheet.steading .steading-coinage-cell input[type="number"]:focus {
+	border-bottom-color: var(--st-accent);
+	outline: none;
+}
+
+.stonetop.sheet.steading .steading-coinage-cell input::-webkit-outer-spin-button,
+.stonetop.sheet.steading .steading-coinage-cell input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
 
 
 /* ── Folk tab ─────────────────────────────────────────────────────────────────
@@ -8115,33 +8181,6 @@ button.stonetop-xp-toggle {
    zero (the image inside is absolutely positioned and so out of flow), so the plate can never push
    the row taller than the gains — it matches that height exactly and stops there. `overflow: hidden`
    is belt-and-braces: whatever the image does, it is clipped to the frame. */
-/* ── The Resources plate ──
-   The book's village-life illustration, closing the Play tab's left column under the Resources list.
-   Decoration and nothing else: it names nothing the list above it does not, so it is last in the
-   column, and it is the first thing to go when a world has no art installed — the template asks the
-   snapshot before it draws, and HideBrokenImages catches a path that 404s anyway.
-
-   `margin-top: auto` pushes it to the FOOT of its column rather than leaving it hard against the
-   list: the two columns of this tab are different lengths, and the plate closing the shorter one is
-   what keeps them reading as a pair. Line art on transparent, so it takes the sheet's art filter and
-   sits straight on the parchment like every other plate. */
-/* Sized as the vignette it is, not as a plate that heads a section. At the column's full width it
-   ran over 500px of dense woodcut under a list of five short lines — the heaviest thing on the tab,
-   illustrating the least. Capped, it closes the column without competing with it. */
-.stonetop.sheet.steading .steading-resources-plate {
-	margin: auto auto 0;
-	padding-top: 0.5rem;
-	max-width: 15rem;
-	min-width: 0;
-}
-
-.stonetop.sheet.steading .steading-resources-plate img {
-	display: block;
-	width: 100%;
-	height: auto;
-	filter: var(--st-art-filter);
-}
-
 /* The book's harvest plate, as a watermark in the bottom-right corner of the numbered steps.
 
    BEHIND the steps rather than beside them, and that is the whole design. Every arrangement that put
@@ -8195,8 +8234,9 @@ button.stonetop-xp-toggle {
 
 
 /* ── The split tabs ───────────────────────────────────────────────────────────
-   Two columns with a decorative rule between them. Used by Places (landmarks | communities) and by
-   Chronicle (the content policy | the notes box), which is why it is no longer named for either. */
+   Two columns with a decorative rule between them. Named for the shape rather than for a tab, which
+   is what let Chronicle stop using it without anything having to be renamed: Places (landmarks |
+   communities) is the one that still does, now the notes box has gone to Play. */
 
 .stonetop.sheet.steading .steading-split-grid {
 	display: flex;
@@ -8219,25 +8259,61 @@ button.stonetop-xp-toggle {
 	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
+/* A heading over a writing area, filling whatever column it is in: the steading's notes on Play, the
+   three content fields on Chronicle, and the places-of-interest list. */
 .stonetop.sheet.steading .steading-notes-field {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 }
 
+/* The sheet's writing areas — the steading's notes, and the content page's three. Every other field
+   on this sheet is one line on a rule, and that shape says "write here" by being the size of what
+   goes in it. These are not: they are the height of whatever the column has left, and unframed they
+   read as blank parchment with a heading over it — the thing that looks most like a bug on the tab.
+
+   So they are RULED, the way the printed playbook rules the space it leaves you. Core's inset shadow
+   and rounded corner still come off (that is a box round a field this sheet deliberately leaves
+   unframed, the same defect called out on the list rows above); what replaces them is lined paper,
+   which is an affordance rather than a container.
+
+   The pitch is the line-height, so what is typed sits ON the rules rather than between them, and the
+   two move together if the type scale does. `local` scrolls the ruling with the text — fixed, the
+   lines would stay put while the words slid over them. No top padding, or the first line starts
+   between rules. */
+.stonetop.sheet.steading .steading-notes-field textarea,
+.stonetop.sheet.steading .stonetop-content-textarea {
+	--writing-pitch: 1.5em;
+	background-color: transparent;
+	background-image: repeating-linear-gradient(to bottom,
+		transparent 0,
+		transparent calc(var(--writing-pitch) - 1px),
+		var(--st-rule-veil) calc(var(--writing-pitch) - 1px),
+		var(--st-rule-veil) var(--writing-pitch));
+	background-attachment: local;
+	box-shadow: none;
+	border: none;
+	border-radius: 0;
+	line-height: 1.5;
+	/* Indented from the ruling's own left end, so what is written starts inside the page rather than
+	   hard against the column's edge. */
+	padding: 0 0.4rem;
+}
+
 .stonetop.sheet.steading .steading-notes-field textarea {
 	flex: 1;
 	resize: none;
-	border: none;
-	background: transparent;
 	font-size: var(--fs-note);
-	line-height: 1.5;
-	padding: 4px 0;
 	font-family: var(--font-primary);
 }
 
+/* The whole Chronicle tab, not half of a split grid: the notes box that shared it has gone to Play.
+   Its own column, so the three content fields still divide the tab's height between them. */
 .stonetop.sheet.steading .steading-notes-content-column {
+	display: flex;
+	flex-direction: column;
 	gap: 6px;
+	min-height: 300px;
 }
 
 .stonetop.sheet.steading .steading-notes-content-field {
@@ -8247,11 +8323,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .stonetop-content-textarea {
 	flex: 1;
 	resize: none;
-	border: none;
-	background: transparent;
 	font-size: var(--fs-note);
-	line-height: 1.5;
-	padding: 2px 0;
 	font-family: var(--font-primary);
 }
 
@@ -10607,7 +10679,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
    like the rest — but it holds a WORD, and it is a <select>. The element is what tells the two
    apart, and it does so without a second class anyone has to remember to write. */
 .stonetop.sheet.steading .window-content input.steading-attr-input,
-.stonetop.sheet.steading .window-content .steading-coinage-field input[type="number"] {
+.stonetop.sheet.steading .window-content .steading-coinage-cell input[type="number"] {
 	font-family: var(--font-numeral);
 }
 
