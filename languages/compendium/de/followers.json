@@ -80,53 +80,53 @@
   "all-mighty-thistlewisk": {
     "name": {
       "source": "All-mighty Thistlewisk",
-      "text": ""
+      "text": "Allmächtiger Distelbesen"
     },
     "specialQuality": {
       "source": "inert; disembodied voice",
-      "text": ""
+      "text": "unbeweglich; körperlose Stimme"
     },
     "armor": {
       "source": "6 (stone, resilience), 2 vs. iron",
-      "text": ""
+      "text": "6 (Stein, Widerstandskraft), 2 gegen Eisen"
     },
     "moves": {
       "source": "- Make unreasonable demands\n- Consume the essence of foodstuffs\n- Sense one’s idle thoughts/memories\n- Weave powerful illusions and hallucinations (near, area)\n- Grow bored/huffy and go to sleep",
-      "text": ""
+      "text": "- Stelle unangemessene Forderungen.\n- Verzehre die Essenz von Nahrungsmitteln.\n- Spüre die müßigen Gedanken/Erinnerungen eines anderen.\n- Wirke mächtige Illusionen und Halluzinationen (Nah, Bereich).\n- Reagiere gelangweilt/verärgert und schlafe ein."
     },
     "instinct/selected/to-heap-abuse-on-its-worshippers": {
       "source": "to heap abuse on its worshippers",
-      "text": ""
+      "text": "Verehrer mit Verachtung und Schmähungen zu überschütten"
     },
     "cost/selected/obeisance-and-ever-larger-offerings-of-food": {
       "source": "obeisance and ever-larger offerings of food",
-      "text": ""
+      "text": "Ehrerbietung und immer größere Opfergaben an Nahrung"
     }
   },
   "andalau-of-the-flute": {
     "name": {
       "source": "The Andalau of the Flute",
-      "text": ""
+      "text": "Der Andalau der Flöte"
     },
     "damage": {
       "source": "none",
-      "text": ""
+      "text": "keiner"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "moves": {
       "source": "- Manifest as a fluttering gust of wind (harmed only by salt)\n- Deliver a whispery message\n- Flit things about (dust, leaves, etc.)\n- Annoy or spook someone",
-      "text": ""
+      "text": "- Manifestiere dich als wirbelnder Windstoß  (kann nur durch Salz verletzt werden).\n- Überbringe eine flüsternde Botschaft.\n- Wirble Dinge auf (Staub, Blätter, etc.).\n- Verärgere oder erschrecke jemanden."
     },
     "instinct/selected/to-play-and-frolic": {
       "source": "to play and frolic",
-      "text": ""
+      "text": "zu spielen und herumzutollen"
     },
     "cost/selected/entertainment": {
       "source": "entertainment",
-      "text": ""
+      "text": "Unterhaltung"
     }
   },
   "animal-companion": {
@@ -342,31 +342,31 @@
   "bronze-protector": {
     "name": {
       "source": "Bronze protector",
-      "text": ""
+      "text": "Bronzener Beschützer"
     },
     "specialQuality": {
       "source": "fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP",
-      "text": ""
+      "text": "Feuerresistent, nimm +1 Bereitschaft bei einer 7+ beim Verteidigen, benötigt eine Schmiede und Werkzeuge, um TP zurückzuerlangen"
     },
     "damage": {
       "source": "pummel [[/r 1d8]] (_hand_)",
-      "text": ""
+      "text": "Einprügeln [[/r 1d8]] (_Hand_)"
     },
     "armor": {
       "source": "3 (metal)",
-      "text": ""
+      "text": "3 (Metall)"
     },
     "moves": {
       "source": "- Loom menacingly, belching smoke\n- Start fires, cause collateral damage\n- Run low on fuel",
-      "text": ""
+      "text": "- Drohe bedrohlich und stoße Rauch aus.\n- Entzünde Feuer und verursache Kollateralschäden.\n- Der Treibstoff geht zur Neige"
     },
     "instinct/selected/to-be-overzealous-in-guarding-you": {
       "source": "to be overzealous in guarding you",
-      "text": ""
+      "text": "dich mit übermäßigem Eifer beschützen"
     },
     "cost/selected/profuse-gratitude": {
       "source": "profuse gratitude",
-      "text": ""
+      "text": "überschwängliche Dankbarkeit"
     }
   },
   "crew": {
@@ -562,37 +562,37 @@
   "dool-spirit": {
     "name": {
       "source": "Dool spirit",
-      "text": ""
+      "text": "Doolgeist"
     },
     "specialQuality": {
       "source": "powerless in bright light",
-      "text": ""
+      "text": "machtlos bei hellem Licht"
     },
     "damage": {
       "source": "feast on fear [[/r d6]] (_hand_, _close_, ignores armor, disadvantage)",
-      "text": ""
+      "text": "sich an Furcht laben [[/r d6]] (_Hand_, _Kurz_, ignoriert Rüstung, Nachteil)"
     },
     "armor": {
       "source": "1 (amorphous)",
-      "text": ""
+      "text": "1 (Amorph)"
     },
     "moves": {
       "source": "- Sense a victim’s doubt and worries\n- Shape sound and shadow to unnerve and frighten\n- Manifest as its victim’s fears (harmed only by one who masters their fear)",
-      "text": ""
+      "text": "- Spüre die Zweifel und Sorgen eines Opfers.\n- Forme Klang und Schatten, um einzuschüchtern und zu verängstigen.\n- Nimm die Gestalt der Ängste deines Opfers an (kann nur von jemandem verletzt werden, der seine Angst bezwungen hat)."
     },
     "instinct/selected/to-take-things-too-far": {
       "source": "to take things too far",
-      "text": ""
+      "text": "es zu weit zu treiben"
     },
     "cost/selected/new-exquisite-fears": {
       "source": "new, exquisite fears",
-      "text": ""
+      "text": "neue, exquisite Ängste"
     }
   },
   "enfys": {
     "name": {
-      "source": "Enfys, die Akolythin",
-      "text": ""
+      "source": "Enfys, the Acolyte",
+      "text": "Enfys, die Akolythin"
     },
     "damage": {
       "source": "bronze knife [[/r 1d4]] (_hand_)",
@@ -818,31 +818,31 @@
   "mantle-wraiths": {
     "name": {
       "source": "Mantle wraiths",
-      "text": ""
+      "text": "Mantelgeister"
     },
     "specialQuality": {
       "source": "powerless in daylight",
-      "text": ""
+      "text": "machtlos bei Tageslicht"
     },
     "damage": {
       "source": "life drain [[/r d8]] (_hand_, ignores armor)",
-      "text": ""
+      "text": "Lebensentzug [[/r d8]] (_Hand_, ignoriert Rüstung)"
     },
     "armor": {
       "source": "1 (amorphous)",
-      "text": ""
+      "text": "1 (Amorph)"
     },
     "moves": {
       "source": "- Whisper their longings to the wearer\n- Manifest a form of shadow and cold (harmed only by silver and salt)\n- Hurl themselves at the living\n- Suck the vitality from their prey",
-      "text": ""
+      "text": "- Flüstere dem Träger seine Sehnsüchte zu.\n- Manifestiere eine Gestalt aus Schatten und Kälte (kann nur durch Silber und Salz verletzt werden).\n- Stürze dich auf die Lebenden.\n- Sauge deiner Beute die Lebenskraft aus."
     },
     "instinct/selected/to-run-rampant": {
       "source": "to run rampant",
-      "text": ""
+      "text": "ungezügelt zu wüten"
     },
     "cost/selected/souls-feasted-upon": {
       "source": "souls feasted upon",
-      "text": ""
+      "text": "Seelen, an denen sie sich laben können"
     }
   },
   "mule": {
@@ -1204,27 +1204,27 @@
   "spirit-in-the-cloak": {
     "name": {
       "source": "The Spirit in the Cloak",
-      "text": ""
+      "text": "Der Geist im Umhang"
     },
     "damage": {
       "source": "lashing wind, rain, debris [[/r d6]] (_near, area_)",
-      "text": ""
+      "text": "Peitschender Wind, Regen, Trümmer [[/r d6]] (_Nah, Bereich_)"
     },
     "armor": {
       "source": "1 (amorphous)",
-      "text": ""
+      "text": "1 (Amorph)"
     },
     "moves": {
       "source": "- Bear its master aloft on a cushion of swirling winds\n- Manifest a storm as it flies\n- Wreak havoc on its surroundings\n- Fling lightning from a raging storm, d10+3 (far, forceful, reload)",
-      "text": ""
+      "text": "- Trage deinen Meister auf einem Kissen aus wirbelnden Winden empor.\n- Manifestiere einen Sturm, während du fliegst.\n- Richte in deiner Umgebung Verwüstung an.\n- Schleudere Blitze aus einem tobenden Sturm, 1W10+3 (Fern, Wuchtig, Nachladen)."
     },
     "instinct/selected/to-not-hear-your-commands": {
       "source": "to \"not hear\" your commands",
-      "text": ""
+      "text": "deine Befehle zu „nicht hören“"
     },
     "cost/selected/flying-about-for-hours": {
       "source": "flying about for hours",
-      "text": ""
+      "text": "stundenlanges Herumfliegen"
     }
   },
   "the-cloak": {
@@ -1292,111 +1292,111 @@
   "tulpa": {
     "name": {
       "source": "Tulpa",
-      "text": ""
+      "text": "Tulpa"
     },
     "damage": {
       "source": "[[/r 1d4]] (if that)",
-      "text": ""
+      "text": "[[/r 1d4]] (wenn überhaupt)"
     },
     "armor": {
       "source": "0",
-      "text": ""
+      "text": "0"
     },
     "moves": {
       "source": "- Manifest a form of dust/snow/vapor",
-      "text": ""
+      "text": "- Manifestiere eine Form aus Staub/Schnee/Dampf."
     },
     "instinct/options/to-play": {
       "source": "to play",
-      "text": ""
+      "text": "zu spielen"
     },
     "instinct/options/to-learn": {
       "source": "to learn",
-      "text": ""
+      "text": "zu lernen"
     },
     "instinct/options/to-flaunt": {
       "source": "to flaunt",
-      "text": ""
+      "text": "anzugeben"
     },
     "cost/options/respect-given": {
       "source": "respect given",
-      "text": ""
+      "text": "erwiesener Respekt"
     },
     "cost/options/new-experiences": {
       "source": "new experiences",
-      "text": ""
+      "text": "neue Erfahrungen"
     },
     "cost/options/comfort-compassion": {
       "source": "comfort/compassion",
-      "text": ""
+      "text": "Trost/Mitgefühl"
     },
     "choices/choices/produce-light-area-reach/text": {
       "source": "Produce light (area, reach)",
-      "text": ""
+      "text": "Erzeuge Licht (Bereich, Lang)."
     },
     "choices/choices/carry-manipulate-a-item/text": {
       "source": "Carry/manipulate a item",
-      "text": ""
+      "text": "Trage/manipuliere einen ◇ Gegenstand."
     },
     "choices/choices/deliver-a-message/text": {
       "source": "Deliver a message",
-      "text": ""
+      "text": "Überbringe eine Nachricht."
     },
     "choices/choices/spy-on-someone-something/text": {
       "source": "Spy on someone/something",
-      "text": ""
+      "text": "Spioniere jemanden/etwas aus."
     }
   },
   "unliving-chimera": {
     "name": {
       "source": "Unliving chimera",
-      "text": ""
+      "text": "Untote Chimäre"
     },
     "damage": {
       "source": "varies [[/r d6]] (_hand_, maybe others)",
-      "text": ""
+      "text": "variiert [[/r d6]] (_Hand_, vielleicht weitere)"
     },
     "armor": {
       "source": "4 (0 vs. bronze)",
-      "text": ""
+      "text": "4 (0 gegen Bronze)"
     },
     "moves": {
       "source": "- Do something one of its component beasts could do\n- Moan, wretchedly and disturbingly",
-      "text": ""
+      "text": "- Tue etwas, was eine deiner Tierkomponenten tun könnte.\n- Stöhne jämmerlich und verstörend."
     },
     "instinct/selected/to-get-confused-and-lash-out": {
       "source": "to get confused and lash out",
-      "text": ""
+      "text": "verwirrt zu sein und um sich zu schlagen"
     },
     "cost/selected/lots-of-fresh-blood": {
       "source": "lots of fresh blood",
-      "text": ""
+      "text": "jede Menge frisches Blut"
     }
   },
   "void-elemental": {
     "name": {
       "source": "Void elemental",
-      "text": ""
+      "text": "Elementar der Leere"
     },
     "specialQuality": {
       "source": "immune to most harm",
-      "text": ""
+      "text": "gegen die meisten Formen von Schaden immun"
     },
     "damage": {
       "source": "void touch [[/r 1d10]] w/advantage (_hand_, _grabby_, ignores armor)",
-      "text": ""
+      "text": "Berührung der Leere [[/r 1d10]] mit Vorteil(_Hand_, _Fesselnd_, ignoriert Rüstung)"
     },
     "armor": {
       "source": "1 (lacks organs)",
-      "text": ""
+      "text": "1 (keine Organe)"
     },
     "moves": {
       "source": "- Manifest as a black hole in reality\n- Snuff out a source of energy\n- Become confused, unsure what to do",
-      "text": ""
+      "text": "- Manifestiere dich als schwarzes Loch in der Wirklichkeit.\n- Lösche eine Energiequelle aus.\n- Werde verwirrt und weiß nicht, was du tun sollst."
     },
     "instinct/selected/to-rage-at-all-the-noise-and-chaos": {
       "source": "to rage at all the noise and chaos",
-      "text": ""
+      "text": "angesichts all des Lärms und Chaos zu toben"
     }
   },
   "_folders": {

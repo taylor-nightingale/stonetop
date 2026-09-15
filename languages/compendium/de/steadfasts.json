@@ -80,7 +80,7 @@
     },
     "assets/resources/timber": {
       "source": "Timber",
-      "text": "Holz"
+      "text": "Bauholz"
     },
     "assets/resources/goats": {
       "source": "Goats",
@@ -206,19 +206,19 @@
   "north-manmarch-hamlet": {
     "name": {
       "source": "North Manmarch (Hamlet)",
-      "text": ""
+      "text": "Nördliche Grenzmark (Weiler)"
     },
     "assets/resources/trade-with-other-hamlets": {
       "source": "Trade with other hamlets",
-      "text": ""
+      "text": "Handel mit anderen Weilern"
     },
     "assets/resources/livestock-pigs-goats-sheep-meat-milk-wool": {
       "source": "Livestock (pigs, goats, sheep, meat, milk, wool)",
-      "text": ""
+      "text": "Viehzucht (Schweine, Ziegen, Schafe, Fleisch, Milch, Wolle)"
     },
     "assets/resources/farming-wheat-barley-oats": {
       "source": "Farming (wheat, barley, oats,",
-      "text": ""
+      "text": "Ackerbau (Weizen, Gerste, Hafer, Honig, Met)"
     },
     "assets/resources/honey-mead": {
       "source": "honey, mead)",
@@ -226,85 +226,85 @@
     },
     "assets/resources/timber": {
       "source": "Timber",
-      "text": ""
+      "text": "Bauholz"
     },
     "assets/resources/trapping-fur-meat": {
       "source": "Trapping (fur, meat)",
-      "text": ""
+      "text": "Fallenstellen (Pelze, Fleisch)"
     },
     "assets/resources/mining-amber-salt-and-or-iron": {
       "source": "Mining (amber, salt, and/or iron)",
-      "text": ""
+      "text": "Bergbau (Bernstein, Salz und/oder Eisen)"
     },
     "assets/fortifications/warrior-culture": {
       "source": "Warrior culture",
-      "text": ""
+      "text": "Kriegerkultur"
     },
     "assets/fortifications/iron-weapons-wooden-shields": {
       "source": "Iron weapons, wooden shields",
-      "text": ""
+      "text": "Eisenwaffen, Holzschilde"
     },
     "assets/fortifications/protection-from-the-local-chief": {
       "source": "Protection from the local chief",
-      "text": ""
+      "text": "Schutz durch den lokalen Häuptling"
     }
   },
   "north-manmarch-hillfort": {
     "name": {
       "source": "North Manmarch (Hillfort)",
-      "text": ""
+      "text": "Nördliche Grenzmark (Hügelfestung)"
     },
     "assets/resources/trade-with-other-hillforts": {
       "source": "Trade with other hillforts",
-      "text": ""
+      "text": "Handel mit anderen Hügelfestungen"
     },
     "assets/resources/trade-with-marshedge-and-or": {
       "source": "Trade with Marshedge and/or",
-      "text": ""
+      "text": "Handel mit Moresrand und/oder"
     },
     "assets/resources/lygos-textile-spices-glass-herbs-finery": {
       "source": "Lygos (textile, spices, glass, herbs, finery)",
-      "text": ""
+      "text": "Lygos (Textilien, Gewürze, Glas, Kräuter, Schmuck)"
     },
     "assets/resources/taxes-from-surrounding-hamlets": {
       "source": "Taxes from surrounding hamlets",
-      "text": ""
+      "text": "Steuern aus den umliegenden Weilern"
     },
     "assets/resources/trades-smithing-tanning-pottery": {
       "source": "Trades: smithing, tanning, pottery",
-      "text": ""
+      "text": "Handwerk: Schmiedekunst, Gerberei, Töpferei"
     },
     "assets/resources/livestock-pigs-goats-sheep-meat-milk-wool": {
       "source": "Livestock (pigs, goats, sheep, meat, milk, wool)",
-      "text": ""
+      "text": "Viehzucht (Schweine, Ziegen, Schafe, Fleisch, Milch, Wolle)"
     },
     "assets/resources/market-for-surrounding-hamlets": {
       "source": "Market (for surrounding hamlets)",
-      "text": ""
+      "text": "Markt (für die umliegenden Weiler)"
     },
     "assets/resources/timber": {
       "source": "Timber",
-      "text": ""
+      "text": "Bauholz"
     },
     "assets/fortifications/a-dozen-or-so-professional-warriors": {
       "source": "A dozen or so professional warriors",
-      "text": ""
+      "text": "Etwa ein Dutzend Berufskrieger"
     },
     "assets/fortifications/rotating-recruits-from-the-hamlets": {
       "source": "Rotating recruits from the hamlets",
-      "text": ""
+      "text": "Wechselnde Rekruten aus den Weilern"
     },
     "assets/fortifications/iron-weapons-wooden-shields": {
       "source": "Iron weapons, wooden shields",
-      "text": ""
+      "text": "Eisenwaffen, Holzschilde"
     },
     "assets/fortifications/series-of-earthen-ramparts": {
       "source": "Series of earthen ramparts",
-      "text": ""
+      "text": "Mehrere Erdwällen"
     },
     "assets/fortifications/palisades": {
       "source": "Palisades",
-      "text": ""
+      "text": "Palisaden"
     }
   },
   "stonetop": {
@@ -362,7 +362,7 @@
     },
     "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming": {
       "source": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
-      "text": "Zwei robuste Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege."
+      "text": "Ein Paar kräftige Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege."
     },
     "assets/items/a-pair-of-horse-drawn-plows-iron": {
       "source": "A pair of horse-drawn plows, iron",
@@ -738,59 +738,59 @@
     },
     "placesOfInterest/0/name": {
       "source": "The Stone",
-      "text": ""
+      "text": "Der Stein"
     },
     "placesOfInterest/1/name": {
       "source": "The Granary",
-      "text": ""
+      "text": "Der Getreidespeicher"
     },
     "placesOfInterest/2/name": {
       "source": "Public House & Stables",
-      "text": ""
+      "text": "Schänke & Stallungen"
     },
     "placesOfInterest/3/name": {
       "source": "Cistern",
-      "text": ""
+      "text": "Zisterne"
     },
     "placesOfInterest/4/name": {
       "source": "Pavilion of the Gods",
-      "text": ""
+      "text": "Pavillon der Götter"
     },
     "placesOfInterest/5/name": {
       "source": "Watchtowers",
-      "text": ""
+      "text": "Wachtürme"
     },
     "neighborPlaces/marshedge/name": {
       "source": "Marshedge",
-      "text": ""
+      "text": "Moresrand"
     },
     "neighborPlaces/gordins-delve/name": {
       "source": "Gordin's Delve",
-      "text": ""
+      "text": "Gordins Binge"
     },
     "neighborPlaces/steplands/name": {
       "source": "The Steplands",
-      "text": ""
+      "text": "Die Stufenlande"
     },
     "neighborPlaces/steplands/subtitle": {
       "source": "Hillfolk",
-      "text": ""
+      "text": "Hügelvolk"
     },
     "neighborPlaces/lygos/name": {
       "source": "Lygos",
-      "text": ""
+      "text": "Lygos"
     },
     "neighborPlaces/lygos/subtitle": {
       "source": "and other points south",
-      "text": ""
+      "text": "und andere Orte im Süden"
     },
     "neighborPlaces/other/name": {
       "source": "Other places",
-      "text": ""
+      "text": "Andere Orte"
     },
     "neighborPlaces/other/subtitle": {
       "source": "Barrier Pass, the Manmarch, etc.",
-      "text": ""
+      "text": "Barrierenpass, die Grenzmark, usw."
     }
   },
   "the-frozen-wastes": {
@@ -884,113 +884,113 @@
   "the-whitefang-mountains-fortress-monastery": {
     "name": {
       "source": "The Whitefang Mountains (Fortress-Monastery)",
-      "text": ""
+      "text": "Das Weißfanggebirge (Klosterfestung)"
     },
     "assets/resources/trade-with-nearby-farm-valleys-food-livestock-wool": {
       "source": "Trade with nearby farm valleys (food, livestock, wool)",
-      "text": ""
+      "text": "Handel mit nahe gelegenen Bergbauernhöfen (Nahrung, Vieh, Wolle)"
     },
     "assets/resources/tithes-from-nearby-farm-valleys": {
       "source": "Tithes from nearby farm valleys",
-      "text": ""
+      "text": "Abgaben von nahe gelegenen Bergbauernhöfen"
     },
     "assets/resources/terraced-gardens-barley-lentils": {
       "source": "Terraced gardens (barley, lentils)",
-      "text": ""
+      "text": "Terrassengärten (Gerste, Linsen)"
     },
     "assets/resources/livestock-goats-sheep-milk-meat": {
       "source": "Livestock (goats, sheep, milk, meat)",
-      "text": ""
+      "text": "Viehzucht (Ziegen, Schafe, Milch, Fleisch)"
     },
     "assets/resources/fine-wool": {
       "source": "Fine wool",
-      "text": ""
+      "text": "Feine Wolle"
     },
     "assets/resources/parchment-vellum-ink": {
       "source": "Parchment, vellum, ink",
-      "text": ""
+      "text": "Pergament, Velin, Tinte"
     },
     "assets/resources/trades-bronze-smithing-weaving-dyeing-tanning-scribing-etc": {
       "source": "Trades: bronze-smithing, weaving, dyeing, tanning, scribing, etc.",
-      "text": ""
+      "text": "Handwerk: Bronzeschmiedekunst, Weberei, Färberei, Gerberei, Schreibkunst, usw."
     },
     "assets/resources/rime-lord-artifacts": {
       "source": "Rime Lord artifacts",
-      "text": ""
+      "text": "Artefakte der Frostfürsten"
     },
     "assets/fortifications/guardians-page-33": {
       "source": "Guardians (page 33)",
-      "text": ""
+      "text": "Wächter"
     },
     "assets/fortifications/at-least-one-adept-page-328": {
       "source": "At least one adept (page 328)",
-      "text": ""
+      "text": "Mindestens ein Adept"
     },
     "assets/fortifications/one-or-more-tulpas-page-324": {
       "source": "One or more tulpas (page 324)",
-      "text": ""
+      "text": "Ein oder mehrere Tulpas"
     },
     "assets/fortifications/weapons-armor-of-bronze-maybe-dark-ice-page-322": {
       "source": "Weapons/armor of bronze, maybe dark ice (page 322)",
-      "text": ""
+      "text": "Waffen/Rüstungen aus Bronze, vielleicht auch aus dunklem Eis"
     },
     "assets/fortifications/defensible-position": {
       "source": "Defensible position",
-      "text": ""
+      "text": "Gut zu verteidigende Lage"
     }
   },
   "the-whitefang-mountains-steading": {
     "name": {
       "source": "The Whitefang Mountains (Steading)",
-      "text": ""
+      "text": "Das Weißfanggebirge (Bergbauernhof)"
     },
     "assets/resources/trade-with-other-farm-valleys-food-spouses": {
       "source": "Trade with other farm valleys (food, spouses)",
-      "text": ""
+      "text": "Handel mit anderen Bergbauernhöfen (Nahrung, Ehepartnern)"
     },
     "assets/resources/trade-with-mammoth-herders-ivory-meat-dark-ice-see-page-322": {
       "source": "Trade with mammoth herders (ivory, meat, dark ice, see page 322)",
-      "text": ""
+      "text": "Handel mit Mammuthirten (Elfenbein, Fleisch, Dunkles Eis"
     },
     "assets/resources/farming-terraced-fields-barley-lentils": {
       "source": "Farming: terraced fields, barley, lentils",
-      "text": ""
+      "text": "Ackerbau: Terrassenfelder, Gerste, Linsen"
     },
     "assets/resources/livestock-goats-sheep-milk-meat": {
       "source": "Livestock: goats, sheep, milk, meat",
-      "text": ""
+      "text": "Viehzucht: Ziegen, Schafe, Milch, Fleisch"
     },
     "assets/resources/fine-wool": {
       "source": "Fine wool",
-      "text": ""
+      "text": "Feine Wolle"
     },
     "assets/resources/timber": {
       "source": "Timber",
-      "text": ""
+      "text": "Bauholz"
     },
     "assets/resources/hunting-fishing": {
       "source": "Hunting/fishing",
-      "text": ""
+      "text": "Jagd/Fischerei"
     },
     "assets/resources/trades-weaving-dyeing-bronzesmithing-etc": {
       "source": "Trades: weaving, dyeing, bronzesmithing, etc.",
-      "text": ""
+      "text": "Handwerk: Weberei, Färberei, Bronzeschmiedekunst usw."
     },
     "assets/fortifications/a-village": {
       "source": "a village",
-      "text": ""
+      "text": "ein Dorf"
     },
     "assets/fortifications/some-spears-slings-bows": {
       "source": "Some spears, slings, bows",
-      "text": ""
+      "text": "Einige Speere, Schleudern, Bögen"
     },
     "assets/fortifications/some-bronze-tools-weapons": {
       "source": "Some bronze tools/weapons",
-      "text": ""
+      "text": "Einige Werkzeuge/Waffen aus Bronze"
     },
     "assets/fortifications/protection-from-a-nearby-fortress-monastery": {
       "source": "Protection from a nearby fortress-monastery",
-      "text": ""
+      "text": "Schutz durch eine nahe gelegene Klosterfestung"
     }
   }
 }

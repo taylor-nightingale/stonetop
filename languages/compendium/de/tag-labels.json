@@ -58,7 +58,7 @@
     },
     "angry": {
       "source": "angry",
-      "text": "Zornig"
+      "text": "Wütend"
     },
     "annoying": {
       "source": "annoying",
@@ -154,7 +154,7 @@
     },
     "clumsy": {
       "source": "clumsy",
-      "text": "Unbeholfen"
+      "text": "Ungeschickt"
     },
     "confused": {
       "source": "confused",
@@ -694,7 +694,7 @@
     },
     "sly": {
       "source": "sly",
-      "text": "Listig"
+      "text": "Gerissen"
     },
     "small": {
       "source": "small",

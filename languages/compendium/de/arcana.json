@@ -132,47 +132,47 @@
   "beautiful-scroll": {
     "name": {
       "source": "A beautiful scroll",
-      "text": ""
+      "text": "Eine wunderschöne Schriftrolle"
     },
     "front/item/name": {
       "source": "A beautiful scroll",
-      "text": ""
+      "text": "Eine wunderschöne Schriftrolle"
     },
     "front/choices/beautiful-scroll/0/text": {
       "source": "Inside a case of carved ivory rests a scroll made of fine, almost gauzy wool. It is full of glyphs and diagrams, imprinted with rich dyes of red and black and yellow. The diagrams seem to depict some sort of meditative practice, resulting in some kind of familiar spirit?",
-      "text": ""
+      "text": "In einer Schatulle aus geschnitztem Elfenbein liegt eine Schriftrolle aus feiner, beinahe durchscheinender Wolle. Sie ist voller Glyphen und Diagramme, die mit kräftigen roten, schwarzen und gelben Farbstoffen aufgetragen wurden. Die Diagramme scheinen eine Art meditative Übung darzustellen, die zur Erschaffung eines vertrauten Geistes führen soll."
     },
     "front/choices/beautiful-scroll/1/text": {
       "source": "To unlock the mysteries of this scroll, you must…",
-      "text": ""
+      "text": "Um die Geheimnisse dieser Schriftrolle zu entschlüsseln, musst du…"
     },
     "front/choices/beautiful-scroll/have-some/text": {
       "source": "… have some talent for magic.",
-      "text": ""
+      "text": "… über ein gewisses Talent für Magie verfügen."
     },
     "front/choices/beautiful-scroll/decipher-rime/text": {
       "source": "… decipher the Rime Lord glyphs.",
-      "text": ""
+      "text": "… die Glyphen der Frostherren entziffern."
     },
     "front/choices/beautiful-scroll/spend-few/text": {
       "source": "… spend a few months practicing the meditative techniques it describes.",
-      "text": ""
+      "text": "… einige Monate damit verbringen, die darin beschriebenen Meditationstechniken zu üben."
     },
     "front/choices/beautiful-scroll/describe-name/text": {
       "source": "… describe and name the tiny spiritconstruct that you wish to create:",
-      "text": ""
+      "text": "… das winzige Geistkonstrukt, das du erschaffen möchtest, beschreiben und ihm einen Namen geben:"
     },
     "front/choices/beautiful-scroll/permanently-sacrifice/text": {
       "source": "… permanently sacrifice 2 HP to invest the tulpa with \"life.\"",
-      "text": ""
+      "text": "… dauerhaft 2 TP opfern, um den Tulpa mit „Leben“ zu erfüllen."
     },
     "back/title": {
       "source": "Little Friend",
-      "text": ""
+      "text": "Kleiner Freund"
     },
     "back/choices/intro/0/text": {
       "source": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.",
-      "text": ""
+      "text": "Du hast einen Tulpa erschaffen, den du wie einen Gefolgsmann handhabst. Wähle 2 zusätzliche Eigenschaften, einen Instinkt, 2 zusätzliche Spielzüge und seine Kosten."
     }
   },
   "blackwood-fetishes": {
@@ -474,39 +474,39 @@
   "cloak-richly-embroidered": {
     "name": {
       "source": "A cloak, richly embroidered",
-      "text": ""
+      "text": "Ein reich bestickter Umhang"
     },
     "front/item/name": {
       "source": "A cloak, richly embroidered",
-      "text": ""
+      "text": "Ein reich bestickter Umhang"
     },
     "front/choices/cloak-richly-embroidered/0/text": {
       "source": "An exquisitely fine wool, dyed a pale blue-gray and embroidered with stylized clouds. The edge boasts blue-white runes stitched with aetherium wire. It feels damp, smells of rain and ozone, and flutters in a breeze that isn’t there.",
-      "text": ""
+      "text": "Aus außergewöhnlich feiner Wolle, in einem zarten Blaugrau gefärbt und mit stilisierten Wolken bestickt. Den Saum zieren blau-weiße Runen, die mit Ätheriumdraht aufgestickt sind. Er fühlt sich feucht an, riecht nach Regen und Ozon und flattert in einer Brise, die gar nicht da ist."
     },
     "front/choices/cloak-richly-embroidered/1/text": {
       "source": "When you **_don the cloak_**, you become aware of the presence bound within, thrumming and impatient. To unlock the mysteries of the cloak, you must...",
-      "text": ""
+      "text": "Wenn du **_den Umhang anlegst_**,, wirst du dir der darin gebundenen Präsenz bewusst, die vor Ungeduld vibriert und darauf wartet, freigelassen zu werden. Um die Geheimnisse des Umhangs zu entschlüsseln, musst du…"
     },
     "front/choices/cloak-richly-embroidered/learn-name/text": {
       "source": "… learn the name of the bound spirit.",
-      "text": ""
+      "text": "… den Namen des gebundenen Geistes erfahren."
     },
     "front/choices/cloak-richly-embroidered/decipher-word/text": {
       "source": "… decipher the word of command, embroidered in ancient Maker-script.",
-      "text": ""
+      "text": "… das Befehlswort entziffern, das in alter Schöpferschrift eingestickt ist."
     },
     "front/choices/cloak-richly-embroidered/bend-spirit/text": {
       "source": "… bend the spirit to your will, risking its (destructive) escape.",
-      "text": ""
+      "text": "… den Geist deinem Willen unterwerfen und dabei seine (zerstörerische) Flucht riskieren."
     },
     "back/title": {
       "source": "Flying Cloak",
-      "text": ""
+      "text": "Fliegender Umhang"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_wear the cloak and speak the word of_** **_command_**, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.",
-      "text": ""
+      "text": "Wenn du **_den Umhang trägst und das Befehlswort sprichst_**, erwacht der Sturmgeist im Umhang zum Leben und gehorcht dir wie ein Gefolgsmann. Er will niemals landen; du musst seine Loyalität ausgeben oder ihn Überreden."
     }
   },
   "copper-banded-staff": {
@@ -612,31 +612,31 @@
   "cracked-flute": {
     "name": {
       "source": "A cracked flute",
-      "text": ""
+      "text": "Eine gesprungene Flöte"
     },
     "front/item/name": {
       "source": "A cracked flute",
-      "text": ""
+      "text": "Eine gesprungene Flöte"
     },
     "front/choices/cracked-flute/0/text": {
       "source": "A long, thick flute carved of redwood, with a thin but visible crack along the underside. It easily catches the wind and makes a piping sound. Anyone who plays a few notes on the flute can tell there’s some magic here.",
-      "text": ""
+      "text": "Eine lange, dicke, aus Rotholz geschnitzte Flöte, mit einem dünnen, aber deutlich sichtbaren Riss an der Unterseite. Sie fängt leicht den Wind ein und erzeugt einen pfeifenden Klang. Jeder, der ein paar Töne auf der Flöte spielt, kann erkennen, dass sie etwas Magisches an sich hat."
     },
     "front/choices/cracked-flute/1/text": {
       "source": "When you **_spend a few days practicing, playing_** **_the flute where the wind can hear you_**, roll +CHA: **on a 10+**, mark 1 circle; **on a 7-9**, mark 1 circle, but you summon an irate zephyr spirit; **on a 6-**, you make no progress but do manage to summon an irate zephyr.",
-      "text": ""
+      "text": "Wenn du **_einige Tage lang übst und dabei die Flöte dort spielst, wo der Wind dich hören kann_**, würfle +CH. **Bei einer 10+** markiere 1 Kreis. **Bei 7–9** markiere 1 Kreis, aber du beschwörst einen zornigen Zephyrgeist. Bei einer **6−** machst du keine Fortschritte, schaffst es aber dennoch, einen zornigen Zephyrgeist zu beschwören."
     },
     "front/choices/cracked-flute/marks/text": {
       "source": "Marks",
-      "text": ""
+      "text": "Markierungen"
     },
     "back/title": {
       "source": "Dancing Wind Spirit",
-      "text": ""
+      "text": "Tanzender Windgeist"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_play a tune to make the wind itself_** **_dance_**, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds 1 Loyalty to start. When you **_dismiss the spirit_** **_while it holds no Loyalty_**, the flute splits and falls apart; the andalau is set free.",
-      "text": ""
+      "text": "Wenn du **_eine Melodie spielst, die den Wind selbst zum Tanzen bringt_**, manifestiert sich der an die Flöte gebundene Andalau (Zephyrgeist). Behandle ihn wie einen Gefolgsmann; zu Beginn hat er 1 Loyalität. Wenn du **_den Geist fortschickst, während er keine Loyalität mehr hat_**, zerbricht die Flöte und fällt auseinander; der Andalau wird darauf freigelassen."
     }
   },
   "creepy-cave": {
@@ -1536,77 +1536,77 @@
   "makerglass-chime": {
     "name": {
       "source": "A makerglass chime",
-      "text": ""
+      "text": "Ein Klangkörper aus Schöpferglas"
     },
     "front/item/name": {
       "source": "A makerglass chime",
-      "text": ""
+      "text": "Ein Klangkörper aus Schöpferglas"
     },
     "front/choices/makerglass-chime/0/text": {
       "source": "A cylinder about 4 feet long and 3 inches wide, the glass surprisingly thin. It rings with a rich, sonorous chime when struck softly. When struck firmly, the sound is almost deafening and causes a rippling pattern to appear on the surface of nearby stone, crystal, or mundane glass.",
-      "text": ""
+      "text": "Ein Zylinder aus überraschend dünnem Glas, von etwa 4 Fuß Länge und 3 Zoll Breite. Schlägt man ihn leicht an, erklingt ein voller, wohlklingender Ton. Schlägt man kräftig darauf, ist der Klang beinahe ohrenbetäubend und lässt auf den Oberflächen von nahegelegenem Stein, Kristall oder gewöhnlichem Glas ein Wellenmuster erscheinen."
     },
     "front/choices/makerglass-chime/1/text": {
       "source": "The chime is a powerful tool, if you can unlock its secrets. To do so…",
-      "text": ""
+      "text": "Der Klangkörper ist ein mächtiges Werkzeug, wenn es dir gelingt, seine Geheimnisse zu entschlüsseln. Um dies zu erreichen…"
     },
     "front/choices/makerglass-chime/grasp-firmly/text": {
       "source": "… grasp it firmly and deliver a solid, mighty blow, rolling +CON: **on a 10+**, you’ve got it; **on a 7-9**, mark a debility and you’ll need to try again; **on a 6-**, ask the GM what goes terribly wrong.",
-      "text": ""
+      "text": "… packe ihn fest und versetze ihm einen kräftigen, gewaltigen Schlag, würfle +KO. **Bei einer 10+** hast du es geschafft. **Bei 7–9** markiere eine Beeinträchtigung und du musst es erneut versuchen. **Bei einer 6-** frage den SL, was schrecklich schief gelaufen ist."
     },
     "front/choices/makerglass-chime/spend-week/text": {
       "source": "… spend a week or so learning to control the ringing chime.",
-      "text": ""
+      "text": "… verbringe etwa eine Woche damit, zu lernen, den Klangkörper zu kontrollieren."
     },
     "front/choices/makerglass-chime/risk-permanent/text": {
       "source": "… you risk permanent harm to your hearing and major damage to anything nearby while you practice.",
-      "text": ""
+      "text": "… riskiere während des Übens bleibende Schäden an deinem Gehör und massive Schäden an allem, was sich in deiner Nähe befindet."
     },
     "back/title": {
       "source": "Make Pliant the Stone",
-      "text": ""
+      "text": "Den Stein formbar machen"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_strike the chime forcefully and will_** **_yourself to maintain your grip upon it_**, mark a debility and roll +CON.\n\n**On a 10+**, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.\n\n**On a 7-9**, pick 1:\n\n- Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility\n- Realize that you can’t control it and dampen the chime before it causes any harm (say how)",
-      "text": ""
+      "text": "Wenn du **_den Klangkörper mit aller Kraft anschlägst und dich mit aller Willenskraft dazu zwingst, ihn festzuhalten_**, markiere eine Beeinträchtigung und würfle +KO.\n\n**Bei einer 10+** behältst du die Kontrolle und der Klang ertönt etwa eine Minute lang. Während er erklingt, wird jeder Stein, Kristall oder jedes Glas, das du mit dem Klangkörper berührst, weich und formbar und lässt sich leicht formen und modellieren. Je länger der Kontakt andauert, desto formbarer wird das Material. Sobald der Klang verstummt, erlangt das Material seine ursprüngliche Härte zurück, behält jedoch seine aktuelle Form.\n\n**Bei 7–9** wähle 1.\n\n- Behalte die Kontrolle wie bei einer 10+, aber du musst dich vollkommen auf die Anstrengung konzentrieren – markiere eine weitere Beeinträchtigung.\n- Erkenne, dass du die Kontrolle verlierst, und dämpfe den Klang, bevor er Schaden anrichtet (beschreibe, wie)."
     }
   },
   "metal-man": {
     "name": {
       "source": "A metal man",
-      "text": ""
+      "text": "Ein Metallmann"
     },
     "front/choices/metal-man/0/text": {
       "source": "A bronze statue, but not really a statue, more like bits of armor cleverly joined around a skeleton of interlocking pipes. And the \"chest\" is less a breastplate than a little potbelly stove. Intricate runes are barely visible under the thing’s patina. It’s dented, cracked, and torn apart, but a careful search will turn up all the pieces.",
-      "text": ""
+      "text": "Eine Bronzestatue – aber nicht wirklich eine Statue. Eher Teile einer Rüstung, geschickt um ein Skelett aus ineinandergreifenden Rohren zusammengefügt. Und eigentlich ist der „Brustkorb“ weniger ein Brustpanzer als vielmehr ein kleiner bauchiger Ofen. Feine Runen sind unter der Patina kaum sichtbar. Er ist verbeult, rissig und auseinandergerissen, aber eine sorgfältige Suche wird alle Teile zutage fördern."
     },
     "front/choices/metal-man/1/text": {
       "source": "This is clearly no mere statue, but to unlock its mysteries you need to…",
-      "text": ""
+      "text": "Dies ist offensichtlich keine gewöhnliche Statue, aber um ihre Geheimnisse zu entschlüsseln, musst du…"
     },
     "front/choices/metal-man/repair-body/text": {
       "source": "… repair the body, taking a full season for an *exceptional* smith (Value 3).",
-      "text": ""
+      "text": "… den Körper instand setzen, wofür ein außergewöhnlich guter Schmied eine ganze Jahreszeit benötigt (Wert 3)."
     },
     "front/choices/metal-man/spend-few/text": {
       "source": "… spend a few weeks repairing the runes, risking a mistake that makes them ineffective or unstable.",
-      "text": ""
+      "text": "… einige Wochen damit verbringen, die Runen wiederherzustellen, wobei du das Risiko eingehst, einen Fehler zu machen, der sie unwirksam oder instabil macht."
     },
     "front/choices/metal-man/convince-own/text": {
       "source": "… convince your own hearth’s spirit to inhabit the stove and animate the construct.",
-      "text": ""
+      "text": "… den Geist deiner eigenen Feuerstelle davon überzeugen, in den Ofen einzuziehen und das Konstrukt zu beleben."
     },
     "back/title": {
       "source": "Bronze Protector",
-      "text": ""
+      "text": "Bronzener Beschützer"
     },
     "back/resource/title": {
       "source": "Readiness",
-      "text": ""
+      "text": "Bereitschaft"
     },
     "back/choices/intro/0/text": {
       "source": "As long as **_fire burns in in the stove-like chest_**, the hearth spirit will animate the construct. Treat it as a follower.",
-      "text": ""
+      "text": "Solange Feuer in der ofenartigen Brust brennt, belebt der Geist der Feuerstelle das Konstrukt. Behandle ihn wie einen Gefolgsmann."
     }
   },
   "metal-puzzle-box": {
@@ -2258,55 +2258,55 @@
   "redwood-basin": {
     "name": {
       "source": "A redwood basin",
-      "text": ""
+      "text": "Eine Schale aus Rotholz"
     },
     "front/item/name": {
       "source": "A redwood basin",
-      "text": ""
+      "text": "Eine Schale aus Rotholz"
     },
     "front/choices/redwood-basin/0/text": {
       "source": "A wide, shallow bowl carved with flowers and thorny vines, twining through skulls of deer and other beasts. The pattern shifts when you aren’t looking; it’s never exactly the same twice.",
-      "text": ""
+      "text": "Eine breite, flache Schale, in die Blumen und dornige Ranken geschnitzt sind, die sich durch die Schädel von Hirschen und anderen Tieren winden. Das Muster verändert sich, wenn man nicht hinschaut; es ist nie zweimal genau dasselbe."
     },
     "front/choices/redwood-basin/1/text": {
       "source": "To unlock the mysteries of the basin, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse der Schale zu entschlüsseln, musst du …"
     },
     "front/choices/redwood-basin/befriend-spirit/text": {
       "source": "… befriend the spirit of life and vitality that dwells within.",
-      "text": ""
+      "text": "… den Geist des Lebens und der Lebenskraft, der in ihr wohnt, zu deinem Freund machen."
     },
     "front/choices/redwood-basin/learn-fae/text": {
       "source": "… learn from a Fae how to pour years of your life into the basin.",
-      "text": ""
+      "text": "… von einer Fee lernen, wie man Jahre seines eigenen Lebens in die Schale gießt."
     },
     "front/choices/redwood-basin/fill-basin/text": {
       "source": "… fill the basin with a few years of your life. When you **_mark the last requirement and unlock_** **_this arcanum_**, mark your current age on the other side. Then trigger the Bittersweet Elixir move.",
-      "text": ""
+      "text": "… die Schale mit einigen Jahren deines Lebens füllen. Wenn du **_die letzte Voraussetzung erfüllst und dieses Arkanum freischaltest_**, trage dein aktuelles Alter auf der anderen Seite ein. Löse anschließend den Spielzug „Bittersüßes Elixier“ aus."
     },
     "back/title": {
       "source": "Bittersweet Elixir",
-      "text": ""
+      "text": "Bittersüßes Elixier"
     },
     "back/item/name": {
       "source": "A redwood basin",
-      "text": ""
+      "text": "Eine Schale aus Rotholz"
     },
     "back/resource/labels/youthful": {
       "source": "youthful",
-      "text": ""
+      "text": "jung"
     },
     "back/resource/labels/mature": {
       "source": "mature",
-      "text": ""
+      "text": "reif"
     },
     "back/resource/labels/elderly": {
       "source": "elderly",
-      "text": ""
+      "text": "alt"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_fill the basin with a few years of your_** **_life_**, it becomes a draught of honey and regret. Either mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):\n\n- Your mood shifts, dramatically (how?)\n- You see the Last Door (what’s it like?)\n- Reduce STR, DEX, or CON by 1\n- You have less than a year to live When someone **_drinks down all of the bitter_****_sweet elixir, straight from the basin_**, they pick 1:\n- Regain all HP, clear all debilities, and heal any active problematic wounds\n- Purge themselves of all poison/disease\n- Fully recover from a permanent injury by next season’s end, or sooner",
-      "text": ""
+      "text": "Wenn du **_die Schale mit einigen Jahren deines Lebens füllst_**, wird daraus ein Trank aus Honig und Bedauern. Entweder wählst du das nächsthöhere Alter (und passt dein Aussehen an), während dich die verlorenen Jahre einholen, oder du wählst eine der folgenden Optionen (deine Wahl):\n\n- Deine Stimmung ändert sich dramatisch (wie?)\n- Du erblickst die Letzte Tür (Wie sieht sie aus?)\n- Verringere ST, GE oder KO um 1\n- Du hast weniger als ein Jahr zu leben\n\nWenn jemand **_das gesamte bittersüße Elixier direkt aus der Schale trinkt_**, wählt er eines:\n- Gewinne alle TP zurück, beseitige alle Beeinträchtigungn und heile alle aktuell problematischen Wunden\n- Reinige dich vollständig von allen Giften und Krankheiten.\n- Erhole dich bis zum Ende der nächsten Jahreszeit vollständig von einer dauerhaften Verletzung, oder früher"
     }
   },
   "redwood-effigy": {
@@ -2658,39 +2658,39 @@
   "rusty-cauldron": {
     "name": {
       "source": "A rusty cauldron",
-      "text": ""
+      "text": "Ein rostiger Kessel"
     },
     "front/choices/rusty-cauldron/0/text": {
       "source": "Big enough for a grown man to crawl inside, pitted and scratched, engraved with whorly rune-like patterns. The whole thing is caked with rust. At least, you hope that’s rust.",
-      "text": ""
+      "text": "Groß genug, dass ein erwachsener Mann hineinkriechen kann, zerbeult und zerkratzt, mit geschwungen0en, runenartigen Mustern verziert. Das ganze Ding ist mit Rost überzogen. Oder zumindest hoffst du, dass es Rost ist."
     },
     "front/choices/rusty-cauldron/1/text": {
       "source": "The thing has a sinister feel, and you can sense its power. To unlock the cauldron’s mysteries, you must…",
-      "text": ""
+      "text": "Das Ding hat etwas Unheimliches an sich, und du kannst seine Macht spüren. Um die Geheimnisse des Kessels zu entschlüsseln, musst du …"
     },
     "front/choices/rusty-cauldron/thoroughly-scrub/text": {
       "source": "… thoroughly scrub the rust from the cauldron.",
-      "text": ""
+      "text": "… den Rost gründlich vom Kessel schrubben."
     },
     "front/choices/rusty-cauldron/spend-seven/text": {
       "source": "… spend seven nights sleeping in the cauldron, dreaming foul dreams, marking a debility each time.",
-      "text": ""
+      "text": "… sieben Nächte im Kessel schlafen und dabei üble Träume haben; markiere jedes Mal eine Beeinträchtigung."
     },
     "front/choices/rusty-cauldron/boil-bones/text": {
       "source": "… boil the bones of a beast that you honestly loved or valued, mixing in some of your fresh blood.",
-      "text": ""
+      "text": "… die Knochen eines Tieres auskochen, das du aufrichtig geliebt oder geschätzt hast, und etwas von deinem frischen Blut hinzugeben."
     },
     "front/choices/rusty-cauldron/bring-wretched/text": {
       "source": "… bring the wretched thing that arises under your control.",
-      "text": ""
+      "text": "… das elende Ding, das daraus hervorgeht, unter deine Kontrolle bringen."
     },
     "back/title": {
       "source": "Unliving Chimera",
-      "text": ""
+      "text": "Untote Chimäre"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_boil the bones of beasts in the cauldron_** **_and stir in your own fresh blood,_** mark up to 3 debilities. An unliving chimera rises from the cauldron. Treat it as a follower, with a tag for each beast whose bones you used (*bear-like*, *owl-like*, etc.).\n\nFor each debility you marked, pick 1:\n\n- It is stable (else, it falls apart in a day)\n- It is not *clumsy*\n- Replace its instinct with \"to shun light\"",
-      "text": ""
+      "text": "Wenn du **_die Knochen von Tieren im Kessel auskochst und dein eigenes frisches Blut hinzugibst_**, markiere bis zu 3 Beeinträchtigungen. Eine untote Chimäre erhebt sich aus dem Kessel. Behandle sie wie einen Gefolgsmann, mit einer Eigenschaft für jedes Tier, dessen Knochen du verwendet hast (bärenartig, eulenartig usw.).\n\nWähle für jede markierte Beeinträchtigung 1:\n\n- Sie ist stabil (andernfalls fällt sie innerhalb eines Tages auseinander).\n- Sie ist nicht *Ungeschickt*.\n- Ersetze ihren Instinkt durch „Licht zu meiden“."
     }
   },
   "rusty-steel-blade": {
@@ -2762,35 +2762,35 @@
   "scroll-and-bone-flute": {
     "name": {
       "source": "A scroll & a bone flute",
-      "text": ""
+      "text": "Eine Schriftrolle & eine Knochenflöte"
     },
     "front/item/name": {
       "source": "A scroll & a bone flute",
-      "text": ""
+      "text": "Eine Schriftrolle & eine Knochenflöte"
     },
     "front/choices/scroll-and-bone-flute/0/text": {
       "source": "A scroll, written in a cramped hand and seemingly nonsensical script, with a series of graph-like diagrams. It is accompanied by a flute of bone (from a human arm?). The notes reveal themselves to be a cipher; the graph is perhaps the notation for a song.",
-      "text": ""
+      "text": "Eine Schriftrolle, die in einer schwer lesbaren Handschrift und scheinbar unsinnigen Schriftzeichen verfasst ist und eine Reihe von Diagrammen enthält, die wie Graphen aussehen. Dazu gehört eine Flöte aus Knochen (von einem menschlichen Arm?). Die Notizen entpuppen sich als Chiffre; der Graph ist vielleicht die Notation für ein Lied."
     },
     "front/choices/scroll-and-bone-flute/1/text": {
       "source": "You can unlock the secrets of the scroll and flute, but…",
-      "text": ""
+      "text": "Du kannst die Geheimnisse der Schriftrolle und der Flöte entschlüsseln, aber…"
     },
     "front/choices/scroll-and-bone-flute/first-decipher/text": {
       "source": "… you must first decipher the notes, which will take a few weeks of effort.",
-      "text": ""
+      "text": "… du musst zunächst die Noten entziffern, was einige Wochen Arbeit erfordert."
     },
     "front/choices/scroll-and-bone-flute/first-time/text": {
       "source": "… the first time you use the flute, you risk getting the music wrong and aggravating the dool spirit.",
-      "text": ""
+      "text": "… wenn du die Flöte zum ersten Mal benutzt, riskierst du, die Melodie falsch zu spielen und dadurch den Doolgeist zu verärgern."
     },
     "back/title": {
       "source": "Song of the Dool Trees",
-      "text": ""
+      "text": "Lied der Doolbäume"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_stand among dool trees and play the_** **_proper tune on a flute of a murderer’s bone_**, you summon a dool spirit and bind it to your service. Treat it as a follower. Only one dool spirit will serve you at a time.",
-      "text": ""
+      "text": "Wenn du zwischen Doolbäumen stehst und auf einer Flöte aus dem Knochen eines Mörders die richtige Melodie spielst, beschwörst du einen Doolgeist und bindest ihn an dich. Behandle ihn wie einen Gefolgsmann. Es kann dir immer nur ein Doolgeist gleichzeitig dienen."
     }
   },
   "sealed-cave": {
@@ -3022,159 +3022,159 @@
   "staff-of-the-lidless-orb": {
     "name": {
       "source": "Staff of the Lidless Orb",
-      "text": ""
+      "text": "Stab der lidlosen Kugel"
     },
     "front/item/name": {
       "source": "Staff of the Lidless Orb",
-      "text": ""
+      "text": "Stab der lidlosen Kugel"
     },
     "front/choices/staff-of-the-lidless-orb/0/text": {
       "source": "A sphere of greenish glass, etched with a cat’s-eye design and set atop a staff of rough, pitted black iron. The orb catches the light and seems to glow, and the pupil seems to widen in the dark and narrow to a slit in daylight.\n\nAnd sometimes, you could swear, it seems to look about on its own.\n\nBut that’s preposterous.",
-      "text": ""
+      "text": "Eine Kugel aus grünlichem Glas, in die das Muster eines Katzenauges eingraviert ist und die auf einem Stab aus rauem, narbigem schwarzen Eisen sitzt. Die Kugel fängt das Licht ein und scheint zu leuchten, und die Pupille scheint sich im Dunkeln zu weiten und sich bei Tageslicht zu einem schmalen Schlitz zu verengen.\n\nUnd manchmal könntest du schwören, dass sie sich scheinbar von selbst umsieht.\n\nAber das ist natürlich absurd."
     },
     "front/choices/staff-of-the-lidless-orb/1/text": {
       "source": "When you **_grip the staff, close your eyes, and see through the Lidless Orb_**, roll +CON: **on a 10+**, choose 3 from the list below; **on a 7-9**, choose 1.\n- The orb sees through darkness, natural or magical\n- The orb sees through illusion, glamour, and invisibility\n- The orb can see strong emotions as auras radiating from people and lingering\n- on places\n- You can move about and operate effectively while seeing through the orb (otherwise, not so much) Whatever you choose, the effect lasts until you open your eyes or let go of the staff.\n\n**On a 6-**, the orb shows you a terrible vision of some distant time or place. Mark 1 (or see below) and ask the GM what you see. While the vision lasts, you are oblivious to the world around you and have disadvantage on your first roll after coming to.",
-      "text": ""
+      "text": "Wenn du **_den Stab umfasst, die Augen schließt und durch die lidlose Kugel siehst_**, würfle +KO. **Bei einer 10+** wähle 3 aus der folgenden Liste. **Bei 7–9** wähle 1.\n\n\n- Die Kugel sieht durch natürliche oder magische Dunkelheit hindurch.\n- Die Kugel sieht durch Illusionen, Trugbilder und Unsichtbarkeit hindurch.\n- Die Kugel kann starke Emotionen als Auren erkennen, die von Menschen ausstrahlen und an Orten verweilen.\n- Du kannst dich bewegen und effektiv handeln, während du durch die Kugel siehst (andernfalls eher nicht).\n\nWas auch immer du wählst, der Effekt hält an, bis du die Augen öffnest oder den Stab loslässt.\n\nBei einer 6− zeigt dir die Kugel eine schreckliche Vision von einem fernen Ort oder einer fernen Zeit. Markiere 1 (oder siehe unten) und frage den SL, was du siehst. Solange die Vision andauert, nimmst du die Welt um dich herum nicht wahr und du hast bei deinem ersten Wurf, nachdem du wieder zu dir gekommen bist, einen Nachteil."
     },
     "front/choices/staff-of-the-lidless-orb/2/text": {
       "source": "When you **_make the last mark_**, you unlock the mysteries of the Staff and can use Power of the Lidless Orb (see reverse). Mark one of the four effects (your choice); you can produce that effect.",
-      "text": ""
+      "text": "Wenn du **_die letzte Stelle markierst_**, enthüllst du die Geheimnisse des Stabs und kannst Macht der lidlosen Kugel einsetzen (siehe Rückseite). Markiere einen der vier Effekte (deine Wahl); du kannst diesen Effekt hervorrufen."
     },
     "front/choices/staff-of-the-lidless-orb/3/text": {
       "source": "When you **_would mark a circle but have already marked all three_**, mark a new effect for Power of the Lidless Orb. You can now produce that effect.",
-      "text": ""
+      "text": "Wenn du **_die letzte Stelle markierst, aber bereits alle drei markiert hast_**, markiere stattdessen einen neuen Effekt für Macht der lidlosen Kugel. Du kannst nun auch diesen Effekt hervorrufen."
     },
     "front/choices/staff-of-the-lidless-orb/marks/text": {
       "source": "Marks",
-      "text": ""
+      "text": "Markierungen"
     },
     "back/title": {
       "source": "Mysteries of the Staff of the Lidless Orb",
-      "text": ""
+      "text": "Geheimnisse des Stabs der lidlosen Kugel"
     },
     "back/choices/moves/title": {
       "source": "Moves",
-      "text": ""
+      "text": "Spielzüge"
     },
     "back/choices/consequences/title": {
       "source": "Consequences",
-      "text": ""
+      "text": "Konsequenzen"
     },
     "back/choices/consequences/orb-c1/text": {
       "source": "One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected.",
-      "text": ""
+      "text": "Eines deiner Augen wird seltsam, wölbt sich hervor, ist schmerzhaft und verfärbt. Dein Sehvermögen bleibt weitgehend unbeeinträchtigt."
     },
     "back/choices/consequences/orb-c2/text": {
       "source": "Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the *miserable* debility.",
-      "text": ""
+      "text": "Dein anderes Auge schrumpft, verkümmert und wird bleich und leer. Schmerzende Warzen sprießen rund um die Augenhöhle. Markiere dauerhaft die Beeinträchtigung Miserabel."
     },
     "back/choices/consequences/orb-c3/text": {
       "source": "You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed.",
-      "text": ""
+      "text": "Überall an deinem Körper beginnen warzenartige, schuppenähnliche Auswüchse zu sprießen. Sie wachsen weiter, bis du +1 Rüstung erhältst, doch Sterbliche, die diese Auswüchse sehen, fühlen sich meist abgestoßen."
     },
     "back/choices/consequences/orb-c4/text": {
       "source": "You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and hold a strange fascination.",
-      "text": ""
+      "text": "Du wirst unfähig, Schönheit wahrzunehmen. Deine Sinne bleiben unverändert, doch nichts erscheint dir mehr als schön. Groteske und schreckliche Anblicke berühren dich nach wie vor und üben eine seltsame Faszination auf dich aus."
     },
     "back/choices/consequences/orb-c5/text": {
       "source": "Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\"",
-      "text": ""
+      "text": "Ersetze deinen Instinkt durch: „Ekel: Über schreckliche und groteske Dinge staunen.“"
     },
     "back/choices/consequences/orb-c6/text": {
       "source": "You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer.",
-      "text": ""
+      "text": "Du kannst das Hässliche in anderen Menschen deutlich sehen. Wenn du einen NSC zum ersten Mal triffst, kannst du den SL fragen: „Welche geheime Scham oder Schuld trägt er mit sich?“ und du erhältst eine ehrliche Antwort."
     },
     "back/choices/consequences/orb-c7/text": {
       "source": "You become aware of El’rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you.",
-      "text": ""
+      "text": "Du wirst dir El'rash-Orra, dem Vieläugigen, bewusst, der aus der Tiefe zu dir emporblickt. Er flüstert dir eine Aufgabe zu; verweigerst du sie – jetzt oder später –, erlischt die Lidlose Kugel und wird für dich nutzlos."
     }
   },
   "stone-idol": {
     "name": {
       "source": "A stone idol",
-      "text": ""
+      "text": "Ein steinernes Götzenbild"
     },
     "front/item/name": {
       "source": "A stone idol",
-      "text": ""
+      "text": "Ein steinernes Götzenbild"
     },
     "front/choices/stone-idol/0/text": {
       "source": "Found at the back of some cave or grotto, obscured by roots and rubble, surrounded by desiccated, rotting offerings. A crude squat thing with a possum’s sneering face, a thorny tail, and flowers for its ears.",
-      "text": ""
+      "text": "Man findet es im hinteren Teil einer Höhle oder Grotte, verborgen unter Wurzeln und Geröll und umgeben von vertrockneten, verrottenden Opfergaben. Ein grob geformtes, gedrungenes Wesen mit dem spöttischen Gesicht eines Opossums, einem dornigen Schwanz und Blumen anstelle von Ohren."
     },
     "front/choices/stone-idol/1/text": {
       "source": "The idol is, in fact, a narcissistic little Fae, stuck (hiding? stubbornly ensconced?) in the form of a stone idol. To unlock its \"mysteries\" and benefit from its patronage, you must...",
-      "text": ""
+      "text": "Das Götzenbild ist in Wahrheit ein kleines, selbstverliebtes Feenwesen, das in der Form eines Steingötzenbildes gefangen ist (sich versteckt? sich hartnäckig eingenistet hat?). Um seine „Geheimnisse“ zu entschlüsseln und von seiner Gunst zu profitieren, musst du…"
     },
     "front/choices/stone-idol/restore-shrine/text": {
       "source": "… restore the shrine, while suffering the abuse of its angry little god.",
-      "text": ""
+      "text": "… den Schrein wiederherstellen, während man die Beschimpfungen des wütenden kleinen Gottes erdulden muss."
     },
     "front/choices/stone-idol/extract-idol/text": {
       "source": "… extract the idol from the stone and rubble in which it’s embedded, at the risk of damaging/insulting it.",
-      "text": ""
+      "text": "… das Götzenbild aus dem Stein und Geröll befreien, in dem es feststeckt, auch auf die Gefahr hin, es zu beschädigen oder zu beleidigen."
     },
     "front/choices/stone-idol/trick-idol/text": {
       "source": "… trick the idol into accepting an offering that puts it in your lasting debt. A Surplus worth of food and/or whisky ought to be enough.",
-      "text": ""
+      "text": "… das Götzenbild dazu bringen, eine Opfergabe anzunehmen, die es dauerhaft in deine Schuld bringt. Eine Menge Nahrung und/oder Whisky im Wert von einem Überschuss sollte dafür ausreichen."
     },
     "back/title": {
       "source": "The Angry Little God",
-      "text": ""
+      "text": "Der zornige kleine Gott"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_put the idol in a prominent place and_** **_beseech it to attend its humble servant,_** it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.",
-      "text": ""
+      "text": "Wenn du **_das Götzenbild an einem gut sichtbaren Ort aufstellst und es anflehst, sich um seinen demütigen Diener zu kümmern_**, erwacht es (bleibt aber weiterhin unbeweglich). Behandle es wie einen Gefolgsmann, auch wenn es sich selbst kaum als einen solchen betrachtet."
     }
   },
   "storm-markings": {
     "name": {
       "source": "Storm Markings",
-      "text": ""
+      "text": "Sturmzeichen"
     },
     "front/choices/storm-markings/0/text": {
       "source": "A series of branching, tree-like markings coursing up and down your skin. Usually pale blue, almost like veins, but when you become agitated they seem to glow, pulse, and ripple with light.\n\nThe markings are usually seen as a blessing of Tor (rainmaker, thunderhead, slayer-of-beasts). But like most blessings of the gods, they are also a great burden.",
-      "text": ""
+      "text": "Eine Reihe von verzweigten, baumartigen Mustern, die sich auf deiner Haut auf und ab schlängeln. Meistens sind sie blassblau, fast wie Adern, aber wenn du erregt wirst, scheinen sie zu leuchten, zu pulsieren und in sanftem Licht zu schimmern.\n\nDie Zeichen gelten gemeinhin als Segen Tors (Regenbringer, Blitzeschleuderer, Bestientöter). Doch wie die meisten Segnungen der Götter sind sie auch eine große Bürde."
     },
     "front/choices/storm-markings/1/text": {
       "source": "When you **_roil with anger_**, you do +1 damage until you calm down. But when you **_try to control your_** **_temper_**, roll +WIS: **on a 10+**, you keep your cool and act as you wish; **on a 7-9**, choose 1 from the list below; **on a 6-**, you just lose it—tell the GM what damn fool thing you end up doing.\n- Take some deep breaths and count to ten, fuming all the while\n- Vent your rage, but tell us how and on what",
-      "text": ""
+      "text": "Wenn du **_vor Wut kochst_**, verursachst du +1 Schaden, bis du dich wieder beruhigt hast. Wenn du **_jedoch versuchst, dein Temperament zu zügeln_**, würfle +WE. **Bei einer 10+** behältst du einen kühlen Kopf und handelst, wie du willst. **Bei 7–9** wählst du 1 aus der folgenden Liste. **Bei einer 6-** drehst du einfach durch – sag dem SL, was für eine Dummheiten du am Ende anstellst.\n- Atme einige Male tief durch und zähle bis zehn, während du die ganze Zeit vor Wut kochst.\n- Lass deiner Wut freien Lauf, aber erzähle uns, wie und worüber."
     },
     "front/choices/storm-markings/2/text": {
       "source": "When you **_are struck by lightning or an electrical discharge_**, mark 1, take no damage, and suffer no ill effects (your gear, alas, has no such protection):",
-      "text": ""
+      "text": "Wenn du **_vom Blitz oder einer elektrischen Entladung getroffen wirst_**, markiere 1. Du erleidest dabei keinen Schaden und hast keine negativen Auswirkungen (deine Ausrüstung verfügt leider nicht über einen solchen Schutz):"
     },
     "front/choices/storm-markings/3/text": {
       "source": "When you **_make the last mark_**, you unlock the mysteries of the Storm Markings and can use Storm’s Fury (see reverse).",
-      "text": ""
+      "text": "Wenn du **_die letzte Stelle markierst_**, enthüllst du die Geheimnisse der Sturmzeichen und kannst Wut des Sturms nutzen (siehe Rückseite)."
     },
     "front/choices/storm-markings/4/text": {
       "source": "When you **_would make a mark but have already marked all 3_**, set your Fury to 3.",
-      "text": ""
+      "text": "Wenn du **_eine Stelle markieren würdest, aber bereits alle 3 markiert hast_**, setze Wut auf 3."
     },
     "front/choices/storm-markings/marks/text": {
       "source": "Marks",
-      "text": ""
+      "text": "Markierungen"
     },
     "back/title": {
       "source": "Mysteries of the Storm Markings",
-      "text": ""
+      "text": "Geheimnisse der Sturmzeichen"
     },
     "back/choices/moves/title": {
       "source": "Moves",
-      "text": ""
+      "text": "Spielzüge"
     },
     "back/choices/consequences/title": {
       "source": "Consequences",
-      "text": ""
+      "text": "Konsequenzen"
     },
     "back/choices/consequences/markings-c1/text": {
       "source": "Lightning begins to arc off of you, striking objects and creatures nearby at random for 2d6 damage (*near*, *forceful*, *loud*, ignores armor). This lasts until you calm down.",
-      "text": ""
+      "text": "Blitze beginnen, von dir überzuspringen, treffen wahllos Gegenstände und Kreaturen in deiner Nähe und verursachen 2W6 Schaden (Nah, Wuchtig, Laut, ignoriert Rüstung). Dies hält an, bis du dich beruhigst."
     },
     "back/choices/consequences/markings-c2/text": {
       "source": "A gale of winds forms around you, as with Chosen of the Storm-bringer (even if you can’t",
-      "text": ""
+      "text": "Ein Sturmwind bildet sich um dich, wie bei Auserwählter des Sturmbringers (selbst wenn du diesen Spielzug normalerweise nicht einsetzen kannst). Du kannst ihn nicht ohne Weiteres beenden; die Auswirkungen (einschließlich des Nachteils) halten an, bis du dich beruhigst."
     },
     "back/choices/consequences/markings-c3/text": {
       "source": "normally use that move). You can’t dismiss it easily; the effects (including the disadvantage) continue until you calm down.",
@@ -3182,23 +3182,23 @@
     },
     "back/choices/consequences/markings-c4/text": {
       "source": "Name an NPC who is present and whose regard you value. They are terrified of the power you wield and grow distant.",
-      "text": ""
+      "text": "Nenne einen NSC, der anwesend ist und dessen Wertschätzung dir wichtig ist. Er hat Angst vor der Macht, die du besitzt, und beginnt, sich von dir zu distanzieren."
     },
     "back/choices/consequences/markings-c5/text": {
       "source": "From now on, when you gain Fury, gain +1 Fury. But you also have disadvantage on rolls to control your temper.",
-      "text": ""
+      "text": "Von nun an nimmst du +1 Wut, wenn du Wut nimmst. Allerdings hast du auch Nachteil auf Würfe, mit denen du versuchst, deine Wut zu beherrschen."
     },
     "back/choices/consequences/markings-c6/text": {
       "source": "A storm forms (or worsens) in your immediate area. It arrives unnaturally fast, but not miraculously so.",
-      "text": ""
+      "text": "In deiner unmittelbaren Umgebung bildet sich ein Sturm (oder ein bereits bestehender Sturm wird stärker). Er zieht unnatürlich schnell auf, aber nicht auf wundersame Weise."
     },
     "back/choices/consequences/markings-c7/text": {
       "source": "A terrible storm begins to form in your immediate area and pummels the entire region. Blizzards, tornados, floods—it’s bad.",
-      "text": ""
+      "text": "In deiner unmittelbaren Umgebung zieht ein schrecklicher Sturm auf und verwüstet die gesamte Region. Schneestürme, Tornados, Überschwemmungen – es wird fürchterlich"
     },
     "back/choices/consequences/markings-c8/text": {
       "source": "A terrible storm forms (as above) and the weather remains freakish for a few months. Your steading takes -2 to its next roll to generate Surplus, and its next Fortunes roll for Seasons Change is automatically a 6-. Other communities in the region likewise suffer.",
-      "text": ""
+      "text": "Ein Sturm zieht auf (wie oben beschrieben), und die Wetterverhältnisse werden in den nächsten Monaten verrückt und unvorhersehbar. Jede Siedlung in der Region erhält −2 auf ihren nächsten Wurf für Überschuss, und ihr nächster Wurf für Jahreszeitenwechsel ist automatisch eine 6−."
     }
   },
   "strange-pendant": {
@@ -3360,35 +3360,35 @@
   "tattered-mantle": {
     "name": {
       "source": "A tattered mantle",
-      "text": ""
+      "text": "Ein zerfetzter Mantel"
     },
     "front/item/name": {
       "source": "A tattered mantle",
-      "text": ""
+      "text": "Ein zerfetzter Mantel"
     },
     "front/choices/tattered-mantle/0/text": {
       "source": "Found on a skeleton that has been stripped clean of flesh and that bears what can only be described as bite marks all along its bones. Close inspection of the mantle reveals sigils woven in silvery thread and human teeth sewn into the fringe like decorative beads.",
-      "text": ""
+      "text": "Gefunden bei einem Skelett, von dem das Fleisch vollständig abgenagt worden ist und dessen Knochen überall Bissspuren aufweisen, die nur als solche bezeichnet werden können. Bei genauer Betrachtung des Mantels erkennt man in silbernen Fäden eingewobene Sigillen und menschliche Zähne, die wie Schmuckperlen in den Saum eingenäht sind."
     },
     "front/choices/tattered-mantle/1/text": {
       "source": "You can unlock the power of this mantle by…",
-      "text": ""
+      "text": "Du kannst die Macht dieses Mantels entschlüsseln, indem du..."
     },
     "front/choices/tattered-mantle/wearing-three/text": {
       "source": "… wearing it for three days and three long, long nights, suffering through the nightmares.",
-      "text": ""
+      "text": "… ihn drei Tage und drei lange, lange Nächte lang trägst und die Albträume erduldest."
     },
     "front/choices/tattered-mantle/bringing-heel/text": {
       "source": "… bringing to heel the slavering wraiths that are tethered to it.",
-      "text": ""
+      "text": "… die gierig geifernden Geister, die an ihn gebunden sind, unter Kontrolle bringst."
     },
     "back/title": {
       "source": "Mantle Wraiths",
-      "text": ""
+      "text": "Mantelgeister"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_let slip the wraiths tethered to the_** **_mantle_**, treat them as followers. They are loathe to return to the mantle; you must spend their Loyalty or Persuade them.",
-      "text": ""
+      "text": "Wenn du **_die an den Mantel gebundenen Geister loslässt_**, behandle sie wie Gefolgsleute. Sie kehren nur äußerst ungern in den Mantel zurück. Du musst ihre Loyalität ausgeben oder sie Überreden."
     }
   },
   "the-key": {
@@ -3660,43 +3660,43 @@
   "vein-of-milky-crystal": {
     "name": {
       "source": "A vein of milky crystal",
-      "text": ""
+      "text": "Eine Ader aus milchigem Kristall"
     },
     "front/choices/vein-of-milky-crystal/0/text": {
       "source": "Found in a cave, a mountain, or some rocky outcrop, likely considered sacred by the locals. It looks like cloudy white quartz, but glows faintly at night.",
-      "text": ""
+      "text": "In einer Höhle, einem Berg oder an einem felsigen Vorsprung zu finden, wird diese Ader von den Einheimischen vermutlich als heilig angesehen. Sie sieht aus wie trüber weißer Quarz, leuchtet aber nachts schwach."
     },
     "front/choices/vein-of-milky-crystal/1/text": {
       "source": "You can unlock the mysteries of this vein and craft a talisman against the undead, but to do so you must...",
-      "text": ""
+      "text": "Du kannst die Geheimnisse dieser Ader entschlüsseln und ein Talisman gegen die Untoten herstellen, aber dafür musst du …"
     },
     "front/choices/vein-of-milky-crystal/personally-extract/text": {
       "source": "… personally extract a large hunk of crystal (Value 1) from the vein.",
-      "text": ""
+      "text": "… persönlich ein großes Stück Kristall (Wert 1) aus der Ader herausbrechen."
     },
     "front/choices/vein-of-milky-crystal/have-gemcutter/text": {
       "source": "… have a gemcutter shape and polish it into a perfect sphere (a Value 1 job).",
-      "text": ""
+      "text": "… einen Edelsteinschleifer beauftragen, es zu einer perfekten Kugel zu schleifen und zu polieren (eine Arbeit mit Wert 1)."
     },
     "front/choices/vein-of-milky-crystal/learn-sacred/text": {
       "source": "… learn the sacred words for imbuing a moonstone with light and then calling that light forth.",
-      "text": ""
+      "text": "… die heiligen Worte erlernen, mit denen man einen Mondstein mit Licht erfüllt und dieses Licht anschließend hervorruft."
     },
     "front/choices/vein-of-milky-crystal/spend-three/text": {
       "source": "… spend three nights under the full moon, speaking the sacred words, risking a mistake that ruins the moonstone or at least wastes your efforts this month.",
-      "text": ""
+      "text": "… drei Nächte unter dem Vollmond verbringen und die heiligen Worte sprechen, wobei du das Risiko eingehst, einen Fehler zu machen, der den Mondstein zerstört oder zumindest deine Bemühungen für diesen Monat zunichtemacht."
     },
     "back/title": {
       "source": "Moonstone",
-      "text": ""
+      "text": "Mondstein"
     },
     "back/item/name": {
       "source": "Moonstone",
-      "text": ""
+      "text": "Mondstein"
     },
     "back/choices/intro/0/text": {
       "source": "When you **_spend a night beneath the full moon,_** directing its light into the moonstone, it gains 1 hour of light (max 5).\n\nWhen you **_hold the moonstone aloft in darkness_** **_and utter a sacred word_**, it shines with pale white light (*area*, *near*) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.\n\nWhen **_the moonstone is your only light source and_** **_you shout the proper word_**, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again.",
-      "text": ""
+      "text": "Wenn du eine Nacht unter dem Vollmond verbringst und dessen Licht auf den Mondstein richtest, erhält dieser 1 Stunde Licht (max. 5).\n\nWenn du **_den Mondstein in der Dunkelheit hochhältst und ein heiliges Wort aussprichst_**, erstrahlt er in einem blassen weißen Licht (*Bereich*, *Nah*), das keine Farben zeigt, sondern nur Formen und Strukturen sichtbar macht. Das Licht enthüllt Untote – sogar Geister, die sich noch nicht manifestiert haben, sowie Wesen, die durch Magie oder Verkleidung verborgen sind.\n\nWenn **_der Mondstein deine einzige Lichtquelle ist und du das richtige Wort rufst_**, erstrahlt er in silbernem Licht und alle Untoten in Reichweite erleiden 1W6 Schaden pro verbleibender Lichtstunde (ignoriert Rüstung). Danach erlischt der Mondstein; sein Licht ist verbraucht, bis du ihn erneut auflädst."
     }
   },
   "vellum-scroll": {

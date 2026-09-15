@@ -20,7 +20,7 @@
   },
   "stonetop": {
     "dialog": {
-      "roll": "Roll"
+      "roll": "Würfle"
     },
     "confirm": {
       "deleteTitle": "Entfernen",
@@ -28,7 +28,7 @@
       "deleteGeneric": "Entfernen? Dies kann nicht rückgängig gemacht werden.",
       "deleteHint": "Rechtsklick, um ohne Bestätigung zu entfernen.",
       "unlinkTitle": "Verlinkung entfernen",
-      "unlinkNamed": "Soll das verknüpfte Dokument aus „{name}“ entfernt werden? Die Zeile selbst bleibt erhalten.",
+      "unlinkNamed": "Soll das verknüpfte Dokument „{name}“ entfernt werden? Die Zeile selbst bleibt erhalten.",
       "unlinkGeneric": "Soll die Verlinkung entfernt werden? Die Zeile selbst bleibt erhalten.",
       "unlinkHint": "Rechtsklick, um die Verlinkung ohne Bestätigung zu entfernen."
     },
@@ -80,30 +80,30 @@
       "dis": "Nachteil"
     },
     "steading": {
-      "startsAt": "Starts at {value}",
+      "startsAt": "Beginnt bei {value}",
       "colName": "Name",
-      "colOccupation": "Occupation",
-      "colTraits": "Traits",
-      "colHome": "Home",
-      "linkColumn": "Link",
-      "linkHint": "Drag a document onto an entry to link it.",
-      "linkDropTitle": "Drop an actor, journal, or item here to link it",
-      "unlink": "Unlink",
-      "improvementRemove": "Remove",
+      "colOccupation": "Beruf",
+      "colTraits": "Merkmale",
+      "colHome": "Zuhause",
+      "linkColumn": "Verknüfung",
+      "linkHint": "Ziehe ein Dokument auf einen Eintrag, um es zu verknüpfen.",
+      "linkDropTitle": "Ziehe einen Akteur, Journaleintrag oder Gegenstand hierher, um ihn zu verknüpfen.",
+      "unlink": "Verknüpfung aufheben",
+      "improvementRemove": "Entfernen",
       "createActors": {
-        "residents": "Create actors for residents",
-        "neighbors": "Create actors for neighbors",
-        "title": "Create NPC actors",
-        "creating": "Create {count} new NPC actor(s): {names}.",
-        "linking": "Link {count} row(s) to actors that already exist: {names}.",
-        "proceed": "Proceed?",
-        "nothing": "Every named row already has a linked document."
+        "residents": "Erstelle Akteure für Einwohner",
+        "neighbors": "Erstelle Akteure für Nachbarn",
+        "title": "Erstelle NSC-Akteure",
+        "creating": "Erstelle {count} neue NSC-Akteure: {names}.",
+        "linking": "Verknüpfe {count} Zeile(n) mit bereits vorhandenen Akteuren: {names}.",
+        "proceed": "Fortfahren?",
+        "nothing": "Jede benannte Zeile verfügt bereits über ein verknüpftes Dokument."
       },
       "seasons": {
-        "movesTitle": "Seasons Change",
-        "movesEmpty": "No seasonal moves assigned to this steading.",
-        "gainsTitle": "Seasonal gains",
-        "gainsHint": "Recording a pick doesn't change the steading's ratings."
+        "movesTitle": "Jahreszeitenwechsel",
+        "movesEmpty": "Dieser Siedlung sind keine saisonalen Spielzüge zugewiesen.",
+        "gainsTitle": "Saisonale Gewinne",
+        "gainsHint": "Das Setzen eines Hakens ändert die Spielwerte der Siedlung nicht."
       }
     },
     "followers": {
@@ -134,11 +134,11 @@
       "traits": "Merkmale",
       "addTag": "Eigenschaft",
       "addTrait": "Merkmal",
-      "companionType": "Typ",
+      "companionType": "Art",
       "companionOptions": "Optionen",
       "addOption": "Option",
       "suggestedNames": "Namensvorschläge",
-      "groupTagTooltip": "A follower with the group tag represents multiple individuals who share stats and often act as one. Members of a group have the same tags, max HP, armor, damage, instinct, moves, and cost. They hold a common pool of Loyalty, but each have their own current HP. They typically Outfit with the same gear.",
+      "groupTagTooltip": "Ein Gefolgsmann mit der Eigenschaft Gruppe steht für mehrere Individuen, die dieselben Spielwerte haben und oft als eine Einheit agieren. Mitglieder einer Gruppe haben dieselben Eigenschaften, maximale TP, Rüstung, Schaden, Instinkt, Spielzüge und Kosten. Sie verfügen über einen gemeinsamen Loyalitätwert, haben jedoch jeweils ihre eigenen aktuellen TP. In der Regel sind sie mit derselben Ausrüstung ausgestattet.",
       "inventory": "Inventar",
       "inventoryToggle": "Ausrüstung hinzufügen/entfernen",
       "inventoryDone": "Abgeschlossen",
@@ -148,7 +148,7 @@
       "loadNormal": "Normal",
       "loadHeavy": "Schwer",
       "loadCarriedHint": "Gesamtanzahl an ◇ die dieser Gefolgsmann trägt.",
-      "loadOver": "Carrying more than the {max} ◇ Outfit allows."
+      "loadOver": "Die getragene Ausrüstung überschreitet das Limit von {max} ◇."
     },
     "insert": {
       "remove": "Entfernen",
@@ -176,8 +176,8 @@
       },
       "namePlaceholder": "Klassenbuchbezeichnung",
       "remove": "Entfernen",
-      "moveUp": "Move up",
-      "moveDown": "Move down",
+      "moveUp": "Nach oben verschieben",
+      "moveDown": "Nach unten verschieben",
       "refMissing": "Nicht gefunden – befindet sich der Gegenstand in einem geladenen Kompendium oder in der Weltbeschreibung?",
       "description": "Beschreibung",
       "hp": "TP",
@@ -223,26 +223,26 @@
       "introStep6": "Sechste Vorstellungsrunde (SC-Fragen)"
     },
     "improvement": {
-      "namePlaceholder": "Improvement name",
-      "sortOrder": "Sort order",
-      "sortOrderPlaceholder": "Position in the catalog",
-      "choices": "Choices",
-      "edit": "Edit",
-      "done": "Done"
+      "namePlaceholder": "Name der Verbesserung",
+      "sortOrder": "Sortierreihenfolge",
+      "sortOrderPlaceholder": "Position im Katalog",
+      "choices": "Optionen",
+      "edit": "Bearbeiten",
+      "done": "Übernehmen"
     },
     "steadfast": {
-      "namePlaceholder": "Steadfast name",
-      "startingValues": "Starting values",
-      "fortunes": "Fortunes",
-      "surplus": "Surplus",
-      "size": "Size",
-      "population": "Population",
-      "prosperity": "Prosperity",
-      "defenses": "Defenses",
-      "improvements": "Granted improvements",
-      "improvementsHint": "Drag improvement items here to grant them.",
-      "improvementsEmpty": "No improvements granted yet.",
-      "improvementRemove": "Remove"
+      "namePlaceholder": "Siedlungsname",
+      "startingValues": "Startwerte",
+      "fortunes": "Schicksal",
+      "surplus": "Überfluss",
+      "size": "Größe",
+      "population": "Bevölkerung",
+      "prosperity": "Wohlstand",
+      "defenses": "Verteidigung",
+      "improvements": "Gewährte Verbesserungen",
+      "improvementsHint": "Ziehe Verbesserungen aus dem Kompendium hierher, um sie zu gewähren.",
+      "improvementsEmpty": "Es wurden noch keine Verbesserungen gewährt.",
+      "improvementRemove": "Entfernen"
     },
     "follower": {
       "namePlaceholder": "Follower name",
@@ -457,12 +457,12 @@
     },
     "staleClient": "Stonetop {installed} is installed, but your browser is still running {loaded}. Press Ctrl+Shift+R (Cmd+Shift+R on macOS) to load the update — until you do, character sheets may fail to open.",
     "rollResults": {
-      "miss": "Miss",
-      "weakHit": "Weak Hit",
-      "strongHit": "Strong Hit!",
-      "xpMarked": "You mark XP.",
-      "xpUndo": "Undo",
-      "xpMark": "Mark XP"
+      "miss": "Fehlschlag",
+      "weakHit": "Teilerfolg",
+      "strongHit": "Voller Erfolg!",
+      "xpMarked": "EP markiert.",
+      "xpUndo": "Zurücksetzen",
+      "xpMark": "Markiere EP"
     },
     "npc": {
       "hitPoints": "Trefferpunkte",
@@ -544,8 +544,8 @@
         "sendToChat": "Send to Chat",
         "openSource": "Open this move's item sheet",
         "open": "Open the move",
-        "requires": "Requires",
-        "notMet": "Not Met",
+        "requires": "Voraussetzung",
+        "notMet": "Nicht erfüllt",
         "lockHint": "Show only the moves this character has taken.",
         "unlockHint": "Show every move again, to take new ones."
       },
@@ -736,10 +736,9 @@
       "amorphous": "Amorph",
       "amphibious": "Amphibisch",
       "ancient": "Uralt",
-      "angry": "Zornig",
+      "angry": "Wütend",
       "annoying": "Lästig",
       "aquatic": "Aquatisch",
-      "annoying": "Lästig",
       "archers": "Bogenschützen",
       "area": "Bereich",
       "arrogant": "Arrogant",
@@ -761,7 +760,7 @@
       "clever": "Schlau",
       "climber": "Kletterer",
       "close": "Kurz",
-      "clumsy": "Unbeholfen",
+      "clumsy": "Ungeschickt",
       "confused": "Verwirrt",
       "construct": "Konstrukt",
       "corrupted": "Korrumpiert",
@@ -896,7 +895,7 @@
       "size-by-hp": "Größe je nach TP",
       "skilled": "Erfahren",
       "slow": "Langsam",
-      "sly": "Listig",
+      "sly": "Gerissen",
       "small": "Klein",
       "solitary": "Einzelgänger",
       "spirit": "Geist",
@@ -930,10 +929,6 @@
       "willful": "Eigenwillig",
       "wooly": "Wollig",
       "wretched": "Erbärmlich",
-      "warm": "Warm",
-      "warrior": "Krieger",
-      "warriors": "Krieger",
-      "well-informed": "Gut Informiert",
       "young": "Jung"
     }
   }

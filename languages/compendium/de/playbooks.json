@@ -428,127 +428,127 @@
     },
     "choices/tall-tales-beginning/0/title": {
       "source": "There Was That Time You…",
-      "text": ""
+      "text": "Da war zum Beispiel die Sache, als du … (wähle 1 pro Geschichte)"
     },
     "choices/tall-tales-beginning/0/text": {
       "source": "Someone like you gets into all sorts of trouble, whether you mean to or not. Mix and match the following to come up with a couple of your more memorable adventures. *(choose 1 per tale)*",
-      "text": ""
+      "text": "Jemand wie du gerät in alle möglichen Schwierigkeiten, ob nun absichtlich oder nicht. Kombiniere die folgenden Elemente, um ein paar deiner denkwürdigsten Abenteuer zu erschaffen, und schreibe sie unten in dieser Spalte auf."
     },
     "choices/tall-tales-ending/0/title": {
       "source": "And You Ended Up…",
-      "text": ""
+      "text": "Und du bist schließlich…"
     },
     "choices/tall-tales-ending/0/titleNote": {
       "source": "(choose 1 or 2 per tale)",
-      "text": ""
+      "text": "(wähle 1 oder 2 pro Geschichte)"
     },
     "choices/tall-tales-legacy/0/title": {
       "source": "But All You've Got Left to Show for It Is…",
-      "text": ""
+      "text": "Aber alles, was dir davon geblieben ist, ist …"
     },
     "choices/tall-tales-beginning/lost-great-wood/text": {
       "source": "… got lost in the Great Wood.",
-      "text": ""
+      "text": "… dich im Großen Wald verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-flats/text": {
       "source": "… got lost in the Flats.",
-      "text": ""
+      "text": "… in der Ebene verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-steplands/text": {
       "source": "… got lost in the Steplands.",
-      "text": ""
+      "text": "… in den Stufenlanden verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-ferrers-fen/text": {
       "source": "… got lost in Ferrier's Fen.",
-      "text": ""
+      "text": "… im Ferriers Moor verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-foothills/text": {
       "source": "… got lost in the Foothills.",
-      "text": ""
+      "text": "… im Vorgebirge verlaufen hast"
     },
     "choices/tall-tales-beginning/lost-huffel-peaks/text": {
       "source": "… got lost in the Huffel Peaks.",
-      "text": ""
+      "text": "… in den Huffelgipfeln verlaufen hast"
     },
     "choices/tall-tales-beginning/crinwin-raid/text": {
       "source": "… were on watch when the crinwin raided.",
-      "text": ""
+      "text": " … Wache gehalten hast, als die Crinwin einfielen"
     },
     "choices/tall-tales-beginning/ruined-tower/text": {
       "source": "… dared each other to explore the Ruined Tower.",
-      "text": ""
+      "text": "… dich mit anderen dazu herausgefordert hast, die Turmruine zu erkunden"
     },
     "choices/tall-tales-beginning/hillfolk/text": {
       "source": "… managed to rile up a small band of Hillfolk.",
-      "text": ""
+      "text": "… es geschafft hast, eine kleine Gruppe des Hügelvolks gegen dich aufzubringen"
     },
     "choices/tall-tales-beginning/labyrinth/text": {
       "source": "… braved the Labyrinth, just a little.",
-      "text": ""
+      "text": "… dich ein kleines Stück weit ins Labyrinth gewagt hast"
     },
     "choices/tall-tales-beginning/old-mans-book/text": {
       "source": "… stole that crazy old man's book.",
-      "text": ""
+      "text": "… das Buch dieses verrückten alten Mannes gestohlen hast"
     },
     "choices/tall-tales-beginning/barrow-mounds/text": {
       "source": "… went poking about the old Barrow Mounds.",
-      "text": ""
+      "text": "… in den alten Grabhügeln herumgestöbert hast"
     },
     "choices/tall-tales-ending/running/text": {
       "source": "… running for your life from something.",
-      "text": ""
+      "text": "… um dein Leben vor … davongerannt"
     },
     "choices/tall-tales-ending/well-placed-blow/text": {
       "source": "… landing a well-placed blow.",
-      "text": ""
+      "text": "… einen gut platzierten Treffer gelandet"
     },
     "choices/tall-tales-ending/strange-gather/text": {
       "source": "… interrupting a strange, creepy gathering.",
-      "text": ""
+      "text": "… in eine seltsame, unheimliche Versammlung geplatzt"
     },
     "choices/tall-tales-ending/big-beast/text": {
       "source": "… stumbling on a beast, bigger'n anything.",
-      "text": ""
+      "text": "… über ein Ungeheuer gestolpert, größer als alles, was du je gesehen hast"
     },
     "choices/tall-tales-ending/treasure/text": {
       "source": "… with a sack full of treasure.",
-      "text": ""
+      "text": "… mit einem Sack voller Schätze davongekommen"
     },
     "choices/tall-tales-ending/someone-fight/text": {
       "source": "… getting someone to fight them for you.",
-      "text": ""
+      "text": "… dazu gekommen, sie für dich kämpfen zu lassen"
     },
     "choices/tall-tales-ending/ghost/text": {
       "source": "… face to face with a ghost/Fae/demon.",
-      "text": ""
+      "text": "… einem Geist/einer Fee/einem Dämon Auge in Auge gegenübergestanden"
     },
     "choices/tall-tales-ending/strange-runes/text": {
       "source": "… finding those strange old runes.",
-      "text": ""
+      "text": "… auf diese seltsamen alten Runen gestoßen"
     },
     "choices/tall-tales-ending/fine-looking/text": {
       "source": "… getting to know that fine-looking fellow/lady/person/couple.",
-      "text": ""
+      "text": "… diesen gut aussehenden Kerl/diese gut aussehende Frau/diese gut aussehende Person/dieses gut aussehende Paar kennengelernt"
     },
     "choices/tall-tales-legacy/story-no-one-believes/text": {
       "source": "… a story no one believes.",
-      "text": ""
+      "text": "… eine Geschichte, die niemand glaubt."
     },
     "choices/tall-tales-legacy/nasty-scar/text": {
       "source": "… a nasty scar; wanna see?",
-      "text": ""
+      "text": "… eine hässliche Narbe – willst du sie sehen?"
     },
     "choices/tall-tales-legacy/nightmares/text": {
       "source": "… the occasional nightmare.",
-      "text": ""
+      "text": "… gelegentliche Albträume."
     },
     "choices/tall-tales-legacy/map-with-runes/text": {
       "source": "… this map with runes no one can read.",
-      "text": ""
+      "text": "… diese Karte mit Runen, die niemand lesen kann."
     },
     "choices/tall-tales-legacy/mystery-key/text": {
       "source": "… this key that opens who-knows-what.",
-      "text": ""
+      "text": "… dieser Schlüssel, der wer weiß was öffnet."
     },
     "instinct/0/options/conscience/text": {
       "source": "Conscience",
