@@ -65,7 +65,7 @@ function build({ moveNames = [], plate = null, results = null } = {}) {
 		new SteadingEffects(actor, new SteadingImprovements(actor, repos.improvements)),
 		choices,
 	);
-	const seasons = new SteadingSeasons(choices, moves, new FakeSteadingArtRepository(plate), season);
+	const seasons = new SteadingSeasons(choices, moves, new FakeSteadingArtRepository({ seasons: plate }), season);
 	// Picks are made the way the sheet makes them — through the steading — so the store this reads
 	// back from is genuinely the one the registry routes to.
 	const steading = new StonetopSteading(actor, repos);

@@ -1,6 +1,6 @@
 {{!-- The steading's people — ONE roster. Residents and neighbours differ only by the home written on
       the row, and a blank Home means this steading, so there is one table, one add button and one
-      place to search. Params: folk (Person[]), isGM, editable.
+      place to search. Params: folk (Person[]), isGM, editable, plate (the closing art's url, or null).
 
       The search filters THIS table and nothing else — the name and trait lists beside it stay whole,
       because reading down them is how an NPC gets made. That is enforced by RosterFilter being handed
@@ -74,4 +74,14 @@
 		<p class="steading-folk-hint">{{localize "stonetop.steading.folk.homeBlankHint"}}</p>
 		<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>
 	</div>
+
+	{{!-- The book's villagers, closing the column they are the roster of — under the roster itself
+	      rather than at the foot of the column, which beside a reference list several screens long is
+	      a different place entirely (see the stylesheet). Absent in a world that has never run the art
+	      installer — the snapshot answers null rather than a path. --}}
+	{{#if plate}}
+		<figure class="steading-folk-plate">
+			<img src="{{plate}}" alt="">
+		</figure>
+	{{/if}}
 </section>

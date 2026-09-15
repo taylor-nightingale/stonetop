@@ -59,9 +59,24 @@ describe("StonetopSteading.buildSnapshot", () => {
 		const steading = new StonetopSteading(new FakeSteadingBuilder().build(), steadingRepos({
 			improvements: fakeImprovementsRepo,
 			moves: fakeMoves,
-			art: new FakeSteadingArtRepository(null, "stonetop-art/wonders/plate.png"),
+			art: new FakeSteadingArtRepository({ resources: "stonetop-art/wonders/plate.png" }),
 		}));
 		expect((await steading.buildSnapshot()).resourcesPlate).toBe("stonetop-art/wonders/plate.png");
+	});
+
+	// The four villagers closing the Folk roster, on the same terms: the Folk tab asks the snapshot
+	// before it draws, so a world without the art links nothing rather than a path that 404s.
+	it("carries no residents plate when the art store has none", async () => {
+		expect((await make().buildSnapshot()).residentsPlate).toBeNull();
+	});
+
+	it("carries the residents plate the art store provides", async () => {
+		const steading = new StonetopSteading(new FakeSteadingBuilder().build(), steadingRepos({
+			improvements: fakeImprovementsRepo,
+			moves: fakeMoves,
+			art: new FakeSteadingArtRepository({ residents: "stonetop-art/steading/residents.png" }),
+		}));
+		expect((await steading.buildSnapshot()).residentsPlate).toBe("stonetop-art/steading/residents.png");
 	});
 });
 

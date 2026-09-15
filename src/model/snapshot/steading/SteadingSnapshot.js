@@ -205,7 +205,7 @@ export class SteadingSnapshot {
 	constructor({
 								fortunes, surplus, attributes, debilities,
 								placesOfInterest, notes, folk, folkSuggestions, neighborPlaces,
-								content, assets, improvements, resourcesPlate,
+								content, assets, improvements, resourcesPlate, residentsPlate,
 								moves, seasons, season, year, fortunesReset, rollMode, rollModes,
 								grantedMoves,
 							}) {
@@ -236,6 +236,8 @@ export class SteadingSnapshot {
 		// The whisky jugs under the Resources list, and null in a world whose owner has never run the
 		// art installer — the template asks before it draws.
 		this.resourcesPlate = resourcesPlate ?? null;
+		// The four figures closing the Folk roster, on the same terms as the whisky jugs above.
+		this.residentsPlate = residentsPlate ?? null;
 		this.moves    = moves    ?? [];
 		this.seasons  = seasons  ?? null;
 		// Moves an improvement CONFERS, keyed by slug. Not the steading's moves: they are read on the

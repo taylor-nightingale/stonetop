@@ -6632,6 +6632,32 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
+/* The book's villagers, closing the roster column (Book I's steading spread).
+
+   Directly under the roster, NOT pushed to the foot of the column with `margin-top: auto`. The
+   column looks like it has slack to fill — beside a reference column several screens long the
+   roster is a handful of rows — but that column's height is the LIST's, so an auto margin puts the
+   vignette a thousand px down, level with the last name of the last region and off every screen
+   the reader is on while using the roster. Measured, not assumed: nothing gives the Folk tab a
+   definite height, so the grid is as tall as its tallest column and the tab itself is what scrolls.
+   Under the hints it closes the roster where the roster ends, which is where it is looked at.
+
+   Capped narrow and never cropped: the four figures are flung to the corners of a near-square
+   field, so a frame wide enough to fill the column cuts the outer two in half. */
+.stonetop.sheet.steading .steading-folk-plate {
+	margin: 0 auto;
+	padding-top: 0.75rem;
+	max-width: 11rem;
+	min-width: 0;
+}
+
+.stonetop.sheet.steading .steading-folk-plate img {
+	display: block;
+	width: 100%;
+	height: auto;
+	filter: var(--st-art-filter);
+}
+
 /* ── Moves tab ───────────────────────────────────────────────────────────────
    The homefront-move acquisition checkbox is legitimate (v0.13 main shows it too — a black filled /
    empty square). But in a V2 window core's own checkbox styling wins over our .stonetop-item-check

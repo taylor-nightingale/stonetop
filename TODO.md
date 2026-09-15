@@ -1,12 +1,9 @@
-* add steading move automations for debilities
-* localize steading defaults
+* feature: trading partners — Stonetop's partners already live as editable Resources entries on Play ("Trade with Gordin's Delve (metal, tools)"), which is where the book files them. Connect those to the Folk neighbour panels so a partner shows on both, and make it survive the partner changing/being dropped
+* seasonal gains should feed SteadingRollNotes as a third source (alongside built improvements and active debilities) — Tor's blessing is held for the season but never shows up on Pull Together, the move it gives +1 to
 * Update steading default icon to something nicer
-* Fix parsing of artifacts in Book II (outfit items aren't parsed well)
 * Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
 * support carolingian ui module (inventory/move checkboxes dissapear)
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
-
-
 * level up move
 * compendium folders have styling (light mode) of light text on light background
 * add a stonetop image to the game system in foundry like the delta green one has
@@ -14,83 +11,6 @@
 
 * lore section on playbook has questions split from their input boxes on certain screen widths
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
-* feature: ranger special possession Hounds should add a group follower (3), also for would be hero
-* feature: the move that modifies shield carrying capacity doesn't do anything for the heavy
-* bug: the bio/notes sections have the save button, etc but the bar is not tall enough to accommodate them and they're hard to click
-* bug: see img_2 the check boxes get split sometimes
-* allow copy paste of names and text for names/neighbors
+* feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
+* bug: the check boxes get split sometimes
 * bug: remove generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
-* bug: migration for existing character backgrounds did not apply the destined background for would be hero had a now fixed bug where selecting protect also selected restore
-* bug: sheet editing moves doesn't allow you to resize the prosmirror box and it slightly cuts off the bottom row
-* 124 wrap-hyphens in wider-world-npcs (w/advan- tage, attach- ment, funda- mental). fixing the corpus resolves most of the ambiguous compounds.
-* bug: stonetop moves are still matched by name. This won't work for translations. They must be matched by slug or id.
-* bug: the destined move should display on the background even if it isn't selected. and is there a way to not display the name of that move? same issue with judge missionary
-* bug: in dark mode compendium pop out the icons display as dark on dark
-* bug: dragging an item from the compendium to create items section duplicates the slug, but we should generate a unique slug for it
-* bug: mindgem content messed up
-* bug: editing descriptions should push down the text box
-* feature make traits, etc wrap lines
-
-== 1
-the open move/send to chat buttons are a new pattern. previously we had the little chat bubble do that. Why not do that here too?
-hovering over the fortunes icon/surplus icon makes an orange outline. remove that
-Clicking on a homefont move puts the text centered. Just kee  p the name where it was
-Level up is not a homefront move.
-overall the formatting of the entire thing is all over the place. font sizes vary wildly. They aren't big enough to read in many places. The titles are smaller than whats below it. The hard ink splotched bars are jaring when there are other small thin bars. The weight of the page is a bit off in play more stuff to the right. The stonetop name should be bigger. The icons in the left corner dominate the view and make everything else feel tiny
-
-== 2
-the roll icon on a move has no indication its clickable (unlike dice icon on prosperity which looks nice)
-debilities rearrange themselves when selected. its jarring.
-in the mockup the move names had the rollable dice next to them and then had the description text in a different color. The mockup used different colored text in many places to indicate what we should focus on. We're missing that completely in our current sheet. I really like how it changed the color of the bold/italic parts of a move that indicate what you have to do "prepare for what's coming or seek the favor of the gods" for example.
-the -> +1 lacking/legendary should be inline not on the next line.
-the drop down when selecting city is white background on light text in dark mode, it should have same formatting as name selection drop down
-updating the sheet closes your move when you were reading it. I don't want opening a move to apply to other sheets looking at it, but their updates shouldn't blow away my state.
-perhaps it would be nice to show the text for the moves as one line below each name to give more space for the roll/chat buttons and resource?
-Bolster doesn't have its nice formatting anymore with newlines and bullet points
-up/down arros arent aligned properly on pop, prosperity, defense, etc. the one on the left side is farther out
-
-== 3
-surplus number is higher than fortunes. They aren't aligned
-resources aren't aligned with the name of the move when collapsed.
-remove the - in front of the text for the move in collapsed form
-move bubbles and dice buttons should be centered on the text, not aligned with the bottom. same for rollable attributes. the top attributes should also have a dice to indicate they're rollable
-hovering over a number on the top rail pushes the sheet down a bit. The appearance of the arrows shouldn't push the sheet down
-The debilities should still say what they do when checked.
-selecting and changing village, selects the fortunes entry box
-assets, fortifications, resources should wrap lines when text is too long
-
-
-== 4
-don't make the debility explaination text red
-increase fortunes/surplus to fit the space better.
-Put image 35054ea8d15b39521589bc2cab68c9f309301fe645948ac9fd0ed37d920da6c7.png underneath resources
-remove the spacing for the invisible arrows next to attribute numbers on the rail. Only display them on hover. Note that I don't want them pushing the whole sheet down, jittering it like it did before.
-make names sections collapsable in folk tab
-Make selected names and traits more apparent. right now they blend in
-selecting a name from another location should default that person to that location
-remove the editable steading source traits source
-remove "choose from other lists; everyone comes to gordin's delve from somewhere else" from the notes section
-remove title "Folk of Stonetop and beyond" from folk section
-resources, fortifications, etc for the steading ge  t deleted when I do a page refresh. This should have an integration test
-
-== 5
-should be allowed to collapse the sidebar any time
-folk tab needs fixing for thin screens
-traits column should say "traits, relations, etc."
-traits column should wrap when text is too long
-the roll button next to the attributes on the top rail intersects with the up down buttons
-the check boxes for steading debilities is not aligned centered with the text
-the font we're using makes numbers harder to read, can we use a different, more readable font for the stat numbers (including the -1 in front of 'lacking' on prosperity)
-The link column is too wide. shorten it to only include the person icon and the x button. I don't  care about duplicating the name
-steading folk names should be collapsed by default execpt for stonetop
-
-== 6
-the previous people image we had on the folk sheet is gone, figure out a nice place for it?
-if someone manually types an npc trait it doesn't detect it nad cross out the trait
-are there ways to make the sidebar more recognizable? the button at the top left is nice but it isn't very clear what it does. Perhaps showing a hovering sidebar thing on the left? research
-improvements should be searchable
-clicking on the increase/decrease buttons selects the fortunes up button and makes the other one dissapear. you can't click twice in a row without moving the cursor around
-make the seasons change picture larger
-remove the duplicate names on the improvements. They shouldn't appear in the body as well as the title.
-add a search bar to improvements
-the other seasons reference is awkward looking and jaring in that location

@@ -5,7 +5,7 @@ import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.
 import { SteadingData } from "../../../src/data/SteadingData.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
-import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
+import { steadingRepos, FakeSteadingArtRepository } from "../../fakes/FakeSteadingRepos.js";
 import { renderTemplate } from "../../fakes/renderTemplate.js";
 import { renderSheetPart } from "../../fakes/renderSheetPart.js";
 
@@ -92,6 +92,27 @@ describe("one roster (integration)", () => {
 		const sheet = makeSheet();
 		await act(sheet, "addPerson", null);
 		expect(rows(await render(sheet))).toHaveLength(1);
+	});
+
+	// The plate is threaded snapshot → tab → roster partial, and every link in that chain is a name
+	// that can be renamed without anything failing: the art would simply stop being drawn. Asserted
+	// through a real render for exactly that reason.
+	it("closes the roster with the book's villagers when the art store has them", async () => {
+		const actor = new FakeSteadingBuilder().build();
+		actor.typedActor = new StonetopSteading(actor, steadingRepos({
+			art: new FakeSteadingArtRepository({ residents: "stonetop-art/steading/residents.png" }),
+		}));
+		const root = await render(makeSheet("steading-art", actor));
+
+		expect(root.querySelector(".steading-folk-plate img")?.getAttribute("src"))
+			.toBe("stonetop-art/steading/residents.png");
+	});
+
+	// The art store is populated from the reader's own books, so no art at all is an ordinary world —
+	// and a linked path that is not there 404s on every render.
+	it("draws no plate in a world that has never installed the art", async () => {
+		const root = await render(makeSheet());
+		expect(root.querySelector(".steading-folk-plate")).toBeNull();
 	});
 });
 
