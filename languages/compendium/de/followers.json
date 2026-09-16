@@ -1360,8 +1360,7 @@
     },
     "choices/choices/carry-manipulate-a-item/text": {
       "source": "Carry/manipulate a ◇ item",
-      "text": "Trage/manipuliere einen ◇ Gegenstand.",
-      "needsReview": true
+      "text": "Trage/manipuliere einen ◇ Gegenstand."
     },
     "choices/choices/deliver-a-message/text": {
       "source": "Deliver a message",

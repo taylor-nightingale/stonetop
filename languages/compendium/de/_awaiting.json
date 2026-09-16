@@ -1,98 +1,10 @@
 {
-  "playbooks": {
-    "the-judge": [
-      "backgrounds/prophet/description",
-      "backgrounds/missionary/choices/0/text",
-      "backgrounds/missionary/description"
-    ],
-    "the-lightbearer": [
-      "choices/helior-worship-spread/0/title",
-      "choices/helior-worship-spread/0/text",
-      "choices/helior-worship-practice/0/text",
-      "choices/helior-shrine/0/text",
-      "choices/helior-predecessor/0/text",
-      "choices/helior-powers-origin/0/text",
-      "choices/helior-worship-practice/0/title",
-      "choices/helior-shrine/0/title",
-      "choices/helior-predecessor/0/title",
-      "choices/helior-powers-origin/0/title"
-    ],
-    "the-marshal": [
-      "choices/war-stories-action/0/title",
-      "choices/war-stories-action/0/text"
-    ]
-  },
   "moves": {
-    "amulets-talismans": [
-      "description"
-    ],
-    "bolster": [
-      "description"
-    ],
-    "danus-grasp": [
-      "description"
-    ],
-    "seasons-change-autumn": [
-      "description",
-      "moveResults/success/value",
-      "moveResults/partial/value",
-      "moveResults/failure/value"
-    ],
-    "seasons-change-spring": [
-      "moveResults/success/value",
-      "moveResults/partial/value",
-      "moveResults/failure/value"
-    ],
-    "seasons-change-summer": [
-      "moveResults/success/value",
-      "moveResults/partial/value",
-      "moveResults/failure/value"
-    ],
     "seasons-change-winter": [
-      "description",
-      "moveResults/success/value",
-      "moveResults/partial/value",
-      "moveResults/failure/value"
-    ]
-  },
-  "arcana": {
-    "vein-of-milky-crystal": [
-      "front/choices/vein-of-milky-crystal/personally-extract/text"
-    ],
-    "cracked-flute": [
-      "front/choices/cracked-flute/1/text"
-    ],
-    "staff-of-the-lidless-orb": [
-      "front/choices/staff-of-the-lidless-orb/1/text"
-    ],
-    "storm-markings": [
-      "front/choices/storm-markings/1/text"
-    ]
-  },
-  "possessions": {
-    "a-pot-of-gold": [
       "description"
-    ]
-  },
-  "followers": {
-    "tulpa": [
-      "choices/choices/carry-manipulate-a-item/text"
     ]
   },
   "steading-improvements": {
-    "additional-housing": [
-      "choices/4/text",
-      "choices/5/text"
-    ],
-    "harnessing-the-stream": [
-      "choices/reservoir/text",
-      "choices/4/text"
-    ],
-    "permanent-logging-camp": [
-      "choices/extra-wagon/text",
-      "choices/8/text",
-      "choices/9/text"
-    ],
     "aurochs-hunting": [
       "choices/7/text"
     ],
@@ -108,6 +20,9 @@
       "choices/6/text"
     ],
     "greater-harvest": [
+      "choices/4/text"
+    ],
+    "harnessing-the-stream": [
       "choices/4/text"
     ],
     "herd-of-horses": [
@@ -127,6 +42,10 @@
     ],
     "palisade": [
       "choices/6/text"
+    ],
+    "permanent-logging-camp": [
+      "choices/8/text",
+      "choices/9/text"
     ],
     "raincatching": [
       "choices/5/text"
@@ -156,7 +75,6 @@
   },
   "steadfasts": {
     "stonetop": [
-      "neighborPlaces/other/subtitle",
       "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming"
     ]
   }

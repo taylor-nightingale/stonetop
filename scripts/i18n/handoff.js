@@ -35,7 +35,10 @@ const MAX_SLOTS = 12;
 
 /** One untranslated key an orphan's words could belong in. */
 export class HandoffSlot {
-	constructor(key, english, sharedWith = 0) {
+	constructor(key, english, sharedWith = 0, elsewhere = null) {
+		// Set when the slot is in another file: text pulled OUT of a container into its own move
+		// lands in a different pack entirely, and a destination you cannot see is no destination.
+		this.elsewhere  = elsewhere;
 		this.key        = key;
 		this.english    = english;
 		// How many OTHER untranslated keys hold this same English. Translating it once covers them
@@ -46,7 +49,8 @@ export class HandoffSlot {
 
 	get line() {
 		const shared = this.sharedWith ? `  ← also fills ${this.sharedWith} other ${this.sharedWith === 1 ? "entry" : "entries"}` : "";
-		return `- \`${this.key}\` — ${JSON.stringify(this.english)}${shared}`;
+		const where  = this.elsewhere ? `${this.elsewhere} › ` : "";
+		return `- ${where}\`"${this.key}"\` — ${JSON.stringify(this.english)}${shared}`;
 	}
 }
 
@@ -270,18 +274,39 @@ const MIN_FRAGMENT = 12;
  * melting from roofs" as a home for a paragraph about draft horses: noise at best, and an invitation
  * to file the words in the wrong place at worst.
  */
-function slotsFor(document, orphanEnglish, shared = new Map()) {
+function slotsFor(document, pack, orphanEnglish, shared = new Map(), vacantElsewhere = []) {
 	const haystack = bareWords(orphanEnglish);
-	return HandoffSlots.of(document.entries
-		.filter(entry => entry.status === EntryStatus.UNTRANSLATED)
-		.filter(entry => {
-			const fragment = bareWords(entry.source);
-			return fragment.length >= MIN_FRAGMENT && haystack.includes(fragment);
-		})
-		.map(entry => new HandoffSlot(entry.key, entry.source, (shared.get(entry.source) ?? 1) - 1)));
+	const fits = (english) => {
+		const fragment = bareWords(english);
+		return fragment.length >= MIN_FRAGMENT && haystack.includes(fragment);
+	};
+
+	const here = document.entries
+		.filter(entry => entry.status === EntryStatus.UNTRANSLATED && fits(entry.source))
+		.map(entry => new HandoffSlot(entry.key, entry.source, (shared.get(entry.source) ?? 1) - 1));
+
+	// Text pulled out of a container into its own move is not in this document at all. Searching
+	// only here is why a steading improvement whose words became `moves/news-at-the-inn` looked
+	// like it had nowhere to go.
+	const away = vacantElsewhere
+		.filter(({ address, english }) => !(address.pack === pack && address.slug === document.slug) && fits(english))
+		.map(({ address, english }) => new HandoffSlot(address.key, english,
+			(shared.get(english) ?? 1) - 1, `\`${address.pack}.json\` › \`"${address.slug}"\``));
+
+	// One slot per distinct English. The same string in another document is not a second destination
+	// for these words — the "also fills N" note already says it will be carried there.
+	const seen = new Set();
+	const distinct = [];
+	for (const slot of [...here, ...away]) {
+		const key = bareWords(slot.english);
+		if (seen.has(key)) continue;
+		seen.add(key);
+		distinct.push(slot);
+	}
+	return HandoffSlots.of(distinct);
 }
 
-function itemsFor(reconciliation, previous, shared, competingFor) {
+function itemsFor(reconciliation, previous, shared, competingFor, vacantElsewhere) {
 	const items = [];
 	for (const documents of reconciliation.documentsByType.values()) {
 		for (const document of documents) {
@@ -296,7 +321,9 @@ function itemsFor(reconciliation, previous, shared, competingFor) {
 					english: entry.source,
 					german:  entry.text,
 					previousEnglish: previous?.entryAt(document.slug, entry.key)?.source ?? null,
-					slots:     orphaned ? slotsFor(document, entry.source, shared) : new HandoffSlots(),
+					slots:     orphaned
+						? slotsFor(document, reconciliation.pack, entry.source, shared, vacantElsewhere)
+						: new HandoffSlots(),
 					competing: orphaned ? competingFor(entry.source, entry.text) : [],
 				}));
 			}
@@ -335,6 +362,11 @@ export async function handoff({ lang = "de", incoming, ours = "HEAD", root = "."
 	// An orphan whose English is live AND already translated is a second translation of one string,
 	// not a homeless one. Neither rehoming (which needs a vacant target) nor de-duplication (which
 	// needs identical German) covers it, so it is the handoff's job to put the two side by side.
+	// Every untranslated address in the corpus, so an orphan can be pointed at a destination in
+	// another file — which is where extracted moves live.
+	const vacantElsewhere = [...corpus.vacantByEnglish()]
+		.flatMap(([english, addresses]) => addresses.map(address => ({ address, english })));
+
 	const translatedByEnglish = corpus.germanByEnglish();
 	const competingFor = (english, german) => [...(translatedByEnglish.get(english) ?? new Map())]
 		.filter(([text]) => text !== german?.trim())
@@ -346,11 +378,11 @@ export async function handoff({ lang = "de", incoming, ours = "HEAD", root = "."
 	for (const pack of TRANSLATED_PACKS) {
 		const english = await englishCatalogForPack(pack, root);
 		const result  = reconcile(lang, pack, english, await readAuthoring(lang, pack, root));
-		items.push(...itemsFor(result, await previousFor(pack), shared, competingFor));
+		items.push(...itemsFor(result, await previousFor(pack), shared, competingFor, vacantElsewhere));
 		flagged.push(...result.flaggedEntries);
 	}
 	const tags = await reconcileTagLabels(lang, root);
-	items.push(...itemsFor(tags, await previousFor(TAG_PACK), shared, competingFor));
+	items.push(...itemsFor(tags, await previousFor(TAG_PACK), shared, competingFor, vacantElsewhere));
 	flagged.push(...tags.flaggedEntries);
 
 	const document = new TranslatorHandoff(lang, items, conflicts);

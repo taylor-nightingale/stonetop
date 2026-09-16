@@ -17,12 +17,15 @@ import { TAG_PACK, reconcileTagLabels } from "./tagLabels.js";
 import { detail, summarise } from "./report.js";
 
 /** What the corpus pass did, printed once rather than buried per pack. */
-function reportCorpus({ relocations, fills, conflicts }, compositions) {
+function reportCorpus({ relocations, redundant, fills, conflicts }, compositions) {
 	for (const { from, to } of relocations) {
 		console.log(`  moved       ${from.label}\n           -> ${to.label}  (same English, another pack)`);
 	}
 	for (const { slug, key, hostKey } of compositions) {
 		console.log(`  composed    ${slug} ${key} + ${hostKey}  (folded heading rejoined)`);
+	}
+	for (const { address } of redundant ?? []) {
+		console.log(`  dropped     ${address.label}  (every paragraph already filed elsewhere)`);
 	}
 	if (fills.length) console.log(`  reused      ${fills.length} translations for identical English`);
 	for (const { address, english, germans } of conflicts) {

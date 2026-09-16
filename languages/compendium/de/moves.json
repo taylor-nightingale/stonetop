@@ -206,8 +206,7 @@
     },
     "description": {
       "source": "When you **_craft a protective charm for someone_**, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When **_they would suffer such harm while bearing your charm_**, roll +INT: **on a 10+**, they ignore the harm entirely; **on a 7-9**, they suffer only half the damage or effect; **on a 6-**, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.",
-      "text": "Wenn du **_für jemanden einen Schutzzauber anfertigst_**, gib 1 Vorrat aus und nenne eine Schadensquelle (Feuer, Stichverletzung usw.). Wenn die Person, **_die deinen Zauber trägt, solchen Schaden erleiden würde_**, würfle +IN. **Bei einer 10+** ignoriert sie den Schaden vollständig. **Bei 7–9** erleidet sie nur den halben Schaden oder Effekt. **Bei einer 6−** erleidet sie den Schaden wie üblich. Eine Person kann immer nur von 1 Zauber gleichzeitig profitieren, und nach einer Anwendung verliert der Zauber seine Wirkung.",
-      "needsReview": true
+      "text": "Wenn du **_für jemanden einen Schutzzauber anfertigst_**, gib 1 Vorrat aus und nenne eine Schadensquelle (Feuer, Stichverletzung usw.). Wenn die Person, **_die deinen Zauber trägt, solchen Schaden erleiden würde_**, würfle +IN. **Bei einer 10+** ignoriert sie den Schaden vollständig. **Bei 7–9** erleidet sie nur den halben Schaden oder Effekt. **Bei einer 6−** erleidet sie den Schaden wie üblich. Eine Person kann immer nur von 1 Zauber gleichzeitig profitieren, und nach einer Anwendung verliert der Zauber seine Wirkung."
     },
     "moveResults/success/value": {
       "source": "They ignore the harm entirely.",
@@ -483,8 +482,7 @@
     },
     "description": {
       "source": "When you **_prepare for what's coming or seek the favor of the gods_**, say how and answer the GM's questions. Then, hold Preparation based on the amount of time you devote:\n\n- A week or so: 1 Preparation\n- A month or so: 2 Preparation\n- The better part of a season: 3 Preparation\n\nWhen you **_make any roll to which your efforts might apply_**, you may spend 1 Preparation to add +1 to that roll, after it is made (maximum +1 per roll).",
-      "text": "Wenn du **_dich auf das, was dir bevorsteht, vorbereitest oder die Gunst der Götter suchst_**, beschreibe, wie du dabei vorgehst, und beantworte die Fragen des SL. Nimm dann entsprechend der Zeit, die du dafür aufgewendet hast, Vorbereitung:\n\n- Etwa eine Woche: 1 Vorbereitung\n- Etwa einen Monat: 2 Vorbereitung\n- Den größten Teil einer Jahreszeit: 3 Vorbereitung\n Wenn du **_würfelst und deine Vorbereitung Einfluss auf das Ergebnis haben könnte_**, kannst du nach dem Würfeln 1 Vorbereitung ausgeben, um +1 auf das Ergebnis zu erhalten (maximal +1 je Wurf).",
-      "needsReview": true
+      "text": "Wenn du **_dich auf das, was dir bevorsteht, vorbereitest oder die Gunst der Götter suchst_**, beschreibe, wie du dabei vorgehst, und beantworte die Fragen des SL. Nimm dann entsprechend der Zeit, die du dafür aufgewendet hast, Vorbereitung:\n\n- Etwa eine Woche: 1 Vorbereitung\n- Etwa einen Monat: 2 Vorbereitung\n- Den größten Teil einer Jahreszeit: 3 Vorbereitung\n\n Wenn du **_würfelst und deine Vorbereitung Einfluss auf das Ergebnis haben könnte_**, kannst du nach dem Würfeln 1 Vorbereitung ausgeben, um +1 auf das Ergebnis zu erhalten (maximal +1 je Wurf)."
     },
     "resource/title": {
       "source": "Preparation",
@@ -497,7 +495,7 @@
       "text": "Geliehene Kraft"
     },
     "description": {
-      "source": "When **_a spirit or beast loans you power_**, ask the GM for one of its tags or moves. Store it in your pouch in place of 1 Stock. When you **_use the borrowed tag or move_**, roll +WIS.",
+      "source": "When **_a spirit or beast loans you power_**, ask the GM for one of its tags or moves. Store it in your pouch in place of 1 Stock. When you **_use the borrowed tag or move_**, roll +WIS: **on a 10+**, you do it and can use the power again; **on a 7-9**, you do it, but lose the power.",
       "text": "Wenn **_ein Geist oder eine Bestie dir eine Kraft verleiht_**, frage den SL nach einer seiner Eigenschaften oder einem seiner Spielzüge. Bewahre diese Kraft in deinem Beutel anstelle von 1 Vorrat auf. Wenn du **_die geliehene Eigenschaft oder den Spielzug einsetzt_**, würfle +WE. **Bei einer 10+** gelingt es dir, und du kannst die Kraft erneut einsetzen. **Bei 7–9** gelingt es dir, aber du verlierst die Kraft."
     },
     "moveResults/success/value": {
@@ -1035,9 +1033,8 @@
       "text": "Danus Griff"
     },
     "description": {
-      "source": "When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **on a 7+**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.\n\n- They're restrained, unable to act freely until your focus slips or they tear their way free\n- They take 2d4 damage (ignores armor)\nIf this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.",
-      "text": "Wenn du **_die Welt selbst anrufst, um einen Geist oder eine Perversion der Natur zu binden_**, gib 1 Vorrat aus und würfle +WE. **Bei einer 7+** greifen Wurzeln, Ranken und Erde nach ihnen, und sie wählen 1. **Bei einer 10+**, wie bei 7–9, aber beide Effekte treten ein.\n\n- Sie sind gefesselt und können nicht frei handeln, bis deine Konzentration nachlässt oder sie sich losreißen.\n- Sie erleiden 2W4 Schaden (ignoriert Rüstung).\nWenn ihre TP dadurch auf 0 sinken, werden sie in die Erde gezogen und in einen mit Runen verzierten Stein verwandelt.",
-      "needsReview": true
+      "source": "When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **on a 7+**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.\n\n- They're restrained, unable to act freely until your focus slips or they tear their way free\n- They take 2d4 damage (ignores armor)\n\nIf this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.",
+      "text": "Wenn du **_die Welt selbst anrufst, um einen Geist oder eine Perversion der Natur zu binden_**, gib 1 Vorrat aus und würfle +WE. **Bei einer 7+** greifen Wurzeln, Ranken und Erde nach ihnen, und sie wählen 1. **Bei einer 10+**, wie bei 7–9, aber beide Effekte treten ein.\n\n- Sie sind gefesselt und können nicht frei handeln, bis deine Konzentration nachlässt oder sie sich losreißen.\n- Sie erleiden 2W4 Schaden (ignoriert Rüstung).\n\nWenn ihre TP dadurch auf 0 sinken, werden sie in die Erde gezogen und in einen mit Runen verzierten Stein verwandelt."
     },
     "moveResults/success/value": {
       "source": "As 7-9, but both apply.",
@@ -3129,23 +3126,19 @@
     },
     "description": {
       "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.\n\nWhen **_the harvest is complete_**, roll 1d4; the steading generates that much Surplus.\n\n**Seasonal gains** (pick from these when the move tells you to):\n\n- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).\n- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.\n- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.\n- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.\n- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.\n- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.",
-      "text": "Wenn **_der Herbst hereinbricht und das Land reif für die Ernte ist_**, würfelt derjenige, der am entschlossensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.\n\nWenn **_die Ernte abgeschlossen ist_**, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
-      "needsReview": true
+      "text": "Wenn **_der Herbst hereinbricht und das Land reif für die Ernte ist_**, würfelt derjenige, der am entschlossensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.\n\nWenn **_die Ernte abgeschlossen ist_**, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss."
     },
     "moveResults/success/value": {
       "source": "Pick 1 seasonal gain.",
-      "text": "Wähle 1 saisonalen Gewinn.\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
-      "needsReview": true
+      "text": "Wähle 1 saisonalen Gewinn."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.",
-      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
-      "needsReview": true
+      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich."
     },
     "moveResults/failure/value": {
       "source": "Threats abound (and don't mark XP).",
-      "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.",
-      "needsReview": true
+      "text": "Die Bedrohungen nehmen überhand (markiere keine EP)."
     },
     "steps/when-autumn-falls-and-the-land/text": {
       "source": "When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes.",
@@ -3171,18 +3164,15 @@
     },
     "moveResults/success/value": {
       "source": "Pick 1 seasonal gain.",
-      "text": "Wähle 1 saisonalen Gewinn.\n\nSetze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Wähle 1 saisonalen Gewinn."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.",
-      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nSetze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich."
     },
     "moveResults/failure/value": {
       "source": "Threats abound (and don't mark XP).",
-      "text": "Die Bedrohungen nehmen überhand (markiere keine EP).\n\nSetze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Die Bedrohungen nehmen überhand (markiere keine EP)."
     },
     "steps/when-spring-bursts-forth-upon-the/text": {
       "source": "When **_spring bursts forth upon the land_**, whoever is the most hopeful rolls +Fortunes.",
@@ -3204,18 +3194,15 @@
     },
     "moveResults/success/value": {
       "source": "Pick 2 seasonal gains.",
-      "text": "Wähle 2 saisonalen Gewinne.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Wähle 2 saisonalen Gewinne."
     },
     "moveResults/partial/value": {
       "source": "Pick 1 seasonal gain.",
-      "text": "Wähle 1 saisonalen Gewinn.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Wähle 1 saisonalen Gewinn."
     },
     "moveResults/failure/value": {
       "source": "A threat to the steading makes itself known or gets worse (and don't mark XP).",
-      "text": "Eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.\n\nDie Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich (markiere keine EP)."
     },
     "steps/when-the-hot-days-of-summer/text": {
       "source": "When **_the hot days of summer settle across the land_**, whoever is most content rolls +Fortunes.",
@@ -3237,23 +3224,19 @@
     },
     "description": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
-      "text": "Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und wähle 1:\n\n- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.\n- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.\n- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.\n- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.\nWürfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.",
-      "needsReview": true
+      "text": "Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und wähle 1:\n\n- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.\n- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.\n- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.\n- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.\n\nWürfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).",
-      "text": "Der Winter ist vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt.\n\nSetze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Der Winter ist vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt."
     },
     "moveResults/partial/value": {
       "source": "The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.",
-      "text": "Die Siedlung muss vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein.\n\nSetze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Die Siedlung muss vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein."
     },
     "moveResults/failure/value": {
       "source": "As a 7-9, but also threats abound (and don't mark XP).",
-      "text": "Wie bei 7-9 aber die Bedrohungen nehmen überhand (markiere keine EP).n\nSetze dann Schicksal auf +1 zurück.",
-      "needsReview": true
+      "text": "Wie bei 7-9 aber die Bedrohungen nehmen überhand (markiere keine EP)."
     },
     "steps/when-winter-grips-the-land-whoever/text": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population.",
@@ -3752,7 +3735,7 @@
       "text": "Das Gift heraussaugen"
     },
     "description": {
-      "source": "When you **_draw a malady from a patient's body, mind, or soul_**, spend 1 Stock and roll +WIS.",
+      "source": "When you **_draw a malady from a patient's body, mind, or soul_**, spend 1 Stock and roll +WIS: **on a 10+**, you remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another; **on a 7-9**, you remove it, but choose 1:\n\n- Your patient suffers lingering harm or trauma\n- You suffer some of the malady's effects\n- It will be harmful and dangerous to discard",
       "text": "Wenn du **_ein Leiden aus dem Körper, dem Geist oder der Seele eines Patienten ziehst_**, gib 1 Vorrat aus und würfle +WE. **Bei einer 10+** entfernst du das Leiden und kannst es gefahrlos entsorgen oder in deinem heiligen Beutel aufbewahren (und dafür den Platz von 1 Vorrat beanspruchen), um es zu untersuchen oder um es auf jemand anderen zu übertragen. **Bei 7-9** entfernst du es, aber wähle 1:\n- Dein Patient erleidet bleibenden Schaden oder ein Trauma.\n- Du erleidest einige der Auswirkungen des Leidens.\n- Es zu entsorgen wird schädlich und gefährlich sein."
     },
     "moveResults/success/value": {
@@ -4162,8 +4145,8 @@
       "text": "Schleier"
     },
     "description": {
-      "source": "When you **_wrap yourself or another in a subtle veil_**, spend 1 Stock and choose 1:\n\n- A type of being you name (including \"people\") will tend to ignore your presence\n- People will perceive you as someone else, though you must wear something of an individual's in order to impersonate them\nWhen **_your deception comes under scrutiny_**, roll +INT.",
-      "text": "Wenn du **_dich selbst oder jemand anderen mit einem subtilen Schleier umhüllst_**, gib 1 Vorrat aus und wähle 1:\n\n- Eine von dir benannte Art von Wesen (einschließlich \"Menschen\") wird dazu neigen, deine Anwesenheit zu ignorieren.\n- Menschen nehmen dich als jemand anderen wahr, allerdings musst du etwas von der betreffenden Person tragen, um sie nachzuahmen.\nWenn **_deine Täuschung auf die Probe gestellt wird_**, würfle +IN. **Bei einer 10+** hält der Schleier, und niemand schöpft Verdacht. **Bei 7–9** hält der Schleier, aber es kommt zu einer weiteren Überprüfung oder einer Komplikation (Wahl des SL)."
+      "source": "When you **_wrap yourself or another in a subtle veil_**, spend 1 Stock and choose 1:\n\n- A type of being you name (including \"people\") will tend to ignore your presence\n- People will perceive you as someone else, though you must wear something of an individual's in order to impersonate them\n\nWhen **_your deception comes under scrutiny_**, roll +INT: **on a 10+**, the veil holds, and no one is the wiser; **on a 7-9**, the veil holds, but there is further scrutiny or a complication (GM's choice).",
+      "text": "Wenn du **_dich selbst oder jemand anderen mit einem subtilen Schleier umhüllst_**, gib 1 Vorrat aus und wähle 1:\n\n- Eine von dir benannte Art von Wesen (einschließlich \"Menschen\") wird dazu neigen, deine Anwesenheit zu ignorieren.\n- Menschen nehmen dich als jemand anderen wahr, allerdings musst du etwas von der betreffenden Person tragen, um sie nachzuahmen.\n\nWenn **_deine Täuschung auf die Probe gestellt wird_**, würfle +IN. **Bei einer 10+** hält der Schleier, und niemand schöpft Verdacht. **Bei 7–9** hält der Schleier, aber es kommt zu einer weiteren Überprüfung oder einer Komplikation (Wahl des SL)."
     },
     "moveResults/success/value": {
       "source": "The veil holds, and no one is the wiser.",
@@ -4254,7 +4237,7 @@
       "text": "Mauern und Fesseln"
     },
     "description": {
-      "source": "When you **_mark a boundary with sacred signs_**, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.\n\nWhen **_your wards or bindings are first tested_**, roll +INT.",
+      "source": "When you **_mark a boundary with sacred signs_**, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.\n\nWhen **_your wards or bindings are first tested_**, roll +INT: **on a 10+**, they will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly; **on a 7-9**, they hold for now but may be overcome through might or will.",
       "text": "Wenn du **_einen Bereich mit heiligen Zeichen versiehst_**, gib 1 Vorrat aus und beschreibe, wen oder was sie betreffen (verwende nicht mehr Worte als deine Stufe entspricht). Entscheide außerdem, ob die betroffenen Wesen von den Zeichen abgehalten oder durch sie gefangen werden.\n\nWenn **_deine Schutzzeichen oder Bannungen erstmals auf die Probe gestellt werden_**, würfle +IN. **Bei einer 10+** halten sie stand, solange die Zeichen unbeschädigt bleiben (und das betroffene Wesen nichts tun kann, um sie direkt zu beeinflussen). **Bei 7–9** halten sie vorerst stand, können aber durch körperliche Gewalt oder Willenskraft überwunden werden."
     },
     "moveResults/success/value": {

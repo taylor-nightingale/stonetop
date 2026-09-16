@@ -1034,11 +1034,6 @@
       "source": "Missionary",
       "text": "Missionar"
     },
-    "backgrounds/missionary/description": {
-      "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain.\n\nWhen you **_call upon the Judge of another steading for aid or information_**, they are oathbound to give it. You are likewise oathbound to support them.\n\nYou have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
-      "text": "Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):\n\nWenn du **_den Richter einer anderen Siedlung um Hilfe oder Informationen bittest_**, ist dieser durch einen Eid verpflichtet, sie dir zu gewähren. Ebenso bist du durch einen Eid verpflichtet, ihn zu unterstützen.\n\nZusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht.",
-      "orphaned": true
-    },
     "backgrounds/prophet/label": {
       "source": "Prophet",
       "text": "Prophet"
@@ -1049,8 +1044,7 @@
     },
     "backgrounds/missionary/choices/you-are-part-of-a-larger/text": {
       "source": "You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain. Add these Judges to the Neighbors section of the steading playbook (pick 2 more):",
-      "text": "Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):",
-      "needsReview": true
+      "text": "Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):"
     },
     "backgrounds/missionary/choices/devin/text": {
       "source": "Devin (from Marshedge)",
@@ -1396,17 +1390,15 @@
     },
     "choices/helior-worship-spread/praise-the-day/title": {
       "source": "Praise the day",
-      "text": "Die Verehrung Heliors ist...",
-      "needsReview": true
+      "text": "Lob den Tag"
     },
     "choices/helior-worship-spread/praise-the-day/text": {
       "source": "You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.",
-      "text": "Du bist der auserwählte Diener Heliors, dem Tagesbringer, dem Gott der Sonne und des Lichts, dem Leuchtfeuers der Hoffnung und Barmherzigkeit.",
-      "needsReview": true
+      "text": "Du bist der auserwählte Diener Heliors, dem Tagesbringer, dem Gott der Sonne und des Lichts, dem Leuchtfeuers der Hoffnung und Barmherzigkeit."
     },
     "choices/helior-worship-spread/the-worship-of-helior-is-choose/text": {
       "source": "The Worship of Helior Is… (choose 1)",
-      "text": ""
+      "text": "Die Verehrung Heliors ist… (wähle 1)"
     },
     "choices/helior-worship-spread/ancient-widespread/text": {
       "source": "… ancient, widespread, and well-known.",
@@ -1748,13 +1740,11 @@
     },
     "choices/war-stories-action/war-stories/title": {
       "source": "War stories",
-      "text": "The last time the militia saw serious action, it was...",
-      "needsReview": true
+      "text": "Kriegsgeschichten"
     },
     "choices/war-stories-action/war-stories/text": {
-      "source": "The Last Time the Militia Saw Serious Action, It Was… (pick 1)",
-      "text": "wähle 1",
-      "needsReview": true
+      "source": "The Last Time the Militia Saw Serious Action, It was… (pick 1)",
+      "text": "Das letzte Mal, dass die Miliz ernsthafte Kämpfe sah, war es...(wähle 1)"
     },
     "choices/war-stories-action/crinwin-raid/text": {
       "source": "… to repel a nighttime raid by crinwin from the Great Wood.",

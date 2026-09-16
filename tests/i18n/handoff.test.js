@@ -15,7 +15,7 @@ const orphan = (overrides = {}) => new HandoffItem({
 describe("HandoffSlot", () => {
 	it("says nothing extra when a string is needed in one place only", () => {
 		expect(new HandoffSlot("effects/0/text", "increase Fortunes by 1").line)
-			.toBe('- `effects/0/text` — "increase Fortunes by 1"');
+			.toBe('- `"effects/0/text"` — "increase Fortunes by 1"');
 	});
 
 	it("says how many other entries one translation would cover", () => {
@@ -24,6 +24,29 @@ describe("HandoffSlot", () => {
 
 	it("keeps the singular readable", () => {
 		expect(new HandoffSlot("k", "x", 1).line).toContain("also fills 1 other entry");
+	});
+
+	// Text pulled out into its own move lands in a different file; a destination you cannot see is
+	// no destination at all.
+	it("names the file and document when the slot is in another pack", () => {
+		const slot = new HandoffSlot("description", "When the seasons change…", 0,
+			'`moves.json` › `"news-at-the-inn"`');
+		expect(slot.line).toContain("moves.json");
+		expect(slot.line).toContain("news-at-the-inn");
+		expect(slot.line).toContain("description");
+	});
+
+	it("lists a repeated English string once, not once per document that has it", () => {
+		const slots = HandoffSlots.of([
+			new HandoffSlot("effects/0/text", "increase Fortunes by 1", 11),
+			new HandoffSlot("effects/0/text", "increase Fortunes by 1", 11, '`x.json` › `"other"`'),
+		]);
+		// de-duplication happens in slotsFor; this guards the rendering contract it relies on
+		expect(slots.shown.map(s => s.english)).toEqual(["increase Fortunes by 1", "increase Fortunes by 1"]);
+	});
+
+	it("says nothing about a file for a slot in the same document", () => {
+		expect(new HandoffSlot("effects/0/text", "x").line).not.toContain(".json");
 	});
 });
 

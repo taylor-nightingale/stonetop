@@ -226,8 +226,7 @@
     },
     "description": {
       "source": "◇◇ *magical*\n\nA small bronze cauldron, full of glittering coins. At least, that’s what it seems.\n\nWhen you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a ◇ purse of gold (Value 4).\n\nAny “coins” removed from the pot revert to their true form when…\n\n… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*",
-      "text": "◇◇, *Magisch*\n\nEin kleiner Bronzekessel, gefüllt mit glitzernden Münzen. Zumindest scheint es so.\n\nWenn du **_den Topf mit kleinen natürlichen Dingen (Blätter, Steine, Eicheln usw.) füllst und ihn eine Jahreszeit lang vor Licht geschützt aufbewahrst_**, wird sein Inhalt verzaubert und verwandelt sich in einen Beutel voller Gold (Wert 4).\n\nAlle „Münzen“, die aus dem Topf entfernt werden, verwandeln sich wieder in ihre wahre Form, wenn …\n\n… ein ehrlicher Händler sie berührt; … ihr aktueller Besitzer lügt;<br>… jemand die Illusion durchschaut;<br>… etwas den Zauber aufhebt; oder<br>… der Neumond kommt und vergeht.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*",
-      "needsReview": true
+      "text": "◇◇, *Magisch*\n\nEin kleiner Bronzekessel, gefüllt mit glitzernden Münzen. Zumindest scheint es so.\n\nWenn du **_den Topf mit kleinen natürlichen Dingen (Blätter, Steine, Eicheln usw.) füllst und ihn eine Jahreszeit lang vor Licht geschützt aufbewahrst_**, wird sein Inhalt verzaubert und verwandelt sich in einen Beutel voller Gold (Wert 4).\n\nAlle „Münzen“, die aus dem Topf entfernt werden, verwandeln sich wieder in ihre wahre Form, wenn…\n\n… ein ehrlicher Händler sie berührt; … ihr aktueller Besitzer lügt;<br>… jemand die Illusion durchschaut;<br>… etwas den Zauber aufhebt; oder<br>… der Neumond kommt und vergeht.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*"
     },
     "outfitItems/a-pot-of-gold/name": {
       "source": "A pot of “gold”",
@@ -717,7 +716,7 @@
     },
     "description": {
       "source": "◇ (*far*, +1 damage, x piercing; ○ low ammo, ○ all out)",
-      "text": "◇ (*Fern*, +1 Schaden, Durchdringung x, ○ geringe Munition, ○ alle verbraucht"
+      "text": "◇ (*Fern*, +1 Schaden, Durchdringung x, ○ wenig Munition, ○ alle verbraucht)"
     },
     "outfitItems/composite-bow/name": {
       "source": "Composite Bow",

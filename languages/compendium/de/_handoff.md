@@ -14,783 +14,11 @@ So: open `languages/compendium/de/steadfasts.json`, find `"stonetop"`, find
 `"neighborPlaces/other/subtitle"` inside it, and edit its `"text"`. Leave `"source"` alone —
 it is regenerated, and it is there to show you what the German is meant to say.
 
-- **27** entries where the English changed under an existing translation (3 of them markup or spacing only)
-- **1** flagged earlier and still awaiting a revision
-- **28** translations whose row was restructured and need re-filing
-
-## playbooks.json
-
-### `playbooks.json` › `"the-judge"` › `"backgrounds/missionary/description"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):
-
-Wenn du **_den Richter einer anderen Siedlung um Hilfe oder Informationen bittest_**, ist dieser durch einen Eid verpflichtet, sie dir zu gewähren. Ebenso bist du durch einen Eid verpflichtet, ihn zu unterstützen.
-
-Zusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht.
-```
-
-### `playbooks.json` › `"the-judge"` › `"backgrounds/missionary/choices/you-are-part-of-a-larger/text"`
-
-Flagged for review earlier; the English has not changed since.
-
-English:
-
-```
-You are part of a larger order of Judges, sent here to protect the flickering flame of civilization. The Chronicle is relatively new; your position in town is far from certain. Add these Judges to the Neighbors section of the steading playbook (pick 2 more):
-```
-
-Your German:
-
-```
-Du gehörst einem größeren Orden von Richtern an, die hierher entsandt wurden, um die flackernde Flamme der Zivilisation zu schützen. Die Chronik ist noch relativ neu; deine Stellung im Dorf ist alles andere als sicher. Füge diese Richter dem Abschnitt „Nachbarn“ im Stonetop-Spielbuch hinzu (wähle 2 weitere):
-```
-
-### `playbooks.json` › `"the-lightbearer"` › `"choices/helior-worship-spread/praise-the-day/title"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-The Worship of Helior Is…
-```
-
-Now:
-
-```
-Praise the day
-```
-
-Your German:
-
-```
-Die Verehrung Heliors ist...
-```
-
-### `playbooks.json` › `"the-lightbearer"` › `"choices/helior-worship-spread/praise-the-day/text"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy. *(choose 1)*
-```
-
-Now:
-
-```
-You are the appointed servant of Helior the Daybringer, god of the sun and light, beacon of hope and mercy.
-```
-
-Your German:
-
-```
-Du bist der auserwählte Diener Heliors, dem Tagesbringer, dem Gott der Sonne und des Lichts, dem Leuchtfeuers der Hoffnung und Barmherzigkeit.
-```
-
-### `playbooks.json` › `"the-marshal"` › `"choices/war-stories-action/war-stories/title"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-The Last Time the Militia Saw Serious Action, It Was…
-```
-
-Now:
-
-```
-War stories
-```
-
-Your German:
-
-```
-The last time the militia saw serious action, it was...
-```
-
-### `playbooks.json` › `"the-marshal"` › `"choices/war-stories-action/war-stories/text"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-*(pick 1)*
-```
-
-Now:
-
-```
-The Last Time the Militia Saw Serious Action, It Was… (pick 1)
-```
-
-Your German:
-
-```
-wähle 1
-```
-
-## moves.json
-
-### `moves.json` › `"amulets-talismans"` › `"description"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-When you **_craft a protective charm for someone_**, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When **_they would suffer such harm while bearing your charm_**, roll +INT: **on a 10+**, they ignore the harm entirely; **_on a 7-9_**, they suffer only half the damage or effect; **on a 6-**, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.
-```
-
-Now:
-
-```
-When you **_craft a protective charm for someone_**, spend 1 Stock and name a source of harm (fire, stabbing, etc.). When **_they would suffer such harm while bearing your charm_**, roll +INT: **on a 10+**, they ignore the harm entirely; **on a 7-9**, they suffer only half the damage or effect; **on a 6-**, they suffer the harm normally. One can benefit from only 1 charm at a time, and it loses its potency after 1 use.
-```
-
-Your German:
-
-```
-Wenn du **_für jemanden einen Schutzzauber anfertigst_**, gib 1 Vorrat aus und nenne eine Schadensquelle (Feuer, Stichverletzung usw.). Wenn die Person, **_die deinen Zauber trägt, solchen Schaden erleiden würde_**, würfle +IN. **Bei einer 10+** ignoriert sie den Schaden vollständig. **Bei 7–9** erleidet sie nur den halben Schaden oder Effekt. **Bei einer 6−** erleidet sie den Schaden wie üblich. Eine Person kann immer nur von 1 Zauber gleichzeitig profitieren, und nach einer Anwendung verliert der Zauber seine Wirkung.
-```
-
-### `moves.json` › `"bolster"` › `"description"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-When you **_prepare for what's coming or seek the favor of the gods_**, say how and answer the GM's questions. Then, hold Preperation based on the amount of time you devote:
-
-- A week or so: 1 Preperation
-- A month or so: 2 Preperation
-- The better part of a season: 3 Preperation
- When you **_make any roll to which your efforts might apply_**, you may spend 1 Preperation to add +1 to that roll, after it is made (maximum +1 per roll).
-```
-
-Now:
-
-```
-When you **_prepare for what's coming or seek the favor of the gods_**, say how and answer the GM's questions. Then, hold Preparation based on the amount of time you devote:
-
-- A week or so: 1 Preparation
-- A month or so: 2 Preparation
-- The better part of a season: 3 Preparation
-
-When you **_make any roll to which your efforts might apply_**, you may spend 1 Preparation to add +1 to that roll, after it is made (maximum +1 per roll).
-```
-
-Your German:
-
-```
-Wenn du **_dich auf das, was dir bevorsteht, vorbereitest oder die Gunst der Götter suchst_**, beschreibe, wie du dabei vorgehst, und beantworte die Fragen des SL. Nimm dann entsprechend der Zeit, die du dafür aufgewendet hast, Vorbereitung:
-
-- Etwa eine Woche: 1 Vorbereitung
-- Etwa einen Monat: 2 Vorbereitung
-- Den größten Teil einer Jahreszeit: 3 Vorbereitung
- Wenn du **_würfelst und deine Vorbereitung Einfluss auf das Ergebnis haben könnte_**, kannst du nach dem Würfeln 1 Vorbereitung ausgeben, um +1 auf das Ergebnis zu erhalten (maximal +1 je Wurf).
-```
-
-### `moves.json` › `"danus-grasp"` › `"description"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **_on a 7+_**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.
-
-- They're restrained, unable to act freely until your focus slips or they tear their way free
-- They take 2d4 damage (ignores armor)
-If this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.
-```
-
-Now:
-
-```
-When you **_call on the world itself to bind a spirit or a perversion of nature_**, spend 1 Stock and roll +WIS: **on a 7+**, roots, vines, and earth pull at them, and they pick 1; **on a 10+**, as a 7-9, but both apply.
-
-- They're restrained, unable to act freely until your focus slips or they tear their way free
-- They take 2d4 damage (ignores armor)
-If this brings them to 0 HP, they are pulled into the earth and bound in rune-etched stone.
-```
-
-Your German:
-
-```
-Wenn du **_die Welt selbst anrufst, um einen Geist oder eine Perversion der Natur zu binden_**, gib 1 Vorrat aus und würfle +WE. **Bei einer 7+** greifen Wurzeln, Ranken und Erde nach ihnen, und sie wählen 1. **Bei einer 10+**, wie bei 7–9, aber beide Effekte treten ein.
-
-- Sie sind gefesselt und können nicht frei handeln, bis deine Konzentration nachlässt oder sie sich losreißen.
-- Sie erleiden 2W4 Schaden (ignoriert Rüstung).
-Wenn ihre TP dadurch auf 0 sinken, werden sie in die Erde gezogen und in einen mit Runen verzierten Stein verwandelt.
-```
-
-### `moves.json` › `"seasons-change-autumn"` › `"description"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).
-
-Whatever the result, reset Fortunes to +1.
-
-When the harvest is complete, roll 1d4; the steading generates that much Surplus.
-
-**Seasonal gains** (pick from these when the move tells you to):
-
-- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).
-- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.
-- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.
-- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.
-- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.
-- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.
-```
-
-Now:
-
-```
-When **_autumn falls and the land is ripe for harvest_**, whoever is most determined rolls +Fortunes: **on a 10+**, pick 1 seasonal gain; **on a 7-9**, pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse; **on a 6-**, threats abound (and don't mark XP).
-
-Whatever the result, reset Fortunes to +1.
-
-When **_the harvest is complete_**, roll 1d4; the steading generates that much Surplus.
-
-**Seasonal gains** (pick from these when the move tells you to):
-
-- **Population boom:** A number of youth come of age, and/or outsiders settle here. Increase Population by 1 (max +3).
-- **Tor's blessing:** Fine weather abounds. Take +1 to Pull Together this season, and any time you roll the Die of Fate for weather, roll twice and take your pick.
-- **Unexpected bounty:** A sudden influx of wild game, trade profits, or some other resource generates 1 Surplus, now.
-- **Trade opportunity:** At some point this season, someone offers to trade something valuable at a good price or something unique/unusual at a reasonable price. Pay what they're asking and it's yours.
-- **Interesting news:** There's an opportunity to improve your fortunes, knowledge, or relations, and/or to make progress towards a steading improvement.
-- **Valuable insight:** You learn something that gives you a chance to address a threat that's been plaguing the steading.
-```
-
-Your German:
-
-```
-Wenn **_der Herbst hereinbricht und das Land reif für die Ernte ist_**, würfelt derjenige, der am entschlossensten ist, 2W6+Schicksal. **Bei einer 10+** wähle 1 saisonalen Gewinn. **Bei 7–9** wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich. **Bei einer 6-** nehmen die Bedrohungen überhand (markiere keine EP).
-
-Unabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.
-
-Wenn **_die Ernte abgeschlossen ist_**, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.
-```
-
-### `moves.json` › `"seasons-change-autumn"` › `"moveResults/success/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Pick 1 seasonal gain.
-
-Then reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.
-```
-
-Now:
-
-```
-Pick 1 seasonal gain.
-```
-
-Your German:
-
-```
-Wähle 1 saisonalen Gewinn.
-
-Setze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.
-```
-
-### `moves.json` › `"seasons-change-autumn"` › `"moveResults/partial/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.
-
-Then reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.
-```
-
-Now:
-
-```
-Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.
-```
-
-Your German:
-
-```
-Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.
-
-Setze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.
-```
-
-### `moves.json` › `"seasons-change-autumn"` › `"moveResults/failure/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Threats abound (and don't mark XP).
-
-Then reset Fortunes to +1. When the harvest is complete, roll 1d4; the steading generates that much Surplus.
-```
-
-Now:
-
-```
-Threats abound (and don't mark XP).
-```
-
-Your German:
-
-```
-Die Bedrohungen nehmen überhand (markiere keine EP).
-
-Setze dann Schicksal auf +1 zurück. Wenn die Ernte abgeschlossen ist, würfle 1W4. Die Siedlung erzeugt diese Menge an Überschuss.
-```
-
-### `moves.json` › `"seasons-change-spring"` › `"moveResults/success/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Pick 1 seasonal gain.
-
-Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-Pick 1 seasonal gain.
-```
-
-Your German:
-
-```
-Wähle 1 saisonalen Gewinn.
-
-Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-spring"` › `"moveResults/partial/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.
-
-Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-Pick 1 seasonal gain, but a threat to the steading makes itself known or gets worse.
-```
-
-Your German:
-
-```
-Wähle 1 saisonalen Gewinn, aber eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.
-
-Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-spring"` › `"moveResults/failure/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Threats abound (and don't mark XP).
-
-Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-Threats abound (and don't mark XP).
-```
-
-Your German:
-
-```
-Die Bedrohungen nehmen überhand (markiere keine EP).
-
-Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-summer"` › `"moveResults/success/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Pick 2 seasonal gains.
-
-The steading generates 1d4-1 Surplus. Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-Pick 2 seasonal gains.
-```
-
-Your German:
-
-```
-Wähle 2 saisonalen Gewinne.
-
-Die Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-summer"` › `"moveResults/partial/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-Pick 1 seasonal gain.
-
-The steading generates 1d4-1 Surplus. Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-Pick 1 seasonal gain.
-```
-
-Your German:
-
-```
-Wähle 1 saisonalen Gewinn.
-
-Die Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-summer"` › `"moveResults/failure/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-A threat to the steading makes itself known or gets worse (and don't mark XP).
-
-The steading generates 1d4-1 Surplus. Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-A threat to the steading makes itself known or gets worse (and don't mark XP).
-```
-
-Your German:
-
-```
-Eine Bedrohung für die Siedlung zeichnet sich ab oder verschlimmert sich.
-
-Die Siedlung erzeugt  1W4−1 Überschuss. Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-winter"` › `"description"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and Meet with Disaster. Then, pick 1:
-
-- Reduce Population by 1 (min -1) due to death, decrepitude, and departure
-- An important resource (one of the horses, the cistern, etc.) is lost or not maintained
-- An important NPC dies, their role unfilled
-- Your PC dies, leaves, or retires from play
-
-Then, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).
-
-Whatever the result, reset Fortunes to +1.
-```
-
-Now:
-
-```
-When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}. Then, pick 1:
-
-- Reduce Population by 1 (min -1) due to death, decrepitude, and departure
-- An important resource (one of the horses, the cistern, etc.) is lost or not maintained
-- An important NPC dies, their role unfilled
-- Your PC dies, leaves, or retires from play
-
-Then, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).
-
-Whatever the result, reset Fortunes to +1.
-```
-
-Your German:
-
-```
-Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und wähle 1:
-
-- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.
-- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.
-- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.
-- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.
-Würfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).
-
-Unabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt.
-```
-
-### `moves.json` › `"seasons-change-winter"` › `"moveResults/success/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).
-
-Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).
-```
-
-Your German:
-
-```
-Der Winter ist vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt.
-
-Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-winter"` › `"moveResults/partial/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.
-
-Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-The steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above.
-```
-
-Your German:
-
-```
-Die Siedlung muss vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein.
-
-Setze dann Schicksal auf +1 zurück.
-```
-
-### `moves.json` › `"seasons-change-winter"` › `"moveResults/failure/value"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-As a 7-9, but also threats abound (and don't mark XP).
-
-Then reset Fortunes to +1.
-```
-
-Now:
-
-```
-As a 7-9, but also threats abound (and don't mark XP).
-```
-
-Your German:
-
-```
-Wie bei 7-9 aber die Bedrohungen nehmen überhand (markiere keine EP).n
-Setze dann Schicksal auf +1 zurück.
-```
-
-## arcana.json
-
-### `arcana.json` › `"vein-of-milky-crystal"` › `"front/choices/vein-of-milky-crystal/personally-extract/text"`
-
-Markup or spacing only — the wording did not change.
-
-Was:
-
-```
-… personally extract a large hunk of crystal (Value 1) from the vein.
-```
-
-Now:
-
-```
-… personally extract a large ◇ hunk of crystal (Value 1) from the vein.
-```
-
-Your German:
-
-```
-… persönlich ein großes Stück Kristall (Wert 1) aus der Ader herausbrechen.
-```
-
-## possessions.json
-
-### `possessions.json` › `"a-pot-of-gold"` › `"description"`
-
-Markup or spacing only — the wording did not change.
-
-Was:
-
-```
-◇◇ *magical*
-
-A small bronze cauldron, full of glittering coins. At least, that’s what it seems.
-
-When you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a purse of gold ◇ (Value 4).
-
-Any “coins” removed from the pot revert to their true form when…
-
-… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes
-
-*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*
-```
-
-Now:
-
-```
-◇◇ *magical*
-
-A small bronze cauldron, full of glittering coins. At least, that’s what it seems.
-
-When you **_fill the pot with small, natural_** **_items (leaves, stones, acorns, etc.) and hide_** **_it from light for a season_**, the contents are glamoured to become a ◇ purse of gold (Value 4).
-
-Any “coins” removed from the pot revert to their true form when…
-
-… an honest merchant touches them;<br>… their current owner tells a lie;<br>… someone sees through the glamour;<br>… something dispels the glamour; or<br>… the new moon comes and goes
-
-*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Fae}.*
-```
-
-Your German:
-
-```
-◇◇, *Magisch*
-
-Ein kleiner Bronzekessel, gefüllt mit glitzernden Münzen. Zumindest scheint es so.
-
-Wenn du **_den Topf mit kleinen natürlichen Dingen (Blätter, Steine, Eicheln usw.) füllst und ihn eine Jahreszeit lang vor Licht geschützt aufbewahrst_**, wird sein Inhalt verzaubert und verwandelt sich in einen Beutel voller Gold (Wert 4).
-
-Alle „Münzen“, die aus dem Topf entfernt werden, verwandeln sich wieder in ihre wahre Form, wenn …
-
-… ein ehrlicher Händler sie berührt; … ihr aktueller Besitzer lügt;<br>… jemand die Illusion durchschaut;<br>… etwas den Zauber aufhebt; oder<br>… der Neumond kommt und vergeht.
-
-*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YMV8KIodnoZL71Jl]{Feen}.*
-```
-
-## followers.json
-
-### `followers.json` › `"tulpa"` › `"choices/choices/carry-manipulate-a-item/text"`
-
-Markup or spacing only — the wording did not change.
-
-Was:
-
-```
-Carry/manipulate a item
-```
-
-Now:
-
-```
-Carry/manipulate a ◇ item
-```
-
-Your German:
-
-```
-Trage/manipuliere einen ◇ Gegenstand.
-```
+- **0** entries where the English changed under an existing translation
+- **0** flagged earlier and still awaiting a revision
+- **26** translations whose row was restructured and need re-filing
 
 ## steading-improvements.json
-
-### `steading-improvements.json` › `"additional-housing"` › `"choices/and-then/text"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-And then: Pulling together 5 times, each requiring 1 season, 1 Surplus, and a wagonload of timber and other supplies (Value 2), to (re)build homes.
-```
-
-Now:
-
-```
-And then:
-```
-
-Your German:
-
-```
-Und anschließend: 5-mal gemeinsam anpacken, wobei jedes Mal 1 Jahreszeit, 1 Überschuss und eine Wagenladung Bauholz und anderer Materialien (Wert 2) benötigt werden, um Häuser zu bauen oder umzubauen.
-```
-
-### `steading-improvements.json` › `"additional-housing"` › `"choices/5/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und zeichne alle neuen Häuser auf der Karte ein.
-
-Von nun an gilt: Wenn du **_im Winter Überschuss verbrauchst_**, setze die Bevölkerung um 1 niedriger an, als sie tatsächlich ist.
-```
-
-The keys it was split into:
-
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-any-new-homes-to-the/text` — "add any new homes to the map"
-- `effects/consider-population-to-be-1-lower/text` — "consider Population to be 1 lower than it is"
-- `effects/consider-population-to-be-1-lower/when/phrase` — "when you **_consume Surplus in winter_**"
 
 ### `steading-improvements.json` › `"aurochs-hunting"` › `"choices/7/text"`
 
@@ -813,19 +41,25 @@ Von nun an gilt: Wenn du **_im Frühling die Auerochsenjagd anführst_**, würfl
 
 The keys it was split into:
 
-- `effects/add-aurochs-hunting-meat-hide-horn/text` — "add \"Aurochs hunting (meat, hide, horn)\" to the Resources list"
-- `effects/add-aurochs-hunting-meat-hide-horn/listEntry/text` — "Aurochs hunting (meat, hide, horn)"
+- `"effects/add-aurochs-hunting-meat-hide-horn/text"` — "add \"Aurochs hunting (meat, hide, horn)\" to the Resources list"
+- `"effects/add-aurochs-hunting-meat-hide-horn/listEntry/text"` — "Aurochs hunting (meat, hide, horn)"
+- `moves.json` › `"lead-the-aurochs-hunt"` › `"name"` — "Lead the Aurochs Hunt"
+- `moves.json` › `"lead-the-aurochs-hunt"` › `"moveResults/success/value"` — "Gain 1d4 Surplus."
 
 ### `steading-improvements.json` › `"expanded-trades"` › `"choices/12/text"`
 
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
+**This row was split up.** Your German covers all of the keys below. Move the matching
+part of it into each one, then delete the entry named in the heading.
 
 Your German:
 
 ```
 Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Wohlstand um 1. Wenn du **_die Voraussetzungen nicht mehr erfüllst_**, verringere Wohlstand um 1.
 ```
+
+The keys it was split into:
+
+- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/increase-prosperity-by-1/text"` — "increase Prosperity by 1"
 
 ### `steading-improvements.json` › `"golden-sapling"` › `"choices/4/text"`
 
@@ -840,8 +74,8 @@ Wenn du **_die Voraussetzungen erfüllst_**, füge „Goldener Setzling“ zur R
 
 The keys it was split into:
 
-- `effects/add-golden-sapling-to-the-resources/text` — "add \"Golden Sapling\" to the Resources list"
-- `effects/automatically-mark-the-greater-harvest-improvement/text` — "automatically mark the Greater Harvest improvement"
+- `"effects/add-golden-sapling-to-the-resources/text"` — "add \"Golden Sapling\" to the Resources list"
+- `"effects/automatically-mark-the-greater-harvest-improvement/text"` — "automatically mark the Greater Harvest improvement"
 
 ### `steading-improvements.json` › `"golden-sapling"` › `"choices/5/text"`
 
@@ -856,8 +90,8 @@ Von nun an erzeugt die Siedlung jedes Mal, wenn sie Überschuss erwirtschaftet, 
 
 The keys it was split into:
 
-- `effects/it-generates-1-surplus/text` — "it generates +1 Surplus"
-- `effects/it-generates-1-surplus/when/phrase` — "when **_the steading generates Surplus, even just 1_**"
+- `"effects/it-generates-1-surplus/text"` — "it generates +1 Surplus"
+- `"effects/it-generates-1-surplus/when/phrase"` — "when **_the steading generates Surplus, even just 1_**"
 
 ### `steading-improvements.json` › `"great-wood-timber"` › `"choices/5/text"`
 
@@ -872,9 +106,8 @@ Wenn du **_alle Voraussetzungen erfüllt hast_**, erhöhe Schicksal um 1 und fü
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-timber-from-the-great-wood/text` — "add \"Timber from the Great Wood\" to the Resources list"
-- `effects/add-timber-from-the-great-wood/listEntry/text` — "Timber from the Great Wood"
+- `"effects/add-timber-from-the-great-wood/text"` — "add \"Timber from the Great Wood\" to the Resources list"
+- `"effects/add-timber-from-the-great-wood/listEntry/text"` — "Timber from the Great Wood"
 
 ### `steading-improvements.json` › `"great-wood-timber"` › `"choices/6/text"`
 
@@ -889,8 +122,8 @@ Von nun an verfügt die Siedlung über eine zuverlässige Versorgung mit Bauholz
 
 The keys it was split into:
 
-- `effects/the-steading-has-a-ready-supply/text` — "the steading has a ready supply of timber for improvements and other projects"
-- `effects/the-steading-consumes-1-less-surplus/when/phrase` — "**_every winter_**"
+- `"effects/the-steading-has-a-ready-supply/text"` — "the steading has a ready supply of timber for improvements and other projects"
+- `"effects/the-steading-consumes-1-less-surplus/when/phrase"` — "**_every winter_**"
 
 ### `steading-improvements.json` › `"greater-harvest"` › `"choices/4/text"`
 
@@ -905,31 +138,8 @@ Wenn du **_die Voraussetzungen erfüllst_**,, erhöhe Schicksal um 1. Sobald **_
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/gain-1d4-surplus/text` — "gain +1d4 Surplus"
-- `effects/gain-1d4-surplus/when/phrase` — "when **_the autumn harvest is complete_**"  ← also fills 2 other entries
-
-### `steading-improvements.json` › `"harnessing-the-stream"` › `"choices/reservoir/text"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-A reservoir for the Stream to pool in, and some way for water to flow uphill
-```
-
-Now:
-
-```
-A reservoir for the Stream to pool in
-```
-
-Your German:
-
-```
-Ein Reservoir, in dem sich das Wasser des Bachs sammeln kann, sowie eine Möglichkeit, das Wasser bergauf fließen zu lassen
-```
+- `"effects/gain-1d4-surplus/text"` — "gain +1d4 Surplus"
+- `"effects/gain-1d4-surplus/when/phrase"` — "when **_the autumn harvest is complete_**"  ← also fills 2 other entries
 
 ### `steading-improvements.json` › `"harnessing-the-stream"` › `"choices/4/text"`
 
@@ -946,10 +156,9 @@ Von nun an gilt: Wenn **_der Frühling anbricht und du mit Schicksal eine 7+ wü
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-them-to-the-resources-list/text` — "add them to the Resources list"
-- `effects/the-steading-generates-1-surplus/text` — "the steading generates 1 Surplus"  ← also fills 1 other entry
-- `effects/the-steading-generates-1-surplus/when/phrase` — "when **_spring breaks forth and you roll a 7+ with Fortunes_**"
+- `"effects/add-them-to-the-resources-list/text"` — "add them to the Resources list"
+- `"effects/the-steading-generates-1-surplus/text"` — "the steading generates 1 Surplus"  ← also fills 1 other entry
+- `"effects/the-steading-generates-1-surplus/when/phrase"` — "when **_spring breaks forth and you roll a 7+ with Fortunes_**"
 
 ### `steading-improvements.json` › `"herd-of-horses"` › `"choices/10/text"`
 
@@ -970,15 +179,14 @@ Wenn **_der Winter das Land fest im Griff hat_**, verbraucht die Herde 1 Übersc
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/replace-a-pair-of-sturdy-draft/text` — "replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size"
-- `effects/it-takes-half-as-long-and/text` — "it takes half as long and costs half as much"
-- `effects/treat-a-6-as-a-7/text` — "treat a 6- as a 7-9"
-- `effects/any-yearlings-become-horses-value-3/text` — "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)"
-- `effects/it-takes-half-as-long-and/when/phrase` — "when **_you leverage the horses to Pull Together_**"
-- `effects/treat-a-6-as-a-7/when/phrase` — "when **_you Requisition half the herd or less_**"
-- `effects/any-yearlings-become-horses-value-3/when/phrase` — "when **_the seasons change to summer_**"
-- `effects/the-herd-consumes-1-surplus-per/when/phrase` — "when **_winter grips the land_**"  ← also fills 2 other entries
+- `"effects/replace-a-pair-of-sturdy-draft/text"` — "replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size"
+- `"effects/it-takes-half-as-long-and/text"` — "it takes half as long and costs half as much"
+- `"effects/treat-a-6-as-a-7/text"` — "treat a 6- as a 7-9"
+- `"effects/any-yearlings-become-horses-value-3/text"` — "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)"
+- `"effects/it-takes-half-as-long-and/when/phrase"` — "when **_you leverage the horses to Pull Together_**"
+- `"effects/treat-a-6-as-a-7/when/phrase"` — "when **_you Requisition half the herd or less_**"
+- `"effects/any-yearlings-become-horses-value-3/when/phrase"` — "when **_the seasons change to summer_**"
+- `"effects/the-herd-consumes-1-surplus-per/when/phrase"` — "when **_winter grips the land_**"  ← also fills 2 other entries
 
 ### `steading-improvements.json` › `"heroic-reputation"` › `"choices/8/text"`
 
@@ -1010,10 +218,11 @@ Einmal pro Jahreszeit, wenn du **_1 Überschuss ausgibst und die Leute im Gastha
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/name-the-inn-add-it-to/text` — "name the inn, add it to both the Resources list and map"
-- `effects/clear-one-of-the-steadings-debilities/text` — "clear one of the steading's debilities"
-- `effects/clear-one-of-the-steadings-debilities/when/phrase` — "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**"
+- `"effects/name-the-inn-add-it-to/text"` — "name the inn, add it to both the Resources list and map"
+- `"effects/clear-one-of-the-steadings-debilities/text"` — "clear one of the steading's debilities"
+- `"effects/clear-one-of-the-steadings-debilities/when/phrase"` — "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**"
+- `moves.json` › `"news-at-the-inn"` › `"description"` — "When **_the seasons change_**, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests."
+- `moves.json` › `"news-at-the-inn"` › `"moveResults/failure/value"` — "Ask 1 question, but the GM describes some trouble that stems from the inn or its guests."
 
 ### `steading-improvements.json` › `"market"` › `"choices/8/text"`
 
@@ -1030,7 +239,8 @@ Wenn die Jahreszeiten zu Frühling, Sommer oder Herbst wechseln, der Marktplatz 
 
 The keys it was split into:
 
-- `effects/the-market-generates-1-surplus/text` — "the market generates 1 Surplus"
+- `"effects/the-market-generates-1-surplus/text"` — "the market generates 1 Surplus"
+- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/increase-prosperity-by-1/text"` — "increase Prosperity by 1"
 
 ### `steading-improvements.json` › `"mill"` › `"choices/7/text"`
 
@@ -1047,12 +257,11 @@ Von nun an erzeugt die Siedlung nach Abschluss der Herbsternte +1 Überschuss. A
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-mill-to-the-resources-list/text` — "add \"Mill\" to the Resources list and draw it on the map"
-- `effects/the-steading-generates-1-surplus/text` — "the steading generates +1 Surplus"  ← also fills 1 other entry
-- `effects/each-of-supplies-has-1-extra/text` — "each of supplies has 1 extra use"
-- `effects/the-steading-generates-1-surplus/when/phrase` — "when **_the autumn harvest is complete_**"  ← also fills 2 other entries
-- `effects/each-of-supplies-has-1-extra/when/phrase` — "when **_you Outfit from Stonetop or Have What You Need after doing so_**"  ← also fills 1 other entry
+- `"effects/add-mill-to-the-resources-list/text"` — "add \"Mill\" to the Resources list and draw it on the map"
+- `"effects/the-steading-generates-1-surplus/text"` — "the steading generates +1 Surplus"  ← also fills 1 other entry
+- `"effects/each-of-supplies-has-1-extra/text"` — "each of supplies has 1 extra use"
+- `"effects/the-steading-generates-1-surplus/when/phrase"` — "when **_the autumn harvest is complete_**"  ← also fills 2 other entries
+- `"effects/each-of-supplies-has-1-extra/when/phrase"` — "when **_you Outfit from Stonetop or Have What You Need after doing so_**"  ← also fills 1 other entry
 
 ### `steading-improvements.json` › `"palisade"` › `"choices/6/text"`
 
@@ -1069,32 +278,10 @@ Von nun an hast du einen Vorteil auf Aufgebot, wenn du die Palisade zu deinem Vo
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-palisade-to-the-fortifications-list/text` — "add \"Palisade\" to the Fortifications list and draw it on the map"
-- `effects/you-have-advantage-to-deploy/text` — "you have advantage to Deploy"  ← also fills 1 other entry
-- `effects/you-have-advantage-to-deploy/when/phrase` — "when **_you take advantage of the palisade_**"
-
-### `steading-improvements.json` › `"permanent-logging-camp"` › `"choices/extra-wagon/text"`
-
-The English changed after this was translated.
-
-Was:
-
-```
-An extra wagon (Value 3) and extra horse or mule (Value 3) to
-```
-
-Now:
-
-```
-An extra wagon (Value 3) and extra horse or mule (Value 3) to haul timber to and from Stonetop
-```
-
-Your German:
-
-```
-Ein zusätzlicher Wagen (Wert 3) und ein zusätzliches Pferd oder Maultier (Wert 3), um Holz nach Stonetop und zurück zu transportieren
-```
+- `"effects/add-palisade-to-the-fortifications-list/text"` — "add \"Palisade\" to the Fortifications list and draw it on the map"
+- `"effects/you-have-advantage-to-deploy/text"` — "you have advantage to Deploy"  ← also fills 1 other entry
+- `"effects/you-have-advantage-to-deploy/when/phrase"` — "when **_you take advantage of the palisade_**"
+- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
 
 ### `steading-improvements.json` › `"permanent-logging-camp"` › `"choices/8/text"`
 
@@ -1109,9 +296,8 @@ Wenn du **_alle Voraussetzungen erfüllst_**, füge „Abholzung: Bauholz, Holz�
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-logging-timber-wood-to-the/text` — "add \"Logging: timber, wood\" to the Resources list"
-- `effects/add-logging-timber-wood-to-the/listEntry/text` — "Logging: timber, wood"
+- `"effects/add-logging-timber-wood-to-the/text"` — "add \"Logging: timber, wood\" to the Resources list"
+- `"effects/add-logging-timber-wood-to-the/listEntry/text"` — "Logging: timber, wood"
 
 ### `steading-improvements.json` › `"permanent-logging-camp"` › `"choices/9/text"`
 
@@ -1126,7 +312,8 @@ Solange das Holzfällerlager in Betrieb ist, verfügt die Siedlung fortan über 
 
 The keys it was split into:
 
-- `effects/the-logging-camp-consumes-1-surplus/when/phrase` — "**_every summer_**"
+- `"effects/the-logging-camp-consumes-1-surplus/when/phrase"` — "**_every summer_**"
+- `steading-improvements.json` › `"great-wood-timber"` › `"effects/the-steading-has-a-ready-supply/text"` — "the steading has a ready supply of timber for improvements and other projects"
 
 ### `steading-improvements.json` › `"raincatching"` › `"choices/5/text"`
 
@@ -1143,10 +330,9 @@ Von nun an gilt: Wenn **_der Sommer kommt und du mit Schicksal eine 7+ würfelst
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-raincatching-to-the-resources-list/text` — "add \"Raincatching\" to the Resources list"
-- `effects/the-steading-generates-1-surplus/text` — "the steading generates 1 Surplus"  ← also fills 1 other entry
-- `effects/the-steading-generates-1-surplus/when/phrase` — "when **_summer comes and you roll a 7+ with Fortunes_**"
+- `"effects/add-raincatching-to-the-resources-list/text"` — "add \"Raincatching\" to the Resources list"
+- `"effects/the-steading-generates-1-surplus/text"` — "the steading generates 1 Surplus"  ← also fills 1 other entry
+- `"effects/the-steading-generates-1-surplus/when/phrase"` — "when **_summer comes and you roll a 7+ with Fortunes_**"
 
 ### `steading-improvements.json` › `"roadbuilding"` › `"choices/6/text"`
 
@@ -1176,11 +362,11 @@ Wenn du **_die Wache gezielt in einem Spielzug einbeziehst_**, behandle Verteidi
 
 The keys it was split into:
 
-- `effects/add-standing-watch-to-the-fortifications/text` — "add \"standing watch\" to the Fortifications list"
-- `effects/treat-defenses-as-1-higher-than/text` — "treat Defenses as 1 higher than they are"
-- `effects/the-watch-consumes-1-surplus-or/when/phrase` — "at **_the start of each season_**"
-- `effects/treat-defenses-as-1-higher-than/when/phrase` — "when **_you specifically involve the watch in a move_**"
-- `effects/add-standing-watch-to-the-fortifications/listEntry/text` — "Standing watch"
+- `"effects/add-standing-watch-to-the-fortifications/text"` — "add \"standing watch\" to the Fortifications list"
+- `"effects/treat-defenses-as-1-higher-than/text"` — "treat Defenses as 1 higher than they are"
+- `"effects/the-watch-consumes-1-surplus-or/when/phrase"` — "at **_the start of each season_**"
+- `"effects/treat-defenses-as-1-higher-than/when/phrase"` — "when **_you specifically involve the watch in a move_**"
+- `"effects/add-standing-watch-to-the-fortifications/listEntry/text"` — "Standing watch"
 
 ### `steading-improvements.json` › `"stone-wall"` › `"choices/6/text"`
 
@@ -1199,11 +385,13 @@ Wenn **_der Winter das Land fest im Griff hat_**, verbraucht die Siedlung 1 Übe
 
 The keys it was split into:
 
-- `effects/add-stone-wall-to-the-fortifications/text` — "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map"
-- `effects/you-have-advantage-to-deploy/text` — "you have advantage to Deploy"  ← also fills 1 other entry
-- `effects/the-steading-consumes-1-less-surplus/text` — "the steading consumes 1 less Surplus than normal"
-- `effects/you-have-advantage-to-deploy/when/phrase` — "when **_you take advantage of the stone wall_**"
-- `effects/the-steading-consumes-1-less-surplus/when/phrase` — "when **_winter grips the land_**"  ← also fills 2 other entries
+- `"effects/add-stone-wall-to-the-fortifications/text"` — "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map"
+- `"effects/you-have-advantage-to-deploy/text"` — "you have advantage to Deploy"  ← also fills 1 other entry
+- `"effects/the-steading-consumes-1-less-surplus/text"` — "the steading consumes 1 less Surplus than normal"
+- `"effects/you-have-advantage-to-deploy/when/phrase"` — "when **_you take advantage of the stone wall_**"
+- `"effects/the-steading-consumes-1-less-surplus/when/phrase"` — "when **_winter grips the land_**"  ← also fills 2 other entries
+- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
+- `steading-improvements.json` › `"great-wood-timber"` › `"effects/the-steading-consumes-1-less-surplus/text"` — "the steading consumes 1 less Surplus"
 
 ### `steading-improvements.json` › `"township"` › `"choices/7/text"`
 
@@ -1224,12 +412,12 @@ Wenn jedoch **_der Winter das Land fest im Griff hat_**, würfle 2W6 + Bevölker
 
 The keys it was split into:
 
-- `effects/change-size-to-town/text` — "change Size to town"
-- `effects/you-have-advantage/text` — "you have advantage"  ← also fills 2 other entries
-- `effects/the-town-generates-surplus-equal-to/text` — "the town generates Surplus equal to Population+1"
-- `effects/you-have-advantage/when/phrase` — "when **_you Muster, Pull Together, or Trade & Barter_**"
-- `effects/the-town-generates-surplus-equal-to/when/phrase` — "when **_the seasons change to spring or summer_**"
-- `effects/roll-2d6-population-to-consume-surplus/when/phrase` — "when **_winter grips the land_**"  ← also fills 2 other entries
+- `"effects/change-size-to-town/text"` — "change Size to town"
+- `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
+- `"effects/the-town-generates-surplus-equal-to/text"` — "the town generates Surplus equal to Population+1"
+- `"effects/you-have-advantage/when/phrase"` — "when **_you Muster, Pull Together, or Trade & Barter_**"
+- `"effects/the-town-generates-surplus-equal-to/when/phrase"` — "when **_the seasons change to spring or summer_**"
+- `"effects/roll-2d6-population-to-consume-surplus/when/phrase"` — "when **_winter grips the land_**"  ← also fills 2 other entries
 
 ### `steading-improvements.json` › `"trade-with-barrier-pass"` › `"choices/8/text"`
 
@@ -1244,9 +432,8 @@ Wenn du **_alle Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und füge �
 
 The keys it was split into:
 
-- `effects/increase-fortunes-by-1/text` — "increase Fortunes by 1"  ← also fills 11 other entries
-- `effects/add-trade-with-barrier-pass-timber/text` — "add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\""
-- `effects/add-trade-with-barrier-pass-timber/listEntry/text` — "Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)"
+- `"effects/add-trade-with-barrier-pass-timber/text"` — "add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\""
+- `"effects/add-trade-with-barrier-pass-timber/listEntry/text"` — "Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)"
 
 ### `steading-improvements.json` › `"trade-with-barrier-pass"` › `"choices/9/text"`
 
@@ -1261,10 +448,10 @@ Von nun an gilt: Wenn **_der Frühling anbricht und Stonetop mindestens 1 Übers
 
 The keys it was split into:
 
-- `effects/stonetop-gains-1-surplus-from-trade/text` — "Stonetop gains +1 Surplus from trade"
-- `effects/you-have-advantage/text` — "you have advantage"  ← also fills 2 other entries
-- `effects/stonetop-gains-1-surplus-from-trade/when/phrase` — "when **_spring bursts forth and Stonetop has at least 1 Surplus_**"
-- `effects/you-have-advantage/when/phrase` — "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**"
+- `"effects/stonetop-gains-1-surplus-from-trade/text"` — "Stonetop gains +1 Surplus from trade"
+- `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
+- `"effects/stonetop-gains-1-surplus-from-trade/when/phrase"` — "when **_spring bursts forth and Stonetop has at least 1 Surplus_**"
+- `"effects/you-have-advantage/when/phrase"` — "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**"
 
 ### `steading-improvements.json` › `"weapons-of-war"` › `"choices/10/text"`
 
@@ -1281,12 +468,12 @@ Von nun an gilt: Wenn du **_dich in Stonetop ausrüstest oder wenn du hast, was 
 
 The keys it was split into:
 
-- `effects/increase-defenses-by-1/text` — "increase Defenses by 1"
-- `effects/add-weapons-of-war-to-the/text` — "add \"Weapons of War\" to the Fortifications list"
-- `effects/the-village-must-expend-1-surplus/text` — "the village must expend 1 Surplus to maintain and replace the town's weapons"
-- `effects/you-can-treat-maces-flails-battleaxes/text` — "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
-- `effects/battleaxes-and-swords-have-x-piercing/text` — "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity"
-- `effects/you-can-treat-maces-flails-battleaxes/when/phrase` — "when **_you Outfit from Stonetop or Have What You Need after doing so_**"  ← also fills 1 other entry
+- `"effects/increase-defenses-by-1/text"` — "increase Defenses by 1"
+- `"effects/add-weapons-of-war-to-the/text"` — "add \"Weapons of War\" to the Fortifications list"
+- `"effects/the-village-must-expend-1-surplus/text"` — "the village must expend 1 Surplus to maintain and replace the town's weapons"
+- `"effects/you-can-treat-maces-flails-battleaxes/text"` — "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
+- `"effects/battleaxes-and-swords-have-x-piercing/text"` — "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity"
+- `"effects/you-can-treat-maces-flails-battleaxes/when/phrase"` — "when **_you Outfit from Stonetop or Have What You Need after doing so_**"  ← also fills 1 other entry
 
 ### `steading-improvements.json` › `"well-trained-militia"` › `"choices/9/text"`
 
@@ -1305,9 +492,10 @@ Wenn **_die Miliz zwei oder mehr Taktiken erlernt hat_**, erhöhe die Verteidigu
 
 The keys it was split into:
 
-- `effects/you-are-likely-acting-from-a/text` — "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
-- `effects/when-the-militia-has-trained-in/text` — "when the militia has trained in 2+ tactics, increase Defenses by 1"
-- `effects/you-are-likely-acting-from-a/when/phrase` — "when **_you Deploy using one of the militia's trained tactics_**"
+- `"effects/you-are-likely-acting-from-a/text"` — "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
+- `"effects/when-the-militia-has-trained-in/text"` — "when the militia has trained in 2+ tactics, increase Defenses by 1"
+- `"effects/you-are-likely-acting-from-a/when/phrase"` — "when **_you Deploy using one of the militia's trained tactics_**"
+- `steading-improvements.json` › `"weapons-of-war"` › `"effects/increase-defenses-by-1/text"` — "increase Defenses by 1"
 
 ## steadfasts.json
 

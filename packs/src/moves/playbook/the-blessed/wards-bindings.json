@@ -5,7 +5,7 @@
   "type": "move",
   "system": {
     "moveType": null,
-    "description": "When you **_mark a boundary with sacred signs_**, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.\n\nWhen **_your wards or bindings are first tested_**, roll +INT.",
+    "description": "When you **_mark a boundary with sacred signs_**, spend 1 Stock and describe who or what they affect (using no more words than your level). Also, choose whether the affected beings are repelled or trapped by the signs.\n\nWhen **_your wards or bindings are first tested_**, roll +INT: **on a 10+**, they will hold as long as the signs remain unmarred, and the affected creature can do nothing to affect them directly; **on a 7-9**, they hold for now but may be overcome through might or will.",
     "moveResults": {
       "success": {
         "label": "10+",

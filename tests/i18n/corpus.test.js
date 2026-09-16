@@ -143,3 +143,70 @@ describe("reusing German for identical English", () => {
 		expect(at(c, "moves", "one", "description").text).toBe("Verschoben");
 	});
 });
+
+describe("dropping orphans whose paragraphs are all filed elsewhere", () => {
+	const A = "Du gehoerst einem groesseren Orden von Richtern an, die hierher entsandt wurden.";
+	const B = "Wenn du den Richter einer anderen Siedlung um Hilfe bittest, ist dieser verpflichtet.";
+
+	// The missionary background: one translation whose paragraphs now live at several keys.
+	const scattered = () => corpus({
+		playbooks: { en: { judge: { "choices/intro/text": "Intro", "choices/aid/text": "Aid" } },
+			de: {
+				judge: {
+					"choices/intro/text":       { source: "Intro", text: A },
+					"choices/aid/text":         { source: "Aid",   text: B },
+					"backgrounds/0/description": { source: "Old whole thing", text: `${A}\n\n${B}` },
+				},
+			} },
+	});
+
+	it("finds an orphan whose every paragraph is live elsewhere", () => {
+		const found = scattered().redundantOrphans();
+		expect(found).toHaveLength(1);
+		expect(found[0].address.key).toBe("backgrounds/0/description");
+	});
+
+	it("removes it, since the words are all still in the corpus", () => {
+		const c = scattered();
+		const { redundant } = c.apply();
+		expect(redundant).toHaveLength(1);
+		expect(at(c, "playbooks", "judge", "backgrounds/0/description")).toBeUndefined();
+		expect(at(c, "playbooks", "judge", "choices/intro/text").text).toBe(A);
+	});
+
+	it("keeps an orphan when even one paragraph is nowhere else", () => {
+		const c = corpus({
+			playbooks: { en: { judge: { "choices/intro/text": "Intro" } },
+				de: { judge: {
+					"choices/intro/text":        { source: "Intro", text: A },
+					"backgrounds/0/description":  { source: "Old", text: `${A}\n\nEin Absatz den es sonst nirgendwo gibt und der lang genug ist.` },
+				} } },
+		});
+		expect(c.redundantOrphans()).toHaveLength(0);
+	});
+
+	it("counts coverage across packs, not only within one", () => {
+		const c = corpus({
+			arcana: { en: {}, de: { flute: { "choices/1/text": { source: "Old", text: A } } } },
+			moves:  { en: { m: { description: "Whatever" } }, de: { m: { description: { source: "Whatever", text: A } } } },
+		});
+		expect(c.redundantOrphans()).toHaveLength(1);
+	});
+
+	// A short line recurs inside unrelated translations by coincidence; coincidence is not coverage.
+	it("ignores paragraphs too short to be evidence", () => {
+		const c = corpus({
+			moves: { en: { m: { description: "x" } },
+				de: { m: {
+					description:  { source: "x", text: "Ja." },
+					"gone/text":  { source: "Old", text: "Ja." },
+				} } },
+		});
+		expect(c.redundantOrphans()).toHaveLength(0);
+	});
+
+	it("leaves an orphan with no substantial paragraphs alone", () => {
+		const c = corpus({ moves: { en: {}, de: { m: { "gone/text": { source: "Old", text: "Kurz" } } } } });
+		expect(c.redundantOrphans()).toHaveLength(0);
+	});
+});

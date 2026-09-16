@@ -64,6 +64,13 @@ export class MemoryConflict {
 
 const hasText = (entry) => typeof entry?.text === "string" && entry.text.trim().length > 0;
 
+// Paragraphs, because a container's translation is split up paragraph by paragraph when its text is
+// broken into rows or pulled out into a move. Whole-text comparison misses that entirely: the
+// missionary background's German is three paragraphs that now live at three different keys.
+const MIN_PARAGRAPH = 40;
+const paragraphsOf = (text) => String(text ?? "").split(/\n\s*\n/u)
+	.map(p => p.replace(/\s+/gu, " ").trim()).filter(p => p.length >= MIN_PARAGRAPH);
+
 /**
  * Every pack's English and authoring side by side.
  *
@@ -177,6 +184,30 @@ export class Corpus {
 		return { fills, conflicts };
 	}
 
+	/**
+	 * Orphans every paragraph of which is already filed at a live key. The words are not lost by
+	 * dropping these — they are all still in the corpus, just distributed across the keys that
+	 * replaced the one the translator wrote against. Flagging them asks a human to re-file text that
+	 * is already where it belongs.
+	 *
+	 * Paragraphs shorter than a sentence are ignored rather than matched: a short line turns up
+	 * inside unrelated translations by coincidence, and coincidence is not coverage.
+	 */
+	redundantOrphans() {
+		const live = new Set();
+		for (const { entry } of this.live()) {
+			if (hasText(entry)) for (const paragraph of paragraphsOf(entry.text)) live.add(paragraph);
+		}
+
+		const redundant = [];
+		for (const { address, entry } of this.orphans()) {
+			const paragraphs = paragraphsOf(entry.text);
+			if (!paragraphs.length) continue;
+			if (paragraphs.every(paragraph => live.has(paragraph))) redundant.push({ address, entry });
+		}
+		return redundant;
+	}
+
 	/** Applies relocations and fills to the authoring objects, returning what changed. */
 	apply() {
 		const moves = this.relocations();
@@ -187,6 +218,13 @@ export class Corpus {
 			delete this.packs.get(from.pack).authoring[from.slug][from.key];
 		}
 
+		// Dropped after relocating, so a translation that was just moved into place counts as live
+		// coverage for the orphan it came from.
+		const redundant = this.redundantOrphans();
+		for (const { address } of redundant) {
+			delete this.packs.get(address.pack).authoring[address.slug][address.key];
+		}
+
 		// Fills are computed after the relocations are written in, so an address that just received a
 		// relocated translation reads as translated and is never also filled over.
 		const { fills, conflicts } = this.memoryFills();
@@ -195,7 +233,7 @@ export class Corpus {
 			target[fill.address.slug] ??= {};
 			target[fill.address.slug][fill.address.key] = { source: fill.english, text: fill.german };
 		}
-		return { relocations: moves, fills, conflicts };
+		return { relocations: moves, redundant, fills, conflicts };
 	}
 }
 

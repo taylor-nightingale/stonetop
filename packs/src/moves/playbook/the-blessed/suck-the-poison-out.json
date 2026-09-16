@@ -5,7 +5,7 @@
   "type": "move",
   "system": {
     "moveType": null,
-    "description": "When you **_draw a malady from a patient's body, mind, or soul_**, spend 1 Stock and roll +WIS.",
+    "description": "When you **_draw a malady from a patient's body, mind, or soul_**, spend 1 Stock and roll +WIS: **on a 10+**, you remove the malady and can safely discard it or store it in your sacred pouch (taking the space of 1 Stock) to study or inflict on another; **on a 7-9**, you remove it, but choose 1:\n\n- Your patient suffers lingering harm or trauma\n- You suffer some of the malady's effects\n- It will be harmful and dangerous to discard",
     "requirement": {
       "level": 6,
       "moves": [
