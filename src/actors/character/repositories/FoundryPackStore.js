@@ -8,7 +8,7 @@ export class FoundryPackStore {
 	// Memoises the PROMISE, not a done flag: callers that batch their lookups arrive together, and a flag
 	// set after the await would let every one of them fetch the index.
 	async _ensureIndexed() {
-		const pack = game.packs.get(this._packName);
+		const pack = game.packs?.get(this._packName);
 		if (!pack) return null;
 		this._indexing ??= pack.getIndex({ fields: this._fields });
 		await this._indexing;
@@ -34,7 +34,7 @@ export class FoundryPackStore {
 	}
 
 	async getDocument(id) {
-		const pack = game.packs.get(this._packName);
+		const pack = game.packs?.get(this._packName);
 		if (!pack) return null;
 		return pack.getDocument(id);
 	}

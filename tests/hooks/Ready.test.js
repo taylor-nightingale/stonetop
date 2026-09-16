@@ -3,10 +3,15 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 // The migration itself is exercised by the migration suite; what matters here is the gate around it —
 // which actors ran is the runner's business, whether the world is marked done is this hook's.
 const run = vi.fn(async () => []);
+const stamp = vi.fn(async () => {});
 
 vi.mock("../../src/migration/MigrationRunner.js", () => ({
 	MigrationRunner: class { run(...args) { return run(...args); } },
 }));
+vi.mock("../../src/migration/migrateItemProvenance.js", () => ({
+	migrateItemProvenance: (...args) => stamp(...args),
+}));
+vi.mock("../../src/actors/PackProvenance.js", () => ({ PackProvenance: class {} }));
 vi.mock("../../src/actors/character/repositories/FoundryRepositoryFactory.js", () => ({
 	FoundryRepositoryFactory: class {},
 }));
@@ -35,6 +40,7 @@ function packsCollection(packs = []) {
 
 beforeEach(() => {
 	run.mockClear();
+	stamp.mockClear();
 	errors.length = 0;
 	settings.systemVersion   = "0.14.0";
 	settings.artNudgeDismissed = true;
@@ -98,6 +104,49 @@ describe("onReady — marking the world migrated", () => {
 // while a world is loaded, so an update can replace the code and leave the compendium behind. The
 // migration's whole job is copying pack content onto sheets — run it against a stale pack and it
 // writes the previous release's content onto every character, which is far worse than not running.
+// Provenance is not content: it says which compendium document an embedded item is a copy of, which
+// is what lets Babele (and anything else that looks an item up by source) find it at all. A world
+// already stamped at this version would never see it if it rode inside the version-gated migration.
+describe("onReady — stamping item provenance", () => {
+	it("stamps every actor, even when no migration is due", async () => {
+		settings.systemVersion = "1.0.2";           // already migrated: the runner will not be called
+		game.actors = [{ name: "Wren" }, { name: "Brakken" }];
+
+		await onReady();
+
+		expect(run).not.toHaveBeenCalled();
+		expect(stamp).toHaveBeenCalledTimes(2);
+	});
+
+	it("shares one lookup cache across every actor", async () => {
+		game.actors = [{ name: "Wren" }, { name: "Brakken" }];
+
+		await onReady();
+
+		expect(stamp.mock.calls[0][1]).toBe(stamp.mock.calls[1][1]);
+	});
+
+	// Stamping reads ids off the packs, so a compendium the update left behind would hand out wrong ones.
+	it("does not stamp against a stale compendium", async () => {
+		game.packs = packsCollection([systemPack("Arcana", "0.9.0")]);
+		game.actors = [{ name: "Wren" }];
+
+		await onReady();
+
+		expect(stamp).not.toHaveBeenCalled();
+	});
+
+	it("carries on past an actor that throws", async () => {
+		stamp.mockImplementationOnce(async () => { throw new Error("no index"); });
+		game.actors = [{ name: "Wren" }, { name: "Brakken" }];
+
+		await onReady();
+
+		expect(stamp).toHaveBeenCalledTimes(2);
+		expect(settings.systemVersion).toBe("1.0.2");
+	});
+});
+
 describe("onReady — a compendium the update left behind", () => {
 	it("does not migrate when a pack was built by a different version", async () => {
 		game.packs = packsCollection([systemPack("Arcana", "0.14.0")]);

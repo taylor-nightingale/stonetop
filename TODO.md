@@ -14,3 +14,4 @@
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
 * bug: the check boxes get split sometimes
 * bug: remove generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
+* bug: outfit items have a delete button but it pushes in the resources so you accidentally click delete. also it misaligns the text and diamond checks

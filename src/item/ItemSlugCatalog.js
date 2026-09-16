@@ -1,19 +1,6 @@
 import { FoundryPackStore } from "../actors/character/repositories/FoundryPackStore.js";
 import { WorldItemStore } from "../actors/character/repositories/WorldItemStore.js";
-
-// The compendium that ships each slug-bearing item type. The legacy `npc` item type has no pack of
-// its own — a world-only catalog is the whole of it.
-const PACK_BY_TYPE = {
-	move:        "stonetop.moves",
-	arcanum:     "stonetop.arcana",
-	playbook:    "stonetop.playbooks",
-	insert:      "stonetop.inserts",
-	improvement: "stonetop.steading-improvements",
-	steadfast:   "stonetop.steadfasts",
-	follower:    "stonetop.followers",
-	outfitItem:  "stonetop.outfit-items",
-	possession:  "stonetop.possessions",
-};
+import { PACK_BY_TYPE } from "./packsByType.js";
 
 const COPY_SUFFIX = /-\d+$/;
 
