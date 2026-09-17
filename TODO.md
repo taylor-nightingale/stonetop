@@ -13,5 +13,6 @@
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
 * bug: the check boxes get split sometimes
-* bug: remove generic on hover change text to the exact color of the background. damage has it too. All of our on hover clickables should be the same formatting
+* feature collapse names on folks screen
+* feature Instead of blank, default to stonetop for folk
 
