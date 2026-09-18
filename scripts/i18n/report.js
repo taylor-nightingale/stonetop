@@ -35,7 +35,9 @@ const brokenMarkupLines = (slug, entry) => [
 ];
 
 const orphanedLines = (slug, entry) => [
-	`  orphaned      ${slug} ${entry.key} — no longer in the pack; move or delete it`,
+	// "the English" rather than "the pack": the same line reports a language-file key, whose English
+	// comes from en.json rather than from packs/src.
+	`  orphaned      ${slug} ${entry.key} — no longer in the English; move or delete it`,
 ];
 
 const LINES_FOR = {

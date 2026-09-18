@@ -1,9 +1,11 @@
-import { FoundryPackStore } from "../../character/repositories/FoundryPackStore.js";
+import { FoundryPackDocumentStore } from "../../character/repositories/FoundryPackDocumentStore.js";
 import { WorldItemStore } from "../../character/repositories/WorldItemStore.js";
 import { ImprovementEffects } from "../../../model/data/steading/ImprovementEffect.js";
 import { RequirementBoxes, parseRequirement } from "../../../model/data/steading/ImprovementRequirement.js";
 
-const FIELDS = ["system.slug", "system.sortOrder", "system.choices", "system.requires", "system.effects"];
+// Read as DOCUMENTS, not index entries: every string an improvement card shows — the requirement
+// rows in `choices`, the payoff sentences in `effects` — lives under `system`, and a pack index is
+// never translated below `name`. See FoundryPackDocumentStore.
 
 export class SteadingImprovement {
 	constructor(slug, name, choices, sortOrder = 0, { requires = null, effects = [] } = {}) {
@@ -59,7 +61,7 @@ export class SteadingImprovement {
 
 export class FoundrySteadingImprovementRepository {
 	constructor() {
-		this._store       = new FoundryPackStore("stonetop.steading-improvements", FIELDS);
+		this._store       = new FoundryPackDocumentStore("stonetop.steading-improvements");
 		this._worldStore  = new WorldItemStore("improvement");
 		this._cache       = null;
 	}

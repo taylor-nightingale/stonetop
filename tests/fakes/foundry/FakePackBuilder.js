@@ -19,6 +19,18 @@ function setPath(obj, path, value) {
 	target[last] = value;
 }
 
+// A pack DOCUMENT, for the stores that read prose (FoundryPackDocumentStore). Unlike an index row
+// it carries everything the item has, because that is the whole reason a repository asks for one:
+// Babele translates a document's `system` and never an index row's.
+function packDocument(item, packName) {
+	const { toObject, ...data } = item;
+	return {
+		...data,
+		uuid: item.uuid ?? `Compendium.stonetop.${packName}.Item.${item._id}`,
+		toObject: toObject ?? (() => data),
+	};
+}
+
 function indexRow(item, fields, packName) {
 	const row = {};
 	for (const key of [...CORE_FIELDS, ...SCAFFOLDING]) {
@@ -64,6 +76,7 @@ export class FakePackBuilder {
 				this.index = items.map(item => indexRow(item, [...requested], name));
 				return this.index;
 			},
+			async getDocuments() { return items.map(item => packDocument(item, name)); },
 			async getDocument(id) { return items.find(e => e._id === id) ?? null; },
 		};
 	}

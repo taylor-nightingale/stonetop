@@ -10,8 +10,12 @@ function makeEntry(slug, sortOrder = 1, choices = null) {
 	};
 }
 
+// The repository reads DOCUMENTS, not index rows: an index row's `system` is never translated.
 function makePack(entries = []) {
-	return { getIndex: vi.fn(async () => {}), index: entries, folders: [] };
+	return {
+		getDocuments: vi.fn(async () => entries.map(e => ({ ...e, uuid: `Compendium.x.Item.${e._id}`, toObject: () => e }))),
+		folders: [],
+	};
 }
 
 // The steading-improvements pack holds every improvement entry (both the Stonetop-core and the Book II
@@ -94,12 +98,12 @@ describe("FoundrySteadingImprovementRepository", () => {
 		expect((await repo.getAll()).map(i => i.slug)).toEqual(["watchtower"]);
 	});
 
-	it("caches results — getIndex called once", async () => {
+	it("caches results — the pack is loaded once", async () => {
 		const pack = makePack([makeEntry("inn")]);
 		stubGame(pack);
 		const repo = new FoundrySteadingImprovementRepository();
 		await repo.getAll();
 		await repo.getAll();
-		expect(pack.getIndex).toHaveBeenCalledTimes(1);
+		expect(pack.getDocuments).toHaveBeenCalledTimes(1);
 	});
 });

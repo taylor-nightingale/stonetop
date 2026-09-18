@@ -26,6 +26,7 @@ import { readPackDocuments } from "./packCatalog.js";
 import { AwaitingTranslator } from "./awaiting.js";
 import { TRANSLATED_PACKS, authoringPath, awaitingPath, languageDir, readAuthoring, writeJson } from "./files.js";
 import { TAG_PACK, reconcileTagLabels } from "./tagLabels.js";
+import { UiStringWorklist, reconcileUiStrings } from "./uiStrings.js";
 import { promises as fs } from "fs";
 
 export const handoffPath = (lang, root = ".") => path.join(languageDir(lang, root), "_handoff.md");
@@ -179,10 +180,13 @@ export class HandoffItem {
 }
 
 export class TranslatorHandoff {
-	constructor(lang, items = [], conflicts = []) {
+	constructor(lang, items = [], conflicts = [], uiStrings = new UiStringWorklist(lang)) {
 		this.lang      = lang;
 		this.items     = items;
 		this.conflicts = conflicts;
+		// The interface strings still to write. A section of its own rather than more items: it is
+		// untranslated work, which every other section already carries in the authoring files.
+		this.uiStrings = uiStrings;
 	}
 
 	get orphans() {
@@ -238,6 +242,7 @@ export class TranslatorHandoff {
 			...(this.conflicts.length
 				? [`- **${this.conflicts.length}** strings translated two different ways, where one has to be chosen`]
 				: []),
+			...(this.uiStrings.size ? [this.uiStrings.summaryLine] : []),
 			"",
 		];
 
@@ -258,6 +263,7 @@ export class TranslatorHandoff {
 				for (const item of items) lines.push(item.toMarkdown());
 			}
 		}
+		if (this.uiStrings.size) lines.push(this.uiStrings.toMarkdown());
 		return lines.join("\n");
 	}
 }
@@ -385,7 +391,14 @@ export async function handoff({ lang = "de", incoming, ours = "HEAD", root = "."
 	items.push(...itemsFor(tags, await previousFor(TAG_PACK), shared, competingFor, vacantElsewhere));
 	flagged.push(...tags.flaggedEntries);
 
-	const document = new TranslatorHandoff(lang, items, conflicts);
+	// The interface strings. Their orphans join the flagged entries like any other, so they are
+	// acknowledged in `_awaiting.json` and stop failing the check; their untranslated keys become the
+	// worklist section, which is the only place a missing language-file key is visible at all.
+	const ui = await reconcileUiStrings(lang, root);
+	items.push(...itemsFor(ui, null, shared, competingFor, vacantElsewhere));
+	flagged.push(...ui.flaggedEntries);
+
+	const document = new TranslatorHandoff(lang, items, conflicts, UiStringWorklist.from(lang, ui));
 	await fs.writeFile(handoffPath(lang, root), document.toMarkdown(), "utf8");
 	await writeJson(awaitingPath(lang, root), AwaitingTranslator.fromFlagged(flagged).toJson());
 

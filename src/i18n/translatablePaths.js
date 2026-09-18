@@ -6,9 +6,15 @@ import { toSlug } from "../utils/slug.js";
 // and ids sit alongside the prose in the same objects, and translating one silently breaks the
 // grant it points at. Anything not named here is structure and never reaches a translation file.
 //
-// `[]` marks an array to walk. Every entry produced carries two addresses:
-//   path — concrete, indexed (`system.backgrounds.0.description`), for reading and writing a document
-//   key  — slug-bearing (`backgrounds/patriot/description`), for the translation file
+// `[]` marks an array to walk. Every entry produced carries three addresses:
+//   path      — concrete, indexed (`system.backgrounds.0.description`), for reading and writing a document
+//   key       — slug-bearing (`backgrounds/patriot/description`), for the translation file
+//   mergePath — the smallest subtree that can carry the string through a MERGE, which is `path`
+//               itself unless an array stands above it (`system.backgrounds`). Babele merges a
+//               converter's payload onto the document rather than replacing it, and a merge swaps an
+//               array wholesale instead of element by element — so an array is the finest grain a
+//               payload can name. See babeleConverter, which returns only these subtrees so that the
+//               per-actor state living beside the prose on an embedded item is never overwritten.
 // Key segments join with "/" rather than ".": Foundry merges every loaded language file with
 // mergeObject, and a dotted key risks being expanded into nested objects on the way in.
 // The key is what a translator's work is filed under, so it must survive a pack rebuild: it uses the
@@ -319,12 +325,17 @@ function keySegmentsFor(elements) {
 	});
 }
 
-function walk(node, segments, pathParts, keyParts, out) {
+function walk(node, segments, pathParts, keyParts, out, mergePath = null) {
 	if (node == null) return;
 
 	if (!segments.length) {
 		if (typeof node === "string" && node.trim()) {
-			out.push({ key: keyParts.join(KEY_SEPARATOR), path: pathParts.join("."), text: node });
+			out.push({
+				key:       keyParts.join(KEY_SEPARATOR),
+				path:      pathParts.join("."),
+				mergePath: mergePath ?? pathParts.join("."),
+				text:      node,
+			});
 		}
 		return;
 	}
@@ -339,13 +350,16 @@ function walk(node, segments, pathParts, keyParts, out) {
 	const nextKey  = UNKEYED_SEGMENTS.has(field) ? keyParts : [...keyParts, field];
 
 	if (!isArray) {
-		walk(value, rest, nextPath, nextKey, out);
+		walk(value, rest, nextPath, nextKey, out, mergePath);
 		return;
 	}
 	if (!Array.isArray(value)) return;
+	// The OUTERMOST array wins: a merge replaces an array wholesale rather than element by element,
+	// so a fragment addressed inside one would be discarded along with the array it sits in.
+	const nextMerge   = mergePath ?? nextPath.join(".");
 	const keySegments = keySegmentsFor(value);
 	value.forEach((element, i) => {
-		walk(element, rest, [...nextPath, String(i)], [...nextKey, keySegments[i]], out);
+		walk(element, rest, [...nextPath, String(i)], [...nextKey, keySegments[i]], out, nextMerge);
 	});
 }
 

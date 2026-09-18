@@ -22,8 +22,10 @@ function worldEntry(slug, sortOrder, choices) {
 
 // The steading-improvements pack holds the pack entries; any other pack name resolves to an empty stub.
 function stubGame(packEntries, worldEntries) {
-	const pack = { getIndex: async () => {}, index: packEntries, folders: [] };
-	const empty = { getIndex: async () => {}, index: [], folders: [] };
+	// Improvements are read as DOCUMENTS: an index row's `system` is never translated.
+	const asDocuments = entries => entries.map(e => ({ ...e, uuid: `Compendium.x.Item.${e._id}`, toObject: () => e }));
+	const pack  = { getIndex: async () => {}, index: packEntries, getDocuments: async () => asDocuments(packEntries), folders: [] };
+	const empty = { getIndex: async () => {}, index: [], getDocuments: async () => [], folders: [] };
 	vi.stubGlobal("game", {
 		packs: { get: (name) => name === "stonetop.steading-improvements" ? pack : empty },
 		items: { contents: worldEntries },
