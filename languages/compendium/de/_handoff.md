@@ -17,7 +17,7 @@ it is regenerated, and it is there to show you what the German is meant to say.
 - **0** entries where the English changed under an existing translation
 - **0** flagged earlier and still awaiting a revision
 - **35** translations whose row was restructured and need re-filing
-- **194** interface strings with no translation yet, listed at the end
+- **195** interface strings with no translation yet, listed at the end
 
 ## steading-improvements.json
 
@@ -777,6 +777,7 @@ already shows English.
 - `"stonetop.steading.tabs.play"` — "Play"
 - `"stonetop.steading.tabs.folk"` — "Folk"
 - `"stonetop.steading.tabs.places"` — "Places"
+- `"stonetop.steading.tabs.improvements"` — "Improvements"
 - `"stonetop.steading.tabs.season"` — "Season"
 - `"stonetop.steading.tabs.content"` — "Content"
 

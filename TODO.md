@@ -2,7 +2,6 @@
 * seasonal gains should feed SteadingRollNotes as a third source (alongside built improvements and active debilities) — Tor's blessing is held for the season but never shows up on Pull Together, the move it gives +1 to
 * Update steading default icon to something nicer
 * Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
-* support carolingian ui module (inventory/move checkboxes dissapear)
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * level up move
 * compendium folders have styling (light mode) of light text on light background

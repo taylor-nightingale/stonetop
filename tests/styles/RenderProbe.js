@@ -270,6 +270,13 @@ for (const [name, selector] of Object.entries(targets)) {
 	 * into `out`. Shared so render() and measure() cannot drift in how they set the page up —
 	 * the stylesheet order and the <html> attributes are the whole point of the probe.
 	 *
+	 * `collect` runs behind `document.fonts.ready`, which is what makes a measurement repeatable.
+	 * The font in force decides the metrics every line box is built from, and a face that had not
+	 * arrived yet hands back the fallback's instead — so the same fixture put a first line half a
+	 * pixel from where it put it a moment earlier, at random, and an assertion written to
+	 * `toBeCloseTo(x, 0)` is a 0.5px tolerance sitting exactly on top of that. It presented as a
+	 * flaky test (nameless-move-render, ~40% red on an unchanged tree). It was a race.
+	 *
 	 * @returns {Map<string, ProbedElement|MeasuredElement>}
 	 */
 	_collect({ bodyHtml, bodyClass, rootAttrs, collect, Element, chromeFlags = [] }) {
@@ -300,8 +307,11 @@ ${bodyHtml}
 <pre id="probe-result"></pre>
 <script>
 const out = {};
+// Measured only once the sheet's own faces have loaded — see the note on _collect.
+document.fonts.ready.then(() => {
 ${collect}
 document.getElementById("probe-result").textContent = JSON.stringify(out);
+});
 </script>
 </body></html>`;
 

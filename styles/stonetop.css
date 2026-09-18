@@ -268,6 +268,29 @@ body,
 	content: none !important;
 }
 
+/* The same controls again, for the same reason one rule up read backwards. A stylesheet that
+   restyles Foundry's checkboxes may assume they draw from a glyph, because core's do — so a blanket
+   `input[type=checkbox], input[type=radio] { border: 0; min-width: 1.1rem; min-height: 1.1rem }` is
+   a reasonable thing for it to write, and Carolingian UI writes exactly that. Ours are the opposite
+   shape: `appearance: none` and a box we paint, so the mark IS its border. That reset deleted the
+   inventory diamonds and the load radios outright — an unchecked one had nothing left to draw — and
+   the floor inflated every 10-14px mark to 17.6px.
+
+   `!important` is the only instrument that reaches this, and not for want of a better selector: the
+   module's sheet carries no `@layer` at all, and unlayered CSS outranks every layer — the `system`
+   layer this file wraps itself in included — however specific the thing losing to it.
+
+   So what is pinned here is only what a blanket reset DESTROYS. A floor of zero forbids a module
+   nothing; each control's border COLOUR stays an ordinary declaration further down, and its width
+   and style are pinned beside it. A module can still recolour these marks. It cannot erase them. */
+.stonetop-item-check,        .stonetop-cg-track,
+.stonetop-debility-check,    .stonetop-outfit-load-radio,
+.stonetop-roll-mode-radio,   .stonetop-inv-diamond,
+.stonetop-inv-square {
+	min-width: 0 !important;
+	min-height: 0 !important;
+}
+
 .app,
 .window-app,
 #controls ol.control-tools > li {
@@ -2103,7 +2126,13 @@ button.stonetop-view-toggle.is-active {
 	   middle of a two-line block, away from the words it ticks. The offset lives in THIS rule
 	   because the `margin: 0` it replaces silently cancelled one declared anywhere above it. */
 	align-self: flex-start;
-	margin: calc((var(--item-line) - var(--control-check)) / 2) 0 0;
+	--check-line-pin: calc((var(--item-line) - var(--control-check)) / 2);
+	margin: var(--check-line-pin) 0 0;
+	/* And the top again, pinned. A blanket `margin: 0 2px` (see the reset block near the top of this
+	   file) replaces the shorthand whole and takes the offset out with the sides it meant to set, so
+	   the tick sat flush to the top of the line instead of centred on it. Only the side doing the
+	   work is pinned; the horizontal margin of a checkbox is a module's to have. */
+	margin-top: var(--check-line-pin) !important;
 }
 
 .stonetop-item-check:checked,
@@ -2790,9 +2819,9 @@ button.stonetop-view-toggle.is-active {
 	flex: none !important;
 	width: var(--control-marker) !important;
 	height: var(--control-marker) !important;
-	min-width: 0 !important;
-	min-height: 0 !important;
-	border: 1px solid currentColor;
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: currentColor;
 	background: transparent;
 	transform: rotate(45deg);
 	margin: 0 2px;
@@ -2812,9 +2841,9 @@ button.stonetop-view-toggle.is-active {
 	flex: none !important;
 	width: var(--control-marker) !important;
 	height: var(--control-marker) !important;
-	min-width: 0 !important;
-	min-height: 0 !important;
-	border: 1px solid currentColor;
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: currentColor;
 	background: transparent;
 	padding: 0;
 	cursor: pointer;
@@ -3163,7 +3192,9 @@ button.stonetop-view-toggle.is-active {
 	appearance: none;
 	width: 10px;
 	height: 10px;
-	border: 1.5px solid currentColor;
+	border-width: 1.5px !important;
+	border-style: solid !important;
+	border-color: currentColor;
 	border-radius: 50%;
 	background: transparent;
 	cursor: pointer;
