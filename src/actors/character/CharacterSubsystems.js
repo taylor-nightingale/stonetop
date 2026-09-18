@@ -9,6 +9,7 @@ import {CharacterFollowers} from "./CharacterFollowers.js";
 import {ResourceController} from "./ResourceController.js";
 import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
+import {CharacterAdvancement} from "./CharacterAdvancement.js";
 import {CharacterDebilities} from "./CharacterDebilities.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {PlaybookSelection} from "./PlaybookSelection.js";
@@ -57,6 +58,7 @@ export class CharacterSubsystems {
 		const inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, resourceController, repos.steading, repos.inventoryPage, moves);
 		const arcana      = new CharacterArcana(actor, repos.arcana, stats, followers, factory, moves, outfitSync, grantedItems);
 		const inserts     = new CharacterInserts(actor, factory, moves, repos.inserts, grantedItems);
+		const advancement = new CharacterAdvancement(actor, vitals, moves, possessions, repos.moves);
 
 		// ── What reacts to a choice value changing. Registered once, after everything exists, so no
 		//    handler can fire against a half-built graph. Each subscriber decides its own relevance.
@@ -68,7 +70,7 @@ export class CharacterSubsystems {
 		return {
 			stats, origin, vitals, selection: playbookSelection, debilities,
 			grantedItems, outfitItems, resourceController, outfitSync, factory,
-			followers, background, moves, playbook, possessions, inventory, arcana, inserts,
+			followers, background, moves, playbook, possessions, inventory, arcana, inserts, advancement,
 		};
 	}
 }

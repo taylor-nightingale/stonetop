@@ -333,6 +333,39 @@ describe("CharacterPossessions — computeMaxUses", () => {
 	});
 });
 
+// -- maxUsesFor ───────────────────────────────────────────────────────────────
+
+describe("CharacterPossessions — maxUsesFor", () => {
+	function makeCp(items, moves = makeMoves()) {
+		return makeCharacterPossessions(makeActor(items), moves);
+	}
+
+	const pouchItem = opts => makePossessionItem(bonusPossession(), { selected: true, ...opts });
+
+	it("answers with the track's maximum at the level it is asked about", () => {
+		const cp = makeCp([pouchItem()]);
+		expect(cp.maxUsesFor("sacred-pouch", 5)).toBe(5);
+		expect(cp.maxUsesFor("sacred-pouch", 6)).toBe(6);
+	});
+
+	it("is the possession's own maximum where nothing has scaled it yet", () => {
+		expect(makeCp([pouchItem()]).maxUsesFor("sacred-pouch", 1)).toBe(3);
+	});
+
+	it("counts what a move adds alongside the level", () => {
+		const cp = makeCp([pouchItem()], makeMoves().ownMove("big-magic"));
+		expect(cp.maxUsesFor("sacred-pouch", 4)).toBe(7);
+	});
+
+	it("is null for a possession the character does not carry", () => {
+		expect(makeCp([]).maxUsesFor("sacred-pouch", 6)).toBeNull();
+	});
+
+	it("is null for a possession that was never ticked — the gate every caller honours", () => {
+		expect(makeCp([pouchItem({ selected: false })]).maxUsesFor("sacred-pouch", 6)).toBeNull();
+	});
+});
+
 // -- buildSnapshot ─────────────────────────────────────────────────────────────
 
 describe("CharacterPossessions — buildSnapshot", () => {

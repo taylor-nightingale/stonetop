@@ -30,6 +30,10 @@ export {
 } from "./InventorySnapshot.js";
 export { InsertSnapshot, InsertSnapshotBuilder } from "./InsertSnapshot.js";
 export {
+	LevelUpSnapshot, LevelUpSnapshotBuilder,
+	AdvanceRow, ChooseMoveRow, StockRow, InvocationRow, ReviewRow,
+} from "./LevelUpSnapshot.js";
+export {
 	ArcanaSnapshot, ArcanaSectionSnapshot,
 	ArcanumSnapshot, ArcanumSnapshotBuilder,
 	ArcanumSideSnapshot, ArcanumSideSnapshotBuilder,
@@ -51,6 +55,7 @@ export { buildChoiceGroup } from "./buildChoiceGroup.js";
  * @property {DebilitySnapshot[]} debilities - always 3: weakened, dazed, miserable
  * @property {Object.<string, StatSnapshot>} stats - keys: str dex con int wis cha
  * @property {VitalsSnapshot} vitals
+ * @property {LevelUpSnapshot} levelUp - the Level Up strip; offers itself only when it has something to say
  * @property {Movelist} moves
  * @property {OutfitSnapshot} outfit
  * @property {PossessionsSnapshot|null} possessions
@@ -66,6 +71,7 @@ export class CharacterSnapshot {
 		this.debilities      = b._debilities;
 		this.stats           = b._stats;
 		this.vitals          = b._vitals;
+		this.levelUp         = b._levelUp ?? null;
 		this.moves           = b._moves;
 		this.outfit          = b._outfit;
 		this.possessions     = b._possessions ?? null;
@@ -89,6 +95,7 @@ export class CharacterSnapshotBuilder {
 	withDebilities(v)      { this._debilities      = v; return this; }
 	withStats(v)           { this._stats           = v; return this; }
 	withVitals(v)          { this._vitals          = v; return this; }
+	withLevelUp(v)         { this._levelUp         = v; return this; }
 	withMoves(v)           { this._moves           = v; return this; }
 	withOutfit(v)          { this._outfit          = v; return this; }
 	withPossessions(v)     { this._possessions     = v; return this; }

@@ -10,9 +10,22 @@ export class FakeMoves {
 	_snapshotsByCategory = {};
 
 	_tracks = {};
+	_acquired = [];
 
 	ownMove(slug, count = 1)  { this._counts[slug] = count; return this; }
 	countOwnedBySlug(slug)    { return this._counts[slug] ?? 0; }
+
+	// A move the character has TAKEN, as the embedded item shape its category and instance count are
+	// read off — what CharacterAdvancement counts a level's purchases in.
+	withAcquiredMove(slug, categoryKey, instanceCount = 1) {
+		this._acquired.push({
+			_id: `${slug}-item`, type: "move", name: slug,
+			system: { slug, categoryKey, acquired: true, instanceCount },
+		});
+		return this;
+	}
+
+	get acquiredMoves() { return this._acquired; }
 
 	// A move that carries a track (Thrall's Favor), at the given current value.
 	withTrack(slug, value)    { this._tracks[slug] = value; return this; }

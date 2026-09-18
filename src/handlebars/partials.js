@@ -13,6 +13,8 @@ export const STONETOP_PARTIALS = {
 	"stonetop.actor-stats":      "systems/stonetop/templates/actor/partials/actor-stats.hbs",
 	"stonetop.stepper-buttons":  "systems/stonetop/templates/actor/partials/stepper-buttons.hbs",
 	"stonetop.actor-attributes": "systems/stonetop/templates/actor/partials/actor-attributes.hbs",
+	"stonetop.level-up-strip":   "systems/stonetop/templates/actor/partials/level-up-strip.hbs",
+	"stonetop.level-up-step":    "systems/stonetop/templates/actor/partials/level-up-step.hbs",
 	"stonetop.tab-playbook":           "systems/stonetop/templates/actor/partials/tab-playbook.hbs",
 	"stonetop.choice-group-condensed": "systems/stonetop/templates/actor/partials/choice-group-condensed.hbs",
 	"stonetop.tab-toolbar-toggle":     "systems/stonetop/templates/actor/partials/tab-toolbar-toggle.hbs",

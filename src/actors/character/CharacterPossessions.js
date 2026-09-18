@@ -161,6 +161,21 @@ export class CharacterPossessions {
 		await this._outfitSync?.syncItem(item);
 	}
 
+	/**
+	 * What one possession's track tops out at for a character of this level — the sacred pouch's
+	 * Stock, asked for by the Level Up strip so it can state what the even level did to it.
+	 *
+	 * Takes the level rather than reading it, so the same question can be asked about the level the
+	 * character is on and the one they are about to buy. Null when they do not carry the possession,
+	 * or carry it unticked, which is the same gate every other caller honours (see outfitGrantFor).
+	 */
+	maxUsesFor(slug, level) {
+		const item = _findPossessionItem(this._actor, slug);
+		if (!item?.system?.selected) return null;
+		const possession = new Possession(item.system);
+		return this.computeMaxUses([possession], level)[possession.slug] ?? possession.resource?.max ?? null;
+	}
+
 	computeMaxUses(possessions, level) {
 		const result = {};
 		for (const p of possessions) {

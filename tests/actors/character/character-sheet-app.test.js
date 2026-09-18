@@ -174,7 +174,7 @@ describe("StonetopCharacterSheet view toggles", () => {
 	it("starts every declared flag off and carries them into the context", async () => {
 		const { sheet } = makeSheet();
 		expect((await sheet._prepareContext({})).viewFlags)
-			.toEqual({ hideUnselectedMoves: false, playbookLocked: false });
+			.toEqual({ hideUnselectedMoves: false, playbookLocked: false, levelUpOpen: false });
 	});
 
 	// The playbook lock changes what the template emits, so the sheet has to rebuild the tab.

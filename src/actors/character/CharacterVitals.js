@@ -1,6 +1,7 @@
 import {ValueMax, VitalsSnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 import {ArmorBreakdown} from "../../model/data/character/ArmorBreakdown.js";
 import {VitalsProvenance} from "./VitalsProvenance.js";
+import {Advancement} from "../../model/data/character/Advancement.js";
 
 function toInt(v) {
 	const n = parseInt(v);
@@ -14,6 +15,33 @@ export class CharacterVitals {
 
 	get level() {
 		return this._actor.system?.attributes?.level ?? 1;
+	}
+
+	get xp() {
+		return this._actor.system?.attributes?.xp?.value ?? 0;
+	}
+
+	/** Level Up's arithmetic for where this character stands — what it costs, whether the move has
+	 *  triggered, what the track reads afterwards. One object, so no caller recomputes 6 + level × 2. */
+	get advancement() {
+		return new Advancement(this.level, this.xp);
+	}
+
+	/**
+	 * Level Up's first two steps, as ONE write: the XP is spent and the level is gained together, so
+	 * nothing can leave a character who paid and did not advance.
+	 *
+	 * Advances whatever the track reads — a table that levels someone early is levelling someone
+	 * early, not making a mistake for the sheet to refuse. The subtraction floors at 0 and anything
+	 * over the cost carries into the next level, which is what the move says to do with it.
+	 */
+	async advance() {
+		const advancement = this.advancement;
+		await this._actor.update({
+			"system.attributes.xp.value": advancement.xpAfter,
+			"system.attributes.level":    advancement.level + 1,
+		});
+		return advancement;
 	}
 
 	// `playbook` (its system data) and `armorBreakdown` are the sources the stored values are
@@ -30,7 +58,7 @@ export class CharacterVitals {
 			.withDamage(damage)
 			.withArmor(armor)
 			.withLevel(level)
-			.withXp(new ValueMax(attrs.xp?.value ?? 0, 6 + level * 2))
+			.withXp(new ValueMax(attrs.xp?.value ?? 0, new Advancement(level, 0).cost))
 			.withSources(new VitalsProvenance(playbook, armorBreakdown).build(hpMax, dieVal, armor))
 			.build();
 	}

@@ -32,6 +32,7 @@ export class StonetopCharacter {
 		this._inventory          = parts.inventory;
 		this._arcana             = parts.arcana;
 		this._inserts            = parts.inserts;
+		this._advancement        = parts.advancement;
 		const grantedItems = this._grantedItems;
 
 		// Where an item that lands on the character turns into grants, and — off the same registration,
@@ -142,12 +143,14 @@ export class StonetopCharacter {
 			this._followers.buildFollowersSnapshot(referenced.followers.bySlug)
 		]);
 		const vitals = await this._vitals.buildVitalsSnapshot(playbookData, armorBreakdown);
+		const levelUp = await this._advancement.buildSnapshot();
 		return new CharacterSnapshotBuilder()
 			.withName(actor.name)
 			.withPlaybook(playbook)
 			.withDebilities(this._debilities.buildDebilitiesSnapshot())
 			.withStats(this._stats.buildStatsSnapshot())
 			.withVitals(vitals)
+			.withLevelUp(levelUp)
 			.withMoves(moves)
 			.withOutfit(outfit)
 			.withPossessions(possessions)
@@ -565,6 +568,17 @@ export class StonetopCharacter {
 
 	async setLevel(level) {
 		await this._vitals.setLevel(level);
+	}
+
+	/** Level Up's arithmetic for where this character stands — cost, readiness, what is left over.
+	 *  Read by the strip's confirmation, which shows the numbers before it writes any of them. */
+	get advancement() {
+		return this._advancement.advancement;
+	}
+
+	/** Level Up's first two steps: spend the XP, take the level. See CharacterVitals#advance. */
+	async advance() {
+		return this._advancement.advance();
 	}
 
 	async setMaxHP(max) {

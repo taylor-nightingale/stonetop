@@ -17,7 +17,7 @@ it is regenerated, and it is there to show you what the German is meant to say.
 - **0** entries where the English changed under an existing translation
 - **0** flagged earlier and still awaiting a revision
 - **35** translations whose row was restructured and need re-filing
-- **195** interface strings with no translation yet, listed at the end
+- **209** interface strings with no translation yet, listed at the end
 
 ## steading-improvements.json
 
@@ -911,6 +911,23 @@ already shows English.
 ### `stonetop.rollResults`
 
 - `"stonetop.rollResults.rolled"` — "Rolled"
+
+### `stonetop.character.levelUp`
+
+- `"stonetop.character.levelUp.title"` — "Level Up"
+- `"stonetop.character.levelUp.ready"` — "ready"
+- `"stonetop.character.levelUp.done"` — "Done"
+- `"stonetop.character.levelUp.owed"` — "{count} to finish"
+- `"stonetop.character.levelUp.when"` — "When you {trigger}."
+- `"stonetop.character.levelUp.advanceStep"` — "Spend XP to level up"
+- `"stonetop.character.levelUp.advanceFigure"` — "{cost} XP: {xpFrom} → {xpTo} · Level {from} → {to}"
+- `"stonetop.character.levelUp.advance"` — "Advance"
+- `"stonetop.character.levelUp.confirmTitle"` — "Level Up"
+- `"stonetop.character.levelUp.confirm"` — "Spend {cost} XP, leaving {xp}, and go from level {from} to level {to}?"
+- `"stonetop.character.levelUp.movesBehind"` — "{count} still to choose."
+- `"stonetop.character.levelUp.stockRaised"` — "Maximum Stock {from} → {to}, applied for you."
+- `"stonetop.character.levelUp.stockAt"` — "Maximum Stock is {max}, applied for you."
+- `"stonetop.character.levelUp.invocationsKnown"` — "You know {known} of {expected}."
 
 ### `stonetop.a11y`
 

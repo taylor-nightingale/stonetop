@@ -51,6 +51,20 @@ export const OUTFIT_ACTIONS = {
 	}),
 };
 
+// Level Up's first two steps as one press: spend the XP, take the level. It asks first — the strip
+// is opened to be read, and a button in a checklist is easy to hit on the way past — but it asks
+// with the arithmetic in it, so the confirmation is also where a player checks the numbers.
+export const ADVANCEMENT_ACTIONS = {
+	advance: editOnly(async function () {
+		const { cost, level, xpAfter } = this._stonetopCharacter.advancement;
+		const body = game.i18n.format("stonetop.character.levelUp.confirm",
+			{ cost, from: level, to: level + 1, xp: xpAfter });
+		if (await confirmAction("stonetop.character.levelUp.confirmTitle", body)) {
+			await this._stonetopCharacter.advance();
+		}
+	}),
+};
+
 // Click confirms, right-click skips.
 export const DELETE_ACTIONS = {
 	deleteArcanum: confirmedDelete(function (target) {

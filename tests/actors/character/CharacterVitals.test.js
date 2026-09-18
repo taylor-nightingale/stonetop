@@ -272,3 +272,45 @@ describe("CharacterVitals.unmarkXp", () => {
 		expect(snap.xp.value).toBe(2);
 	});
 });
+
+describe("CharacterVitals — readyToLevel", () => {
+	it("is false while the track is short of the cost", async () => {
+		const snap = await makeVitals({ level: 5, xp: { value: 15 } }).buildVitalsSnapshot();
+		expect(snap.readyToLevel).toBe(false);
+	});
+
+	it("is true at the cost, and past it — Level Up triggers at 'equal to (or greater than)'", async () => {
+		expect((await makeVitals({ level: 5, xp: { value: 16 } }).buildVitalsSnapshot()).readyToLevel).toBe(true);
+		expect((await makeVitals({ level: 5, xp: { value: 19 } }).buildVitalsSnapshot()).readyToLevel).toBe(true);
+	});
+});
+
+describe("CharacterVitals.advance", () => {
+	it("spends the cost and takes the level in one write", async () => {
+		const vitals = makeVitals({ level: 5, xp: { value: 19 } });
+		await vitals.advance();
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.level).toBe(6);
+		expect(snap.xp.value).toBe(3);
+	});
+
+	it("carries the excess over rather than clearing the track", async () => {
+		const vitals = makeVitals({ level: 1, xp: { value: 11 } });
+		await vitals.advance();
+		expect((await vitals.buildVitalsSnapshot()).xp.value).toBe(3);
+	});
+
+	it("advances a character the table levelled early, flooring the track at zero", async () => {
+		const vitals = makeVitals({ level: 5, xp: { value: 2 } });
+		await vitals.advance();
+		const snap = await vitals.buildVitalsSnapshot();
+		expect(snap.level).toBe(6);
+		expect(snap.xp.value).toBe(0);
+	});
+
+	it("raises the next level's cost with the level", async () => {
+		const vitals = makeVitals({ level: 5, xp: { value: 19 } });
+		await vitals.advance();
+		expect((await vitals.buildVitalsSnapshot()).xp.max).toBe(18);
+	});
+});

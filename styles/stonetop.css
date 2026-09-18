@@ -962,6 +962,154 @@ body,
 	font-weight: bold;
 }
 
+/* ── Level Up ──────────────────────────────────────────────────────────────────────────────────
+   The XP track at (or past) the Level Up threshold, and the checklist that hangs under it.
+
+   The track's own ready state is the label, not the number: a resource frame's label chip is what
+   the eye lands on, and colouring the digits fights the other four frames in the row for
+   attention. Quiet on purpose — this is a nudge, not an alarm. */
+
+.stonetop-resource--wide.is-full .stonetop-resource__label {
+	color: var(--st-accent);
+}
+
+.stonetop-levelup {
+	margin: 0.25rem 0 0.5rem;
+	border-top: 1px solid var(--st-rule-veil);
+	padding-top: 0.375rem;
+	font-size: var(--fs-note);
+}
+
+.stonetop-levelup-toggle {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	width: 100%;
+	background: transparent;
+	border: none;
+	padding: 0.125rem 0;
+	margin: 0;
+	text-align: left;
+	color: var(--st-ink);
+	font-size: var(--fs-note);
+	line-height: 1.4;
+	cursor: pointer;
+}
+
+/* The caret turns off `aria-expanded`, which is the state itself rather than a class kept in step
+   with it — the same arrangement as the steading's folk lists. */
+.stonetop-levelup-toggle[aria-expanded="true"] .stonetop-levelup-caret {
+	transform: rotate(90deg);
+}
+
+.stonetop-levelup-caret {
+	transition: transform 120ms ease;
+	font-size: var(--fs-micro);
+	opacity: 0.7;
+}
+
+.stonetop-levelup-title {
+	font-weight: bold;
+}
+
+.stonetop-levelup-badge {
+	margin-left: auto;
+	padding: 0 0.375rem;
+	border-radius: 0.625rem;
+	background: var(--st-accent-veil);
+	font-size: var(--fs-micro);
+	white-space: nowrap;
+}
+
+.stonetop-levelup-badge--owed {
+	background: var(--st-paper-sunken-strong);
+}
+
+.stonetop-levelup-panel {
+	padding: 0.25rem 0 0;
+}
+
+.stonetop-levelup-gloss {
+	margin: 0 0 0.375rem;
+	font-style: italic;
+	color: var(--st-ink-faint);
+}
+
+.stonetop-levelup-steps {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
+}
+
+/* Tick, words, then whatever the step offers. The controls wrap under the text rather than beside
+   it, because this column is as wide as the stats above it and no wider. */
+.stonetop-levelup-step {
+	display: grid;
+	grid-template-columns: 1rem 1fr;
+	align-items: start;
+	column-gap: 0.375rem;
+	row-gap: 0.25rem;
+}
+
+.stonetop-levelup-step > :not(.stonetop-levelup-tick) {
+	grid-column: 2;
+}
+
+/* A done step recedes; it is kept on screen because the list is the move's own, and a step that
+   vanished once you had done it would make the book's six read as four. */
+.stonetop-levelup-step.is-done .stonetop-levelup-text {
+	opacity: 0.55;
+}
+
+.stonetop-levelup-tick {
+	grid-column: 1;
+	display: flex;
+	justify-content: center;
+	padding-top: 0.125rem;
+	font-size: var(--fs-micro);
+	color: var(--st-positive);
+}
+
+.stonetop-levelup-text {
+	line-height: 1.35;
+}
+
+.stonetop-levelup-figure {
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+}
+
+.stonetop-levelup-advance {
+	justify-self: start;
+	width: auto;
+	padding: 0.125rem 0.75rem;
+	font-size: var(--fs-fine);
+	line-height: 1.6;
+}
+
+.stonetop-levelup-goto {
+	justify-self: start;
+	width: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3125rem;
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-accent);
+	cursor: pointer;
+}
+
+.stonetop-levelup-goto:hover {
+	text-decoration: underline;
+}
+
 /* Follower card: match dice-goblin NPC resource formatting */
 .stonetop-resource--follower {
 	height: 4.375rem;

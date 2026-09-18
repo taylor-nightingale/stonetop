@@ -3,7 +3,6 @@
 * Update steading default icon to something nicer
 * Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
-* level up move
 * add a stonetop image to the game system in foundry like the delta green one has
 * After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this?
 

@@ -242,3 +242,25 @@ describe("ChoiceValues#without", () => {
 		expect(values.without("absent").toRaw()).toEqual({ ns: { opt: 1 } });
 	});
 });
+
+// ── ChoiceValues#countIn ─────────────────────────────────────────────────────
+
+describe("ChoiceValues#countIn", () => {
+	it("counts the rows a group has chosen", () => {
+		const values = new ChoiceValues({ ns: { a: 1, b: 1, c: 0 } });
+		expect(values.countIn("ns")).toBe(2);
+	});
+
+	it("counts a row taken more than once as one choice", () => {
+		expect(new ChoiceValues({ ns: { a: 3 } }).countIn("ns")).toBe(1);
+	});
+
+	it("does not count a write-in's text as a choice", () => {
+		const values = new ChoiceValues({ ns: { a: 1, custom: "a name they typed" } });
+		expect(values.countIn("ns")).toBe(1);
+	});
+
+	it("is zero for a group nothing has been stored under", () => {
+		expect(new ChoiceValues({ ns: { a: 1 } }).countIn("absent")).toBe(0);
+	});
+});

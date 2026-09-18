@@ -8,6 +8,7 @@ export class TestInsertItemBuilder {
 	_choices      = [];
 	_choiceValues = {};
 	_moves        = [];
+	_startingMoves = [];
 
 	withId(id)                  { this._id           = id;      return this; }
 	withSlug(slug)              { this._slug         = slug;    return this; }
@@ -19,6 +20,9 @@ export class TestInsertItemBuilder {
 	withChoiceValues(values)    { this._choiceValues = values;  return this; }
 	// The move slugs the insert grants — how it names its own track (Thrall → "favor").
 	withMoves(slugs)            { this._moves        = slugs;   return this; }
+	// The subset seeded acquired when the insert is granted — what the character was HANDED rather
+	// than bought with a level.
+	withStartingMoves(slugs)    { this._startingMoves = slugs;  return this; }
 
 	build() {
 		return {
@@ -33,6 +37,7 @@ export class TestInsertItemBuilder {
 				choices:      this._choices,
 				choiceValues: this._choiceValues,
 				moves:        this._moves,
+				startingMoves: this._startingMoves,
 			},
 		};
 	}
