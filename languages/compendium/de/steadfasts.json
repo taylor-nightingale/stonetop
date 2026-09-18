@@ -260,7 +260,7 @@
     },
     "assets/resources/trade-with-marshedge-and-or": {
       "source": "Trade with Marshedge and/or",
-      "text": "Handel mit Moresrand und/oder"
+      "text": "Handel mit Mooresrand und/oder"
     },
     "assets/resources/lygos-textile-spices-glass-herbs-finery": {
       "source": "Lygos (textile, spices, glass, herbs, finery)",
@@ -834,7 +834,7 @@
     },
     "neighborPlaces/marshedge/name": {
       "source": "Marshedge",
-      "text": "Moresrand"
+      "text": "Mooresrand"
     },
     "neighborPlaces/marshedge/travel": {
       "source": "10 days",
