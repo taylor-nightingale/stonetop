@@ -203,6 +203,7 @@
         "play": "Play",
         "folk": "Folk",
         "places": "Places",
+        "improvements": "Improvements",
         "season": "Season",
         "content": "Content"
       },
@@ -758,6 +759,22 @@
           "armorModifierItem": "{name} {amount}"
         }
       },
+      "levelUp": {
+        "title": "Level Up",
+        "ready": "ready",
+        "done": "Done",
+        "owed": "{count} to finish",
+        "when": "When you {trigger}.",
+        "advanceStep": "Spend XP to level up",
+        "advanceFigure": "{cost} XP: {xpFrom} → {xpTo} · Level {from} → {to}",
+        "advance": "Advance",
+        "confirmTitle": "Level Up",
+        "confirm": "Spend {cost} XP, leaving {xp}, and go from level {from} to level {to}?",
+        "movesBehind": "{count} still to choose.",
+        "stockRaised": "Maximum Stock {from} → {to}, applied for you.",
+        "stockAt": "Maximum Stock is {max}, applied for you.",
+        "invocationsKnown": "You know {known} of {expected}."
+      },
       "gear": {
         "specialPossessions": "Special Possessions"
       },
@@ -769,6 +786,9 @@
         "pickInstruction": "Pick up to {count} moves to start with.",
         "playbookMoves": "Playbook Moves",
         "basicMoves": "Basic Moves",
+        "expeditionMoves": "Expedition Moves",
+        "specialMoves": "Special Moves",
+        "followerMoves": "Follower Moves",
         "otherMoves": "Other Moves",
         "addMove": "Add Move",
         "removeMove": "Remove Move",

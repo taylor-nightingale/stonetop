@@ -11,10 +11,10 @@ function makeEntry(slug, systemOverrides = {}) {
 	};
 }
 
+// The repository reads DOCUMENTS, not index rows: an index row's `system` is never translated.
 function makePack(entries = [], folders = []) {
 	return {
-		getIndex: vi.fn(async () => {}),
-		index: entries,
+		getDocuments: vi.fn(async () => entries.map(e => ({ ...e, uuid: `Compendium.x.Item.${e._id}`, toObject: () => e }))),
 		folders,
 	};
 }
@@ -130,12 +130,12 @@ describe("FoundryOutfitItemRepository", () => {
 		expect(items.map(i => i.slug)).toEqual(["cloak"]);
 	});
 
-	it("caches results — getIndex is not called a second time", async () => {
+	it("caches results — the pack is not loaded a second time", async () => {
 		const pack = makePack([makeEntry("cloak")]);
 		stubGame(pack);
 		const repo = new FoundryOutfitItemRepository();
 		await repo.getAll();
 		await repo.getAll();
-		expect(pack.getIndex).toHaveBeenCalledTimes(1);
+		expect(pack.getDocuments).toHaveBeenCalledTimes(1);
 	});
 });

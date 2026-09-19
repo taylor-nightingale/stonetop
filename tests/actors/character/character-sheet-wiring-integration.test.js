@@ -206,7 +206,7 @@ describe("character sheet wiring — tabs and the router (integration)", () => {
 		const { sheet } = makeSheet();
 
 		expect((await sheet._prepareContext({})).viewFlags)
-			.toEqual({ hideUnselectedMoves: false, playbookLocked: false });
+			.toEqual({ hideUnselectedMoves: false, playbookLocked: false, levelUpOpen: false });
 		sheet._viewFlags.toggle("hideUnselectedMoves");
 		expect((await sheet._prepareContext({})).viewFlags.hideUnselectedMoves).toBe(true);
 	});

@@ -1,0 +1,46 @@
+{{!-- The Level Up checklist, under the XP track it belongs to.
+
+      Offered only when it has something to say — the move has triggered, or it triggered earlier and
+      something it asks for is still outstanding (see LevelUpSnapshot#isOffered). The rest of the
+      time the sheet says nothing about levelling at all, which is most of the time.
+
+      Collapsed by default. The toggle is a view-state control on the sheet, not a value on the
+      actor, so opening it on one window does not open it on everybody's.
+
+      Params: none — reads stonetop.levelUp and viewFlags off the root context. --}}
+{{#if stonetop.levelUp.isOffered}}
+<div class="stonetop-levelup{{#if stonetop.levelUp.isReady}} is-ready{{/if}}">
+
+	<button type="button" class="stonetop-levelup-toggle" data-action="toggleTabView"
+	        data-view-flag="levelUpOpen" data-view-state
+	        aria-expanded="{{#if viewFlags.levelUpOpen}}true{{else}}false{{/if}}"
+	        aria-controls="{{sheetIdPrefix}}-levelup">
+		<i class="fas fa-chevron-right stonetop-levelup-caret" aria-hidden="true"></i>
+		<span class="stonetop-levelup-title">{{localize "stonetop.character.levelUp.title"}}</span>
+		{{#if stonetop.levelUp.isReady}}
+			<span class="stonetop-levelup-badge">{{localize "stonetop.character.levelUp.ready"}}</span>
+		{{else}}
+			<span class="stonetop-levelup-badge stonetop-levelup-badge--owed">{{localize "stonetop.character.levelUp.owed" count=stonetop.levelUp.owed.length}}</span>
+		{{/if}}
+	</button>
+
+	{{#if viewFlags.levelUpOpen}}
+	<div class="stonetop-levelup-panel" id="{{sheetIdPrefix}}-levelup">
+
+		{{!-- The move's own trigger, lifted from its text (MoveGloss) — the one line saying WHEN this
+		      happens. Nothing about levelling up is written by the sheet. --}}
+		{{#if stonetop.levelUp.gloss}}
+		<p class="stonetop-levelup-gloss">{{localize "stonetop.character.levelUp.when" trigger=stonetop.levelUp.gloss}}</p>
+		{{/if}}
+
+		<ol class="stonetop-levelup-steps">
+			{{#each stonetop.levelUp.rows}}
+				{{> "stonetop.level-up-step"}}
+			{{/each}}
+		</ol>
+
+	</div>
+	{{/if}}
+
+</div>
+{{/if}}

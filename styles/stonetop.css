@@ -26,6 +26,7 @@
 	font-style: normal;
 }
 
+
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
    Everything below is in Foundry's `system` cascade layer.
 
@@ -265,6 +266,29 @@ body,
 .stonetop-inv-diamond::before,         .stonetop-inv-diamond::after,
 .stonetop-inv-square::before,          .stonetop-inv-square::after {
 	content: none !important;
+}
+
+/* The same controls again, for the same reason one rule up read backwards. A stylesheet that
+   restyles Foundry's checkboxes may assume they draw from a glyph, because core's do — so a blanket
+   `input[type=checkbox], input[type=radio] { border: 0; min-width: 1.1rem; min-height: 1.1rem }` is
+   a reasonable thing for it to write, and Carolingian UI writes exactly that. Ours are the opposite
+   shape: `appearance: none` and a box we paint, so the mark IS its border. That reset deleted the
+   inventory diamonds and the load radios outright — an unchecked one had nothing left to draw — and
+   the floor inflated every 10-14px mark to 17.6px.
+
+   `!important` is the only instrument that reaches this, and not for want of a better selector: the
+   module's sheet carries no `@layer` at all, and unlayered CSS outranks every layer — the `system`
+   layer this file wraps itself in included — however specific the thing losing to it.
+
+   So what is pinned here is only what a blanket reset DESTROYS. A floor of zero forbids a module
+   nothing; each control's border COLOUR stays an ordinary declaration further down, and its width
+   and style are pinned beside it. A module can still recolour these marks. It cannot erase them. */
+.stonetop-item-check,        .stonetop-cg-track,
+.stonetop-debility-check,    .stonetop-outfit-load-radio,
+.stonetop-roll-mode-radio,   .stonetop-inv-diamond,
+.stonetop-inv-square {
+	min-width: 0 !important;
+	min-height: 0 !important;
 }
 
 .app,
@@ -800,10 +824,6 @@ body,
 	white-space: nowrap;
 }
 
-.stonetop-stat-roll:hover {
-	text-decoration: underline;
-}
-
 .stonetop-stat-input {
 	border: none;
 	background: transparent;
@@ -908,10 +928,6 @@ body,
 	cursor: pointer;
 }
 
-.stonetop-damage-roll:hover {
-	text-decoration: underline;
-}
-
 .stonetop-resource__input,
 .stonetop-resource__max {
 	display: block;
@@ -944,6 +960,154 @@ body,
 .stonetop-resource__max {
 	font-size: 1.625rem;
 	font-weight: bold;
+}
+
+/* ── Level Up ──────────────────────────────────────────────────────────────────────────────────
+   The XP track at (or past) the Level Up threshold, and the checklist that hangs under it.
+
+   The track's own ready state is the label, not the number: a resource frame's label chip is what
+   the eye lands on, and colouring the digits fights the other four frames in the row for
+   attention. Quiet on purpose — this is a nudge, not an alarm. */
+
+.stonetop-resource--wide.is-full .stonetop-resource__label {
+	color: var(--st-accent);
+}
+
+.stonetop-levelup {
+	margin: 0.25rem 0 0.5rem;
+	border-top: 1px solid var(--st-rule-veil);
+	padding-top: 0.375rem;
+	font-size: var(--fs-note);
+}
+
+.stonetop-levelup-toggle {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	width: 100%;
+	background: transparent;
+	border: none;
+	padding: 0.125rem 0;
+	margin: 0;
+	text-align: left;
+	color: var(--st-ink);
+	font-size: var(--fs-note);
+	line-height: 1.4;
+	cursor: pointer;
+}
+
+/* The caret turns off `aria-expanded`, which is the state itself rather than a class kept in step
+   with it — the same arrangement as the steading's folk lists. */
+.stonetop-levelup-toggle[aria-expanded="true"] .stonetop-levelup-caret {
+	transform: rotate(90deg);
+}
+
+.stonetop-levelup-caret {
+	transition: transform 120ms ease;
+	font-size: var(--fs-micro);
+	opacity: 0.7;
+}
+
+.stonetop-levelup-title {
+	font-weight: bold;
+}
+
+.stonetop-levelup-badge {
+	margin-left: auto;
+	padding: 0 0.375rem;
+	border-radius: 0.625rem;
+	background: var(--st-accent-veil);
+	font-size: var(--fs-micro);
+	white-space: nowrap;
+}
+
+.stonetop-levelup-badge--owed {
+	background: var(--st-paper-sunken-strong);
+}
+
+.stonetop-levelup-panel {
+	padding: 0.25rem 0 0;
+}
+
+.stonetop-levelup-gloss {
+	margin: 0 0 0.375rem;
+	font-style: italic;
+	color: var(--st-ink-faint);
+}
+
+.stonetop-levelup-steps {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
+}
+
+/* Tick, words, then whatever the step offers. The controls wrap under the text rather than beside
+   it, because this column is as wide as the stats above it and no wider. */
+.stonetop-levelup-step {
+	display: grid;
+	grid-template-columns: 1rem 1fr;
+	align-items: start;
+	column-gap: 0.375rem;
+	row-gap: 0.25rem;
+}
+
+.stonetop-levelup-step > :not(.stonetop-levelup-tick) {
+	grid-column: 2;
+}
+
+/* A done step recedes; it is kept on screen because the list is the move's own, and a step that
+   vanished once you had done it would make the book's six read as four. */
+.stonetop-levelup-step.is-done .stonetop-levelup-text {
+	opacity: 0.55;
+}
+
+.stonetop-levelup-tick {
+	grid-column: 1;
+	display: flex;
+	justify-content: center;
+	padding-top: 0.125rem;
+	font-size: var(--fs-micro);
+	color: var(--st-positive);
+}
+
+.stonetop-levelup-text {
+	line-height: 1.35;
+}
+
+.stonetop-levelup-figure {
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+}
+
+.stonetop-levelup-advance {
+	justify-self: start;
+	width: auto;
+	padding: 0.125rem 0.75rem;
+	font-size: var(--fs-fine);
+	line-height: 1.6;
+}
+
+.stonetop-levelup-goto {
+	justify-self: start;
+	width: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3125rem;
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font-size: var(--fs-fine);
+	color: var(--st-accent);
+	cursor: pointer;
+}
+
+.stonetop-levelup-goto:hover {
+	text-decoration: underline;
 }
 
 /* Follower card: match dice-goblin NPC resource formatting */
@@ -1534,10 +1698,6 @@ body,
 	cursor: pointer;
 }
 
-.stonetop.sheet.character button.stonetop-origin-name:hover {
-	text-decoration: underline;
-}
-
 /* ~ Selection fields */
 
 /* -- Sheet layout (sidebar persists across all tabs) ------- */
@@ -2114,7 +2274,13 @@ button.stonetop-view-toggle.is-active {
 	   middle of a two-line block, away from the words it ticks. The offset lives in THIS rule
 	   because the `margin: 0` it replaces silently cancelled one declared anywhere above it. */
 	align-self: flex-start;
-	margin: calc((var(--item-line) - var(--control-check)) / 2) 0 0;
+	--check-line-pin: calc((var(--item-line) - var(--control-check)) / 2);
+	margin: var(--check-line-pin) 0 0;
+	/* And the top again, pinned. A blanket `margin: 0 2px` (see the reset block near the top of this
+	   file) replaces the shorthand whole and takes the offset out with the sides it meant to set, so
+	   the tick sat flush to the top of the line instead of centred on it. Only the side doing the
+	   work is pinned; the horizontal margin of a checkbox is a module's to have. */
+	margin-top: var(--check-line-pin) !important;
 }
 
 .stonetop-item-check:checked,
@@ -2157,7 +2323,6 @@ button.stonetop-view-toggle.is-active {
 	line-height: inherit;
 	cursor: pointer;
 }
-.stonetop.sheet button.stonetop-item-name--open:hover { text-decoration: underline; }
 
 /* ── The move row as a disclosure ────────────────────────────────────────────────
    Shut, a row is one line: caret, name, and the move's own trigger as a gloss. Open, the gloss gives
@@ -2325,10 +2490,6 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-ink-faint);
 }
 
-.stonetop.sheet button.stonetop-move-disclosure:hover .stonetop-move-disclosure-name {
-	text-decoration: underline;
-}
-
 /* In a rail the track is PIPS ONLY. Its title ran 80px of a 207px row — a third of the line, spent
    repeating what the row already says two words to its left, and it was what squeezed the name until
    it overflowed. The word is not lost: `resource-track.hbs` puts it in every pip's accessible name
@@ -2374,11 +2535,6 @@ button.stonetop-view-toggle.is-active {
 	cursor: pointer;
 }
 
-.move-rollable:hover,
-.move-rollable:focus-visible {
-	color: var(--st-accent);
-}
-
 /* `all: unset` takes the focus ring with it, and this is the one control on the row that has no
    text to underline instead. */
 .move-rollable:focus-visible {
@@ -2397,7 +2553,6 @@ button.stonetop-view-toggle.is-active {
 }
 
 .stonetop-move-chat:hover {
-	color: var(--st-ink);
 	opacity: 1;
 }
 
@@ -2718,10 +2873,16 @@ button.stonetop-view-toggle.is-active {
 	flex: 1;
 }
 
+/* Chrome-less like every other inline delete on the sheet. Without this the glyph kept core's
+   button box, so hovering the trash itself dropped a sepia tile behind soft ink — 2.17:1, an icon
+   that all but disappears at the moment you reach for it. */
 .stonetop-other-move-delete {
 	display: none;
 	margin-left: auto;
 	color: var(--st-ink-soft);
+	background: none;
+	border: none;
+	padding: 0;
 	cursor: pointer;
 	font-size: var(--fs-fine);
 }
@@ -2730,10 +2891,14 @@ button.stonetop-view-toggle.is-active {
 	display: inline;
 }
 
+/* Chrome-less for the same reason as `.stonetop-other-move-delete` above. */
 .stonetop-possession-delete {
 	visibility: hidden;
 	margin-left: auto;
 	color: var(--st-ink-soft);
+	background: none;
+	border: none;
+	padding: 0;
 	cursor: pointer;
 	font-size: var(--fs-fine);
 }
@@ -2774,6 +2939,13 @@ button.stonetop-view-toggle.is-active {
 	font-size: var(--fs-note);
 	/* This row's text is a step down from a move's, so its gutter is a step shorter too. */
 	--item-line: calc(var(--fs-note) * 1.3);
+	/* The custom-item ✕ lives in this gutter, out of flow, and the gutter is here whether or not
+	   THIS row has one. Reserving it unconditionally settles two things at once: the row cannot
+	   change shape when the ✕ appears under the cursor (it used to grow 7px and shove the resource
+	   pips 22px left, onto the ✕ you were about to miss), and a custom row's pips still line up with
+	   the book rows around it. */
+	position: relative;
+	padding-right: var(--item-line);
 }
 
 .stonetop-inv-diamonds {
@@ -2795,9 +2967,9 @@ button.stonetop-view-toggle.is-active {
 	flex: none !important;
 	width: var(--control-marker) !important;
 	height: var(--control-marker) !important;
-	min-width: 0 !important;
-	min-height: 0 !important;
-	border: 1px solid currentColor;
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: currentColor;
 	background: transparent;
 	transform: rotate(45deg);
 	margin: 0 2px;
@@ -2817,9 +2989,9 @@ button.stonetop-view-toggle.is-active {
 	flex: none !important;
 	width: var(--control-marker) !important;
 	height: var(--control-marker) !important;
-	min-width: 0 !important;
-	min-height: 0 !important;
-	border: 1px solid currentColor;
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: currentColor;
 	background: transparent;
 	padding: 0;
 	cursor: pointer;
@@ -2897,18 +3069,6 @@ button.stonetop-view-toggle.is-active {
 	height: 0;
 	border-top: 1px solid var(--st-rule);
 	margin: 4px 0;
-}
-
-.stonetop-inv-delete {
-	display: none;
-	margin-left: auto;
-	color: var(--st-ink-soft);
-	cursor: pointer;
-	font-size: var(--fs-fine);
-}
-
-.stonetop-inv-item:hover .stonetop-inv-delete {
-	display: inline;
 }
 
 .stonetop-inv-add-btn {
@@ -3104,10 +3264,6 @@ button.stonetop-view-toggle.is-active {
 	text-underline-offset: 2px;
 }
 
-.stonetop-move-link:hover {
-	text-decoration: underline solid;
-}
-
 .stonetop-prosperity-title {
 	font-size: var(--fs-heading);
 	margin: 0 0 4px;
@@ -3184,7 +3340,9 @@ button.stonetop-view-toggle.is-active {
 	appearance: none;
 	width: 10px;
 	height: 10px;
-	border: 1.5px solid currentColor;
+	border-width: 1.5px !important;
+	border-style: solid !important;
+	border-color: currentColor;
 	border-radius: 50%;
 	background: transparent;
 	cursor: pointer;
@@ -3606,11 +3764,6 @@ button.stonetop-xp-toggle {
 .stonetop-roll-dialog .dialog-button > * {
 	position: relative;
 	z-index: 1;
-}
-
-.stonetop-roll-dialog .dialog-button:hover {
-	text-decoration: underline;
-	box-shadow: none;
 }
 
 .stonetop-roll-pick-mod {
@@ -4536,6 +4689,11 @@ button.stonetop-xp-toggle {
 	background: none !important;
 	box-shadow: none !important;
 	outline: none !important;
+	/* With the background gone, core's `button:hover` text colour is the only thing left painting
+	   these — and our palette resolves it to the sheet's own paper. Today they hold an <img>, which
+	   ignores `color` and hid the fault; the day one becomes a font glyph it would vanish under the
+	   cursor. Same guard, same reason, as `.stonetop-icon-btn`. */
+	color: inherit;
 }
 /* The actual "black box": Foundry borders <img> by default. Null it on the icon images (same as
    the working `.stonetop-icon-btn img`). */
@@ -5166,11 +5324,6 @@ button.stonetop-xp-toggle {
 	padding: 0;
 	cursor: pointer;
 	text-align: left;
-}
-
-.stonetop.sheet.steading .steading-stat-roll:hover {
-	color: var(--st-highlight);
-	text-decoration: underline;
 }
 
 /* The ? rides on fine print here, not on a heading. */
@@ -6040,10 +6193,6 @@ button.stonetop-xp-toggle {
 	vertical-align: baseline;
 }
 
-.stonetop.sheet.steading .steading-stat-roll:hover .steading-roll-die {
-	color: var(--st-accent);
-}
-
 /* On the line as well as at full density. It was dropped here for room, on the reasoning that the
    line's names are the only things on it that respond to a click — which is a fact about the line
    that nobody can see. A name that rolls has to LOOK like one, and it is the same die on the same
@@ -6108,9 +6257,11 @@ button.stonetop-xp-toggle {
 	opacity: 0.75;
 }
 
+/* The colour it takes is the house idiom's, at the foot of this sheet; what stays here is the ramp
+   that brings it up from faint, which is this control's own idea — a list's add affordance waits
+   until you reach for the list. */
 .stonetop.sheet.steading .stonetop-list-add:hover {
 	opacity: 1;
-	color: var(--st-ink-soft);
 }
 
 .stonetop.sheet.steading .stonetop-list-add img {
@@ -6516,7 +6667,6 @@ button.stonetop-xp-toggle {
 }
 
 
-
 /* ── Folk tab ─────────────────────────────────────────────────────────────────
    One roster, and the lists you read to fill it. The roster takes the larger share because it has
    six columns of editable text; the reference column takes what is left and scrolls, because it is
@@ -6893,11 +7043,6 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .stonetop-person-unlink:hover,
-.stonetop.sheet.steading .stonetop-place-unlink:hover {
-	color: var(--st-ink);
-}
-
 /* An asset's requisitioned box, and the word beside it. The WORD is the point: whether the wagon is
    out is the thing the table forgets, and a bare tick says nothing without hovering it. It hugs the
    right of the row and never wraps, so a long asset sentence flows under it rather than around it. */
@@ -6994,14 +7139,6 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-folk-list-toggle[aria-expanded="false"] .steading-folk-list-caret {
 	transform: rotate(-90deg);
-}
-
-.stonetop.sheet.steading .steading-folk-list-toggle:hover {
-	color: var(--st-accent);
-}
-
-.stonetop.sheet.steading .steading-folk-list-toggle:hover .steading-folk-list-caret {
-	color: var(--st-accent);
 }
 
 .stonetop.sheet.steading .steading-folk-entries {
@@ -8292,9 +8429,6 @@ button.stonetop-xp-toggle {
 }
 
 
-
-
-
 /* ── The split tabs ───────────────────────────────────────────────────────────
    Two columns with a decorative rule between them. Named for the shape rather than for a tab, which
    is what let Chronicle stop using it without anything having to be renamed: Places (landmarks |
@@ -9488,7 +9622,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop-insert-sheet-move-list { list-style: none; margin: 0; padding: 0; }
 .stonetop-insert-sheet-move { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 4px; }
 .stonetop-insert-sheet-move .insert-move-open { flex: 1 1 auto; cursor: pointer; }
-.stonetop-insert-sheet-move .insert-move-open:hover { text-decoration: underline; }
 
 /* -- Improvement item sheet (StonetopImprovementSheet) — reuses .stonetop-insert-sheet-* layout. --
    The rendered view shares improvement-group.hbs with the steading; its tracks are a read-only
@@ -9612,7 +9745,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .playbook-ref-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
 .playbook-ref-row { display: flex; align-items: center; gap: 8px; padding: 2px 4px; }
 .playbook-ref-row .playbook-ref-open { flex: 1 1 auto; cursor: pointer; }
-.playbook-ref-row .playbook-ref-open:hover { text-decoration: underline; }
 .playbook-ref-flag { flex: 0 0 auto; display: flex; align-items: center; }
 .playbook-ref-row.is-missing .playbook-ref-open { opacity: 0.6; font-style: italic; }
 .playbook-ref-missing { flex: 0 0 auto; color: var(--st-danger); font-weight: bold; cursor: help; }
@@ -10188,8 +10320,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 }
 
 
-
-
 /* ── Decorative art overlays ───────────────────────────────────────────────────────────────
    These elements carry their own text, so the frame art cannot mask the element itself — it
    would clip the content. The decor moves to an overlay behind the content instead.
@@ -10490,13 +10620,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	cursor: default;
 }
 
-.stonetop.sheet.steading .steading-folk-entry:hover,
-.stonetop.sheet.steading .steading-folk-entry:focus-visible {
-	color: var(--st-accent);
-	text-decoration: underline;
-	text-underline-offset: 2px;
-}
-
 /* Already used in this steading. MARKED, never removed — repeating a trait is sometimes exactly
    right, and you still want to see at a glance that "cheery" is taken twice.
 
@@ -10515,9 +10638,10 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	text-decoration-thickness: 1px;
 }
 
-/* The hover rule above sets `text-decoration: underline`, and this block outranks it by source
-   order — so a used entry under a pointer would silently lose its mark. Both lines, so hovering
-   still says "you can click this" without unsaying "you already have". */
+/* The house hover idiom at the foot of this sheet sets `text-decoration: underline`; the extra
+   `.is-used` class outranks it on specificity — so a used entry under a pointer keeps its mark
+   wherever the two rules sit. Both lines, so hovering still says "you can click this" without
+   unsaying "you already have". */
 .stonetop.sheet.steading .steading-folk-entry.is-used:hover,
 .stonetop.sheet.steading .steading-folk-entry.is-used:focus-visible {
 	text-decoration: underline line-through;
@@ -10565,7 +10689,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	.stonetop-outfit-art { display: none; }
 }
 
-
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
    OUTSIDE `@layer system`, deliberately — same reason as the blocks above. Core's button styling is
    unlayered, so it outranks anything in the layer no matter how specific: a rating's name is a
@@ -10589,10 +10712,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	min-height: 0;
 }
 
-.stonetop.sheet.steading .steading-stat-roll:hover {
-	color: var(--st-highlight);
-}
-
 /* The same unlayered-button problem, in the improvement payoff: core's fixed height and vertical
    padding put an Apply at 26.7px, taller than the target it needs and taller than the words beside
    it. The button states its own 24px (SC 2.5.8) and nothing else — it used to take that height from
@@ -10602,6 +10721,44 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	height: auto;
 	min-height: 24px;
 	padding-block: 0;
+}
+
+/* The custom-item ✕ on an inventory row. Out here for the same unlayered-button reason as the
+   blocks around it: it kept core's border, background and fixed height, so it rendered as a grey
+   box unlike every other icon control on the sheet, and it made the row 7px taller the moment it
+   appeared.
+
+   It is positioned in the gutter `.stonetop-inv-item` reserves for it rather than being laid out in
+   the row, and it is hidden with `visibility` rather than `display` — so hovering changes nothing
+   about the row's geometry, only whether the ✕ is drawn. Never `opacity: 0`: an invisible control
+   that still takes the click is a delete waiting to happen. `:focus-within` is how a keyboard
+   reaches it at all; under `display: none` it was mouse-only. */
+.stonetop-inv-delete {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--item-line);
+	height: var(--item-line);
+	min-width: 0;
+	min-height: 0;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	box-shadow: none;
+	line-height: 1;
+	visibility: hidden;
+	color: var(--st-ink-soft);
+	cursor: pointer;
+	font-size: var(--fs-fine);
+}
+
+.stonetop-inv-item:hover .stonetop-inv-delete,
+.stonetop-inv-item:focus-within .stonetop-inv-delete {
+	visibility: visible;
 }
 
 /* A rating's name at full density is the heading of the list under it, so it is set as one. Size and
@@ -10727,3 +10884,81 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	background-color: var(--st-paper);
 	color: var(--st-ink);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   One hover idiom for everything you click
+
+   Core paints `button:hover { color: var(--button-hover-text-color) }`, and both of its theme
+   blocks set that token to `--color-light-1`. palette.css repaints that ramp to the book's paper
+   and parchment-light.css hands the SAME value to `--st-paper`, so a button whose background we
+   have taken away had its label painted in exactly the colour behind it: Damage, the Outfit tab's
+   add button and the collapse caret all vanished under the pointer. Buttons that happened to
+   declare a colour of their own were spared, which is why the bug read as arbitrary.
+
+   So the treatment is declared once, here, rather than left to each control to remember. A word or
+   glyph you can click takes the accent and a rule under it — the book's own idiom for a live word,
+   and two signals rather than one, so it does not rest on colour alone. Icon buttons are the
+   deliberate exception: they ramp opacity (see `.stonetop-icon-btn`), because a glyph has no text
+   to underline and is already uniform everywhere.
+
+   OUTSIDE `@layer system`, which closes above, and last in the file. Several of these controls take
+   their resting colour from unlayered rules — the folk entries, the folk-list toggle, a rating name
+   at line density — and a layered hover rule loses to an unlayered resting one however specific it
+   is. Each selector keeps the ancestry it was written with, so it still outranks its own resting
+   rule; nothing here is more specific than it has to be, which is what leaves `.is-used` above free
+   to keep its line-through.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+.stonetop-stat-roll:hover,
+.stonetop-damage-roll:hover,
+.stonetop-inv-add-btn:hover,
+.stonetop-top-toggle:hover,
+.stonetop-move-link:hover,
+.stonetop-move-chat:hover,
+.move-rollable:hover,
+.move-rollable:focus-visible,
+.stonetop.sheet button.stonetop-item-name--open:hover,
+.stonetop.sheet button.stonetop-move-disclosure:hover .stonetop-move-disclosure-name,
+.stonetop.sheet.character button.stonetop-origin-name:hover,
+.stonetop-insert-sheet-move .insert-move-open:hover,
+.playbook-ref-row .playbook-ref-open:hover,
+.stonetop-roll-dialog .dialog-button:hover,
+.stonetop.sheet.steading .steading-stat-roll:hover,
+.stonetop.sheet.steading .steading-folk-entry:hover,
+.stonetop.sheet.steading .steading-folk-entry:focus-visible,
+.stonetop.sheet.steading .steading-folk-list-toggle:hover,
+.stonetop.sheet.steading .stonetop-person-unlink:hover,
+.stonetop.sheet.steading .stonetop-place-unlink:hover,
+.stonetop.sheet.steading .stonetop-list-add:hover {
+	color: var(--st-accent);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+/* A glyph riding inside one of these carries its own faint ink, so it does not inherit the accent
+   the way the words around it do. Named here beside the rule that lights their parent, rather than
+   left next to each glyph's own resting colour, where the pairing was invisible. */
+.stonetop.sheet.steading .steading-stat-roll:hover .steading-roll-die,
+.stonetop.sheet.steading .steading-folk-list-toggle:hover .steading-folk-list-caret {
+	color: var(--st-accent);
+}
+
+/* A rule drawn under a paper-plane or a chevron marks nothing, and on the collapse caret it would
+   lay a stray line across the header. These hold a single glyph and no words, so they take the
+   accent alone — and the one that sits faded keeps its ramp: the accent says "live", the opacity
+   says "and now you have found it". */
+.stonetop-top-toggle:hover,
+.stonetop-move-chat:hover {
+	text-decoration: none;
+}
+
+.stonetop-move-chat:hover {
+	opacity: 1;
+}
+
+/* No blanket `--button-hover-text-color` override sits here, deliberately. Core's token is only
+   ever wrong where WE have taken the background away, and no selector can ask that — the buttons
+   that keep core's chrome pair a sepia fill with paper-coloured text, which is correct, and
+   neutralising the token for them would put ink on sepia at 2.7:1. The guard against a new control
+   arriving with an invisible label is hover-idiom-render.test.js, which sweeps every button class
+   the templates emit rather than the ones anybody remembered to list. */

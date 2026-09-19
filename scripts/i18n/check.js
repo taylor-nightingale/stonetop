@@ -13,6 +13,7 @@ import { reconcile } from "./reconcile.js";
 import { TRANSLATED_PACKS, awaitingPath, listLanguages, readJson } from "./files.js";
 import { corpusFor } from "./corpus.js";
 import { reconcileTagLabels } from "./tagLabels.js";
+import { reconcileUiStrings } from "./uiStrings.js";
 import { AwaitingTranslator } from "./awaiting.js";
 import { detail, staleLines, summarise } from "./report.js";
 
@@ -43,6 +44,9 @@ export async function check({ root = "." } = {}) {
 			report(reconcile(lang, pack, english, corpus.packs.get(pack).authoring));
 		}
 		report(await reconcileTagLabels(lang, root));
+		// The sheet's own words, which live in languages/<lang>.json rather than in a pack. Reported
+		// last because it is the only line a translator can act on without opening a pack file.
+		report(await reconcileUiStrings(lang, root));
 
 		const unacknowledged = flagged.filter(f => !awaiting.has(f.pack, f.slug, f.entry.key));
 		const stale          = awaiting.staleAgainst(flagged);

@@ -338,19 +338,27 @@
 
 		</div>{{!-- /tab places --}}
 
-		{{!-- Season — the ritual: the Seasons Change move, the gains picker, and the improvement board --}}
-		<div class="tab {{tabs.season.cssClass}}" data-group="primary" data-tab="season"
-		     role="tabpanel" id="{{sheetIdPrefix}}-panel-season" aria-labelledby="{{sheetIdPrefix}}-tab-season">
-
-			<section class="sheet-tab">
-				{{> "stonetop.steading-seasons" seasons=stonetop.seasons}}
-			</section>
+		{{!-- Improvements — everything the steading is building, read and ticked between turnovers.
+		      It sat under the season wheel, which put a season-long project behind one evening's
+		      ritual: reaching the board meant scrolling past the whole wheel every time. --}}
+		<div class="tab {{tabs.improvements.cssClass}}" data-group="primary" data-tab="improvements"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-improvements" aria-labelledby="{{sheetIdPrefix}}-tab-improvements">
 
 			<div class="stonetop-advice-toolbar">
 				{{> "stonetop.advice-button" variant="labelled" topic="steadingImprovement"}}
 			</div>
 
 			{{> "stonetop.steading-improvement-board" board=stonetop.improvements}}
+
+		</div>{{!-- /tab improvements --}}
+
+		{{!-- Season — the ritual: the Seasons Change move and the gains picker --}}
+		<div class="tab {{tabs.season.cssClass}}" data-group="primary" data-tab="season"
+		     role="tabpanel" id="{{sheetIdPrefix}}-panel-season" aria-labelledby="{{sheetIdPrefix}}-tab-season">
+
+			<section class="sheet-tab">
+				{{> "stonetop.steading-seasons" seasons=stonetop.seasons}}
+			</section>
 
 		</div>{{!-- /tab season --}}
 

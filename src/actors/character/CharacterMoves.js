@@ -244,12 +244,24 @@ function _categoryOrder(key) {
 	return 7;
 }
 
+// The reference categories' headings are the sheet's own words, not the book's: no pack ships them,
+// so they are localized here like every other label on the sheet. A playbook's or insert's heading is
+// NOT one of these — it is that item's name, carried on the move as `categoryLabel`.
+const REFERENCE_CATEGORY_LABELS = {
+	basic:      "stonetop.character.moves.basicMoves",
+	expedition: "stonetop.character.moves.expeditionMoves",
+	special:    "stonetop.character.moves.specialMoves",
+	follower:   "stonetop.character.moves.followerMoves",
+	other:      "stonetop.character.moves.otherMoves",
+};
+
 function _categoryMetadata(catKey, catItems) {
-	if (catKey === "basic")    return { key: "basic",    label: "Basic Moves",    renderStyle: "side-bar", allowAdditional: false, note: null };
-	if (catKey === "expedition") return { key: "expedition", label: "Expedition Moves", renderStyle: "side-bar", allowAdditional: false, note: null };
-	if (catKey === "special")  return { key: "special",  label: "Special Moves",  renderStyle: "side-bar", allowAdditional: false, note: null };
-	if (catKey === "follower") return { key: "follower", label: "Follower Moves", renderStyle: "side-bar", allowAdditional: false, note: null };
-	if (catKey === "other") return { key: "other", label: "Other Moves", renderStyle: "standard", allowAdditional: true,  note: null };
+	const referenceLabel = key => game.i18n.localize(REFERENCE_CATEGORY_LABELS[key]);
+	if (catKey === "basic")      return { key: "basic",      label: referenceLabel("basic"),      renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "expedition") return { key: "expedition", label: referenceLabel("expedition"), renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "special")    return { key: "special",    label: referenceLabel("special"),    renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "follower")   return { key: "follower",   label: referenceLabel("follower"),   renderStyle: "side-bar", allowAdditional: false, note: null };
+	if (catKey === "other")      return { key: "other",      label: referenceLabel("other"),      renderStyle: "standard", allowAdditional: true,  note: null };
 	const label = catItems[0]?.system?.categoryLabel ?? catKey;
 	const note  = catItems[0]?.system?.categoryNote  ?? null;
 	return { key: catKey, label, renderStyle: "standard", allowAdditional: false, note };

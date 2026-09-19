@@ -19,11 +19,25 @@ function setPath(obj, path, value) {
 	target[last] = value;
 }
 
-function indexRow(item, fields) {
+// A pack DOCUMENT, for the stores that read prose (FoundryPackDocumentStore). Unlike an index row
+// it carries everything the item has, because that is the whole reason a repository asks for one:
+// Babele translates a document's `system` and never an index row's.
+function packDocument(item, packName) {
+	const { toObject, ...data } = item;
+	return {
+		...data,
+		uuid: item.uuid ?? `Compendium.stonetop.${packName}.Item.${item._id}`,
+		toObject: toObject ?? (() => data),
+	};
+}
+
+function indexRow(item, fields, packName) {
 	const row = {};
 	for (const key of [...CORE_FIELDS, ...SCAFFOLDING]) {
 		if (item[key] !== undefined) row[key] = item[key];
 	}
+	// Every real index row carries one (CompendiumCollection#indexDocument), and PackProvenance reads it.
+	if (item._id !== undefined) row.uuid = item.uuid ?? `Compendium.stonetop.${packName}.Item.${item._id}`;
 	for (const path of fields) {
 		const value = getPath(item, path);
 		if (value !== undefined) setPath(row, path, value);
@@ -46,15 +60,23 @@ export class FakePackBuilder {
 
 	build() {
 		const items = this._items;
+		const name  = this.name;
+		// Foundry MERGES each getIndex call into the rows already there (CompendiumCollection#getIndex),
+		// so fields accumulate: a second store asking only for `system.slug` cannot take `system.rollStat`
+		// away from the repository that asked for it first. The fake accumulates for the same reason —
+		// while still giving a caller that asked for nothing nothing, which is the bug this models.
+		const requested = new Set();
 		return {
 			// Until getIndex runs, an index row is core fields only — the same state a caller that
 			// never indexed would find in Foundry.
-			index: items.map(item => indexRow(item, [])),
+			index: items.map(item => indexRow(item, [], name)),
 			folders: [],
 			async getIndex({ fields = [] } = {}) {
-				this.index = items.map(item => indexRow(item, fields));
+				for (const field of fields) requested.add(field);
+				this.index = items.map(item => indexRow(item, [...requested], name));
 				return this.index;
 			},
+			async getDocuments() { return items.map(item => packDocument(item, name)); },
 			async getDocument(id) { return items.find(e => e._id === id) ?? null; },
 		};
 	}

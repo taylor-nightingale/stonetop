@@ -37,7 +37,14 @@ function makeSheet(item, { editable = true } = {}) {
 }
 
 function pack(entries) {
-	return { getIndex: vi.fn(async () => {}), index: entries, folders: [] };
+	// Moves are read as DOCUMENTS (an index row's `system` is never translated); the other packs the
+	// sheet touches still read the index, so both faces are offered.
+	return {
+		getIndex: vi.fn(async () => {}),
+		index: entries,
+		getDocuments: vi.fn(async () => entries.map(e => ({ ...e, uuid: `Compendium.x.Item.${e._id}`, toObject: () => e }))),
+		folders: [],
+	};
 }
 
 function stubGame(packsByName = {}, worldItems = []) {

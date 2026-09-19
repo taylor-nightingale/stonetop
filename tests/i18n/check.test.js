@@ -31,6 +31,12 @@ const writeAuthoring = (pack, data) =>
 const writeAwaiting = (data) =>
 	writeFileSync(path.join(root, "languages", "compendium", "de", "_awaiting.json"), JSON.stringify(data));
 
+/** The interface strings, which live beside the compendium folder rather than inside it. */
+const writeLanguages = (en, de) => {
+	writeFileSync(path.join(root, "languages", "en.json"), JSON.stringify(en));
+	writeFileSync(path.join(root, "languages", "de.json"), JSON.stringify(de));
+};
+
 /** The English moved on under a translation, which is what makes an entry need review. */
 const driftedAuthoring = (slug) => ({ [slug]: { description: { source: "Old English.", text: "Altes Deutsch." } } });
 
@@ -78,6 +84,43 @@ describe("check", () => {
 		expect(output()).toContain("awaiting translator  aid description");
 		expect(output()).toContain("needs review  defy-danger description");
 		expect(output()).toContain("de: 1 awaiting translator, 1 new");
+	});
+
+	// The sheet's own words live in languages/<lang>.json, which nothing used to look at — which is
+	// how ~200 keys added by a rework shipped in English without anybody being told.
+	it("reports the interface strings beside the packs", async () => {
+		buildRoot([move("aid", "English.")]);
+		writeLanguages({ stonetop: { a: "Alpha", b: "Beta" } }, { stonetop: { a: "Alfa" } });
+
+		expect(await check({ root })).toBe(true);
+		expect(output()).toContain("de/ui: 1/2 translated (50%), 1 untranslated");
+	});
+
+	it("fails on an interface string the English no longer has", async () => {
+		buildRoot([move("aid", "English.")]);
+		writeLanguages({ stonetop: { a: "Alpha" } }, { stonetop: { a: "Alfa", gone: "Weg" } });
+
+		expect(await check({ root })).toBe(false);
+		expect(output()).toContain("orphaned      _ui stonetop.gone");
+		expect(output()).toContain("de: 0 awaiting translator, 1 new");
+	});
+
+	it("passes once that interface orphan is acknowledged", async () => {
+		buildRoot([move("aid", "English.")]);
+		writeLanguages({ stonetop: { a: "Alpha" } }, { stonetop: { a: "Alfa", gone: "Weg" } });
+		writeAwaiting({ ui: { _ui: ["stonetop.gone"] } });
+
+		expect(await check({ root })).toBe(true);
+		expect(output()).toContain("awaiting translator  _ui stonetop.gone");
+	});
+
+	// A missing key is ordinary work in progress, not drift: it falls back to English, which is
+	// correct if unhelpful.
+	it("does not fail merely because interface strings are untranslated", async () => {
+		buildRoot([move("aid", "English.")]);
+		writeLanguages({ stonetop: { a: "Alpha", b: "Beta" } }, {});
+
+		expect(await check({ root })).toBe(true);
 	});
 
 	it("acknowledges by full address, not by key alone", async () => {

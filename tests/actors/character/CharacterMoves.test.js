@@ -471,6 +471,28 @@ describe("CharacterMoves.initBasicMoves", () => {
 		expect(actor.createdDocs.find(d => d.name === "Death's Door").system.categoryKey).toBe("special");
 	});
 
+	// Every reference heading, not just expedition: these were English literals in the snapshot, so a
+	// German table read "Basic Moves" over a sheet of German moves. A playbook's heading is its own
+	// name and is NOT localized here — it comes from the pack, via `categoryLabel`.
+	it("localizes every reference category heading", async () => {
+		const repo = new FakeMoveRepository([], [
+			new FakeCompendiumMoveBuilder().withName("Chart a Course").withMoveType("expedition").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Death's Door").withMoveType("special").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Order Followers").withMoveType("follower").asStarting().build(),
+		]);
+		const m = makeMoves({repo, actor: makeActor()});
+		await m.initBasicMoves();
+
+		const byKey = Object.fromEntries((await m.buildSnapshot()).categories.map(c => [c.key, c.label]));
+
+		expect(byKey.basic).toBe("stonetop.character.moves.basicMoves");
+		expect(byKey.expedition).toBe("stonetop.character.moves.expeditionMoves");
+		expect(byKey.special).toBe("stonetop.character.moves.specialMoves");
+		expect(byKey.follower).toBe("stonetop.character.moves.followerMoves");
+		for (const key of Object.values(byKey)) expect(game.i18n.has(key)).toBe(true);
+	});
+
 	it("seeds the expedition category acquired, labelled, and not open to additional moves", async () => {
 		const repo = new FakeMoveRepository([], [
 			new FakeCompendiumMoveBuilder().withName("Chart a Course").withMoveType("expedition").asStarting().build(),
@@ -480,7 +502,10 @@ describe("CharacterMoves.initBasicMoves", () => {
 		await m.initBasicMoves();
 
 		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "expedition");
-		expect(cat.label).toBe("Expedition Moves");
+		// The fake i18n returns the key, so this asserts the heading is localized rather than the
+		// English literal it used to be — `has` proves the key is really in en.json.
+		expect(cat.label).toBe("stonetop.character.moves.expeditionMoves");
+		expect(game.i18n.has("stonetop.character.moves.expeditionMoves")).toBe(true);
 		expect(cat.allowAdditional).toBe(false);
 		expect(cat.note).toBe(null);
 		expect(cat.moves[0].selection.value).toBe(1);

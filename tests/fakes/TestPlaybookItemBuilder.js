@@ -12,6 +12,7 @@ export class TestPlaybookItemBuilder {
 	_origin             = [];
 	_specialPossessions = null;
 	_introductions      = null;
+	_startingMoves      = [];
 
 	withSlug(slug)               { this._slug               = slug; return this; }
 	withName(name)               { this._name               = name; return this; }
@@ -26,6 +27,9 @@ export class TestPlaybookItemBuilder {
 	withOrigin(o)                { this._origin             = o;    return this; }
 	withSpecialPossessions(sp)   { this._specialPossessions = sp;   return this; }
 	withIntroductions(intro)     { this._introductions      = intro; return this; }
+	// The subset of the playbook's moves seeded acquired at character creation — the ones a level
+	// never bought.
+	withStartingMoves(slugs)     { this._startingMoves      = slugs; return this; }
 
 	_buildSystem() {
 		return {
@@ -42,6 +46,7 @@ export class TestPlaybookItemBuilder {
 			hp:                 0,
 			damage:             { value: null },
 			startingMovesNote:  "",
+			startingMoves:      this._startingMoves,
 			introductions:      this._introductions,
 		};
 	}

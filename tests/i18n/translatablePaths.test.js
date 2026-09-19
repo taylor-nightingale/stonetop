@@ -19,12 +19,44 @@ describe("translatableEntries", () => {
 
 	it("reads a plain path", () => {
 		const entries = translatableEntries({ name: "The Seeker" }, ["name"]);
-		expect(entries).toEqual([{ key: "name", path: "name", text: "The Seeker" }]);
+		expect(entries).toEqual([{ key: "name", path: "name", mergePath: "name", text: "The Seeker" }]);
 	});
 
 	it("drops the system prefix from the key but keeps it in the path", () => {
 		const entries = translatableEntries({ system: { statsNote: "+2, +1" } }, ["system.statsNote"]);
-		expect(entries[0]).toEqual({ key: "statsNote", path: "system.statsNote", text: "+2, +1" });
+		expect(entries[0]).toEqual({
+			key: "statsNote", path: "system.statsNote", mergePath: "system.statsNote", text: "+2, +1",
+		});
+	});
+
+	// What babeleConverter hands back, and why it is not always the leaf: a merge swaps an array
+	// wholesale rather than element by element, so an array is the finest grain a payload can name.
+	describe("mergePath", () => {
+		it("is the leaf itself when no array stands above it", () => {
+			const source = { system: { moveResults: { success: { value: "Take 3." } } } };
+			const [entry] = translatableEntries(source, ["system.moveResults.success.value"]);
+			expect(entry.mergePath).toBe("system.moveResults.success.value");
+		});
+
+		it("is the array a translated string sits inside", () => {
+			const source = { system: { effects: [{ text: "increase Fortunes by 1" }] } };
+			const [entry] = translatableEntries(source, ["system.effects[].text"]);
+			expect(entry.path).toBe("system.effects.0.text");
+			expect(entry.mergePath).toBe("system.effects");
+		});
+
+		it("is the OUTERMOST array, never one nested inside it", () => {
+			const source = { system: { choices: [{ slug: "g", list: [{ slug: "e", options: [{ text: "T" }] }] }] } };
+			const [entry] = translatableEntries(source, ["system.choices[].list[].options[].text"]);
+			expect(entry.path).toBe("system.choices.0.list.0.options.0.text");
+			expect(entry.mergePath).toBe("system.choices");
+		});
+
+		it("is the array of bare strings, not the object holding it", () => {
+			const source = { system: { instinct: { selected: ["to get distracted"], multi: false } } };
+			const [entry] = translatableEntries(source, ["system.instinct.selected[]"]);
+			expect(entry.mergePath).toBe("system.instinct.selected");
+		});
 	});
 
 	it("keys array elements by their slug, not their position", () => {

@@ -69,6 +69,14 @@ export class ChoiceValues {
 		return this._data[groupSlug]?.[slug] ?? "";
 	}
 
+	/** How many of a group's rows have been chosen — a ticked entry, a picked option. Write-in text
+	 *  is stored in the same map and is not a choice, so only counted values speak here. */
+	countIn(groupSlug) {
+		return Object.values(this._data[groupSlug] ?? {})
+			.filter(value => typeof value === "number" && value > 0)
+			.length;
+	}
+
 	set(groupSlug, slug, value) {
 		return new ChoiceValues({
 			...this._data,

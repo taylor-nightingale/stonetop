@@ -16,7 +16,8 @@ it is regenerated, and it is there to show you what the German is meant to say.
 
 - **0** entries where the English changed under an existing translation
 - **0** flagged earlier and still awaiting a revision
-- **26** translations whose row was restructured and need re-filing
+- **35** translations whose row was restructured and need re-filing
+- **209** interface strings with no translation yet, listed at the end
 
 ## steading-improvements.json
 
@@ -515,3 +516,438 @@ Already filed at `steadfasts.json` › `"stonetop"` › `"assets/items/a-pair-of
 ```
 Zwei robuste Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege.
 ```
+
+## ui.json
+
+### `ui.json` › `"_ui"` › `"stonetop.steading.createActors.residents"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Erstelle Akteure für Einwohner
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.steading.createActors.neighbors"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Erstelle Akteure für Nachbarn
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.steading.seasons.movesTitle"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Jahreszeitenwechsel
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.steading.seasons.gainsTitle"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Saisonale Gewinne
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.steading.seasons.gainsHint"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Das Setzen eines Hakens ändert die Spielwerte der Siedlung nicht.
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.a11y.contentText"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+{section} text
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.a11y.residentName"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Resident name
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.a11y.residentOccupation"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Occupation
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.a11y.neighborHome"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Home
+```
+
+## languages/de.json
+
+The sheet's own words — headings, tab names, button labels — as opposed to the book's,
+which are in the pack files above. These are edited directly in the language file, not
+under `languages/compendium/`, and a missing key falls back to English at runtime, which
+is why they can go unnoticed.
+
+The key is the full dotted path; create the nesting it names. Leave a key out rather than
+copying the English in — an English placeholder reads as finished work, and the fallback
+already shows English.
+
+### `stonetop.sheet`
+
+- `"stonetop.sheet.railShow"` — "Show the moves rail"
+- `"stonetop.sheet.railHide"` — "Hide the moves rail"
+
+### `stonetop.sheet.advice`
+
+- `"stonetop.sheet.advice.sheetLabel"` — "If you want to…"
+
+### `stonetop.steading`
+
+- `"stonetop.steading.startingValue"` — "was {value}"
+- `"stonetop.steading.railShow"` — "Show Fortunes, Surplus and the steading's moves"
+- `"stonetop.steading.railHide"` — "Hide Fortunes, Surplus and the steading's moves"
+- `"stonetop.steading.adjustedBy"` — "→ {effective} {debility}"
+- `"stonetop.steading.steadfastHint"` — "Type a name, or pick a steadfast"
+
+### `stonetop.steading.attr`
+
+- `"stonetop.steading.attr.fortunes"` — "Fortunes"
+- `"stonetop.steading.attr.surplus"` — "Surplus"
+- `"stonetop.steading.attr.size"` — "Size"
+- `"stonetop.steading.attr.population"` — "Population"
+- `"stonetop.steading.attr.prosperity"` — "Prosperity"
+- `"stonetop.steading.attr.defenses"` — "Defenses"
+
+### `stonetop.steading.attrShort`
+
+- `"stonetop.steading.attrShort.fortunes"` — "Fort"
+- `"stonetop.steading.attrShort.surplus"` — "Surp"
+- `"stonetop.steading.attrShort.size"` — "Size"
+- `"stonetop.steading.attrShort.population"` — "Pop"
+- `"stonetop.steading.attrShort.prosperity"` — "Pros"
+- `"stonetop.steading.attrShort.defenses"` — "Def"
+
+### `stonetop.steading.headings`
+
+- `"stonetop.steading.headings.npcTraits"` — "NPC Traits"
+- `"stonetop.steading.headings.npcTraitsNote"` — "Assign as needed; choose from this list or make up your own."
+- `"stonetop.steading.headings.placesOfInterest"` — "Places of Interest"
+- `"stonetop.steading.headings.notes"` — "Notes"
+- `"stonetop.steading.headings.neighbors"` — "Neighbouring Communities"
+
+### `stonetop.steading.neighbors`
+
+- `"stonetop.steading.neighbors.size"` — "Size"
+- `"stonetop.steading.neighbors.travel"` — "Travel"
+- `"stonetop.steading.neighbors.notes"` — "Notes"
+- `"stonetop.steading.neighbors.names"` — "Names"
+
+### `stonetop.steading.content`
+
+- `"stonetop.steading.content.fromThePlaybook"` — "From the playbook"
+- `"stonetop.steading.content.addItem"` — "add"
+- `"stonetop.steading.content.procedure"` — "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls “time out,”_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.\n\nIf **_content was included that shouldn’t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on."
+
+### `stonetop.steading.content.sections.excluded`
+
+- `"stonetop.steading.content.sections.excluded.label"` — "Excluded Content"
+- `"stonetop.steading.content.sections.excluded.note"` — "(Not part of the game, on-camera or off)"
+
+### `stonetop.steading.content.sections.veiled`
+
+- `"stonetop.steading.content.sections.veiled.label"` — "Veiled Content"
+- `"stonetop.steading.content.sections.veiled.note"` — "(Part of the fiction, but only off-camera)"
+
+### `stonetop.steading.content.sections.specialHandling`
+
+- `"stonetop.steading.content.sections.specialHandling.label"` — "Special Handling"
+
+### `stonetop.steading.lists`
+
+- `"stonetop.steading.lists.resources"` — "Resources"
+- `"stonetop.steading.lists.fortifications"` — "Fortifications, etc."
+- `"stonetop.steading.lists.assets"` — "Assets"
+- `"stonetop.steading.lists.addResource"` — "add a resource"
+- `"stonetop.steading.lists.addFortification"` — "add a fortification"
+- `"stonetop.steading.lists.addAsset"` — "add an asset"
+- `"stonetop.steading.lists.assetsOut"` — "{count} out"
+- `"stonetop.steading.lists.assetOut"` — "requisitioned"
+- `"stonetop.steading.lists.assetHome"` — "at home"
+- `"stonetop.steading.lists.addPlace"` — "add a place"
+- `"stonetop.steading.lists.coinage"` — "Coinage"
+- `"stonetop.steading.lists.removeAsset"` — "Remove asset"
+- `"stonetop.steading.lists.removeItem"` — "Remove"
+
+### `stonetop.steading.coinage`
+
+- `"stonetop.steading.coinage.currency"` — "Currency"
+- `"stonetop.steading.coinage.purses"` — "Purses"
+- `"stonetop.steading.coinage.handfuls"` — "Handfuls"
+- `"stonetop.steading.coinage.coins"` — "Coins"
+- `"stonetop.steading.coinage.silver"` — "Silver"
+- `"stonetop.steading.coinage.gold"` — "Gold"
+
+### `stonetop.steading.tier.defenses`
+
+- `"stonetop.steading.tier.defenses.feeble"` — "feeble"
+- `"stonetop.steading.tier.defenses.mediocre"` — "mediocre"
+- `"stonetop.steading.tier.defenses.strong"` — "strong"
+- `"stonetop.steading.tier.defenses.formidable"` — "formidable"
+- `"stonetop.steading.tier.defenses.legendary"` — "legendary"
+
+### `stonetop.steading.tier`
+
+- `"stonetop.steading.tier.unset"` — "—"
+
+### `stonetop.steading.tier.size`
+
+- `"stonetop.steading.tier.size.hamlet"` — "hamlet"
+- `"stonetop.steading.tier.size.village"` — "village"
+- `"stonetop.steading.tier.size.town"` — "town"
+- `"stonetop.steading.tier.size.city"` — "city"
+
+### `stonetop.steading.band`
+
+- `"stonetop.steading.band.hamlet"` — "<50"
+- `"stonetop.steading.band.village"` — "150–350"
+- `"stonetop.steading.band.town"` — "500–1500"
+- `"stonetop.steading.band.city"` — "2500+"
+
+### `stonetop.steading.debilities`
+
+- `"stonetop.steading.debilities.title"` — "Debilities"
+
+### `stonetop.steading.debilities.diminished`
+
+- `"stonetop.steading.debilities.diminished.name"` — "diminished"
+- `"stonetop.steading.debilities.diminished.cause"` — "by injury/sickness/doubt"
+- `"stonetop.steading.debilities.diminished.effect"` — "disadvantage to Deploy, Muster, or Pull Together"
+
+### `stonetop.steading.debilities.lacking`
+
+- `"stonetop.steading.debilities.lacking.name"` — "lacking"
+- `"stonetop.steading.debilities.lacking.cause"` — "due to shortages/hoarding/distrust"
+- `"stonetop.steading.debilities.lacking.effect"` — "treat Prosperity as if it's 1 lower than it is"
+
+### `stonetop.steading.debilities.malcontent`
+
+- `"stonetop.steading.debilities.malcontent.name"` — "malcontent"
+- `"stonetop.steading.debilities.malcontent.cause"` — "from fear/anger/despair"
+- `"stonetop.steading.debilities.malcontent.effect"` — "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
+
+### `stonetop.steading.tabs`
+
+- `"stonetop.steading.tabs.play"` — "Play"
+- `"stonetop.steading.tabs.folk"` — "Folk"
+- `"stonetop.steading.tabs.places"` — "Places"
+- `"stonetop.steading.tabs.improvements"` — "Improvements"
+- `"stonetop.steading.tabs.season"` — "Season"
+- `"stonetop.steading.tabs.content"` — "Content"
+
+### `stonetop.steading.createActors`
+
+- `"stonetop.steading.createActors.folk"` — "Create actors for the roster"
+
+### `stonetop.steading.seasons.names`
+
+- `"stonetop.steading.seasons.names.spring"` — "Spring"
+- `"stonetop.steading.seasons.names.summer"` — "Summer"
+- `"stonetop.steading.seasons.names.autumn"` — "Autumn"
+- `"stonetop.steading.seasons.names.winter"` — "Winter"
+
+### `stonetop.steading.seasons`
+
+- `"stonetop.steading.seasons.wheelLabel"` — "The steading's year"
+- `"stonetop.steading.seasons.stated"` — "{season}, year {year}"
+- `"stonetop.steading.seasons.whenComes"` — "When {season} comes"
+- `"stonetop.steading.seasons.theSeason"` — "the season itself"
+- `"stonetop.steading.seasons.turnoverEmpty"` — "Nothing Stonetop has built happens this season."
+- `"stonetop.steading.seasons.upkeep"` — "What the steading keeps up"
+- `"stonetop.steading.seasons.turnTitle"` — "The turn of the season"
+- `"stonetop.steading.seasons.seasonComes"` — "{season} comes"
+- `"stonetop.steading.seasons.during"` — "During {season}"
+- `"stonetop.steading.seasons.turnConfirm"` — "Turn to {season}?"
+- `"stonetop.steading.seasons.resetFortunes"` — "Reset Fortunes to +{value}"
+- `"stonetop.steading.seasons.everySeason"` — "every season"
+
+### `stonetop.steading.seasons.steps`
+
+- `"stonetop.steading.seasons.steps.roll"` — "Roll it"
+- `"stonetop.steading.seasons.steps.rollShort"` — "Roll"
+- `"stonetop.steading.seasons.steps.rollFormula"` — "Roll {die} + {stat}"
+- `"stonetop.steading.seasons.steps.rollFormulaMod"` — "Roll {die} + {stat} {mod}"
+- `"stonetop.steading.seasons.steps.rollDice"` — "Roll {die}"
+- `"stonetop.steading.seasons.steps.rollDiceMod"` — "Roll {die} {mod}"
+- `"stonetop.steading.seasons.steps.sizeRoll"` — "As a {size}, the steading rolls {die} + {stat}"
+- `"stonetop.steading.seasons.steps.consume"` — "The steading consumes that much Surplus"
+- `"stonetop.steading.seasons.steps.generate"` — "The steading generates {die} Surplus"
+- `"stonetop.steading.seasons.steps.generateGains"` — "What the steading generates"
+- `"stonetop.steading.seasons.steps.applyGains"` — "Generate {amount} Surplus"
+- `"stonetop.steading.seasons.steps.momentGenerate"` — "roll {die}; the steading generates that much Surplus"
+- `"stonetop.steading.seasons.steps.reset"` — "Reset Fortunes"
+- `"stonetop.steading.seasons.steps.resetShort"` — "Reset to +{value}"
+
+### `stonetop.steading.seasons.steps.card`
+
+- `"stonetop.steading.seasons.steps.card.consumption"` — "{season} — Consumption"
+- `"stonetop.steading.seasons.steps.card.generation"` — "{season} — Generation"
+- `"stonetop.steading.seasons.steps.card.roll"` — "{season} — Roll"
+- `"stonetop.steading.seasons.steps.card.formula"` — "{die} + {stat}"
+- `"stonetop.steading.seasons.steps.card.formulaMod"` — "{die} + {stat} {mod}"
+- `"stonetop.steading.seasons.steps.card.diceMod"` — "{die} {mod}"
+
+### `stonetop.steading.seasons.steps.pick`
+
+- `"stonetop.steading.seasons.steps.pick.seasonal-gains"` — "Pick {count} from the seasonal gains"
+- `"stonetop.steading.seasons.steps.pick.winter-losses"` — "Pick {count} from what winter takes"
+
+### `stonetop.steading.seasons.steps.applied`
+
+- `"stonetop.steading.seasons.steps.applied.spent"` — "Consumed {amount} Surplus ({from} → {to})"
+- `"stonetop.steading.seasons.steps.applied.gained"` — "Generated {amount} Surplus ({from} → {to})"
+- `"stonetop.steading.seasons.steps.applied.unchanged"` — "Surplus unchanged"
+- `"stonetop.steading.seasons.steps.applied.rolled"` — "— {total} was rolled"
+- `"stonetop.steading.seasons.steps.applied.short"` — "— {due} was owed; there was not enough"
+- `"stonetop.steading.seasons.steps.applied.disaster"` — "Meet with Disaster"
+- `"stonetop.steading.seasons.steps.applied.revert"` — "Undo"
+
+### `stonetop.steading.seasons.moments`
+
+- `"stonetop.steading.seasons.moments.autumn-harvest"` — "The autumn harvest"
+- `"stonetop.steading.seasons.moments.aurochs-hunt"` — "The aurochs hunt"
+- `"stonetop.steading.seasons.moments.inn-gathering"` — "A gathering at the inn"
+
+### `stonetop.steading.folk`
+
+- `"stonetop.steading.folk.searchPlaceholder"` — "search the roster…"
+- `"stonetop.steading.folk.namePlaceholder"` — "Name (Pronouns)"
+- `"stonetop.steading.folk.homePlaceholder"` — "Home"
+- `"stonetop.steading.folk.traitsPlaceholder"` — "Traits"
+- `"stonetop.steading.folk.newVillager"` — "new villager"
+- `"stonetop.steading.folk.remove"` — "Delete villager"
+- `"stonetop.steading.folk.homeBlankHint"` — "Home blank means this steading. Search filters this table only."
+- `"stonetop.steading.folk.focusRowFirst"` — "Put the cursor in a villager's row first — a trait is added to the row you are editing."
+- `"stonetop.steading.folk.namesFrom"` — "Names — {place}"
+
+### `stonetop.steading.improvements`
+
+- `"stonetop.steading.improvements.boardTitle"` — "Improvements"
+- `"stonetop.steading.improvements.boardEmpty"` — "This steading owns no improvements yet. Drop one onto the sheet to start it."
+- `"stonetop.steading.improvements.progress"` — "{ticked} / {total}"
+- `"stonetop.steading.improvements.countInProgress"` — "{count} in progress"
+- `"stonetop.steading.improvements.countUntouched"` — "{count} not started"
+- `"stonetop.steading.improvements.countComplete"` — "{count} complete"
+- `"stonetop.steading.improvements.filterLabel"` — "Show only"
+- `"stonetop.steading.improvements.attentionLabel"` — "What needs attention"
+- `"stonetop.steading.improvements.countOwed"` — "{count} owed"
+- `"stonetop.steading.improvements.countThisSeason"` — "{count} this season"
+- `"stonetop.steading.improvements.owed"` — "owed"
+- `"stonetop.steading.improvements.firesNow"` — "this season"
+- `"stonetop.steading.improvements.nearlyDone"` — "1 to go"
+- `"stonetop.steading.improvements.searchPlaceholder"` — "Search improvements"
+
+### `stonetop.steading.effects`
+
+- `"stonetop.steading.effects.apply"` — "Apply"
+- `"stonetop.steading.effects.applySeason"` — "Apply the season"
+- `"stonetop.steading.effects.alreadyApplied"` — "This season has been applied."
+- `"stonetop.steading.effects.applyMoment"` — "Apply"
+- `"stonetop.steading.effects.momentApplied"` — "Applied this season."
+- `"stonetop.steading.effects.revert"` — "Revert"
+- `"stonetop.steading.effects.applied"` — "Applied"
+- `"stonetop.steading.effects.appliedLegacy"` — "Applied earlier"
+- `"stonetop.steading.effects.onCompletion"` — "When you **_meet the requirements_**:"
+- `"stonetop.steading.effects.henceforth"` — "**_Henceforth_**:"
+- `"stonetop.steading.effects.applyLine"` — "Apply: {result}"
+- `"stonetop.steading.effects.revertLine"` — "Revert: {result}"
+
+### `stonetop.steading.effects.step`
+
+- `"stonetop.steading.effects.step.consumption"` — "When the steading consumes Surplus"
+- `"stonetop.steading.effects.step.generation"` — "When the steading generates Surplus"
+
+### `stonetop.steading.rollNote`
+
+- `"stonetop.steading.rollNote.canApply"` — "{source} — {mode} can be applied"
+- `"stonetop.steading.rollNote.applies"` — "{source} — {mode} applies"
+
+### `stonetop.rollResults`
+
+- `"stonetop.rollResults.rolled"` — "Rolled"
+
+### `stonetop.character.levelUp`
+
+- `"stonetop.character.levelUp.title"` — "Level Up"
+- `"stonetop.character.levelUp.ready"` — "ready"
+- `"stonetop.character.levelUp.done"` — "Done"
+- `"stonetop.character.levelUp.owed"` — "{count} to finish"
+- `"stonetop.character.levelUp.when"` — "When you {trigger}."
+- `"stonetop.character.levelUp.advanceStep"` — "Spend XP to level up"
+- `"stonetop.character.levelUp.advanceFigure"` — "{cost} XP: {xpFrom} → {xpTo} · Level {from} → {to}"
+- `"stonetop.character.levelUp.advance"` — "Advance"
+- `"stonetop.character.levelUp.confirmTitle"` — "Level Up"
+- `"stonetop.character.levelUp.confirm"` — "Spend {cost} XP, leaving {xp}, and go from level {from} to level {to}?"
+- `"stonetop.character.levelUp.movesBehind"` — "{count} still to choose."
+- `"stonetop.character.levelUp.stockRaised"` — "Maximum Stock {from} → {to}, applied for you."
+- `"stonetop.character.levelUp.stockAt"` — "Maximum Stock is {max}, applied for you."
+- `"stonetop.character.levelUp.invocationsKnown"` — "You know {known} of {expected}."
+
+### `stonetop.a11y`
+
+- `"stonetop.a11y.ratingValue"` — "{rating} rating"
+- `"stonetop.a11y.rollRating"` — "Roll {rating}"
+- `"stonetop.a11y.rollMove"` — "Roll {name}"
+- `"stonetop.a11y.steadingTabs"` — "Steading sections"
+- `"stonetop.a11y.coinagePurses"` — "{currency} purses"
+- `"stonetop.a11y.coinageHandfuls"` — "{currency} handfuls"
+- `"stonetop.a11y.coinageCoins"` — "{currency} coins"
+- `"stonetop.a11y.neighborSize"` — "Size of {place}"
+- `"stonetop.a11y.neighborTravel"` — "Travel to {place} from here"
+- `"stonetop.a11y.contentItem"` — "{section} entry"
+- `"stonetop.a11y.addContentItem"` — "Add to {section}"
+- `"stonetop.a11y.removeContentItem"` — "Remove from {section}"
+- `"stonetop.a11y.personName"` — "Villager name"
+- `"stonetop.a11y.personHome"` — "Home"
+- `"stonetop.a11y.personOccupation"` — "Occupation"
+- `"stonetop.a11y.personTraits"` — "Traits, relations, etc."
+- `"stonetop.a11y.folkSearch"` — "Search the roster"
+- `"stonetop.a11y.suggestionUsed"` — "already used —"
+- `"stonetop.a11y.assetRequisitioned"` — "Requisitioned"
+- `"stonetop.a11y.improvementSearch"` — "Search the improvement board"

@@ -1,4 +1,5 @@
 import { GrantStamp, ItemGrant } from "../model/data/ItemGrant.js";
+import { PackProvenance } from "./PackProvenance.js";
 
 /**
  * The one writer of granted items on an actor. Every item something else owns — a playbook's moves and
@@ -12,8 +13,9 @@ import { GrantStamp, ItemGrant } from "../model/data/ItemGrant.js";
  * Items with no stamp are authored — the player added them by hand — and are never reconciled here.
  */
 export class GrantedItems {
-	constructor(actor) {
-		this._actor = actor;
+	constructor(actor, provenance = new PackProvenance()) {
+		this._actor      = actor;
+		this._provenance = provenance;
 	}
 
 	itemsFrom(source) {
@@ -63,7 +65,7 @@ export class GrantedItems {
 	async addAuthored(itemsData) {
 		const items = Array.isArray(itemsData) ? itemsData : [itemsData];
 		if (!items.length) return [];
-		return await this._actor.createEmbeddedDocuments("Item", items) ?? [];
+		return this._embed(items);
 	}
 
 	// What the character doesn't already hold. Presence is judged across EVERY item, not just this
@@ -83,7 +85,16 @@ export class GrantedItems {
 
 	async _create(set, grants) {
 		if (!grants.length) return [];
-		return await this._actor.createEmbeddedDocuments("Item", grants.map(grant => grant.stamped(set.source))) ?? [];
+		return this._embed(grants.map(grant => grant.stamped(set.source)));
+	}
+
+	// The one call that writes an embedded item, and so the one place that can promise every copy
+	// carries the compendium document it came from. A grant reaches the actor as raw data — never
+	// through Document.fromDropData or fromCompendium, the two places core stamps that itself — so
+	// without this a granted move and a dragged one are provenanced differently. See PackProvenance.
+	async _embed(itemsData) {
+		const payloads = await Promise.all(itemsData.map(data => this._provenance.sourced(data)));
+		return await this._actor.createEmbeddedDocuments("Item", payloads) ?? [];
 	}
 
 	async _delete(items) {

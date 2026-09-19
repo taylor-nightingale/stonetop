@@ -247,3 +247,45 @@ describe("GrantedItems.revoke", () => {
 		expect(actor.deletedIds).toEqual([]);
 	});
 });
+
+// Provenance: every copy this writer makes has to say which compendium document it is a copy of, the
+// way a hand-dragged one does. Core only stamps that on its own drop/import paths, which a grant
+// never goes through — see PackProvenance.
+describe("GrantedItems provenance", () => {
+	const provenance = {
+		async sourced(data) {
+			const { babele, ...flags } = data.flags ?? {};
+			return {
+				...data,
+				...(Object.keys(flags).length ? { flags } : {}),
+				_stats: { compendiumSource: `Compendium.stonetop.moves.Item.${data.system?.slug}` },
+			};
+		},
+	};
+
+	it("stamps the compendium source onto a granted item", async () => {
+		const actor = makeActor();
+
+		await new GrantedItems(actor, provenance)
+			.sync(new ItemGrantSet(PLAYBOOK, [grant("move:bulwark", "Bulwark")]));
+
+		expect(actor.createdDocs[0]._stats.compendiumSource).toBe("Compendium.stonetop.moves.Item.bulwark");
+	});
+
+	it("stamps an authored item too", async () => {
+		const actor = makeActor();
+
+		await new GrantedItems(actor, provenance).addAuthored({ name: "Bulwark", type: "move", system: { slug: "bulwark" } });
+
+		expect(actor.createdDocs[0]._stats.compendiumSource).toBe("Compendium.stonetop.moves.Item.bulwark");
+	});
+
+	it("keeps the grant stamp while it does so", async () => {
+		const actor = makeActor();
+
+		await new GrantedItems(actor, provenance)
+			.sync(new ItemGrantSet(PLAYBOOK, [grant("move:bulwark", "Bulwark")]));
+
+		expect(actor.createdDocs[0].flags.stonetop.grant).toEqual({ source: PLAYBOOK, key: "move:bulwark" });
+	});
+});

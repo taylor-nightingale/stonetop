@@ -1,14 +1,14 @@
 import { Move } from "../../../model/data/Move.js";
-import { FoundryPackStore } from "./FoundryPackStore.js";
+import { FoundryPackDocumentStore } from "./FoundryPackDocumentStore.js";
 import { WorldItemStore } from "./WorldItemStore.js";
 
-const MOVE_FIELDS = ["system.slug", "system.requirement", "system.rollStat", "system.description",
-                     "system.repeatMax", "system.resource", "system.choices",
-                     "system.moveResults", "system.moveType"];
-
+// Read as DOCUMENTS, not index entries. A move row is rendered — and a move is ROLLED — straight
+// off these entries when the actor holds no copy of it (see resolveMoveBySlug: the moves an
+// improvement confers are never seeded), so the description and the result tiers have to be the
+// translated ones. A pack index is never translated below `name`; see FoundryPackDocumentStore.
 export class FoundryMoveRepository {
 	constructor() {
-		this._moveStore      = new FoundryPackStore("stonetop.moves", MOVE_FIELDS);
+		this._moveStore      = new FoundryPackDocumentStore("stonetop.moves");
 		this._worldMoveStore = new WorldItemStore("move");
 	}
 

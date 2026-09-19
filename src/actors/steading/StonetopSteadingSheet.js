@@ -210,9 +210,15 @@ export function createStonetopSteadingSheetClass(Base) {
 		//
 		// Play is open essentially the whole session, so it carries the things a steading move needs:
 		// the homefront moves themselves, and the two ratings that lead evidence lists. Folk is the
-		// people, Places the map, Season the ritual, Content the table's own agreements. The seven
-		// page-order tabs split single jobs across tabs — rolling a move meant Moves, then the header,
-		// then Overview — which is the cost this pays off.
+		// people, Places the map, Improvements what the steading is building, Season the ritual,
+		// Content the table's own agreements. The seven page-order tabs split single jobs across tabs
+		// — rolling a move meant Moves, then the header, then Overview — which is the cost this pays
+		// off.
+		//
+		// The board is its own tab, ahead of Season rather than under it. Building a mill is a
+		// season-long project the table reads and ticks between turnovers, and the turnover is one
+		// evening's ritual: filing them together meant scrolling past the whole wheel to reach the
+		// thing being looked at far more often. Season is the ritual alone now.
 		//
 		// Places of interest and the neighbouring communities are ONE concept at two scales, so they
 		// get one tab: the Stone and the Granary, and Marshedge and the Steplands. They sat apart only
@@ -222,11 +228,12 @@ export function createStonetopSteadingSheetClass(Base) {
 		static TABS = {
 			primary: {
 				tabs: [
-					{ id: "play",      label: "stonetop.steading.tabs.play" },
-					{ id: "folk",      label: "stonetop.steading.tabs.folk" },
-					{ id: "places",    label: "stonetop.steading.tabs.places" },
-					{ id: "season",    label: "stonetop.steading.tabs.season" },
-					{ id: "content",   label: "stonetop.steading.tabs.content" },
+					{ id: "play",         label: "stonetop.steading.tabs.play" },
+					{ id: "folk",         label: "stonetop.steading.tabs.folk" },
+					{ id: "places",       label: "stonetop.steading.tabs.places" },
+					{ id: "improvements", label: "stonetop.steading.tabs.improvements" },
+					{ id: "season",       label: "stonetop.steading.tabs.season" },
+					{ id: "content",      label: "stonetop.steading.tabs.content" },
 				],
 				initial: "play",
 			},

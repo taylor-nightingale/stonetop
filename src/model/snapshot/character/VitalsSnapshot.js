@@ -4,6 +4,12 @@ export class ValueMax {
 		this.value = value;
 		this.max   = max;
 	}
+
+	/** At the top of the track or past it. XP has no ceiling — Level Up triggers at "equal to (or
+	 *  greater than)" its cost — so the comparison is >=, not ===. */
+	get isFull() {
+		return this.max > 0 && this.value >= this.max;
+	}
 }
 
 /**
@@ -38,6 +44,11 @@ export class VitalsSnapshot {
 		this.level   = b._level;
 		this.xp      = b._xp;
 		this.sources = b._sources;
+	}
+
+	/** Whether the Level Up move has triggered — what lights the XP track and offers the strip. */
+	get readyToLevel() {
+		return this.xp.isFull;
 	}
 }
 

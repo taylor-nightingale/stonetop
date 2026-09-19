@@ -40,7 +40,10 @@
 		</span>
 	</div>
 
-	<div class="stonetop-resource stonetop-resource--wide">
+	{{!-- `is-full` is the one thing the sheet never said about XP: that the track is at (or past) the
+	      Level Up threshold it has been printing all along. It also settles Burn Brightly, which is
+	      gated on exactly this and had nothing on screen to read it from. --}}
+	<div class="stonetop-resource stonetop-resource--wide{{#if stonetop.vitals.readyToLevel}} is-full{{/if}}">
 		{{!-- A definition, not provenance: unlike HP/damage/armor above, XP has no playbook source to
 		      explain, so the hover carries what the book says XP is (Book I, p.53). --}}
 		<span class="stonetop-resource__label"

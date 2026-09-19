@@ -9,7 +9,7 @@ import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
 import { InventoryOwner } from "./InventoryOwner.js";
 import { itemsOfType } from "../actorItems.js";
 import { characterChangeHandlers } from "./characterChangeHandlers.js";
-import { PIP_ACTIONS, DELETE_ACTIONS, OUTFIT_ACTIONS } from "./characterSheetActions.js";
+import { PIP_ACTIONS, DELETE_ACTIONS, OUTFIT_ACTIONS, ADVANCEMENT_ACTIONS } from "./characterSheetActions.js";
 import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { TAG_CHIP_ACTIONS, tagChipChangeHandlers } from "../tagChips.js";
 import { TAG_DEFINITION_ACTIONS } from "../tagDefinitions.js";
@@ -24,7 +24,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		// Every view-state toggle on the sheet: the moves tab's "selected only" filter, the playbook
 		// lock, one lock per insert tab. Held here because the controls they decorate are re-rendered
 		// constantly — ticking a move would otherwise drop the filter mid-review.
-		_viewFlags = new TabViewFlags(["hideUnselectedMoves", "playbookLocked"]);
+		_viewFlags = new TabViewFlags(["hideUnselectedMoves", "playbookLocked", "levelUpOpen"]);
 		_scrollAnchoring = new ScrollAnchoring();
 
 		get _stonetopCharacter() {
@@ -59,6 +59,12 @@ export function createStonetopCharacterSheetClass(Base) {
 				async openMoveBySlug(ev, target) {
 					const doc = await this._moveRepository.getMoveDocumentBySlug(target.dataset.moveSlug);
 					doc?.sheet.render(true);
+				},
+				// Where a Level Up step is answered. The move chooser, the Invocations group and the
+				// Instinct and Appearance editors all already exist on tabs of their own, so the strip
+				// points at them rather than growing a second copy of any of them. Writes nothing.
+				goToTab(ev, target) {
+					this.changeTab(target.dataset.tab, "primary");
 				},
 				toggleFollowerInventory(ev, target) {
 					const slug = target.dataset.slug;
@@ -98,6 +104,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				...TAG_CHIP_ACTIONS,
 				...TAG_DEFINITION_ACTIONS,
 				...PIP_ACTIONS,
+				...ADVANCEMENT_ACTIONS,
 				...OUTFIT_ACTIONS,
 				...DELETE_ACTIONS,
 			},

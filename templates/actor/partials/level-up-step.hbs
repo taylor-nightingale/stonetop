@@ -1,0 +1,92 @@
+{{!-- One step of the Level Up move, with whatever the sheet can honestly offer for it.
+
+      The kinds come from LevelUpProcedure, which reads them off the move. Handlebars has no
+      polymorphism, so the branch is here — but it is the ONLY one: the step's words, its numbers and
+      whether it is done are all answered by the row itself, and this partial only asks which control
+      to draw.
+
+      Context is a row from LevelUpSnapshot, passed WITHOUT hash params on purpose: a partial invoked
+      with hash args gets a flattened copy of its context, and every one of a row's prototype getters
+      is lost in that copy — silently, leaving a line with no control. --}}
+<li class="stonetop-levelup-step{{#if done}} is-done{{/if}}" data-kind="{{kind}}">
+
+	{{!-- A done row whose figure line has gone (a move choice that has been made says nothing else)
+	      is conveyed by this mark alone, so the mark has to carry the state in words. `role="img"`
+	      plus a label is what makes a <span> announce one; the empty gutter is decoration. --}}
+	{{#if done}}
+	<span class="stonetop-levelup-tick" role="img" aria-label="{{localize 'stonetop.character.levelUp.done'}}">
+		<i class="fas fa-check" aria-hidden="true"></i>
+	</span>
+	{{else}}
+	<span class="stonetop-levelup-tick" aria-hidden="true"></span>
+	{{/if}}
+
+	<div class="stonetop-levelup-body">
+
+		{{!-- The move's own bullet, lifted from its description (MoveBullets) so nothing is authored —
+		      or translated — twice. The exception is the row that performs the advance: the book states
+		      its threshold as a formula, and the XP track above has already printed the answer, so that
+		      row names itself and carries a `labelKey` instead. --}}
+		{{#if labelKey}}
+			<div class="stonetop-levelup-text">{{localize labelKey}}</div>
+		{{else}}
+			<div class="stonetop-levelup-text stonetop-rich">{{rich text}}</div>
+		{{/if}}
+
+		{{!-- The arithmetic, done — what the press is about to cost and what it buys, on one line.
+
+		      Only while there is a level-up to do: `hasFigure` goes false once the XP is spent, because
+		      these numbers are the NEXT level-up's from that moment on. --}}
+		{{#if hasFigure}}
+			<p class="stonetop-levelup-figure">{{localize "stonetop.character.levelUp.advanceFigure"
+			    cost=cost xpFrom=xpBefore xpTo=xpAfter from=from to=to}}</p>
+		{{/if}}
+
+		{{#if (eq kind "chooseMove")}}
+			{{#unless done}}
+				<p class="stonetop-levelup-figure">{{localize "stonetop.character.levelUp.movesBehind" count=behind}}</p>
+			{{/unless}}
+		{{/if}}
+
+		{{#if (eq kind "stock")}}
+			{{!-- No control: the possession's own `scaling.perEvenLevel` already raised this off the
+			      level, so a button here would be a second way to change a value nothing stores. --}}
+			<p class="stonetop-levelup-figure">
+				{{#if changed}}
+					{{localize "stonetop.character.levelUp.stockRaised" from=from to=to}}
+				{{else}}
+					{{localize "stonetop.character.levelUp.stockAt" max=to}}
+				{{/if}}
+			</p>
+		{{/if}}
+
+		{{#if (eq kind "invocation")}}
+			<p class="stonetop-levelup-figure">{{localize "stonetop.character.levelUp.invocationsKnown" known=known expected=expected}}</p>
+		{{/if}}
+
+	</div>
+
+	{{!-- The one control on the strip. It performs the two steps above it as a single act, so it sits
+	      under the second rather than beside the first. Edit-gated like every other write. --}}
+	{{#if hasControl}}
+		{{#if @root.editable}}
+			<button type="button" class="stonetop-levelup-advance" data-action="advance">
+				{{localize "stonetop.character.levelUp.advance"}}
+			</button>
+		{{/if}}
+	{{/if}}
+
+	{{!-- Where the step is answered. Not a control: the move chooser, the Invocations group and the
+	      Instinct and Appearance editors already exist on their own tabs, and a second copy of any of
+	      them here would be a second place the same state is written. --}}
+	{{#if tab}}
+		<button type="button" class="stonetop-levelup-goto" data-action="goToTab" data-view-state
+		        data-tab="{{tab}}">
+			{{!-- An insert's tab is named by the insert item, not by a sheet label, so the row carries
+			      the name where there is no key to localize. --}}
+			<span>{{#if tabLabelKey}}{{localize tabLabelKey}}{{else}}{{tabLabel}}{{/if}}</span>
+			<i class="fas fa-arrow-right" aria-hidden="true"></i>
+		</button>
+	{{/if}}
+
+</li>

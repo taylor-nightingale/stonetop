@@ -1,11 +1,9 @@
 import { OutfitItem } from "../../../model/data/character/OutfitItem.js";
-import { FoundryPackStore } from "./FoundryPackStore.js";
+import { FoundryPackDocumentStore } from "./FoundryPackDocumentStore.js";
 
-const FIELDS = [
-	"system.slug", "system.qualifier", "system.inventoryColumn",
-	"system.weight", "system.tagList", "system.note", "system.resource",
-	"system.armor",
-];
+// Read as DOCUMENTS, not index entries: a piece of gear shows its `qualifier`, its `note` and its
+// resource labels, all of which live under `system`, and a pack index is never translated below
+// `name`. See FoundryPackDocumentStore.
 
 /**
  * The gear catalog: every `outfitItem` the compendium holds.
@@ -21,7 +19,7 @@ const FIELDS = [
  */
 export class FoundryOutfitItemRepository {
 	constructor() {
-		this._store  = new FoundryPackStore("stonetop.outfit-items", FIELDS);
+		this._store  = new FoundryPackDocumentStore("stonetop.outfit-items");
 		this._all    = null;
 		this._bySlug = null;
 	}

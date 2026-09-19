@@ -57,7 +57,7 @@ describe("StonetopSteadingSheet._prepareContext — rich-text enrichment (integr
 		const sheet = makeSheet(new FakeMoveRepository());
 
 		const first = await sheet._prepareContext({});
-		expect(Object.keys(first.tabs)).toEqual(["play", "folk", "places", "season", "content"]);
+		expect(Object.keys(first.tabs)).toEqual(["play", "folk", "places", "improvements", "season", "content"]);
 		expect(first.tabs.play.active).toBe(true);
 		expect(first.tabs.play.cssClass).toBe("active");
 		expect(first.tabs.folk.active).toBe(false);

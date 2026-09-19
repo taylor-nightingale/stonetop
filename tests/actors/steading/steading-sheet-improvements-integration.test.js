@@ -257,6 +257,7 @@ describe("StonetopSteadingSheet — revoking an improvement with the × control"
 // file leaves every test above passing against a stub that no longer matches the real sheet.
 describe("steading-improvement-card.hbs ↔ revoke handler contract", () => {
 	const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
+	const between = (source, start, end) => source.slice(source.indexOf(start), source.indexOf(end));
 	const template = read("templates/actor/partials/steading-improvement-card.hbs");
 	const sheetSource = read("src/actors/steading/StonetopSteadingSheet.js");
 
@@ -287,5 +288,24 @@ describe("steading-improvement-card.hbs ↔ revoke handler contract", () => {
 		const board = read("templates/actor/partials/steading-improvement-board.hbs");
 		expect(board).toContain("{{#each board.entries}}");
 		expect(board).toContain('{{> "stonetop.steading-improvement-card"}}');
+	});
+
+	// The board has a tab of its own, ahead of Season. It used to render under the season wheel,
+	// where a project the table ticks between turnovers sat behind one evening's ritual — reaching
+	// it scrolled the whole wheel past first.
+	it("files the board on an Improvements tab that comes before Season", () => {
+		const ids = StonetopSteadingSheet.TABS.primary.tabs.map(tab => tab.id);
+		expect(ids).toContain("improvements");
+		expect(ids.indexOf("improvements")).toBe(ids.indexOf("season") - 1);
+
+		const steadingTemplate = read("templates/actor/steading.hbs");
+		const panel = between(steadingTemplate, 'data-tab="improvements"', "{{!-- /tab improvements --}}");
+		expect(panel).toContain("stonetop.steading-improvement-board");
+		expect(panel).toContain('topic="steadingImprovement"');
+
+		// The season panel keeps the ritual and nothing else.
+		const season = between(steadingTemplate, 'data-tab="season"', "{{!-- /tab season --}}");
+		expect(season).toContain("stonetop.steading-seasons");
+		expect(season).not.toContain("stonetop.steading-improvement-board");
 	});
 });

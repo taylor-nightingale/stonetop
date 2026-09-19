@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { EntryStatus } from "../../scripts/i18n/reconcile.js";
 import { CompetingTranslation, HandoffItem, HandoffSlot, HandoffSlots, TranslatorHandoff } from "../../scripts/i18n/handoff.js";
+import { UiStringWorklist } from "../../scripts/i18n/uiStrings.js";
 
 const review = (overrides = {}) => new HandoffItem({
 	pack: "moves", slug: "bolster", key: "description", status: EntryStatus.NEEDS_REVIEW,
@@ -244,5 +245,37 @@ describe("TranslatorHandoff", () => {
 
 	it("leaves the conflict section out when there are none", () => {
 		expect(new TranslatorHandoff("de", []).toMarkdown()).not.toContain("One English string");
+	});
+});
+
+// A pack's untranslated strings need no worklist — extract has already written an empty slot for
+// each into the authoring file, so the file IS the worklist. A language file has no slots: a missing
+// key is simply absent, so the handoff is the only place the work can be seen.
+describe("TranslatorHandoff — interface strings", () => {
+	const worklist = () => new UiStringWorklist("de", [
+		{ key: "stonetop.steading.lists.resources", english: "Resources" },
+		{ key: "stonetop.steading.attr.prosperity", english: "Prosperity" },
+	]);
+
+	it("counts them in the summary", () => {
+		const markdown = new TranslatorHandoff("de", [], [], worklist()).toMarkdown();
+		expect(markdown).toContain("**2** interface strings with no translation yet");
+	});
+
+	it("lists each key with the English to translate", () => {
+		const markdown = new TranslatorHandoff("de", [], [], worklist()).toMarkdown();
+		expect(markdown).toContain('`"stonetop.steading.lists.resources"` — "Resources"');
+		expect(markdown).toContain('`"stonetop.steading.attr.prosperity"` — "Prosperity"');
+	});
+
+	it("names the file they are edited in, which is not the one the packs use", () => {
+		const markdown = new TranslatorHandoff("de", [], [], worklist()).toMarkdown();
+		expect(markdown).toContain("## languages/de.json");
+	});
+
+	it("says nothing at all when there are none", () => {
+		const markdown = new TranslatorHandoff("de", [], []).toMarkdown();
+		expect(markdown).not.toContain("languages/de.json");
+		expect(markdown).not.toContain("interface strings");
 	});
 });

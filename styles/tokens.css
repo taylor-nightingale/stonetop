@@ -77,6 +77,27 @@
 		--color-code-bg:           var(--st-paper-sunken-strong);
 	}
 
+	/* ── Core literals: directory folder headers ─────────────────────────────────────────────────
+	   Core paints a folder's header for a dark UI in BOTH themes: `--color-light-2` text over
+	   `--sidebar-folder-color`, lifted off it by a near-black shadow. Repainting the ramps cannot
+	   reach that — a light ramp keeps its lightness, so on the light theme it is cream on the tan
+	   band above, 1.5:1. (Core's own light theme manages 2.2:1, so the pairing is wrong upstream,
+	   not in our values.) Reading the header in the theme's ink instead puts it at 9.4:1 lit and
+	   leaves the dark theme exactly as core drew it, since ink is the cream there.
+
+	   A folder given a colour carries that colour inline on the header, and an arbitrary saturated
+	   band is what core's cream is actually for — so those keep it. The create buttons declare
+	   `--button-text-color` on themselves, and an element's own declaration beats an inherited one
+	   whatever the layer, so they have to be named separately. */
+	li.folder > .folder-header:not([style]) {
+		color: var(--st-ink);
+		text-shadow: none;
+	}
+
+	li.folder > .folder-header:not([style]) .create-button {
+		--button-text-color: var(--st-ink);
+	}
+
 	.application {
 		--background:            var(--st-paper);
 		--color-data-background: var(--st-paper-sunken);

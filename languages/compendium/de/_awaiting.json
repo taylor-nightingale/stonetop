@@ -77,5 +77,18 @@
     "stonetop": [
       "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming"
     ]
+  },
+  "ui": {
+    "_ui": [
+      "stonetop.steading.createActors.residents",
+      "stonetop.steading.createActors.neighbors",
+      "stonetop.steading.seasons.movesTitle",
+      "stonetop.steading.seasons.gainsTitle",
+      "stonetop.steading.seasons.gainsHint",
+      "stonetop.a11y.contentText",
+      "stonetop.a11y.residentName",
+      "stonetop.a11y.residentOccupation",
+      "stonetop.a11y.neighborHome"
+    ]
   }
 }

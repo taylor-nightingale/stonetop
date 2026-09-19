@@ -5,6 +5,11 @@ import {
 import { TypeDataModel } from "./fakes/foundry/FakeTypeDataModel.js";
 import { setPath, getPath, deletePath } from "./fakes/foundry/FakeUtils.js";
 import { fakeI18n } from "./fakes/foundry/FakeI18n.js";
+import { clearPackDocumentCache } from "../src/actors/character/repositories/FoundryPackDocumentStore.js";
+
+// Pack documents are cached for the life of a session (a pack cannot change while Foundry runs), and
+// a test file is many sessions. Cleared here so one test cannot read the pack another one built.
+afterEach(() => clearPackDocumentCache());
 
 global.game = {
 	i18n: fakeI18n(),

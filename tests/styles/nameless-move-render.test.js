@@ -91,6 +91,19 @@ const measure = showCheck => probe.measure({
 const right  = el => el.values.boxLeft + el.values.boxWidth;
 const bottom = el => el.values.boxTop + el.values.boxHeight;
 
+/**
+ * Centred on a line of text, to within a pixel.
+ *
+ * A pixel rather than the half `toBeCloseTo(x, 0)` allows, because these two numbers are derived
+ * from font metrics and carry about that much slop — the same reason RenderProbe rounds overflow
+ * below 2px away. The controls sit 0.7px above the centre of a 17.5px line box, which is to say on
+ * it; what the tighter tolerance actually measured was whether the webfont had finished loading
+ * before the probe read the page, and it decided this file's colour at random until it stopped
+ * being a race.
+ */
+const expectCentredOn = (control, firstLine, message) =>
+	expect(Math.abs(control - firstLine), message).toBeLessThanOrEqual(1);
+
 describe.skipIf(!canProbe())("a nameless move's controls, as an inline grant (no check)", () => {
 	let m;
 	beforeAll(() => { m = measure(false); });
@@ -114,9 +127,8 @@ describe.skipIf(!canProbe())("a nameless move's controls, as an inline grant (no
 			.toBeGreaterThan(firstLine.firstLineTop);
 		expect(el("controls").values.boxTop, "the controls sit below the move's first line")
 			.toBeLessThan(firstLine.firstLineTop + firstLine.firstLineHeight);
-		expect(el("controls").boxMiddle,
-			"the controls are not centred on the text's first line")
-			.toBeCloseTo(el("text").firstLineMiddle, 0);
+		expectCentredOn(el("controls").boxMiddle, el("text").firstLineMiddle,
+			"the controls are not centred on the text's first line");
 	});
 
 	// The same thing said about the row rather than the controls: a strip of its own is height the
@@ -146,7 +158,7 @@ describe.skipIf(!canProbe())("a nameless move's controls, as an inline grant (no
 	// The whole point of the change: a nameless row is laid out the way a named one is, measured from
 	// whatever identifies the move. A named row has never had a floating strip.
 	it("puts them where a named row puts them — on the row's first line", () => {
-		expect(el("die").boxMiddle).toBeCloseTo(el("text").firstLineMiddle, 0);
+		expectCentredOn(el("die").boxMiddle, el("text").firstLineMiddle);
 		expect(m.get("namedRow").values.boxHeight).toBeGreaterThan(0);
 	});
 });
@@ -161,7 +173,7 @@ describe.skipIf(!canProbe())("a nameless move's controls, on the moves tab (with
 	});
 
 	it("still keeps the controls on the move's first line", () => {
-		expect(el("controls").boxMiddle).toBeCloseTo(el("text").firstLineMiddle, 0);
+		expectCentredOn(el("controls").boxMiddle, el("text").firstLineMiddle);
 	});
 
 	// The check drops into the gutter the description's indent already leaves for it, so every line
@@ -169,7 +181,7 @@ describe.skipIf(!canProbe())("a nameless move's controls, on the moves tab (with
 	it("drops the check into the text's own gutter, level with the first line", () => {
 		expect(right(el("check")), "the check overlaps the move's text")
 			.toBeLessThanOrEqual(el("text").textLeft + 1);
-		expect(el("check").boxMiddle).toBeCloseTo(el("text").firstLineMiddle, 0);
+		expectCentredOn(el("check").boxMiddle, el("text").firstLineMiddle);
 	});
 
 	it("costs the row no height of its own", () => {

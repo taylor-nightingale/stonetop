@@ -1,4 +1,6 @@
 import { MigrationRunner } from "../migration/MigrationRunner.js";
+import { migrateItemProvenance } from "../migration/migrateItemProvenance.js";
+import { PackProvenance } from "../actors/PackProvenance.js";
 import { FoundryRepositoryFactory } from "../actors/character/repositories/FoundryRepositoryFactory.js";
 import { getSetting, setSetting } from "../settings.js";
 import { isArtInstalled } from "../art/foundryArt.js";
@@ -31,6 +33,25 @@ async function ensureBookOrderSort() {
 	if (pack.collection in modes) return;
 	modes[pack.collection] = "m";
 	await game.settings.set("core", "collectionSortingModes", modes);
+}
+
+/**
+ * Say which compendium document every embedded item is a copy of — see PackProvenance.
+ *
+ * Deliberately outside the version gate, because it is not a content migration: it writes no prose,
+ * only the provenance Foundry's own tooling reads, and a world that is already stamped would
+ * otherwise never get it. Cheap to repeat — an item already in order costs one cached lookup and no
+ * write — so it runs on every GM load and finds nothing after the first.
+ */
+async function _stampItemProvenance() {
+	const provenance = new PackProvenance();
+	for (const actor of [...(game.actors ?? [])]) {
+		try {
+			await migrateItemProvenance(actor, provenance);
+		} catch (err) {
+			warn(`Could not stamp item provenance on "${actor.name}": ${err.message}`);
+		}
+	}
 }
 
 async function _packsAreStale(systemVersion) {
@@ -69,6 +90,10 @@ export async function onReady() {
 		ui.notifications.error(game.i18n.localize("stonetop.migration.stalePacks"), { permanent: true });
 		return;
 	}
+
+	// Before the version gate: an item's provenance is not content, and a world already stamped at this
+	// version still needs it.
+	await _stampItemProvenance();
 
 	if (!current || !foundry.utils.isNewerVersion(current, stored)) return;
 

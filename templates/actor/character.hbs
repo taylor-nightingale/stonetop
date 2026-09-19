@@ -36,6 +36,10 @@
 			<div class="stonetop-vitals-section">
 				{{> "stonetop.actor-attributes"}}
 			</div>
+
+			{{!-- Under the XP track it reads, because that is the number it is about. Renders nothing
+			      at all unless the Level Up move has triggered or left something outstanding. --}}
+			{{> "stonetop.level-up-strip"}}
 		</div>
 
 		<div class="stonetop-actor-portrait">
