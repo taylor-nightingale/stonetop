@@ -42,7 +42,6 @@
         "followers": "Gefolgsleute",
         "notes": "Notizen"
       },
-      "collapseTop": "Kopfzeile ausblenden/einblenden",
       "notes": {
         "bio": "Biographie",
         "notes": "Notizen"
@@ -479,12 +478,12 @@
         "constitution": "Konstitution",
         "charisma": "Charisma",
         "abbr": {
-          "str": "+ST",
-          "dex": "+DE",
-          "con": "+KO",
-          "int": "+IN",
-          "wis": "+WE",
-          "cha": "+CH"
+          "str": "ST",
+          "dex": "DE",
+          "con": "KO",
+          "int": "IN",
+          "wis": "WE",
+          "cha": "CH"
         },
         "desc": {
           "str": "Your physical power and your ability to use it. Roll +STR to Clash, or to Defy Danger with raw might or power.",

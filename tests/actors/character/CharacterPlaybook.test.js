@@ -31,7 +31,7 @@ class FakeOrigin {
 	buildSnapshot(data) { return data; }
 }
 
-function makePlaybook(actor, { background = new FakeBackground(), vitals, moves } = {}) {
+function makePlaybook(actor, { background = new FakeBackground(), vitals, moves = new FakeMoves() } = {}) {
 	const factory = new ChoiceGroupControllerFactory(actor);
 	return new CharacterPlaybook(actor, background, factory, new FakeOrigin(), vitals, moves,
 		new PlaybookSelection(actor));
@@ -133,6 +133,34 @@ describe("CharacterPlaybook.buildPlaybookSnapshot", () => {
 		expect(snap.img).toBe("img.webp");
 		expect(snap.description.raw).toBe("<p>A healer.</p>");
 		expect(snap.statsNote).toBe("Assign +2/+1/+1/0/0/-1");
+	});
+
+	it("snapshot.title is the playbook's own name when nothing renames it", async () => {
+		const snap = await makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).buildPlaybookSnapshot();
+		expect(snap.title).toBe("The Blessed");
+	});
+
+	// The Would-be Hero crosses off "Would-be" on taking Big Damn Hero; the name of the ITEM is
+	// untouched, so a GM's rename and the moves tab's category label both stay put.
+	it("snapshot.title is the renamed title once the renaming move is acquired", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-would-be-hero").withName("The Would-Be Hero")
+			.withRenameOnMove({ moveSlug: "big-damn-hero", name: "The Hero" })
+			.build();
+		const moves = new FakeMoves().withAcquiredMove("big-damn-hero", "playbook-the-would-be-hero");
+		const snap = await makePlaybook(makeActor("the-would-be-hero", [item]), { moves }).buildPlaybookSnapshot();
+		expect(snap.title).toBe("The Hero");
+		expect(snap.name).toBe("The Would-Be Hero");
+	});
+
+	it("snapshot.title keeps the original name while the renaming move is untaken", async () => {
+		const item = new TestPlaybookItemBuilder()
+			.withSlug("the-would-be-hero").withName("The Would-Be Hero")
+			.withRenameOnMove({ moveSlug: "big-damn-hero", name: "The Hero" })
+			.build();
+		const moves = new FakeMoves().withAcquiredMove("anger-is-a-gift", "playbook-the-would-be-hero");
+		const snap = await makePlaybook(makeActor("the-would-be-hero", [item]), { moves }).buildPlaybookSnapshot();
+		expect(snap.title).toBe("The Would-Be Hero");
 	});
 
 	it("snapshot.instinctGroup is a ChoiceGroup built from item.system.instinct", async () => {

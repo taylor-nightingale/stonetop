@@ -364,6 +364,20 @@ export class StonetopCharacter {
 		await this._actor.setFlag("stonetop", "rollMode", mode);
 	}
 
+	/**
+	 * Spend the roll mode. Advantage is FORWARD, not a setting — in this family of games a modifier
+	 * you pick applies to your next roll and then it is gone, which is exactly what "I'm flanking
+	 * him" means. Stored as a flag it behaved as neither: set once, it quietly bent every roll after
+	 * it until somebody noticed the wrong word was still lit.
+	 *
+	 * ONGOING modifiers are a different thing and are not touched here — a marked debility hinders
+	 * every roll on its two stats for as long as it is marked, and {@link applyRollMode} applies that
+	 * from the debility itself with nobody setting anything.
+	 */
+	async clearRollMode() {
+		if (this.rollMode !== "normal") await this.setRollMode("normal");
+	}
+
 	getRollableStats() {
 		return this._stats.getRollableStats();
 	}

@@ -17,11 +17,14 @@
 					</option>
 					{{/each}}
 				</select>
+				{{!-- Already localized, unlike moveTypeChoices above: the six stat labels take a "+"
+				      that belongs to this dropdown rather than to the word, so the sheet composes
+				      them (see rollStatChoiceLabels) and hands over finished labels. --}}
 				<select name="system.rollStat" {{#unless editable}}disabled{{/unless}}
 				        aria-label="{{localize 'stonetop.a11y.rollStat'}}">
 					{{#each rollStatChoices}}
 					<option value="{{@key}}" {{#if (eq @key ../system.rollStat)}}selected{{/if}}>
-						{{localize this}}
+						{{this}}
 					</option>
 					{{/each}}
 				</select>

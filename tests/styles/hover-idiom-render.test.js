@@ -178,11 +178,10 @@ describe.skipIf(!canProbe())("the hover idiom", () => {
 		}
 	});
 
-	// The house idiom's two deliberate exceptions, asserted so that they stay deliberate rather than
+	// The house idiom's deliberate exceptions, asserted so that they stay deliberate rather than
 	// drifting back into "whatever the cascade happened to leave".
 	describe("glyph-only controls take the accent without a rule", () => {
 		for (const [label, root, markup] of [
-			["the collapse caret", "character", `<button type="button" id="probe" class="stonetop-top-toggle ${HOVER}"><i class="fas fa-chevron-up"></i></button>`],
 			["a move's send-to-chat", "character", `<button type="button" id="probe" class="stonetop-move-chat ${HOVER}"><i class="fas fa-comment"></i></button>`]
 		]) {
 			it(label, () => {
@@ -196,6 +195,33 @@ describe.skipIf(!canProbe())("the hover idiom", () => {
 				const ink = CssColor.parse(el.get("color"));
 				expect([ink.r, ink.g, ink.b]).toEqual([accent.r, accent.g, accent.b]);
 				expect(el.get("text-decoration-line")).toBe("none");
+			});
+		}
+	});
+
+	// The rail's toggle and the band's fold handle are declared as one look. Both carry a border, so
+	// both take the accent on the BORDER as well as the ink, and neither takes the underline the
+	// idiom gives a bare word — a rule drawn under a word inside a bordered chip is a second line
+	// across a control that already has one. Asserted side by side, because the point of the shared
+	// declaration is that these two cannot drift apart.
+	describe("the fold controls light their border and their ink, never a rule", () => {
+		for (const [label, markup] of [
+			["the band's fold handle", `<button type="button" id="probe" class="stonetop-top-toggle ${HOVER}"><i class="fas fa-chevron-up stonetop-top-caret"></i><span class="stonetop-top-toggle-label">Attribute</span></button>`],
+			["the rail's toggle", `<button type="button" id="probe" class="stonetop-rail-toggle ${HOVER}"><i class="fas fa-chevron-left stonetop-rail-caret"></i></button>`]
+		]) {
+			it(label, () => {
+				const rendered = probe.render({
+					bodyHtml: `<div class="application stonetop sheet character themed theme-light"><div class="window-content">${markup}</div></div>`,
+					bodyClass: "theme-light",
+					probes: { target: { selector: "#probe", properties: ["color", "border-top-color", "text-decoration-line", "--st-accent"] } }
+				});
+				const el = rendered.get("target");
+				const accent = CssColor.parse(el.get("--st-accent"));
+				const ink = CssColor.parse(el.get("color"));
+				const border = CssColor.parse(el.get("border-top-color"));
+				expect([ink.r, ink.g, ink.b], "the ink did not take the accent").toEqual([accent.r, accent.g, accent.b]);
+				expect([border.r, border.g, border.b], "the border did not take the accent").toEqual([accent.r, accent.g, accent.b]);
+				expect(el.get("text-decoration-line"), "a rule was drawn across a bordered control").toBe("none");
 			});
 		}
 	});

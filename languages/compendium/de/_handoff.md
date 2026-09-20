@@ -17,7 +17,7 @@ it is regenerated, and it is there to show you what the German is meant to say.
 - **0** entries where the English changed under an existing translation
 - **0** flagged earlier and still awaiting a revision
 - **35** translations whose row was restructured and need re-filing
-- **209** interface strings with no translation yet, listed at the end
+- **223** interface strings with no translation yet, listed at the end
 
 ## steading-improvements.json
 
@@ -631,6 +631,8 @@ already shows English.
 
 ### `stonetop.sheet`
 
+- `"stonetop.sheet.bandShow"` — "Show the stats band"
+- `"stonetop.sheet.bandHide"` — "Hide the stats band"
 - `"stonetop.sheet.railShow"` — "Show the moves rail"
 - `"stonetop.sheet.railHide"` — "Hide the moves rail"
 
@@ -912,6 +914,24 @@ already shows English.
 
 - `"stonetop.rollResults.rolled"` — "Rolled"
 
+### `stonetop.character.debilities.name`
+
+- `"stonetop.character.debilities.name.weakened"` — "weakened"
+- `"stonetop.character.debilities.name.dazed"` — "dazed"
+- `"stonetop.character.debilities.name.miserable"` — "miserable"
+
+### `stonetop.character.attributes.groups`
+
+- `"stonetop.character.attributes.groups.advancement"` — "Advancement"
+
+### `stonetop.character.attributes.note`
+
+- `"stonetop.character.attributes.note.fromPlaybook"` — "playbook"
+- `"stonetop.character.attributes.note.byHand"` — "by hand"
+- `"stonetop.character.attributes.note.armorNone"` — "none worn"
+- `"stonetop.character.attributes.note.damageUnset"` — "none set"
+- `"stonetop.character.attributes.note.readyToLevel"` — "ready to level"
+
 ### `stonetop.character.levelUp`
 
 - `"stonetop.character.levelUp.title"` — "Level Up"
@@ -940,6 +960,7 @@ already shows English.
 - `"stonetop.a11y.coinageCoins"` — "{currency} coins"
 - `"stonetop.a11y.neighborSize"` — "Size of {place}"
 - `"stonetop.a11y.neighborTravel"` — "Travel to {place} from here"
+- `"stonetop.a11y.rollStatNamed"` — "Roll {stat}"
 - `"stonetop.a11y.contentItem"` — "{section} entry"
 - `"stonetop.a11y.addContentItem"` — "Add to {section}"
 - `"stonetop.a11y.removeContentItem"` — "Remove from {section}"
@@ -951,3 +972,5 @@ already shows English.
 - `"stonetop.a11y.suggestionUsed"` — "already used —"
 - `"stonetop.a11y.assetRequisitioned"` — "Requisitioned"
 - `"stonetop.a11y.improvementSearch"` — "Search the improvement board"
+- `"stonetop.a11y.foldedLedger"` — "Stats and vitals"
+- `"stonetop.a11y.debilities"` — "Debilities"

@@ -5,6 +5,7 @@ import {buildChoiceGroup} from "../../model/snapshot/character/buildChoiceGroup.
 import {InstinctController} from "./InstinctController.js";
 import {GrantSource, ItemGrantSet} from "../../model/data/ItemGrant.js";
 import {Background} from "../../model/data/character/Background.js";
+import {PlaybookTitle} from "../../model/data/character/PlaybookTitle.js";
 import {rich} from "../../model/snapshot/RichText.js";
 
 export class CharacterPlaybook {
@@ -132,6 +133,7 @@ export class CharacterPlaybook {
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
+			.withTitle(PlaybookTitle.from(data).titleFor(this._moves.acquiredSlugs))
 			.withImg(data.img ?? null)
 			.withDescription(rich(data.description ?? null))
 			.withStatsNote(data.statsNote ?? null)

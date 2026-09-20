@@ -1,0 +1,56 @@
+{{!-- XP and Level, and the Level Up strip they are for. Lives in the rail.
+
+      Not merely a tidy pair: VitalsSnapshot derives XP's ceiling as 6 + level × 2, so Level computes
+      XP's max. They are one mechanism, and they are consulted once a session rather than mid-blow —
+      which is why they are here and not in the band, and why the rail's own order (the ratings it
+      crowns, then the moves) puts them above the move groups.
+
+      The rail is exactly two stat frames wide, so the two sit level and equal. --}}
+<div class="stonetop-resource-row stonetop-resource-row--advancement">
+
+	{{!-- `is-full` is the one thing the sheet never said about XP: that the track is at (or past)
+	      the Level Up threshold it has been printing all along. It also settles Burn Brightly, which
+	      is gated on exactly this and had nothing on screen to read it from. --}}
+	<div class="stonetop-vital">
+		<div class="stonetop-resource stonetop-resource--wide{{#if stonetop.vitals.readyToLevel}} is-full{{/if}}">
+			{{!-- A definition, not provenance: unlike HP/damage/armor, XP has no playbook source to
+			      explain, so the hover carries what the book says XP is (Book I, p.53). --}}
+			<span class="stonetop-resource__label"
+			      data-tooltip="{{localize 'stonetop.character.attributes.desc.xp'}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.xp"}}</span>
+			<div class="stonetop-resource__split">
+				<span class="stonetop-stepper">
+					<input class="stonetop-resource__input stonetop-char-xp stonetop-step" type="number" data-change-action="xp"
+					       aria-label="{{localize 'stonetop.a11y.xpCurrent'}}"
+					       value="{{stonetop.vitals.xp.value}}" min="0">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
+				<span>/</span>
+				<span class="stonetop-resource__max">{{stonetop.vitals.xp.max}}</span>
+			</div>
+		</div>
+		{{#if stonetop.vitals.readyToLevel}}
+		<span class="stonetop-resource__note stonetop-resource__note--ready">{{localize "stonetop.character.attributes.note.readyToLevel"}}</span>
+		{{/if}}
+	</div>
+
+	{{!-- No note. Its only candidate — "next at 14" — restates the XP track's own max one tile away,
+	      and a note that restates the value beside it is noise. --}}
+	<div class="stonetop-vital">
+		<div class="stonetop-resource stonetop-resource--wide">
+			<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.level"}}</span>
+			<span class="stonetop-stepper">
+				<input class="stonetop-resource__input stonetop-char-level stonetop-step" type="number" data-change-action="level"
+				       aria-label="{{localize 'stonetop.character.attributes.level'}}"
+				       value="{{stonetop.vitals.level}}" min="1">
+				{{> "stonetop.stepper-buttons"}}
+			</span>
+		</div>
+	</div>
+
+</div>
+
+{{!-- Directly under the XP track it is about, not hanging after the numbers: levelling up is what
+      XP and Level are FOR, and the move that does it spends the one and raises the other. Renders
+      nothing at all unless it has triggered or left something outstanding, which is most of the
+      time. --}}
+{{> "stonetop.level-up-strip"}}

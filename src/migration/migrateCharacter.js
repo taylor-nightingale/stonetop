@@ -666,6 +666,7 @@ export async function migratePlaybookPackData(actor, playbookRepo) {
 			damage:             source.damage            ?? { value: null },
 			statsNote:          source.statsNote         ?? "",
 			startingMovesNote:  source.startingMovesNote ?? "",
+			renameOnMove:       source.renameOnMove      ?? null,
 			backgrounds:        source.backgrounds       ?? [],
 			origin:             source.origin            ?? [],
 			followers:          source.followers         ?? [],

@@ -14,6 +14,10 @@
     },
     "hp": 16,
     "statsNote": "Assign these scores to your stats: +1, +0, +0, +0, +0, -1",
+    "renameOnMove": {
+      "moveSlug": "big-damn-hero",
+      "name": "The Hero"
+    },
     "origin": [
       {
         "region": "Stonetop",

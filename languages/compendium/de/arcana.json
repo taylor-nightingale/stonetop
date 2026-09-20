@@ -2128,7 +2128,7 @@
     },
     "back/resource/labels/mute": {
       "source": "mute",
-      "text": ""
+      "text": "stumm"
     },
     "back/choices/intro/when-you-spend-supplies-value-2/text": {
       "source": "When you **_spend supplies (Value 2) and a full_** **_season a-crafting, chanting the Sublime Words_** **_all the while,_** roll +WIS. No matter what, you’ve damaged your voice (mark a status above) but made a thing of true beauty (Value 4). **On a 10+**, pick 1, or 2 and further damage your voice; **on a** **7-9**, pick 1 and further damage your voice.\n\n- Its beauty will persist through the ages\n- It eases pain and lifts grief\n- It inspires others to better themselves **On a 6-**, it stokes greed in those who see it and fear in those who own it, worse if those qualities were already there. Expect bloodshed. When you **_rest your voice for a season_** (no shouting, little talking, not using the Sublime Words), clear one status above.",

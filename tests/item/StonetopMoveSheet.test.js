@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { promises as fs } from "fs";
 import path from "path";
-import { moveSheetRichText, moveResultFields, ROLL_STAT_CHOICES } from "../../src/item/StonetopMoveSheet.js";
+import { moveSheetRichText, moveResultFields, ROLL_STAT_CHOICES, rollStatChoiceLabels } from "../../src/item/StonetopMoveSheet.js";
+import { STAT_KEYS } from "../../src/model/data/character/Stats.js";
 import { fakeI18n } from "../fakes/foundry/FakeI18n.js";
 import { RichText } from "../../src/model/snapshot/RichText.js";
 
@@ -104,6 +105,50 @@ describe("ROLL_STAT_CHOICES", () => {
 	it("every label resolves to a string in en.json", () => {
 		const i18n = fakeI18n();
 		expect(Object.values(ROLL_STAT_CHOICES).filter(key => !i18n.has(key))).toEqual([]);
+	});
+
+	// The six stats point at the SAME abbreviation the stat tiles draw. One translation of "STR",
+	// rather than two families a translator has to keep in step — the dropdown's "+" is a fact about
+	// the dropdown, so it is composed here rather than written into six more strings.
+	it("names the six stats from the same key the stat tiles use", () => {
+		for (const stat of ["str", "dex", "con", "int", "wis", "cha"]) {
+			expect(ROLL_STAT_CHOICES[stat]).toBe(`stonetop.character.stats.abbr.${stat}`);
+		}
+	});
+});
+
+describe("rollStatChoiceLabels", () => {
+	// The harness's localize returns the key, which makes the composition visible: what the label
+	// builder adds is exactly the plus, and exactly on the six.
+	const labels = () => rollStatChoiceLabels(k => k);
+
+	it("puts a plus on every one of the character's stats", () => {
+		for (const stat of STAT_KEYS) {
+			expect(labels()[stat], `${stat} lost its plus`)
+				.toBe(`+stonetop.character.stats.abbr.${stat}`);
+		}
+	});
+
+	// A steading rating is named outright ("Fortunes (steading)"), and ask/prompt are not rolls at
+	// all — a plus on either would be claiming a bonus that does not exist.
+	it("leaves everything that is not a character stat alone", () => {
+		const built = labels();
+		for (const key of Object.keys(ROLL_STAT_CHOICES)) {
+			if (STAT_KEYS.includes(key)) continue;
+			expect(built[key], `${key} was given a plus`).toBe(ROLL_STAT_CHOICES[key]);
+		}
+	});
+
+	it("offers a label for every choice, losing none", () => {
+		expect(Object.keys(labels()).sort()).toEqual(Object.keys(ROLL_STAT_CHOICES).sort());
+	});
+
+	// The real thing a player sees, against the real strings.
+	it("reads as the book writes a roll", () => {
+		const i18n = fakeI18n();
+		const built = rollStatChoiceLabels(k => (i18n.has(k) ? i18n.format(k) : k));
+		expect(built.str).toBe("+STR");
+		expect(built.fortunes).toBe("Fortunes (steading)");
 	});
 });
 

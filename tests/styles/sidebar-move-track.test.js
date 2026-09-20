@@ -1,6 +1,10 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
+import { renderPartial } from "../fakes/renderTemplate.js";
+import { MoveSnapshotBuilder } from "../../src/model/snapshot/character/MoveSnapshot.js";
+import { ResourceBuilder } from "../../src/model/snapshot/ResourceSnapshot.js";
+import { ValueMax } from "../../src/model/snapshot/character/VitalsSnapshot.js";
 
 // The sidebar's reference-move rows are one line of text each. A move that holds something (Defend's
 // Readiness) adds a resource track to that row, and the track is the shared flex one every other
@@ -19,37 +23,52 @@ const probe = new RenderProbe([
 	sheet("stonetop.css")
 ]);
 
-// Markup copied from the sidebar block in character.hbs and resource-track.hbs, because the rules
-// under test are selector-specific and a simplified stand-in would stop matching them.
-const pips = n => Array.from({ length: n }, (_, i) =>
-	`<button type="button" class="stonetop-item-resource-check${i < 2 ? " is-checked" : ""}"
-	         data-action="moveResourcePip" data-move-slug="defend" data-index="${i}"></button>`).join("");
+// The REAL row, rendered from the REAL partials. The sidebar used to hand-roll its own compact row,
+// and this fixture hand-copied it — two descriptions of one thing, either of which could drift. The
+// rail renders `move-group` disclosure rows now, like the steading's, so the fixture asks the
+// partial for them and the drift is gone rather than merely watched for.
+const resource = () => new ResourceBuilder()
+	.withCurrent(2).withMax(4).withTitle("Readiness").withLabels([]).build();
 
-const row = (name, track) => `
-<li class="item stonetop-move-item" data-item-id="${name}">
-  <button type="button" class="rollable move-rollable" data-roll="con"><i class="fas fa-dice-d6"></i></button>
-  <button type="button" class="stonetop-move-name stonetop-basic-move-open">${name}</button>
-  <button type="button" class="stonetop-move-chat"><i class="fas fa-comment"></i></button>
-  ${track ? `<span class="stonetop-item-resources">${pips(4)}</span>` : ""}
-</li>`;
+const move = (name, slug, withTrack) => new MoveSnapshotBuilder()
+	.withId(slug).withOwnedId(slug).withSlug(slug).withName(name).withNameless(false)
+	.withDescription(`When you <em>${name.toLowerCase()}</em>, roll +Con.`)
+	.withRollStat("con").withSource({ type: "reference" }).withSourceLabel(null)
+	.withSelection(new ValueMax(1, 1)).withSelectable(false)
+	.withRequirement(null).withRequiresLabel(null)
+	.withResource(withTrack ? resource() : null)
+	.withChoices(null).withSteps(null).withMoveResults(null).withRollNotes(null)
+	.build();
+
+// Exactly the parameters character.hbs passes: a rail group is unacquirable (a character HAS the
+// basic moves) and always shows what a move holds.
+const GROUP = renderPartial("stonetop.move-group", {
+	title: "Basic Moves",
+	moves: [move("Aid or Interfere", "aid", false), move("Defend", "defend", true), move("Defy Danger", "defy", false)],
+	categoryKey: "basic",
+	allowAdditional: false,
+	alwaysShowResource: true,
+	unacquirable: true,
+	disclosure: true,
+	sheetIdPrefix: "s1",
+});
 
 const FIXTURE = `
-<div class="application stonetop sheet character themed theme-light"><div class="window-content">
-  <div class="stonetop-rail-layout" data-side="right"><div class="stonetop-rail stonetop-moves-rail">
-    <ol class="items-list">
-      ${row("Aid or Interfere", false)}
-      ${row("Defend", true)}
-      ${row("Defy Danger", false)}
-    </ol>
+<div class="application stonetop sheet character themed theme-light" style="height: 700px"><div class="window-content">
+  <div class="sheet-wrapper"><div class="stonetop-rail-layout" data-side="left">
+    <div class="stonetop-rail stonetop-moves-rail">${GROUP}</div>
+    <div class="stonetop-rail-main character-main"><section class="sheet-body"></section></div>
   </div></div>
 </div></div>`;
 
+// The middle row is Defend, the one that holds something. move-row emits `.stonetop-item`, and on a
+// disclosure row the name is the button that opens the move's text.
 const TARGETS = {
-	row:   ".stonetop-move-item:nth-child(2)",
-	name:  ".stonetop-move-item:nth-child(2) .stonetop-move-name",
-	track: ".stonetop-move-item:nth-child(2) .stonetop-item-resources",
-	pip:   ".stonetop-move-item:nth-child(2) .stonetop-item-resource-check",
-	next:  ".stonetop-move-item:nth-child(3)",
+	row:   ".items-list > li:nth-child(2)",
+	name:  ".items-list > li:nth-child(2) .stonetop-move-disclosure-name",
+	track: ".items-list > li:nth-child(2) .stonetop-item-resources",
+	pip:   ".items-list > li:nth-child(2) .stonetop-item-resource-check",
+	next:  ".items-list > li:nth-child(3)",
 };
 
 /** @returns {Map<string, import("./RenderProbe.js").MeasuredElement>} */
@@ -72,14 +91,19 @@ describe.skipIf(!canProbe())("a sidebar move's resource track", () => {
 		for (const [name, m] of measured) expect(m.missing, `${name} did not render`).toBe(false);
 	});
 
-	it("sits on a line of its own, below the move's name", () => {
-		expect(el("track").values.boxTop).toBeGreaterThanOrEqual(bottom(el("name")));
+	// A disclosure row puts the controls — die, chat bubble, track — in one group on the name's own
+	// line, so the gloss underneath can run the row's full width. The track used to hang on a line of
+	// its own below the name, which is what the hand-rolled sidebar row did.
+	it("rides the controls group on the name's line", () => {
+		expect(Math.abs(el("track").values.boxTop - el("name").values.boxTop))
+			.toBeLessThan(el("name").values.boxHeight);
 	});
 
-	// Butted straight against the name the two lines read as separate rows; the gap is what holds
-	// the track to the move it belongs to.
-	it("is separated from the name rather than touching it", () => {
-		expect(el("track").values.boxTop - bottom(el("name"))).toBeGreaterThan(2);
+	// On that line it still has to stay clear of the name: the row's whole failure mode is a track
+	// wide enough to sit on top of the word it belongs to.
+	it("ends up right of the name rather than over it", () => {
+		const name = el("name").values;
+		expect(el("track").values.boxLeft).toBeGreaterThanOrEqual(name.boxLeft + name.boxWidth - 1);
 	});
 
 	it("grows its own row instead of overlapping the next move", () => {

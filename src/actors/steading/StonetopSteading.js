@@ -116,6 +116,12 @@ export class StonetopSteading {
 		await this.#actor.setFlag("stonetop", "rollMode", mode);
 	}
 
+	/** See StonetopCharacter#clearRollMode — the steading's picker is the same control and was the
+	 *  same trap. */
+	async clearRollMode() {
+		if (this.rollMode !== "normal") await this.setRollMode("normal");
+	}
+
 	// ── Ratings ────────────────────────────────────────────────────────────────
 
 	get fortunesCurrent() { return this.#actor.system.attributes?.fortunes ?? 0; }

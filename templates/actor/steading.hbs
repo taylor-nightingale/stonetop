@@ -193,16 +193,8 @@
 
 		{{!-- A mode, not a value: no rule and no box, just the active word in the accent. Last on the
 		      line, pushed to the far end — it modifies a roll rather than describing the steading. --}}
-		<fieldset class="steading-rollmode">
-			<legend class="steading-line-heading">{{localize "stonetop.rollMode.label"}}</legend>
-			{{#each stonetop.rollModes}}
-				<label class="steading-rollmode-option{{#if checked}} is-checked{{/if}}">
-					<input type="radio" class="steading-rollmode-input" name="stonetop-roll-mode"
-					       data-change-action="rollMode" value="{{key}}" {{#if checked}}checked{{/if}}>
-					<span>{{localize labelKey}}</span>
-				</label>
-			{{/each}}
-		</fieldset>
+		{{> "stonetop.roll-mode-picker" modes=stonetop.rollModes name="stonetop-roll-mode"
+		    changeAction="rollMode" variant="inline"}}
 
 		</div>{{!-- /row two --}}
 

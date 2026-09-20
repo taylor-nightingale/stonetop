@@ -42,7 +42,8 @@
         "followers": "Followers",
         "notes": "Notes"
       },
-      "collapseTop": "Collapse / expand header",
+      "bandShow": "Show the stats band",
+      "bandHide": "Hide the stats band",
       "railShow": "Show the moves rail",
       "railHide": "Hide the moves rail",
       "notes": {
@@ -119,7 +120,7 @@
       "content": {
         "fromThePlaybook": "From the playbook",
         "addItem": "add",
-        "procedure": "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls \u201ctime out,\u201d_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what\u2019s wrong, player-to-player.\n\nIf **_content was included that shouldn\u2019t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don\u2019t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on.",
+        "procedure": "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls “time out,”_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.\n\nIf **_content was included that shouldn’t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on.",
         "sections": {
           "excluded": {
             "label": "Excluded Content",
@@ -711,12 +712,12 @@
         "constitution": "Constitution",
         "charisma": "Charisma",
         "abbr": {
-          "str": "+STR",
-          "dex": "+DEX",
-          "con": "+CON",
-          "int": "+INT",
-          "wis": "+WIS",
-          "cha": "+CHA"
+          "str": "STR",
+          "dex": "DEX",
+          "con": "CON",
+          "int": "INT",
+          "wis": "WIS",
+          "cha": "CHA"
         },
         "desc": {
           "str": "Your physical power and your ability to use it. Roll +STR to Clash, or to Defy Danger with raw might or power.",
@@ -728,6 +729,11 @@
         }
       },
       "debilities": {
+        "name": {
+          "weakened": "weakened",
+          "dazed": "dazed",
+          "miserable": "miserable"
+        },
         "desc": {
           "weakened": "Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.",
           "dazed": "Out of it, befuddled, not thinking clearly. Take disadvantage when rolling +INT or +WIS.",
@@ -757,6 +763,16 @@
           "armorNone": "No checked item grants armor.",
           "armorBaseItem": "{name} {amount} (base)",
           "armorModifierItem": "{name} {amount}"
+        },
+        "groups": {
+          "advancement": "Advancement"
+        },
+        "note": {
+          "fromPlaybook": "playbook",
+          "byHand": "by hand",
+          "armorNone": "none worn",
+          "damageUnset": "none set",
+          "readyToLevel": "ready to level"
         }
       },
       "levelUp": {
@@ -905,6 +921,7 @@
       "inventoryColumn": "Inventory column",
       "moveType": "Move type",
       "rollStat": "Roll stat",
+      "rollStatNamed": "Roll {stat}",
       "choiceText": "Choice text",
       "choicePick": "Choose this option",
       "listItem": "List item",
@@ -920,7 +937,9 @@
       "folkSearch": "Search the roster",
       "suggestionUsed": "already used —",
       "assetRequisitioned": "Requisitioned",
-      "improvementSearch": "Search the improvement board"
+      "improvementSearch": "Search the improvement board",
+      "foldedLedger": "Stats and vitals",
+      "debilities": "Debilities"
     },
     "tagGlossary": {
       "general": {

@@ -61,6 +61,8 @@ const PLAYBOOK = [
 	"system.description",
 	"system.statsNote",
 	"system.startingMovesNote",
+	// The title a move renames the playbook to — "The Hero", on the front page.
+	"system.renameOnMove.name",
 	"system.specialPossessions.pickNote",
 	// Regions are place names; a translator may well leave them as-is, but that is their call.
 	"system.origin[].region",

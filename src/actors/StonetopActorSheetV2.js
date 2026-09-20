@@ -72,11 +72,22 @@ export function createStonetopActorSheetV2Class() {
 		// Core's built-in focus restore only re-finds elements with an id or name; our sheets are
 		// full of dataset-addressed controls (pips, chips, per-member inputs). state.focus is just
 		// a selector string, so upgrade it with buildFocusSelector when it produces one.
+		//
+		// The view state goes back here as well as in _syncPartState, and the difference is a frame:
+		// core hands this the new part element BEFORE it is put in the document, and _syncPartState
+		// after. Restored only after, every re-render painted the template's own defaults for one
+		// frame first — ticking a debility flipped the band's fold caret open and back, because the
+		// markup ships expanded and the class saying otherwise arrived a frame late.
+		//
+		// Both calls stay. This one cannot answer anything that needs layout — a detached element has
+		// no computed style, and an untouched rail is open or shut according to its WIDTH — so the
+		// call in _syncPartState is what settles those, over a tree that is already correct.
 		_preSyncPartState(partId, newElement, priorElement, state) {
 			super._preSyncPartState(partId, newElement, priorElement, state);
 			const focused = priorElement.contains(document.activeElement) ? document.activeElement : null;
 			const selector = buildFocusSelector(focused, priorElement);
 			if (selector) state.focus = selector;
+			this.restoreViewState(newElement);
 		}
 
 		/**

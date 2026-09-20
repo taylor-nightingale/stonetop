@@ -140,21 +140,21 @@ describe("the steading header — debilities", () => {
 
 describe("the steading header — roll mode", () => {
 	it("groups its radios so they are announced as one control", () => {
-		const fieldset = renderHeader().querySelector("fieldset.steading-rollmode");
+		const fieldset = renderHeader().querySelector("fieldset.stonetop-rollmode");
 		expect(fieldset).not.toBeNull();
 		expect(fieldset.querySelector("legend").textContent.trim()).toBe("stonetop.rollMode.label");
 	});
 
 	it("draws the shared three modes, in the shared order", () => {
-		const values = [...renderHeader().querySelectorAll(".steading-rollmode-input")].map(i => i.value);
+		const values = [...renderHeader().querySelectorAll(".stonetop-rollmode-input")].map(i => i.value);
 		expect(values).toEqual(RollModes.options().map(o => o.key));
 	});
 
 	it("ticks the current mode", () => {
 		const root = renderHeader({ rollModes: RollModes.options("dis") });
-		const checked = root.querySelector(".steading-rollmode-input[checked]");
+		const checked = root.querySelector(".stonetop-rollmode-input[checked]");
 		expect(checked.value).toBe("dis");
-		expect(checked.closest(".steading-rollmode-option").classList.contains("is-checked")).toBe(true);
+		expect(checked.closest(".stonetop-rollmode-option").classList.contains("is-checked")).toBe(true);
 	});
 });
 

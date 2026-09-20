@@ -95,7 +95,13 @@ export class SchemaField {
 		this._options = options;
 	}
 
+	// A nullable schema field is a whole sub-object that may simply be absent — core returns the null
+	// through rather than building a skeleton of empty keys out of it, and a caller that asks "is
+	// there one?" is reading this field, so the double has to answer the same way.
 	initialize(value) {
+		const { initial, nullable } = this._options;
+		if (value === null && nullable) return null;
+		if ((value === undefined || value === null) && resolveInitial(initial) === null && nullable) return null;
 		const result = {};
 		for (const [key, field] of Object.entries(this._schema)) {
 			result[key] = field.initialize(value?.[key]);

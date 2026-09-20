@@ -35,8 +35,14 @@ const SYSTEM_SHEETS = [
 const BLANKET_RESET = path.resolve(process.cwd(), "tests/styles/fixtures/unlayered-blanket-reset.css");
 
 // Every control the sheet gives `appearance: none` and then draws, in the ancestry its rule is
-// written against — the diamonds are scoped to `.application.stonetop`, the debility circle to the
-// band it sits in, and a mark rendered outside its scope would silently be core's instead of ours.
+// written against — the diamonds are scoped to `.application.stonetop`, and a mark rendered outside
+// its scope would silently be core's instead of ours.
+//
+// Two marks here are NOT form controls: the debility's and the roll mode's. For both, the input is
+// taken out of sight and a <span> beside it is painted, which is how the steading's conditions have
+// always drawn theirs. A blanket `input { border: 0 }` cannot reach a span at all, so those marks
+// are immune by construction rather than by out-ranking anything — they stay in this file to hold
+// that, not to defend it.
 const fixture = `
 <div class="application stonetop sheet character themed theme-light">
  <div class="stonetop-item-header">
@@ -49,11 +55,22 @@ const fixture = `
  </span>
  <label class="stonetop-outfit-load-label">
   <input type="radio" name="load" class="stonetop-outfit-load-radio" id="load">
-  <input type="radio" name="mode" class="stonetop-roll-mode-radio" id="mode">
  </label>
- <span class="stonetop-debility">
-  <input type="checkbox" class="stonetop-debility-check" id="debility">
- </span>
+ <fieldset class="stonetop-rollmode stonetop-rollmode--stacked">
+  <label class="stonetop-rollmode-option">
+   <input type="radio" name="mode" class="stonetop-rollmode-input">
+   <span class="stonetop-rollmode-mark" id="mode"></span>
+  </label>
+ </fieldset>
+ <div class="stonetop-debility">
+  <label class="stonetop-debility-control">
+   <span class="stonetop-debility-band">
+    <span class="stonetop-debility-divider"></span>
+    <input type="checkbox" class="stonetop-debility-check" id="debility">
+   </span>
+   <span class="stonetop-debility-label">Weakened</span>
+  </label>
+ </div>
  <input type="checkbox" class="stonetop-item-check" id="checked-move" checked>
 </div>`;
 
