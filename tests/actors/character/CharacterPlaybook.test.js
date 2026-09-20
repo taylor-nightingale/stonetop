@@ -113,6 +113,34 @@ describe("CharacterPlaybook.getData", () => {
 	});
 });
 
+// ── title ────────────────────────────────────────────────────────────────────
+
+// Synchronous, because the sidebar's directory row is rendered without an await to spend — and it
+// is the ONE place the title is computed, so the masthead and the sidebar cannot drift.
+describe("CharacterPlaybook.title", () => {
+	const wouldBeHero = () => new TestPlaybookItemBuilder()
+		.withSlug("the-would-be-hero").withName("The Would-Be Hero")
+		.withRenameOnMove({ moveSlug: "big-damn-hero", name: "The Hero" })
+		.build();
+
+	it("is null for a character with no playbook", () => {
+		expect(makePlaybook(new FakeCharacterActorBuilder().build()).title).toBeNull();
+	});
+
+	it("is the playbook's name", () => {
+		expect(makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM])).title).toBe("The Blessed");
+	});
+
+	it("is the renamed title once the renaming move is taken", () => {
+		const moves = new FakeMoves().withAcquiredMove("big-damn-hero", "playbook-the-would-be-hero");
+		expect(makePlaybook(makeActor("the-would-be-hero", [wouldBeHero()]), { moves }).title).toBe("The Hero");
+	});
+
+	it("keeps the original name while that move is untaken", () => {
+		expect(makePlaybook(makeActor("the-would-be-hero", [wouldBeHero()])).title).toBe("The Would-Be Hero");
+	});
+});
+
 // ── buildPlaybookSnapshot ─────────────────────────────────────────────────────
 
 describe("CharacterPlaybook.buildPlaybookSnapshot", () => {

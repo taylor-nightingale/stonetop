@@ -1,0 +1,19 @@
+{{!-- One row of the sidebar's Actors tab.
+
+      Core's `templates/sidebar/partials/document-partial.hbs`, plus what a character plays. Every
+      class, data attribute and action is core's and has to stay that way: the directory's click
+      routing, drag handles, search filter and context menu all find the row through them, and the
+      entry's context IS the Actor document, which is where `directoryNote` lives.
+
+      Faded, after the name, on the same line. Which playbook someone plays is the first thing worth
+      knowing off a list of six names — and the last thing worth a second line of row height on a
+      tab you glance at. --}}
+<li class="directory-item entry document {{ @root.documentCls }} flexrow" data-entry-id="{{ id }}">
+    {{#if thumbnail}}
+    <img class="thumbnail" src="{{ thumbnail }}" alt="{{ name }}" loading="lazy">
+    {{/if}}
+    <a class="entry-name ellipsis" data-action="activateEntry">{{ name }}</a>
+    {{#if directoryNote}}
+    <span class="stonetop-directory-note">{{ directoryNote }}</span>
+    {{/if}}
+</li>

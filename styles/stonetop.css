@@ -10957,6 +10957,52 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	color: var(--st-ink);
 }
 
+/* ── The playbook, beside a character's name in the Actors tab ────────────────────────────────
+   Which playbook someone plays is the first thing anyone wants from a list of six names, and it is
+   the one fact about a character that never fits in the name.
+
+   Faded and italic, in the masthead's own voice — the same Fell roman that writes the title beside
+   the name on the sheet, so the sidebar is quoting the front page rather than inventing a second
+   way to say it. `--st-ink-faint` is the sheet's faintest text role and is already held to a
+   contrast floor by the theme tests, so it recedes without becoming decoration nobody can read.
+
+   Capped, because core gives `.entry-name` `flex: 1 1 0` and a flex item with a zero basis absorbs
+   ALL of a row's overflow however the items beside it are told to shrink — a shrink factor here
+   does nothing, and without a cap the note would keep its full width while a long name was ellipsed
+   down to a few characters (54px of 180px, measured). The cap is what divides a row neither of them
+   fits in.
+
+   Three fifths, not half: core's sidebar is 300px with a 48px thumbnail and an 8px gap, which
+   leaves a row about 230px, and half of that clips "The Would-Be Hero" — the longest title in the
+   book — by a few pixels. At three fifths the longest one fits at the default width and a squeezed
+   row still leaves the name two fifths. Pinned at those real dimensions in
+   tests/styles/directory-note-render.test.js, so a wider title or a changed sidebar says so.
+
+   `.actors-sidebar`, not `#actors`: core pushes that class on both the docked tab and the popped-out
+   window, whose id is `actors-popout`. */
+.actors-sidebar .directory-item .stonetop-directory-note {
+	/* Its own width. Core's `.flexrow > * { flex: 1 }` reaches EVERY child of the row, so without
+	   this the note is grown to an equal share of the leftover space alongside the name — which put
+	   "The Would-Be Hero" a pixel over its box and wrote it with an ellipsis while "The Hero" sat in
+	   a box twice the size of its text. */
+	flex: 0 1 auto;
+	max-width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/* Off both edges. Core's row ends flush against the sidebar's, so without the right-hand standoff
+	   the longest title is written into the corner of the screen; it gets the same standoff the row
+	   already puts between the name and the note, in rem so it tracks the Font Size setting rather
+	   than freezing at one step of it. On the note rather than on the list: padding the list would
+	   inset every row in the directory, which is core's chrome, not ours. */
+	margin-left: 0.4rem;
+	margin-right: 0.5rem;
+	font-family: "IM Fell English", Georgia, serif;
+	font-style: italic;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+}
+
 /* ── Parchment for journal entries + compendium windows ───────────────────────────────────────
    Journals and compendiums default to core's own chrome; bring them in line with the actor sheets.
    The whole window is themed, so the in-sheet page sidebar (table of contents) and the compendium

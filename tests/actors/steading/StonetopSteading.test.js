@@ -13,6 +13,12 @@ function make() {
 	return new StonetopSteading(new FakeSteadingBuilder().build(), steadingRepos({ improvements: fakeImprovementsRepo, moves: fakeMoves }));
 }
 
+// The sidebar asks every typed actor what to write beside its name; a steading has no playbook and
+// nothing else has been designed for that slot yet.
+describe("StonetopSteading.directoryNote", () => {
+	it("is null", () => expect(make().directoryNote).toBeNull());
+});
+
 describe("StonetopSteading.buildSnapshot", () => {
 	it("returns a SteadingSnapshot", async () => {
 		expect(await make().buildSnapshot()).toBeInstanceOf(SteadingSnapshot);

@@ -30,6 +30,16 @@ export class CharacterPlaybook {
 		return this._selection.slug;
 	}
 
+	/** What this character's playbook is CALLED — its name, unless a move the character has taken
+	 *  renamed it (the Would-be Hero crosses off "Would-be" on taking Big Damn Hero). Synchronous,
+	 *  because the sidebar's directory entry is rendered without an await to spend. */
+	get title() {
+		const item = [...this._actor.items].find(i => i.type === "playbook");
+		if (!item) return null;
+		return PlaybookTitle.from({ name: item.name, renameOnMove: item.system?.renameOnMove })
+			.titleFor(this._moves.acquiredSlugs);
+	}
+
 	/** The slugs of the moves a background grants — `backgrounds[].moves` is a slug list, not names. */
 	async getBackgroundMoveSlugs(bgSelectedSlug) {
 		const data = await this.getData();
@@ -133,7 +143,7 @@ export class CharacterPlaybook {
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
-			.withTitle(PlaybookTitle.from(data).titleFor(this._moves.acquiredSlugs))
+			.withTitle(this.title)
 			.withImg(data.img ?? null)
 			.withDescription(rich(data.description ?? null))
 			.withStatsNote(data.statsNote ?? null)

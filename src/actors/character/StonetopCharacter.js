@@ -110,6 +110,10 @@ export class StonetopCharacter {
 		return this._playbook.getData();
 	}
 
+	/** What the sidebar writes beside this actor's name. A character plays a playbook, and which one
+	 *  is the first thing anyone wants off a list of six names. */
+	get directoryNote() { return this._playbook.title; }
+
 	// Pre-create, before the document persists (updateSource-only territory). Characters have no
 	// pre-create defaults; the hook dispatches here uniformly.
 	onPreCreate(_data) {}

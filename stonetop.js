@@ -2,6 +2,7 @@ import { registerSettings } from "./src/settings.js";
 import { createStonetopActorClass } from "./src/actors/StonetopActor.js";
 import { createStonetopItemClass } from "./src/item/StonetopItem.js";
 import { createStonetopActorSheetV2Class } from "./src/actors/StonetopActorSheetV2.js";
+import { createStonetopActorDirectoryClass } from "./src/actors/StonetopActorDirectory.js";
 import { createStonetopCharacterSheetClass } from "./src/actors/character/StonetopCharacterSheet.js";
 import { createStonetopSteadingSheetClass } from "./src/actors/steading/StonetopSteadingSheet.js";
 import { createStonetopNpcSheetClass } from "./src/actors/npc/StonetopNpcSheet.js";
@@ -19,6 +20,7 @@ import { onReady } from "./src/hooks/Ready.js";
 import { onRenderPause } from "./src/hooks/RenderPause.js";
 import { onPreCreateActor } from "./src/hooks/PreCreateActor.js";
 import { onCreateActor } from "./src/hooks/CreateActor.js";
+import { onDirectoryNoteItemChanged } from "./src/hooks/DirectoryNoteChanged.js";
 import { onPreUpdateSteadingPeople, onUpdateSteadingPeople } from "./src/hooks/SteadingPeopleChanged.js";
 import { onUpdateLinkedActor, onDeleteLinkedActor } from "./src/hooks/LinkedActorChanged.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
@@ -101,6 +103,11 @@ Hooks.once("init", () => {
 
 	CONFIG.Actor.documentClass = createStonetopActorClass(CONFIG.Actor.documentClass);
 	CONFIG.Item.documentClass = createStonetopItemClass(CONFIG.Item.documentClass);
+
+	// The Actors tab writes each character's playbook beside their name; the directory subclass only
+	// swaps in our row template. Built from whatever is registered, so a module that subclassed the
+	// directory first keeps its own behaviour.
+	CONFIG.ui.actors = createStonetopActorDirectoryClass(CONFIG.ui.actors);
 
 	// The shared ApplicationV2 actor base: size memory + submitOnChange + root-delegated listeners
 	// (docs match the item base). All three actor sheets are on it.
@@ -228,6 +235,13 @@ Hooks.on("deleteActor", onSteadingCreatedOrDeleted);
 // A player may edit the roster but not create actors; the active GM's client does that work.
 Hooks.on("preUpdateActor", onPreUpdateSteadingPeople);
 Hooks.on("updateActor", onUpdateSteadingPeople);
+
+// -- SIDEBAR NOTE ----------------------------------------------
+// The Actors tab shows a character's playbook, which lives in an embedded item — invisible to the
+// directory's own re-render.
+Hooks.on("createItem", onDirectoryNoteItemChanged);
+Hooks.on("updateItem", onDirectoryNoteItemChanged);
+Hooks.on("deleteItem", onDirectoryNoteItemChanged);
 
 // -- LINKED DOCUMENTS ------------------------------------------
 // Steading rows show linked documents by live content link; redraw when one is renamed or deleted.

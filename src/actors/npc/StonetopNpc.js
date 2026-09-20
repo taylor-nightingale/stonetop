@@ -35,6 +35,9 @@ export class StonetopNpc {
 	// spends one through the typed actor, and a card that rolls must not have to be special-cased.
 	async clearRollMode() {}
 
+	/** Nothing: an NPC has no playbook, and its stat block is not a subtitle. */
+	get directoryNote() { return null; }
+
 	get hp()             { return this._actor.system?.hp?.value     ?? 0; }
 	get maxHp()          { return this._actor.system?.hp?.max       ?? 0; }
 	get armor()          { return this._actor.system?.armor          ?? ""; }

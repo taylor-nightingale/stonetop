@@ -26,6 +26,12 @@ function makeNpc(overrides = {}) {
 	return new StonetopNpc(makeActor(overrides));
 }
 
+// The sidebar asks every typed actor what to write beside its name. An NPC plays no playbook, so it
+// answers — rather than leaving the document class to ask whether the property exists.
+describe("StonetopNpc.directoryNote", () => {
+	it("is null", () => expect(makeNpc().directoryNote).toBeNull());
+});
+
 describe("StonetopNpc — getters return defaults", () => {
 	it("hp defaults to 0", () => expect(makeNpc().hp).toBe(0));
 	it("maxHp defaults to 0", () => expect(makeNpc().maxHp).toBe(0));
