@@ -24,6 +24,7 @@
     "art-manifest": "node scripts/art/build-art-manifest.js",
     "slice-arcana-border": "node scripts/art/slice-arcana-border.js",
     "pack:module": "node scripts/pack-module.js",
+    "release:stamp": "node scripts/release/stamp-manifest.js",
     "publish:foundry": "node scripts/release/publish-to-foundry.js"
   },
   "devDependencies": {

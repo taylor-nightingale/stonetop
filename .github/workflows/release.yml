@@ -20,14 +20,10 @@ jobs:
       - run: npm run build
       - run: npm run pack
 
-      - name: Patch download URL
-        run: |
-          node -e "
-            const fs = require('fs');
-            const m = JSON.parse(fs.readFileSync('system.json', 'utf8'));
-            m.download = 'https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/stonetop.zip';
-            fs.writeFileSync('system.json', JSON.stringify(m, null, '\t'));
-          "
+      # The download URL and the stylesheets' ?v= are both true only of a released manifest, and
+      # both are read off GITHUB_REPOSITORY and GITHUB_REF_NAME, which Actions sets for us.
+      - name: Stamp the manifest for this release
+        run: npm run release:stamp
 
       - name: Create zip
         run: |
