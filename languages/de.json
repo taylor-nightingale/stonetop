@@ -42,8 +42,8 @@
         "followers": "Gefolgsleute",
         "notes": "Notizen"
       },
-      "railShow": "Show the moves rail",
-      "railHide": "Hide the moves rail",
+      "railShow": "Zeig die Spielzüge",
+      "railHide": "Versteck die Spielzüge",
       "notes": {
         "bio": "Biographie",
         "notes": "Notizen"

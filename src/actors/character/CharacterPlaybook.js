@@ -143,7 +143,7 @@ export class CharacterPlaybook {
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
-			.withTitle(this.title)
+			.withTitle(PlaybookTitle.from(data).titleFor(this._moves.acquiredSlugs))
 			.withImg(data.img ?? null)
 			.withDescription(rich(data.description ?? null))
 			.withStatsNote(data.statsNote ?? null)
