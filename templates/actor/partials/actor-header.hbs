@@ -9,11 +9,65 @@
 	<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{actor.name}}"><img data-edit="img" class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" title="{{actor.name}}"></button>
 	{{/if}}
 	<div class="header-fields">
+		{{!-- Who you are, and what you are: "Anwen, The Would-be Hero". The steading's masthead writes
+		      the same sentence with its size pill — a category reads with the name, not in a row of
+		      numbers — and the playbook is the character's.
+
+		      IN the h1, so the heading is the whole sentence rather than the name with a caption
+		      beside it.
+
+		      The field is quiet until you reach for it (see the CSS): a name is typed once, and at
+		      rest this line is a title, not a form. --}}
 		<h1 class="charname">
 			<input name="name" type="text" value="{{actor.name}}"
 			       aria-label="{{localize 'stonetop.a11y.actorName'}}"
 			       placeholder="Name"
 			       {{#unless editable}}disabled{{/unless}}>
+			{{!-- Characters only: this masthead is the NPC card's too, and an NPC has no playbook. --}}
+			{{#if stonetop.playbook}}
+			<span class="stonetop-charname-playbook">{{stonetop.playbook.title}}</span>
+			{{/if}}
 		</h1>
+
+		{{!-- What you are suffering from, under your own name — and where you mark it.
+
+		      The masthead is the one block the fold does not take, and the crest beside the name is
+		      taller than the name field, so there is a line of room here that exists whether anything
+		      uses it or not. Folded, that is where the debilities go: the band's three bracketed ticks
+		      are off the sheet, and "which ones do I have" is the first thing a hindered stat's red
+		      number makes you ask.
+
+		      The steading's ledger line, exactly: all three in the book's order so nothing moves when
+		      you mark one, a circle you can click, the name, and — for the ones you HAVE — what it does
+		      after a dash. An unmarked one keeps its name and drops its sentence: three paragraphs of
+		      rules prose under a name field is a wall, and the two you do not have are not the question
+		      being asked.
+
+		      The FIRST sentence of it — what the debility is, not which rolls it hinders. The clause
+		      that names the stats is already on the sheet twice over: those two numbers are the red
+		      ones on the line directly below this.
+
+		      Marking works from here because the tick is the same control the band's is: one
+		      `data-change-action="debility"`, one handler, no second path to keep in step.
+
+		      Rendered only where the context carries debilities: `actor-header.hbs` is the NPC card's
+		      masthead too, and an NPC has none. --}}
+		{{#if stonetop.debilities}}
+		<ul class="stonetop-masthead-debilities stonetop-unmarked"
+		    aria-label="{{localize 'stonetop.a11y.debilities'}}">
+			{{#each stonetop.debilities}}
+			<li class="stonetop-masthead-debility{{#if active}} is-active{{/if}}">
+				<label class="stonetop-masthead-debility-control">
+					<input type="checkbox" class="stonetop-masthead-debility-check"
+					       data-change-action="debility" data-slug="{{key}}"
+					       {{#if active}}checked{{/if}}>
+					<span class="stonetop-masthead-debility-circle" aria-hidden="true"></span>
+					<span class="stonetop-masthead-debility-name">{{name}}</span>
+					<span class="stonetop-masthead-debility-effect"><span aria-hidden="true">—</span> {{summary}}</span>
+				</label>
+			</li>
+			{{/each}}
+		</ul>
+		{{/if}}
 	</div>
 </header>

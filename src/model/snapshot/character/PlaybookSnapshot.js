@@ -94,6 +94,7 @@ export class BackgroundSection {
 /**
  * @property {string} slug
  * @property {string} name
+ * @property {string} title - what the front page calls it: the name, unless a taken move renamed it
  * @property {string|null} img
  * @property {string|null} description
  * @property {string|null} statsNote
@@ -111,7 +112,7 @@ export class PlaybookSnapshot {
 		this.slug             = b._slug;
 		this.name             = b._name;
 		this.img              = b._img;
-		this.titleImg         = b._slug ? `systems/stonetop/assets/content/playbooks/${b._slug}-title.png` : null;
+		this.title            = b._title ?? b._name;
 		this.description      = b._description;
 		this.statsNote        = b._statsNote;
 		this.choices          = b._choices          ?? [];
@@ -128,6 +129,7 @@ export class PlaybookSnapshot {
 export class PlaybookSnapshotBuilder {
 	withSlug(v)             { this._slug             = v; return this; }
 	withName(v)             { this._name             = v; return this; }
+	withTitle(v)            { this._title            = v; return this; }
 	withImg(v)              { this._img              = v; return this; }
 	withDescription(v)      { this._description      = v; return this; }
 	withStatsNote(v)        { this._statsNote        = v; return this; }

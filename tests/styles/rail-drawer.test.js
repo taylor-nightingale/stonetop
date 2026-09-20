@@ -238,37 +238,45 @@ describe.skipIf(!canProbe())("the rail as a drawer", () => {
 });
 
 /**
- * The region beside the rail, when that region is itself the scrolling box.
+ * The region beside the rail steps aside for the folded strip.
  *
- * On the character sheet `.sheet-body` and `.stonetop-rail-main` are ONE element, so what steps
- * aside for the folded strip is the scroll container. A padding could not do it: padding moves the
- * content and leaves the border box where it was, and a scrollbar is drawn at the BORDER edge — so
- * the tab's text cleared the strip while the scrollbar it needs sat underneath it, and putting the
- * rail away took the scrollbar away with it.
+ * The strip runs the sheet's full height, so every line of the tab is against it. What moves is the
+ * REGION (`.stonetop-rail-main`), by a margin — and the scroll container nested inside it comes
+ * along. A padding could not do it: padding moves the content and leaves the border box where it
+ * was, and a scrollbar is drawn at the BORDER edge — so the tab's text cleared the strip while the
+ * scrollbar it needs sat underneath it, and putting the rail away took the scrollbar away with it.
  *
  * Geometry, because that is the whole of the claim: no computed value distinguishes a gutter that
  * moves the box from one that moves only what is in it.
  */
 const SCROLLER_TARGETS = { toggle: ".stonetop-rail-toggle", body: ".stonetop-rail-main" };
 
-// Markup copied from character.hbs: the rail layout with its body and rail as siblings, the body
-// carrying both classes. The tall child is what makes it actually scroll.
-const scrollingFixture = ({ shut, width }) => `
+/** Does the region clear the strip? Which edge that is, is the whole of what `data-side` means. */
+const clearsStrip = (body, toggle, side) => side === "left"
+	? body.boxLeft                 >= toggle.boxLeft + toggle.boxWidth - 1
+	: body.boxLeft + body.boxWidth <= toggle.boxLeft + 1;
+
+// Markup copied from character.hbs: the layout is the OUTER container, the rail and the region
+// beside it are siblings under it, and the region is a column holding the tabs and the scrolling
+// body. The tall child is what makes it actually scroll.
+const scrollingFixture = ({ shut, width, side = "left" }) => `
 ${FONT_AWESOME}
 <div class="application stonetop sheet character themed theme-light" style="width: ${width}px; height: 700px">
-  <div class="window-content"><div class="sheet-wrapper"><section class="sheet-main flexcol">
-    <nav class="sheet-tabs tabs" data-group="primary"><button type="button" class="item">Moves</button></nav>
-    <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="right">
+  <div class="window-content"><div class="sheet-wrapper">
+    <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="${side}">
       <button type="button" class="stonetop-rail-toggle" aria-label="Rail">
         <i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
         <span class="stonetop-rail-fold" aria-hidden="true"><i class="fas fa-bolt stonetop-rail-mark"></i></span>
       </button>
-      <section class="sheet-body stonetop-rail-main">
-        <div class="tab active" data-tab="moves" style="height: 3000px">a tab long enough to scroll</div>
-      </section>
       <div class="stonetop-rail stonetop-moves-rail"><button type="button">Roll</button></div>
+      <div class="stonetop-rail-main character-main">
+        <nav class="sheet-tabs tabs" data-group="primary"><button type="button" class="item">Moves</button></nav>
+        <section class="sheet-body">
+          <div class="tab active" data-tab="moves" style="height: 3000px">a tab long enough to scroll</div>
+        </section>
+      </div>
     </div>
-  </section></div></div>
+  </div></div>
 </div>`;
 
 const measureScroller = opts => probe.measure({
@@ -284,8 +292,8 @@ describe.skipIf(!canProbe())("a shut rail and the tab's scrollbar", () => {
 		const r = measureScroller({ shut: true, width: 1400 });
 		const toggle = r.get("toggle").values;
 		const body = r.get("body").values;
-		expect(body.boxLeft + body.boxWidth, "the scrolling box runs under the strip, taking its scrollbar with it")
-			.toBeLessThanOrEqual(toggle.boxLeft);
+		expect(clearsStrip(body, toggle, "left"), "the scrolling box runs under the strip, taking its scrollbar with it")
+			.toBe(true);
 	});
 
 	// Below the breakpoint an untouched rail is already a shut drawer, so the strip — and the same
@@ -295,7 +303,16 @@ describe.skipIf(!canProbe())("a shut rail and the tab's scrollbar", () => {
 		const toggle = r.get("toggle").values;
 		const body = r.get("body").values;
 		expect(toggle.boxHeight, "no strip at this width").toBeGreaterThan(300);
-		expect(body.boxLeft + body.boxWidth).toBeLessThanOrEqual(toggle.boxLeft);
+		expect(clearsStrip(body, toggle, "left")).toBe(true);
+	});
+
+	// `data-side` is the only thing that says which edge, here as everywhere: the same region has to
+	// step aside the other way when the rail is on the right.
+	it("mirrors: on the right the region ends before the strip instead", () => {
+		const r = measureScroller({ shut: true, width: 1400, side: "right" });
+		const toggle = r.get("toggle").values;
+		const body = r.get("body").values;
+		expect(clearsStrip(body, toggle, "right")).toBe(true);
 	});
 
 	// Open and inline, the toggle is a pill out in the channel beyond the region, so the region keeps
@@ -305,7 +322,78 @@ describe.skipIf(!canProbe())("a shut rail and the tab's scrollbar", () => {
 		const toggle = r.get("toggle").values;
 		const body = r.get("body").values;
 		expect(toggle.boxHeight, "the toggle is not the open pill").toBeLessThan(40);
-		expect(body.boxLeft + body.boxWidth, "the region is paying for a strip that is not there")
-			.toBeLessThanOrEqual(toggle.boxLeft);
+		expect(clearsStrip(body, toggle, "left"), "the region is paying for a strip that is not there")
+			.toBe(true);
+	});
+});
+
+/**
+ * The character sheet's rail runs the WHOLE sheet, not just the tab.
+ *
+ * It used to hang inside `.sheet-main`, below the masthead and a ~400px stats band, so it could only
+ * ever be as tall as the current tab — the thing it is for (the numbers you roll and the moves you
+ * roll them on) sat in a column that started halfway down the window. Hoisting the layout to be the
+ * wrapper's own child is what fixes that, and only layout can say whether it worked: every rule in
+ * the chain is as valid pointing at the wrong ancestor as at the right one.
+ */
+const FULL_HEIGHT_TARGETS = {
+	rail:     ".stonetop-rail",
+	masthead: ".character-main > .sheet-header",
+	body:     ".character-main > .sheet-body",
+};
+
+const fullHeightFixture = `
+${FONT_AWESOME}
+<div class="application stonetop sheet character themed theme-light" style="width: 1100px; height: 700px">
+  <div class="window-content"><div class="sheet-wrapper">
+    <div class="stonetop-rail-layout" data-side="left">
+      <button type="button" class="stonetop-rail-toggle" aria-label="Rail">
+        <i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
+      </button>
+      <div class="stonetop-rail stonetop-moves-rail"><button type="button">Roll</button></div>
+      <div class="stonetop-rail-main character-main">
+        <header class="sheet-header flexrow"><div class="header-fields"><h1 class="charname">
+          <input name="name" type="text" value="Blodwen" aria-label="Name">
+        </h1></div></header>
+        <nav class="sheet-tabs tabs" data-group="primary"><button type="button" class="item">Moves</button></nav>
+        <section class="sheet-body">
+          <div class="tab active" data-tab="moves" style="height: 3000px">a tab long enough to scroll</div>
+        </section>
+      </div>
+    </div>
+  </div></div>
+</div>`;
+
+describe.skipIf(!canProbe())("the character rail spans the whole sheet", () => {
+	const m = () => probe.measure({
+		bodyHtml: fullHeightFixture, bodyClass: "game themed theme-light",
+		rootAttrs: 'style="font-size: 16px"', targets: FULL_HEIGHT_TARGETS,
+		chromeFlags: ["--window-size=1160,800"],
+	});
+
+	it("opens level with the masthead rather than below it", () => {
+		const r = m();
+		const rail = r.get("rail").values;
+		const masthead = r.get("masthead").values;
+		expect(rail.boxHeight, "the rail is not drawn at this width").toBeGreaterThan(0);
+		expect(rail.boxTop, `rail starts at ${Math.round(rail.boxTop)}, masthead at ${Math.round(masthead.boxTop)}`)
+			.toBeLessThanOrEqual(masthead.boxTop + 1);
+	});
+
+	it("runs past the tab rule to the foot of the sheet", () => {
+		const r = m();
+		const rail = r.get("rail").values;
+		const body = r.get("body").values;
+		expect(rail.boxTop + rail.boxHeight)
+			.toBeGreaterThanOrEqual(body.boxTop + body.boxHeight - 1);
+	});
+
+	// The masthead is beside the rail, not above it: that is what "the layout is the outer container"
+	// buys, and it is the half a `height: 100%` on the rail could never give.
+	it("puts the masthead beside the rail, not over it", () => {
+		const r = m();
+		const rail = r.get("rail").values;
+		const masthead = r.get("masthead").values;
+		expect(masthead.boxLeft).toBeGreaterThanOrEqual(rail.boxLeft + rail.boxWidth - 1);
 	});
 });

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CharacterDebilities } from "../../../src/actors/character/CharacterDebilities.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
+import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 
 // -- helpers -------------------------------------------------------------------
 
@@ -76,6 +77,33 @@ describe("CharacterDebilities.buildDebilitiesSnapshot", () => {
 		const snap = new CharacterDebilities(makeDebilityActor()).buildDebilitiesSnapshot();
 		for (const key of ["weakened", "dazed", "miserable"]) {
 			expect(snap.find(d => d.key === key).description).toBe(`stonetop.character.debilities.desc.${key}`);
+		}
+	});
+
+	// The name is drawn twice on the character sheet — under its pair of stat tiles, and in the folded
+	// ledger where a hindered stat says which debility dimmed it — so an English word in the defs
+	// table showed up twice on an otherwise translated band.
+	it("names every debility from a key, not from an English word", () => {
+		const snap = new CharacterDebilities(makeDebilityActor()).buildDebilitiesSnapshot();
+		for (const key of ["weakened", "dazed", "miserable"]) {
+			expect(snap.find(d => d.key === key).name).toBe(`stonetop.character.debilities.name.${key}`);
+		}
+	});
+
+	it("names every debility from a key that has a string in en.json", () => {
+		const i18n = fakeI18n();
+		const snap = new CharacterDebilities(makeDebilityActor()).buildDebilitiesSnapshot();
+		expect(snap.map(d => d.name).filter(k => !i18n.has(k))).toEqual([]);
+	});
+
+	it("localizes the name through game.i18n when available", () => {
+		const prev = globalThis.game;
+		globalThis.game = { i18n: { localize: (k) => (k === "stonetop.character.debilities.name.dazed" ? "Benommen" : k) } };
+		try {
+			const snap = new CharacterDebilities(makeDebilityActor()).buildDebilitiesSnapshot();
+			expect(snap.find(d => d.key === "dazed").name).toBe("Benommen");
+		} finally {
+			globalThis.game = prev;
 		}
 	});
 

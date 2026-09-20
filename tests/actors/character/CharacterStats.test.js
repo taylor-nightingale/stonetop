@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CharacterStats } from "../../../src/actors/character/CharacterStats.js";
-import { Stats } from "../../../src/model/data/character/Stats.js";
+import { Stats, STAT_KEYS } from "../../../src/model/data/character/Stats.js";
+import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 import { FakeCharacterActorBuilder, FakeStatBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 
 // -- getStats ------------------------------------------------------------------
@@ -32,12 +33,16 @@ describe("CharacterStats.getRollableStats", () => {
 		expect(new CharacterStats(new FakeCharacterActorBuilder().build()).getRollableStats()).toHaveLength(6);
 	});
 
+	// The harness's localize() returns the key by design, so this pins the KEY the stat is named from
+	// — which is the half that can silently rot. "names every stat from a key…" below proves it
+	// resolves. The name used to be the English word, written into the defs table, so a German sheet
+	// offered "Wisdom" in the stat-pick dialog while its own tiles read "WE".
 	it("each entry has key, name, and value", () => {
 		const actor = new FakeCharacterActorBuilder().withStats(new FakeStatBuilder().withWis(2)).build();
 		const stats = new CharacterStats(actor).getRollableStats();
 		const wis = stats.find(s => s.key === "wis");
 		expect(wis).toBeDefined();
-		expect(wis.name).toBe("Wisdom");
+		expect(wis.name).toBe("stonetop.character.stats.wisdom");
 		expect(wis.value).toBe(2);
 	});
 
@@ -104,5 +109,41 @@ describe("CharacterStats.buildStatsSnapshot", () => {
 		} finally {
 			globalThis.game = prev;
 		}
+	});
+});
+
+// -- localization --------------------------------------------------------------
+
+// Every word a stat shows comes from the language files, and the language files have held these
+// strings all along — the defs table answered first with an English one, so nothing ever read them.
+describe("CharacterStats localization", () => {
+	const snapshot = () => new CharacterStats(new FakeCharacterActorBuilder().build()).buildStatsSnapshot();
+
+	it("names every stat from a key that has a string in en.json", () => {
+		const i18n = fakeI18n();
+		const keys = new CharacterStats(new FakeCharacterActorBuilder().build())
+			.getRollableStats().map(s => s.name);
+		expect(keys.filter(k => !i18n.has(k))).toEqual([]);
+	});
+
+	it("takes the name, the abbreviation and the description from keys that all resolve", () => {
+		const i18n = fakeI18n();
+		const missing = Object.values(snapshot())
+			.flatMap(s => [s.name, s.abbr, s.description])
+			.filter(k => !i18n.has(k));
+		expect(missing).toEqual([]);
+	});
+
+	// The tile draws the abbreviation on its own; the move sheet's dropdown puts the "+" on. One
+	// translation of "STR", so a translator cannot get the two out of step.
+	it("carries the abbreviation without a roll's plus on it", () => {
+		const i18n = fakeI18n();
+		for (const stat of Object.values(snapshot())) {
+			expect(i18n.format(stat.abbr), `${stat.key} carries the dropdown's plus`).not.toMatch(/^\+/);
+		}
+	});
+
+	it("describes exactly the stats a Stats holds — no more, no fewer", () => {
+		expect(Object.keys(snapshot()).sort()).toEqual([...STAT_KEYS].sort());
 	});
 });

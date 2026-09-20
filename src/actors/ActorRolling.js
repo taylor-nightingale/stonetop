@@ -64,6 +64,11 @@ export class ActorRolling {
 		// row, the die in the season box and the turn's own rollItem are three paths to one roll.
 		await this._actor.typedActor.recordMoveOutcome(request.moveSlug, outcome);
 
+		// And the mode is spent. It is read into `effectiveMode` well above, so clearing it here
+		// cannot change the roll that was just made — only what the NEXT one starts from. Beside
+		// recordMoveOutcome because they are the same kind of thing: what the roll leaves behind.
+		await this._actor.typedActor.clearRollMode();
+
 		// The card carries name, outcome and dice as three separate facts, so the template can put
 		// the outcome where it reads — a badge on the dice line — instead of in the headline.
 		const card = {

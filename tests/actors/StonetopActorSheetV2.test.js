@@ -160,6 +160,39 @@ describe("StonetopActorSheetV2 base", () => {
 		});
 	});
 
+	// The view state goes back BEFORE the new part is in the document. Restored only afterwards, a
+	// re-render painted the template's own defaults for a frame first — ticking a debility flipped the
+	// band's fold caret open and back, because the markup ships expanded and the class saying
+	// otherwise landed a frame late. Both calls stay: this one cannot answer anything that needs
+	// layout, so the one in _syncPartState still settles those.
+	describe("view state restored before the new DOM is live", () => {
+		it("puts the view state back on the incoming element, off-document", () => {
+			const { sheet } = makeSheet();
+			const newElement = document.createElement("div");
+			const seen = [];
+			sheet.restoreViewState = root => seen.push({ root, live: document.body.contains(root) });
+
+			sheet._preSyncPartState("form", newElement, document.createElement("div"), {});
+
+			expect(seen).toHaveLength(1);
+			expect(seen[0].root, "a different tree was restored").toBe(newElement);
+			expect(seen[0].live, "the element was already in the document").toBe(false);
+		});
+
+		it("still restores after the swap, where layout can be measured", () => {
+			const { sheet } = makeSheet();
+			const newElement = document.createElement("div");
+			document.body.appendChild(newElement);
+			const seen = [];
+			sheet.restoreViewState = root => seen.push(document.body.contains(root));
+
+			sheet._syncPartState("form", newElement, document.createElement("div"),
+				{ focus: null, scrollPositions: [] });
+
+			expect(seen).toEqual([true]);
+		});
+	});
+
 	describe("scroll-safe focus restore (_syncPartState)", () => {
 		it("refocuses with preventScroll and restores the declared scroll positions", () => {
 			const { sheet } = makeSheet();

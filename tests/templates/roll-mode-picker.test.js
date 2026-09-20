@@ -5,11 +5,12 @@ import { renderPartial } from "../fakes/renderTemplate.js";
 import { RollModes } from "../../src/actors/RollModes.js";
 
 // The roll-mode radios existed three times: the character sheet's move side-bar, the stat-pick
-// dialog (built as a JS string), and the steading sheet. The first two are byte-identical markup and
-// had already drifted — the JS copy omitted `is-checked` and the <span> around the label — so they
-// render from one partial now. The steading's is a genuinely different control (its box glyph, and a
-// different mode order) and is deliberately left out; a test below pins that as a choice rather than
-// letting it read as one more copy someone forgot.
+// dialog (built as a JS string), and the steading sheet. All three render from ONE partial now.
+//
+// The steading's was the last holdout, kept separate because a stacked column of radios is most of a
+// header row's height. That is a LAYOUT reason, so it is answered with a variant class rather than a
+// second template: `inline` for both sheets' headers, `stacked` for the dialog. The tests below pin
+// that every call site goes through the partial, which is what stops a fourth copy appearing.
 
 const root = process.cwd();
 const read = rel => readFileSync(path.resolve(root, rel), "utf8");
@@ -32,8 +33,8 @@ describe("roll-mode picker partial", () => {
 
 	// The label carries the checked state as a class as well as the input carrying the attribute:
 	// the custom circle radio is drawn off both, and the JS copy used to set neither.
-	it("marks the selected mode's label, which draws the filled circle", () => {
-		expect(picker("adv")).toContain('class="stonetop-outfit-load-label is-checked"');
+	it("marks the selected mode's label, which is what the accent and the mark are drawn off", () => {
+		expect(picker("adv")).toContain('class="stonetop-rollmode-option is-checked"');
 	});
 
 	it("scopes the radio group to the name its caller passes", () => {
@@ -49,16 +50,56 @@ describe("roll-mode picker partial", () => {
 	});
 
 	it("gives every radio a label to be named by", () => {
-		const labels = picker("normal").match(/<span>[^<]+<\/span>/g) ?? [];
+		const labels = picker("normal").match(/<span class="stonetop-rollmode-label">[^<]+<\/span>/g) ?? [];
 		expect(labels).toHaveLength(3);
+	});
+
+	// Three radios that mean one setting are a group; a group with no accessible name is three loose
+	// words. The legend carries it on both variants — inline only hides it visually.
+	it("wraps the options in a named group", () => {
+		const html = picker("normal");
+		expect(html).toContain("<fieldset");
+		expect(html).toContain('class="stonetop-rollmode-legend"');
+	});
+
+	// The variant is the whole of what differs between the three surfaces.
+	it("takes its arrangement from the variant, defaulting to inline", () => {
+		expect(picker("normal", { variant: "stacked" })).toContain("stonetop-rollmode--stacked");
+		expect(picker("normal", { variant: "inline" })).toContain("stonetop-rollmode--inline");
+		expect(picker("normal")).toContain("stonetop-rollmode--inline");
 	});
 });
 
 describe("roll-mode picker call sites", () => {
-	it("is how the character sheet's side-bar renders its radios", () => {
-		const sheet = read("templates/actor/character.hbs");
-		expect(sheet).toContain('{{> "stonetop.roll-mode-picker"');
-		expect(sheet).not.toContain("stonetop-roll-mode-radio");
+	// ONE picker on the character sheet, in the band's foot, and the fold does not reach it. It was
+	// rendered twice — stacked beside Damage while the band was open, inline on the folded line — and
+	// two radios sharing a `name` are ONE group with one checked member, so whichever copy parsed last
+	// was the one the browser believed. The foot is the line the numbers fold TO, so a control that
+	// ends it ends it at both densities without moving.
+	//
+	// NOT on the shared actor header, which the NPC card also renders — and where it spent a spell
+	// as three words at the end of a line with nothing to align to.
+	it("renders exactly one picker on the character sheet", () => {
+		const character = read("templates/actor/character.hbs");
+		expect(character.match(/stonetop\.roll-mode-picker/g) ?? [], "the character sheet renders a second picker")
+			.toHaveLength(1);
+		expect(character, "the character sheet's picker is not the inline one").toContain('variant="inline"');
+		expect(character).not.toContain("stonetop-roll-mode-radio");
+		expect(read("templates/actor/partials/actor-header.hbs"), "the masthead still renders a mode")
+			.not.toContain("roll-mode-picker");
+	});
+
+	// The folded line carries the NUMBERS at line height and nothing else. A picker in here would be
+	// the second copy again, with the fold deciding which one the browser believed.
+	it("keeps the picker out of the folded line", () => {
+		expect(read("templates/actor/partials/folded-ledger.hbs"), "the folded line renders its own picker")
+			.not.toContain("roll-mode-picker");
+	});
+
+	// One picker, so the group name is stated once — but it is still stated, because the radios are a
+	// group and an unnamed group is three loose radios.
+	it("scopes the character sheet's radios to a named group", () => {
+		expect(read("templates/actor/character.hbs")).toContain('name="stonetop-roll-mode"');
 	});
 
 	it("is how the stat-pick dialog renders its radios", () => {
@@ -83,21 +124,31 @@ describe("roll-mode picker call sites", () => {
 			}
 		};
 		walk("templates");
-		const others = hbs.filter(f => !f.endsWith("roll-mode-picker.hbs") && read(f).includes("stonetop-roll-mode-radio"));
+		const others = hbs.filter(f => !f.endsWith("roll-mode-picker.hbs") && read(f).includes("stonetop-rollmode-input"));
 		expect(others).toEqual([]);
 	});
 
-	// The steading draws a segmented control rather than the picker's stacked list — its header is a
-	// single row, and a column of three radios is most of that row's height. Only the MARKUP diverges
-	// now: the options come from the shared RollModes list, so the two can no longer drift in which
-	// modes exist or what order they come in, which is what the old hand-rolled copy had done.
-	it("is not used by the steading, which draws the same options as a segmented control", () => {
+	// The last copy, folded in. The steading's control was hand-rolled markup rendering the shared
+	// RollModes list; it is the same partial now, asking for the same `inline` variant the character
+	// sheet's masthead asks for. Nothing about the two is allowed to drift again.
+	it("is how the steading's ledger line renders its radios", () => {
 		const steading = read("templates/actor/steading.hbs");
-		expect(steading).not.toContain('{{> "stonetop.roll-mode-picker"');
+		expect(steading).toContain('{{> "stonetop.roll-mode-picker"');
 		expect(steading).toContain("stonetop.rollModes");
-		expect(steading).toContain("steading-rollmode-input");
+		expect(steading).not.toContain("steading-rollmode-input");
 		// The retired ladder glyph is gone from the header along with the rating ladders.
 		expect(steading).not.toContain("steading-roll-mode-radio");
 		expect(steading).not.toContain("steading-box-input");
+	});
+
+	// Both sheets ask for the same arrangement, because both put the control at the end of a line: the
+	// steading's ledger line and the character band's foot. `stacked` is the dialog's alone, where the
+	// choice IS the box — a column of circle radios on a sheet is most of a header row's height for a
+	// setting that is three words wide.
+	it("gives both sheets the same variant", () => {
+		for (const f of ["templates/actor/steading.hbs", "templates/actor/character.hbs"])
+			expect(read(f), `${f} does not ask for the inline variant`).toContain('variant="inline"');
+		for (const f of ["templates/actor/steading.hbs", "templates/actor/character.hbs"])
+			expect(read(f), `${f} puts a stacked column of radios on a sheet`).not.toContain('variant="stacked"');
 	});
 });

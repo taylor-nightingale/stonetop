@@ -13,6 +13,7 @@ export class TestPlaybookItemBuilder {
 	_specialPossessions = null;
 	_introductions      = null;
 	_startingMoves      = [];
+	_renameOnMove       = null;
 
 	withSlug(slug)               { this._slug               = slug; return this; }
 	withName(name)               { this._name               = name; return this; }
@@ -30,6 +31,8 @@ export class TestPlaybookItemBuilder {
 	// The subset of the playbook's moves seeded acquired at character creation — the ones a level
 	// never bought.
 	withStartingMoves(slugs)     { this._startingMoves      = slugs; return this; }
+	// The move that renames this playbook on the front page, and the name it leaves behind.
+	withRenameOnMove(def)        { this._renameOnMove       = def; return this; }
 
 	_buildSystem() {
 		return {
@@ -47,6 +50,7 @@ export class TestPlaybookItemBuilder {
 			damage:             { value: null },
 			startingMovesNote:  "",
 			startingMoves:      this._startingMoves,
+			renameOnMove:       this._renameOnMove,
 			introductions:      this._introductions,
 		};
 	}

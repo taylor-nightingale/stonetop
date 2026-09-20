@@ -27,6 +27,8 @@ export class FakeMoves {
 
 	get acquiredMoves() { return this._acquired; }
 
+	get acquiredSlugs() { return new Set(this._acquired.map(i => i.system.slug)); }
+
 	// A move that carries a track (Thrall's Favor), at the given current value.
 	withTrack(slug, value)    { this._tracks[slug] = value; return this; }
 	resourceValue(slug)       { return this._tracks[slug] ?? null; }

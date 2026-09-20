@@ -1,73 +1,71 @@
-<div class="stonetop-resource-row">
+{{!-- HP, Armor and Damage: what you can take, what you deflect, what you deal.
 
-	<div class="stonetop-resource stonetop-resource--small">
-		<button class="stonetop-resource__label stonetop-damage-roll rollable" type="button"
-		        data-roll="damage"
-		        data-tooltip="{{stonetop.vitals.sources.damage}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.damage"}}</button>
-		<input class="stonetop-resource__input stonetop-char-damage" type="text" data-change-action="damage"
+      No heading. The three tiles name themselves with their own label chips, the band they sit in
+      is self-evident, and the region already carries one heading ("Stats") — a second beside it
+      would put two heading idioms in one band, which is what made the first attempt's column read
+      as two sheets stacked.
+
+      XP and Level are NOT here. They are consulted once a session, not mid-blow, so they live in
+      the rail under Advancement; these three are consulted every time something lands.
+
+      Each value states its own provenance beside it (`notes`), which used to live only in a
+      `data-tooltip` — pointer-only, and invisible to assistive tech. The hover keeps the full
+      sentence; the note is the short form. --}}
+<div class="stonetop-resource-row stonetop-resource-row--vitals">
+
+	<div class="stonetop-vital">
+		<div class="stonetop-resource stonetop-resource--wide">
+			<span class="stonetop-resource__label"
+			      data-tooltip="{{stonetop.vitals.sources.hp}}" data-tooltip-direction="UP">HP</span>
+			<div class="stonetop-resource__split">
+				<span class="stonetop-stepper">
+					<input class="stonetop-resource__input stonetop-char-hp stonetop-step" type="number" data-change-action="hp"
+					       aria-label="{{localize 'stonetop.a11y.hpCurrent'}}"
+					       value="{{stonetop.vitals.hp.value}}" min="0">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
+				<span>/</span>
+				<span class="stonetop-stepper">
+					<input class="stonetop-resource__max stonetop-char-max-hp stonetop-step" type="number" data-change-action="maxHp"
+					       aria-label="{{localize 'stonetop.a11y.hpMax'}}"
+					       value="{{stonetop.vitals.hp.max}}" min="0">
+					{{> "stonetop.stepper-buttons"}}
+				</span>
+			</div>
+		</div>
+		{{#if (hasText stonetop.vitals.notes.hp)}}
+		<span class="stonetop-resource__note">{{stonetop.vitals.notes.hp}}</span>
+		{{/if}}
+	</div>
+
+	<div class="stonetop-vital">
+		<div class="stonetop-resource stonetop-resource--small">
+			<span class="stonetop-resource__label"
+			      data-tooltip="{{stonetop.vitals.sources.armor}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.armor"}}</span>
+			<span class="stonetop-stepper">
+				<input class="stonetop-resource__input stonetop-char-armor stonetop-step" type="number" data-change-action="armor"
+				       aria-label="{{localize 'stonetop.character.attributes.armor'}}"
+				       value="{{stonetop.vitals.armor}}" min="0">
+				{{> "stonetop.stepper-buttons"}}
+			</span>
+		</div>
+		{{#if (hasText stonetop.vitals.notes.armor)}}
+		<span class="stonetop-resource__note">{{stonetop.vitals.notes.armor}}</span>
+		{{/if}}
+	</div>
+
+	<div class="stonetop-vital">
+		<div class="stonetop-resource stonetop-resource--small">
+			<button class="stonetop-resource__label stonetop-damage-roll rollable" type="button"
+			        data-roll="damage"
+			        data-tooltip="{{stonetop.vitals.sources.damage}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.damage"}}</button>
+			<input class="stonetop-resource__input stonetop-char-damage" type="text" data-change-action="damage"
 			       aria-label="{{localize 'stonetop.a11y.damageDie'}}"
-		       value="{{stonetop.vitals.damage.value}}">
-	</div>
-
-	<div class="stonetop-resource stonetop-resource--wide">
-		<span class="stonetop-resource__label"
-		      data-tooltip="{{stonetop.vitals.sources.hp}}" data-tooltip-direction="UP">HP</span>
-		<div class="stonetop-resource__split">
-			<span class="stonetop-stepper">
-				<input class="stonetop-resource__input stonetop-char-hp stonetop-step" type="number" data-change-action="hp"
-			       aria-label="{{localize 'stonetop.a11y.hpCurrent'}}"
-				       value="{{stonetop.vitals.hp.value}}" min="0">
-				{{> "stonetop.stepper-buttons"}}
-			</span>
-			<span>/</span>
-			<span class="stonetop-stepper">
-				<input class="stonetop-resource__max stonetop-char-max-hp stonetop-step" type="number" data-change-action="maxHp"
-			       aria-label="{{localize 'stonetop.a11y.hpMax'}}"
-				       value="{{stonetop.vitals.hp.max}}" min="0">
-				{{> "stonetop.stepper-buttons"}}
-			</span>
+			       value="{{stonetop.vitals.damage.value}}">
 		</div>
-	</div>
-
-	<div class="stonetop-resource stonetop-resource--small">
-		<span class="stonetop-resource__label"
-		      data-tooltip="{{stonetop.vitals.sources.armor}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.armor"}}</span>
-		<span class="stonetop-stepper">
-			<input class="stonetop-resource__input stonetop-char-armor stonetop-step" type="number" data-change-action="armor"
-			       aria-label="{{localize 'stonetop.character.attributes.armor'}}"
-			       value="{{stonetop.vitals.armor}}" min="0">
-			{{> "stonetop.stepper-buttons"}}
-		</span>
-	</div>
-
-	{{!-- `is-full` is the one thing the sheet never said about XP: that the track is at (or past) the
-	      Level Up threshold it has been printing all along. It also settles Burn Brightly, which is
-	      gated on exactly this and had nothing on screen to read it from. --}}
-	<div class="stonetop-resource stonetop-resource--wide{{#if stonetop.vitals.readyToLevel}} is-full{{/if}}">
-		{{!-- A definition, not provenance: unlike HP/damage/armor above, XP has no playbook source to
-		      explain, so the hover carries what the book says XP is (Book I, p.53). --}}
-		<span class="stonetop-resource__label"
-		      data-tooltip="{{localize 'stonetop.character.attributes.desc.xp'}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.xp"}}</span>
-		<div class="stonetop-resource__split">
-			<span class="stonetop-stepper">
-				<input class="stonetop-resource__input stonetop-char-xp stonetop-step" type="number" data-change-action="xp"
-			       aria-label="{{localize 'stonetop.a11y.xpCurrent'}}"
-				       value="{{stonetop.vitals.xp.value}}" min="0">
-				{{> "stonetop.stepper-buttons"}}
-			</span>
-			<span>/</span>
-			<span class="stonetop-resource__max">{{stonetop.vitals.xp.max}}</span>
-		</div>
-	</div>
-
-	<div class="stonetop-resource stonetop-resource--small">
-		<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.level"}}</span>
-		<span class="stonetop-stepper">
-			<input class="stonetop-resource__input stonetop-char-level stonetop-step" type="number" data-change-action="level"
-			       aria-label="{{localize 'stonetop.character.attributes.level'}}"
-			       value="{{stonetop.vitals.level}}" min="1">
-			{{> "stonetop.stepper-buttons"}}
-		</span>
+		{{#if (hasText stonetop.vitals.notes.damage)}}
+		<span class="stonetop-resource__note">{{stonetop.vitals.notes.damage}}</span>
+		{{/if}}
 	</div>
 
 </div>

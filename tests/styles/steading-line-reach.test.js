@@ -81,11 +81,11 @@ const fixture = width => `
         ${condition("lacking", true)}
         ${condition("malcontent", false)}
       </div>
-      <fieldset class="steading-rollmode">
-        <legend class="steading-line-heading">Roll Mode</legend>
-        <label class="steading-rollmode-option"><input type="radio" class="steading-rollmode-input" name="rm" value="adv"><span>Advantage</span></label>
-        <label class="steading-rollmode-option is-checked"><input type="radio" class="steading-rollmode-input" name="rm" value="normal" checked><span>Normal</span></label>
-        <label class="steading-rollmode-option"><input type="radio" class="steading-rollmode-input" name="rm" value="dis"><span>Disadvantage</span></label>
+      <fieldset class="stonetop-rollmode stonetop-rollmode--inline">
+        <legend class="stonetop-rollmode-legend">Roll Mode</legend>
+        <label class="stonetop-rollmode-option"><input type="radio" class="stonetop-rollmode-input" name="rm" value="adv"><span class="stonetop-rollmode-mark" aria-hidden="true"></span><span class="stonetop-rollmode-label">Advantage</span></label>
+        <label class="stonetop-rollmode-option is-checked"><input type="radio" class="stonetop-rollmode-input" name="rm" value="normal" checked><span class="stonetop-rollmode-mark" aria-hidden="true"></span><span class="stonetop-rollmode-label">Normal</span></label>
+        <label class="stonetop-rollmode-option"><input type="radio" class="stonetop-rollmode-input" name="rm" value="dis"><span class="stonetop-rollmode-mark" aria-hidden="true"></span><span class="stonetop-rollmode-label">Disadvantage</span></label>
       </fieldset>
       </div>
     </header>
@@ -99,8 +99,8 @@ const TARGETS = {
 	size:       ".steading-tile-select",
 	cond1:      '.steading-debility [data-slug="diminished"]',
 	cond3:      '.steading-debility [data-slug="malcontent"]',
-	mode1:      '.steading-rollmode-option:first-of-type',
-	mode3:      '.steading-rollmode-option:last-of-type',
+	mode1:      '.stonetop-rollmode-option:first-of-type',
+	mode3:      '.stonetop-rollmode-option:last-of-type',
 };
 
 const CONTROLS = ["firstValue", "lastValue", "size", "cond1", "cond3", "mode1", "mode3"];

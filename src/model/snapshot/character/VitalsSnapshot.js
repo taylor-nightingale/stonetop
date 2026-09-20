@@ -29,12 +29,32 @@ export class VitalsSourcesSnapshot {
 }
 
 /**
+ * The same provenance as VitalsSourcesSnapshot, short enough to print beside the value.
+ *
+ * Separate from the sources rather than a field on them: a hover sentence and a printed note are
+ * read at different moments and cut to different lengths, and one string cannot be both without
+ * being wrong for one of them.
+ *
+ * @property {string} hp     - the playbook that grants this max, or "by hand"
+ * @property {string} damage - the playbook that grants this die, "by hand", or "none set"
+ * @property {string} armor  - the gear it adds up from, "by hand", or "none worn"
+ */
+export class VitalsNotesSnapshot {
+	constructor(hp, damage, armor) {
+		this.hp     = hp;
+		this.damage = damage;
+		this.armor  = armor;
+	}
+}
+
+/**
  * @property {ValueMax} hp  - max = playbook.hp; both 0 if no playbook
  * @property {string|null} damage - e.g. "d10"; null if no playbook
  * @property {number} armor
  * @property {number} level
  * @property {ValueMax} xp  - max = 6 + level * 2
  * @property {VitalsSourcesSnapshot} sources - tooltip text for hp, damage and armor
+ * @property {VitalsNotesSnapshot} notes - the same, short enough to print beside the value
  */
 export class VitalsSnapshot {
 	constructor(b) {
@@ -44,6 +64,7 @@ export class VitalsSnapshot {
 		this.level   = b._level;
 		this.xp      = b._xp;
 		this.sources = b._sources;
+		this.notes   = b._notes;
 	}
 
 	/** Whether the Level Up move has triggered — what lights the XP track and offers the strip. */
@@ -59,5 +80,6 @@ export class VitalsSnapshotBuilder {
 	withLevel(v)  { this._level  = v; return this; }
 	withXp(v)      { this._xp      = v; return this; }
 	withSources(v) { this._sources = v; return this; }
+	withNotes(v)   { this._notes   = v; return this; }
 	build()        { return new VitalsSnapshot(this); }
 }
