@@ -60,11 +60,11 @@
   "a-column-of-ice": {
     "name": {
       "source": "A column of ice",
-      "text": ""
+      "text": "Eine Säule aus Eis"
     },
     "description": {
       "source": "*magical*, *immobile*\n\nAmidst a high, lonely meadow stands a pillar of dark purple ice, 12 feet tall and 2 feet thick. It rests on a circular slab of rune-etched stone, a dozen paces across, untouched by time or nature. There’s a stillness to the place, a tension in the air.\n\n**Something interesting:** The runes appear to be some sort of spell, waiting to be triggered; it’d take days of study to puzzle out the command word (and you risk triggering it accidentally).\n\n**Something useful:** You can determine the command word with a few hours of study (less if you’re versed in Rime Lord script).\n\nWhen you **_speak the command word near_** **_the column_**, the dark ice expands in a flash, encasing the stone slab and anything on it. The ice traps even spirits (manifest or not). Mortal prisoners soon perish, their souls ensnared. The dark ice never melts and resists all but the mightiest magic and blows.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Unbeweglich*\n\nInmitten einer hoch gelegenen, einsamen Wiese steht eine Säule aus dunkelviolettem Eis, 12 Fuß hoch und 2 Fuß dick. Sie ruht auf einer kreisrunden, mit Runen bedeckten Steinplatte von etwa zwölf Schritt Durchmesser, die von Zeit und Natur unberührt geblieben ist. Eine unheimliche Stille liegt über dem Ort, eine Spannung liegt in der Luft.\n\n**Etwas Interessantes:** Die Runen scheinen eine Art Zauber zu bilden, der darauf wartet, ausgelöst zu werden. Es würde Tage des Studiums erfordern, das Befehlswort zu entschlüsseln (und dabei besteht die Gefahr, es versehentlich auszulösen).\n\n**Etwas Nützliches:** Du kannst das Befehlswort durch ein paar Stunden Studium herausfinden (weniger, wenn du mit der Schrift der Frostfürsten vertraut bist).\n\nWenn du **_das Befehlswort in der Nähe der Säule aussprichst_**, dehnt sich das dunkle Eis blitzschnell aus und umschließt die Steinplatte und alles, was sich darauf befindet. Das Eis schließt selbst Geister ein (manifestiert oder nicht). Sterbliche Gefangene kommen bald um, da ihre Seelen im Eis gefangen sind. Das dunkle Eis schmilzt niemals und widersteht allem außer der mächtigsten Magie und den gewaltigsten Schlägen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Frostfürsten}.*"
     }
   },
   "a-cracked-femur": {
@@ -284,11 +284,11 @@
   "a-small-black-sphere": {
     "name": {
       "source": "A small black sphere",
-      "text": ""
+      "text": "Eine kleine schwarze Kugel"
     },
     "description": {
       "source": "*magical*, *indestructible*, *immobile*\n\nFound in or near some Rime Lord ruin, this… thing… appears to be a perfect sphere of lead, maybe 2 inches across. It hovers motionless in the air. No amount of physical force can mar it, nor move it from its relative position.\n\nWhen you **_focus all your will upon the black_** **_sphere_**, roll +WIS: **on a 10+**, you can slowly move the sphere with your mind, so long as you keep your attention fixed upon the task; **on a 7-9**, pick 1:\n\n- Mark a debility and move the sphere as per a 10+\n- Move the sphere, but only a few inches\n- Fling the sphere in a random vector (if it matters: d8 damage, *forceful*, *messy*)\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Unzerstörbar*, *Unbeweglich*\n\nIn oder nahe einer Ruine der Frostfürsten gefunden, scheint dieses … Ding … eine perfekte Kugel aus Blei zu sein, vielleicht 2 Zoll im Durchmesser. Sie schwebt reglos in der Luft. Keine physische Kraft kann ihr etwas anhaben oder sie aus ihrer relativen Position bewegen.\n\nWenn du **_deinen gesamten Willen auf die schwarze Kugel konzentrierst_**, würfle +WE. **Bei einer 10+** kannst du die Kugel langsam mit deinem Geist bewegen, solange du deine Aufmerksamkeit ununterbrochen auf diese Aufgabe richtest. **Bei 7–9** wähle 1:\n\n- Markiere eine Beeinträchtigung und bewege die Kugel wie bei einer 10+.\n- Bewege die Kugel, aber nur um paar Zoll.\n- Schleudere die Kugel in eine zufällige Richtung (falls relevant: 1W8 Schaden, *Wuchtig*, *Brutal*)\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Sturmfürsten}.*"
     }
   },
   "a-spindle-of-fine-thread": {
@@ -352,15 +352,15 @@
   "a-vine-in-a-rune-carved-pot": {
     "name": {
       "source": "A vine in a rune-carved pot",
-      "text": ""
+      "text": "Eine Rebe in einem mit Runen verzierten Topf"
     },
     "description": {
       "source": "◇ *magical*\n\nIt’s about as thick as your finger and maybe 30 feet long stretched out, with skinny little tendrils. It looks rather dried out, but moves slightly if you touch it or its pot. If you water it, it twitches excitedly.\n\nA plant spirit is bound to the vine and pot. If you befriend it and carry its pot, it will animate and act as a follower: *grabby*, *clever*, *playful*; **HP** 3; **Damage** 0; **Instinct** to not let go; **Cost** affection, play time.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\nSie ist etwa so dick wie dein Finger und ausgebreitet vielleicht 30 Fuß  lang, mit dünnen, kleinen Ranken. Sie sieht ziemlich vertrocknet aus, bewegt sich aber leicht, wenn du sie oder ihren Topf berührst. Wenn du sie gießt, zuckt sie aufgeregt.\n\nEin Pflanzengeist ist an die Ranke und den Topf gebunden. Wenn du dich mit ihm anfreundest und seinen Topf mit dir führst, wird er lebendig und dient dir als Gefolgsmann: *Fesselnd*, *Schlau*, *Verspielt*; 3 TP; Schaden 0; Instinkt: nicht loslassen; Kosten: Zuneigung, Spielzeit.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     },
     "outfitItems/a-vine-in-a-rune-carved-pot/name": {
       "source": "A vine in a rune-carved pot",
-      "text": ""
+      "text": "Eine Rebe in einem mit Runen verzierten Topf"
     }
   },
   "a-wooden-mask": {
@@ -1194,15 +1194,15 @@
   "power-crystal": {
     "name": {
       "source": "Power-crystal",
-      "text": ""
+      "text": "Energiekristall"
     },
     "description": {
       "source": "◇ *magical*, *dangerous*\n\nA chunk of crystal the size of a clenched fist. If charged, it thrums or crackles with power. If depleted, it fills you with a sense of emptiness and longing.\n\nWhen you **_brandish the depleted power_****_crystal at a source of elemental energy_**, roll +CON: **on a 10+**, the crystal absorbs the energy fully and as safely as possible (it is now charged); **on a 7-9**, the crystal absorbs the energy (it’s now charged) but pick 1:\n\n- You are harmed by the coursing energy, taking damage as the GM sees fit\n- The power stored in the crystal is extremely unstable, likely to discharge without warning\n- The crystal cracks; henceforth, treat a 10+ on this move as a 7-9, and you can’t pick this option again.\n\nIn the hands of a skilled arcanist, a charged power-crystal can fuel or empower a magical effect (though this is dangerous). In the hands of the incautious, the reckless, or the desperate, it can split or crack, leading to a violent explosion.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Gefährlich*\n\nEin Kristallstück von der Größe einer geballten Faust. Ist er geladen, summt oder knistert er vor Energie. Ist er entladen, erfüllt er dich mit einem Gefühl von Leere und Sehnsucht.\n\nWenn du **_den entladenen Energiekristall vor einer Quelle elementarer Energie schwenkst_**, würfle +KO. **Bei einer 10+** absorbiert der Kristall die Energie vollständig und so sicher wie möglich (er ist nun geladen). **Bei 7–9** absorbiert der Kristall die Energie (er ist nun geladen), aber wähle 1:\n\n- Die durchströmende Energie verletzt dich; du erleidest Schaden, wie der SL es für angemessen hält.\n- Die im Kristall gespeicherte Energie ist äußerst instabil und und kann sich ohne Vorwarnung entladen.\n- Der Kristall bekommt einen Riss; behandle fortan eine 10+ bei diesem Spielzug als 7–9, und du kannst diese Option nicht noch einmal wählen.\n\nIn den Händen eines erfahrenen Arkanisten kann ein geladener Energiekristall einen magischen Effekt speisen oder verstärken (allerdings ist dies gefährlich). In den Händen Unvorsichtiger, Waghalsiger oder Verzweifelter kann er bersten oder reißen und eine gewaltige Explosion auslösen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Steinfürsten}.*"
     },
     "outfitItems/power-crystal/name": {
       "source": "Power-crystal",
-      "text": ""
+      "text": "Energiekristall"
     }
   },
   "sacred-pouch": {
