@@ -1222,11 +1222,11 @@
   "disembodied": {
     "name": {
       "source": "Disembodied",
-      "text": ""
+      "text": "Körperlos"
     },
     "description": {
       "source": "Your body is dead and gone, but you persist as a spirit. You can be harmed only by silver, salt, or that which harms spirits or ghosts.\n\nYou normally go unseen, with the barest influence on the material world and a dim, distorted sense of reality. When you **_manifest a ghostly presence in shadows or darkness,_** the world becomes clear and pick 1. For each additional option you pick, lose 1d4 HP:\n\n- You appear solid and whole, much as you did in life\n- You can speak clearly and intelligibly\n- Your touch (or ghostly weapons) can harm the living (ignores armor)\nYou remain manifest for as long as you concentrate; pain or shock or direct sunlight threaten your concentration, for sure.",
-      "text": ""
+      "text": "Dein Körper ist tot und vergangen, doch du existierst als Geist weiter. Nur Silber, Salz oder Dinge, die Geistern oder Gespenstern schaden, können dir Schaden zufügen.\n\nNormalerweise bist du unsichtbar, hast nur einen minimalen Einfluss auf die materielle Welt und eine verschwommene, verzerrte Wahrnehmung der Realität. Wenn du **_eine geisterhafte Präsenz in Schatten oder Dunkelheit manifestierst_**, wird die Welt klar und du wählst 1 Option. Für jede weitere Option, die du wählst, verlierst du 1W4 TP:\n\n- Du erscheinst fest und vollständig, so, wie du es auch zu Lebzeiten getan hast.\n- Du kannst klar und verständlich sprechen.\n- Deine Berührung (oder deine Geisterwaffen) kann Lebende verletzen (ignoriert Rüstung).\nDu bleibst manifestiert, solange du dich konzentrierst; Schmerz, Schock oder direktes Sonnenlicht gefährden mit ziemlicher Sicherheit deine Konzentration."
     }
   },
   "dust-to-dust": {
@@ -1800,11 +1800,11 @@
   "implacable": {
     "name": {
       "source": "Implacable",
-      "text": ""
+      "text": "Unerbittlich"
     },
     "description": {
       "source": "When you **_push the limits of your undead body_**, lose 1d4 HP and choose 1:\n\n- Perform a feat of inhuman strength\n- Act with uncanny speed and grace\n- Refuse to be moved, held back, or knocked off course",
-      "text": ""
+      "text": "Wenn du **_die Grenzen deines untoten Körpers überschreitest_**, verlierst du 1W4 TP und wähle 1:\n\n- Vollbringe einen übermenschlichen Kraftakt\n- Handle mit unheimlicher Geschwindigkeit und Anmut\n- Weigere dich, dich bewegen, zurückhalten oder vom eingeschlagenen Kurs abbringen zu lassen"
     }
   },
   "improved-stat": {
@@ -3826,11 +3826,11 @@
   "tethered": {
     "name": {
       "source": "Tethered",
-      "text": ""
+      "text": "Gebunden"
     },
     "description": {
       "source": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.\n\nWhen you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
-      "text": ""
+      "text": "Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw.\n\nWenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz."
     }
   },
   "the-flesh-remembers": {
@@ -4008,23 +4008,23 @@
   "undying": {
     "name": {
       "source": "Undying",
-      "text": ""
+      "text": "Unsterblich"
     },
     "description": {
       "source": "Neither poison nor disease do you harm. You feel little pain. When you **_take damage from cutting, stabbing, or crushing_**, take half damage (after armor, rounded up).\n\nWhen you are **_reduced to 0 HP_**, roll +CON.: **on a 10+**, regain half your max HP and choose 1; **on a 7-9**, regain half your max HP and choose 2; **on a 6-**, either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.\n\n- Mark a consequence (see reverse)\n- You're out of the action until the next sunset\n- Your body is permanently maimed in some way of the GM's choosing\nIf **_your body is completely destroyed_** (burnt to ash, ground to jelly, etc.), treat it as if you were reduced to 0 HP and rolled a 6-.",
-      "text": ""
+      "text": "Weder Gift noch Krankheit können dir etwas anhaben. Du empfindest nur wenig Schmerz. Wenn du **_durch Schnitte, Stiche oder Quetschungen Schaden erleidest_**, erleidest du nur den halben Schaden (nach Rüstung, aufgerundet).\n\nWenn du **_auf 0 TP sinkst_**, würfle +KO. **Bei einer 10+** erhältst du die Hälfte deiner maximalen TP zurück und wählst 1. **Bei 7–9** erhältst du die Hälfte deiner maximalen TP zurück und wählst 2. **Bei einer 6-** erhältst du entweder 1 TP zurück und alle 3 treffen zu, oder du gibst diese Ergänzung auf und erhältst stattdessen die Ergänzung Geist.\n\n- Markiere eine Konsequenz (siehe Rückseite):\n- Du bist bis zum nächsten Sonnenuntergang außer Gefecht.\n- Dein Körper wird auf eine vom SL bestimmte Weise dauerhaft verstümmelt.\nWenn **_dein Körper vollständig zerstört wird_** (zu Asche verbrannt, zermalmt usw.), behandle dies so, als wärst du auf 0 TP gesunken und hättest eine 6- gewürfelt."
     },
     "moveResults/success/value": {
       "source": "Regain half your max HP and choose 1 from the list.",
-      "text": ""
+      "text": "Du erhältst die Hälfte deiner maximalen TP zurück und wählst 1."
     },
     "moveResults/partial/value": {
       "source": "Regain half your max HP and choose 2 from the list.",
-      "text": ""
+      "text": "Du erhältst die Hälfte deiner maximalen TP zurück und wählst 2."
     },
     "moveResults/failure/value": {
       "source": "Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.",
-      "text": ""
+      "text": "Du erhältst entweder 1 TP zurück und alle 3 treffen zu, oder du gibst diese Ergänzung auf und erhältst stattdessen die Ergänzung Geist."
     }
   },
   "unfettered": {
@@ -4072,11 +4072,11 @@
   "unliving": {
     "name": {
       "source": "Unliving",
-      "text": ""
+      "text": "Untot"
     },
     "description": {
       "source": "You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, *Make Camp*, *Recover* or *Convalesce*.",
-      "text": ""
+      "text": "Du atmest nicht. Du musst weder essen noch trinken noch schlafen. Deine Wunden heilen nicht auf normale Weise. Du profitierst nicht von magischer Heilung, Lager aufschlagen, Ausruhen oder Genesen."
     }
   },
   "unquenched": {
