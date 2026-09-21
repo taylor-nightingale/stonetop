@@ -43,6 +43,8 @@
         "notes": "Notizen"
       },
       "collapseTop": "Kopfzeile ausblenden/einblenden",
+      "railShow": "Show the moves rail",
+      "railHide": "Hide the moves rail",
       "notes": {
         "bio": "Biographie",
         "notes": "Notizen"
@@ -70,6 +72,7 @@
       },
       "advice": {
         "label": "If you want to… {topic}",
+        "sheetLabel": "If you want to…",
         "close": "Close"
       }
     },
@@ -81,6 +84,129 @@
     },
     "steading": {
       "startsAt": "Beginnt bei {value}",
+      "startingValue": "was {value}",
+      "attr": {
+        "fortunes": "Fortunes",
+        "surplus": "Surplus",
+        "size": "Size",
+        "population": "Population",
+        "prosperity": "Prosperity",
+        "defenses": "Defenses"
+      },
+      "attrShort": {
+        "fortunes": "Fort",
+        "surplus": "Surp",
+        "size": "Size",
+        "population": "Pop",
+        "prosperity": "Pros",
+        "defenses": "Def"
+      },
+      "railShow": "Show Fortunes, Surplus and the steading's moves",
+      "railHide": "Hide Fortunes, Surplus and the steading's moves",
+      "headings": {
+        "npcTraits": "NPC Traits",
+        "npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
+        "placesOfInterest": "Places of Interest",
+        "notes": "Notes",
+        "neighbors": "Neighbouring Communities"
+      },
+      "neighbors": {
+        "size": "Size",
+        "travel": "Travel",
+        "notes": "Notes",
+        "names": "Names"
+      },
+      "content": {
+        "fromThePlaybook": "From the playbook",
+        "addItem": "add",
+        "procedure": "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls “time out,”_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.\n\nIf **_content was included that shouldn’t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on.",
+        "sections": {
+          "excluded": {
+            "label": "Excluded Content",
+            "note": "(Not part of the game, on-camera or off)"
+          },
+          "veiled": {
+            "label": "Veiled Content",
+            "note": "(Part of the fiction, but only off-camera)"
+          },
+          "specialHandling": {
+            "label": "Special Handling"
+          }
+        }
+      },
+      "lists": {
+        "resources": "Resources",
+        "fortifications": "Fortifications, etc.",
+        "assets": "Assets",
+        "addResource": "add a resource",
+        "addFortification": "add a fortification",
+        "addAsset": "add an asset",
+        "assetsOut": "{count} out",
+        "assetOut": "requisitioned",
+        "assetHome": "at home",
+        "addPlace": "add a place",
+        "coinage": "Coinage",
+        "removeAsset": "Remove asset",
+        "removeItem": "Remove"
+      },
+      "coinage": {
+        "currency": "Currency",
+        "purses": "Purses",
+        "handfuls": "Handfuls",
+        "coins": "Coins",
+        "silver": "Silver",
+        "gold": "Gold"
+      },
+      "tier": {
+        "defenses": {
+          "feeble": "feeble",
+          "mediocre": "mediocre",
+          "strong": "strong",
+          "formidable": "formidable",
+          "legendary": "legendary"
+        },
+        "unset": "—",
+        "size": {
+          "hamlet": "hamlet",
+          "village": "village",
+          "town": "town",
+          "city": "city"
+        }
+      },
+      "band": {
+        "hamlet": "<50",
+        "village": "150–350",
+        "town": "500–1500",
+        "city": "2500+"
+      },
+      "debilities": {
+        "title": "Debilities",
+        "diminished": {
+          "name": "diminished",
+          "cause": "by injury/sickness/doubt",
+          "effect": "disadvantage to Deploy, Muster, or Pull Together"
+        },
+        "lacking": {
+          "name": "lacking",
+          "cause": "due to shortages/hoarding/distrust",
+          "effect": "treat Prosperity as if it's 1 lower than it is"
+        },
+        "malcontent": {
+          "name": "malcontent",
+          "cause": "from fear/anger/despair",
+          "effect": "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
+        }
+      },
+      "adjustedBy": "→ {effective} {debility}",
+      "steadfastHint": "Type a name, or pick a steadfast",
+      "tabs": {
+        "play": "Play",
+        "folk": "Folk",
+        "places": "Places",
+        "improvements": "Improvements",
+        "season": "Season",
+        "content": "Content"
+      },
       "colName": "Name",
       "colOccupation": "Beruf",
       "colTraits": "Merkmale",
@@ -91,8 +217,7 @@
       "unlink": "Verknüpfung aufheben",
       "improvementRemove": "Entfernen",
       "createActors": {
-        "residents": "Erstelle Akteure für Einwohner",
-        "neighbors": "Erstelle Akteure für Nachbarn",
+        "folk": "Create actors for the roster",
         "title": "Erstelle NSC-Akteure",
         "creating": "Erstelle {count} neue NSC-Akteure: {names}.",
         "linking": "Verknüpfe {count} Zeile(n) mit bereits vorhandenen Akteuren: {names}.",
@@ -100,10 +225,116 @@
         "nothing": "Jede benannte Zeile verfügt bereits über ein verknüpftes Dokument."
       },
       "seasons": {
-        "movesTitle": "Jahreszeitenwechsel",
+        "names": {
+          "spring": "Spring",
+          "summer": "Summer",
+          "autumn": "Autumn",
+          "winter": "Winter"
+        },
         "movesEmpty": "Dieser Siedlung sind keine saisonalen Spielzüge zugewiesen.",
-        "gainsTitle": "Saisonale Gewinne",
-        "gainsHint": "Das Setzen eines Hakens ändert die Spielwerte der Siedlung nicht."
+        "wheelLabel": "The steading's year",
+        "stated": "{season}, year {year}",
+        "whenComes": "When {season} comes",
+        "theSeason": "the season itself",
+        "turnoverEmpty": "Nothing Stonetop has built happens this season.",
+        "upkeep": "What the steading keeps up",
+        "turnTitle": "The turn of the season",
+        "seasonComes": "{season} comes",
+        "during": "During {season}",
+        "turnConfirm": "Turn to {season}?",
+        "resetFortunes": "Reset Fortunes to +{value}",
+        "steps": {
+          "roll": "Roll it",
+          "rollShort": "Roll",
+          "rollFormula": "Roll {die} + {stat}",
+          "rollFormulaMod": "Roll {die} + {stat} {mod}",
+          "rollDice": "Roll {die}",
+          "rollDiceMod": "Roll {die} {mod}",
+          "sizeRoll": "As a {size}, the steading rolls {die} + {stat}",
+          "card": {
+            "consumption": "{season} — Consumption",
+            "generation": "{season} — Generation",
+            "roll": "{season} — Roll",
+            "formula": "{die} + {stat}",
+            "formulaMod": "{die} + {stat} {mod}",
+            "diceMod": "{die} {mod}"
+          },
+          "consume": "The steading consumes that much Surplus",
+          "generate": "The steading generates {die} Surplus",
+          "generateGains": "What the steading generates",
+          "applyGains": "Generate {amount} Surplus",
+          "momentGenerate": "roll {die}; the steading generates that much Surplus",
+          "reset": "Reset Fortunes",
+          "resetShort": "Reset to +{value}",
+          "pick": {
+            "seasonal-gains": "Pick {count} from the seasonal gains",
+            "winter-losses": "Pick {count} from what winter takes"
+          },
+          "applied": {
+            "spent": "Consumed {amount} Surplus ({from} → {to})",
+            "gained": "Generated {amount} Surplus ({from} → {to})",
+            "unchanged": "Surplus unchanged",
+            "rolled": "— {total} was rolled",
+            "short": "— {due} was owed; there was not enough",
+            "disaster": "Meet with Disaster",
+            "revert": "Undo"
+          }
+        },
+        "moments": {
+          "autumn-harvest": "The autumn harvest",
+          "aurochs-hunt": "The aurochs hunt",
+          "inn-gathering": "A gathering at the inn"
+        },
+        "everySeason": "every season"
+      },
+      "folk": {
+        "searchPlaceholder": "search the roster…",
+        "namePlaceholder": "Name (Pronouns)",
+        "homePlaceholder": "Home",
+        "traitsPlaceholder": "Traits",
+        "newVillager": "new villager",
+        "remove": "Delete villager",
+        "homeBlankHint": "Home blank means this steading. Search filters this table only.",
+        "focusRowFirst": "Put the cursor in a villager's row first — a trait is added to the row you are editing.",
+        "namesFrom": "Names — {place}"
+      },
+      "improvements": {
+        "boardTitle": "Improvements",
+        "boardEmpty": "This steading owns no improvements yet. Drop one onto the sheet to start it.",
+        "progress": "{ticked} / {total}",
+        "countInProgress": "{count} in progress",
+        "countUntouched": "{count} not started",
+        "countComplete": "{count} complete",
+        "filterLabel": "Show only",
+        "attentionLabel": "What needs attention",
+        "countOwed": "{count} owed",
+        "countThisSeason": "{count} this season",
+        "owed": "owed",
+        "firesNow": "this season",
+        "nearlyDone": "1 to go",
+        "searchPlaceholder": "Search improvements"
+      },
+      "effects": {
+        "apply": "Apply",
+        "step": {
+          "consumption": "When the steading consumes Surplus",
+          "generation": "When the steading generates Surplus"
+        },
+        "applySeason": "Apply the season",
+        "alreadyApplied": "This season has been applied.",
+        "applyMoment": "Apply",
+        "momentApplied": "Applied this season.",
+        "revert": "Revert",
+        "applied": "Applied",
+        "appliedLegacy": "Applied earlier",
+        "onCompletion": "When you **_meet the requirements_**:",
+        "henceforth": "**_Henceforth_**:",
+        "applyLine": "Apply: {result}",
+        "revertLine": "Revert: {result}"
+      },
+      "rollNote": {
+        "canApply": "{source} — {mode} can be applied",
+        "applies": "{source} — {mode} applies"
       }
     },
     "followers": {
@@ -460,6 +691,7 @@
       "miss": "Fehlschlag",
       "weakHit": "Teilerfolg",
       "strongHit": "Voller Erfolg!",
+      "rolled": "Rolled",
       "xpMarked": "EP markiert.",
       "xpUndo": "Zurücksetzen",
       "xpMark": "Markiere EP"
@@ -526,6 +758,22 @@
           "armorBaseItem": "{name} {amount} (base)",
           "armorModifierItem": "{name} {amount}"
         }
+      },
+      "levelUp": {
+        "title": "Level Up",
+        "ready": "ready",
+        "done": "Done",
+        "owed": "{count} to finish",
+        "when": "When you {trigger}.",
+        "advanceStep": "Spend XP to level up",
+        "advanceFigure": "{cost} XP: {xpFrom} → {xpTo} · Level {from} → {to}",
+        "advance": "Advance",
+        "confirmTitle": "Level Up",
+        "confirm": "Spend {cost} XP, leaving {xp}, and go from level {from} to level {to}?",
+        "movesBehind": "{count} still to choose.",
+        "stockRaised": "Maximum Stock {from} → {to}, applied for you.",
+        "stockAt": "Maximum Stock is {max}, applied for you.",
+        "invocationsKnown": "You know {known} of {expected}."
       },
       "gear": {
         "specialPossessions": "Besondere Besitztümer"
@@ -639,9 +887,18 @@
       "smallItems": "Small item slot {position}",
       "steadingName": "Steading name",
       "surplus": "Surplus",
+      "ratingValue": "{rating} rating",
+      "rollRating": "Roll {rating}",
+      "rollMove": "Roll {name}",
+      "steadingTabs": "Steading sections",
       "npcTraits": "Traits",
       "assetItem": "Asset",
+      "coinagePurses": "{currency} purses",
+      "coinageHandfuls": "{currency} handfuls",
+      "coinageCoins": "{currency} coins",
       "placeField": "Place of interest",
+      "neighborSize": "Size of {place}",
+      "neighborTravel": "Travel to {place} from here",
       "ratingExtra": "Rating note",
       "playbookSelect": "Playbook",
       "optionType": "Option type",
@@ -651,13 +908,19 @@
       "choiceText": "Choice text",
       "choicePick": "Choose this option",
       "listItem": "List item",
-      "contentText": "{section} text",
+      "contentItem": "{section} entry",
+      "addContentItem": "Add to {section}",
+      "removeContentItem": "Remove from {section}",
       "moveTaken": "Taken",
-      "residentName": "Resident name",
-      "residentOccupation": "Occupation",
-      "residentTraits": "Traits",
-      "neighborHome": "Home",
-      "edit": "Edit"
+      "edit": "Edit",
+      "personName": "Villager name",
+      "personHome": "Home",
+      "personOccupation": "Occupation",
+      "personTraits": "Traits, relations, etc.",
+      "folkSearch": "Search the roster",
+      "suggestionUsed": "already used —",
+      "assetRequisitioned": "Requisitioned",
+      "improvementSearch": "Search the improvement board"
     },
     "tagGlossary": {
       "general": {
