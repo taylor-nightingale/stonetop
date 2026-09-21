@@ -1,0 +1,40 @@
+{{!-- The three debilities, as bands under the stats row. Params: debilities.
+
+      Each band spans the two stats it hinders: the pairs the rules use are contiguous in the row
+      (str+dex, int+wis, con+cha) and cover all six exactly once, so three equal thirds of the stats
+      block land one band under each pair without anything having to measure a tile.
+
+      Two groups, not four siblings: the divider art and the tick it frames belong to one band, and
+      the name sits below it in normal flow. Everything used to be absolutely positioned against
+      hand-measured pixel offsets, so the name climbed into the art as soon as Foundry's font
+      setting grew it. --}}
+<div class="stonetop-debilities">
+	{{#each debilities}}
+	<div class="stonetop-debility{{#if active}} is-active{{/if}}">
+		<label class="stonetop-debility-control"
+		       data-tooltip="{{description}}" data-tooltip-direction="UP">
+			<span class="stonetop-debility-band">
+				<span class="stonetop-debility-divider"></span>
+				<input type="checkbox" class="stonetop-debility-check"
+				       data-change-action="debility"
+				       data-slug="{{key}}"
+				       aria-describedby="{{@root.sheetIdPrefix}}-debility-{{key}}"
+				       {{#if active}}checked{{/if}}>
+			</span>
+			<span class="stonetop-debility-label">{{name}}</span>
+			{{!-- What it DOES, in the DOM in both states and drawn in neither.
+
+			      Ticked, it used to be a sentence of rules text under the name — and three of them
+			      took the band from 34px to 98px, shoving the picture, the tabs and the whole sheet
+			      down at the moment a fight is going badly. The band is a row of bracket art under a
+			      row of tiles; it cannot also be a rules reference.
+
+			      Not deleted, though: the hover is pointer-bound and invisible to assistive tech, so
+			      the sentence stays here, clipped, and the tick is described BY it. That is the same
+			      device the folded line uses to name the debility that dimmed a stat — a colour, or a
+			      hover, is never the only carrier of anything. --}}
+			<span class="stonetop-debility-effect" id="{{@root.sheetIdPrefix}}-debility-{{key}}">{{description}}</span>
+		</label>
+	</div>
+	{{/each}}
+</div>

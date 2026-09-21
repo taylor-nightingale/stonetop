@@ -25,10 +25,11 @@
 		    title=(localize "stonetop.sheet.lock.lockHint")}}
 		{{/if}}
 	</div>
-	{{#if (or stonetop.playbook.titleImg stonetop.playbook.description.raw)}}
+	{{!-- The playbook's title is the masthead's, beside the character's own name — the front page is
+	      where the book writes it, and it is what the Would-be Hero's rename happens to. --}}
+	{{#if stonetop.playbook.description.raw}}
 	<div class="stonetop-playbook-intro">
-		{{#if stonetop.playbook.titleImg}}<img class="stonetop-playbook-title-img" src="{{stonetop.playbook.titleImg}}" alt="{{stonetop.playbook.name}}">{{/if}}
-		{{#if stonetop.playbook.description.raw}}<p class="stonetop-playbook-description">{{rich stonetop.playbook.description}}</p>{{/if}}
+		<p class="stonetop-playbook-description">{{rich stonetop.playbook.description}}</p>
 	</div>
 	{{/if}}
 	<div class="stonetop-playbook-columns">

@@ -37,15 +37,24 @@ const FIXTURE = `
   <nav class="sheet-tabs" id="t-tabs">
     <a class="item" id="t-tab">Moves</a>
   </nav>
-  <div class="stonetop-debilities"><div class="stonetop-debility">
-    <label class="stonetop-debility-control" id="t-debility">
-      <span class="stonetop-debility-band">
-        <span class="stonetop-debility-divider"></span>
-        <input type="checkbox" class="stonetop-debility-check">
-      </span>
-      <span class="stonetop-debility-label" id="t-debility-label">shaky</span>
-    </label>
-  </div></div>
+  <div class="stonetop-stats-row">
+    <div class="stonetop-stat" data-stat="str">
+      <button type="button" class="stonetop-stat-roll rollable" id="t-stat-roll" data-roll="str">STR</button>
+      <input class="stonetop-stat-input" type="number" value="1">
+    </div>
+  </div>
+  <div class="stonetop-debilities">
+    <div class="stonetop-debility is-active" id="t-debility">
+      <label class="stonetop-debility-control">
+        <span class="stonetop-debility-band">
+          <span class="stonetop-debility-divider"></span>
+          <input type="checkbox" class="stonetop-debility-check" checked>
+        </span>
+        <span class="stonetop-debility-label" id="t-debility-label">Weakened</span>
+        <span class="stonetop-debility-effect">Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.</span>
+      </label>
+    </div>
+  </div>
 </div></div>`;
 
 // Boxes that size themselves from their own text. These must fit at every step of the ladder.
@@ -54,10 +63,14 @@ const SCALING = {
 	stepNum: "#t-step-num",
 	toggle:  "#t-toggle",
 	tab:     "#t-tab",
-	// Restructured out of the art-locked group: the divider is a mask that stretches to its band,
-	// so the control now sizes from its own text like everything else here.
+	// The band is the art, then the name, then the effect, all in normal flow — so it sizes from its
+	// own words at every step of the ladder. An earlier version pinned the control to 34px, the art
+	// to 18px and the name to `top: 19px`, and the name climbed into the art at every step but 16.
 	debility:      "#t-debility",
-	debilityLabel: "#t-debility-label"
+	debilityLabel: "#t-debility-label",
+	// The one label on a stat tile, and a <button> — so core's `min-height: 2em` is in play, and it
+	// is a chip punched through a rule whose depth is its own line height.
+	statRoll:      "#t-stat-roll"
 };
 
 /** The ends of core's font ladder, plus the default it ships. */

@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { SteadingRolls } from "../../../src/actors/steading/SteadingRolls.js";
 import { SteadingDebilities } from "../../../src/actors/steading/SteadingDebilities.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
+import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 
 function build(attributes = {}, debilities = {}) {
 	const actor = new FakeSteadingBuilder().build();
@@ -47,14 +48,25 @@ describe("SteadingRolls.prosperity", () => {
 });
 
 describe("SteadingRolls.rollableStats", () => {
+	// A rating's name reaches the player through the stat-pick dialog, so it is localized like every
+	// other word on the sheet. The harness's localize() returns the key by design, so this pins the
+	// KEYS — and the test below proves they resolve, which is the half that can silently rot.
 	it("offers the four rollable ratings with their resolved values", () => {
 		const { rolls } = build({ population: 1, prosperity: 2, defenses: -1, fortunes: 3 });
 		expect(rolls.rollableStats()).toEqual([
-			{ key: "population", name: "Population", value: 1 },
-			{ key: "prosperity", name: "Prosperity", value: 2 },
-			{ key: "defenses",   name: "Defenses",   value: -1 },
-			{ key: "fortunes",   name: "Fortunes",   value: 3 },
+			{ key: "population", name: "stonetop.steading.attr.population", value: 1 },
+			{ key: "prosperity", name: "stonetop.steading.attr.prosperity", value: 2 },
+			{ key: "defenses",   name: "stonetop.steading.attr.defenses",   value: -1 },
+			{ key: "fortunes",   name: "stonetop.steading.attr.fortunes",   value: 3 },
 		]);
+	});
+
+	// The rating names the SHEET draws come from these same keys, so an English word written into
+	// SteadingRolls was a rating named twice and translated once.
+	it("names every rating from a key that has a string in en.json", () => {
+		const i18n = fakeI18n();
+		const missing = build({}).rolls.rollableStats().map(s => s.name).filter(k => !i18n.has(k));
+		expect(missing).toEqual([]);
 	});
 
 	it("resolves Lacking into the offered Prosperity", () => {

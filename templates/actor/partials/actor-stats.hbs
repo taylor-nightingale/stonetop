@@ -1,14 +1,29 @@
+{{!-- Six stat tiles across. Params: stats (CharacterSnapshot.stats).
+
+      The tile shows the ABBREVIATION, and it shows it once. Measured, six across, in real Chrome:
+      "Constitution" is 96px in a 96px tile — flush, with nothing left for a letter-spacing change or
+      a face that loads a shade wider — and German's "Geschicklichkeit" overruns by 22px. Both the
+      tile and the label are in rem, so that ratio holds at every Font Size step rather than only at
+      the default. The tile carried BOTH the name and the abbreviation once; six redundant lines.
+
+      The abbreviation is the roll button, as a steading rating's name is: one control, so a stat
+      that rolls cannot come to look like one that doesn't, and nothing has to be kept in step. It
+      has to BE a <button> — core binds only `click` for these, so a <span> was keyboard-dead and
+      nothing about a span said so.
+
+      The full name is not lost: it names the button for assistive tech, and the hover still carries
+      what the stat covers and when to roll it. --}}
 <div class="stonetop-stats-row">
 	{{#each stats}}
 	<div class="stonetop-stat" data-stat="{{@key}}">
-		<span class="stonetop-stat-roll rollable" data-roll="{{@key}}"
-		      data-tooltip="{{description}}" data-tooltip-direction="UP">{{name}}</span>
+		<button type="button" class="stonetop-stat-roll rollable" data-roll="{{@key}}"
+		        aria-label="{{localize 'stonetop.a11y.rollStatNamed' stat=name}}"
+		        data-tooltip="{{description}}" data-tooltip-direction="UP">{{abbr}}</button>
 		<input class="stonetop-stat-input" type="number"
 		       aria-label="{{localize 'stonetop.a11y.statValue' stat=name}}"
 		       name="system.stats.{{@key}}.value"
 		       value="{{value}}" min="-3" max="3"
 		       {{#unless ../editable}}disabled{{/unless}}>
-		<span class="stonetop-stat-abbr rollable" data-roll="{{@key}}">{{abbr}}</span>
 	</div>
 	{{/each}}
 </div>

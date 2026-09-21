@@ -5,6 +5,7 @@ import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { TIER_KEYS, DEFAULT_TIER_LABELS } from "../model/data/MoveResults.js";
+import { STAT_KEYS } from "../model/data/character/Stats.js";
 import { richTextToHtml } from "../migration/richTextToHtml.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { GrantRegistry } from "./GrantRegistry.js";
@@ -68,6 +69,10 @@ export function moveResultFields(system, richText = {}) {
 // through the character's home steading.
 export const ROLL_STAT_CHOICES = {
 	"":         "stonetop.item.move.rollStat.none",
+	// The six point at the same abbreviation the stat tiles draw — one translation of "STR", not two
+	// that a translator has to keep in step. The dropdown wants it as "+STR", the way a move's
+	// trigger writes it; that plus is put on in `rollStatChoiceLabels` below rather than baked into
+	// the string, because it is a fact about this dropdown and not about the word.
 	str:        "stonetop.character.stats.abbr.str",
 	dex:        "stonetop.character.stats.abbr.dex",
 	con:        "stonetop.character.stats.abbr.con",
@@ -87,6 +92,28 @@ export const ROLL_STAT_CHOICES = {
 	ask:        "stonetop.item.move.rollStat.ask",
 	prompt:     "stonetop.item.move.rollStat.prompt",
 };
+
+/**
+ * {@link ROLL_STAT_CHOICES}, localized, with the plus on the six that take one.
+ *
+ * A character's stats are rolled as "+STR"; a steading's ratings are named outright ("Fortunes
+ * (steading)"), and "ask"/"prompt" are not rolls at all. Which of those a key is, is decided by
+ * `STAT_KEYS` — the same list `Stats` is built from — rather than by a second list here that a
+ * seventh stat would have to be remembered into.
+ *
+ * The map itself stays keys: what it is FOR is coverage, since a stored `rollStat` with no matching
+ * <option> makes the select fall back to its first entry and the next submit writes that over the
+ * move's real roll. That is what the tests on it assert, and a map of rendered words could not.
+ *
+ * @param {(key: string) => string} localize
+ */
+export function rollStatChoiceLabels(localize) {
+	const plussed = new Set(STAT_KEYS);
+	return Object.fromEntries(Object.entries(ROLL_STAT_CHOICES).map(([key, labelKey]) => {
+		const label = localize(labelKey);
+		return [key, plussed.has(key) ? `+${label}` : label];
+	}));
+}
 
 // moveType is the resolution key for reference moves seeded by type (no container owns them).
 // Container-owned moves (playbook/insert/arcana) are referenced by slug and leave this null.
@@ -137,7 +164,7 @@ export function createStonetopMoveSheetClass(Base) {
 				await this.item.update({ "system.slug": toSlug(this.item.name) || `move-${foundry.utils.randomID(8)}` });
 			}
 			context.system          = this.item.system;
-			context.rollStatChoices = ROLL_STAT_CHOICES;
+			context.rollStatChoices = rollStatChoiceLabels(k => game.i18n.localize(k));
 			context.moveTypeChoices = MOVE_TYPE_CHOICES;
 			context.isRollable       = !!this.item.system.rollStat;
 			context.showResults      = context.isRollable;

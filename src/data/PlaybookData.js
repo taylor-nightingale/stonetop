@@ -19,6 +19,12 @@ export class PlaybookData extends foundry.abstract.TypeDataModel {
 			damage:             new f.SchemaField({ value: new f.StringField({ nullable: true, initial: null }) }),
 			statsNote:          new f.StringField({ initial: "" }),
 			startingMovesNote:  new f.StringField({ initial: "" }),
+			// A move that renames the playbook on the front page: the Would-be Hero crosses off
+			// "Would-be" on taking Big Damn Hero. Null on every playbook that has no such move.
+			renameOnMove:       new f.SchemaField({
+				moveSlug: new f.StringField({ nullable: true, initial: null }),
+				name:     new f.StringField({ nullable: true, initial: null }),
+			}, { nullable: true, initial: null }),
 			backgrounds:        new f.ArrayField(new f.ObjectField()),
 			origin:             new f.ArrayField(new f.ObjectField()),
 			// The playbook is the source of truth for what it auto-adds (follower-data-architecture

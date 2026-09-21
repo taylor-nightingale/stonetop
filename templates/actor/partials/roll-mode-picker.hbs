@@ -1,22 +1,32 @@
-{{!-- The roll-mode radios. Rendered on the character sheet's move side-bar and in the stat-pick
-      dialog, which had hand-copied versions of this markup that had already drifted.
+{{!-- The roll-mode radios — one control, three surfaces.
+
+      The character sheet's masthead, the steading's ledger line and the stat-pick dialog all set the
+      same three modes from the same RollModes list. They used to render three different markups; the
+      steading's was deliberately its own because a stacked column of radios is most of a header
+      row's height. That reason is a LAYOUT one, so it is answered with a class rather than with a
+      second template: `variant` picks the arrangement and nothing else, the way the steading's
+      ledger picks its density.
+
+        · inline  — the words on one line, the live one in the accent. Both sheets' headers.
+        · stacked — a labelled column with circle radios. The dialog, where there is room and the
+                    choice is the whole point of the box.
+
+      A <fieldset>, not a bare list: three radios that mean one setting are a group, and a group with
+      no accessible name is three unexplained words. The legend carries it on both variants — inline
+      hides it visually (clipped, never removed), because the words themselves say what they are.
 
       Parameters: `modes` (RollModes.options — [{key, labelKey, checked}]), `name` scoping the radio
-      group, and `changeAction` for the sheet's change router. The dialog passes no changeAction: its
-      value is read once on submit rather than written back as you click.
-
-      The steading sheet's roll-mode control is deliberately NOT this partial — it draws the
-      steading's box glyph rather than the circle radio, and orders the modes differently. --}}
-<p class="stonetop-outfit-heading">{{localize "stonetop.rollMode.label"}}</p>
-<ul class="stonetop-outfit-loads stonetop-unmarked">
+      group, `variant`, and `changeAction` for a sheet's change router. The dialog passes no
+      changeAction: its value is read once on submit rather than written back as you click. --}}
+<fieldset class="stonetop-rollmode stonetop-rollmode--{{#if variant}}{{variant}}{{else}}inline{{/if}}">
+	<legend class="stonetop-rollmode-legend">{{localize "stonetop.rollMode.label"}}</legend>
 	{{#each modes}}
-	<li>
-		<label class="stonetop-outfit-load-label{{#if checked}} is-checked{{/if}}">
-			<input type="radio" class="stonetop-roll-mode-radio" name="{{../name}}"
-			       {{#if ../changeAction}}data-change-action="{{../changeAction}}"{{/if}}
-			       value="{{key}}" {{#if checked}}checked{{/if}}>
-			<span>{{localize labelKey}}</span>
-		</label>
-	</li>
+	<label class="stonetop-rollmode-option{{#if checked}} is-checked{{/if}}">
+		<input type="radio" class="stonetop-rollmode-input" name="{{../name}}"
+		       {{#if ../changeAction}}data-change-action="{{../changeAction}}"{{/if}}
+		       value="{{key}}" {{#if checked}}checked{{/if}}>
+		<span class="stonetop-rollmode-mark" aria-hidden="true"></span>
+		<span class="stonetop-rollmode-label">{{localize labelKey}}</span>
+	</label>
 	{{/each}}
-</ul>
+</fieldset>

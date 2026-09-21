@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 
-// The Level Up strip lives in the stats column, which is as wide as the five resource frames above
+// The Level Up strip lives in the rail, under the XP track it is about — as wide as two stat frames
 // it and not a pixel wider. Nothing about that is visible to a text scan of the stylesheet: core's
 // `.window-app button { width: 100% }` stretches every button it can reach, and a two-column grid
 // whose gutter is a fixed rem is exactly the kind of box that starts cropping when Foundry's font
@@ -35,11 +35,13 @@ const step = ({ kind, done = false, text, figure = null, control = false, goto =
       <span>${goto}</span><i class="fas fa-arrow-right" aria-hidden="true"></i></button>` : ""}
 </li>`;
 
-// The column is pinned to the width the five resource frames give it in play; the whole claim is
-// that the strip keeps inside that.
+// The strip lives in the RAIL now, and the rail takes its width from the stylesheet's own token
+// (two stat frames across) rather than from a number written here — so this measures the width the
+// strip actually gets in play, which is a good deal tighter than the old stats column's.
 const FIXTURE = `
-<div class="application stonetop sheet actor character themed theme-light"><div class="window-content">
-  <div class="stonetop-stats-column" style="width: 380px">
+<div class="application stonetop sheet actor character themed theme-light" style="width: 900px; height: 700px"><div class="window-content">
+  <div class="sheet-wrapper"><div class="stonetop-rail-layout" data-side="left">
+   <div class="stonetop-rail stonetop-moves-rail">
     <div class="stonetop-vitals-section">
       <div class="stonetop-resource-row">
         <div class="stonetop-resource stonetop-resource--wide is-full">
@@ -68,11 +70,13 @@ const FIXTURE = `
         </ol>
       </div>
     </div>
-  </div>
+   </div>
+   <div class="stonetop-rail-main character-main"><section class="sheet-body"></section></div>
+  </div></div>
 </div></div>`;
 
 const TARGETS = {
-	column:   ".stonetop-stats-column",
+	rail:     ".stonetop-rail",
 	strip:    ".stonetop-levelup",
 	toggle:   ".stonetop-levelup-toggle",
 	title:    ".stonetop-levelup-title",
@@ -105,11 +109,11 @@ describe.skipIf(!canProbe())("the Level Up strip", () => {
 		for (const [name, m] of measured) expect(m.missing, `${name} did not render`).toBe(false);
 	});
 
-	it("keeps inside the stats column it hangs under", () => {
-		expect(right(el("strip"))).toBeLessThanOrEqual(right(el("column")) + 1);
+	it("keeps inside the rail it hangs in", () => {
+		expect(right(el("strip"))).toBeLessThanOrEqual(right(el("rail")) + 1);
 		for (const name of ["toggle", "gloss", "advanceText", "advanceFig", "chooseText", "reviewText"]) {
-			expect(right(el(name)), `${name} runs past the column`)
-				.toBeLessThanOrEqual(right(el("column")) + 1);
+			expect(right(el(name)), `${name} runs past the rail`)
+				.toBeLessThanOrEqual(right(el("rail")) + 1);
 		}
 	});
 
@@ -120,7 +124,7 @@ describe.skipIf(!canProbe())("the Level Up strip", () => {
 	});
 
 	it("keeps the tab link to its own words too", () => {
-		expect(el("goto").values.boxWidth).toBeLessThan(el("column").values.boxWidth / 2);
+		expect(el("goto").values.boxWidth).toBeLessThan(el("rail").values.boxWidth / 2);
 	});
 
 	// The badge is the only thing on the toggle that says which state the strip is in, so it has to
@@ -136,8 +140,13 @@ describe.skipIf(!canProbe())("the Level Up strip", () => {
 	});
 
 	// Every step's words wrap; the claim is that nothing is cropped when they do.
+	//
+	// The rail itself is exempt, and only the rail: it is a scroll container by design
+	// (`.stonetop-rail { overflow-y: auto }`), so a strip taller than the window is it working, not
+	// it cropping. Everything INSIDE the rail still has to fit what it is given.
 	it("crops nothing", () => {
 		for (const [name, m] of measured) {
+			if (name === "rail") continue;
 			expect(m.overflowY, `${name} crops ${m.overflowY}px vertically`).toBe(0);
 			expect(m.overflowX, `${name} crops ${m.overflowX}px horizontally`).toBe(0);
 		}

@@ -3,6 +3,7 @@ import { migratePlaybookPackData } from "../../src/migration/migrateCharacter.js
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 import { FakePlaybookRepository } from "../fakes/FakePlaybookRepository.js";
 import { TestPlaybookItemBuilder } from "../fakes/TestPlaybookItemBuilder.js";
+import { StonetopPlaybook } from "../../src/item/StonetopPlaybook.js";
 
 const OLD_BACKGROUND = { slug: "patriot", label: "Patriot", description: "These people are family." };
 // What a pack regen adds to a background: the move it grants, and its own choice group.
@@ -165,6 +166,37 @@ describe("migratePlaybookPackData", () => {
 		await migratePlaybookPackData(actor, makeRepo({ specialPossessions: { slugs: ["a", "b"] } }));
 
 		expect(actor.items.get("playbook-item").system.specialPossessions).toEqual({ slugs: ["a", "b"] });
+	});
+
+	// The Would-be Hero's rename arrived with a system update, so every character already in play is
+	// carrying a playbook item that predates the field. Without this the sheet keeps calling them The
+	// Would-be Hero after they have taken Big Damn Hero.
+	//
+	// Registered through the REAL wrapper the production repository returns, not a plain object: the
+	// pass reads its source through StonetopPlaybook, and a bag that answers every key is what let
+	// this ship broken — the getter was missing and the refresh quietly wrote null.
+	it("backfills the playbook rename onto a character who predates it", async () => {
+		const repo = new FakePlaybookRepository();
+		repo.addSource(new StonetopPlaybook({
+			name: "The Would-Be Hero",
+			system: { slug: "the-blessed", renameOnMove: { moveSlug: "big-damn-hero", name: "The Hero" } },
+		}));
+
+		const actor = makeActor(playbookItem());
+		await migratePlaybookPackData(actor, repo);
+
+		expect(actor.items.get("playbook-item").system.renameOnMove)
+			.toEqual({ moveSlug: "big-damn-hero", name: "The Hero" });
+	});
+
+	it("leaves a playbook that renames to nothing with nothing", async () => {
+		const repo = new FakePlaybookRepository();
+		repo.addSource(new StonetopPlaybook({ name: "The Blessed", system: { slug: "the-blessed" } }));
+
+		const actor = makeActor(playbookItem());
+		await migratePlaybookPackData(actor, repo);
+
+		expect(actor.items.get("playbook-item").system.renameOnMove).toBeNull();
 	});
 
 	it("is idempotent", async () => {

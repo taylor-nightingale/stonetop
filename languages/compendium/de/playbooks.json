@@ -2512,6 +2512,10 @@
       "source": "You start with Anger is a Gift, Potential for Greatness, and 2 other moves of your choice.",
       "text": "Du beginnst mit Wut ist ein Geschenk, Potenzial für Größe sowie 2 weiteren deiner Wahl."
     },
+    "renameOnMove/name": {
+      "source": "The Hero",
+      "text": "Der Held"
+    },
     "specialPossessions/pickNote": {
       "source": "Pick 2",
       "text": "Wähle 2"

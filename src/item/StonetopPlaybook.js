@@ -53,6 +53,12 @@ export class StonetopPlaybook {
 		return this._stonetopItem.system?.startingMovesNote ?? null;
 	}
 
+	// The move that renames this playbook on the front page, and the name it leaves behind — the
+	// Would-be Hero crosses off "Would-be" on taking Big Damn Hero. Null on every other playbook.
+	get renameOnMove() {
+		return this._stonetopItem.system?.renameOnMove ?? null;
+	}
+
 	get specialPossessions() {
 		return this._stonetopItem.system?.specialPossessions ?? null;
 	}

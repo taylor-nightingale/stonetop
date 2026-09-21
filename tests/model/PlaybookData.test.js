@@ -44,6 +44,17 @@ describe("PlaybookData defaults", () => {
 		expect(d.introductions).toBeNull();
 	});
 
+	it("defaults renameOnMove to null", () => {
+		const d = new PlaybookData();
+		expect(d.renameOnMove).toBeNull();
+	});
+
+	it("keeps a renameOnMove pair", () => {
+		const d = new PlaybookData({ renameOnMove: { moveSlug: "big-damn-hero", name: "The Hero" } });
+		expect(d.renameOnMove.moveSlug).toBe("big-damn-hero");
+		expect(d.renameOnMove.name).toBe("The Hero");
+	});
+
 	it("defaults choiceValues to empty object and specialPossessions to null", () => {
 		const d = new PlaybookData();
 		expect(d.choiceValues).toEqual({});

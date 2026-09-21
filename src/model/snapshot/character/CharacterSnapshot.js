@@ -1,8 +1,10 @@
 import { FollowersSnapshot } from "./FollowerSnapshot.js";
+import { StatPairSnapshot } from "./StatPairSnapshot.js";
 import { RollModes } from "../../../actors/RollModes.js";
 export { Resource } from "../../data/Resource.js";
 export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
 export { StatSnapshot } from "./StatSnapshot.js";
+export { StatPairSnapshot } from "./StatPairSnapshot.js";
 export { ValueMax, VitalsSnapshot, VitalsSnapshotBuilder, VitalsSourcesSnapshot } from "./VitalsSnapshot.js";
 export { DebilitySnapshot, DebilitySnapshotBuilder } from "./DebilitySnapshot.js";
 export {
@@ -54,6 +56,8 @@ export { buildChoiceGroup } from "./buildChoiceGroup.js";
  * @property {PlaybookSnapshot|null} playbook
  * @property {DebilitySnapshot[]} debilities - always 3: weakened, dazed, miserable
  * @property {Object.<string, StatSnapshot>} stats - keys: str dex con int wis cha
+ * @property {StatPairSnapshot[]} statPairs - the same six stats grouped by the debility that hinders
+ *   them; derived from `debilities` + `stats`, never handed in
  * @property {VitalsSnapshot} vitals
  * @property {LevelUpSnapshot} levelUp - the Level Up strip; offers itself only when it has something to say
  * @property {Movelist} moves
@@ -70,6 +74,10 @@ export class CharacterSnapshot {
 		this.playbook        = b._playbook;
 		this.debilities      = b._debilities;
 		this.stats           = b._stats;
+		// Derived here rather than handed in: it is a view of the two fields above, so building it
+		// from them is the only way the three can never disagree. A plain property, not a getter —
+		// a partial invoked with hash params flattens its context and loses every getter silently.
+		this.statPairs       = StatPairSnapshot.pairsFrom(this.debilities ?? [], this.stats ?? {});
 		this.vitals          = b._vitals;
 		this.levelUp         = b._levelUp ?? null;
 		this.moves           = b._moves;

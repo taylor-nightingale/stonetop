@@ -45,7 +45,8 @@ export class CharacterVitals {
 	}
 
 	// `playbook` (its system data) and `armorBreakdown` are the sources the stored values are
-	// measured against for the provenance tooltips; the character supplies both.
+	// measured against for provenance — the hover sentence and the printed note both; the character
+	// supplies both.
 	async buildVitalsSnapshot(playbook = null, armorBreakdown = ArmorBreakdown.empty()) {
 		const attrs    = this._actor.system?.attributes ?? {};
 		const level    = attrs.level ?? 1;
@@ -53,13 +54,17 @@ export class CharacterVitals {
 		const dieVal   = attrs.damage?.value ?? null;
 		const damage   = dieVal ? { value: dieVal } : null;
 		const armor    = attrs.armor ?? 0;
+		// One provenance, asked twice: the same derivation answers the hover sentence and the printed
+		// note, so the two can never disagree about where a value came from.
+		const provenance = new VitalsProvenance(playbook, armorBreakdown);
 		return new VitalsSnapshotBuilder()
 			.withHp(new ValueMax(attrs.hp?.value ?? 0, hpMax))
 			.withDamage(damage)
 			.withArmor(armor)
 			.withLevel(level)
 			.withXp(new ValueMax(attrs.xp?.value ?? 0, new Advancement(level, 0).cost))
-			.withSources(new VitalsProvenance(playbook, armorBreakdown).build(hpMax, dieVal, armor))
+			.withSources(provenance.build(hpMax, dieVal, armor))
+			.withNotes(provenance.buildNotes(hpMax, dieVal, armor))
 			.build();
 	}
 
