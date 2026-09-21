@@ -252,7 +252,7 @@
     },
     "description": {
       "source": "You are accompanied by a beast of uncommon loyalty and cleverness. See the Animal Companion insert for details.",
-      "text": "Du wirst von einem Tier von ungewöhnlicher Treue und Klugheit begleitet. Siehe hierzu für weitere Einzelheiten in die Beilage Tiergefährte."
+      "text": "Du wirst von einem Tier von ungewöhnlicher Treue und Klugheit begleitet. Siehe hierzu für weitere Einzelheiten in die Ergänzung Tiergefährte."
     }
   },
   "anoint-figurine-own": {
@@ -950,7 +950,7 @@
     },
     "description": {
       "source": "You've got a crew of stalwarts, six or so residents of Stonetop with some steel to them. See the Crew insert for details.",
-      "text": "Du hast eine Truppe aus kampferprobten Leuten, etwa sechs Bewohner von Stonetop, die wissen, wie man mit Stahl umgeht. Einzelheiten findest du in der Truppen-Beilage."
+      "text": "Du hast eine Truppe aus kampferprobten Leuten, etwa sechs Bewohner von Stonetop, die wissen, wie man mit Stahl umgeht. Einzelheiten findest du in der Truppen-Ergänzung."
     }
   },
   "cryptologist": {
@@ -1106,7 +1106,7 @@
     },
     "description": {
       "source": "When you **_are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
-      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Beilage} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Beilage}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Beilage}."
+      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}."
     },
     "moveResults/success/value": {
       "source": "You wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you.",
@@ -1118,7 +1118,7 @@
     },
     "moveResults/failure/value": {
       "source": "Your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
-      "text": "Deine Zeit ist gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Beilage} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Beilage}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Beilage}."
+      "text": "Deine Zeit ist gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}."
     }
   },
   "deep-insight": {
@@ -1222,11 +1222,11 @@
   "disembodied": {
     "name": {
       "source": "Disembodied",
-      "text": ""
+      "text": "Körperlos"
     },
     "description": {
       "source": "Your body is dead and gone, but you persist as a spirit. You can be harmed only by silver, salt, or that which harms spirits or ghosts.\n\nYou normally go unseen, with the barest influence on the material world and a dim, distorted sense of reality. When you **_manifest a ghostly presence in shadows or darkness,_** the world becomes clear and pick 1. For each additional option you pick, lose 1d4 HP:\n\n- You appear solid and whole, much as you did in life\n- You can speak clearly and intelligibly\n- Your touch (or ghostly weapons) can harm the living (ignores armor)\nYou remain manifest for as long as you concentrate; pain or shock or direct sunlight threaten your concentration, for sure.",
-      "text": ""
+      "text": "Dein Körper ist tot und vergangen, doch du existierst als Geist weiter. Nur Silber, Salz oder Dinge, die Geistern oder Gespenstern schaden, können dir Schaden zufügen.\n\nNormalerweise bist du unsichtbar, hast nur einen minimalen Einfluss auf die materielle Welt und eine verschwommene, verzerrte Wahrnehmung der Realität. Wenn du **_eine geisterhafte Präsenz in Schatten oder Dunkelheit manifestierst_**, wird die Welt klar und du wählst 1 Option. Für jede weitere Option, die du wählst, verlierst du 1W4 TP:\n\n- Du erscheinst fest und vollständig, so, wie du es auch zu Lebzeiten getan hast.\n- Du kannst klar und verständlich sprechen.\n- Deine Berührung (oder deine Geisterwaffen) kann Lebende verletzen (ignoriert Rüstung).\nDu bleibst manifestiert, solange du dich konzentrierst; Schmerz, Schock oder direktes Sonnenlicht gefährden mit ziemlicher Sicherheit deine Konzentration."
     }
   },
   "dust-to-dust": {
@@ -1800,11 +1800,11 @@
   "implacable": {
     "name": {
       "source": "Implacable",
-      "text": ""
+      "text": "Unerbittlich"
     },
     "description": {
       "source": "When you **_push the limits of your undead body_**, lose 1d4 HP and choose 1:\n\n- Perform a feat of inhuman strength\n- Act with uncanny speed and grace\n- Refuse to be moved, held back, or knocked off course",
-      "text": ""
+      "text": "Wenn du **_die Grenzen deines untoten Körpers überschreitest_**, verlierst du 1W4 TP und wähle 1:\n\n- Vollbringe einen übermenschlichen Kraftakt\n- Handle mit unheimlicher Geschwindigkeit und Anmut\n- Weigere dich, dich bewegen, zurückhalten oder vom eingeschlagenen Kurs abbringen zu lassen"
     }
   },
   "improved-stat": {
@@ -1956,7 +1956,7 @@
     },
     "description": {
       "source": "When you **_imbue a holy light with Helior's power_**, choose an Invocation you know and roll +WIS: **on a 10+**, it works as described but you must choose 1 consequence from the list below; **_on a 7-9_**, it works as described, but you and the GM each choose 1.\n\n- The Invocation has its reduced effect\n- The effort taxes you; mark a debility\n- The light is snuffed out when the Invocation is complete, its fuel consumed\n- You must bask in sunlight for an hour or so before using that Invocation again\nSee the Invocations insert for details.",
-      "text": "Wenn du **_ein heiliges Licht mit Heliors Macht erfüllst_**, wähle eine Anrufung, die du kennst, und würfle +WE. **Bei einer 10+** wirkt sie wie beschrieben, aber du musst 1 Konsequenz aus der folgenden Liste wählen. **Bei 7–9** wirkt sie wie beschrieben, aber du und der SL wählen jeweils 1 Konsequenz.\n\n- Die Anrufung hat eine abgeschwächte Wirkung.\n- Die Anstrengung belastet dich; markiere eine Beeinträchtigung.\n- Das Licht erlischt, sobald die Anrufung abgeschlossen ist; sein Brennstoff ist aufgebraucht.\n- Du musst dich etwa eine Stunde lang im Sonnenlicht baden, bevor du diese Anrufung erneut einsetzen kannst.\nWeitere Informationen findest du in der Anrufungen-Beilage."
+      "text": "Wenn du **_ein heiliges Licht mit Heliors Macht erfüllst_**, wähle eine Anrufung, die du kennst, und würfle +WE. **Bei einer 10+** wirkt sie wie beschrieben, aber du musst 1 Konsequenz aus der folgenden Liste wählen. **Bei 7–9** wirkt sie wie beschrieben, aber du und der SL wählen jeweils 1 Konsequenz.\n\n- Die Anrufung hat eine abgeschwächte Wirkung.\n- Die Anstrengung belastet dich; markiere eine Beeinträchtigung.\n- Das Licht erlischt, sobald die Anrufung abgeschlossen ist; sein Brennstoff ist aufgebraucht.\n- Du musst dich etwa eine Stunde lang im Sonnenlicht baden, bevor du diese Anrufung erneut einsetzen kannst.\nWeitere Informationen findest du in der Anrufungen-Ergänzung."
     },
     "moveResults/success/value": {
       "source": "It works as described — you choose 1 consequence.",
@@ -2124,7 +2124,7 @@
     },
     "description": {
       "source": "When you **_have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level_**, follow these steps:\n\n- Subtract 6 + twice your current level from your XP.\n- Increase your level by 1.\n- Choose a new move from your playbook, or an insert class that you've unlocked.\n- If you are the Blessed (or have a sacred pouch) and your new level is even, increase your maximum Stock by 1.\n- If you are the Lightbearer (or have Invoke the Sun God) and your new level is even, choose a new Invocation.\n- Review your Instinct and Appearance. Change anything that no longer applies. Feel free to make up new options.",
-      "text": "Wenn du **_zu Hause eine längere Zeit ungestört verbringen kannst und mindestens 6 + das Doppelte deiner aktuellen Stufe an EP hast_**, führe die folgenden Schritte durch:\n- Ziehe 6 + das Doppelte deiner aktuellen Stufe von deinen EP ab.\n- Erhöhe deine Stufe um 1.\n- Wähle einen neuen Spielzug aus deinem Klassenbuch oder einer Beilage, die du freigeschaltet hast.\n- Wenn du der Gesegnete bist (oder einen heiligen Beutel besitzt) und deine neue Stufe gerade ist, erhöhe deinen maximalen Vorrat um 1.\n- Wenn du der Lichtträger bist (oder „Den Sonnengott anrufen“ besitzt) und deine neue Stufe gerade ist, wähle eine neue Anrufung.\n- Überprüfe deinen Instinkt und dein Aussehen (auf der Vorderseite deines Klassenbuchs). Ändere alles, was nicht mehr zutrifft. Du kannst dir jederzeit etwas Eigenes ausdenken."
+      "text": "Wenn du **_zu Hause eine längere Zeit ungestört verbringen kannst und mindestens 6 + das Doppelte deiner aktuellen Stufe an EP hast_**, führe die folgenden Schritte durch:\n- Ziehe 6 + das Doppelte deiner aktuellen Stufe von deinen EP ab.\n- Erhöhe deine Stufe um 1.\n- Wähle einen neuen Spielzug aus deinem Klassenbuch oder einer Ergänzung, die du freigeschaltet hast.\n- Wenn du der Gesegnete bist (oder einen heiligen Beutel besitzt) und deine neue Stufe gerade ist, erhöhe deinen maximalen Vorrat um 1.\n- Wenn du der Lichtträger bist (oder „Den Sonnengott anrufen“ besitzt) und deine neue Stufe gerade ist, wähle eine neue Anrufung.\n- Überprüfe deinen Instinkt und dein Aussehen (auf der Vorderseite deines Klassenbuchs). Ändere alles, was nicht mehr zutrifft. Du kannst dir jederzeit etwas Eigenes ausdenken."
     }
   },
   "light-fingers": {
@@ -2518,7 +2518,7 @@
     },
     "description": {
       "source": "When you **_prepare for an expedition in a friendly community_**, mark as many ◇ on your Inventory insert as you wish to carry, either on specific items or in \"undefined.\" Mark up to 3 ◇ for a _light_ load (quick and quiet), 4–6 ◇ for a _normal_ load, or 7–9 ◇ for a _heavy_ load (noisy, slow, quick to tire). Also, mark a number of □ in the Small items section equal to 4+Prosperity (on specific items or \"undefined\").\n\nYou can select:\n\n- Items printed on the Inventory insert\n- Other common, mundane items\n- Any of your special possessions\n- Special items for which you Trade & Barter\n\nTell the GM what you're bringing, and answer their questions about your gear and where you got it.",
-      "text": "Wenn du **_dich in einer befreundeten Gemeinschaft auf eine Expedition vorbereitest_**, markiere auf deiner Inventar-Beilage so viele ◇, wie du mitnehmen möchtest – entweder bei spezifischen Gegenständen oder unter „undefiniert“. Markiere bis zu 3 ◇ für eine leichte Last (schnell und leise), 4–6 ◇ für eine normale Last oder 7–9 ◇ für eine schwere Last (laut, langsam und schnell ermüdend). Markiere außerdem im Abschnitt Kleine Gegenstände eine Anzahl von ☐ in Höhe von 4 + Wohlstand (bei spezifischen Gegenständen oder unter „Undefiniert“).\n\nDu kannst folgendes wählen:\n\n- Gegenstände, die auf der Inventar-Beilage aufgeführt sind\n- Andere gewöhnliche Alltagsgegenstände\n- Beliebige deiner besonderen Besitztümer\n- Besondere Gegenstände, für die du handeln & tauschen musst\nSag dem SL, was du mitnimmst, und beantworte seine Fragen zu deiner Ausrüstung und woher du sie hast."
+      "text": "Wenn du **_dich in einer befreundeten Gemeinschaft auf eine Expedition vorbereitest_**, markiere auf deiner Inventar-Ergänzung so viele ◇, wie du mitnehmen möchtest – entweder bei spezifischen Gegenständen oder unter „undefiniert“. Markiere bis zu 3 ◇ für eine leichte Last (schnell und leise), 4–6 ◇ für eine normale Last oder 7–9 ◇ für eine schwere Last (laut, langsam und schnell ermüdend). Markiere außerdem im Abschnitt Kleine Gegenstände eine Anzahl von ☐ in Höhe von 4 + Wohlstand (bei spezifischen Gegenständen oder unter „Undefiniert“).\n\nDu kannst folgendes wählen:\n\n- Gegenstände, die auf der Inventar-Ergänzung aufgeführt sind\n- Andere gewöhnliche Alltagsgegenstände\n- Beliebige deiner besonderen Besitztümer\n- Besondere Gegenstände, für die du handeln & tauschen musst\nSag dem SL, was du mitnimmst, und beantworte seine Fragen zu deiner Ausrüstung und woher du sie hast."
     }
   },
   "overchannel": {
@@ -3224,7 +3224,7 @@
     },
     "description": {
       "source": "When **_winter grips the land_**, whoever is weariest rolls 1d4+Population; the steading consumes that much Surplus. If there's not enough, reduce Surplus to 0 and @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Meet with Disaster}. Then, pick 1:\n\n- Reduce Population by 1 (min -1) due to death, decrepitude, and departure\n- An important resource (one of the horses, the cistern, etc.) is lost or not maintained\n- An important NPC dies, their role unfilled\n- Your PC dies, leaves, or retires from play\n\nThen, roll +Fortunes: **on a 10+**, the winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how); **on a 7-9**, the steading must consume additional Surplus equal to 1d4+Population before winter ends or suffer the consequences as above; **on a 6-**, as a 7-9, but also threats abound (and don't mark XP).\n\nWhatever the result, reset Fortunes to +1.",
-      "text": "Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und wähle 1:\n\n- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.\n- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.\n- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.\n- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.\n\nWürfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt."
+      "text": "Wenn **_der Winter das Land fest im Griff hat_**, würfelt derjenige, der am erschöpftesten ist, 1W4+Bevölkerung (Minimum 0). Die Siedlung verbraucht so viel Überschuss. Wenn nicht genügend Überschuss vorhanden ist, setze Überschuss auf 0, senke Schicksal um 1 und stell dich einer @UUID[Compendium.stonetop.moves.Item.4TYC5OYdPbAxWHQp]{Katastrophe}. Wähle dann 1:\n\n- Reduziere die Bevölkerung um 1 (Minimum −1) aufgrund von Tod, Gebrechlichkeit und Abwanderung.\n- Eine wichtige Ressource (eines der Pferde, die Zisterne usw.) geht verloren oder wird nicht instand gehalten.\n- Ein wichtiger NSC stirbt; seine Position bleibt unbesetzt.\n- Dein SC stirbt, geht fort oder zieht sich aus dem Spiel zurück.\n\nWürfle anschließend 2W6+Schicksal. **Bei einer 10+** ist der Winter vergleichsweise mild, und jeder Spieler darf einen lokalen NSC nennen, zu dem sich seine Beziehung zumindest ein wenig verbessert. Überlegt gemeinsam, wie es dazu kommt. **Bei 7–9** muss die Siedlung vor Ende des Winters zusätzlichen Überschuss in Höhe von 1W4+Bevölkerung verbrauchen. Andernfalls treten die oben genannten Konsequenzen ein. **Bei einer 6-** gilt dasselbe wie bei 7–9, aber zusätzlich nehmen die Bedrohungen überhand (markiere keine EP).\n\nUnabhängig vom Ergebnis wird Schicksal auf +1 zurückgesetzt."
     },
     "moveResults/success/value": {
       "source": "The winter is relatively mild, and each player can name a local NPC with whom their relationship improves at least a little (work together to figure out how).",
@@ -3826,11 +3826,11 @@
   "tethered": {
     "name": {
       "source": "Tethered",
-      "text": ""
+      "text": "Gebunden"
     },
     "description": {
       "source": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.\n\nWhen you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
-      "text": ""
+      "text": "Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw.\n\nWenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz."
     }
   },
   "the-flesh-remembers": {
@@ -4008,23 +4008,23 @@
   "undying": {
     "name": {
       "source": "Undying",
-      "text": ""
+      "text": "Unsterblich"
     },
     "description": {
       "source": "Neither poison nor disease do you harm. You feel little pain. When you **_take damage from cutting, stabbing, or crushing_**, take half damage (after armor, rounded up).\n\nWhen you are **_reduced to 0 HP_**, roll +CON.: **on a 10+**, regain half your max HP and choose 1; **on a 7-9**, regain half your max HP and choose 2; **on a 6-**, either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.\n\n- Mark a consequence (see reverse)\n- You're out of the action until the next sunset\n- Your body is permanently maimed in some way of the GM's choosing\nIf **_your body is completely destroyed_** (burnt to ash, ground to jelly, etc.), treat it as if you were reduced to 0 HP and rolled a 6-.",
-      "text": ""
+      "text": "Weder Gift noch Krankheit können dir etwas anhaben. Du empfindest nur wenig Schmerz. Wenn du **_durch Schnitte, Stiche oder Quetschungen Schaden erleidest_**, erleidest du nur den halben Schaden (nach Rüstung, aufgerundet).\n\nWenn du **_auf 0 TP sinkst_**, würfle +KO. **Bei einer 10+** erhältst du die Hälfte deiner maximalen TP zurück und wählst 1. **Bei 7–9** erhältst du die Hälfte deiner maximalen TP zurück und wählst 2. **Bei einer 6-** erhältst du entweder 1 TP zurück und alle 3 treffen zu, oder du gibst diese Ergänzung auf und erhältst stattdessen die Ergänzung Geist.\n\n- Markiere eine Konsequenz (siehe Rückseite):\n- Du bist bis zum nächsten Sonnenuntergang außer Gefecht.\n- Dein Körper wird auf eine vom SL bestimmte Weise dauerhaft verstümmelt.\nWenn **_dein Körper vollständig zerstört wird_** (zu Asche verbrannt, zermalmt usw.), behandle dies so, als wärst du auf 0 TP gesunken und hättest eine 6- gewürfelt."
     },
     "moveResults/success/value": {
       "source": "Regain half your max HP and choose 1 from the list.",
-      "text": ""
+      "text": "Du erhältst die Hälfte deiner maximalen TP zurück und wählst 1."
     },
     "moveResults/partial/value": {
       "source": "Regain half your max HP and choose 2 from the list.",
-      "text": ""
+      "text": "Du erhältst die Hälfte deiner maximalen TP zurück und wählst 2."
     },
     "moveResults/failure/value": {
       "source": "Either regain 1 HP and all 3 apply, or give up this insert and gain the Ghost insert instead.",
-      "text": ""
+      "text": "Du erhältst entweder 1 TP zurück und alle 3 treffen zu, oder du gibst diese Ergänzung auf und erhältst stattdessen die Ergänzung Geist."
     }
   },
   "unfettered": {
@@ -4072,11 +4072,11 @@
   "unliving": {
     "name": {
       "source": "Unliving",
-      "text": ""
+      "text": "Untot"
     },
     "description": {
       "source": "You do not breathe. You need not eat nor drink nor sleep. You do not heal normally. You gain no benefit from magical healing, *Make Camp*, *Recover* or *Convalesce*.",
-      "text": ""
+      "text": "Du atmest nicht. Du musst weder essen noch trinken noch schlafen. Deine Wunden heilen nicht auf normale Weise. Du profitierst nicht von magischer Heilung, Lager aufschlagen, Ausruhen oder Genesen."
     }
   },
   "unquenched": {
@@ -4434,6 +4434,46 @@
     }
   },
   "_folders": {
+    "arcana": {
+      "source": "arcana",
+      "text": "Arkana"
+    },
+    "basic": {
+      "source": "basic",
+      "text": "Grundspielzüge"
+    },
+    "expedition": {
+      "source": "expedition",
+      "text": "Expedition"
+    },
+    "follower": {
+      "source": "follower",
+      "text": "Gefolgsleute"
+    },
+    "homefront": {
+      "source": "homefront",
+      "text": "Heimatfront"
+    },
+    "improvement": {
+      "source": "improvement",
+      "text": ""
+    },
+    "playbook": {
+      "source": "playbook",
+      "text": "Klassenbücher"
+    },
+    "post-death": {
+      "source": "post death",
+      "text": "Nach dem Tod"
+    },
+    "seasons": {
+      "source": "seasons",
+      "text": "Jahreszeiten"
+    },
+    "special": {
+      "source": "special",
+      "text": "Sonderspielzüge"
+    },
     "ghost": {
       "source": "ghost",
       "text": "Geist"
@@ -4485,46 +4525,6 @@
     "the-would-be-hero": {
       "source": "The Would-Be Hero",
       "text": "Der Möchtegern-Held"
-    },
-    "arcana": {
-      "source": "arcana",
-      "text": "Arkana"
-    },
-    "basic": {
-      "source": "basic",
-      "text": "Grundspielzüge"
-    },
-    "expedition": {
-      "source": "expedition",
-      "text": "Expedition"
-    },
-    "follower": {
-      "source": "follower",
-      "text": "Gefolgsleute"
-    },
-    "homefront": {
-      "source": "homefront",
-      "text": "Heimatfront"
-    },
-    "improvement": {
-      "source": "improvement",
-      "text": ""
-    },
-    "playbook": {
-      "source": "playbook",
-      "text": "Klassenbücher"
-    },
-    "post-death": {
-      "source": "post death",
-      "text": "Nach dem Tod"
-    },
-    "seasons": {
-      "source": "seasons",
-      "text": "Jahreszeiten"
-    },
-    "special": {
-      "source": "special",
-      "text": "Sonderspielzüge"
     }
   }
 }

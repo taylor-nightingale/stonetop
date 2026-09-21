@@ -50,65 +50,65 @@
   "a-chalky-potion": {
     "name": {
       "source": "A chalky potion",
-      "text": ""
+      "text": "Eine kreidige Mixtur"
     },
     "description": {
       "source": "*magical*, *fragile*, *slow*\n\n1d4 glass vials containing thick, gritty, whitish fluid. The stopper bears a mark of transformation, flesh, and stone.\n\nWhen you **_drink the whole potion while_** **_touching stone_**, you transform (over a matter of minutes) into a mass of stone, similar to that which you touch. You retain awareness of your surroundings, blind but with excellent hearing.\n\nWhen you **_attempt to end your lithic vigil_**, roll +CON: **on a 10+**, you return to your original form, rested and invigorated—regain all your HP and clear all your debilities; **on a 7-9**, the transformation back is slow and arduous, mark a debility; **on a 6-**, you are stuck until someone pours another dose of the potion over you or communes with your spirit and helps you try again.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Fragil*, *Langsam*\n\n1W4 Glasfläschchen mit einer zähen, körnigen, weißlichen Flüssigkeit. Der Stopfen trägt ein Zeichen für Verwandlung, Fleisch und Stein.\n\nWenn du **_die gesamte Mixtur trinkst, während du Stein berührst_**, verwandelst du dich (innerhalb weniger Minuten) in eine Steinmasse, die dem berührten Stein ähnelt. Du nimmst deine Umgebung weiterhin wahr, zwar blind, verfügst aber über ein ausgezeichnetes Gehör.\n\nWenn du **_versuchst, deine steinerne Wacht zu beenden_**, würfle +KO. **Bei einer 10+** kehrst du ausgeruht und gestärkt in deine ursprüngliche Gestalt zurück – du erhältst all deine TP zurück und alle deine Beinträchtigungen werden beseitigt. **Bei 7–9** ist die Rückverwandlung langsam und beschwerlich – markiere eine Beeinträchtigung. **Bei einer 6-** steckst du fest, bis jemand eine weitere Dosis der Mixtur über dich gießt oder mit deinem Geist kommuniziert und dir hilft, es erneut zu versuchen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Steinfürsten}.*"
     }
   },
   "a-column-of-ice": {
     "name": {
       "source": "A column of ice",
-      "text": ""
+      "text": "Eine Säule aus Eis"
     },
     "description": {
       "source": "*magical*, *immobile*\n\nAmidst a high, lonely meadow stands a pillar of dark purple ice, 12 feet tall and 2 feet thick. It rests on a circular slab of rune-etched stone, a dozen paces across, untouched by time or nature. There’s a stillness to the place, a tension in the air.\n\n**Something interesting:** The runes appear to be some sort of spell, waiting to be triggered; it’d take days of study to puzzle out the command word (and you risk triggering it accidentally).\n\n**Something useful:** You can determine the command word with a few hours of study (less if you’re versed in Rime Lord script).\n\nWhen you **_speak the command word near_** **_the column_**, the dark ice expands in a flash, encasing the stone slab and anything on it. The ice traps even spirits (manifest or not). Mortal prisoners soon perish, their souls ensnared. The dark ice never melts and resists all but the mightiest magic and blows.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Unbeweglich*\n\nInmitten einer hoch gelegenen, einsamen Wiese steht eine Säule aus dunkelviolettem Eis, 12 Fuß hoch und 2 Fuß dick. Sie ruht auf einer kreisrunden, mit Runen bedeckten Steinplatte von etwa zwölf Schritt Durchmesser, die von Zeit und Natur unberührt geblieben ist. Eine unheimliche Stille liegt über dem Ort, eine Spannung liegt in der Luft.\n\n**Etwas Interessantes:** Die Runen scheinen eine Art Zauber zu bilden, der darauf wartet, ausgelöst zu werden. Es würde Tage des Studiums erfordern, das Befehlswort zu entschlüsseln (und dabei besteht die Gefahr, es versehentlich auszulösen).\n\n**Etwas Nützliches:** Du kannst das Befehlswort durch ein paar Stunden Studium herausfinden (weniger, wenn du mit der Schrift der Frostfürsten vertraut bist).\n\nWenn du **_das Befehlswort in der Nähe der Säule aussprichst_**, dehnt sich das dunkle Eis blitzschnell aus und umschließt die Steinplatte und alles, was sich darauf befindet. Das Eis schließt selbst Geister ein (manifestiert oder nicht). Sterbliche Gefangene kommen bald um, da ihre Seelen im Eis gefangen sind. Das dunkle Eis schmilzt niemals und widersteht allem außer der mächtigsten Magie und den gewaltigsten Schlägen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Frostfürsten}.*"
     }
   },
   "a-cracked-femur": {
     "name": {
       "source": "A cracked femur",
-      "text": ""
+      "text": "Ein gesprungener Oberschenkelknochen"
     },
     "description": {
       "source": "◇ *magical*\n\nThis leg bone is always cold and covered in rime. It’s the bone of a witch who broke her leg and froze to death. It houses not a ghost, but a potent spirit of winter and cold.\n\nWhen you **_first grip the bone_**, roll +CON: **on** **a 10+**, the spirit acknowledges you as master and you can wield the bone; **on a 7-9**, pick 1:\n\n- Drop the bone; you can never wield it\n- Endure as the spirit sucks away your heat—take 2d4 damage (ignores armor) and mark *weakened*—but you then master the spirit and can wield the bone.\n\n**On a 6-**, the spirit sucks away your heat—take 2d4 damage (ignores armor) and mark *weak**ened*—and you can never wield the bone.\n\nWhen you **_wield the bone as a weapon_** (*hand*, *crude*, *magical*, ignores armor) it deals 2d4 damage instead of your normal damage, sucking the warmth from your foe.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\nDieser Beinknochen ist stets kalt und mit Raureif bedeckt. Er stammt von einer Hexe, die sich das Bein brach und erfror. Er beherbergt keinen Geist eines Verstorbenen, sondern einen mächtigen Geist des Winters und der Kälte.\n\nWenn du **_den Knochen zum ersten Mal ergreifst_**, würfle +KO. **Bei einer 10+** erkennt dich der Geist als seinen Meister an und du kannst den Knochen führen. **Bei 7–9** wähle 1:\n\n- Lass den Knochen fallen; du wirst ihn niemals führen können.\n- Halte stand, während der Geist dir deine Wärme entzieht – erleide 2W4 Schaden (ignoriert Rüstung) und markiere Geschwächt – aber du bezwingst den Geist und kannst den Knochen führen.\n\n**Bei einer 6-** entzieht der Geist dir deine Wärme – erleide 2W4 Schaden (ignoriert Rüstung) und markiere Geschwächt – und du wirst den Knochen niemals führen können.\n\nWenn du **_den Knochen als Waffe führst_** (*Hand*, *Grob*, *Magisch*, ignoriert Rüstung), verursacht er statt deines normalen Schadens 2W4 Schaden und entzieht deinem Gegner dabei die Wärme.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     },
     "outfitItems/a-cracked-femur/name": {
       "source": "A cracked femur",
-      "text": ""
+      "text": "Ein gesprungener Oberschenkelknochen"
     }
   },
   "a-crown-of-flowers": {
     "name": {
       "source": "A crown of flowers",
-      "text": ""
+      "text": "Eine Blumenkrone"
     },
     "description": {
       "source": "*fragile*, *magical*\n\nA wreath of living vines, sprouting flowers of great variety and beauty. A woman who dons the crown becomes greatly attuned to the fertility of everything around her, and the whispering spirits of growing things. She also becomes aware of the rites of spring.\n\nWhen a **_woman wears the crown and_** **_performs the rites of spring_**—dancing around an oak tree, making offerings to the spirits, and joining with her lover in the light of the full moon—then her steading rolls with advantage to generate Surplus in both summer and autumn. Also, if the woman wearing the crown so chooses, she will conceive and bear a healthy child, regardless of any barriers.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "*Fragil*, *Magisch*\n\nEin Kranz aus lebenden Ranken, aus denen Blumen von großer Vielfalt und Schönheit sprießen. Eine Frau, die die Krone trägt, wird zutiefst für die Fruchtbarkeit von allem um sie herum und für die flüsternden Geister der wachsenden Dinge empfänglich. Außerdem wird sie sich der Riten des Frühlings bewusst.\n\nWenn eine Frau die Krone trägt und die Riten des Frühlings vollzieht – um eine Eiche tanzt, den Geistern Opfergaben darbringt und sich im Licht des Vollmonds mit ihrem Geliebten vereint –, würfelt ihre Siedlung mit Vorteil, um sowohl im Sommer als auch im Herbst Überschuss zu erwirtschaften. Wenn die Frau, die die Krone trägt, sich dafür entscheidet, wird sie auch ein gesundes Kind empfangen und gebären, ungeachtet aller Hindernisse.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     }
   },
   "a-dark-ice-knife": {
     "name": {
       "source": "A dark ice knife",
-      "text": ""
+      "text": "Ein Messer aus dunklen Eis"
     },
     "description": {
       "source": "*hand*, *magical*, *crude*\n\nA hilt of bone, with a spike of dark ice tapering to a sharp point. The ice is hard as stone, and not especially sharp.\n\nWhen you **_stab an undead entity with the_** **_knife_**, ask the GM whether it is driven by obsession, hunger, and/or vengeance. If the answer is “yes,” then deal +1d4 damage (ignores armor), and leave the entity briefly disoriented. Should this reduce the entity to 0 HP, the dark ice knife melts away along with whatever bound the entity to this world.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
-      "text": ""
+      "text": "*Hand*, *Magisch*, *Grob*\n\nEin Griff aus Knochen, mit einer Spitze aus dunklem Eis, die sich zu einer scharfen Spitze verjüngt. Das Eis ist hart wie Stein, aber nicht besonders scharf.\n\nWenn du **_mit dem Messer auf ein untotes Wesen einstichst_**, frage den SL, ob es von Besessenheit, Hunger und/oder Rache getrieben wird. Lautet die Antwort „Ja“, verursachst du +1W4 Schaden, ignorierst Rüstung und lässt das Wesen kurzzeitig desorientiert zurück. Sollte das Wesen dadurch auf 0 TP sinken, schmilzt das Messer aus dunlen Eis zusammen mit allem, was das Wesen an diese Welt gebunden hat.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Frostfürsten}.*"
     }
   },
   "a-fang-dagger": {
     "name": {
       "source": "A fang-dagger",
-      "text": ""
+      "text": "Ein Reißzahndolch"
     },
     "description": {
       "source": "*hand*, *magical*, +1 damage\n\nAn 8-inch fang, bound to a wooden hilt by fiber that never rots. A cruel-looking thing, with strange carvings along the blade.\n\n**Something interesting:** The fang looks like it came from a **cynddaraig** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{206}), and the markings are definitely some sort of spell related to blood and soil.\n\n**Something useful:** When you **_bury the_** **_fang-dagger and water the soil with blood_**, the ground buckles and bulges. A minute later, a full-grown cynddaraig bursts from the soil—angry, confused, and hungry. The spell grants no control over the beast and provides no way to dismiss it. The dagger is gone, now a tooth in the rage-drake’s maw.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": ""
+      "text": "*Hand*, *Magisch*, +1 Schaden\n\nEin 8 Zoll langer Reißzahn, mit einer Faser, die niemals verrottet, an einen Holzgriff gebunden. Ein grausig aussehendes Ding mit seltsamen Schnitzereien entlang der Klinge.\n\n**Etwas Interessantes:** Der Reißzahn sieht aus, als stamme er von einem @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{Cynddaraig}, und die Zeichen sind eindeutig eine Art Zauber, der mit Blut und Erde zu tun hat.\n\n**Etwas Nützliches:** Wenn du **_den Reißzahn-Dolch vergräbst und die Erde mit Blut tränkst_**, beginnt der Boden sich zu wölben und aufzubäumen. Eine Minute später bricht ein ausgewachsener Cynddaraig aus der Erde hervor – wütend, verwirrt und hungrig. Der Zauber gewährt keinerlei Kontrolle über die Bestie und bietet auch keine Möglichkeit, es wieder verschwinden zu lassen. Der Dolch ist verschwunden und steckt nun als Zahn im Maul der Zorndrachenechse.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     }
   },
   "a-forked-stick-of-redwood": {
@@ -142,15 +142,15 @@
   "a-fur-lined-bedroll": {
     "name": {
       "source": "A fur-lined bedroll",
-      "text": ""
+      "text": "Ein mit Fell gegütterter Schlafsack"
     },
     "description": {
       "source": "◇ *magical*\n\nThis bedroll is decorated with Forest Folk beadwork and lined with the softest rabbit fur. It tethers a nurturing, protective spirit, one that is quiet and comforting.\n\nWhen you **_Make Camp in the fur-lined_** **_bedroll_**, you regain 1d6 (extra) HP and gain advantage on your next roll.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\nDieser Schlafsack ist mit Perlenstickereien des Waldvolks verziert und mit dem weichsten Kaninchenfell gefüttert. Er beherbergt einen fürsorglichen, schützenden Geist, der still und beruhigend ist.\n\nWenn du **_ein Lager aufschlägst und dabei in dem mit Fell gefütterten Schlafsack schläfst_**, erhältst du 1W6 zusätzliche TP zurück und hast bei deinem nächsten Wurf einen Vorteil.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     },
     "outfitItems/a-fur-lined-bedroll/name": {
       "source": "A fur-lined bedroll",
-      "text": ""
+      "text": "Ein mit Fell gegütterter Schlafsack"
     }
   },
   "a-good-dog": {
@@ -170,15 +170,15 @@
   "a-hunk-of-amber": {
     "name": {
       "source": "A hunk of amber",
-      "text": ""
+      "text": "Ein Stück Bernstein"
     },
     "description": {
       "source": "◇ *magical*, Value 2\n\nIt’s about the size of two fists, with a mass of blood-sucking insects floating in its center. It tethers an ambitious spirit of insects, blight, and disease. Treat it as a threat (type: *magical entity*, **Instinct** to foster worship) with the following moves:\n\n- Demand a blood sacrifice, poured over the amber\n- Shield someone from sickness, vermin, and poison\n- Blight an enemy with sickness, vermin, or both\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "◇, *Magisch*, Wert 2\n\nEtwa so groß wie zwei Fäuste, mit einem Schwarm blutsaugender Insekten, der in seinem Inneren schwebt. Es beherbergt einen ehrgeizigen Geist der Insekten, der Verderbnis und der Krankheit. Behandle ihn als Bedrohung (Typ: magische Entität, Impuls: Verehrung zu erlangen) mit folgenden Spielzügen:\n\n- Verlange ein Blutopfer, das über den Bernstein vergossen wird.\n- Schütze jemanden vor Krankheit, Ungeziefer und Gift\n- Plage einen Feind mit Krankheit, Ungeziefer oder beidem\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     },
     "outfitItems/a-hunk-of-amber/name": {
       "source": "A hunk of amber",
-      "text": ""
+      "text": "Ein Stück Bernstein"
     },
     "outfitItems/a-hunk-of-amber/note": {
       "source": "Value 2",
@@ -236,11 +236,11 @@
   "a-scarred-slab-of-marble": {
     "name": {
       "source": "A scarred slab of marble",
-      "text": ""
+      "text": "Eine vernarbte Marmorplatte"
     },
     "description": {
       "source": "*immobile*, *magical*\n\nA slab of once-beautiful stone, some 30 feet tall and about half again as wide, standing in a vaulted chamber, surrounded by deeply etched runes that speak of union and protection, consumption and sacrifice. The stone bears a multitude of chips, gouges, and cracks. Dust and debris surround it.\n\nWhen you **_pry a chip of stone from the mar_****_ble and swallow it whole, while standing_** **_within the ring of runes_**, your flesh becomes like stone and your DEX becomes -2 until the effect ends. The next three times you would suffer physical harm, the marble slab suffers the harm instead. The effect ends after the third blow.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
-      "text": ""
+      "text": "*Unbeweglich*, *Magisch*\n\nEine einst wunderschöne Steinplatte, etwa 30 Fuß hoch und rund 15 Fuß breit, steht in einer gewölbten Kammer, umgeben von tief eingravierten Runen, die von Vereinigung und Schutz, Verzehr und Opferung künden. Der Stein weist unzählige Absplitterungen, Kerben und Risse auf. Staub und Trümmer umgeben ihn.\n\nWenn du **_innerhalb des Runenkreises einen Splitter aus dem Marmor herausbrichst und ihn in einem Stück verschluckst_**, wird dein Fleisch zu Stein und deine GE sinkt auf -2, bis der Effekt endet. Die nächsten drei Male, wenn du körperlichen Schaden erleiden würdest, erleidet stattdessen die Marmorplatte den Schaden. Nach dem dritten Treffer endet der Effekt.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Steinfürsten}.*"
     }
   },
   "a-sealed-amphora": {
@@ -284,11 +284,11 @@
   "a-small-black-sphere": {
     "name": {
       "source": "A small black sphere",
-      "text": ""
+      "text": "Eine kleine schwarze Kugel"
     },
     "description": {
       "source": "*magical*, *indestructible*, *immobile*\n\nFound in or near some Rime Lord ruin, this… thing… appears to be a perfect sphere of lead, maybe 2 inches across. It hovers motionless in the air. No amount of physical force can mar it, nor move it from its relative position.\n\nWhen you **_focus all your will upon the black_** **_sphere_**, roll +WIS: **on a 10+**, you can slowly move the sphere with your mind, so long as you keep your attention fixed upon the task; **on a 7-9**, pick 1:\n\n- Mark a debility and move the sphere as per a 10+\n- Move the sphere, but only a few inches\n- Fling the sphere in a random vector (if it matters: d8 damage, *forceful*, *messy*)\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Unzerstörbar*, *Unbeweglich*\n\nIn oder nahe einer Ruine der Frostfürsten gefunden, scheint dieses … Ding … eine perfekte Kugel aus Blei zu sein, vielleicht 2 Zoll im Durchmesser. Sie schwebt reglos in der Luft. Keine physische Kraft kann ihr etwas anhaben oder sie aus ihrer relativen Position bewegen.\n\nWenn du **_deinen gesamten Willen auf die schwarze Kugel konzentrierst_**, würfle +WE. **Bei einer 10+** kannst du die Kugel langsam mit deinem Geist bewegen, solange du deine Aufmerksamkeit ununterbrochen auf diese Aufgabe richtest. **Bei 7–9** wähle 1:\n\n- Markiere eine Beeinträchtigung und bewege die Kugel wie bei einer 10+.\n- Bewege die Kugel, aber nur um paar Zoll.\n- Schleudere die Kugel in eine zufällige Richtung (falls relevant: 1W8 Schaden, *Wuchtig*, *Brutal*)\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Sturmfürsten}.*"
     }
   },
   "a-spindle-of-fine-thread": {
@@ -342,25 +342,25 @@
   "a-tightly-woven-net": {
     "name": {
       "source": "A tightly-woven net",
-      "text": ""
+      "text": "Ein engmaschiges Netz"
     },
     "description": {
       "source": "*close*, *thrown*, *magical*, *crude*\n\nWoven from Flats-grass by a Hillfolk sorcerer or witch. Hundreds of minor root-spirits are tethered to the strands.\n\nWhen you **_cast the net over a spirit_**, it is ensnared—even if its form is intangible or could flow through the net. The spirit can’t escape on its own as long as the net is intact. Don’t try to use this on fire spirits— they’ll burn right through it.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "*Kurz*, *Geworfen*, *Magisch*, *Grob*\n\nVon einem Zauberer oder einer Hexe des Hügelvolks aus Präriegras geflochten. Hunderte schwache Wurzelgeister sind an die Stränge gebunden.\n\nWenn du **_das Netz über einen Geist wirfst_**, wird er darin gefangen – selbst wenn seine Form immateriell ist oder er eigentlich durch das Netz hindurchfließen könnte. Solange das Netz intakt ist, kann sich der Geist nicht aus eigener Kraft befreien. Versuch gar nicht erst, es bei Feuergeistern zu benutzen – sie werden es einfach verbrennen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     }
   },
   "a-vine-in-a-rune-carved-pot": {
     "name": {
       "source": "A vine in a rune-carved pot",
-      "text": ""
+      "text": "Eine Rebe in einem mit Runen verzierten Topf"
     },
     "description": {
       "source": "◇ *magical*\n\nIt’s about as thick as your finger and maybe 30 feet long stretched out, with skinny little tendrils. It looks rather dried out, but moves slightly if you touch it or its pot. If you water it, it twitches excitedly.\n\nA plant spirit is bound to the vine and pot. If you befriend it and carry its pot, it will animate and act as a follower: *grabby*, *clever*, *playful*; **HP** 3; **Damage** 0; **Instinct** to not let go; **Cost** affection, play time.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\nSie ist etwa so dick wie dein Finger und ausgebreitet vielleicht 30 Fuß  lang, mit dünnen, kleinen Ranken. Sie sieht ziemlich vertrocknet aus, bewegt sich aber leicht, wenn du sie oder ihren Topf berührst. Wenn du sie gießt, zuckt sie aufgeregt.\n\nEin Pflanzengeist ist an die Ranke und den Topf gebunden. Wenn du dich mit ihm anfreundest und seinen Topf mit dir führst, wird er lebendig und dient dir als Gefolgsmann: *Fesselnd*, *Schlau*, *Verspielt*; 3 TP; Schaden 0; Instinkt: nicht loslassen; Kosten: Zuneigung, Spielzeit.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     },
     "outfitItems/a-vine-in-a-rune-carved-pot/name": {
       "source": "A vine in a rune-carved pot",
-      "text": ""
+      "text": "Eine Rebe in einem mit Runen verzierten Topf"
     }
   },
   "a-wooden-mask": {
@@ -376,15 +376,15 @@
   "aetherium-urn": {
     "name": {
       "source": "Aetherium urn",
-      "text": ""
+      "text": "Ätherium-Urne"
     },
     "description": {
       "source": "◇ *magical*, *dangerous*\n\nThe lid is held fast by no apparent means. It takes some effort to pry open and eagerly snaps back into place.\n\nWhen **_the urn is open and empty_**, it draws raw elemental force into it like a lodestone draws iron. With the lid in place, the force is safely stored. If the urn is damaged or dented (not hard), any stored force escapes, violently.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Gefährlich*\n\nDer Deckel wird auf keine erkennbare Weise festgehalten. Er lässt sich nur mit Mühe öffnen und schnappt dann eifrig wieder zu.\n\nWenn die **_Urne geöffnet und leer ist_**, zieht sie rohe elementare Kraft an, wie ein Magnet Eisen anzieht. Mit aufgesetztem Deckel ist die Kraft sicher verwahrt. Wird die Urne beschädigt oder eingedellt (was nicht schwer ist), entweicht jede gespeicherte Kraft auf gewaltsame Weise.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Sturmfürsten}.*"
     },
     "outfitItems/aetherium-urn/name": {
       "source": "Aetherium urn",
-      "text": ""
+      "text": "Ätherium-Urne"
     }
   },
   "an-iron-spider": {
@@ -420,15 +420,15 @@
   "an-oversized-ring": {
     "name": {
       "source": "An oversized ring",
-      "text": ""
+      "text": "Ein übergroßer Ring"
     },
     "description": {
       "source": "◇ *beautiful*, *magical*, Value 4\n\nA fist-sized signet, large even by the Makers’ standards, made of orichalcum. It glows like a dying ember, but is cool to the touch. When anyone lies in the ring’s presence, their tongue blisters and burns. The greater the lie, the more damage is done.\n\n**Something interesting:** This was the signet ring of a Forge Lord, one of great wealth and importance; the **Ustrina** (page @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{464}) often show keen interest in such things.\n\n**Something useful:** This was the signet ring of Omelor Xonane, a storied artificer. Many of their works were said to be keyed to this signet ring. Who knows what wonders it could unlock?\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords}.*",
-      "text": ""
+      "text": "◇, *Wunderschön*, *Magisch*, Wert 4\n\nEin faustgroßer Siegelring aus Orichalkum, der selbst nach den Maßstäben der Schöpfer riesig ist. Er leuchtet wie eine sterbende Glut, fühlt sich jedoch kühl an. Wenn jemand in Gegenwart des Rings lügt, wirfst seine Zunge Blasen und brennt. Je größer die Lüge, desto mehr Schaden wird verursacht.\n\n**Etwas Interessantes:** Dies war der Siegelring eines Schmiedefürsten, der großen Reichtum und Einfluss besaß. Die @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.IAapou8FwQPQCJ4W]{Ustrina} zeigen an solchen Dingen oft großes Interesse.\n\n**Etwas Nützliches:** Dies war der Siegelring von Omelor Xonane, einem legendären Erfinder. Angeblich waren viele seiner Werke auf diesen Siegelring abgestimmt. Wer weiß, welche Wunder er zu enthüllen vermag?\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Schmiedefürsten}.*"
     },
     "outfitItems/an-oversized-ring/name": {
       "source": "An oversized ring",
-      "text": ""
+      "text": "Ein übergroßer Ring"
     },
     "outfitItems/an-oversized-ring/note": {
       "source": "Value 4",
@@ -810,11 +810,11 @@
   "floating-sash": {
     "name": {
       "source": "Floating sash",
-      "text": ""
+      "text": "Schwebende Schärpe"
     },
     "description": {
       "source": "*magical*\n\nA length of bluish-white lamé, maybe 6 inches wide by 6 feet long, snaking about in the air. Like a belt, but for someone far larger than you.\n\nWhen you **_wrap the sash securely around_** **_your waist_**, it buoys you against falls—you never fall faster than if you had fallen your own height.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
-      "text": ""
+      "text": "*Magisch*\n\nEin Stück bläulich-weißes Lamé, vielleicht sechs Zoll breit und sechs Fuß lang, das sich durch die Luft schlängelt. Wie ein Gürtel, nur für jemanden, der sehr viel größer ist als du.\n\nWenn du **_die Schärpe fest um deine Hüfte bindest_**, bremst sie dich bei Stürzen ab – du fällst niemals schneller, als wenn du aus deiner eigenen Körperhöhe gefallen wärst.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Sturmfürsten}.*"
     }
   },
   "glassworks": {
@@ -1080,15 +1080,15 @@
   "orichalcum-spear": {
     "name": {
       "source": "Orichalcum spear",
-      "text": ""
+      "text": "Orichalkum-Speer"
     },
     "description": {
       "source": "◇ *close*, *thrown*, *magical*, *beautiful*\n\n1 piercing The haft needs replacing, but the spearhead itself is pristine, beautiful, sharp as hot flame. When you **_strike a perversion of_** **_nature with the spear_**, deal +1d4 damage. When you **_strike a perversion of nature and_** **_roll max damage_** (including any bonus dice), deal another +1d4 damage as the spearhead flares and melts into worthless slag.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords}.*",
-      "text": ""
+      "text": "◇, *Kurz*, *Geworfen*, *Magisch*, *Wunderschön*, Durchdringung 1\n\nDer Schaft muss ersetzt werden, doch die Speerspitze selbst ist makellos, wunderschön und scharf wie eine heiße Flamme. Wenn du **_mit dem Speer eine Perversion der Natur triffst_**, verursachst du +1W4 zusätzlichen Schaden. Wenn du **_eine Perversion der Natur triffst und dabei maximalen Schaden erzielst_** (einschließlich aller Bonuswürfel), verursachst du weitere +1W4 Schaden, während die Speerspitze aufglüht und zu wertloser Schlacke schmilzt.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Schmiedefürsten}.*"
     },
     "outfitItems/orichalcum-spear/name": {
       "source": "Orichalcum spear",
-      "text": ""
+      "text": "Orichalkum-Speer"
     }
   },
   "pale-metal-gauntlets": {
@@ -1194,15 +1194,15 @@
   "power-crystal": {
     "name": {
       "source": "Power-crystal",
-      "text": ""
+      "text": "Energiekristall"
     },
     "description": {
       "source": "◇ *magical*, *dangerous*\n\nA chunk of crystal the size of a clenched fist. If charged, it thrums or crackles with power. If depleted, it fills you with a sense of emptiness and longing.\n\nWhen you **_brandish the depleted power_****_crystal at a source of elemental energy_**, roll +CON: **on a 10+**, the crystal absorbs the energy fully and as safely as possible (it is now charged); **on a 7-9**, the crystal absorbs the energy (it’s now charged) but pick 1:\n\n- You are harmed by the coursing energy, taking damage as the GM sees fit\n- The power stored in the crystal is extremely unstable, likely to discharge without warning\n- The crystal cracks; henceforth, treat a 10+ on this move as a 7-9, and you can’t pick this option again.\n\nIn the hands of a skilled arcanist, a charged power-crystal can fuel or empower a magical effect (though this is dangerous). In the hands of the incautious, the reckless, or the desperate, it can split or crack, leading to a violent explosion.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Gefährlich*\n\nEin Kristallstück von der Größe einer geballten Faust. Ist er geladen, summt oder knistert er vor Energie. Ist er entladen, erfüllt er dich mit einem Gefühl von Leere und Sehnsucht.\n\nWenn du **_den entladenen Energiekristall vor einer Quelle elementarer Energie schwenkst_**, würfle +KO. **Bei einer 10+** absorbiert der Kristall die Energie vollständig und so sicher wie möglich (er ist nun geladen). **Bei 7–9** absorbiert der Kristall die Energie (er ist nun geladen), aber wähle 1:\n\n- Die durchströmende Energie verletzt dich; du erleidest Schaden, wie der SL es für angemessen hält.\n- Die im Kristall gespeicherte Energie ist äußerst instabil und und kann sich ohne Vorwarnung entladen.\n- Der Kristall bekommt einen Riss; behandle fortan eine 10+ bei diesem Spielzug als 7–9, und du kannst diese Option nicht noch einmal wählen.\n\nIn den Händen eines erfahrenen Arkanisten kann ein geladener Energiekristall einen magischen Effekt speisen oder verstärken (allerdings ist dies gefährlich). In den Händen Unvorsichtiger, Waghalsiger oder Verzweifelter kann er bersten oder reißen und eine gewaltige Explosion auslösen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Steinfürsten}.*"
     },
     "outfitItems/power-crystal/name": {
       "source": "Power-crystal",
-      "text": ""
+      "text": "Energiekristall"
     }
   },
   "sacred-pouch": {
@@ -1276,21 +1276,21 @@
   "silvery-tuning-fork": {
     "name": {
       "source": "Silvery tuning fork",
-      "text": ""
+      "text": "Silbrige Stimmgabel"
     },
     "description": {
       "source": "*magical*, *loud*\n\nWhen you **_strike this tuning fork against a_** **_hard surface_**, it emits a loud tone for about a minute. Nearby (*reach*, *area*) magical effects and creatures become visible: shaking, vibrating, distorted. The noise draws the attention of any spirits or magically attuned beings for miles around.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Laut*\n\nWenn du **_diese Stimmgabel gegen eine harte Oberfläche schlägst_**, lässt sie etwa eine Minute lang einen lauten Ton erklingen. Magische Effekte und Kreaturen in der Nähe (Lang, Bereich) werden sichtbar: Sie zittern, vibrieren und wirken verzerrt. Das Geräusch zieht die Aufmerksamkeit aller Geister oder magisch empfänglichen Wesen im Umkreis von mehreren Meilen auf sich.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Sturmfürsten}.*"
     }
   },
   "small-clay-jars": {
     "name": {
       "source": "Small clay jars",
-      "text": ""
+      "text": "Kleine Tongefäße"
     },
     "description": {
       "source": "*fragile*, *magical*\n\nA number of earthenware jars, about the size of a pinecone, sealed with wax and seemingly empty. When opened (or broken) a fine cloud of dust puffs out. The dust is, in fact, chogor spores.\n\nWhen **_someone is exposed to chogor spores_**, the spores quickly start to grow on them in masses of vine-like ferns. They will—in a matter of seconds—ensnare and restrain their victim. After about an hour, the ferns die and rapidly dry out, but until then, it’s like being bound up in twine.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": ""
+      "text": "*Fragil*, *Magisch*\n\nEine Reihe von Tongefäßen, etwa so groß wie ein Kiefernzapfen, mit Wachs versiegelt und scheinbar leer. Beim Öffnen (oder Zerbrechen) entweicht eine feine Staubwolke. Bei dem Staub handelt es sich in Wahrheit um Chogor-Sporen.\n\nWenn **_jemand den Chogor-Sporen ausgesetzt ist_**, beginnen die Sporen rasch, in Form von massenhaft rankenartigen Farnen auf ihm zu wachsen. Innerhalb weniger Sekunden überwuchern und fesseln sie ihr Opfer. Nach etwa einer Stunde sterben die Farne ab und trocknen schnell aus aber bis dahin fühlt es sich an, als wäre man mit Bindfäden gefesselt.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     }
   },
   "smithy": {
@@ -1494,15 +1494,15 @@
   "two-mirrors": {
     "name": {
       "source": "Two mirrors",
-      "text": ""
+      "text": "Zwei Spiegel"
     },
     "description": {
       "source": "◇ *beautiful*, *magical*, Value 4\n\nOne is a flawless silvered ◇ ◇ mirror (*magical*, *beautiful*, *fragile*, Value 4), 3 feet tall and set in a golden frame. Forge Lord runes adorn the frame, translated as: “To my beautiful Esé, my faithful, my rock.”\n\nThe other is a smaller, humble ◇ mirror (*magical*, *fragile*, Value 2), only 12 inches tall in a frame of bronze. It bears the same inscription as the other mirror, but inverted. A small needle protrudes from the frame, stained dark.\n\nWhen you **_prick your finger and touch the_** **_smaller mirror_**, it shows what is reflected in the larger mirror until you break contact. Your blood soaks into the surface, leaving no stain.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords}.*",
-      "text": ""
+      "text": "◇, *Wunderschön*, *Magisch*, Wert 4Der eine ist ein makelloser, versilberter ◇◇ Spiegel (*Magisch*, *Wunderschön*, *Fragil*, Wert 4), 3 Fuß hoch und in einen goldenen Rahmen eingefasst. Den Rahmen zieren Runen der Schmiedefürsten, die übersetzt lauten: „Für meine schöne Esé, meine Treue, mein Fels.“\n\nDer andere ist ein kleinerer, schlichter ◇ Spiegel (*Magisch*, *Fragil*, Wert 2), gerade einmal 12 Zoll hoch und mit einem Rahmen aus Bronze. Er trägt dieselbe Inschrift wie der andere Spiegel, jedoch spiegelverkehrt. Aus dem Rahmen ragt eine kleine, dunkel gefärbte Nadel heraus.\n\nWenn du **_dir in den Finger stichst und den kleineren Spiegel berührst_**, zeigt er das, was im größeren Spiegel reflektiert wird, solange du den Kontakt aufrechterhältst. Dein Blut wird von der Oberfläche aufgesogen und hinterlässt keinen Fleck.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Schmiedefürsten}.*"
     },
     "outfitItems/two-mirrors/name": {
       "source": "Two mirrors",
-      "text": ""
+      "text": "Zwei Spiegel"
     },
     "outfitItems/two-mirrors/note": {
       "source": "Value 4",
