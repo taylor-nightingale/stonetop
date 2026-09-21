@@ -4434,6 +4434,46 @@
     }
   },
   "_folders": {
+    "arcana": {
+      "source": "arcana",
+      "text": "Arkana"
+    },
+    "basic": {
+      "source": "basic",
+      "text": "Grundspielzüge"
+    },
+    "expedition": {
+      "source": "expedition",
+      "text": "Expedition"
+    },
+    "follower": {
+      "source": "follower",
+      "text": "Gefolgsleute"
+    },
+    "homefront": {
+      "source": "homefront",
+      "text": "Heimatfront"
+    },
+    "improvement": {
+      "source": "improvement",
+      "text": ""
+    },
+    "playbook": {
+      "source": "playbook",
+      "text": "Klassenbücher"
+    },
+    "post-death": {
+      "source": "post death",
+      "text": "Nach dem Tod"
+    },
+    "seasons": {
+      "source": "seasons",
+      "text": "Jahreszeiten"
+    },
+    "special": {
+      "source": "special",
+      "text": "Sonderspielzüge"
+    },
     "ghost": {
       "source": "ghost",
       "text": "Geist"
@@ -4485,46 +4525,6 @@
     "the-would-be-hero": {
       "source": "The Would-Be Hero",
       "text": "Der Möchtegern-Held"
-    },
-    "arcana": {
-      "source": "arcana",
-      "text": "Arkana"
-    },
-    "basic": {
-      "source": "basic",
-      "text": "Grundspielzüge"
-    },
-    "expedition": {
-      "source": "expedition",
-      "text": "Expedition"
-    },
-    "follower": {
-      "source": "follower",
-      "text": "Gefolgsleute"
-    },
-    "homefront": {
-      "source": "homefront",
-      "text": "Heimatfront"
-    },
-    "improvement": {
-      "source": "improvement",
-      "text": ""
-    },
-    "playbook": {
-      "source": "playbook",
-      "text": "Klassenbücher"
-    },
-    "post-death": {
-      "source": "post death",
-      "text": "Nach dem Tod"
-    },
-    "seasons": {
-      "source": "seasons",
-      "text": "Jahreszeiten"
-    },
-    "special": {
-      "source": "special",
-      "text": "Sonderspielzüge"
     }
   }
 }
