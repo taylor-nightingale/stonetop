@@ -216,13 +216,9 @@
       "source": "Livestock (pigs, goats, sheep, meat, milk, wool)",
       "text": "Viehzucht (Schweine, Ziegen, Schafe, Fleisch, Milch, Wolle)"
     },
-    "assets/resources/farming-wheat-barley-oats": {
-      "source": "Farming (wheat, barley, oats,",
+    "assets/resources/farming-wheat-barley-oats-honey-mead": {
+      "source": "Farming (wheat, barley, oats, honey, mead)",
       "text": "Ackerbau (Weizen, Gerste, Hafer, Honig, Met)"
-    },
-    "assets/resources/honey-mead": {
-      "source": "honey, mead)",
-      "text": ""
     },
     "assets/resources/timber": {
       "source": "Timber",
@@ -427,6 +423,10 @@
     "assets/fortifications/3-watchtowers": {
       "source": "3 watchtowers",
       "text": "Drei Wachtürme"
+    },
+    "assets/fortifications/spears-shields-in-every-home": {
+      "source": "Spears & shields in every home",
+      "text": "Speere und Schilde in jedem Haus"
     },
     "assets/fortifications/some-bows": {
       "source": "Some bows",
