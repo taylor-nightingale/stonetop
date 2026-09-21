@@ -2,138 +2,172 @@
       lives here because root classes are static in ApplicationV2. --}}
 <div class="sheet-wrapper stonetop-playbook-{{stonetop.playbook.slug}}">
 
-	{{> "stonetop.actor-header"}}
+	{{!-- The rail, and everything beside it.
 
-	<section class="sheet-top flexrow">
-		<div class="stonetop-stats-column">
-			{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
+	      The layout is the OUTER container, as on the steading: the rail runs the whole sheet height,
+	      from under the title bar past the tab rule, rather than starting below a header band.
 
-			<div class="stonetop-stats-section">
-				{{> "stonetop.actor-stats" stats=stonetop.stats}}
-			</div>
-			<div class="stonetop-debilities">
-				{{#each stonetop.debilities}}
-				<div class="stonetop-debility">
-					{{!-- Two groups, not four siblings: the divider art and the tick it frames belong
-					      to one band, and the name sits below it in normal flow. Everything used to
-					      be absolutely positioned against hand-measured pixel offsets, so the name
-					      climbed into the art as soon as Foundry's font setting grew it. --}}
-					<label class="stonetop-debility-control"
-					       data-tooltip="{{description}}" data-tooltip-direction="UP">
-						<span class="stonetop-debility-band">
-							<span class="stonetop-debility-divider"></span>
-							<input type="checkbox" class="stonetop-debility-check"
-							       data-change-action="debility"
-							       data-slug="{{key}}"
-							       {{#if active}}checked{{/if}}>
-						</span>
-						<span class="stonetop-debility-label">{{key}}</span>
-					</label>
-				</div>
-				{{/each}}
-			</div>
+	      The rail is the MOVES rail. That is the one structural rule this sheet has: rolling a move
+	      needs the stat AND the move, so stats and moves cannot share one scrolling column — put
+	      both in here and they become mutually exclusive, which is exactly what happened. What the
+	      rail carries beside the moves is Advancement, which is read once a session.
 
-			<div class="stonetop-vitals-section">
-				{{> "stonetop.actor-attributes"}}
-			</div>
+	      Left, matching the steading. `data-side` is the only thing that says which edge; the shared
+	      rail stylesheet reads it and nothing in the markup or the JS knows the side. --}}
+	<div class="stonetop-rail-layout" data-side="left">
+		<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
+		        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-moves-rail"
+		        data-label-show="{{localize 'stonetop.sheet.railShow'}}"
+		        data-label-hide="{{localize 'stonetop.sheet.railHide'}}"
+		        title="{{localize 'stonetop.sheet.railShow'}}"
+		        aria-label="{{localize 'stonetop.sheet.railShow'}}">
+			<i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
+			<span class="stonetop-rail-fold" aria-hidden="true">
+				<i class="fas fa-bolt stonetop-rail-mark"></i>
+				<i class="fas fa-dice-d6 stonetop-rail-mark"></i>
+			</span>
+		</button>
 
-			{{!-- Under the XP track it reads, because that is the number it is about. Renders nothing
-			      at all unless the Level Up move has triggered or left something outstanding. --}}
-			{{> "stonetop.level-up-strip"}}
-		</div>
+		<div class="stonetop-rail stonetop-moves-rail" id="{{sheetIdPrefix}}-moves-rail">
 
-		<div class="stonetop-actor-portrait">
-			<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{actor.name}}"><img data-edit="img" class="stonetop-actor-portrait-img" src="{{actor.img}}"
-			     alt="{{actor.name}}" title="{{actor.name}}"></button>
-		</div>
-	</section>
+			{{!-- Same order as the steading's rail: the numbers it crowns, then the moves. --}}
+			{{> "stonetop.section-heading" title=(localize "stonetop.character.attributes.groups.advancement")}}
+			{{> "stonetop.advancement"}}
 
-	<section class="sheet-main flexcol">
-		{{!-- data-action="tab" is core ApplicationV2's built-in action (→ changeTab); context.tabs
-		      already carries the per-insert tabs via the sheet's _getTabsConfig override. --}}
-		<nav class="sheet-tabs tabs" data-group="primary">
-			{{#each tabs}}
-			<button type="button" class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</button>
+			{{!-- The reference moves you roll, as the same disclosure rows the steading's rail draws:
+			      caret, name, and the move's own trigger as a gloss while it is shut. This was
+			      hand-rolled markup re-implementing move-item — a second set of controls to keep in
+			      step, and it had already lost the disclosure the rest of the sheet has.
+
+			      `unacquirable` drops the tick: a character HAS the basic moves, and a box that can
+			      never be unticked asserts a state that does not exist while costing a column of the
+			      rail's width. --}}
+			{{#each stonetop.moves.categories}}
+			{{#if (eq renderStyle "side-bar")}}
+			{{> "stonetop.move-group"
+			    title=label
+			    note=note
+			    moves=moves
+			    categoryKey=key
+			    allowAdditional=false
+			    alwaysShowResource=true
+			    unacquirable=true
+			    disclosure=true}}
+			{{/if}}
 			{{/each}}
-			<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state title="{{localize 'stonetop.sheet.collapseTop'}}" aria-label="{{localize 'stonetop.sheet.collapseTop'}}">
-				<i class="fas fa-chevron-up"></i>
-			</button>
-		</nav>
+		</div>
 
-		{{!-- The moves rail. `data-side` is the only thing that says which edge it is on; the shared
-		      rail stylesheet reads it, so the steading's left-hand rail is the same component. --}}
-		<div class="stonetop-rail-layout" data-side="right">
-			<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
-			        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-moves-rail"
-			        data-label-show="{{localize 'stonetop.sheet.railShow'}}"
-			        data-label-hide="{{localize 'stonetop.sheet.railHide'}}"
-			        title="{{localize 'stonetop.sheet.railShow'}}"
-			        aria-label="{{localize 'stonetop.sheet.railShow'}}">
-				<i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
-				<span class="stonetop-rail-fold" aria-hidden="true">
-					<i class="fas fa-bolt stonetop-rail-mark"></i>
-					<i class="fas fa-dice-d6 stonetop-rail-mark"></i>
-				</span>
-			</button>
-			<section class="sheet-body stonetop-rail-main">
-				{{> "stonetop.tab-playbook"}}
-				{{> "stonetop.tab-moves"}}
-				{{> "stonetop.tab-possessions"}}
-				{{> "stonetop.tab-equipment"}}
-				{{> "stonetop.tab-arcana"}}
-				{{> "stonetop.tab-followers"}}
-				{{> "stonetop.tab-notes"}}
-				{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this tab=(lookup @root.tabs (concat "insert-" slug))
-				    viewFlag=(concat "insertLocked-" slug) locked=(lookup @root.viewFlags (concat "insertLocked-" slug))}}{{/each}}
-			</section>
+	<div class="stonetop-rail-main character-main">
 
-			<div class="stonetop-rail stonetop-moves-rail" id="{{sheetIdPrefix}}-moves-rail">
-				{{!-- Roll Mode --}}
-				<div class="stonetop-outfit-header">
-					{{> "stonetop.roll-mode-picker" modes=stonetop.rollModes name="stonetop-roll-mode" changeAction="rollMode"}}
+	{{!-- The top band: the masthead, the numbers, the picture, and the line they fold to.
+
+	      The PICTURE spans the masthead and the numbers rather than starting below them. It used to
+	      sit inside `.sheet-top` beside the stats column alone, which put a column of blank parchment
+	      to the right of the name and capped the portrait at the stats' own height. Here it is the
+	      band's right-hand column outright, from the top of the sheet down — so the masthead has no
+	      dead half and the picture is as tall as everything beside it.
+
+	      The masthead is inside the band but OUTSIDE `.sheet-top`, which is the only part that folds.
+	      It is the sheet's identity and one line tall; folding it was what once made the collapse read
+	      as "hide the header" rather than "fold these numbers".
+
+	      One component, two densities: the numbers in `.sheet-top` and the ledger line in the foot are
+	      the same values at two sizes, and the handle on the foot picks between them. Both are always
+	      in the markup — see folded-ledger.hbs — so folding REVEALS the line rather than moving
+	      anything. --}}
+	<div class="stonetop-band">
+
+		<div class="stonetop-band-main">
+
+			<div class="stonetop-band-col">
+				{{> "stonetop.actor-header"}}
+
+				<section class="sheet-top flexrow" id="{{sheetIdPrefix}}-band">
+					<div class="stonetop-stats-column">
+						{{> "stonetop.section-heading" title=(localize "stonetop.character.stats.sectionTitle") note=stonetop.playbook.statsNote}}
+
+						{{> "stonetop.actor-stats" stats=stonetop.stats}}
+						{{> "stonetop.debility-bands" debilities=stonetop.debilities}}
+						{{> "stonetop.actor-attributes"}}
+					</div>
+				</section>
+			</div>
+
+			{{!-- The picture, and under it the band's foot.
+
+			      One column, so the foot lands on the LAST LINE of the numbers beside it rather than on a
+			      row of its own below them: the two columns are the same height, the picture takes what is
+			      left after the foot, and the foot's baseline is therefore the notes' baseline — "playbook /
+			      none worn / playbook" and the mode read as one line. Given its own row it cost the band a
+			      line of height for three words, and vertical space is the one thing a sheet cannot make
+			      more of. --}}
+			<div class="stonetop-band-aside">
+				<div class="stonetop-actor-portrait">
+					<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{actor.name}}"><img data-edit="img" class="stonetop-actor-portrait-img" src="{{actor.img}}"
+					     alt="{{actor.name}}" title="{{actor.name}}"></button>
 				</div>
 
-				{{#each stonetop.moves.categories}}
-				{{#if (eq renderStyle "side-bar")}}
-				{{> "stonetop.section-heading" title=label}}
-				<ol class="items-list">
-				{{#each moves}}
-					{{#if (and ownedId rollStat)}}
-					<li class="item stonetop-move-item" data-item-id="{{ownedId}}">
-					{{else}}
-					<li class="stonetop-move-item move-unowned">
+				{{!-- The band's foot: the line it folds TO, the mode, and the control that folds it.
+
+				      Three things on one line, in flow, in that order. The roll mode is rendered ONCE for the
+				      whole sheet and lives here rather than in either density: it is the last thing you set
+				      before rolling, so it ends this line at both densities and never moves between them. Two
+				      copies — one beside the open band, one on the folded line — is what this replaced, and two
+				      radios sharing a `name` are one group with one checked member, so the copy you could not
+				      see was the one the browser kept.
+
+				      Folded, the picture's column DISSOLVES (`display: contents`) and this line becomes the
+				      band's own, under the masthead and the full width of the sheet. That is what lets one
+				      element be both the foot of the picture's column and the end of the folded line.
+
+				      The fold control is the last item rather than a box positioned onto the band's edge.
+				      Placed, it reserved a lane across the whole band (7rem of it, measured in German) that the
+				      mode had to dodge, and it still landed half a line below the mode and a pixel into the tab
+				      row. In flow it is level with the mode and nothing has to be reserved for it. --}}
+				<div class="stonetop-band-foot">
+					{{> "stonetop.folded-ledger"}}
+
+					{{#if stonetop.rollModes}}
+					{{> "stonetop.roll-mode-picker" modes=stonetop.rollModes name="stonetop-roll-mode"
+					    changeAction="rollMode" variant="inline"}}
 					{{/if}}
-						{{#if (and ownedId rollStat)}}
-						{{!-- A <button>, as in move-item.hbs: the die is a control on both surfaces, so it is
-						      reachable and lights up the same way on both. --}}
-						<button type="button" class="rollable move-rollable" data-roll="{{rollStat}}" data-mod=""
-						        title="{{localize 'stonetop.a11y.rollMove' name=name}}"
-						        aria-label="{{localize 'stonetop.a11y.rollMove' name=name}}">
-							<i class="fas fa-dice-d6" aria-hidden="true"></i>
-						</button>
-						{{/if}}
-						<button type="button" class="stonetop-move-name stonetop-basic-move-open" data-action="openBasicMove"
-					      data-compendium-id="{{id}}">{{name}}</button>
-						<button type="button" class="stonetop-move-chat" data-action="moveToChat" data-move-slug="{{slug}}"
-						   title="{{localize 'stonetop.character.moves.sendToChat'}}" aria-label="{{localize 'stonetop.character.moves.sendToChat'}}">
-							<i class="fas fa-comment"></i>
-						</button>
-						{{!-- A reference move that holds something (Defend's Readiness) tracks it here: the
-						      sidebar is the only surface these moves render on, and the track is the shared
-						      one the moves tab draws, so a pip behaves the same wherever it appears. --}}
-						{{#if resource}}
-						<span class="stonetop-item-resources">
-							{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check"
-							    action="moveResourcePip" moveSlug=slug slug=slug}}
-						</span>
-						{{/if}}
-					</li>
-				{{/each}}
-				</ol>
-				{{/if}}
-				{{/each}}
+
+					<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state
+					        aria-expanded="true" aria-controls="{{sheetIdPrefix}}-band"
+					        data-label-show="{{localize 'stonetop.sheet.bandShow'}}"
+					        data-label-hide="{{localize 'stonetop.sheet.bandHide'}}"
+					        title="{{localize 'stonetop.sheet.bandHide'}}"
+					        aria-label="{{localize 'stonetop.sheet.bandHide'}}">
+						<i class="fas fa-chevron-up stonetop-top-caret" aria-hidden="true"></i>
+						<span class="stonetop-top-toggle-label">{{localize "stonetop.character.stats.sectionTitle"}}</span>
+					</button>
+				</div>
 			</div>
+
 		</div>
+	</div>
+
+	{{!-- data-action="tab" is core ApplicationV2's built-in action (→ changeTab); context.tabs
+	      already carries the per-insert tabs via the sheet's _getTabsConfig override. --}}
+	<nav class="sheet-tabs tabs" data-group="primary">
+		{{#each tabs}}
+		<button type="button" class="item {{this.cssClass}}" data-action="tab" data-group="primary" data-tab="{{this.id}}">{{localize this.label}}</button>
+		{{/each}}
+	</nav>
+
+	<section class="sheet-body">
+		{{> "stonetop.tab-playbook"}}
+		{{> "stonetop.tab-moves"}}
+		{{> "stonetop.tab-possessions"}}
+		{{> "stonetop.tab-equipment"}}
+		{{> "stonetop.tab-arcana"}}
+		{{> "stonetop.tab-followers"}}
+		{{> "stonetop.tab-notes"}}
+		{{#each stonetop.inserts}}{{> "stonetop.tab-insert" insert=this tab=(lookup @root.tabs (concat "insert-" slug))
+		    viewFlag=(concat "insertLocked-" slug) locked=(lookup @root.viewFlags (concat "insertLocked-" slug))}}{{/each}}
 	</section>
+
+	</div>{{!-- /rail-main --}}
+	</div>{{!-- /rail-layout --}}
 
 </div>

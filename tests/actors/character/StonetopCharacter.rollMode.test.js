@@ -28,6 +28,46 @@ describe("StonetopCharacter.rollMode", () => {
 	});
 });
 
+// -- clearRollMode -------------------------------------------------------------
+
+// Advantage is FORWARD: it applies to your next roll and is then gone. Held as a flag it behaved as
+// neither forward nor ongoing — set once, it bent every roll after it until somebody noticed the
+// wrong word was still lit. The flag stays (a roll has to be able to read it), but a roll spends it.
+
+describe("StonetopCharacter.clearRollMode", () => {
+	it("gives the mode back to normal", async () => {
+		const character = makeCharacter(new FakeCharacterActorBuilder().withRollMode("adv").build());
+		await character.clearRollMode();
+		expect(character.rollMode).toBe("normal");
+	});
+
+	it("clears disadvantage too, not just advantage", async () => {
+		const character = makeCharacter(new FakeCharacterActorBuilder().withRollMode("dis").build());
+		await character.clearRollMode();
+		expect(character.rollMode).toBe("normal");
+	});
+
+	// A write per roll on a flag that already says "normal" is a document update, which is a render
+	// for every client with the sheet open — for nothing. Most rolls are made at normal.
+	it("writes nothing when the mode is already normal", async () => {
+		const actor = new FakeCharacterActorBuilder().build();
+		let writes = 0;
+		const original = actor.setFlag.bind(actor);
+		actor.setFlag = (...args) => { writes++; return original(...args); };
+
+		await makeCharacter(actor).clearRollMode();
+
+		expect(writes, "an already-normal mode was rewritten").toBe(0);
+	});
+
+	it("is idempotent", async () => {
+		const character = makeCharacter(new FakeCharacterActorBuilder().withRollMode("adv").build());
+		await character.clearRollMode();
+		await character.clearRollMode();
+		expect(character.rollMode).toBe("normal");
+	});
+});
+
 // -- the side-bar's radio list -------------------------------------------------
 
 // The snapshot answers which modes to draw and which is ticked, rather than the template deciding

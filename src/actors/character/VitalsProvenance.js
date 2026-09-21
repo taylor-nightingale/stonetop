@@ -1,8 +1,12 @@
-import {VitalsSourcesSnapshot} from "../../model/snapshot/character/VitalsSnapshot.js";
+import {VitalsSourcesSnapshot, VitalsNotesSnapshot} from "../../model/snapshot/character/VitalsSnapshot.js";
 
 const _KEY = "stonetop.character.attributes.source";
 
 const _format = (key, data = {}) => globalThis.game?.i18n?.format?.(`${_KEY}.${key}`, data) ?? key;
+
+const _NOTE_KEY = "stonetop.character.attributes.note";
+
+const _note = (key) => globalThis.game?.i18n?.format?.(`${_NOTE_KEY}.${key}`) ?? key;
 
 /**
  * Explains where max HP, the damage die and Armor came from. Nothing stamps a source when these
@@ -57,6 +61,49 @@ export class VitalsProvenance {
 			this.describeHp(maxHp),
 			this.describeDamage(die),
 			this.describeArmor(armor),
+		);
+	}
+
+	/* ── The same provenance, short enough to print ──────────────────────────────────
+	   The `describe*` sentences above are hover text, and a hover is pointer-only and invisible to
+	   assistive tech — so the sheet never actually said where any of these numbers came from. The
+	   notes below say it out loud beside the value, the way a steading rating states its band.
+
+	   ONE WORD, or close to it. These ride under a tile that can be as narrow as a third of the rail,
+	   so anything longer wraps to three lines and makes the row taller than the frames in it — which
+	   is what a playbook's NAME did here ("The Would-be Hero", under a 53px Damage tile). The name is
+	   also the one thing a reader does not need told: it is printed at the top of the Playbook tab,
+	   and HP and Damage both saying it said nothing twice. Which SOURCE it came from is the fact.
+
+	   The sentence — with the name, the numbers and what the playbook grants — is what the hover
+	   carries, and that has not changed. */
+
+	noteForHp(maxHp) {
+		const playbook = this._playbook;
+		if (playbook && playbook.hp === maxHp) return _note("fromPlaybook");
+		return _note("byHand");
+	}
+
+	noteForDamage(die) {
+		if (!die) return _note("damageUnset");
+		const playbook = this._playbook;
+		if (playbook && playbook.damage?.value === die) return _note("fromPlaybook");
+		return _note("byHand");
+	}
+
+	noteForArmor(armor) {
+		const breakdown = this._armor;
+		if (breakdown.isEmpty) return armor ? _note("byHand") : _note("armorNone");
+		if (breakdown.value !== armor) return _note("byHand");
+		// The gear itself, named — "leather, shield" answers "why is my armour 2?" in three words.
+		return breakdown.contributions.map(c => c.name).join(", ");
+	}
+
+	buildNotes(maxHp, die, armor) {
+		return new VitalsNotesSnapshot(
+			this.noteForHp(maxHp),
+			this.noteForDamage(die),
+			this.noteForArmor(armor),
 		);
 	}
 

@@ -26,6 +26,11 @@ function makeBase(actor) {
 
 		_getTabsConfig(group) { return this.constructor.TABS[group] ?? null; }
 
+		// StonetopActorSheetV2 puts the shared regions (disclosures, rails) back here; the character
+		// sheet extends it with its own. A prototype method, not a field: `super.restoreViewState`
+		// looks up the prototype chain, which an own property is not on.
+		restoreViewState() {}
+
 		_prepareTabs(group) {
 			const { tabs, initial = null, labelPrefix } = this._getTabsConfig(group) ?? { tabs: [] };
 			this.tabGroups[group] ??= initial;
@@ -359,11 +364,39 @@ describe("StonetopCharacterSheet actions", () => {
 		expect(char.origin.selectName).toHaveBeenCalledWith("Arwel");
 	});
 
-	it("toggleTop flips the collapse class on the wrapper", async () => {
+	// Through TopBand, which also keeps the toggle's announcement honest and remembers the fold for
+	// the next render. The band element has to be there: without one there is nothing to fold.
+	it("toggleTop folds the band and says so on the toggle", async () => {
 		const { sheet } = makeSheet();
-		const wrap = el(`<div class="sheet-wrapper"><button></button></div>`);
-		await fireAction(sheet, "toggleTop", wrap.querySelector("button"));
+		const wrap = el(`<div class="sheet-wrapper">
+			<section class="sheet-top" id="s1-band"></section>
+			<button class="stonetop-top-toggle" data-label-show="Show" data-label-hide="Hide"></button>
+		</div>`);
+		const toggle = wrap.querySelector(".stonetop-top-toggle");
+
+		await fireAction(sheet, "toggleTop", toggle);
 		expect(wrap.classList.contains("top-collapsed")).toBe(true);
+		expect(toggle.getAttribute("aria-expanded")).toBe("false");
+		expect(toggle.getAttribute("aria-label")).toBe("Show");
+
+		await fireAction(sheet, "toggleTop", toggle);
+		expect(wrap.classList.contains("top-collapsed")).toBe(false);
+		expect(toggle.getAttribute("aria-expanded")).toBe("true");
+	});
+
+	// The regression the state exists for: a render rebuilds the part root, taking the class with it.
+	it("puts the fold back after a render replaces the wrapper", async () => {
+		const { sheet } = makeSheet();
+		const markup = `<div class="sheet-wrapper">
+			<section class="sheet-top" id="s1-band"></section>
+			<button class="stonetop-top-toggle" data-label-show="Show" data-label-hide="Hide"></button>
+		</div>`;
+		const first = el(markup);
+		await fireAction(sheet, "toggleTop", first.querySelector(".stonetop-top-toggle"));
+
+		const fresh = el(`<div>${markup}</div>`);
+		sheet.restoreViewState(fresh);
+		expect(fresh.querySelector(".sheet-wrapper").classList.contains("top-collapsed")).toBe(true);
 	});
 
 	it("toggleFollowerInventory tracks the open set and re-renders", async () => {

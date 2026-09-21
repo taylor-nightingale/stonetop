@@ -1,10 +1,13 @@
 import {DebilitySnapshotBuilder} from "../../model/snapshot/character/CharacterSnapshot.js";
 import {hinderRollMode} from "../hinderRollMode.js";
 
+/* Keys, never words — the name is drawn twice on the character sheet now (under its pair of stat
+   tiles, and in the folded ledger where a hindered stat says which debility dimmed it), so an
+   English word here showed up twice on an otherwise translated band. */
 const _DEBILITY_DEFS = [
-	{key: "weakened",  name: "Weakened",  stats: ["str", "dex"], descKey: "stonetop.character.debilities.desc.weakened"},
-	{key: "dazed",     name: "Dazed",     stats: ["int", "wis"], descKey: "stonetop.character.debilities.desc.dazed"},
-	{key: "miserable", name: "Miserable", stats: ["con", "cha"], descKey: "stonetop.character.debilities.desc.miserable"},
+	{key: "weakened",  nameKey: "stonetop.character.debilities.name.weakened",  stats: ["str", "dex"], descKey: "stonetop.character.debilities.desc.weakened"},
+	{key: "dazed",     nameKey: "stonetop.character.debilities.name.dazed",     stats: ["int", "wis"], descKey: "stonetop.character.debilities.desc.dazed"},
+	{key: "miserable", nameKey: "stonetop.character.debilities.name.miserable", stats: ["con", "cha"], descKey: "stonetop.character.debilities.desc.miserable"},
 ];
 
 const _localize = (key) => globalThis.game?.i18n?.localize?.(key) ?? key;
@@ -22,10 +25,10 @@ export class CharacterDebilities {
 
 	buildDebilitiesSnapshot() {
 		const opts = this._actor.system?.attributes?.debilities?.options ?? {};
-		return _DEBILITY_DEFS.map(({key, name, stats, descKey}) =>
+		return _DEBILITY_DEFS.map(({key, nameKey, stats, descKey}) =>
 			new DebilitySnapshotBuilder()
 				.withKey(key)
-				.withName(name)
+				.withName(_localize(nameKey))
 				.withActive(!!(opts[key]?.value))
 				.withStats(stats)
 				.withDescription(_localize(descKey))

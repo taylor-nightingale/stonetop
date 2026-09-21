@@ -208,6 +208,46 @@ describe("ActorRolling.execute — stat roll", () => {
 	});
 });
 
+// -- execute — the mode is spent -----------------------------------------------
+
+// Advantage is FORWARD: it modifies the next roll and is then gone. It was held as a flag nothing
+// ever cleared, so picking Advantage once bent every roll after it — silently, because the picker
+// went on showing the right word for a state nobody meant to still be in.
+
+describe("ActorRolling.execute — spending the roll mode", () => {
+	it("gives the mode back after a stat roll", async () => {
+		const rolling = makeRolling({bonuses: {wis: 1}});
+		await rolling.execute(statRequest("wis", "adv"));
+		expect(rolling._actor.typedActor.cleared, "the roll did not spend the mode").toBe(1);
+	});
+
+	// The order is the whole of it: the roll has to be made AT advantage and only then give it back.
+	// Clearing before the formula is built is the same defect with the sign flipped — the mode you
+	// picked would apply to the roll after the one you picked it for.
+	it("rolls at the mode it was given before spending it", async () => {
+		const rolling = makeRolling({bonuses: {wis: 1}});
+		await rolling.execute(statRequest("wis", "adv"));
+		expect(FakeRoll.lastInstance.formula, "the roll did not use the mode it was given")
+			.toBe("3d6kh2 + 1");
+		expect(rolling._actor.typedActor.cleared).toBe(1);
+	});
+
+	// A damage die is not rolled +STAT and takes no advantage, so there is nothing to spend — and
+	// spending one here would clear a mode the player set for the move they are about to roll.
+	it("leaves the mode alone on a damage roll", async () => {
+		const rolling = makeRolling({die: "d6"});
+		await rolling.execute(statRequest("damage"));
+		expect(rolling._actor.typedActor.cleared, "a damage roll spent the move's mode").toBe(0);
+	});
+
+	// Likewise a move with no roll in it: posting its text is not rolling.
+	it("leaves the mode alone when the move only posts its description", async () => {
+		const rolling = makeRolling();
+		await rolling.execute(statRequest("loyalty"));
+		expect(rolling._actor.typedActor.cleared, "posting a description spent the mode").toBe(0);
+	});
+});
+
 // -- execute — description only ------------------------------------------------
 
 describe("ActorRolling.execute — description only", () => {

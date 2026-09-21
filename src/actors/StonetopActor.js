@@ -30,6 +30,13 @@ export function createStonetopActorClass(BaseActor) {
 			return this._typedActor;
 		}
 
+		/** What the sidebar's directory entry writes beside this actor's name — the playbook, on a
+		 *  character. Read straight off the document by `templates/sidebar/actor-entry.hbs`, whose
+		 *  context IS the document, so it has to be a getter here and it has to be synchronous. */
+		get directoryNote() {
+			return this.typedActor?.directoryNote ?? null;
+		}
+
 		get _rolling() {
 			return this.__rolling ??= new ActorRolling(this);
 		}

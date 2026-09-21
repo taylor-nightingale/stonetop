@@ -3,6 +3,7 @@ import { ChangeActionRouter } from "../../utils/ChangeActionRouter.js";
 import { ChoiceGroupWiring } from "../../utils/ChoiceGroupWiring.js";
 import { editOnly } from "../../utils/sheetActions.js";
 import { SheetRail, RAIL_ACTIONS } from "../../utils/SheetRail.js";
+import { TopBandState, TOP_BAND_ACTIONS } from "../../utils/TopBand.js";
 import { ScrollAnchoring } from "../../utils/ScrollAnchoring.js";
 import { TabViewFlags } from "../../utils/TabViewFlags.js";
 import { AddInventoryItemDialog } from "./AddInventoryItemDialog.js";
@@ -27,6 +28,15 @@ export function createStonetopCharacterSheetClass(Base) {
 		_viewFlags = new TabViewFlags(["hideUnselectedMoves", "playbookLocked", "levelUpOpen"]);
 		_scrollAnchoring = new ScrollAnchoring();
 
+		/**
+		 * Whether this reader has folded the top band to its ledger line. Here rather than on the
+		 * shared base: the band is the character's alone — the steading folds its header to a line
+		 * through its own markup, with no class for anything to remember.
+		 */
+		get topBandState() {
+			return this._topBandState ??= new TopBandState();
+		}
+
 		get _stonetopCharacter() {
 			return this.typedActor;
 		}
@@ -37,22 +47,12 @@ export function createStonetopCharacterSheetClass(Base) {
 			position: { width: 1160, height: 900 },
 			actions: {
 				// --- view-state toggles (no actor writes, so no editability gate) ---
-				toggleTop(ev, target) {
-					target.closest(".sheet-wrapper")?.classList.toggle("top-collapsed");
-				},
+				...TOP_BAND_ACTIONS,
 				...RAIL_ACTIONS,
 				// One toggle for every tab's view state: the button names its flag, and whether the
 				// tab is re-rendered or just decorated is the flag's business (see TabViewFlags).
 				toggleTabView(ev, target) {
 					if (this._viewFlags.toggleFrom(target)) this.render();
-				},
-				async openBasicMove(ev, target) {
-					// Once a move opens, dismiss the overlay so it doesn't cover the move sheet.
-					SheetRail.from(target)?.close();
-					const { compendiumId } = target.dataset;
-					if (!compendiumId) return;
-					const doc = await this._moveRepository.getReferencedMoveDocument(compendiumId);
-					doc?.sheet.render(true);
 				},
 				// A rule reference that names a move by slug (the Outfit heading, for one) opens that
 				// move's sheet. Not edit-gated: opening a sheet writes nothing.
@@ -159,6 +159,14 @@ export function createStonetopCharacterSheetClass(Base) {
 			// Every choice row on the sheet, through the one shared description of how one behaves.
 			new ChoiceGroupWiring(this._stonetopCharacter, { when: () => this.isEditable })
 				.attach(this.element);
+		}
+
+		// The band's fold is a class on the part root, and the part root is rebuilt on every render —
+		// so without this, ticking a pip or another player's edit arriving over the socket unfolded
+		// the band the reader had just put away.
+		restoreViewState(root) {
+			super.restoreViewState(root);
+			this.topBandState.restore(root);
 		}
 
 		// The @Blank enricher renders write-in blanks empty, so their stored values are seeded here

@@ -180,8 +180,8 @@ const fixture = (width, { shut = false, lean = false, heavy = false, plated = tr
           ${condition("lacking", true, "treat Prosperity as if it's 1 lower than it is")}
           ${condition("malcontent", false, "Fortunes reset to +0 each season, not +1")}
         </div>
-        <fieldset class="steading-rollmode"><legend class="steading-line-heading">Roll Mode</legend>
-          <label class="steading-rollmode-option is-checked"><input type="radio" class="steading-rollmode-input" name="rm" checked><span>Normal</span></label>
+        <fieldset class="stonetop-rollmode stonetop-rollmode--inline"><legend class="stonetop-rollmode-legend">Roll Mode</legend>
+          <label class="stonetop-rollmode-option is-checked"><input type="radio" class="stonetop-rollmode-input" name="rm" checked><span class="stonetop-rollmode-mark" aria-hidden="true"></span><span class="stonetop-rollmode-label">Normal</span></label>
         </fieldset>
       </div>
     </header>
@@ -225,7 +225,7 @@ const TARGETS = {
 
 	valuesRow:      ".steading-line-values",
 	conditionsRow:  ".steading-line-conditions",
-	rollMode:       ".steading-line-conditions .steading-rollmode",
+	rollMode:       ".steading-line-conditions .stonetop-rollmode",
 	debility1:      ".steading-conditions > .steading-debility:nth-of-type(1)",
 	debility2:      ".steading-conditions > .steading-debility:nth-of-type(2)",
 	debility3:      ".steading-conditions > .steading-debility:nth-of-type(3)",

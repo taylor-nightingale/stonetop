@@ -95,6 +95,10 @@ export class StonetopSteading {
 	get type() { return "steading"; }
 	get name() { return this.#actor.name; }
 
+	/** Nothing yet — a steading's size would read well here, but the sidebar note exists for the
+	 *  playbook and a second meaning would have to be designed rather than assumed. */
+	get directoryNote() { return null; }
+
 	// ── Rolling ────────────────────────────────────────────────────────────────
 
 	getRollableStats()                              { return this.#rolls.rollableStats(); }
@@ -114,6 +118,12 @@ export class StonetopSteading {
 
 	async setRollMode(mode) {
 		await this.#actor.setFlag("stonetop", "rollMode", mode);
+	}
+
+	/** See StonetopCharacter#clearRollMode — the steading's picker is the same control and was the
+	 *  same trap. */
+	async clearRollMode() {
+		if (this.rollMode !== "normal") await this.setRollMode("normal");
 	}
 
 	// ── Ratings ────────────────────────────────────────────────────────────────

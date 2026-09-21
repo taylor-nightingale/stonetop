@@ -6,14 +6,17 @@ import path from "path";
 // the localization file agree: a tooltip whose key has no entry renders the key itself into the
 // hover, which looks like a bug to the player and fails nothing.
 const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
+// Two partials since the band and the rail split: HP/Armor/Damage stayed in actor-attributes, XP
+// and Level went to the rail under Advancement. The hovers went with their own values.
 const template = read("templates/actor/partials/actor-attributes.hbs");
+const advancement = read("templates/actor/partials/advancement.hbs");
 const en = JSON.parse(read("languages/en.json"));
 
 const lookup = key => key.split(".").reduce((node, part) => node?.[part], en);
 
-describe("actor-attributes.hbs tooltips", () => {
-	it("hovers XP with the book's definition", () => {
-		expect(template).toContain("data-tooltip=\"{{localize 'stonetop.character.attributes.desc.xp'}}\"");
+describe("the framed numbers' tooltips", () => {
+	it("hovers XP with the book's definition, in the partial XP now lives in", () => {
+		expect(advancement).toContain("data-tooltip=\"{{localize 'stonetop.character.attributes.desc.xp'}}\"");
 		expect(lookup("stonetop.character.attributes.desc.xp")).toMatch(/experience points/);
 	});
 
@@ -24,8 +27,9 @@ describe("actor-attributes.hbs tooltips", () => {
 			expect(lookup("stonetop.character.attributes.desc.xp")).toMatch(pattern);
 		});
 
-	it("points every tooltip in the row at a defined localization key", () => {
-		const keys = [...template.matchAll(/data-tooltip="\{\{localize '([^']+)'\}\}"/g)].map(m => m[1]);
+	it("points every tooltip in either row at a defined localization key", () => {
+		const keys = [template, advancement].flatMap(
+			t => [...t.matchAll(/data-tooltip="\{\{localize '([^']+)'\}\}"/g)].map(m => m[1]));
 		expect(keys.length).toBeGreaterThan(0);
 		for (const key of keys) expect(lookup(key), key).toBeTypeOf("string");
 	});

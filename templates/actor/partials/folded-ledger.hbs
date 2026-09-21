@@ -1,0 +1,77 @@
+{{!-- The numbers, in one line: the COLLAPSED density of the top band.
+
+      One component, two densities — the steading's own device. This is not a second, compact copy
+      of the numbers; it is the same numbers at line height, and the fold handle picks between them.
+      Nothing runs to make that true: both densities are in the markup at every width, and this one
+      stands down whole while the band is on screen.
+
+      The band's numbers only — the stats and HP/Armor/Damage. The rail's XP and Level used to hand
+      off here too, and it was the wrong trade: a shut rail with an open band left this line holding
+      a 27px row for two numbers under the whole band, which is furniture, not a reminder. XP and
+      Level live in the rail and nowhere else now, so putting the rail away puts them away.
+
+      Where each number CAME FROM travels with it. At full density that sentence is a hover on the
+      frame's label and a short note under the frame; here the hover comes too, and the sentence
+      itself rides along clipped — Foundry's tooltips bind pointer events only and are invisible to
+      assistive tech, so a hover can never be the only carrier.
+
+      Plain readouts, not tiles. At line height there is no size at which the woodcut frame is a
+      frame rather than a smudge, and a stat's value is the only part of its tile a folded line has
+      room for — the name, the note and the debility's effect are the full density's business.
+
+      Readouts, with two exceptions that the fold itself argues for: every stat and the damage die
+      ROLL from here, and HP can be stepped here. The reader folds this band precisely to get the
+      numbers and the moves on screen together, so anything they would otherwise have to unfold to do
+      is the fold costing them the thing it was for. Everything else is a readout and the fold is one
+      click from the fields. A stat you cannot roll from the line makes that fold cost the thing it was for. The
+      name IS the button, exactly as it is at full density and on the steading's own line, so there is
+      one control and nothing to keep in step. It does NOT borrow the tile's `.stonetop-stat-roll`
+      class to get there: that one is absolutely positioned, a chip punched into the frame's top rule,
+      and wearing it on a line took all six abbreviations out of flow and left the values as six bare
+      zeroes. `.rollable[data-roll]` is the whole of what the sheet's delegation needs. Every value is still named for assistive tech, so
+      nothing here is a bare number.
+
+      Context: the root. --}}
+<div class="stonetop-folded-ledger" aria-label="{{localize 'stonetop.a11y.foldedLedger'}}">
+
+	<ul class="stonetop-folded-stats stonetop-unmarked">
+		{{#each stonetop.statPairs}}
+		{{#each stats}}
+		<li class="stonetop-folded-stat{{#if ../debility.active}} is-hindered{{/if}}">
+			<button type="button" class="stonetop-folded-abbr rollable" data-roll="{{key}}"
+			        aria-label="{{localize 'stonetop.a11y.rollStatNamed' stat=name}}"
+			        data-tooltip="{{description}}" data-tooltip-direction="UP">{{abbr}}</button>
+			<span class="stonetop-folded-value">{{value}}</span>
+			{{!-- The hindered ones say why, rather than only looking different: colour is never the
+			      only carrier of anything. --}}
+			<span class="stonetop-folded-sr">{{#if ../debility.active}}{{../debility.name}}{{/if}}</span>
+		</li>
+		{{/each}}
+		{{/each}}
+	</ul>
+
+	<ul class="stonetop-folded-vitals stonetop-unmarked">
+		{{!-- HP is the exception to "no second editor", and the reason is the fold itself: the band is
+		      folded precisely so the numbers and the moves are on screen together, and HP is the one
+		      number that changes while you are looking at the moves. Folding to get at your moves and
+		      then unfolding to spend a hit point is the fold costing you the thing it was for.
+
+		      Two carets, not a second field to type in. They are the steading's own line stepper — out
+		      of flow, flanking the number, revealed on hover or focus — so they cost the line nothing
+		      at rest and the value is still a readout you can see at a glance. They flank the PAIR,
+		      "16/16", rather than the editable half of it: sitting against the field alone, ▴ was drawn
+		      over the maximum beside it. The input writes through
+		      the same `hp` change action the framed field does; there is one handler, and the other
+		      density is not on screen to disagree with it. --}}
+		<li class="stonetop-folded-hp"><span class="stonetop-folded-abbr"
+			data-tooltip="{{stonetop.vitals.sources.hp}}" data-tooltip-direction="UP">HP</span><span class="stonetop-folded-sr">{{stonetop.vitals.sources.hp}}</span> <span class="stonetop-folded-value"><span class="stonetop-stepper"><input
+			class="stonetop-folded-input stonetop-step" type="number" data-change-action="hp"
+			aria-label="{{localize 'stonetop.a11y.hpCurrent'}}"
+			value="{{stonetop.vitals.hp.value}}" min="0">/{{stonetop.vitals.hp.max}}{{> "stonetop.stepper-buttons"}}</span></span></li>
+		<li><span class="stonetop-folded-abbr"
+			data-tooltip="{{stonetop.vitals.sources.armor}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.armor"}}</span><span class="stonetop-folded-sr">{{stonetop.vitals.sources.armor}}</span> <span class="stonetop-folded-value">{{stonetop.vitals.armor}}</span></li>
+		<li><button type="button" class="stonetop-folded-abbr rollable" data-roll="damage"
+			        data-tooltip="{{stonetop.vitals.sources.damage}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.damage"}}</button> <span class="stonetop-folded-sr">{{stonetop.vitals.sources.damage}}</span> <span class="stonetop-folded-value">{{stonetop.vitals.damage.value}}</span></li>
+	</ul>
+
+</div>

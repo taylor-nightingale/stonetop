@@ -12,4 +12,3 @@
 * bug: the check boxes get split sometimes
 * feature collapse names sidebar on folks screen
 * feature Instead of blank, default to stonetop for folk
-

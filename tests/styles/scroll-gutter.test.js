@@ -29,8 +29,9 @@ const probe = new RenderProbe([
 // a simplified stand-in would quietly stop matching them.
 const FIXTURE = `
 <div class="application stonetop sheet character themed theme-light"><div class="window-content">
-  <div class="sheet-wrapper"><div class="sheet-main">
-    <div class="stonetop-rail-layout">
+  <div class="sheet-wrapper">
+    <div class="stonetop-rail-layout" data-side="left">
+      <div class="stonetop-rail-main character-main">
       <div class="sheet-body" id="body">
         <div class="tab equipment active" data-tab="inventory">
           <section class="stonetop-inventory">
@@ -46,8 +47,9 @@ const FIXTURE = `
           </section>
         </div>
       </div>
+      </div>
     </div>
-  </div></div>
+  </div>
 </div></div>`;
 
 describe.skipIf(!canProbe())("the scrolling tab body reserves its scrollbar gutter", () => {

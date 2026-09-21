@@ -5,6 +5,7 @@ import {buildChoiceGroup} from "../../model/snapshot/character/buildChoiceGroup.
 import {InstinctController} from "./InstinctController.js";
 import {GrantSource, ItemGrantSet} from "../../model/data/ItemGrant.js";
 import {Background} from "../../model/data/character/Background.js";
+import {PlaybookTitle} from "../../model/data/character/PlaybookTitle.js";
 import {rich} from "../../model/snapshot/RichText.js";
 
 export class CharacterPlaybook {
@@ -27,6 +28,16 @@ export class CharacterPlaybook {
 
 	getSlug() {
 		return this._selection.slug;
+	}
+
+	/** What this character's playbook is CALLED — its name, unless a move the character has taken
+	 *  renamed it (the Would-be Hero crosses off "Would-be" on taking Big Damn Hero). Synchronous,
+	 *  because the sidebar's directory entry is rendered without an await to spend. */
+	get title() {
+		const item = [...this._actor.items].find(i => i.type === "playbook");
+		if (!item) return null;
+		return PlaybookTitle.from({ name: item.name, renameOnMove: item.system?.renameOnMove })
+			.titleFor(this._moves.acquiredSlugs);
 	}
 
 	/** The slugs of the moves a background grants — `backgrounds[].moves` is a slug list, not names. */
@@ -132,6 +143,7 @@ export class CharacterPlaybook {
 		return new PlaybookSnapshotBuilder()
 			.withSlug(data.slug)
 			.withName(data.name)
+			.withTitle(this.title)
 			.withImg(data.img ?? null)
 			.withDescription(rich(data.description ?? null))
 			.withStatsNote(data.statsNote ?? null)

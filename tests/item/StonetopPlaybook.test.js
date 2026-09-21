@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import { readFileSync } from "fs";
+import path from "path";
 import { StonetopPlaybook } from "../../src/item/StonetopPlaybook.js";
 
 function makeItem(systemFields = {}) {
@@ -82,5 +84,36 @@ describe("StonetopPlaybook", () => {
 
 	it("lore defaults to empty array", () => {
 		expect(new StonetopPlaybook(makeItem()).lore).toEqual([]);
+	});
+
+	it("renameOnMove returns the rename pair, defaulting to null", () => {
+		const rename = { moveSlug: "big-damn-hero", name: "The Hero" };
+		expect(new StonetopPlaybook(makeItem({ renameOnMove: rename })).renameOnMove).toEqual(rename);
+		expect(new StonetopPlaybook(makeItem()).renameOnMove).toBeNull();
+	});
+});
+
+// The refresh that copies pack data onto an existing character reads the playbook through THIS
+// wrapper. A field added to the pack, the schema and the refresh but not to the wrapper reads
+// `undefined` there — so the pass writes a default over it, silently, on every character in the
+// world. That is exactly what happened to `renameOnMove`: the playbook rename reached new
+// characters (they embed the pack item wholesale) and no existing one, and every unit test passed
+// because the fake repository hands back plain objects that answer any key.
+//
+// Swept from the refresh itself rather than from a list kept here, so the next field is covered
+// without anyone remembering to come back.
+describe("StonetopPlaybook covers everything the pack refresh copies", () => {
+	const source = readFileSync(path.resolve("src/migration/migrateCharacter.js"), "utf8");
+	const refresh = source.slice(source.indexOf("export async function migratePlaybookPackData"));
+	const fields = [...new Set([...refresh.slice(0, refresh.indexOf("\n}")).matchAll(/\bsource\.(\w+)/g)]
+		.map(([, field]) => field))];
+
+	it("reads at least the fields the refresh is known to copy", () => {
+		// A guard on the sweep itself: a regex that matched nothing would make every case below pass.
+		expect(fields).toEqual(expect.arrayContaining(["description", "backgrounds", "renameOnMove"]));
+	});
+
+	it.each(fields)("exposes %s", field => {
+		expect(Object.getOwnPropertyNames(StonetopPlaybook.prototype)).toContain(field);
 	});
 });

@@ -28,6 +28,16 @@ export class FakeStonetopCharacter {
 		this.outcomes.push({ moveSlug, outcome });
 	}
 
+	// The roll mode is FORWARD: every stat roll spends it (ActorRolling#execute). `cleared` counts
+	// the times it was spent, so a test can assert that a roll gave it back rather than leaving the
+	// picker lit for the next one.
+	cleared = 0;
+
+	async clearRollMode() {
+		this.cleared++;
+		this.rollMode = "normal";
+	}
+
 	// XP marking (ActorRolling's 6- rule). `xpMarks` counts landed marks.
 	xpMarks = 0;
 

@@ -41,9 +41,14 @@ describe("resource track rendering", () => {
 		const callers = hbsFiles("templates").filter(f => read(f).includes('{{> "stonetop.resource-track"'));
 		expect(callers.length).toBeGreaterThanOrEqual(6);
 		expect(callers).toContain("templates/actor/partials/move-item.hbs");
-		// The sidebar's reference moves (Defend's Readiness) are the one move surface that does NOT go
-		// through move-item: it renders its own compact row, so it has to call the track itself.
-		expect(callers).toContain("templates/actor/character.hbs");
+	});
+
+	// The sidebar's reference moves (Defend's Readiness) used to be the one move surface that did NOT
+	// go through move-item — it hand-rolled a compact row, so it had to call the track itself, and it
+	// had already drifted from the row the rest of the sheet draws. It renders through move-group now,
+	// like the steading's rail, so the sheet has no move markup of its own left to keep in step.
+	it("is not called by the character sheet, whose moves all go through move-item", () => {
+		expect(read("templates/actor/character.hbs")).not.toContain('{{> "stonetop.resource-track"');
 	});
 
 	// The move row's handler reads data-move-slug, so the shared track has to be able to stamp it.
