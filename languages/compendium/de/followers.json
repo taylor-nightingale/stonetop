@@ -176,7 +176,7 @@
     },
     "companion/catalog/bird/name": {
       "source": "Bird",
-      "text": ""
+      "text": "Vogel"
     },
     "companion/catalog/bird/damage": {
       "source": "[[/r 1d4]] (hand)",
@@ -188,7 +188,7 @@
     },
     "companion/catalog/critter/name": {
       "source": "Critter",
-      "text": ""
+      "text": "Kleintier"
     },
     "companion/catalog/critter/damage": {
       "source": "[[/r 1d4]] (hand)",
@@ -200,7 +200,7 @@
     },
     "companion/catalog/brute/name": {
       "source": "Brute",
-      "text": ""
+      "text": "Kraftprotz"
     },
     "companion/catalog/brute/damage": {
       "source": "[[/r 1d6]] (hand)",
@@ -224,7 +224,7 @@
     },
     "companion/catalog/steed/name": {
       "source": "Steed",
-      "text": ""
+      "text": "Reittier"
     },
     "companion/catalog/steed/damage": {
       "source": "[[/r 1d6+1]] (hand, close)",
@@ -322,27 +322,27 @@
   "astor": {
     "name": {
       "source": "Astor",
-      "text": ""
+      "text": "Astor"
     },
     "damage": {
       "source": "ghostly spear d8 (reach, ignores armor)",
-      "text": ""
+      "text": "Geisterspeer W8 (Lang, ignoriert Rüstung)"
     },
     "armor": {
       "source": "1 lacks organs",
-      "text": ""
+      "text": "1 (keine Organe)"
     },
     "moves": {
       "source": "- Stalk assigned prey\n- Manifest a ghostly presence (harmed only by silver or salt)\n- Make a pessimistic observation",
-      "text": ""
+      "text": "- Pirsche dich an eine dir zugewiesene Beute heran\n- Manifestiere eine geisterhafte Präsenz (nur durch Silber oder Salz verwundbar)\n- Mache eine pessimistische Bermerkung"
     },
     "instinct/selected/to-comply-maliciously": {
       "source": "to comply maliciously",
-      "text": ""
+      "text": "Befehle böswillig ausführen"
     },
     "cost/selected/proof-of-honor-nobility": {
       "source": "proof of honor, nobility",
-      "text": ""
+      "text": "Ehrenbeweis, Adel"
     }
   },
   "blank": {
@@ -794,27 +794,27 @@
   "halix": {
     "name": {
       "source": "Halix",
-      "text": ""
+      "text": "Halix"
     },
     "damage": {
       "source": "ghostly touch d4 (band, ignores armor) or host's weapon d6 (tags vary)",
-      "text": ""
+      "text": "geisterhafte Berührung W4 (Hand, ignoriert Rüstung) oder Waffe des Besessenen W6 (Eigenschaften variieren)"
     },
     "armor": {
       "source": "1 lacks organs",
-      "text": ""
+      "text": "1 (keine Organe)"
     },
     "moves": {
       "source": "- Manifest a ghostly presence (harmed only by silver or salt)\n- Possess an inebriated victim\n- Spot a weakness, want, or fear\n- Spin plots and falsehoods",
-      "text": ""
+      "text": "- Manifestiere eine geisterhafte Präsenz (nur durch Silber oder Salz verwundbar)\n- Ergreife von einem betrunkenen Opfer Besitz\n- Erkenne eine Schwäche, ein Verlangen oder eine Angst\n- Spinne alle möglichen Komplotte und Unwahrheiten"
     },
     "instinct/selected/to-second-guess-your-decisions": {
       "source": "to second-guess your decisions",
-      "text": ""
+      "text": "deine Entscheidungen infrage stellen"
     },
     "cost/selected/pleasures-of-the-flesh": {
       "source": "pleasures of the flesh",
-      "text": ""
+      "text": "Fleischliche Genüsse"
     }
   },
   "horse": {
@@ -1072,35 +1072,35 @@
   "servant-of-daagon": {
     "name": {
       "source": "Servant of Daagon",
-      "text": ""
+      "text": "Diener des Daagon"
     },
     "description": {
       "source": "Summoned by Call Up the Deep Ones. They share a pool of Loyalty with the Ring itself.",
-      "text": ""
+      "text": "Durch Die Tiefen Wesen rufen beschworen. Sie teilen sich einen Loyalitätspool mit dem Ring selbst."
     },
     "instinct/selected/to-devour": {
       "source": "to devour",
-      "text": ""
+      "text": "Verschlingen"
     },
     "choices/servant-of-daagon/tags/subtitle": {
       "source": "Tags",
-      "text": ""
+      "text": "Eigenschaften"
     },
     "choices/servant-of-daagon/no-appearing/subtitle": {
       "source": "No. Appearing",
-      "text": ""
+      "text": "Anzahl"
     },
     "choices/servant-of-daagon/size/subtitle": {
       "source": "Size",
-      "text": ""
+      "text": "Größe"
     },
     "choices/servant-of-daagon/traits/subtitle": {
       "source": "Traits",
-      "text": ""
+      "text": "Merkmale"
     },
     "choices/servant-of-daagon/traits/text": {
       "source": "Choose a number equal to the assigned die.",
-      "text": ""
+      "text": "Wähle eine Anzahl entsprechend dem zugewiesenen Würfel."
     },
     "choices/servant-of-daagon/moves/subtitle": {
       "source": "Moves",
@@ -1108,99 +1108,99 @@
     },
     "choices/servant-of-daagon/moves/text": {
       "source": "Choose a number equal to the assigned die.",
-      "text": ""
+      "text": "Wähle eine Anzahl entsprechend dem zugewiesenen Würfel."
     },
     "choices/servant-of-daagon/each-time-you-call-up-the/text": {
       "source": "Each time you **_Call Up the Deep Ones_**, roll five d4s and assign each to a different aspect, then set this card's HP, damage and tags to match.",
-      "text": ""
+      "text": "Jedes Mal, wenn du **_die Tiefen Wesen rufst_**, würfle fünf W4 und ordne jedem Würfel einen anderen Aspekt zu. Passe dann die TP, den Schaden und die Eigenschaften dieses Profils entsprechend an."
     },
     "choices/servant-of-daagon/2/options/tags-craven/text": {
       "source": "1 = *+craven*",
-      "text": ""
+      "text": "1 = *+Ängstlich*"
     },
     "choices/servant-of-daagon/2/options/tags-ravenous/text": {
       "source": "2 = *+ravenous*",
-      "text": ""
+      "text": "2 = *+Gefräßig*"
     },
     "choices/servant-of-daagon/2/options/tags-cunning/text": {
       "source": "3 = *+cunning*",
-      "text": ""
+      "text": "3 = *+Gerissen*"
     },
     "choices/servant-of-daagon/2/options/tags-exceptional/text": {
       "source": "4 = *+exceptional* (roll +2 for moves instead of +1)",
-      "text": ""
+      "text": "4 = *Außergewöhnlich* (würfle bei Spielzügen +2 statt +1)"
     },
     "choices/servant-of-daagon/4/options/number-horde/text": {
       "source": "1 = horde (quantity 2d6, HP 3, damage 1d6)",
-      "text": ""
+      "text": "1 = Horde (Menge 2W6, 3 TP, Schaden W6);"
     },
     "choices/servant-of-daagon/4/options/number-group/text": {
       "source": "2-3 = group (quantity 1d6+1, HP 6, damage 1d8)",
-      "text": ""
+      "text": "2–3 = Gruppe (Menge W6+1, 6 TP, Schaden W8)"
     },
     "choices/servant-of-daagon/4/options/number-solitary/text": {
       "source": "4 = solitary (HP 12, damage 1d10)",
-      "text": ""
+      "text": "4 = Einzelgänger (12 TP, Schaden W10)"
     },
     "choices/servant-of-daagon/6/options/size-small/text": {
       "source": "1 = small (-2 HP, -2 damage, *hand*)",
-      "text": ""
+      "text": "1 = Klein (−2 TP, −2 Schaden, *Hand*)"
     },
     "choices/servant-of-daagon/6/options/size-medium/text": {
       "source": "2-3 = medium (*close*)",
-      "text": ""
+      "text": "2–3 = Mittel (*Kurz*)"
     },
     "choices/servant-of-daagon/6/options/size-large/text": {
       "source": "4 = large (+4 HP, +1 damage, *close*, *reach*)",
-      "text": ""
+      "text": "4 = Groß (+4 TP, +1 Schaden, *Kurz*, *Lang*)"
     },
     "choices/servant-of-daagon/8/options/trait-hide/text": {
       "source": "blubbery/scaly hide (2 armor)",
-      "text": ""
+      "text": "schwabbelige/schuppige Haut (2 Rüstung)"
     },
     "choices/servant-of-daagon/8/options/trait-stealthy/text": {
       "source": "*+stealthy* and *+cautious*",
-      "text": ""
+      "text": "+*Heimlich* und +*Vorsichtig*"
     },
     "choices/servant-of-daagon/8/options/trait-powerful/text": {
       "source": "powerful (+2 damage, *forceful*)",
-      "text": ""
+      "text": "mächtig (+2 Schaden, Wuchtig)"
     },
     "choices/servant-of-daagon/8/options/trait-tentacles/text": {
       "source": "tentacles/pincers, etc. (*reach*, *grabby*)",
-      "text": ""
+      "text": "Tentakel/Scheren usw. (Lang, Fesselnd)"
     },
     "choices/servant-of-daagon/8/options/trait-claws/text": {
       "source": "big claws/fangs (1 piercing, *messy*)",
-      "text": ""
+      "text": "große Klauen/Reißzähne (1 Durchdringung, *Brutal*)"
     },
     "choices/servant-of-daagon/8/options/trait-projectiles/text": {
       "source": "projectiles (*+near*)",
-      "text": ""
+      "text": "Geschosse (+*Nah*)"
     },
     "choices/servant-of-daagon/10/options/move-wriggle/text": {
       "source": "Wriggle free of danger/restraint",
-      "text": ""
+      "text": "Winde dich aus einer Gefahr heraus"
     },
     "choices/servant-of-daagon/10/options/move-heal/text": {
       "source": "Heal at a prodigious rate",
-      "text": ""
+      "text": "Heile in rasantem Tempo"
     },
     "choices/servant-of-daagon/10/options/move-smother/text": {
       "source": "Smother/constrict/engulf them",
-      "text": ""
+      "text": "Ersticke, schnüre sie ein oder verschlinge sie"
     },
     "choices/servant-of-daagon/10/options/move-dissolve/text": {
       "source": "Dissolve organic material",
-      "text": ""
+      "text": "Löse organisches Material auf"
     },
     "choices/servant-of-daagon/10/options/move-mesmerize/text": {
       "source": "Mesmerize the weak-willed",
-      "text": ""
+      "text": "Hypnotisiere die Willensschwachen "
     },
     "choices/servant-of-daagon/10/options/move-paralyze/text": {
       "source": "Paralyze them with venom",
-      "text": ""
+      "text": "Lähme jemanden mit Gift"
     }
   },
   "sheep": {
@@ -1250,67 +1250,67 @@
   "the-cloak": {
     "name": {
       "source": "The Cloak",
-      "text": ""
+      "text": "Der Umhang"
     },
     "moves": {
       "source": "- Reveal a dark and terrible secret, or part of one\n- Manifest a minor demonic effect\n- Possess you in your sleep",
-      "text": ""
+      "text": "- Enthülle ein dunkles und schreckliches Geheimnis oder einen Teil davon\n- Manifestiere einen kleinen dämonischen Effekt\n- Nimm ihn während er schläft in Besitz"
     },
     "instinct/selected/to-bicker-and-argue-with-you-with-itself": {
       "source": "to bicker and argue (with you, with itself)",
-      "text": ""
+      "text": "sich zanken und streiten (mit dir, mit sich selbst)"
     },
     "cost/selected/chaos-and-wanton-destruction": {
       "source": "chaos and wanton destruction",
-      "text": ""
+      "text": "Chaos und sinnlose Zerstörung"
     }
   },
   "the-mighty-servant": {
     "name": {
       "source": "The Mighty Servant",
-      "text": ""
+      "text": "Der Mächtige Diener"
     },
     "specialQuality": {
       "source": "living stone, tireless",
-      "text": ""
+      "text": "Lebendiger Stein, Unermüdlich"
     },
     "damage": {
       "source": "stone fists d10+1 (hand, close, disadvantage)",
-      "text": ""
+      "text": "Steinfäuste W10+1 (Hand, Nah, Nachteil)"
     },
     "armor": {
       "source": "4 made of stone",
-      "text": ""
+      "text": "4 (aus Stein gefertigt)"
     },
     "moves": {
       "source": "- Perform a mighty feat of strength\n- Carry on implacably",
-      "text": ""
+      "text": "- Vollbringe einen gewaltigen Kraftakt\n- Mach unbeirrt weiter"
     },
     "instinct/selected/to-misunderstand": {
       "source": "to misunderstand",
-      "text": ""
+      "text": "etwas missverstehen"
     },
     "cost/selected/wonder-excitement-joy-discovery": {
       "source": "wonder, excitement, joy, discovery",
-      "text": ""
+      "text": "Wunder, Aufregung, Freude, Entdeckungen"
     }
   },
   "the-ring": {
     "name": {
       "source": "The Ring",
-      "text": ""
+      "text": "Der Ring"
     },
     "moves": {
       "source": "- Speak mind-to-mind\n- Reveal a secret, for a price\n- Know someone’s desires",
-      "text": ""
+      "text": "- Sprich von Geist zu Geist\n- Enthülle ein Geheimnis, für einen Preis\n- Kenne die Wünsche eines anderen"
     },
     "instinct/selected/to-give-nothing-not-even-secrets-or-info-away": {
       "source": "to give nothing (not even secrets or info) away",
-      "text": ""
+      "text": "Nichts preisgeben (nicht einmal Geheimnisse oder Informationen)"
     },
     "cost/selected/devouring-fallen-named-creatures": {
       "source": "devouring fallen, named creatures",
-      "text": ""
+      "text": "Gefallene, benannte Wesen verschlingen"
     }
   },
   "tulpa": {

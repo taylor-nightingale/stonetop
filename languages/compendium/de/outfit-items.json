@@ -950,6 +950,14 @@
     }
   },
   "_folders": {
+    "inventory-insert-p-142": {
+      "source": "Inventory insert (p. 142)",
+      "text": "Inventar-Ergänzung (S. 142)"
+    },
+    "special-items": {
+      "source": "Special items",
+      "text": "Besondere Gegenstände"
+    },
     "armor": {
       "source": "Armor",
       "text": "Rüstung"
@@ -1005,14 +1013,6 @@
     "weapons": {
       "source": "Weapons",
       "text": "Waffen"
-    },
-    "inventory-insert-p-142": {
-      "source": "Inventory insert (p. 142)",
-      "text": "Inventar-Beilage (S. 142)"
-    },
-    "special-items": {
-      "source": "Special items",
-      "text": "Besondere Gegenstände"
     }
   }
 }

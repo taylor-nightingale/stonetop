@@ -2,19 +2,19 @@
   "ghost": {
     "name": {
       "source": "Ghost",
-      "text": ""
+      "text": "Geist"
     },
     "description": {
       "source": "When you *die but your soul lingers*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",
-      "text": ""
+      "text": "Wenn du **_stirbst, aber deine Seele verweilt_** und sich weigert, durch die Letzte Pforte zu gehen, erhältst du dieses Ergänzung und wählst 1 Konsequenz."
     },
     "choices/terrible-purpose/terrible-purpose/title": {
       "source": "Terrible Purpose",
-      "text": ""
+      "text": "Schrecklicher Zweck"
     },
     "choices/terrible-purpose/terrible-purpose/text": {
       "source": "Choose 1:",
-      "text": ""
+      "text": "Wähle 1:"
     },
     "choices/consequences/consequences/title": {
       "source": "Consequences",
@@ -22,83 +22,83 @@
     },
     "choices/consequences/consequences/text": {
       "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
-      "text": ""
+      "text": "Wenn du diese Ergänzung zum ersten Mal erhältst, wähle eine Konsequenz. Wähle eine weitere, wann immer ein Spielzug dich dazu auffordert."
     },
     "choices/terrible-purpose/longing/text": {
       "source": "**LONGING** — Name the person or persons you refuse to let go of.\n\nWhen you *spend the night watching them*, regain all your HP or clear all your debilities.\n\nWhen they *genuinely return your affections*, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *rebuff you or recoil from you*, mark a consequence.\n\nWhen they *die peacefully and pass through the Last Door*, so do you.\n\nShould they be *taken from you violently*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Sehnsucht**\n\nNenne die Person oder Personen, die du nicht loslassen kannst.\n\nWenn du **_die Nacht damit verbringst_**, über sie zu wachen, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn sie **_deine Zuneigung aufrichtig erwidern_**, frei von Angst oder Entsetzen, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn sie **_dich zurückweisen oder vor dir zurückschrecken_**, markiere eine Konsequenz.\n\nWenn sie **_friedlich sterben und durch die Letzte Pforte schreiten_**, tust du es ebenfalls.\n\nSollten sie **_dir gewaltsam entrissen werden_**, markiere die Letzte Konsequenz."
     },
     "choices/terrible-purpose/vengeance/text": {
       "source": "**VENGEANCE** — Name the person or persons who must pay.\n\nWhen you *spend the night wailing, howling, and raging in a lonely place*, regain all your HP or clear all your debilities.\n\nWhen you *make one of them pay and ensure they know why*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *defeat or escape you*, mark a consequence.\n\nWhen you *kill the last of them*, pass through the Last Door.\n\nShould they *die before you're finished with them*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Rache**\n\nNenne die Person oder Personen, die bezahlen müssen.\n\nWenn du **_die Nacht damit verbringst_**, an einem einsamen Ort zu wehklagen, zu heulen und zu wüten, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn du **_dafür sorgst, dass einer von ihnen für seine Taten bezahlt und weiß_**, warum, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn sie **_dich besiegen oder dir entkommen_**, markiere eine Konsequenz.\n\nWenn du **_den Letzten von ihnen getötet hast_**, schreitest du durch die Letzte Pforte.\n\nSollten sie **_sterben, bevor du mit ihnen fertig bist_**, markiere die Letzte Konsequenz."
     },
     "choices/terrible-purpose/duty/text": {
       "source": "**DUTY** — Name the task you refuse to leave undone.\n\nWhen you *spend the night working on your task*, regain all your HP or clear all your debilities.\n\nWhen you *achieve a significant milestone towards your task*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen you *fail to perform your task or suffer a material setback*, mark a consequence.\n\nWhen the *task is finally complete*, pass through the Last Door.\n\nShould the *task become impossible to perform*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Pflicht**\n\nNenne die Aufgabe, die du nicht unerledigt lassen kannst.\n\nWenn du **_die Nacht damit verbringst_**, an deiner Aufgabe zu arbeiten, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn du **_einen bedeutenden Meilenstein auf dem Weg zur Erfüllung deiner Aufgabe erreichst_**, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn du **_deine Aufgabe nicht erfüllst oder einen wesentlichen Rückschlag erleidest_**, markiere eine Konsequenz.\n\nWenn die **_Aufgabe endlich erfüllt ist_**, schreitest du durch die Letzte Pforte.\n\nSollte die **_Aufgabe nicht mehr zu bewältigen sein_**, markiere die Letzte Konsequenz."
     },
     "choices/consequences/breakdown/text": {
       "source": "**BREAKDOWN** — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.",
-      "text": ""
+      "text": "**Zusammenbruch**\n\nDu schlägst in blinder, hemmungsloser Raserei um dich, die bis zum nächsten Sonnenaufgang anhält. Frage den SL, an welche Bruchstücke du dich erinnerst."
     },
     "choices/consequences/unstable/text": {
       "source": "**UNSTABLE** *(Requires Breakdown)* — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you *roll a 6-*, the GM can choose to have you enter such a rage.",
-      "text": ""
+      "text": "**Instabil**\n\n**_Voraussetzung: Zusammenbruch_**\nDu neigst zu blinder, hemmungsloser Raserei (wie beim Zusammenbruch). Wenn du **_eine 6- würfelst_**, kann der SL entscheiden, dass du in eine solche Raserei gerätst."
     },
     "choices/consequences/carrion-stench/text": {
       "source": "**CARRION STENCH** — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.",
-      "text": ""
+      "text": "**Verwesungsgeruch**\n\nDir haftet immer ein schrecklicher Geruch an. Gewöhnliche Tiere meiden dich; selbst Raubtiere gehen die und deinen Gefährten aus dem Weg."
     },
     "choices/consequences/deathly-visage/text": {
       "source": "**DEATHLY VISAGE** — It's clear to all who look upon you that you are dead. When you *use intimidation and your sinister appearance to Persuade*, you have advantage.",
-      "text": ""
+      "text": "**Antlitz des Todes**\n\nJeder, der dich ansieht, erkennt sofort, dass du tot bist. Wenn du **_Einschüchterung und dein unheimliches Äußeres einsetzt, um zu Überreden_**, hast du einen Vorteil."
     },
     "choices/consequences/home-to-vermin/text": {
       "source": "**HOME TO VERMIN** — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: *group, tiny, gross, meek, stealthy*; HP 1 each; Instinct: to get distracted; Cost: genuine affection.",
-      "text": ""
+      "text": "**Heim für Ungeziefer**\n\nKäfer, Motten und anderes Ungeziefer haben sich in deinem Leichnam eingenistet. Wenn du sie darum bittest, erweisen sie dir Gefallen. Behandle sie als Gefolgsleute: Gruppe, Winzig, Widerlich, Demütig, Heimlich; jeweils 1 TP; Instinkt: sich ablenken lassen; Kosten: aufrichtige Zuneigung."
     },
     "choices/consequences/nightkin/text": {
       "source": "**NIGHTKIN** — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.",
-      "text": ""
+      "text": "**Geschöpf der Nacht**\n\nDu kannst selbst in völliger Dunkelheit klar und deutlich sehen, allerdings nur in Schwarz, Weiß und Rot. Sonnenlicht hingegen blendet dich, und direktes Sonnenlicht verbrennt deine Haut."
     },
     "choices/consequences/quarry/text": {
       "source": "**QUARRY** — The Pale Hunter has caught your scent. Expect a visit, soon.",
-      "text": ""
+      "text": "**Gejagter**\n\nDer Bleiche Jäger hat deine Fährte aufgenommen. Erwarte seinen baldigen Besuch."
     },
     "choices/consequences/strange-appetites/text": {
       "source": "**STRANGE APPETITES** — Pick 1: *still-warm blood* / *dying breaths* / *brains* / *bone & marrow* / *rotting meat* / *eyes*\n\nWhen you *consume your special fare*, heal damage equal to half your max HP or clear a debility.",
-      "text": ""
+      "text": "**Seltsame Gelüste**\n\nWähle eines: *noch warmes Blut* / *letzte Atemzüge* / *Gehirne* / *Knochen und Mark* / *verfaultes Fleisch* / *Augen*\nWenn du **_deine besondere Kost verzehrst_**, heilst du Schaden in Höhe der Hälfte deiner maximalen TP oder beseitigst eine Beeinträchtigung."
     },
     "choices/consequences/insatiable/text": {
       "source": "**INSATIABLE** *(Requires Strange Appetites)* — When you *have the opportunity to indulge your Strange Appetites*, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).",
-      "text": ""
+      "text": "**Unersättlich**\n\n**_Voraussetzung: Seltsame Gelüste_**\nWenn du **_die Gelegenheit bekommst, deinen Seltsamen Gelüsten nachzugeben_**, erhältst du einen Vorteil auf deinen nächsten Wurf, wenn du dich dafür entscheidest, ihnen nachzugeben. Entscheidest du dich dagegen, trotzt du der Gefahr (die Gefahr sind deine überwältigenden Gelüste)."
     },
     "choices/consequences/final-consequence/text": {
       "source": "**THE FINAL CONSEQUENCE** — Your tenuous connection to humanity is lost and you become a monster under the GM's control.",
-      "text": ""
+      "text": "**Die Letzte Konsequenz**\n\nDeine brüchige Verbindung zur Menschlichkeit geht verloren und du wirst zu einem Monster unter der Kontrolle der SL."
     },
     "instinct/0/options/denial/text": {
       "source": "Denial",
-      "text": ""
+      "text": "Verdrängung"
     },
     "instinct/0/options/denial/description": {
       "source": "To refuse to accept that you are dead.",
-      "text": ""
+      "text": "Sich weigern zu akzeptieren, dass man tot ist."
     },
     "instinct/0/options/obsession/text": {
       "source": "Obsession",
-      "text": ""
+      "text": "Besessenheit"
     },
     "instinct/0/options/obsession/description": {
       "source": "To pursue your Terrible Purpose no matter what.",
-      "text": ""
+      "text": "Den schrecklichen Zweck um jeden Preis zu verfolgen."
     },
     "instinct/0/options/ennui/text": {
       "source": "Ennui",
-      "text": ""
+      "text": "Lebensmüdigkeit"
     },
     "instinct/0/options/ennui/description": {
       "source": "To bemoan your condition, to wish for release.",
-      "text": ""
+      "text": "Den eigenen Zustand zu beklagen, sich Erlösung zu wünschen."
     }
   },
   "lightbearer-invocations-insert": {
@@ -226,19 +226,19 @@
   "revenant": {
     "name": {
       "source": "Revenant",
-      "text": ""
+      "text": "Wiedergänger"
     },
     "description": {
       "source": "When you *die but cling stubbornly to your body*, refusing to pass through the Last Door, you gain this insert, and choose 1 Consequence.",
-      "text": ""
+      "text": "Wenn du **_stirbst, dich aber hartnäckig an deinen Körper klammerst_** und dich weigerst, durch die Letzte Pforte zu schreiten, erhältst du diese Ergänzung und wählst 1 Konsequenz."
     },
     "choices/terrible-purpose/terrible-purpose/title": {
       "source": "Terrible Purpose",
-      "text": ""
+      "text": "Schrecklicher Zweck"
     },
     "choices/terrible-purpose/terrible-purpose/text": {
       "source": "Choose 1:",
-      "text": ""
+      "text": "Wähle 1:"
     },
     "choices/consequences/consequences/title": {
       "source": "Consequences",
@@ -246,117 +246,117 @@
     },
     "choices/consequences/consequences/text": {
       "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
-      "text": ""
+      "text": "Wenn du diese Ergänzung zum ersten Mal erhältst, wähle eine Konsequenz. Wähle eine weitere, wann immer ein Spielzug dich dazu auffordert."
     },
     "choices/terrible-purpose/longing/text": {
       "source": "**LONGING** — Name the person or persons you refuse to let go of.\n\nWhen you *spend the night watching them*, regain all your HP or clear all your debilities.\n\nWhen they *genuinely return your affections*, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *rebuff you or recoil from you*, mark a consequence.\n\nWhen they *die peacefully and pass through the Last Door*, so do you.\n\nShould they be *taken from you violently*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Sehnsucht**\n\nNenne die Person oder Personen, die du nicht loslassen kannst.\n\nWenn du **_die Nacht damit verbringst_**, über sie zu wachen, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn sie **_deine Zuneigung aufrichtig erwidern_**, frei von Angst oder Entsetzen, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn sie **_dich zurückweisen oder vor dir zurückschrecken_**, markiere eine Konsequenz.\n\nWenn sie **_friedlich sterben und durch die Letzte Pforte schreiten_**, tust du es ebenfalls.\n\nSollten sie **_dir gewaltsam entrissen werden_**, markiere die Letzte Konsequenz."
     },
     "choices/terrible-purpose/vengeance/text": {
       "source": "**VENGEANCE** — Name the person or persons who must pay.\n\nWhen you *spend the night wailing, howling, and raging in a lonely place*, regain all your HP or clear all your debilities.\n\nWhen you *make one of them pay and ensure they know why*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *defeat or escape you*, mark a consequence.\n\nWhen you *kill the last of them*, pass through the Last Door.\n\nShould they *die before you're finished with them*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Rache**\n\nNenne die Person oder Personen, die bezahlen müssen.\n\nWenn du **_die Nacht damit verbringst_**, an einem einsamen Ort zu wehklagen, zu heulen und zu wüten, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn du **_dafür sorgst, dass einer von ihnen für seine Taten bezahlt und weiß_**, warum, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn sie **_dich besiegen oder dir entkommen_**, markiere eine Konsequenz.\n\nWenn du **_den Letzten von ihnen getötet hast_**, schreitest du durch die Letzte Pforte.\n\nSollten sie **_sterben, bevor du mit ihnen fertig bist_**, markiere die Letzte Konsequenz."
     },
     "choices/terrible-purpose/duty/text": {
       "source": "**DUTY** — Name the task you refuse to leave undone.\n\nWhen you *spend the night working on your task*, regain all your HP or clear all your debilities.\n\nWhen you *achieve a significant milestone towards your task*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen you *fail to perform your task or suffer a material setback*, mark a consequence.\n\nWhen the *task is finally complete*, pass through the Last Door.\n\nShould the *task become impossible to perform*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Pflicht**\n\nNenne die Aufgabe, die du nicht unerledigt lassen kannst.\n\nWenn du **_die Nacht damit verbringst_**, an deiner Aufgabe zu arbeiten, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn du **_einen bedeutenden Meilenstein auf dem Weg zur Erfüllung deiner Aufgabe erreichst_**, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn du **_deine Aufgabe nicht erfüllst oder einen wesentlichen Rückschlag erleidest_**, markiere eine Konsequenz.\n\nWenn die **_Aufgabe endlich erfüllt ist_**, schreitest du durch die Letzte Pforte.\n\nSollte die **_Aufgabe nicht mehr zu bewältigen sein_**, markiere die Letzte Konsequenz."
     },
     "choices/consequences/breakdown/text": {
       "source": "**BREAKDOWN** — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.",
-      "text": ""
+      "text": "**Zusammenbruch**\n\nDu schlägst in blinder, hemmungsloser Raserei um dich, die bis zum nächsten Sonnenaufgang anhält. Frage den SL, an welche Bruchstücke du dich erinnerst."
     },
     "choices/consequences/unstable/text": {
       "source": "**UNSTABLE** *(Requires Breakdown)* — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you *roll a 6-*, the GM can choose to have you enter such a rage.",
-      "text": ""
+      "text": "**Instabil**\n\n**_Voraussetzung: Zusammenbruch_**\nDu neigst zu blinder, hemmungsloser Raserei (wie beim Zusammenbruch). Wenn du **_eine 6- würfelst_**, kann der SL entscheiden, dass du in eine solche Raserei gerätst."
     },
     "choices/consequences/carrion-stench/text": {
       "source": "**CARRION STENCH** — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.",
-      "text": ""
+      "text": "**Verwesungsgeruch**\n\nDir haftet immer ein schrecklicher Geruch an. Gewöhnliche Tiere meiden dich; selbst Raubtiere gehen die und deinen Gefährten aus dem Weg."
     },
     "choices/consequences/deathly-visage/text": {
       "source": "**DEATHLY VISAGE** — It's clear to all who look upon you that you are dead. When you *use intimidation and your sinister appearance to Persuade*, you have advantage.",
-      "text": ""
+      "text": "**Antlitz des Todes**\n\nJeder, der dich ansieht, erkennt sofort, dass du tot bist. Wenn du **_Einschüchterung und dein unheimliches Äußeres einsetzt, um zu Überreden_**, hast du einen Vorteil."
     },
     "choices/consequences/home-to-vermin/text": {
       "source": "**HOME TO VERMIN** — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: *group, tiny, gross, meek, stealthy*; HP 1 each; Instinct: to get distracted; Cost: genuine affection.",
-      "text": ""
+      "text": "**Heim für Ungeziefer**\n\nKäfer, Motten und anderes Ungeziefer haben sich in deinem Leichnam eingenistet. Wenn du sie darum bittest, erweisen sie dir Gefallen. Behandle sie als Gefolgsleute: Gruppe, Winzig, Widerlich, Demütig, Heimlich; jeweils 1 TP; Instinkt: sich ablenken lassen; Kosten: aufrichtige Zuneigung."
     },
     "choices/consequences/nightkin/text": {
       "source": "**NIGHTKIN** — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.",
-      "text": ""
+      "text": "**Geschöpf der Nacht**\n\nDu kannst selbst in völliger Dunkelheit klar und deutlich sehen, allerdings nur in Schwarz, Weiß und Rot. Sonnenlicht hingegen blendet dich, und direktes Sonnenlicht verbrennt deine Haut."
     },
     "choices/consequences/quarry/text": {
       "source": "**QUARRY** — The Pale Hunter has caught your scent. Expect a visit, soon.",
-      "text": ""
+      "text": "**Gejagter**\n\nDer Bleiche Jäger hat deine Fährte aufgenommen. Erwarte seinen baldigen Besuch."
     },
     "choices/consequences/strange-appetites/text": {
       "source": "**STRANGE APPETITES** — Pick 1: *still-warm blood* / *dying breaths* / *brains* / *bone & marrow* / *rotting meat* / *eyes*\n\nWhen you *consume your special fare*, heal damage equal to half your max HP or clear a debility.",
-      "text": ""
+      "text": "**Seltsame Gelüste**\n\nWähle eines: *noch warmes Blut* / *letzte Atemzüge* / *Gehirne* / *Knochen und Mark* / *verfaultes Fleisch* / *Augen*\nWenn du **_deine besondere Kost verzehrst_**, heilst du Schaden in Höhe der Hälfte deiner maximalen TP oder beseitigst eine Beeinträchtigung."
     },
     "choices/consequences/insatiable/text": {
       "source": "**INSATIABLE** *(Requires Strange Appetites)* — When you *have the opportunity to indulge your Strange Appetites*, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).",
-      "text": ""
+      "text": "**Unersättlich**\n\n**_Voraussetzung: Seltsame Gelüste_**\nWenn du **_die Gelegenheit bekommst, deinen Seltsamen Gelüsten nachzugeben_**, erhältst du einen Vorteil auf deinen nächsten Wurf, wenn du dich dafür entscheidest, ihnen nachzugeben. Entscheidest du dich dagegen, trotzt du der Gefahr (die Gefahr sind deine überwältigenden Gelüste)."
     },
     "choices/consequences/final-consequence/text": {
       "source": "**THE FINAL CONSEQUENCE** — Your tenuous connection to humanity is lost and you become a monster under the GM's control.",
-      "text": ""
+      "text": "**Die Letzte Konsequenz**\n\nDeine brüchige Verbindung zur Menschlichkeit geht verloren und du wirst zu einem Monster unter der Kontrolle der SL."
     },
     "instinct/0/options/denial/text": {
       "source": "Denial",
-      "text": ""
+      "text": "Verdrängung"
     },
     "instinct/0/options/denial/description": {
       "source": "To refuse to accept that you are dead.",
-      "text": ""
+      "text": "Sich weigern zu akzeptieren, dass man tot ist."
     },
     "instinct/0/options/obsession/text": {
       "source": "Obsession",
-      "text": ""
+      "text": "Besessenheit"
     },
     "instinct/0/options/obsession/description": {
       "source": "To pursue your Terrible Purpose no matter what.",
-      "text": ""
+      "text": "Den schrecklichen Zweck um jeden Preis zu verfolgen."
     },
     "instinct/0/options/ennui/text": {
       "source": "Ennui",
-      "text": ""
+      "text": "Lebensmüdigkeit"
     },
     "instinct/0/options/ennui/description": {
       "source": "To bemoan your condition, to wish for release.",
-      "text": ""
+      "text": "Den eigenen Zustand zu beklagen, sich Erlösung zu wünschen."
     }
   },
   "thrall": {
     "name": {
       "source": "Thrall",
-      "text": ""
+      "text": "Knecht"
     },
     "description": {
       "source": "When you *die but call one of the Things Below by name and beseech them to intercede*, they do. Death is averted, but you gain this insert and 1 Mark.",
-      "text": ""
+      "text": "Wenn du **_stirbst, aber eines der Dinge aus der Tiefe beim Namen anrufst und es inständig bittest, für dich einzutreten_**, tut es das. Der Tod wird abgewendet, aber du erhältst diese Ergänzung und 1 Dunkles Mal."
     },
     "choices/your-master/your-master/title": {
       "source": "Your Master",
-      "text": ""
+      "text": "Dein Meister"
     },
     "choices/your-master/your-master/text": {
       "source": "The Thing Below that you called upon? The one that plucked your soul from the Last Door and hides you from the Pale Hunter? It owns you now.",
-      "text": ""
+      "text": "Das Ding aus der Tiefe, welches du angerufen hast? Jenes, welches deine Seele vor der Letzten Pforte bewahrt hat und dich vor dem Bleichen Jäger versteckt? Du gehörst jetzt ihm."
     },
     "choices/impulse/impulse/title": {
       "source": "Impulse",
-      "text": ""
+      "text": "Impuls"
     },
     "choices/impulse/impulse/text": {
       "source": "Ask the GM to choose 1, to represent your master's nature and will:",
-      "text": ""
+      "text": "Bitte den SL, einen auszuwählen, das das Wesen und den Willen deines Meisters widerspiegelt:"
     },
     "choices/terrible-purpose/terrible-purpose/title": {
       "source": "Terrible Purpose",
-      "text": ""
+      "text": "Schrecklicher Zweck"
     },
     "choices/terrible-purpose/terrible-purpose/text": {
       "source": "Choose 1:",
-      "text": ""
+      "text": "Wähle 1"
     },
     "choices/consequences/consequences/title": {
       "source": "Consequences",
@@ -364,7 +364,7 @@
     },
     "choices/consequences/consequences/text": {
       "source": "When you first take this insert, choose 1. Choose another whenever a move tells you to do so.",
-      "text": ""
+      "text": "Wenn du diese Ergänzung zum ersten Mal erhältst, wähle eine Konsequenz. Wähle eine weitere, wann immer ein Spielzug dich dazu auffordert."
     },
     "choices/marks/marks/title": {
       "source": "Marks",
@@ -372,151 +372,151 @@
     },
     "choices/marks/marks/text": {
       "source": "When you first gain this insert, the GM will choose 1 Mark based on your master's nature. Gain more when a move tells you to do so.",
-      "text": ""
+      "text": "Wenn du diese Ergänzung zum ersten Mal erhältst, wählt der SL für dich 1 Dunkles Mal, basierend auf der Natur deines Meisters. Wähle ein weiteres, wenn ein Spielzug dich dazu auffordert."
     },
     "choices/your-master/name/text": {
       "source": "Name your master here, along with any titles that you know:",
-      "text": ""
+      "text": "Nenne hier deinen Meister sowie alle Titel, die du kennst:"
     },
     "choices/impulse/stoke-conflict/text": {
       "source": "Stoke conflict, confusion, distrust",
-      "text": ""
+      "text": "Konflikte, Verwirrung und Misstrauen schüren"
     },
     "choices/impulse/erode-hope/text": {
       "source": "Erode hope/faith/honor/self-image",
-      "text": ""
+      "text": "Hoffnung, Glauben, Ehre oder Selbstbild untergraben"
     },
     "choices/impulse/hide-bury/text": {
       "source": "Hide/bury/smother things or ideas",
-      "text": ""
+      "text": "Dinge oder Ideen verbergen, begraben oder ersticken"
     },
     "choices/impulse/deprive/text": {
       "source": "Deprive others of what they need",
-      "text": ""
+      "text": "Anderen das vorenthalten, was sie brauchen"
     },
     "choices/impulse/inflict-harm/text": {
       "source": "Inflict harm, cruelly and unnecessarily",
-      "text": ""
+      "text": "Schaden zufügen, grausam und unnötig"
     },
     "choices/impulse/desecrate/text": {
       "source": "Desecrate/mutilate/ruin things of value",
-      "text": ""
+      "text": "Dinge von Wert entweihen, verschandeln oder zerstören"
     },
     "choices/impulse/shock-terrify/text": {
       "source": "Shock/terrify/horrify others",
-      "text": ""
+      "text": "Andere schockieren, in Angst versetzen oder entsetzen"
     },
     "choices/terrible-purpose/longing/text": {
       "source": "**LONGING** — Name the person or persons you refuse to let go of.\n\nWhen you *spend the night watching them*, regain all your HP or clear all your debilities.\n\nWhen they *genuinely return your affections*, free of fear or horror, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *rebuff you or recoil from you*, mark a consequence.\n\nWhen they *die peacefully and pass through the Last Door*, so do you.\n\nShould they be *taken from you violently*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Sehnsucht**\n\nNenne die Person oder Personen, die du nicht loslassen kannst.\n\nWenn du **_die Nacht damit verbringst_**, über sie zu wachen, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn sie **_deine Zuneigung aufrichtig erwidern_**, frei von Angst oder Entsetzen, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn sie **_dich zurückweisen oder vor dir zurückschrecken_**, markiere eine Konsequenz.\n\nWenn sie **_friedlich sterben und durch die Letzte Pforte schreiten_**, tust du es ebenfalls.\n\nSollten sie **_dir gewaltsam entrissen werden_**, markiere die Letzte Konsequenz."
     },
     "choices/terrible-purpose/vengeance/text": {
       "source": "**VENGEANCE** — Name the person or persons who must pay.\n\nWhen you *spend the night wailing, howling, and raging in a lonely place*, regain all your HP or clear all your debilities.\n\nWhen you *make one of them pay and ensure they know why*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen they *defeat or escape you*, mark a consequence.\n\nWhen you *kill the last of them*, pass through the Last Door.\n\nShould they *die before you're finished with them*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Rache**\n\nNenne die Person oder Personen, die bezahlen müssen.\n\nWenn du **_die Nacht damit verbringst_**, an einem einsamen Ort zu wehklagen, zu heulen und zu wüten, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn du **_dafür sorgst, dass einer von ihnen für seine Taten bezahlt und weiß_**, warum, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn sie **_dich besiegen oder dir entkommen_**, markiere eine Konsequenz.\n\nWenn du **_den Letzten von ihnen getötet hast_**, schreitest du durch die Letzte Pforte.\n\nSollten sie **_sterben, bevor du mit ihnen fertig bist_**, markiere die Letzte Konsequenz."
     },
     "choices/terrible-purpose/duty/text": {
       "source": "**DUTY** — Name the task you refuse to leave undone.\n\nWhen you *spend the night working on your task*, regain all your HP or clear all your debilities.\n\nWhen you *achieve a significant milestone towards your task*, either regain all your HP and clear your debilities, or clear a consequence.\n\nWhen you *fail to perform your task or suffer a material setback*, mark a consequence.\n\nWhen the *task is finally complete*, pass through the Last Door.\n\nShould the *task become impossible to perform*, mark the Final Consequence.",
-      "text": ""
+      "text": "**Pflicht**\n\nNenne die Aufgabe, die du nicht unerledigt lassen kannst.\n\nWenn du **_die Nacht damit verbringst_**, an deiner Aufgabe zu arbeiten, erhältst du alle deine TP zurück oder beseitigst alle deine Beeinträchtigungen.\n\nWenn du **_einen bedeutenden Meilenstein auf dem Weg zur Erfüllung deiner Aufgabe erreichst_**, erhältst du entweder alle deine TP zurück und beseitigst deine Beeinträchtigungen oder beseitigst eine Konsequenz.\n\nWenn du **_deine Aufgabe nicht erfüllst oder einen wesentlichen Rückschlag erleidest_**, markiere eine Konsequenz.\n\nWenn die **_Aufgabe endlich erfüllt ist_**, schreitest du durch die Letzte Pforte.\n\nSollte die **_Aufgabe nicht mehr zu bewältigen sein_**, markiere die Letzte Konsequenz."
     },
     "choices/consequences/breakdown/text": {
       "source": "**BREAKDOWN** — You lash out in an unthinking, unfeeling rage that lasts until the next sunrise. Ask the GM what snippets you remember.",
-      "text": ""
+      "text": "**Zusammenbruch**\n\nDu schlägst in blinder, hemmungsloser Raserei um dich, die bis zum nächsten Sonnenaufgang anhält. Frage den SL, an welche Bruchstücke du dich erinnerst."
     },
     "choices/consequences/unstable/text": {
       "source": "**UNSTABLE** *(Requires Breakdown)* — You are prone to episodes of unthinking, unfeeling rage (as per Breakdown). When you *roll a 6-*, the GM can choose to have you enter such a rage.",
-      "text": ""
+      "text": "**Instabil**\n\n**_Voraussetzung: Zusammenbruch_**\nDu neigst zu blinder, hemmungsloser Raserei (wie beim Zusammenbruch). Wenn du **_eine 6- würfelst_**, kann der SL entscheiden, dass du in eine solche Raserei gerätst."
     },
     "choices/consequences/carrion-stench/text": {
       "source": "**CARRION STENCH** — You are followed always by a horrible odor. Natural beasts will shun you; even predators will avoid you and your companions.",
-      "text": ""
+      "text": "**Verwesungsgeruch**\n\nDir haftet immer ein schrecklicher Geruch an. Gewöhnliche Tiere meiden dich; selbst Raubtiere gehen die und deinen Gefährten aus dem Weg."
     },
     "choices/consequences/deathly-visage/text": {
       "source": "**DEATHLY VISAGE** — It's clear to all who look upon you that you are dead. When you *use intimidation and your sinister appearance to Persuade*, you have advantage.",
-      "text": ""
+      "text": "**Antlitz des Todes**\n\nJeder, der dich ansieht, erkennt sofort, dass du tot bist. Wenn du **_Einschüchterung und dein unheimliches Äußeres einsetzt, um zu Überreden_**, hast du einen Vorteil."
     },
     "choices/consequences/home-to-vermin/text": {
       "source": "**HOME TO VERMIN** — Bugs, moths, and other vermin have taken up residence in your corpse. They will do you favors if you ask. Treat them as followers: *group, tiny, gross, meek, stealthy*; HP 1 each; Instinct: to get distracted; Cost: genuine affection.",
-      "text": ""
+      "text": "**Heim für Ungeziefer**\n\nKäfer, Motten und anderes Ungeziefer haben sich in deinem Leichnam eingenistet. Wenn du sie darum bittest, erweisen sie dir Gefallen. Behandle sie als Gefolgsleute: Gruppe, Winzig, Widerlich, Demütig, Heimlich; jeweils 1 TP; Instinkt: sich ablenken lassen; Kosten: aufrichtige Zuneigung."
     },
     "choices/consequences/nightkin/text": {
       "source": "**NIGHTKIN** — You can see clearly in even absolute darkness, though you see only in black and white and red. Sunlight, alas, blinds you, and direct sunlight burns your skin.",
-      "text": ""
+      "text": "**Geschöpf der Nacht**\n\nDu kannst selbst in völliger Dunkelheit klar und deutlich sehen, allerdings nur in Schwarz, Weiß und Rot. Sonnenlicht hingegen blendet dich, und direktes Sonnenlicht verbrennt deine Haut."
     },
     "choices/consequences/quarry/text": {
       "source": "**QUARRY** — The Pale Hunter has caught your scent. Expect a visit, soon.",
-      "text": ""
+      "text": "**Gejagter**\n\nDer Bleiche Jäger hat deine Fährte aufgenommen. Erwarte seinen baldigen Besuch."
     },
     "choices/consequences/strange-appetites/text": {
       "source": "**STRANGE APPETITES** — Pick 1: *still-warm blood* / *dying breaths* / *brains* / *bone & marrow* / *rotting meat* / *eyes*\n\nWhen you *consume your special fare*, heal damage equal to half your max HP or clear a debility.",
-      "text": ""
+      "text": "**Seltsame Gelüste**\n\nWähle eines: *noch warmes Blut* / *letzte Atemzüge* / *Gehirne* / *Knochen und Mark* / *verfaultes Fleisch* / *Augen*\nWenn du **_deine besondere Kost verzehrst_**, heilst du Schaden in Höhe der Hälfte deiner maximalen TP oder beseitigst eine Beeinträchtigung."
     },
     "choices/consequences/insatiable/text": {
       "source": "**INSATIABLE** *(Requires Strange Appetites)* — When you *have the opportunity to indulge your Strange Appetites*, gain advantage on your next roll if you choose to do so, or Defy Danger if you choose not to (the danger being your overwhelming desires).",
-      "text": ""
+      "text": "**Unersättlich**\n\n**_Voraussetzung: Seltsame Gelüste_**\nWenn du **_die Gelegenheit bekommst, deinen Seltsamen Gelüsten nachzugeben_**, erhältst du einen Vorteil auf deinen nächsten Wurf, wenn du dich dafür entscheidest, ihnen nachzugeben. Entscheidest du dich dagegen, trotzt du der Gefahr (die Gefahr sind deine überwältigenden Gelüste)."
     },
     "choices/consequences/final-consequence/text": {
       "source": "**THE FINAL CONSEQUENCE** — Your tenuous connection to humanity is lost and you become a monster under the GM's control.",
-      "text": ""
+      "text": "**Die Letzte Konsequenz**\n\nDeine brüchige Verbindung zur Menschlichkeit geht verloren und du wirst zu einem Monster unter der Kontrolle der SL."
     },
     "choices/marks/festering-rot/text": {
       "source": "**A FESTERING ROT** — You are unharmed by poison, disease, caustic substances, and vermin bites. Things in your presence rot, crack, corrode, and spoil.\n\nWhen you roll doubles, something on your person is ruined. The GM will tell you what, and how.",
-      "text": ""
+      "text": "**Schwärende Fäulnis**\n\nDu bist immun gegen Gift, Krankheiten, ätzende Substanzen und Ungezieferbisse. Dinge in deiner Gegenwart verrotten, zerbrechen, korrodieren und verderben.\n\nWenn du **_einen Pasch würfelst_**, wird etwas, das du bei dir trägst, unbrauchbar. Der SL sagt dir, was und auf welche Weise."
     },
     "choices/marks/child-of-the-deeps/text": {
       "source": "**CHILD OF THE DEEPS** — Reduce your max HP by 2.\n\nYou can breathe water and suffer no harm from cold or pressure. Your skin becomes squamous. When you go a day without bathing, mark a debility.\n\nWhile near a body of water, you can spend 1 Favor to call forth a slimy tentacle to do your bidding. Treat it as a follower: *stealthy, relentless*; HP 6; Damage d10 (*reach, forceful, grabby*); Instinct: to squeeze the life from things; Cost: lives drowned.",
-      "text": ""
+      "text": "**Kind der Tiefen**\n\nReduziere deine maximalen TP um 2.\n\nDu kannst unter Wasser atmen und erleidest durch Kälte oder Druck keinen Schaden. Deine Haut wird schuppig. Wenn du einen Tag lang nicht badest, markiere eine Beeinträchtigung.\n\nIn der Nähe eines Gewässers kannst du 1 Gunst ausgeben, um einen schleimigen Tentakel herbeizurufen, der deinen Befehlen folgt. Behandle es als Gefolgsmann: Heimlich, Unerbittlich; 6 TP; Schaden W10 (Lang, Wuchtig, Fesselnd); Instinkt: Dingen das Leben ausquetschen; Kosten: ertrunkene Leben."
     },
     "choices/marks/death-mask/text": {
       "source": "**DEATH MASK** — You find or craft a horrid mask. When you do not wear your mask, you have disadvantage on all rolls. When you wear your mask, undead treat you as one of their own.\n\nWhen you wear your mask, you can spend 1 Favor to fill any living thing that sees you with dread. They must choose: flee, cower, or stand fast. If they stand fast, you have advantage on your first roll against them.",
-      "text": ""
+      "text": "**Totenmaske**\n\nDu findest oder fertigst eine grausige Maske an. Wenn du deine Maske nicht trägst, hast du bei allen Würfen einen Nachteil.\n\nWenn du deine Maske trägst, behandeln dich Untote wie einen der Ihren.\n\nWenn du deine Maske trägst, kannst du 1 Gunst ausgeben, um jedes Lebewesen, das dich sieht, mit Grauen zu erfüllen. Es muss sich für eine der folgenden Möglichkeiten entscheiden: fliehen, kauern oder standhalten. Wenn es standhält, hast du bei deinem ersten Wurf gegen es einen Vorteil."
     },
     "choices/marks/quicksilver-dreams/text": {
       "source": "**QUICKSILVER DREAMS** — Reduce your max HP by 2.\n\nWhen you Make Camp, everyone with you suffers nightmares and has disadvantage on their next roll.\n\nYou can spend 1 Favor to inflict false sensations upon someone, as long as you can see them.",
-      "text": ""
+      "text": "**Quecksilberträume**\n\nReduziere deine maximalen TP um 2.\n\nWenn du ein Lager aufschlägst, werden alle, die bei dir sind, von Albträumen geplagt und haben bei ihrem nächsten Wurf einen Nachteil.\n\nDu kannst 1 Gunst ausgeben, um jemandem falsche Sinneseindrücke vorzutäuschen, solange du die Person sehen kannst."
     },
     "choices/marks/ravenous/text": {
       "source": "**RAVENOUS** — You are filled with unending hunger. Gain an extra impulse: \"Wantonly devour flesh.\"\n\nWhen you Make Camp, consume an extra 1d4 provisions or uses of supplies.\n\nYou can spend 1 Favor to:\n\n- Touch something. For as long as you hold it, everyone who sees it desires it.\n- Gain a horrid, iron-rending maw (*hand, 3 piercing, messy*) for as long as you wish, and with it the ability to eat and digest anything.",
-      "text": ""
+      "text": "**Ausgehungert**\n\nDu bist von einem unstillbaren Hunger erfüllt. Erhalte einen zusätzlichen Impuls: „Fleisch hemmungslos verschlingen.“\n\nWenn du ein Lager aufschlägst, verbrauche zusätzlich 1W4 Vorräte oder Anwendungen von Vorräten.\n\nDu kannst 1 Gunst ausgeben, um:\n\n- Berühre etwas. Solange du es in der Hand hältst, begehrt es jeder, der es sieht.\n- Erhalte, so lange wie du es möchtest, einen grausigen, eisenzerreißenden Schlund (Hand, Durchdringend 3, Brutal) und damit die Fähigkeit, alles zu fressen und zu verdauen."
     },
     "choices/marks/red-wrath/text": {
       "source": "**RED WRATH** — Reduce your max HP by 2. When the GM compels you to violence, you have disadvantage to resist.\n\nWhen you let your fury fly and lash out at someone (*hand, close*), spend 1–3 Favor and roll +Favor spent: **on a 10+**, deal 2d8 damage (*messy, forceful*) and shock, terrify, or impress any onlookers; on a 7–9, as a 10+ but you keep attacking your victim (or their corpse) in an unthinking rage, heedless of other danger.",
-      "text": ""
+      "text": "**Roter Zorn**\n\nReduziere deine maximalen TP um 2.\n\nWenn der SL dich zu Gewalt zwingt, hast du einen Nachteil, um dich zu widersetzen.\n\nWenn du deiner Wut freien Lauf lässt und jemanden angreifst (Hand, Nah), gib 1–3 Gunst aus und würfle +Gunst. Bei einer 10+ verursachst du 2W8 Schaden (Wuchtig, Brutal) und schockierst, verängstigst oder beeindruckst alle Anwesenden. Bei 7–9 wie bei 10+, aber du greifst dein Opfer (oder seine Leiche) in blinder Raserei weiter an und achtest nicht auf andere Gefahren."
     },
     "choices/marks/shadows-cold-embrace/text": {
       "source": "**SHADOW'S COLD EMBRACE** — Reduce your max HP by 2. You cast no shadow and no reflection.\n\nWhen you are exposed to sunlight or holy light, you cannot spend Favor (for any reason).\n\nOtherwise you can spend 1 Favor to:\n\n- Remain unnoticed, even when under scrutiny or after doing something to draw attention.\n- Leave no trace of your comings or goings.\n- Pass off a lie as an obvious, evident truth.",
-      "text": ""
+      "text": "**Kalte Umarmung des Schattens**\n\nReduziere deine maximalen TP um 2.\n\nDu wirfst keinen Schatten und hast kein Spiegelbild.\n\nWenn du Sonnenlicht oder heiligem Licht ausgesetzt bist, kannst du keine Gunst ausgeben (aus welchem Grund auch immer).\n\nAndernfalls kannst du 1 Gunst ausgeben, um:\n\n- Unbemerkt zu bleiben, selbst wenn du unter Beobachtung stehst oder gerade etwas getan hast, das Aufmerksamkeit erregt.\n- Keine Spuren deines Kommens oder Gehens zu hinterlassen.\n- Eine Lüge als offensichtliche, unumstößliche Wahrheit erscheinen zu lassen."
     },
     "choices/marks/speak-truth/text": {
       "source": "**SPEAK TRUTH, WHISPER SECRETS** — Reduce your max HP by 2. Your tongue grows unusually long and your teeth become stained and jagged.\n\nYou can spend 1 Favor to look someone in the eye and learn (pick 1):\n\n- What do they desire above all else?\n- What secret shame do they bear?\n- What is their greatest fear?\n- What is their worst memory?\nWhen you use the answer against them, you have advantage.",
-      "text": ""
+      "text": "**Sprich die Wahrheit, flüstere Geheimnisse**\n\nReduziere deine maximalen TP um 2.\n\nDeine Zunge wird ungewöhnlich lang und deine Zähne verfärben sich und werden gezackt.\n\nDu kannst 1 Gunst ausgeben, um jemandem tief in die Augen zu schauen und eine der folgenden Wahrheiten erfahren:\n\n- Was wünscht sie sich mehr als alles andere?\n- Welche geheime Schande trägt sie mit sich?\n- Was ist ihre größte Angst?\n- Was ist ihre schlimmste Erinnerung?\n\nWenn du die Antwort gegen sie verwendest, hast du einen Vorteil."
     },
     "choices/marks/torments-blessing/text": {
       "source": "**TORMENT'S BLESSING** — Your wounds are slow to heal. When you recover HP, recover only half the amount that you should. But, you never need to Defy Danger due to pain, blood loss, and weakness due to wounds.\n\nWhen you speak a word of torment, name someone nearby, spend 1–3 Favor, and roll +Favor spent: **on a 10+**, they take 2d4 damage and are wracked with pain—lesser victims are incapacitated, and mighty foes are momentarily stunned; on a 7–9, they take 1d6 damage (ignores armor) and lesser victims are momentarily stunned.",
-      "text": ""
+      "text": "**Segen der Qual**\n\nDeine Wunden heilen nur langsam. Wenn du TP wiedererlangst, erhältst du nur die Hälfte der vorgesehenen Menge zurück. Du musst jedoch niemals Gefahr trotzen, wenn Schmerzen, Blutverlust oder durch Wunden verursachte Beeinträchtigungen der Grund dafür sind.\n\nWenn du ein Wort der Qual sprichst, nenne eine Person in deiner Nähe, gib 1–3 Gunst aus und würfle +Gunst. Bei einer 10+ erleidet sie 2W4 Schaden und wird von Schmerzen gepeinigt – schwächere Opfer werden kampfunfähig, mächtige Gegner sind vorübergehend betäubt. Bei 7–9 erleidet sie 1W6 Schaden (ignoriert Rüstung), und schwächere Opfer sind vorübergehend betäubt."
     },
     "instinct/0/options/fascination/text": {
       "source": "Fascination",
-      "text": ""
+      "text": "Faszination"
     },
     "instinct/0/options/fascination/description": {
       "source": "To explore your powers, your master, your new existence.",
-      "text": ""
+      "text": "Deine Kräfte, deinen Meister und deine neue Existenz zu erkunden."
     },
     "instinct/0/options/resistance/text": {
       "source": "Resistance",
-      "text": ""
+      "text": "Widerstand"
     },
     "instinct/0/options/resistance/description": {
       "source": "To struggle against your master and cling to your humanity.",
-      "text": ""
+      "text": "Dich gegen deinen Meister aufzulehnen und an deiner Menschlichkeit festzuhalten."
     },
     "instinct/0/options/shame/text": {
       "source": "Shame",
-      "text": ""
+      "text": "Scham"
     },
     "instinct/0/options/shame/description": {
       "source": "To hide and deny your true nature.",
-      "text": ""
+      "text": "Deine wahre Natur zu verbergen und zu verleugnen."
     }
   }
 }
