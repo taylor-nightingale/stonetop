@@ -75,7 +75,7 @@ describe("apply Stonetop steadfast → steading (integration)", () => {
 		// Ratings are actual numbers; Prosperity/Defenses carry their backing lists from assets.
 		expect(snap.attributes.prosperity.current).toBe(0);
 		expect(snap.attributes.prosperity.items).toHaveLength(8);
-		expect(snap.attributes.defenses.items).toHaveLength(4);
+		expect(snap.attributes.defenses.items).toHaveLength(5);
 		// Fortunes +1, surplus 1.
 		expect(snap.fortunes.current).toBe(1);
 		expect(snap.surplus.current).toBe(1);
