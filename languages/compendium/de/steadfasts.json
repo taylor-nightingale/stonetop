@@ -887,11 +887,6 @@
     "neighborPlaces/other/subtitle": {
       "source": "The Manmarch, etc.",
       "text": "die Grenzmark, usw."
-    },
-    "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming": {
-      "source": "A pair of hardy draft horses, followers (large, powerful, keen-nosed, hardy): HP 10 each; Damage d6+3 (hand, close, forceful); Instinct: to panic; Cost: care & grooming.",
-      "text": "Ein Paar kräftige Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege.",
-      "orphaned": true
     }
   },
   "the-frozen-wastes": {
