@@ -8,9 +8,15 @@
       XP and Level are NOT here. They are consulted once a session, not mid-blow, so they live in
       the rail under Advancement; these three are consulted every time something lands.
 
-      Each value states its own provenance beside it (`notes`), which used to live only in a
-      `data-tooltip` — pointer-only, and invisible to assistive tech. The hover keeps the full
-      sentence; the note is the short form. --}}
+      Each value states its own provenance, and states it to EVERYONE. It used to live only in a
+      `data-tooltip`, which is pointer-only and invisible to assistive tech; then a printed note
+      beside the value, which said it out loud but cost the band a line under every tile — a third of
+      this row's height for three words, on the one block of the sheet that cannot make more room.
+
+      Now the hover's own sentence is the one assistive tech gets, tied to the field it describes by
+      `aria-describedby`. It is the LONG form, not the note's one word, so this reads better than the
+      printed note did and takes no height at all. `sources` and `notes` are still two strings for
+      the two lengths; nothing on this sheet prints the short one any more. --}}
 <div class="stonetop-resource-row stonetop-resource-row--vitals">
 
 	<div class="stonetop-vital">
@@ -28,13 +34,14 @@
 				<span class="stonetop-stepper">
 					<input class="stonetop-resource__max stonetop-char-max-hp stonetop-step" type="number" data-change-action="maxHp"
 					       aria-label="{{localize 'stonetop.a11y.hpMax'}}"
+					       {{#if (hasText stonetop.vitals.sources.hp)}}aria-describedby="{{sheetIdPrefix}}-vital-hp-source"{{/if}}
 					       value="{{stonetop.vitals.hp.max}}" min="0">
 					{{> "stonetop.stepper-buttons"}}
 				</span>
 			</div>
 		</div>
-		{{#if (hasText stonetop.vitals.notes.hp)}}
-		<span class="stonetop-resource__note">{{stonetop.vitals.notes.hp}}</span>
+		{{#if (hasText stonetop.vitals.sources.hp)}}
+		<span id="{{sheetIdPrefix}}-vital-hp-source" class="stonetop-visually-hidden">{{stonetop.vitals.sources.hp}}</span>
 		{{/if}}
 	</div>
 
@@ -45,12 +52,13 @@
 			<span class="stonetop-stepper">
 				<input class="stonetop-resource__input stonetop-char-armor stonetop-step" type="number" data-change-action="armor"
 				       aria-label="{{localize 'stonetop.character.attributes.armor'}}"
+				       {{#if (hasText stonetop.vitals.sources.armor)}}aria-describedby="{{sheetIdPrefix}}-vital-armor-source"{{/if}}
 				       value="{{stonetop.vitals.armor}}" min="0">
 				{{> "stonetop.stepper-buttons"}}
 			</span>
 		</div>
-		{{#if (hasText stonetop.vitals.notes.armor)}}
-		<span class="stonetop-resource__note">{{stonetop.vitals.notes.armor}}</span>
+		{{#if (hasText stonetop.vitals.sources.armor)}}
+		<span id="{{sheetIdPrefix}}-vital-armor-source" class="stonetop-visually-hidden">{{stonetop.vitals.sources.armor}}</span>
 		{{/if}}
 	</div>
 
@@ -61,10 +69,11 @@
 			        data-tooltip="{{stonetop.vitals.sources.damage}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.damage"}}</button>
 			<input class="stonetop-resource__input stonetop-char-damage" type="text" data-change-action="damage"
 			       aria-label="{{localize 'stonetop.a11y.damageDie'}}"
+			       {{#if (hasText stonetop.vitals.sources.damage)}}aria-describedby="{{sheetIdPrefix}}-vital-damage-source"{{/if}}
 			       value="{{stonetop.vitals.damage.value}}">
 		</div>
-		{{#if (hasText stonetop.vitals.notes.damage)}}
-		<span class="stonetop-resource__note">{{stonetop.vitals.notes.damage}}</span>
+		{{#if (hasText stonetop.vitals.sources.damage)}}
+		<span id="{{sheetIdPrefix}}-vital-damage-source" class="stonetop-visually-hidden">{{stonetop.vitals.sources.damage}}</span>
 		{{/if}}
 	</div>
 

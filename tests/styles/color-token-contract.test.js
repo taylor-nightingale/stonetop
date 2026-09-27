@@ -4,11 +4,11 @@ import path from "path";
 import { ColorLiteralScan } from "./cssColorLiterals.js";
 
 // The theming contract: structural CSS names a ROLE — var(--st-ink) — and
-// only a theme file says what colour that role is. That separation is the whole feature: it is what
+// only a theme file says what color that role is. That separation is the whole feature: it is what
 // lets a dark theme exist at all, and what lets a module ship one by setting ~25 values instead of
 // overriding rules one at a time.
 //
-// These are the rules that keep it true. The stylesheet reached this state from 278 colour literals
+// These are the rules that keep it true. The stylesheet reached this state from 278 color literals
 // in 80 distinct values, and the duplication was not deliberate — four interchangeable border greys
 // (#c9c7b8 #bbb #ccc #ddd), four washes spanning 3-6% black. That is the drift a vocabulary prevents,
 // and one un-tokenized `#555` is how it starts again.
@@ -30,9 +30,9 @@ const cssFilesIn = dir =>
 // identified by location, not by a naming convention someone has to remember.
 const structuralStylesheets = () => cssFilesIn(STYLES_DIR);
 
-// styles/themes/ holds two kinds of file. palette.css repaints Foundry's 22 base colour ramps and is
-// the one place a colour is actually named; the parchment-*.css files only say which ramp each
-// Stonetop role reads. Separating them is what lets both themes share one set of colours.
+// styles/themes/ holds two kinds of file. palette.css repaints Foundry's 22 base color ramps and is
+// the one place a color is actually named; the parchment-*.css files only say which ramp each
+// Stonetop role reads. Separating them is what lets both themes share one set of colors.
 const PALETTE = path.join(THEMES_DIR, "palette.css");
 const themeStylesheets = () => cssFilesIn(THEMES_DIR);
 const roleStylesheets = () => themeStylesheets().filter(f => f !== PALETTE);
@@ -40,8 +40,8 @@ const roleStylesheets = () => themeStylesheets().filter(f => f !== PALETTE);
 const tokensDefinedIn = file => new Set([...readCode(file).matchAll(/(--st-[\w-]+)\s*:/g)].map(m => m[1]));
 const tokensUsedIn = file => new Set([...readCode(file).matchAll(/var\((--st-[\w-]+)/g)].map(m => m[1]));
 
-describe("colour token contract", () => {
-	it("names no colour outside a theme file", () => {
+describe("color token contract", () => {
+	it("names no color outside a theme file", () => {
 		const offenders = structuralStylesheets().flatMap(file =>
 			ColorLiteralScan.fromCss(read(file)).all.map(l => `${path.basename(file)}:${l.line}  ${l.value}`));
 
@@ -52,17 +52,35 @@ describe("colour token contract", () => {
 		expect(structuralStylesheets().some(f => f.startsWith(THEMES_DIR))).toBe(false);
 	});
 
+	// Foundry takes `styles` as {src, layer?} entries since v13; the bare-string form it used to take
+	// is deprecated and auto-migrated by BasePackage._migrateStyles. Read the src out rather than
+	// asserting on the entry, so this says which sheets ship and not which manifest schema is current.
 	it("ships every theme, and the derived tokens, as system styles", () => {
 		const { styles } = JSON.parse(read(path.join(root, "system.json")));
+		const shipped = styles.map(entry => (typeof entry === "string" ? entry : entry.src));
 
 		for (const theme of themeStylesheets()) {
-			expect(styles).toContain(`styles/themes/${path.basename(theme)}`);
+			expect(shipped).toContain(`styles/themes/${path.basename(theme)}`);
 		}
-		expect(styles).toContain("styles/tokens.css");
-		expect(styles).toContain("styles/stonetop.css");
+		expect(shipped).toContain("styles/tokens.css");
+		expect(shipped).toContain("styles/stonetop.css");
 	});
 
-	// The derived layer exists so a theme states a colour once. If it starts naming colours itself,
+	// The order they load in is the cascade they resolve in: palette names the colors, the themes
+	// map roles onto them, tokens derives the washes, and the sheet reads all three. A manifest that
+	// shuffles them leaves a role pointing at a ramp that has not been declared yet.
+	it("loads them in the order they depend on each other", () => {
+		const { styles } = JSON.parse(read(path.join(root, "system.json")));
+		const shipped = styles.map(entry => (typeof entry === "string" ? entry : entry.src));
+
+		expect(shipped.indexOf("styles/themes/palette.css")).toBeLessThan(
+			Math.min(...roleStylesheets().map(f => shipped.indexOf(`styles/themes/${path.basename(f)}`))));
+		expect(Math.max(...roleStylesheets().map(f => shipped.indexOf(`styles/themes/${path.basename(f)}`))))
+			.toBeLessThan(shipped.indexOf("styles/tokens.css"));
+		expect(shipped.indexOf("styles/tokens.css")).toBeLessThan(shipped.indexOf("styles/stonetop.css"));
+	});
+
+	// The derived layer exists so a theme states a color once. If it starts naming colors itself,
 	// themes have to restate them and the dark theme drifts from the light one.
 	it("derives every wash from a base token rather than naming one", () => {
 		expect(ColorLiteralScan.fromCss(read(TOKENS)).all).toEqual([]);

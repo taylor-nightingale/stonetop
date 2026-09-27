@@ -15,13 +15,14 @@ import { LevelUpSnapshotBuilder } from "../../src/model/snapshot/character/Level
  *
  * What this file holds is that split, and that nothing was lost to it.
  */
-const vitals = ({ xp = 4, xpMax = 14, ready = false, notes = {} } = {}) => new VitalsSnapshotBuilder()
+const vitals = ({ xp = 4, xpMax = 14, ready = false, notes = {}, sources = {} } = {}) => new VitalsSnapshotBuilder()
 	.withHp(new ValueMax(16, 16))
 	.withDamage({ value: "d6" })
 	.withArmor(1)
 	.withLevel(4)
 	.withXp(new ValueMax(ready ? xpMax : xp, xpMax))
-	.withSources(new VitalsSourcesSnapshot("hp sentence", "damage sentence", "armor sentence"))
+	.withSources(new VitalsSourcesSnapshot(
+		sources.hp ?? "hp sentence", sources.damage ?? "damage sentence", sources.armor ?? "armor sentence"))
 	.withNotes(new VitalsNotesSnapshot(notes.hp ?? "playbook", notes.damage ?? "playbook", notes.armor ?? "leather"))
 	.build();
 
@@ -57,21 +58,47 @@ describe("the band's numbers", () => {
 		expect(doc.querySelector(".stonetop-char-level")).toBeNull();
 	});
 
-	describe("the notes", () => {
-		it("prints where HP, Armor and Damage came from, as text", () => {
-			const notes = [...band().querySelectorAll(".stonetop-resource__note")].map(n => n.textContent.trim());
-			expect(notes).toEqual(["playbook", "leather", "playbook"]);
+	// ── The provenance ──────────────────────────────────────────────────────────────
+	// Where each number came from, said to everyone and drawn to no one. It used to be a printed
+	// note under each tile — 32px of this row for a word the label's hover already carried — but the
+	// hover binds pointer events only, so deleting the note without a replacement would have taken
+	// the sentence from assistive tech entirely. The FULL sentence now names the field through
+	// aria-describedby; the short note is no longer rendered anywhere.
+	describe("the provenance", () => {
+		it("names each input with the sentence that explains it", () => {
+			const doc = band();
+			for (const [cls, sentence] of [
+				["stonetop-char-max-hp", "hp sentence"],
+				["stonetop-char-armor", "armor sentence"],
+				["stonetop-char-damage", "damage sentence"],
+			]) {
+				const input = doc.querySelector(`.${cls}`);
+				// `doc` is the wrapper the partial rendered into, not a Document — so the reference is
+				// resolved by id within it, the way the browser would inside the sheet's own subtree.
+				const described = doc.querySelector(`#${input.getAttribute("aria-describedby")}`);
+				expect(described, `${cls} points at nothing`).not.toBeNull();
+				expect(described.textContent.trim()).toBe(sentence);
+			}
 		});
 
-		// The sentence stays in the hover; the note is the short form. Both, not one or the other.
-		it("keeps the full sentence on the hover beside the short note", () => {
+		// Drawn nowhere: the class is what keeps it out of the picture, and the sheet's own
+		// screen-reader-only rule is what makes that true.
+		it("draws the sentence nowhere", () => {
+			for (const span of band().querySelectorAll(".stonetop-visually-hidden"))
+				expect(span.className).toContain("stonetop-visually-hidden");
+			expect(band().querySelector(".stonetop-resource__note")).toBeNull();
+		});
+
+		// The hover is unchanged and still carries the same sentence, so a mouse user loses nothing.
+		it("keeps the full sentence on the label's hover", () => {
 			expect(band().querySelector(".stonetop-resource__label").getAttribute("data-tooltip"))
 				.toBe("hp sentence");
 		});
 
-		it("says nothing where there is nothing to say", () => {
-			const armor = band({ notes: { armor: "" } }).querySelectorAll(".stonetop-vital")[1];
-			expect(armor.querySelector(".stonetop-resource__note")).toBeNull();
+		it("names nothing where there is nothing to say", () => {
+			const armor = band({ sources: { armor: "" } }).querySelectorAll(".stonetop-vital")[1];
+			expect(armor.querySelector(".stonetop-visually-hidden")).toBeNull();
+			expect(armor.querySelector(".stonetop-char-armor").getAttribute("aria-describedby")).toBeNull();
 		});
 	});
 });

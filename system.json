@@ -10,24 +10,34 @@
 	},
 	"authors": [
 		{
-			"name": "aMediocerDad"
+			"name": "aMediocerDad",
+			"flags": {}
 		},
 		{
-			"name": "taylor-nightingale"
+			"name": "taylor-nightingale",
+			"flags": {}
 		},
 		{
-			"name": "pervandyke"
+			"name": "pervandyke",
+			"flags": {}
 		},
 		{
-			"name": "Dice-Goblin-Click-Clack"
+			"name": "Dice-Goblin-Click-Clack",
+			"flags": {}
 		},
 		{
-			"name": "dwpowell88"
+			"name": "dwpowell88",
+			"flags": {}
 		}
 	],
 	"flags": {
 		"hotReload": {
-			"extensions": ["css", "js", "hbs", "json"],
+			"extensions": [
+				"css",
+				"js",
+				"hbs",
+				"json"
+			],
 			"paths": [
 				"stonetop.js",
 				"module",
@@ -41,22 +51,34 @@
 		"dist/stonetop.js"
 	],
 	"styles": [
-		"styles/themes/palette.css",
-		"styles/themes/parchment-light.css",
-		"styles/themes/parchment-dark.css",
-		"styles/tokens.css",
-		"styles/stonetop.css"
+		{
+			"src": "styles/themes/palette.css"
+		},
+		{
+			"src": "styles/themes/parchment-light.css"
+		},
+		{
+			"src": "styles/themes/parchment-dark.css"
+		},
+		{
+			"src": "styles/tokens.css"
+		},
+		{
+			"src": "styles/stonetop.css"
+		}
 	],
 	"languages": [
 		{
 			"lang": "en",
 			"name": "English",
-			"path": "languages/en.json"
+			"path": "languages/en.json",
+			"flags": {}
 		},
 		{
 			"lang": "de",
 			"name": "Deutsch",
-			"path": "languages/de.json"
+			"path": "languages/de.json",
+			"flags": {}
 		}
 	],
 	"relationships": {
@@ -64,27 +86,28 @@
 			{
 				"id": "babele",
 				"type": "module",
-				"reason": "Translates the compendiums. The system is fully playable in English without it."
+				"reason": "Translates the compendiums. The system is fully playable in English without it.",
+				"compatibility": {}
 			}
 		]
 	},
 	"documentTypes": {
 		"Actor": {
 			"character": {},
-			"npc":       {},
-			"steading":  {}
+			"npc": {},
+			"steading": {}
 		},
 		"Item": {
-			"move":        {},
-			"arcanum":     {},
-			"playbook":    {},
-			"insert":      {},
+			"move": {},
+			"arcanum": {},
+			"playbook": {},
+			"insert": {},
 			"improvement": {},
-			"steadfast":   {},
-			"follower":    {},
-			"npc":         {},
-			"outfitItem":  {},
-			"possession":  {}
+			"steadfast": {},
+			"follower": {},
+			"npc": {},
+			"outfitItem": {},
+			"possession": {}
 		}
 	},
 	"packs": [
@@ -93,63 +116,108 @@
 			"label": "Moves",
 			"path": "packs/moves",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "playbooks",
 			"label": "Playbooks",
 			"path": "packs/playbooks",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "outfit-items",
 			"label": "Inventory Items",
 			"path": "packs/outfit-items",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "arcana",
 			"label": "Arcana",
 			"path": "packs/arcana",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "inserts",
 			"label": "Inserts",
 			"path": "packs/inserts",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "followers",
 			"label": "Followers",
 			"path": "packs/followers",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "possessions",
 			"label": "Possessions",
 			"path": "packs/possessions",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "steading-improvements",
 			"label": "Steading Improvements",
 			"path": "packs/steading-improvements",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "steadfasts",
 			"label": "Steadfasts",
 			"path": "packs/steadfasts",
 			"type": "Item",
-			"system": "stonetop"
+			"system": "stonetop",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
 		},
 		{
 			"name": "wider-world-npcs",
@@ -160,7 +228,8 @@
 			"ownership": {
 				"PLAYER": "NONE",
 				"ASSISTANT": "OWNER"
-			}
+			},
+			"flags": {}
 		},
 		{
 			"name": "wider-world-and-other-wonders",
@@ -171,7 +240,8 @@
 			"ownership": {
 				"PLAYER": "NONE",
 				"ASSISTANT": "OWNER"
-			}
+			},
+			"flags": {}
 		},
 		{
 			"name": "wonder-tables",
@@ -182,7 +252,8 @@
 			"ownership": {
 				"PLAYER": "OBSERVER",
 				"ASSISTANT": "OWNER"
-			}
+			},
+			"flags": {}
 		},
 		{
 			"name": "reference",
@@ -193,11 +264,12 @@
 			"ownership": {
 				"PLAYER": "OBSERVER",
 				"ASSISTANT": "OWNER"
-			}
+			},
+			"flags": {}
 		}
 	],
 	"url": "https://github.com/taylor-nightingale/stonetop",
 	"license": "LICENSE",
 	"manifest": "https://github.com/taylor-nightingale/stonetop/releases/latest/download/system.json",
-	"download": "https://github.com/taylor-nightingale/stonetop/archive/refs/heads/main.zip"
+	"download": "https://github.com/taylor-nightingale/stonetop/releases/download/1.7.0/stonetop.zip"
 }

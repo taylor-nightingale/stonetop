@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
-   The Stonetop palette — Foundry's own colour ramps, repainted as parchment and ink.
+   The Stonetop palette — Foundry's own color ramps, repainted as parchment and ink.
 
    This is the whole theming mechanism, and it is deliberately small.
 
@@ -63,7 +63,7 @@
 		--color-cool-5-90: rgba(23, 19, 15, 0.9);
 
 		/* ── Warm ramp: accents. warm-2 is the sepia the sheets already use for focus and
-		      selection, so core's highlights and ours are finally the same colour. ─────── */
+		      selection, so core's highlights and ours are finally the same color. ─────── */
 		--color-warm-1: #d9963f;
 		--color-warm-2: #8b5c2a;
 		--color-warm-3: #5a3218;

@@ -158,9 +158,9 @@ describe("the results of the move's own roll", () => {
 		expect(rows.failure).not.toContain("is-rolled");
 	});
 
-	// Colour is not a thing every reader gets, and a screen reader gets none of it: the lit row says
+	// color is not a thing every reader gets, and a screen reader gets none of it: the lit row says
 	// so in words and answers "which one am I on?" to anything that asks the page.
-	it("says which row was rolled in words, not only in colour", () => {
+	it("says which row was rolled in words, not only in color", () => {
 		const rows = tierRows(winterRoll({ outcome: "failure" }));
 		expect(rows.failure).toContain('aria-current="true"');
 		expect(rows.failure).toContain("stonetop-result-rolled");

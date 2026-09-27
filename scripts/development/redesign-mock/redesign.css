@@ -1,0 +1,1993 @@
+/* ── The proposal ────────────────────────────────────────────────────────────
+   Everything here is scoped to `.rd`, and this file is loaded OUTSIDE @layer system, so it
+   outranks stonetop.css without a single !important. Nothing below touches a shipped selector.
+
+   Five devices, in the order the deck introduces them: the panel, the bar, the row, the track and
+   the preview. Every surface is a composition of those. ─────────────────────────────── */
+
+.rd {
+	--rd-rail-open: 15rem;   /* what the rail is, open — its own width, and never animated */
+	--rd-rail-w: 15rem;      /* what the COLUMN is, which is what the animation moves */
+	--rd-gap: 1rem;                 /* the air between panels — this is what separates groups */
+
+	/* The sheet's own left and right margin, stated ONCE. Everything that runs down the main column
+	   starts on this line: the band's contents, the tab strip's first tab, and the panels in the tab
+	   body. It was three separate paddings — 12px on the band, 0 on the strip, 16px on the body — so
+	   the name, the first tab and the first panel each began at a different x and the page read as
+	   three loosely stacked things. A reader cannot see a padding; they can see an edge that does not
+	   line up. */
+	--rd-inset: 1rem;
+
+	/* The rail is a SUNKEN paper surface, not a dark one. It carries shipped components — the
+	   framed vitals, the stat-frame art, the steppers — and every one of those is drawn for paper.
+	   Separation is the job; a dark ground would mean re-tinting the whole stylesheet to get it. */
+	--rd-sunk:       color-mix(in srgb, var(--st-ink) 7%, var(--st-paper));
+	--rd-sunk-rule:  var(--st-rule);
+}
+
+.rd-sr {
+	position: absolute; width: 1px; height: 1px; overflow: hidden;
+	clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ── Shell ─────────────────────────────────────────────────────────────────── */
+
+.rd-sheet {
+	background: var(--st-paper);
+	color: var(--st-ink);
+	font-size: var(--fs-body);
+	overflow: hidden;
+	border: 1px solid var(--st-rule-strong);
+}
+
+/* The rail and everything beside it. Two columns, because the tab strip is a horizontal row under
+   the band now and takes no column of its own — the shipped arrangement.
+
+   This is `.sheet-wrapper`, which is not a name chosen for this file: the shipped fold is written
+   against it, so the deck folds on the shipped rules. */
+.rd-wrapper {
+	display: grid;
+	grid-template-columns: var(--rd-rail-w) minmax(0, 1fr);
+	height: 100%;
+	min-height: 0;
+	/* The containing block for the rail's toggle, which cannot live inside the rail's own clipping
+	   box — see `toggle` in rail.js. */
+	position: relative;
+}
+
+.rd-main { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+
+.rd-tab-body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--rd-gap);
+	padding: var(--rd-gap) var(--rd-inset);
+	overflow-y: auto;
+	/* The shipped `.sheet-body`'s rule: the track stays reserved, so nothing reflows when a tab stops
+	   overflowing. */
+	scrollbar-gutter: stable;
+	min-height: 0;
+	flex: 1;
+}
+
+/* ── The rail: a different material ────────────────────────────────────────
+   It carries identity, state, advancement and the ten basic moves — who this is, how they are, what
+   they are becoming, and the verbs they reach for while doing it. Unlike a border, a surface change
+   costs a narrow column no width. */
+
+/* ── The rail layout and its toggle ──────────────────────────────────────────
+   Measured on the dnd5e sheet: the sidebar keeps its width and slides out under the content on a
+   0.45s transition while a small tab rides its inner edge. Nothing is hidden outright, so the two
+   states are the same thing at two positions rather than two different screens.
+
+   Done here by animating the grid column itself. A custom property cannot transition unless it is
+   registered, so `--rd-rail-w` is declared with a type — and the rail keeps a FIXED inner width of
+   its own, because a rail that narrows as it closes re-wraps every row on the way out. */
+
+/* An ABSOLUTE initial value, and it matters: `<length>` requires one that is computationally
+   independent, so `15rem` makes Chrome drop the whole @property rule — and an unregistered custom
+   property is a token stream that cannot be transitioned. It fails silently: the collapse still
+   worked, it just snapped. */
+@property --rd-rail-w {
+	syntax: "<length>";
+	inherits: true;
+	initial-value: 0px;
+}
+
+.rd-sheet { position: relative; transition: --rd-rail-w 0.4s ease; }
+
+.rd-rail-layout {
+	position: relative;
+	display: flex;
+	min-height: 0;
+	/* The rail is wider than its column while closing; this is what lets it slide out of sight. */
+	overflow: hidden;
+}
+
+/* A tab on the edge, not a control in the margin: the outer corners are rounded and the inner ones
+   square, so it reads as something attached to the rail rather than floating beside it. It rides
+   the edge for free, because `left` is the same variable the column is. */
+.rd-rail-toggle {
+	position: absolute;
+	top: 1.1rem;
+	left: var(--rd-rail-w);
+	z-index: 3;
+	width: 0.85rem;
+	height: 2rem;
+	min-width: 0;
+	min-height: 0;
+	padding: 0;
+	display: grid;
+	place-items: center;
+	border: 1px solid var(--st-rule-strong);
+	border-left: none;
+	border-radius: 0 3px 3px 0;
+	background: var(--st-paper-raised);
+	color: var(--st-ink-faint);
+	font-size: 0.7rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+/* Core puts `transition: all 0.5s` on every button, and this one's `left` IS the animation — it is
+   the same custom property the rail's column is sized from. Two transitions on one value is a
+   lagging chase: the rail reached the edge in 200ms while the tab was still 183px behind it, which
+   reads as the button coming unstuck from the thing it belongs to. Colour is transitioned by name so
+   the hover still eases. */
+.rd-rail-toggle {
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.rd-rail-toggle:hover,
+.rd-rail-toggle:focus-visible { color: var(--st-accent); border-color: var(--st-accent); }
+
+.rd-rail-caret { transition: transform 0.4s ease; }
+
+.rd-sheet.is-rail-collapsed { --rd-rail-w: 0rem; }
+.rd-sheet.is-rail-collapsed .rd-rail-caret { transform: rotate(180deg); }
+
+/* Motion is the affordance here, not the information — the caret and the label say the same thing
+   standing still. */
+@media (prefers-reduced-motion: reduce) {
+	.rd-sheet, .rd-rail-caret { transition: none; }
+}
+
+.rd-rail {
+	width: var(--rd-rail-open);
+	flex: none;
+	background: var(--rd-sunk);
+	border-right: 1px solid var(--st-rule-strong);
+	padding: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	overflow-y: auto;
+	/* Closing the move groups ends the overflow, and without the reserved track the rail widened by a
+	   scrollbar and everything in it jumped. */
+	scrollbar-gutter: stable;
+	min-height: 0;
+}
+
+.rd-identity { position: relative; margin-bottom: 2.5rem; }
+
+/* Taller than it is wide, which is what a portrait is. It was briefly cut to a 7rem letterbox on
+   the grounds that height is the scarce axis — but that was answering the wrong problem: what had
+   pushed the basic moves off the bottom was the panel clipping instead of the rail scrolling, and
+   that is fixed below. `contain` rather than `cover` because most of these are the playbook's
+   crest, a symbol, and cropping a symbol ruins it. */
+.rd-portrait {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	max-height: 13rem;
+	object-fit: contain;
+	border: 1px solid var(--st-rule);
+	background: var(--st-paper-raised);
+}
+
+/* The level badge straddles the portrait's bottom edge rather than stacking under it — the same
+   trick that lets dnd5e fit six ability scores into a 170px header. */
+
+/* ── The cluster: armor, level, damage ──────────────────────────────────────
+   Measured off the dnd5e sheet rather than remembered: one badge straddling the portrait's bottom
+   edge with two smaller ones either side, dropped half a step so the three read as an arc. There
+   it is AC in a shield flanked by the death saves.
+
+   The tile is the book's own frame — `frame-stat`, masked at 100% 100%, so the art stretches to
+   whatever box it is given and the level's larger box scales the frame with it exactly. That is
+   what the shipped comment means by the two numbers being the whole of the tile's size. */
+
+.rd-cluster {
+	position: absolute;
+	left: 0; right: 0; bottom: 0;
+	transform: translateY(64%);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 0.3rem;
+}
+
+.rd-cluster-item { --stat-frame-w: 3.6rem; --stat-frame-h: 2.9rem; }
+
+/* The tiles sit ON the portrait, not in it, so they need a ground of their own — the frame art is a
+   mask, an outline with nothing behind it, and the level's "5" was landing invisibly on the black
+   of the crest. dnd5e's shield does the same job the same way.
+
+   The ground is CLIPPED to the frame's own corner cuts rather than inset from the edge. Inset was
+   the first attempt and it painted over the frame: the art's rules sit further in than the 2px that
+   was left uncovered, so the tiles lost their top rule to their own background. Clipping keeps the
+   ground exactly under the frame and leaves every rule on top of it. */
+.rd-cluster .stonetop-resource { isolation: isolate; }
+
+.rd-cluster .stonetop-resource::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: var(--st-paper);
+	--cut: 7px;
+	clip-path: polygon(
+		var(--cut) 0, calc(100% - var(--cut)) 0,
+		100% var(--cut), 100% calc(100% - var(--cut)),
+		calc(100% - var(--cut)) 100%, var(--cut) 100%,
+		0 calc(100% - var(--cut)), 0 var(--cut));
+}
+
+/* Half a step down, which is the whole of "slightly offset": enough that the level reads as the
+   middle of the arc, not enough to read as a mistake. */
+.rd-cluster-item--armor,
+.rd-cluster-item--damage { margin-top: 0.5rem; }
+
+.rd-cluster-item--level { --stat-frame-w: 4.3rem; --stat-frame-h: 3.4rem; }
+
+/* Core's `.window-app input` puts a fill, a border and a minimum width on every field, which is
+   what turns a number into a widget. These read as numbers and behave as fields. */
+.rd-cluster .stonetop-resource__input {
+	all: unset;
+	width: 100%;
+	text-align: center;
+	/* Not the display face: its numerals are old-style and a bare "5" reads as a long s. */
+	font-variant-numeric: tabular-nums;
+	/* These are read at a glance, from across a table, in the middle of doing something else — the
+	   same job the stat tiles do at --fs-display. They were --fs-note, which is the size this sheet
+	   uses for CAPTIONS, and a caption-sized armor value is a number you have to lean in for. */
+	font-size: var(--fs-title);
+	line-height: 1.1;
+	cursor: text;
+}
+
+.rd-cluster-item--level .stonetop-resource__input { font-size: var(--fs-display); }
+
+/* The name goes ON the top rule, in the gap the art leaves for it.
+   `frame-stat` is drawn with a break in its top rule — that is where a label belongs, and it is why
+   a stat tile reads as a frame with STR punched into it rather than as a box with a hole in the top.
+   The shipped resource tile hangs its label off the BOTTOM instead, which is fine on a lone tile and
+   wrong in a row of three: the empty gap reads as three broken frames.
+
+   `the label sits on the border` is the house rule, and this is it — the name punched into the top
+   rule, the value alone in the middle, so neither can be mistaken for the other. */
+.rd-cluster .stonetop-resource { justify-content: center; }
+
+.rd-cluster .stonetop-resource__label {
+	position: absolute;
+	/* The shipped rule pins this to `bottom: 0`; setting `top` without clearing it sets BOTH edges,
+	   which stretches the label to the tile's full height and floats its text clear of the frame. */
+	top: 0;
+	bottom: auto;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 0 0.3rem;
+	background: var(--st-paper);
+	/* 0.5rem is 8px, which is below the floor of the type scale on purpose in the shipped sheet — but
+	   there it names a tile you are already looking at. Here it names one of three in a row, so it has
+	   to be readable rather than merely present. */
+	font-size: var(--fs-micro);
+	letter-spacing: 0.08em;
+	line-height: 1;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.rd-cluster .stonetop-resource__input:focus-visible { outline: 1px solid var(--st-accent); }
+
+/* ── The two bars ────────────────────────────────────────────────────────────
+   Hit points and experience: the numbers that move during play. Name above, value ON the bar, fill
+   behind it — the fill answers "how bad is it" without arithmetic, and the fields are still fields,
+   because a bar that is only a readout is the regression D7 writes down. */
+
+/* No margin of its own: the rail is a flex column with its own gap, and a margin on top of that gap
+   is the gap twice. */
+.rd-meter { display: grid; gap: 0.1rem; }
+
+.rd-meter-label {
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-micro);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--st-ink-faint);
+}
+
+.rd-meter-bar {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 1.6rem;
+	padding: 0 0.45rem;
+	background: var(--st-paper-sunken-strong);
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.rd-meter-fill {
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: var(--rd-fill, 0%);
+	background: color-mix(in srgb, var(--st-ink-soft) 30%, transparent);
+}
+
+.rd-meter-fields {
+	position: relative;
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.1rem;
+	font-variant-numeric: tabular-nums;
+	/* Hit points is the number that changes while you are looking at something else, and experience is
+	   read at the end of every session. Both were --fs-note — caption size, on a bar 1.35rem tall. */
+	font-size: var(--fs-subheading);
+}
+
+.rd-meter-input {
+	all: unset;
+	width: 2rem;
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+	cursor: text;
+}
+
+.rd-meter-input--max { text-align: left; }
+.rd-meter-input:focus-visible { outline: 1px solid var(--st-accent); }
+
+.rd-meter-sep, .rd-meter-max { color: var(--st-ink-faint); }
+
+/* Green for hit points, red once they are low, accent once experience is at the threshold. Each is
+   an existing token, so each follows the theme rather than pinning a colour.
+
+   Colour is not carrying anything on its own here: `role="meter"` states the value and the maximum,
+   so a reader who cannot see the fill still gets 2 of 18 rather than "low". */
+/* Past the threshold. The bar keeps filling and the mark says where the level is paid for; the
+   solid run to its right is what is left to spend, and it is the part the eye should land on —
+   what is banked is settled, what is spare is a decision. The mark is a hairline of ink rather than
+   a colour, so it reads at either theme and on top of either fill. */
+.rd-meter-over {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: var(--rd-threshold);
+	width: calc(var(--rd-fill) - var(--rd-threshold));
+	background: color-mix(in srgb, var(--st-accent) 62%, transparent);
+}
+
+.rd-meter-tick {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: var(--rd-threshold);
+	width: 1px;
+	background: var(--st-ink);
+}
+
+.rd-meter--life .rd-meter-fill { background: color-mix(in srgb, var(--st-positive) 32%, transparent); }
+.rd-meter--danger .rd-meter-fill { background: color-mix(in srgb, var(--st-danger) 30%, transparent); }
+.rd-meter--danger .rd-meter-input { color: var(--st-danger); }
+.rd-meter--full .rd-meter-fill { background: color-mix(in srgb, var(--st-accent) 30%, transparent); }
+
+.rd-meter-note {
+	font-size: var(--fs-micro);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--st-accent);
+}
+
+/* ── Who this is: instinct, and appearance under it ──────────────────────────
+   Beside the name, on the masthead's own line. The two type sizes are the pricing the book states:
+   *less weight than instinct; the same permanence*. Both are readouts — one value, one editor, and
+   the editor is on the playbook surface.
+
+   NO FRAME. It wore `.stonetop-section-panel` — the 9-slice that has sat in stonetop.css complete
+   and unused since it was written — and the panel is broken at this size: its edges are declared
+   `repeat-x` / `repeat-y` but `mask-size: calc(100% - 32px) 8px` stretches the whole 256×8 tile
+   across the run instead, so the top and bottom rules smear the wider the panel gets while the 8×32
+   sides compress and look right. At 544px that is a 2× stretch and it reads as a blot. It is also
+   the wrong device by the system's own rule — art frames "a single object you read or act on whole",
+   and this is two lines of text beside a name, inside the band's own enclosure already.
+
+   The label still sits ON the rule, which is the sheet's device for naming a thing without spending
+   a line on the name — here against the hairline that separates identity from the numbers. */
+
+/* Two rows, not three. The label sits at the head of the instinct's own line rather than on a line
+   of its own above it — a third line here set the whole masthead's height, because the name beside
+   it is one line and this is what the band is measured by. Appearance keeps its own row, indented
+   under the instinct it qualifies rather than under the label. For the same reason neither row
+   wraps on a narrow sheet: each cuts to "…", and its tooltip carries the whole line. */
+.rd-who {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	align-items: baseline;
+	column-gap: 0.5rem;
+	row-gap: 0.05rem;
+	min-width: 0;
+}
+
+.rd-who-label {
+	grid-column: 1;
+	font-family: var(--font-primary), sans-serif;
+	font-size: 0.55rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--st-ink-faint);
+}
+
+.rd-who > .rd-instinct { grid-column: 2; }
+.rd-who > .rd-appearance { grid-column: 2; }
+
+.rd-instinct {
+	margin: 0;
+	font-size: var(--fs-note);
+	line-height: 1.3;
+}
+
+.rd-appearance,
+.rd-instinct .rd-goto {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* The words are inside the button, and a button lays out as one box that cannot be cut — the
+   ellipsis on the line would swap the whole button for "…". As a block, the cut falls in its words. */
+.rd-instinct .rd-goto { display: block; max-width: 100%; }
+
+.rd-appearance {
+	margin: 0;
+	font-size: var(--fs-fine);
+	line-height: 1.35;
+	color: var(--st-ink-soft);
+	font-style: italic;
+}
+
+/* ── The portrait's frame ────────────────────────────────────────────────────
+   `frame-stat` — the clipped-corner bracket the stat tiles and the vitals wear, so the portrait is
+   framed in the same hand as the three badges sitting on its bottom edge.
+
+   Applied as a mask BORDER rather than a mask. The shipped tiles use `mask-size: 100% 100%`, which
+   is right for them because a tile is roughly the art's own 120×95 and scaling it scales the whole
+   frame in register. A portrait is 205×260 — stretched that far, the corner brackets stretch with
+   it and stop looking like brackets. `mask-border` slices the corners off and stretches only the
+   edges between them, which is the same trick `border-image` plays and the reason the 9-slice panel
+   exists as eight separate files. */
+
+.rd-portrait-frame {
+	position: relative;
+	padding: 0.55rem;
+	/* Clipped to the frame's corner cuts, so a square ground does not show as four nubs outside it. */
+	background: var(--st-paper-raised);
+	--cut: 13px;
+	clip-path: polygon(
+		var(--cut) 0, calc(100% - var(--cut)) 0,
+		100% var(--cut), 100% calc(100% - var(--cut)),
+		calc(100% - var(--cut)) 100%, var(--cut) 100%,
+		0 calc(100% - var(--cut)), 0 var(--cut));
+}
+
+.rd-portrait-frame::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 1;
+	background-color: var(--st-decor);
+	mask-border: url("/systems/stonetop/assets/ui/decor/frame-stat.png") 30 stretch;
+	-webkit-mask-box-image: url("/systems/stonetop/assets/ui/decor/frame-stat.png") 30 stretch;
+}
+
+/* The crest is capped to the NAME's line box, and a flexrow centring it vertically undid that the
+   moment the panel made the column taller — the crest slid down beside the instinct instead of
+   sitting beside the words it belongs to. */
+.rd-band .sheet-header { align-items: flex-start; }
+
+/* The treatment every "this goes somewhere" control on this sheet wears: no chrome, a dotted
+   underline. Core's `.window-app button` puts a fill, a border and a minimum size on anything that
+   is a <button>, so all three have to come off — which is what `all: unset` is doing. */
+.rd-goto {
+	all: unset;
+	cursor: pointer;
+	color: inherit;
+	text-decoration: underline dotted;
+	text-underline-offset: 2px;
+}
+
+.rd-goto:hover, .rd-goto:focus-visible { color: var(--st-accent); }
+
+/* ── Advancement ─────────────────────────────────────────────────────────────
+   Experience's bar, and the things that exist only at the threshold under it. */
+
+.rd-adv { display: grid; gap: 0.35rem; }
+
+/* ── What exists only at a threshold ─────────────────────────────────────────
+   Nothing at all, most of the time. When one of these does appear it is new information arriving on
+   a surface the reader already knows by heart, so it is set apart by an edge rather than by being
+   louder — and the edge names which kind of threshold it is. */
+
+.rd-conditional {
+	display: grid;
+	gap: 0.3rem;
+	padding: 0.4rem 0.5rem;
+	border: 1px solid var(--st-rule);
+	border-left-width: 3px;
+	background: var(--st-paper-raised);
+}
+
+.rd-conditional--ready { border-left-color: var(--st-accent); }
+.rd-conditional--dire { border-left-color: var(--st-danger); }
+/* Something to spend rather than a threshold reached: Burn Brightly, kept off Level Up's accent. */
+.rd-conditional--spend { border-left-color: var(--st-ink-soft); }
+
+/* A route, not a row: the move's name and the move's own trigger, and nothing the sheet wrote. */
+.rd-route { margin: 0; font-size: var(--fs-fine); line-height: 1.35; }
+.rd-route-when { color: var(--st-ink-faint); }
+
+.rd-levelup {
+	all: unset;
+	cursor: pointer;
+	display: flex;
+	align-items: baseline;
+	gap: 0.35rem;
+	font-family: "StonetopUI", serif;
+}
+
+.rd-levelup-title { flex: 1; }
+
+.rd-levelup-badge,
+.rd-conditional-label {
+	font-size: 0.58rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--st-accent);
+}
+
+.rd-conditional-label { margin: 0; color: var(--st-ink-soft); }
+
+/* Where levelling happens, at reading size and in the offer's accent — the fine print under it is
+   the book's trigger, which said so and was not read. */
+.rd-levelup-home {
+	margin: 0;
+	display: flex;
+	align-items: baseline;
+	gap: 0.35rem;
+	font-size: var(--fs-note);
+	line-height: 1.3;
+	color: var(--st-accent);
+}
+
+/* The same failure the tab body already had written down: the rail is a flex column, so a panel
+   shrinks to fit and clips its own contents rather than making the column scroll. Everything in
+   here sizes to its content and the RAIL is what scrolls. */
+.rd-rail > * { flex: none; }
+
+.rd-rail .rd-panel { margin-top: 0.35rem; }
+
+/* ── A rail group that opens and shuts ───────────────────────────────────────
+   The caret is the control and the BAR is its target: the button's box is stretched over the whole
+   bar, so the 27px strip is one press rather than a 16px glyph at its end. The caret points the way
+   the rows' carets do — right when shut, down when open — so one glyph means one thing in the rail. */
+
+.rd-group-toggle {
+	all: unset;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	color: var(--st-chip-ink);
+}
+
+.rd-group-toggle::after { content: ""; position: absolute; inset: 0; }
+
+.rd-group-toggle:focus-visible { outline: none; }
+.rd-group > .rd-bar:has(.rd-group-toggle:focus-visible) {
+	outline: 2px solid var(--st-accent);
+	outline-offset: -2px;
+}
+
+/* The body's slide's duration (`motion.js`), so the caret arrives as the group does. */
+.rd-group-caret { font-size: 0.65rem; transition: transform 0.4s ease; }
+.rd-group-toggle[aria-expanded="true"] .rd-group-caret { transform: rotate(90deg); }
+
+@media (prefers-reduced-motion: reduce) { .rd-group-caret { transition: none; } }
+
+/* A phase of the expedition: a heading INSIDE the one list, spanning its columns, so the rows under
+   every phase share one set of columns and one die inset. Set like the bar's note — small, italic,
+   the row's own face — because it divides a list rather than naming a panel. */
+.rd-rows > .rd-phase { grid-column: 1 / -1; list-style: none; }
+
+.rd-phase-title {
+	margin: 0;
+	padding: 0.35rem 0.4rem 0.1rem;
+	border: 0;
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	font-weight: normal;
+	color: var(--st-ink-faint);
+}
+
+.rd-rows > .rd-row:has(+ .rd-phase) { border-bottom: 1px solid var(--st-rule); }
+
+/* A conditional move is its row inside the edge that names the threshold. The box's padding already
+   spaces it, so the row gives up its own. */
+.rd-conditional > .rd-rows .stonetop-item-header { padding-inline: 0; }
+.rd-conditional:has(> .rd-rows) { padding-block: 0.15rem; }
+
+/* ── The move row, steading-shaped ───────────────────────────────────────────
+   Shipped markup and shipped classes, so most of this is drawn by stonetop.css already. What is
+   here is the rail's own width and the one behaviour the shipped row does not have. */
+
+/* ONE ROW, FOUR WIDTHS — AND THE ROW IS WHAT ASKS.
+   `container-type: inline-size` makes each row a query container, so everything below is keyed to
+   the room this row is standing in rather than to which surface drew it. No rule here names a tab.
+   Measured, the four widths are: the rail at 12.7rem, the two-up catalogue at 27.9rem, the narrow
+   window at 44.6rem and the full moves list at 55.9rem.
+
+   ON THE LIST, NOT THE ROW, and that is not a preference. A query container gets layout containment,
+   which makes it an independent formatting context — and a subgrid has to participate in its
+   parent's track sizing, so it cannot do both. With `container-type` on the row, `subgrid` silently
+   fell back to `none` and every cell stacked into column one. The list is the right place anyway:
+   every row in a list is the same width, so the row's own width IS the list's.
+
+   Safe for the hover card, and that was worth probing rather than assuming. Layout containment is
+   specified to make a container the containing block for `position: fixed` descendants, which would
+   have pinned every preview inside its own row. Measured in the renderer instead: a fixed child of a
+   `container-type` element still resolves against the viewport, and `.mk-stage` has been a container
+   since the narrow window went in without ever moving a card. */
+
+/* The shipped header is a grid with no wrap, so in a 240px rail the controls simply crush the name:
+   Defend's label measured 45px of the 48 it needs, and with the stat on the die it measured TWO.
+   A name truncated to nothing is the one thing a row cannot afford — it is how the move is found.
+
+   Still a grid, and deliberately: flex-wrap was tried and is the wrong tool here. A name that grows
+   takes the whole flex line and pushes the controls onto one of their own, where they read as an
+   orphan rather than as controls belonging to the name above them. Two fixed roles instead — the
+   name in a column that can shrink, the controls at their natural size — and when there is not
+   enough room it is the NAME that wraps, which is the thing that can afford to. */
+.rd-mrow .stonetop-item-header {
+	display: grid;
+	/* SUBGRID, and it is the only thing that makes the columns line up.
+	   Each row used to be its own grid, so an `auto` column was sized by THAT row's contents: the one
+	   row carrying a track got a wider right-hand column than its neighbours, and its stat and caret
+	   stopped agreeing with the nine above it. Fixed widths were the old answer and cannot survive
+	   the real data — 36 resource titles in the packs, the longest 20 characters, and pip counts to
+	   twelve. A subgrid sizes each column to the widest content ACROSS the list, so the columns fit
+	   what is actually in them and every right edge still lines up. */
+	grid-template-columns: subgrid;
+	grid-column: 1 / -1;
+	align-items: center;
+	column-gap: 0.4rem;
+	row-gap: 0.1rem;
+	padding: 0.3rem 0.4rem;
+}
+
+/* The list owns the columns; the row and its header borrow them. */
+.rd-rows:has(.rd-mrow) {
+	container-type: inline-size;
+	display: grid;
+	/* A FLOOR on the name, not `minmax(0, …)`. With no floor the controls take what they need and the
+	   name column collapses under its own text — Defend's column measured 31px holding a 48px word,
+	   which overflowed straight across the controls. The name is how the move is found; it gets its
+	   room first. */
+	grid-template-columns:
+		[mark] auto [name] minmax(4.5rem, 1fr) [roll] auto [uses] auto [ctl] auto [end];
+	column-gap: 0.4rem;
+}
+
+.rd-rows:has(.rd-mrow) > .rd-row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+
+.rd-mrow > .rd-row-body, .rd-mrow > .rd-preview { grid-column: 1 / -1; }
+
+.rd-mrow .rd-mrow-mark { grid-column: mark; display: flex; align-items: center; }
+
+/* One box, choosing only. The shipped square's margins exist to pin it to a name's first line when
+   it sits in a flex header; here it has a grid cell of its own that centres it. */
+.rd-mrow .rd-take { margin: 0 !important; }
+
+/* The name's cell: the name, and after it the count once there is one. A cell of their own so the
+   count follows the NAME, wherever the name wraps to, rather than sitting in a column. */
+.rd-mrow .rd-mrow-name {
+	grid-column: name;
+	min-width: 0;
+	display: flex;
+	align-items: baseline;
+	gap: 0.35rem;
+}
+
+/* "×2": nice to know, not needed in play — so small, in the faint ink the die rests in, and never a
+   control. Tabular so ×2 and ×3 are one width. */
+.rd-mrow .rd-times {
+	flex: none;
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-fine);
+	font-variant-numeric: tabular-nums;
+	color: var(--st-ink-faint);
+}
+
+/* The roll control is the die AND the name, one target the width of the row's first column — not a
+   16px glyph beside a label. The die is the leading word of the button, not a separate control. */
+.rd-mrow .rd-roll-name {
+	min-width: 0;
+	/* Shrinkable, stated: something upstream gives this button `flex: 0 0 auto`, which did nothing
+	   while it was a grid item and, inside the name's cell, stopped "Persuade (vs. NPCs)" wrapping —
+	   it ran straight across "+CHA" in the rail. */
+	flex: 0 1 auto;
+	display: flex;
+	align-items: baseline;
+	gap: 0.35rem;
+	justify-content: flex-start;
+	text-align: left;
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	width: auto;
+	height: auto;
+	line-height: inherit;
+}
+
+/* One declared width, read by BOTH the die and the indent that stands in for it on the lines below.
+   It used to be measured twice — a 0.72rem glyph plus a 0.35rem gap on one side, a 1.05rem padding
+   on the other — and the two disagreed by 3px, so a non-rolling name sat three pixels left of every
+   rolling one and the trigger never quite lined up under either. */
+.rd-mrow {
+	--rd-die-w: 0.875rem;
+	/* How far a name's TEXT sits in from its cell, and so how far the trigger, the third line and the
+	   open text sit in to meet it. It exists to line a name that does not roll up with one that does,
+	   behind its die — so a list where nothing rolls (the possessions) has none, rather than a 20px
+	   indent standing in for a die that is not there. */
+	--rd-name-inset: calc(var(--rd-die-w) + 0.35rem);
+}
+.rd-rows:not(:has(.rd-roll-name)) > .rd-mrow { --rd-name-inset: 0px; }
+
+.rd-mrow .rd-roll-die {
+	font-size: 0.72rem;
+	opacity: 0.8;
+	width: var(--rd-die-w);
+	text-align: center;
+	flex: none;
+}
+.rd-mrow .rd-roll-name:hover .rd-roll-die,
+.rd-mrow .rd-roll-name:focus-visible .rd-roll-die { opacity: 1; }
+
+/* A move that does not roll gets no die and no control — and it lines up with the ones that do, so
+   the absence reads as "nothing to roll" rather than as a missing icon. */
+.rd-mrow .rd-move-name--static { min-width: 0; padding-left: var(--rd-name-inset); }
+
+/* One treatment for every name, rolling or not. The DIE is what distinguishes a move that rolls —
+   not the typography.
+
+   The hover card's title is in the same selector list, not a copy of it. It had drifted to IM Fell
+   English at regular weight — a book serif standing in for the UI face at bold — so the card named the
+   move in a different typeface from the row it was previewing. The FACE is shared; the size is not,
+   because the card is one component with one format whichever list opened it. (The small caps are
+   the StonetopUI face itself, not a `font-variant`, so the family carries them.) */
+.rd-mrow .rd-move-name,
+.rd-mrow .rd-preview-title {
+	font-family: "StonetopUI", serif;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+}
+
+/* FULL INK, and the name is how the move is found, so it should never have been anything else. It was
+   muted because the die and the name became one button: on the shipped sheet `.move-rollable` is only
+   the die, a small glyph that rests faint, and the name inherited that faintness when it joined it.
+   A pinned colour then cut it off from the hover state too — the button went accent under the pointer
+   and the name inside it stayed where it was. Static names were muted as well, and those are not even
+   controls. The shipped sheet draws its names in ink; this matches it. */
+.rd-mrow .rd-move-name { font-size: var(--fs-note); color: var(--st-ink); }
+
+/* The rollable contract's ACTIVE state, reaching the text the pointer is actually on. The die needs no
+   rule of its own: the button sets no colour, so it takes the shipped rest (faint) and hover (accent)
+   straight from `.move-rollable`. Static names get neither — they are not controls. */
+.rd-mrow .rd-roll-name:hover .rd-move-name,
+.rd-mrow .rd-roll-name:focus-visible .rd-move-name { color: var(--st-accent); }
+
+/* CENTRED, both the stat and the dash that stands in for it. Right-aligned, the dash hung on the
+   column's right edge while every "+INT" filled the column, so the empty rows read as a ragged
+   second thing rather than as the same column holding nothing. */
+.rd-mrow .rd-cell--roll { grid-column: roll; text-align: center; }
+
+/* The stat's size. On the CELL, not on
+   `.rd-stat`: with it on the stat, the wide list's bump below reached the dash (which inherits from
+   the cell) and never reached "+INT" (which declared its own) — 12.8px and 14px in one column. */
+.rd-mrow .rd-cell--roll { font-size: var(--fs-fine); }
+
+/* The dash sits in the same column and on the same right edge as a stat, so a move with nothing to
+   roll reads as an empty slot in a column rather than as a different kind of row. Same size and
+   same tabular figures, or the two do not line up. */
+.rd-rail .rd-mrow .rd-nil {
+	color: var(--st-ink-faint);
+	font-size: var(--fs-fine);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.02em;
+}
+
+.rd-mrow .stonetop-item-controls {
+	grid-column: ctl;
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-end;
+	/* Wrapping happens HERE, inside the controls, not in the header: a track that will not fit
+	   beside the die takes a line under it and the name is untouched. One row of the ten. */
+	flex-wrap: wrap;
+	gap: 0.25rem;
+	min-width: 0;
+}
+
+/* ── The row's second line ───────────────────────────────────────────────────
+   The trigger, and — where the first line has no room for it — the track. This is a real box rather
+   than two loose grid items because the two have to share a LINE when the track joins them, and grid
+   items cannot sit side by side in one cell. Above the threshold it becomes `display: contents` and
+   its children go back to being the header's own grid items, which is how the track reaches the
+   first line without the markup changing shape. */
+.rd-mrow .rd-mrow-sub {
+	grid-column: name / -1;
+	grid-row: 2;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	min-width: 0;
+}
+
+.rd-mrow .stonetop-move-gloss { padding-left: var(--rd-name-inset); min-width: 0; flex: 0 1 auto; }
+
+/* A possession's second line: in the gloss's place and the gloss's size, but it WRAPS and it is
+   upright. A gloss is a one-line label for text a click away; a possession's description is the gear
+   list itself, and cutting it to one line would hide what the character has. */
+.rd-mrow .rd-mrow-desc {
+	padding-left: var(--rd-name-inset);
+	min-width: 0;
+	flex: 1 1 auto;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+/* A possession's options read at the description's size, on every width — declared here, ahead of
+   the wide list's bump, so the bump can reach them. */
+.rd-mrow .stonetop-item-header > .rd-movepicks { font-size: var(--fs-fine); }
+
+
+/* Right-aligned to the row's edge, which is the same edge the stat sits on one line above. `flex:
+   none` so the run is never compressed and never broken: the design system separates a resource
+   circle from a condition circle by its sitting in a RUN of identical marks, so a track that wraps
+   mid-run stops reading as a resource. */
+.rd-mrow .rd-mrow-sub .stonetop-item-resources { margin-left: auto; flex: none; }
+
+/* What the character marked, finishing the trigger's sentence — "one of your topics: The Makers and
+   their arts". Upright and in ink: the trigger is the book's words about the move, and these are the
+   character's own answer to it, which is the thing being looked for. */
+.rd-mrow .rd-picked { font-style: normal; color: var(--st-ink); }
+
+/* Choosing only, and a line of its own under the trigger: the requirement, the limit, Take again.
+   Faint — it is reference — except an unmet requirement, which takes the danger colour with "(not
+   met)" in the words so colour is not the only carrier. */
+.rd-mrow .rd-choosing-line {
+	grid-column: name / -1;
+	padding-left: var(--rd-name-inset);
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+}
+.rd-mrow .rd-req--unmet { color: var(--st-danger); }
+.rd-mrow .rd-take-again { color: var(--st-ink-soft); }
+.rd-mrow .rd-take-again:hover, .rd-mrow .rd-take-again:focus-visible { color: var(--st-accent); }
+
+/* The track sits under the row rather than in the controls now: the cluster is caret + bubble, and
+   four pips beside them left the name 55px. Still on the row, still inline, still with its title. */
+/* The pips themselves, wherever the track has landed. */
+.rd-mrow .stonetop-item-resources { display: flex; align-items: center; gap: 0.2rem; padding-left: 0; }
+
+/* The title is read WITH the circles beside it, so it is sized against them rather than against the
+   fine print it used to sit in: `--fs-micro` is 11.5px against a 16px pip, which reads as a footnote
+   attached to a control rather than as the control's name. */
+.rd-mrow .stonetop-arcanum-resource-title {
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	white-space: nowrap;
+	margin-right: 0.3rem;
+}
+
+/* And the name WRAPS rather than truncating. "Persuade (vs. NPCs)" is 127px of a 125px column — two
+   pixels, and an ellipsis that eats the half of the name that distinguishes it from the other
+   Persuade. A second line costs less than that. */
+.rd-mrow .rd-move-name {
+	white-space: normal;
+	overflow: visible;
+	text-overflow: clip;
+	text-align: left;
+	/* A flex item will not shrink below its longest word unless told to, and `overflow: visible`
+	   then lets that word cross the controls instead of wrapping. */
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.rd-rail .stonetop-item-resources { display: inline-flex; align-items: center; gap: 0.2rem; }
+
+/* THE OPEN TEXT STARTS WHERE THE NAME'S TEXT STARTS, on every surface.
+
+   It used to take a small indent from the row's own edge — enough to say the text belonged to the row
+   above, and no more, after two stacked indents had left the rail's move reading in a 160px column.
+   But an indent from the EDGE ignores whatever stands in front of the name: 22px short of the name in
+   the rail, and 70px short on the moves tab once a box column stood there. So the body borrows the
+   list's columns like the header does, and its contents sit in the name's column behind the same
+   die-width inset as the trigger — one token, so the name, the trigger and the text cannot disagree.
+   It costs the rail 22px of reading width, which is the price of the words lining up.
+
+   The body's own background still runs the row's full width: it is the body that spans every column,
+   and only its contents that move in. Its left padding is gone because a subgrid's padding only
+   reaches items in its first column, and nothing is in that one now.
+
+   `:not([hidden])` because `display: grid` would otherwise beat the attribute and show every shut
+   body. The description's shipped 20px is replaced, not added to: it was not holding the swirl — a
+   list inside brings its own 15px and its own marker. */
+.rd-mrow > .rd-row-body:not([hidden]) { display: grid; grid-template-columns: subgrid; }
+.rd-mrow .stonetop-move-body { padding: 0.15rem 0.4rem 0.5rem 0; }
+.rd-mrow .stonetop-move-body > * { grid-column: name / -1; padding-left: var(--rd-name-inset); }
+
+/* ── Wide: the track joins the first line ───────────────────────────────────
+   The ONE thing width changes. Everything about the track's identity holds either way — the same
+   `--control-pip` circles, the same unbroken run, the same right edge as the stat — and only the
+   line it sits on moves.
+
+   Which is arithmetic, not taste. The rail's row has 190px of content width and Defend wants 205.8
+   of it: die and name 63.6, stat 34, four pips 73, caret 16, and three 6.4 gaps. It is short by 16px
+   and always will be, because the ten basic moves are the same for every character and exactly one
+   of them carries a track. On the moves tab the worst case the packs can produce — the longest name,
+   a 20-character title and a twelve-pip track — comes to 577px of 881, so nothing there ever moves.
+
+   16rem is the threshold: the rail is 12.7rem, the two-up catalogue was 27.9rem, the narrow window
+   44.6rem and the full list 55.9rem. Both the rail's width and this query are in `rem`, so Foundry's
+   font-size setting scales them together and the relationship cannot drift. */
+@container (min-width: 16rem) {
+	/* The wrapper stops being a box and its children rejoin the header's grid. */
+	.rd-mrow .rd-mrow-sub { display: contents; }
+
+	.rd-mrow .stonetop-move-gloss,
+	.rd-mrow .rd-mrow-desc { grid-column: name / -1; grid-row: 2; }
+
+	.rd-mrow .stonetop-item-resources { grid-column: uses; grid-row: 1; justify-content: flex-end; }
+}
+
+/* ── Wider still: the type grows into the room ──────────────────────────────
+   A separate threshold from the track's, because it answers a different question. 16rem is where a
+   track stops needing its own line; this is where a row has enough width that the type was simply
+   set too small for it — the moves tab runs 894px and was reading a 14px name and an 11.5px trigger
+   across it, with the slack going to empty space rather than to the words.
+
+   The tokens are the ones that already name these roles: `--fs-subheading` for a name that heads a
+   row, `--fs-note` for "move/choice/consequence prose", which is exactly what a trigger is. The rail
+   keeps the small setting, where the width is genuinely scarce. */
+@container (min-width: 40rem) {
+	.rd-mrow .rd-move-name { font-size: var(--fs-subheading); }
+	.rd-mrow .stonetop-move-gloss,
+	.rd-mrow .rd-mrow-desc,
+	.rd-mrow .stonetop-item-header > .rd-movepicks { font-size: var(--fs-note); }
+	.rd-mrow .rd-cell--roll { font-size: var(--fs-note); }
+	.rd-mrow .stonetop-arcanum-resource-title { font-size: var(--fs-note); }
+
+	/* The stat and the track were one 0.4rem gap apart, which put "+INT" and a run of circles in the
+	   same visual group when they are two different facts. The grid's gap is shared by every column,
+	   so the separation is declared on the thing that needs it. */
+	.rd-mrow .stonetop-item-resources { margin-left: 0.9rem; }
+}
+
+/* The shipped caret rotates on `.is-open`; this deck's rows carry `.is-expanded`, so the rotation
+   has to be restated or the disclosure points the same way open and shut. Same 90deg the shipped
+   sheet uses, so one sheet has one open-caret. */
+.rd-mrow.is-expanded .stonetop-move-caret { transform: rotate(90deg); }
+
+/* A departure from the shipped 0.12s: the text now slides open over `motion.js`'s 0.4s, and a caret
+   that had finished turning long before the text arrived read as two separate events. */
+.rd-mrow .stonetop-move-caret { transition-duration: 0.4s; }
+
+/* THE GLOSS RETIRES WHEN THE ROW IS OPEN.
+   `MoveGloss` lifts it verbatim from the description's first emphasised run, so an open row reads
+   "study a situation or person" and then "When you study a situation or person, roll +WIS…"
+   directly beneath it. The gloss is a stand-in for the text; once the text is there it has no job.
+   By `hidden`, which the caret slides shut as the text slides open: hidden by a class on the row, it
+   went on the first frame and the header dropped 14px while the text was still arriving. The rule
+   is needed because the gloss is `display: block`, which beats the attribute's own. */
+.stonetop-move-gloss[hidden] { display: none; }
+
+
+/* Option C only, and it needs `fixed` rather than `absolute`.
+   The rail is an `overflow-y: auto` column, so a card positioned beside a row is clipped away by
+   the scroller before it is ever seen — which is why the first attempt showed nothing at all. Taken
+   out of the flow entirely and placed by the deck's own JS on enter and on focus.
+
+   Which is itself part of what this frame is arguing about: a hover card in a scrolling column
+   cannot be done in CSS, and the script that places it is the script that would also have to handle
+   SC 1.4.13's dismissible/hoverable/persistent. */
+/* `:focus-within` was wrong: clicking a row's disclosure leaves focus inside that row, so its card
+   stayed up for good — and hovering any other row then put a second card on top of the first. The
+   keyboard path is the NAME taking visible focus, which a mouse click does not give it.
+
+   The name is `.rd-roll-name`. This read `.stonetop-item-name`, which `moveRow` has never emitted —
+   the shipped row's class, carried over from the markup this was measured against — so the keyboard
+   half of the pair has never fired. Off `.rd-rail` as well: the moves tab renders the same row now,
+   and its body scrolls too, so it needs the same escape from the scroller. */
+.rd-mrow:hover > .rd-preview,
+.rd-mrow:has(.rd-roll-name:focus-visible) > .rd-preview {
+	/* The base card hides with `visibility` and `opacity`, not `display` — so setting `display`
+	   alone laid it out and left it invisible, which is why it looked like nothing happened. */
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0s;
+	display: block;
+	position: fixed;
+	left: var(--rd-preview-x, 0);
+	top: var(--rd-preview-y, 0);
+	width: 20rem;
+	max-height: 60vh;
+	overflow-y: auto;
+	z-index: 50;
+}
+
+/* And never a card for a row whose text is already open. A preview stands in for words you have not
+   got; once they are on screen it is the same move said twice, in two places, at two sizes.
+
+   BELOW the rule above, and that is load-bearing: the two are the same specificity, so whichever is
+   written second wins. This sat above it and lost, which meant an open row kept showing a card that
+   the comment said it would not. */
+.rd-mrow.is-expanded > .rd-preview {
+	visibility: hidden;
+	opacity: 0;
+}
+
+/* The shipped tab strip, pulled onto the sheet's own margin. `.sheet-tabs` sets no horizontal
+   padding — on the real sheet the strip runs edge to edge — so the first tab began 16px left of the
+   first panel below it and 12px left of the name above it. Set here rather than in stonetop.css:
+   the strip is shared with the steading and the item sheets, and this is a deck. */
+.rd-main > .sheet-tabs { padding-left: var(--rd-inset); padding-right: var(--rd-inset); }
+
+/* ── Narrow: the rail becomes a drawer ───────────────────────────────────────
+   Below about 900px a 240px column and a readable band cannot both have their width, so the rail
+   stops being a column and becomes something that slides over the content. The shipped sheet does
+   this at the same point.
+
+   A CONTAINER query, not a media query. A Foundry sheet is a window inside a window and has never had
+   the viewport to itself, so the thing it has to answer to is the space it is actually given — which
+   is what `container-type: inline-size` on the frame makes askable. A media query here would have
+   reported the browser's width and drawn a column into a 760px sheet.
+
+   The motion is the same variable the column used. Open, `--rd-rail-w` is the rail's full width and
+   the drawer sits at `translateX(0)`; shut it is zero and the drawer is one rail-width to the left.
+   So the toggle still rides the edge, the transition is still the one registered `@property`, and
+   there is no second animation to keep in step with the first.
+
+   What makes putting the rail away safe at all is the band: the six stats are pinned there, so this
+   never takes the stat half of a roll off screen with the moves. That is the sheet's one structural
+   rule and it is why the rail is the half that gets to leave. */
+
+@container (max-width: 900px) {
+	/* One column. The rail is out of flow, so it no longer has one of its own. */
+	.rd-wrapper { grid-template-columns: minmax(0, 1fr); }
+
+	.rd-rail-layout {
+		position: absolute;
+		inset: 0 auto 0 0;
+		z-index: 30;
+		width: var(--rd-rail-open);
+		/* Open at 0, shut at minus its own width — driven by the same variable the column was. */
+		transform: translateX(calc(var(--rd-rail-w) - var(--rd-rail-open)));
+		box-shadow: 4px 0 18px color-mix(in srgb, var(--st-ink) 28%, transparent);
+	}
+
+	/* The rail is over the content now, so it needs a ground of its own rather than the sunken paper
+	   it borrowed from the column beside it. */
+	.rd-rail { background: var(--st-paper-raised); }
+
+	/* The tab rides the drawer's edge rather than a column's. */
+	.rd-rail-toggle { left: var(--rd-rail-w); }
+
+	/* A proposal for the shipped strip: its 18px a side is what runs out first. With two inserts the
+	   tabs shrank into their labels — "Invocations" was 92px of text in a 91px tab. */
+	.rd-main > .sheet-tabs .item { padding-inline: 0.6rem; }
+}
+
+/* ── The panel ─────────────────────────────────────────────────────────────
+   A box on raised paper, headed by its bar. The 1rem of air between panels is what separates one group from the next
+   — not a rule, and not a heading. */
+
+.rd-panel {
+	background: var(--st-paper-raised);
+	border: 1px solid var(--st-rule-strong);
+	border-radius: 3px;
+	/* `clip` rather than `hidden`, so the clip can reach past the border: the bar sits out over it, and
+	   a bar's tabs hang below it — past the panel's end, where the bar is all a resting panel has. */
+	overflow: clip;
+	overflow-clip-margin: 0.7rem;
+	position: relative;
+}
+
+/* The bar is a stamp on the sheet's own paper, with no line drawn round it — a rule round the worn end
+   made the wear read as a frame's rather than the stamp's. So it sits out over the panel's top and
+   side rule by that rule's width, on the sheet's tan paper, and its worn end shows that paper through.
+   The panel's top corners go square, since a stamp has no radius. */
+.rd-panel > .rd-bar { margin: -1px -1px 0; background: var(--st-paper); z-index: 1; }
+.rd-panel:has(> .rd-bar) { border-radius: 0 0 3px 3px; }
+
+
+/* ── The bar ───────────────────────────────────────────────────────────────
+   Ink ground, paper text. A boundary, not a caption — and it carries the count and the column
+   headings so neither needs a row of its own. */
+
+.rd-bar {
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	align-items: baseline;
+	gap: 0.6rem;
+	color: var(--st-chip-ink);
+	padding: 0.3rem 0.6rem;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-note);
+	letter-spacing: 0.05em;
+}
+
+/* The bar wears into stone towards its right end. Its ink is a layer behind its words, masked twice
+   over: a gradient that is solid under the title and eases to 45% ink by 70% of the way, and one of
+   two textures (`BarGrain` alternates them) placed once — never tiled, since a strip repeated either
+   way is a strip seen twice. The textures are black on transparent like the rest of the decor art,
+   so the ink follows the theme. The words sit above; a mask on the bar itself would clip them.
+
+   Flipping turns the whole layer, so a bar flipped left-to-right runs its gradient the other way to
+   keep the solid end under the title. */
+.rd-bar::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background: var(--st-chip-fill);
+	transform: scale(var(--rd-flip-x, 1), var(--rd-flip-y, 1));
+	mask-image:
+		linear-gradient(var(--rd-fade, to right), #000 0 25%, rgb(0 0 0 / 0.45) 70%),
+		var(--rd-texture, url("../../../assets/ui/decor/rock-texture-long-subtle.png"));
+	mask-size: 100% 100%, auto 100%;
+	mask-repeat: no-repeat;
+	mask-position: 0 0, var(--rd-grain, 0%) 0;
+}
+.rd-bar--heavy { --rd-texture: url("../../../assets/ui/decor/rock-texture-long.png"); }
+.rd-bar--flip-x { --rd-flip-x: -1; --rd-fade: to left; }
+.rd-bar--flip-y { --rd-flip-y: -1; }
+
+/* The words on a bar keep a halo of its ink, so a title stays legible where the stone reaches it. A
+   halo rather than a stroke: a stroke eats into the letterforms, a halo only darkens round them. */
+.rd-bar {
+	text-shadow: 0 0 1px var(--st-chip-fill), 0 0 2px var(--st-chip-fill), 0 0 3px var(--st-chip-fill),
+		0 0 5px var(--st-chip-fill);
+}
+
+/* Every control on a bar — its door or Done, a rail group's caret, the ailments' + — hangs from the
+   bar's top edge and past its bottom like cloth draped over the stone: rounded below, a soft shadow,
+   in a leather brown mixed from the accent and the ink. The texture cannot hide a shape that breaks
+   the bar's outline, and a colour that is neither the ink nor the accent reads as a control without
+   claiming the accent, which the design system keeps for the active state. The bar does not grow:
+   each tab's negative margin gives back the length it hangs by, and its words sit at its middle. */
+.rd-bar .rd-bar-action,
+.rd-group-toggle {
+	background: color-mix(in srgb, var(--st-accent) 55%, var(--st-chip-fill));
+	border: 0;
+	border-radius: 0 0 0.7rem 0.7rem;
+	box-shadow: 0 2px 3px var(--st-shadow);
+	text-shadow: none;
+}
+.rd-bar .rd-bar-action:hover, .rd-bar .rd-bar-action:focus-visible,
+.rd-group-toggle:hover {
+	background: color-mix(in srgb, var(--st-accent) 80%, var(--st-chip-fill));
+}
+.rd-bar .rd-bar-meta { align-self: stretch; align-items: flex-start; }
+/* Core fixes a button's height, which held the tab to the bar's. */
+.rd-bar .rd-bar-action { height: auto; min-height: 0; margin: -0.3rem 0 -0.95rem; padding: 0.66rem 0.75rem; line-height: 1.2; }
+.rd-group-toggle { align-self: flex-start; margin: -0.3rem 0 -0.95rem; padding: 0.68rem 0.55rem; }
+
+.rd-bar-title { flex: none; }
+
+/* The instruction for what is being chosen: it wraps rather than clipping, because an instruction cut
+   off at "Pick 1 and a n…" is the choice's own words hidden from the person making it. */
+.rd-bar-note {
+	font-family: var(--font-primary), sans-serif;
+	font-style: italic;
+	font-size: var(--fs-fine);
+	opacity: 0.7;
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.rd-bar-meta { margin-left: auto; display: flex; align-items: center; gap: 0.6rem; flex: none; }
+
+.rd-count {
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-micro);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	opacity: 0.75;
+}
+
+/* The way out of what the panel is in the middle of. Paper on ink like the bar's own text, and a
+   hairline so it reads as a control rather than as a word in the heading. */
+.rd-bar-action {
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-micro);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--st-chip-ink);
+	background: transparent;
+	border: 1px solid color-mix(in srgb, var(--st-chip-ink) 45%, transparent);
+	border-radius: 2px;
+	padding: 0.05rem 0.6rem;
+	width: auto;
+	line-height: 1.4;
+	cursor: pointer;
+}
+.rd-bar-action:hover, .rd-bar-action:focus-visible { border-color: var(--st-chip-ink); }
+
+/* ── The row ───────────────────────────────────────────────────────────────
+   One line, uniform height, reserved columns. The separator is a dotted hairline, so quiet that the
+   PANEL reads as the boundary and the rows read as one body inside it. */
+
+.rd-rows { list-style: none; margin: 0; padding: 0; }
+
+.rd-row { border-bottom: 1px dotted var(--st-rule-veil); position: relative; }
+.rd-row:last-child { border-bottom: 0; }
+.rd-row:hover { background: var(--st-paper-sunken); }
+
+/* The body is a flex column, so a panel would otherwise shrink to fit and clip its own contents —
+   a framed strip once lost the bottom half of what it held this way. Panels size to their content
+   and the BODY scrolls. */
+.rd-tab-body > .rd-panel { flex: none; }
+
+/* No chip. The die in front of the name already says the move rolls, so a bordered box round the
+   stat is that same fact drawn twice — and the rail has never had room for one, which is how the two
+   lists came to wear different ones. One treatment, both lists. */
+.rd-stat,
+.rd-mrow .rd-preview-roll {
+	font-family: var(--font-primary), sans-serif;
+	font-weight: 400;
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.04em;
+	color: var(--st-accent);
+}
+
+.rd-nil { color: var(--st-rule); }
+
+.rd-row-body {
+	font-size: var(--fs-note);
+	color: var(--st-ink-soft);
+	background: var(--st-paper-sunken);
+}
+
+.rd-row-body p:last-child { margin-bottom: 0; }
+
+/* ── What a move lets you mark ──────────────────────────────────────────────
+   Well Versed's topics, as the book prints them: a box beside each. The sheet's own choice square in
+   the body, where they are changed; a drawn square in the hover card, which cannot hold a control.
+   No bullet — the square IS the list marker, and a swirl beside it would be a second one. */
+.rd-movepicks { list-style: none; margin: 0.35rem 0 0; padding: 0; display: grid; gap: 0.2rem; }
+.rd-movepicks > li { list-style: none; margin: 0; padding: 0; }
+.rd-movepicks > li::before { content: none !important; display: none !important; }
+.rd-movepick label, .rd-movepick { display: flex; align-items: center; gap: 0.45rem; }
+.rd-movepick label { cursor: pointer; }
+.rd-movepick .stonetop-cg-track { margin: 0 !important; }
+.rd-movepick.is-marked { color: var(--st-ink); }
+.rd-movepick-detail { color: var(--st-ink-faint); }
+
+/* A possession's options are lines of the row itself, never a body: in the name's column, behind the
+   same inset as the description above them, with none of the shading that means "opened". */
+.rd-mrow .stonetop-item-header > .rd-movepicks {
+	grid-column: name / -1;
+	padding-left: var(--rd-name-inset);
+	margin: 0.15rem 0 0.1rem;
+}
+
+.rd-movepick-box {
+	flex: none;
+	width: var(--control-check);
+	height: var(--control-check);
+	box-sizing: border-box;
+	border: 2px solid var(--st-ink);
+	border-radius: 2px;
+}
+.rd-movepick.is-marked .rd-movepick-box { background: var(--st-ink); }
+
+/* ── A level-up owing a move ─────────────────────────────────────────────────
+   The rail's threshold treatment, because it is the same news: an edge, not a louder colour. The
+   words are the Level Up move's; the button is the door into choosing, at the top where the reason
+   for it is. */
+.rd-owing {
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	margin: 0.4rem 0.4rem 0.2rem;
+}
+.rd-owing-text { margin: 0; font-size: var(--fs-note); }
+.rd-owing-text strong { font-family: "StonetopUI", serif; margin-right: 0.35rem; }
+
+/* A button in a list's body — the owing line's Choose, the ailments' overflow — saying what it does. */
+
+.rd-door-btn {
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+	background: var(--st-paper-sunken);
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	padding: 0.15rem 0.6rem;
+	width: auto;
+	cursor: pointer;
+}
+
+.rd-door-btn:hover { border-color: var(--st-accent); color: var(--st-ink); }
+
+/* ── The preview ───────────────────────────────────────────────────────────
+   What pays for a one-line row. Never the only path: Foundry's tooltips bind pointer events only,
+   so the row keeps its disclosure for keyboard and touch. */
+
+.rd-preview {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	z-index: 40;
+	width: 20rem;
+	max-width: 22rem;
+	padding: 0.6rem 0.75rem 0.5rem;
+	background: var(--st-paper-raised);
+	border: 1px solid var(--st-rule-strong);
+	border-radius: 3px;
+	box-shadow: 0 4px 14px color-mix(in srgb, var(--st-ink) 30%, transparent);
+	font-size: var(--fs-note);
+	color: var(--st-ink-soft);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 90ms ease, visibility 0s linear 90ms;
+	pointer-events: none;
+}
+
+
+/* ONE FORMAT, whichever list opened it. The face and weight are the row name's — see
+   `.rd-move-name` — but the size is the card's own: it is a fixed 20rem reading surface, the same
+   component in the rail and on the moves tab, so it sets its type once rather than following the
+   width of the list behind it. Set at the wide list's sizes, which is what a card that wide is for. */
+.rd-preview-title {
+	margin: 0 0 0.3rem;
+	font-size: var(--fs-subheading);
+	color: var(--st-ink);
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+/* The treatment is the stat's — see `.rd-stat` — at the card's one size. */
+.rd-preview-roll { margin-left: auto; font-size: var(--fs-note); }
+
+.rd-preview-text p:last-child { margin-bottom: 0; }
+
+.rd-tiers {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.15rem 0.6rem;
+	margin: 0.5rem 0 0;
+	font-size: var(--fs-fine);
+	border-top: 1px solid var(--st-rule-soft);
+	padding-top: 0.4rem;
+}
+
+.rd-tiers dt { font-variant-numeric: tabular-nums; color: var(--st-accent); }
+.rd-tiers dd { margin: 0; }
+
+.rd-preview-foot {
+	margin: 0.45rem 0 0;
+	font-size: var(--fs-micro);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--st-ink-faint);
+}
+
+/* ── A section ──────────────────────────────────────────────────────────────
+   D11. The panel and its door are this deck's; what is inside is the shipped sheet's own markup
+   (`choice-row`, `choice-group-condensed`, the playbook's partials) and takes the shipped styles. The
+   body only gives it the panel's inset. */
+
+.rd-section-body { padding: 0.5rem 0.75rem; }
+.rd-section-body:empty { display: none; }
+.rd-section-body > :last-child { margin-bottom: 0; }
+
+/* A group's own title inside a section — Major Arcanum under Collection — at the body's size. The
+   shipped `.stonetop-choice-entry-title` is `--fs-heading` (18px), which is right under the shipped
+   tab's small section headings and wrong under an ink bar: the inner title outranked the outer one.
+   A departure from the shipped heading, made on purpose. */
+.rd-section .stonetop-choice-entry-title { font-size: var(--fs-note); margin-top: 0.4rem; }
+
+/* The locked screen's two columns: FIXED, each section assigned to one, so opening a section never
+   moves another across. A column is at least 20rem; below two of those they stack. */
+.rd-columns { display: flex; flex-wrap: wrap; gap: var(--rd-gap); align-items: flex-start; flex: none; }
+.rd-column { flex: 1 1 20rem; min-width: 0; display: flex; flex-direction: column; gap: var(--rd-gap); }
+.rd-column > .rd-panel { flex: none; }
+
+/* The playbook's instinct while an insert's is in force: kept, and plainly not the one that counts. */
+.stonetop-choice-track.is-set-aside { color: var(--st-ink-faint); }
+.rd-set-aside { margin: 0.2rem 0 0; }
+
+/* Motion is the whole of what a reduced-motion reader loses. */
+@media (prefers-reduced-motion: reduce) {
+	.rd-preview { transition: none; }
+}
+
+
+/* ── Band, rebuilt ───────────────────────────────────────────────────────────
+   The shipped band draws itself: the stat frames, the brackets, the label chips punched into the
+   rules. These rules only do what this proposal actually changes.
+
+   A plain flex column of masthead, numbers and foot. The shipped band needs two wrappers and a
+   `display: contents` to dissolve them, because the picture is its right-hand column and the foot
+   rides under it; with the picture in the rail there is no second column and none of that
+   machinery. Folding is `.sheet-top { display: none }` — the shipped rule, unchanged. */
+
+.rd-band {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	grid-template-areas:
+		"masthead masthead"
+		"numbers  says"
+		"numbers  foot";
+	/* The gutter between the two columns, stated ONCE and on the band — the masthead is a subgrid and
+	   takes the parent's gap, so instinct keeps the same edge as the ailments panel below it without
+	   either of them owning a margin of its own. The stats' frames ended at exactly the pixel the
+	   panel began at, which read as the two being one squashed thing. */
+	column-gap: 1rem;
+	background: var(--st-paper-raised);
+	border-bottom: 1px solid var(--st-rule);
+	padding: 0.5rem var(--rd-inset) 0.4rem;
+	flex: none;
+}
+
+.rd-band > .rd-masthead { grid-area: masthead; }
+.rd-band > .sheet-top { grid-area: numbers; }
+.rd-band > .rd-ailments { grid-area: says; align-self: end; }
+.rd-band > .rd-band-foot { grid-area: foot; }
+
+/* When the line does not fit beside the stats, it goes under them — across the WHOLE band, not just
+   the stats' column. Full width is where the folded line sits, so the fold moves nothing sideways and
+   this stays one template in both states (see below). It costs the band the line's height, 33px, only
+   at the widths that need it; the ailments get the full height of the stats beside them in return.
+
+   Decided by measurement (`fitBandFoot` in main.js), not a breakpoint. How wide the line is depends
+   on the words in it, which translate, and how much room it gets depends on whether the rail is a
+   column — it overflowed at a 920px sheet with the rail open and fitted at 760 with it shut. */
+.rd-band.is-foot-under {
+	grid-template-areas:
+		"masthead masthead"
+		"numbers  says"
+		"foot     foot";
+}
+
+/* A measurement in progress: the band is briefly put in the state being measured and back, inside
+   one task, so nothing paints — but a transition would still start on the way out and again on the
+   way back. */
+.rd-no-motion, .rd-no-motion * { transition: none !important; }
+
+/* Open, the foot sits BESIDE the numbers on their last line rather than on a row of its own under
+   them. The shipped band gets this for free by hanging the foot under the picture; with the picture
+   in the rail the room comes from the other side of the stats instead — six tiles ask for 452px of
+   870 and the rest was empty parchment. Given its own row it cost the band 35px to say three words.
+
+   Folded there is nothing to sit beside, so the column collapses and the foot becomes the band's own
+   full-width line — which is what `display: contents` buys on the shipped sheet, stated directly
+   because there is only one thing left to move. */
+/* ONE template in both states, and the numbers column collapses instead of the template changing.
+   Switching to a single column at the moment the class landed reflowed the foot to full width before
+   the numbers had shrunk at all, so the band jumped 23px taller and then eased down — a fold that
+   starts by growing. With the template fixed, the `auto` column simply runs out as `.sheet-top`
+   narrows, and the foot widens into the room at exactly the rate the numbers give it up. */
+
+/* ── Folding, in the same language the rail closes in ────────────────────────
+   The rail slides; the band used to vanish. Two ways of saying "this region is going away" on one
+   sheet is two things for a reader to learn, and the one that blinks reads as a glitch rather than
+   as a fold. Both are 0.4s ease now, off the same duration.
+
+   `interpolate-size: allow-keywords` is what lets a height animate to and from `auto` — without it
+   the only options are a hard-coded max-height, which snaps at the wrong moment whenever the content
+   is shorter than the guess, or measuring in script. Chrome 129+, which covers the desktop app's
+   Electron 132.
+
+   The shipped `display: none` has to be overridden rather than removed: it is in `@layer system`,
+   this file is not, so it would otherwise win on every frame of the animation and there would be
+   nothing to animate.
+
+   `content-visibility` is deliberately not used — it would clip mid-animation. */
+.rd { interpolate-size: allow-keywords; }
+
+.rd-band > .sheet-top {
+	overflow: hidden;
+	height: auto;
+	width: auto;
+	opacity: 1;
+	transition: height 0.4s ease, width 0.4s ease, opacity 0.4s ease;
+}
+
+/* The contents keep their own size while the box around them shrinks, so the fold CLIPS rather than
+   reflows. Without this the six stat frames, three bracket masks and the heading re-laid out on every
+   frame of the animation — tiles rewrapping, art masks re-rasterising — which is what made the fold
+   choppy rather than the duration being wrong. Now the only thing changing per frame is the size of
+   the clipping box. */
+.rd-band > .sheet-top > .stonetop-stats-column { width: max-content; }
+
+/* The browser is told what is about to move, and only while it is moving: left permanently, this
+   promotes a layer for the whole band and costs memory for a fold that happens twice a session. */
+.rd-wrapper.top-collapsed .rd-band > .sheet-top,
+.rd-band > .sheet-top:not([data-settled]) { will-change: height, width; }
+
+/* Width as well as height: the width is what hands the foot its full line, and animating only the
+   height left the foot's column jumping to full width on frame one. */
+.rd-wrapper.top-collapsed .rd-band > .sheet-top {
+	display: block;
+	height: 0;
+	width: 0;
+	opacity: 0;
+}
+
+/* Motion is the affordance, never the information: the caret and the label say which state this is
+   standing still. */
+@media (prefers-reduced-motion: reduce) {
+	.rd-band > .sheet-top { transition: none; }
+}
+
+/* ── One rule per boundary ───────────────────────────────────────────────────
+   Folded, the shipped stylesheet puts a rule over the foot — `top-collapsed .stonetop-band-foot`,
+   and its own comment says it is folded-only because open "a rule across the whole band there would
+   be a second one a few pixels above the band's own". The masthead's bottom rule is that same
+   boundary, so with both in play the folded band drew two rules 13px apart.
+
+   The masthead's is the one kept, because it is in BOTH densities: the separator between who this is
+   and what they are then sits in the same place whichever way the band is, which is what folding as
+   REVEALING rather than moving means. The shipped one stands down. */
+/* The collapsed foot must measure EXACTLY the same as the open one, or the fold starts by jumping.
+   The shipped `.top-collapsed .stonetop-band-foot` adds `margin-top: var(--band-block-gap)` and a
+   rule with its own padding — written for a band whose foot only becomes a full-width line when
+   folded. Here it is a full-width line either way, so all of that is a size change applied on the
+   frame the class lands: the band went from 190px to 230px and then eased down to 113, a 40px jolt
+   in the wrong direction before the fold had started.
+
+   `align-items` is left alone — it changes nothing about the box. */
+.rd-wrapper.top-collapsed .rd-band-foot {
+	margin-top: 0;
+	border-top: none;
+	padding-top: 0.25rem;
+	/* Folded, this line is the band's own and takes the whole width. It used to get that for free,
+	   because column one was sized by `.sheet-top` alone and collapsed with it. Now the masthead is
+	   subgridded onto the same columns — which is what aligns instinct with the ailments panel — so
+	   the NAME holds column one open and the foot was left in a 454px column: the ledger wrapped to
+	   two lines and the folded band went from 95px to 131. */
+	grid-column: 1 / -1;
+}
+
+/* Collapsed shows LESS than expanded, never more — so the ailments panel is not on the folded line.
+   Sized to nothing rather than `display: none`: it folds on the same curve as the numbers beside it
+   (see the fold handler in main.js), and a display switch cannot be eased. */
+.rd-wrapper.top-collapsed .rd-ailments {
+	height: 0;
+	width: 0;
+	opacity: 0;
+}
+
+.rd-ailments {
+	overflow: hidden;
+	transition: height 0.4s ease, width 0.4s ease, opacity 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rd-ailments { transition: none; }
+}
+.rd-ailments [hidden] { display: none; }
+
+/* ── The masthead ────────────────────────────────────────────────────────────
+   Identity at the left, instinct at the right, on one line at both densities.
+
+   `align-items: flex-start`, because the crest is capped to the NAME's line box and centring undid
+   that the moment anything beside it made the row taller — the crest slid down beside the instinct
+   instead of sitting beside the words it belongs to. */
+
+/* The masthead runs on the BAND's own columns, via `subgrid` — so the instinct block starts exactly
+   where the ailments panel below it starts, and the name starts exactly where the stats do. It was a
+   flex row with `space-between`, which put instinct wherever its own content happened to end: 48px
+   off the panel beneath it, close enough to read as a mistake rather than as a choice.
+
+   Same tool as the ailment rows, for the same reason: it is the only way to keep a child's columns
+   locked to a grandparent's without hand-measuring a width that restates what is already in the
+   layout. */
+.rd-masthead {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+	align-items: start;
+	/* NO column-gap. A subgrid's own gap replaces the parent's rather than being ignored, so a 1rem
+	   gap here ate into the shared tracks and pushed column two 8px right — instinct landed 8px off
+	   the ailments panel it is supposed to line up with. The air between the name and the instinct
+	   belongs to the name's own box. */
+	padding-bottom: 0.4rem;
+	border-bottom: 1px solid var(--st-rule-veil);
+}
+
+.rd-masthead-id { display: flex; align-items: flex-start; gap: 0.5rem; min-width: 0; padding-right: 1rem; }
+
+/* The name asks for its own width and no more. Given `flex: 1` it took the whole line and pushed the
+   instinct against the far edge with a gulf between them. */
+.rd-masthead .charname { flex: 0 1 auto; min-width: 0; }
+
+/* ── The band's foot ─────────────────────────────────────────────────────────
+   The line the band folds TO, the mode, and the control that folds it — in that order, in flow, on
+   one row. The shipped arrangement, and the reason the mode lives here rather than in either density
+   is that it never moves between them and there is no second copy to keep in step.
+
+   `align-items: flex-end` so the controls sit on the ledger's baseline rather than floating above
+   the line whose whole job is to be the same line. */
+
+.rd-band-foot {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: flex-end;
+	justify-content: flex-end;
+	/* Half a rem: the line shares a column with the ailments beside the stats, and every pixel of it
+	   is a pixel of sheet width below which it has to go under them instead. */
+	gap: 0.5rem;
+	padding: 0.25rem 0 0;
+	/* Its last line, not its middle: open, this rides the bottom of the stats column beside it. */
+	align-self: end;
+}
+
+/* The numbers hold the line's start and are the only thing on it that shrinks — a flex item's floor
+   is its content, which is what `min-width: 0` lifts. */
+.rd-band-foot > .rd-ledger { flex: 0 1 auto; min-width: 0; margin-right: auto; }
+
+/* The options half a rem apart rather than the shipped 0.75, for the same reason as the line's own
+   gap: this row's width decides the sheet width below which the line has to go under the stats. */
+.rd-band-foot .stonetop-rollmode { gap: 0.5rem; }
+
+/* Advantage/Disadvantage's `?`, the last item of the roll-mode row. The shipped icon button's look
+   at the size of the words beside it, and on their line — and held close to "Disadv" rather than a
+   full option-gap away, because it belongs to the row and not beside it as a fourth option. */
+.rd-band-foot .rd-rule-btn { font-size: var(--fs-note); align-self: center; margin-left: -0.2rem; }
+.rd-band-foot > .stonetop-rollmode,
+.rd-band-foot > .stonetop-top-toggle { flex: 0 0 auto; }
+
+/* ── The folded ledger: stats, in their condition pairs ──────────────────────
+   Plain readouts at line height — the shipped rule, and its reason: "at line height there is no size
+   at which the woodcut frame is a frame rather than a smudge."
+
+   The PAIR is the unit, and that is the whole point of this line. Each group is two stats and the one
+   condition that hinders them, so "which numbers does this cost me" is answerable before anything is
+   marked — which `stats-and-conditions.md` says is exactly when it is asked. The rules make it
+   drawable: the three pairs are contiguous in the canonical order and cover all six exactly once.
+
+   The separator is a rule between groups rather than a box around each: three boxes on one line is
+   three enclosures for a sequence, which the system's own enclosure rule spends art on objects
+   instead of. */
+
+/* ── The handoff, written here rather than inherited ─────────────────────────
+   The shipped sheet does this with one layered rule — `.sheet-wrapper:not(.top-collapsed)
+   .stonetop-folded-ledger { display: none }` — and it cannot be relied on from this file. This
+   stylesheet is loaded OUTSIDE @layer system, and an unlayered rule beats every layered one
+   regardless of specificity, so `.rd-ledger { display: grid }` would silently win and the ledger
+   would stand on screen under the open band at all times. Both halves are stated here so the pair
+   is decided in one place.
+
+   Still no JavaScript: both densities are in the markup at every width, and one class picks. */
+.rd-wrapper:not(.top-collapsed) .rd-ledger { display: none; }
+.rd-wrapper.top-collapsed .rd-ledger { display: grid; gap: 0.15rem; }
+
+/* The ledger arrives on the same curve everything else leaves on — see the fold handler. */
+.rd-ledger { overflow: hidden; transition: height 0.4s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+	.rd-ledger { transition: none; }
+}
+
+.rd-pairs {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.2rem 0.75rem;
+	margin: 0;
+	padding: 0;
+}
+
+.rd-pair {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding-right: 0.75rem;
+	border-right: 1px solid var(--st-rule-soft);
+}
+
+.rd-pair:last-child { border-right: none; padding-right: 0; }
+
+.rd-pair-stats { display: flex; align-items: center; gap: 0.5rem; margin: 0; padding: 0; }
+
+/* The condition: its mark, and its name in the voice the band's brackets and the steading's
+   conditions both use — the Fell roman, italic, lowercase. */
+.rd-cond {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	cursor: pointer;
+	font-family: "IM Fell English", Georgia, serif;
+	font-style: italic;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+	line-height: 1.2;
+}
+
+/* Nothing here hides the input, fills the circle or draws its focus ring: the control wears the
+   shipped masthead classes, so all three are the shipped rules. The only thing left to say is what
+   the WORD does when the condition is marked, which the shipped strip says by not drawing the
+   unmarked ones at all — this line always draws all three, because the two you have not taken are
+   half of what "which one should I take" is asking. */
+.rd-pair.is-active .rd-cond { color: var(--st-danger); }
+
+/* What a marked condition IS — the sentence a player acts on, and the half of the description that
+   is not already on this line as two numbers gone red. Present only while there is one. */
+/* ── The ailments region ─────────────────────────────────────────────────────
+   A `panel` with a `bar`, exactly as every other group on this sheet is — see `ailments` in band.js
+   for why the label-on-a-rule it used to wear was the wrong answer. Everything visual comes from the
+   shared devices; these rules only place it. */
+
+.rd-ailments {
+	position: relative;
+	align-self: end;
+	justify-self: stretch;
+	min-width: 0;
+}
+
+/* One line per row, and the columns reserved the way a move row reserves ROLL and USES — a list
+   whose right edges line up reads as a list rather than as sentences that happen to be stacked. */
+.rd-ailment-list {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 0 0.6rem;
+	margin: 0;
+	padding: 0.1rem 0.5rem 0.15rem;
+	font-size: var(--fs-fine);
+	line-height: 1.25;
+	overflow: hidden;
+}
+
+/* Each entry is a BOX, not `display: contents`. Contents made the columns line up and left every row
+   without a border to draw on, so three ailments read as one run-on block — the row-level half of the
+   design system's P1, which records that entries are "divided by a gap and nothing else".
+
+   `subgrid` is what lets a row be a box AND keep its columns locked to the list's: the alternative
+   was a fixed width on the name column, which would have been a hand-measured number restating
+   whatever the longest condition happens to be called.
+
+   The separator is the deck's own — `1px dotted var(--st-rule-veil)`, the same rule a move row wears,
+   because a list of like things is a list of like things. No padding on the row: the dotted rule does
+   the separating that air would otherwise have to. */
+.rd-ailment {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+	align-items: baseline;
+	border-bottom: 1px dotted var(--st-rule-veil);
+}
+
+.rd-ailment:last-child { border-bottom: 0; }
+
+/* Only the wounds light up, because only the wounds open the editor. A hover state on a row that
+   does nothing is an affordance that lies. */
+.rd-ailment--wound:hover { background: var(--st-paper-sunken); }
+
+/* The name in the voice the band's brackets and the steading's conditions both use — the Fell roman,
+   italic, lowercase. A wound written in play and a debility from the book are the same kind of fact
+   about a person, so they are not set in two different hands. */
+.rd-ailment-name {
+	font-family: "IM Fell English", Georgia, serif;
+	font-style: italic;
+	white-space: nowrap;
+}
+
+/* Clipped, never wrapped: a wrapping note made rows 17px or 34px depending on how long a
+   description happened to be, so the region held three entries or four unpredictably. The whole
+   sentence is on the hover and in the editor. */
+.rd-ailment-note {
+	color: var(--st-ink-soft);
+	min-width: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* A marked debility is the one thing here with a mechanical consequence, and it is already
+   `--st-danger` on the two tiles it hinders. Same colour, same fact. */
+.rd-ailment--debility .rd-ailment-name { color: var(--st-danger); }
+
+/* A wound's state sits in the reserved column, set like a column heading rather than like prose —
+   it is a state, not a sentence. Permanent is the one that changes what a player does next (retire,
+   or Make a Plan to adapt), so it is the one that is not quiet. */
+.rd-ailment--wound .rd-ailment-note {
+	font-size: 0.68rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--st-ink-faint);
+	text-align: right;
+}
+
+.rd-ailment--wound[data-state="permanent"] .rd-ailment-note { color: var(--st-danger); }
+
+.rd-ailment--wound { cursor: pointer; }
+
+.rd-ailments-empty {
+	margin: 0;
+	padding: 0.25rem 0.5rem 0.35rem;
+	font-family: "IM Fell English", Georgia, serif;
+	font-style: italic;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+}
+
+.rd-ailments-empty[hidden] { display: none; }
+
+/* Font Awesome sets its glyph to `line-height: 1`, which left the + two pixels shorter than the tab
+   beside it. */
+.rd-ailments-edit i { line-height: inherit; }
+
+
+/* ── The editor ──────────────────────────────────────────────────────────────
+   Anchored under the region it edits, over the tab body rather than inside the band — the band is
+   height-capped and an editor that grew it would be the thing it is trying to avoid. MOCK: nothing
+   persists. */
+
+/* Fixed and on the body — see `openAilmentEditor`. `left`/`top` are set by script; everything else
+   is here. */
+.rd-ailment-editor {
+	position: fixed;
+	z-index: 200;
+	width: 22rem;
+	max-height: 60vh;
+	overflow-y: auto;
+	padding: 0.6rem 0.7rem;
+	background: var(--st-paper-raised);
+	border: 1px solid var(--st-rule-strong);
+	border-radius: 3px;
+	box-shadow: 0 4px 14px color-mix(in srgb, var(--st-ink) 22%, transparent);
+	font-size: var(--fs-fine);
+}
+
+.rd-ailment-editor-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin: 0 0 0.4rem;
+	font-family: "StonetopUI", serif;
+	letter-spacing: 0.06em;
+	color: var(--st-ink-faint);
+}
+
+.rd-ailment-close { all: unset; cursor: pointer; padding: 0 0.25rem; }
+.rd-ailment-close:hover, .rd-ailment-close:focus-visible { color: var(--st-accent); }
+
+.rd-ailment-editor-list { list-style: none; margin: 0 0 0.4rem; padding: 0; display: grid; gap: 0.25rem; }
+
+.rd-ailment-editor-list li {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto auto;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+.rd-ailment-edit-name {
+	min-width: 0;
+	font-family: "IM Fell English", Georgia, serif;
+	font-style: italic;
+	font-size: var(--fs-fine);
+	background: var(--st-paper);
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	padding: 0.1rem 0.3rem;
+}
+
+/* The state cycles rather than opening a menu: three values, and naming the one you are on is the
+   whole control. Permanent is the one that changes what a player does next, so it is the loud one. */
+.rd-ailment-state {
+	all: unset;
+	cursor: pointer;
+	font-size: 0.68rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--st-ink-faint);
+	border: 1px solid var(--st-rule);
+	border-radius: 2px;
+	padding: 0.05rem 0.35rem;
+}
+
+.rd-ailment-state[data-state="permanent"] { color: var(--st-danger); border-color: var(--st-danger); }
+.rd-ailment-state:hover, .rd-ailment-state:focus-visible { border-color: var(--st-accent); }
+
+.rd-ailment-remove { all: unset; cursor: pointer; color: var(--st-ink-faint); padding: 0 0.2rem; }
+.rd-ailment-remove:hover, .rd-ailment-remove:focus-visible { color: var(--st-danger); }
+
+.rd-ailment-add {
+	all: unset;
+	cursor: pointer;
+	font-size: var(--fs-fine);
+	color: var(--st-ink-faint);
+}
+
+.rd-ailment-add:hover, .rd-ailment-add:focus-visible { color: var(--st-accent); }
+
+.rd-ailment-editor-note {
+	margin: 0.45rem 0 0;
+	font-size: 0.68rem;
+	color: var(--st-ink-faint);
+	font-style: italic;
+}
+
+/* The heading survives because `statsNote` hangs off it — deleting the heading deletes the sentence
+   that tells a new character which scores to assign. */
+.rd-stats-heading { margin: 0.35rem 0 0.25rem; }
+
+/* ── The starting array ──────────────────────────────────────────────────────
+   Advisory. It states what the playbook offered and strikes what has been placed, and it retires
+   itself once nothing is left. It never blocks a value. */
+
+.rd-array {
+	display: flex;
+	align-items: baseline;
+	gap: 0.3rem;
+	margin: 0.45rem 0 0;
+	font-size: var(--fs-fine);
+}
+
+.rd-array-label {
+	font-family: "StonetopUI", serif;
+	letter-spacing: 0.05em;
+	color: var(--st-ink-faint);
+	margin-right: 0.15rem;
+}
+
+.rd-array-chip {
+	font-variant-numeric: tabular-nums;
+	border: 1px solid var(--st-rule-strong);
+	border-radius: 2px;
+	padding: 0 0.35rem;
+	background: var(--st-paper);
+}
+
+.rd-array-chip.is-used {
+	color: var(--st-ink-faint);
+	border-color: var(--st-rule-soft);
+	background: none;
+	text-decoration: line-through;
+}
+
+/* ── Hindered stats ──────────────────────────────────────────────────────────
+   The consequence of a marked debility, shown on the two tiles it hinders — the treatment the folded
+   ledger already gives them and the open band never did. Confirmation only: the bracket is what says
+   which stats BEFORE anything is ticked, and the name is in the DOM either way.
+   color is not the only carrier — the tile also loses its frame's full weight. */
+
+.stonetop-stat.is-hindered .stonetop-stat-input { color: var(--st-danger); }
+.stonetop-stat.is-hindered { opacity: 0.85; }
+.stonetop-stat.is-hindered .stonetop-stat-roll { color: var(--st-danger); }
+
+/* A 20rem hover card laid out inside a scrolling column is a horizontal scrollbar, and both surfaces
+   that carry these rows scroll. Out of flow entirely until a pointer or a focus ring asks for it —
+   the show rule above takes it to `display: block` and `position: fixed`, and every row keeps its
+   disclosure as the guaranteed path either way. */
+.rd-mrow > .rd-preview { display: none; }
+
+/* The stats no longer straddle the band's edge, so the clearance they needed goes with them. */
+.rd-main .rd-tab-body { padding-top: var(--rd-gap); }

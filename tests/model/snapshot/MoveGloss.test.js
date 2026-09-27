@@ -40,6 +40,14 @@ describe("MoveGloss", () => {
 		expect(gloss).toBe("Roll +Defenses: on a 10+, it works; on a 7-9, it works but someone picks 1.");
 	});
 
+	// The post-death moves write their tiers with an en dash — Urges, before its trigger was emphasised,
+	// was glossed "on a 7–9".
+	it("skips a tier written with an en dash", () => {
+		const urges = "When the GM compels you to act on your impulse, gain 1 Favor. If you resist, roll +WIS: "
+			+ "**on a 10+**, your actions are your own; **on a 7–9**, choose 1; **on a 6–**, the GM chooses.";
+		expect(MoveGloss.from(urges)).toBe("When the GM compels you to act on your impulse, gain 1 Favor.");
+	});
+
 	it("accepts a RichText as readily as a raw string", () => {
 		expect(MoveGloss.from(rich("When you **_hold the line_**, roll +Defenses."))).toBe("hold the line");
 	});

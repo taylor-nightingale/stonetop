@@ -7,9 +7,9 @@ import { CssColor } from "./cssColor.js";
 // Core paints `button:hover { color: var(--button-hover-text-color) }`, and both of its theme blocks
 // resolve that token to `--color-light-1`. Our palette repaints that ramp to the book's paper and
 // parchment-light hands the same value to `--st-paper` — so every button whose background we had
-// taken away wrote its label in exactly the colour behind it. Damage, the Outfit tab's add button
+// taken away wrote its label in exactly the color behind it. Damage, the Outfit tab's add button
 // and the collapse caret each disappeared under the pointer, while the buttons that happened to
-// declare a colour of their own were spared, which is what made the bug read as arbitrary.
+// declare a color of their own were spared, which is what made the bug read as arbitrary.
 //
 // Two claims are worth locking, and only one of them is about the rules we wrote:
 //
@@ -238,7 +238,7 @@ describe.skipIf(!canProbe())("the hover idiom", () => {
 		});
 		const el = rendered.get("target");
 		// Inherited from the row, not repainted: the accent belongs to words, and core's own hover
-		// colour is the paper the glyph sits on.
+		// color is the paper the glyph sits on.
 		expect(el.get("color")).toBe("rgb(1, 2, 3)");
 		expect(el.get("opacity")).toBe("1");
 	});

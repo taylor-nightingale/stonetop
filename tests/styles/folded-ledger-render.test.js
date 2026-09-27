@@ -138,7 +138,7 @@ const TARGETS = {
 	lineSr: ".stonetop-folded-sr",
 	bandStats: ".stonetop-stats-row",
 	bandHp: ".stonetop-resource-row--vitals .stonetop-char-hp",
-	damageNote: ".stonetop-resource-row--vitals .stonetop-vital:nth-child(3) .stonetop-resource__note",
+	damageTile: ".stonetop-resource-row--vitals .stonetop-vital:nth-child(3) .stonetop-resource",
 	tabs: ".sheet-tabs",
 };
 
@@ -273,14 +273,14 @@ describe.skipIf(!canProbe())("the band and the line are two densities of one thi
 	});
 
 	// Expanded, the foot is a row of its own below the numbers — so the mode cannot land on the
-	// frames' notes however narrow the sheet gets. It used to sit in the picture's column with a
-	// reserved lane to dodge, and it overflowed that column and closed on the notes at the floor.
-	it("keeps the mode clear of the frames' notes at every width", () => {
+	// frames however narrow the sheet gets. It used to sit in the picture's column with a reserved
+	// lane to dodge, and it overflowed that column and closed on them at the floor.
+	it("keeps the mode clear of the frames at every width", () => {
 		for (const width of [760, 1400]) {
 			const m = measure({ folded: false, railShut: false, width });
-			const notes = m.get("damageNote").values;
-			expect(m.get("mode").values.boxTop, `the mode rides the notes at ${width}px`)
-				.toBeGreaterThanOrEqual(notes.boxTop + notes.boxHeight - 1);
+			const tile = m.get("damageTile").values;
+			expect(m.get("mode").values.boxTop, `the mode rides the frames at ${width}px`)
+				.toBeGreaterThanOrEqual(tile.boxTop + tile.boxHeight - 1);
 		}
 	});
 
@@ -357,7 +357,7 @@ describe.skipIf(!canProbe())("the band and the line are two densities of one thi
 			.toBeCloseTo(rightOf(open), 0);
 	});
 
-	// A colour is never the only carrier of anything: a hindered stat says which debility in text,
+	// A color is never the only carrier of anything: a hindered stat says which debility in text,
 	// clipped rather than removed so it is still announced.
 	it("names the debility in text for a stat it has dimmed", () => {
 		const sr = measure({ folded: true, railShut: false, width: 1400 }).get("lineSr").values;

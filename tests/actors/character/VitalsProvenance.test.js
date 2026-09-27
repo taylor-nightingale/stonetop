@@ -148,7 +148,7 @@ describe("VitalsProvenance notes", () => {
 			expect(provenance(BLESSED, armorFrom(["leather", { base: 1 }])).noteForArmor(1)).toBe("leather");
 		});
 
-		// "why is my armour 2?" is the question, and the two item names are the whole answer.
+		// "why is my armor 2?" is the question, and the two item names are the whole answer.
 		it("names every contributing item, not just the base", () => {
 			const note = provenance(BLESSED, armorFrom(["leather", { base: 1 }], ["shield", { modifier: 1 }])).noteForArmor(2);
 			expect(note).toContain("leather");

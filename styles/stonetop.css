@@ -94,9 +94,10 @@ figure.art:has(> img.stonetop-broken-img) {
 	letter-spacing: 0.4px;
 }
 
-/* The character name and the steading name share one heading size (the largest rem step), so the two
-   sheets read consistently instead of relying on the h1 element's browser-default em. V2 ships none
-   of core's legacy AppV1 h1 chrome, so reset the browser default margin/underline here too. */
+/* One step below the steading's --fs-name. The masthead's height is the band's most expensive line —
+   the crest is capped to this line box, so every rem here costs the sheet twice — and a name read a
+   hundred times does not need display size to be found. V2 ships none of core's legacy AppV1 h1
+   chrome, so reset the browser default margin/underline here too. */
 .stonetop.sheet.character .charname {
 	margin: 0;
 	border: none;
@@ -126,14 +127,15 @@ figure.art:has(> img.stonetop-broken-img) {
 
    The border is 1px at rest too, only transparent. A field is border-box here, so a border grown
    from zero on hover takes its 2px out of the value's own room and shunts the name sideways under
-   the pointer; reserved and merely colourless, it costs the text nothing. Both `background` and
+   the pointer; reserved and merely colorless, it costs the text nothing. Both `background` and
    `border` are stated rather than left to the default: core paints a field's box on the input
    itself, so "no box" is a thing this rule has to say out loud. Checked in the render probe, not in
    the stylesheet text.
 
    Not :disabled — a sheet you cannot edit must not offer a field under the pointer. */
 .stonetop.sheet.character .charname input {
-	font-size: var(--fs-name);
+	font-size: var(--fs-display);
+	line-height: 1.3;
 	height: auto;
 	width: auto;
 	field-sizing: content;
@@ -208,6 +210,9 @@ figure.art:has(> img.stonetop-broken-img) {
 	--control-marker: 0.6875rem;  /* inventory diamonds and squares       (11px) */
 	--item-header-gap: 0.375rem;  /* the gap between a row's control and its name (6px) */
 	--item-line: calc(var(--fs-body) * 1.3);  /* one line box of a row's name — the gutter height */
+	/* One line box of the masthead's name, derived the same way. The crest is capped to it so the
+	   image takes its height from the words beside it instead of setting the band's. */
+	--masthead-line: calc(var(--fs-display) * 1.3);
 
 	/* The keyboard focus ring. rem so it stays visible at a large font setting, and painted in the
 	   accent, which carries against both papers (5.1:1 light, and warm-1 on dark). */
@@ -240,7 +245,7 @@ figure.art:has(> img.stonetop-broken-img) {
 	   0.2rem somewhere else), which read as 10px in two gaps and 3px in the third and made the band
 	   look mis-set without anything being nameable. A block states no vertical margin of its own;
 	   the column states the gap once. */
-	--band-block-gap: 0.625rem;   /* 10px */
+	--band-block-gap: 0.375rem;   /* 6px */
 
 	/* Every tab's view-state toggle (moves filter, playbook lock, insert locks) is one control at
 	   one size; the tabs that lay a toggle over their first line reserve exactly this. */
@@ -309,8 +314,8 @@ body,
    keep their native look; our own V2 sheets opt back into the parchment here.
 
    The sheet follows the chosen theme like everything else — core pushes `themed theme-<scheme>`
-   onto the sheet root, from the client's `applications` colour scheme or from a per-document
-   sheet-theme override, and every colour below resolves from the matching parchment tokens. This
+   onto the sheet root, from the client's `applications` color scheme or from a per-document
+   sheet-theme override, and every color below resolves from the matching parchment tokens. This
    used to say the bases pin `theme-light` in DEFAULT_OPTIONS.classes; they no longer do. */
 .application.stonetop.sheet .window-content {
 	background: var(--st-paper) var(--st-paper-image);
@@ -358,8 +363,8 @@ body,
    layer this file wraps itself in included — however specific the thing losing to it.
 
    So what is pinned here is only what a blanket reset DESTROYS. A floor of zero forbids a module
-   nothing; each control's border COLOUR stays an ordinary declaration further down, and its width
-   and style are pinned beside it. A module can still recolour these marks. It cannot erase them. */
+   nothing; each control's border color stays an ordinary declaration further down, and its width
+   and style are pinned beside it. A module can still recolor these marks. It cannot erase them. */
 .stonetop-item-check,        .stonetop-cg-track,
 .stonetop-debility-check,    .stonetop-outfit-load-radio,
 .stonetop-inv-diamond,       .stonetop-inv-square {
@@ -489,6 +494,23 @@ body,
 	cursor: pointer;
 }
 
+/* ── Text for assistive tech only ─────────────────────────────────────────────
+   Named and not drawn. `clip-path: inset(50%)` rather than `display: none` or `visibility: hidden`,
+   both of which take the text out of the accessibility tree along with the picture — the point here
+   is to keep it IN the tree while it takes no room.
+
+   The same six declarations were already written out in five places (the roll-mode legend, the
+   steading's coinage corner, and three more); those are left alone for now, but they are this rule
+   with a different selector and should collapse into it. */
+.stonetop-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
 /* ── Shared icon buttons (used across all sheets) ────────────────────────────── */
 
 .stonetop .stonetop-icon-btn {
@@ -498,8 +520,8 @@ body,
 	background: none;
 	border: none;
 	/* Core's `button:hover` (layer elements.forms) repaints background and text together. This
-	   button suppresses the background, so taking core's hover TEXT colour alone would paint the
-	   glyph in the page's own paper colour — the icon vanishes under the cursor. An <img> icon never
+	   button suppresses the background, so taking core's hover TEXT color alone would paint the
+	   glyph in the page's own paper color — the icon vanishes under the cursor. An <img> icon never
 	   showed this because it ignores `color`; a font glyph inherits it. */
 	color: inherit;
 	cursor: pointer;
@@ -652,8 +674,8 @@ body,
 	align-self: stretch;
 }
 
-/* The masthead takes the column's width rather than setting it. The header's own content — a 100px
-   crest and a name field at its intrinsic size — measured 455px against the six tiles' 452, so the
+/* The masthead takes the column's width rather than setting it. The header's own content — the crest
+   and a name field at its intrinsic size — measured 455px against the six tiles' 452, so the
    one block on this sheet with no business having an opinion about the column's width was setting
    it, and the numbers under it sat 3px shy of the name above. `width: 0` empties its contribution to
    the column's max-content; `min-width: 100%` then takes back whatever the tiles settled on.
@@ -1052,7 +1074,7 @@ body,
    lines, and an out-of-flow box that wraps runs straight over the line below it. In flow the masthead
    grows on the rare occasion it has to, which is the failure worth having.
 
-   Marked in the danger colour AND by being there at all — the ones you do not have are not drawn, so
+   Marked in the danger color AND by being there at all — the ones you do not have are not drawn, so
    presence is the carrier and no reader depends on hue. */
 .stonetop.sheet.character .stonetop-masthead-debilities {
 	display: none;
@@ -1093,7 +1115,7 @@ body,
 }
 
 /* The NAME carries the alarm; the sentence after it is ordinary ink. A whole clause of rules prose
-   in the danger colour reads as an error message rather than as something that is true of you — the
+   in the danger color reads as an error message rather than as something that is true of you — the
    steading splits its own conditions the same way, and for the same reason. */
 .stonetop.sheet.character .stonetop-masthead-debility.is-active .stonetop-masthead-debility-name {
 	color: var(--st-danger);
@@ -1119,12 +1141,17 @@ body,
 
 /* The header crest / actor image. V1 relied on core's legacy AppV1 sheet CSS, which capped
    `.profile-img` at ~100px; V2 windows ship none of that, so the image rendered at natural size and
-   shoved the whole sheet down. Cap it (both the playbook crest and the plain actor-img fallback,
-   which both carry `.profile-img`), preserving aspect via width/height auto. */
+   shoved the whole sheet down. Applies to both the playbook crest and the plain actor-img fallback,
+   which both carry `.profile-img`; aspect is preserved via width/height auto.
+
+   The height cap is the NAME'S line box, not a size of the image's own. At 100px the crest hung 58px
+   below the only thing beside it and set the masthead's height single-handed — the band's largest
+   item was an image with nothing next to it. Capped here it takes its height from the words instead,
+   and tracks the Font Size setting without a second number to keep in step. */
 .stonetop.sheet.character .sheet-header .profile-img {
 	flex: 0 0 auto;
 	max-width: 6.25rem;
-	max-height: 6.25rem;
+	max-height: var(--masthead-line);
 	width: auto;
 	height: auto;
 	object-fit: contain;
@@ -1141,7 +1168,7 @@ body,
      · Foundry's own defaults are WHITE on transparency — d20-grey, item-bag, village,
        mystery-man, which our packs reference 462 times. They vanish on light parchment.
      · Ours are BLACK on transparency: the UI decor, and the book art in stonetop-art/,
-       which is strictly bitonal (one colour, alpha 0 or 255, no anti-aliasing) so it
+       which is strictly bitonal (one color, alpha 0 or 255, no anti-aliasing) so it
        inverts losslessly. It vanishes on dark parchment.
 
    Hence two tokens rather than one. This replaced a slategrey panel painted behind
@@ -1205,7 +1232,7 @@ body,
 .stonetop-stat-roll {
 	border: none;
 	/* The chip straddles the frame's rule so the label is not struck through by it. It is a hole
-	   punched in the line, so it takes the PAPER colour — a raised tone reads as a grey box around
+	   punched in the line, so it takes the PAPER color — a raised tone reads as a grey box around
 	   the word and costs contrast against the ink, which is the opposite of what it is for. */
 	background: var(--st-paper);
 	font-size: var(--fs-note);
@@ -1245,7 +1272,7 @@ body,
 }
 
 /* Where a number came from, said out loud. It was `data-tooltip` only, which is pointer-bound and
-   invisible to assistive tech, so the sheet never actually answered "why is my armour 2?".
+   invisible to assistive tech, so the sheet never actually answered "why is my armor 2?".
 
    It WRAPS. A note cut to "leath…" fails the one thing it is for, and the column below a tile is
    free — height is the axis this rail scrolls on. Clear of the label chip, which hangs half out of
@@ -1354,7 +1381,7 @@ body,
 	margin: 0;
 	white-space: nowrap;
 	/* The chip straddles the frame's rule so the label is not struck through by it. It is a hole
-	   punched in the line, so it takes the PAPER colour — a raised tone reads as a grey box around
+	   punched in the line, so it takes the PAPER color — a raised tone reads as a grey box around
 	   the word and costs contrast against the ink, which is the opposite of what it is for. */
 	background: var(--st-paper);
 	padding: 0 0.3125rem;
@@ -1385,7 +1412,7 @@ body,
 }
 
 /* The frame art is a mask on the ::before overlay, so its sizing lives with the mask. Leaving these
-   as background-size/repeat is what cropped the damage/HP/armour frames: an unsized mask falls back
+   as background-size/repeat is what cropped the damage/HP/armor frames: an unsized mask falls back
    to the image's natural size, anchored top-left and repeating. */
 .stonetop-resource::before {
 	mask-size: 100% 100%;
@@ -1458,7 +1485,7 @@ body,
    The XP track at (or past) the Level Up threshold, and the checklist that hangs under it.
 
    The track's own ready state is the label, not the number: a resource frame's label chip is what
-   the eye lands on, and colouring the digits fights the other four frames in the row for
+   the eye lands on, and coloring the digits fights the other four frames in the row for
    attention. Quiet on purpose — this is a nudge, not an alarm. */
 
 .stonetop-resource--wide.is-full .stonetop-resource__label {
@@ -1775,8 +1802,8 @@ body,
 	z-index: 3;
 }
 
-/* Marked: the whole tick, in the one colour that means "this is live". It was a dark fill inside a
-   red ring — two colours on a 12px circle, which at that size reads as a black dot someone has
+/* Marked: the whole tick, in the one color that means "this is live". It was a dark fill inside a
+   red ring — two colors on a 12px circle, which at that size reads as a black dot someone has
    outlined rather than as a marked condition. The band's name below it takes the same red, so the
    two agree. */
 .stonetop-debility input[type="checkbox"]:checked {
@@ -1806,7 +1833,7 @@ body,
 }
 
 /* Ticked: the name carries the alarm, the same way the steading's conditions do. Only the name is
-   red — a whole sentence of rules text in the danger colour reads as an error message rather than
+   red — a whole sentence of rules text in the danger color reads as an error message rather than
    as what is currently true of this character. */
 .stonetop-debility.is-active .stonetop-debility-label {
 	color: var(--st-danger);
@@ -2445,8 +2472,8 @@ body,
 	line-height: inherit;
 }
 
-/* Hindered: said in colour AND in words. The word is in the DOM for a screen reader
-   (`.stonetop-folded-sr`) because a colour is never the only carrier of anything. */
+/* Hindered: said in color AND in words. The word is in the DOM for a screen reader
+   (`.stonetop-folded-sr`) because a color is never the only carrier of anything. */
 .stonetop.sheet.character .stonetop-folded-stat.is-hindered .stonetop-folded-value {
 	color: var(--st-danger);
 }
@@ -3322,7 +3349,7 @@ button.stonetop-view-toggle.is-active {
 
 /* Every move in the book opens by naming its trigger in emphasis — *When you **_prepare for what's
    coming_**, …* — and that run is the one thing in the paragraph you scan for. It is also exactly
-   the run `MoveGloss` lifts for the shut row's gloss, so the coloured phrase and the gloss are the
+   the run `MoveGloss` lifts for the shut row's gloss, so the colored phrase and the gloss are the
    same words by construction rather than by coincidence.
 
    The nested pair only, `**_…_**` — bold alone marks the result tiers ("On a 10+"), which are a
@@ -4068,7 +4095,7 @@ button.stonetop-view-toggle.is-active {
    The card states three separate facts — the move's name, how the roll landed, what that means —
    and gives each its own line, so none of them has to be read out of a wrapping headline.
 
-   One `--tier-color` per outcome carries the tier colour down to the total, the badge and the result
+   One `--tier-color` per outcome carries the tier color down to the total, the badge and the result
    rule; the tier is named once instead of once per element. */
 
 /* Sized here rather than left to core's chat `h3`, which set a move's name at display size and
@@ -4083,7 +4110,7 @@ button.stonetop-view-toggle.is-active {
 }
 
 .stonetop-roll-line {
-	/* A roll with no 10+/7-9/6- has no tier colour, but it still has a total to state — so the
+	/* A roll with no 10+/7-9/6- has no tier color, but it still has a total to state — so the
 	   fallback is ink, not the soft grey that made the plate read as a disabled badge. ONE plate for
 	   every roll: a season step, a move and an inline [[/r]] differ in what they mean, not in how a
 	   total looks. */
@@ -4150,7 +4177,7 @@ button.stonetop-view-toggle.is-active {
 /* Foundry's own dice, drawn by Foundry's own rules.
    The dice row carries core's `dice-tooltip` class, which is what core scopes its dice display to —
    so the die faces, the min/max tints and the discarded fade all reach these dice without a single
-   value being copied here. Copying them meant three colour literals and a root-absolute asset path,
+   value being copied here. Copying them meant three color literals and a root-absolute asset path,
    both of which the style contracts reject, and both of which would go stale the day core changed.
    Nothing else core scopes to `.dice-tooltip` reaches us: the rules that size and collapse one are
    scoped to `.dice-roll` / `.inline-roll`, which a card is neither.
@@ -5371,7 +5398,7 @@ button.stonetop-xp-toggle {
 	background: none !important;
 	box-shadow: none !important;
 	outline: none !important;
-	/* With the background gone, core's `button:hover` text colour is the only thing left painting
+	/* With the background gone, core's `button:hover` text color is the only thing left painting
 	   these — and our palette resolves it to the sheet's own paper. Today they hold an <img>, which
 	   ignores `color` and hid the fault; the day one becomes a font glyph it would vanish under the
 	   cursor. Same guard, same reason, as `.stonetop-icon-btn`. */
@@ -5826,10 +5853,10 @@ button.stonetop-xp-toggle {
    component, which is what stops "one component, two densities" from quietly becoming two headers
    that drift. Every rating's name is its roll button in both, so rolling from the line needs no
    second code path. */
-/* The season's tint. A custom property rather than a fixed colour: phase 4 sets it per season, and
+/* The season's tint. A custom property rather than a fixed color: phase 4 sets it per season, and
    until then it is the sheet's own accent, so the rule is drawn once and never re-laid-out. */
 /* The four season tints, chosen for the dark parchment and keyed off the season the sheet root
-   carries. The colour is NEVER the only carrier: the season is stated in words on the ledger line
+   carries. The color is NEVER the only carrier: the season is stated in words on the ledger line
    and on the wheel, and the band itself is aria-hidden. */
 /* Both the tint and the GLYPH hang off the one attribute, so an element that says which season it
    is gets the whole of that season's identity by inheritance.
@@ -6275,7 +6302,7 @@ button.stonetop-xp-toggle {
    somebody is about to ask about.
 
    Only the name is red. The effect is a sentence of rules text ("treat Prosperity as if it's 1
-   lower"), and a whole sentence in the danger colour reads as an error message rather than as what
+   lower"), and a whole sentence in the danger color reads as an error message rather than as what
    the steading currently does; full ink at the same weight says "this one is live" without shouting
    a line of prose. The red stays where it is one word and means one thing. */
 .stonetop.sheet.steading .steading-debility.is-active .steading-debility-name,
@@ -6466,7 +6493,7 @@ button.stonetop-xp-toggle {
 /* The conditions are in the book's order and STAY in it. Sorting the marked one to the front meant
    that ticking a circle moved the thing you had just clicked out from under the pointer and shuffled
    the other two past it — for a row of three items whose whole point is that they are always in the
-   same place. Marked is said in colour, which costs no layout.
+   same place. Marked is said in color, which costs no layout.
 
    The arch is the full density's business. At line height there is no size at which the woodcut is a
    woodcut rather than a smudge, and a smudge beside a word reads as clip-art pasted on. The whole
@@ -6632,7 +6659,7 @@ button.stonetop-xp-toggle {
 	letter-spacing: 0;
 }
 
-/* Same split on the line: the name in the alarm colour, its effect in ink. */
+/* Same split on the line: the name in the alarm color, its effect in ink. */
 .stonetop.sheet.steading .steading-line .steading-debility.is-active .steading-debility-name,
 .stonetop.sheet.steading .steading-line .steading-debility.is-active .steading-debility-effect {
 	color: var(--st-ink);
@@ -6998,9 +7025,9 @@ button.stonetop-xp-toggle {
    with the solid rule that closes the rating head above them — the head is the louder statement and
    should stay so. */
 
-/* Derived from the heading divider's own colour, at a third of it: a row's rule and a heading's rule
+/* Derived from the heading divider's own color, at a third of it: a row's rule and a heading's rule
    are the same gesture at two weights, and saying so here is what keeps them related if the decor
-   colour ever moves. At `--st-rule-veil` (25% of a different token) the line was faint enough to
+   color ever moves. At `--st-rule-veil` (25% of a different token) the line was faint enough to
    read as a smudge beside the divider rather than as the quieter member of a pair. */
 .stonetop.sheet.steading .steading-overview-field .steading-attr-row {
 	border-bottom: 1px dotted color-mix(in srgb, var(--st-decor) 32%, transparent);
@@ -7052,7 +7079,7 @@ button.stonetop-xp-toggle {
 	opacity: 0.75;
 }
 
-/* The colour it takes is the house idiom's, at the foot of this sheet; what stays here is the ramp
+/* The color it takes is the house idiom's, at the foot of this sheet; what stays here is the ramp
    that brings it up from faint, which is this control's own idea — a list's add affordance waits
    until you reach for the list. */
 .stonetop.sheet.steading .stonetop-list-add:hover {
@@ -7139,7 +7166,7 @@ button.stonetop-xp-toggle {
    The panel is PAINTED, not printed: the woodcut is a pure-alpha silhouette, so the season's tint is
    laid down as a flat fill and the art cuts it to shape. Same device as the season glyph beside the
    ledger line and the one in the turn panel — the marks that say which season it is all carry the
-   season's colour, and the arch is the largest of them.
+   season's color, and the arch is the largest of them.
 
    The two paths are declared HERE, stylesheet-relative, exactly as the four season glyphs are, and
    for the same reason: a relative url() inside a custom property resolves against the stylesheet
@@ -7183,7 +7210,7 @@ button.stonetop-xp-toggle {
 
 /* Absent gracefully, which now has to be said out loud. A mask image that fails to load does not
    hide its element — it leaves it unmasked — so a world without the art installed would get a solid
-   season-coloured square where the arch was. The broken <img> is the signal for both. */
+   season-colored square where the arch was. The broken <img> is the signal for both. */
 .stonetop.sheet.steading .steading-arch:has(> img.stonetop-broken-img) {
 	display: none;
 }
@@ -8469,7 +8496,7 @@ button.stonetop-xp-toggle {
 }
 
 /* Real toggles: they look like controls because they are, and a pressed one is filled rather than
-   merely tinted — SC 1.4.1, the state is not carried by colour alone. */
+   merely tinted — SC 1.4.1, the state is not carried by color alone. */
 .stonetop.sheet.steading .steading-board-chip {
 	font-size: var(--fs-fine);
 	color: var(--st-ink-soft);
@@ -8486,7 +8513,7 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-accent);
 }
 
-/* The cross-cutting chips, set apart from the three states by a rule rather than a colour: they
+/* The cross-cutting chips, set apart from the three states by a rule rather than a color: they
    answer a different question about the same board, and pressing one alongside a state chip narrows
    on both axes at once. */
 .stonetop.sheet.steading .steading-board-chips--flags {
@@ -8871,7 +8898,7 @@ button.stonetop-xp-toggle {
 }
 
 /* The season's own glyph, masked so it takes the season tint rather than the sheet's art filter —
-   it is saying WHICH season, so it is the one image here that carries colour. */
+   it is saying WHICH season, so it is the one image here that carries color. */
 .stonetop.sheet.steading .steading-turn-glyph {
 	flex: 0 0 auto;
 	width: 1.4rem;
@@ -9206,8 +9233,8 @@ button.stonetop-xp-toggle {
 	filter: var(--st-art-filter);
 	opacity: 0.22;
 	/* Strongest in the corner, gone before it reaches the steps' text.
-	   `currentColor` rather than a colour: a mask reads only the ALPHA channel, so what is wanted
-	   here is "opaque", and naming a colour for it would put a literal in structural CSS for a value
+	   `currentColor` rather than a color: a mask reads only the ALPHA channel, so what is wanted
+	   here is "opaque", and naming a color for it would put a literal in structural CSS for a value
 	   whose hue is never used. */
 	mask-image: radial-gradient(120% 150% at 100% 100%, currentColor 20%, transparent 70%);
 	-webkit-mask-image: radial-gradient(120% 150% at 100% 100%, currentColor 20%, transparent 70%);
@@ -9455,7 +9482,7 @@ button.stonetop-xp-toggle {
 
 /* A move's three results, wherever they are read: the item sheet that AUTHORS them and the season
    box that ROLLS them. Both drew the same authored field and had drawn it twice — a labelled table
-   here, a two-column list of accent-coloured notation there — so they are one component now
+   here, a two-column list of accent-colored notation there — so they are one component now
    (templates/actor/partials/move-result-row.hbs) and one set of rules.
 
    A table, deliberately: the notation runs down one band and the results beside it, so a reader
@@ -9560,9 +9587,9 @@ button.stonetop-xp-toggle {
 
    The three results stay READABLE — the table rolled a 7-9 and the 10+ above it is what they didn't
    get, which is half of what a result means — so this lifts one row rather than hiding two: the
-   rolled row keeps its full colour and takes a stronger band, and the rows it wasn't recede.
+   rolled row keeps its full color and takes a stronger band, and the rows it wasn't recede.
 
-   Never colour alone (WCAG 1.4.1): the band says so in words, under the notation. */
+   Never color alone (WCAG 1.4.1): the band says so in words, under the notation. */
 .stonetop-result-rows:has(.is-rolled) .stonetop-result-row:not(.is-rolled) {
 	opacity: 0.55;
 }
@@ -10084,6 +10111,9 @@ textarea.stonetop-editable__edit { min-height: 0; }
 /* Always-visible choice data-entry boxes. input.type "rich" gets a taller textarea. */
 .stonetop-choice-input { width: 100%; }
 .stonetop-choice-input--rich { min-height: 4.5em; resize: vertical; }
+/* One line to start. Core gives every textarea `min-height: 60px`, and field-sizing only grows a box
+   from its minimum — so without this each blank opened two lines tall, whatever `rows` said. */
+.stonetop-choice-input--inline { min-height: 0; }
 /* A one-line textarea that grows downward as its answer wraps, instead of an <input> that scrolls
    the text out of view sideways with no way to read the tail but to put the caret back in it.
    field-sizing drives the growth; no manual resize handle.
@@ -10367,8 +10397,8 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	flex: 1 1 auto;
 	min-width: 0;
 }
-/* One rem step below the character sheet's --fs-name: the card is half as wide, and the
-   larger size clips descenders and truncates names next to the portrait. */
+/* The same step as the character masthead's name: the card is half as wide, and anything larger
+   clips descenders and truncates names next to the portrait. */
 .stonetop-npc-card .charname {
 	margin: 0;
 	border: none; /* no legacy h1 underline */
@@ -10818,7 +10848,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop-wonder .gear-terms dd { margin: 0 0 0 1.25em; }
 
 /* Core dresses every <dt> for its dark UI (`dl dt`): a black text-shadow, which on parchment smears
-   the term instead of lifting it off a dark ground. The colour goes with it because v13 sets that
+   the term instead of lifting it off a dark ground. The color goes with it because v13 sets that
    shadow under `--color-light-2` — cream on our paper — where v14 uses `--color-text-emphatic`,
    which the journal block above has already re-inked. */
 .stonetop-wonder dl dt { color: inherit; text-shadow: none; }
@@ -11537,7 +11567,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
    it kept the book's small-caps face. The two sat side by side in different fonts.
 
    The <select>'s option list is the other thing the layer cannot reach: the popup is drawn by the
-   browser, which takes its colours from the control rather than from our tokens, so a transparent
+   browser, which takes its colors from the control rather than from our tokens, so a transparent
    background rendered a white menu over a dark sheet.
    ═══════════════════════════════════════════════════════════════════════════════════════════════ */
 
@@ -11621,7 +11651,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 }
 
 /* A rating's name at full density is the heading of the list under it, so it is set as one. Size and
-   colour come from the layered rule; only the FACE has to be repeated out here, because core styles
+   color come from the layered rule; only the FACE has to be repeated out here, because core styles
    every <button> unlayered and a rollable name is a button. */
 .stonetop.sheet.steading [data-density="line"] .steading-stat-roll {
 	font-size: var(--fs-fine);
@@ -11737,7 +11767,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 /* Every <select> on the sheet, not just the tile ones. The size pill's select carries
    `.steading-size-select` and was never in this list, so its popup fell back to the browser's own
    white menu — light text on white — while the ratings beside it drew correctly. A select whose
-   chrome we have removed still opens a menu the browser paints from the control's own colours. */
+   chrome we have removed still opens a menu the browser paints from the control's own colors. */
 .stonetop.sheet.steading .steading-tile-select option,
 .stonetop.sheet.steading .steading-size-select option {
 	background-color: var(--st-paper);
@@ -11750,18 +11780,18 @@ textarea.stonetop-editable__edit { min-height: 0; }
    Core paints `button:hover { color: var(--button-hover-text-color) }`, and both of its theme
    blocks set that token to `--color-light-1`. palette.css repaints that ramp to the book's paper
    and parchment-light.css hands the SAME value to `--st-paper`, so a button whose background we
-   have taken away had its label painted in exactly the colour behind it: Damage, the Outfit tab's
+   have taken away had its label painted in exactly the color behind it: Damage, the Outfit tab's
    add button and the collapse caret all vanished under the pointer. Buttons that happened to
-   declare a colour of their own were spared, which is why the bug read as arbitrary.
+   declare a color of their own were spared, which is why the bug read as arbitrary.
 
    So the treatment is declared once, here, rather than left to each control to remember. A word or
    glyph you can click takes the accent and a rule under it — the book's own idiom for a live word,
-   and two signals rather than one, so it does not rest on colour alone. Icon buttons are the
+   and two signals rather than one, so it does not rest on color alone. Icon buttons are the
    deliberate exception: they ramp opacity (see `.stonetop-icon-btn`), because a glyph has no text
    to underline and is already uniform everywhere.
 
    OUTSIDE `@layer system`, which closes above, and last in the file. Several of these controls take
-   their resting colour from unlayered rules — the folk entries, the folk-list toggle, a rating name
+   their resting color from unlayered rules — the folk entries, the folk-list toggle, a rating name
    at line density — and a layered hover rule loses to an unlayered resting one however specific it
    is. Each selector keeps the ancestry it was written with, so it still outranks its own resting
    rule; nothing here is more specific than it has to be, which is what leaves `.is-used` above free
@@ -11796,7 +11826,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 
 /* A glyph riding inside one of these carries its own faint ink, so it does not inherit the accent
    the way the words around it do. Named here beside the rule that lights their parent, rather than
-   left next to each glyph's own resting colour, where the pairing was invisible. */
+   left next to each glyph's own resting color, where the pairing was invisible. */
 .stonetop.sheet.steading .steading-stat-roll:hover .steading-roll-die,
 .stonetop.sheet.steading .steading-folk-list-toggle:hover .steading-folk-list-caret {
 	color: var(--st-accent);
@@ -11816,7 +11846,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 
 /* No blanket `--button-hover-text-color` override sits here, deliberately. Core's token is only
    ever wrong where WE have taken the background away, and no selector can ask that — the buttons
-   that keep core's chrome pair a sepia fill with paper-coloured text, which is correct, and
+   that keep core's chrome pair a sepia fill with paper-colored text, which is correct, and
    neutralising the token for them would put ink on sepia at 2.7:1. The guard against a new control
    arriving with an invisible label is hover-idiom-render.test.js, which sweeps every button class
    the templates emit rather than the ones anybody remembered to list. */

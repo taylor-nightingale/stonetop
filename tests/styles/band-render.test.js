@@ -147,9 +147,12 @@ const TARGETS = {
 	hpLabel: `${V} .stonetop-vital:nth-child(1) .stonetop-resource__label`,
 	armorLabel: `${V} .stonetop-vital:nth-child(2) .stonetop-resource__label`,
 	damageLabel: `${V} .stonetop-vital:nth-child(3) .stonetop-resource__label`,
-	hpNote: `${V} .stonetop-vital:nth-child(1) .stonetop-resource__note`,
-	armorNote: `${V} .stonetop-vital:nth-child(2) .stonetop-resource__note`,
-	damageNote: `${V} .stonetop-vital:nth-child(3) .stonetop-resource__note`,
+	// The provenance sentences, which are in the DOM and drawn nowhere: the printed notes under each
+	// tile cost the band 32px and the hover they duplicated was pointer-only, so the sentence now
+	// reaches assistive tech through aria-describedby instead. See actor-attributes.hbs.
+	hpSource: `${V} .stonetop-vital:nth-child(1) .stonetop-visually-hidden`,
+	armorSource: `${V} .stonetop-vital:nth-child(2) .stonetop-visually-hidden`,
+	damageSource: `${V} .stonetop-vital:nth-child(3) .stonetop-visually-hidden`,
 	hpCurrent: ".stonetop-char-hp", hpMax: ".stonetop-char-max-hp",
 
 	rail: ".stonetop-rail", xp: ".stonetop-char-xp", railLevel: ".stonetop-char-level",
@@ -309,20 +312,24 @@ describe.skipIf(!canProbe())("the top band", () => {
 		}
 	});
 
-	// ── The notes ───────────────────────────────────────────────────────────────────
-	// The note goes BELOW the frame. Inside it, the label chip straddling the bottom rule would be
-	// drawn straight over it — which is exactly why the tile has a wrapper.
-	it("puts each note below its frame, clear of the label chip", () => {
-		for (const [note, tile] of [["hpNote", "hp"], ["armorNote", "armor"], ["damageNote", "damage"]])
-			expect(el(note).boxTop, `${note} rides its frame`)
-				.toBeGreaterThanOrEqual(el(tile).boxTop + el(tile).boxHeight - 1);
+	// ── The provenance ──────────────────────────────────────────────────────────────
+	// It is carried and drawn nowhere. A printed note under each tile cost this row 32px and said
+	// the short form of what the label's hover already said in full — but the hover binds pointer
+	// events only, so removing the note without a replacement would have taken the sentence away
+	// from assistive tech entirely. The span is in the DOM, named by aria-describedby, and takes no
+	// space: this is the assertion that it is BOTH present and invisible.
+	it("carries each provenance sentence without drawing it", () => {
+		for (const name of ["hpSource", "armorSource", "damageSource"]) {
+			expect(m.get(name).missing, `${name} is not in the DOM`).toBe(false);
+			expect(el(name).boxHeight, `${name} takes up space`).toBeLessThanOrEqual(1);
+			expect(el(name).boxWidth, `${name} takes up space`).toBeLessThanOrEqual(1);
+		}
 	});
 
-	it("crops no note", () => {
-		for (const name of ["hpNote", "armorNote", "damageNote"]) {
-			expect(m.get(name).overflowY, `${name} is cropped vertically`).toBe(0);
-			expect(m.get(name).overflowX, `${name} is cropped horizontally`).toBe(0);
-		}
+	it("leaves nothing below the vitals frames", () => {
+		for (const tile of ["hp", "armor", "damage"])
+			expect(el("vitalsRow").boxTop + el("vitalsRow").boxHeight, `${tile} has a note under it`)
+				.toBeLessThanOrEqual(el(tile).boxTop + el(tile).boxHeight + 2);
 	});
 
 	// ── The debility's effect ───────────────────────────────────────────────────────
@@ -431,9 +438,9 @@ describe.skipIf(!canProbe())("the top band", () => {
 	// numbers, so the one control on this line cannot land on the frames' notes however narrow the
 	// sheet gets. In the picture's column it overflowed that column at 760px and closed on the notes
 	// at the sheet's floor.
-	it("keeps the mode below the frames' notes rather than beside them", () => {
-		expect(el("mode").boxTop, "the mode rides the notes")
-			.toBeGreaterThanOrEqual(el("hpNote").boxTop + el("hpNote").boxHeight - 1);
+	it("keeps the mode below the frames rather than beside them", () => {
+		expect(el("mode").boxTop, "the mode rides the frames")
+			.toBeGreaterThanOrEqual(el("hp").boxTop + el("hp").boxHeight - 1);
 	});
 
 	// It hangs into the gap above the tabs, which is empty — but the tabs themselves are a row of
@@ -511,8 +518,8 @@ describe.skipIf(!canProbe())("the band at the sheet's own minimum width", () => 
 			.toBeGreaterThanOrEqual(v("bandBox").boxLeft - 1);
 		expect(v("toggle").boxLeft, "the mode runs under the fold toggle")
 			.toBeGreaterThanOrEqual(right(v("mode")));
-		expect(v("mode").boxTop, "the mode rides the frames' notes at the floor")
-			.toBeGreaterThanOrEqual(v("hpNote").boxTop + v("hpNote").boxHeight - 1);
+		expect(v("mode").boxTop, "the mode rides the frames at the floor")
+			.toBeGreaterThanOrEqual(v("hp").boxTop + v("hp").boxHeight - 1);
 		// The stats row is NOT asked to clear the fold control any more: the control is the last item
 		// of the foot, below the band's contents rather than in a column beside them, so the row is
 		// free to run the full width — which is why the band stopped reserving 2rem of its right edge.

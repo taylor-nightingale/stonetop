@@ -308,7 +308,7 @@ function stubConfirm(answer) {
 }
 
 describe("the season, wherever the ratings are", () => {
-	// The band takes its tint from one attribute on the sheet root, so a season with no colour still
+	// The band takes its tint from one attribute on the sheet root, so a season with no color still
 	// renders and nothing has to run to keep the two in step.
 	it("stamps the season on the sheet root for the band to tint from", async () => {
 		const root = await render(await makeSheet({ season: "autumn" }));
@@ -316,7 +316,7 @@ describe("the season, wherever the ratings are", () => {
 		expect(root.querySelector(".steading-season-band")).not.toBeNull();
 	});
 
-	// Colour is never the only carrier: the season is also written out on the ledger line.
+	// color is never the only carrier: the season is also written out on the ledger line.
 	it("states the season as text on the ledger line, not only as a tint", async () => {
 		const root = await render(await makeSheet({ season: "winter", year: 3 }));
 		expect(root.querySelector(".steading-season-line").textContent).toContain("winter");

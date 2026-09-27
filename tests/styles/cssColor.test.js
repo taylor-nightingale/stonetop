@@ -34,7 +34,7 @@ describe("CssColor.parse", () => {
 		expect(rgb("hsl(30deg 0% 50%)")).toEqual([128, 128, 128]);
 	});
 
-	it("reads the named colours the themes use", () => {
+	it("reads the named colors the themes use", () => {
 		expect(rgb("slategrey")).toEqual([112, 128, 144]);
 		expect(rgb("lightslategrey")).toEqual([119, 136, 153]);
 		expect(rgb("white")).toEqual([255, 255, 255]);
@@ -46,7 +46,7 @@ describe("CssColor.parse", () => {
 		expect(rgb("hsl(32deg 88% 33%);  /* darkened to clear AA */")).toEqual(rgb("hsl(32deg 88% 33%)"));
 	});
 
-	// getComputedStyle always reports colours this way, so the render probe depends on it.
+	// getComputedStyle always reports colors this way, so the render probe depends on it.
 	describe("computed rgb()", () => {
 		it("reads comma and space separated rgb()", () => {
 			expect(rgb("rgb(26, 26, 26)")).toEqual([26, 26, 26]);
@@ -87,12 +87,12 @@ describe("CssColor.parse", () => {
 	});
 
 	describe("compositing", () => {
-		it("blends a translucent colour over a backdrop", () => {
+		it("blends a translucent color over a backdrop", () => {
 			const half = CssColor.parse("rgba(0, 0, 0, 0.5)");
 			expect(rgbOf(half.over(CssColor.parse("#fff")))).toEqual([128, 128, 128]);
 		});
 
-		it("returns an opaque colour unchanged", () => {
+		it("returns an opaque color unchanged", () => {
 			const solid = CssColor.parse("rgb(10, 20, 30)");
 			expect(rgbOf(solid.over(CssColor.parse("#fff")))).toEqual([10, 20, 30]);
 		});
@@ -125,7 +125,7 @@ describe("CssColor contrast", () => {
 		expect(black.contrastWith(white)).toBeCloseTo(white.contrastWith(black), 10);
 	});
 
-	it("gives 1 for a colour against itself", () => {
+	it("gives 1 for a color against itself", () => {
 		expect(white.contrastWith(white)).toBeCloseTo(1, 10);
 	});
 

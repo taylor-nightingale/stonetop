@@ -54,7 +54,7 @@ export class ImprovementProgress {
 	 *
 	 * ONE reason, the strongest: a card that is owed something is owed something whether or not it
 	 * also fires this season, and three badges on one row would be a wall of its own. Stated as a
-	 * word rather than a colour or a dot, because a marker whose meaning has to be learned is not a
+	 * word rather than a color or a dot, because a marker whose meaning has to be learned is not a
 	 * marker.
 	 *
 	 * Nothing here re-orders the board. The card that becomes owed is the card someone just ticked

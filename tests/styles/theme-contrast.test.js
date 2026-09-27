@@ -16,7 +16,7 @@ const PALETTE = path.join(THEMES_DIR, "palette.css");
 const AA_TEXT = 4.5;
 const AA_LARGE = 3.0;
 
-// palette.css names the colours; the parchment-*.css files only say which ramp each role reads. So a
+// palette.css names the colors; the parchment-*.css files only say which ramp each role reads. So a
 // role has to be resolved through the palette before it can be measured.
 const declutter = file => readFileSync(file, "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
 

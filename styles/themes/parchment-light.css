@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
    Parchment Light — Stonetop's names for Foundry's light theme.
 
-   The colours themselves live in styles/palette.css, which repaints Foundry's 22 base ramps. This
-   file only says which ramp each Stonetop role reads, so there is exactly one source of colour
+   The colors themselves live in styles/palette.css, which repaints Foundry's 22 base ramps. This
+   file only says which ramp each Stonetop role reads, so there is exactly one source of color
    truth and our sheets can never drift from the chrome around them.
 
    Selected by Foundry's own Color Scheme setting, which puts `theme-light` on <body>.
@@ -37,7 +37,7 @@
 		--st-chip-fill: var(--color-dark-1);
 		--st-chip-ink:  var(--color-light-1);
 
-		/* Colour the sheet's decorative art is painted in. The PNGs are black on transparency
+		/* color the sheet's decorative art is painted in. The PNGs are black on transparency
 		   and are used as a MASK, not an image, so the frame takes the theme's ink instead of
 		   staying black on dark paper. */
 		--st-decor: var(--color-dark-2);

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Foundry serves .html from a system folder as text/plain (it will not execute user-writable
+     HTML), so this page is opened from Foundry's own origin by writing it into a page already on
+     that origin. The base tag is what makes every relative path still resolve. -->
+<base href="http://localhost:30003/systems/stonetop/scripts/development/redesign-mock/">
+<title>Stonetop — the carded sheet</title>
+
+<!-- The cascade order the app declares. redesign.css is deliberately NOT in a layer, so it outranks
+     everything in @layer system without needing a single !important. -->
+<style>@layer reset, variables, elements, blocks, applications, compatibility, layouts, system, modules, exceptions;</style>
+<link rel="stylesheet" href="/css/foundry2.css">
+<!-- Font Awesome: the app @imports it into layer(variables) from an inline style, so a page that
+     only links foundry2.css gets zero-width icon buttons. -->
+<link rel="stylesheet" href="/fonts/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="/systems/stonetop/styles/themes/palette.css">
+<link rel="stylesheet" href="/systems/stonetop/styles/themes/parchment-light.css">
+<link rel="stylesheet" href="/systems/stonetop/styles/themes/parchment-dark.css">
+<link rel="stylesheet" href="/systems/stonetop/styles/tokens.css">
+<link rel="stylesheet" href="/systems/stonetop/styles/stonetop.css">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="redesign.css">
+</head>
+<body class="vtt game system-stonetop theme-light">
+<div id="deck"><p class="loading">loading Maelen…</p></div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

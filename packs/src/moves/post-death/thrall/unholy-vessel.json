@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": null,
-    "description": "When you would gain a Mark but there are none left to gain, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.",
+    "description": "When **_you would gain a Mark but there are none left to gain_**, your humanity is utterly lost. You become a threat in the GM's control. Make a new character.",
     "rollStat": null,
     "slug": "unholy-vessel"
   },

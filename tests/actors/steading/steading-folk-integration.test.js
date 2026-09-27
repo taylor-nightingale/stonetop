@@ -512,9 +512,9 @@ describe("requisitioned assets (integration)", () => {
 		expect(assetRows(root)[1].classList.contains("is-requisitioned")).toBe(false);
 	});
 
-	// Stated in words on the row, not by a colour or a tick alone — the render harness resolves a
+	// Stated in words on the row, not by a color or a tick alone — the render harness resolves a
 	// key-only localize to its key, so these are the two distinct strings the sheet asks for.
-	it("marks the row's own state in words, not by colour alone", async () => {
+	it("marks the row's own state in words, not by color alone", async () => {
 		const sheet = makeSheet();
 		await sheet.actor.typedActor.setAssetRequisitioned(0, true);
 		const root = await render(sheet, true);

@@ -52,8 +52,9 @@ const invocationsInsert = (chosen = []) => new TestInsertItemBuilder()
 	.build();
 
 function makeAdvancement({ level = 1, xp = 0, items = [], moves = new FakeMoves(),
-                          steps, description } = {}) {
-	const actor  = new FakeCharacterActorBuilder().withLevel(level).withXp(xp, 8).withItems(items).build();
+                          steps, description, background = "" } = {}) {
+	const actor  = new FakeCharacterActorBuilder().withLevel(level).withXp(xp, 8).withItems(items)
+		.withBackground(background).build();
 	const vitals = new CharacterVitals(actor);
 	const possessions = new CharacterPossessions(
 		actor, moves, null, new ChoiceGroupControllerFactory(actor), null);
@@ -246,6 +247,27 @@ describe("CharacterAdvancement.chosenMoveCount", () => {
 			.withAcquiredMove("grave-cold",     "insert-revenant");
 		const { advancement } = makeAdvancement({ items: [insert], moves });
 		expect(advancement.chosenMoveCount).toBe(1);
+	});
+
+	// The Seeker's Antiquarian "start[s] with the Polyglot move" — a playbook move, filed under the
+	// playbook's category like any bought one, so only the background can say it was handed over.
+	it("does not count the move the chosen background handed over", async () => {
+		const seeker = new TestPlaybookItemBuilder()
+			.withSlug("the-seeker")
+			.withStartingMoves(["well-versed"])
+			.withBackgrounds([
+				{ slug: "antiquarian", moves: ["polyglot"] },
+				{ slug: "patriot",     moves: ["lets-make-a-deal"] },
+			])
+			.build();
+		const moves = new FakeMoves()
+			.withAcquiredMove("well-versed",      "playbook-the-seeker")
+			.withAcquiredMove("polyglot",         "playbook-the-seeker")
+			.withAcquiredMove("lets-make-a-deal", "playbook-the-seeker")
+			.withAcquiredMove("cryptologist",     "playbook-the-seeker");
+		const { advancement } = makeAdvancement({ items: [seeker], moves, background: "antiquarian" });
+		// Cryptologist, and Let's Make a Deal — the background NOT chosen gave nothing away.
+		expect(advancement.chosenMoveCount).toBe(2);
 	});
 
 	it("ignores moves that were never a level's purchase", async () => {

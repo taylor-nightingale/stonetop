@@ -12,3 +12,5 @@
 * bug: the check boxes get split sometimes
 * feature collapse names sidebar on folks screen
 * feature Instead of blank, default to stonetop for folk
+* make adding an outfit item pull up the outfit item sheet, not a different modal.
+* fix well-versed to be able to pick topics automatically from your background, bold Well Versed in the backgrounds to show it is granted

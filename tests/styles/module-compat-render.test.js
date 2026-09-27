@@ -19,7 +19,7 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
  *
  * So the claim measured here is not "our styling wins". It is narrower, and it is the only thing
  * worth defending: a mark we paint survives with its geometry intact, while everything a module
- * might legitimately want — colour included — is left alone.
+ * might legitimately want — color included — is left alone.
  */
 const STYLES = path.resolve(process.cwd(), "styles");
 const sheet = f => path.join(STYLES, f);
@@ -145,7 +145,7 @@ describe.skipIf(!canProbe())("a mark the sheet paints itself, under an unlayered
 	});
 
 	// The other half of the bargain: everything that is not load-bearing stays the module's to set.
-	it("lets the module recolour a mark and set its horizontal margin", () => {
+	it("lets the module recolor a mark and set its horizontal margin", () => {
 		expect(reset.get("move").get("min-width")).toBe("0px");
 		expect(reset.get("diamond").get("border-top-color")).toBe(plain.get("diamond").get("border-top-color"));
 	});

@@ -98,7 +98,7 @@ const bottom = el => el.values.boxTop + el.values.boxHeight;
  * from font metrics and carry about that much slop — the same reason RenderProbe rounds overflow
  * below 2px away. The controls sit 0.7px above the centre of a 17.5px line box, which is to say on
  * it; what the tighter tolerance actually measured was whether the webfont had finished loading
- * before the probe read the page, and it decided this file's colour at random until it stopped
+ * before the probe read the page, and it decided this file's color at random until it stopped
  * being a race.
  */
 const expectCentredOn = (control, firstLine, message) =>

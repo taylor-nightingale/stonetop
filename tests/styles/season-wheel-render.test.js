@@ -111,7 +111,7 @@ describe.skipIf(!canProbe())("the season wheel", () => {
 	}
 
 	// The tint is the segment's, and the word is what the segment is sized by: a name narrower than
-	// the tint it sits on would leave a dead strip of colour beside it.
+	// the tint it sits on would leave a dead strip of color beside it.
 	it("fills each segment with the word that names it", () => {
 		const m = measureAt(16);
 		for (const [i, name] of SEASONS.entries()) {

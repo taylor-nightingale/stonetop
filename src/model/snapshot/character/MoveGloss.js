@@ -45,7 +45,8 @@ const EMPHASIS = new RegExp([
 
 // A move's result tiers are emphasised exactly as its trigger is, so a move that emphasises only its
 // tiers would otherwise be glossed "on a 10+" — which labels the row with the wrong half of the move.
-const TIER = /^on a \d+\s*[-+]/i;
+// The en dash too: the post-death moves write "on a 7–9" and "on a 6–".
+const TIER = /^on a \d+\s*[-+–]/i;
 
 function firstEmphasis(html) {
 	for (const match of html.matchAll(EMPHASIS)) {
