@@ -14,24 +14,18 @@ So: open `languages/compendium/de/steadfasts.json`, find `"stonetop"`, find
 `"neighborPlaces/other/subtitle"` inside it, and edit its `"text"`. Leave `"source"` alone —
 it is regenerated, and it is there to show you what the German is meant to say.
 
-- **3** entries where the English changed under an existing translation
-- **0** flagged earlier and still awaiting a revision
-- **42** translations whose row was restructured and need re-filing
-- **289** interface strings with no translation yet, listed at the end
+- **0** entries where the English changed under an existing translation
+- **4** flagged earlier and still awaiting a revision
+- **7** translations whose row was restructured and need re-filing
+- **84** interface strings with no translation yet, listed at the end
 
 ## moves.json
 
 ### `moves.json` › `"deaths-door"` › `"name"`
 
-The English changed after this was translated.
+Flagged for review earlier; the English has not changed since.
 
-Was:
-
-```
-Deaths Door
-```
-
-Now:
+English:
 
 ```
 Death's Door
@@ -45,19 +39,9 @@ An der Schwelle des Todes
 
 ### `moves.json` › `"deaths-door"` › `"description"`
 
-The English changed after this was translated.
+Flagged for review earlier; the English has not changed since.
 
-Was:
-
-```
-When you **_are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:
-
-- Make one last move as if you rolled a 12+, then step through the Last Door
-- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert
-- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert
-```
-
-Now:
+English:
 
 ```
 When **_you are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:
@@ -73,29 +57,15 @@ Your German:
 Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:
 
 - Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.
-- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Beilage} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Beilage}.
-- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Beilage}.
+- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.
+- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}.
 ```
 
 ### `moves.json` › `"strengthen-your-bond"` › `"description"`
 
-The English changed after this was translated.
+Flagged for review earlier; the English has not changed since.
 
-Was:
-
-```
-When you **_pay your followers cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).
-
-Spend your followers Loyalty 1-for-1 to have them:
-
-- Overcome their fear to do as you say
-- Resist acting on their instinct/tags/traits
-- Do something they don't want to do (so long as it's not abhorent or suicidal)
-
-When a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.
-```
-
-Now:
+English:
 
 ```
 When you **_pay your follower's cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).
@@ -121,502 +91,22 @@ Gib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:
 - etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist).
 ```
 
-## steading-improvements.json
+### `moves.json` › `"tethered"` › `"description"`
 
-### `steading-improvements.json` › `"aurochs-hunting"` › `"choices/7/text"`
+Flagged for review earlier; the English has not changed since.
 
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
+English:
+
+```
+When you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.
+```
 
 Your German:
 
 ```
-Wenn du **_die Voraussetzungen erfüllst_**, füge „Auerochsenjagd (Fleisch, Fell, Horn)“ zur Ressourcenliste hinzu.
+Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw.
 
-Von nun an gilt: Wenn du **_im Frühling die Auerochsenjagd anführst_**, würfle +Verteidigung. **Bei einer 10+** erhältst du 1W4 Überschuss. **Bei 7–9** erhältst du 1W4 Überschuss, aber wähle eines aus der folgenden Liste. **Bei einer 6-** wählst du eines aus der Liste – oder zwei und erhältst 1W4 Überschuss.
-
-- 1W4 Pferde des Dorfes werden lahm oder getötet.
-- Eine Reihe von Einheimischen wird verletzt. Markiere bei der Siedlung Geschwächt (Nachteil auf Truppen einsetzen, Truppen aufbieten oder Gemeinsam anpacken).
-- Der SL wählt einen bei der Jagd anwesenden NSC. Er wird getötet.
-- Das Hügelvolk fühlt sich auf irgendeine Weise beleidigt.
-- Die Herde ist geschwächt. Wenn du im nächsten Jahr jagst, wird sie vollständig ausgelöscht.
-```
-
-The keys it was split into:
-
-- `"effects/add-aurochs-hunting-meat-hide-horn/text"` — "add \"Aurochs hunting (meat, hide, horn)\" to the Resources list"
-- `"effects/add-aurochs-hunting-meat-hide-horn/listEntry/text"` — "Aurochs hunting (meat, hide, horn)"
-- `moves.json` › `"lead-the-aurochs-hunt"` › `"name"` — "Lead the Aurochs Hunt"
-- `moves.json` › `"lead-the-aurochs-hunt"` › `"moveResults/success/value"` — "Gain 1d4 Surplus."
-
-### `steading-improvements.json` › `"expanded-trades"` › `"choices/12/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Wohlstand um 1. Wenn du **_die Voraussetzungen nicht mehr erfüllst_**, verringere Wohlstand um 1.
-```
-
-The keys it was split into:
-
-- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/increase-prosperity-by-1/text"` — "increase Prosperity by 1"
-
-### `steading-improvements.json` › `"golden-sapling"` › `"choices/4/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, füge „Goldener Setzling“ zur Ressourcenliste hinzu und markiere automatisch die Verbesserung „Reichere Ernte“.
-```
-
-The keys it was split into:
-
-- `"effects/add-golden-sapling-to-the-resources/text"` — "add \"Golden Sapling\" to the Resources list"
-- `"effects/automatically-mark-the-greater-harvest-improvement/text"` — "automatically mark the Greater Harvest improvement"
-
-### `steading-improvements.json` › `"golden-sapling"` › `"choices/5/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Von nun an erzeugt die Siedlung jedes Mal, wenn sie Überschuss erwirtschaftet, +1 Überschuss (selbst wenn es nur 1 Überschuss ist).
-```
-
-The keys it was split into:
-
-- `"effects/it-generates-1-surplus/text"` — "it generates +1 Surplus"
-- `"effects/it-generates-1-surplus/when/phrase"` — "when **_the steading generates Surplus, even just 1_**"
-
-### `steading-improvements.json` › `"great-wood-timber"` › `"choices/5/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_alle Voraussetzungen erfüllt hast_**, erhöhe Schicksal um 1 und füge „Holz aus dem Großen Wald“ zur Ressourcenliste hinzu.
-```
-
-The keys it was split into:
-
-- `"effects/add-timber-from-the-great-wood/text"` — "add \"Timber from the Great Wood\" to the Resources list"
-- `"effects/add-timber-from-the-great-wood/listEntry/text"` — "Timber from the Great Wood"
-
-### `steading-improvements.json` › `"great-wood-timber"` › `"choices/6/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Von nun an verfügt die Siedlung über eine zuverlässige Versorgung mit Bauholz für Verbesserungen und andere Projekte und verbraucht in jedem Winter 1 Überschuss weniger.
-```
-
-The keys it was split into:
-
-- `"effects/the-steading-has-a-ready-supply/text"` — "the steading has a ready supply of timber for improvements and other projects"
-- `"effects/the-steading-consumes-1-less-surplus/when/phrase"` — "**_every winter_**"
-
-### `steading-improvements.json` › `"greater-harvest"` › `"choices/4/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**,, erhöhe Schicksal um 1. Sobald **_die Herbsternte abgeschlossen ist_**, erzeugt die Siedlung +1W4 Überschuss.
-```
-
-The keys it was split into:
-
-- `"effects/gain-1d4-surplus/text"` — "gain +1d4 Surplus"
-- `"effects/gain-1d4-surplus/when/phrase"` — "when **_the autumn harvest is complete_**"  ← also fills 2 other entries
-
-### `steading-improvements.json` › `"harnessing-the-stream"` › `"choices/4/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, füge die entsprechende Anlage der Ressourcenliste hinzu und erhöhe Schicksal um 1.
-
-Von nun an gilt: Wenn **_der Frühling anbricht und du mit Schicksal eine 7+ würfelst_**, erzeugt die Siedlung 1 Überschuss.
-```
-
-The keys it was split into:
-
-- `"effects/add-them-to-the-resources-list/text"` — "add them to the Resources list"
-- `"effects/the-steading-generates-1-surplus/text"` — "the steading generates 1 Surplus"  ← also fills 1 other entry
-- `"effects/the-steading-generates-1-surplus/when/phrase"` — "when **_spring breaks forth and you roll a 7+ with Fortunes_**"
-
-### `steading-improvements.json` › `"herd-of-horses"` › `"choices/10/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und ersetze „Ein Paar kräftige Zugpferde“ auf der Liste der Besitztümer durch „Eine Pferdeherde“. Notiere dir ihre Größe. Von nun an gilt:
-
-Wenn du die **_Pferde einsetzt, um gemeinsam anzupacken_**, dauert es nur noch halb so lange und kostet nur noch halb so viel. Wenn du **_höchstens die Hälfte der Herde anforderst_**, behandle eine 6- als 7–9.
-
-Wenn **_der Sommer beginnt_**, werden alle Jährlinge zu Pferden (Wert 3, sobald sie ausgebildet sind), alle Fohlen zu Jährlingen (Wert 2), und die Herde bekommt Fohlen (Wert 1) in einer Anzahl von 1W4 + Schicksal (min. 0).
-
-Wenn **_der Winter das Land fest im Griff hat_**, verbraucht die Herde 1 Überschuss je 6 ausgewachsene Pferde oder Jährlinge. Für jeden Überschuss, der nicht verbraucht wird, gehen 1W6 Pferde verloren.
-```
-
-The keys it was split into:
-
-- `"effects/replace-a-pair-of-sturdy-draft/text"` — "replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size"
-- `"effects/it-takes-half-as-long-and/text"` — "it takes half as long and costs half as much"
-- `"effects/treat-a-6-as-a-7/text"` — "treat a 6- as a 7-9"
-- `"effects/any-yearlings-become-horses-value-3/text"` — "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)"
-- `"effects/it-takes-half-as-long-and/when/phrase"` — "when **_you leverage the horses to Pull Together_**"
-- `"effects/treat-a-6-as-a-7/when/phrase"` — "when **_you Requisition half the herd or less_**"
-- `"effects/any-yearlings-become-horses-value-3/when/phrase"` — "when **_the seasons change to summer_**"
-- `"effects/the-herd-consumes-1-surplus-per/when/phrase"` — "when **_winter grips the land_**"  ← also fills 2 other entries
-
-### `steading-improvements.json` › `"heroic-reputation"` › `"choices/8/text"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhältst du den folgenden Spielzug:
-
-Wenn du zum ersten Mal jemandem von außerhalb Stonetops begegnest, würfle +Schicksal. **Bei einer 10+** sagst du, was sie über dich oder Stonetop gehört hat, und du erhältst einen Vorteil auf deinen nächsten Spielzug gegen sie. **Bei 7–9** sagst du, was sie gehört hat. **Bei einer 6-** entscheidet der SL, was sie gehört hat.
-```
-
-### `steading-improvements.json` › `"inn"` › `"choices/7/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1. Gib dem Gasthaus einen Namen füge es zur Ressourcenliste hinzu und zeichne es auf der Karte ein.
-
-Von nun an gilt: Wenn die Jahreszeit wechselt, würfelt die Person, die am freundlichsten ist, +Schicksal: **Bei einer 10+** stelle dem SL drei Fragen über die weite Welt. **Bei 7–9** stelle eine Frage. **Bei einer 6-** stelle eine Frage, aber der SL beschreibt Schwierigkeiten, die auf das Gasthaus oder seine Gäste zurückzuführen sind.
-
-Einmal pro Jahreszeit, wenn du **_1 Überschuss ausgibst und die Leute im Gasthaus zusammenbringst_** (um zu reden, zu feiern, sich zu erholen), streiche eine Beeinträchtigung der Siedlung.
-```
-
-The keys it was split into:
-
-- `"effects/name-the-inn-add-it-to/text"` — "name the inn, add it to both the Resources list and map"
-- `"effects/clear-one-of-the-steadings-debilities/text"` — "clear one of the steading's debilities"
-- `"effects/clear-one-of-the-steadings-debilities/when/phrase"` — "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**"
-- `moves.json` › `"news-at-the-inn"` › `"description"` — "When **_the seasons change_**, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests."
-- `moves.json` › `"news-at-the-inn"` › `"moveResults/failure/value"` — "Ask 1 question, but the GM describes some trouble that stems from the inn or its guests."
-
-### `steading-improvements.json` › `"market"` › `"choices/8/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe den Wohlstand um 1. Wenn du **_die Voraussetzungen nicht mehr erfüllst_**, verringere den Wohlstand um 1.
-
-Wenn die Jahreszeiten zu Frühling, Sommer oder Herbst wechseln, der Marktplatz aktiv ist und die Bevölkerung mindestens +1 beträgt, erzeugt der Marktplatz 1 Überschuss.
-```
-
-The keys it was split into:
-
-- `"effects/the-market-generates-1-surplus/text"` — "the market generates 1 Surplus"
-- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/increase-prosperity-by-1/text"` — "increase Prosperity by 1"
-
-### `steading-improvements.json` › `"mill"` › `"choices/7/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1, füge „Mühle“ zur Ressourcenliste hinzu und zeichne sie auf der Karte ein.
-
-Von nun an erzeugt die Siedlung nach Abschluss der Herbsternte +1 Überschuss. Außerdem haben alle Vorräte eine zusätzliche Anwendung, wenn du dich in Stonetop ausrüstest oder wenn du hast, was du brauchst.
-```
-
-The keys it was split into:
-
-- `"effects/add-mill-to-the-resources-list/text"` — "add \"Mill\" to the Resources list and draw it on the map"
-- `"effects/the-steading-generates-1-surplus/text"` — "the steading generates +1 Surplus"  ← also fills 1 other entry
-- `"effects/each-of-supplies-has-1-extra/text"` — "each of supplies has 1 extra use"
-- `"effects/the-steading-generates-1-surplus/when/phrase"` — "when **_the autumn harvest is complete_**"  ← also fills 2 other entries
-- `"effects/each-of-supplies-has-1-extra/when/phrase"` — "when **_you Outfit from Stonetop or Have What You Need after doing so_**"  ← also fills 1 other entry
-
-### `steading-improvements.json` › `"palisade"` › `"choices/6/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, steigt Schicksal um 1. Füge „Palisade“ zur Liste der Befestigungen hinzu und zeichne sie auf der Karte ein.
-
-Von nun an hast du einen Vorteil auf Aufgebot, wenn du die Palisade zu deinem Vorteil nutzt.
-```
-
-The keys it was split into:
-
-- `"effects/add-palisade-to-the-fortifications-list/text"` — "add \"Palisade\" to the Fortifications list and draw it on the map"
-- `"effects/you-have-advantage-to-deploy/text"` — "you have advantage to Deploy"  ← also fills 1 other entry
-- `"effects/you-have-advantage-to-deploy/when/phrase"` — "when **_you take advantage of the palisade_**"
-- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
-
-### `steading-improvements.json` › `"permanent-logging-camp"` › `"choices/8/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_alle Voraussetzungen erfüllst_**, füge „Abholzung: Bauholz, Holz“ zur Ressourcenliste hinzu und erhöhe Schicksal um 1.
-```
-
-The keys it was split into:
-
-- `"effects/add-logging-timber-wood-to-the/text"` — "add \"Logging: timber, wood\" to the Resources list"
-- `"effects/add-logging-timber-wood-to-the/listEntry/text"` — "Logging: timber, wood"
-
-### `steading-improvements.json` › `"permanent-logging-camp"` › `"choices/9/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Solange das Holzfällerlager in Betrieb ist, verfügt die Siedlung fortan über einen ständigen Vorrat an Bauholz für Verbesserungen und andere Projekte und verbraucht im Winter 1 Überschuss weniger als üblich. Allerdings verbraucht das Holzfällerlager jeden Sommer 1 Überschuss, andernfalls stellt es den Betrieb ein.
-```
-
-The keys it was split into:
-
-- `"effects/the-logging-camp-consumes-1-surplus/when/phrase"` — "**_every summer_**"
-- `steading-improvements.json` › `"great-wood-timber"` › `"effects/the-steading-has-a-ready-supply/text"` — "the steading has a ready supply of timber for improvements and other projects"
-
-### `steading-improvements.json` › `"raincatching"` › `"choices/5/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und füge „Regenauffangsystem“ zur Ressourcenliste hinzu.
-
-Von nun an gilt: Wenn **_der Sommer kommt und du mit Schicksal eine 7+ würfelst_**, erzeugt die Siedlung 1 Überschuss.
-```
-
-The keys it was split into:
-
-- `"effects/add-raincatching-to-the-resources-list/text"` — "add \"Raincatching\" to the Resources list"
-- `"effects/the-steading-generates-1-surplus/text"` — "the steading generates 1 Surplus"  ← also fills 1 other entry
-- `"effects/the-steading-generates-1-surplus/when/phrase"` — "when **_summer comes and you roll a 7+ with Fortunes_**"
-
-### `steading-improvements.json` › `"roadbuilding"` › `"choices/6/text"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Wenn du **_alle Voraussetzungen erfüllst_**, kannst du die Straßen der Schöpfer ausbauen oder reparieren. Für jeweils ca. 25 Meilen Straße erfordert dies gemeinsam anzupacken, eine Jahreszeit Arbeit, 2 Überschuss zur Versorgung der Arbeiter sowie ein Beutel voller Silbermünzen für Löhne und Material.
-```
-
-### `steading-improvements.json` › `"standing-watch"` › `"choices/5/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, füge „Stehende Wache“ zur Liste der Befestigungen hinzu.
-
-Zu Beginn jeder Jahreszeit verbraucht die Wache 1 Überschuss – andernfalls löst sie sich auf.
-
-Wenn du **_die Wache gezielt in einem Spielzug einbeziehst_**, behandle Verteidigung als 1 höher, als sie tatsächlich ist.
-```
-
-The keys it was split into:
-
-- `"effects/add-standing-watch-to-the-fortifications/text"` — "add \"standing watch\" to the Fortifications list"
-- `"effects/treat-defenses-as-1-higher-than/text"` — "treat Defenses as 1 higher than they are"
-- `"effects/the-watch-consumes-1-surplus-or/when/phrase"` — "at **_the start of each season_**"
-- `"effects/treat-defenses-as-1-higher-than/when/phrase"` — "when **_you specifically involve the watch in a move_**"
-- `"effects/add-standing-watch-to-the-fortifications/listEntry/text"` — "Standing watch"
-
-### `steading-improvements.json` › `"stone-wall"` › `"choices/6/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllst_**, füge „Steinmauer“ zur Liste der Befestigungen hinzu (streiche „Palisade“, falls du sie hast) und zeichne sie auf der Karte ein. Von nun an gilt:
-
-Wenn du **_die Steinmauer zu deinem Vorteil nutzt_**, hast du beim Einsetzen einen Vorteil.
-
-Wenn **_der Winter das Land fest im Griff hat_**, verbraucht die Siedlung 1 Überschuss weniger als gewöhnlich.
-```
-
-The keys it was split into:
-
-- `"effects/add-stone-wall-to-the-fortifications/text"` — "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map"
-- `"effects/you-have-advantage-to-deploy/text"` — "you have advantage to Deploy"  ← also fills 1 other entry
-- `"effects/the-steading-consumes-1-less-surplus/text"` — "the steading consumes 1 less Surplus than normal"
-- `"effects/you-have-advantage-to-deploy/when/phrase"` — "when **_you take advantage of the stone wall_**"
-- `"effects/the-steading-consumes-1-less-surplus/when/phrase"` — "when **_winter grips the land_**"  ← also fills 2 other entries
-- `steading-improvements.json` › `"aetherium-crucible"` › `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
-- `steading-improvements.json` › `"great-wood-timber"` › `"effects/the-steading-consumes-1-less-surplus/text"` — "the steading consumes 1 less Surplus"
-
-### `steading-improvements.json` › `"township"` › `"choices/7/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_alle Voraussetzungen erfüllst_**, ändere Größe in Stadt und die Bevölkerung auf +0. Von nun an gilt:
-
-Wenn du **_Truppen aufbietest, Gemeinsam anpackst oder handelst & tauschst_**, hast du einen Vorteil.
-
-Wenn **_der Frühling oder Sommer beginnt_**, erzeugt die Stadt Überschuss in Höhe von Bevölkerung +1.
-
-Wenn jedoch **_der Winter das Land fest im Griff hat_**, würfle 2W6 + Bevölkerung, um Überschuss zu verbrauchen, statt 1W4 + Bevölkerung.
-```
-
-The keys it was split into:
-
-- `"effects/change-size-to-town/text"` — "change Size to town"
-- `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
-- `"effects/the-town-generates-surplus-equal-to/text"` — "the town generates Surplus equal to Population+1"
-- `"effects/you-have-advantage/when/phrase"` — "when **_you Muster, Pull Together, or Trade & Barter_**"
-- `"effects/the-town-generates-surplus-equal-to/when/phrase"` — "when **_the seasons change to spring or summer_**"
-- `"effects/roll-2d6-population-to-consume-surplus/when/phrase"` — "when **_winter grips the land_**"  ← also fills 2 other entries
-
-### `steading-improvements.json` › `"trade-with-barrier-pass"` › `"choices/8/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_alle Voraussetzungen erfüllst_**, erhöhe Schicksal um 1 und füge „Handel mit dem Barrierenpass (Holz, Elfenbein, Pergament, feine Wolle, Ziegen, Schafe)“ hinzu.
-```
-
-The keys it was split into:
-
-- `"effects/add-trade-with-barrier-pass-timber/text"` — "add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\""
-- `"effects/add-trade-with-barrier-pass-timber/listEntry/text"` — "Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)"
-
-### `steading-improvements.json` › `"trade-with-barrier-pass"` › `"choices/9/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Von nun an gilt: Wenn **_der Frühling anbricht und Stonetop mindestens 1 Überschuss besitzt_**, erhält Stonetop durch den Handel +1 Überschuss. Außerdem hast du einen Vorteil, wenn du mit Holz, Elfenbein, feiner Wolle, Ziegen, Schafen, Pergament, Velinpapier oder Tinte handelst & tauschst.
-```
-
-The keys it was split into:
-
-- `"effects/stonetop-gains-1-surplus-from-trade/text"` — "Stonetop gains +1 Surplus from trade"
-- `"effects/you-have-advantage/text"` — "you have advantage"  ← also fills 2 other entries
-- `"effects/stonetop-gains-1-surplus-from-trade/when/phrase"` — "when **_spring bursts forth and Stonetop has at least 1 Surplus_**"
-- `"effects/you-have-advantage/when/phrase"` — "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**"
-
-### `steading-improvements.json` › `"weapons-of-war"` › `"choices/10/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Voraussetzungen erfüllt_**, erhöhte die Verteidigung um 1 und füge „Kriegswaffen“ zur Liste der Befestigungen hinzu. **_In jedem Frühjahr_** muss das Dorf 1 Überschuss aufwenden, um die Waffen der Siedlung instand zu halten und zu ersetzen.
-
-Von nun an gilt: Wenn du **_dich in Stonetop ausrüstest oder wenn du hast, was du brauchst_**, kannst du Streitkolben, Dreschflegel, Streitäxte, Kriegshämmer und alle Arten von Schwertern wie gewöhnliche Gegenstände behandeln, als wären sie bereits auf der Ausrüstungsbeilage aufgeführt. Streitäxte und Schwerter haben „Durchdringung x“, wobei x dem aktuellen Wohlstand der Siedlung entspricht.
-```
-
-The keys it was split into:
-
-- `"effects/increase-defenses-by-1/text"` — "increase Defenses by 1"
-- `"effects/add-weapons-of-war-to-the/text"` — "add \"Weapons of War\" to the Fortifications list"
-- `"effects/the-village-must-expend-1-surplus/text"` — "the village must expend 1 Surplus to maintain and replace the town's weapons"
-- `"effects/you-can-treat-maces-flails-battleaxes/text"` — "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items"
-- `"effects/battleaxes-and-swords-have-x-piercing/text"` — "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity"
-- `"effects/you-can-treat-maces-flails-battleaxes/when/phrase"` — "when **_you Outfit from Stonetop or Have What You Need after doing so_**"  ← also fills 1 other entry
-
-### `steading-improvements.json` › `"well-trained-militia"` › `"choices/9/text"`
-
-**This row was split up.** Your German covers all of the keys below. Move the matching
-part of it into each one, then delete the entry named in the heading.
-
-Your German:
-
-```
-Wenn du **_die Miliz einsetzt, und sie wendet dabei eine der von ihr erlernten Taktiken an_**, handelt ihr wahrscheinlich aus einer Position der Stärke heraus (bei 7–9 wählst du die Konsequenz, nicht der SL).
-
-Wenn **_die Miliz zwei oder mehr Taktiken erlernt hat_**, erhöhe die Verteidigung um 1.
-
-**_In jedem Sommer_** muss die Miliz 1 Überschuss aufwenden und einige Wochen trainieren, ansonsten verliert sie ihre Ausbildung in einer Taktik.
-```
-
-The keys it was split into:
-
-- `"effects/you-are-likely-acting-from-a/text"` — "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)"
-- `"effects/when-the-militia-has-trained-in/text"` — "when the militia has trained in 2+ tactics, increase Defenses by 1"
-- `"effects/you-are-likely-acting-from-a/when/phrase"` — "when **_you Deploy using one of the militia's trained tactics_**"
-- `steading-improvements.json` › `"weapons-of-war"` › `"effects/increase-defenses-by-1/text"` — "increase Defenses by 1"
-
-## steadfasts.json
-
-### `steadfasts.json` › `"stonetop"` › `"assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming"`
-
-**The same English is already translated elsewhere, differently.** Yours is a second
-translation of one string — compare the two, keep the better one, and delete the other entry.
-
-Yours, at the key above:
-
-```
-Ein Paar kräftige Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege.
-```
-
-Already filed at `steadfasts.json` › `"stonetop"` › `"assets/items/a-pair-of-hardy-draft-horses/text"`:
-
-```
-Zwei robuste Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widerstandsfähig): Jeweils 10 TP, Schaden 1W6+3 (Hand, Kurz, Wuchtig), Instinkt: in Panik geraten, Kosten: Betreuung & Pflege.
+Wenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz.
 ```
 
 ## ui.json
@@ -652,61 +142,6 @@ Your German:
 
 ```
 Zurück zur Bearbeitung deiner Auswahl.
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.steading.createActors.residents"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Erstelle Akteure für Einwohner
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.steading.createActors.neighbors"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Erstelle Akteure für Nachbarn
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.steading.seasons.movesTitle"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Jahreszeitenwechsel
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.steading.seasons.gainsTitle"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Saisonale Gewinne
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.steading.seasons.gainsHint"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Das Setzen eines Hakens ändert die Spielwerte der Siedlung nicht.
 ```
 
 ### `ui.json` › `"_ui"` › `"stonetop.inventory.addItemWeight"`
@@ -753,50 +188,6 @@ Your German:
 Show every move again, to take new ones.
 ```
 
-### `ui.json` › `"_ui"` › `"stonetop.a11y.contentText"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-{section} text
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.a11y.residentName"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Resident name
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.a11y.residentOccupation"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Occupation
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.a11y.neighborHome"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Home
-```
-
 ## languages/de.json
 
 The sheet's own words — headings, tab names, button labels — as opposed to the book's,
@@ -817,16 +208,10 @@ already shows English.
 
 - `"stonetop.sheet.bandShow"` — "Show the stats band"
 - `"stonetop.sheet.bandHide"` — "Hide the stats band"
-- `"stonetop.sheet.railShow"` — "Show the rail"
-- `"stonetop.sheet.railHide"` — "Hide the rail"
 
 ### `stonetop.sheet.playbook`
 
 - `"stonetop.sheet.playbook.noNames"` — "No names of its own — borrow one from another list."
-
-### `stonetop.sheet.advice`
-
-- `"stonetop.sheet.advice.sheetLabel"` — "If you want to…"
 
 ### `stonetop.sheet.section`
 
@@ -848,275 +233,12 @@ already shows English.
 - `"stonetop.rollMode.short.adv"` — "Adv"
 - `"stonetop.rollMode.short.dis"` — "Disadv"
 
-### `stonetop.steading`
-
-- `"stonetop.steading.startingValue"` — "was {value}"
-- `"stonetop.steading.railShow"` — "Show Fortunes, Surplus and the steading's moves"
-- `"stonetop.steading.railHide"` — "Hide Fortunes, Surplus and the steading's moves"
-- `"stonetop.steading.adjustedBy"` — "→ {effective} {debility}"
-- `"stonetop.steading.steadfastHint"` — "Type a name, or pick a steadfast"
-
-### `stonetop.steading.attr`
-
-- `"stonetop.steading.attr.fortunes"` — "Fortunes"
-- `"stonetop.steading.attr.surplus"` — "Surplus"
-- `"stonetop.steading.attr.size"` — "Size"
-- `"stonetop.steading.attr.population"` — "Population"
-- `"stonetop.steading.attr.prosperity"` — "Prosperity"
-- `"stonetop.steading.attr.defenses"` — "Defenses"
-
-### `stonetop.steading.attrShort`
-
-- `"stonetop.steading.attrShort.fortunes"` — "Fort"
-- `"stonetop.steading.attrShort.surplus"` — "Surp"
-- `"stonetop.steading.attrShort.size"` — "Size"
-- `"stonetop.steading.attrShort.population"` — "Pop"
-- `"stonetop.steading.attrShort.prosperity"` — "Pros"
-- `"stonetop.steading.attrShort.defenses"` — "Def"
-
-### `stonetop.steading.headings`
-
-- `"stonetop.steading.headings.npcTraits"` — "NPC Traits"
-- `"stonetop.steading.headings.npcTraitsNote"` — "Assign as needed; choose from this list or make up your own."
-- `"stonetop.steading.headings.placesOfInterest"` — "Places of Interest"
-- `"stonetop.steading.headings.notes"` — "Notes"
-- `"stonetop.steading.headings.neighbors"` — "Neighbouring Communities"
-
-### `stonetop.steading.neighbors`
-
-- `"stonetop.steading.neighbors.size"` — "Size"
-- `"stonetop.steading.neighbors.travel"` — "Travel"
-- `"stonetop.steading.neighbors.notes"` — "Notes"
-- `"stonetop.steading.neighbors.names"` — "Names"
-
-### `stonetop.steading.content`
-
-- `"stonetop.steading.content.fromThePlaybook"` — "From the playbook"
-- `"stonetop.steading.content.addItem"` — "add"
-- `"stonetop.steading.content.procedure"` — "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls “time out,”_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.\n\nIf **_content was included that shouldn’t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on."
-
-### `stonetop.steading.content.sections.excluded`
-
-- `"stonetop.steading.content.sections.excluded.label"` — "Excluded Content"
-- `"stonetop.steading.content.sections.excluded.note"` — "(Not part of the game, on-camera or off)"
-
-### `stonetop.steading.content.sections.veiled`
-
-- `"stonetop.steading.content.sections.veiled.label"` — "Veiled Content"
-- `"stonetop.steading.content.sections.veiled.note"` — "(Part of the fiction, but only off-camera)"
-
-### `stonetop.steading.content.sections.specialHandling`
-
-- `"stonetop.steading.content.sections.specialHandling.label"` — "Special Handling"
-
-### `stonetop.steading.lists`
-
-- `"stonetop.steading.lists.resources"` — "Resources"
-- `"stonetop.steading.lists.fortifications"` — "Fortifications, etc."
-- `"stonetop.steading.lists.assets"` — "Assets"
-- `"stonetop.steading.lists.addResource"` — "add a resource"
-- `"stonetop.steading.lists.addFortification"` — "add a fortification"
-- `"stonetop.steading.lists.addAsset"` — "add an asset"
-- `"stonetop.steading.lists.assetsOut"` — "{count} out"
-- `"stonetop.steading.lists.assetOut"` — "requisitioned"
-- `"stonetop.steading.lists.assetHome"` — "at home"
-- `"stonetop.steading.lists.addPlace"` — "add a place"
-- `"stonetop.steading.lists.coinage"` — "Coinage"
-- `"stonetop.steading.lists.removeAsset"` — "Remove asset"
-- `"stonetop.steading.lists.removeItem"` — "Remove"
-
-### `stonetop.steading.coinage`
-
-- `"stonetop.steading.coinage.currency"` — "Currency"
-- `"stonetop.steading.coinage.purses"` — "Purses"
-- `"stonetop.steading.coinage.handfuls"` — "Handfuls"
-- `"stonetop.steading.coinage.coins"` — "Coins"
-- `"stonetop.steading.coinage.silver"` — "Silver"
-- `"stonetop.steading.coinage.gold"` — "Gold"
-
-### `stonetop.steading.tier.defenses`
-
-- `"stonetop.steading.tier.defenses.feeble"` — "feeble"
-- `"stonetop.steading.tier.defenses.mediocre"` — "mediocre"
-- `"stonetop.steading.tier.defenses.strong"` — "strong"
-- `"stonetop.steading.tier.defenses.formidable"` — "formidable"
-- `"stonetop.steading.tier.defenses.legendary"` — "legendary"
-
-### `stonetop.steading.tier`
-
-- `"stonetop.steading.tier.unset"` — "—"
-
-### `stonetop.steading.tier.size`
-
-- `"stonetop.steading.tier.size.hamlet"` — "hamlet"
-- `"stonetop.steading.tier.size.village"` — "village"
-- `"stonetop.steading.tier.size.town"` — "town"
-- `"stonetop.steading.tier.size.city"` — "city"
-
-### `stonetop.steading.band`
-
-- `"stonetop.steading.band.hamlet"` — "<50"
-- `"stonetop.steading.band.village"` — "150–350"
-- `"stonetop.steading.band.town"` — "500–1500"
-- `"stonetop.steading.band.city"` — "2500+"
-
-### `stonetop.steading.debilities`
-
-- `"stonetop.steading.debilities.title"` — "Debilities"
-
-### `stonetop.steading.debilities.diminished`
-
-- `"stonetop.steading.debilities.diminished.name"` — "diminished"
-- `"stonetop.steading.debilities.diminished.cause"` — "by injury/sickness/doubt"
-- `"stonetop.steading.debilities.diminished.effect"` — "disadvantage to Deploy, Muster, or Pull Together"
-
-### `stonetop.steading.debilities.lacking`
-
-- `"stonetop.steading.debilities.lacking.name"` — "lacking"
-- `"stonetop.steading.debilities.lacking.cause"` — "due to shortages/hoarding/distrust"
-- `"stonetop.steading.debilities.lacking.effect"` — "treat Prosperity as if it's 1 lower than it is"
-
-### `stonetop.steading.debilities.malcontent`
-
-- `"stonetop.steading.debilities.malcontent.name"` — "malcontent"
-- `"stonetop.steading.debilities.malcontent.cause"` — "from fear/anger/despair"
-- `"stonetop.steading.debilities.malcontent.effect"` — "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
-
-### `stonetop.steading.tabs`
-
-- `"stonetop.steading.tabs.play"` — "Play"
-- `"stonetop.steading.tabs.folk"` — "Folk"
-- `"stonetop.steading.tabs.places"` — "Places"
-- `"stonetop.steading.tabs.improvements"` — "Improvements"
-- `"stonetop.steading.tabs.season"` — "Season"
-- `"stonetop.steading.tabs.content"` — "Content"
-
-### `stonetop.steading.createActors`
-
-- `"stonetop.steading.createActors.folk"` — "Create actors for the roster"
-
-### `stonetop.steading.seasons.names`
-
-- `"stonetop.steading.seasons.names.spring"` — "Spring"
-- `"stonetop.steading.seasons.names.summer"` — "Summer"
-- `"stonetop.steading.seasons.names.autumn"` — "Autumn"
-- `"stonetop.steading.seasons.names.winter"` — "Winter"
-
 ### `stonetop.steading.seasons`
 
-- `"stonetop.steading.seasons.wheelLabel"` — "The steading's year"
-- `"stonetop.steading.seasons.stated"` — "{season}, year {year}"
-- `"stonetop.steading.seasons.whenComes"` — "When {season} comes"
-- `"stonetop.steading.seasons.theSeason"` — "the season itself"
-- `"stonetop.steading.seasons.turnoverEmpty"` — "Nothing Stonetop has built happens this season."
-- `"stonetop.steading.seasons.upkeep"` — "What the steading keeps up"
-- `"stonetop.steading.seasons.turnTitle"` — "The turn of the season"
-- `"stonetop.steading.seasons.seasonComes"` — "{season} comes"
-- `"stonetop.steading.seasons.during"` — "During {season}"
-- `"stonetop.steading.seasons.turnConfirm"` — "Turn to {season}?"
-- `"stonetop.steading.seasons.resetFortunes"` — "Reset Fortunes to +{value}"
-- `"stonetop.steading.seasons.everySeason"` — "every season"
-
-### `stonetop.steading.seasons.steps`
-
-- `"stonetop.steading.seasons.steps.roll"` — "Roll it"
-- `"stonetop.steading.seasons.steps.rollShort"` — "Roll"
-- `"stonetop.steading.seasons.steps.rollFormula"` — "Roll {die} + {stat}"
-- `"stonetop.steading.seasons.steps.rollFormulaMod"` — "Roll {die} + {stat} {mod}"
-- `"stonetop.steading.seasons.steps.rollDice"` — "Roll {die}"
-- `"stonetop.steading.seasons.steps.rollDiceMod"` — "Roll {die} {mod}"
-- `"stonetop.steading.seasons.steps.sizeRoll"` — "As a {size}, the steading rolls {die} + {stat}"
-- `"stonetop.steading.seasons.steps.consume"` — "The steading consumes that much Surplus"
-- `"stonetop.steading.seasons.steps.generate"` — "The steading generates {die} Surplus"
-- `"stonetop.steading.seasons.steps.generateGains"` — "What the steading generates"
-- `"stonetop.steading.seasons.steps.applyGains"` — "Generate {amount} Surplus"
-- `"stonetop.steading.seasons.steps.momentGenerate"` — "roll {die}; the steading generates that much Surplus"
-- `"stonetop.steading.seasons.steps.reset"` — "Reset Fortunes"
-- `"stonetop.steading.seasons.steps.resetShort"` — "Reset to +{value}"
-
-### `stonetop.steading.seasons.steps.card`
-
-- `"stonetop.steading.seasons.steps.card.consumption"` — "{season} — Consumption"
-- `"stonetop.steading.seasons.steps.card.generation"` — "{season} — Generation"
-- `"stonetop.steading.seasons.steps.card.roll"` — "{season} — Roll"
-- `"stonetop.steading.seasons.steps.card.formula"` — "{die} + {stat}"
-- `"stonetop.steading.seasons.steps.card.formulaMod"` — "{die} + {stat} {mod}"
-- `"stonetop.steading.seasons.steps.card.diceMod"` — "{die} {mod}"
-
-### `stonetop.steading.seasons.steps.pick`
-
-- `"stonetop.steading.seasons.steps.pick.seasonal-gains"` — "Pick {count} from the seasonal gains"
-- `"stonetop.steading.seasons.steps.pick.winter-losses"` — "Pick {count} from what winter takes"
-
-### `stonetop.steading.seasons.steps.applied`
-
-- `"stonetop.steading.seasons.steps.applied.spent"` — "Consumed {amount} Surplus ({from} → {to})"
-- `"stonetop.steading.seasons.steps.applied.gained"` — "Generated {amount} Surplus ({from} → {to})"
-- `"stonetop.steading.seasons.steps.applied.unchanged"` — "Surplus unchanged"
-- `"stonetop.steading.seasons.steps.applied.rolled"` — "— {total} was rolled"
-- `"stonetop.steading.seasons.steps.applied.short"` — "— {due} was owed; there was not enough"
-- `"stonetop.steading.seasons.steps.applied.disaster"` — "Meet with Disaster"
-- `"stonetop.steading.seasons.steps.applied.revert"` — "Undo"
-
-### `stonetop.steading.seasons.moments`
-
-- `"stonetop.steading.seasons.moments.autumn-harvest"` — "The autumn harvest"
-- `"stonetop.steading.seasons.moments.aurochs-hunt"` — "The aurochs hunt"
-- `"stonetop.steading.seasons.moments.inn-gathering"` — "A gathering at the inn"
-
-### `stonetop.steading.folk`
-
-- `"stonetop.steading.folk.searchPlaceholder"` — "search the roster…"
-- `"stonetop.steading.folk.namePlaceholder"` — "Name (Pronouns)"
-- `"stonetop.steading.folk.homePlaceholder"` — "Home"
-- `"stonetop.steading.folk.traitsPlaceholder"` — "Traits"
-- `"stonetop.steading.folk.newVillager"` — "new villager"
-- `"stonetop.steading.folk.remove"` — "Delete villager"
-- `"stonetop.steading.folk.homeBlankHint"` — "Home blank means this steading. Search filters this table only."
-- `"stonetop.steading.folk.focusRowFirst"` — "Put the cursor in a villager's row first — a trait is added to the row you are editing."
-- `"stonetop.steading.folk.namesFrom"` — "Names — {place}"
-
-### `stonetop.steading.improvements`
-
-- `"stonetop.steading.improvements.boardTitle"` — "Improvements"
-- `"stonetop.steading.improvements.boardEmpty"` — "This steading owns no improvements yet. Drop one onto the sheet to start it."
-- `"stonetop.steading.improvements.progress"` — "{ticked} / {total}"
-- `"stonetop.steading.improvements.countInProgress"` — "{count} in progress"
-- `"stonetop.steading.improvements.countUntouched"` — "{count} not started"
-- `"stonetop.steading.improvements.countComplete"` — "{count} complete"
-- `"stonetop.steading.improvements.filterLabel"` — "Show only"
-- `"stonetop.steading.improvements.attentionLabel"` — "What needs attention"
-- `"stonetop.steading.improvements.countOwed"` — "{count} owed"
-- `"stonetop.steading.improvements.countThisSeason"` — "{count} this season"
-- `"stonetop.steading.improvements.owed"` — "owed"
-- `"stonetop.steading.improvements.firesNow"` — "this season"
-- `"stonetop.steading.improvements.nearlyDone"` — "1 to go"
-- `"stonetop.steading.improvements.searchPlaceholder"` — "Search improvements"
-
-### `stonetop.steading.effects`
-
-- `"stonetop.steading.effects.apply"` — "Apply"
-- `"stonetop.steading.effects.applySeason"` — "Apply the season"
-- `"stonetop.steading.effects.alreadyApplied"` — "This season has been applied."
-- `"stonetop.steading.effects.applyMoment"` — "Apply"
-- `"stonetop.steading.effects.momentApplied"` — "Applied this season."
-- `"stonetop.steading.effects.revert"` — "Revert"
-- `"stonetop.steading.effects.applied"` — "Applied"
-- `"stonetop.steading.effects.appliedLegacy"` — "Applied earlier"
-- `"stonetop.steading.effects.onCompletion"` — "When you **_meet the requirements_**:"
-- `"stonetop.steading.effects.henceforth"` — "**_Henceforth_**:"
-- `"stonetop.steading.effects.applyLine"` — "Apply: {result}"
-- `"stonetop.steading.effects.revertLine"` — "Revert: {result}"
-
-### `stonetop.steading.effects.step`
-
-- `"stonetop.steading.effects.step.consumption"` — "When the steading consumes Surplus"
-- `"stonetop.steading.effects.step.generation"` — "When the steading generates Surplus"
-
-### `stonetop.steading.rollNote`
-
-- `"stonetop.steading.rollNote.canApply"` — "{source} — {mode} can be applied"
-- `"stonetop.steading.rollNote.applies"` — "{source} — {mode} applies"
+- `"stonetop.steading.seasons.sectionTitle"` — "Season"
+- `"stonetop.steading.seasons.year"` — "Year"
+- `"stonetop.steading.seasons.setTitle"` — "Change the season"
+- `"stonetop.steading.seasons.setConfirm"` — "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns."
 
 ### `stonetop.inventory.adder`
 
@@ -1131,10 +253,6 @@ already shows English.
 - `"stonetop.inventory.adder.add"` — "Add"
 - `"stonetop.inventory.adder.less"` — "Less {field}"
 - `"stonetop.inventory.adder.more"` — "More {field}"
-
-### `stonetop.rollResults`
-
-- `"stonetop.rollResults.rolled"` — "Rolled"
 
 ### `stonetop.character.debilities.name`
 
@@ -1160,20 +278,6 @@ already shows English.
 - `"stonetop.character.levelUp.onlyAtHome"` — "Only at home, in a quiet stretch of time"
 - `"stonetop.character.levelUp.orSpend"` — "Or spend it now"
 - `"stonetop.character.levelUp.chooseMove"` — "Choose a new move"
-- `"stonetop.character.levelUp.title"` — "Level Up"
-- `"stonetop.character.levelUp.ready"` — "ready"
-- `"stonetop.character.levelUp.done"` — "Done"
-- `"stonetop.character.levelUp.owed"` — "{count} to finish"
-- `"stonetop.character.levelUp.when"` — "When you {trigger}."
-- `"stonetop.character.levelUp.advanceStep"` — "Spend XP to level up"
-- `"stonetop.character.levelUp.advanceFigure"` — "{cost} XP: {xpFrom} → {xpTo} · Level {from} → {to}"
-- `"stonetop.character.levelUp.advance"` — "Advance"
-- `"stonetop.character.levelUp.confirmTitle"` — "Level Up"
-- `"stonetop.character.levelUp.confirm"` — "Spend {cost} XP, leaving {xp}, and go from level {from} to level {to}?"
-- `"stonetop.character.levelUp.movesBehind"` — "{count} still to choose."
-- `"stonetop.character.levelUp.stockRaised"` — "Maximum Stock {from} → {to}, applied for you."
-- `"stonetop.character.levelUp.stockAt"` — "Maximum Stock is {max}, applied for you."
-- `"stonetop.character.levelUp.invocationsKnown"` — "You know {known} of {expected}."
 
 ### `stonetop.character.gear`
 
@@ -1236,25 +340,5 @@ already shows English.
 
 ### `stonetop.a11y`
 
-- `"stonetop.a11y.ratingValue"` — "{rating} rating"
-- `"stonetop.a11y.rollRating"` — "Roll {rating}"
-- `"stonetop.a11y.rollMove"` — "Roll {name}"
-- `"stonetop.a11y.steadingTabs"` — "Steading sections"
-- `"stonetop.a11y.coinagePurses"` — "{currency} purses"
-- `"stonetop.a11y.coinageHandfuls"` — "{currency} handfuls"
-- `"stonetop.a11y.coinageCoins"` — "{currency} coins"
-- `"stonetop.a11y.neighborSize"` — "Size of {place}"
-- `"stonetop.a11y.neighborTravel"` — "Travel to {place} from here"
 - `"stonetop.a11y.rollStatNamed"` — "Roll {stat}"
-- `"stonetop.a11y.contentItem"` — "{section} entry"
-- `"stonetop.a11y.addContentItem"` — "Add to {section}"
-- `"stonetop.a11y.removeContentItem"` — "Remove from {section}"
-- `"stonetop.a11y.personName"` — "Villager name"
-- `"stonetop.a11y.personHome"` — "Home"
-- `"stonetop.a11y.personOccupation"` — "Occupation"
-- `"stonetop.a11y.personTraits"` — "Traits, relations, etc."
-- `"stonetop.a11y.folkSearch"` — "Search the roster"
-- `"stonetop.a11y.suggestionUsed"` — "already used —"
-- `"stonetop.a11y.assetRequisitioned"` — "Requisitioned"
-- `"stonetop.a11y.improvementSearch"` — "Search the improvement board"
 - `"stonetop.a11y.foldedLedger"` — "Stats and conditions"

@@ -1,78 +1,4 @@
 {
-  "steading-improvements": {
-    "aurochs-hunting": [
-      "choices/7/text"
-    ],
-    "expanded-trades": [
-      "choices/12/text"
-    ],
-    "golden-sapling": [
-      "choices/4/text",
-      "choices/5/text"
-    ],
-    "great-wood-timber": [
-      "choices/5/text",
-      "choices/6/text"
-    ],
-    "greater-harvest": [
-      "choices/4/text"
-    ],
-    "harnessing-the-stream": [
-      "choices/4/text"
-    ],
-    "herd-of-horses": [
-      "choices/10/text"
-    ],
-    "heroic-reputation": [
-      "choices/8/text"
-    ],
-    "inn": [
-      "choices/7/text"
-    ],
-    "market": [
-      "choices/8/text"
-    ],
-    "mill": [
-      "choices/7/text"
-    ],
-    "palisade": [
-      "choices/6/text"
-    ],
-    "permanent-logging-camp": [
-      "choices/8/text",
-      "choices/9/text"
-    ],
-    "raincatching": [
-      "choices/5/text"
-    ],
-    "roadbuilding": [
-      "choices/6/text"
-    ],
-    "standing-watch": [
-      "choices/5/text"
-    ],
-    "stone-wall": [
-      "choices/6/text"
-    ],
-    "township": [
-      "choices/7/text"
-    ],
-    "trade-with-barrier-pass": [
-      "choices/8/text",
-      "choices/9/text"
-    ],
-    "weapons-of-war": [
-      "choices/10/text"
-    ],
-    "well-trained-militia": [
-      "choices/9/text"
-    ]
-  },
-  "steadfasts": {
-    "stonetop": [
-      "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming"
-    ]
-  },
   "moves": {
     "deaths-door": [
       "name",
@@ -80,6 +6,20 @@
     ],
     "strengthen-your-bond": [
       "description"
+    ],
+    "tethered": [
+      "description"
+    ]
+  },
+  "ui": {
+    "_ui": [
+      "stonetop.sheet.lock.lock",
+      "stonetop.sheet.lock.lockHint",
+      "stonetop.sheet.lock.unlockHint",
+      "stonetop.inventory.addItemWeight",
+      "stonetop.inventory.addItemConfirm",
+      "stonetop.character.moves.lockHint",
+      "stonetop.character.moves.unlockHint"
     ]
   }
 }
