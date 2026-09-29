@@ -42,12 +42,9 @@ export class Seasons {
 	// category — SteadingMoveCategories reads it, and nothing else needs to spell it.
 	static CATEGORY = "seasons";
 
-	// What a steading with no season stored is in.
-	//
-	// WINTER, so that the first thing a new steading's table does is let spring break forth — the
-	// book's own opening move. Starting in spring would mean the group's first turn of the wheel took
-	// them to summer, and the season the book opens on would be the one season they never rolled.
-	static DEFAULT = "winter";
+	// What a steading with no season stored is in: spring, the season the book opens on. Turning the
+	// wheel rolls nothing, so a steading that starts here still rolls Spring Breaks Forth itself.
+	static DEFAULT = "spring";
 
 	static all() {
 		return [..._SEASONS];

@@ -341,6 +341,7 @@ Numbered, because the code cites them.
 - **D11 · Sections rest on what was chosen** (§1), each with one door on its bar: Change or Choose,
   Done while open. Opening everything is an event (choosing a playbook, gaining an insert), not a
   standing state. The Playbook tab's sections sit in two fixed columns, so nothing jumps columns under
-  the pointer.
+  the pointer. The steading's season head is a section too: at rest the wheel and the year, and a
+  door for the GM alone that opens the same pill as radios, with the year beside it.
 - **D12 · An insert is a tab, with the whole insert on it**, straight after Playbook: its moves, its
   instinct and its sections. One gained by dying arrives open and the sheet goes to its tab.

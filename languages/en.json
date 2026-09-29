@@ -255,6 +255,10 @@
         "seasonComes": "{season} comes",
         "during": "During {season}",
         "turnConfirm": "Turn to {season}?",
+        "sectionTitle": "Season",
+        "year": "Year",
+        "setTitle": "Change the season",
+        "setConfirm": "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns.",
         "resetFortunes": "Reset Fortunes to +{value}",
         "steps": {
           "roll": "Roll it",

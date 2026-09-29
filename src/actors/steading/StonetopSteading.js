@@ -219,6 +219,9 @@ export class StonetopSteading {
 		await this.#season.turn();
 	}
 
+	async setSeason(key) { return this.#season.setSeason(key); }
+	async setYear(year)  { return this.#season.setYear(year); }
+
 	/**
 	 * Roll one step of the season's move that is not the move's own roll — winter's 1d4+Population,
 	 * summer's 1d4-1 Surplus, autumn's 1d4 at the harvest — and move Surplus by what it came to.

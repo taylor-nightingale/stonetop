@@ -48,14 +48,13 @@ describe("Seasons", () => {
 	// stored value lands on the default rather than crashing four partials down.
 	it("falls back to the default for a key it doesn't know", () => {
 		expect(Seasons.byKey("harvestide").key).toBe(Seasons.DEFAULT);
-		expect(Seasons.byKey(undefined).key).toBe("winter");
+		expect(Seasons.byKey(undefined).key).toBe("spring");
 	});
 
-	// Winter, so a new steading's first act is letting spring break forth — the book's own opening
-	// move. Starting in spring would make spring the one season the table never rolled.
-	it("starts a steading in winter, so spring is the first season it rolls", () => {
-		expect(Seasons.DEFAULT).toBe("winter");
-		expect(Seasons.byKey(Seasons.DEFAULT).next.key).toBe("spring");
+	// Spring, the season the book opens on. Turning the wheel no longer rolls anything, so a steading
+	// already in spring rolls Spring Breaks Forth itself — no season is skipped by starting here.
+	it("starts a steading in spring", () => {
+		expect(Seasons.DEFAULT).toBe("spring");
 	});
 
 	// One source: the move category sorts by these slugs, so a season renamed here can't leave the

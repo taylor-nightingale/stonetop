@@ -10,8 +10,19 @@ import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
 import { BoardView } from "./BoardView.js";
-import { toggleDisclosure, toggleSlidingDisclosure } from "../../utils/Disclosure.js";
+import { toggleDisclosure, toggleSlidingDisclosure, toggleSwappingDisclosure } from "../../utils/Disclosure.js";
 import { SeasonStepAddress } from "../../model/data/steading/SeasonStepAddress.js";
+import { Seasons } from "../../model/data/steading/Seasons.js";
+
+/** Ask before the steading enters `season` — a turn and the GM's correction both discard this one's record. */
+function confirmSeason(titleKey, confirmKey, season) {
+	return foundry.applications.api.DialogV2.confirm({
+		window:  { title: game.i18n.localize(`stonetop.steading.seasons.${titleKey}`) },
+		content: `<p>${game.i18n.format(`stonetop.steading.seasons.${confirmKey}`, {
+			season: game.i18n.localize(season.labelKey),
+		})}</p>`,
+	});
+}
 
 export function createStonetopSteadingSheetClass(Base) {
 	return class StonetopSteadingSheet extends Base {
@@ -71,6 +82,8 @@ export function createStonetopSteadingSheetClass(Base) {
 				// edit-gated and both survive a locked sheet. The same disclosure the move rows use,
 				// through the same one implementation.
 				toggleFolkList:        toggleDisclosure,
+				// A section's door (D11) — the season head's, the character sheet's own toggle.
+				toggleSection:         toggleSwappingDisclosure,
 				// A rail group's bar, opening and shutting its panel as the character's do.
 				toggleSliding:         toggleSlidingDisclosure,
 				toggleImprovementCard: toggleDisclosure,
@@ -89,13 +102,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				// It asks first, because it discards this season's checklist and gain. The question
 				// names the season it brings, which is the whole of what pressing it does.
 				turnSeason: editOnly(async function () {
-					const next = this._stonetopSteading.season.next;
-					const ok = await foundry.applications.api.DialogV2.confirm({
-						window:  { title: game.i18n.localize("stonetop.steading.seasons.turnTitle") },
-						content: `<p>${game.i18n.format("stonetop.steading.seasons.turnConfirm", {
-							season: game.i18n.localize(next.labelKey),
-						})}</p>`,
-					});
+					const ok = await confirmSeason("turnTitle", "turnConfirm", this._stonetopSteading.season.next);
 					if (ok) await this._stonetopSteading.turnSeason();
 				}),
 
@@ -297,6 +304,18 @@ export function createStonetopSteadingSheetClass(Base) {
 		 * typed into a search box are facts about you, not about the steading — stored on the document
 		 * they would move everyone's caret at the table. Same reason, same shape as openMoveRows.
 		 */
+		/**
+		 * The GM's season correction. A radio has already moved by the time it says so, so a declined
+		 * question re-renders to put it back on the season the steading is still in.
+		 */
+		async _chooseSeason(key) {
+			if (await confirmSeason("setTitle", "setConfirm", Seasons.byKey(key))) {
+				await this._stonetopSteading.setSeason(key);
+			} else {
+				this.render();
+			}
+		}
+
 		get rosterFocus()  { return this._rosterFocus  ??= new RosterFocus(); }
 		get rosterFilter() { return this._rosterFilter ??= new RosterFilter(); }
 		get boardView()    { return this._boardView    ??= new BoardView(); }
@@ -358,6 +377,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				...moveRowChangeHandlers(this._stonetopSteading),
 				...steadingChangeHandlers(this._stonetopSteading, {
 					availableSteadfasts: () => this._availableSteadfasts ?? [],
+					chooseSeason:        key => this._chooseSeason(key),
 				}),
 			}, {
 				when: () => this.isEditable,

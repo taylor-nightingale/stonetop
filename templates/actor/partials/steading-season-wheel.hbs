@@ -1,39 +1,69 @@
-{{!-- Where Stonetop's year stands.
+{{!-- Where Stonetop's year stands — a section (D11) resting on the season and year it is.
 
       The four seasons are STATED, not merely tinted — the current one is marked with text and with
       aria-current as well as with the band's color, because color is never the only carrier of
       anything here.
 
-      The wheel is a list, not a row of controls: the year runs forwards, and the ONE thing that
-      moves it is the turn control under the box. Each segment used to open that season's own Seasons
-      Change move below the wheel, which put a whole move inside a control whose job is to say what
-      time of year it is. The four moves are read and rolled in the rail now, under Seasonal Moves,
-      where the steading's other moves are — so they are one place, present on every tab.
+      At rest the wheel is a list, not a row of controls: the year runs forwards, and what moves it
+      in play is the turn control under the box. The four moves are read and rolled in the rail,
+      under Seasonal Moves, where the steading's other moves are.
 
-      Params: seasons (SeasonsSnapshot). --}}
-<div class="steading-season-head">
+      The GM's door opens a correction — a campaign that did not start in spring of the first year,
+      or a wheel turned once too often. The same pill, every season on offer as a radio, and the
+      year beside it. Only the GM gets the door; a player sees the section at rest.
 
-	<ol class="steading-wheel" aria-label="{{localize 'stonetop.steading.seasons.wheelLabel'}}">
-		{{#each seasons.turnover.wheel}}
-			<li class="steading-wheel-season{{#if isCurrent}} is-current{{/if}}"
-			    {{#if isCurrent}}aria-current="true"{{/if}}>
-				<span class="steading-wheel-name">{{localize labelKey}}</span>
-			</li>
-		{{/each}}
-	</ol>
+      Params: seasons (SeasonsSnapshot), isGM. --}}
+<section class="stonetop-panel stonetop-section steading-season-head" data-disclosure-row data-section="season">
+	{{> "stonetop.bar" title=(localize "stonetop.steading.seasons.sectionTitle") index=0
+	    action=(ifThen isGM "stonetop.section-door" "")
+	    controls=(sectionId @root.sheetIdPrefix "season") door="change"}}
 
-	{{!-- The season in words, with the year — the same fact the ledger line carries, so the tab and
-	      the line can never disagree. --}}
-	<p class="steading-season-stated">
-		{{localize "stonetop.steading.seasons.stated"
-		           season=(localize seasons.turnover.season.labelKey) year=seasons.turnover.year}}
-	</p>
+	<div class="stonetop-section-rest" data-disclosure-shut>
+		<ol class="steading-wheel" aria-label="{{localize 'stonetop.steading.seasons.wheelLabel'}}">
+			{{#each seasons.turnover.wheel}}
+				<li class="steading-wheel-season{{#if isCurrent}} is-current{{/if}}"
+				    {{#if isCurrent}}aria-current="true"{{/if}}>
+					<span class="steading-wheel-name">{{localize labelKey}}</span>
+				</li>
+			{{/each}}
+		</ol>
 
-	{{!-- What the place is like right now, in the book's own words — one line from this steading's
-	      own Impressions, stamped when the wheel last turned. Absent for a steadfast that prints no
-	      such section, and then the head simply says less. --}}
-	{{#if seasons.turnover.impression}}
-		<p class="steading-season-impression">{{seasons.turnover.impression}}</p>
+		{{!-- The season in words, with the year — the same fact the ledger line carries, so the tab
+		      and the line can never disagree. --}}
+		<p class="steading-season-stated">
+			{{localize "stonetop.steading.seasons.stated"
+			           season=(localize seasons.turnover.season.labelKey) year=seasons.turnover.year}}
+		</p>
+
+		{{!-- What the place is like right now, in the book's own words — one line from this
+		      steading's own Impressions, stamped when the wheel last turned. Absent for a steadfast
+		      that prints no such section, and then the head simply says less. --}}
+		{{#if seasons.turnover.impression}}
+			<p class="steading-season-impression">{{seasons.turnover.impression}}</p>
+		{{/if}}
+	</div>
+
+	{{#if isGM}}
+	<div class="stonetop-section-choose" id="{{sectionId @root.sheetIdPrefix "season"}}" hidden>
+		<fieldset class="steading-wheel steading-wheel--choose">
+			<legend class="stonetop-visually-hidden">{{localize "stonetop.steading.seasons.wheelLabel"}}</legend>
+			{{#each seasons.turnover.wheel}}
+				<label class="steading-wheel-season">
+					<input type="radio" class="stonetop-visually-hidden" name="{{@root.sheetIdPrefix}}-season"
+					       data-change-action="season" value="{{key}}" {{#if isCurrent}}checked{{/if}}>
+					<span class="steading-wheel-name">{{localize labelKey}}</span>
+				</label>
+			{{/each}}
+		</fieldset>
+
+		<label class="steading-season-year">
+			<span>{{localize "stonetop.steading.seasons.year"}}</span>
+			<span class="stonetop-stepper">
+				<input type="number" class="steading-attr-input stonetop-step" min="1" step="1"
+				       data-change-action="seasonYear" value="{{seasons.turnover.year}}">
+				{{> "stonetop.stepper-buttons"}}
+			</span>
+		</label>
+	</div>
 	{{/if}}
-
-</div>
+</section>

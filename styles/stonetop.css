@@ -3613,7 +3613,7 @@ button.stonetop-view-toggle.is-active {
 /* A control with words or a glyph rather than a caret: the words in the bar's small label voice.
    `button.` because every sheet button is otherwise set in the small caps, whose "+" is drawn as a
    flourish — "+2 more" read as "&2 more". */
-.stonetop.sheet.character button.stonetop-bar-action {
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) button.stonetop-bar-action {
 	padding: 0.66rem 0.75rem;
 	font-family: var(--font-primary), sans-serif;
 	font-size: var(--fs-micro);
@@ -3659,13 +3659,13 @@ button.stonetop-view-toggle.is-active {
    door are the section's; what is inside is the shipped markup (`choice-row`, `choice-group-condensed`,
    the playbook's partials) and takes the shipped styles. The bodies only give it the panel's inset,
    and a body with nothing in it takes no room: a section nobody has answered is its bar. */
-.stonetop.sheet.character .stonetop-section-rest,
-.stonetop.sheet.character .stonetop-section-choose { padding: 0.5rem 0.75rem; }
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-section-rest,
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-section-choose { padding: 0.5rem 0.75rem; }
 
-.stonetop.sheet.character .stonetop-section-rest:empty { display: none; }
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-section-rest:empty { display: none; }
 
-.stonetop.sheet.character .stonetop-section-rest > :last-child,
-.stonetop.sheet.character .stonetop-section-choose > :last-child { margin-bottom: 0; }
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-section-rest > :last-child,
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-section-choose > :last-child { margin-bottom: 0; }
 
 /* A group's own title inside a section — Major Arcanum under Collection — at the note's size. The
    shipped entry title is the heading size, right under the old tab's small headings and wrong under an
@@ -9662,16 +9662,16 @@ button.stonetop-xp-toggle {
 
 /* ── The season wheel ── */
 
-.stonetop.sheet.steading .steading-season-head {
+.stonetop.sheet.steading .steading-season-head > :is(.stonetop-section-rest, .stonetop-section-choose) {
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
 	flex-wrap: wrap;
 }
 
-/* One pill, four segments. A list, not a way to SET the season — the year runs forwards, and the
-   only thing that moves it is the turn control under the box. The four Seasons Change moves are
-   read in the rail, under Seasonal Moves; nothing in the pill is a control. */
+/* One pill, four segments. At rest a list, not a way to SET the season — in play the year runs
+   forwards, moved by the turn control under the box. The four Seasons Change moves are read in the
+   rail, under Seasonal Moves. The GM's door draws the same pill as radios, to correct it. */
 .stonetop.sheet.steading .steading-wheel {
 	display: inline-flex;
 	margin: 0;
@@ -9704,11 +9704,39 @@ button.stonetop-xp-toggle {
 
 /* The current season is marked three ways — the tint, the weight, and the word itself in the text
    beside the wheel — because a tint alone would be the only carrier. */
-.stonetop.sheet.steading .steading-wheel-season.is-current {
+.stonetop.sheet.steading .steading-wheel-season.is-current,
+.stonetop.sheet.steading .steading-wheel-season:has(> input:checked) {
 	background: var(--steading-season-tint, var(--st-accent));
 	color: var(--st-paper);
 	font-weight: 600;
 }
+
+/* The GM's correction: the same pill, each segment a radio. A fieldset, so the four are one named
+   group; `min-inline-size` because a fieldset otherwise refuses to be narrower than its content. */
+.stonetop.sheet.steading .steading-wheel--choose { min-inline-size: 0; }
+
+.stonetop.sheet.steading .steading-wheel--choose .steading-wheel-season { cursor: pointer; }
+
+.stonetop.sheet.steading .steading-wheel--choose .steading-wheel-season:not(:has(> input:checked)):hover {
+	background: var(--st-paper-sunken-strong);
+}
+
+/* The radio is visually hidden, so its focus is drawn on the segment it labels. */
+.stonetop.sheet.steading .steading-wheel--choose .steading-wheel-season:has(> input:focus-visible) {
+	outline: 2px solid var(--st-accent);
+	outline-offset: -2px;
+}
+
+.stonetop.sheet.steading .steading-season-year {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.4rem;
+	font-size: var(--fs-note);
+	color: var(--st-ink-soft);
+}
+
+/* A year runs past two digits sooner than a rating does. */
+.stonetop.sheet.steading .steading-season-year .steading-attr-input { width: 3.4ch; }
 
 .stonetop.sheet.steading .steading-season-stated {
 	margin: 0;
