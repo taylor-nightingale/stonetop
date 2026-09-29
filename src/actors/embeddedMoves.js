@@ -6,6 +6,8 @@ import { ChoiceValues } from "../model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../model/snapshot/RichText.js";
 import { toSlug } from "../utils/slug.js";
+import { MoveRollLabel } from "../model/snapshot/character/MoveRollLabel.js";
+import { MoveResults } from "../model/data/MoveResults.js";
 
 // Generic mechanics for moves stored as embedded `move` items on an actor — shared by characters
 // (basic/playbook/insert/other categories) and steadings (homefront). The domain classes
@@ -106,6 +108,13 @@ export async function decrementMove(actor, categoryKey, moveSlug) {
 	await actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { acquired: newCount > 0, instanceCount: newCount } }]);
 }
 
+/** Every take of a move, cleared: the one box a move has says "you have it". */
+export async function clearMove(actor, categoryKey, moveSlug) {
+	const item = findMoveItem(actor, categoryKey, moveSlug);
+	if (!item || (item.system?.instanceCount ?? 0) === 0) return;
+	await actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { acquired: false, instanceCount: 0 } }]);
+}
+
 // Build a MoveSnapshot from an embedded move item. `resourceController` (optional) turns the move's
 // resource def into a live ResourceSnapshot keyed by the move slug in the "moves" namespace.
 // `requirement` (optional) is the RequirementSnapshot the caller already built — see
@@ -142,7 +151,11 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withChoices(choices)
 		.withSteps(sys?.steps ?? null)
 		.withMoveResults(sys?.moveResults ?? null)
+		.withResults(MoveResults.fromRaw(sys?.moveResults ?? null))
 		.withRollNotes(rollNotes)
+		.withPhase(sys?.phase ?? null)
+		.withReplaces(sys?.replaces ?? null)
+		.withRollLabel(MoveRollLabel.of(sys?.rollStat ?? null, key => game.i18n.localize(key)))
 		.build();
 }
 

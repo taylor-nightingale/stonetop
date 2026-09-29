@@ -38,7 +38,7 @@ const PICKER = renderLocalized("stonetop.roll-mode-picker", {
 const CHARACTER = `
 <div class="application stonetop sheet actor character themed theme-light" style="width: 900px">
  <div class="window-content"><div class="sheet-wrapper top-collapsed">
-  <div class="stonetop-rail-layout" data-side="left"><div class="stonetop-rail-main character-main">
+  <div class="stonetop-rail-layout"><div class="stonetop-rail-main character-main">
    <div class="stonetop-band">
     <div class="stonetop-band-foot">
      <div class="stonetop-folded-ledger">

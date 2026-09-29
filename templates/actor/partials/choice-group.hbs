@@ -1,11 +1,12 @@
 {{!-- Locked: the group renders its condensed form (ChoiceGroup#condensed) instead of its rows.
-      Surfaces that never lock simply don't pass the flag. --}}
+      Surfaces that never lock simply don't pass the flag. `hideLeadTitle`: the group's heading line
+      is on the section's bar, so the rows leave it out rather than print it twice. --}}
 <div class="stonetop-choice-entry" data-slug="{{slug}}">
 	{{#if locked}}
-	{{> "stonetop.choice-group-condensed" blocks=condensed}}
+	{{> "stonetop.choice-group-condensed" blocks=condensed hideFirstTitle=hideLeadTitle}}
 	{{else}}
 	{{#each list}}
-	{{> "stonetop.choice-row" cgContext=../cgContext cgGroup=../slug}}
+	{{> "stonetop.choice-row" cgContext=../cgContext cgGroup=../slug hideTitle=(and ../hideLeadTitle @first)}}
 	{{/each}}
 	{{/if}}
 </div>

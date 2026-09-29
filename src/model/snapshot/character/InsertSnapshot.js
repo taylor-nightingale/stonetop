@@ -1,3 +1,5 @@
+import { InsertSections } from "./InsertSections.js";
+
 export class InsertSnapshot {
 	constructor(b) {
 		this.id               = b._id;
@@ -9,6 +11,8 @@ export class InsertSnapshot {
 		this.instinctSelected = b._instinctSelected;
 		this.choices          = b._choices;
 		this.moves            = b._moves;
+		// Its tab's sections and their doors (D12); derived, a field so a partial can read it.
+		this.sections         = InsertSections.from(this);
 	}
 }
 

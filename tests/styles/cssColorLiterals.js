@@ -1,10 +1,10 @@
-// Finds colour literals in a stylesheet. The theming contract is that
-// structural CSS names a role — var(--st-ink) — and only a theme file says what colour that role
+// Finds color literals in a stylesheet. The theming contract is that
+// structural CSS names a role — var(--st-ink) — and only a theme file says what color that role
 // is. This is what measures compliance: 262 literals in 78 distinct values is what one stylesheet
-// with no colour vocabulary looks like, and four interchangeable border greys is what it costs.
+// with no color vocabulary looks like, and four interchangeable border greys is what it costs.
 
-// Named colours are matched in value position only; the lookarounds are what keep `white-space`
-// from reading as the colour `white`.
+// Named colors are matched in value position only; the lookarounds are what keep `white-space`
+// from reading as the color `white`.
 const NAMED_COLORS = [
 	"aliceblue", "antiquewhite", "azure", "beige", "bisque", "black", "blanchedalmond", "blue",
 	"brown", "burlywood", "cadetblue", "chocolate", "coral", "cornsilk", "crimson", "cyan",
@@ -24,7 +24,7 @@ const NAMED = new RegExp(`(?<![-\\w#])(?:${NAMED_COLORS.join("|")})(?![-\\w])`);
 
 const ANY_COLOR = new RegExp(`${HEX.source}|${FUNCTIONAL.source}|${NAMED.source}`, "gi");
 
-/** One colour literal, and where it was written. */
+/** One color literal, and where it was written. */
 export class ColorLiteral {
 	/**
 	 * @param {string} value the literal exactly as authored
@@ -41,7 +41,7 @@ export class ColorLiteral {
 	}
 }
 
-/** Every colour literal found in one stylesheet, asked about as a whole. */
+/** Every color literal found in one stylesheet, asked about as a whole. */
 export class ColorLiteralScan {
 	/** @param {ColorLiteral[]} literals */
 	constructor(literals) {

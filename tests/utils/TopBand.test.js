@@ -27,6 +27,11 @@ const wrapperIn = root => root.querySelector(".sheet-wrapper");
 const toggleIn  = root => root.querySelector(".stonetop-top-toggle");
 
 describe("TopBand", () => {
+	it("says which wrapper its fold lives on", () => {
+		const root = mount();
+		expect(new TopBand(wrapperIn(root)).wrapper).toBe(wrapperIn(root));
+	});
+
 	it("finds the band from any control inside its wrapper", () => {
 		const root = mount();
 		expect(TopBand.from(toggleIn(root))).toBeInstanceOf(TopBand);
@@ -178,6 +183,13 @@ describe("the toggleTop action", () => {
 		TOP_BAND_ACTIONS.toggleTop.call(sheet, {}, toggleIn(root));
 		expect(wrapperIn(root).classList.contains("top-collapsed")).toBe(true);
 		expect(remembered).toEqual([true]);
+	});
+
+	it("hands the fold to BandFold, which leaves nothing moving where there is no band to ease", () => {
+		const root = mount();
+		TOP_BAND_ACTIONS.toggleTop.call({}, {}, toggleIn(root));
+		expect(wrapperIn(root).classList.contains("is-band-moving")).toBe(false);
+		expect(wrapperIn(root).classList.contains("top-collapsed")).toBe(true);
 	});
 
 	it("does nothing where there is no band", () => {

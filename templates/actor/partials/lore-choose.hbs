@@ -1,0 +1,3 @@
+{{!-- The same section while choosing: every row of every group. Params: `lore` (LoreSection). --}}
+{{#if lore.heading}}{{#each lore.heading.list}}{{#if (hasText content.text)}}<div class="stonetop-choice-description">{{rich content.text}}</div>{{/if}}{{/each}}{{/if}}
+{{#each lore.groups}}{{> "stonetop.choice-group" cgContext="lore" hideLeadTitle=(and ../lore.titleIsLeadRow @first)}}{{/each}}

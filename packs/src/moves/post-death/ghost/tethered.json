@@ -3,9 +3,26 @@
   "type": "move",
   "system": {
     "moveType": null,
-    "description": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.\n\nWhen you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
+    "description": "When you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
+    "choices": {
+      "slug": "choices",
+      "list": [
+        {
+          "type": "entry",
+          "slug": "tether",
+          "content": {
+            "title": null,
+            "text": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc."
+          },
+          "input": {
+            "type": "inline"
+          }
+        }
+      ]
+    },
     "rollStat": null,
-    "slug": "tethered"
+    "slug": "tethered",
+    "replaces": "deaths-door"
   },
   "_id": "BEzYLYEKsMzLVSMm",
   "_key": "!items!BEzYLYEKsMzLVSMm",

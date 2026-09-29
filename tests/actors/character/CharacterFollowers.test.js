@@ -7,6 +7,7 @@ import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder
 import { FakeFollowerRepository } from "../../fakes/FakeFollowerRepository.js";
 import { FakeInventoryRepository } from "../../fakes/FakeInventoryRepository.js";
 import { Follower } from "../../../src/model/data/character/Follower.js";
+import { NewInventoryItem } from "../../../src/actors/character/NewInventoryItem.js";
 
 // -- Helpers ------------------------------------------------------------------
 
@@ -1249,7 +1250,7 @@ describe("CharacterFollowers — inventory", () => {
 	it("custom items: add → held + appears in catalog; remove → gone", async () => {
 		const cf = makeCfInv();
 		await cf.addFollower("crew");
-		await cf.addInvCustomItem("crew", "Lucky charm", 1);
+		await cf.addInvCustomItem("crew", NewInventoryItem.regular("Lucky charm", 1));
 		cf.setOpenInventories(["crew"]);
 		let [snap] = await cf.buildSnapshot();
 		const custom = sectionItems(snap.inventory.sections).find(i => i.name === "Lucky charm");
@@ -1307,6 +1308,19 @@ describe("CharacterFollowers — inventory", () => {
 		expect(snap.inventory.overCapacity).toBe(false);
 	});
 
+	// The adder's uses, tags and note reach a follower's custom item as they do the character's.
+	it("custom items carry their track of uses, tags and note, and draw the track", async () => {
+		const cf = makeCfInv();
+		await cf.addFollower("crew");
+		await cf.addInvCustomItem("crew", NewInventoryItem.regular("Naphtha", 1, { uses: 3, usesWord: "uses", tags: ["thrown"], note: "burns hot" }));
+		cf.setOpenInventories(["crew"]);
+		const [snap] = await cf.buildSnapshot();
+		const custom = sectionItems(snap.inventory.sections).find(i => i.name === "Naphtha");
+		expect(custom.resource).not.toBeNull();
+		expect(custom.tags.length).toBe(1);
+		expect(custom.note.raw).toBe("burns hot");
+	});
+
 	it("flags a follower carrying past those 9 ◇, without stopping them", async () => {
 		const cf = makeCfInv();
 		await cf.addFollower("crew");
@@ -1315,7 +1329,7 @@ describe("CharacterFollowers — inventory", () => {
 		expect(snap.inventory.totalWeight).toBe(8);          // 8 of 9
 		expect(snap.inventory.overCapacity).toBe(false);
 
-		await cf.addInvCustomItem("crew", "Anvil", 2);       // 10 of 9
+		await cf.addInvCustomItem("crew", NewInventoryItem.regular("Anvil", 2));       // 10 of 9
 		[snap] = await cf.buildSnapshot();
 		expect(snap.inventory.totalWeight).toBe(10);
 		expect(snap.inventory.overCapacity).toBe(true);

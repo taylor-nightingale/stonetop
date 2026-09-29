@@ -24,6 +24,10 @@ describe("CharacterData defaults", () => {
 		expect(new CharacterData().attributes.damage.value).toBeNull();
 	});
 
+	it("defaults to no wounds", () => {
+		expect(new CharacterData().wounds).toEqual([]);
+	});
+
 	it("defaults playbookSlug to empty string", () => {
 		expect(new CharacterData().playbookSlug).toBe("");
 	});

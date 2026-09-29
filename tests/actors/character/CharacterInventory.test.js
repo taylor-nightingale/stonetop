@@ -10,6 +10,7 @@ import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 import { OutfitSnapshot } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { ArmorBreakdown } from "../../../src/model/data/character/ArmorBreakdown.js";
 import { OutfitEffects } from "../../../src/model/data/character/OutfitEffect.js";
+import { NewInventoryItem } from "../../../src/actors/character/NewInventoryItem.js";
 
 // -- Fake helpers ---------------------------------------------------------------
 
@@ -571,7 +572,7 @@ describe("CharacterInventory.addCustomItem", () => {
 	it("calls outfitItems.create with a regular-column item with the given name and weight", async () => {
 		const outfitItems = makeActorOutfitItems();
 		const ci = makeCi({}, null, outfitItems);
-		await ci.addCustomItem("Rope", 2);
+		await ci.addCustomItem(NewInventoryItem.regular("Rope", 2));
 		expect(outfitItems.create).toHaveBeenCalledWith([
 			expect.objectContaining({
 				name: "Rope",
@@ -584,20 +585,31 @@ describe("CharacterInventory.addCustomItem", () => {
 	it("clamps weight to minimum 1", async () => {
 		const outfitItems = makeActorOutfitItems();
 		const ci = makeCi({}, null, outfitItems);
-		await ci.addCustomItem("Pebble", 0);
+		await ci.addCustomItem(NewInventoryItem.regular("Pebble", 0));
 		expect(outfitItems.create).toHaveBeenCalledWith([
 			expect.objectContaining({ system: expect.objectContaining({ weight: 1 }) }),
 		]);
 	});
-});
 
-// -- CharacterInventory.addCustomSmallItem ------------------------------------
+	// The adder's uses, tags and note are stored as the pack's own gear stores them.
+	it("stores the item's track of uses, its tags and its note", async () => {
+		const outfitItems = makeActorOutfitItems();
+		const ci = makeCi({}, null, outfitItems);
+		await ci.addCustomItem(NewInventoryItem.regular("Naphtha", 1, { uses: 3, usesWord: "uses", tags: ["thrown"], note: "burns hot" }));
+		expect(outfitItems.create).toHaveBeenCalledWith([
+			expect.objectContaining({
+				system: expect.objectContaining({
+					tagList: ["thrown"], note: "burns hot",
+					resource: { max: 3, title: null, labels: ["", "", "uses"] },
+				}),
+			}),
+		]);
+	});
 
-describe("CharacterInventory.addCustomSmallItem", () => {
 	it("calls outfitItems.create with a small-column item with the given name", async () => {
 		const outfitItems = makeActorOutfitItems();
 		const ci = makeCi({}, null, outfitItems);
-		await ci.addCustomSmallItem("Coin");
+		await ci.addCustomItem(NewInventoryItem.small("Coin"));
 		expect(outfitItems.create).toHaveBeenCalledWith([
 			expect.objectContaining({
 				name: "Coin",

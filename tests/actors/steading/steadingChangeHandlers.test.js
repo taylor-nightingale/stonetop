@@ -11,17 +11,33 @@ function el(html) {
 	return document.body.firstElementChild;
 }
 
-let s, handlers;
+let s, handlers, chooseSeason;
 beforeEach(() => {
 	document.body.innerHTML = "";
 	s = spySteading();
-	handlers = steadingChangeHandlers(s, { availableSteadfasts: () => [{ name: "Barrier Pass" }] });
+	chooseSeason = vi.fn();
+	handlers = steadingChangeHandlers(s, { availableSteadfasts: () => [{ name: "Barrier Pass" }], chooseSeason });
 });
 
 describe("steadingChangeHandlers", () => {
 	it("hands the steadfast box its value plus the stashed list to resolve against", () => {
 		handlers.steadfastName(el(`<input value="Barrier Pass">`));
 		expect(s.renameOrApplySteadfast).toHaveBeenCalledWith("Barrier Pass", [{ name: "Barrier Pass" }]);
+	});
+
+	// The sheet asks first, so the radio's value goes to the sheet rather than straight to the steading.
+	it("hands a picked season to the sheet's confirmed change", () => {
+		handlers.season(el(`<input type="radio" value="autumn">`));
+		expect(chooseSeason).toHaveBeenCalledWith("autumn");
+		expect(s.setSeason).not.toHaveBeenCalled();
+	});
+
+	it("parses the year, and passes a blank one through unparsed for the steading to refuse", () => {
+		handlers.seasonYear(el(`<input value="3">`));
+		expect(s.setYear).toHaveBeenCalledWith(3);
+
+		handlers.seasonYear(el(`<input value="">`));
+		expect(s.setYear).toHaveBeenLastCalledWith(NaN);
 	});
 
 	it("parses the numeric boxes", () => {

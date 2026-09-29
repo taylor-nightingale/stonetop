@@ -103,7 +103,7 @@ describeMaybe("the season tint, in a real renderer", () => {
 		for (const season of SEASONS) expect(bandOf(season)).not.toBe(bandOf(UNKNOWN));
 	});
 
-	// …and the fallback itself still has to work, for a season this sheet has no colour for.
+	// …and the fallback itself still has to work, for a season this sheet has no color for.
 	it("still paints a band for a season it has no tint for", () => {
 		expect(bandOf(UNKNOWN)).toContain("gradient");
 	});
@@ -138,7 +138,7 @@ describeMaybe("the season tint, in a real renderer", () => {
 		expect(new Set(marks.map(m => m.get("background-color"))).size).toBe(4);
 	});
 
-	// The arch is the largest thing on the sheet carrying the season's colour, and it carries it the
+	// The arch is the largest thing on the sheet carrying the season's color, and it carries it the
 	// hard way: a flat fill cut to the woodcut's alpha. TWO things can silently fail there and both
 	// look plausible — an unresolved tint paints every season in the sheet accent, and an unresolved
 	// mask (the art path comes from the template, not this stylesheet) leaves a solid square where
@@ -156,8 +156,8 @@ describeMaybe("the season tint, in a real renderer", () => {
 		expect(new Set(arches.map(a => a.get("background-color"))).size).toBe(4);
 	});
 
-	// The season is stated in words as well as tinted, so that text has to actually compute a colour.
-	it("states the season in text that resolves a colour of its own", () => {
+	// The season is stated in words as well as tinted, so that text has to actually compute a color.
+	it("states the season in text that resolves a color of its own", () => {
 		const line = result().get("winter-line");
 		expect(line.missing).toBe(false);
 		expect(rgb(line.get("color"))).toHaveLength(3);

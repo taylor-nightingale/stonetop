@@ -122,6 +122,25 @@ describe("StonetopSteading — notes", () => {
 	});
 });
 
+describe("StonetopSteading — setting the season and year", () => {
+	it("starts a new steading in spring of the first year", () => {
+		const s = make();
+		expect([s.season.key, s.year]).toEqual(["spring", 1]);
+	});
+
+	it("setSeason puts the steading in the season named", async () => {
+		const s = make();
+		await s.setSeason("autumn");
+		expect(s.season.key).toBe("autumn");
+	});
+
+	it("setYear sets the year", async () => {
+		const s = make();
+		await s.setYear(4);
+		expect(s.year).toBe(4);
+	});
+});
+
 // -- Rolling interface ---------------------------------------------------------
 
 // A step of the season's move that rolls dice of its own — winter's 1d4+Population. Not every roll

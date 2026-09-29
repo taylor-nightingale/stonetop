@@ -1,3 +1,5 @@
+import { RailSlide } from "./RailSlide.js";
+
 /**
  * A sheet's persistent side rail, and the drawer it becomes when the sheet is too narrow to seat it.
  *
@@ -17,8 +19,7 @@
  * the stylesheet: a drawered rail is positioned over the tab, an inline one is in flow. Nothing here
  * repeats the breakpoint.
  *
- * Side-agnostic. Which edge the rail is on is `data-side` on the layout, read by the stylesheet;
- * nothing here knows or cares, so a second sheet gets a rail by writing the markup.
+ * Nothing here knows how the rail is drawn, so a sheet gets a rail by writing the markup.
  */
 export class SheetRail {
 	static LAYOUT = ".stonetop-rail-layout";
@@ -100,6 +101,7 @@ export class SheetRail {
 	}
 
 	open() {
+		this.#slide();
 		this.setOpen(true);
 		// The rail's own first control, not the rail itself: a tabindex="-1" container would take
 		// the focus and then hand it straight back to the tab behind on the next Tab press.
@@ -107,6 +109,7 @@ export class SheetRail {
 	}
 
 	close() {
+		this.#slide();
 		this.setOpen(false);
 		// Back to the button that opened it. Only when the focus is still inside the rail — closing
 		// because a move sheet opened must not pull the focus off that sheet.
@@ -116,6 +119,12 @@ export class SheetRail {
 	toggle() {
 		if (this.isOpen) this.close();
 		else this.open();
+	}
+
+	// A press, not a restore: a column rail slides, and the column beside it is held still for it.
+	// A drawer slides over the tab and moves nothing.
+	#slide() {
+		if (!this.isDrawer) new RailSlide(this._layout).start();
 	}
 }
 

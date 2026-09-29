@@ -1,8 +1,9 @@
 import { rich } from "../RichText.js";
 import { GrantList } from "../../data/Grant.js";
 import {
-	ChoiceGroup, ChoiceOption, ChoiceRow, ChoiceValues, EntryRow, EntryRowFollowers, EntryRowMoves,
+	ChoiceGroup, ChoiceOption, ChoiceRow, ChoiceValues, EntryInput, EntryRow, EntryRowFollowers, EntryRowMoves,
 } from "./ChoiceGroup.js";
+import { LeadParagraph } from "./LeadParagraph.js";
 
 /**
  * Builds the render snapshot for one choice group from its pack data. A pure, dependency-free
@@ -36,21 +37,17 @@ function buildEntryRow(item, values, es) {
 		const checks = Array.from({ length: item.track.max ?? 1 }, (_, i) => i < count);
 		track = { slug: item.slug, checks, requires: item.track.requires ?? null };
 	}
-	const input = item.input
-		? {
-			slug:        `${item.slug}-input`,
-			placeholder: item.input.placeholder ?? null,
-			value:       values.getText(es, `${item.slug}-input`) || (item.input.default ?? ""),
-			type:        item.input.type ?? "inline",
-		}
-		: null;
+	const input = item.input ? EntryInput.fromPack(item, values, es) : null;
 	const c = item.content ?? {};
+	const split = input?.followsLead ? LeadParagraph.of(c.text) : null;
 	const content = {
 		title:        rich(c.title),
 		titleNote:    rich(c.titleNote),
 		subtitle:     rich(c.subtitle),
 		subtitleNote: rich(c.subtitleNote),
 		text:         rich(c.text),
+		lead:         split ? rich(split.lead) : null,
+		rest:         split ? rich(split.rest) : null,
 	};
 
 	// Pure references — the template resolves each slug against `followers.bySlug` / `moves.bySlug` at

@@ -95,7 +95,7 @@ export class VitalsProvenance {
 		const breakdown = this._armor;
 		if (breakdown.isEmpty) return armor ? _note("byHand") : _note("armorNone");
 		if (breakdown.value !== armor) return _note("byHand");
-		// The gear itself, named — "leather, shield" answers "why is my armour 2?" in three words.
+		// The gear itself, named — "leather, shield" answers "why is my armor 2?" in three words.
 		return breakdown.contributions.map(c => c.name).join(", ");
 	}
 

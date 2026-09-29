@@ -89,18 +89,15 @@ export class CharacterInventory {
 		await this._actor.update({ "system.inventory.otherItems": value });
 	}
 
-	async addCustomItem(name, weight) {
+	/** @param {NewInventoryItem} item a regular item weighs at least one ◇; a small one none */
+	async addCustomItem(item) {
 		await this._outfitItems.create([new EmbeddedOutfitItemBuilder()
-			.withName(name)
-			.withWeight(Math.max(1, weight))
-			.withInventoryColumn("regular")
-			.build()]);
-	}
-
-	async addCustomSmallItem(name) {
-		await this._outfitItems.create([new EmbeddedOutfitItemBuilder()
-			.withName(name)
-			.withInventoryColumn("small")
+			.withName(item.name)
+			.withWeight(item.isRegular ? Math.max(1, item.weight) : 0)
+			.withInventoryColumn(item.isRegular ? "regular" : "small")
+			.withTags(item.tags)
+			.withNote(item.note)
+			.withResource(item.resource)
 			.build()]);
 	}
 

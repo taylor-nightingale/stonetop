@@ -8,7 +8,7 @@ import { SteadingDefaults } from "../../src/model/data/steading/SteadingDefaults
 
 /**
  * A <select> whose native chrome we have removed still opens a menu, and the browser paints that
- * menu from the CONTROL's own colours rather than from ours — so a control drawn as bare text on a
+ * menu from the CONTROL's own colors rather than from ours — so a control drawn as bare text on a
  * dark sheet opens a white menu with the sheet's light text on it, unreadable.
  *
  * That is exactly what happened to Size: the fix for it was written once, scoped to

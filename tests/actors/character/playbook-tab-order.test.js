@@ -8,9 +8,9 @@ import { TestPlaybookItemBuilder } from "../../fakes/TestPlaybookItemBuilder.js"
 import { renderPartial } from "../../fakes/renderTemplate.js";
 
 // The playbook tab is filled in top to bottom: the fixed sections a character picks first
-// (background, instinct, appearance, origin) share the two-column block, and the playbook's own
-// lore questions stand apart below it — a block of their own behind a divider, the way the
-// introductions do. Order here is the reading order of the sheet, and nothing else asserts it.
+// (background, instinct, appearance, origin) share the two fixed columns, and the playbook's own
+// story and the introductions run across both beneath them. Order here is the reading order of the
+// sheet, and nothing else asserts it.
 
 const playbookItem = () => new TestPlaybookItemBuilder()
 	.withSlug("the-fox")
@@ -32,22 +32,6 @@ const playbookItem = () => new TestPlaybookItemBuilder()
 	]}})
 	.build();
 
-// What each section renders that nothing else does — the tab has no per-section wrapper class to
-// read, so its own controls stand for it.
-const MARKERS = [
-	["background", `[data-change-action="selectBackground"]`],
-	["instinct",   `.stonetop-instinct-section`],
-	["appearance", `[data-cg-context="appearance"]`],
-	["origin",     `[data-change-action="selectOrigin"]`],
-];
-
-/** The sections a block renders, in document order, one entry each. */
-const sections = (root) => {
-	const names = [...root.querySelectorAll(MARKERS.map(([, sel]) => sel).join(","))]
-		.map(el => MARKERS.find(([, sel]) => el.matches(sel))[0]);
-	return names.filter((name, i) => name !== names[i - 1]);
-};
-
 describe("playbook tab section order", () => {
 	let tab;
 
@@ -60,32 +44,22 @@ describe("playbook tab section order", () => {
 			.build();
 		tab = document.createElement("div");
 		tab.innerHTML = renderPartial("stonetop.tab-playbook", {
-			tabs: {}, actor, editable: true, viewFlags: {},
+			tabs: {}, actor, editable: true, viewFlags: {}, sheetIdPrefix: "s1",
 			stonetop: await actor.typedActor.buildSnapshot(),
 		});
 	});
 
+	const keys = root => [...root.querySelectorAll("[data-section]")].map(el => el.dataset.section);
+
 	// The columns hold what a character picks, in the order the playbook asks for it.
-	it("puts background, instinct, appearance and origin in the two-column block, in that order", () => {
-		expect(sections(tab.querySelector(".stonetop-playbook-columns")))
-			.toEqual(["background", "instinct", "appearance", "origin"]);
+	it("puts background, instinct, appearance and origin in the two columns, in that order", () => {
+		expect(keys(tab.querySelector(".stonetop-section-columns"))).toEqual(["background", "instinct", "appearance", "origin"]);
 	});
 
-	it("keeps the lore groups out of that block", () => {
-		expect(tab.querySelector(".stonetop-playbook-columns").querySelector(".stonetop-choice-section"))
-			.toBeNull();
-	});
-
-	// A block of its own behind a divider — the shape the introductions already have.
-	it("stands the lore groups apart, below the picks and above the introductions", () => {
-		const blocks = [...tab.querySelectorAll(
-			".stonetop-playbook-columns, .stonetop-playbook-lore, .stonetop-introductions-section")];
-		expect(blocks.map(el => el.className)).toEqual([
-			"stonetop-playbook-columns", "stonetop-playbook-lore",
-			"stonetop-playbook-columns", "stonetop-introductions-section",
-		]);
-		const lore = tab.querySelector(".stonetop-playbook-lore");
-		expect(lore.firstElementChild.className).toBe("stonetop-panel-divider");
-		expect(lore.querySelector(`.stonetop-choice-section [data-cg-context="lore"]`)).not.toBeNull();
+	// The playbook's own story, then the introductions, run across both columns beneath them.
+	it("sets the lore and then the introductions below the columns", () => {
+		expect(keys(tab)).toEqual(["background", "instinct", "appearance", "origin", "lore-tall-tales", "introductions"]);
+		const lore = tab.querySelector('[data-section="lore-tall-tales"]');
+		expect(lore.closest(".stonetop-section-columns")).toBeNull();
 	});
 });

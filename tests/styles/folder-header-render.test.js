@@ -26,7 +26,7 @@ const probe = new RenderProbe([
 	sheet("stonetop.css"),
 ]);
 
-// templates/sidebar/partials/folder-partial.hbs, with the second folder given a colour the way the
+// templates/sidebar/partials/folder-partial.hbs, with the second folder given a color the way the
 // partial does it — inline on the header.
 const directory = (wrapper) => `
 <div class="${wrapper}">
@@ -47,7 +47,7 @@ const directory = (wrapper) => `
         </li>
         <li class="directory-item folder flexcol expanded" data-folder-id="c">
           <header class="folder-header" style="background-color: rgb(120, 40, 40);" data-action="toggleFolder">
-            <span class="folder-name ellipsis">Somebody's Colour</span>
+            <span class="folder-name ellipsis">Somebody's color</span>
           </header>
         </li>
       </ol>
@@ -59,7 +59,7 @@ const PROBES = {
 	header:   { selector: ".folder-header:not([style])", properties: ["color", "background-color", "text-shadow", "--st-ink"] },
 	name:     { selector: ".folder-header:not([style]) .folder-name", properties: ["color"] },
 	button:   { selector: ".folder-header:not([style]) .create-button", properties: ["color"] },
-	coloured: { selector: ".folder-header[style]", properties: ["color", "background-color"] },
+	colored: { selector: ".folder-header[style]", properties: ["color", "background-color"] },
 };
 
 // The sidebar tab and the popped-out compendium window carry different chrome around the same rows.
@@ -116,20 +116,20 @@ describe.skipIf(!canProbe())("Directory folder headers, rendered", () => {
 					expect(probed("button").get("color")).toBe(probed("name").get("color"));
 				});
 
-				it("leaves a coloured folder painted in its own colour", () => {
-					expect(probed("coloured").get("background-color")).toBe("rgb(120, 40, 40)");
+				it("leaves a colored folder painted in its own color", () => {
+					expect(probed("colored").get("background-color")).toBe("rgb(120, 40, 40)");
 				});
 			});
 		}
 	}
 
-	// An arbitrary saturated band is what core's cream is for, and the colour is the user's choice —
+	// An arbitrary saturated band is what core's cream is for, and the color is the user's choice —
 	// so unlike the themed band, this text must NOT follow the theme. Asserted across the two rather
 	// than against a literal: in the dark theme the ink IS that cream, and a per-theme check there
-	// would pass whether the override reached the coloured header or not.
+	// would pass whether the override reached the colored header or not.
 	for (const surface of SURFACES) {
-		it(`leaves a folder given its own colour to core (${surface.name})`, () => {
-			const textIn = (theme) => rendered.get(key(surface.name, theme)).get("coloured").get("color");
+		it(`leaves a folder given its own color to core (${surface.name})`, () => {
+			const textIn = (theme) => rendered.get(key(surface.name, theme)).get("colored").get("color");
 			expect(textIn("light")).toBe(textIn("dark"));
 
 			const themed = (theme) => rendered.get(key(surface.name, theme)).get("name").get("color");

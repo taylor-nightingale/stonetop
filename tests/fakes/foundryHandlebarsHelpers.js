@@ -22,6 +22,7 @@ export function registerFoundryHelpers(Handlebars) {
 		not: pred => !pred,
 		and() { return Array.prototype.every.call(arguments, Boolean); },
 		or()  { return Array.prototype.slice.call(arguments, 0, -1).some(Boolean); },
+		ifThen: (criteria, ifTrue, ifFalse) => (criteria ? ifTrue : ifFalse),
 	});
 	Handlebars.registerHelper("localize", (key, options) => {
 		const data = options?.hash ?? {};

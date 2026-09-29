@@ -1,0 +1,13 @@
+{{!-- A group of reference moves in the rail: a panel whose bar opens and shuts it. The template says
+      where it starts (`open`); what the reader changes is remembered per sheet (OpenDisclosures).
+      Params: `category` (MoveCategorySnapshot), `index` (its bar's place among the rail's bars). --}}
+<section class="stonetop-panel stonetop-move-panel{{#if open}} is-open{{/if}}" data-disclosure-row>
+	{{> "stonetop.bar" title=category.label index=index action="stonetop.bar-toggle"
+	    controls=(concat @root.sheetIdPrefix "-moves-" category.key) open=open
+	    labelShow=(localize "stonetop.character.moves.showGroup" name=category.label)
+	    labelHide=(localize "stonetop.character.moves.hideGroup" name=category.label)}}
+	<div class="stonetop-panel-body" id="{{@root.sheetIdPrefix}}-moves-{{category.key}}"{{#unless open}} hidden{{/unless}}>
+		{{> "stonetop.character-move-list" moves=category.moves phases=category.phases
+		    categoryKey=category.key categoryLabel=category.label}}
+	</div>
+</section>

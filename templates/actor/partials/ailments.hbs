@@ -1,0 +1,31 @@
+{{!-- What is wrong with you, as one region (D7): the marked debilities as readouts, then the wounds.
+      Recover tends to both in one breath, so they are one list. The first three always show and the
+      rest are a count on the bar, so the band never grows as a character gets hurt.
+
+      A debility is marked on its bracket and only there; this says what the marked one IS. A wound
+      carries its state where a move row carries its roll, and its name opens the editor on it.
+      Context: the root. --}}
+<section class="stonetop-panel stonetop-ailments">
+	{{> "stonetop.bar" title=(localize "stonetop.character.ailments.title") index=0
+	    action="stonetop.ailments-bar-actions" moreCount=stonetop.ailments.moreCount
+	    open=ailmentsOpen controls=(concat sheetIdPrefix "-ailment-editor")}}
+	{{#if stonetop.ailments.isEmpty}}
+	<p class="stonetop-ailments-empty">{{localize "stonetop.character.ailments.empty"}}</p>
+	{{else}}
+	<ul class="stonetop-ailment-list stonetop-unmarked">
+		{{#each stonetop.ailments.shown}}
+		<li class="stonetop-ailment stonetop-ailment--{{kind}}"{{#if state}} data-state="{{state}}"{{/if}}>
+			{{#if woundId}}
+			<button type="button" class="stonetop-ailment-name" data-action="openAilments" data-view-state
+			        data-wound-id="{{woundId}}">{{name}}</button>
+			<span class="stonetop-ailment-note">{{#if stateKey}}{{localize stateKey}}{{/if}}</span>
+			{{else}}
+			<span class="stonetop-ailment-name">{{name}}</span>
+			<span class="stonetop-ailment-note" data-tooltip="{{note}}" data-tooltip-direction="UP">{{note}}</span>
+			{{/if}}
+		</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+</section>
+{{#if ailmentsOpen}}{{> "stonetop.ailment-editor"}}{{/if}}

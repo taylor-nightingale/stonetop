@@ -161,7 +161,7 @@ describe.skipIf(!canProbe())("the result rows of the season's own roll", () => {
 // What the roll did to the rows. The season keeps the tier its own move came up, and the row the
 // dice landed on is the one the table is living with — so it is lit, and the two it is not are
 // dimmed rather than hidden: a 7-9 means what it means partly because of the 10+ above it.
-const COLOURS = {
+const colorS = {
 	rolledBand:  { selector: `${row("partial")} .stonetop-result-label`, properties: ["background-color"] },
 	rolledBody:  { selector: `${row("partial")} .stonetop-result-body`,  properties: ["background-color"] },
 	rolledRow:   { selector: row("partial"), properties: ["opacity"] },
@@ -172,8 +172,8 @@ const COLOURS = {
 describe.skipIf(!canProbe())("the result the dice landed on", () => {
 	let lit, none;
 	beforeAll(() => {
-		lit  = probe.render({ bodyHtml: fixture(560, { outcome: "partial" }), probes: COLOURS });
-		none = probe.render({ bodyHtml: fixture(560), probes: COLOURS });
+		lit  = probe.render({ bodyHtml: fixture(560, { outcome: "partial" }), probes: colorS });
+		none = probe.render({ bodyHtml: fixture(560), probes: colorS });
 	});
 
 	it("tints the row that was rolled more strongly than the rows that were not", () => {

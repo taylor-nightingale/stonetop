@@ -40,9 +40,9 @@ describe("move icon rendering", () => {
 	// shared group now, in the rail beside the homefront ones. Nothing on the Season tab draws a
 	// move: the wheel states the year, and the box is the current season broken into steps. So
 	// neither of those files is allowed an icon of its own, which is what this file is about.
-	it("renders the seasonal moves through the shared move group, in the rail", () => {
+	it("renders the seasonal moves through the rail's move panel", () => {
 		expect(read("templates/actor/steading.hbs"))
-			.toContain("moves=stonetop.seasonalMoves.moves");
+			.toContain('{{> "stonetop.steading-move-panel" group=stonetop.seasonalMoves');
 		for (const file of ["templates/actor/partials/steading-season-box.hbs",
 		                    "templates/actor/partials/steading-season-wheel.hbs"]) {
 			expect(read(file)).not.toContain("<img class=\"steading-season-icon\"");

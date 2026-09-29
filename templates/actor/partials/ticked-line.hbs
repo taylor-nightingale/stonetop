@@ -1,0 +1,9 @@
+{{!-- One chosen thing, read back: the tick where its box was, then the words. The shape a condensed
+      choice rests in, shared by what is not a choice group (the instinct's label, the origin's
+      region) so every section rests alike. Params: `text` (rich or plain), `note` — pass it, even as
+      null: a partial's hash is merged into the caller's context, so an unpassed `note` is the
+      caller's (a section's bar instruction). `klass`: an extra class, same rule. --}}
+<div class="stonetop-choice-track stonetop-row{{#if klass}} {{klass}}{{/if}}">
+	<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>
+	<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich text}}{{#if (hasText note)}} <span class="stonetop-section-note">{{rich note}}</span>{{/if}}</span>
+</div>

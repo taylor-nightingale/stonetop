@@ -61,8 +61,10 @@ export class AdvanceRow {
  * row read as done, which is the right way to be wrong.
  */
 export class ChooseMoveRow {
-	constructor(step, advancement, chosen) {
+	/** @param {string} [opens] the section the choice is made in: the playbook's Moves panel */
+	constructor(step, advancement, chosen, opens = "") {
 		this.step     = step;
+		this.opens    = opens;
 		this.chosen   = chosen;
 		this.expected = advancement.expectedChosenMoves;
 		this.done     = chosen >= this.expected;
@@ -133,6 +135,8 @@ export class ReviewRow {
 	}
 
 	get kind()        { return "review"; }
+	// The review asks about the instinct AND the appearance, so the route opens both.
+	get opens()       { return this.step.tab === "playbook" ? "instinct appearance" : ""; }
 	get text()        { return this.step.text; }
 	get labelKey()    { return null; }
 	get tab()         { return this.step.tab; }
@@ -162,6 +166,9 @@ export class LevelUpSnapshot {
 	get owed() { return this.rows.filter(row => row.isOwed); }
 
 	get hasOwed() { return this.owed.length > 0; }
+
+	/** The "choose a new move" step while it is owed, for the Moves tab to say so; null otherwise. */
+	get owedMove() { return this.owed.find(row => row.kind === "chooseMove") ?? null; }
 
 	/** Whether the sheet offers the strip at all: the move has triggered, or it triggered earlier and
 	 *  left something unfinished. Silent the rest of the time. */

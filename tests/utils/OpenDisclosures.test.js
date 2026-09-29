@@ -184,3 +184,16 @@ describe("Disclosure, as OpenDisclosures addresses it", () => {
 		expect(d.isOpen).toBe(false);
 	});
 });
+
+describe("OpenDisclosures#open", () => {
+	// A route, or a new playbook, opens a region the reader never touched.
+	it("opens a region by its key, on the next restore", () => {
+		const state = new OpenDisclosures();
+		state.open("s1-section-instinct");
+		document.body.innerHTML = `
+			<button type="button" data-disclosure aria-controls="s1-section-instinct" aria-expanded="false"></button>
+			<div id="s1-section-instinct" hidden></div>`;
+		state.restore(document.body);
+		expect(document.getElementById("s1-section-instinct").hidden).toBe(false);
+	});
+});

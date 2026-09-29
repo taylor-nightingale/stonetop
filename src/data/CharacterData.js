@@ -1,3 +1,5 @@
+import { Wound } from "../model/data/character/Wound.js";
+
 const statField = () => {
 	const f = foundry.data.fields;
 	return new f.SchemaField({ value: new f.NumberField({ initial: 0 }) });
@@ -10,6 +12,11 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			description:  new f.StringField({ initial: "" }),
 			notes:        new f.StringField({ initial: "" }),
 			playbookSlug: new f.StringField({ initial: "" }),
+			wounds: new f.ArrayField(new f.SchemaField({
+				id:    new f.StringField({ required: true, blank: false }),
+				name:  new f.StringField({ initial: "" }),
+				state: new f.StringField({ initial: "active", choices: Wound.STATES }),
+			})),
 			inventory: new f.SchemaField({
 				checked:     new f.ObjectField(),
 				regularPool: new f.NumberField({ initial: 0, integer: true }),

@@ -146,17 +146,23 @@ describe("a background's move is readable before the background is taken", () =>
 	});
 
 	// One row, not two: the catalog seeds the registry and the owned item replaces its entry, so the
-	// move is never listed twice under the background that grants it.
+	// move is never listed twice under the background that grants it. Counted where every background
+	// is drawn — the section while choosing; at rest it is the taken one's alone.
 	it("draws it exactly once, taken or not", async () => {
 		const sheet = makeSheet();
 		const tab = await renderTab(sheet);
+		const choosing = markup => {
+			const root = document.createElement("div");
+			root.innerHTML = markup;
+			return root.querySelector('[data-section="background"] .stonetop-section-choose').innerHTML;
+		};
 		const count = text => (text.match(/Light Fingers/g) ?? []).length;
 
-		const before = count(tab.innerHTML);
+		const before = count(choosing(tab.innerHTML));
 		await tick(tab.querySelector(`input[data-change-action="selectBackground"][value="the-scoundrel"]`));
 
 		expect(before).toBeGreaterThan(0);
-		expect(count(await html(sheet))).toBe(before);
+		expect(count(choosing(await html(sheet)))).toBe(before);
 	});
 
 	// The moves tab stays the character's own list. A background's move is reached on the background,

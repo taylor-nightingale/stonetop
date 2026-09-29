@@ -1,0 +1,10 @@
+{{!-- The Ailments bar's controls, hanging from it: the count of the rows past the third, and the +.
+      Both open the editor. Handed the bar's params: `moreCount`, `open`, `controls`. --}}
+{{#if moreCount}}
+<button type="button" class="stonetop-bar-action stonetop-ailments-more" data-action="openAilments" data-view-state
+        aria-label="{{localize 'stonetop.character.ailments.moreLabel' count=moreCount}}">{{localize "stonetop.character.ailments.more" count=moreCount}}</button>
+{{/if}}
+<button type="button" class="stonetop-bar-action stonetop-ailments-edit" data-action="openAilments" data-view-state
+        aria-controls="{{controls}}" aria-expanded="{{#if open}}true{{else}}false{{/if}}"
+        aria-label="{{localize 'stonetop.character.ailments.edit'}}" title="{{localize 'stonetop.character.ailments.edit'}}"><i
+	class="fas fa-plus" aria-hidden="true"></i></button>

@@ -1,0 +1,101 @@
+{{!-- One move, on one line: the die and the name are one roll button, then what it adds, then the
+      caret that opens its text. Context is a MoveSnapshot (own fields only — this partial is called
+      with hash params, which drops getters); params: `categoryKey`, `categoryLabel`, `chat`,
+      `startOpen`, for a row whose text is shown until the reader shuts it, `removable`, for a move
+      dropped on, and `choosing`, for a list being chosen from.
+
+      Choosing adds two things and no more: one box, which is what taking a move IS (clearing it
+      clears every take), and a line under the trigger saying what taking it asks — its requirement,
+      its limit, and a way to take it again. How many times a move has been taken is said after its
+      name from the second take, at rest too; once is what being listed means.
+
+      Nine of ten basic moves roll and about one playbook move in six does, so "a name rolls" is not a
+      rule a player can learn: the die says it. A move that does not roll has neither die nor button,
+      and a dash in the stat column. A prompt move rolls plain 2d6 — die, and nothing added.
+
+      `item` + `data-item-id` is how the roll handler finds an owned move; an unowned one rolls by the
+      slug on the button. --}}
+<li class="stonetop-mrow{{#if (and rollStat ownedId)}} item{{/if}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row data-slug="{{slug}}"{{#if ownedId}} data-item-id="{{ownedId}}"{{/if}}>
+	<div class="stonetop-item-header">
+		{{#if choosing}}
+		<span class="stonetop-mrow-mark">
+			<input type="checkbox" class="stonetop-item-check stonetop-mrow-take" data-change-action="moveCheck"
+			       data-category-key="{{categoryKey}}" data-move-slug="{{slug}}"
+			       aria-label="{{localize 'stonetop.character.moves.taken' name=name}}"
+			       {{#if isTaken}}checked{{/if}}{{#unless (or isTaken selectable)}} disabled{{/unless}}>
+		</span>
+		{{/if}}
+		<span class="stonetop-mrow-name">
+			{{#if rollStat}}
+			<button type="button" class="rollable move-rollable stonetop-mrow-roll" data-roll="{{rollStat}}" data-mod=""
+			        data-move-slug="{{slug}}"
+			        aria-label="{{localize 'stonetop.a11y.rollMove' name=name}}" title="{{localize 'stonetop.a11y.rollMove' name=name}}">
+				<i class="fas fa-dice-d6 stonetop-mrow-die" aria-hidden="true"></i>
+				<span class="stonetop-mrow-title">{{name}}</span>
+			</button>
+			{{else}}
+			<span class="stonetop-mrow-title stonetop-mrow-title--static">{{name}}</span>
+			{{/if}}
+			{{#if (gt timesTaken 1)}}<span class="stonetop-mrow-times"><span aria-hidden="true">×{{timesTaken}}</span><span class="stonetop-visually-hidden">{{localize "stonetop.character.moves.timesTaken" count=timesTaken}}</span></span>{{/if}}
+		</span>
+		<span class="stonetop-mrow-stat">{{#if rollLabel}}<span class="stonetop-mrow-mod">{{rollLabel}}</span>{{else}}{{#unless rollStat}}<span class="stonetop-mrow-nil" aria-hidden="true">—</span>{{/unless}}{{/if}}</span>
+		<span class="stonetop-item-controls">
+			<button type="button" class="stonetop-move-disclosure stonetop-mrow-caret" data-action="toggleSliding"
+			        data-disclosure data-view-state
+			        aria-controls="{{moveBodyId @root.sheetIdPrefix categoryKey slug choosing}}" aria-expanded="{{#if startOpen}}true{{else}}false{{/if}}"
+			        data-label-show="{{localize 'stonetop.character.moves.showText' name=name}}"
+			        data-label-hide="{{localize 'stonetop.character.moves.hideText' name=name}}"
+			        aria-label="{{#if startOpen}}{{localize 'stonetop.character.moves.hideText' name=name}}{{else}}{{localize 'stonetop.character.moves.showText' name=name}}{{/if}}"
+			        title="{{#if startOpen}}{{localize 'stonetop.character.moves.hideText' name=name}}{{else}}{{localize 'stonetop.character.moves.showText' name=name}}{{/if}}">
+				<i class="fas fa-chevron-right stonetop-move-caret" aria-hidden="true"></i>
+			</button>
+			{{#if chat}}
+			<button type="button" class="stonetop-move-chat stonetop-mrow-caret" data-action="moveToChat" data-move-slug="{{slug}}"
+			        title="{{localize 'stonetop.character.moves.sendToChat'}}" aria-label="{{localize 'stonetop.character.moves.sendToChat'}}">
+				<i class="fas fa-comment" aria-hidden="true"></i>
+			</button>
+			{{/if}}
+			{{#if removable}}
+			<button type="button" class="stonetop-mrow-caret stonetop-mrow-remove" data-action="deleteOtherMove" data-move-slug="{{slug}}" data-name="{{name}}"
+			        title="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}"
+			        aria-label="{{localize 'stonetop.character.moves.removeMove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
+				<i class="fas fa-trash" aria-hidden="true"></i>
+			</button>
+			{{/if}}
+		</span>
+		<span class="stonetop-mrow-sub">
+			{{!-- The gloss is the move's own trigger, lifted verbatim from its text, so it goes while the
+			      text is open rather than being read twice. --}}
+			{{#if (hasText gloss)}}<span class="stonetop-move-gloss" data-disclosure-shut{{#if startOpen}} hidden{{/if}}>{{gloss}}</span>{{/if}}
+			{{#if resource}}
+			<span class="stonetop-item-resources">
+				{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check"
+				    action="moveResourcePip" moveSlug=slug slug=slug}}
+				{{> "stonetop.resource-input" input=resource.input moveSlug=slug}}
+			</span>
+			{{/if}}
+		</span>
+		{{#if choosing}}{{#if (or requirement isRepeatable)}}
+		<span class="stonetop-mrow-choosing">
+			{{#if requirement}}<span class="stonetop-mrow-req{{#unless requirement.met}} stonetop-mrow-req--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</span>{{/if}}
+			{{#if isRepeatable}}<span class="stonetop-mrow-limit">{{localize "stonetop.character.moves.upTo" count=maxTakes}}</span>{{/if}}
+			{{#if canTakeAgain}}<button type="button" class="stonetop-goto stonetop-mrow-again" data-action="takeMoveAgain"
+			        data-category-key="{{categoryKey}}" data-move-slug="{{slug}}"
+			        aria-label="{{localize 'stonetop.character.moves.takeAgainNamed' name=name}}">{{localize "stonetop.character.moves.takeAgain"}}</button>{{/if}}
+		</span>
+		{{/if}}{{/if}}
+	</div>
+	<div class="stonetop-move-body" id="{{moveBodyId @root.sheetIdPrefix categoryKey slug choosing}}"{{#unless startOpen}} hidden{{/unless}}>
+		<div class="stonetop-item-description">{{rich description}}</div>
+		{{#if choices}}
+		<div class="stonetop-move-choices" data-move-slug="{{slug}}">
+			{{#each choices.list}}
+			{{!-- A Moves panel draws a move twice, at rest and while choosing, in one form: the radios of
+			      the two copies are named apart, or checking one would clear the other. --}}
+			{{> "stonetop.choice-row" cgContext="move" cgGroup=../choices.slug namePrefix=(concat ../slug (ifThen ../choosing "-choosing" ""))}}
+			{{/each}}
+		</div>
+		{{/if}}
+	</div>
+	{{> "stonetop.move-preview" categoryLabel=categoryLabel}}
+</li>

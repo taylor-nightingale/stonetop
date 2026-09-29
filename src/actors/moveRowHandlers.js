@@ -8,7 +8,7 @@ import { toggleDisclosure } from "../utils/Disclosure.js";
  * already stamp these action names. Each sheet used to re-describe what they mean — the steading by
  * hand-wiring class selectors — so a change to the partial silently broke one of them.
  *
- * The host only has to be a typed actor answering the four move methods; nothing here knows what a
+ * The host only has to be a typed actor answering the move methods; nothing here knows what a
  * playbook move or a homefront move is.
  */
 
@@ -39,7 +39,6 @@ export const MOVE_ROW_ACTIONS = {
 /** Change handlers to merge into a sheet's ChangeActionRouter map. */
 export function moveRowChangeHandlers(typedActor) {
 	return {
-		moveCheck:        el => typedActor.setMoveChecked(el.dataset.categoryKey, el.dataset.moveSlug, el.checked),
 		moveResourceText: el => typedActor.setMoveResourceText(el.dataset.moveSlug, el.value),
 	};
 }

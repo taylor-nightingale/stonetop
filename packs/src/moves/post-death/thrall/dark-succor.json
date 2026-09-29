@@ -3,7 +3,7 @@
   "type": "move",
   "system": {
     "moveType": null,
-    "description": "When you are dying or killed outright, your master intercedes on your behalf. You will recover, here and now or at a time and place of the GM's choosing. Then, roll +Favor: **on a 10+**, choose 1; **on a 7–9**, choose 2; **on a 6–**, all 3 apply.\n\n- Gain a new Mark of the GM's choice\n- Cross off a Mark that you don't have—you can never gain it\n- Your master gives you a task; until you complete it, your Favor stays at 0.\nRegardless, reset your Favor to 0.",
+    "description": "When you are **_dying or killed outright_**, your master intercedes on your behalf. You will recover, here and now or at a time and place of the GM's choosing. Then, roll +Favor: **on a 10+**, choose 1; **on a 7–9**, choose 2; **on a 6–**, all 3 apply.\n\n- Gain a new Mark of the GM's choice\n- Cross off a Mark that you don't have—you can never gain it\n- Your master gives you a task; until you complete it, your Favor stays at 0.\nRegardless, reset your Favor to 0.",
     "moveResults": {
       "success": {
         "label": "10+",
@@ -19,7 +19,8 @@
       }
     },
     "rollStat": "favor",
-    "slug": "dark-succor"
+    "slug": "dark-succor",
+    "replaces": "deaths-door"
   },
   "folder": "Xk9mThr4LLp0aZcN",
   "_id": "Thr4llDrkSuc0003",

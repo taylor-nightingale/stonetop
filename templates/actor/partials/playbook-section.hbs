@@ -1,0 +1,18 @@
+{{!-- One section of the Playbook tab (D11): a panel headed by its bar, resting on what was chosen,
+      with one door on the bar to everything on offer. Both are in the markup; the door slides one
+      out and the other in (the Disclosure machinery the rail's groups use), and the sheet remembers
+      which the reader left open. The book's instruction rides the bar only while choosing.
+
+      Params: `section` (PlaybookSection), `title`, `note`, `index` (its bar's place on this tab),
+      `rest` and `choose` — the partials that draw the two bodies, each handed these params — and
+      whatever those two read (`data`, `cgContext`, …). Named partials rather than a `{{#> }}` block:
+      Handlebars strips prototype access from partial-block content, silently. --}}
+<section class="stonetop-panel stonetop-section" data-disclosure-row data-section="{{section.key}}">
+	{{> "stonetop.bar" title=title index=index note=note noteWhileOpen=true
+	    action=(ifThen section.hasDoor "stonetop.section-door" "")
+	    controls=(sectionId @root.sheetIdPrefix section.key) door=section.door}}
+	<div class="stonetop-section-rest" data-disclosure-shut>{{#if (and rest section.rests)}}{{> (lookup . "rest") .}}{{/if}}</div>
+	{{#if section.hasDoor}}
+	<div class="stonetop-section-choose" id="{{sectionId @root.sheetIdPrefix section.key}}" hidden>{{#if choose}}{{> (lookup . "choose") .}}{{/if}}</div>
+	{{/if}}
+</section>

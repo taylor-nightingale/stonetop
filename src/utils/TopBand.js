@@ -1,3 +1,6 @@
+import { BandFold } from "./BandFold.js";
+import { prefersReducedMotion } from "./motion.js";
+
 /**
  * The character sheet's top band, and the folded line it swaps places with.
  *
@@ -11,7 +14,7 @@
  * not, and the reader is the only one who says which.
  *
  * Deliberately NOT a SheetRail: the two share a shape and nothing else. The rail's third state, its
- * drawer, its focus manners and its `data-side` are all answers to questions a band does not ask.
+ * drawer and its focus manners are answers to questions a band does not ask.
  */
 export class TopBand {
 	static WRAPPER   = ".sheet-wrapper";
@@ -35,6 +38,11 @@ export class TopBand {
 	 */
 	get key() {
 		return this._band?.id ?? "";
+	}
+
+	/** The sheet wrapper the fold's class lives on. */
+	get wrapper() {
+		return this._wrapper;
 	}
 
 	get isCollapsed() {
@@ -141,7 +149,7 @@ function wrappersIn(root) {
 /**
  * The fold toggle, as an ApplicationV2 actions entry. Pure view state — no actor write — so it is
  * not gated on editability and its button carries `data-view-state` to survive a locked sheet:
- * reading your own stats mutates nothing.
+ * reading your own stats mutates nothing. The fold eases (BandFold), and not under reduced motion.
  *
  * `this` is the sheet, which is who remembers the state across the render this does not cause.
  */
@@ -149,7 +157,8 @@ export const TOP_BAND_ACTIONS = {
 	toggleTop(ev, target) {
 		const band = TopBand.from(target);
 		if (!band) return;
-		band.toggle();
+		const view = target.ownerDocument?.defaultView ?? globalThis;
+		new BandFold(band).run(!band.isCollapsed, { reduced: prefersReducedMotion(view) });
 		this?.topBandState?.remember(band);
 	},
 };

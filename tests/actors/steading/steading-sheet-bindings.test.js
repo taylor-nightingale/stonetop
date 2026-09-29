@@ -26,7 +26,7 @@ const FACADE_METHODS = [
 	"addPlace", "setPlaceValue", "unlinkPlace", "linkPlace",
 	"revokeImprovement",
 	"setChoiceTrackFor", "setChoicePickFor", "setChoiceTextFor", "clearChoicePickFor",
-	"setMoveChecked", "sendMoveToChat", "toggleMoveResourcePip", "setMoveResourceText",
+	"sendMoveToChat", "toggleMoveResourcePip", "setMoveResourceText",
 	"pickSeasonalGain",
 ];
 

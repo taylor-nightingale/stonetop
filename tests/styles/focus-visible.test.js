@@ -9,7 +9,7 @@ import { CssColor } from "./cssColor.js";
 // to tell them where they are.
 //
 // These assert the rendered result rather than the presence of a rule: `outline-style` and a
-// non-zero `outline-width`, in a colour that is actually distinguishable from the paper behind it.
+// non-zero `outline-width`, in a color that is actually distinguishable from the paper behind it.
 // A rule that exists but loses the cascade to one of the nineteen `outline: none` declarations
 // above it would pass a text-parsing test and fail this one.
 //

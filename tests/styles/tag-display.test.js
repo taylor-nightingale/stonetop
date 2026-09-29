@@ -102,11 +102,11 @@ describe.skipIf(!canProbe())("a displayed tag renders as italic text, not a cont
 		expect(plain.get("font-style")).toBe("italic");
 	});
 
-	// A button does not inherit font or colour from its surroundings unless told to; a tag rendered
+	// A button does not inherit font or color from its surroundings unless told to; a tag rendered
 	// in the browser's default UI font at its default size is exactly the "messes up the formatting"
-	// failure. Size and family come from the row; colour comes from the parenthetical it sits in,
+	// failure. Size and family come from the row; color comes from the parenthetical it sits in,
 	// which is toned down from the item name — so the tag matches the note beside it, not the name.
-	it("takes its font from the row and its colour from the parenthetical", () => {
+	it("takes its font from the row and its color from the parenthetical", () => {
 		expect(tag.get("font-size")).toBe(label.get("font-size"));
 		expect(tag.get("font-family")).toBe(label.get("font-family"));
 		expect(tag.get("color")).toBe(parens.get("color"));

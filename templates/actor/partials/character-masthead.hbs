@@ -1,0 +1,43 @@
+{{!-- Who this is, at both densities (D7): the crest, the name with the playbook in one heading, and
+      the instinct beside them with the appearance under it. The masthead is the part of the band the
+      fold never takes, so the instinct is on screen either way and drawn once.
+
+      Both are READOUTS — one value, one editor, and the editor is where each is chosen (the playbook,
+      or the insert that carries the instinct). The instinct is a route there, since it changes at any
+      time it feels right and is reviewed at every level. Each holds one line and cuts to "…"; the
+      hover carries the whole of it, and the accessible name says it in full. Context: the root. --}}
+<header class="sheet-header stonetop-masthead">
+	<div class="stonetop-masthead-id">
+		{{#if stonetop.playbook.img}}
+		<img class="profile-img stonetop-header-playbook-icon" src="{{stonetop.playbook.img}}"
+		     alt="" title="{{stonetop.playbook.title}}">
+		{{/if}}
+		{{!-- The field is quiet until you reach for it: a name is typed once, and at rest this line is
+		      a title, not a form. The playbook is IN the h1: "Anwen, The Would-be Hero" is one sentence. --}}
+		<h1 class="charname">
+			<input name="name" type="text" value="{{actor.name}}"
+			       aria-label="{{localize 'stonetop.a11y.actorName'}}" placeholder="Name"
+			       {{#unless editable}}disabled{{/unless}}>
+			{{#if stonetop.playbook}}
+			<span class="stonetop-charname-playbook">{{stonetop.playbook.title}}</span>
+			{{/if}}
+		</h1>
+	</div>
+	{{#unless (and stonetop.instinct.isEmpty stonetop.appearance.isEmpty)}}
+	<div class="stonetop-who">
+		<span class="stonetop-who-label">{{localize "stonetop.playbook.instinct"}}</span>
+		{{#unless stonetop.instinct.isEmpty}}
+		{{!-- A block inside the line, so the cut to "…" falls in its words rather than swapping the
+		      whole button for an ellipsis. --}}
+		<p class="stonetop-instinct"><button type="button" class="stonetop-goto" data-action="goToTab" data-view-state
+		        data-tab="{{stonetop.instinct.tab}}" data-open-sections="{{stonetop.instinct.sectionKey}}"
+		        aria-label="{{localize 'stonetop.character.instinct.changeOn' instinct=stonetop.instinct.label source=stonetop.instinct.source}}"
+		        data-tooltip="{{localize 'stonetop.character.instinct.changeOn' instinct=stonetop.instinct.label source=stonetop.instinct.source}}"
+		        data-tooltip-direction="DOWN">{{stonetop.instinct.label}}</button></p>
+		{{/unless}}
+		{{#unless stonetop.appearance.isEmpty}}
+		<p class="stonetop-appearance" data-tooltip="{{stonetop.appearance.plain}}" data-tooltip-direction="DOWN">{{rich stonetop.appearance.text}}</p>
+		{{/unless}}
+	</div>
+	{{/unless}}
+</header>

@@ -82,6 +82,9 @@ export const DELETE_ACTIONS = {
 	deleteInsert: confirmedDelete(function (target) {
 		return this._stonetopCharacter.removeInsert(target.dataset.insertItemId);
 	}),
+	removeWound: confirmedDelete(function (target) {
+		return this._stonetopCharacter.removeWound(target.dataset.woundId);
+	}),
 	deleteInventoryItem: confirmedDelete(function (target) {
 		return this._stonetopCharacter.removeCustomInventoryItemFor(
 			InventoryOwner.fromElement(target), target.dataset.ownedId);

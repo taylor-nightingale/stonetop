@@ -1,0 +1,41 @@
+{{!-- Who this is, at the head of the rail (D7): the portrait, with Level on its bottom edge and Armor
+      and Damage either side of it, dropped half a step so the three read as an arc. All three stay
+      fields; Damage's label rolls the die, and a damage die is "d6", so it is text. Each number's
+      provenance is said to everyone, not only on hover. Context: the root. --}}
+<div class="stonetop-rail-identity">
+	<div class="stonetop-portrait-frame">
+		{{!-- data-edit belongs on the <img>, never on the button — see actor-header.hbs. --}}
+		<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{actor.name}}"><img data-edit="img" class="stonetop-portrait" src="{{actor.img}}" alt="{{actor.name}}"></button>
+	</div>
+	<div class="stonetop-cluster stonetop-resource-row">
+		<div class="stonetop-cluster-item stonetop-cluster-item--armor">
+			<div class="stonetop-resource stonetop-resource--small">
+				<span class="stonetop-resource__label" data-tooltip="{{stonetop.vitals.sources.armor}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.armor"}}</span>
+				<input class="stonetop-resource__input stonetop-char-armor" type="number" data-change-action="armor"
+				       aria-label="{{localize 'stonetop.character.attributes.armor'}}"
+				       {{#if (hasText stonetop.vitals.sources.armor)}}aria-describedby="{{sheetIdPrefix}}-vital-armor-source"{{/if}}
+				       value="{{stonetop.vitals.armor}}" min="0">
+			</div>
+			{{#if (hasText stonetop.vitals.sources.armor)}}<span id="{{sheetIdPrefix}}-vital-armor-source" class="stonetop-visually-hidden">{{stonetop.vitals.sources.armor}}</span>{{/if}}
+		</div>
+		<div class="stonetop-cluster-item stonetop-cluster-item--level">
+			<div class="stonetop-resource stonetop-resource--small">
+				<span class="stonetop-resource__label">{{localize "stonetop.character.attributes.level"}}</span>
+				<input class="stonetop-resource__input stonetop-char-level" type="number" data-change-action="level"
+				       aria-label="{{localize 'stonetop.character.attributes.level'}}"
+				       value="{{stonetop.vitals.level}}" min="1">
+			</div>
+		</div>
+		<div class="stonetop-cluster-item stonetop-cluster-item--damage">
+			<div class="stonetop-resource stonetop-resource--small">
+				<button class="stonetop-resource__label stonetop-damage-roll rollable" type="button" data-roll="damage"
+				        data-tooltip="{{stonetop.vitals.sources.damage}}" data-tooltip-direction="UP">{{localize "stonetop.character.attributes.damage"}}</button>
+				<input class="stonetop-resource__input stonetop-char-damage" type="text" data-change-action="damage"
+				       aria-label="{{localize 'stonetop.a11y.damageDie'}}"
+				       {{#if (hasText stonetop.vitals.sources.damage)}}aria-describedby="{{sheetIdPrefix}}-vital-damage-source"{{/if}}
+				       value="{{stonetop.vitals.damage.value}}">
+			</div>
+			{{#if (hasText stonetop.vitals.sources.damage)}}<span id="{{sheetIdPrefix}}-vital-damage-source" class="stonetop-visually-hidden">{{stonetop.vitals.sources.damage}}</span>{{/if}}
+		</div>
+	</div>
+</div>

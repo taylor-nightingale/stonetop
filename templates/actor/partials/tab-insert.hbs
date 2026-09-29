@@ -1,4 +1,10 @@
-<div class="tab insert insert-{{insert.slug}} {{tab.cssClass}}{{#if locked}} is-locked{{/if}}"
+{{!-- An insert's tab (D12): the whole insert, as the book prints it on one card. Its head — icon,
+      name, how it arrived, and Remove (Undying's 6- trades a Revenant for a Ghost; a purpose fulfilled
+      passes you through the Last Door) — then its moves, then its instinct and its sections, drawn as
+      the Playbook tab's are and split across the same two fixed columns. Consequences are spent from
+      inside the insert's moves, so the two are read together, here. No lock: each section is its own
+      door (D11). Params: `insert` (InsertSnapshot), `tab`. --}}
+<div class="tab insert insert-{{insert.slug}} {{tab.cssClass}}"
      data-group="primary" data-tab="insert-{{insert.slug}}"
      data-insert-item-id="{{insert.id}}">
 	<section class="sheet-tab">
@@ -10,18 +16,7 @@
 				<div class="stonetop-insert-description">{{rich insert.description}}</div>
 				{{/if}}
 			</div>
-			{{!-- One lock per insert, keyed by slug: locking Invocations must not lock the Ghost tab.
-			      Both controls sit in one row at the head's right, in flow — see .stonetop-insert-actions. --}}
 			<div class="stonetop-insert-actions">
-			{{#if locked}}
-			{{> "stonetop.tab-toolbar-toggle" flag=viewFlag icon="fa-lock" active=true
-			    label=(localize "stonetop.sheet.lock.unlock")
-			    title=(localize "stonetop.sheet.lock.unlockHint")}}
-			{{else}}
-			{{> "stonetop.tab-toolbar-toggle" flag=viewFlag icon="fa-lock-open"
-			    label=(localize "stonetop.sheet.lock.lock")
-			    title=(localize "stonetop.sheet.lock.lockHint")}}
-			{{/if}}
 			<button type="button" class="stonetop-insert-remove" data-action="deleteInsert"
 			        data-insert-item-id="{{insert.id}}" data-name="{{insert.name}}"
 			        title="{{localize 'stonetop.insert.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}" aria-label="{{localize 'stonetop.insert.remove'}} — {{localize 'stonetop.confirm.deleteHint'}}">
@@ -29,16 +24,24 @@
 			</button>
 			</div>
 		</div>
-		<div class="stonetop-playbook-columns">
-			{{#if insert.instinctGroup}}
-			{{> "stonetop.instinct-section"
-			    instinctSelected=insert.instinctSelected
-			    instinctGroup=insert.instinctGroup
-			    namePrefix=insert.id
-			    cgContext="insert-pick"
-			    locked=locked}}
-			{{/if}}
-			{{> "stonetop.choice-section" groups=insert.choices cgContext="insert" locked=locked}}
+		{{#if insert.moves.length}}
+		<section class="stonetop-panel stonetop-insert-moves">
+			{{> "stonetop.bar" title=(localize "stonetop.character.moves.insertMoves" name=insert.name) index=0}}
+			{{> "stonetop.character-move-list" moves=insert.moves categoryKey=(concat "insert-" insert.slug)
+			    categoryLabel=insert.name chat=true}}
+		</section>
+		{{/if}}
+		{{#if insert.sections.split}}
+		<div class="stonetop-section-columns">
+			<div class="stonetop-section-column">
+				{{#each insert.sections.left}}{{> "stonetop.insert-section" insert=../insert index=(add 1 @index)}}{{/each}}
+			</div>
+			<div class="stonetop-section-column">
+				{{#each insert.sections.right}}{{> "stonetop.insert-section" insert=../insert index=(add (add 1 ../insert.sections.left.length) @index)}}{{/each}}
+			</div>
 		</div>
+		{{else}}
+		{{#each insert.sections.left}}{{> "stonetop.insert-section" insert=../insert index=1}}{{/each}}
+		{{/if}}
 	</section>
 </div>

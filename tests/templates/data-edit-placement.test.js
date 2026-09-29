@@ -69,12 +69,16 @@ describe("data-edit sits on the image itself", () => {
 		expect(editableFormData(document.body).img).toBe("stonetop-art/arcana/azure-hand.png");
 	});
 
-	// A character with a playbook shows the playbook's icon instead, which is not editable.
+	// The character's masthead shows the playbook's crest, which is not editable: the portrait is
+	// the rail's.
 	it("contributes nothing to the payload when no editable image is rendered", () => {
-		document.body.innerHTML = renderPartial("stonetop.actor-header", {
+		document.body.innerHTML = renderPartial("stonetop.character-masthead", {
 			actor: { name: "Blodwen", img: "icons/svg/mystery-man.svg" },
 			editable: true,
-			stonetop: { playbook: { name: "The Seeker", img: "systems/stonetop/assets/seeker.webp" } },
+			stonetop: {
+				playbook: { title: "The Seeker", img: "systems/stonetop/assets/seeker.webp" },
+				instinct: { isEmpty: true }, appearance: { isEmpty: true },
+			},
 		});
 
 		expect(editableFormData(document.body)).toEqual({});

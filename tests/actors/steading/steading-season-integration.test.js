@@ -308,7 +308,7 @@ function stubConfirm(answer) {
 }
 
 describe("the season, wherever the ratings are", () => {
-	// The band takes its tint from one attribute on the sheet root, so a season with no colour still
+	// The band takes its tint from one attribute on the sheet root, so a season with no color still
 	// renders and nothing has to run to keep the two in step.
 	it("stamps the season on the sheet root for the band to tint from", async () => {
 		const root = await render(await makeSheet({ season: "autumn" }));
@@ -316,7 +316,7 @@ describe("the season, wherever the ratings are", () => {
 		expect(root.querySelector(".steading-season-band")).not.toBeNull();
 	});
 
-	// Colour is never the only carrier: the season is also written out on the ledger line.
+	// color is never the only carrier: the season is also written out on the ledger line.
 	it("states the season as text on the ledger line, not only as a tint", async () => {
 		const root = await render(await makeSheet({ season: "winter", year: 3 }));
 		expect(root.querySelector(".steading-season-line").textContent).toContain("winter");
@@ -429,9 +429,96 @@ describe("the season wheel", () => {
 // The four Seasons Change moves are the steading's own moves, so they are read where its moves are
 // read: the rail, beside the homefront ones, on every tab — not hung off a wheel segment on the one
 // tab the wheel is drawn on.
+// The GM's correction (D11): the season head rests on the season and year, with one door on its bar
+// for the GM only. Setting the season is ENTERING it, so the season's record goes as on a turn.
+describe("setting the season and year", () => {
+	const asGM = isGM => vi.stubGlobal("game", { ...globalThis.game, user: { isGM } });
+	const head = root => root.querySelector(".steading-season-head");
+	const door = root => head(root).querySelector('[data-action="toggleSection"]');
+	const radio = (root, key) => head(root).querySelector(`[data-change-action="season"][value="${key}"]`);
+	const change = input => input.dispatchEvent(new Event("change", { bubbles: true }));
+
+	it("starts a new steading in spring of the first year", async () => {
+		const root = await render(await makeSheet());
+		const line = root.querySelector(".steading-season-line").textContent;
+		expect(line).toContain("spring");
+		expect(line).toContain("1");
+	});
+
+	it("gives a player no door and no way to set either", async () => {
+		asGM(false);
+		const root = await render(await makeSheet());
+		expect(door(root)).toBeNull();
+		expect(head(root).querySelector("[data-change-action]")).toBeNull();
+	});
+
+	it("opens the GM's correction with every season on offer and the current one chosen", async () => {
+		asGM(true);
+		const sheet = await makeSheet({ season: "summer", year: 2 });
+		const root = await render(sheet, true);
+
+		await act(sheet, "toggleSection", door(root));
+		const choose = head(root).querySelector(".stonetop-section-choose");
+		expect(choose.hidden).toBe(false);
+		expect([...choose.querySelectorAll('[data-change-action="season"]')].map(r => [r.value, r.checked]))
+			.toEqual([["spring", false], ["summer", true], ["autumn", false], ["winter", false]]);
+		expect(choose.querySelector('[data-change-action="seasonYear"]').value).toBe("2");
+	});
+
+	// The reader opened it; a write re-renders the sheet, and the door must not shut under them.
+	it("stays open across a re-render", async () => {
+		asGM(true);
+		const sheet = await makeSheet();
+		let root = await render(sheet, true);
+		await act(sheet, "toggleSection", door(root));
+
+		root = await render(sheet);
+		expect(head(root).querySelector(".stonetop-section-choose").hidden).toBe(false);
+	});
+
+	it("puts the steading in the season picked, clearing what this one recorded", async () => {
+		asGM(true);
+		stubConfirm(true);
+		const sheet = await makeSheet({
+			season: "autumn", year: 3, owned: ["mill"],
+			turnoverApplied: { "mill:0": { change: { target: "surplus", amount: 1 } } },
+		});
+		const root = await render(sheet, true);
+
+		change(radio(root, "winter"));
+		await vi.waitFor(() => expect(sheet.actor.system.season).toBe("winter"));
+		expect(sheet.actor.system.year).toBe(3);
+		expect(sheet.actor.system.turnoverApplied).toEqual({});
+	});
+
+	// The radio has already moved by then, so the sheet re-renders it back onto the steading's season.
+	it("changes nothing when the question is declined", async () => {
+		asGM(true);
+		stubConfirm(false);
+		const sheet = await makeSheet({ season: "autumn" });
+		const root = await render(sheet, true);
+
+		change(radio(root, "winter"));
+		await vi.waitFor(() => expect(sheet.render).toHaveBeenCalled());
+		expect(sheet.actor.system.season).toBe("autumn");
+	});
+
+	it("sets the year and leaves the season alone", async () => {
+		asGM(true);
+		const sheet = await makeSheet({ season: "autumn", year: 1 });
+		const root = await render(sheet, true);
+
+		const year = head(root).querySelector('[data-change-action="seasonYear"]');
+		year.value = "4";
+		change(year);
+		await vi.waitFor(() => expect(sheet.actor.system.year).toBe(4));
+		expect(sheet.actor.system.season).toBe("autumn");
+	});
+});
+
 describe("the rail's seasonal moves", () => {
-	const railGroup = (root, title) => [...root.querySelectorAll(".steading-rail .stonetop-move-group")]
-		.find(g => g.querySelector(".stonetop-move-group-title")?.textContent.includes(title));
+	const railGroup = (root, title) => [...root.querySelectorAll(".steading-rail .stonetop-move-panel")]
+		.find(g => g.querySelector(".stonetop-bar-title")?.textContent.includes(title));
 
 	it("lists all four, spring to winter, under Seasonal Moves", async () => {
 		const root  = await render(await makeSheet({ season: "autumn" }));
@@ -447,7 +534,7 @@ describe("the rail's seasonal moves", () => {
 	// can read past.
 	it("draws each as a disclosure row, shut, over its own region", async () => {
 		const root     = await render(await makeSheet({ season: "spring" }));
-		const controls = [...railGroup(root, "Seasonal Moves").querySelectorAll("[aria-controls]")];
+		const controls = [...railGroup(root, "Seasonal Moves").querySelectorAll(".stonetop-move-disclosure[aria-controls]")];
 		expect(controls).toHaveLength(4);
 		expect(new Set(controls.map(c => c.getAttribute("aria-controls"))).size).toBe(4);
 		for (const control of controls) {

@@ -113,7 +113,7 @@ describe.skipIf(!canProbe())("what a focus ring actually surrounds", () => {
 	describe("a field flush against a scrolling column", () => {
 		const SCROLLERS = [
 			["the tab scroller both sheets use", "body",
-				`<div class="stonetop-rail-layout" data-side="left"><div class="stonetop-rail"></div>
+				`<div class="stonetop-rail-layout"><div class="stonetop-rail"></div>
 					<div class="sheet-body" id="scroll-body"><div class="tab active" data-tab="play">
 						<textarea id="field-body" class="stonetop-notes stonetop-grow-field"></textarea>
 					</div></div>

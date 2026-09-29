@@ -32,6 +32,10 @@
 						},
 						"track": {
 							"max": 1
+						},
+						"input": {
+							"type": "inline",
+							"follows": "lead"
 						}
 					},
 					{
@@ -43,6 +47,10 @@
 						},
 						"track": {
 							"max": 1
+						},
+						"input": {
+							"type": "inline",
+							"follows": "lead"
 						}
 					},
 					{
@@ -54,6 +62,10 @@
 						},
 						"track": {
 							"max": 1
+						},
+						"input": {
+							"type": "inline",
+							"follows": "lead"
 						}
 					}
 				]

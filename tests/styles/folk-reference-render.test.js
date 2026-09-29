@@ -62,7 +62,7 @@ const traitList = new SuggestionList("Traits", SuggestionList.TRAIT, [
 const referenceColumn = (theme = "theme-light") => `
 <div class="application stonetop sheet actor steading themed ${theme}" style="width: 1180px">
  <div class="window-content"><div class="sheet-wrapper">
-  <div class="stonetop-rail-layout" data-side="left">
+  <div class="stonetop-rail-layout">
    <div class="stonetop-rail-main steading-main">
     <div class="steading-folk-grid">
      <section class="steading-folk-roster steading-block"></section>
@@ -177,7 +177,7 @@ const ROSTER_FOLK = [
 const folkTab = width => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
  <div class="window-content"><div class="sheet-wrapper">
-  <div class="stonetop-rail-layout" data-side="left">
+  <div class="stonetop-rail-layout">
    <div class="stonetop-rail steading-rail"></div>
    <div class="stonetop-rail-main steading-main">
     <section class="sheet-body">
@@ -197,9 +197,10 @@ const folkTab = width => `
 </div>`;
 
 describe.skipIf(!canProbe())("the roster fits the tab it shares with the reference column", () => {
-	// The sheet's own default width, and a narrow one — the drawer breakpoint is below this, so at
-	// 900px the rail is still inline and the roster has the least room it ever gets with one.
-	for (const width of [1180, 900]) {
+	// The sheet's own default width, and a narrow one — the drawer breakpoint (62.5rem of layout) is
+	// just below this, so at 1030px the rail is still inline and the roster has about the least room
+	// it ever gets with one.
+	for (const width of [1180, 1030]) {
 		describe(`${width}px`, () => {
 			let m;
 			beforeAll(() => {
@@ -347,7 +348,7 @@ describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
 	// The order this file exists for. Narrowing past the rail's breakpoint gives the tab 236px back;
 	// at every width in that neighbourhood — with the rail inline, and just after it drawers — the
 	// two columns have to still be two columns, or they fold and unfold as the window shrinks.
-	it.each([1000, 940, 900, 860, 760])("does not fold on the way down at %ipx", width => {
+	it.each([1100, 1040, 1020, 1000, 960, 860, 760])("does not fold on the way down at %ipx", width => {
 		sideBySide(measure(width), `the lists folded under the roster at ${width}px and will jump back`);
 	});
 });

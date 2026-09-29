@@ -9,7 +9,7 @@
 
       Params: none — reads stonetop.levelUp and viewFlags off the root context. --}}
 {{#if stonetop.levelUp.isOffered}}
-<div class="stonetop-levelup{{#if stonetop.levelUp.isReady}} is-ready{{/if}}">
+<div class="stonetop-levelup stonetop-conditional stonetop-conditional--ready{{#if stonetop.levelUp.isReady}} is-ready{{/if}}">
 
 	<button type="button" class="stonetop-levelup-toggle" data-action="toggleTabView"
 	        data-view-flag="levelUpOpen" data-view-state
@@ -24,14 +24,26 @@
 		{{/if}}
 	</button>
 
+	{{!-- While it is only READY it says first, and plainly, that levelling is done at home — the half
+	      of the trigger a full bar mid-expedition does not show. A reminder, not a lock (D9). The move's
+	      own trigger, lifted from its text, is the fine print under it. --}}
+	{{#if stonetop.levelUp.isReady}}
+	<p class="stonetop-levelup-home"><i class="fas fa-house" aria-hidden="true"></i> {{localize "stonetop.character.levelUp.onlyAtHome"}}</p>
+	{{#if stonetop.levelUp.gloss}}
+	<p class="stonetop-levelup-gloss">{{localize "stonetop.character.levelUp.when" trigger=stonetop.levelUp.gloss}}</p>
+	{{/if}}
+	{{/if}}
+
+	{{!-- A level taken with a move still to choose: the one step done elsewhere, and the way there. --}}
+	{{#each stonetop.levelUp.rows}}
+	{{#if (and (eq kind "chooseMove") (not done))}}
+	<p class="stonetop-rail-route"><button type="button" class="stonetop-goto stonetop-levelup-choose" data-action="goToTab"
+	        data-view-state data-tab="{{tab}}">{{localize "stonetop.character.levelUp.chooseMove"}}</button></p>
+	{{/if}}
+	{{/each}}
+
 	{{#if viewFlags.levelUpOpen}}
 	<div class="stonetop-levelup-panel" id="{{sheetIdPrefix}}-levelup">
-
-		{{!-- The move's own trigger, lifted from its text (MoveGloss) — the one line saying WHEN this
-		      happens. Nothing about levelling up is written by the sheet. --}}
-		{{#if stonetop.levelUp.gloss}}
-		<p class="stonetop-levelup-gloss">{{localize "stonetop.character.levelUp.when" trigger=stonetop.levelUp.gloss}}</p>
-		{{/if}}
 
 		<ol class="stonetop-levelup-steps">
 			{{#each stonetop.levelUp.rows}}

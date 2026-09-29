@@ -1,3 +1,5 @@
+import { slideOpen, slideHeight, prefersReducedMotion } from "./motion.js";
+
 /**
  * One collapsible region, open or shut — a move row's text, a name list in the steading's reference
  * column, anything else a button opens in flow beneath itself.
@@ -18,6 +20,11 @@ export class Disclosure {
 	/** Every disclosure toggle carries this, and it is what OpenDisclosures finds them by. */
 	static TOGGLE = "[data-disclosure]";
 	static ROW    = "[data-disclosure-row]";
+	static SHUT_ONLY = "[data-disclosure-shut]";
+	static OPEN_ONLY = "[data-disclosure-open]";
+	/** On a toggle that only opens and shuts its region: a Moves panel's caret, sharing its bar with
+	 *  the door whose row it is. It marks no row and switches none of the row's parts. */
+	static REGION_ONLY = "data-disclosure-region-only";
 
 	/** The disclosure a toggle button drives, or null when the button controls nothing. */
 	static from(toggle) {
@@ -31,8 +38,13 @@ export class Disclosure {
 		this._body   = body;
 	}
 
+	/**
+	 * Read off the button: a region sliding shut is still on the page, and it is the button that
+	 * already says what it is becoming. A toggle with no `aria-expanded` falls back to the region.
+	 */
 	get isOpen() {
-		return !this._body.hidden;
+		const expanded = this._toggle.getAttribute("aria-expanded");
+		return expanded === null ? !this._body.hidden : expanded === "true";
 	}
 
 	/**
@@ -46,12 +58,69 @@ export class Disclosure {
 
 	setOpen(open) {
 		this._body.hidden = !open;
-		this._toggle.setAttribute("aria-expanded", String(open));
-		this._toggle.closest(Disclosure.ROW)?.classList.toggle("is-open", open);
+		this._announce(open);
+		for (const el of this._shutOnly) el.hidden = open;
+		for (const el of this._openOnly) el.hidden = !open;
 	}
 
 	toggle() {
 		this.setOpen(!this.isOpen);
+	}
+
+	/** Open or shut it over the sheet's slide; what the button says changes at once. */
+	slide({ reduced = false } = {}) {
+		const opening = !this.isOpen;
+		this._announce(opening);
+		slideOpen(this._body, opening, { reduced, stillOpen: () => this.isOpen });
+		for (const el of this._shutOnly) slideOpen(el, !opening, { reduced, stillOpen: () => !this.isOpen });
+		// A word or a line — a door's "Done", a bar's instruction — changes with the button, at once.
+		for (const el of this._openOnly) el.hidden = !opening;
+	}
+
+	/**
+	 * Trade one state for the other at once and ease the row's height between them — a section's
+	 * door, whose bodies are the two states of one thing rather than a region under the rest. Sliding
+	 * both at once put the two on screen together, and slid the door's own word out as content.
+	 */
+	swap({ reduced = false } = {}) {
+		const row  = this._row;
+		const from = row?.offsetHeight ?? 0;
+		this.setOpen(!this.isOpen);
+		if (row) slideHeight(row, from, row.offsetHeight, { reduced });
+	}
+
+	_announce(open) {
+		const toggle = this._toggle;
+		toggle.setAttribute("aria-expanded", String(open));
+		this._row?.classList.toggle("is-open", open);
+		const label = open ? toggle.dataset?.labelHide : toggle.dataset?.labelShow;
+		if (!label) return;
+		toggle.setAttribute("aria-label", label);
+		toggle.setAttribute("title", label);
+	}
+
+	get _row() {
+		if (this._toggle.hasAttribute?.(Disclosure.REGION_ONLY)) return null;
+		return this._toggle.closest(Disclosure.ROW);
+	}
+
+	/**
+	 * What the row shows only while it is shut — a move's gloss, which is its text in brief. The row's
+	 * own, not a nested row's: a group's rows carry glosses of their own.
+	 */
+	get _shutOnly() {
+		return this._ownParts(Disclosure.SHUT_ONLY);
+	}
+
+	/** What the row shows only while it is open — a section door's "Done", its bar's instruction. */
+	get _openOnly() {
+		return this._ownParts(Disclosure.OPEN_ONLY);
+	}
+
+	_ownParts(selector) {
+		const row = this._row;
+		if (!row) return [];
+		return [...row.querySelectorAll(selector)].filter(el => el.closest(Disclosure.ROW) === row);
 	}
 }
 
@@ -67,5 +136,21 @@ export function toggleDisclosure(ev, target) {
 	const disclosure = Disclosure.from(target);
 	if (!disclosure) return;
 	disclosure.toggle();
+	this.openDisclosures?.remember(disclosure);
+}
+
+/** The same, sliding: a rail group, a move row's text. */
+export function toggleSlidingDisclosure(ev, target) {
+	const disclosure = Disclosure.from(target);
+	if (!disclosure) return;
+	disclosure.slide({ reduced: prefersReducedMotion(target.ownerDocument?.defaultView) });
+	this.openDisclosures?.remember(disclosure);
+}
+
+/** The same, swapping: a section's door. */
+export function toggleSwappingDisclosure(ev, target) {
+	const disclosure = Disclosure.from(target);
+	if (!disclosure) return;
+	disclosure.swap({ reduced: prefersReducedMotion(target.ownerDocument?.defaultView) });
 	this.openDisclosures?.remember(disclosure);
 }

@@ -196,8 +196,8 @@ describe.skipIf(!canProbe())("the advice dialog", () => {
 // ── Hover ────────────────────────────────────────────────────────────────────────
 //
 // Core's `button:hover` (layer elements.forms) repaints background and text TOGETHER. The icon
-// button suppresses the background, so inheriting core's hover text colour paints the glyph in the
-// page's own paper colour — the ? vanishes under the cursor. The existing icon buttons never showed
+// button suppresses the background, so inheriting core's hover text color paints the glyph in the
+// page's own paper color — the ? vanishes under the cursor. The existing icon buttons never showed
 // this because they hold an <img>, which ignores `color`; a font glyph does not.
 //
 // Headless Chrome cannot force :hover, so the stylesheets are rewritten with `:hover` → `.is-hover`.
@@ -236,13 +236,13 @@ describe.skipIf(!canProbe())("the ? under the cursor", () => {
 		dark  = read("dark");
 	});
 
-	it.each([["light"], ["dark"]])("stays a different colour from the paper behind it (%s)", theme => {
+	it.each([["light"], ["dark"]])("stays a different color from the paper behind it (%s)", theme => {
 		const probed = theme === "light" ? light : dark;
 		expect(probed.get("icon").missing).toBe(false);
 		expect(probed.get("icon").get("color")).not.toBe(probed.get("paper").get("background-color"));
 	});
 
-	// Suppressing the background is the whole reason the text colour matters — if core's hover
+	// Suppressing the background is the whole reason the text color matters — if core's hover
 	// background ever won here, the glyph would sit on a sepia pill instead and this would be moot.
 	it("keeps the button transparent, as it is at rest", () => {
 		expect(light.get("icon").get("background-color")).toBe("rgba(0, 0, 0, 0)");

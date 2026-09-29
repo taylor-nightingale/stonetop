@@ -104,8 +104,8 @@ describe("StonetopCharacter — playbook moves auto-populate on the moves tab (i
 
 		await character._onCreateDescendantDocuments([playbookItem({ inserts: ["revenant"] })]);
 
-		const cat = (await character.buildSnapshot()).moves.categories.find(c => c.key === "insert-revenant");
-		expect(cat?.moves.map(m => m.name)).toContain("Haunt");
+		const [revenant] = (await character.buildSnapshot()).inserts;
+		expect(revenant?.moves.map(m => m.name)).toContain("Haunt");
 	});
 
 	it("deleting the playbook item takes back everything it granted", async () => {
@@ -135,7 +135,8 @@ describe("StonetopCharacter — playbook moves auto-populate on the moves tab (i
 		expect([...actor.items].map(i => i._id)).toEqual(["own1"]);
 	});
 
-	it("inserts still add their moves to the moves tab", async () => {
+	// On the insert's own tab now (D12), not the Moves tab's.
+	it("inserts still bring their moves", async () => {
 		withMovesPack(move("Haunt"));
 		const character = new StonetopCharacter(new FakeCharacterActorBuilder().build(), new FoundryRepositoryFactory());
 
@@ -144,8 +145,7 @@ describe("StonetopCharacter — playbook moves auto-populate on the moves tab (i
 				system: { slug: "revenant", moves: ["haunt"], startingMoves: ["haunt"], choices: [], instinct: null } },
 		]);
 
-		const cat = (await character.buildSnapshot()).moves.categories.find(c => c.key === "insert-revenant");
-		expect(cat?.moves.map(m => m.name)).toContain("Haunt");
+		expect((await character.buildSnapshot()).moves.bySlug.haunt?.name).toBe("Haunt");
 	});
 });
 

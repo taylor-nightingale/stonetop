@@ -71,6 +71,12 @@ describe("ChooseMoveRow", () => {
 		expect(new ChooseMoveRow(step, new Advancement(5, 0), 0).tabLabelKey).toBe("stonetop.sheet.tabs.moves");
 	});
 
+	// The playbook's Moves panel, opened on arrival — where the choice is made.
+	it("opens the section it is answered in", () => {
+		expect(new ChooseMoveRow(step, new Advancement(5, 0), 0, "moves-playbook-the-fox").opens).toBe("moves-playbook-the-fox");
+		expect(new ChooseMoveRow(step, new Advancement(5, 0), 0).opens).toBe("");
+	});
+
 	it("speaks the move's own words, with no label of its own", () => {
 		const row = new ChooseMoveRow(step, new Advancement(5, 0), 0);
 		expect(row.text.raw).toBe("The move's own words.");
@@ -130,6 +136,17 @@ describe("ReviewRow", () => {
 	});
 });
 
+describe("ReviewRow's route", () => {
+	// The review asks about both, so the route opens both on the Playbook tab.
+	it("opens the instinct and the appearance when it sends the reader to the playbook", () => {
+		expect(new ReviewRow(stepOf({ kind: "review", tab: "playbook" })).opens).toBe("instinct appearance");
+	});
+
+	it("opens nothing on any other tab", () => {
+		expect(new ReviewRow(stepOf({ kind: "review", tab: "notes" })).opens).toBe("");
+	});
+});
+
 describe("LevelUpSnapshot", () => {
 	const advancement = new Advancement(6, 3);
 	const chooseMove  = new ChooseMoveRow(stepOf({ kind: "chooseMove" }), advancement, 4);
@@ -140,6 +157,14 @@ describe("LevelUpSnapshot", () => {
 
 	it("collects the steps still owed", () => {
 		expect(snapshot({ rows: [chooseMove, review], isReady: false }).owed).toEqual([chooseMove]);
+	});
+
+	// The Moves tab says a move is owed in the Level Up move's own words, only while it is.
+	it("names the move still owed, in the step's own words", () => {
+		expect(snapshot({ rows: [chooseMove, review], isReady: false }).owedMove).toBe(chooseMove);
+		const done = new ChooseMoveRow(stepOf({ kind: "chooseMove" }), advancement, 9);
+		expect(snapshot({ rows: [done, review], isReady: false }).owedMove).toBeNull();
+		expect(snapshot({ rows: [review], isReady: false }).owedMove).toBeNull();
 	});
 
 	it("is offered while the move has triggered", () => {

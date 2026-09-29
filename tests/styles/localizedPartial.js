@@ -1,7 +1,7 @@
 import Handlebars from "handlebars";
 import { readFileSync } from "fs";
 import path from "path";
-import { renderPartial } from "../fakes/renderTemplate.js";
+import { renderPartial, ensureRegistered } from "../fakes/renderTemplate.js";
 
 /**
  * Render a real partial for a layout probe, with a real language file's strings in it.
@@ -34,11 +34,15 @@ const lookup = (table, key) => key.split(".").reduce((node, part) => node?.[part
  */
 export function renderLocalized(name, context = {}, lang = "de") {
 	const table = strings(lang);
+	// The harness registers its helpers on first render, and that would put its key-returning
+	// `localize` back over this one — so it registers first.
+	ensureRegistered();
 	// Overwrites the harness's key-returning helper on the shared instance. Vitest isolates modules
 	// per test file, so this reaches only the file that asked for it.
 	Handlebars.registerHelper("localize", (key, options) => {
 		const data = options?.hash ?? {};
-		const value = lookup(table, key);
+		// A key the language has not translated yet falls back to English, as Foundry does.
+		const value = lookup(table, key) ?? lookup(strings("en"), key);
 		if (typeof value !== "string") return key;
 		return Object.entries(data).reduce((s, [k, v]) => s.replaceAll(`{${k}}`, v), value);
 	});

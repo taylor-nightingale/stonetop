@@ -28,7 +28,8 @@ const revenant = () => ({
 });
 
 const playbook = () => new TestPlaybookItemBuilder()
-	.withSlug("the-fox").withName("The Fox").withInstinct(PLAYBOOK_INSTINCT).build();
+	.withSlug("the-fox").withName("The Fox").withInstinct(PLAYBOOK_INSTINCT)
+	.withChoiceValues({ instinct: { conscience: 1 } }).build();
 
 function makeSheet() {
 	new FakeGameBuilder().build();
@@ -69,7 +70,9 @@ const playbookBox = sheet => sheet.element.querySelector(`.tab.playbook .stoneto
 beforeEach(() => { document.body.innerHTML = ""; });
 
 describe("insert instinct (integration)", () => {
-	it("saves a custom instinct typed on an insert to that insert, and to the character", async () => {
+	// D12: an insert's instinct sets the playbook's aside rather than writing over it — give the insert
+	// up and the playbook's is still there.
+	it("saves a custom instinct typed on an insert to that insert alone", async () => {
 		const { sheet, actor } = makeSheet();
 		await render(sheet);
 
@@ -79,7 +82,7 @@ describe("insert instinct (integration)", () => {
 		await settle();
 
 		expect(valuesOf(actor, "revenant-item").instinct.__custom).toBe("to finish what I started");
-		expect(valuesOf(actor, "playbook-item").instinct.__custom).toBe("to finish what I started");
+		expect(valuesOf(actor, "playbook-item").instinct).toEqual({ conscience: 1 });
 	});
 
 	// The bug: it reached the playbook but not the insert, so the box it was typed into came back
@@ -98,7 +101,7 @@ describe("insert instinct (integration)", () => {
 		expect(insertBox(sheet).value).toBe("to finish what I started");
 	});
 
-	it("puts an instinct picked on an insert into the playbook's box, label and all", async () => {
+	it("makes an instinct picked on an insert the one in force, and keeps the playbook's own", async () => {
 		const { sheet, actor } = makeSheet();
 		await render(sheet);
 
@@ -108,12 +111,25 @@ describe("insert instinct (integration)", () => {
 		await settle();
 
 		expect(valuesOf(actor, "revenant-item").instinct.denial).toBe(1);
-		expect(valuesOf(actor, "playbook-item").instinct.__custom)
-			.toBe("Denial — To refuse to accept that you are dead.");
-		expect((await render(sheet)).stonetop.playbook.instinctSelected)
-			.toBe("Denial — To refuse to accept that you are dead.");
-		expect(playbookBox(sheet).value).toBe("Denial — To refuse to accept that you are dead.");
-		expect(insertBox(sheet).value).toBe("Denial — To refuse to accept that you are dead.");
+		expect(valuesOf(actor, "playbook-item").instinct).toEqual({ conscience: 1 });
+		const { stonetop } = await render(sheet);
+		expect(stonetop.instinct.label).toBe("Denial — To refuse to accept that you are dead.");
+		expect(stonetop.instinct.tab).toBe("insert-revenant");
+	});
+
+	// The playbook's instinct says it is set aside, and where the one in force is.
+	it("says on the Playbook tab that the playbook's instinct is set aside, and routes to the insert's", async () => {
+		const { sheet } = makeSheet();
+		await render(sheet);
+		const option = sheet.element.querySelector(`[data-insert-item-id] .stonetop-cg-pick[data-cg-option="denial"]`);
+		option.checked = true;
+		fire(option, "change");
+		await settle();
+		await render(sheet);
+
+		const note = sheet.element.querySelector('.tab.playbook [data-section="instinct"] .stonetop-set-aside');
+		expect(note.dataset.tab).toBe("insert-revenant");
+		expect(note.dataset.openSections).toBe("insert-revenant-instinct");
 	});
 
 	// The playbook's own box still writes to the playbook, not to whichever insert exists.

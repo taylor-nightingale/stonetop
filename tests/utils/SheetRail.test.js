@@ -8,10 +8,10 @@ function drawer(el) {
 	el.querySelector(".stonetop-rail").style.position = "absolute";
 }
 
-function layout({ open = false, side = "left" } = {}) {
+function layout({ open = false } = {}) {
 	const root = document.createElement("div");
 	root.innerHTML = `
-		<div class="stonetop-rail-layout${open ? " rail-open" : ""}" data-side="${side}">
+		<div class="stonetop-rail-layout${open ? " rail-open" : ""}">
 			<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
 			        aria-expanded="${open}" aria-controls="rail"
 			        data-label-show="Show the rail" data-label-hide="Hide the rail"
@@ -254,5 +254,34 @@ describe("what the toggle announces", () => {
 		new SheetRail(el).open();
 		expect(toggle.getAttribute("aria-label")).toBe("Show the rail");
 		expect(toggle.getAttribute("aria-expanded")).toBe("true");
+	});
+});
+
+// A press on a column rail slides it, and the column beside it is held at one width for the slide
+// (RailSlide). A drawer slides over the tab and moves nothing, and a restore is not a press.
+describe("SheetRail's slide", () => {
+	beforeEach(() => document.body.replaceChildren());
+	const moving = el => el.classList.contains("is-rail-moving");
+
+	it("marks a column rail moving when it is shut or opened", () => {
+		const { el } = layout({ open: true });
+		new SheetRail(el).close();
+		expect(moving(el)).toBe(true);
+		el.classList.remove("is-rail-moving");
+		new SheetRail(el).open();
+		expect(moving(el)).toBe(true);
+	});
+
+	it("leaves a drawer unmarked: it moves nothing beside it", () => {
+		const { el } = layout();
+		drawer(el);
+		new SheetRail(el).open();
+		expect(moving(el)).toBe(false);
+	});
+
+	it("leaves a restored rail unmarked", () => {
+		const { el } = layout();
+		new SheetRail(el).setOpen(false);
+		expect(moving(el)).toBe(false);
 	});
 });
