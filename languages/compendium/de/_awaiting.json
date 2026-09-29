@@ -72,5 +72,14 @@
     "stonetop": [
       "assets/items/a-pair-of-hardy-draft-horses-followers-large-powerful-keen-nosed-hardy-hp-10-each-damage-d6-3-hand-close-forceful-instinct-to-panic-cost-care-grooming"
     ]
+  },
+  "moves": {
+    "deaths-door": [
+      "name",
+      "description"
+    ],
+    "strengthen-your-bond": [
+      "description"
+    ]
   }
 }

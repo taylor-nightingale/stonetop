@@ -1,0 +1,14 @@
+{{!-- A tab strip's "More": the tabs the strip has no room for, listed in their order (TabStripFit
+      decides which, and shows this only when there are any). Each entry is a real tab button, so core
+      switches the tab; TabMoreMenu opens and shuts the list. Params: `tabs`, the strip's own. --}}
+<div class="stonetop-tab-more" hidden>
+	<button type="button" class="stonetop-tab-more-btn" data-view-state aria-haspopup="true" aria-expanded="false"
+	        aria-controls="{{@root.sheetIdPrefix}}-tab-more" aria-label="{{localize 'stonetop.sheet.tabs.moreLabel'}}">
+		{{localize "stonetop.sheet.tabs.more"}}<i class="fas fa-caret-down" aria-hidden="true"></i>
+	</button>
+	<div class="stonetop-tab-more-menu" id="{{@root.sheetIdPrefix}}-tab-more" hidden>
+		{{#each tabs}}
+		<button type="button" class="stonetop-tab-more-item" data-action="tab" data-group="primary" data-tab="{{this.id}}" data-view-state hidden>{{localize this.label}}</button>
+		{{/each}}
+	</div>
+</div>

@@ -10,7 +10,7 @@ import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
 import { BoardView } from "./BoardView.js";
-import { toggleDisclosure } from "../../utils/Disclosure.js";
+import { toggleDisclosure, toggleSlidingDisclosure } from "../../utils/Disclosure.js";
 import { SeasonStepAddress } from "../../model/data/steading/SeasonStepAddress.js";
 
 export function createStonetopSteadingSheetClass(Base) {
@@ -25,8 +25,7 @@ export function createStonetopSteadingSheetClass(Base) {
 			position: { width: 1180, height: 760 },
 			actions: {
 				...MOVE_ROW_ACTIONS,
-				// The rail's drawer toggle, below the layout's breakpoint. Shared with the character
-				// sheet — same component, opposite edge.
+				// The rail's tab. Shared with the character sheet — the same rail.
 				...RAIL_ACTIONS,
 
 				// --- adds ---
@@ -72,6 +71,8 @@ export function createStonetopSteadingSheetClass(Base) {
 				// edit-gated and both survive a locked sheet. The same disclosure the move rows use,
 				// through the same one implementation.
 				toggleFolkList:        toggleDisclosure,
+				// A rail group's bar, opening and shutting its panel as the character's do.
+				toggleSliding:         toggleSlidingDisclosure,
 				toggleImprovementCard: toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
 					const id = this.rosterFocus.id;

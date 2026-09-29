@@ -50,6 +50,12 @@ export class MoveData extends foundry.abstract.TypeDataModel {
 			// weight, tags that stop applying); the words are the move's description, which is what a
 			// player reads. See OutfitEffect.
 			outfitEffects: new f.ArrayField(new f.ObjectField()),
+			// Which part of an expedition the move fires in — "setting-out", "on-the-road" or
+			// "getting-home" (Book I). Only the expedition moves carry one.
+			phase:         new f.StringField({ nullable: true, initial: null }),
+			// The slug of the move this one is made INSTEAD of: a death insert's zero-HP move takes
+			// Death's Door's place.
+			replaces:      new f.StringField({ nullable: true, initial: null }),
 			categoryKey:   new f.StringField({ nullable: true, initial: null }),
 			categoryLabel: new f.StringField({ nullable: true, initial: null }),
 			categoryNote:  new f.StringField({ nullable: true, initial: null }),

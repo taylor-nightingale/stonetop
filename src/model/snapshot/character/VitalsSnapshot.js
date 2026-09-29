@@ -1,3 +1,5 @@
+import { HpMeter, XpTrack } from "./VitalMeters.js";
+
 /** Used for hp and xp tracks in VitalsSnapshot. */
 export class ValueMax {
 	constructor(value, max) {
@@ -55,6 +57,8 @@ export class VitalsNotesSnapshot {
  * @property {ValueMax} xp  - max = 6 + level * 2
  * @property {VitalsSourcesSnapshot} sources - tooltip text for hp, damage and armor
  * @property {VitalsNotesSnapshot} notes - the same, short enough to print beside the value
+ * @property {HpMeter|null} hpMeter - hit points as the rail's bar
+ * @property {XpTrack|null} xpTrack - experience as the rail's bar
  */
 export class VitalsSnapshot {
 	constructor(b) {
@@ -65,6 +69,9 @@ export class VitalsSnapshot {
 		this.xp      = b._xp;
 		this.sources = b._sources;
 		this.notes   = b._notes;
+		// Derived rather than handed in, so the bars can never disagree with the values they draw.
+		this.hpMeter = b._hp ? new HpMeter(b._hp) : null;
+		this.xpTrack = b._xp ? new XpTrack(b._xp) : null;
 	}
 
 	/** Whether the Level Up move has triggered — what lights the XP track and offers the strip. */

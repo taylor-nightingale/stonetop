@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { ChoiceValues } from "../../../../src/model/snapshot/character/ChoiceGroup.js";
+import { ChoiceValues, EntryInput } from "../../../../src/model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../../../../src/model/snapshot/character/buildChoiceGroup.js";
 import { RichText } from "../../../../src/model/snapshot/RichText.js";
 
@@ -68,5 +68,67 @@ describe("buildChoiceGroup — the Lightbearer's write-in origin", () => {
 
 	it("keeps the printed blank in the label instead of bolding the line", () => {
 		expect(row().content.text.render()).toBe("… when you first laid eyes upon the _______.");
+	});
+});
+
+// A blank that answers the row's first sentence (a Terrible Purpose's "Name the person…") is drawn
+// straight after it, not under the whole text; the pack says so with `input.follows: "lead"`.
+describe("buildChoiceGroup — a blank that follows the lead", () => {
+	const LONGING = { type: "entry", slug: "longing", track: { max: 1 },
+		content: { text: "**LONGING** — Name them.\n\nWhen you watch them, heal." } };
+	const row = (input, values = {}) =>
+		buildChoiceGroup({ slug: "terrible-purpose", list: [{ ...LONGING, input }] }, new ChoiceValues(values)).list[0];
+
+	it("builds the row's blank as an EntryInput", () => {
+		const input = row({ type: "inline", follows: "lead" }, { "terrible-purpose": { "longing-input": "Mira" } }).input;
+		expect(input).toBeInstanceOf(EntryInput);
+		expect(input).toMatchObject({ slug: "longing-input", type: "inline", value: "Mira", followsLead: true });
+	});
+
+	it("splits the text into the lead the blank follows and the rest", () => {
+		const { content } = row({ type: "inline", follows: "lead" });
+		expect([content.lead.raw, content.rest.raw]).toEqual(["**LONGING** — Name them.", "When you watch them, heal."]);
+		expect(content.text.raw).toBe(LONGING.content.text);
+	});
+
+	it("leaves a blank that does not say so at the end of the row, and the text whole", () => {
+		const r = row({ type: "inline" });
+		expect(r.input.followsLead).toBe(false);
+		expect([r.content.lead, r.content.rest]).toEqual([null, null]);
+	});
+});
+
+describe("EntryInput", () => {
+	it("reads its value from the store, else the pack's default", () => {
+		const values = new ChoiceValues({ g: { "a-input": "typed" } });
+		expect(EntryInput.fromPack({ slug: "a", input: { default: "d" } }, values, "g").value).toBe("typed");
+		expect(EntryInput.fromPack({ slug: "a", input: { default: "d" } }, new ChoiceValues(), "g").value).toBe("d");
+	});
+
+	it("is a one-line blank at the row's end unless the pack says otherwise", () => {
+		const input = EntryInput.fromPack({ slug: "a", input: {} }, new ChoiceValues(), "g");
+		expect([input.slug, input.type, input.placeholder, input.followsLead]).toEqual(["a-input", "inline", null, false]);
+	});
+
+	it("follows the lead only for `follows: \"lead\"`", () => {
+		const input = follows => EntryInput.fromPack({ slug: "a", input: { follows } }, new ChoiceValues(), "g").followsLead;
+		expect([input("lead"), input("end"), input(undefined)]).toEqual([true, false, false]);
+	});
+});
+
+describe("ChoiceGroup's two facts about itself", () => {
+	const def = { slug: "worship", list: [
+		{ type: "entry", content: { title: "Praise the day", text: "Answer." } },
+		{ type: "pick", pickCount: 1, options: [{ slug: "dawn", text: "dawn" }, { slug: "dusk", text: "dusk" }] },
+	] };
+
+	it("says whether it offers anything to choose", () => {
+		expect(buildChoiceGroup(def, new ChoiceValues()).offersChoice).toBe(true);
+		expect(buildChoiceGroup({ slug: "collection", list: [def.list[0]] }, new ChoiceValues()).offersChoice).toBe(false);
+	});
+
+	it("says whether anything in it has been chosen", () => {
+		expect(buildChoiceGroup(def, new ChoiceValues()).hasChosen).toBe(false);
+		expect(buildChoiceGroup(def, new ChoiceValues({ worship: { dawn: 1 } })).hasChosen).toBe(true);
 	});
 });

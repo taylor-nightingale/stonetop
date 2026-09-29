@@ -53,6 +53,11 @@ And running alongside, set when the wound is first suffered rather than reached 
 can heal at all.** Convalesce heals only *"problematic wounds that can heal"*, which means some
 cannot, and that a wound arrives already knowing which sort it is.
 
+**On the sheet** a wound is a name and one of three states: **active**, **stabilized** or
+**permanent**. Permanent is the kind that cannot heal; a healed wound is simply removed. The player
+steps a wound through the three as the fiction moves it, in any order — the sheet records what the
+table decided, and never decides it.
+
 ## Healing is adjudicated, never computed
 
 Recover is explicit about who decides:
@@ -97,8 +102,8 @@ rather than something they discover when the GM asks.
   carries one or two before retiring or adapting becomes the question.
 - **They are read while something is being attempted** — the question a wound answers is "can I
   plausibly do this", which is asked in the middle of play, not between sessions.
-- **The printed playbook has nowhere to record them.** That is a gap in the sheet, not evidence that
-  the group is not tracking them.
+- **The printed playbook has nowhere to record them.** That is a gap in the printed sheet, not
+  evidence that the group is not tracking them. The Foundry sheet records them in the band's Ailments.
 
 ## Not yet confirmed
 
@@ -112,5 +117,5 @@ Worth reading that passage before this document is relied on, and quoting it her
 
 ---
 
-*Vocabulary and visual rules: `docs/design-system.md`. Where they live on the sheet: the redesign
-deck and its decisions, `scripts/development/redesign-mock/NOTES.md`.*
+*Vocabulary and visual rules, and where they live on the sheet: `docs/design-system.md` (the
+character sheet's layout is §4).*

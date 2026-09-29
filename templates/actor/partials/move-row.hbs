@@ -1,19 +1,16 @@
-{{!-- One move row: the rollable <li> wrapper + the shared move-item body. Shared by the moves tab
-      (move-group) and the major-arcana card (arcanum-cards) so the roll wiring stays identical — a
+{{!-- One move row: the rollable <li> wrapper + the shared move-item body. Shared by the steading's
+      rail (steading-move-panel), the rows a choice grants and the major-arcana card (arcanum-cards) so the
+      roll wiring stays identical — a
       rollable move gets `.item[data-item-id]` so the sheet's roll handler resolves the OWNED move item
-      (full description + 10+/7-9/6- result tiers) instead of a bare stat roll. The acquisition check is
-      deliberately NOT part of this: an unticked move still rolls, because the tick records what the
-      character has taken, not what the table may roll. `move-unselected` is what the moves tab's
-      "selected only" filter hides (CSS-only, see .tab.moves.hide-unselected). Context is a MoveSnapshot;
-      params: showCheck, categoryKey, allowAdditional, disclosure, startOpen (forwarded to
-      move-item). `is-open` is the row half of a disclosure's state — Disclosure toggles it there, so
+      (full description + 10+/7-9/6- result tiers) instead of a bare stat roll. Context is a MoveSnapshot;
+      params: categoryKey, alwaysShowResource, disclosure, startOpen (forwarded to move-item). `is-open` is the row half of a disclosure's state — Disclosure toggles it there, so
       a row the template ships OPEN has to say so itself. `stonetop-item--nameless` says the row draws
       no name line, so its controls belong on the move's own first line instead — see the CSS. A
       disclosure row is never that: there the name IS the control that opens the text. --}}
 {{#if rollStat}}
-<li class="item stonetop-item{{#if (and nameless (not disclosure))}} stonetop-item--nameless{{/if}}{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row data-item-id="{{ownedId}}">
+<li class="item stonetop-item{{#if (and nameless (not disclosure))}} stonetop-item--nameless{{/if}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row data-item-id="{{ownedId}}">
 {{else}}
-<li class="stonetop-item{{#if (and nameless (not disclosure))}} stonetop-item--nameless{{/if}}{{#unless (gt selection.value 0)}} move-unselected{{/unless}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row>
+<li class="stonetop-item{{#if (and nameless (not disclosure))}} stonetop-item--nameless{{/if}}{{#if startOpen}} is-open{{/if}}" data-disclosure-row>
 {{/if}}
-	{{> "stonetop.move-item" showCheck=showCheck categoryKey=categoryKey allowAdditional=allowAdditional alwaysShowResource=alwaysShowResource disclosure=disclosure startOpen=startOpen}}
+	{{> "stonetop.move-item" categoryKey=categoryKey alwaysShowResource=alwaysShowResource disclosure=disclosure startOpen=startOpen}}
 </li>

@@ -14,10 +14,112 @@ So: open `languages/compendium/de/steadfasts.json`, find `"stonetop"`, find
 `"neighborPlaces/other/subtitle"` inside it, and edit its `"text"`. Leave `"source"` alone —
 it is regenerated, and it is there to show you what the German is meant to say.
 
-- **0** entries where the English changed under an existing translation
+- **3** entries where the English changed under an existing translation
 - **0** flagged earlier and still awaiting a revision
-- **35** translations whose row was restructured and need re-filing
-- **223** interface strings with no translation yet, listed at the end
+- **42** translations whose row was restructured and need re-filing
+- **289** interface strings with no translation yet, listed at the end
+
+## moves.json
+
+### `moves.json` › `"deaths-door"` › `"name"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+Deaths Door
+```
+
+Now:
+
+```
+Death's Door
+```
+
+Your German:
+
+```
+An der Schwelle des Todes
+```
+
+### `moves.json` › `"deaths-door"` › `"description"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+When you **_are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:
+
+- Make one last move as if you rolled a 12+, then step through the Last Door
+- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert
+- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert
+```
+
+Now:
+
+```
+When **_you are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:
+
+- Make one last move as if you rolled a 12+, then step through the Last Door
+- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert
+- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert
+```
+
+Your German:
+
+```
+Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:
+
+- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.
+- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Beilage} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Beilage}.
+- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Beilage}.
+```
+
+### `moves.json` › `"strengthen-your-bond"` › `"description"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+When you **_pay your followers cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).
+
+Spend your followers Loyalty 1-for-1 to have them:
+
+- Overcome their fear to do as you say
+- Resist acting on their instinct/tags/traits
+- Do something they don't want to do (so long as it's not abhorent or suicidal)
+
+When a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.
+```
+
+Now:
+
+```
+When you **_pay your follower's cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).
+
+Spend your follower's Loyalty 1-for-1 to have them:
+
+- Overcome their fear to do as you say
+- Resist acting on their instinct/tags/traits
+- Do something they don't want to do (so long as it's not abhorrent or suicidal)
+
+When a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.
+```
+
+Your German:
+
+```
+Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).
+
+Gib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:
+
+- seine Angst überwindet und das tut, was du ihm befohlen hast
+- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;
+- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist).
+```
 
 ## steading-improvements.json
 
@@ -519,6 +621,39 @@ Zwei robuste Zugpferde, Gefolgsleute (Groß, Kräftig, Guter Geruchssinn, Widers
 
 ## ui.json
 
+### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.lock"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Sperren
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.lockHint"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Fassen deine Auswahl in einer schreibgeschützten Übersicht zusammen.
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.unlockHint"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Zurück zur Bearbeitung deiner Auswahl.
+```
+
 ### `ui.json` › `"_ui"` › `"stonetop.steading.createActors.residents"`
 
 **This string is no longer in the game text, and nothing here needs these words.**
@@ -572,6 +707,50 @@ Your German:
 
 ```
 Das Setzen eines Hakens ändert die Spielwerte der Siedlung nicht.
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.inventory.addItemWeight"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Gewicht
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.inventory.addItemConfirm"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Hinzufügen
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.character.moves.lockHint"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Show only the moves this character has taken.
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.character.moves.unlockHint"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Show every move again, to take new ones.
 ```
 
 ### `ui.json` › `"_ui"` › `"stonetop.a11y.contentText"`
@@ -629,16 +808,45 @@ The key is the full dotted path; create the nesting it names. Leave a key out ra
 copying the English in — an English placeholder reads as finished work, and the fallback
 already shows English.
 
+### `stonetop.sheet.tabs`
+
+- `"stonetop.sheet.tabs.more"` — "More"
+- `"stonetop.sheet.tabs.moreLabel"` — "More tabs"
+
 ### `stonetop.sheet`
 
 - `"stonetop.sheet.bandShow"` — "Show the stats band"
 - `"stonetop.sheet.bandHide"` — "Hide the stats band"
-- `"stonetop.sheet.railShow"` — "Show the moves rail"
-- `"stonetop.sheet.railHide"` — "Hide the moves rail"
+- `"stonetop.sheet.railShow"` — "Show the rail"
+- `"stonetop.sheet.railHide"` — "Hide the rail"
+
+### `stonetop.sheet.playbook`
+
+- `"stonetop.sheet.playbook.noNames"` — "No names of its own — borrow one from another list."
 
 ### `stonetop.sheet.advice`
 
 - `"stonetop.sheet.advice.sheetLabel"` — "If you want to…"
+
+### `stonetop.sheet.section`
+
+- `"stonetop.sheet.section.change"` — "Change"
+- `"stonetop.sheet.section.choose"` — "Choose"
+- `"stonetop.sheet.section.open"` — "Open"
+- `"stonetop.sheet.section.done"` — "Done"
+- `"stonetop.sheet.section.changeNamed"` — "Change {name}"
+- `"stonetop.sheet.section.chooseNamed"` — "Choose {name}"
+- `"stonetop.sheet.section.openNamed"` — "Open {name}"
+- `"stonetop.sheet.section.doneNamed"` — "Done with {name}"
+
+### `stonetop.rollMode`
+
+- `"stonetop.rollMode.rule"` — "{name}: the rule"
+
+### `stonetop.rollMode.short`
+
+- `"stonetop.rollMode.short.adv"` — "Adv"
+- `"stonetop.rollMode.short.dis"` — "Disadv"
 
 ### `stonetop.steading`
 
@@ -910,6 +1118,20 @@ already shows English.
 - `"stonetop.steading.rollNote.canApply"` — "{source} — {mode} can be applied"
 - `"stonetop.steading.rollNote.applies"` — "{source} — {mode} applies"
 
+### `stonetop.inventory.adder`
+
+- `"stonetop.inventory.adder.title"` — "Add an item"
+- `"stonetop.inventory.adder.cancel"` — "Cancel"
+- `"stonetop.inventory.adder.name"` — "Name"
+- `"stonetop.inventory.adder.weight"` — "Weight"
+- `"stonetop.inventory.adder.uses"` — "Uses"
+- `"stonetop.inventory.adder.word"` — "Word"
+- `"stonetop.inventory.adder.tags"` — "Tags"
+- `"stonetop.inventory.adder.note"` — "Note"
+- `"stonetop.inventory.adder.add"` — "Add"
+- `"stonetop.inventory.adder.less"` — "Less {field}"
+- `"stonetop.inventory.adder.more"` — "More {field}"
+
 ### `stonetop.rollResults`
 
 - `"stonetop.rollResults.rolled"` — "Rolled"
@@ -920,9 +1142,9 @@ already shows English.
 - `"stonetop.character.debilities.name.dazed"` — "dazed"
 - `"stonetop.character.debilities.name.miserable"` — "miserable"
 
-### `stonetop.character.attributes.groups`
+### `stonetop.character.attributes`
 
-- `"stonetop.character.attributes.groups.advancement"` — "Advancement"
+- `"stonetop.character.attributes.hp"` — "HP"
 
 ### `stonetop.character.attributes.note`
 
@@ -931,9 +1153,13 @@ already shows English.
 - `"stonetop.character.attributes.note.armorNone"` — "none worn"
 - `"stonetop.character.attributes.note.damageUnset"` — "none set"
 - `"stonetop.character.attributes.note.readyToLevel"` — "ready to level"
+- `"stonetop.character.attributes.note.readyWithSpare"` — "ready to level · {count} spare"
 
 ### `stonetop.character.levelUp`
 
+- `"stonetop.character.levelUp.onlyAtHome"` — "Only at home, in a quiet stretch of time"
+- `"stonetop.character.levelUp.orSpend"` — "Or spend it now"
+- `"stonetop.character.levelUp.chooseMove"` — "Choose a new move"
 - `"stonetop.character.levelUp.title"` — "Level Up"
 - `"stonetop.character.levelUp.ready"` — "ready"
 - `"stonetop.character.levelUp.done"` — "Done"
@@ -948,6 +1174,65 @@ already shows English.
 - `"stonetop.character.levelUp.stockRaised"` — "Maximum Stock {from} → {to}, applied for you."
 - `"stonetop.character.levelUp.stockAt"` — "Maximum Stock is {max}, applied for you."
 - `"stonetop.character.levelUp.invocationsKnown"` — "You know {known} of {expected}."
+
+### `stonetop.character.gear`
+
+- `"stonetop.character.gear.stillToPick"` — "{count} still to pick"
+- `"stonetop.character.gear.fromPlaybook"` — "Comes with your playbook"
+
+### `stonetop.character.moves.rollLabel`
+
+- `"stonetop.character.moves.rollLabel.ask"` — "Any"
+- `"stonetop.character.moves.rollLabel.favor"` — "Favor"
+- `"stonetop.character.moves.rollLabel.omens"` — "Omens"
+
+### `stonetop.character.moves.phase`
+
+- `"stonetop.character.moves.phase.setting-out"` — "Setting out"
+- `"stonetop.character.moves.phase.on-the-road"` — "On the road"
+- `"stonetop.character.moves.phase.getting-home"` — "Getting home"
+
+### `stonetop.character.moves`
+
+- `"stonetop.character.moves.showGroup"` — "Show the {name}"
+- `"stonetop.character.moves.hideGroup"` — "Hide the {name}"
+- `"stonetop.character.moves.showText"` — "Show the text of {name}"
+- `"stonetop.character.moves.hideText"` — "Hide the text of {name}"
+- `"stonetop.character.moves.previewRoll"` — "2d6 {mod}"
+- `"stonetop.character.moves.insertMoves"` — "{name} moves"
+- `"stonetop.character.moves.taken"` — "{name}: taken"
+- `"stonetop.character.moves.timesTaken"` — ", taken {count} times"
+- `"stonetop.character.moves.upTo"` — "Up to {count} times"
+- `"stonetop.character.moves.takeAgain"` — "Take again"
+- `"stonetop.character.moves.takeAgainNamed"` — "Take {name} again"
+- `"stonetop.character.moves.showPanel"` — "Show {name}"
+- `"stonetop.character.moves.hidePanel"` — "Hide {name}"
+
+### `stonetop.character.instinct`
+
+- `"stonetop.character.instinct.changeOn"` — "{instinct} — change it on {source}"
+- `"stonetop.character.instinct.setAside"` — "Set aside while the instinct from {source} is in force."
+
+### `stonetop.character.ailments`
+
+- `"stonetop.character.ailments.title"` — "Ailments"
+- `"stonetop.character.ailments.empty"` — "nothing ails you"
+- `"stonetop.character.ailments.more"` — "+{count} more"
+- `"stonetop.character.ailments.moreLabel"` — "Show {count} more ailments"
+- `"stonetop.character.ailments.edit"` — "Edit ailments"
+- `"stonetop.character.ailments.done"` — "Done"
+- `"stonetop.character.ailments.placeholder"` — "what happened"
+- `"stonetop.character.ailments.woundName"` — "Wound"
+- `"stonetop.character.ailments.nextState"` — "{state}: change the state"
+- `"stonetop.character.ailments.remove"` — "Remove {name}"
+- `"stonetop.character.ailments.addWound"` — "+ add a wound"
+- `"stonetop.character.ailments.note"` — "Debilities are marked on the brackets, not here."
+
+### `stonetop.character.wounds.state`
+
+- `"stonetop.character.wounds.state.active"` — "active"
+- `"stonetop.character.wounds.state.stabilized"` — "stabilized"
+- `"stonetop.character.wounds.state.permanent"` — "permanent"
 
 ### `stonetop.a11y`
 
@@ -972,5 +1257,4 @@ already shows English.
 - `"stonetop.a11y.suggestionUsed"` — "already used —"
 - `"stonetop.a11y.assetRequisitioned"` — "Requisitioned"
 - `"stonetop.a11y.improvementSearch"` — "Search the improvement board"
-- `"stonetop.a11y.foldedLedger"` — "Stats and vitals"
-- `"stonetop.a11y.debilities"` — "Debilities"
+- `"stonetop.a11y.foldedLedger"` — "Stats and conditions"

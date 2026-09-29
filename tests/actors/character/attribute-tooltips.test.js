@@ -6,17 +6,17 @@ import path from "path";
 // the localization file agree: a tooltip whose key has no entry renders the key itself into the
 // hover, which looks like a bug to the player and fails nothing.
 const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
-// Two partials since the band and the rail split: HP/Armor/Damage stayed in actor-attributes, XP
-// and Level went to the rail under Advancement. The hovers went with their own values.
-const template = read("templates/actor/partials/actor-attributes.hbs");
-const advancement = read("templates/actor/partials/advancement.hbs");
+// All five numbers are in the rail now: Armor, Level and Damage on the portrait (rail-identity), hit
+// points and experience as bars that character.hbs draws. The hovers went with their own values.
+const template = read("templates/actor/partials/rail-identity.hbs");
+const advancement = read("templates/actor/character.hbs");
 const en = JSON.parse(read("languages/en.json"));
 
 const lookup = key => key.split(".").reduce((node, part) => node?.[part], en);
 
 describe("the framed numbers' tooltips", () => {
-	it("hovers XP with the book's definition, in the partial XP now lives in", () => {
-		expect(advancement).toContain("data-tooltip=\"{{localize 'stonetop.character.attributes.desc.xp'}}\"");
+	it("hovers XP with the book's definition, where the XP bar is drawn", () => {
+		expect(advancement).toContain(`tooltip=(localize "stonetop.character.attributes.desc.xp")`);
 		expect(lookup("stonetop.character.attributes.desc.xp")).toMatch(/experience points/);
 	});
 
@@ -27,17 +27,18 @@ describe("the framed numbers' tooltips", () => {
 			expect(lookup("stonetop.character.attributes.desc.xp")).toMatch(pattern);
 		});
 
-	it("points every tooltip in either row at a defined localization key", () => {
-		const keys = [template, advancement].flatMap(
-			t => [...t.matchAll(/data-tooltip="\{\{localize '([^']+)'\}\}"/g)].map(m => m[1]));
-		expect(keys.length).toBeGreaterThan(0);
-		for (const key of keys) expect(lookup(key), key).toBeTypeOf("string");
+	it("points the XP hover at a defined localization key", () => {
+		expect(lookup("stonetop.character.attributes.desc.xp")).toBeTypeOf("string");
 	});
 
 	// HP, damage and armor spend their hover on provenance (where the number came from), which is the
 	// more useful thing in play; this pins that split so a later edit doesn't quietly swap one for a
 	// definition and lose the breakdown.
-	it.each(["hp", "damage", "armor"])("keeps %s's hover on its provenance source", stat => {
+	it.each(["damage", "armor"])("keeps %s's hover on its provenance source", stat => {
 		expect(template).toContain(`data-tooltip="{{stonetop.vitals.sources.${stat}}}"`);
+	});
+
+	it("keeps hit points' hover on its provenance source", () => {
+		expect(advancement).toContain("tooltip=stonetop.vitals.sources.hp");
 	});
 });

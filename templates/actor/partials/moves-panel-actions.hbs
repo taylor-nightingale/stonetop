@@ -1,0 +1,5 @@
+{{!-- A Moves panel's bar controls: its door, where it has one, then the caret that opens and shuts
+      the panel. The caret is region-only: the door's words and the resting list are the door's, and
+      shutting the panel leaves them as they were. Handed the bar's params. --}}
+{{#if hasDoor}}{{> "stonetop.section-door"}}{{/if}}
+{{> "stonetop.bar-toggle" controls=panelControls open=true regionOnly=true labelShow=labelShow labelHide=labelHide}}

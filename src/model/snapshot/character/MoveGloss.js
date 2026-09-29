@@ -1,5 +1,6 @@
 import { rich } from "../RichText.js";
 import { toRollableMarkup } from "../../../utils/enrichGameText.js";
+import { plainText } from "../../../utils/plainText.js";
 
 /**
  * A move's trigger, in a few words — what a collapsed disclosure row says about itself.
@@ -50,7 +51,7 @@ const TIER = /^on a \d+\s*[-+–]/i;
 
 function firstEmphasis(html) {
 	for (const match of html.matchAll(EMPHASIS)) {
-		const text = plain(match.slice(1).find(group => group !== undefined) ?? "");
+		const text = plainText(match.slice(1).find(group => group !== undefined) ?? "");
 		if (text && !TIER.test(text)) return text;
 	}
 	return null;
@@ -61,7 +62,7 @@ function firstEmphasis(html) {
 const MAX = 90;
 
 function firstSentence(html) {
-	const sentence = plain(firstBlock(html)).split(/(?<=[.!?])\s/)[0].trim();
+	const sentence = plainText(firstBlock(html)).split(/(?<=[.!?])\s/)[0].trim();
 	return sentence.length > MAX ? `${sentence.slice(0, MAX - 1).trimEnd()}…` : sentence;
 }
 
@@ -78,28 +79,4 @@ function firstBlock(html) {
 	// Otherwise the text opens bare — the shape the markdown pass emits for a leading paragraph —
 	// so the first block boundary after it is where the statement ends.
 	return html.split(/<br\s*\/?>|<(?:ul|ol|p|h[1-6]|blockquote|table)\b[^>]*>/i)[0];
-}
-
-// Whatever markup survived — a gloss is plain text on a single line, not a second place rich text
-// gets rendered.
-//
-// A BLOCK boundary becomes a space, because two blocks are two runs of words with nothing between
-// them; an inline tag becomes nothing at all, because it sits inside a sentence and a space in its
-// place puts one before the comma that follows ("on a 10+ , it works"). Entities are decoded because
-// a gloss is read, not parsed.
-function plain(html) {
-	const spaced = html
-		.replace(/<\/?(p|div|ul|ol|li|h[1-6]|blockquote|table|tr|td|th|pre|section|figure|br)\b[^>]*>/gi, " ")
-		.replace(/<[^>]+>/g, "");
-	return decode(spaced).replace(/\s+/g, " ").trim();
-}
-
-const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'", apos: "'", nbsp: " " };
-
-function decode(text) {
-	return text.replace(/&(#\d+|[a-z]+);/gi, (whole, name) => {
-		const known = ENTITIES[name.toLowerCase()];
-		if (known !== undefined) return known;
-		return /^#\d+$/.test(name) ? String.fromCodePoint(Number(name.slice(1))) : whole;
-	});
 }

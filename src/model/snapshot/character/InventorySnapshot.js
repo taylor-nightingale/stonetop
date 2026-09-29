@@ -168,12 +168,18 @@ export class OutfitSnapshotBuilder {
  * @property {number} pickCount
  * @property {string} pickNote
  * @property {PossessionItemSnapshot[]} items
+ * @property {number} owed - picks still to make: what the playbook hands over, and what was dropped
+ *   on from outside its list, are not picks
+ * @property {"change"|"choose"} door - its door's word
  */
 export class PossessionsSnapshot {
 	constructor(pickCount, pickNote, items) {
 		this.pickCount = pickCount;
 		this.pickNote  = pickNote;
 		this.items     = items;
+		const picked   = items.filter(i => i.checked && !i.preselected && !i.removable).length;
+		this.owed      = Math.max(0, (pickCount ?? 0) - picked);
+		this.door      = items.some(i => i.checked) ? "change" : "choose";
 	}
 }
 
@@ -185,7 +191,6 @@ export class PossessionsSnapshot {
  * @property {boolean} checked
  * @property {boolean} disabled
  * @property {boolean} preselected
- * @property {string|null} preselectedSource
  * @property {Resource|null} resource
  * @property {string|null} usesLabel
  * @property {ChoiceGroup|null} choices
@@ -200,7 +205,6 @@ export class PossessionItemSnapshot {
 		this.checked           = b._checked;
 		this.disabled          = b._disabled;
 		this.preselected       = b._preselected;
-		this.preselectedSource = b._preselectedSource;
 		this.resource          = b._resource;
 		this.usesLabel         = b._usesLabel;
 		this.choices           = b._choices;
@@ -216,7 +220,6 @@ export class PossessionItemSnapshotBuilder {
 	withChecked(v)           { this._checked           = v; return this; }
 	withDisabled(v)          { this._disabled          = v; return this; }
 	withPreselected(v)       { this._preselected       = v; return this; }
-	withPreselectedSource(v) { this._preselectedSource = v; return this; }
 	withResource(v)          { this._resource          = v; return this; }
 	withUsesLabel(v)         { this._usesLabel         = v; return this; }
 	withChoices(v)           { this._choices           = v; return this; }

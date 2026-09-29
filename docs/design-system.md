@@ -3,13 +3,10 @@
 The visual and interaction vocabulary for the Stonetop system — **both sheets**, item sheets,
 dialogs and anything added later. Amended, not closed.
 
-Three parts: the principles the codebase already holds, an audit of every device that exists today
-and where the same job is done twice, and the rules that resolve those collisions. A rule's purpose
-is to make future choices **derivable** rather than re-argued: if one doesn't settle a case, amend
-it rather than working around it.
-
-Companion document: `scripts/development/redesign-mock/REQUIREMENTS.md` — the brief for the current
-character-sheet redesign, including a feature-by-feature inventory of what that sheet renders today.
+Four parts: the principles the codebase already holds, an audit of every device that exists today
+and where the same job is done twice, the rules that resolve those collisions, and the character
+sheet's layout. A rule's purpose is to make future choices **derivable** rather than re-argued: if
+one doesn't settle a case, amend it rather than working around it.
 
 ---
 
@@ -27,7 +24,8 @@ that contradicts one.
   the one that behaves the same for pointer, touch and keyboard. It does not rule a hover card out
   as an *additional* path on top of one — the same comment refers to the shifting objection as
   having been *"an objection to HOVER"* in passing, which is not the same as rejecting it. A card
-  that is nobody's only route to the text is a separate question, and an open one.
+  that is nobody's only route to the text is a separate question — answered on the character sheet:
+  its move rows carry a hover card as a second route beside the caret.
 - **Nothing re-orders under a tick.** From the improvement board: *"Sorting by progress moved a card
   the moment you ticked a box on it, which is the one time a reader is certain to be looking at
   it."* The board's search filters rows in place on `input` — no re-render, no writes to the actor —
@@ -44,6 +42,29 @@ that contradicts one.
 - **Reuse before building.** Most of the damage in both previous attempts was reinventing something
   that already existed.
 - **Fix data, not code.** A gap in pack data gets fixed in the data, not papered over at runtime.
+
+What the sheets are designed against:
+
+- **Screens are wider than they are tall.** Height is the scarce axis; anything that spends height
+  to buy width is going the wrong way.
+- **Many players are on small laptops.** Budget around 600px of usable window height.
+- **The sheet is not the rulebook.** Every move is in the compendium, so a surface carries what is
+  needed *now*. That fallback is good enough only for what is rarely needed: what every player uses
+  every session deserves a route from the sheet, even if it does not deserve the room.
+- **A sheet is dressed for creation and used for play.** Catalogues open in full serve the one
+  session a character is made in; every session after it wants the character's own things first.
+
+And how the sheets answer that:
+
+- **A choice rests on what was chosen.** Every choice shows what was chosen and has one door to the
+  rest. **While choosing, nothing on offer is hidden**: every option shows its own options and full
+  text. Resting may show only what was chosen; choosing may not.
+- **Nothing dims that a character owns.** A move out of reach is set back, its reason legible; one
+  already held never is, even at its limit, which its own filled boxes say. Finished is not blocked.
+- **No mode the sheet is in or out of.** Choices are made during play too (claiming an unnamed mark
+  mid-expedition), so no surface may make one impossible because it thinks the session has moved on.
+- **A conditional move appears when its condition is met, and not otherwise.** The compendium makes
+  that safe: the sheet is not the only copy.
 
 ---
 
@@ -108,12 +129,43 @@ Nine hand-rolled classes, no shared component: `choices-empty`, `steading-board-
 `stonetop-insert-sheet-empty`, `stonetop-moves-empty`, `stonetop-playbook-empty`,
 `stonetop-playbook-empty-hint`.
 
+### Rail and tab strip
+
+The character sheet and the steading share one rail and one tab strip. The rail sits on the left on
+sunken paper, and a small tab (0.85rem across, pressed across 24px) rides its edge. Put away, the
+rail slides out under the column beside it; below 62.5rem of layout (1000px at the default font
+size) it is a drawer over the tab. While a column rail slides, the column beside it keeps the
+width it has with the rail shut and is pushed, clipped at the sheet's edge, rather than squeezed:
+the tab is laid out once per slide, never frame by frame. The column
+beside it — the character's band or the steading's ledger line, the tab strip and the tab — has one
+1.5rem inset, which is also where the rail's tab sits. Tabs never shrink or overlap: those the strip
+has no room for are listed under a "More" menu at its end, and the open tab always stays in the
+strip. The rail's move groups are panels headed by an ink bar with a caret.
+
+The two sheets divide into the same three regions, each on its own ground and each the same on both
+sheets (the `--region-*` tokens on `.application.stonetop`): the rail on sunken paper, as a column or
+a drawer; the top bar over the tabs (`.stonetop-head` — the character's band, the steading's ledger
+line) on raised paper, ruled off below; and the tab, strip and body, on the window's textured paper.
+A drawer is lifted over the tab by its shadow, not by a lighter ground, which would make it read as
+part of the top bar.
+
+The character band's foot — the roll mode and the Stats fold control — always sits beside the stats,
+never under them. Short of room the fold control drops its word and keeps its caret; past that
+(a language longer than any shipped) the line wraps inside its own column. The rail breakpoint and
+the sheet's 47rem floor are set so English and German never need the wrap.
+
+The Ailments panel's wound editor hangs from the panel's bottom edge at the panel's width, over the
+tab. The outfit adder follows the same pattern: an editor hangs from what opened it (the "+ add
+item" button), at its width, over what is below, headed by a preview drawn with the real row partial.
+Nothing is written until its Add. Its way out is a word ("Done"), never a ×: on this sheet × removes something, and removing asks
+first (right-click skips the question), as every delete does.
+
 ### Toggles
 
-One shared component, `tab-toolbar-toggle.hbs` — a `<button>` (not a checkbox, whose change event
-would submit the form), `data-view-state` so it stays live on a non-editable sheet, and an optional
-`viewClass` the sheet drops onto the live tab **instead of re-rendering**. Used by
-`hideUnselectedMoves`, `playbookLocked` and `insertLocked-<slug>`.
+No tab has a lock or a filter any more: each section and each Moves or Possessions panel has its own
+door on its bar (D11), and a Moves panel a caret beside it. The one view flag left is the Level Up
+checklist's (`levelUpOpen`), a `<button>` with `data-view-flag` and `data-view-state` so it stays
+live on a non-editable sheet.
 
 ### The same job, done more than one way
 
@@ -160,9 +212,8 @@ would submit the form), `data-view-state` so it stays live on a non-editable she
 ## 3 · The rules, as the system already follows them
 
 **Descriptive, not aspirational.** This section records the rules the shipped code actually obeys,
-so it can be used as the baseline. Anything anyone wants to *change* is a proposal and lives in
-`scripts/development/redesign-mock/REQUIREMENTS.md` until it is decided; once decided it is folded
-in here.
+so it can be used as the baseline. Anything anyone wants to *change* is a proposal until it is
+decided; once decided it is folded in here.
 
 A rule's purpose is to make a choice **derivable** rather than re-argued. Where the code contradicts
 itself, that is recorded in §2 as a collision rather than settled here by assertion.
@@ -261,3 +312,35 @@ also in words in the DOM. And state belongs on the element it describes, not on 
 why a hindered stat is marked on the tile, not only under it.
 
 ---
+
+## 4 · The character sheet's layout
+
+Numbered, because the code cites them.
+
+- **D1 · Play comes first.** The first tab is what a character has; with no playbook chosen it is the
+  playbook picker. The steading's first tab is Play too.
+- **D2 · Playbook moves open in full while picking; the reader decides in play.** Each move shuts on
+  its own and the sheet remembers it, since how much of a move a reader needs is not in the data.
+- **D3 · Nothing dims that a character owns** (§1).
+- **D4 · No mode the sheet is in or out of** (§1).
+- **D5 · Outfitting is left alone.** It already shows a character's own things first.
+- **D6 · Debilities are brackets** spanning the pair of stats each one hinders.
+- **D7 · The rail carries identity and state; the band carries the stats.** The rail: the portrait
+  with the level on it, armor and damage, hit points and experience as tracks, all still editable.
+  The six stats never join the rail, since rolling needs the stat and the move at once. Instinct and
+  appearance are one-line readouts by the name, cut to "…", edited where they are chosen. Ailments
+  show three rows, the rest a count on the bar.
+- **D8 · Reference moves are placed by what they are about.** The basic moves in the rail, open; the
+  expedition moves a second rail group, shut, split by phase; follower moves once, at the top of
+  Followers, while there are followers.
+- **D9 · The special moves land where they apply.** Advantage/Disadvantage is a `?` after the roll
+  mode; Death's Door a row under hit points only while dying (an insert's own zero-HP move in its
+  place); End of Session a route beside experience; Level Up, then Burn Brightly, at the threshold.
+- **D10 · A player can write an item onto their own list**, in place, as a full item. See
+  `docs/features/outfitting.md`.
+- **D11 · Sections rest on what was chosen** (§1), each with one door on its bar: Change or Choose,
+  Done while open. Opening everything is an event (choosing a playbook, gaining an insert), not a
+  standing state. The Playbook tab's sections sit in two fixed columns, so nothing jumps columns under
+  the pointer.
+- **D12 · An insert is a tab, with the whole insert on it**, straight after Playbook: its moves, its
+  instinct and its sections. One gained by dying arrives open and the sheet goes to its tab.

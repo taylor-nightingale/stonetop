@@ -1,0 +1,37 @@
+{{!-- One category of the character's own moves on the Moves tab: a panel that rests on the moves
+      taken, and collapses from a caret on its bar like the rail's groups. Where there is anything to
+      choose it also has a door, as a Playbook-tab section does (D11): the list opens onto everything
+      on offer, and the book's instruction rides the bar while it is open.
+
+      A move owed at a level-up is said at the top of the playbook's panel, in the Level Up move's
+      own words, with the door's Choose beside it while the panel rests.
+
+      Params: `category` (MoveCategorySnapshot), `index` (its bar's place on the tab) and `owedMove`
+      (the Level Up step still owed, or null). --}}
+<section class="stonetop-panel stonetop-move-panel stonetop-moves-panel" data-disclosure-row data-section="{{category.sectionKey}}">
+	{{> "stonetop.bar" title=category.label index=index note=(ifThen category.offersChoice category.note null) noteWhileOpen=true
+	    action="stonetop.moves-panel-actions" hasDoor=category.offersChoice door=category.door
+	    controls=(sectionId @root.sheetIdPrefix category.sectionKey)
+	    panelControls=(movesPanelId @root.sheetIdPrefix category.key)
+	    labelShow=(localize "stonetop.character.moves.showPanel" name=category.label)
+	    labelHide=(localize "stonetop.character.moves.hidePanel" name=category.label)}}
+	<div class="stonetop-panel-body" id="{{movesPanelId @root.sheetIdPrefix category.key}}">
+		{{#if (and owedMove category.isPlaybook category.offersChoice)}}
+		<div class="stonetop-conditional stonetop-conditional--ready stonetop-owing">
+			<p class="stonetop-owing-text"><strong>{{localize "stonetop.character.levelUp.title"}}</strong> {{rich owedMove.text}}</p>
+			<button type="button" class="stonetop-owing-choose" data-action="goToTab" data-view-state data-disclosure-shut
+			        data-tab="moves" data-open-sections="{{category.sectionKey}}">{{localize "stonetop.sheet.section.choose"}}</button>
+		</div>
+		{{/if}}
+		<div class="stonetop-section-rest" data-disclosure-shut>
+			{{> "stonetop.character-move-list" moves=category.taken phases=null categoryKey=category.key categoryLabel=category.label
+			    chat=true removable=category.allowAdditional choosing=false}}
+		</div>
+		{{#if category.offersChoice}}
+		<div class="stonetop-section-choose" id="{{sectionId @root.sheetIdPrefix category.sectionKey}}" hidden>
+			{{> "stonetop.character-move-list" moves=category.moves phases=null categoryKey=category.key categoryLabel=category.label
+			    chat=true removable=category.allowAdditional choosing=true}}
+		</div>
+		{{/if}}
+	</div>
+</section>

@@ -1,4 +1,5 @@
-{{!-- Six stat tiles across. Params: stats (CharacterSnapshot.stats).
+{{!-- Six stat tiles across. Params: pairs (CharacterSnapshot.statPairs) — the six in the order the
+      debilities' brackets span them, so a tile knows whether its pair's debility is marked.
 
       The tile shows the ABBREVIATION, and it shows it once. Measured, six across, in real Chrome:
       "Constitution" is 96px in a 96px tile — flush, with nothing left for a letter-spacing change or
@@ -12,18 +13,23 @@
       nothing about a span said so.
 
       The full name is not lost: it names the button for assistive tech, and the hover still carries
-      what the stat covers and when to roll it. --}}
+      what the stat covers and when to roll it.
+
+      A marked debility dims the two tiles it hinders — the consequence, once there is one; the bracket
+      under them is what says the mapping beforehand. The folded line does the same. --}}
 <div class="stonetop-stats-row">
+	{{#each pairs}}
 	{{#each stats}}
-	<div class="stonetop-stat" data-stat="{{@key}}">
-		<button type="button" class="stonetop-stat-roll rollable" data-roll="{{@key}}"
+	<div class="stonetop-stat{{#if ../debility.active}} is-hindered{{/if}}" data-stat="{{key}}">
+		<button type="button" class="stonetop-stat-roll rollable" data-roll="{{key}}"
 		        aria-label="{{localize 'stonetop.a11y.rollStatNamed' stat=name}}"
 		        data-tooltip="{{description}}" data-tooltip-direction="UP">{{abbr}}</button>
 		<input class="stonetop-stat-input" type="number"
 		       aria-label="{{localize 'stonetop.a11y.statValue' stat=name}}"
-		       name="system.stats.{{@key}}.value"
+		       name="system.stats.{{key}}.value"
 		       value="{{value}}" min="-3" max="3"
-		       {{#unless ../editable}}disabled{{/unless}}>
+		       {{#unless @root.editable}}disabled{{/unless}}>
 	</div>
+	{{/each}}
 	{{/each}}
 </div>

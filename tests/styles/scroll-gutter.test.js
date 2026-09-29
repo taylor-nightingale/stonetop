@@ -30,7 +30,7 @@ const probe = new RenderProbe([
 const FIXTURE = `
 <div class="application stonetop sheet character themed theme-light"><div class="window-content">
   <div class="sheet-wrapper">
-    <div class="stonetop-rail-layout" data-side="left">
+    <div class="stonetop-rail-layout">
       <div class="stonetop-rail-main character-main">
       <div class="sheet-body" id="body">
         <div class="tab equipment active" data-tab="inventory">
@@ -75,8 +75,10 @@ describe.skipIf(!canProbe())("the scrolling tab body reserves its scrollbar gutt
 		expect(probed.get("body").get("scrollbar-gutter")).toBe("stable");
 	});
 
-	it("keeps a little air between the pips and the track", () => {
-		expect(probed.get("body").get("padding-right")).toBe("2px");
+	// The character's tab body carries the column's inset on both sides — which
+	// is also the air between the pips and the track.
+	it("keeps air between the pips and the track", () => {
+		expect(parseFloat(probed.get("body").get("padding-right"))).toBeGreaterThanOrEqual(2);
 	});
 
 	// The other half of the same row: the item is what you carry, the qualifier says which one, and

@@ -1,3 +1,4 @@
+// @vitest-environment happy-dom
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "fs";
 import path from "path";
@@ -14,6 +15,8 @@ import { RollModes } from "../../src/actors/RollModes.js";
 
 const root = process.cwd();
 const read = rel => readFileSync(path.resolve(root, rel), "utf8");
+
+const dom = html => { const el = document.createElement("div"); el.innerHTML = html; return el; };
 
 const picker = (selected, params = {}) =>
 	renderPartial("stonetop.roll-mode-picker", { modes: RollModes.options(selected), ...params });
@@ -50,8 +53,30 @@ describe("roll-mode picker partial", () => {
 	});
 
 	it("gives every radio a label to be named by", () => {
-		const labels = picker("normal").match(/<span class="stonetop-rollmode-label">[^<]+<\/span>/g) ?? [];
-		expect(labels).toHaveLength(3);
+		const doc = dom(picker("normal"));
+		expect(doc.querySelectorAll(".stonetop-rollmode-option .stonetop-rollmode-label")).toHaveLength(3);
+	});
+
+	// The inline line is short of room beside the stats: "Adv" and "Disadv" are drawn, and the full
+	// word is still what names the radio and what hovering shows.
+	it("draws the short word on the inline line and says the full one", () => {
+		const doc = dom(picker("normal", { variant: "inline" }));
+		const adv = doc.querySelector('input[value="adv"]').closest("label");
+		expect(adv.querySelector('[aria-hidden="true"]:not(.stonetop-rollmode-mark)').textContent).toBe("stonetop.rollMode.short.adv");
+		expect(adv.querySelector(".stonetop-visually-hidden").textContent).toBe("stonetop.rollMode.adv");
+		expect(adv.getAttribute("title")).toBe("stonetop.rollMode.adv");
+	});
+
+	it("keeps Normal as it is, having no short word", () => {
+		const normal = dom(picker("normal")).querySelector('input[value="normal"]').closest("label");
+		expect(normal.querySelector(".stonetop-rollmode-label").textContent).toBe("stonetop.rollMode.normal");
+		expect(normal.hasAttribute("title")).toBe(false);
+	});
+
+	it("keeps the full words where the options are stacked", () => {
+		const doc = dom(picker("normal", { variant: "stacked" }));
+		expect([...doc.querySelectorAll(".stonetop-rollmode-label")].map(l => l.textContent))
+			.toEqual(["stonetop.rollMode.adv", "stonetop.rollMode.normal", "stonetop.rollMode.dis"]);
 	});
 
 	// Three radios that mean one setting are a group; a group with no accessible name is three loose
@@ -70,6 +95,10 @@ describe("roll-mode picker partial", () => {
 	});
 });
 
+// The character sheet's markup: the sheet itself and the band it includes, which carries the foot.
+const CHARACTER = ["templates/actor/character.hbs", "templates/actor/partials/character-band.hbs"];
+const characterSheet = () => CHARACTER.map(read).join("\n");
+
 describe("roll-mode picker call sites", () => {
 	// ONE picker on the character sheet, in the band's foot, and the fold does not reach it. It was
 	// rendered twice — stacked beside Damage while the band was open, inline on the folded line — and
@@ -80,13 +109,13 @@ describe("roll-mode picker call sites", () => {
 	// NOT on the shared actor header, which the NPC card also renders — and where it spent a spell
 	// as three words at the end of a line with nothing to align to.
 	it("renders exactly one picker on the character sheet", () => {
-		const character = read("templates/actor/character.hbs");
+		const character = characterSheet();
 		expect(character.match(/stonetop\.roll-mode-picker/g) ?? [], "the character sheet renders a second picker")
 			.toHaveLength(1);
 		expect(character, "the character sheet's picker is not the inline one").toContain('variant="inline"');
 		expect(character).not.toContain("stonetop-roll-mode-radio");
-		expect(read("templates/actor/partials/actor-header.hbs"), "the masthead still renders a mode")
-			.not.toContain("roll-mode-picker");
+		for (const masthead of ["actor-header", "character-masthead"])
+			expect(read(`templates/actor/partials/${masthead}.hbs`), `${masthead} renders a mode`).not.toContain("roll-mode-picker");
 	});
 
 	// The folded line carries the NUMBERS at line height and nothing else. A picker in here would be
@@ -99,7 +128,7 @@ describe("roll-mode picker call sites", () => {
 	// One picker, so the group name is stated once — but it is still stated, because the radios are a
 	// group and an unnamed group is three loose radios.
 	it("scopes the character sheet's radios to a named group", () => {
-		expect(read("templates/actor/character.hbs")).toContain('name="stonetop-roll-mode"');
+		expect(characterSheet()).toContain('name="stonetop-roll-mode"');
 	});
 
 	it("is how the stat-pick dialog renders its radios", () => {
@@ -146,9 +175,9 @@ describe("roll-mode picker call sites", () => {
 	// choice IS the box — a column of circle radios on a sheet is most of a header row's height for a
 	// setting that is three words wide.
 	it("gives both sheets the same variant", () => {
-		for (const f of ["templates/actor/steading.hbs", "templates/actor/character.hbs"])
-			expect(read(f), `${f} does not ask for the inline variant`).toContain('variant="inline"');
-		for (const f of ["templates/actor/steading.hbs", "templates/actor/character.hbs"])
-			expect(read(f), `${f} puts a stacked column of radios on a sheet`).not.toContain('variant="stacked"');
+		for (const [name, markup] of [["steading", read("templates/actor/steading.hbs")], ["character", characterSheet()]]) {
+			expect(markup, `the ${name} sheet does not ask for the inline variant`).toContain('variant="inline"');
+			expect(markup, `the ${name} sheet puts a stacked column of radios on a sheet`).not.toContain('variant="stacked"');
+		}
 	});
 });

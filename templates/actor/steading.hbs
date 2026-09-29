@@ -33,17 +33,15 @@
 	      hold the top-left corner and the masthead and the body read as one object rather than as a
 	      header stacked on content.
 
-	      Left, mirroring the character sheet's right-hand moves rail. The steading's rail IS the
-	      steading — the arches belong to the masthead's left edge — where the character's is a
-	      reference index. Same component, `data-side` apart. --}}
-	<div class="stonetop-rail-layout" data-side="left">
+	      Left, and the same rail as the character sheet's: one component, one tab on its edge. The
+	      steading's rail IS the steading — the arches belong to the masthead's left edge. --}}
+	<div class="stonetop-rail-layout">
 
 		{{!-- The toggle carries BOTH labels and the sheet picks between them as the state changes: a
 		      control whose only tooltip is a noun never says it does anything, which is the reason a
 		      shut rail was unreadable. The wording names what is in the rail — Fortunes, Surplus, the
 		      homefront moves — rather than the book's word for the illustration around them, which
-		      means nothing to a reader who has not read this file. The strip shows the same two
-		      things as marks: the arch it is drawn in, and the die you roll a move on. --}}
+		      means nothing to a reader who has not read this file. --}}
 		<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
 		        aria-expanded="false" aria-controls="{{sheetIdPrefix}}-rail"
 		        data-label-show="{{localize 'stonetop.steading.railShow'}}"
@@ -51,10 +49,6 @@
 		        title="{{localize 'stonetop.steading.railShow'}}"
 		        aria-label="{{localize 'stonetop.steading.railShow'}}">
 			<i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
-			<span class="stonetop-rail-fold" aria-hidden="true">
-				<i class="fas fa-archway stonetop-rail-mark"></i>
-				<i class="fas fa-dice-d6 stonetop-rail-mark"></i>
-			</span>
 		</button>
 
 		<div class="stonetop-rail steading-rail" id="{{sheetIdPrefix}}-rail" data-density="full">
@@ -65,15 +59,7 @@
 				{{> "stonetop.steading-stat-panel" attr="surplus"  attrData=stonetop.surplus                changeAction="surplus"  panelClass="steading-surplus steading-tile--arched"}}
 			</div>
 			{{#if stonetop.homefrontMoves}}
-				{{> "stonetop.move-group"
-				    title=stonetop.homefrontMoves.label
-				    note=stonetop.homefrontMoves.note
-				    moves=stonetop.homefrontMoves.moves
-				    categoryKey=stonetop.homefrontMoves.key
-				    allowAdditional=false
-				    alwaysShowResource=true
-				    unacquirable=true
-				    disclosure=true}}
+				{{> "stonetop.steading-move-panel" group=stonetop.homefrontMoves index=0}}
 			{{/if}}
 			{{!-- The four Seasons Change moves, as a second group of the same kind. They used to hang
 			      off the wheel's segments, which put a whole move inside a control whose job is to
@@ -85,15 +71,7 @@
 			      numbered steps the move prescribes. A move is not a thing the sheet rations: both
 			      renderings go through the same row, so it rolls and posts identically in either. --}}
 			{{#if stonetop.seasonalMoves}}
-				{{> "stonetop.move-group"
-				    title=stonetop.seasonalMoves.label
-				    note=stonetop.seasonalMoves.note
-				    moves=stonetop.seasonalMoves.moves
-				    categoryKey=stonetop.seasonalMoves.key
-				    allowAdditional=false
-				    alwaysShowResource=true
-				    unacquirable=true
-				    disclosure=true}}
+				{{> "stonetop.steading-move-panel" group=stonetop.seasonalMoves index=1}}
 			{{/if}}
 		</div>
 
@@ -108,7 +86,7 @@
 
 	      Every rating's name is its roll button in both densities, which is what lets you roll from
 	      the line without a second code path to keep in step. --}}
-	<header class="sheet-header steading-line" data-density="line">
+	<header class="sheet-header steading-line stonetop-head" data-density="line">
 
 		{{!-- Row one: who this is, and every number. Row two: what is wrong, and how it rolls.
 
@@ -209,6 +187,7 @@
 		        role="tab" id="{{@root.sheetIdPrefix}}-tab-{{this.id}}" aria-controls="{{@root.sheetIdPrefix}}-panel-{{this.id}}"
 		        aria-selected="{{#if this.active}}true{{else}}false{{/if}}" tabindex="{{#if this.active}}0{{else}}-1{{/if}}">{{localize this.label}}</button>
 		{{/each}}
+		{{> "stonetop.tab-more" tabs=tabs}}
 		{{!-- One ? for the sheet, at the end of the tab row. Every rating's advice is one page of the
 		      same article, and its headings are all on it — so six buttons opening the same document
 		      at six anchors is five buttons too many. --}}

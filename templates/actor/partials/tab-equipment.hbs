@@ -84,7 +84,7 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.regularUndefinedPoolNote"}}}</p>
 			<div class="stonetop-inv-divider" aria-hidden="true"></div>
-			{{> "stonetop.outfit-items" sections=stonetop.outfit.regularSections addColumn="regular"}}
+			{{> "stonetop.outfit-items" sections=stonetop.outfit.regularSections addColumn="regular" addKey="character:regular"}}
 		</div>
 
 		{{!-- Small items (right column) --}}
@@ -111,7 +111,7 @@
 			</div>
 			<p class="stonetop-supplies-pool-note">{{{localize "stonetop.inventory.smallUndefinedPoolNote"}}}</p>
 			<div class="stonetop-inv-divider" aria-hidden="true"></div>
-			{{> "stonetop.outfit-items" sections=stonetop.outfit.smallSections addColumn="small" addLabel="stonetop.inventory.addSmallItem" square=true}}
+			{{> "stonetop.outfit-items" sections=stonetop.outfit.smallSections addColumn="small" addKey="character:small" addLabel="stonetop.inventory.addSmallItem" square=true}}
 			<div>
 				{{> "stonetop.section-heading" title=(localize "stonetop.inventory.otherItems")}}
 				<p class="stonetop-inv-section-note">{{{localize "stonetop.inventory.otherItemsNote"}}}</p>

@@ -2,6 +2,8 @@
        sections   — OutfitSection[] (each {runs, note})
        addColumn  — when set, render the "+ add item" button with this data-column (omit for read-only)
        addLabel   — localization key for that button (defaults to the load column's wording)
+       addKey     — which inventory and column the button adds to (an AdderPlace key); the outfit
+                    adder is drawn under the button whose key is the one open
        square     — mark rows with a single □ (the small-items column) instead of their weight in ◇
      Item checkboxes carry data-slug = item slug (same for character + follower); the follower path is
      distinguished by the enclosing .stonetop-follower-inventory[data-slug] wrapper, so the handlers
@@ -26,7 +28,11 @@
 {{#if note}}<p class="stonetop-inv-section-note">{{{note}}}</p>{{/if}}
 {{/each}}
 {{#if addColumn}}
-<button type="button" class="stonetop-inv-add-btn" data-action="addInventoryItem" data-column="{{addColumn}}">
-	<i class="fas fa-plus"></i> {{#if addLabel}}{{localize addLabel}}{{else}}{{localize "stonetop.inventory.addItem"}}{{/if}}
-</button>
+<div class="stonetop-inv-add">
+	<button type="button" class="stonetop-inv-add-btn" data-action="addInventoryItem" data-column="{{addColumn}}"
+	        {{#if (and @root.outfitAdder (eq @root.outfitAdder.key addKey))}}aria-expanded="true" aria-controls="{{@root.sheetIdPrefix}}-outfit-adder"{{else}}aria-expanded="false"{{/if}}>
+		<i class="fas fa-plus"></i> {{#if addLabel}}{{localize addLabel}}{{else}}{{localize "stonetop.inventory.addItem"}}{{/if}}
+	</button>
+	{{#if (and @root.outfitAdder (eq @root.outfitAdder.key addKey))}}{{> "stonetop.outfit-item-adder" adder=@root.outfitAdder}}{{/if}}
+</div>
 {{/if}}

@@ -1,0 +1,41 @@
+{{!-- A number that changes during play, as a bar you can still type into: the name on a small line
+      above, the value on the bar with the fill behind it. Params: `kind` ("hp" or "xp"), `label`,
+      `meter` (HpMeter or XpTrack), `valueAction`, `valueLabel`, `maxAction` + `maxLabel` where the
+      maximum is typed (hit points) — a derived one (experience's threshold) is a readout — `tone`,
+      `note`, `tooltip` (the label's hover), and `describedBy`, the id of a provenance sentence.
+
+      Past experience's threshold the bar keeps filling and the threshold becomes a mark on it; the
+      run past the mark is what Burn Brightly can spend. `role="meter"` carries the numbers, since the
+      fill is colour and colour is never the only carrier of anything. It sits on the gauge alone: a
+      meter's children are presentational, so a field inside one is a field assistive tech never meets.
+
+      The bar is the stepper: − and + cap its two ends, and the one delegated handler finds the value
+      from either (the maximum is no `.stonetop-step`, so it is never what they step). --}}
+<div class="stonetop-meter stonetop-meter--{{kind}}{{#if tone}} stonetop-meter--{{tone}}{{/if}}">
+	<span class="stonetop-meter-label"{{#if tooltip}} data-tooltip="{{tooltip}}" data-tooltip-direction="UP"{{/if}}>{{label}}</span>
+	<div class="stonetop-meter-bar stonetop-stepper">
+		<span class="stonetop-meter-gauge" role="meter" aria-label="{{label}}"
+		      aria-valuemin="0" aria-valuenow="{{meter.value}}" aria-valuemax="{{#if meter.scale}}{{meter.scale}}{{else}}{{meter.max}}{{/if}}"
+		      style="--meter-fill: {{meter.pct}}%{{#if meter.hasThresholdMark}}; --meter-threshold: {{meter.thresholdPct}}%{{/if}}">
+			<span class="stonetop-meter-fill" aria-hidden="true"></span>
+			{{#if meter.hasThresholdMark}}
+			<span class="stonetop-meter-over" aria-hidden="true"></span>
+			<span class="stonetop-meter-tick" aria-hidden="true"></span>
+			{{/if}}
+		</span>
+		<span class="stonetop-meter-fields">
+			<input class="stonetop-meter-input stonetop-step" type="number" min="0"
+			       data-change-action="{{valueAction}}" aria-label="{{valueLabel}}" value="{{meter.value}}">
+			<span class="stonetop-meter-sep" aria-hidden="true">/</span>
+			{{#if maxAction}}
+			<input class="stonetop-meter-input stonetop-meter-input--max" type="number" min="0"
+			       data-change-action="{{maxAction}}" aria-label="{{maxLabel}}"
+			       {{#if describedBy}}aria-describedby="{{describedBy}}"{{/if}} value="{{meter.max}}">
+			{{else}}
+			<span class="stonetop-meter-max">{{meter.max}}</span>
+			{{/if}}
+		</span>
+		{{> "stonetop.stepper-buttons" upGlyph="+" downGlyph="−"}}
+	</div>
+	{{#if note}}<span class="stonetop-meter-note">{{note}}</span>{{/if}}
+</div>

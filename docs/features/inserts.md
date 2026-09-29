@@ -97,6 +97,10 @@ character can do, most of which they cannot do yet.
   a career, an insert's moves arrive together at the moment it does.
 - **They can be written for one character.** A GM may make one to cover something that happened to
   one person and will never happen again.
+- **Its instinct sets the playbook's aside; it does not erase it.** The playbook's choice is still
+  there should the insert go.
+- **One gained by dying brings the move made at zero hit points** in place of Death's Door —
+  Tethered, Undying, Dark Succor.
 
 ---
 

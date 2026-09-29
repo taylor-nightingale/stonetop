@@ -1,0 +1,31 @@
+{{!-- Every wound, to name, move on and remove — the one surface that shows them all. A panel beside
+      the list rather than fields in it, since the list may be hiding the row you want. A name is
+      saved as its field is left; the state cycles active → stabilized → permanent. Removing asks
+      first, as every delete on the sheet does, and the way out is a word rather than a second ×.
+      Debilities are not here: they are marked on their brackets. Context: the root. --}}
+<div class="stonetop-ailment-editor" id="{{sheetIdPrefix}}-ailment-editor" role="group"
+     aria-label="{{localize 'stonetop.character.ailments.title'}}">
+	<p class="stonetop-ailment-editor-head">{{localize "stonetop.character.ailments.title"}}
+		<button type="button" class="stonetop-ailment-close" data-action="closeAilments" data-view-state>{{localize "stonetop.character.ailments.done"}}</button></p>
+	<ul class="stonetop-ailment-editor-list stonetop-unmarked">
+		{{#each stonetop.wounds}}
+		<li class="stonetop-ailment-edit" data-wound-id="{{id}}">
+			<input type="text" class="stonetop-ailment-edit-name" data-change-action="woundName" data-wound-id="{{id}}"
+			       value="{{name}}" placeholder="{{localize 'stonetop.character.ailments.placeholder'}}"
+			       aria-label="{{localize 'stonetop.character.ailments.woundName'}}"
+			       {{#unless @root.editable}}disabled{{/unless}}>
+			<button type="button" class="stonetop-ailment-state" data-action="advanceWoundState" data-wound-id="{{id}}"
+			        data-state="{{state}}"
+			        aria-label="{{localize 'stonetop.character.ailments.nextState' state=(localize (concat 'stonetop.character.wounds.state.' state))}}">{{localize (concat "stonetop.character.wounds.state." state)}}</button>
+			<button type="button" class="stonetop-ailment-remove" data-action="removeWound" data-wound-id="{{id}}"
+			        data-name="{{name}}"
+			        aria-label="{{localize 'stonetop.character.ailments.remove' name=name}} — {{localize 'stonetop.confirm.deleteHint'}}"
+			        title="{{localize 'stonetop.character.ailments.remove' name=name}} — {{localize 'stonetop.confirm.deleteHint'}}">×</button>
+		</li>
+		{{/each}}
+	</ul>
+	{{#if @root.editable}}
+	<button type="button" class="stonetop-ailment-add" data-action="addWound">{{localize "stonetop.character.ailments.addWound"}}</button>
+	{{/if}}
+	<p class="stonetop-ailment-editor-note">{{localize "stonetop.character.ailments.note"}}</p>
+</div>

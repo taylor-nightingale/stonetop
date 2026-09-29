@@ -6,7 +6,6 @@ import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder
 import { FakeRepositoryFactory } from "../../fakes/FakeRepositoryFactory.js";
 import { FakeGameBuilder } from "../../fakes/FakeGameBuilder.js";
 import { stonetopActorSheetBase } from "../../fakes/foundry/stonetopActorSheetBase.js";
-import { NewInventoryItem } from "../../../src/actors/character/AddInventoryItemDialog.js";
 import { fire, settle } from "../../fakes/domEvents.js";
 import { warn } from "../../../src/utils/logger.js";
 
@@ -152,27 +151,23 @@ describe("character sheet wiring — arcana (integration)", () => {
 });
 
 describe("character sheet wiring — inventory and followers (integration)", () => {
-	it("adds a custom inventory item through the dialog down to the actor", async () => {
-		const { sheet, character } = makeSheet();
-		sheet._addInventoryItemDialog = { show: vi.fn(async () => NewInventoryItem.regular("Rope", 2)) };
-		const added = vi.spyOn(character, "addCustomInventoryItemFor");
-
+	it("adds a custom inventory item through the adder down to the actor", async () => {
+		const { sheet, actor } = makeSheet();
 		await fireAction(sheet, "addInventoryItem", `<button data-column="regular"></button>`);
+		sheet._outfitAdder.update(d => d.withName("Rope").withWeight(2));
+		await fireAction(sheet, "outfitDraftAdd", `<button></button>`);
 
-		expect(sheet._addInventoryItemDialog.show).toHaveBeenCalledWith({ isRegular: true });
-		const [owner, item] = added.mock.calls[0];
-		expect(owner.isFollower).toBe(false);
-		expect(item).toEqual(NewInventoryItem.regular("Rope", 2));
+		const rope = actor.items.find(i => i.type === "outfitItem" && i.name === "Rope");
+		expect(rope.system).toMatchObject({ weight: 2, inventoryColumn: "regular" });
 	});
 
-	it("adds nothing when the dialog is dismissed", async () => {
-		const { sheet, character } = makeSheet();
-		sheet._addInventoryItemDialog = { show: vi.fn(async () => null) };
-		const added = vi.spyOn(character, "addCustomInventoryItemFor");
-
+	it("adds nothing when the adder is cancelled", async () => {
+		const { sheet, actor } = makeSheet();
 		await fireAction(sheet, "addInventoryItem", `<button data-column="small"></button>`);
+		sheet._outfitAdder.update(d => d.withName("Flint"));
+		await fireAction(sheet, "closeOutfitAdder", `<button></button>`);
 
-		expect(added).not.toHaveBeenCalled();
+		expect(actor.items.some(i => i.type === "outfitItem")).toBe(false);
 	});
 
 	// Server-side expand/collapse: only the open follower's (large) catalog is built, and the open
@@ -197,7 +192,7 @@ describe("character sheet wiring — tabs and the router (integration)", () => {
 		const ctx = await sheet._prepareContext({});
 
 		expect(Object.keys(ctx.tabs)).toEqual([
-			"playbook", "moves", "possessions", "inventory", "arcana", "followers", "notes", "insert-the-crew",
+			"playbook", "insert-the-crew", "moves", "possessions", "inventory", "arcana", "followers", "notes",
 		]);
 		expect(ctx.tabs["insert-the-crew"].label).toBe("The Crew");
 	});
@@ -206,9 +201,9 @@ describe("character sheet wiring — tabs and the router (integration)", () => {
 		const { sheet } = makeSheet();
 
 		expect((await sheet._prepareContext({})).viewFlags)
-			.toEqual({ hideUnselectedMoves: false, playbookLocked: false, levelUpOpen: false });
-		sheet._viewFlags.toggle("hideUnselectedMoves");
-		expect((await sheet._prepareContext({})).viewFlags.hideUnselectedMoves).toBe(true);
+			.toEqual({ levelUpOpen: false });
+		sheet._viewFlags.toggle("levelUpOpen");
+		expect((await sheet._prepareContext({})).viewFlags.levelUpOpen).toBe(true);
 	});
 
 	// A stamped name with no handler behind it is silent in play except for this warning.

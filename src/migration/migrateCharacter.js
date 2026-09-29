@@ -17,6 +17,8 @@ import { richTextToHtml } from "./richTextToHtml.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
 import { Tags } from "../model/data/Tags.js";
 import { migrateMovePackData } from "./migrateMovePackData.js";
+import { migrateInsertPackData } from "./migrateInsertPackData.js";
+import { migrateMoveNameCorrections } from "./migrateMoveNameCorrections.js";
 import { migrateBackgroundGrants } from "./migrateBackgroundGrants.js";
 
 const SCOPE = "stonetop";
@@ -70,6 +72,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migrateReferenceMoveCategories(actor, repos.moves);
 	await migrateAddedReferenceMoves(actor, repos.moves);
 	await migrateMovePackData(actor, repos.moves);
+	await migrateMoveNameCorrections(actor);
 	await migratePlaybookSpecialPossessions(actor);
 	await migratePlaybookPackData(actor, repos.playbooks);
 	// Straight after the refresh above, which is what puts the current background definitions on the
@@ -110,6 +113,7 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migratePossessionChoiceSlugs(actor);
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
+	if (insertRepo) await migrateInsertPackData(actor, insertRepo);
 	await migrateInsertMoveCategories(actor);
 	await migrateInsertChoiceValues(actor);
 	await migrateChoiceValues(actor);

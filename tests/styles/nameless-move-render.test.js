@@ -14,9 +14,8 @@ import { ValueMax } from "../../src/model/snapshot/character/VitalsSnapshot.js";
  * they act on, reading as decoration belonging to nothing. "Is there a rule for it" is a text
  * question; "did the browser give those two buttons a line of their own" is not.
  *
- * Both shapes are measured, because they are laid out differently and only one of them was ever
- * looked at: the moves tab renders these rows WITH an acquisition check, while an arcanum card and a
- * playbook's choice group grant them inline with none.
+ * These rows are an arcanum card's and a playbook choice group's, granted inline with no acquisition
+ * check; the character's Moves tab draws its own row (character-move-row.hbs).
  *
  * The fixture is the real partial rendered from a real snapshot — the rules under test are keyed on
  * `.stonetop-item--nameless` and on `display: contents`, which is to say on exactly the markup the
@@ -59,12 +58,12 @@ const bolster = new MoveSnapshotBuilder()
 
 // Tab width, which is where these rows are read: an arcanum's card and the moves tab both give the
 // text a column wide enough to wrap, and the claim is about which line the controls share.
-const fixture = showCheck => `
+const fixture = () => `
 <div class="application stonetop sheet character themed theme-light" style="width: 640px">
  <div class="window-content">
   <div class="stonetop-move-group"><ol class="items-list" style="column-count: 1">
    ${[bolster, destined].map(move => renderPartial("stonetop.move-row",
-		{ ...move, sheetIdPrefix: "s1", showCheck, categoryKey: "starting" })).join("\n")}
+		{ ...move, sheetIdPrefix: "s1", categoryKey: "starting" })).join("\n")}
   </ol></div>
  </div>
 </div>`;
@@ -77,12 +76,11 @@ const TARGETS = {
 	controls: `${ROW} .stonetop-item-controls`,
 	die:      `${ROW} .move-rollable`,
 	chat:     `${ROW} .stonetop-move-chat`,
-	check:    `${ROW} .stonetop-item-check`,
 	namedRow: '.stonetop-item:has([data-move-slug="bolster"])',
 };
 
-const measure = showCheck => probe.measure({
-	bodyHtml: fixture(showCheck), bodyClass: "theme-light",
+const measure = () => probe.measure({
+	bodyHtml: fixture(), bodyClass: "theme-light",
 	rootAttrs: 'style="font-size: 16px"',
 	targets: TARGETS,
 	chromeFlags: ["--window-size=800,1000"],
@@ -104,9 +102,9 @@ const bottom = el => el.values.boxTop + el.values.boxHeight;
 const expectCentredOn = (control, firstLine, message) =>
 	expect(Math.abs(control - firstLine), message).toBeLessThanOrEqual(1);
 
-describe.skipIf(!canProbe())("a nameless move's controls, as an inline grant (no check)", () => {
+describe.skipIf(!canProbe())("a nameless move's controls", () => {
 	let m;
-	beforeAll(() => { m = measure(false); });
+	beforeAll(() => { m = measure(); });
 	const el = name => m.get(name);
 
 	// The die and the chat bubble are Font Awesome glyphs and the probe has no icon font, so they are
@@ -115,7 +113,6 @@ describe.skipIf(!canProbe())("a nameless move's controls, as an inline grant (no
 		for (const name of ["row", "text", "controls", "die", "chat"]) {
 			expect(el(name).missing, `${name} did not render`).toBe(false);
 		}
-		expect(el("check").missing, "an inline grant drew an acquisition check").toBe(true);
 	});
 
 	// The reported problem, stated as geometry: the controls had a line to themselves above the text.
@@ -160,32 +157,5 @@ describe.skipIf(!canProbe())("a nameless move's controls, as an inline grant (no
 	it("puts them where a named row puts them — on the row's first line", () => {
 		expectCentredOn(el("die").boxMiddle, el("text").firstLineMiddle);
 		expect(m.get("namedRow").values.boxHeight).toBeGreaterThan(0);
-	});
-});
-
-describe.skipIf(!canProbe())("a nameless move's controls, on the moves tab (with a check)", () => {
-	let m;
-	beforeAll(() => { m = measure(true); });
-	const el = name => m.get(name);
-
-	it("renders the check", () => {
-		expect(el("check").missing, "the check did not render").toBe(false);
-	});
-
-	it("still keeps the controls on the move's first line", () => {
-		expectCentredOn(el("controls").boxMiddle, el("text").firstLineMiddle);
-	});
-
-	// The check drops into the gutter the description's indent already leaves for it, so every line
-	// of the move's text starts at the same place — the check is beside the first one, not above it.
-	it("drops the check into the text's own gutter, level with the first line", () => {
-		expect(right(el("check")), "the check overlaps the move's text")
-			.toBeLessThanOrEqual(el("text").textLeft + 1);
-		expectCentredOn(el("check").boxMiddle, el("text").firstLineMiddle);
-	});
-
-	it("costs the row no height of its own", () => {
-		expect(el("row").values.boxHeight - el("text").values.boxHeight)
-			.toBeLessThan(el("text").values.firstLineHeight);
 	});
 });

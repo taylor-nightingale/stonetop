@@ -1,0 +1,27 @@
+{{!-- A character's list of move rows: the rail's groups, and (as they are ported) the Moves tab, an
+      insert's tab and the follower moves. The list owns the columns — its rows borrow them through
+      subgrid — so every right edge lines up down the list.
+
+      Params: `moves`, or `phases` (MovePhaseGroup[]) to draw the moves under the part of the journey
+      each is for; `categoryKey`; `categoryLabel`, which the hover card names; `chat`, which puts
+      the send-to-chat button on each row (off in the rail, where the width is scarce); `removable`,
+      for the moves dropped on, which their rows can take off again; and `choosing`, for a Moves
+      panel's list being chosen from — every row open, each with its box and what taking it asks.
+
+      The steading, the arcanum cards and the rows a choice grants keep `move-item.hbs`. --}}
+<ol class="stonetop-move-list">
+	{{#if phases}}
+	{{#each phases}}
+	{{#if labelKey}}<li class="stonetop-move-phase"><h4 class="stonetop-move-phase-title">{{localize labelKey}}</h4></li>{{/if}}
+	{{#each moves}}
+	{{> "stonetop.character-move-row" categoryKey=../../categoryKey categoryLabel=../../categoryLabel chat=../../chat
+	    removable=false choosing=false startOpen=false}}
+	{{/each}}
+	{{/each}}
+	{{else}}
+	{{#each moves}}
+	{{> "stonetop.character-move-row" categoryKey=../categoryKey categoryLabel=../categoryLabel chat=../chat
+	    removable=../removable choosing=../choosing startOpen=../choosing}}
+	{{/each}}
+	{{/if}}
+</ol>

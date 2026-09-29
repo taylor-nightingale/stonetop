@@ -1,0 +1,19 @@
+{{!-- Every region, each with the names the book prints for it as buttons that name the character.
+      A region with none says so: the book says to borrow one, so an empty list is an instruction,
+      not a failure to load. Params: `data` (OriginSection). --}}
+{{#each data.options}}
+<div class="stonetop-origin-option{{#if selected}} selected{{/if}}">
+	<label class="stonetop-origin-region">
+		<input type="radio" class="stonetop-item-check" data-change-action="selectOrigin" name="stonetop-origin"
+		       value="{{region}}"{{#if selected}} checked{{/if}}>
+		<strong>{{region}}</strong>
+	</label>
+	<div class="stonetop-origin-names">
+		{{#if names.length}}
+		{{#each names}}<button type="button" class="stonetop-origin-name" data-action="selectOriginName">{{this}}</button>{{#unless @last}}, {{/unless}}{{/each}}
+		{{else}}
+		<span class="stonetop-section-note">{{localize "stonetop.sheet.playbook.noNames"}}</span>
+		{{/if}}
+	</div>
+</div>
+{{/each}}

@@ -1,7 +1,5 @@
 // @vitest-environment happy-dom
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "fs";
-import path from "path";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
@@ -30,8 +28,6 @@ async function makeWiredSheet() {
 	// Mirrors what move-item.hbs / resource-input.hbs stamp — the action names are the contract
 	// between the shared partial and the sheet's handler maps.
 	sheet.element.innerHTML = `
-		<input type="checkbox" class="stonetop-move-check" data-change-action="moveCheck"
-		       data-category-key="homefront" data-move-slug="trade" checked>
 		<button class="stonetop-item-resource-check" data-action="moveResourcePip"
 		        data-move-slug="trade" data-index="0"></button>
 		<input class="stonetop-resource-input" data-change-action="moveResourceText"
@@ -44,16 +40,6 @@ async function makeWiredSheet() {
 const homefrontItem = actor => [...actor.items].find(i => i.system?.categoryKey === "homefront");
 
 describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
-	it("unchecking the move check toggles the owned move off", async () => {
-		const { actor, sheet } = await makeWiredSheet();
-		const check = sheet.element.querySelector(".stonetop-move-check");
-		check.checked = false;
-		fire(check, "change");
-		await Promise.resolve();
-		expect(homefrontItem(actor).system.instanceCount).toBe(0);
-		expect(homefrontItem(actor).system.acquired).toBe(false);
-	});
-
 	it("clicking an unchecked resource pip persists the new current count", async () => {
 		const { actor, sheet } = await makeWiredSheet();
 		const pip = sheet.element.querySelector(".stonetop-item-resource-check");
@@ -68,16 +54,6 @@ describe("StonetopSteadingSheet homefront-move wiring (integration)", () => {
 		fire(sheet.element.querySelector(".stonetop-resource-input"), "change");
 		await Promise.resolve();
 		expect(actor.system.resources.texts.moves.trade).toBe("grain");
-	});
-
-	// The steading now renders more than one category, so the checkbox's category is load-bearing:
-	// the handler routes the toggle by it, and a move-item that stopped stamping it would toggle
-	// nothing. Nothing renders .hbs here, so assert the template still emits what the handler reads.
-	it("reads the category the move-item template stamps on the check", () => {
-		const template = readFileSync(path.resolve(process.cwd(), "templates/actor/partials/move-item.hbs"), "utf8");
-		expect(template).toContain('data-category-key="{{categoryKey}}"');
-		expect(readFileSync(path.resolve(process.cwd(), "src/actors/moveRowHandlers.js"), "utf8"))
-			.toContain("el.dataset.categoryKey");
 	});
 
 	it("the moveToChat action hands the seeded homefront move to the actor's chat surface", async () => {

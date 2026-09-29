@@ -13,6 +13,7 @@ import {
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
 import { OutfitEffects } from "../../model/data/character/OutfitEffect.js";
+import { MovePhaseGroup } from "../../model/snapshot/character/MovePhaseGroup.js";
 
 export class CharacterMoves {
 	constructor(moveRepo, actor, resourceController, factory, grantedItems = new GrantedItems(actor), requirements) {
@@ -58,6 +59,7 @@ export class CharacterMoves {
 	removeCategory(key)                    { return this._grants.removeCategory(key); }
 	incrementMove(categoryKey, moveSlug)   { return this._grants.incrementMove(categoryKey, moveSlug); }
 	decrementMove(categoryKey, moveSlug)   { return this._grants.decrementMove(categoryKey, moveSlug); }
+	clearMove(categoryKey, moveSlug)       { return this._grants.clearMove(categoryKey, moveSlug); }
 
 	// A move the player dropped in. Matched on the STORED slug, like every other move lookup — matching
 	// on the name alone let a renamed move in as a second copy of one already there.
@@ -192,7 +194,9 @@ export class CharacterMoves {
 			return new MoveCategorySnapshotBuilder()
 				.withKey(meta.key).withLabel(meta.label).withRenderStyle(meta.renderStyle)
 				.withAllowAdditional(meta.allowAdditional).withNote(meta.note)
-				.withMoves(moves).build();
+				.withMoves(moves)
+				.withPhases(catKey === "expedition" ? MovePhaseGroup.fromMoves(moves) : null)
+				.build();
 		});
 		return new MovelistBuilder().withCategories(categories).withBySlug(bySlug).build();
 	}
@@ -267,9 +271,9 @@ function _categoryMetadata(catKey, catItems) {
 	return { key: catKey, label, renderStyle: "standard", allowAdditional: false, note };
 }
 
-// The categories that render on a surface of their own: an arcanum's card, a background's box. Their
-// moves are reached there, so the moves tab leaves them out.
-const OWN_SURFACE_PREFIXES = ["arcana-", "background-"];
+// The categories that render on a surface of their own: an arcanum's card, a background's box, an
+// insert's tab (D12). Their moves are reached there, so the moves tab leaves them out.
+const OWN_SURFACE_PREFIXES = ["arcana-", "background-", "insert-"];
 
 function _rendersOnMovesTab(item) {
 	const key = item.system?.categoryKey ?? "";

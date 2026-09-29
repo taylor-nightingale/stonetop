@@ -21,12 +21,29 @@
 <fieldset class="stonetop-rollmode stonetop-rollmode--{{#if variant}}{{variant}}{{else}}inline{{/if}}">
 	<legend class="stonetop-rollmode-legend">{{localize "stonetop.rollMode.label"}}</legend>
 	{{#each modes}}
-	<label class="stonetop-rollmode-option{{#if checked}} is-checked{{/if}}">
+	{{!-- The inline line draws "Adv" and "Disadv": beside the stats it is short of room, and the
+	      full words overran the conditions. The full word still names the radio and shows on hover.
+	      Stacked (the stat-pick dialog), there is room, and the full words stay. --}}
+	<label class="stonetop-rollmode-option{{#if checked}} is-checked{{/if}}"{{#if (and shortKey (not (eq ../variant "stacked")))}} title="{{localize labelKey}}"{{/if}}>
 		<input type="radio" class="stonetop-rollmode-input" name="{{../name}}"
 		       {{#if ../changeAction}}data-change-action="{{../changeAction}}"{{/if}}
 		       value="{{key}}" {{#if checked}}checked{{/if}}>
 		<span class="stonetop-rollmode-mark" aria-hidden="true"></span>
+		{{#if (and shortKey (not (eq ../variant "stacked")))}}
+		<span class="stonetop-rollmode-label"><span aria-hidden="true">{{localize shortKey}}</span><span
+			class="stonetop-visually-hidden">{{localize labelKey}}</span></span>
+		{{else}}
 		<span class="stonetop-rollmode-label">{{localize labelKey}}</span>
+		{{/if}}
 	</label>
 	{{/each}}
+	{{!-- D9: Advantage/Disadvantage explains what this control does, so it sits on the control as the
+	      last item of its row. The advice button's look, but it opens the move. Param: `rule`, the move. --}}
+	{{#if rule}}
+	<button type="button" class="stonetop-icon-btn stonetop-rollmode-rule" data-action="openMoveBySlug" data-view-state
+	        data-move-slug="{{rule.slug}}" aria-label="{{localize 'stonetop.rollMode.rule' name=rule.name}}"
+	        title="{{localize 'stonetop.rollMode.rule' name=rule.name}}">
+		<i class="fas fa-circle-question" aria-hidden="true"></i>
+	</button>
+	{{/if}}
 </fieldset>

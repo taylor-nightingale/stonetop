@@ -57,6 +57,8 @@ export async function migrateMovePackData(actor, moveRepo) {
 				// The reference category a move belongs to (seasons/homefront/basic/…). It decides
 				// which section of a sheet the move is drawn in, so a stale one files it wrongly.
 				moveType:    sys.moveType    ?? null,
+				phase:       sys.phase       ?? null,
+				replaces:    sys.replaces    ?? null,
 				// "Mark XP on a 6- unless the move says otherwise" — a move says otherwise with false.
 				xpOnMiss:    sys.xpOnMiss !== false,
 			},

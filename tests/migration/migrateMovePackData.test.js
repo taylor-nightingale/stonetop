@@ -124,6 +124,38 @@ describe("migrateMovePackData — refreshes authored fields", () => {
 		expect(updateFor(actor).img).toBe("icons/svg/item-bag.svg");
 	});
 
+	// Tethered's blank for what the Ghost is bound to was added after Ghosts were already in play.
+	it("refreshes a move's choice group", async () => {
+		const choices = { slug: "choices", list: [{ type: "entry", slug: "tether", input: { type: "inline" } }] };
+		const doc = new FakeCompendiumMoveBuilder().withName("Tethered").withChoices(choices).build();
+		const actor = makeActor([embeddedMove({ slug: "tethered", choices: null })]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).system.choices).toEqual(choices);
+	});
+
+	// The rail groups the expedition moves by the part of the journey each is for.
+	it("refreshes the part of an expedition a move is for", async () => {
+		const doc = new FakeCompendiumMoveBuilder().withName("Forage").withPhase("on-the-road").build();
+		const actor = makeActor([embeddedMove({ slug: "forage" })]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).system.phase).toBe("on-the-road");
+	});
+
+	// At zero HP the rail offers a death insert's own move where Death's Door would be.
+	it("refreshes which move a move is made instead of", async () => {
+		const doc = new FakeCompendiumMoveBuilder().withName("Undying").withReplaces("deaths-door").build();
+		const actor = makeActor([embeddedMove({ slug: "undying" })]);
+		await migrateMovePackData(actor, makeRepo(doc));
+		expect(updateFor(actor).system.replaces).toBe("deaths-door");
+	});
+
+	it("clears a phase and a replacement the pack no longer gives", async () => {
+		const actor = makeActor([embeddedMove({ phase: "setting-out", replaces: "deaths-door" })]);
+		await migrateMovePackData(actor, makeRepo(packDeathsDoor()));
+		expect(updateFor(actor).system.phase).toBeNull();
+		expect(updateFor(actor).system.replaces).toBeNull();
+	});
+
 	// moveType is the reference category a move is filed under, so a stale one draws the move in the
 	// wrong section of the sheet.
 	it("refreshes the move type", async () => {

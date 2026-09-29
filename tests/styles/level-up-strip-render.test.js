@@ -1,6 +1,10 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
+import { renderLocalized } from "./localizedPartial.js";
+import { Advancement } from "../../src/model/data/character/Advancement.js";
+import { LevelUpSnapshotBuilder, AdvanceRow, ChooseMoveRow, ReviewRow }
+	from "../../src/model/snapshot/character/LevelUpSnapshot.js";
 
 // The Level Up strip lives in the rail, under the XP track it is about — as wide as two stat frames
 // it and not a pixel wider. Nothing about that is visible to a text scan of the stylesheet: core's
@@ -19,57 +23,31 @@ const probe = new RenderProbe([
 	sheet("stonetop.css"),
 ]);
 
-// Markup as level-up-strip.hbs and level-up-step.hbs emit it — the rules under test are
-// selector-specific, so a simplified stand-in would stop matching them.
-const step = ({ kind, done = false, text, figure = null, control = false, goto = null }) => `
-<li class="stonetop-levelup-step${done ? " is-done" : ""}" data-kind="${kind}">
-  ${done
-		? `<span class="stonetop-levelup-tick" role="img" aria-label="Done"><i class="fas fa-check" aria-hidden="true"></i></span>`
-		: `<span class="stonetop-levelup-tick" aria-hidden="true"></span>`}
-  <div class="stonetop-levelup-body">
-    <div class="stonetop-levelup-text stonetop-rich">${text}</div>
-    ${figure ? `<p class="stonetop-levelup-figure">${figure}</p>` : ""}
-  </div>
-  ${control ? `<button type="button" class="stonetop-levelup-advance" data-action="advance">Advance</button>` : ""}
-  ${goto ? `<button type="button" class="stonetop-levelup-goto" data-action="goToTab" data-view-state data-tab="${goto}">
-      <span>${goto}</span><i class="fas fa-arrow-right" aria-hidden="true"></i></button>` : ""}
-</li>`;
+// The real partials: the rules under test are selector-specific, and a hand-built stand-in drifted
+// from the strip the sheet draws (its trigger sat inside the checklist long after it moved out).
+const advancement = new Advancement(5, 19);
+const levelUp = new LevelUpSnapshotBuilder()
+	.withGloss("have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level")
+	.withRows([
+		new AdvanceRow({ labelKey: "stonetop.character.levelUp.advanceStep" }, advancement),
+		new ChooseMoveRow({ text: "Choose a new move from your playbook, or an insert class that you've unlocked.", tab: "moves" }, advancement, 4),
+		new ReviewRow({ text: "Review your Instinct and Appearance. Change anything that no longer applies. Feel free to make up new options.", tab: "playbook" }),
+	])
+	.withLevel(5).withNewLevel(6).withCost(16).withIsReady(true)
+	.build();
 
-// The strip lives in the RAIL now, and the rail takes its width from the stylesheet's own token
-// (two stat frames across) rather than from a number written here — so this measures the width the
-// strip actually gets in play, which is a good deal tighter than the old stats column's.
+// In English words: the harness's keys are forty characters in a control that says "Advance".
+const strip = renderLocalized("stonetop.level-up-strip", {
+	stonetop: { levelUp }, viewFlags: { levelUpOpen: true }, sheetIdPrefix: "s1", editable: true,
+}, "en");
+
+// The strip lives in the RAIL, under the XP bar it is about, and the rail takes its width from the
+// stylesheet's own token — so this measures the width the strip actually gets in play.
 const FIXTURE = `
 <div class="application stonetop sheet actor character themed theme-light" style="width: 900px; height: 700px"><div class="window-content">
-  <div class="sheet-wrapper"><div class="stonetop-rail-layout" data-side="left">
+  <div class="sheet-wrapper"><div class="stonetop-rail-layout rail-open">
    <div class="stonetop-rail stonetop-moves-rail">
-    <div class="stonetop-vitals-section">
-      <div class="stonetop-resource-row">
-        <div class="stonetop-resource stonetop-resource--wide is-full">
-          <span class="stonetop-resource__label">XP</span>
-          <div class="stonetop-resource__split">
-            <span class="stonetop-stepper"><input class="stonetop-resource__input stonetop-char-xp stonetop-step" type="number" value="19"></span>
-            <span>/</span>
-            <span class="stonetop-resource__max">16</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="stonetop-levelup is-ready">
-      <button type="button" class="stonetop-levelup-toggle" data-action="toggleTabView"
-              data-view-flag="levelUpOpen" data-view-state aria-expanded="true" aria-controls="s1-levelup">
-        <i class="fas fa-chevron-right stonetop-levelup-caret" aria-hidden="true"></i>
-        <span class="stonetop-levelup-title">Level Up</span>
-        <span class="stonetop-levelup-badge">ready</span>
-      </button>
-      <div class="stonetop-levelup-panel" id="s1-levelup">
-        <p class="stonetop-levelup-gloss">When you have a quiet stretch of time at home and XP equal to (or greater than) 6 + twice your current level.</p>
-        <ol class="stonetop-levelup-steps">
-          ${step({ kind: "advance", text: "Spend XP to level up", figure: "16 XP: 19 → 3 · Level 5 → 6", control: true })}
-          ${step({ kind: "chooseMove", done: true, text: "Choose a new move from your playbook, or an insert class that you've unlocked.", goto: "Moves" })}
-          ${step({ kind: "review", text: "Review your Instinct and Appearance. Change anything that no longer applies. Feel free to make up new options.", goto: "Playbook" })}
-        </ol>
-      </div>
-    </div>
+    <div class="stonetop-rail-advancement">${strip}</div>
    </div>
    <div class="stonetop-rail-main character-main"><section class="sheet-body"></section></div>
   </div></div>
@@ -81,6 +59,7 @@ const TARGETS = {
 	toggle:   ".stonetop-levelup-toggle",
 	title:    ".stonetop-levelup-title",
 	badge:    ".stonetop-levelup-badge",
+	home:     ".stonetop-levelup-home",
 	gloss:    ".stonetop-levelup-gloss",
 	advanceRow:  '[data-kind="advance"]',
 	advanceText: '[data-kind="advance"] .stonetop-levelup-text',
@@ -111,10 +90,18 @@ describe.skipIf(!canProbe())("the Level Up strip", () => {
 
 	it("keeps inside the rail it hangs in", () => {
 		expect(right(el("strip"))).toBeLessThanOrEqual(right(el("rail")) + 1);
-		for (const name of ["toggle", "gloss", "advanceText", "advanceFig", "chooseText", "reviewText"]) {
+		for (const name of ["toggle", "home", "gloss", "advanceText", "advanceFig", "chooseText", "reviewText"]) {
 			expect(right(el(name)), `${name} runs past the rail`)
 				.toBeLessThanOrEqual(right(el("rail")) + 1);
 		}
+	});
+
+	// Where levelling happens, then the book's trigger as its fine print, both above the checklist —
+	// read whether or not the checklist is open.
+	it("says it is done at home before the fine print and the steps", () => {
+		expect(el("home").values.boxTop).toBeGreaterThanOrEqual(el("toggle").values.boxTop + el("toggle").values.boxHeight);
+		expect(el("gloss").values.boxTop).toBeGreaterThanOrEqual(el("home").values.boxTop + el("home").values.boxHeight);
+		expect(el("advanceRow").values.boxTop).toBeGreaterThan(el("gloss").values.boxTop);
 	});
 
 	// Core's `.window-app button { width: 100% }` is what this catches: a stretched Advance would be

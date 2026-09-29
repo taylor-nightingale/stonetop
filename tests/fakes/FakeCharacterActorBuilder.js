@@ -133,6 +133,11 @@ export class FakeCharacterActorBuilder {
 		return this;
 	}
 
+	withWounds(wounds) {
+		this._wounds = wounds;
+		return this;
+	}
+
 	withDebility(name, active) {
 		this._debilities = {
 			...this._debilities,
@@ -147,6 +152,7 @@ export class FakeCharacterActorBuilder {
 			background: {selected: this._backgroundSlug},
 			description: this._description,
 			notes: this._notes,
+			wounds: this._wounds ?? [],
 			stats: this._statBuilder.build(),
 			attributes: {
 				level: this._level,

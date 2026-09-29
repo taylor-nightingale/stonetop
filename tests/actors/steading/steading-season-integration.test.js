@@ -430,8 +430,8 @@ describe("the season wheel", () => {
 // read: the rail, beside the homefront ones, on every tab — not hung off a wheel segment on the one
 // tab the wheel is drawn on.
 describe("the rail's seasonal moves", () => {
-	const railGroup = (root, title) => [...root.querySelectorAll(".steading-rail .stonetop-move-group")]
-		.find(g => g.querySelector(".stonetop-move-group-title")?.textContent.includes(title));
+	const railGroup = (root, title) => [...root.querySelectorAll(".steading-rail .stonetop-move-panel")]
+		.find(g => g.querySelector(".stonetop-bar-title")?.textContent.includes(title));
 
 	it("lists all four, spring to winter, under Seasonal Moves", async () => {
 		const root  = await render(await makeSheet({ season: "autumn" }));
@@ -447,7 +447,7 @@ describe("the rail's seasonal moves", () => {
 	// can read past.
 	it("draws each as a disclosure row, shut, over its own region", async () => {
 		const root     = await render(await makeSheet({ season: "spring" }));
-		const controls = [...railGroup(root, "Seasonal Moves").querySelectorAll("[aria-controls]")];
+		const controls = [...railGroup(root, "Seasonal Moves").querySelectorAll(".stonetop-move-disclosure[aria-controls]")];
 		expect(controls).toHaveLength(4);
 		expect(new Set(controls.map(c => c.getAttribute("aria-controls"))).size).toBe(4);
 		for (const control of controls) {

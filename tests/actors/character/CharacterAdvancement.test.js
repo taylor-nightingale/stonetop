@@ -139,6 +139,18 @@ describe("CharacterAdvancement.buildSnapshot", () => {
 		expect(row.tab).toBe("moves");   // still a working row, just not a misquoted one
 	});
 
+	// Where the choice is made: the playbook's own panel on the Moves tab, opened on arrival.
+	it("sends the move choice to the playbook's Moves panel", async () => {
+		const playbook = new TestPlaybookItemBuilder().withSlug("the-blessed").build();
+		const { advancement } = makeAdvancement({ level: 5, xp: 19, items: [playbook] });
+		expect(rowFor(await advancement.buildSnapshot(), "chooseMove").opens).toBe("moves-playbook-the-blessed");
+	});
+
+	it("opens nothing on the Moves tab for a character with no playbook", async () => {
+		const { advancement } = makeAdvancement({ level: 5, xp: 19 });
+		expect(rowFor(await advancement.buildSnapshot(), "chooseMove").opens).toBe("");
+	});
+
 	it("is offered while the move has triggered", async () => {
 		const { advancement } = makeAdvancement({ level: 5, xp: 16 });
 		expect((await advancement.buildSnapshot()).isOffered).toBe(true);

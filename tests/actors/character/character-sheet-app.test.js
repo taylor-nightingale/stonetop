@@ -6,7 +6,7 @@ import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder
 import { FakeRepositoryFactory } from "../../fakes/FakeRepositoryFactory.js";
 import { FakeGameBuilder } from "../../fakes/FakeGameBuilder.js";
 import { InventoryOwner } from "../../../src/actors/character/InventoryOwner.js";
-import { NewInventoryItem } from "../../../src/actors/character/AddInventoryItemDialog.js";
+import { NewInventoryItem } from "../../../src/actors/character/NewInventoryItem.js";
 
 // -- Fake V2 base ---------------------------------------------------------------
 // Mini-core: ApplicationV2 seeds tabGroups from the tabs config and routes _prepareTabs through
@@ -73,7 +73,7 @@ function spyChar() {
 		"togglePossessionUsePip", "toggleInventoryResourcePipFor", "toggleArcanumResourcePip",
 		"toggleBackgroundResourcePip", "toggleFollowerLoyaltyPip", "removeArcanum",
 		"deletePossession", "removeFollower", "deleteMove", "removeCustomInventoryItemFor",
-		"removeInsert", "addCustomFollower", "addFollowerMember", "removeFollowerMember",
+		"removeInsert", "removeWound", "addCustomFollower", "addFollowerMember", "removeFollowerMember",
 		"addCustomInventoryItemFor", "applyDroppedItems", "addFollowerFromActor",
 		"sendMoveToChat",
 	];
@@ -134,14 +134,14 @@ describe("StonetopCharacterSheet tabs", () => {
 		expect(ctx.tabs.playbook.label).toBe("stonetop.sheet.tabs.playbook");
 	});
 
-	it("appends one tab per owned insert item via _getTabsConfig", async () => {
+	it("adds one tab per owned insert item via _getTabsConfig", async () => {
 		const { sheet } = makeSheet({
 			items: [{ _id: "i1", type: "insert", name: "The Crew", system: { slug: "the-crew" } }],
 		});
 		const ctx = await sheet._prepareContext({});
 		expect(ctx.tabs["insert-the-crew"]).toMatchObject({ id: "insert-the-crew", label: "The Crew" });
-		// insert tabs come after the fixed seven
-		expect(Object.keys(ctx.tabs).at(-1)).toBe("insert-the-crew");
+		// straight after the Playbook's (D12): an insert is a fragment of a playbook
+		expect(Object.keys(ctx.tabs).slice(0, 2)).toEqual(["playbook", "insert-the-crew"]);
 	});
 });
 
@@ -179,50 +179,27 @@ describe("StonetopCharacterSheet view toggles", () => {
 	it("starts every declared flag off and carries them into the context", async () => {
 		const { sheet } = makeSheet();
 		expect((await sheet._prepareContext({})).viewFlags)
-			.toEqual({ hideUnselectedMoves: false, playbookLocked: false, levelUpOpen: false });
+			.toEqual({ levelUpOpen: false });
 	});
 
-	// The playbook lock changes what the template emits, so the sheet has to rebuild the tab.
+	// The Level Up checklist changes what the template emits, so the sheet has to rebuild the rail.
 	it("re-renders for a toggle that changes the markup", async () => {
 		const { sheet } = makeSheet();
-		const btn = el(`<button data-view-flag="playbookLocked"></button>`);
+		const btn = el(`<button data-view-flag="levelUpOpen"></button>`);
 
 		await fireAction(sheet, "toggleTabView", btn);
 		expect(sheet.render).toHaveBeenCalled();
-		expect((await sheet._prepareContext({})).viewFlags.playbookLocked).toBe(true);
+		expect((await sheet._prepareContext({})).viewFlags.levelUpOpen).toBe(true);
 
 		await fireAction(sheet, "toggleTabView", btn);
-		expect((await sheet._prepareContext({})).viewFlags.playbookLocked).toBe(false);
-	});
-
-	// The moves filter only hides rows, so it decorates the live tab — rebuilding the sheet's
-	// largest tab mid-review would fight the scroll position.
-	it("decorates the tab instead, for a toggle that names a class", async () => {
-		const { sheet } = makeSheet();
-		const tab = el(`<div class="tab moves"><button data-view-flag="hideUnselectedMoves" data-view-class="hide-unselected"></button></div>`);
-
-		await fireAction(sheet, "toggleTabView", tab.querySelector("button"));
-
-		expect(tab.classList.contains("hide-unselected")).toBe(true);
-		expect(sheet.render).not.toHaveBeenCalled();
-		expect((await sheet._prepareContext({})).viewFlags.hideUnselectedMoves).toBe(true);
-	});
-
-	// Insert tabs name a flag per slug — locking one insert must leave the others alone.
-	it("takes a flag the sheet never declared, so each insert locks on its own", async () => {
-		const { sheet } = makeSheet();
-		await fireAction(sheet, "toggleTabView", el(`<button data-view-flag="insertLocked-invocations"></button>`));
-
-		const { viewFlags } = await sheet._prepareContext({});
-		expect(viewFlags["insertLocked-invocations"]).toBe(true);
-		expect(viewFlags["insertLocked-ghost"]).toBeUndefined();
+		expect((await sheet._prepareContext({})).viewFlags.levelUpOpen).toBe(false);
 	});
 
 	it("is NOT edit-gated — a view toggle only changes what is shown", async () => {
 		const { sheet } = makeSheet();
 		sheet._editable = false;
-		await fireAction(sheet, "toggleTabView", el(`<button data-view-flag="playbookLocked"></button>`));
-		expect((await sheet._prepareContext({})).viewFlags.playbookLocked).toBe(true);
+		await fireAction(sheet, "toggleTabView", el(`<button data-view-flag="levelUpOpen"></button>`));
+		expect((await sheet._prepareContext({})).viewFlags.levelUpOpen).toBe(true);
 	});
 });
 
@@ -499,6 +476,7 @@ describe("StonetopCharacterSheet delete actions", () => {
 		["deleteInventoryItem", `<a data-owned-id="x1" data-name="Rope"></a>`, "removeCustomInventoryItemFor",
 			[InventoryOwner.character(), "x1"]],
 		["deleteInsert", `<button data-insert-item-id="i1" data-name="Revenant"></button>`, "removeInsert", ["i1"]],
+		["removeWound", `<button data-wound-id="w1" data-name="cut"></button>`, "removeWound", ["w1"]],
 	];
 
 	for (const [action, markup, method, args] of cases) {
@@ -567,50 +545,67 @@ describe("StonetopCharacterSheet drops", () => {
 	});
 });
 
-// -- Add-inventory dialog ------------------------------------------------------------------
+// -- The outfit adder ---------------------------------------------------------------------
+// "+ add item" opens a panel on the sheet (OutfitItemAdder) rather than a dialog window: nothing is
+// written until Add, and Add writes the whole item to whichever inventory the button was in.
 
-describe("StonetopCharacterSheet add-inventory dialog", () => {
-	afterEach(() => vi.unstubAllGlobals());
+describe("StonetopCharacterSheet outfit adder", () => {
+	const open = async (sheet, button) => {
+		await fireAction(sheet, "addInventoryItem", button);
+		return sheet._outfitAdder;
+	};
 
-	function stubPrompt(result) {
-		const prompt = vi.fn(async () => result);
-		vi.stubGlobal("foundry", {
-			...globalThis.foundry,
-			applications: {
-				...globalThis.foundry?.applications,
-				api: { DialogV2: { prompt } },
-				handlebars: { renderTemplate: vi.fn(async () => "<div></div>") },
-			},
-		});
-		vi.stubGlobal("game", { i18n: { localize: k => k, format: k => k } });
-		return prompt;
-	}
-
-	it("adds a regular item with its weight", async () => {
-		stubPrompt({ name: "Rope", weight: 2 });
+	it("opens the adder at the button's column, writing nothing", async () => {
 		const { sheet, char } = makeSheet();
-		await fireAction(sheet, "addInventoryItem", el(`<button data-column="regular"></button>`));
-		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(
-			InventoryOwner.character(), NewInventoryItem.regular("Rope", 2));
-	});
-
-	it("routes to the follower inventory when opened from its wrapper", async () => {
-		stubPrompt({ name: "Rope", weight: 1 });
-		const { sheet, char } = makeSheet();
-		const wrap = el(`
-			<div class="stonetop-follower-inventory" data-slug="enfys">
-				<button data-column="regular"></button>
-			</div>`);
-		await fireAction(sheet, "addInventoryItem", wrap.querySelector("button"));
-		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(
-			InventoryOwner.follower("enfys"), NewInventoryItem.regular("Rope", 1));
-	});
-
-	it("does nothing when the dialog is dismissed or the name is blank", async () => {
-		stubPrompt(null);
-		const { sheet, char } = makeSheet();
-		await fireAction(sheet, "addInventoryItem", el(`<button data-column="small"></button>`));
+		const adder = await open(sheet, el(`<button data-column="small"></button>`));
+		expect(adder.view().key).toBe("character:small");
+		expect(sheet.render).toHaveBeenCalled();
 		expect(char.addCustomInventoryItemFor).not.toHaveBeenCalled();
+	});
+
+	it("adds the draft to the character, whole, and shuts", async () => {
+		const { sheet, char } = makeSheet();
+		const adder = await open(sheet, el(`<button data-column="regular"></button>`));
+		adder.update(d => d.withName("Naphtha").withUses(3).withUsesWord("uses").withTagToggled("thrown"));
+		await fireAction(sheet, "outfitDraftAdd", el(`<button></button>`));
+		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(
+			InventoryOwner.character(), NewInventoryItem.regular("Naphtha", 1, { uses: 3, usesWord: "uses", tags: ["thrown"] }));
+		expect(adder.isOpen).toBe(false);
+	});
+
+	it("adds to the follower whose inventory it was opened in", async () => {
+		const { sheet, char } = makeSheet();
+		const wrap = el(`<div class="stonetop-follower-inventory" data-slug="enfys"><button data-column="regular"></button></div>`);
+		const adder = await open(sheet, wrap.querySelector("button"));
+		adder.update(d => d.withName("Rope"));
+		await fireAction(sheet, "outfitDraftAdd", el(`<button></button>`));
+		expect(char.addCustomInventoryItemFor).toHaveBeenCalledWith(InventoryOwner.follower("enfys"), NewInventoryItem.regular("Rope", 1));
+	});
+
+	it("adds nothing without a name, and stays open", async () => {
+		const { sheet, char } = makeSheet();
+		const adder = await open(sheet, el(`<button data-column="regular"></button>`));
+		await fireAction(sheet, "outfitDraftAdd", el(`<button></button>`));
+		expect(char.addCustomInventoryItemFor).not.toHaveBeenCalled();
+		expect(adder.isOpen).toBe(true);
+	});
+
+	it("shuts from Cancel, writing nothing", async () => {
+		const { sheet, char } = makeSheet();
+		const adder = await open(sheet, el(`<button data-column="regular"></button>`));
+		adder.update(d => d.withName("Rope"));
+		await fireAction(sheet, "closeOutfitAdder", el(`<button></button>`));
+		expect(adder.isOpen).toBe(false);
+		expect(char.addCustomInventoryItemFor).not.toHaveBeenCalled();
+	});
+
+	// The adder's tag chips are the follower cards' picker; their field says they are the draft's.
+	it("toggles a tag on the draft, not on a follower", async () => {
+		const { sheet, char } = makeSheet();
+		const adder = await open(sheet, el(`<button data-column="regular"></button>`));
+		await sheet.toggleTag({ slug: null, field: "outfitDraftTags", memberIndex: null }, "close");
+		expect(adder.draft.tags).toEqual(["close"]);
+		expect(char.toggleFollowerTag).not.toHaveBeenCalled();
 	});
 });
 

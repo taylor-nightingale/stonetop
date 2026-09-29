@@ -4,6 +4,19 @@
 		{{> "stonetop.advice-button" variant="labelled" topic="followers"}}
 	</div>
 
+	{{!-- D8: the follower moves once, above the followers they are about — not once per follower, as
+	      paper has to print them — and only while there is someone to order. --}}
+	{{#if stonetop.followers.tab.length}}
+	{{#each stonetop.moves.categories}}
+	{{#if (eq key "follower")}}
+	<section class="stonetop-panel stonetop-move-panel">
+		{{> "stonetop.bar" title=label index=0}}
+		{{> "stonetop.character-move-list" moves=moves categoryKey=key categoryLabel=label chat=true}}
+	</section>
+	{{/if}}
+	{{/each}}
+	{{/if}}
+
 	{{#unless stonetop.followers.tab.length}}
 	<p class="stonetop-followers-empty">{{localize "stonetop.followers.empty"}}</p>
 	{{/unless}}

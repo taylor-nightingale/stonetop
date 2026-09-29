@@ -5,6 +5,7 @@ import {
 import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { MoveBullets } from "../../model/snapshot/character/MoveBullets.js";
 import { MoveGloss } from "../../model/snapshot/character/MoveGloss.js";
+import { MoveCategorySnapshot } from "../../model/snapshot/character/MoveSnapshot.js";
 import { moveSlugOf } from "../embeddedMoves.js";
 import { Background } from "../../model/data/character/Background.js";
 
@@ -78,7 +79,7 @@ export class CharacterAdvancement {
 		switch (step.kind) {
 			case "spend":      return new AdvanceRow(step, advancement);
 			case "advance":    return null;
-			case "chooseMove": return new ChooseMoveRow(step, advancement, this.chosenMoveCount);
+			case "chooseMove": return new ChooseMoveRow(step, advancement, this.chosenMoveCount, this._playbookMovesSection());
 			case "stock":      return this._stockRow(step, advancement);
 			case "invocation": return this._invocationRow(step, advancement);
 			case "review":     return new ReviewRow(step);
@@ -133,6 +134,12 @@ export class CharacterAdvancement {
 			...(item.system?.startingMoves ?? []),
 			...(item.type === "playbook" ? Background.find(item.system, background)?.moveSlugs ?? [] : []),
 		]));
+	}
+
+	// The playbook's panel on the Moves tab, where the move is chosen; none without a playbook.
+	_playbookMovesSection() {
+		const slug = [...this._actor.items].find(item => item.type === "playbook")?.system?.slug;
+		return slug ? MoveCategorySnapshot.sectionKeyFor(`playbook-${slug}`) : "";
 	}
 
 	_insertBySlug(slug) {

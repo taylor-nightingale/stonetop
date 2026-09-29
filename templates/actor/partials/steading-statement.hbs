@@ -129,8 +129,7 @@
 		<ul class="steading-statement-moves stonetop-unmarked">
 			{{#each moveSlugs}}
 				{{#with (lookup @root.stonetop.grantedMoves this)}}
-					{{> "stonetop.move-row" showCheck=false categoryKey="granted" allowAdditional=false
-					    alwaysShowResource=false disclosure=true}}
+					{{> "stonetop.move-row" categoryKey="granted" alwaysShowResource=false disclosure=true}}
 				{{/with}}
 			{{/each}}
 		</ul>

@@ -11,6 +11,12 @@ describe("RollModes.options", () => {
 			.toEqual(["stonetop.rollMode.adv", "stonetop.rollMode.normal", "stonetop.rollMode.dis"]);
 	});
 
+	// The line's short words; the full label is still what a screen reader hears. Normal is short already.
+	it("carries a short label key where the full word is long", () => {
+		expect(RollModes.options().map(o => o.shortKey))
+			.toEqual(["stonetop.rollMode.short.adv", null, "stonetop.rollMode.short.dis"]);
+	});
+
 	it("ticks the selected mode and nothing else", () => {
 		const ticked = RollModes.options("dis").filter(o => o.checked);
 		expect(ticked.map(o => o.key)).toEqual(["dis"]);

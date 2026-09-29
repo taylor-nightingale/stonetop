@@ -2,6 +2,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { activateSteppers } from "../../src/utils/stepper.js";
 import { renderPartial } from "../fakes/renderTemplate.js";
+import { HpMeter } from "../../src/model/snapshot/character/VitalMeters.js";
 
 // The stepper's markup now comes from the templates, so these drive the REAL rendered controls
 // rather than markup written here that only claims to match. The behaviour asserted is the same as
@@ -60,24 +61,28 @@ describe("stepper-buttons partial", () => {
 // The end-to-end shape: a real sheet partial, rendered, with a working stepper in it. This is the
 // check the old JS-built stepper could not have — the markup and the handler now have to agree.
 describe("steppers in a real rendered partial", () => {
-	const attributes = () => renderPartial("stonetop.actor-attributes", {
-		stonetop: { vitals: { hp: { value: 5, max: 8 }, armor: 1, xp: 2, level: 3, sources: {} } },
+	const hpBar = value => renderPartial("stonetop.rail-meter", {
+		kind: "hp", label: "HP", meter: new HpMeter({ value, max: 8 }),
+		valueAction: "hp", valueLabel: "Current HP", maxAction: "maxHp", maxLabel: "Max HP",
 	});
+	const hpField = root => root.querySelector("input[data-change-action='hp']");
 
+	// The bar is the wrapper, with the value among its numbers rather than beside the buttons: the
+	// handler looks the field up anywhere in the wrapper, so it only has to be the one step field.
 	it("renders each stepper input wrapped, with both buttons", () => {
-		const root = mount(attributes());
+		const root = mount(hpBar(5));
 
 		const wrappers = root.querySelectorAll(".stonetop-stepper");
 		expect(wrappers.length).toBeGreaterThan(0);
 		for (const wrap of wrappers) {
-			expect(wrap.querySelector(":scope > input.stonetop-step")).not.toBeNull();
+			expect(wrap.querySelectorAll("input.stonetop-step")).toHaveLength(1);
 			expect(wrap.querySelectorAll(":scope > .stonetop-stepper-btn")).toHaveLength(2);
 		}
 	});
 
 	it("steps the HP field the sheet actually renders", () => {
-		const root = mount(attributes());
-		const hp = root.querySelector("input.stonetop-char-hp");
+		const root = mount(hpBar(5));
+		const hp = hpField(root);
 
 		click(hp.closest(".stonetop-stepper").querySelector(".stonetop-stepper-btn--up"));
 
@@ -85,10 +90,8 @@ describe("steppers in a real rendered partial", () => {
 	});
 
 	it("clamps at the min the template declares", () => {
-		const root = mount(renderPartial("stonetop.actor-attributes", {
-			stonetop: { vitals: { hp: { value: 0, max: 8 }, armor: 0, xp: 0, level: 1, sources: {} } },
-		}));
-		const hp = root.querySelector("input.stonetop-char-hp");
+		const root = mount(hpBar(0));
+		const hp = hpField(root);
 
 		click(hp.closest(".stonetop-stepper").querySelector(".stonetop-stepper-btn--down"));
 

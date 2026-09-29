@@ -403,11 +403,6 @@ export class StonetopSteading {
 
 	// ── Moves ──────────────────────────────────────────────────────────────────
 
-	async setMoveChecked(categoryKey, moveSlug, checked) {
-		if (checked) await this.#moves.incrementMove(categoryKey, moveSlug);
-		else         await this.#moves.decrementMove(categoryKey, moveSlug);
-	}
-
 	async sendMoveToChat(moveSlug)                          { await this.#moves.sendToChat(moveSlug); }
 	// The die on a move row whose move the steading does not own — the aurochs hunt, the news at the
 	// inn. Improvements confer those; they are resolved from the pack, so the row names its move by

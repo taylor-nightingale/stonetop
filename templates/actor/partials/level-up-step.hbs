@@ -81,7 +81,7 @@
 	      them here would be a second place the same state is written. --}}
 	{{#if tab}}
 		<button type="button" class="stonetop-levelup-goto" data-action="goToTab" data-view-state
-		        data-tab="{{tab}}">
+		        data-tab="{{tab}}"{{#if opens}} data-open-sections="{{opens}}"{{/if}}>
 			{{!-- An insert's tab is named by the insert item, not by a sheet label, so the row carries
 			      the name where there is no key to localize. --}}
 			<span>{{#if tabLabelKey}}{{localize tabLabelKey}}{{else}}{{tabLabel}}{{/if}}</span>

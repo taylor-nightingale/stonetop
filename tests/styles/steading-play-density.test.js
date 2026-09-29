@@ -140,12 +140,14 @@ const condition = (slug, active, effect) => `
 
 // Both densities at once, which is the situation the design has to resolve and neither half can be
 // tested from alone.
-const fixture = (width, { shut = false, lean = false, heavy = false, plated = true } = {}) => `
+// `moving` is RailSlide's mark and `railMargin` a frame of the slide: the rail's margin, in px, as
+// the transition has it at that moment (the probe paints no transitions, so a frame is set by hand).
+const fixture = (width, { shut = false, lean = false, heavy = false, plated = true, moving = false, railMargin = null } = {}) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
   <div class="window-content"><div class="sheet-wrapper">
-   <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}" data-side="left">
+   <div class="stonetop-rail-layout${shut ? " rail-shut" : ""}${moving ? " is-rail-moving" : ""}">
     <button type="button" class="stonetop-rail-toggle" data-action="toggleRail" aria-expanded="false" aria-label="Rail"><i class="fas fa-archway"></i></button>
-    <div class="stonetop-rail steading-rail" data-density="full">
+    <div class="stonetop-rail steading-rail" data-density="full"${railMargin === null ? "" : ` style="margin-left: ${railMargin}px"`}>
       <div class="steading-archpair">
         ${fullTile("fortunes", "Fortunes", { arched: true })}
         ${fullTile("surplus", "Surplus", { arched: true, rollable: false })}
@@ -218,7 +220,11 @@ const TARGETS = {
 	col1:           ".steading-play-grid > .steading-overview-column:nth-of-type(1)",
 	col2:           ".steading-play-grid > .steading-overview-column:nth-of-type(2)",
 	rail:           ".steading-rail",
+	layout:         ".stonetop-rail-layout",
 	railedLineTile: '.steading-line .steading-tile[data-attr="fortunes"]',
+	main:           ".stonetop-rail-main",
+	line:           ".steading-line",
+	tabBody:        ".stonetop-rail-main .sheet-body",
 	sizePill:       ".steading-size-pill",
 	lineFortunes:   '.steading-line .steading-tile[data-attr="fortunes"]',
 	lineProsperity: '.steading-line .steading-tile[data-attr="prosperity"]',
@@ -268,8 +274,12 @@ const measureAt = (width, options) => probe.measure({
 	chromeFlags: [`--window-size=${width + 40},1200`],
 });
 
+// The sheet width at which the rail layout is exactly the 62.5rem breakpoint at the 16px root: its
+// 1000px plus the window's own padding.
+const BOUNDARY = 1018;
+
 describe.skipIf(!canProbe())("the Play tab's full density", () => {
-	for (const width of [1400, 900]) {
+	for (const width of [1400, BOUNDARY + 1]) {
 		describe(`at ${width}px`, () => {
 			let m;
 			beforeAll(() => { m = measureAt(width); });
@@ -471,11 +481,12 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		// root at 16px — the width the three-column option was rejected at. A guard against a column
 		// narrowed back toward that measure, not a claim to the half-pixel.
 		//
-		// 405 rather than the 410 first measured: the tab scroller now reserves the focus ring's reach
-		// at its left edge, which the ring was being clipped by, and the two columns split that 3px
-		// between them. Deliberate, and the smallest price there is for a ring a keyboard user can see.
-		it("is no narrower than the measure it had before the pass", () => {
-			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(405);
+		// 390 rather than the 410 first measured, for two deliberate prices: the tab scroller reserves
+		// the focus ring's reach at its left edge, and since 2026-09-28 the steading's column takes the
+		// character sheet's 1.5rem inset on both sides (less the gap beside the rail it no longer
+		// needs), so its ledger line, tab strip and tab start on one line.
+		it("is no narrower than the measure it had before the pass, less the shared inset", () => {
+			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(390);
 		});
 
 		// The two columns of this tab are different lengths — Prosperity leads eight resources, Defenses
@@ -632,13 +643,20 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 
 		// One case per width rather than a loop: each is a separate browser launch, and four of them
 		// in one `it` overruns the suite's timeout.
-		// 900 is the boundary itself — the rail's `max-width: 900px` and the line's `min-width:
-		// 900.01px` have to leave no gap, and an off-by-one here means Fortunes and Surplus are on
-		// neither surface at exactly one width.
-		it.each([900, 860, 700, 640])("gives them back at %ipx, where the rail no longer shows them", width => {
+		// BOUNDARY is the breakpoint itself — a layout of exactly 62.5rem, where the rail's
+		// `max-width: 62.5rem` and the line's `min-width: 62.51rem` have to leave no gap, and an
+		// off-by-one here means Fortunes and Surplus are on neither surface at exactly one width.
+		it.each([BOUNDARY, 900, 700, 640])("gives them back at %ipx, where the rail no longer shows them", width => {
 			const m = measureAt(width);
+			if (width === BOUNDARY) expect(m.get("layout").values.boxWidth, "not the boundary").toBeCloseTo(1000, 0);
 			expect(m.get("railedLineTile").values.boxWidth,
 				`Fortunes is on neither the rail nor the line at ${width}px`).toBeGreaterThan(0);
+		});
+
+		it("hides them again a pixel above it, where the rail is a column", () => {
+			const m = measureAt(BOUNDARY + 1);
+			expect(m.get("rail").values.boxLeft, "the rail is still a drawer").toBeGreaterThanOrEqual(m.get("layout").values.boxLeft - 0.5);
+			expect(m.get("railedLineTile").values.boxWidth).toBe(0);
 		});
 
 		// The rail is the reader's to put away at any width, and the two ratings it was carrying are
@@ -646,13 +664,58 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		// fails, collapsing the rail on a wide sheet loses Fortunes and Surplus entirely.
 		it("gives them back when the reader shuts the rail at a wide width", () => {
 			const m = measureAt(1400, { shut: true });
-			expect(m.get("rail").values.boxWidth, "the shut rail still takes room").toBe(0);
+			const rail = m.get("rail").values;
+			expect(rail.boxLeft + rail.boxWidth, "the shut rail is still in view").toBeLessThanOrEqual(m.get("layout").values.boxLeft + 0.5);
 			expect(m.get("railedLineTile").values.boxWidth,
 				"Fortunes is on neither the rail nor the line").toBeGreaterThan(0);
 		});
 
 		it("keeps Size out of the ledger and in its own pill", () => {
 			expect(measureAt(1400).get("sizePill").values.boxWidth).toBeGreaterThan(0);
+		});
+	});
+
+	// The slide. The column beside a moving rail used to be re-laid out on every frame at a new
+	// width: the line re-wrapped, notes came and went at their thresholds, and everything under it
+	// jumped up and down. Held at the width it has with the rail shut, it is laid out once — at the
+	// start of a shut, at the end of an open — and in between it only slides. Three frames each way:
+	// the rail in, halfway, out.
+	describe("the rail's slide", () => {
+		const W = 220;
+		const frames = [0, -W / 2, -W];
+		let rest, shutting, opening;
+		beforeAll(() => {
+			rest = measureAt(1180, { shut: true });
+			shutting = frames.map(railMargin => measureAt(1180, { shut: true, moving: true, railMargin }));
+			opening = frames.map(railMargin => measureAt(1180, { moving: true, railMargin }));
+		});
+		const v = (m, name) => m.get(name).values;
+
+		it("holds the column at the width it has with the rail shut, at every frame", () => {
+			for (const m of [...shutting, ...opening]) {
+				expect(v(m, "main").boxWidth, "the column changed width mid-slide").toBeCloseTo(v(rest, "main").boxWidth, 0);
+				expect(v(m, "grid").boxWidth, "the tab was re-laid out mid-slide").toBeCloseTo(v(rest, "grid").boxWidth, 0);
+			}
+		});
+
+		it("keeps the line one height, so nothing under it moves up or down", () => {
+			for (const m of [...shutting, ...opening]) {
+				expect(v(m, "line").boxHeight, "the line changed height mid-slide").toBeCloseTo(v(rest, "line").boxHeight, 0);
+				expect(v(m, "tabBody").boxTop - v(m, "main").boxTop).toBeCloseTo(v(rest, "tabBody").boxTop - v(rest, "main").boxTop, 0);
+			}
+		});
+
+		// Opening, they leave the line when the rail has arrived, not on the first frame — so the
+		// line changes once, with the column.
+		it("keeps Fortunes on the line until the rail has finished opening", () => {
+			for (const m of opening) expect(v(m, "railedLineTile").boxWidth).toBeGreaterThan(0);
+		});
+
+		// The column still slides: it starts where the rail ends.
+		it("slides the column with the rail", () => {
+			for (const m of [...shutting, ...opening]) {
+				expect(v(m, "main").boxLeft).toBeCloseTo(v(m, "rail").boxLeft + v(m, "rail").boxWidth, 0);
+			}
 		});
 	});
 

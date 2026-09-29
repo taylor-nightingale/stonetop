@@ -1,0 +1,44 @@
+{{!-- The outfit adder: an item being written, hanging from the "+ add item" that opened it, over
+      what is under it rather than pushing it down. Headed by the row it will make — the inventory's
+      own row, inert — and then its fields, each only its name and its control. Nothing is written
+      until Add (OutfitItemAdder). A small item carries a □ and no load, so it has no weight to set.
+      Params: `adder` (OutfitAdderView). --}}
+<div class="stonetop-outfit-adder" id="{{@root.sheetIdPrefix}}-outfit-adder" role="group"
+     aria-label="{{localize 'stonetop.inventory.adder.title'}}">
+	<p class="stonetop-outfit-adder-head">{{localize "stonetop.inventory.adder.title"}}
+		<button type="button" class="stonetop-outfit-adder-cancel" data-action="closeOutfitAdder" data-view-state>{{localize "stonetop.inventory.adder.cancel"}}</button></p>
+	<div class="stonetop-outfit-adder-preview" inert>{{> "stonetop.outfit-item-adder-preview" adder}}</div>
+	<div class="stonetop-outfit-adder-fields">
+		<label class="stonetop-outfit-adder-label" for="{{@root.sheetIdPrefix}}-outfit-adder-name">{{localize "stonetop.inventory.adder.name"}}</label>
+		<input type="text" class="stonetop-outfit-adder-text" id="{{@root.sheetIdPrefix}}-outfit-adder-name" data-draft-field="name" value="{{adder.draft.name}}">
+
+		{{#unless adder.square}}
+		<label class="stonetop-outfit-adder-label" for="{{@root.sheetIdPrefix}}-outfit-adder-weight">{{localize "stonetop.inventory.adder.weight"}}</label>
+		<span class="stonetop-outfit-adder-stepper">
+			<button type="button" data-draft-step="weight" data-step="-1" aria-label="{{localize 'stonetop.inventory.adder.less' field=(localize 'stonetop.inventory.adder.weight')}}">−</button>
+			<input type="number" min="1" id="{{@root.sheetIdPrefix}}-outfit-adder-weight" data-draft-field="weight" value="{{adder.draft.weight}}">
+			<button type="button" data-draft-step="weight" data-step="1" aria-label="{{localize 'stonetop.inventory.adder.more' field=(localize 'stonetop.inventory.adder.weight')}}">+</button>
+		</span>
+		{{/unless}}
+
+		<label class="stonetop-outfit-adder-label" for="{{@root.sheetIdPrefix}}-outfit-adder-uses">{{localize "stonetop.inventory.adder.uses"}}</label>
+		<span class="stonetop-outfit-adder-uses">
+			<span class="stonetop-outfit-adder-stepper">
+				<button type="button" data-draft-step="uses" data-step="-1" aria-label="{{localize 'stonetop.inventory.adder.less' field=(localize 'stonetop.inventory.adder.uses')}}">−</button>
+				<input type="number" min="0" id="{{@root.sheetIdPrefix}}-outfit-adder-uses" data-draft-field="uses" value="{{adder.draft.uses}}">
+				<button type="button" data-draft-step="uses" data-step="1" aria-label="{{localize 'stonetop.inventory.adder.more' field=(localize 'stonetop.inventory.adder.uses')}}">+</button>
+			</span>
+			<label class="stonetop-outfit-adder-label" for="{{@root.sheetIdPrefix}}-outfit-adder-word">{{localize "stonetop.inventory.adder.word"}}</label>
+			<input type="text" class="stonetop-outfit-adder-text stonetop-outfit-adder-word" id="{{@root.sheetIdPrefix}}-outfit-adder-word" data-draft-field="usesWord" value="{{adder.draft.usesWord}}">
+		</span>
+
+		<span class="stonetop-outfit-adder-label">{{localize "stonetop.inventory.adder.tags"}}</span>
+		{{> "stonetop.selection-chips" sel=adder.tagPicker slug="" field=adder.tagField placeholder=(localize "stonetop.a11y.addTag")}}
+
+		<label class="stonetop-outfit-adder-label" for="{{@root.sheetIdPrefix}}-outfit-adder-note">{{localize "stonetop.inventory.adder.note"}}</label>
+		<input type="text" class="stonetop-outfit-adder-text" id="{{@root.sheetIdPrefix}}-outfit-adder-note" data-draft-field="note" value="{{adder.draft.note}}">
+	</div>
+	<div class="stonetop-outfit-adder-foot">
+		<button type="button" class="stonetop-outfit-adder-add" data-action="outfitDraftAdd">{{localize "stonetop.inventory.adder.add"}}</button>
+	</div>
+</div>

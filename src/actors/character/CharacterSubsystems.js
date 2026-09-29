@@ -11,13 +11,13 @@ import {CharacterStats} from "./CharacterStats.js";
 import {CharacterVitals} from "./CharacterVitals.js";
 import {CharacterAdvancement} from "./CharacterAdvancement.js";
 import {CharacterDebilities} from "./CharacterDebilities.js";
+import {CharacterWounds} from "./CharacterWounds.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
 import {PlaybookSelection} from "./PlaybookSelection.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
 import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
 import {ContainerOutfitSync} from "./ContainerOutfitSync.js";
 import {FollowerSideEffectHandler} from "./SideEffectHandler.js";
-import {InstinctSideEffectHandler} from "./InstinctSideEffectHandler.js";
 import {ArcanumSideEffectHandler} from "./ArcanumSideEffectHandler.js";
 import {GrantedItems} from "../GrantedItems.js";
 import {MoveRequirements} from "../../model/data/MoveRequirements.js";
@@ -38,6 +38,7 @@ export class CharacterSubsystems {
 		const vitals    = new CharacterVitals(actor);
 		const playbookSelection = new PlaybookSelection(actor);
 		const debilities = new CharacterDebilities(actor);
+		const wounds     = new CharacterWounds(actor);
 
 		// ── Shared writers: one instance each, so "what created this item?" has a single answer ──
 		const grantedItems       = new GrantedItems(actor);
@@ -64,11 +65,10 @@ export class CharacterSubsystems {
 		//    handler can fire against a half-built graph. Each subscriber decides its own relevance.
 		factory.subscribe(new FollowerSideEffectHandler(followers))
 		       .subscribe(outfitSync)
-		       .subscribe(new InstinctSideEffectHandler(playbook))
 		       .subscribe(new ArcanumSideEffectHandler(arcana));
 
 		return {
-			stats, origin, vitals, selection: playbookSelection, debilities,
+			stats, origin, vitals, selection: playbookSelection, debilities, wounds,
 			grantedItems, outfitItems, resourceController, outfitSync, factory,
 			followers, background, moves, playbook, possessions, inventory, arcana, inserts, advancement,
 		};
