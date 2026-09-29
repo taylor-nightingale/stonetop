@@ -562,47 +562,47 @@
   "corroded-spearhead": {
     "name": {
       "source": "A corroded spearhead",
-      "text": ""
+      "text": "Eine korrodierte Speerspitze"
     },
     "front/item/name": {
       "source": "A corroded spearhead",
-      "text": ""
+      "text": "Eine korrodierte Speerspitze"
     },
     "front/choices/corroded-spearhead/hidden-away-in-some-vault-or/text": {
       "source": "Hidden away in some vault or cave or Makerruin is a length of copper, heavily corroded and coated with chunks of verdigris. If you squint, you vaguely make out the shape of a spearhead. Oh, and are those the faint traces of runes?",
-      "text": ""
+      "text": "Versteckt in einem Gewölbe, einer Höhle oder einer Ruine der Schöpfer liegt ein Stück Kupfer, das stark korrodiert und mit Grünspan überzogen ist. Wenn du die Augen zusammenkneifst, kannst du vage die Form einer Speerspitze erkennen. Oh, und sind das etwa die schwachen Spuren von Runen?"
     },
     "front/choices/corroded-spearhead/to-unlock-the-secrets-of-this/text": {
       "source": "To unlock the secrets of this ancient weapon, you must…",
-      "text": ""
+      "text": "Um die Geheimnisse dieser uralten Waffe zu entschlüsseln, musst du …"
     },
     "front/choices/corroded-spearhead/carefully-clean/text": {
       "source": "… carefully clean away the corrosion with proper chemics, without destroying the runes as you do so.",
-      "text": ""
+      "text": "… die Korrosion vorsichtig mit den richtigen Chemikalien entfernen, ohne dabei die Runen zu zerstören."
     },
     "front/choices/corroded-spearhead/decipher-runes/text": {
       "source": "… decipher the runes and how they are meant to be charged.",
-      "text": ""
+      "text": "… die Runen entziffern und herausfinden, wie sie aufgeladen werden sollen."
     },
     "front/choices/corroded-spearhead/infuse-restored/text": {
       "source": "… infuse the restored spearhead with lightning.",
-      "text": ""
+      "text": "… die wiederhergestellte Speerspitze mit Blitzen aufladen."
     },
     "front/choices/corroded-spearhead/mount-spearhead/text": {
       "source": "… mount the spearhead on a shaft of birchwood.",
-      "text": ""
+      "text": "… die Speerspitze an einen Schaft aus Birkenholz befestigen."
     },
     "front/choices/corroded-spearhead/soak-spearhead/text": {
       "source": "… soak the spearhead in your own blood, to claim its power as yours.",
-      "text": ""
+      "text": "… die Speerspitze in deinem eigenen Blut tränken, um ihre Macht für dich zu beanspruchen."
     },
     "back/title": {
       "source": "Aetherium Spear",
-      "text": ""
+      "text": "Ätheriumspeer"
     },
     "back/item/name": {
       "source": "Aetherium Spear",
-      "text": ""
+      "text": "Ätheriumspeer"
     },
     "back/item/note": {
       "source": "+1 damage",
@@ -610,7 +610,7 @@
     },
     "back/choices/intro/when-you-clash-with-the-aetherium/text": {
       "source": "When you **_Clash with the aetherium spear and_** **_get a 7+_**, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful*, *loud*).\n\nWhen you **point the aetherium spear at your foes** **and bellow a thunderous warcry**, mark a debility and unleash a blast of lightning (*far*, *area*, *force**ful*, *loud*, *dangerous*), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). **On a 6-**, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.",
-      "text": ""
+      "text": "Wenn du **_mit dem Ätheriumsspeer haust & stichst und eine 7+ würfelst_**, kannst du eine Beeinträchtigung markieren, um deinen Gegner mit einem Blitz zu treffen und +1W6 Schaden zu verursachen (Wuchtig, Laut).\n\nWenn du **_den Ätheriumsspeer auf deine Gegner richtest und einen donnernden Kriegsschrei ausstößt_**, markiere eine Beeinträchtigung und entfessle einen Blitz (Fern, Bereich, Wuchtig, Laut, Gefährlich). Würfle +ST statt +GE um eine Salve abzugeben (und du kannst nicht wählen, die Munition aufzubrauchen). **Bei einer 6-** ist die Speerspitze zusätzlich zu allem, was der SL sonst sagt, ihrer Kraft beraubt und der Schaft aus Birkenholz zerfällt zu Asche — streiche die letzten 3 Kästchen auf der Vorderseite dieser Karte."
     }
   },
   "cracked-flute": {
@@ -646,69 +646,69 @@
   "creepy-cave": {
     "name": {
       "source": "A creepy cave",
-      "text": ""
+      "text": "Eine unheimliche Höhle"
     },
     "front/choices/creepy-cave/theres-a-cave-somewhere-somewhere-that/text": {
       "source": "There’s a cave somewhere—somewhere that the light never shines—where the walls are roiling formations, slick and wet, glinting with veins of red crystal that no longer glows. The stone undulates in the flickering torchlight. Yes, yes, that must be it... a trick of the light, nothing more.",
-      "text": ""
+      "text": "Irgendwo gibt es eine Höhle – irgendwo, wo das Licht niemals hinscheint –, deren Wände aus wabernden, glitschigen und feuchten Formationen bestehen, durchzogen von Adern aus rotem Kristall, die nicht mehr leuchten. Der Stein wogt im flackernden Fackellicht. Ja, ja, das muss es sein ... eine Täuschung des Lichts, nichts weiter."
     },
     "front/choices/creepy-cave/the-cave-bears-the-lingering-taint/text": {
       "source": "The cave bears the lingering taint of a Thing Below, but has been cut off from its power. To unlock its secrets, you must…",
-      "text": ""
+      "text": "Die Höhle trägt noch immer den Makel eines Dings aus der Tiefe, ist jedoch von dessen Macht abgeschnitten. Um ihre Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/creepy-cave/learn-name/text": {
       "source": "… learn the name of the Thing Below that once corrupted this place.",
-      "text": ""
+      "text": "… den Namen des Dings aus der Tiefe erfahren, das diesen Ort einst korrumpiert hat."
     },
     "front/choices/creepy-cave/stay-here/text": {
       "source": "… stay here in absolute darkness for at least a full day, despite the nightmares and hallucinations that try your soul.",
-      "text": ""
+      "text": "… mindestens einen ganzen Tag in völliger Dunkelheit hier verweilen, trotz der Alpträume und Halluzinationen, die deine Seele auf die Probe stellen."
     },
     "front/choices/creepy-cave/bring-still/text": {
       "source": "… bring a still-living, warm-blooded being to the cave and spill its life’s blood on the stones while intoning the name of the Thing Below that once touched this unholy place.",
-      "text": ""
+      "text": "… ein noch lebendes, warmblütiges Wesen in die Höhle bringen und sein Lebensblut auf die Steine vergießen, während du den Namen des Dings aus der Tiefe anstimmst, das diesen unheiligen Ort einst berührt hat."
     },
     "back/title": {
       "source": "The Flesh Is Like Clay",
-      "text": ""
+      "text": "Das Fleisch ist wie Lehm"
     },
     "back/choices/intro/when-you-cruelly-kill-a-warm/text": {
       "source": "When you **_cruelly kill a warm-blooded being_** **_in the cave,_** one of similar size to yourself, and **_smear both its blood and yours upon the stones,_** mark 1:\n\n- Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.\n- Gain one of your victim’s physical traits (their strength, their speed, their looks, their strong heart, etc.).\n- Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.). **_Each time you use this power_**, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave’s power are gone.",
-      "text": ""
+      "text": "Wenn du **_in der Höhle grausam ein warmblütiges Wesen tötest_**, das etwa so groß ist wie du selbst, und **_sowohl sein Blut als auch dein eigenes auf die Steine schmierst_**, markiere 1:\n\n- Erlange unheilige Widerstandskraft: Erhöhe deine maximalen TP um 2 und erhalte +1 Rüstung gegen alles außer Bronze.\n- Erlange eines der körperlichen Merkmale deines Opfers (seine Stärke, seine Schnelligkeit, sein Aussehen, sein starkes Herz usw.).\n- Heile eine dauerhaften Verletzung (lasse ein Glied nachwachsen, entferne eine Narbe, heile ein kaputtes Knie usw.).\n\n**_Jedes Mal, wenn du diese Macht einsetzt_**, markiere alle drei Beeinträchtigungen. Mit jeder Anwendung verschwindet ein Teil des roten Kristalls aus der Höhle. Nach der dritten Anwendung sind der Kristall und die Macht der Höhle verschwunden."
     }
   },
   "crumbling-arch": {
     "name": {
       "source": "A crumbling arch",
-      "text": ""
+      "text": "Ein zerfallender Torbogen"
     },
     "front/choices/crumbling-arch/on-a-rare-dry-spot-in/text": {
       "source": "On a rare dry spot in Ferrier’s Fen, besieged by foulness, is an ancient arch that still—improbably—stands. Lichen and moss grow thick and healthy, but the keystone remains clear, engraved with a sigil that makes the eyes water and that drives evil away.",
-      "text": ""
+      "text": "Auf einer seltenen, trockenen Stelle im Ferriers Moor, umgeben von Unrat und Fäulnis, steht ein uralter Torbogen, der – wider alle Wahrscheinlichkeit – noch immer aufrecht steht. Flechten und Moos wachsen üppig und gesund, doch der Schlussstein ist frei von Bewuchs. In ihn ist ein Siegel eingraviert, das die Augen tränen lässt und das Böse vertreibt."
     },
     "front/choices/crumbling-arch/you-can-learn-the-secrets-of/text": {
       "source": "You can learn the secrets of the sanctifying mark, but to do so you must…",
-      "text": ""
+      "text": "Du kannst die Geheimnisse dieses Bannzeichens erlernen, aber dafür musst du …"
     },
     "front/choices/crumbling-arch/purify-yourself/text": {
       "source": "… purify yourself in fresh, clean water.",
-      "text": ""
+      "text": "… dich in frischem, sauberem Wasser reinigen."
     },
     "front/choices/crumbling-arch/calm-mind/text": {
       "source": "… calm your mind, gaze upon the sigil, and roll +WIS: **on a 10+**, the sigil becomes clear; **on a 7-9**, the sigil will become clear after a few more days in contemplation; **on a 6-**, the sigil is beyond your ability to learn.",
-      "text": ""
+      "text": "… deinen Geist beruhigen, das Siegel betrachten und würfle +WE. Bei einer 10+ wird das Siegel klar. Bei 7-9 wird das Siegel nach ein paar weiteren Tagen der Betrachtung klar. Bei einer 6- ist das Siegel jenseits deiner Fähigkeiten, es zu erlernen."
     },
     "front/choices/crumbling-arch/spend-few/text": {
       "source": "… spend a few days memorizing and practicing the sigil.",
-      "text": ""
+      "text": "… einige Tage damit verbringen, dir das Siegel einzuprägen und es zu üben."
     },
     "back/title": {
       "source": "Sanctifying Mark",
-      "text": ""
+      "text": "Bannzeichen"
     },
     "back/choices/intro/when-you-mark-an-object-with/text": {
       "source": "When you **_mark an object with the sigil of_** **_sanctification_**, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.\n\nWhen a **_being of darkness, chaos, or death first_** **_tests the power of your mark_**, roll +INT: **on a 10+**, all such creatures are kept at bay so long as your mark remains inviolate; **on a 7-9**, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it.",
-      "text": ""
+      "text": "Wenn du **_einen Gegenstand mit dem Bannzeichen versiehst_**, hält es Wesen der Finsternis, des Chaos und des Todes fern. Jedes Mal, wenn du das Zeichen anbringst, wird ein Teil von dir (Augen, Haare, Haut, Zunge usw.) blasser und nimmt schließlich eine erschreckend weiße Farbe an.\n\nWenn ein **_Wesen der Finsternis, des Chaos oder des Todes zum ersten Mal die Macht deines Zeichens auf die Probe stellt_**, würfle +IN. **Bei einer 10+** werden all diese Kreaturen in Schach gehalten, solange dein Zeichen unversehrt bleibt. **Bei 7-9** verspüren diese Kreaturen den Drang zu fliehen und werden vorerst zurückgehalten, aber mächtige Wesen können sich dazu  zwingen, es zu ignorieren."
     }
   },
   "demonhide-cloak": {
@@ -930,77 +930,77 @@
   "giant-oak-leaf": {
     "name": {
       "source": "A giant oak leaf",
-      "text": ""
+      "text": "Ein riesiges Eichenblatt"
     },
     "front/item/name": {
       "source": "A giant oak leaf",
-      "text": ""
+      "text": "Ein riesiges Eichenblatt"
     },
     "front/choices/giant-oak-leaf/about-6-feet-long-waxy-and/text": {
       "source": "About 6 feet long, waxy and rigid, shimmering with golden iridescence. Is this truly a leaf from the Golden Oak?",
-      "text": ""
+      "text": "Etwa 6 Fuß lang, wachsartig und steif, mit einem goldenen Schillern. Ist dies wirklich ein Blatt der Goldenen Eiche?"
     },
     "front/choices/giant-oak-leaf/you-can-turn-the-leaf-into/text": {
       "source": "You can turn the leaf into a wondrous cloak, but to do so you must...",
-      "text": ""
+      "text": "Du kannst das Blatt in einen wundersamen Umhang verwandeln, aber dazu musst du …"
     },
     "front/choices/giant-oak-leaf/learn-secrets/text": {
       "source": "… learn the secrets of its making (from a Fae, a spirit of the wild, or perhaps a favored servant of Danu).",
-      "text": ""
+      "text": "… die Geheimnisse seiner Herstellung erlernen (von einer Fee, einem Naturgeist oder vielleicht einem begünstigten Diener Danus)."
     },
     "front/choices/giant-oak-leaf/tan-leaf/text": {
       "source": "… tan the leaf with a mix of lime-water, crow guano, the brain of a cave bear, and your own blood.",
-      "text": ""
+      "text": "… das Blatt mit einer Mischung aus Kalkwasser, Krähenkot, dem Gehirn eines Höhlenbären und deinem eigenen Blut gerben."
     },
     "front/choices/giant-oak-leaf/have-fitted/text": {
       "source": "… have it fitted to your exact measurements by a tailor of *exceptional* skill.",
-      "text": ""
+      "text": "… es von einem Schneider mit außergewöhnlichem Geschick genau auf deine Maße zuschneiden lassen."
     },
     "back/title": {
       "source": "Goldleaf Cloak",
-      "text": ""
+      "text": "Goldblattumhang"
     },
     "back/item/name": {
       "source": "Goldleaf Cloak",
-      "text": ""
+      "text": "Goldblattumhang"
     },
     "back/choices/intro/when-you-wear-a-goldleaf-cloak/text": {
       "source": "When you **_wear a goldleaf cloak that you have_** **_tanned yourself and that has been fitted to your_** **_exact measurements_**, then all of these are true:\n\n- You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.\n- You are immune to effects that calm or dampen your emotions.\n- You are surrounded by a constant golden glow (*hand*, *area*), making it nearly impossible to hide. When you **_die and are buried in the earth,_** **_wrapped in your goldleaf cloak_**, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.",
-      "text": ""
+      "text": "Wenn du **_einen Goldblattumhang trägst, den du selbst gegerbt hast und der genau auf deine Maße zugeschnitten ist_**, dann gilt Folgendes:\n\n- Du bist immun gegen Effekte, die deine Vitalität, Energie oder Lebenskraft entziehen, rauben oder auslöschen.\n- Du bist immun gegen Effekte, die deine Emotionen beruhigen oder dämpfen.\n- Du bist von einem ständigen goldenen Leuchten (Hand, Bereich) umgeben, das es dir fast unmöglich macht, dich zu verstecken.\n\nWenn du **_stirbst und in deinem Goldblattumhang in der Erde begraben wirst_**, kehrst du ins Leben zurück, als wärst du an den Wurzeln der goldenen Eiche begraben worden. Dein Umhang jedoch verrottet und zerfällt zu Mulch und Fetzen."
     }
   },
   "giants-dormitory": {
     "name": {
       "source": "A giant's dormitory",
-      "text": ""
+      "text": "Der Schlafsaal eines Riesen"
     },
     "front/choices/giants-dormitory/in-a-ruin-of-the-stone/text": {
       "source": "In a ruin of the Stone Lords is an old dwelling that bears the psychic imprint of its inhabitant, a stoneshaper of some considerable skill.",
-      "text": ""
+      "text": "In einer Ruine der Steinfürsten befindet sich eine alte Behausung, die den psychischen Abdruck ihres Bewohners trägt – eines Steinformers von beachtlichem Können."
     },
     "front/choices/giants-dormitory/when-you-enter-the-dormitory-you/text": {
       "source": "When you **_enter the dormitory_**, you are overcome with a vision of this student inventing his first spell. You can learn this spell, but…",
-      "text": ""
+      "text": "Wenn du **_den Schlafsaal betrittst_**, wirst du von einer Vision überwältigt, in der dieser Schüler seinen ersten Zauber erschafft. Du kannst diesen Zauber erlernen, aber …"
     },
     "front/choices/giants-dormitory/have-some/text": {
       "source": "… you must have some talent for magic.",
-      "text": ""
+      "text": "… du musst ein gewisses Talent für Magie haben."
     },
     "front/choices/giants-dormitory/take-weeks/text": {
       "source": "… it will take weeks of repeated exposure and study.",
-      "text": ""
+      "text": "… es wird Wochen dauern, in denen du dich wiederholt damit beschäftigen und ihn studieren musst."
     },
     "front/choices/giants-dormitory/risk-lasting/text": {
       "source": "… you risk lasting harm to your physique and health.",
-      "text": ""
+      "text": "… du riskierst dauerhafte Schäden an deinem Körper und deiner Gesundheit."
     },
     "back/title": {
       "source": "Aalz Galt’s Sudden Sinkhole",
-      "text": ""
+      "text": "Aalz Galts plötzliches Erdloch"
     },
     "back/choices/intro/when-you-sing-a-rumbling-note/text": {
       "source": "When you **_sing a rumbling note and focus your_** **_will upon a point of earth or stone_**, mark a debility and roll +INT:\n\n**On a 10+**, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.\n\n**On a 7-9**, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).",
-      "text": ""
+      "text": "Wenn du **_einen grollenden Ton singst und deinen Willen auf einen Punkt in Erde oder Stein konzentrierst_**, markiere eine Beeinträchtigung und würfle +IN.\n\n**Bei 10+** bleibt die Erde oder der Stein, auf den du dich konzentrierst, intakt, doch die Erde oder der Stein darunter zerfällt, löst sich auf und fließt davon. Dadurch entsteht ein Hohlraum, der etwa so breit ist, wie du deine Arme darum legen kannst, und etwa so tief wie du groß bist. Die Oberfläche wirkt stabil, neigt unter Belastung jedoch dazu, Risse zu bekommen oder einzubrechen.\n\n**Bei 7–9** wirkt das Lied wie oben beschrieben, entzieht deinem Körper jedoch noch mehr Energie. Markiere eine weitere Beeinträchtigung und erleide 2W4 Schaden (ignoriert Rüstung)."
     }
   },
   "gold-butter-lamp": {
@@ -1120,43 +1120,43 @@
   "half-buried-plaque": {
     "name": {
       "source": "A half-buried plaque",
-      "text": ""
+      "text": "Eine halb vergrabene Tafel"
     },
     "front/item/name": {
       "source": "A half-buried plaque",
-      "text": ""
+      "text": "Eine halb vergrabene Tafel"
     },
     "front/choices/half-buried-plaque/a-bronze-plate-poking-out-of/text": {
       "source": "A bronze plate poking out of the soil, somewhere in the Flats or near the Dread River. It’s dented, a bit warped, with Maker-runes and esoteric diagrams etched into the surface. How the heck did it end up here?",
-      "text": ""
+      "text": "Eine Bronzeplatte, die irgendwo in der Ebene oder in der Nähe des Schreckensflusses aus dem Boden ragt. Sie ist verbeult und etwas verzogen, und auf ihrer Oberfläche sind  Runen der Schöpfer und esoterische Diagramme eingraviert. Wie um alles in der Welt ist sie hier gelandet?"
     },
     "front/choices/half-buried-plaque/the-plate-contains-the-workings-of/text": {
       "source": "The plate contains the workings of a spell, which you can learn but…",
-      "text": ""
+      "text": "Die Platte enthält die Formeln eines Zaubers, den du erlernen kannst, aber …"
     },
     "front/choices/half-buried-plaque/first-dig/text": {
       "source": "… you must first dig up & clean the plate.",
-      "text": ""
+      "text": "… du musst die Platte zuerst ausgraben und reinigen."
     },
     "front/choices/half-buried-plaque/decipher-maker/text": {
       "source": "… you must decipher the Maker-runes.",
-      "text": ""
+      "text": "… du musst die Runen der Schöpfer entziffern."
     },
     "front/choices/half-buried-plaque/itll-take/text": {
       "source": "… it’ll take a few weeks of study.",
-      "text": ""
+      "text": "… das Studium wird einige Wochen dauern."
     },
     "front/choices/half-buried-plaque/risk-harm/text": {
       "source": "… you risk harm to your voice, your hearing, and/or your neighbors as you practice.",
-      "text": ""
+      "text": "… beim Üben riskierst du Schäden an deiner Stimme, deinem Gehör und/oder deinen Nachbarn."
     },
     "back/title": {
       "source": "Thunderous Bellow",
-      "text": ""
+      "text": "Donnerndes Brüllen"
     },
     "back/choices/intro/when-you-channel-the-storm-primeval/text": {
       "source": "When you **_channel the storm primeval and utter_** **_a thunderous bellow_**, take 1d6 damage (ignores armor) and roll +CON: **on a 10+**, everyone nearby (except you) must choose 2; **on a 7-9**, everyone nearby (except you) must choose 1.\n\n- Drop what they’re carrying and cover their ears\n- Be deafened and disoriented for a few moments\n- Stagger a few steps away from you",
-      "text": ""
+      "text": "Wenn du **_die Urmacht des Sturms kanalisierst und ein donnerndes Brüllen ausstößt_**, erleidest du 1W6 Schaden (ignoriert Rüstung) und würfle +KO. **Bei einer 10+** müssen alle in der Nähe (außer dir) 2 wählen. **Bei 7–9** müssen alle in der Nähe (außer dir) 1 wählen.\n\n- Lass alles fallen, was du bei dir trägst, und halte dir die Ohren zu.\n- Sei für einige Augenblicke betäubt und desorientiert.\n- Taumle ein paar Schritte zurück."
     }
   },
   "hectumel-codex": {
@@ -1256,89 +1256,89 @@
   "huge-wooden-sphere": {
     "name": {
       "source": "A huge wooden sphere",
-      "text": ""
+      "text": "Eine gewaltige Holzkugel"
     },
     "front/choices/huge-wooden-sphere/half-buried-and-largely-overgrown-about/text": {
       "source": "Half-buried and largely overgrown, about 4 feet across and weighing hundreds of pounds. It is strangely well preserved and adorned with intricate pictograms. A handful of other spheres rot nearby.",
-      "text": ""
+      "text": "Halb vergraben und größtenteils überwuchert, etwa 4 Fuß im Durchmesser und mehrere Hundert Pfund schwer. Sie ist seltsam gut erhalten und mit verschlungenen Piktogrammen verziert. Eine Handvoll anderer Kugeln verrotten in der Nähe."
     },
     "front/choices/huge-wooden-sphere/the-pictograms-depict-some-sort-of/text": {
       "source": "The pictograms depict some sort of recipe, which you can learn but you must...",
-      "text": ""
+      "text": "Die Piktogramme stellen eine Art Rezept dar, das du erlernen kannst, aber du musst …"
     },
     "front/choices/huge-wooden-sphere/first-dig/text": {
       "source": "… first dig up and clean the sphere.",
-      "text": ""
+      "text": "… zunächst die Kugel ausgraben und reinigen."
     },
     "front/choices/huge-wooden-sphere/spend-weeks/text": {
       "source": "… spend weeks studying the glyphs.",
-      "text": ""
+      "text": "… mehrere Wochen damit verbringen, die Glyphen zu studieren."
     },
     "front/choices/huge-wooden-sphere/acquire-some/text": {
       "source": "… acquire some fresh ffyrnig root.",
-      "text": ""
+      "text": "… frische Ffyrnig-Wurzel beschaffen."
     },
     "front/choices/huge-wooden-sphere/acquire-bile/text": {
       "source": "… acquire the bile of a wild boar. And then…",
-      "text": ""
+      "text": "… die Galle eines Wildschweins beschaffen. Und dann …"
     },
     "front/choices/huge-wooden-sphere/risk-getting/text": {
       "source": "… you risk getting the recipe wrong, and lethally so.",
-      "text": ""
+      "text": "… riskierst du, das Rezept falsch zuzubereiten – mit tödlichen Folgen."
     },
     "back/title": {
       "source": "Ffyrnig Tonic",
-      "text": ""
+      "text": "Ffyrnig-Tonikum"
     },
     "back/choices/intro/when-you-pickle-fresh-ffyrnig-root/text": {
       "source": "When you **_pickle fresh ffyrnig root in a suspen_****_sion of boar bile for two full moons_**, it becomes a skin of ffyrnig tonic (3 uses, *magical*).\n\nWhen you **_take a draught of ffyrnig tonic,_** pick 1:\n\n- Regain HP equal to ½ half your max\n- Clear a debility Also, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that require patience, care, or thoughtfulness. When you **_drink a second draught of ffyrnig tonic_** **_before getting a good night’s sleep_**, it has no effect other than to make you ill (mark a debility).",
-      "text": ""
+      "text": "Wenn du **_frische Ffyrnig-Wurzel zwei volle Monde lang in einer Suspension aus Wildschweingalle einlegst_**, wird daraus ein Trinkschlauch mit Ffyrnig-Tonikum (3 Anwendungen, Magisch).\n\nWenn du **_einen Schluck Ffyrnig-Tonikum trinkst_**, wähle 1:\n\n- Gewinne TP in Höhe der Hälfte deiner maximalen TP zurück.\n- Beseitige eine Beeinträchtigung.\n\nAußerdem hast du einen Vorteil bei deinem nächsten Wurf, um eine kühne, körperliche Aktion auszuführen. Solange du jedoch keine solche Aktion ausführst, hast du einen Nachteil bei allen Proben, die Geduld, Sorgfalt oder Umsicht erfordern.\n\nWenn du **_einen zweiten Schluck Ffyrnig-Tonikum trinkst, bevor du eine erholsame Nacht geschlafen hast_**, hat er keine Wirkung, außer dass er dich krank macht (markiere eine Beeinträchtigung)."
     }
   },
   "humble-broom": {
     "name": {
       "source": "A humble broom",
-      "text": ""
+      "text": "Ein bescheidener Besen"
     },
     "front/item/name": {
       "source": "A humble broom",
-      "text": ""
+      "text": "Ein bescheidener Besen"
     },
     "front/choices/humble-broom/just-a-well-worn-stick-of/text": {
       "source": "Just a well-worn stick of rowan wood, in need of some new bristles. You wouldn’t give it another thought. Except... when you hold it, and sweep with it, you find yourself humming a half-remembered tune.",
-      "text": ""
+      "text": "Nur ein abgenutzter Stab aus Ebereschenholz, der neue Borsten nötig hätte. Man würde ihm keine weitere Beachtung schenken. Nur ... wenn man ihn in die Hand nimmt und damit kehrt, ertappt man sich dabei, wie man eine halb vergessene Melodie vor sich hin summt."
     },
     "front/choices/humble-broom/clearly-there-is-more-to-this/text": {
       "source": "Clearly, there is more to this broom than meets the eye. To unlock its mysteries, you must...",
-      "text": ""
+      "text": "Offensichtlich steckt mehr in diesem Besen, als man auf den ersten Blick sieht. Um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/humble-broom/find-fae/text": {
       "source": "… find a Fae who can hear the broom’s song in its entirety.",
-      "text": ""
+      "text": "… eine Fee finden, die das Lied des Besens in seiner Gesamtheit hören kann."
     },
     "front/choices/humble-broom/convince-them/text": {
       "source": "… convince them to teach you the broom’s song in full.",
-      "text": ""
+      "text": "… sie davon überzeugen, dir das Lied des Besens vollständig beizubringen."
     },
     "front/choices/humble-broom/use-broom/text": {
       "source": "… use the broom at least once a day for a whole season, singing the lullaby as you do.",
-      "text": ""
+      "text": "… den Besen eine ganze Jahreszeit lang mindestens einmal täglich benutzen und dabei das Wiegenlied singen."
     },
     "front/choices/humble-broom/risk-falling/text": {
       "source": "… risk falling into a lasting, timeless sleep as you practice the lullaby.",
-      "text": ""
+      "text": "… riskieren, während du das Wiegenlied übst, in einen dauerhaften, zeitlosen Schlaf zu fallen."
     },
     "back/title": {
       "source": "The Broom’s Lullaby",
-      "text": ""
+      "text": "Das Wiegenlied des Besens"
     },
     "back/item/name": {
       "source": "The Broom’s Lullaby",
-      "text": ""
+      "text": "Das Wiegenlied des Besens"
     },
     "back/choices/intro/when-you-start-sweeping-an-area/text": {
       "source": "When you **_start sweeping an area as you softly_** **_sing the lullaby_**, roll +CHA: **on a 7+**, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. **Also,** **on a 10+**, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.\n\nWhen you **_sing the full lullaby, sweeping all_** **_the while_**, roll +CHA: **on a 10+**, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; **on a 7-9**, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; **on a 6-**, at least one of your audience snaps to and realizes just how weird this all is.",
-      "text": ""
+      "text": "Wenn du **_beginnst, einen Bereich zu fegen, während du leise das Wiegenlied singst_**, würfle +CH. **Bei einer 7+** bleiben diejenigen, die dich sehen und hören, stehen, um zuzusehen und zuzuhören – zumindest für eine Weile. Sie sind verzaubert, verwirrt oder belustigt, je nachdem, was ihrer Natur und den Umständen entspricht. Sie werden aus diesem Zustand herausgerissen, wenn sie verletzt oder bedroht werden. Außerdem kannst du **bei einer 10+** ihre Aufmerksamkeit für die Dauer des Wiegenliedes fesseln, solange niemand verletzt oder bedroht wird.\n\nWenn du **_das gesamte Wiegenlied singst und dabei weiterkehrst_**, würfle +CH. **Bei einer 10+** fallen alle, die dich hören, in einen tiefen Schlaf und neigen dazu, dies als bloßen Traum abzutun. **Bei 7–9** beginnen alle, die dich hören, einzunicken oder in einen leichten, unruhigen Schlaf zu fallen. Sie werden sich sicherlich daran erinnern, wenn sie wieder zu sich kommen. **Bei einer 6-** kommt mindestens einer deiner Zuhörer wieder zu sich und erkennt, wie seltsam das alles ist."
     }
   },
   "hungering-maw-of-hlad": {
@@ -1616,47 +1616,47 @@
   "metal-puzzle-box": {
     "name": {
       "source": "A metal puzzle box",
-      "text": ""
+      "text": "Eine metallene Puzzlebox "
     },
     "front/item/name": {
       "source": "A metal puzzle box",
-      "text": ""
+      "text": "Eine metallene Puzzlebox "
     },
     "front/choices/metal-puzzle-box/a-6-cube-of-dull-gray/text": {
       "source": "A 6\" cube of dull gray metal, covered in hinges, knobs, dials, sliders, levers, and the like. A thing of mad genius, resisting all attempts to open it by brute force.",
-      "text": ""
+      "text": "Ein 6 Zoll großer Würfel aus mattem grauem Metall, bedeckt mit Scharnieren, Knöpfen, Drehscheiben, Schiebern, Hebeln und dergleichen. Ein Werk eines wahnsinnigen Genies, das allen Versuchen widersteht, es mit roher Gewalt zu öffnen."
     },
     "front/choices/metal-puzzle-box/to-unlock-its-mysteries-you-must/text": {
       "source": "To unlock its mysteries, you must...",
-      "text": ""
+      "text": "Um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/metal-puzzle-box/roll-int/text": {
       "source": "… roll +INT to open the box: **on a 10+**, it takes a few days of fiddling; **on a 7-9**, it takes a few obsessive weeks; **on a 6-**, it’s beyond you.",
-      "text": ""
+      "text": "… +IN würfeln, um die Box zu öffnen. Bei einer 10+ brauchst du nur ein paar Tage des Herumprobierens. Bei 7–9 brauchst du einige besessene Wochen. Bei einer 6- übersteigt sie deine Fähigkeiten."
     },
     "front/choices/metal-puzzle-box/spend-season/text": {
       "source": "… spend a season deciphering the symbols etched along the inside.",
-      "text": ""
+      "text": "… eine Jahreszeit damit verbringen, die Symbole zu entschlüsseln, die in die Innenseite eingraviert sind."
     },
     "front/choices/metal-puzzle-box/risk-never/text": {
       "source": "… risk never being able to decipher the symbols, and/or developing some mental quirk as you do so.",
-      "text": ""
+      "text": "… das Risiko eingehen, die Symbole niemals entziffern zu können und/oder dabei eine geistige Eigenart zu entwickeln."
     },
     "front/choices/metal-puzzle-box/commune-primordial/text": {
       "source": "… commune with a primordial spirit and learn the Silent Words from it.",
-      "text": ""
+      "text": "… mit einem Urgeist kommunizieren und von ihm die Stillen Worte lernen."
     },
     "front/choices/metal-puzzle-box/spend-few/text": {
       "source": "… spend a few weeks practicing the spell, risking all sorts of harm and collateral damage.",
-      "text": ""
+      "text": "… einige Wochen damit verbringen, den Zauber zu üben, wobei du allerlei Schaden und Kollateralschäden riskierst."
     },
     "back/title": {
       "source": "Runes of Creation",
-      "text": ""
+      "text": "Runen der Schöpfung"
     },
     "back/choices/intro/when-you-carefully-inscribe-an-object/text": {
       "source": "When you **_carefully inscribe an object with the_** **_runes of creation_**, pick 1 desired effect:\n\n- It will flow into any shape you imagine\n- It will become *indestructible*\n- It will become *beautiful*\n- It will blaze with terrible heat (1d10 damage, *messy*), if only for a moment When you **_speak the Silent Word that completes_** **_the spell_** (*far* range) mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n- Mark another debility & lose 1d10 HP\n- The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.\n- The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM’s choosing",
-      "text": ""
+      "text": "Wenn du **_ein Objekt sorgfältig mit den Runen der Schöpfung beschriftest_**, wähle einen der folgenden Effekte aus:\n\n- Er nimmt jede Form an, die du dir vorstellst\n- Er wird Unzerstörbar\n- Er wird Wunderschön\n- Er lodert mit furchtbarer Hitze (1W10 Schaden, Brutal), wenn auch nur für einen Augenblick\n\nWenn du **_das Stille Wort sprichst, das den Zauber vollendet_** (Reichweite *Fern*), markiere eine Beeinträchtigung, während elementare Kräfte durch dich hindurch in das Objekt fließen. Der Effekt wirkt, aber würfle +KO. **Bei einer 10+** wähle eines. **Bei 7–9** wähle eines und der SL wählt eine weitere. **Bei einer 6-** alle drei.\n\n- Markiere eine weitere Beeinträchtigung und verliere 1W10 TP.\n- Die Elemente geraten außer Kontrolle und lösen ein Feuer, Erdbeben, Lawine, Sturm oder etwas Ähnliches aus.\n- Der Effekt hält nur so lange an, wie du dich darauf konzentrierst, und danach wird das Objekt auf eine vom SL bestimmte Weise beschädigt."
     }
   },
   "mindgem": {
@@ -1744,39 +1744,39 @@
   "mummified-hand": {
     "name": {
       "source": "A mummified hand",
-      "text": ""
+      "text": "Eine mumifizierte Hand"
     },
     "front/item/name": {
       "source": "A mummified hand",
-      "text": ""
+      "text": "Eine mumifizierte Hand"
     },
     "front/choices/mummified-hand/found-in-an-engraved-lead-box/text": {
       "source": "Found in an engraved lead box, this grisly relic is adorned with three golden rings (Value 2). Each ring has an empty setting, as though it was meant to hold a stone. Only dark, rust-like flakes remain.",
-      "text": ""
+      "text": "Dieses makabre Relikt wurde in einer gravierten Bleibox gefunden und ist mit drei goldenen Ringen geschmückt (Wert 2). Jeder Ring besitzt eine leere Fassung, als wäre er dafür gedacht, einen Stein aufzunehmen. Nur dunkle, rostähnliche Rückstände sind noch vorhanden."
     },
     "front/choices/mummified-hand/the-hand-still-thrums-with-unholy/text": {
       "source": "The hand still thrums with unholy vitality. To unlock its mysteries, you must...",
-      "text": ""
+      "text": "Die Hand pulsiert noch immer vor unheiliger Lebenskraft. Um ihre Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/mummified-hand/learn-name/text": {
       "source": "… learn the name of the sorcerer whose hand this was.",
-      "text": ""
+      "text": "… den Namen des Zauberers erfahren, dem diese Hand einst gehörte."
     },
     "front/choices/mummified-hand/learn-words/text": {
       "source": "… learn the words of power and the process below.",
-      "text": ""
+      "text": "… die Zauberworte und den folgenden Ablauf erlernen."
     },
     "front/choices/mummified-hand/three-seperate/text": {
       "source": "… on three seperate nights, soak a different piece of red crystal (Value 1) in a bowl of your own fresh blood (5 HP, mark a debility), chanting words of power throughout the night, and then set the still-dripping crystal in one of the rings that adorn the hand.",
-      "text": ""
+      "text": "… an drei verschiedenen Nächten jeweils ein anderes Stück roten Kristalls (Wert 1) in einer Schale mit deinem eigenen frischen Blut (5 TP, markiere eine Beeinträchtigung) tränken, während du die ganze Nacht hindurch die Zauberworte sprichst, und anschließend den noch tropfenden Kristall in einen der Ringe einsetzen, die die Hand schmücken."
     },
     "back/title": {
       "source": "Hand of Aals Sannan",
-      "text": ""
+      "text": "Hand des Aals Sannan"
     },
     "back/choices/intro/when-you-and-only-you-touch/text": {
       "source": "When you (and only you) **_touch the hand and_** **_speak the name of Aals Sannan,_** all three crystals dim and the power of the long-dead sorcerer infuses you. Reset your HP to max, clear your debilities, and heal any problematic wounds (if you were dying, you no longer are). Also, mark one:\n\n- Part of your look changes, to be more like Aals Sannan.\n- Your instinct changes, to something more cynical/manipulative/ambitious.\n- Your heart hardens towards someone you care about, so that you see them now as only a tool or a threat. When **_all three have been marked_**, the three crystals crumble to dust. Clear all three marks but their effects remain. Also, clear the last three check boxes on the front of this card. Until you replace all three crystals, you can’t use this arcanum.",
-      "text": ""
+      "text": "Wenn du (und nur du) **_die Hand berührst und den Namen Aals Sannan aussprichst_**, verdunkeln sich alle drei Kristalle, und die Macht des längst verstorbenen Zauberers durchströmt dich.\n\nSetze deine TP auf das Maximum zurück, beseitige alle Beeinträchtigungen und heile alle problematischen Wunden (wenn du im Sterben lagst, bist du es nun nicht mehr). Markiere außerdem eine der folgenden Veränderungen:\n\n- Ein Teil deines Aussehens verändert sich, sodass du Aals Sannan ähnlicher wirst.\n- Dein Instinkt verändert sich und wird zynischer/manipulativer/ehrgeiziger.\n- Dein Herz verhärtet sich gegenüber jemandem, der dir am Herzen liegt, sodass du diese Person nun nur noch als Werkzeug oder Bedrohung siehst.\n\nWenn alle drei Veränderungen markiert wurden, zerfallen die drei Kristalle zu Staub. Entferne alle drei Markierungen, aber die Auswirkungen bleiben bestehen. Streiche außerdem die letzten drei Kästchen auf der Vorderseite dieser Karte. Solange du nicht alle drei Kristalle ersetzt hast, kannst du dieses Arkanum nicht benutzen."
     }
   },
   "norubas-ice-sphere": {
@@ -1970,119 +1970,119 @@
   "oversized-crown": {
     "name": {
       "source": "An oversized crown",
-      "text": ""
+      "text": "Eine übergroße Krone"
     },
     "front/item/name": {
       "source": "An oversized crown",
-      "text": ""
+      "text": "Eine übergroße Krone"
     },
     "front/choices/oversized-crown/a-circlet-of-black-glossy-metal/text": {
       "source": "A circlet of black, glossy metal set with eight spires of aetherium. It’s sized for a head maybe twice as large as yours, and is always a bit chill to the touch. Even cast into the hottest furnace, it will not melt nor even heat.",
-      "text": ""
+      "text": "Ein Reif aus schwarzem, glänzendem Metall, besetzt mit acht Spitzen aus Ätherium. Er ist für einen Kopf bemessen, der vielleicht doppelt so groß ist wie deiner, und fühlt sich immer ein wenig kühl an. Selbst in den heißesten Schmelzofen geworfen, schmilzt er nicht und wird nicht einmal warm."
     },
     "front/choices/oversized-crown/when-you-touch-the-crown-with/text": {
       "source": "When you **_touch the crown with bare flesh and_** **_open your mind_**, you can speak to the primordial spirit to which the crown is attuned. But to fully unlock the mysteries of this crown, you must…",
-      "text": ""
+      "text": "Wenn du **_die Krone mit bloßer Haut berührst und deinen Geist öffnest_**, kannst du mit dem Urgeist sprechen, auf den die Krone eingestimmt ist. Doch um die Geheimnisse dieser Krone vollständig zu entschlüsseln, musst du …"
     },
     "front/choices/oversized-crown/risk-sense/text": {
       "source": "… risk your sense of self as you commune with this spirit of the void.",
-      "text": ""
+      "text": "… dein Selbstbewusstsein aufs Spiel setzen, während du mit diesem Geist der Leere kommunizierst."
     },
     "front/choices/oversized-crown/learn-words/text": {
       "source": "… learn the Words of Being, which will force the spirit to manifest.",
-      "text": ""
+      "text": "… die Worte des Seins erlernen, die den Geist zwingen werden, sich zu manifestieren."
     },
     "front/choices/oversized-crown/learn-words-unbeing/text": {
       "source": "… learn the Words of Unbeing, which will send the spirit home.",
-      "text": ""
+      "text": "… die Worte des Nichtseins erlernen, die den Geist zurück nach Hause schicken."
     },
     "front/choices/oversized-crown/convince-spirit/text": {
       "source": "… convince the spirit to manifest and then successfully dismiss it.",
-      "text": ""
+      "text": "… den Geist davon überzeugen, sich zu manifestieren, und ihn anschließend erfolgreich bannen."
     },
     "back/title": {
       "source": "Void Elemental",
-      "text": ""
+      "text": "Elementar der Leere"
     },
     "back/resource/title": {
       "source": "Loyalty",
-      "text": ""
+      "text": "Loyalität"
     },
     "back/choices/intro/when-you-touch-the-crown-and/text": {
       "source": "When you **_touch the crown and speak the Words_** **_of Being_**, the spirit manifests. Treat it as a follower, with 3 Loyalty to start (it can never gain more). When you **_touch the crown and chant_** **_the Words of Unbeing_**, the spirit can return to the void—if it wants.",
-      "text": ""
+      "text": "Wenn du **_die Krone berührst und die Worte des Seins aussprichst_**, manifestiert sich der Geist. Behandle ihn wie einen Gefolgsmann mit 3 Loyalität zu Beginn (er kann niemals mehr erhalten).\n\nWenn du **_die Krone berührst und die Worte des Nichtseins aussprichst_**, kann der Geist in die Leere zurückkehren – sofern er dies wünscht."
     }
   },
   "patch-of-rainbow-moss": {
     "name": {
       "source": "A patch of rainbow moss",
-      "text": ""
+      "text": "Ein Fleck Regenbogenmoos"
     },
     "front/choices/patch-of-rainbow-moss/in-the-great-wood-one-can/text": {
       "source": "In the Great Wood, one can find a copse of many different types of tree, the light dim beneath their canopy and the ground knobbly with interwoven roots. At the center: a patch of thick, multi-hued moss.",
-      "text": ""
+      "text": "Im Großen Wald findet sich ein Hain mit vielen verschiedenen Baumarten. Unter ihrem Blätterdach herrscht gedämpftes Licht und der Boden ist von ineinander verwobenen Wurzeln durchzogen. In seiner Mitte: ein Fleck dichten, vielfarbigen Mooses."
     },
     "front/choices/patch-of-rainbow-moss/to-unlock-the-mysteries-of-this/text": {
       "source": "To unlock the mysteries of this place, you must…",
-      "text": ""
+      "text": "Um die Geheimnisse dieses Ortes zu entschlüsseln, musst du …"
     },
     "front/choices/patch-of-rainbow-moss/lie-down/text": {
       "source": "… lie down in the moss and let its tendrils fuse with your skin.",
-      "text": ""
+      "text": "… dich in das Moos legen und zulassen, dass seine Ranken mit deiner Haut verwachsen."
     },
     "front/choices/patch-of-rainbow-moss/let-consciousness/text": {
       "source": "… let your consciousness drift into the forest itself, at the risk of losing yourself or drawing the ire of hostile spirits.",
-      "text": ""
+      "text": "… dein Bewusstsein in den Wald selbst treiben lassen, wobei du riskierst, dich selbst zu verlieren oder den Zorn feindseliger Geister auf dich zu ziehen."
     },
     "front/choices/patch-of-rainbow-moss/spend-weeks/text": {
       "source": "… spend weeks visiting the moss, setting your mind adrift, learning to perceive the world through the forest’s senses.",
-      "text": ""
+      "text": "… wochenlang immer wieder das Moos aufsuchen, deinen Geist treiben lassen und lernen, die Welt durch die Sinne des Waldes wahrzunehmen."
     },
     "back/title": {
       "source": "The Sylvan Web",
-      "text": ""
+      "text": "Das Waldnetz"
     },
     "back/choices/intro/when-you-lie-down-in-the/text": {
       "source": "When you **_lie down in the rainbow moss and cast_** **_your mind into the Great Wood_**, say what you are looking for and roll +WIS: **on a 10+**, pick 3; **on** **a 7-9**, pick 1.\n\n- You learn the location of your quarry\n- You get a sense of your quarry’s recent activities, or the activity surrounding it\n- You discover something unexpected about the forest, or that which can be found within it (ask the GM what you learn)\n- You spend only an hour or so adrift (else, you spend all day) Whatever you learn, it is limited by and filtered through the senses the forest.",
-      "text": ""
+      "text": "Wenn du **_dich in das Regenbogenmoos legst und deinen Geist in den Großen Wald aussendest_**, sage, wonach du suchst, und würfle +WE. **Bei einer 10+**, wähle 3. **Bei 7-9**, wähle 1.\n\n- Du erfährst den Aufenthaltsort deines Ziels. \n- Du erhältst einen Eindruck von den jüngsten Aktivitäten deines Ziels oder von den Vorgängen in seiner Umgebung.\n- Du entdeckst etwas Unerwartetes über den Wald oder über das, was sich in ihm befindet (frage den SL, was du erfährst).\n- Du verbringst nur etwa eine Stunde in dieser Trance (ansonsten verbringst du den ganzen Tag damit).\n\nWas auch immer du erfährst, wird durch die Sinne des Waldes begrenzt und gefiltert."
     }
   },
   "path-in-the-woods": {
     "name": {
       "source": "A path in the woods",
-      "text": ""
+      "text": "Ein Pfad im Wald"
     },
     "front/choices/path-in-the-woods/deep-in-the-great-wood-sits/text": {
       "source": "Deep in the Great Wood sits a stone, carved with the crude pictograms of the Forest Folk, showing a trail fraught with trials and leading to great power.",
-      "text": ""
+      "text": "Tief im Großen Wald steht ein Stein, in den grobe Piktogramme des Waldvolks eingemeißelt sind. Sie zeigen einen beschwerlichen Pfad voller Prüfungen, der zu großer Macht führt."
     },
     "front/choices/path-in-the-woods/if-you-set-forth-upon-the/text": {
       "source": "If you **_set forth upon the trail at midsummer,_** you can unlock its mysteries, but you must...",
-      "text": ""
+      "text": "Wenn du **_dich zur Mittsommerzeit auf diesen Weg begibst_**, kannst du seine Geheimnisse entschlüsseln, doch du musst …"
     },
     "front/choices/path-in-the-woods/follow-twisting/text": {
       "source": "… follow the twisting paths in silence, until you spy the White Hart.",
-      "text": ""
+      "text": "… den gewundenen Pfaden schweigend folgen, bis du den Weißen Hirsch erblickst."
     },
     "front/choices/path-in-the-woods/chase-hart/text": {
       "source": "… chase the Hart for miles and miles, until it leads you to the Tree of Nerth.",
-      "text": ""
+      "text": "… den Hirsch Meile um Meile verfolgen, bis er dich zum Baum von Nerth führt."
     },
     "front/choices/path-in-the-woods/wrestle-strange/text": {
       "source": "… wrestle the strange serpent that lives in the tree (*Book II*, page 371), crushing the life from it and eating its still-warm heart. Should multiple people follow the path on a given midsummer, only one of them can reach the Tree of Nerth.",
-      "text": ""
+      "text": "… mit der seltsamen Schlange ringen, die in dem Baum lebt (Buch II, Seite 371), ihr das Leben aus dem Leib quetschen und ihr noch warmes Herz essen."
     },
     "back/title": {
       "source": "Nerth Serpent’s Vigor",
-      "text": ""
+      "text": "Kraft der Nerth-Schlange"
     },
     "back/resource/title": {
       "source": "Vitality",
-      "text": ""
+      "text": "Vitalität"
     },
     "back/choices/intro/when-you-crush-the-life-from/text": {
       "source": "When you **_crush the life from the Nerth Serpent_** **_and devour its still-warm heart_**, hold 3 Vitality. While you hold Vitality, you age very slowly.\n\nSpend Vitality 1-for-1 to:\n\n- Shrug off a poison, sickness, or curse\n- Survive a lethal wound or injury\n- Recover fully from a permanent injury or impairment (with a few days’ rest)\n- Perform a feat of extraordinary strength, prowess, or endurance Each time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.",
-      "text": ""
+      "text": "Wenn du **_der Nerth-Schlange das Leben aus dem Leib quetschst und ihr noch warmes Herz verschlingst_**, nimm 3 Vitalität. Solange du Vitalität besitzt, altert du nur sehr langsam. Gib Vitalität im Verhältnis 1:1 aus, um:\n\n- Schüttle ein Gift, eine Krankheit oder einen Fluch ab.\n- Überlebe eine tödliche Wunde oder Verletzung.\n- Erhole dich vollständig von einer dauerhaften Verletzung oder Beeinträchtigung (nach ein paarTagen Ruhe).\n- Vollbringe eine außergewöhnliche Kraft-, Geschicklichkeits- oder Ausdauerleistung.\n\nJedes Mal, wenn du Vitalität ausgibst, manifestiert sich ein dauerhaftes Zeichen der Wildnis (Geweih, fellähnliche Haut, Tieraugen usw.) oder ein solches Zeichen wird ausgeprägter. Sag uns, was es ist."
     }
   },
   "prospectors-tale": {
@@ -2390,43 +2390,43 @@
   "richly-woven-rug": {
     "name": {
       "source": "A richly woven rug",
-      "text": ""
+      "text": "Ein kunstvoll gewebter Teppich"
     },
     "front/item/name": {
       "source": "A richly woven rug",
-      "text": ""
+      "text": "Ein kunstvoll gewebter Teppich"
     },
     "front/choices/richly-woven-rug/about-4-feet-by-7-feet/text": {
       "source": "About 4 feet by 7 feet unfurled, woven with stylized patterns of fire and flame. Flickering Maker-runes can be seen in the weaving, always out of focus but hinting at power.",
-      "text": ""
+      "text": "Ausgebreitet etwa 4 × 7 Fuß groß und mit stilisierten Mustern aus Feuer und Flammen gewebt. Im Gewebe sind flackernde Runen der Schöpfer zu erkennen, die stets unscharf erscheinen, aber auf eine verborgene Macht hindeuten."
     },
     "front/choices/richly-woven-rug/you-can-unlock-the-secrets-of/text": {
       "source": "You can unlock the secrets of this rug, but you must first…",
-      "text": ""
+      "text": "Du kannst die Geheimnisse dieses Teppichs entschlüsseln, aber zunächst musst du …"
     },
     "front/choices/richly-woven-rug/marked-by/text": {
       "source": "… be marked by fire, losing yourself to the panic or pain of burning.",
-      "text": ""
+      "text": "… vom Feuer gezeichnet werden und dich der Panik oder dem Schmerz des Brennens hingeben."
     },
     "front/choices/richly-woven-rug/then-spend/text": {
       "source": "… then, spend weeks in meditation upon the rug and studying the now-clear runes.",
-      "text": ""
+      "text": "… anschließend mehrere Wochen über dem Teppich meditieren und die nun deutlich erkennbaren Runen studieren."
     },
     "front/choices/richly-woven-rug/allow-yourself/text": {
       "source": "… allow yourself to be burned by a terrible flame, refusing to cry out and mastering your fear.",
-      "text": ""
+      "text": "… dich von einer schrecklichen Flamme verbrennen lassen, ohne einen Laut von dir zu geben, und deine Angst bezwingen."
     },
     "back/title": {
       "source": "Fear of the Flame",
-      "text": ""
+      "text": "Angst vor der Flamme"
     },
     "back/resource/title": {
       "source": "Heat",
-      "text": ""
+      "text": "Hitze"
     },
     "back/choices/intro/when-you-spend-an-hour-or/text": {
       "source": "When you **_spend an hour or so on the rug, med_****_itating on the fear of fire that all natural things_** **_possess_**, you hold Terror and mark 1 Heat.\n\n- **Terror**: When you **_unleash the Terror_** **_you hold_**, all who see you fear you as they would fear the flame primeval, until you dismiss the effect. When you **_dismiss the effect_**, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames: a blistered scar, reddish skin, glowing eyes, a sulfurous smell, etc. When **_a season passes without you unleashing_** **_Terror_**, reduce your Heat by 1.",
-      "text": ""
+      "text": "Wenn du **_etwa eine Stunde auf dem Teppich verbringst und über die Angst vor dem Feuer meditierst, die allen natürlichen Dingen innewohnt_**, nimm Schrecken und markiere 1 Hitze.\n\n**Schrecken:** Wenn du **_den Schrecken, den du in dir trägst, entfesselst_**, fürchten dich alle, die dich sehen, so, wie sie die Urflamme fürchten würden, bis du den Effekt beendest.\n\nWenn du **_den Effekt beendest_**, würfle 1W6. Wenn das Ergebnis niedriger ist als deine Hitze, streiche deine gesamte Hitze und es manifestiert sich schmerzhaft ein dauerhaftes Zeichen deiner Verbindung zu den Flammen: eine Brandnarbe, rötliche Haut, leuchtende Augen, ein schwefelartiger Geruch usw.\n\nWenn **_eine Jahreszeit vergeht, ohne dass du Schrecken entfesselst_**, reduziere deine Hitze um 1."
     }
   },
   "ring-of-daagon": {
@@ -2498,35 +2498,35 @@
   "rune-etched-pillars": {
     "name": {
       "source": "Rune-etched pillars",
-      "text": ""
+      "text": "Runenverzierte Säulen"
     },
     "front/choices/rune-etched-pillars/deep-under-a-giant-ruined-fort/text": {
       "source": "Deep under a giant, ruined fort is a vaulted chamber, once a storeroom but looted long, long ago. A giant skeleton lies just inside, face-down, its skull and ribs staved in.",
-      "text": ""
+      "text": "Tief unter einer riesigen, verfallenen Festung befindet sich eine gewölbte Kammer, die einst als Lagerraum diente, aber vor langer, langer Zeit geplündert wurde. Gleich hinter dem Eingang liegt das Skelett eines Riesen mit dem Gesicht nach unten, dessen Schädel und Rippen zertrümmert sind."
     },
     "front/choices/rune-etched-pillars/four-pillars-support-the-roof-carved/text": {
       "source": "Four pillars support the roof, carved with a series of huge runes that thrum with power. You can unlock their secrets, but…",
-      "text": ""
+      "text": "Vier Säulen tragen die Decke. Sie sind mit einer Reihe gewaltiger Runen bedeckt, die vor Macht pulsieren. Du kannst ihre Geheimnisse entschlüsseln, aber …"
     },
     "front/choices/rune-etched-pillars/spend-few/text": {
       "source": "… you must spend a few days studying the runes and memorizing their sequence.",
-      "text": ""
+      "text": "… du musst ein paar Tage damit verbringen, die Runen zu studieren und ihre Abfolge auswendig zu lernen."
     },
     "front/choices/rune-etched-pillars/meditate-few/text": {
       "source": "… you must meditate for a few weeks on the magic that infuses them.",
-      "text": ""
+      "text": "… du musst ein paar Wochen lang über die Magie meditieren, die sie durchdringt."
     },
     "front/choices/rune-etched-pillars/risk-triggering/text": {
       "source": "… you risk triggering the spell contained in the runes, and collapsing the entire structure.",
-      "text": ""
+      "text": "… du riskierst, den in den Runen enthaltenen Zauber auszulösen und das gesamte Bauwerk zum Einsturz zu bringen."
     },
     "back/title": {
       "source": "Shattering Words of Aalz Childric",
-      "text": ""
+      "text": "Zerschmetternde Worte des Aalz Childric"
     },
     "back/choices/intro/when-you-carve-the-shattering-words/text": {
       "source": "When you **_carve the shattering words of Aalz_** **_Childric into stone or rock_**, designate a key word or phrase.\n\nWhen you or another **_speaks the key word or_** **_phrase and wills the spell to trigger_**, you roll +CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
-      "text": ""
+      "text": "Wenn du **_die zerschmetternden Worte des Aalz Childric in Stein oder Fels ritzt_**, lege ein Schlüsselwort oder eine Phrase fest.\n\nWenn du **_oder jemand anderes das Schlüsselwort oder die Phrase ausspricht und den Zauber auslösen will_**, würfle +KO. **Bei einer 10+** zerspringt der mit Runen versehene Stein und zerfällt augenblicklich zu Geröll. **Bei 7–9** bekommt der Stein Risse und beginnt sich zu verformen, bevor er langsam in mehrere Teile zerbricht."
     }
   },
   "rune-laden-scales": {
@@ -2606,31 +2606,31 @@
   "runes-around-a-ruined-hall": {
     "name": {
       "source": "Runes around a ruined hall",
-      "text": ""
+      "text": "Runen um eine zerstörte Halle"
     },
     "front/choices/runes-around-a-ruined-hall/in-a-ruined-citadel-of-the/text": {
       "source": "In a ruined citadel of the Forge Lords, the grand hall lies empty. The throne is melted slag. The ceiling is shattered. The pillars are scorched and cracked. But intact around the outside of the room are a series of flowing runes. Close study reveals them to involve both fire and privacy.",
-      "text": ""
+      "text": "In einer zerstörten Festung der Schmiedefürsten liegt die große Halle verlassen da. Der Thron ist zu Schlacke geschmolzen. Die Decke ist zerborsten. Die Säulen sind versengt und rissig. Doch am äußeren Rand des Raumes ist eine Reihe fließender Runen unversehrt geblieben. Bei genauer Betrachtung zeigt sich, dass sie sowohl mit Feuer als auch mit Geheimhaltung zu tun haben."
     },
     "front/choices/runes-around-a-ruined-hall/the-runes-repeat-themselves-and-can/text": {
       "source": "The runes repeat themselves and can be copied, but...",
-      "text": ""
+      "text": "Die Runen wiederholen sich und können abgezeichnet werden, aber …"
     },
     "front/choices/runes-around-a-ruined-hall/takes-few/text": {
       "source": "… it takes a few hours of careful work.",
-      "text": ""
+      "text": " … es erfordert einige Stunden sorgfältiger Arbeit."
     },
     "front/choices/runes-around-a-ruined-hall/risk-transcription/text": {
       "source": "… you risk a transcription error, but to what effect?",
-      "text": ""
+      "text": "… du riskierst einen Übertragungsfehler – aber mit welchen Folgen?"
     },
     "back/title": {
       "source": "The Fiery Veil",
-      "text": ""
+      "text": "Der feurige Schleier"
     },
     "back/choices/intro/when-you-precisely-inscribe-the-flowing/text": {
       "source": "When you **_precisely inscribe the flowing runes of_** **_the fiery veil along the outside of an area_**, the area is warded for as long as the runes remain intact.\n\nWhen anyone **_tries to scry on the warded area_** **_from afar, or view it from the spirit realm_**, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.",
-      "text": ""
+      "text": "Wenn du **_die geschwungenen Runen des feurigen Schleiers präzise entlang der Außengrenze eines Bereichs einritzt_**, wird dieser Bereich so lange geschützt, wie die Runen unversehrt bleiben.\n\nWenn jemand **_versucht, den geschützten Bereich aus der Ferne magisch auszuspähen oder ihn aus dem Geisterreich zu betrachten_**, sieht er lediglich einen Vorhang aus Feuer.\n\nWenn er darauf besteht, durch den Vorhang zu spähen, erleidet er 1W10 Schaden (Vorteil, ignoriert Rüstung) und erscheint denjenigen innerhalb des Bereichs als gespenstisches, von Flammen umhülltes Abbild."
     }
   },
   "runic-branding-iron": {
@@ -2928,43 +2928,43 @@
   "silvery-glass-bottle": {
     "name": {
       "source": "A silvery glass bottle",
-      "text": ""
+      "text": "Eine silbrige Glasflasche"
     },
     "front/item/name": {
       "source": "A silvery glass bottle",
-      "text": ""
+      "text": "Eine silbrige Glasflasche"
     },
     "front/choices/silvery-glass-bottle/about-10-inches-tall-tapered-at/text": {
       "source": "About 10 inches tall, tapered at the top, made of old warped glass that’s shot through with silvery streaks, like the trails that slugs leave. The patterns in the glass seem different each time you look, almost shifting as you watch. It makes you eyes water, your head spin.",
-      "text": ""
+      "text": "Etwa 10 Zoll hoch, oben schmal zulaufend, aus altem, verzogenem Glas gefertigt, das von silbrigen Schlieren durchzogen ist – wie die Spuren, die Schnecken hinterlassen. Die Muster im Glas scheinen jedes Mal anders zu sein, wenn man hinschaut, fast so, als würden sie sich vor den Augen verändern. Es bringt die Augen zum Tränen und den Kopf zum Drehen."
     },
     "front/choices/silvery-glass-bottle/you-can-unlock-the-secrets-of/text": {
       "source": "You can unlock the secrets of this old glass bottle, but you must either…",
-      "text": ""
+      "text": "Du kannst die Geheimnisse dieser alten Glasflasche entschlüsseln, aber du musst entweder …"
     },
     "front/choices/silvery-glass-bottle/find-one/text": {
       "source": "… find one who knows its workings, and get them to teach you; or…",
-      "text": ""
+      "text": "... jemanden finden, der ihre Funktionsweise kennt, und ihn dazu bringen, sie dir beizubringen; oder …"
     },
     "front/choices/silvery-glass-bottle/fill-botttle/text": {
       "source": "… fill the botttle with spring-water and hallucinogenic mushrooms, and let it steep in the dark for a fortnight.",
-      "text": ""
+      "text": "… die Flasche mit Quellwasser und halluzinogenen Pilzen füllen und sie zwei Wochen lang im Dunkeln ziehen lassen."
     },
     "front/choices/silvery-glass-bottle/drink-contents/text": {
       "source": "… drink the contents and risk learning nothing as you suffer through the sickness and the nightmares.",
-      "text": ""
+      "text": "… den Inhalt trinken und riskieren, nichts zu lernen, während du unter Übelkeit und Albträumen leidest."
     },
     "back/title": {
       "source": "Witch Bottle",
-      "text": ""
+      "text": "Hexenflasche"
     },
     "back/resource/title": {
       "source": "Sway",
-      "text": ""
+      "text": "Einfluss"
     },
     "back/choices/intro/when-you-tie-strands-of-someones/text": {
       "source": "When you **_tie strands of someone’s hair around_** **_an item that they made or owned, set them afire,_** **_and drop them still-burning into the empty bottle,_** hold 3 Sway over them. The cinders continue to burn and glow until the Sway is gone. Spend 1 Sway while speaking their true name to…\n\n- Twist their senses, making them perceive something untrue\n- Plague them with nightmares until they wash in rain or snow\n- Cause an emotion in their heart to swell, possibly overwhelming them If the person you currently hold Sway over finds and breaks the Witch Bottle, you will yourself suffer all the torments you have ever inflicted with it.",
-      "text": ""
+      "text": "Wenn du **_Haarsträhnen einer Person um einen Gegenstand bindest, den sie hergestellt oder besessen hat, sie entzündest und noch brennend in die leere Flasche fallen lässt_**, erhältst du 3 Einfluss über sie. Die Glut brennt und glimmt weiter, bis der Einfluss aufgebraucht ist.\n\nGib 1 Einfluss aus, während du ihren wahren Namen aussprichst, um …\n\n- ihre Sinne zu verdrehen, so dass sie etwas Unwahres wahrnimmt.\n- sie mit Albträumen zu plagen, bis sie sich im Regen oder Schnee wäscht.\n- eine Emotion in ihrem Herzen anschwellen zu lassen, die sie möglicherweise überwältigt.\n\nWenn die Person, über die du gegenwärtig Einfluss hast, die Hexenflasche findet und zerbricht, erleidest du selbst alle Qualen, die du ihr jemals damit zugefügt hast."
     }
   },
   "silvery-signet-ring": {
@@ -3016,31 +3016,31 @@
     },
     "front/choices/small-strange-book/a-small-manual-written-on-what/text": {
       "source": "A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.",
-      "text": ""
+      "text": "Ein kleines Handbuch, geschrieben auf etwas, das wie geschmeidige Blätter aussieht. Es ist in der Gemeinen Schrift verfasst, jedoch in einer seltsam poetischen Abfolge von unsinnigen Silben."
     },
     "front/choices/small-strange-book/the-manual-reveals-the-recipe-for/text": {
       "source": "The manual reveals the recipe for an elderberry wine that brims with Fae magic, but to learn the recipe, you either...",
-      "text": ""
+      "text": "Das Handbuch enthält das Rezept für einen Holunderwein, der vor Feenmagie nur so strotzt. Um das Rezept zu entschlüsseln, musst du entweder …"
     },
     "front/choices/small-strange-book/need-help/text": {
       "source": "… need help from a Fae poet, or perhaps one of the Forest Folk; or...",
-      "text": ""
+      "text": "… die Hilfe eines Feendichters oder vielleicht eines Angehörigen des Waldvolks in Anspruch nehmen; oder …"
     },
     "front/choices/small-strange-book/risk-getting/text": {
       "source": "… risk getting the recipe wrong, poisoning or cursing whoever drinks the wine you brew.",
-      "text": ""
+      "text": "… riskieren, das Rezept falsch zu verstehen und damit jeden zu vergiften oder zu verfluchen, der den von dir gebrauten Wein trinkt."
     },
     "back/title": {
       "source": "Old Mother’s Wine",
-      "text": ""
+      "text": "Wein der alten Mutter"
     },
     "back/resource/title": {
       "source": "Lost memories",
-      "text": ""
+      "text": "Verlorene Erinnerungen"
     },
     "back/choices/intro/when-you-sacrifice-a-memory-to/text": {
       "source": "When you **_sacrifice a memory to a berry- laden elder_** **_tree_**, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.\n\nWhen you **_harvest the berries and spend a season_** **_making wine from them_**, gain a skin of Old Mother’s Wine (5 uses, magical).\n\nWhen you **_get tipsy on Old Mother’s Wine_**, expend a use. For a night and a day, your eyes are open to Fae magic, meaning:\n\n- You see the truth behind Fae illusions and glamours\n- You are immune to Fae enchantments\n- You can freely enter Fae domains and walk the Fae paths\n- Time passes normally for you while in Fae domains",
-      "text": ""
+      "text": "Wenn du **_eine Erinnerung an einem mit Beeren behangenen Holunderbaum opferst_**, teile uns mit, worauf du verzichtet hast. Markiere 1 verlorene Erinnerung und würfle 1W6. Wenn du weniger als deine Anzahl verlorener Erinnerungen würfelst, ändere deinen Instinkt und lösche deine Markierungen.\n\nWenn du **_die Beeren erntest und eine Jahreszeit damit verbringst, daraus Wein herzustellen_**, erhältst du einen Schlauch „Wein der Alten Mutter“ (5 Anwendungen, *Magisch*).\n\nWenn du **_vom Wein der Alten Mutter beschwipst wirst_**, verbrauche eine Anwendung. Für eine Nacht und einen Tag sind deine Augen für Feenmagie geöffnet. Das bedeutet:\n\n- Du siehst die Wahrheit hinter den Illusionen und Verzauberungen der Feen.\n- Du bist immun gegen Verzauberungen durch Feen.\n- Du kannst frei in Feenreiche eintreten und die Feenpfade beschreiten.\n- Die Zeit vergeht für dich normal, während du dich in den Reichen der Feen befindest."
     }
   },
   "staff-of-the-lidless-orb": {
@@ -3258,19 +3258,19 @@
   "strange-skull-and-antlers": {
     "name": {
       "source": "A strange skull and antlers",
-      "text": ""
+      "text": "Ein seltsamer Schädel mit Geweih"
     },
     "front/choices/strange-skull-and-antlers/a-skull-the-size-of-a/text": {
       "source": "A skull, the size of a horse’s head but clearly not a horse—nor a drake, nor a wolf, nor a bear. For none of those beasts would bear such mighty antlers as those affixed to this skull. Looking closely, one sees the whorls and twists of ancient glyphs carved into the bone. Those in its presence often feel a draft, as if someone left a door ajar.",
-      "text": ""
+      "text": "Ein Schädel von der Größe eines Pferdekopfes, aber eindeutig nicht von einem Pferd – auch nicht von einem Lindwurm, einem Wolf oder einem Bären. Denn keines dieser Tiere würde ein solch gewaltiges Geweih tragen, wie es an diesem Schädel befestigt ist. Bei genauerem Hinsehen erkennt man die Wirbel und Windungen uralter Glyphen, die in den Knochen eingraviert sind. Wer sich in seiner Gegenwart aufhält, verspürt oft einen Luftzug, als hätte jemand eine Tür einen Spalt offen gelassen."
     },
     "front/choices/strange-skull-and-antlers/to-unlock-the-secrets-of-this/text": {
       "source": "To unlock the secrets of this relic, you…",
-      "text": ""
+      "text": "Um die Geheimnisse dieses Relikts zu entschlüsseln, musst du …"
     },
     "front/choices/strange-skull-and-antlers/learn-name/text": {
       "source": "… must learn the name of the shade",
-      "text": ""
+      "text": "… den Namen des Schattens erfahren, dem dieser Schädel einst gehörte;"
     },
     "front/choices/strange-skull-and-antlers/whose-skull/text": {
       "source": "whose skull this was;",
@@ -3278,57 +3278,57 @@
     },
     "front/choices/strange-skull-and-antlers/or/text": {
       "source": "or…",
-      "text": ""
+      "text": "oder …"
     },
     "front/choices/strange-skull-and-antlers/use-blesseds/text": {
       "source": "… use the Blessed’s Call the Spirits move to call up the shade.",
-      "text": ""
+      "text": "… den Spielzug „Geister rufen“ des Gesegneten nutzen, um den Schatten herbeizurufen."
     },
     "back/title": {
       "source": "The Green Lord’s Shade",
-      "text": ""
+      "text": "Der Schatten des Grünen Fürsten"
     },
     "back/choices/intro/when-you-make-an-offering-of/text": {
       "source": "When you **_make an offering of good liquor, fresh_** **_fruit, or fresh-cooked meat and call up the shade of_** **_the skull_**, it manifests before you in shadows.\n\nThe shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (**Instinct** to fulfill its increasingly specific longings.)\n\nWhile it rides you, the shade communicates only through impulse and desire. When it **_compels_** **_you to act against your wishes_**, mark XP if you comply. If you resist, you are Defying Danger.",
-      "text": ""
+      "text": "Wenn du **_einen guten Schnaps, frisches Obst oder frisch gekochtes Fleisch darbringst und den Schatten des Schädels herbeirufst_**, manifestiert er sich vor dir in Gestalt von Schatten.\n\nDer Schatten weiß viel über die alten Zeiten, die Grünen Fürsten und ihr Wirken. Er besitzt keine Macht, kann aber Fragen beantworten. Zuvor wird er jedoch verlangen, dich „reiten“ zu dürfen und die Freuden des Lebens zu erfahren. (Instinkt: Seine immer spezifischeren Sehnsüchte zu stillen.)\n\nWährend er dich reitet, kommuniziert der Schatten ausschließlich durch Impulse und Wünsche. Wenn er **_dich dazu bringt, gegen deinen Willen zu handeln_**, markiere EP, wenn du dich ihm fügst. Wenn du dich widersetzt, trotzt du der Gefahr."
     }
   },
   "stretched-vellum": {
     "name": {
       "source": "A stretched vellum",
-      "text": ""
+      "text": "Ein aufgespanntes Pergament"
     },
     "front/item/name": {
       "source": "A stretched vellum",
-      "text": ""
+      "text": "Ein aufgespanntes Pergament"
     },
     "front/choices/stretched-vellum/stretched-taut-on-a-wooden-frame/text": {
       "source": "Stretched taut on a wooden frame, this old vellum is filled with the intricate and looping glyphs of the Green Lords. Drawings show creatures changing to have traits of other beasts. It seems to be the foundation for some sort of spell.",
-      "text": ""
+      "text": "Auf einem Holzrahmen gespannt, ist dieses alte Pergament mit den verschlungenen Glyphen der Grünen Fürsten übersät. Die Zeichnungen zeigen Kreaturen, die sich so verändern, dass sie die Züge anderer Bestien annehmen. Es scheint die Grundlage für eine Art Zauber zu sein."
     },
     "front/choices/stretched-vellum/to-unlock-its-mysteries-and-learn/text": {
       "source": "To unlock its mysteries and learn the spell, you must…",
-      "text": ""
+      "text": "Um seine Geheimnisse zu lüften und den Zauber zu erlernen, musst du …"
     },
     "front/choices/stretched-vellum/decipher-green/text": {
       "source": "… decipher the Green Lords’ glyphs.",
-      "text": ""
+      "text": "… die Glyphen der Grünen Fürsten entziffern."
     },
     "front/choices/stretched-vellum/spend-few/text": {
       "source": "… spend a few weeks studying and pondering them.",
-      "text": ""
+      "text": "… einige Wochen damit verbringen, sie zu studieren und über ihre Bedeutung nachzusinnen."
     },
     "front/choices/stretched-vellum/experiment-beast/text": {
       "source": "… experiment on a beast of at least *small* size, like a goat, pig, or hound. You risk killing, crippling, or horribly mutating the beast, and possibly driving it mad.",
-      "text": ""
+      "text": "… an einem Tier von zumindest kleiner Größe, wie einer Ziege, einem Schwein oder einem Hund experimentieren. Du riskierst, das Tier zu töten, zu verkrüppeln oder schrecklich mutieren zu lassen und es möglicherweise in den Wahnsinn zu treiben."
     },
     "back/title": {
       "source": "Chimeric Transmogrification",
-      "text": ""
+      "text": "Chimärische Transmogrifikation"
     },
     "back/choices/intro/when-you-hold-forth-a-bit/text": {
       "source": "When you **_hold forth a bit of one beast (fur, bone,_** **_etc.) and speak the words of chimeric transmog_****_rification upon another_**, roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but only if you mark a debility.\n\nWhen **_the spell works_**, roll 1d10+CON. If your roll **equals or exceeds the target’s current HP**, name a feature of the beast you hold—the target’s form twists and buckles, gaining that feature until they sleep for a few hours. The experience is disorienting and alarming; most beasts and people will panic. If you roll **less than the target’s** **current HP**, their form twists and buckles alarmingly for a few seconds, but they fight off the transformation. **Either way**, the bit of the beast you hold is lost, shriveling away to nothing.",
-      "text": ""
+      "text": "Wenn du **_ein Stück von einem Tier (Fell, Knochen usw.) in der Hand hältst und die Worte der chimären Transmogrifikation über ein anderes Tier sprichst_**, würfle +IN. Bei einer 10+ wirkt der Zauber. **Bei 7–9** wirkt der Zauber, aber nur, wenn du eine Beeinträchtigung markierst.\n\nWenn **_der Zauber wirkt_**, würfle 1W10 +KO. Wenn dein Wurf **_die aktuellen TP des Ziels erreicht oder übersteigt_**, nenne ein Merkmal des Tieres, das du in der Hand hältst – die Gestalt des Ziels windet und verformt sich und erhält dieses Merkmal, bis es einige Stunden geschlafen hat. Die Erfahrung ist verstörend und beängstigend; die meisten Tiere und Menschen geraten in Panik. Wenn du **_weniger als die aktuellen TP des Ziels würfelst_**, windet und verformt sich seine Gestalt für einige beunruhigende Sekunden, doch es wehrt die Verwandlung ab. **_In jedem Fall_** geht das Stück des Tieres, das du in der Hand hältst, verloren und schrumpft zu nichts zusammen."
     }
   },
   "sunken-tablet": {
@@ -3528,67 +3528,67 @@
   "treasure-map": {
     "name": {
       "source": "A treasure map",
-      "text": ""
+      "text": "Eine Schatzkarte"
     },
     "front/choices/treasure-map/a-tattered-scrap-of-parchment-it/text": {
       "source": "A tattered scrap of parchment. It shows a path from a particular set of standing stones: through a marsh, up a river, to a place behind a waterfall, then through a forest of sword-sharp trees. Forest Folk glyphs are scrawled all about, but at the end: a silver tree, and X marks the spot.",
-      "text": ""
+      "text": "Ein zerfledderter Pergamentfetzen. Er zeigt einen Weg, der von einer bestimmten Gruppe stehender Steine ausgeht: durch einen Sumpf, einen Fluss hinauf, zu einem Ort hinter einem Wasserfall, dann durch einen Wald aus messerscharfen Bäumen. Überall sind Glyphen des Waldvolks gekritzelt, doch am Ende: ein silberner Baum, und ein X markiert die Stelle."
     },
     "front/choices/treasure-map/to-unlock-the-maps-mysteries-and/text": {
       "source": "To unlock the map’s mysteries and claim the prize at the end, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse der Karte zu entschlüsseln und den Schatz am Ende zu bergen, musst du …"
     },
     "front/choices/treasure-map/find-standing/text": {
       "source": "… find the standing stones that mark the start of the path.",
-      "text": ""
+      "text": "… die stehenden Steine finden, die den Beginn des Weges markieren."
     },
     "front/choices/treasure-map/follow-map/text": {
       "source": "… follow the map to the waterfall.",
-      "text": ""
+      "text": "… der Karte zum Wasserfall folgen."
     },
     "front/choices/treasure-map/enter-fae/text": {
       "source": "… enter the Fae domain beyond.",
-      "text": ""
+      "text": "… das Feenreich dahinter betreten."
     },
     "front/choices/treasure-map/navigate-sword/text": {
       "source": "… navigate the sword-tree forest.",
-      "text": ""
+      "text": "… dich durch den Wald der messerscharfen Bäume kämpfen."
     },
     "front/choices/treasure-map/risk-falling/text": {
       "source": "… risk falling under the soporific spell of the silver tree.",
-      "text": ""
+      "text": "… riskieren, dem schläfrig machenden Zauber des silbernen Baumes zu erliegen."
     },
     "front/choices/treasure-map/claim-branch/text": {
       "source": "… claim a branch from the silver tree.",
-      "text": ""
+      "text": "… einen Zweig vom silbernen Baum erbeuten."
     },
     "front/choices/treasure-map/make-home/text": {
       "source": "… make it home again.",
-      "text": ""
+      "text": "… wieder sicher nach Hause zurückkehren."
     },
     "back/title": {
       "source": "The Silver Branch",
-      "text": ""
+      "text": "Der Silberzweig"
     },
     "back/item/name": {
       "source": "The Silver Branch",
-      "text": ""
+      "text": "Der Silberzweig"
     },
     "back/item/resource/labels/fresh": {
       "source": "fresh",
-      "text": ""
+      "text": "frisch"
     },
     "back/item/resource/labels/fading": {
       "source": "fading",
-      "text": ""
+      "text": "welk"
     },
     "back/item/resource/labels/bare": {
       "source": "bare",
-      "text": ""
+      "text": "kahl"
     },
     "back/choices/intro/a-few-feet-long-laden-with/text": {
       "source": "A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.\n\nWhen you **_jingle the silver branch_**, all who hear it (*reach*, *area* except you) are filled with bliss and forget their woes for a few hours. Roll +CHA: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n\n- The branch starts to fade; if already fading, it goes bare, its powers gone\n- Some (GM’s choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime\n- Some (GM’s choice of who) become obsessed with hearing it jingle again",
-      "text": ""
+      "text": "Ein paar Fuß lang, übersät mit weißen Blüten und klingelnden goldenen Früchten. Er ist überraschend widerstandsfähig und bleibt unbegrenzt frisch, solange seine Kräfte nicht genutzt werden. Es darf jeweils nur ein solcher Zweig das Reich der Feen verlassen.\n\nWenn du **_den Silberzweig zum Klingen bringst_**, werden alle, die ihn hören (Lang, Bereich – außer dir), von Glückseligkeit erfüllt und vergessen für einige Stunden ihre Sorgen. Würfle +CH. Bei einer 10+, wähle eines. **Bei 7–9** wähle eines und die SL wählt eine weitere. **Bei einer 6-** treten alle drei ein.\n\n- Der Zweig beginnt zu verblassen; wenn er bereits verblasst ist, wird er kahl, seine Kräfte sind erloschen.\n- Einige (die SL entscheidet wer) sind tagelang oder wochenlang von Glückseligkeit erfüllt und werden in der Zwischenzeit schwach und kränklich.\n- Einige (die SL entscheidet wer) entwickeln eine Besessenheit danach, den Klang des Zweigs erneut zu hören."
     }
   },
   "twisted-spear": {

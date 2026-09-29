@@ -42,8 +42,10 @@
         "followers": "Gefolgsleute",
         "notes": "Notizen"
       },
-      "railShow": "Show the moves rail",
-      "railHide": "Hide the moves rail",
+      "bandShow": "Ausklappen",
+      "bandHide": "Einklappen",
+      "railShow": "Ausklappen",
+      "railHide": "Einklappen",
       "notes": {
         "bio": "Biographie",
         "notes": "Notizen"
@@ -461,7 +463,7 @@
       "done": "Übernehmen"
     },
     "steadfast": {
-      "namePlaceholder": "Siedlungsname",
+      "namePlaceholder": "Name der Siedlung",
       "startingValues": "Startwerte",
       "fortunes": "Schicksal",
       "surplus": "Überfluss",
@@ -711,7 +713,7 @@
         "charisma": "Charisma",
         "abbr": {
           "str": "ST",
-          "dex": "DE",
+          "dex": "GE",
           "con": "KO",
           "int": "IN",
           "wis": "WE",
@@ -731,6 +733,11 @@
           "weakened": "Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.",
           "dazed": "Out of it, befuddled, not thinking clearly. Take disadvantage when rolling +INT or +WIS.",
           "miserable": "Greatly distressed, angry, unwell, in pain. Take disadvantage when rolling +CON or +CHA."
+        },
+        "name": {
+          "weakened": "Erschöpft",
+          "dazed": "Benommen",
+          "miserable": "Miserabel"
         }
       },
       "attributes": {
@@ -756,6 +763,16 @@
           "armorNone": "No checked item grants armor.",
           "armorBaseItem": "{name} {amount} (base)",
           "armorModifierItem": "{name} {amount}"
+        },
+        "groups": {
+          "advancement": "Advancement"
+        },
+        "note": {
+          "fromPlaybook": "playbook",
+          "byHand": "by hand",
+          "armorNone": "none worn",
+          "damageUnset": "none set",
+          "readyToLevel": "ready to level"
         }
       },
       "levelUp": {
@@ -781,23 +798,23 @@
         "background": "Hintergrund"
       },
       "moves": {
-        "pickTitle": "Choose Starting Moves",
-        "pickInstruction": "Pick up to {count} moves to start with.",
-        "playbookMoves": "Playbook Moves",
-        "basicMoves": "Basic Moves",
-        "expeditionMoves": "Expedition Moves",
-        "specialMoves": "Special Moves",
-        "followerMoves": "Follower Moves",
-        "otherMoves": "Other Moves",
-        "addMove": "Add Move",
-        "removeMove": "Remove Move",
-        "sendToChat": "Send to Chat",
-        "openSource": "Open this move's item sheet",
-        "open": "Open the move",
+        "pickTitle": "Startspielzüge auswählen",
+        "pickInstruction": "Wähle zu Beginn bis zu {count} Spielzüge aus.",
+        "playbookMoves": "Klassenbuch-Spielzüge",
+        "basicMoves": "Grundspielzüge",
+        "expeditionMoves": "Expeditionsspielzüge",
+        "specialMoves": "Sonderspielzüge",
+        "followerMoves": "Spielzüge für Gefolgsleute",
+        "otherMoves": "Andere Spielzüge",
+        "addMove": "Spielzug hinzufügen",
+        "removeMove": "Spielzug entfernen",
+        "sendToChat": "An den Chat senden",
+        "openSource": "Detailansicht dieses Spielzugs öffnen",
+        "open": "Öffne den Spielzug",
         "requires": "Voraussetzung",
         "notMet": "Nicht erfüllt",
-        "lockHint": "Show only the moves this character has taken.",
-        "unlockHint": "Show every move again, to take new ones."
+        "lockHint": "Zeige nur die Spielzüge an, die für diesen Charakter ausgewählt wurden.",
+        "unlockHint": "Zeige alle Spielzüge an, um weitere auswählen zu können."
       },
       "selection": {
         "select": "Auswählen",
@@ -888,7 +905,7 @@
       "surplus": "Surplus",
       "ratingValue": "{rating} rating",
       "rollRating": "Roll {rating}",
-      "rollMove": "Roll {name}",
+      "rollMove": "Würfle {name}",
       "steadingTabs": "Steading sections",
       "npcTraits": "Traits",
       "assetItem": "Asset",
@@ -919,7 +936,10 @@
       "folkSearch": "Search the roster",
       "suggestionUsed": "already used —",
       "assetRequisitioned": "Requisitioned",
-      "improvementSearch": "Search the improvement board"
+      "improvementSearch": "Search the improvement board",
+      "rollStatNamed": "Roll {stat}",
+      "foldedLedger": "Stats and vitals",
+      "debilities": "Debilities"
     },
     "tagGlossary": {
       "general": {
