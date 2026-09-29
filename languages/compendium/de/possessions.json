@@ -20,11 +20,11 @@
   "a-big-stone-coffer": {
     "name": {
       "source": "A big stone coffer",
-      "text": ""
+      "text": "Eine große Steinwanne"
     },
     "description": {
       "source": "*immobile*, *magical*\n\nCarved from serpentine, 4 feet by 2 feet by 2, with a heavy stone lid. When found, it’s likely half-full with soil. To those sensitive to such things, it thrums with the power of fertility and growth.\n\nWhen you **_add fresh soil to the coffer, plant_** **_seeds in it, and close the lid_**, the seeds will germinate and sprout overnight. Each seed will sprout only once, and the sprouts henceforth grow at a regular rate, regardless of whether they stay in the coffer or are planted elsewhere.\n\nWith coordination, this could lead to a boom in Stonetop’s gardens and +1 Surplus each summer. In the hands of a skilled herbalist, this can greatly improve an herb garden and allow the cultivation of rare or difficult plants. The herbalists of Marshedge would kill over this—or even start a war.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": ""
+      "text": "*Unbeweglich*, *Magisch*\n\nAus Serpentinit gemeißelt, vier Fuß mal zwei Fuß mal zwei Fuß groß, mit einem schweren Steindeckel. Wenn sie gefunden wird, ist sie wahrscheinlich zur Hälfte mit Erde gefüllt. Für diejenigen, die für solche Dinge empfänglich sind, pulsiert sie vor der Kraft der Fruchtbarkeit und des Wachstums.\n\nWenn du **_frische Erde in die Wanne füllst, Samen hineinlegst und den Deckel schließt_**, keimen und sprießen die Samen über Nacht. Jeder Samen treibt nur ein einziges Mal aus; danach wachsen die Triebe in normalem Tempo weiter, unabhängig davon, ob sie in der Wanne bleiben oder anderswo eingepflanzt werden.\n\nBei guter Koordination könnte dies zu einem Aufblühen der Gärten von Stonetop und zu +1 Überschuss in jedem Sommer führen. In den Händen eines erfahrenen Kräuterkundigen kann die Wanne einen Kräutergarten erheblich verbessern und den Anbau seltener oder schwer zu kultivierender Pflanzen ermöglichen. Die Kräuterkundigen von Mooresrand würden dafür töten - oder sogar einen Krieg beginnen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     }
   },
   "a-black-menhir": {
@@ -114,15 +114,15 @@
   "a-forked-stick-of-redwood": {
     "name": {
       "source": "A forked stick of redwood",
-      "text": ""
+      "text": "Ein gegabelter Stock aus Rotholz"
     },
     "description": {
       "source": "◇ *magical*\n\nA stout stick about 2 feet long, the bark removed, with fine woodworm trails making entirely-too-regular patterns. If you hold it gently, with a hand on each tine of the fork, you can feel it tugging, pulling you gently in certain directions.\n\nWhen you **_dowse with the redwood stick_**, it will guide you to the nearest site sacred to the spirits of the wild. With practice, you can estimate the distance and even the disposition of the spirits that dwell there.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "◇, *Magisch*\n\nEin kräftiger Stock von etwa 2 Fuß Länge, dessen Rinde entfernt wurde und auf dem feine Holzwurmspuren allzu regelmäßige Muster bilden. Wenn du ihn sanft hältst, mit je einer Hand an einem Zinken der Gabel, kannst du spüren, wie er leicht an dir zieht und dich sanft in bestimmte Richtungen lenkt.\n\nWenn du **_mit der Rotholzwünschelrute umhergehst_**, führt sie dich zum nächstgelegenen Ort, der Naturgeistern heilig ist. Mit etwas Übung kannst du die Entfernung und sogar die Gesinnung der Geister, die dort wohnen, abschätzen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     },
     "outfitItems/a-forked-stick-of-redwood/name": {
       "source": "A forked stick of redwood",
-      "text": ""
+      "text": "Ein gegabelter Stock aus Rotholz"
     }
   },
   "a-fossilized-horn": {
@@ -188,11 +188,11 @@
   "a-large-urn": {
     "name": {
       "source": "A large urn",
-      "text": ""
+      "text": "Eine große Urne"
     },
     "description": {
       "source": "*immobile*, *magical*\n\nWhen the **_urn is unoccupied and a Fae looks_** **_inside_**, it is compelled to crawl in (it can always fit). If you **_then close the lid_**, the Fae is trapped and the urn slowly and painfully peels away its knowledge, essence, and sense of self. In time, nothing remains but a pile of pearls (Value 2).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": ""
+      "text": "*Unbeweglich*, *Magisch*\n\nWenn die **_Urne leer ist und eine Fee hineinschaut_**, wird sie dazu gezwungen hineinzukriechen (sie passt immer hinein). Wenn du **_anschließend den Deckel schließt_**, ist die Fee gefangen, und die Urne schält ihr langsam und qualvoll Wissen, Essenz und Selbstgefühl ab. Mit der Zeit bleibt nichts weiter übrig als ein Haufen Perlen (Wert 2).\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     }
   },
   "a-lead-bracelet": {
@@ -304,11 +304,11 @@
   "a-stone-cup": {
     "name": {
       "source": "A stone cup",
-      "text": ""
+      "text": "Ein steinerner Becher"
     },
     "description": {
       "source": "*magical*\n\nA lump of limestone, big as a large man’s fist, sheared off smooth at one end and hollowed out. Water slowly seeps from the interior wall, filling the cup in about half an hour. The water is hard, mineral-rich but potable, and just a little cursed.\n\nWhen you **_drink water produced by the cup_**, you’ll have troubling dreams the next time you sleep—dreams of suffocation and endless wet caverns and huge uncaring things stirring in the lightless depths. Roll 1d6: **on a 1**, you wake up screaming and will get no rest this evening; **on a 2-6**, the dreams are merely unsettling.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "*Magisch*\n\nEin Kalksteinbrocken, so groß wie die Faust eines großen Mannes, an einem Ende glatt abgeschliffen und ausgehöhlt. Aus der Innenwand sickert langsam Wasser, das den Becher in etwa einer halben Stunde füllt. Das Wasser ist hart, mineralreich, aber trinkbar – und nur ein wenig verflucht.\n\nWenn du **_Wasser trinkst, das der Becher hervorgebracht hat_**, wirst du beim nächsten Schlafen von beunruhigenden Träumen heimgesucht – Träume von Ersticken und endlosen feuchten Höhlen und riesigen, gleichgültigen Wesen, die sich in den lichtlosen Tiefen regen. Würfle 1W6: **Bei einer 1** wachst du schreiend auf und findest an diesem Abend keine Erholung. **Bei 2–6** sind die Träume lediglich beunruhigend.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     }
   },
   "a-sturdy-banded-box": {
@@ -356,7 +356,7 @@
     },
     "description": {
       "source": "◇ *magical*\n\nIt’s about as thick as your finger and maybe 30 feet long stretched out, with skinny little tendrils. It looks rather dried out, but moves slightly if you touch it or its pot. If you water it, it twitches excitedly.\n\nA plant spirit is bound to the vine and pot. If you befriend it and carry its pot, it will animate and act as a follower: *grabby*, *clever*, *playful*; **HP** 3; **Damage** 0; **Instinct** to not let go; **Cost** affection, play time.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords}.*",
-      "text": "◇, *Magisch*\n\nSie ist etwa so dick wie dein Finger und ausgebreitet vielleicht 30 Fuß  lang, mit dünnen, kleinen Ranken. Sie sieht ziemlich vertrocknet aus, bewegt sich aber leicht, wenn du sie oder ihren Topf berührst. Wenn du sie gießt, zuckt sie aufgeregt.\n\nEin Pflanzengeist ist an die Ranke und den Topf gebunden. Wenn du dich mit ihm anfreundest und seinen Topf mit dir führst, wird er lebendig und dient dir als Gefolgsmann: *Fesselnd*, *Schlau*, *Verspielt*; 3 TP; Schaden 0; Instinkt: nicht loslassen; Kosten: Zuneigung, Spielzeit.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
+      "text": "◇, *Magisch*\n\nSie ist etwa so dick wie dein Finger und ausgebreitet vielleicht 30 Fuß  lang, mit dünnen, kleinen Ranken. Sie sieht ziemlich vertrocknet aus, bewegt sich aber leicht, wenn du sie oder ihren Topf berührst. Wenn du sie gießt, zuckt sie aufgeregt.\n\nEin Pflanzengeist ist an die Rebe und den Topf gebunden. Wenn du dich mit ihm anfreundest und seinen Topf mit dir führst, wird er lebendig und dient dir als Gefolgsmann: *Fesselnd*, *Schlau*, *Verspielt*; 3 TP; Schaden 0; Instinkt: nicht loslassen; Kosten: Zuneigung, Spielzeit.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten}.*"
     },
     "outfitItems/a-vine-in-a-rune-carved-pot/name": {
       "source": "A vine in a rune-carved pot",
@@ -562,15 +562,15 @@
   "bronze-ring": {
     "name": {
       "source": "Bronze ring",
-      "text": ""
+      "text": "Bronzering"
     },
     "description": {
       "source": "◇ *magical*, *fireproof*, hours\n\nAbout 8 inches in diameter, an inch thick throughout, scorched and smeared with ash. A button protrudes, with a Tempest Lord glyph that might mean “stubborn.”\n\nWhen you **_find the ring_**, it has enough power to run for 1d4-1 hours.\n\nWhen you **_press the button_**, the ring fixes in place, defying gravity. It simply will not budge. The effect ends if the ring is bent or broken, or when it runs out of power. There’s no obvious way to end the effect early. When **_the ring runs out of power_**, the button pops out and the effect ends.\n\nWhen **_you heat the ring in a forge or kiln_** for about eight hours, it gains an hour of use (up to 3 hours).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Feuerresistent*, ○○○ Stunden\n\nEtwa acht Zoll im Durchmesser, einen Zoll dick, versengt und mit Asche verschmiert. \n\nEin Knopf ragt hervor, auf dem eine Glyphe der Sturmfürsten zu sehen ist, die möglicherweise „hartnäckig“ bedeutet.\n\nWenn du **_den Ring findest_**, verfügt er über genügend Energie, um 1W4-1 Stunden lang zu funktionieren.\n\nWenn du **_den Knopf drückst_**, fixiert sich der Ring an Ort und Stelle und trotzt der Schwerkraft. Er rührt sich einfach nicht von der Stelle. Der Effekt endet, wenn der Ring verbogen oder zerbrochen wird oder wenn die Energie aufgebraucht ist. Es gibt keine offensichtliche Möglichkeit, den Effekt vorzeitig zu beenden. Wenn die Energie des Rings aufgebraucht ist, springt der Knopf heraus und der Effekt endet.\n\nWenn du **_den Ring etwa acht Stunden lang in einer Schmiede oder einem Ofen erhitzt_**, verlängert sich die Nutzungsdauer um eine Stunde (bis zu 3 Stunden).\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Sturmfürsten}.*"
     },
     "outfitItems/bronze-ring/name": {
       "source": "Bronze ring",
-      "text": ""
+      "text": "Bronzering"
     },
     "outfitItems/bronze-ring/note": {
       "source": "hours",
@@ -1010,11 +1010,11 @@
   "length-of-braided-leather": {
     "name": {
       "source": "Length of braided leather",
-      "text": ""
+      "text": "Geflochtene Lederschnur"
     },
     "description": {
       "source": "*magical*\n\n3 feet long, frayed on one end, and crusty with flaking... something. The braids entwine 2d4 beads of redwood. Each bead contains some harm: a wound (1d10 damage, *messy*, ignores armor), a sickness, a poison, a delusion. The whole thing binds a spirit of blight.\n\nWhen you **_unweave the braid and let a_** **_redwood bead drop upon the earth_**, the spirit manifests as a warm, damp wind. Name someone in your presence; the spirit inflicts upon them whatever harm was stored in the bead. If you do not name someone in your presence, the spirit will choose someone at random (maybe even you).\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild}.*",
-      "text": ""
+      "text": "*Magisch*\n\nDrei Fuß lang, an einem Ende ausgefranst und mit einem verkrusteten, abblätternden … irgendwas bedeckt. In die Flechtarbeit sind 2W4 Perlen aus Rotholz eingeflochten. Jede Perle birgt ein Übel: eine Wunde (1W10 Schaden, Brutal, ignoriert Rüstung), eine Krankheit, ein Gift oder eine Wahnvorstellung. Das Ganze bindet einen Geist des Verderbens.\n\nWenn du **_das Geflecht auftrennst und eine Rotholzperle auf die Erde fallen lässt_**, manifestiert sich der Geist als warmer, feuchter Wind. Nenne jemanden, in deiner Gegenwart; der Geist fügt dieser Person das Übel zu, das in der Perle gespeichert war. Wenn du niemanden in deiner Gegenwart benennst, sucht sich der Geist zufällig jemanden aus (vielleicht sogar dich selbst).\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister}.*"
     }
   },
   "luthiers-tools": {
@@ -1262,15 +1262,15 @@
   "silvery-horn": {
     "name": {
       "source": "Silvery horn",
-      "text": ""
+      "text": "Silbernes Horn"
     },
     "description": {
       "source": "◇ *magical*, *loud*\n\nWhen you **_blow the horn outside, at night,_** **_in the presence of the undead_**, the horn crumbles and a mist rises. The undead flee, and the Pale Hunter and his hounds soon appear to chase them.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{The Pale Hunter}.*",
-      "text": ""
+      "text": "◇, *Magisch*, *Laut*\n\nWenn du **_das Horn nachts im Freien in Gegenwart von Untoten bläst_**, zerfällt das Horn und ein Nebel steigt auf. Die Untoten fliehen, und der bleiche Jäger erscheint kurz darauf mit seinen Hunden, um sie zu jagen.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{Der Bleiche Jäger}.*"
     },
     "outfitItems/silvery-horn/name": {
       "source": "Silvery horn",
-      "text": ""
+      "text": "Silbernes Horn"
     }
   },
   "silvery-tuning-fork": {
@@ -1348,11 +1348,11 @@
   "storm-cloud-potion": {
     "name": {
       "source": "Storm-cloud potion",
-      "text": ""
+      "text": "Sturmwolkentrank"
     },
     "description": {
       "source": "*magical*, *fragile*\n\nA glass vial of dark-grey liquid, roiling and shot through with sparks.\n\nWhen you **_drink a storm-cloud potion_**, lightning courses through you. Take 1d10 damage (ignores armor) and mark a debility. Should you survive, hold 3 Storm.\n\nWhile you **_hold any Storm_**, you cannot feel pain or fear, tell friend from foe, speak coherently, or exercise patience or care. Add your Storm to your Armor, and your melee and thrown attacks do +Storm damage (+*loud*, +*forceful*).\n\nWhen you **_reduce someone or something to 0_** **_HP_**, lose 1 Storm.\n\n*An artifact of the wider world — see @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords}.*",
-      "text": ""
+      "text": "*Magisch*, *Fragil*\n\nEine Glasphiole mit dunkelgrauer Flüssigkeit, die umherwirbelt und von Funken durchzogen ist.\n\nWenn du **_einen Sturmwolken­trank trinkst_**, durchströmt dich ein Blitz. Erleide 1W10 Schaden (ignoriert Rüstung) und markiere eine Beeinträchtigung. Solltest du überleben, nimm 3 Sturm.\n\nSolange du **_Sturm besitzt_**, kannst du weder Schmerz noch Angst empfinden, Freund und Feind unterscheiden, zusammenhängend sprechen oder Geduld und Fürsorge aufbringen. Addiere deinen Sturm zu deiner Rüstung und deine Nahkampf- und Wurfwaffenangriffe verursachen +Sturm Schaden (+*Laut*, +*Wuchtig*).\n\nWenn du **_jemandem oder etwas Schaden zufügst und seine TP dadurch auf 0 fallen_**, verlierst du 1 Sturm.\n\n*Ein Artefakt aus der weiten Welt — siehe @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Sturmfürsten}.*"
     }
   },
   "symbol-of-authority": {
@@ -1664,7 +1664,7 @@
   "_folders": {
     "artifacts": {
       "source": "Artifacts",
-      "text": ""
+      "text": "Artefakte"
     }
   }
 }
