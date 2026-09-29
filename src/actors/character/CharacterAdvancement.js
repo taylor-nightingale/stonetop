@@ -5,7 +5,9 @@ import {
 import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { MoveBullets } from "../../model/snapshot/character/MoveBullets.js";
 import { MoveGloss } from "../../model/snapshot/character/MoveGloss.js";
+import { MoveCategorySnapshot } from "../../model/snapshot/character/MoveSnapshot.js";
 import { moveSlugOf } from "../embeddedMoves.js";
+import { Background } from "../../model/data/character/Background.js";
 
 export const LEVEL_UP_SLUG = "level-up";
 
@@ -77,7 +79,7 @@ export class CharacterAdvancement {
 		switch (step.kind) {
 			case "spend":      return new AdvanceRow(step, advancement);
 			case "advance":    return null;
-			case "chooseMove": return new ChooseMoveRow(step, advancement, this.chosenMoveCount);
+			case "chooseMove": return new ChooseMoveRow(step, advancement, this.chosenMoveCount, this._playbookMovesSection());
 			case "stock":      return this._stockRow(step, advancement);
 			case "invocation": return this._invocationRow(step, advancement);
 			case "review":     return new ReviewRow(step);
@@ -105,8 +107,9 @@ export class CharacterAdvancement {
 	/**
 	 * How many moves this character has CHOSEN, as against the ones a source handed them.
 	 *
-	 * A playbook and an insert class each name the subset of their moves a character starts with;
-	 * everything acquired beyond that list was bought with a level. Counted in INSTANCES, not items,
+	 * A playbook and an insert class each name the subset of their moves a character starts with, and
+	 * a background hands over more of the playbook's; everything acquired beyond those was bought with
+	 * a level. Counted in INSTANCES, not items,
 	 * because a move that can be taken more than once costs a level each time — and a starting move
 	 * taken twice is one purchase, not two.
 	 */
@@ -120,12 +123,23 @@ export class CharacterAdvancement {
 			}, 0);
 	}
 
-	// The starting lists of every source that has one on this character. Read live off the items,
-	// because a move item records that it is acquired but not who decided that for it.
+	// The starting lists of every source that has one on this character, and the playbook move the
+	// chosen background hands over — filed under the playbook's category exactly like a bought one.
+	// Read live off the items, because a move item records that it is acquired but not who decided
+	// that for it.
 	_handedSlugs() {
-		return new Set([...this._actor.items]
-			.filter(item => item.type === "playbook" || item.type === "insert")
-			.flatMap(item => item.system?.startingMoves ?? []));
+		const sources = [...this._actor.items].filter(item => item.type === "playbook" || item.type === "insert");
+		const background = this._actor.system?.background?.selected;
+		return new Set(sources.flatMap(item => [
+			...(item.system?.startingMoves ?? []),
+			...(item.type === "playbook" ? Background.find(item.system, background)?.moveSlugs ?? [] : []),
+		]));
+	}
+
+	// The playbook's panel on the Moves tab, where the move is chosen; none without a playbook.
+	_playbookMovesSection() {
+		const slug = [...this._actor.items].find(item => item.type === "playbook")?.system?.slug;
+		return slug ? MoveCategorySnapshot.sectionKeyFor(`playbook-${slug}`) : "";
 	}
 
 	_insertBySlug(slug) {

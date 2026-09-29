@@ -4,7 +4,7 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
 import { CssColor } from "./cssColor.js";
 
 // What the text-parsing tests cannot ask: given core's stylesheet, its cascade layers and ours on
-// top, what colour does this element ACTUALLY end up? Every theming bug that reached the user was
+// top, what color does this element ACTUALLY end up? Every theming bug that reached the user was
 // invisible to the other tests in this directory and obvious here.
 //
 // The invariant is deliberately about the rendered result rather than about which variable we set.
@@ -71,29 +71,29 @@ ${CHAT_KINDS.map(chatMessage).join("\n")}
   </section>
 `;
 
-const COLOUR_PROPS = ["color", "background-color"];
+const color_PROPS = ["color", "background-color"];
 
 const PROBES = {
-	body:      { selector: "body",          properties: COLOUR_PROPS },
-	sidebar:   { selector: "#p-sidebar",    properties: COLOUR_PROPS },
-	folder:    { selector: "#p-folder-name", properties: COLOUR_PROPS },
-	entry:     { selector: "#p-entry",      properties: COLOUR_PROPS },
-	search:    { selector: "#p-search",     properties: COLOUR_PROPS },
-	app:       { selector: "#p-app",        properties: COLOUR_PROPS },
-	heading:   { selector: "#p-heading",    properties: COLOUR_PROPS },
-	text:      { selector: "#p-text",       properties: COLOUR_PROPS },
-	button:    { selector: "#p-button",     properties: COLOUR_PROPS },
-	input:     { selector: "#p-input",      properties: COLOUR_PROPS },
-	link:      { selector: "#p-link",       properties: COLOUR_PROPS },
-	chat:      { selector: "#p-chat",        properties: COLOUR_PROPS },
-	chatScroll:{ selector: "#p-chat-scroll", properties: COLOUR_PROPS },
-	chatLog:   { selector: "#p-chat-log",    properties: COLOUR_PROPS }
+	body:      { selector: "body",          properties: color_PROPS },
+	sidebar:   { selector: "#p-sidebar",    properties: color_PROPS },
+	folder:    { selector: "#p-folder-name", properties: color_PROPS },
+	entry:     { selector: "#p-entry",      properties: color_PROPS },
+	search:    { selector: "#p-search",     properties: color_PROPS },
+	app:       { selector: "#p-app",        properties: color_PROPS },
+	heading:   { selector: "#p-heading",    properties: color_PROPS },
+	text:      { selector: "#p-text",       properties: color_PROPS },
+	button:    { selector: "#p-button",     properties: color_PROPS },
+	input:     { selector: "#p-input",      properties: color_PROPS },
+	link:      { selector: "#p-link",       properties: color_PROPS },
+	chat:      { selector: "#p-chat",        properties: color_PROPS },
+	chatScroll:{ selector: "#p-chat-scroll", properties: color_PROPS },
+	chatLog:   { selector: "#p-chat-log",    properties: color_PROPS }
 };
 
 for (const kind of CHAT_KINDS) {
-	PROBES[kind] = { selector: `#p-${kind}`, properties: [...COLOUR_PROPS, "--chat-message-background"] };
-	PROBES[`${kind}Body`] = { selector: `#p-${kind}-body`, properties: COLOUR_PROPS };
-	PROBES[`${kind}Hint`] = { selector: `#p-${kind}-hint`, properties: COLOUR_PROPS };
+	PROBES[kind] = { selector: `#p-${kind}`, properties: [...color_PROPS, "--chat-message-background"] };
+	PROBES[`${kind}Body`] = { selector: `#p-${kind}-body`, properties: color_PROPS };
+	PROBES[`${kind}Hint`] = { selector: `#p-${kind}-hint`, properties: color_PROPS };
 }
 
 // Probes for surfaces only — nothing here carries text of its own to be legible against.
@@ -178,9 +178,9 @@ describe.runIf(canProbe())("rendered theme", () => {
 			// `body { color: var(--color-light-3) }` — core reaches straight past the semantic layer
 			// into the base ramp. Semantic bridging cannot reach this; repainting the ramp can.
 			it("paints body text from the theme, not core's palette default", () => {
-				const bodyColour = CssColor.parse(results.get("body").get("color"));
-				expect(bodyColour).toBeTruthy();
-				expect([bodyColour.r, bodyColour.g, bodyColour.b]).not.toEqual([231, 209, 177]);
+				const bodycolor = CssColor.parse(results.get("body").get("color"));
+				expect(bodycolor).toBeTruthy();
+				expect([bodycolor.r, bodycolor.g, bodycolor.b]).not.toEqual([231, 209, 177]);
 			});
 		});
 	}

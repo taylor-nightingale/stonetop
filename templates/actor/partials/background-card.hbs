@@ -1,0 +1,29 @@
+{{!-- A background: its name, its track (the Destined's omens), its words and its own picks. While
+      choosing, every background shows all of that — which arcanum an Antiquarian starts with is part
+      of what the background is — and the name is the radio's label. The card's HEADER is the label,
+      not the card: the picks inside are controls of their own, and a label round them nests labels.
+      Context: a BackgroundOptionSnapshot. Params: `choosing`. --}}
+<div class="stonetop-item{{#if selected}} is-checked{{/if}}">
+	{{#if choosing}}
+	<label class="stonetop-item-header">
+		<input type="radio" class="stonetop-item-check" data-change-action="selectBackground" name="stonetop-background" value="{{slug}}"{{#if selected}} checked{{/if}}>
+		<strong class="stonetop-item-name">{{rich label}}</strong>
+		{{#if resource}}<span class="stonetop-item-resources">{{> "stonetop.resource-track" resource=resource btnClass="stonetop-background-resource-btn" action="backgroundResourcePip" slug=slug}}</span>{{/if}}
+	</label>
+	{{else}}
+	<div class="stonetop-item-header">
+		<strong class="stonetop-item-name">{{rich label}}</strong>
+		{{#if resource}}<span class="stonetop-item-resources">{{> "stonetop.resource-track" resource=resource btnClass="stonetop-background-resource-btn" action="backgroundResourcePip" slug=slug}}</span>{{/if}}
+	</div>
+	{{/if}}
+	{{#if description.raw}}<div class="stonetop-item-description">{{rich description}}</div>{{/if}}
+	{{#if choices}}
+	<div class="stonetop-bg-choices">
+		{{#if choosing}}
+		{{#each choices.list}}{{> "stonetop.choice-row" cgContext="background" cgGroup=../choices.slug namePrefix=../slug}}{{/each}}
+		{{else}}
+		{{> "stonetop.choice-group-condensed" blocks=choices.condensed}}
+		{{/if}}
+	</div>
+	{{/if}}
+</div>

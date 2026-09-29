@@ -1,0 +1,5 @@
+{{!-- A section of the playbook's own story at rest: the heading's words where there is one, then what
+      was chosen in each group. The title is on the bar, so a group that opens with it leaves it out.
+      Params: `lore` (LoreSection). --}}
+{{#if lore.heading}}{{#each lore.heading.list}}{{#if (hasText content.text)}}<div class="stonetop-choice-description">{{rich content.text}}</div>{{/if}}{{/each}}{{/if}}
+{{#each lore.groups}}{{> "stonetop.choice-group" cgContext="lore" locked=true hideLeadTitle=(and ../lore.titleIsLeadRow @first)}}{{/each}}

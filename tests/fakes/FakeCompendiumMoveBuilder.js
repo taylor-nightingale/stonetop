@@ -83,6 +83,16 @@ export class FakeCompendiumMoveBuilder {
 		return this;
 	}
 
+	withPhase(phase) {
+		this._phase = phase;
+		return this;
+	}
+
+	withReplaces(slug) {
+		this._replaces = slug;
+		return this;
+	}
+
 	build() {
 		const name = this._name;
 		const slug = this._slug ?? toSlug(name);
@@ -98,6 +108,8 @@ export class FakeCompendiumMoveBuilder {
 			outfitEffects: this._outfitEffects ?? [],
 			moveType: this._moveType ?? null,
 			moveResults: this._moveResults ?? null,
+			phase: this._phase ?? null,
+			replaces: this._replaces ?? null,
 		};
 		return {
 			_id: slug,

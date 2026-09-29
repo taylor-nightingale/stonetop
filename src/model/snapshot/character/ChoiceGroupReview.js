@@ -13,12 +13,13 @@ const INLINE_SEPARATOR = " · ";
  * sub-heading, a card pick keeps its card. Locking a tab must not restyle it.
  */
 export class ReviewLine {
-	constructor(form, text, detail, note, moves = null) {
+	constructor(form, text, detail, note, moves = null, answer = null) {
 		this.form   = form;
 		this.text   = text;
 		this.detail = detail;
 		this.note   = note;
 		this.moves  = moves;   // EntryRowMoves | null — the row's inline move grant, resolved at render
+		this.answer = answer;  // RichText | null — what was written in a blank that follows the lead
 	}
 
 	/** A bare line — a ticked entry that is nothing but its own text. */
@@ -29,6 +30,10 @@ export class ReviewLine {
 
 	/** A pick with a description: the editor's card. */
 	static card(text, description) { return new ReviewLine("card", text, description, null); }
+
+	/** A blank that follows its row's first sentence, answered: that sentence, the answer where the
+	 *  blank was, then the rest of the row (a Terrible Purpose's triggers). */
+	static answered(lead, answer, rest) { return new ReviewLine("answered", lead, rest, null, null, answer); }
 
 	/** The move(s) a row grants: the editor's inline move-row, which is where they are rolled. */
 	static grantedMoves(moves) { return new ReviewLine("moves", null, null, null, moves); }
@@ -113,6 +118,11 @@ class Condenser {
 
 	#onEntry(row) {
 		const label = labelOf(row.content ?? {});
+		if (row.input?.followsLead && hasText(row.input.value)) {
+			this.#closeInline();
+			this.#addLine(ReviewLine.answered(row.content.lead, rich(row.input.value), row.content.rest));
+			return;
+		}
 		if (row.input && hasText(row.input.value)) {
 			// A write-in is its own block: the row's own words are the question, the answer is the line.
 			this.#closeBlock();
@@ -177,7 +187,7 @@ function blockOf(head, lines) {
 
 // Prose: a row that asks or explains rather than recording anything — nothing to tick, write in,
 // or grant.
-function isProse(row) {
+export function isProse(row) {
 	return row.type === "entry" && !row.track && !row.input && !row.followers && !row.moves
 		&& (hasText(row.content?.title) || hasText(row.content?.text));
 }

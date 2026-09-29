@@ -471,6 +471,23 @@ describe("CharacterMoves.initBasicMoves", () => {
 		expect(actor.createdDocs.find(d => d.name === "Death's Door").system.categoryKey).toBe("special");
 	});
 
+	// The rail draws the expedition moves under the part of the journey each is for.
+	it("groups the seeded expedition moves by phase, and only those", async () => {
+		const repo = new FakeMoveRepository([], [
+			new FakeCompendiumMoveBuilder().withName("Defy Danger").withMoveType("basic").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Forage").withMoveType("expedition").withPhase("on-the-road").asStarting().build(),
+			new FakeCompendiumMoveBuilder().withName("Outfit").withMoveType("expedition").withPhase("setting-out").asStarting().build(),
+		]);
+		const m = makeMoves({repo, actor: makeActor()});
+		await m.initBasicMoves();
+
+		const cats = (await m.buildSnapshot()).categories;
+		const expedition = cats.find(c => c.key === "expedition");
+		expect(expedition.phases.map(p => [p.key, p.moves.map(mv => mv.name)]))
+			.toEqual([["setting-out", ["Outfit"]], ["on-the-road", ["Forage"]]]);
+		expect(cats.find(c => c.key === "basic").phases).toBeNull();
+	});
+
 	// Every reference heading, not just expedition: these were English literals in the snapshot, so a
 	// German table read "Basic Moves" over a sheet of German moves. A playbook's heading is its own
 	// name and is NOT localized here — it comes from the pack, via `categoryLabel`.
@@ -627,8 +644,20 @@ describe("CharacterMoves.addCategory", () => {
 	it("appends the category", async () => {
 		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
 		const m = makeMoves({repo});
+		await m.addCategory("kin-lore", "Kin Lore", ["haunt"]);
+		expect((await m.buildSnapshot()).categories.some(c => c.key === "kin-lore" && c.label === "Kin Lore")).toBe(true);
+	});
+
+	// An insert's moves are on its own tab (D12): the category is the character's, and the Moves tab
+	// leaves it out, as it does an arcanum's and a background's.
+	it("keeps an insert's category off the Moves tab, its moves still the character's", async () => {
+		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
+		const m = makeMoves({repo});
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
-		expect((await m.buildSnapshot()).categories.some(c => c.key === "insert-revenant" && c.label === "Revenant")).toBe(true);
+		const snapshot = await m.buildSnapshot();
+		expect(snapshot.categories.some(c => c.key === "insert-revenant")).toBe(false);
+		expect(snapshot.bySlug.haunt.name).toBe("Haunt");
+		expect((await m.getMoveSnapshotsForCategory("insert-revenant")).map(mv => mv.name)).toEqual(["Haunt"]);
 	});
 
 	it("resolves referenced moves by slug, preserving order", async () => {
@@ -669,7 +698,7 @@ describe("CharacterMoves.addCategory", () => {
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
 		await m.incrementMove("insert-revenant", "haunt");
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
-		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
+		expect((await m.getMoveSnapshotsForCategory("insert-revenant"))[0].selection.value).toBe(1);
 	});
 
 	it("drops a move the source no longer grants", async () => {
@@ -680,7 +709,7 @@ describe("CharacterMoves.addCategory", () => {
 		const m = makeMoves({repo, actor});
 		await m.addCategory("insert-revenant", "Revenant", ["haunt", "spirit-sight"]);
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
-		expect((await m.buildSnapshot()).categories[0].moves.map(mv => mv.name)).toEqual(["Haunt"]);
+		expect((await m.getMoveSnapshotsForCategory("insert-revenant")).map(mv => mv.name)).toEqual(["Haunt"]);
 	});
 
 	// A compendium still loading resolves nothing. That must not read as "this insert grants nothing".
@@ -706,7 +735,7 @@ describe("CharacterMoves.addCategory", () => {
 		const actor = makeActor();
 		const m = makeMoves({repo, actor});
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
-		expect((await m.buildSnapshot()).categories[0].moves[0].ownedId).toBe(actor.createdDocs[0]._id);
+		expect((await m.getMoveSnapshotsForCategory("insert-revenant"))[0].ownedId).toBe(actor.createdDocs[0]._id);
 	});
 
 	it("a startingSlugs move seeds categoryKey + acquired=true + instanceCount=1", async () => {
@@ -735,8 +764,8 @@ describe("CharacterMoves.addCategory", () => {
 	it("stored category has renderStyle=standard and allowAdditional=false", async () => {
 		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
 		const m = makeMoves({repo});
-		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
-		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "insert-revenant");
+		await m.addCategory("kin-lore", "Kin Lore", ["haunt"]);
+		const cat = (await m.buildSnapshot()).categories.find(c => c.key === "kin-lore");
 		expect(cat.renderStyle).toBe("standard");
 		expect(cat.allowAdditional).toBe(false);
 	});
@@ -745,14 +774,14 @@ describe("CharacterMoves.addCategory", () => {
 		const repo = new FakeMoveRepository().addInsertMove(haunt().build());
 		const m = makeMoves({repo});
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"], ["haunt"]);
-		expect((await m.buildSnapshot()).categories[0].moves[0].selection.value).toBe(1);
+		expect((await m.getMoveSnapshotsForCategory("insert-revenant"))[0].selection.value).toBe(1);
 	});
 
 	it("preserves choices from repo move so snapshot shows a ChoiceGroup", async () => {
 		const repo = new FakeMoveRepository().addInsertMove(haunt().withChoices(CHOICES_DATA).build());
 		const m = makeMoves({repo});
 		await m.addCategory("insert-revenant", "Revenant", ["haunt"]);
-		const snap = (await m.buildSnapshot()).categories[0].moves[0];
+		const snap = (await m.getMoveSnapshotsForCategory("insert-revenant"))[0];
 		expect(snap.choices).toBeInstanceOf(ChoiceGroup);
 		expect(snap.choices.list).toHaveLength(CHOICES_DATA.list.length);
 	});
@@ -842,6 +871,31 @@ describe("CharacterMoves.incrementMove", () => {
 		await m.incrementMove("playbook-the-heavy", "alpha");
 		expect(actor.updatedDocs[0].system.acquired).toBe(true);
 		expect(actor.updatedDocs[0].system.instanceCount).toBe(1);
+	});
+});
+
+// ── clearMove ─────────────────────────────────────────────────────────────────
+
+// A move's one box means "you have it": clearing it clears every take, however many there were.
+describe("CharacterMoves.clearMove", () => {
+	it("takes every take away", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").withRepeatMax(3).build()]);
+		const m = makeMoves({repo});
+		await initPlaybook(m, repo);
+		await m.incrementMove("playbook-the-heavy", "alpha");
+		await m.incrementMove("playbook-the-heavy", "alpha");
+		await m.clearMove("playbook-the-heavy", "alpha");
+		const alpha = (await m.buildSnapshot()).categories[0].moves[0];
+		expect([alpha.timesTaken, alpha.isTaken]).toEqual([0, false]);
+	});
+
+	it("writes nothing for a move not taken", async () => {
+		const repo = new FakeMoveRepository([new FakeCompendiumMoveBuilder().withName("Alpha").build()]);
+		const actor = makeActor();
+		const m = makeMoves({repo, actor});
+		await initPlaybook(m, repo);
+		await m.clearMove("playbook-the-heavy", "alpha");
+		expect(actor.updatedDocs).toHaveLength(0);
 	});
 });
 

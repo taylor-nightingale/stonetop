@@ -26,7 +26,7 @@ describe("StonetopSteading encapsulation", () => {
 	it("exposes only its own named surface", () => {
 		const own = Object.getOwnPropertyNames(Object.getPrototypeOf(steading()));
 		expect(own).not.toContain("moves");
-		expect(own).toContain("setMoveChecked");
+		expect(own).toContain("sendMoveToChat");
 		expect(own).toContain("setChoicePickFor");
 		expect(own).toContain("clearChoicePickFor");
 	});

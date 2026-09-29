@@ -142,6 +142,21 @@ describe("ChoiceGroup#condensed", () => {
 		]);
 	});
 
+	// Reported: the name sat under all of a Terrible Purpose's triggers. It is read where its blank
+	// is — after the sentence it answers — and the triggers follow.
+	it("reads a blank that follows the lead as that sentence, the answer, then the rest", () => {
+		const purpose = { slug: "terrible-purpose", list: [
+			{ type: "entry", content: { title: "Terrible Purpose", text: "Choose 1:" } },
+			{ type: "entry", slug: "longing", track: { max: 1 }, input: { type: "inline", follows: "lead" },
+			  content: { text: "**LONGING** — Name them.\n\nWhen you watch them, heal." } },
+		]};
+		const [block] = group(purpose, { "terrible-purpose": { longing: 1, "longing-input": "Mira" } }).condensed;
+		expect(raw(block.lead)).toBe("Choose 1:");
+		const [line] = block.lines;
+		expect([line.form, raw(line.text), raw(line.answer), raw(line.detail)])
+			.toEqual(["answered", "**LONGING** — Name them.", "Mira", "When you watch them, heal."]);
+	});
+
 	// An invocation carries its name in `content.subtitle` (title is null, the rules text is the
 	// body) — read title-only and the line opens with a rules paragraph and never names the thing.
 	it("names a line by its subtitle when that is where the name lives", () => {

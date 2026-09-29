@@ -7,8 +7,6 @@ import { SteadingMoveCategories } from "../../model/data/steading/SteadingMoveCa
 import {
 	withCategoryFields,
 	computeSelectable,
-	incrementMove,
-	decrementMove,
 	buildMoveSnapshot,
 	openMoveSheet,
 	resolveMoveBySlug,
@@ -86,14 +84,6 @@ export class SteadingMoves {
 				compendiumId: item.pack ? item._id ?? null : null,
 			}),
 		]);
-	}
-
-	async incrementMove(categoryKey, moveSlug) {
-		await incrementMove(this._actor, categoryKey, moveSlug);
-	}
-
-	async decrementMove(categoryKey, moveSlug) {
-		await decrementMove(this._actor, categoryKey, moveSlug);
 	}
 
 	async setMoveResourceCurrent(moveSlug, current) {

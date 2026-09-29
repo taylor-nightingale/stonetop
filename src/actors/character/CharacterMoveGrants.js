@@ -1,6 +1,6 @@
 import { GrantSource, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
 import { ReferenceMoveSeeder } from "../ReferenceMoveSeeder.js";
-import { decrementMove, incrementMove, withCategoryFields } from "../embeddedMoves.js";
+import { clearMove, decrementMove, incrementMove, withCategoryFields } from "../embeddedMoves.js";
 
 
 /**
@@ -101,6 +101,10 @@ export class CharacterMoveGrants {
 
 	async incrementMove(categoryKey, moveSlug) {
 		await incrementMove(this._actor, categoryKey, moveSlug);
+	}
+
+	async clearMove(categoryKey, moveSlug) {
+		await clearMove(this._actor, categoryKey, moveSlug);
 	}
 
 	async decrementMove(categoryKey, moveSlug) {

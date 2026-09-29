@@ -101,7 +101,7 @@ describe.skipIf(!enabled)("extractArchBadges against the real Book I", () => {
 		for (const badge of ARCH_BADGES) {
 			const buf = readFileSync(join(dir, `${badge.slug}.png`));
 			expect(buf[24]).toBe(8);   // bit depth
-			expect(buf[25]).toBe(6);   // colour type: RGBA
+			expect(buf[25]).toBe(6);   // color type: RGBA
 		}
 	});
 

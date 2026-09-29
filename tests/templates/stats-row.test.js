@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import { renderPartialInto } from "../fakes/renderTemplate.js";
 import { StatSnapshot } from "../../src/model/snapshot/character/StatSnapshot.js";
 import { DebilitySnapshotBuilder } from "../../src/model/snapshot/character/DebilitySnapshot.js";
+import { StatPairSnapshot } from "../../src/model/snapshot/character/StatPairSnapshot.js";
 
 /**
  * The stats row and the debility bands under it, rendered from the REAL partials.
@@ -36,8 +37,9 @@ const debilities = (...active) => DEBILITIES.map(([key, name, stats, description
 		.withActive(active.includes(key))
 		.build());
 
-const stats = (editable = true) =>
-	renderPartialInto(document.createElement("div"), "stonetop.actor-stats", { stats: STATS, editable });
+const stats = (editable = true, ...active) =>
+	renderPartialInto(document.createElement("div"), "stonetop.actor-stats",
+		{ pairs: StatPairSnapshot.pairsFrom(debilities(...active), STATS), editable });
 
 const bands = (...active) =>
 	renderPartialInto(document.createElement("div"), "stonetop.debility-bands", { debilities: debilities(...active) });
@@ -47,6 +49,14 @@ describe("the stats row", () => {
 		const keys = [...stats().querySelectorAll(".stonetop-stat")].map(el => el.dataset.stat);
 		expect(keys).toEqual(["str", "dex", "int", "wis", "con", "cha"]);
 		expect(stats().querySelectorAll(".stonetop-stats-row")).toHaveLength(1);
+	});
+
+	// The consequence of a marked debility, on the two tiles it hinders; the bracket under them says
+	// the mapping beforehand.
+	it("marks the two tiles a marked debility hinders", () => {
+		const hindered = [...stats(true, "dazed").querySelectorAll(".stonetop-stat.is-hindered")].map(el => el.dataset.stat);
+		expect(hindered).toEqual(["int", "wis"]);
+		expect(stats().querySelectorAll(".is-hindered")).toHaveLength(0);
 	});
 
 	// A tile carried BOTH "Strength" and "STR" once. One label, and it is the one that fits.
@@ -149,67 +159,5 @@ describe("the debility bands", () => {
 			expect(doc.querySelector(".stonetop-debility-control").dataset.tooltip)
 				.toContain("Take disadvantage when rolling +STR or +DEX.");
 		}
-	});
-});
-
-/**
- * The masthead's debility strip: the folded density of the same three ticks.
- *
- * The band's brackets are off the sheet when it is folded, and a hindered stat's red number is left
- * asking which debility dimmed it. The strip answers that in the room the crest's overhang already
- * owns under the name. Whether it is DRAWN is the fold's business and folded-ledger-render's to
- * measure; what is here is that it says the right thing, and says it nowhere else.
- */
-describe("the masthead's debility strip", () => {
-	const header = (...active) => renderPartialInto(document.createElement("div"), "stonetop.actor-header", {
-		stonetop: { debilities: debilities(...active) },
-		actor: { name: "Blodwen", img: "p.png" }, editable: true,
-	});
-	const rows = doc => [...doc.querySelectorAll(".stonetop-masthead-debility")];
-
-	// All three, in the book's order, marked or not — the steading's own rule for its ledger line.
-	// Drawing only the ones you have would move the rest under the pointer the moment you marked one,
-	// and there would be nothing to click to mark them in the first place.
-	it("lists all three in the book's order", () => {
-		expect(rows(header("dazed")).map(li => li.querySelector(".stonetop-masthead-debility-name").textContent.trim()))
-			.toEqual(["Weakened", "Dazed", "Miserable"]);
-	});
-
-	it("marks the ones the character has", () => {
-		const [weakened, dazed] = rows(header("dazed"));
-		expect(dazed.className).toContain("is-active");
-		expect(weakened.className).not.toContain("is-active");
-	});
-
-	// The same control the band's tick is: one change action, one handler, nothing to keep in step.
-	it("ticks from here, through the band's own change action", () => {
-		const [weakened, dazed] = rows(header("dazed"));
-		const check = li => li.querySelector(".stonetop-masthead-debility-check");
-		expect(check(weakened).dataset.changeAction).toBe("debility");
-		expect(check(weakened).dataset.slug).toBe("weakened");
-		expect(check(dazed).hasAttribute("checked")).toBe(true);
-		expect(check(weakened).hasAttribute("checked")).toBe(false);
-	});
-
-	// What it IS, after a dash — the shape the steading writes a condition in, cut to the first
-	// sentence. The clause that names the stats is not dropped so much as already said: those two
-	// numbers are the red ones on the line directly below this. The two debilities you do not have
-	// keep their names and drop their sentences (a stylesheet's job — both are in the markup either
-	// way, so nothing has to re-render when one is ticked).
-	it("says what each one is, in its first sentence", () => {
-		const effect = li => li.querySelector(".stonetop-masthead-debility-effect").textContent.trim();
-		const [, dazed] = rows(header("dazed"));
-		expect(effect(dazed)).toContain("Out of it, befuddled, not thinking clearly.");
-		expect(effect(dazed), "the whole description is on the line")
-			.not.toContain("Take disadvantage");
-	});
-
-	// `actor-header.hbs` is the NPC card's masthead too, and an NPC has none — so the strip has to be
-	// absent rather than empty there, which is what keying it on the context buys.
-	it("is not in an NPC's masthead at all", () => {
-		const npc = renderPartialInto(document.createElement("div"), "stonetop.actor-header", {
-			stonetop: {}, actor: { name: "Cadi", img: "p.png" }, editable: true,
-		});
-		expect(npc.querySelector(".stonetop-masthead-debilities")).toBeNull();
 	});
 });

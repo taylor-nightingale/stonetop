@@ -5,6 +5,8 @@ import { ADVICE_ACTIONS } from "../utils/adviceAction.js";
 import { EDIT_IMAGE_ACTIONS } from "../utils/editImageAction.js";
 import { OpenDisclosures } from "../utils/OpenDisclosures.js";
 import { RailState } from "../utils/SheetRail.js";
+import { TabStripWatch } from "../utils/TabStripFit.js";
+import { TabMoreMenu } from "../utils/TabMoreMenu.js";
 
 /**
  * The shared ApplicationV2 base for all Stonetop actor sheets: HandlebarsApplicationMixin over
@@ -50,6 +52,25 @@ export function createStonetopActorSheetV2Class() {
 		 */
 		get railState() {
 			return this._railState ??= new RailState();
+		}
+
+		/**
+		 * Which tabs the strip has room for, and which it lists under "More" — both sheets render the
+		 * one shared strip. Refitted after every render, on every resize, and whenever the open tab
+		 * changes, since the open tab always keeps its place in the strip.
+		 */
+		get tabStrip() {
+			return this._tabStrip ??= new TabStripWatch();
+		}
+
+		changeTab(tab, group, options) {
+			super.changeTab(tab, group, options);
+			this.tabStrip.refit();
+		}
+
+		_onRender(context, options) {
+			super._onRender(context, options);
+			this.tabStrip.watch(this.element);
 		}
 
 		/**
@@ -133,6 +154,7 @@ export function createStonetopActorSheetV2Class() {
 			// The first render has no prior element, so core never calls _syncPartState for it — and a
 			// rail nobody has touched still has to have its toggle pointed the way the layout went.
 			this.restoreViewState(this.element);
+			new TabMoreMenu().attach(this.element);
 			// Editability is checked per event, not at wiring time: first render happens exactly
 			// once, and a sheet can become editable later (ownership granted mid-session).
 			this.element.addEventListener("click", async ev => {

@@ -68,7 +68,7 @@ describe("the seasons plate watermark", () => {
 		expect(partial).not.toContain("steading-seasons-plate");
 	});
 
-	// The steps must own a stacking context above the mark, or a result row's coloured band and a
+	// The steps must own a stacking context above the mark, or a result row's colored band and a
 	// lit tier both get painted underneath the art.
 	it("lifts the steps above the mark", () => {
 		const block = ruleBlock(".stonetop.sheet.steading .steading-turn-step");

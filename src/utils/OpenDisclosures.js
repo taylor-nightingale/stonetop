@@ -33,6 +33,14 @@ export class OpenDisclosures {
 	}
 
 	/**
+	 * Open a region the reader never touched — a route that lands on a section, a new playbook
+	 * opening all of its own. Takes effect on the next restore.
+	 */
+	open(key) {
+		this._state.set(key, true);
+	}
+
+	/**
 	 * Put every disclosure in a freshly rendered tree back the way its reader left it, and leave the
 	 * ones they never touched exactly as the template rendered them.
 	 *

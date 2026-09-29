@@ -242,34 +242,7 @@ describe("SteadingMoves.buildSnapshot", () => {
 	});
 });
 
-describe("SteadingMoves toggling + resource state", () => {
-	it("decrementMove unchecks the move (instanceCount → 0)", async () => {
-		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
-		await moves.seedReferenceMoves();
-		await moves.decrementMove("homefront", "trade");
-		const item = inCategory(actor, "homefront")[0];
-		expect(item.system.instanceCount).toBe(0);
-		expect(item.system.acquired).toBe(false);
-	});
-
-	it("incrementMove re-checks a move that was toggled off", async () => {
-		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
-		await moves.seedReferenceMoves();
-		await moves.decrementMove("homefront", "trade");
-		await moves.incrementMove("homefront", "trade");
-		const item = inCategory(actor, "homefront")[0];
-		expect(item.system.instanceCount).toBe(1);
-		expect(item.system.acquired).toBe(true);
-	});
-
-	// The checkbox stamps its own category, so a seasons move toggles through its own key.
-	it("toggles a move in the seasons category", async () => {
-		const { moves, actor } = makeMoves(repoWith(seasons("Seasons Change: Spring")));
-		await moves.seedReferenceMoves();
-		await moves.decrementMove("seasons", "seasons-change-spring");
-		expect(inCategory(actor, "seasons")[0].system.instanceCount).toBe(0);
-	});
-
+describe("SteadingMoves resource state", () => {
 	it("setMoveResourceText persists the fill-in text under the move slug", async () => {
 		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
 		await moves.setMoveResourceText("trade", "grain");

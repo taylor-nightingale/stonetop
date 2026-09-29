@@ -1,0 +1,10 @@
+{{!-- The caret that opens and shuts a bar's panel. Params: `controls` (the id of the region it opens),
+      `open`, the two wordings, `labelShow` and `labelHide`, and `regionOnly`, where the bar also
+      carries a door whose row the panel is. The whole bar is its target. --}}
+<button type="button" class="stonetop-bar-toggle" data-action="toggleSliding" data-disclosure data-view-state{{#if regionOnly}} data-disclosure-region-only{{/if}}
+        aria-controls="{{controls}}" aria-expanded="{{#if open}}true{{else}}false{{/if}}"
+        data-label-show="{{labelShow}}" data-label-hide="{{labelHide}}"
+        aria-label="{{#if open}}{{labelHide}}{{else}}{{labelShow}}{{/if}}"
+        title="{{#if open}}{{labelHide}}{{else}}{{labelShow}}{{/if}}">
+	<i class="fas fa-chevron-right stonetop-bar-caret" aria-hidden="true"></i>
+</button>

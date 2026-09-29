@@ -1,26 +1,12 @@
-<div class="tab moves {{tabs.moves.cssClass}}{{#if viewFlags.hideUnselectedMoves}} hide-unselected{{/if}}" data-group="primary" data-tab="moves">
+{{!-- The Moves tab: a panel for each category of the character's own moves, the playbook's first and
+      the moves dropped on last. The rail holds the reference moves, an insert's tab its own, and the
+      Followers tab the follower moves, so they are not here. --}}
+<div class="tab moves {{tabs.moves.cssClass}}" data-group="primary" data-tab="moves">
 	<section class="sheet-tab">
-
-		<div class="stonetop-moves-toolbar">
-			{{!-- Same control, same words as the playbook and insert locks; what is this tab's own is
-			      viewClass, which hides the unselected rows without a re-render. --}}
-			{{#if viewFlags.hideUnselectedMoves}}
-			{{> "stonetop.tab-toolbar-toggle" flag="hideUnselectedMoves" viewClass="hide-unselected"
-			    icon="fa-lock" active=true
-			    label=(localize "stonetop.sheet.lock.unlock")
-			    title=(localize "stonetop.character.moves.unlockHint")}}
-			{{else}}
-			{{> "stonetop.tab-toolbar-toggle" flag="hideUnselectedMoves" viewClass="hide-unselected"
-			    icon="fa-lock-open"
-			    label=(localize "stonetop.sheet.lock.lock")
-			    title=(localize "stonetop.character.moves.lockHint")}}
-			{{/if}}</div>
-
 		{{#each stonetop.moves.categories}}
 		{{#if (eq renderStyle "standard")}}
-		{{> "stonetop.move-group" title=label note=note moves=moves categoryKey=key allowAdditional=allowAdditional}}
+		{{> "stonetop.moves-panel" category=this index=@index owedMove=@root.stonetop.levelUp.owedMove}}
 		{{/if}}
 		{{/each}}
-
 	</section>
 </div>

@@ -7,13 +7,17 @@
  *
  * @param s               the typed StonetopSteading.
  * @param availableSteadfasts  () => the steadfast list the name box resolves a typed name against.
+ * @param chooseSeason         (key) => the sheet's confirmed season change.
  */
-export function steadingChangeHandlers(s, { availableSteadfasts }) {
+export function steadingChangeHandlers(s, { availableSteadfasts, chooseSeason }) {
 	return {
 		// The typed steading decides whether a value applies a steadfast or just renames.
 		steadfastName: el => s.renameOrApplySteadfast(el.value, availableSteadfasts()),
 		rollMode: el => s.setRollMode(el.value),
 		notes:    el => s.setNotes(el.value),
+		// The sheet asks before the season changes, so the radio hands its choice to the sheet.
+		season:     el => chooseSeason(el.value),
+		seasonYear: el => s.setYear(parseInt(el.value)),
 
 		// Fortunes / surplus
 		fortunes: el => s.setFortunes(parseInt(el.value)),

@@ -22,7 +22,8 @@
     },
     "rollStat": "fortunes",
     "slug": "requisition",
-    "xpOnMiss": false
+    "xpOnMiss": false,
+    "phase": "setting-out"
   },
   "folder": "kLiVjYrG7UbwZf5D"
 }

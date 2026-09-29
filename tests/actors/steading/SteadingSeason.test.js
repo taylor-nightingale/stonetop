@@ -84,10 +84,8 @@ describe("SteadingSeason — where the wheel stands", () => {
 		expect(build({ season: "autumn" }).season.season.key).toBe("autumn");
 	});
 
-	// A steading that has never been turned is in winter, so the table's first act is letting spring
-	// break forth — the book's own opening move.
-	it("is winter with nothing stored", () => {
-		expect(build().season.season.key).toBe("winter");
+	it("is spring of the first year with nothing stored", () => {
+		expect(build().season.season.key).toBe("spring");
 		expect(build().season.year).toBe(1);
 	});
 });
@@ -165,6 +163,117 @@ describe("SteadingSeason.turn", () => {
 		await season.turn();
 		expect(actor.system.choiceValues[SEASONAL_GAINS_GROUP]).toBeUndefined();
 		expect(actor.system.choiceValues["other-group"]).toEqual({ keep: 1 });
+	});
+});
+
+// The GM's correction: the season named outright rather than reached by turning. It is still
+// ENTERING a season, so last season's records go exactly as they do on a turn.
+describe("SteadingSeason.setSeason", () => {
+	it("puts the steading in the season named", async () => {
+		const { actor, season } = build({ season: "spring" });
+		expect(await season.setSeason("autumn")).toBe(true);
+		expect(actor.system.season).toBe("autumn");
+	});
+
+	// Even across the winter→spring wrap: the year is the GM's to set separately.
+	it("leaves the year alone", async () => {
+		const { actor, season } = build({ season: "winter", year: 4 });
+		await season.setSeason("spring");
+		expect(actor.system.year).toBe(4);
+	});
+
+	it("clears what was applied last season", async () => {
+		const { actor, season } = build({
+			season: "autumn", applied: { "mill:0": { change: { target: "surplus", amount: 1 } } },
+		});
+		await season.setSeason("summer");
+		expect(actor.system.turnoverApplied).toEqual({});
+	});
+
+	it("clears what the season's steps rolled and the result its move came up", async () => {
+		const { actor, season } = build({ season: "winter" });
+		actor.system.seasonStepsApplied = { 0: { total: 5, due: 5, from: 3, to: 0 } };
+		actor.system.seasonRollOutcome = "failure";
+		await season.setSeason("summer");
+		expect(actor.system.seasonStepsApplied).toEqual({});
+		expect(season.rolledOutcome).toBeNull();
+	});
+
+	it("clears the seasonal gain and nothing else", async () => {
+		const { actor, season } = build({
+			season: "spring",
+			choiceValues: { [SEASONAL_GAINS_GROUP]: { bounty: 1 }, "other-group": { keep: 1 } },
+		});
+		await season.setSeason("summer");
+		expect(actor.system.choiceValues[SEASONAL_GAINS_GROUP]).toBeUndefined();
+		expect(actor.system.choiceValues["other-group"]).toEqual({ keep: 1 });
+	});
+
+	it("stamps a line for the season it sets", async () => {
+		const { actor, season } = build({ season: "winter", impressions: SPRING_LINES });
+		await season.setSeason("summer", () => 0);
+		expect(actor.system.seasonImpression).toBe("Fireflies like galaxies over the fields at dusk");
+	});
+
+	// Naming the season it is already in discards nothing: the table's records are still this season's.
+	it("does nothing for the season the steading is already in", async () => {
+		const { actor, season } = build({
+			season: "autumn", applied: { "mill:0": { change: { target: "surplus", amount: 1 } } },
+		});
+		expect(await season.setSeason("autumn")).toBe(false);
+		expect(actor.system.turnoverApplied).toEqual({ "mill:0": { change: { target: "surplus", amount: 1 } } });
+	});
+
+	it("refuses a season that does not exist", async () => {
+		const { actor, season } = build({ season: "autumn" });
+		expect(await season.setSeason("harvestide")).toBe(false);
+		expect(actor.system.season).toBe("autumn");
+	});
+});
+
+// The year alone: a relabelling, so nothing the season recorded is touched.
+describe("SteadingSeason.setYear", () => {
+	it("sets the year", async () => {
+		const { actor, season } = build({ year: 1 });
+		expect(await season.setYear(5)).toBe(true);
+		expect(actor.system.year).toBe(5);
+	});
+
+	it("leaves the season and its records alone", async () => {
+		const { actor, season } = build({
+			season: "autumn", year: 2, applied: { "mill:0": { change: { target: "surplus", amount: 1 } } },
+		});
+		await season.setYear(3);
+		expect(actor.system.season).toBe("autumn");
+		expect(actor.system.turnoverApplied).toEqual({ "mill:0": { change: { target: "surplus", amount: 1 } } });
+	});
+
+	// The field's own floor. A year typed as 0 or less lands on the first year rather than bouncing.
+	it("holds the year at 1 or more", async () => {
+		const { actor, season } = build({ year: 3 });
+		await season.setYear(0);
+		expect(actor.system.year).toBe(1);
+	});
+
+	it("drops a fraction", async () => {
+		const { actor, season } = build({ year: 1 });
+		await season.setYear(2.7);
+		expect(actor.system.year).toBe(2);
+	});
+
+	it("refuses something that is not a number", async () => {
+		const { actor, season } = build({ year: 3 });
+		expect(await season.setYear(NaN)).toBe(false);
+		expect(actor.system.year).toBe(3);
+	});
+
+	it("writes nothing for the year it already is", async () => {
+		const { actor, season } = build({ year: 3 });
+		const sent = [];
+		const update = actor.update.bind(actor);
+		actor.update = data => { sent.push(data); return update(data); };
+		expect(await season.setYear(3)).toBe(false);
+		expect(sent).toEqual([]);
 	});
 });
 

@@ -28,6 +28,21 @@ describe("activateTablistKeys", () => {
 		expect(document.activeElement).toBe(tabs[1]);
 	});
 
+	// A tab the strip has no room for is listed under "More" and reached from there.
+	it("steps over a tab that is under More", () => {
+		const { tabs } = tablist(4);
+		tabs[1].hidden = true;
+		tabs[0].focus();
+		press(tabs[0], "ArrowRight");
+		expect(document.activeElement).toBe(tabs[2]);
+		press(tabs[2], "End");
+		expect(document.activeElement).toBe(tabs[3]);
+		tabs[3].hidden = true;
+		tabs[2].focus();
+		press(tabs[2], "End");
+		expect(document.activeElement).toBe(tabs[2]);
+	});
+
 	it("moves to the previous tab on ArrowLeft", () => {
 		const { tabs } = tablist();
 		tabs[2].focus();

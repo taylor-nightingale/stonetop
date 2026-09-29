@@ -22,6 +22,7 @@ export class StonetopCharacter {
 		this._origin             = parts.origin;
 		this._vitals             = parts.vitals;
 		this._debilities         = parts.debilities;
+		this._wounds             = parts.wounds;
 		this._grantedItems       = parts.grantedItems;
 		this._resourceController = parts.resourceController;
 		this._followers          = parts.followers;
@@ -162,6 +163,7 @@ export class StonetopCharacter {
 			.withInserts(inserts)
 			.withFollowers(followers)
 			.withRollMode(this.rollMode)
+			.withWounds(this._wounds.all())
 			.withBio(this.bio)
 			.withNotes(this.notes)
 			.build();
@@ -230,12 +232,8 @@ export class StonetopCharacter {
 		await this._moves.setMoveResourceText(moveSlug, value);
 	}
 
-	async addCustomInventoryItem(name, weight) {
-		await this._inventory.addCustomItem(name, weight);
-	}
-
-	async addCustomSmallItem(name) {
-		await this._inventory.addCustomSmallItem(name);
+	async addCustomInventoryItem(item) {
+		await this._inventory.addCustomItem(item);
 	}
 
 	async removeCustomInventoryItem(itemId) {
@@ -336,8 +334,8 @@ export class StonetopCharacter {
 		await this._moves.incrementMove(categoryKey, moveSlug);
 	}
 
-	async decrementMove(categoryKey, moveSlug) {
-		await this._moves.decrementMove(categoryKey, moveSlug);
+	async clearMove(categoryKey, moveSlug) {
+		await this._moves.clearMove(categoryKey, moveSlug);
 	}
 
 	async deleteMove(moveSlug) {
@@ -519,9 +517,10 @@ export class StonetopCharacter {
 		await this.setInventorySmallPool(checked ? Number(index) + 1 : Number(index));
 	}
 
+	// A move's one box: ticking it takes the move, clearing it clears every take.
 	async setMoveChecked(categoryKey, moveSlug, checked) {
 		if (checked) return this.incrementMove(categoryKey, moveSlug);
-		return this.decrementMove(categoryKey, moveSlug);
+		return this.clearMove(categoryKey, moveSlug);
 	}
 
 	async setPossessionSelected(slug, selected)   {
@@ -550,9 +549,8 @@ export class StonetopCharacter {
 	}
 
 	async addCustomInventoryItemFor(owner, item) {
-		if (owner.isFollower) return this.addFollowerInvCustomItem(owner.followerSlug, item.name, item.weight);
-		if (item.isRegular)   return this.addCustomInventoryItem(item.name, item.weight);
-		return this.addCustomSmallItem(item.name);
+		if (owner.isFollower) return this.addFollowerInvCustomItem(owner.followerSlug, item);
+		return this.addCustomInventoryItem(item);
 	}
 
 	async removeCustomInventoryItemFor(owner, itemId) {
@@ -615,6 +613,12 @@ export class StonetopCharacter {
 		await this._debilities.setDebility(slug, value);
 	}
 
+	async addWound(name = "")        { return this._wounds.add(name); }
+	async renameWound(id, name)      { await this._wounds.rename(id, name); }
+	async advanceWoundState(id)      { await this._wounds.advanceState(id); }
+	async removeWound(id)            { await this._wounds.remove(id); }
+	async removeUnnamedWounds()      { await this._wounds.removeUnnamed(); }
+
 	async removeFollower(slug) {
 		await this._followers.removeFollower(slug);
 	}
@@ -668,8 +672,8 @@ export class StonetopCharacter {
 		await this._followers.setInvItemChecked(followerSlug, itemSlug, checked);
 	}
 
-	async addFollowerInvCustomItem(followerSlug, name, weight) {
-		await this._followers.addInvCustomItem(followerSlug, name, weight);
+	async addFollowerInvCustomItem(followerSlug, item) {
+		await this._followers.addInvCustomItem(followerSlug, item);
 	}
 
 	async removeFollowerInvCustomItem(followerSlug, itemSlug) {

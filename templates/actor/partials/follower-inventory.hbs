@@ -30,7 +30,7 @@
 	{{#if inventory.editing}}
 	{{!-- Expanded: the full catalog of what they CAN take, plus "+ add" custom gear --}}
 	<div class="stonetop-follower-inventory-catalog">
-		{{> "stonetop.outfit-items" sections=inventory.sections addColumn="regular"}}
+		{{> "stonetop.outfit-items" sections=inventory.sections addColumn="regular" addKey=(concat "follower:" slug)}}
 	</div>
 	{{else if inventory.hasAny}}
 	{{!-- Compact: only what the follower HAS --}}

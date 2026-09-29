@@ -3,6 +3,8 @@ import { richTextToHtml } from "../migration/richTextToHtml.js";
 import { isGroupTag } from "../model/data/groupTag.js";
 import { TagLabels } from "../model/data/TagLabels.js";
 import { Advice, adviceLabel } from "../model/data/Advice.js";
+import { BarGrain } from "../utils/BarGrain.js";
+import { sectionBodyId, moveBodyId, movesPanelId } from "../utils/regionIds.js";
 
 /**
  * Every Handlebars helper the Stonetop templates use, in one place.
@@ -43,6 +45,16 @@ Handlebars.registerHelper("times", n => Array.from({ length: n ?? 0 }, (_, i) =>
 // `{{inc @index}}` — Handlebars indexes from 0 and people count from 1. Used where a control has to
 // say which of N it is out loud, e.g. "Track 2 of 5".
 Handlebars.registerHelper("inc", n => Number(n ?? 0) + 1);
+Handlebars.registerHelper("add", (a, b) => Number(a ?? 0) + Number(b ?? 0));
+
+Handlebars.registerHelper("barGrain", (title, index) => BarGrain.of(title, Number(index ?? 0)));
+
+// A section's and a move row's region ids: minted here and opened by the sheet from the same functions.
+Handlebars.registerHelper("sectionId", (prefix, key) => sectionBodyId(prefix, key));
+// `choosing`, when passed, is the helper's fourth argument; Handlebars always appends its options.
+Handlebars.registerHelper("moveBodyId", (prefix, categoryKey, slug, ...rest) =>
+	moveBodyId(prefix, categoryKey, slug, rest.length > 1 && rest[0] === true));
+Handlebars.registerHelper("movesPanelId", (prefix, categoryKey) => movesPanelId(prefix, categoryKey));
 
 Handlebars.registerHelper("gt", (a, b) => a > b);
 Handlebars.registerHelper("eq", (a, b) => a === b);
@@ -86,12 +98,4 @@ Handlebars.registerHelper("tagLabel", token => TagLabels.current.labelFor(token)
 Handlebars.registerHelper("adviceLabel", key =>
 	adviceLabel(Advice.current.lookup(key), (k, data) => game.i18n.format(k, data)));
 
-Handlebars.registerHelper("repeatChecks", move => {
-	const sel = move?.selection;
-	if (!sel || sel.max <= 1) return [];
-	return Array.from({ length: sel.max }, (_, i) => ({
-		checked:  i < sel.value,
-		disabled: i < sel.value ? move.isStarting : (!move.selectable || i !== sel.value),
-	}));
-});
 }

@@ -30,7 +30,7 @@ const PROTO_ACCESS = { allowProtoPropertiesByDefault: true, allowProtoMethodsByD
 
 let ready = false;
 
-function ensureRegistered() {
+export function ensureRegistered() {
 	if (ready) return;
 	registerFoundryHelpers(Handlebars);
 	registerStonetopHelpers(Handlebars); // ours win where the names overlap, as in play

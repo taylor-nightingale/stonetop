@@ -130,7 +130,7 @@ describe("the steading header — debilities", () => {
 		}
 	});
 
-	it("marks the active one with a class, not colour alone", () => {
+	it("marks the active one with a class, not color alone", () => {
 		const active = [...renderHeader().querySelectorAll(".steading-debility.is-active")];
 		expect(active.length).toBe(1);
 		expect(active[0].querySelector("input").dataset.slug).toBe("lacking");

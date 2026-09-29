@@ -4,7 +4,7 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
 import { CssColor } from "./cssColor.js";
 
 // The "Gear terms & tags" glossary is the system's only <dl>, and core styles <dt> for its dark UI —
-// `text-shadow: 1px 1px #000` under a light term colour. On parchment the shadow smears the term
+// `text-shadow: 1px 1px #000` under a light term color. On parchment the shadow smears the term
 // rather than lifting it, and under v13's `--color-light-2` the term itself goes cream on cream.
 //
 // Only a browser can answer whether our override actually reaches the element through core's cascade

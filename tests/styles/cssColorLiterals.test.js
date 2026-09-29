@@ -5,7 +5,7 @@ const scan = css => ColorLiteralScan.fromCss(css);
 const values = css => scan(css).all.map(l => l.value);
 
 describe("ColorLiteral", () => {
-	it("normalizes case and whitespace so one colour counts once", () => {
+	it("normalizes case and whitespace so one color counts once", () => {
 		expect(new ColorLiteral("RGBA( 0, 0, 0, .5 )", 1).normalized).toBe("rgba(0,0,0,.5)");
 		expect(new ColorLiteral("#FFF", 1).normalized).toBe("#fff");
 	});
@@ -22,22 +22,22 @@ describe("ColorLiteralScan", () => {
 			.toEqual(["#fff", "#ffff", "#c9c7b8", "#c9c7b8ff"]);
 	});
 
-	it("finds functional colours, including modern syntaxes", () => {
+	it("finds functional colors, including modern syntaxes", () => {
 		expect(values("a{color:rgb(1,2,3);background:rgba(0,0,0,.06);border:hsl(30deg 20% 94%)}"))
 			.toEqual(["rgb(1,2,3)", "rgba(0,0,0,.06)", "hsl(30deg 20% 94%)"]);
 		expect(values("a{color:oklch(0.7 0.1 30)}")).toEqual(["oklch(0.7 0.1 30)"]);
 	});
 
-	it("finds named colours in value position", () => {
+	it("finds named colors in value position", () => {
 		expect(values("a{background:white;border-color:slategrey}")).toEqual(["white", "slategrey"]);
 	});
 
-	// The reason the named-colour regex carries lookarounds at all.
-	it("does not read `white-space` as the colour white", () => {
+	// The reason the named-color regex carries lookarounds at all.
+	it("does not read `white-space` as the color white", () => {
 		expect(values("a{white-space:nowrap}")).toEqual([]);
 	});
 
-	it("ignores property names that merely contain a colour word", () => {
+	it("ignores property names that merely contain a color word", () => {
 		expect(values("a{border-color:var(--st-rule);accent-color:var(--st-accent)}")).toEqual([]);
 	});
 
@@ -45,7 +45,7 @@ describe("ColorLiteralScan", () => {
 		expect(values("/* was #1a1a1a, now tokenized */\na{color:var(--st-ink)}")).toEqual([]);
 	});
 
-	it("ignores url() payloads, which are paths and not colours", () => {
+	it("ignores url() payloads, which are paths and not colors", () => {
 		expect(values("a{background:url(../assets/ui/decor/sheet-bg.png)}")).toEqual([]);
 		expect(values(`a{background:url("#fff.png")}`)).toEqual([]);
 	});
@@ -68,7 +68,7 @@ describe("ColorLiteralScan", () => {
 		expect(s.countsByValue()).toEqual(new Map([["#555", 2], ["#666", 1]]));
 	});
 
-	it("treats differently-written forms of one colour as the same value", () => {
+	it("treats differently-written forms of one color as the same value", () => {
 		expect(scan("a{color:#FFF}b{color:#fff}").distinctValues).toEqual(["#fff"]);
 	});
 

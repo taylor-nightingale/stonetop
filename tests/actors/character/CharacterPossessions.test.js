@@ -414,7 +414,6 @@ describe("CharacterPossessions — buildSnapshot", () => {
 		expect(pouch.checked).toBe(true);
 		expect(pouch.disabled).toBe(true);
 		expect(pouch.preselected).toBe(true);
-		expect(pouch.preselectedSource).toBe("Starting");
 	});
 
 	it("non-preselected, non-selected item is unselected and not disabled", async () => {

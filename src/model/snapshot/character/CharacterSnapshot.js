@@ -1,5 +1,10 @@
 import { FollowersSnapshot } from "./FollowerSnapshot.js";
 import { StatPairSnapshot } from "./StatPairSnapshot.js";
+import { RailMoves } from "./RailMoves.js";
+import { InstinctReadout } from "./InstinctReadout.js";
+import { AppearanceLine } from "./AppearanceLine.js";
+import { AilmentList } from "./AilmentList.js";
+import { PlaybookSections } from "./PlaybookSections.js";
 import { RollModes } from "../../../actors/RollModes.js";
 export { Resource } from "../../data/Resource.js";
 export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
@@ -61,12 +66,18 @@ export { buildChoiceGroup } from "./buildChoiceGroup.js";
  * @property {VitalsSnapshot} vitals
  * @property {LevelUpSnapshot} levelUp - the Level Up strip; offers itself only when it has something to say
  * @property {Movelist} moves
+ * @property {RailMoves} railMoves - the special moves, each for the place the rail gives it; derived from `moves`
  * @property {OutfitSnapshot} outfit
  * @property {PossessionsSnapshot|null} possessions
  * @property {ArcanaSnapshot} arcana
  * @property {InsertSnapshot[]} inserts
  * @property {FollowersSnapshot} followers - normalized { bySlug, tab }
  * @property {string} rollMode - "normal" | "adv" | "dis"
+ * @property {Wound[]} wounds - problematic wounds, in the order they were written
+ * @property {InstinctReadout} instinct - the instinct in force and where it is edited; derived
+ * @property {AppearanceLine} appearance - the chosen appearance as one line; derived
+ * @property {AilmentList} ailments - marked debilities then wounds, three shown; derived
+ * @property {PlaybookSections|null} playbookSections - the Playbook tab's sections and their doors; derived
  */
 export class CharacterSnapshot {
 	constructor(b) {
@@ -81,12 +92,18 @@ export class CharacterSnapshot {
 		this.vitals          = b._vitals;
 		this.levelUp         = b._levelUp ?? null;
 		this.moves           = b._moves;
+		this.railMoves       = RailMoves.from(this.moves);
 		this.outfit          = b._outfit;
 		this.possessions     = b._possessions ?? null;
 		this.arcana          = b._arcana;
 		this.inserts         = b._inserts ?? [];
 		this.followers       = b._followers ?? new FollowersSnapshot();
 		this.rollMode        = b._rollMode;
+		this.wounds          = b._wounds ?? [];
+		this.instinct        = InstinctReadout.from(this.playbook ?? null, this.inserts);
+		this.appearance      = AppearanceLine.from(this.playbook?.appearanceGroup ?? null);
+		this.ailments        = AilmentList.from(this.debilities ?? [], this.wounds);
+		this.playbookSections = PlaybookSections.from(this.playbook ?? null);
 		this.bio             = b._bio   ?? "";
 		this.notes           = b._notes ?? "";
 	}
@@ -111,6 +128,7 @@ export class CharacterSnapshotBuilder {
 	withInserts(v)         { this._inserts         = v; return this; }
 	withFollowers(v)       { this._followers       = v; return this; }
 	withRollMode(v)        { this._rollMode        = v; return this; }
+	withWounds(v)          { this._wounds          = v; return this; }
 	withBio(v)             { this._bio             = v; return this; }
 	withNotes(v)           { this._notes           = v; return this; }
 	build()                { return new CharacterSnapshot(this); }

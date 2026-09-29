@@ -109,7 +109,7 @@ describe("Level Up strip (integration)", () => {
 	it("marks the XP track and offers the strip once the move triggers", async () => {
 		const { sheet } = makeSheet({ level: 5, xp: 16 });
 		const root = await render(sheet);
-		expect(root.querySelector(".stonetop-resource--wide.is-full")).not.toBeNull();
+		expect(root.querySelector(".stonetop-meter--xp.stonetop-meter--full")).not.toBeNull();
 		expect(root.querySelector(".stonetop-levelup.is-ready")).not.toBeNull();
 	});
 

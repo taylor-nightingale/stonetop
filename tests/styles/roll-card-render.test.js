@@ -101,15 +101,15 @@ describe.skipIf(!canProbe())("move-roll card, rendered", () => {
 			const results = () => rendered.get(theme.name);
 
 			// The whole point of the badge: three outcomes have to be told apart at a glance.
-			it("gives each tier its own outcome colour", () => {
-				const colours = TIERS.map(t => results().get(`${t.key}Outcome`).get("color"));
-				expect(new Set(colours).size).toBe(TIERS.length);
+			it("gives each tier its own outcome color", () => {
+				const colors = TIERS.map(t => results().get(`${t.key}Outcome`).get("color"));
+				expect(new Set(colors).size).toBe(TIERS.length);
 			});
 
 			for (const { key, label } of TIERS) {
 				// One --tier-color drives all three. If the relay fails to reach any of them, that
 				// element falls back to inherited ink and the tier stops reading as a tier.
-				it(`paints total, badge and result rule from one tier colour (${label})`, () => {
+				it(`paints total, badge and result rule from one tier color (${label})`, () => {
 					const r = results();
 					const outcome = r.get(`${key}Outcome`).get("color");
 					expect(r.get(`${key}Total`).get("color")).toBe(outcome);

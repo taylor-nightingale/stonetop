@@ -31,6 +31,20 @@ export class FakeCoreActorSheetBase {
 	async _onFirstRender() {}
 	_onRender() {}
 
+	// Core's ApplicationV2#changeTab (application.mjs), faithful in what our code reads: every
+	// `.tabs [data-group]` button — the strip's and any listed under "More" — and every `.tab`
+	// section follow the open tab, and tabGroups records it.
+	changeTab(tab, group, { force = false } = {}) {
+		if (this.tabGroups[group] === tab && !force) return;
+		for (const t of this.element.querySelectorAll(`.tabs [data-group="${group}"]`)) {
+			t.classList.toggle("active", t.dataset.tab === tab);
+			t.ariaPressed = `${t.dataset.tab === tab}`;
+		}
+		for (const section of this.element.querySelectorAll(`.tab[data-group="${group}"]`))
+			section.classList.toggle("active", section.dataset.tab === tab);
+		this.tabGroups[group] = tab;
+	}
+
 	// Core's part-state sync (handlebars-application.mjs), faithful in the three ways our base leans
 	// on it: focus is captured by id/name ONLY (which is why the base upgrades the selector), scroll
 	// positions come from the part's `scrollable` selectors, and both are re-applied against whatever

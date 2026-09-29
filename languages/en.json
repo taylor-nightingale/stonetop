@@ -40,21 +40,17 @@
         "inventory": "Outfit",
         "arcana": "Arcana",
         "followers": "Followers",
-        "notes": "Notes"
+        "notes": "Notes",
+        "more": "More",
+        "moreLabel": "More tabs"
       },
       "bandShow": "Show the stats band",
       "bandHide": "Hide the stats band",
-      "railShow": "Show the moves rail",
-      "railHide": "Hide the moves rail",
+      "railShow": "Show the rail",
+      "railHide": "Hide the rail",
       "notes": {
         "bio": "Bio",
         "notes": "Notes"
-      },
-      "lock": {
-        "lock": "Lock",
-        "lockHint": "Collapse your choices into a read-only summary.",
-        "unlock": "Edit",
-        "unlockHint": "Go back to editing your choices."
       },
       "playbook": {
         "emptyHint": "Select or drag a playbook here to start.",
@@ -69,19 +65,35 @@
           "step6Preamble": "On your next turn, <strong>ask your fellow PCs one of these</strong>. When others ask you, answer as you like.",
           "step7": "Go around again. Ask another question from 6, or pass. When everyone has passed, go on.",
           "step8": "Add your home to the steading playbook. When everyone is done, let spring break forth!"
-        }
+        },
+        "noNames": "No names of its own — borrow one from another list."
       },
       "advice": {
         "label": "If you want to… {topic}",
         "sheetLabel": "If you want to…",
         "close": "Close"
+      },
+      "section": {
+        "change": "Change",
+        "choose": "Choose",
+        "open": "Open",
+        "done": "Done",
+        "changeNamed": "Change {name}",
+        "chooseNamed": "Choose {name}",
+        "openNamed": "Open {name}",
+        "doneNamed": "Done with {name}"
       }
     },
     "rollMode": {
       "label": "Roll Mode",
+      "rule": "{name}: the rule",
       "normal": "Normal",
       "adv": "Advantage",
-      "dis": "Disadvantage"
+      "dis": "Disadvantage",
+      "short": {
+        "adv": "Adv",
+        "dis": "Disadv"
+      }
     },
     "steading": {
       "startsAt": "Starts at {value}",
@@ -243,6 +255,10 @@
         "seasonComes": "{season} comes",
         "during": "During {season}",
         "turnConfirm": "Turn to {season}?",
+        "sectionTitle": "Season",
+        "year": "Year",
+        "setTitle": "Change the season",
+        "setConfirm": "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns.",
         "resetFortunes": "Reset Fortunes to +{value}",
         "steps": {
           "roll": "Roll it",
@@ -581,9 +597,19 @@
       "otherItemsNote": "(animals, kits, stashed items, etc.)",
       "addItem": "Add item",
       "addSmallItem": "Add small item",
-      "addItemName": "Name",
-      "addItemWeight": "Weight",
-      "addItemConfirm": "Add",
+      "adder": {
+        "title": "Add an item",
+        "cancel": "Cancel",
+        "name": "Name",
+        "weight": "Weight",
+        "uses": "Uses",
+        "word": "Word",
+        "tags": "Tags",
+        "note": "Note",
+        "add": "Add",
+        "less": "Less {field}",
+        "more": "More {field}"
+      },
       "removeItem": "Remove",
       "regularUndefinedPoolLabel": "Undefined",
       "regularUndefinedPoolNote": "When you <strong><em>Have What You Need</em></strong>, move ◆ from here to ◇ below.",
@@ -741,6 +767,7 @@
         }
       },
       "attributes": {
+        "hp": "HP",
         "damage": "Damage",
         "armor": "Armor",
         "xp": "XP",
@@ -764,18 +791,19 @@
           "armorBaseItem": "{name} {amount} (base)",
           "armorModifierItem": "{name} {amount}"
         },
-        "groups": {
-          "advancement": "Advancement"
-        },
         "note": {
           "fromPlaybook": "playbook",
           "byHand": "by hand",
           "armorNone": "none worn",
           "damageUnset": "none set",
-          "readyToLevel": "ready to level"
+          "readyToLevel": "ready to level",
+          "readyWithSpare": "ready to level · {count} spare"
         }
       },
       "levelUp": {
+        "onlyAtHome": "Only at home, in a quiet stretch of time",
+        "orSpend": "Or spend it now",
+        "chooseMove": "Choose a new move",
         "title": "Level Up",
         "ready": "ready",
         "done": "Done",
@@ -792,7 +820,9 @@
         "invocationsKnown": "You know {known} of {expected}."
       },
       "gear": {
-        "specialPossessions": "Special Possessions"
+        "specialPossessions": "Special Possessions",
+        "stillToPick": "{count} still to pick",
+        "fromPlaybook": "Comes with your playbook"
       },
       "moveTypes": {
         "background": "Background"
@@ -813,8 +843,29 @@
         "open": "Open the move",
         "requires": "Requires",
         "notMet": "Not Met",
-        "lockHint": "Show only the moves this character has taken.",
-        "unlockHint": "Show every move again, to take new ones."
+        "rollLabel": {
+          "ask": "Any",
+          "favor": "Favor",
+          "omens": "Omens"
+        },
+        "phase": {
+          "setting-out": "Setting out",
+          "on-the-road": "On the road",
+          "getting-home": "Getting home"
+        },
+        "showGroup": "Show the {name}",
+        "hideGroup": "Hide the {name}",
+        "showText": "Show the text of {name}",
+        "hideText": "Hide the text of {name}",
+        "previewRoll": "2d6 {mod}",
+        "insertMoves": "{name} moves",
+        "taken": "{name}: taken",
+        "timesTaken": ", taken {count} times",
+        "upTo": "Up to {count} times",
+        "takeAgain": "Take again",
+        "takeAgainNamed": "Take {name} again",
+        "showPanel": "Show {name}",
+        "hidePanel": "Hide {name}"
       },
       "selection": {
         "select": "Select",
@@ -840,6 +891,31 @@
           "dialogTitle": "Choose Origin",
           "namesLabel": "Names",
           "instruction": "Stonetop is your home, or close enough, but where are you (or your family) from originally? Pick 1 and a name to match (or make up something similar)."
+        }
+      },
+      "instinct": {
+        "changeOn": "{instinct} — change it on {source}",
+        "setAside": "Set aside while the instinct from {source} is in force."
+      },
+      "ailments": {
+        "title": "Ailments",
+        "empty": "nothing ails you",
+        "more": "+{count} more",
+        "moreLabel": "Show {count} more ailments",
+        "edit": "Edit ailments",
+        "done": "Done",
+        "placeholder": "what happened",
+        "woundName": "Wound",
+        "nextState": "{state}: change the state",
+        "remove": "Remove {name}",
+        "addWound": "+ add a wound",
+        "note": "Debilities are marked on the brackets, not here."
+      },
+      "wounds": {
+        "state": {
+          "active": "active",
+          "stabilized": "stabilized",
+          "permanent": "permanent"
         }
       }
     },
@@ -938,8 +1014,7 @@
       "suggestionUsed": "already used —",
       "assetRequisitioned": "Requisitioned",
       "improvementSearch": "Search the improvement board",
-      "foldedLedger": "Stats and vitals",
-      "debilities": "Debilities"
+      "foldedLedger": "Stats and conditions"
     },
     "tagGlossary": {
       "general": {

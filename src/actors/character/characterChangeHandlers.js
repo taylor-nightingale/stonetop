@@ -21,6 +21,7 @@ export function characterChangeHandlers(char) {
 		level:    el => char.setLevel(el.value),
 		debility: el => char.setDebility(el.dataset.slug, el.checked),
 		rollMode: el => char.setRollMode(el.value),
+		woundName: el => char.renameWound(el.dataset.woundId, el.value.trim()),
 
 		// playbook tab
 		selectPlaybook:   el => char.applyPlaybookBySlug(el.value),
@@ -38,6 +39,9 @@ export function characterChangeHandlers(char) {
 		regularPool:        el => char.toggleInventoryRegularPool(el.dataset.index, el.checked),
 		smallPool:          el => char.toggleInventorySmallPool(el.dataset.index, el.checked),
 		inventoryOtherItems: el => char.setInventoryOtherItems(el.value),
+
+		// moves: a move's one box, on a Moves panel being chosen from
+		moveCheck:          el => char.setMoveChecked(el.dataset.categoryKey, el.dataset.moveSlug, el.checked),
 
 		// possessions
 		possessionCheck:    el => char.setPossessionSelected(el.dataset.slug, el.checked),

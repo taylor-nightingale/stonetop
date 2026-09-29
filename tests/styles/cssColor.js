@@ -1,6 +1,6 @@
-// Enough CSS colour parsing to check a theme is readable. Themes are authored in the handful of
-// notations we actually use — hex, hsl() and a couple of named colours — so this deliberately does
-// not try to be a general colour library; anything it cannot parse it reports as null, and the
+// Enough CSS color parsing to check a theme is readable. Themes are authored in the handful of
+// notations we actually use — hex, hsl() and a couple of named colors — so this deliberately does
+// not try to be a general color library; anything it cannot parse it reports as null, and the
 // contrast test skips it rather than guessing.
 
 const NAMED = {
@@ -13,7 +13,7 @@ const NAMED = {
 	lightslategray: [119, 136, 153]
 };
 
-/** An opaque sRGB colour, able to answer how legible it is against another. */
+/** An opaque sRGB color, able to answer how legible it is against another. */
 export class CssColor {
 	constructor(r, g, b, alpha = 1) {
 		this.r = r;
@@ -72,17 +72,17 @@ export class CssColor {
 		return new CssColor(...[h + 1 / 3, h, h - 1 / 3].map(t => Math.round(channel(t) * 255)));
 	}
 
-	// getComputedStyle always reports colours as rgb()/rgba(), so the render probe needs this even
-	// though no theme file is authored in it. A translucent colour is composited over `over` — for a
+	// getComputedStyle always reports colors as rgb()/rgba(), so the render probe needs this even
+	// though no theme file is authored in it. A translucent color is composited over `over` — for a
 	// probe that means "what does this actually look like against the surface behind it".
 	static #parseRgb(text) {
 		const m = /^rgba?\(\s*([\d.]+)[\s,]+([\d.]+)[\s,]+([\d.]+)\s*(?:[,/]\s*([\d.%]+)\s*)?\)$/i.exec(text);
 		if (!m) return null;
 
 		const [r, g, b] = [m[1], m[2], m[3]].map(v => Math.round(parseFloat(v)));
-		const colour = new CssColor(r, g, b);
-		colour.alpha = m[4] === undefined ? 1 : (m[4].endsWith("%") ? parseFloat(m[4]) / 100 : parseFloat(m[4]));
-		return colour;
+		const color = new CssColor(r, g, b);
+		color.alpha = m[4] === undefined ? 1 : (m[4].endsWith("%") ? parseFloat(m[4]) / 100 : parseFloat(m[4]));
+		return color;
 	}
 
 	// Chrome reports a resolved color-mix() as `color(srgb r g b / a)` with 0-1 channels, so anything
@@ -96,7 +96,7 @@ export class CssColor {
 		return new CssColor(r, g, b, alpha);
 	}
 
-	/** This colour composited over an opaque backdrop. */
+	/** This color composited over an opaque backdrop. */
 	over(backdrop) {
 		const a = this.alpha ?? 1;
 		if (a >= 1) return this;

@@ -57,12 +57,13 @@ export class CharacterFollowers {
 	}
 
 	// Add a custom gear item to a follower (followers can't embed Items, so it lives inline). Auto-held.
-	async addInvCustomItem(followerSlug, name, weight) {
+	/** @param {NewInventoryItem} item a follower carries regular gear only, so it weighs at least one ◇ */
+	async addInvCustomItem(followerSlug, item) {
 		const slug = `custom-${foundry.utils.randomID(8)}`;
 		await this._updateInventory(followerSlug, inv => {
 			inv.customItems.push({
-				slug, name: name || "Item", weight: Math.max(1, Number(weight) || 1),
-				tags: "", note: null, inventoryColumn: "regular",
+				slug, name: item.name || "Item", weight: Math.max(1, Number(item.weight) || 1),
+				tags: item.tags, note: item.note, resource: item.resource, inventoryColumn: "regular",
 			});
 			inv.checked[slug] = true;
 		});

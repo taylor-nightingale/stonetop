@@ -8,7 +8,7 @@ import path from "path";
 // Why this exists: the other tests in this directory parse the stylesheet as text. They can prove a
 // token is declared and that every var() resolves to something declared somewhere — and they proved
 // exactly that while the theme was visibly broken, six times running. Text cannot answer the
-// question that matters: given core's stylesheet, its cascade layers, and ours on top, what colour
+// question that matters: given core's stylesheet, its cascade layers, and ours on top, what color
 // does this element actually end up? Only a browser engine knows.
 //
 // The failure they missed is worth naming, because it is the reason for every rule below. The
@@ -36,6 +36,14 @@ function findFoundryCss() {
 		if (existsSync(css)) return css;
 	}
 	return null;
+}
+
+/** One fixture file per run, in its own temp directory. */
+function writeFixture(html) {
+	const dir = mkdtempSync(path.join(tmpdir(), "stonetop-probe-"));
+	const file = path.join(dir, "fixture.html");
+	writeFileSync(file, html);
+	return file;
 }
 
 export const chromePath = () => CHROME_CANDIDATES.find(existsSync) ?? null;
@@ -185,7 +193,7 @@ export class RenderProbe {
 			const dir = mkdtempSync(path.join(tmpdir(), "stonetop-probe-css-"));
 			this._transformed = all.map((f, i) => {
 				// Flat names keep url(../assets/…) from resolving, which is fine: a transformed probe
-				// asks about the cascade (colour, layout), never about which image loaded.
+				// asks about the cascade (color, layout), never about which image loaded.
 				const out = path.join(dir, `${String(i).padStart(2, "0")}-${path.basename(f)}`);
 				writeFileSync(out, this._transformCss(readFileSync(f, "utf8")));
 				return out;
@@ -266,6 +274,67 @@ for (const [name, selector] of Object.entries(targets)) {
 	}
 
 	/**
+	 * The fixture page itself: core's stylesheet linked, ours inlined after it, the layer order
+	 * declared up front, and whatever the caller wants running in the body.
+	 *
+	 * Extracted so {@link snapshot} and {@link _collect} build the SAME page. A screenshot taken
+	 * against a differently-assembled document would be a picture of something the probes never
+	 * measured, which is the one thing a screenshot must not be.
+	 */
+	_page({ bodyHtml, bodyClass, rootAttrs, sheets, base, script = "" }) {
+		return `<!doctype html><html ${rootAttrs}><head><meta charset="utf-8">
+${base}
+${LAYER_ORDER}
+${sheets}</head>
+<body class="${bodyClass}">
+${bodyHtml}${script}
+</body></html>`;
+	}
+
+	/**
+	 * Render `bodyHtml` and write a PNG of it.
+	 *
+	 * The point is fidelity, not prettiness: this is the real partials, the real pack data and the
+	 * real stylesheets, so a picture taken here cannot contain a field the sheet does not render or
+	 * miss one it does. A hand-drawn mockup can do both and did, repeatedly.
+	 *
+	 * @param {object} options
+	 * @param {string} options.bodyHtml markup placed inside <body>
+	 * @param {string} options.outFile absolute path for the PNG
+	 * @param {number} [options.width] viewport width  (default 1160 — the sheet's own default)
+	 * @param {number} [options.height] viewport height (default 900)
+	 * @param {string} [options.bodyClass]
+	 * @param {string} [options.rootAttrs]
+	 * @param {string[]} [options.chromeFlags]
+	 * @returns {string} the path written
+	 */
+	snapshot({ bodyHtml, outFile, width = 1160, height = 900, bodyClass = "", rootAttrs = "", chromeFlags = [] }) {
+		const chrome = chromePath();
+		if (!chrome || !foundryCss) throw new Error("RenderProbe needs Chrome and a local Foundry install");
+
+		const [core, ...ours] = this._sheetPaths();
+		const sheets = [
+			`<link rel="stylesheet" href="file://${core}">`,
+			...ours.map(f => `<style>${readFileSync(f, "utf8")}</style>`),
+		].join("\n");
+		const base = `<base href="file://${path.join(process.cwd(), "styles")}/">`;
+		const file = writeFixture(this._page({ bodyHtml, bodyClass, rootAttrs, sheets, base }));
+
+		execFileSync(chrome, [
+			"--headless", "--disable-gpu", "--no-sandbox", "--allow-file-access-from-files",
+			`--window-size=${width},${height}`,
+			...chromeFlags,
+			// Long enough for the sheet's own faces to arrive: a screenshot taken before
+			// document.fonts.ready shows the fallback, which is a different picture.
+			"--virtual-time-budget=6000",
+			`--screenshot=${outFile}`, `file://${file}`
+		], { stdio: ["ignore", "ignore", "ignore"], timeout: 60000 });
+
+		if (!existsSync(outFile)) throw new Error(`snapshot wrote nothing to ${outFile}`);
+		return outFile;
+	}
+
+	/**
 	 * Build the fixture, run headless Chrome over it, and read back whatever `collect` wrote
 	 * into `out`. Shared so render() and measure() cannot drift in how they set the page up —
 	 * the stylesheet order and the <html> attributes are the whole point of the probe.
@@ -298,12 +367,7 @@ for (const [name, selector] of Object.entries(targets)) {
 		// directory — so the document is told where those sheets came from.
 		const base = `<base href="file://${path.join(process.cwd(), "styles")}/">`;
 
-		const html = `<!doctype html><html ${rootAttrs}><head><meta charset="utf-8">
-${base}
-${LAYER_ORDER}
-${sheets}</head>
-<body class="${bodyClass}">
-${bodyHtml}
+		const html = this._page({ bodyHtml, bodyClass, rootAttrs, sheets, base, script: `
 <pre id="probe-result"></pre>
 <script>
 const out = {};
@@ -312,12 +376,9 @@ document.fonts.ready.then(() => {
 ${collect}
 document.getElementById("probe-result").textContent = JSON.stringify(out);
 });
-</script>
-</body></html>`;
+</script>` });
 
-		const dir = mkdtempSync(path.join(tmpdir(), "stonetop-probe-"));
-		const file = path.join(dir, "fixture.html");
-		writeFileSync(file, html);
+		const file = writeFixture(html);
 
 		const dom = execFileSync(chrome, [
 			"--headless", "--disable-gpu", "--no-sandbox", "--allow-file-access-from-files",

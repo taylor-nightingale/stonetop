@@ -18,7 +18,8 @@ export function activateTablistKeys(root) {
 		const tab = ev.target?.closest?.('[role="tab"]');
 		if (!tab) return;
 
-		const tabs = [...(tab.closest('[role="tablist"]')?.querySelectorAll('[role="tab"]') ?? [])];
+		// The tabs in the strip: one listed under "More" is reached from there (see TabStripFit).
+		const tabs = [...(tab.closest('[role="tablist"]')?.querySelectorAll('[role="tab"]') ?? [])].filter(t => !t.hidden);
 		if (tabs.length < 2) return;
 
 		const next = nextTab(tabs, tabs.indexOf(tab), ev.key);

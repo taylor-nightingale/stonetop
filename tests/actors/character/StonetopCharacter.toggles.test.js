@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { TestCharacterBuilder } from "../../fakes/TestCharacterBuilder.js";
 import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
 import { InventoryOwner } from "../../../src/actors/character/InventoryOwner.js";
-import { NewInventoryItem } from "../../../src/actors/character/AddInventoryItemDialog.js";
+import { NewInventoryItem } from "../../../src/actors/character/NewInventoryItem.js";
 
 function makeChar() {
 	return new TestCharacterBuilder(new FakeCharacterActorBuilder().build()).build();
@@ -89,10 +89,18 @@ describe("StonetopCharacter checked-state setters", () => {
 		expect(spy).toHaveBeenCalledWith("playbook", "spirit-tongue");
 	});
 
-	it("setMoveChecked(false) decrements the move", async () => {
+	// One box a move: clearing it clears every take (Take again is how a second one is added).
+	it("setMoveChecked(false) clears every take of the move", async () => {
 		const char = makeChar();
-		const spy = vi.spyOn(char, "decrementMove").mockResolvedValue();
+		const spy = vi.spyOn(char, "clearMove").mockResolvedValue();
 		await char.setMoveChecked("playbook", "spirit-tongue", false);
+		expect(spy).toHaveBeenCalledWith("playbook", "spirit-tongue");
+	});
+
+	it("clearMove clears it through the character's moves", async () => {
+		const char = makeChar();
+		const spy = vi.spyOn(char._moves, "clearMove").mockResolvedValue();
+		await char.clearMove("playbook", "spirit-tongue");
 		expect(spy).toHaveBeenCalledWith("playbook", "spirit-tongue");
 	});
 
@@ -176,17 +184,16 @@ describe("StonetopCharacter shared-inventory routing", () => {
 		expect(own).toHaveBeenCalledWith("rations", 1);
 	});
 
-	it("addCustomInventoryItemFor routes follower, regular, and small item adds", async () => {
+	it("addCustomInventoryItemFor routes a follower's add and the character's, whole", async () => {
 		const char = makeChar();
 		const follower = vi.spyOn(char, "addFollowerInvCustomItem").mockResolvedValue();
-		const regular = vi.spyOn(char, "addCustomInventoryItem").mockResolvedValue();
-		const small = vi.spyOn(char, "addCustomSmallItem").mockResolvedValue();
-		await char.addCustomInventoryItemFor(InventoryOwner.follower("enfys"), NewInventoryItem.regular("Rope", 1));
-		await char.addCustomInventoryItemFor(InventoryOwner.character(), NewInventoryItem.regular("Tent", 2));
-		await char.addCustomInventoryItemFor(InventoryOwner.character(), NewInventoryItem.small("Flint"));
-		expect(follower).toHaveBeenCalledWith("enfys", "Rope", 1);
-		expect(regular).toHaveBeenCalledWith("Tent", 2);
-		expect(small).toHaveBeenCalledWith("Flint");
+		const own = vi.spyOn(char, "addCustomInventoryItem").mockResolvedValue();
+		const rope = NewInventoryItem.regular("Rope", 1), tent = NewInventoryItem.regular("Tent", 2), flint = NewInventoryItem.small("Flint");
+		await char.addCustomInventoryItemFor(InventoryOwner.follower("enfys"), rope);
+		await char.addCustomInventoryItemFor(InventoryOwner.character(), tent);
+		await char.addCustomInventoryItemFor(InventoryOwner.character(), flint);
+		expect(follower).toHaveBeenCalledWith("enfys", rope);
+		expect(own.mock.calls).toEqual([[tent], [flint]]);
 	});
 
 	it("removeCustomInventoryItemFor routes both ways", async () => {

@@ -35,6 +35,39 @@
        {{/if}}
        {{#if opt.checked}}checked{{/if}}>
 {{/inline}}
+{{! An entry row's write-in blank. `inText`: drawn in the row's text, after the sentence it answers. }}
+{{#*inline "entry-input"}}
+{{#if cgContext}}
+{{! Always-visible data-entry box. input.type "rich" → multiline; "inline" → single-line. }}
+{{#if (eq input.type "rich")}}
+<textarea class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--rich{{#if inText}} stonetop-choice-input--in-text{{/if}}"
+          aria-label="{{localize 'stonetop.a11y.choiceText'}}"
+          data-change-action="cgText"
+          data-cg-context="{{cgContext}}"
+          data-cg-group="{{cgGroup}}"
+          data-cg-option="{{input.slug}}"
+          {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
+{{else}}
+{{! Single-line to start, but grows downward as the answer wraps (field-sizing: content). }}
+<textarea rows="1" class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--inline stonetop-grow-field{{#if inText}} stonetop-choice-input--in-text{{/if}}"
+          aria-label="{{localize 'stonetop.a11y.choiceText'}}"
+          data-change-action="cgText"
+          data-cg-context="{{cgContext}}"
+          data-cg-group="{{cgGroup}}"
+          data-cg-option="{{input.slug}}"
+          {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
+{{/if}}
+{{else}}
+{{! Read-only preview (e.g. the move item sheet): just show the value. }}
+<span class="stonetop-choice-input-preview">{{#if input.value}}{{input.value}}{{else}}<span class="stonetop-editable__placeholder">{{input.placeholder}}</span>{{/if}}</span>
+{{/if}}
+{{/inline}}
+{{! An entry's words. Where its blank follows the lead (a Terrible Purpose's "Name the person…"),
+    the blank sits straight after that first paragraph and the rest follows as its own paragraph. }}
+{{#*inline "entry-text"}}
+{{~#if input.followsLead}}{{rich content.lead}} {{> entry-input inText=true}}{{#if (hasText content.rest)}} <span class="stonetop-choice-track-rest">{{rich content.rest}}</span>{{/if}}
+{{~else}}{{rich content.text}}{{/if~}}
+{{/inline}}
 {{#if (eq type "entry")}}
 {{! Entry row. An indented row (an escalation tabbed in under its parent, e.g. major-arcana
     consequences) wraps ALL its output — title, track, text, input, followers — so the flag is
@@ -53,14 +86,14 @@
 <div class="stonetop-arcanum-move-grant">
     {{#if track}}<span class="stonetop-choice-track-checks">{{> track-checks}}</span>{{/if}}
     <ol class="items-list stonetop-arcanum-moves">
-        {{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" showCheck=false alwaysShowResource=true}}{{/with}}{{/each}}
+        {{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" alwaysShowResource=true}}{{/with}}{{/each}}
     </ol>
 </div>
 {{/if}}
 {{else}}
 {{! Content / track / input rendered like any entry row (same checkbox, tabbing, formatting as siblings);
     a linked follower's card sits below the content. }}
-{{#if (hasText content.title)}}<p class="stonetop-choice-entry-title">{{rich content.title}}{{#if (hasText content.titleNote)}} <span class="stonetop-section-note">{{rich content.titleNote}}</span>{{/if}}</p>{{/if}}
+{{#if (and (hasText content.title) (not hideTitle))}}<p class="stonetop-choice-entry-title">{{rich content.title}}{{#if (hasText content.titleNote)}} <span class="stonetop-section-note">{{rich content.titleNote}}</span>{{/if}}</p>{{/if}}
 {{#if track}}
 {{#if (hasText content.subtitle)}}
 <div class="stonetop-choice-track stonetop-column">
@@ -70,14 +103,14 @@
         </span>
         {{> "stonetop.section-sub-heading" subtitle=content.subtitle subtitleNote=content.subtitleNote}}
     </div>
-    <span class="stonetop-choice-track-desc">{{rich content.text}}</span>
+    <span class="stonetop-choice-track-desc">{{> entry-text}}</span>
 </div>
 {{else}}
 <div class="stonetop-choice-track stonetop-row">
     <div class="stonetop-choice-track-checks">
         {{> track-checks}}
     </div>
-    <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich content.text}}</span>
+    <span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{> entry-text}}</span>
 </div>
 {{/if}}
 
@@ -88,36 +121,11 @@
 {{> "stonetop.section-sub-heading" subtitle=content.subtitle subtitleNote=content.subtitleNote}}
 {{/if}}
 {{#if (hasText content.text)}}
-<div class="stonetop-choice-description">{{rich content.text}}</div>
+<div class="stonetop-choice-description">{{> entry-text}}</div>
 {{/if}}
 {{/if}}
-{{#if input}}
-<div class="stonetop-choice-option stonetop-choice-option--text">
-    {{#if cgContext}}
-    {{! Always-visible data-entry box. input.type "rich" → multiline; "inline" → single-line. }}
-    {{#if (eq input.type "rich")}}
-    <textarea class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--rich"
-              aria-label="{{localize 'stonetop.a11y.choiceText'}}"
-              data-change-action="cgText"
-              data-cg-context="{{cgContext}}"
-              data-cg-group="{{cgGroup}}"
-              data-cg-option="{{input.slug}}"
-              {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
-    {{else}}
-    {{! Single-line to start, but grows downward as the answer wraps (field-sizing: content). }}
-    <textarea rows="1" class="stonetop-cg-text stonetop-choice-input stonetop-choice-input--inline stonetop-grow-field"
-              aria-label="{{localize 'stonetop.a11y.choiceText'}}"
-              data-change-action="cgText"
-              data-cg-context="{{cgContext}}"
-              data-cg-group="{{cgGroup}}"
-              data-cg-option="{{input.slug}}"
-              {{#if input.placeholder}}placeholder="{{input.placeholder}}"{{/if}}>{{input.value}}</textarea>
-    {{/if}}
-    {{else}}
-    {{! Read-only preview (e.g. the move item sheet): just show the value. }}
-    <span class="stonetop-choice-input-preview">{{#if input.value}}{{input.value}}{{else}}<span class="stonetop-editable__placeholder">{{input.placeholder}}</span>{{/if}}</span>
-    {{/if}}
-</div>
+{{#if (and input (not input.followsLead))}}
+<div class="stonetop-choice-option stonetop-choice-option--text">{{> entry-input}}</div>
 {{/if}}
 {{! The row's linked follower card, below its content. Resolves each slug against the normalized registry
     (@root.stonetop.followers.bySlug); #with skips a slug with no card (e.g. an item-sheet preview). }}
@@ -130,7 +138,7 @@
 {{#if moves}}
 <div class="stonetop-arcanum-move-grant">
     <ol class="items-list stonetop-arcanum-moves">
-        {{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" showCheck=false alwaysShowResource=true}}{{/with}}{{/each}}
+        {{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" alwaysShowResource=true}}{{/with}}{{/each}}
     </ol>
 </div>
 {{/if}}

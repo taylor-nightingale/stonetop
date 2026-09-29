@@ -1,19 +1,19 @@
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
    Derived Stonetop tokens, and the short list of core values the palette cannot reach.
 
-   Almost all theming happens in styles/palette.css, which repaints Foundry's 22 base colour ramps.
+   Almost all theming happens in styles/palette.css, which repaints Foundry's 22 base color ramps.
    927 of core's declarations resolve back to those ramps, so they follow without being named here.
 
    This file holds only the two things that cannot:
 
-     1. DERIVED tokens — "the same colour, weaker". Washes, veils and translucent rules, built with
+     1. DERIVED tokens — "the same color, weaker". Washes, veils and translucent rules, built with
         color-mix() from whatever the theme set. Deriving them from ink rather than from black is
         what makes a dark theme correct for free: `rgba(0, 0, 0, 0.05)` is a *lighter* surface on
         dark paper and a darker one on light paper, whereas ink-derived always means "recede".
 
-     2. CORE LITERALS — the places core hard-codes a colour in a theme block instead of reading a
+     2. CORE LITERALS — the places core hard-codes a color in a theme block instead of reading a
         ramp. These were enumerated from core's stylesheet rather than guessed; the big ones are
-        Foundry's own `parchment.jpg` behind windows and the sidebar, and the palette of colours
+        Foundry's own `parchment.jpg` behind windows and the sidebar, and the palette of colors
         behind chat messages, which sits outside any theme block and so was identical in both.
 
    Each override targets the element core targets. Cascade layers only arbitrate between
@@ -85,7 +85,7 @@
 	   not in our values.) Reading the header in the theme's ink instead puts it at 9.4:1 lit and
 	   leaves the dark theme exactly as core drew it, since ink is the cream there.
 
-	   A folder given a colour carries that colour inline on the header, and an arbitrary saturated
+	   A folder given a color carries that color inline on the header, and an arbitrary saturated
 	   band is what core's cream is actually for — so those keep it. The create buttons declare
 	   `--button-text-color` on themselves, and an element's own declaration beats an inherited one
 	   whatever the layer, so they have to be named separately. */
@@ -104,7 +104,7 @@
 	}
 
 	/* ── Core literals: chat ─────────────────────────────────────────────────────────────────────
-	   `.chat-message` declares its own colours outside any theme block, so they were identical in
+	   `.chat-message` declares its own colors outside any theme block, so they were identical in
 	   light and dark and none of them come from a ramp.
 
 	   Two of core's decisions make chat the one place a translucent surface is not allowed:

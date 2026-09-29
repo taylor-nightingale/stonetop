@@ -1,0 +1,11 @@
+{{!-- The instinct: its computed label — the picked option's words, or what was written in. Params:
+      `instinctSelected`, and `setAsideBy` (an InstinctReadout, or null) — on the Playbook tab, while
+      an insert's instinct is in force: the playbook's is kept rather than cleared, so it says so and
+      where the one in force is (D12). --}}
+{{#if (hasText instinctSelected)}}
+{{> "stonetop.ticked-line" text=instinctSelected note=null klass=(ifThen setAsideBy "is-set-aside" null)}}
+{{#if setAsideBy}}
+<p class="stonetop-section-note stonetop-set-aside-note"><button type="button" class="stonetop-goto stonetop-set-aside" data-action="goToTab" data-view-state
+   data-tab="{{setAsideBy.tab}}" data-open-sections="{{setAsideBy.sectionKey}}">{{localize "stonetop.character.instinct.setAside" source=setAsideBy.source}}</button></p>
+{{/if}}
+{{/if}}

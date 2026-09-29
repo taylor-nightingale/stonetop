@@ -19,7 +19,8 @@
       }
     },
     "rollStat": "con",
-    "slug": "undying"
+    "slug": "undying",
+    "replaces": "deaths-door"
   },
   "folder": "PltWcwhA5PwgziBO",
   "_id": "hTcheRc8Pk3kJxuW",

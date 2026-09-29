@@ -1,9 +1,9 @@
 {{!-- A choice group on a locked sheet: the group's own prose, then one line per thing chosen. Each
       line is emitted in the SHAPE the editor gave it (see ReviewLine#form) with the checkbox
       replaced by the tick it was carrying — locking a tab changes what it shows, never how it is
-      styled. --}}
+      styled. `hideFirstTitle`: the first block's title is on the section's bar. --}}
 {{#each blocks}}
-{{#if title}}<p class="stonetop-choice-entry-title">{{rich title}}{{#if titleNote}} <span class="stonetop-section-note">{{rich titleNote}}</span>{{/if}}</p>{{/if}}
+{{#if (and title (not (and ../hideFirstTitle @first)))}}<p class="stonetop-choice-entry-title">{{rich title}}{{#if titleNote}} <span class="stonetop-section-note">{{rich titleNote}}</span>{{/if}}</p>{{/if}}
 {{#if lead}}<div class="stonetop-choice-description">{{rich lead}}</div>{{/if}}
 {{#each lines}}
 {{#if (eq form "section")}}
@@ -24,18 +24,21 @@
 	</div>
 	<div class="stonetop-item-description">{{rich detail}}</div>
 </div>
+{{else if (eq form "answered")}}
+{{!-- A blank that follows its sentence, answered: the answer where the blank was, the rest after. --}}
+<div class="stonetop-choice-track stonetop-row">
+	<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>
+	<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich text}} <span class="stonetop-choice-answer">{{rich answer}}</span>{{#if (hasText detail)}} <span class="stonetop-choice-track-rest">{{rich detail}}</span>{{/if}}</span>
+</div>
 {{else if (eq form "moves")}}
 {{!-- A row that is nothing but a move grant: the move itself, rendered as the editor renders it. --}}
 <div class="stonetop-arcanum-move-grant">
 	<ol class="items-list stonetop-arcanum-moves">
-		{{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" showCheck=false alwaysShowResource=true}}{{/with}}{{/each}}
+		{{#each moves.slugs}}{{#with (lookup @root.stonetop.moves.bySlug this)}}{{> "stonetop.move-row" alwaysShowResource=true}}{{/with}}{{/each}}
 	</ol>
 </div>
 {{else}}
-<div class="stonetop-choice-track stonetop-row">
-	<div class="stonetop-choice-track-checks"><span class="stonetop-choice-tick" aria-hidden="true">✓</span></div>
-	<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">{{rich text}}{{#if note}} <span class="stonetop-section-note">{{rich note}}</span>{{/if}}</span>
-</div>
+{{> "stonetop.ticked-line" text=text note=note klass=null}}
 {{/if}}
 {{/each}}
 {{/each}}

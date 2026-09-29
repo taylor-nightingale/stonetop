@@ -1,130 +1,32 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
-import { renderLocalized } from "./localizedPartial.js";
-import { VitalsSnapshotBuilder, VitalsSourcesSnapshot, VitalsNotesSnapshot, ValueMax }
-	from "../../src/model/snapshot/character/VitalsSnapshot.js";
-import { StatSnapshot } from "../../src/model/snapshot/character/StatSnapshot.js";
-import { DebilitySnapshotBuilder } from "../../src/model/snapshot/character/DebilitySnapshot.js";
-import { RollModes } from "../../src/actors/RollModes.js";
+import { bandHtml, sheetWithBand, windowFor, withFoot } from "./bandFixture.js";
 
 /**
- * The top band, measured.
+ * The top band, measured (D7).
  *
- * Six stat tiles, three debility bands under their own pairs, and HP/Armor/Damage — all as wide as
- * each other because all three blocks derive their width from the same two tokens. Whether that
- * actually holds is a question only a renderer answers: a `grid-template-columns` is as valid with
- * tracks too narrow for their contents as with tracks that fit, and nothing in the cascade says
- * which.
- *
- * Rendered from the REAL partials, with the GERMAN strings. Hand-copied fixture markup is a second
- * description of what a partial emits, and the English labels fitted tracks the German ones
- * overflowed — so measuring "Armor" proves nothing that matters.
+ * The masthead across the top — the name and the playbook, the instinct and the appearance beside
+ * them — the six stats with their brackets, the Ailments panel beside them, and the foot. The real
+ * partial over a real snapshot, in German. Whether any of it lines up is a question only a renderer
+ * answers: a grid is as valid with tracks too narrow for their contents as with tracks that fit.
  */
 const STYLES = path.resolve(process.cwd(), "styles");
-const sheet = f => path.join(STYLES, f);
-
-const probe = new RenderProbe([
-	sheet("themes/palette.css"),
-	sheet("themes/parchment-light.css"),
-	sheet("themes/parchment-dark.css"),
-	sheet("tokens.css"),
-	sheet("stonetop.css"),
-]);
-
-const FONT_AWESOME = `<style>.fas { display: inline-block; width: 1em; height: 1em; }</style>`;
-
-const stat = (key, value, name, abbr) => new StatSnapshot(key, value, name, abbr, `${name}.`);
-const STATS = {
-	str: stat("str",  1, "Stärke",           "STR"),
-	dex: stat("dex", -1, "Geschicklichkeit", "DEX"),
-	int: stat("int",  2, "Intelligenz",      "INT"),
-	wis: stat("wis",  0, "Weisheit",         "WIS"),
-	con: stat("con",  0, "Konstitution",     "CON"),
-	cha: stat("cha", -1, "Charisma",         "CHA"),
-};
-
-const DEBILITIES = [
-	["weakened",  "Weakened",  ["str", "dex"], true],
-	["dazed",     "Dazed",     ["int", "wis"], false],
-	["miserable", "Miserable", ["con", "cha"], false],
-].map(([key, name, stats, active]) => new DebilitySnapshotBuilder()
-	.withKey(key).withName(name).withStats(stats).withActive(active)
-	.withDescription("Fatigued, tired, sluggish, shaky. Take disadvantage when rolling +STR or +DEX.")
-	.build());
-
-const VITALS = new VitalsSnapshotBuilder()
-	.withHp(new ValueMax(16, 16)).withDamage({ value: "d6" }).withArmor(1)
-	.withLevel(4).withXp(new ValueMax(14, 14))
-	.withSources(new VitalsSourcesSnapshot("hp sentence", "damage sentence", "armor sentence"))
-	.withNotes(new VitalsNotesSnapshot("playbook", "playbook", "leather, shield"))
-	.build();
-
-const ROOT = {
-	stonetop: { vitals: VITALS, rollModes: RollModes.options("normal") },
-	editable: true, sheetIdPrefix: "s1", viewFlags: {},
-};
-
-// The band's real nesting: a MAIN row of column-and-picture, and a FOOT carrying the folded line,
-// the roll mode and the fold control. The masthead is inside the column, which is what makes the
-// picture as tall as the name and the numbers together.
-const BAND = `
-${FONT_AWESOME}
-<div class="application stonetop sheet actor character themed theme-light" style="width: 1160px; height: 900px">
- <div class="window-content"><div class="sheet-wrapper">
-  <div class="stonetop-rail-layout" data-side="left">
-   <div class="stonetop-rail stonetop-moves-rail">
-    ${renderLocalized("stonetop.advancement", ROOT)}
-   </div>
-   <div class="stonetop-rail-main character-main">
-    <div class="stonetop-band">
-     <div class="stonetop-band-main">
-      <div class="stonetop-band-col">
-       <header class="sheet-header flexrow"><div class="header-fields"><h1 class="charname">
-         <input name="name" type="text" value="Blodwen"></h1></div></header>
-       <section class="sheet-top flexrow" id="s1-band">
-        <div class="stonetop-stats-column">
-         <h3 class="stonetop-move-group-title">Attribute</h3>
-         <div class="stonetop-panel-divider" aria-hidden="true"></div>
-         ${renderLocalized("stonetop.actor-stats", { stats: STATS, editable: true })}
-         ${renderLocalized("stonetop.debility-bands", { debilities: DEBILITIES })}
-         ${renderLocalized("stonetop.actor-attributes", ROOT)}
-        </div>
-       </section>
-      </div>
-      <div class="stonetop-actor-portrait">
-       <button type="button" class="stonetop-image-btn"><img class="stonetop-actor-portrait-img" alt="p"></button>
-      </div>
-     </div>
-     <div class="stonetop-band-foot">
-      ${renderLocalized("stonetop.roll-mode-picker", { modes: ROOT.stonetop.rollModes, name: "stonetop-roll-mode", variant: "inline" })}
-      <button type="button" class="stonetop-top-toggle" data-view-state><i class="fas fa-chevron-up stonetop-top-caret"></i><span class="stonetop-top-toggle-label">Attribute</span></button>
-     </div>
-    </div>
-    <nav class="sheet-tabs tabs" data-group="primary"><button type="button" class="item">Moves</button></nav>
-    <section class="sheet-body"><div class="tab active">a tab</div></section>
-   </div>
-  </div>
- </div></div>
-</div>`;
-
-/** The band's own vitals row. */
-const V = ".stonetop-resource-row--vitals";
+const probe = new RenderProbe(["themes/palette.css", "themes/parchment-light.css", "themes/parchment-dark.css", "tokens.css", "stonetop.css"]
+	.map(f => path.join(STYLES, f)));
 
 const TARGETS = {
-	// `#s1-band` is the numbers themselves; `.stonetop-band` is the wrapper that also holds the
-	// ledger line and reserves the toggle's column, so the toggle is measured against that.
 	band: "#s1-band", bandBox: ".stonetop-band",
-	column: ".stonetop-stats-column", portrait: ".stonetop-actor-portrait",
-	// The outer column — masthead over numbers — and the masthead itself. The masthead is the block
-	// that used to set this column's width from its own content.
-	bandCol: ".stonetop-band-col", header: ".stonetop-band-col > .sheet-header",
-	statsRow: ".stonetop-stats-row", debilities: ".stonetop-debilities", vitalsRow: ".stonetop-resource-row--vitals",
-	toggle: ".stonetop-top-toggle", tabs: ".sheet-tabs", firstTab: ".sheet-tabs .item",
+	masthead: ".stonetop-masthead", name: ".stonetop-masthead .charname",
+	who: ".stonetop-who", instinct: ".stonetop-instinct", instinctRoute: ".stonetop-instinct .stonetop-goto",
+	appearance: ".stonetop-appearance",
+	column: ".stonetop-stats-column",
+	statsRow: ".stonetop-stats-row", debilities: ".stonetop-debilities",
+	toggle: ".stonetop-top-toggle", toggleLabel: ".stonetop-top-toggle-label", tabs: ".sheet-tabs", firstTab: ".sheet-tabs .item",
+	foot: ".stonetop-band-foot",
 	mode: ".stonetop-band-foot > .stonetop-rollmode",
+	rule: ".stonetop-band-foot .stonetop-rollmode-rule",
 	heading: ".stonetop-stats-column .stonetop-move-group-title",
-	// The chain under the heading — the bottom of the heading UNIT, which is what the first block is
-	// spaced from. The h3 and the chain are one thing, so the gap between them is not a block gap.
 	headingRule: ".stonetop-stats-column .stonetop-panel-divider",
 
 	str: '.stonetop-stat[data-stat="str"]', dex: '.stonetop-stat[data-stat="dex"]',
@@ -139,382 +41,375 @@ const TARGETS = {
 	weakenedEffect: ".stonetop-debility:nth-child(1) .stonetop-debility-effect",
 	miserable: ".stonetop-debility:nth-child(3)",
 
-	// Scoped to the row, always: the rail's Advancement tiles carry the same classes and come FIRST
-	// in document order, so a bare `.stonetop-vital:nth-child(1)` measures XP and reports it as HP.
-	hp: `${V} .stonetop-vital:nth-child(1) .stonetop-resource`,
-	armor: `${V} .stonetop-vital:nth-child(2) .stonetop-resource`,
-	damage: `${V} .stonetop-vital:nth-child(3) .stonetop-resource`,
-	hpLabel: `${V} .stonetop-vital:nth-child(1) .stonetop-resource__label`,
-	armorLabel: `${V} .stonetop-vital:nth-child(2) .stonetop-resource__label`,
-	damageLabel: `${V} .stonetop-vital:nth-child(3) .stonetop-resource__label`,
-	hpNote: `${V} .stonetop-vital:nth-child(1) .stonetop-resource__note`,
-	armorNote: `${V} .stonetop-vital:nth-child(2) .stonetop-resource__note`,
-	damageNote: `${V} .stonetop-vital:nth-child(3) .stonetop-resource__note`,
-	hpCurrent: ".stonetop-char-hp", hpMax: ".stonetop-char-max-hp",
+	ailments: ".stonetop-ailments",
+	ailmentBar: ".stonetop-ailments .stonetop-bar",
+	ailmentList: ".stonetop-ailment-list",
+	add: ".stonetop-ailments-edit",
+	firstAilment: ".stonetop-ailment:nth-child(1)",
+	firstNote: ".stonetop-ailment:nth-child(1) .stonetop-ailment-note",
+	woundRow: ".stonetop-ailment--wound",
+	woundName: ".stonetop-ailment--wound .stonetop-ailment-name",
+	woundState: ".stonetop-ailment--wound .stonetop-ailment-note",
 
-	rail: ".stonetop-rail", xp: ".stonetop-char-xp", railLevel: ".stonetop-char-level",
-	xpTile: ".stonetop-resource-row--advancement .stonetop-vital:nth-child(1) .stonetop-resource",
-	levelTile: ".stonetop-resource-row--advancement .stonetop-vital:nth-child(2) .stonetop-resource",
+	rail: ".stonetop-rail", layout: ".stonetop-rail-layout",
 };
 
 const right = v => v.boxLeft + v.boxWidth;
+// The character column's inset (1.5rem at the 16px root these render at): the band's content ends
+// there, as the tab strip's and the tab's do.
+const INSET = 24;
+const bottom = v => v.boxTop + v.boxHeight;
+const centreY = v => v.boxTop + v.boxHeight / 2;
+
+// `still`: the rail made a drawer by its container query starts its slide out once the page is laid
+// out, and a probe under load measured it mid-way, still a column.
+const measure = ({ width = 1160, band = bandHtml(), wrapper = "", layout = "", targets = TARGETS, still = false } = {}) => probe.measure({
+	bodyHtml: sheetWithBand({ width, band, wrapper, layout }), bodyClass: "game themed theme-light",
+	rootAttrs: 'style="font-size: 16px"', targets,
+	chromeFlags: [...windowFor(width), ...(still ? ["--force-prefers-reduced-motion"] : [])],
+});
 
 describe.skipIf(!canProbe())("the top band", () => {
 	let m;
-	beforeAll(() => {
-		m = probe.measure({
-			bodyHtml: BAND, bodyClass: "game themed theme-light",
-			rootAttrs: 'style="font-size: 16px"', targets: TARGETS,
-			chromeFlags: ["--window-size=1220,960"],
-		});
-	});
+	beforeAll(() => { m = measure(); });
 	const el = name => m.get(name).values;
 
 	it("renders every part of the band", () => {
 		for (const [name, probed] of m) expect(probed.missing, `${name} did not render`).toBe(false);
 	});
 
-	// The structural claim the whole redesign rests on: the rail is the MOVES rail, and the numbers
-	// are beside it rather than above the moves in it.
 	it("puts the band beside the rail, not inside it", () => {
 		expect(el("band").boxLeft).toBeGreaterThanOrEqual(right(el("rail")) - 1);
 	});
 
-	// ── The three blocks are one width, derived from one pair of tokens ──────────────
-	// The tile's width is read off the token rather than written here as a number. It used to be a
-	// literal 96, which is the same fact stated twice — so shrinking the frames failed this test for
-	// no reason beyond the restatement, and a tile that had silently stopped tracking its own token
-	// would have passed it just as happily.
+	// ── The grid ──────────────────────────────────────────────────────────────────
+	it("sets the masthead across the top, the numbers under it, the ailments beside them", () => {
+		expect(el("band").boxTop).toBeGreaterThanOrEqual(bottom(el("masthead")) - 1);
+		expect(el("ailments").boxLeft).toBeGreaterThan(right(el("statsRow")));
+		expect(el("ailments").boxTop).toBeGreaterThanOrEqual(bottom(el("masthead")) - 1);
+	});
+
+	// The masthead runs on the band's own columns, so the instinct starts where the panel under it
+	// starts and the name where the stats do.
+	it("lines the instinct up with the ailments panel, and the name with the stats", () => {
+		expect(el("who").boxLeft).toBeCloseTo(el("ailments").boxLeft, 0);
+		expect(el("name").boxLeft).toBeLessThanOrEqual(el("statsRow").boxLeft + 1);
+	});
+
+	// Reported: with one ailment the panel sat at the foot of its cell, a gap above it. It starts
+	// where the stats do, its bar level with their heading, however few rows it has.
+	it("starts the ailments at the top of the numbers beside them", () => {
+		expect(el("ailments").boxTop).toBeCloseTo(el("column").boxTop, 0);
+	});
+
+	// Reported: the Ailments bar sat on the masthead's rule. It stands off it by what the masthead
+	// leaves above it, and the stats' heading comes down with it, so the two stay level.
+	it("stands the ailments off the masthead's rule by the masthead's own padding", () => {
+		expect(el("ailments").boxTop - bottom(el("masthead"))).toBeCloseTo(0.4 * 16, 0);
+		expect(el("column").boxTop - bottom(el("masthead"))).toBeCloseTo(0.4 * 16, 0);
+	});
+
+	it("keeps the ailments inside the band", () => {
+		expect(right(el("ailments"))).toBeLessThanOrEqual(right(el("bandBox")));
+		expect(bottom(el("ailments"))).toBeLessThanOrEqual(bottom(el("bandBox")));
+	});
+
+	// ── The masthead's two readouts ───────────────────────────────────────────────
+	// One line each, cut to "…": a wrapped line grew the band on every narrow sheet.
+	it("holds the instinct and the appearance to a line each", () => {
+		const line = n => el(n).boxHeight;
+		expect(line("instinct")).toBeLessThan(1.6 * 16);
+		expect(line("appearance")).toBeLessThan(1.6 * 16);
+		expect(right(el("instinctRoute"))).toBeLessThanOrEqual(right(el("bandBox")));
+		expect(right(el("appearance"))).toBeLessThanOrEqual(right(el("bandBox")));
+	});
+
+	// ── The stats, as they were ───────────────────────────────────────────────────
 	it("draws all six stats on one line, each at the declared frame width", () => {
 		const tops = ["str", "dex", "cha"].map(n => el(n).boxTop);
 		expect(Math.max(...tops) - Math.min(...tops), "the stats wrapped").toBeLessThan(2);
 
 		const declaredW = parseFloat(probe.render({
-			bodyHtml: BAND, bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
+			bodyHtml: sheetWithBand(), bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
 			probes: { tile: { selector: ".stonetop-stat", properties: ["--stat-frame-w"] } },
+			chromeFlags: windowFor(1160),
 		}).get("tile").get("--stat-frame-w")) * 16;
-
 		for (const name of ["str", "dex", "cha"])
 			expect(el(name).boxWidth, `${name} is not the declared frame width`).toBeCloseTo(declaredW, 0);
 	});
 
-	// The rail is NOT sized by the stat frame, and that is deliberate. Its width used to be derived
-	// from --stat-frame-w alone (two Advancement frames across plus padding), so shrinking the tiles
-	// would have dragged the moves rail from 244px to 196px behind them — narrowing the one column
-	// whose names were already truncating. The frames are a floor now, not the width.
 	it("does not narrow the moves rail when the stat frames shrink", () => {
-		// The rendered rail, not the token: a custom property holding a `max()` substitutes as the
-		// expression text, so reading it back proves nothing about the width anything actually got.
-		const frames = 2 * el("str").boxWidth;
-		expect(el("rail").boxWidth, "the rail followed the frames down").toBeGreaterThan(frames + 48);
+		expect(el("rail").boxWidth, "the rail followed the frames down").toBeGreaterThan(2 * el("str").boxWidth + 48);
 	});
 
-	// The bands still derive their width from the frame tokens, so three of them stay exactly as wide
-	// as the six tiles they sit under at every Font Size step. The vitals row is no longer part of
-	// this claim — see the packing test below.
 	it("makes the debility bands exactly as wide as the stats row", () => {
 		expect(el("debilities").boxWidth).toBeCloseTo(el("statsRow").boxWidth, 0);
 	});
 
-	// Each band belongs to the pair of stats it hinders — the grouping is the rules', and a band
-	// that drifted off its pair would be claiming something about the wrong two stats.
 	it("lands each debility band under its own pair of tiles", () => {
-		const pair = { left: el("str").boxLeft, right: right(el("dex")) };
-		expect(el("weakenedArt").boxLeft, "the bracket starts left of its pair")
-			.toBeGreaterThanOrEqual(pair.left - 2);
-		expect(right(el("weakenedArt")), "the bracket runs past its pair").toBeLessThanOrEqual(pair.right + 2);
+		expect(el("weakenedArt").boxLeft).toBeGreaterThanOrEqual(el("str").boxLeft - 2);
+		expect(right(el("weakenedArt"))).toBeLessThanOrEqual(right(el("dex")) + 2);
 	});
 
-	// ── The labels ──────────────────────────────────────────────────────────────────
-	// A tile's label is absolutely positioned across its rule, so it contributes NOTHING to its grid
-	// track — a track narrower than its own chip is a chip hanging over its neighbour, and no
-	// computed value on either one says so. Unseen in English, a collision in German.
-	//
-	// Live, and checked: narrowing the row to 180px trips it on "Rüstung", which is the width at
-	// which a third of the row is narrower than the German word in it. It is NOT sensitive to the
-	// row's track RATIO any more, and deliberately so — the caps below mean a frame never exceeds
-	// the width its art was cut for however the tracks are divided, so that failure is designed out
-	// rather than watched for. The claim here is the one about the WORDS.
 	it("keeps every label inside the tile it names", () => {
-		for (const [label, tile] of [["hpLabel", "hp"], ["armorLabel", "armor"], ["damageLabel", "damage"],
-			["strRoll", "str"], ["chaRoll", "cha"]]) {
-			const l = el(label), t = el(tile);
-			expect(l.boxLeft, `the ${tile} label spills off its left edge`).toBeGreaterThanOrEqual(t.boxLeft - 1);
-			expect(right(l), `the ${tile} label spills off its right edge`).toBeLessThanOrEqual(right(t) + 1);
-		}
-	});
-
-	// What makes the above ratio-proof, and what keeps the tiles looking like the stat tiles beside
-	// them: the frame art is a mask at `mask-size: 100% 100%`, so a frame given a track wider than
-	// itself stretches the woodcut instead of sitting at the size it was cut for.
-	it("never draws a frame wider than the art it is cut from", () => {
-		expect(el("armor").boxWidth, "the square frame stretched").toBeLessThanOrEqual(96 + 1);
-		expect(el("damage").boxWidth, "the square frame stretched").toBeLessThanOrEqual(96 + 1);
-		expect(el("hp").boxWidth, "the wide frame stretched").toBeLessThanOrEqual(146 + 1);
-	});
-
-	// ── The column's edges ──────────────────────────────────────────────────────────
-	// Everything that CAN be as wide as the six tiles is exactly as wide as them, masthead included.
-	// The masthead's own content measured 455px against the tiles' 452 and, being a flex item, set the
-	// column's width with it — so the numbers sat three pixels shy of the name above them, which is
-	// the kind of miss that reads as nothing quite lining up without being nameable.
-	it("lines the masthead's right edge up with the six tiles", () => {
-		for (const name of ["header", "debilities"])
-			expect(right(el(name)), `${name} does not end where the stats row does`)
-				.toBeCloseTo(right(el("statsRow")), 0);
-		expect(right(el("bandCol")), "the column grew past its six tiles")
-			.toBeLessThanOrEqual(right(el("statsRow")) + 1);
-	});
-
-	// HP/Armor/Damage cannot reach that width — three packed frames are 126px short of six tiles at
-	// the default step, and nothing on this sheet earns the difference (XP and Level are one mechanism
-	// with the rail, and the inline roll mode is wider than the gap). They keep the column's LEFT
-	// edge, and what is left over is not a hole: the roll mode and the fold control end that same line
-	// from the band's right edge, so it reads as the gap in a line rather than a notch under a column.
-	// Centring the three would halve the gap at both ends and put the notes within reach of the mode
-	// at the sheet's floor width — see the floor case at the bottom of this file.
-	it("starts the vitals row on the stats row's left edge", () => {
-		expect(el("hp").boxLeft, "HP is inset from the first stat tile")
-			.toBeCloseTo(el("statsRow").boxLeft, 0);
-	});
-
-	it("packs the three vitals together rather than spreading them over the stats row", () => {
-		expect(right(el("damage")), "the vitals are still stretched to the stats row's width")
-			.toBeLessThan(right(el("statsRow")) - 40);
-
-		// Adjacent, with a gap no wider than a frame: the three read as one group. Measured between
-		// the boxes rather than declared, so a gap that grows with the frame token still has to pass.
-		const gapAfter = (a, b) => el(b).boxLeft - right(el(a));
-		for (const [a, b] of [["hp", "armor"], ["armor", "damage"]]) {
-			expect(gapAfter(a, b), `${a} and ${b} are adrift of each other`).toBeGreaterThan(0);
-			expect(gapAfter(a, b), `${a} and ${b} do not read as one group`)
-				.toBeLessThanOrEqual(el("armor").boxWidth);
+		for (const [label, tile] of [["strRoll", "str"], ["chaRoll", "cha"]]) {
+			expect(el(label).boxLeft).toBeGreaterThanOrEqual(el(tile).boxLeft - 1);
+			expect(right(el(label))).toBeLessThanOrEqual(right(el(tile)) + 1);
 		}
 	});
 
 	it("crops no label", () => {
-		for (const name of ["hpLabel", "armorLabel", "damageLabel", "strRoll", "chaRoll", "weakenedName"]) {
+		for (const name of ["strRoll", "chaRoll", "weakenedName"]) {
 			expect(m.get(name).overflowX, `${name} is cropped horizontally`).toBe(0);
 			expect(m.get(name).overflowY, `${name} is cropped vertically`).toBe(0);
 		}
 	});
 
-	// ── The values ──────────────────────────────────────────────────────────────────
-	// The failure this replaced a container check for: the HP split did not overflow, and the input
-	// INSIDE it was 16px wide holding 21px numerals. Assert on the leaf that holds the text.
-	it("leaves HP's two numbers wide enough to read", () => {
-		for (const name of ["hpCurrent", "hpMax"]) {
-			expect(el(name).boxWidth, `${name} is too narrow for its numerals`).toBeGreaterThan(40);
-			expect(m.get(name).overflowX, `${name} is clipped`).toBe(0);
-		}
-	});
-
-	// ── The notes ───────────────────────────────────────────────────────────────────
-	// The note goes BELOW the frame. Inside it, the label chip straddling the bottom rule would be
-	// drawn straight over it — which is exactly why the tile has a wrapper.
-	it("puts each note below its frame, clear of the label chip", () => {
-		for (const [note, tile] of [["hpNote", "hp"], ["armorNote", "armor"], ["damageNote", "damage"]])
-			expect(el(note).boxTop, `${note} rides its frame`)
-				.toBeGreaterThanOrEqual(el(tile).boxTop + el(tile).boxHeight - 1);
-	});
-
-	it("crops no note", () => {
-		for (const name of ["hpNote", "armorNote", "damageNote"]) {
-			expect(m.get(name).overflowY, `${name} is cropped vertically`).toBe(0);
-			expect(m.get(name).overflowX, `${name} is cropped horizontally`).toBe(0);
-		}
-	});
-
-	// ── The debility's effect ───────────────────────────────────────────────────────
-	// Carried, and drawn nowhere. Ticking a debility used to write a sentence of rules text under its
-	// name, and three of those took the band from one line to three — shoving the picture, the tabs
-	// and everything below them down at the moment a fight is going badly. The hover is pointer-bound
-	// and invisible to assistive tech, so the sentence stays in the DOM, clipped.
 	it("says what a marked debility does without drawing it", () => {
-		const effect = el("weakenedEffect");
-		expect(effect.boxWidth, "the effect is drawn on the band").toBeLessThan(3);
-		expect(effect.boxHeight, "the effect is drawn on the band").toBeLessThan(3);
-		// The art keeps the height its own rule gives it, whatever is marked.
+		expect(el("weakenedEffect").boxWidth).toBeLessThan(3);
 		expect(el("weakenedArt").boxHeight).toBeCloseTo(18, 0);
 	});
 
-	// And so every band is the same height whatever is marked — the row cannot jump under the pointer
-	// that just ticked it.
 	it("keeps the three bands one height, marked or not", () => {
 		expect(el("miserable").boxHeight).toBeCloseTo(el("weakened").boxHeight, 0);
 	});
 
-	// The tick sits in the gap the divider art leaves for it — centred across (the gap is columns
-	// 105-124 of the art's 230) and ON the rule down, which that art draws at 66% rather than halfway.
-	// Only a renderer can catch what broke this: `left`/`top` place the MARGIN box, and core gives
-	// every checkbox `margin: 3px 3px 3px 4px`, so the tick sat 4px right and 3px low inside its own
-	// bracket at every font step while the stylesheet read as if it were placed.
-	//
-	// The vertical ratio is read off the band's own token, not restated here: it is a fact about the
-	// PNG, and two copies of it would drift the moment the art was recut.
 	it("sits each tick in the gap its bracket leaves, on the rule", () => {
 		const art = el("weakenedArt"), tick = el("weakenedTick");
-		const centre = (v, axis) => axis === "x"
-			? v.boxLeft + v.boxWidth / 2
-			: v.boxTop + v.boxHeight / 2;
-		expect(Math.abs(centre(tick, "x") - centre(art, "x")), "the tick is off its bracket across")
-			.toBeLessThanOrEqual(0.5);
-
+		expect(Math.abs((tick.boxLeft + tick.boxWidth / 2) - (art.boxLeft + art.boxWidth / 2))).toBeLessThanOrEqual(0.5);
 		const ruleY = parseFloat(probe.render({
-			bodyHtml: BAND, bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
+			bodyHtml: sheetWithBand(), bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
 			probes: { band: { selector: ".stonetop-debility-band", properties: ["--debility-rule-y"] } },
+			chromeFlags: windowFor(1160),
 		}).get("band").get("--debility-rule-y")) / 100;
-		expect(ruleY, "the band declares no rule position").toBeGreaterThan(0);
-		expect(Math.abs(centre(tick, "y") - (art.boxTop + art.boxHeight * ruleY)),
-			"the tick is off the rule it interrupts").toBeLessThanOrEqual(0.5);
+		expect(Math.abs(centreY(tick) - (art.boxTop + art.boxHeight * ruleY))).toBeLessThanOrEqual(0.5);
 	});
 
-	// ── The rhythm ──────────────────────────────────────────────────────────────────
-	// One token, not per-block margins. The blocks used to space themselves — 0.625rem here, 2px
-	// there, 0.2rem somewhere else — which came out as 10px in two gaps and 3px in the third, and
-	// read as mis-set without anything being nameable. Measured, because a margin that is correct in
-	// the stylesheet is still wrong when the block above it carries one too.
-	//
-	// Live, and checked: a per-block `margin-top` written later in the file at the same specificity
-	// trips it. A block's OWN margin no longer can — the column's `> * + *` outranks it — which is
-	// the difference between a rule enforced and a rule watched for.
 	it("spaces every block in the column by the same gap", () => {
-		const bottom = n => el(n).boxTop + el(n).boxHeight;
 		const gaps = [
-			el("statsRow").boxTop - bottom("headingRule"),
-			el("debilities").boxTop - bottom("statsRow"),
-			el("vitalsRow").boxTop - bottom("debilities"),
+			el("statsRow").boxTop - bottom(el("headingRule")),
+			el("debilities").boxTop - bottom(el("statsRow")),
 		];
-		expect(Math.max(...gaps) - Math.min(...gaps), `uneven: ${gaps.map(g => g.toFixed(1))}`)
-			.toBeLessThan(1);
+		expect(Math.max(...gaps) - Math.min(...gaps), `uneven: ${gaps.map(g => g.toFixed(1))}`).toBeLessThan(1);
 	});
 
-	// The band's heading starts at the band's top — an h3's user-agent margin is what set it adrift.
 	it("starts the heading at the top of the column it heads", () => {
 		expect(el("heading").boxTop - el("column").boxTop).toBeLessThan(1);
 	});
 
-	// ── The band's own furniture ────────────────────────────────────────────────────
-	// The fold control is the last item of the foot, in flow. It was positioned onto the seam once,
-	// half in and half out of the band — and what that actually drew was the band's own rule running
-	// straight through the word inside it, with the control half a line below the mode beside it. In
-	// flow it clears the rule, it is level with the mode, and nothing has to reserve room for it.
-	const centreY = v => v.boxTop + v.boxHeight / 2;
-
-	it("sits inside the band, clear of its rule", () => {
-		const seam = el("bandBox").boxTop + el("bandBox").boxHeight;
-		const toggleBottom = el("toggle").boxTop + el("toggle").boxHeight;
-		expect(toggleBottom, "the fold control hangs through the band's rule").toBeLessThan(seam);
-		expect(seam - toggleBottom, "the fold control is flush against the rule").toBeGreaterThan(1);
+	// ── The foot, beside the stats ────────────────────────────────────────────────
+	it("sets the foot beside the stats, under the ailments, ending the band's right edge", () => {
+		expect(el("foot").boxLeft).toBeGreaterThan(right(el("statsRow")));
+		expect(el("foot").boxTop).toBeGreaterThanOrEqual(bottom(el("ailments")) - 1);
+		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
 	});
 
-	// On the line with the mode, not centred against it: the chip is a bordered box among words, and
-	// it holds a hair of clearance below itself so the band's rule passes under it rather than through
-	// its border. So "level" is stated as what it has to be — inside the mode's own band of the line.
 	it("rides the foot line, level with the roll mode", () => {
-		const mode = el("mode"), chip = el("toggle");
-		const within = (v, box) => v >= box.boxTop && v <= box.boxTop + box.boxHeight;
-		expect(within(centreY(chip), mode), "the fold control is off the mode's line").toBe(true);
-		expect(within(centreY(mode), chip), "the mode is off the fold control's line").toBe(true);
+		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
+		expect(within(centreY(el("toggle")), el("mode"))).toBe(true);
+		expect(el("toggle").boxLeft).toBeGreaterThanOrEqual(right(el("mode")));
 	});
 
-	it("keeps the fold control at the band's right edge, with the mode before it", () => {
-		expect(right(el("toggle")), "the fold control hangs off the band")
-			.toBeLessThanOrEqual(right(el("bandBox")) + 1);
-		expect(right(el("toggle")), "the fold control drifted in from the edge")
-			.toBeGreaterThan(right(el("bandBox")) - 2);
-		expect(el("toggle").boxLeft, "the mode runs under the fold control")
-			.toBeGreaterThanOrEqual(right(el("mode")));
+	it("keeps the Advantage/Disadvantage ? on the mode's own line", () => {
+		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
+		expect(within(centreY(el("rule")), el("mode"))).toBe(true);
 	});
 
-	// The reason the mode is down here at all: expanded, the foot is a row of its own BELOW the
-	// numbers, so the one control on this line cannot land on the frames' notes however narrow the
-	// sheet gets. In the picture's column it overflowed that column at 760px and closed on the notes
-	// at the sheet's floor.
-	it("keeps the mode below the frames' notes rather than beside them", () => {
-		expect(el("mode").boxTop, "the mode rides the notes")
-			.toBeGreaterThanOrEqual(el("hpNote").boxTop + el("hpNote").boxHeight - 1);
+	it("sits the fold control inside the band, clear of its rule", () => {
+		expect(bottom(el("toggle"))).toBeLessThan(bottom(el("bandBox")));
 	});
 
-	// It hangs into the gap above the tabs, which is empty — but the tabs themselves are a row of
-	// controls, and a handle sitting on one of them is two targets in one place.
 	it("covers no tab", () => {
-		const handleBottom = el("toggle").boxTop + el("toggle").boxHeight;
-		const tabOverlapsVertically = handleBottom > el("firstTab").boxTop;
-		const tabOverlapsHorizontally = right(el("firstTab")) > el("toggle").boxLeft;
-		expect(tabOverlapsVertically && tabOverlapsHorizontally, "the handle sits on a tab").toBe(false);
+		expect(bottom(el("toggle"))).toBeLessThanOrEqual(el("firstTab").boxTop);
 	});
 
-	it("gives the portrait the width the six tiles leave over", () => {
-		expect(el("portrait").boxLeft).toBeGreaterThanOrEqual(right(el("column")) - 1);
-		expect(el("portrait").boxWidth, "the portrait has no room").toBeGreaterThan(100);
+	// ── Ailments ──────────────────────────────────────────────────────────────────
+	it("gives each ailment one line", () => {
+		expect(el("firstAilment").boxHeight).toBeLessThan(1.6 * 16);
+		expect(el("woundRow").boxHeight).toBeLessThan(1.6 * 16);
 	});
 
-	// ── Advancement, in the rail ────────────────────────────────────────────────────
-	it("keeps XP and Level inside the rail, level and equal", () => {
-		for (const name of ["xpTile", "levelTile"]) {
-			expect(right(el(name)), `${name} runs past the rail`).toBeLessThanOrEqual(right(el("rail")) + 1);
-			expect(el(name).boxLeft, `${name} starts left of the rail`)
-				.toBeGreaterThanOrEqual(el("rail").boxLeft - 1);
-		}
-		expect(Math.abs(el("xpTile").boxWidth - el("levelTile").boxWidth)).toBeLessThan(2);
-		expect(Math.abs(el("xpTile").boxTop - el("levelTile").boxTop)).toBeLessThan(4);
+	it("cuts a debility's sentence rather than wrapping it", () => {
+		expect(right(el("firstNote"))).toBeLessThanOrEqual(right(el("ailmentList")));
+		expect(el("firstNote").boxHeight).toBeLessThan(1.6 * 16);
 	});
 
-	it("leaves XP's number wide enough to read in the rail", () => {
-		expect(el("xp").boxWidth, "XP's field is too narrow for its numerals").toBeGreaterThan(24);
-		expect(m.get("xp").overflowX, "XP's field is clipped").toBe(0);
+	// The state sits where a move row's roll does, so the right edges line up down the list.
+	it("sets a wound's state against the list's right edge", () => {
+		expect(right(el("woundState"))).toBeGreaterThan(right(el("ailmentList")) - 12);
+	});
+
+	// A bar's controls hang from it like cloth: from its top edge to past its bottom.
+	it("hangs the + from the ailments' bar", () => {
+		expect(el("add").boxTop).toBeLessThanOrEqual(el("ailmentBar").boxTop + 1);
+		expect(bottom(el("add"))).toBeGreaterThan(bottom(el("ailmentBar")));
 	});
 });
 
-/**
- * The band at the sheet's declared floor.
- *
- * A `min-width` is a promise that the sheet still works at that width, and nothing checks a promise
- * like that on its own — it was 813px, written for an arrangement where the portrait could not
- * shrink, and stayed there through two redesigns of the thing it was measured against.
- *
- * The floor is read off the stylesheet rather than written here, so lowering one without the other
- * is what fails.
- */
-describe.skipIf(!canProbe())("the band at the sheet's own minimum width", () => {
-	const declared = () => {
-		const m = probe.render({
-			bodyHtml: `<div class="application stonetop sheet actor character themed theme-light"
-			  id="floor" style="height: 100px"></div>`,
-			bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
-			probes: { floor: { selector: "#floor", properties: ["min-width"] } },
-		});
-		return parseFloat(m.get("floor").get("min-width"));
+describe.skipIf(!canProbe())("the wound editor", () => {
+	let m;
+	const targets = {
+		...TARGETS,
+		editor: ".stonetop-ailment-editor", editorName: ".stonetop-ailment-edit-name",
+		editorState: ".stonetop-ailment-state", editorAdd: ".stonetop-ailment-add",
 	};
+	beforeAll(() => { m = measure({ band: bandHtml({ ailmentsOpen: true }), targets }); });
+	const el = name => m.get(name).values;
 
-	it("fits the six stat frames and the fold toggle inside the declared floor", () => {
-		const floor = declared();
-		expect(floor, "the sheet declares no floor at all").toBeGreaterThan(0);
+	it("opens over the tab rather than inside the band", () => {
+		expect(el("bandBox").boxHeight).toBeCloseTo(measure().get("bandBox").values.boxHeight, 0);
+	});
 
-		const m = probe.measure({
-			bodyHtml: BAND.replace("width: 1160px", `width: ${floor}px`),
-			bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
-			targets: { ...TARGETS, content: ".window-content" },
-			// Below 900 the rail is a drawer, which is the state a floor-width sheet is actually in.
-			chromeFlags: [`--window-size=${Math.round(floor) + 60},960`],
-		});
+	// Reported: it opened a few spaces below the panel. The stats beside it are the taller column,
+	// and their extra height went into the panel's row, so the editor hung from the row, not the panel.
+	it("hangs from the panel's bottom edge, however tall the stats beside it are", () => {
+		expect(bottom(el("column")), "the fixture's stats must be the taller column").toBeGreaterThan(bottom(el("ailments")) + 8);
+		expect(el("editor").boxTop).toBeCloseTo(bottom(el("ailments")), 0);
+	});
+
+	it("is the panel's width, so it reads as the panel's", () => {
+		expect(el("editor").boxLeft).toBeCloseTo(el("ailments").boxLeft, 0);
+		expect(right(el("editor"))).toBeCloseTo(right(el("ailments")), 0);
+	});
+
+	it("is drawn whole, not clipped by the panel", () => {
+		expect(m.get("editor").overflowY).toBe(0);
+		expect(el("editorAdd").boxHeight).toBeGreaterThan(8);
+	});
+
+	it("keeps a wound's name to a line of the list", () => {
+		expect(el("editorName").boxHeight).toBeLessThan(1.7 * 16);
+	});
+
+	it("sets each wound's name and state on one row", () => {
+		expect(Math.abs(centreY(el("editorName")) - centreY(el("editorState")))).toBeLessThan(3);
+	});
+});
+
+// ── Short of room: the foot keeps to its column ────────────────────────────────────
+// It never goes under the stats. BandFootFit first drops the fold control's word (compact), and
+// where even that does not fit, the line wraps inside its own column (wrapped, which is compact too).
+
+const beside = (v, why) => {
+	expect(v("foot").boxLeft, `${why}: the foot is not beside the stats`).toBeGreaterThan(right(v("statsRow")));
+	expect(v("mode").boxLeft, `${why}: the roll mode runs out of its column over the stats`).toBeGreaterThanOrEqual(v("foot").boxLeft - 0.5);
+	expect(bottom(v("foot")), `${why}: the foot hangs below the stats`).toBeLessThanOrEqual(bottom(v("band")) + 1);
+};
+
+describe.skipIf(!canProbe())("the foot, compact", () => {
+	let m, whole;
+	beforeAll(() => {
+		m = measure({ band: withFoot(bandHtml(), "is-foot-compact") });
+		whole = measure();
+	});
+	const el = name => m.get(name).values;
+
+	it("drops the fold control's word, keeping its caret", () => {
+		expect(el("toggleLabel").boxWidth).toBe(0);
+		expect(el("toggle").boxWidth).toBeGreaterThan(0);
+		expect(el("toggle").boxWidth).toBeLessThan(whole.get("toggle").values.boxWidth);
+	});
+
+	it("keeps the foot beside the stats, on one line, ending the band's right edge", () => {
+		beside(el, "compact");
+		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
+		expect(within(centreY(el("toggle")), el("mode"))).toBe(true);
+		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
+	});
+});
+
+// German fits compact at the floor (198px of 202), so no shipped language wraps yet. This is one that
+// would: "Normal" said at length, at the sheet's 47rem floor, the compact line ~280px in 202.
+describe.skipIf(!canProbe())("the foot, wrapped", () => {
+	const LONG = 'class="stonetop-rollmode-label">Gewöhnlich gewürfelt<';
+	let m;
+	beforeAll(() => {
+		const band = bandHtml().replace('class="stonetop-rollmode-label">Normal<', LONG);
+		expect(band).toContain(LONG);
+		m = measure({ width: 752, band: withFoot(band, "is-foot-compact", "is-foot-wrapped") });
+	});
+	const el = name => m.get(name).values;
+
+	it("breaks the line inside its own column, the caret under the roll mode, still beside the stats", () => {
+		beside(el, "wrapped");
+		expect(right(el("mode")), "the roll mode runs out of its column on the right").toBeLessThanOrEqual(right(el("foot")) + 0.5);
+		expect(el("toggle").boxTop).toBeGreaterThanOrEqual(bottom(el("mode")) - 1);
+		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
+	});
+});
+
+// The widths the plan was measured against: in English, the compact line fits beside the stats at
+// the narrowest a column rail leaves, and at the sheet's own floor with the rail a drawer. German
+// needs more — "Vorteil", "Nachteil" — and is what the wrap is for; English must not need it.
+describe.skipIf(!canProbe())("the foot at the narrowest the sheet gets, in English", () => {
+	const floor = () => parseFloat(probe.render({
+		bodyHtml: `<div class="application stonetop sheet actor character themed theme-light" id="floor" style="height: 100px"></div>`,
+		bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
+		probes: { floor: { selector: "#floor", properties: ["min-width"] } },
+	}).get("floor").get("min-width"));
+	const english = (...classes) => withFoot(bandHtml({ lang: "en" }), ...classes);
+
+	it("keeps the whole line at the default width", () => {
+		const m = measure({ band: english() });
+		beside(n => m.get(n).values, "1160px");
+	});
+
+	it("keeps the compact line beside the stats at the sheet's floor, the rail a drawer", () => {
+		const width = floor();
+		expect(width).toBeGreaterThan(0);
+		const m = measure({ width, band: english("is-foot-compact") });
 		const v = n => m.get(n).values;
-		expect(right(v("statsRow")), `the stats row overruns the band at ${floor}px`)
-			.toBeLessThanOrEqual(right(v("bandBox")) + 1);
-		expect(right(v("toggle")), "the fold toggle is pushed off the band")
-			.toBeLessThanOrEqual(right(v("bandBox")) + 1);
-		// The foot's two controls still fit ON the foot at the floor, side by side and in that order.
-		// This is the width at which the mode used to overflow the picture's column and reach for the
-		// frames' notes; it is a row of its own now, so the notes are simply not on its line.
-		expect(v("mode").boxLeft, `the mode is pushed off the band at ${floor}px`)
-			.toBeGreaterThanOrEqual(v("bandBox").boxLeft - 1);
-		expect(v("toggle").boxLeft, "the mode runs under the fold toggle")
-			.toBeGreaterThanOrEqual(right(v("mode")));
-		expect(v("mode").boxTop, "the mode rides the frames' notes at the floor")
-			.toBeGreaterThanOrEqual(v("hpNote").boxTop + v("hpNote").boxHeight - 1);
-		// The stats row is NOT asked to clear the fold control any more: the control is the last item
-		// of the foot, below the band's contents rather than in a column beside them, so the row is
-		// free to run the full width — which is why the band stopped reserving 2rem of its right edge.
+		expect(m.get("rail").values.boxLeft + m.get("rail").values.boxWidth, "the rail is still a column at the floor")
+			.toBeLessThanOrEqual(v("layout").boxLeft + 0.5);
+		expect(right(v("statsRow")), `the stats row overruns the band at ${width}px`).toBeLessThanOrEqual(right(v("bandBox")) + 1);
+		beside(v, `${width}px`);
+	});
+
+	// 62.5rem is where the rail stops being a drawer: 1000px of layout at the 16px root, which the
+	// window's own padding makes a 1035px sheet.
+	it("keeps the compact line beside the stats at the narrowest a column rail leaves", () => {
+		const m = measure({ width: 1035, band: english("is-foot-compact") });
+		const v = n => m.get(n).values;
+		expect(v("layout").boxWidth, "not the narrowest column layout").toBeGreaterThan(1000);
+		expect(v("layout").boxWidth, "not the narrowest column layout").toBeLessThan(1002);
+		expect(v("band").boxLeft, "the rail is a drawer at this width").toBeGreaterThanOrEqual(right(v("rail")) - 1);
+		beside(v, "narrowest column");
+	});
+
+	it("makes the rail a drawer just below it", () => {
+		const m = measure({ width: 1033, band: english("is-foot-compact"), still: true });
+		const v = n => m.get(n).values;
+		expect(v("layout").boxWidth).toBeLessThan(1000);
+		expect(right(v("rail")), "the rail is still a column below 62.5rem").toBeLessThanOrEqual(v("layout").boxLeft + 0.5);
+	});
+});
+
+// The rail's slide, on the character: the column beside a moving rail is held at the width it has
+// with the rail shut, so the band and the tab are laid out once per slide rather than every frame.
+// Three frames each way — the rail in, halfway, out — set by hand, since the probe paints no motion.
+describe.skipIf(!canProbe())("the column while the rail slides", () => {
+	const railAt = (html, px) => html.replace('class="stonetop-rail stonetop-moves-rail"', `class="stonetop-rail stonetop-moves-rail" style="margin-left: ${px}px"`);
+	const targets = { ...TARGETS, main: ".character-main" };
+	const at = (layout, px) => probe.measure({
+		bodyHtml: railAt(sheetWithBand({ width: 1160, layout }), px), bodyClass: "game themed theme-light",
+		rootAttrs: 'style="font-size: 16px"', targets, chromeFlags: windowFor(1160),
+	});
+	let rest, frames;
+	beforeAll(() => {
+		rest = measure({ layout: "rail-shut", targets });
+		const W = rest.get("rail").values.boxWidth;
+		frames = [0, -W / 2, -W].flatMap(px => [at("rail-shut is-rail-moving", px), at("is-rail-moving", px)]);
+	});
+	const v = (m, name) => m.get(name).values;
+
+	it("holds the column and the band at their shut-rail sizes at every frame", () => {
+		for (const m of frames) {
+			expect(v(m, "main").boxWidth, "the column changed width mid-slide").toBeCloseTo(v(rest, "main").boxWidth, 0);
+			expect(v(m, "bandBox").boxHeight, "the band changed height mid-slide").toBeCloseTo(v(rest, "bandBox").boxHeight, 0);
+		}
+	});
+
+	it("slides the column with the rail", () => {
+		for (const m of frames) expect(v(m, "main").boxLeft).toBeCloseTo(right(v(m, "rail")), 0);
 	});
 });

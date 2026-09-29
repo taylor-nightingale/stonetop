@@ -1,0 +1,3 @@
+{{!-- A choice group at rest: what was chosen. Params: `group` (ChoiceGroup), `cgContext`,
+      `hideLeadTitle` (its heading line is on the section's bar). --}}
+{{#with group}}{{> "stonetop.choice-group" cgContext=../cgContext locked=true hideLeadTitle=../hideLeadTitle}}{{/with}}

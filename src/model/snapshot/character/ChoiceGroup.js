@@ -1,4 +1,4 @@
-import { condenseChoiceGroup } from "./ChoiceGroupReview.js";
+import { condenseChoiceGroup, isProse } from "./ChoiceGroupReview.js";
 export class ChoiceOption {
 	constructor(slug, {text = null, description = null, checked = false, checks = null, requires = null, type = null, fillValue = ""} = {}) {
 		this.slug        = slug;
@@ -30,13 +30,38 @@ export class EntryRowMoves {
 	}
 }
 
+/** An entry row's write-in blank. Where the pack says it `follows: "lead"`, it is drawn straight
+ *  after the row's first paragraph — the sentence it answers — rather than under all of its text. */
+export class EntryInput {
+	constructor(slug, { placeholder = null, value = "", type = "inline", followsLead = false } = {}) {
+		this.slug        = slug;
+		this.placeholder = placeholder;
+		this.value       = value;
+		this.type        = type;          // "inline" | "rich"
+		this.followsLead = followsLead;
+	}
+
+	/** @param {object} item the pack row, carrying `input` @param {ChoiceValues} values @param {string} groupSlug */
+	static fromPack(item, values, groupSlug) {
+		const slug = `${item.slug}-input`;
+		return new EntryInput(slug, {
+			placeholder: item.input.placeholder ?? null,
+			value:       values.getText(groupSlug, slug) || (item.input.default ?? ""),
+			type:        item.input.type ?? "inline",
+			followsLead: item.input.follows === "lead",
+		});
+	}
+}
+
 export class EntryRow {
 	constructor(slug, content = {}, track = null, input = null, followers = null, outfitItems = [], indent = false, moves = null) {
 		this.type          = "entry";
 		this.slug          = slug;
-		this.content       = content;       // { title, titleNote, subtitle, subtitleNote, text }
+		// { title, titleNote, subtitle, subtitleNote, text, lead, rest } — `lead` and `rest` are the text
+		// split at its first paragraph, set only where the blank follows the lead; null otherwise.
+		this.content       = content;
 		this.track         = track;         // null | { slug, checks: bool[], requires? }
-		this.input         = input;         // null | { slug, placeholder, value, type: "inline"|"rich" }
+		this.input         = input;         // EntryInput | null
 		this.followers     = followers;     // EntryRowFollowers | null
 		this.moves         = moves;         // EntryRowMoves | null
 		this.outfitItems   = outfitItems;   // OutfitItem[]
@@ -109,5 +134,9 @@ export class ChoiceGroup {
 		// every template that would want it. Built here, before the sheet's enrich pass, so the
 		// text it mints (joined picks, write-in answers) is enriched with the rest of the tree.
 		this.condensed = condenseChoiceGroup(this);
+		// Whether there is anything here to tick, pick or write in — the Seeker's "Collection" is a
+		// heading and a paragraph — and whether any of it was. Fields, for the same reason.
+		this.offersChoice = list.some(row => !isProse(row));
+		this.hasChosen    = this.condensed.some(block => block.lines.length > 0);
 	}
 }

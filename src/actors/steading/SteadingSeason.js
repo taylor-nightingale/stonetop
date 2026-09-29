@@ -107,18 +107,45 @@ export class SteadingSeason {
 	 * just rolled is what grants the next one. Clearing the record is what makes the mill's harvest
 	 * owed again next autumn, and what makes this season's Surplus rolls no longer revertable — they
 	 * belong to a season that is over.
+	 */
+	async turn(random = Math.random) {
+		await this._enter(this.season.next, this.year + (this.season.endsYear ? 1 : 0), random);
+	}
+
+	/**
+	 * Put the steading in a season by name — the GM's correction, where turn() is the table's walk.
 	 *
+	 * It is still entering a season, so last season's records go exactly as they do on a turn: an
+	 * autumn harvest recorded as paid would otherwise read as paid in the winter the GM set. The year
+	 * is left alone, even across the winter→spring wrap; it is set on its own.
+	 */
+	async setSeason(key, random = Math.random) {
+		const season = Seasons.all().find(s => s.key === key);
+		if (!season || season.key === this.season.key) return false;
+		await this._enter(season, this.year, random);
+		return true;
+	}
+
+	/** Relabel the year. Nothing the season recorded belongs to a year, so nothing is cleared. */
+	async setYear(value) {
+		if (!Number.isFinite(value)) return false;
+		const year = Math.max(1, Math.trunc(value));
+		if (year === this.year) return false;
+		await this._actor.update({ "system.year": year });
+		return true;
+	}
+
+	/**
 	 * Each record is removed BY NAME. Foundry merges an object-field update rather than replacing it,
 	 * so neither assigning `{}` nor assigning null and then `{}` empties one — both leave every key
 	 * exactly where it was, silently, and last season's applied lines would still read as applied.
 	 * `-=key` is the only thing that removes one, which is verified against 14.365.
 	 */
-	async turn(random = Math.random) {
-		const next = this.season.next;
+	async _enter(season, year, random) {
 		await this._actor.update({
-			"system.season":           next.key,
-			"system.year":             this.year + (this.season.endsYear ? 1 : 0),
-			"system.seasonImpression": this._impressions.pickFor(next, random) ?? "",
+			"system.season":           season.key,
+			"system.year":             year,
+			"system.seasonImpression": this._impressions.pickFor(season, random) ?? "",
 			...this._forget("turnoverApplied"),
 			...this._forget("seasonStepsApplied"),
 			// The result the last season was living with. A plain string rather than a keyed store,

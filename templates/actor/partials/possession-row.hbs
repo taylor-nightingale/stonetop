@@ -1,0 +1,44 @@
+{{!-- A special possession's row: the move row's skeleton with a possession in it, so the two tabs read
+      as one sheet. No die, stat, caret, chat or hover card: none rolls, and the row already says
+      everything a card would. Its description is its content — the gear it gives — so it wraps. Its
+      options are always shown beneath it, live, at rest as while choosing: nothing on this tab
+      collapses. Context: a PossessionItemSnapshot; params: `choosing`. --}}
+<li class="stonetop-mrow stonetop-prow" data-slug="{{slug}}">
+	<div class="stonetop-item-header">
+		{{#if choosing}}
+		<span class="stonetop-mrow-mark">
+			<input type="checkbox" class="stonetop-item-check stonetop-possession-check" data-change-action="possessionCheck"
+			       data-slug="{{slug}}" aria-label="{{localize 'stonetop.a11y.possessionTaken'}}"
+			       {{#if checked}}checked{{/if}}{{#if disabled}} disabled{{/if}}>
+		</span>
+		{{/if}}
+		<span class="stonetop-mrow-name"><span class="stonetop-mrow-title stonetop-mrow-title--static">{{rich label}}</span></span>
+		<span class="stonetop-item-controls">
+			{{#if removable}}
+			<button type="button" class="stonetop-mrow-caret stonetop-mrow-remove" data-action="deletePossession" data-slug="{{slug}}" data-name="{{label.raw}}"
+			        title="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}"
+			        aria-label="{{localize 'stonetop.inventory.removeItem'}} — {{localize 'stonetop.confirm.deleteHint'}}">
+				<i class="fas fa-trash" aria-hidden="true"></i>
+			</button>
+			{{/if}}
+		</span>
+		<span class="stonetop-mrow-sub">
+			{{#if description}}<span class="stonetop-prow-desc">{{rich description}}</span>{{/if}}
+			{{#if resource}}
+			<span class="stonetop-item-resources">
+				{{> "stonetop.resource-track" resource=resource btnClass="stonetop-item-resource-check" action="possessionUsePip" possessionSlug=slug}}
+			</span>
+			{{/if}}
+		</span>
+		{{#if (and choosing preselected)}}<span class="stonetop-mrow-choosing">{{localize "stonetop.character.gear.fromPlaybook"}}</span>{{/if}}
+	</div>
+	{{#if choices}}
+	{{!-- The two copies of a possession, at rest and while choosing, are in one form: their radios are
+	      named apart, or checking one would clear the other. --}}
+	<div class="stonetop-choice-rows stonetop-prow-options" data-possession-slug="{{slug}}">
+		{{#each choices.list}}
+		{{> "stonetop.choice-row" cgContext="possession" cgGroup=../choices.slug namePrefix=(concat ../slug (ifThen ../choosing "-choosing" ""))}}
+		{{/each}}
+	</div>
+	{{/if}}
+</li>

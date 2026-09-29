@@ -1,0 +1,14 @@
+{{!-- One section of an insert's tab: its instinct, or one of its choice groups, in the Playbook tab's
+      section panel. Context: an InsertSectionEntry. Params: `insert`, `index`. --}}
+{{#if (eq kind "instinct")}}
+{{> "stonetop.playbook-section" section=section index=index
+    title=(localize "stonetop.character.selection.instinct.label")
+    note=(localize "stonetop.character.selection.chooseOne")
+    rest="stonetop.instinct-rest" choose="stonetop.instinct-choose"
+    instinctSelected=insert.instinctSelected instinctGroup=insert.instinctGroup
+    namePrefix=insert.id cgContext="insert-pick" setAsideBy=null}}
+{{else}}
+{{> "stonetop.playbook-section" section=section index=index title=title note=note
+    rest="stonetop.group-rest" choose="stonetop.group-choose"
+    group=group cgContext="insert" hideLeadTitle=titleIsLeadRow}}
+{{/if}}

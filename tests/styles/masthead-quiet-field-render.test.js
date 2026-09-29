@@ -27,10 +27,13 @@ const SHEETS = [
 const probe = new RenderProbe(SHEETS, { transformCss: pseudoAsClass("hover") });
 
 // The real partial, so the fixture cannot drift from what the sheet renders.
-const HEADER = renderPartial("stonetop.actor-header", {
+const HEADER = renderPartial("stonetop.character-masthead", {
 	editable: true,
 	actor: { name: "Anwen", img: "anwen.webp" },
-	stonetop: { playbook: { slug: "the-would-be-hero", name: "The Would-Be Hero", title: "The Would-Be Hero" } },
+	stonetop: {
+		playbook: { slug: "the-would-be-hero", name: "The Would-Be Hero", title: "The Would-Be Hero" },
+		instinct: { isEmpty: true }, appearance: { isEmpty: true },
+	},
 });
 
 const withName = name => HEADER.replace('value="Anwen"', `value="${name}"`);

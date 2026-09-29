@@ -27,6 +27,13 @@ export class RequirementSnapshot {
  * @property {ResourceSnapshot|null} resource
  * @property {string} gloss - the move's own trigger, for a collapsed disclosure row
  * @property {RollModeNotes|null} rollNotes - why it might not roll 2d6; steading moves only
+ * @property {string|null} phase    - "setting-out" | "on-the-road" | "getting-home"; expedition moves only
+ * @property {string|null} replaces - slug of the move this one is made instead of
+ * @property {MoveResults|null} results - its authored result tiers, for a card that prints them
+ * @property {string|null} rollLabel - what it adds to 2d6, as its row prints it ("+INT"); see MoveRollLabel
+ * @property {number} timesTaken, maxTakes - its takes, against the book's limit
+ * @property {boolean} isTaken, isRepeatable
+ * @property {boolean} canTakeAgain - taken, under its limit, and selectable
  */
 export class MoveSnapshot {
 	constructor(b) {
@@ -64,6 +71,17 @@ export class MoveSnapshot {
 		// it. A reminder the row draws, never a change to the roll: only the steading builds these, so
 		// on a character's moves tab the slot is empty and nothing renders.
 		this.rollNotes     = b._rollNotes ?? null;
+		this.phase         = b._phase ?? null;
+		this.replaces      = b._replaces ?? null;
+		this.rollLabel     = b._rollLabel ?? null;
+		this.results       = b._results ?? null;
+		// The move as a choice, said here rather than worked out by the row: fields, because the row
+		// partial is called with hash params, which drops getters.
+		this.timesTaken    = this.selection?.value ?? 0;
+		this.maxTakes      = this.selection?.max ?? 1;
+		this.isTaken       = this.timesTaken > 0;
+		this.isRepeatable  = this.maxTakes > 1;
+		this.canTakeAgain  = this.isTaken && this.timesTaken < this.maxTakes && this.selectable === true;
 	}
 }
 
@@ -86,6 +104,10 @@ export class MoveSnapshotBuilder {
 	withSteps(v)         { this._steps         = v; return this; }
 	withMoveResults(v)   { this._moveResults   = v; return this; }
 	withRollNotes(v)     { this._rollNotes     = v; return this; }
+	withPhase(v)         { this._phase         = v; return this; }
+	withReplaces(v)      { this._replaces      = v; return this; }
+	withRollLabel(v)     { this._rollLabel     = v; return this; }
+	withResults(v)       { this._results       = v; return this; }
 	build()              { return new MoveSnapshot(this); }
 
 	// An inline arcanum back move ({id, name, text, subtitle?}) shaped as a MoveSnapshot so it renders
@@ -124,6 +146,12 @@ export class MoveSnapshotBuilder {
  * @property {boolean} allowAdditional
  * @property {string|null} note
  * @property {MoveSnapshot[]} moves
+ * @property {MovePhaseGroup[]|null} phases - the expedition moves by the part of the journey each is for
+ * @property {MoveSnapshot[]} taken - what its panel rests on
+ * @property {boolean} offersChoice - a move here is not taken, or can be taken again: its panel has a door
+ * @property {"change"|"choose"} door - the door's word
+ * @property {string} sectionKey - its panel's section on the Moves tab
+ * @property {boolean} isPlaybook - a playbook's own moves
  */
 export class MoveCategorySnapshot {
 	constructor(b) {
@@ -133,6 +161,20 @@ export class MoveCategorySnapshot {
 		this.allowAdditional = b._allowAdditional;
 		this.note            = b._note;
 		this.moves           = b._moves;
+		this.phases          = b._phases ?? null;
+		// On the Moves tab: a panel that rests on what is taken, and has a door where there is
+		// anything to choose.
+		const moves          = this.moves ?? [];
+		this.taken           = moves.filter(m => m.isTaken);
+		this.offersChoice    = moves.some(m => !m.isTaken || m.canTakeAgain);
+		this.door            = this.taken.length ? "change" : "choose";
+		this.sectionKey      = MoveCategorySnapshot.sectionKeyFor(this.key);
+		this.isPlaybook      = (this.key ?? "").startsWith("playbook-");
+	}
+
+	/** The Moves-tab section a category's panel is, which a route can open by name. */
+	static sectionKeyFor(key) {
+		return `moves-${key}`;
 	}
 }
 
@@ -143,5 +185,6 @@ export class MoveCategorySnapshotBuilder {
 	withAllowAdditional(v) { this._allowAdditional = v; return this; }
 	withNote(v)            { this._note            = v; return this; }
 	withMoves(v)           { this._moves           = v; return this; }
+	withPhases(v)          { this._phases          = v; return this; }
 	build()                { return new MoveCategorySnapshot(this); }
 }

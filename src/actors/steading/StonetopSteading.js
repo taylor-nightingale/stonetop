@@ -219,6 +219,9 @@ export class StonetopSteading {
 		await this.#season.turn();
 	}
 
+	async setSeason(key) { return this.#season.setSeason(key); }
+	async setYear(year)  { return this.#season.setYear(year); }
+
 	/**
 	 * Roll one step of the season's move that is not the move's own roll — winter's 1d4+Population,
 	 * summer's 1d4-1 Surplus, autumn's 1d4 at the harvest — and move Surplus by what it came to.
@@ -402,11 +405,6 @@ export class StonetopSteading {
 	}
 
 	// ── Moves ──────────────────────────────────────────────────────────────────
-
-	async setMoveChecked(categoryKey, moveSlug, checked) {
-		if (checked) await this.#moves.incrementMove(categoryKey, moveSlug);
-		else         await this.#moves.decrementMove(categoryKey, moveSlug);
-	}
 
 	async sendMoveToChat(moveSlug)                          { await this.#moves.sendToChat(moveSlug); }
 	// The die on a move row whose move the steading does not own — the aurochs hunt, the news at the

@@ -7,22 +7,25 @@
  */
 
 export class RollModeOption {
-	constructor(key, labelKey, checked) {
+	constructor(key, labelKey, shortKey, checked) {
 		this.key = key;
 		this.labelKey = labelKey;
+		// The inline line's short word ("Adv"), drawn where the full word does not fit; null where the
+		// word is short already. The full label is still what a screen reader hears.
+		this.shortKey = shortKey;
 		this.checked = checked;
 	}
 }
 
 const MODES = [
-	["adv",    "stonetop.rollMode.adv"],
-	["normal", "stonetop.rollMode.normal"],
-	["dis",    "stonetop.rollMode.dis"],
+	["adv",    "stonetop.rollMode.adv",    "stonetop.rollMode.short.adv"],
+	["normal", "stonetop.rollMode.normal", null],
+	["dis",    "stonetop.rollMode.dis",    "stonetop.rollMode.short.dis"],
 ];
 
 export class RollModes {
 	/** The radio list for `roll-mode-picker.hbs`, with `selected` pre-ticked. */
 	static options(selected = "normal") {
-		return MODES.map(([key, labelKey]) => new RollModeOption(key, labelKey, key === selected));
+		return MODES.map(([key, labelKey, shortKey]) => new RollModeOption(key, labelKey, shortKey, key === selected));
 	}
 }
