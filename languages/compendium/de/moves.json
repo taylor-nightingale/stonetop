@@ -1102,13 +1102,11 @@
   "deaths-door": {
     "name": {
       "source": "Death's Door",
-      "text": "An der Schwelle des Todes",
-      "needsReview": true
+      "text": "An der Schwelle des Todes"
     },
     "description": {
       "source": "When **_you are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
-      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}.",
-      "needsReview": true
+      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}."
     },
     "moveResults/success/value": {
       "source": "You wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you.",
@@ -3706,8 +3704,7 @@
     },
     "description": {
       "source": "When you **_pay your follower's cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).\n\nSpend your follower's Loyalty 1-for-1 to have them:\n\n- Overcome their fear to do as you say\n- Resist acting on their instinct/tags/traits\n- Do something they don't want to do (so long as it's not abhorrent or suicidal)\n\nWhen a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.",
-      "text": "Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).\n\nGib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:\n\n- seine Angst überwindet und das tut, was du ihm befohlen hast\n- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;\n- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist).",
-      "needsReview": true
+      "text": "Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).\n\nGib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:\n\n- seine Angst überwindet und das tut, was du ihm befohlen hast\n- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;\n- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist)."
     }
   },
   "struggle-as-one": {
@@ -3833,12 +3830,11 @@
     },
     "description": {
       "source": "When you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
-      "text": "Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw.\n\nWenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz.",
-      "needsReview": true
+      "text": "Wenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz, und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz."
     },
     "choices/tether/text": {
       "source": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.",
-      "text": ""
+      "text": "Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw."
     }
   },
   "the-flesh-remembers": {
@@ -4442,6 +4438,46 @@
     }
   },
   "_folders": {
+    "arcana": {
+      "source": "arcana",
+      "text": "Arkana"
+    },
+    "basic": {
+      "source": "basic",
+      "text": "Grundspielzüge"
+    },
+    "expedition": {
+      "source": "expedition",
+      "text": "Expedition"
+    },
+    "follower": {
+      "source": "follower",
+      "text": "Gefolgsleute"
+    },
+    "homefront": {
+      "source": "homefront",
+      "text": "Heimatfront"
+    },
+    "improvement": {
+      "source": "improvement",
+      "text": ""
+    },
+    "playbook": {
+      "source": "playbook",
+      "text": "Klassenbücher"
+    },
+    "post-death": {
+      "source": "post death",
+      "text": "Nach dem Tod"
+    },
+    "seasons": {
+      "source": "seasons",
+      "text": "Jahreszeiten"
+    },
+    "special": {
+      "source": "special",
+      "text": "Sonderspielzüge"
+    },
     "ghost": {
       "source": "ghost",
       "text": "Geist"
@@ -4493,46 +4529,6 @@
     "the-would-be-hero": {
       "source": "The Would-Be Hero",
       "text": "Der Möchtegern-Held"
-    },
-    "arcana": {
-      "source": "arcana",
-      "text": "Arkana"
-    },
-    "basic": {
-      "source": "basic",
-      "text": "Grundspielzüge"
-    },
-    "expedition": {
-      "source": "expedition",
-      "text": "Expedition"
-    },
-    "follower": {
-      "source": "follower",
-      "text": "Gefolgsleute"
-    },
-    "homefront": {
-      "source": "homefront",
-      "text": "Heimatfront"
-    },
-    "improvement": {
-      "source": "improvement",
-      "text": ""
-    },
-    "playbook": {
-      "source": "playbook",
-      "text": "Klassenbücher"
-    },
-    "post-death": {
-      "source": "post death",
-      "text": "Nach dem Tod"
-    },
-    "seasons": {
-      "source": "seasons",
-      "text": "Jahreszeiten"
-    },
-    "special": {
-      "source": "special",
-      "text": "Sonderspielzüge"
     }
   }
 }
