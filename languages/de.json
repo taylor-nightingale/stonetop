@@ -51,10 +51,7 @@
         "notes": "Notizen"
       },
       "lock": {
-        "lock": "Sperren",
-        "lockHint": "Fassen deine Auswahl in einer schreibgeschützten Übersicht zusammen.",
-        "unlock": "Bearbeiten",
-        "unlockHint": "Zurück zur Bearbeitung deiner Auswahl."
+        "unlock": "Bearbeiten"
       },
       "playbook": {
         "emptyHint": "Wähle ein Klassenbuch aus oder ziehe es hierher, um zu beginnen.",
@@ -582,8 +579,6 @@
       "addItem": "Gegenstand hinzufügen",
       "addSmallItem": "Kleinen Gegenstand hinzufügen",
       "addItemName": "Name",
-      "addItemWeight": "Gewicht",
-      "addItemConfirm": "Hinzufügen",
       "removeItem": "Entfernen",
       "regularUndefinedPoolLabel": "Undefiniert",
       "regularUndefinedPoolNote": "Wenn du <strong><em>Hast, was du brauchst</em></strong>, verschiebe ◆ von hier nach unten zu ◇.",
@@ -764,9 +759,6 @@
           "armorBaseItem": "{name} {amount} (base)",
           "armorModifierItem": "{name} {amount}"
         },
-        "groups": {
-          "advancement": "Advancement"
-        },
         "note": {
           "fromPlaybook": "playbook",
           "byHand": "by hand",
@@ -812,9 +804,7 @@
         "openSource": "Detailansicht dieses Spielzugs öffnen",
         "open": "Öffne den Spielzug",
         "requires": "Voraussetzung",
-        "notMet": "Nicht erfüllt",
-        "lockHint": "Zeige nur die Spielzüge an, die für diesen Charakter ausgewählt wurden.",
-        "unlockHint": "Zeige alle Spielzüge an, um weitere auswählen zu können."
+        "notMet": "Nicht erfüllt"
       },
       "selection": {
         "select": "Auswählen",
