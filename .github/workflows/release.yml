@@ -20,8 +20,9 @@ jobs:
       - run: npm run build
       - run: npm run pack
 
-      # The download URL and the stylesheets' ?v= are both true only of a released manifest, and
-      # both are read off GITHUB_REPOSITORY and GITHUB_REF_NAME, which Actions sets for us.
+      # The download URL is true only of a released manifest, and is read off GITHUB_REPOSITORY and
+      # GITHUB_REF_NAME, which Actions sets for us. The step also fails the release if the manifest
+      # names a file that is not on disk — Foundry would refuse to install it.
       - name: Stamp the manifest for this release
         run: npm run release:stamp
 
