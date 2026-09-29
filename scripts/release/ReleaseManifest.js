@@ -1,12 +1,7 @@
-import { StyleEntry } from "./StyleEntry.js";
-
 // system.json as a release ships it, rather than as the working tree keeps it.
 //
-// Two things are true only of a released manifest: `download` names a tagged asset that does not
-// exist until the release is cut, and every stylesheet is served from a URL carrying the version it
-// belongs to. Neither belongs in the committed file — the download URL would name a release that
-// has not happened, and a hand-written `?v=` is a second place to remember on every bump, which is
-// exactly the drift the stamp exists to rule out.
+// `download` names a tagged asset that does not exist until the release is cut, so it is true only
+// of a released manifest and never belongs in the committed file.
 export class ReleaseManifest {
 	constructor(manifest) {
 		this._manifest = manifest;
@@ -21,19 +16,22 @@ export class ReleaseManifest {
 		return this._manifest.version;
 	}
 
-	get styles() {
-		return (this._manifest.styles ?? []).map(entry => StyleEntry.from(entry));
+	/**
+	 * Every file this package serves by path. Foundry refuses to install a package when any of them is
+	 * missing, and it looks the path up literally — `a.css?v=1` is a file named `a.css?v=1`.
+	 */
+	get includedFiles() {
+		const { esmodules = [], scripts = [], styles = [], languages = [] } = this._manifest;
+		return [
+			...esmodules,
+			...scripts,
+			...styles.map(entry => (typeof entry === "string" ? entry : entry.src)),
+			...languages.map(language => language.path),
+		].filter(path => !/^([a-z][a-z0-9+.-]*:|\/\/)/i.test(path));
 	}
 
 	withDownloadUrl(url) {
 		return new ReleaseManifest({ ...this._manifest, download: url });
-	}
-
-	/** Every stylesheet this package serves, addressed by a URL that changes when the version does. */
-	withVersionedStyles() {
-		if (!this._manifest.styles) return this;
-		const styles = this.styles.map(entry => entry.withVersion(this.version).toJSON());
-		return new ReleaseManifest({ ...this._manifest, styles });
 	}
 
 	toJSON() {

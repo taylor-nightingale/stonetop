@@ -9,11 +9,13 @@ const manifest = {
 	id: "stonetop",
 	version: "1.7.0",
 	download: "https://github.com/taylor-nightingale/stonetop/archive/refs/heads/main.zip",
-	styles: ["styles/tokens.css", "styles/stonetop.css"],
+	esmodules: ["dist/stonetop.js"],
+	styles: ["styles/tokens.css", { src: "styles/stonetop.css", layer: "system" }],
+	languages: [{ lang: "en", name: "English", path: "languages/en.json" }],
 };
 
 describe("ReleaseManifest.from", () => {
-	it("refuses a manifest with no version to stamp with", () => {
+	it("refuses a manifest with no version", () => {
 		expect(() => ReleaseManifest.from({ id: "stonetop" })).toThrow(/version/);
 		expect(() => ReleaseManifest.from()).toThrow(/version/);
 	});
@@ -27,65 +29,57 @@ describe("the manifest a release ships", () => {
 			.toBe("https://github.com/taylor-nightingale/stonetop/releases/download/1.7.0/stonetop.zip");
 	});
 
-	it("stamps every stylesheet with the manifest's own version", () => {
-		expect(ReleaseManifest.from(manifest).withVersionedStyles().toJSON().styles)
-			.toEqual(["styles/tokens.css?v=1.7.0", "styles/stonetop.css?v=1.7.0"]);
-	});
-
-	// The version is read off the manifest rather than the tag, because the manifest is what Foundry
-	// serves and what the bundle was built against; FoundryRelease is what makes the two agree.
-	it("takes the version from the manifest", () => {
-		expect(ReleaseManifest.from({ ...manifest, version: "2.0.0" }).withVersionedStyles().toJSON().styles)
-			.toEqual(["styles/tokens.css?v=2.0.0", "styles/stonetop.css?v=2.0.0"]);
-	});
-
 	it("leaves everything it was not asked about alone", () => {
-		const stamped = ReleaseManifest.from(manifest).withVersionedStyles().toJSON();
+		const stamped = ReleaseManifest.from(manifest).withDownloadUrl("https://example.invalid/x.zip").toJSON();
 
-		expect(stamped.id).toBe("stonetop");
-		expect(stamped.version).toBe("1.7.0");
-		expect(stamped.download).toBe(manifest.download);
+		expect(stamped).toEqual({ ...manifest, download: "https://example.invalid/x.zip" });
 	});
 
 	it("does not write the manifest it was handed", () => {
-		ReleaseManifest.from(manifest).withDownloadUrl("https://example.invalid/x.zip").withVersionedStyles();
+		ReleaseManifest.from(manifest).withDownloadUrl("https://example.invalid/x.zip");
 
-		expect(manifest.styles).toEqual(["styles/tokens.css", "styles/stonetop.css"]);
 		expect(manifest.download).toContain("heads/main.zip");
-	});
-
-	it("has nothing to say about a manifest that declares no styles", () => {
-		const { styles, ...styleless } = manifest;
-
-		expect(ReleaseManifest.from(styleless).withVersionedStyles().toJSON()).not.toHaveProperty("styles");
 	});
 });
 
-// The stamp is only worth anything if it lands on the sheets this system actually serves.
-describe("the stamp against the shipped manifest", () => {
-	it("versions every stylesheet system.json declares", () => {
-		const stamped = ReleaseManifest.from(shipped).withVersionedStyles().toJSON();
-
-		expect(stamped.styles).toHaveLength(shipped.styles.length);
-		for (const entry of stamped.styles) {
-			expect(typeof entry === "string" ? entry : entry.src).toContain(`?v=${shipped.version}`);
-		}
+describe("ReleaseManifest.includedFiles", () => {
+	it("lists modules, stylesheets in either shape, and language files", () => {
+		expect(ReleaseManifest.from(manifest).includedFiles).toEqual([
+			"dist/stonetop.js",
+			"styles/tokens.css",
+			"styles/stonetop.css",
+			"languages/en.json",
+		]);
 	});
 
-	it("stamps paths that exist on disk", () => {
-		for (const entry of ReleaseManifest.from(shipped).withVersionedStyles().styles) {
-			const [path] = entry.src.split("?");
+	it("includes plain scripts", () => {
+		expect(ReleaseManifest.from({ version: "1.0.0", scripts: ["lib/a.js"] }).includedFiles).toEqual(["lib/a.js"]);
+	});
+
+	it("leaves out files served from elsewhere", () => {
+		const remote = { version: "1.0.0", styles: ["https://cdn.example/a.css", "//cdn.example/b.css", "c.css"] };
+
+		expect(ReleaseManifest.from(remote).includedFiles).toEqual(["c.css"]);
+	});
+
+	it("is empty for a manifest that includes nothing", () => {
+		expect(ReleaseManifest.from({ version: "1.0.0" }).includedFiles).toEqual([]);
+	});
+});
+
+// Foundry checks every included path on install and looks it up literally, so a query string or a
+// missing file makes the package uninstallable — 1.8.0 first shipped with `?v=` on its styles.
+describe("the shipped manifest's included files", () => {
+	const included = ReleaseManifest.from(shipped).includedFiles;
+
+	it("are plain paths", () => {
+		for (const path of included) expect(path, `${path} is not a plain path`).not.toMatch(/[?#]/);
+	});
+
+	// dist/ is built after `npm test` in the release workflow; stamp-manifest checks it there.
+	it("exist on disk", () => {
+		for (const path of included.filter(path => !path.startsWith("dist/"))) {
 			expect(existsSync(new URL(`../../../${path}`, import.meta.url)), `${path} is not a file`).toBe(true);
-		}
-	});
-
-	// Committed, the manifest has to stay unstamped. A dev install serves the working tree, where the
-	// version sits still for weeks while the CSS changes daily — a frozen `?v=` there would pin every
-	// client to whatever it cached first, and it is a second place to remember on every bump. The
-	// release workflow stamps between `npm test` and the zip, so nothing here can catch that copy.
-	it("is not already applied to the committed manifest", () => {
-		for (const entry of ReleaseManifest.from(shipped).styles) {
-			expect(entry.src, "a release stamp was committed").not.toContain("?");
 		}
 	});
 });
