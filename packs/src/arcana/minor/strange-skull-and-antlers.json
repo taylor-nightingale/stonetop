@@ -29,20 +29,12 @@
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "… must learn the name of the shade"
+								"text": "… must learn the name of the shade whose skull this was;"
 							},
 							"slug": "learn-name",
 							"track": {
 								"max": 1
 							}
-						},
-						{
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "whose skull this was;"
-							},
-							"slug": "whose-skull"
 						},
 						{
 							"type": "entry",
