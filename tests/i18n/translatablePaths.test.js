@@ -125,18 +125,17 @@ describe("translatableEntries", () => {
 
 	it("returns nothing for an unknown or absent allowlist", () => {
 		expect(translatableEntries({ name: "x" }, undefined)).toEqual([]);
-		expect(translatableEntriesForType("npc", { name: "x" })).toEqual([]);
 	});
 });
 
 describe("the playbook allowlist", () => {
 	it("covers every item type a translator can reach, and nothing beyond it", () => {
-		for (const type of ["playbook", "move", "arcanum", "possession", "follower",
+		for (const type of ["playbook", "move", "arcanum", "possession", "follower", "npc",
 			"outfitItem", "insert", "improvement", "steadfast"]) {
 			expect(isTranslatableType(type), type).toBe(true);
 		}
 		// Actors and journals are a later pass and have no allowlist yet.
-		for (const type of ["npc", "character", "steading"]) {
+		for (const type of ["character", "steading"]) {
 			expect(isTranslatableType(type), type).toBe(false);
 		}
 	});
