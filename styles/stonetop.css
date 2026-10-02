@@ -2792,7 +2792,8 @@ body,
 
 /* The tiles sit ON the portrait, and the frame art is only an outline, so each needs a ground — the
    level's number was landing on the black of a crest. Clipped to the frame's corner cuts rather
-   than inset, which painted over the frame's own rules. */
+   than inset, which painted over the frame's own rules. The raised paper, as the stats are on
+   theirs: plain paper is the near-black of dark theme. */
 .stonetop.sheet.character .stonetop-cluster .stonetop-resource {
 	isolation: isolate;
 	justify-content: center;
@@ -2803,7 +2804,7 @@ body,
 	position: absolute;
 	inset: 0;
 	z-index: -1;
-	background: var(--st-paper);
+	background: var(--st-paper-raised);
 	--cut: 7px;
 	clip-path: polygon(
 		var(--cut) 0, calc(100% - var(--cut)) 0,
