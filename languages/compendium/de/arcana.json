@@ -3269,12 +3269,8 @@
       "text": "Um die Geheimnisse dieses Relikts zu entschlüsseln, musst du …"
     },
     "front/choices/strange-skull-and-antlers/learn-name/text": {
-      "source": "… must learn the name of the shade",
+      "source": "… must learn the name of the shade whose skull this was;",
       "text": "… den Namen des Schattens erfahren, dem dieser Schädel einst gehörte;"
-    },
-    "front/choices/strange-skull-and-antlers/whose-skull/text": {
-      "source": "whose skull this was;",
-      "text": ""
     },
     "front/choices/strange-skull-and-antlers/or/text": {
       "source": "or…",

@@ -13,8 +13,8 @@ import { toSlug } from "../../src/utils/slug.js";
 import { reconcile } from "./reconcile.js";
 import { readAuthoring } from "./files.js";
 
-// Every field that holds tag tokens. `companion.catalog[].options[]` and `defaults[]` are tags too —
-// they render as tag chips on a companion.
+// Every field that holds tag tokens. `companion.catalog[].options[]`, `defaults[]` and
+// `memberSuggestions.tags[]` are tags too — they render as tag chips on a companion.
 const TAG_FIELDS = new Set(["tagList", "tagOptions", "options", "defaults"]);
 
 export const TAG_TYPE = "_tags";
@@ -30,6 +30,13 @@ function collectFrom(node, out, inCompanionCatalog = false) {
 	if (!node || typeof node !== "object") return;
 
 	for (const [key, value] of Object.entries(node)) {
+		if (key === "memberSuggestions" && value && typeof value === "object"){
+			if (Array.isArray(value.tags)) {
+				for (const token of value.tags) if (typeof token === "string" && token.trim()) out.add(token.trim());
+			}
+			collectFrom(value, out, inCompanionCatalog);
+			continue;
+		}
 		const isTagField = key === "options" || key === "defaults"
 			? inCompanionCatalog
 			: TAG_FIELDS.has(key);
