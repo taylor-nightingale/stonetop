@@ -2699,10 +2699,12 @@ body,
    and stop reading as brackets. `mask-border` would slice it, but Firefox never shipped it, so the
    slices are files (cut 30px in from each edge of frame-stat.png) laid as eight mask layers, the
    corners at their own size and the runs stretched between them. The ground is clipped to the
-   frame's corner cuts, so it does not show as four nubs outside it. */
+   frame's corner cuts, so it does not show as four nubs outside it. The picture sits on the rule's
+   inner edge; its corners fall under the rule's diagonals and the cut trims what lies past them. */
 .stonetop.sheet.character .stonetop-portrait-frame {
 	position: relative;
-	padding: 0.55rem;
+	--rule: 4px;
+	padding: var(--rule);
 	background: var(--st-paper-raised);
 	--cut: 13px;
 	clip-path: polygon(

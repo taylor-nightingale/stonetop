@@ -158,6 +158,17 @@ describe.skipIf(!canProbe())("the rail's identity", () => {
 		expect(portrait.values.boxHeight).toBeLessThanOrEqual(13 * REM + 0.5);
 		expect(right(m.get("frame"))).toBeLessThanOrEqual(right(m.get("rail")));
 	});
+
+	// frame-stat's rule is 4px thick at its 30px slice size; the picture meets its inner edge.
+	it("sets the picture against the frame's rule, no paper between", () => {
+		const frame = m.get("frame");
+		const portrait = m.get("portrait");
+		const RULE = 4;
+		expect(portrait.values.boxLeft - frame.values.boxLeft).toBeCloseTo(RULE, 0);
+		expect(portrait.values.boxTop - frame.values.boxTop).toBeCloseTo(RULE, 0);
+		expect(right(frame) - right(portrait)).toBeCloseTo(RULE, 0);
+		expect(bottom(frame) - bottom(portrait)).toBeCloseTo(RULE, 0);
+	});
 });
 
 describe.skipIf(!canProbe())("hit points and experience, as bars", () => {
