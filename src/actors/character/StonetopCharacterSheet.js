@@ -224,10 +224,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				renderPreview: view => foundry.applications.handlebars.renderTemplate(OUTFIT_ADDER_PREVIEW, view),
 			});
 			const view = this.element.ownerDocument?.defaultView ?? globalThis;
-			new MovePreviews({
-				width:    () => 20 * parseFloat(view.getComputedStyle(view.document.documentElement).fontSize),
-				viewport: () => ({ width: view.innerWidth, height: view.innerHeight }),
-			}).attach(this.element);
+			new MovePreviews({ viewport: () => ({ width: view.innerWidth, height: view.innerHeight }) }).attach(this.element);
 		}
 
 		// The band's fold is a class on the part root, and the part root is rebuilt on every render —
@@ -247,6 +244,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			this._scrollAnchoring.applyTo(this.element);
 			this._ailmentEditor.applyFocus(this.element);
 			this._outfitAdder.applyFocus(this.element);
+			this._ailmentEditor.applyReveal(this.element);
+			this._outfitAdder.applyReveal(this.element);
 			this._bandFoot.watch(this.element);
 			this._pendingTab.applyTo(this.element, id => this.changeTab(id, "primary"));
 			const cards = this.element.querySelectorAll(".stonetop-arcanum-card");

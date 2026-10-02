@@ -6,10 +6,6 @@ describe("ImprovementData defaults", () => {
 		expect(new ImprovementData().slug).toBeNull();
 	});
 
-	it("defaults sortOrder to null", () => {
-		expect(new ImprovementData().sortOrder).toBeNull();
-	});
-
 	it("defaults choices to null", () => {
 		expect(new ImprovementData().choices).toBeNull();
 	});

@@ -8,11 +8,10 @@ import { RequirementBoxes, parseRequirement } from "../../../model/data/steading
 // never translated below `name`. See FoundryPackDocumentStore.
 
 export class SteadingImprovement {
-	constructor(slug, name, choices, sortOrder = 0, { requires = null, effects = [] } = {}) {
+	constructor(slug, name, choices, { requires = null, effects = [] } = {}) {
 		this.slug      = slug;
 		this.name      = name;
 		this.choices   = choices;
-		this.sortOrder = sortOrder;
 		// What it takes to build, and what it does once built — hand-authored on the item and checked
 		// by scripts/import/review-improvement-model.js. Empty for a custom improvement authored in a
 		// world, which simply has no results the sheet can reason about.
@@ -83,14 +82,12 @@ export class FoundrySteadingImprovementRepository {
 				entry.system?.slug,
 				entry.name,
 				entry.system?.choices ?? null,
-				entry.system?.sortOrder ?? 0,
 				{ requires: entry.system?.requires ?? null, effects: entry.system?.effects ?? [] },
-			))
-			.sort((a, b) => a.sortOrder - b.sortOrder);
+			));
 		return this._cache;
 	}
 
-	// Resolve one owned slug to its improvement (content + sortOrder), or null if unknown.
+	// Resolve one owned slug to its improvement, or null if unknown.
 	async getBySlug(slug) {
 		return (await this.getAll()).find(imp => imp.slug === slug) ?? null;
 	}

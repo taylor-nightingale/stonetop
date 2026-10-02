@@ -472,11 +472,118 @@
     },
     "improvement": {
       "namePlaceholder": "Improvement name",
-      "sortOrder": "Sort order",
-      "sortOrderPlaceholder": "Position in the catalog",
-      "choices": "Choices",
-      "edit": "Edit",
-      "done": "Done"
+      "catalog": "",
+      "image": "Change image",
+      "add": {
+        "requirement": "add a requirement",
+        "heading": "add a heading",
+        "line": "add a line of text",
+        "result": "add a result"
+      },
+      "row": {
+        "moveUp": "Move up",
+        "moveDown": "Move down",
+        "remove": "Remove",
+        "fewerBoxes": "One box fewer",
+        "moreBoxes": "One box more"
+      },
+      "rule": {
+        "lead": "This section needs",
+        "all": "all of these",
+        "some": "some of these",
+        "none": "none of these",
+        "or": "these, instead of the section above",
+        "atLeast": "at least"
+      },
+      "when": {
+        "lead": "It happens",
+        "turn": "each season",
+        "moment": "at a moment in the season",
+        "standing": "for as long as it stands",
+        "words": "In words",
+        "momentName": "The moment's name"
+      },
+      "onRoll": "on a roll of",
+      "outcome": {
+        "any": "any result"
+      },
+      "does": {
+        "lead": "The sheet",
+        "nothing": "no automation",
+        "change": "changes a rating",
+        "list": "adds to a list",
+        "set": "sets a rating",
+        "advantage": "gives advantage on a move",
+        "move": "grants a move",
+        "adjustment": "bends a step of the season",
+        "rating": "Rating",
+        "amount": "By how much",
+        "whichList": "Which list",
+        "entry": "What it writes",
+        "value": "To what"
+      },
+      "gloss": {
+        "nothing": "the table does this; the sheet only says it",
+        "change": "the sheet adds {amount} {rating}",
+        "list": "the sheet writes “{entry}” on {list}",
+        "set": "the sheet sets {rating} to {value}",
+        "advantage": "a reminder on the move it gives advantage to",
+        "move": "the steading gains this move to roll",
+        "adjustment": "the sheet bends that step when it runs",
+        "rule": {
+          "all": "every requirement below",
+          "some": "at least {count} of the requirements below",
+          "none": "",
+          "or": "or, instead, the section above"
+        }
+      },
+      "words": {
+        "label": "Words",
+        "generated": "Written from the choices. Change them and they’re yours.",
+        "yours": "Your words."
+      },
+      "useGenerated": "use the generated words",
+      "wording": {
+        "heading": {
+          "first": {
+            "all": "**Requires** all of the following:",
+            "some": "**Requires** {count} of the following:",
+            "or": "**Requires** either this:"
+          },
+          "later": {
+            "all": "And then:",
+            "some": "And at least {count} of these:",
+            "or": "Or all of these:"
+          }
+        },
+        "result": {
+          "increase": "increase {rating} by {amount}",
+          "decrease": "decrease {rating} by {amount}",
+          "list": "add \"{entry}\" to the {list} list",
+          "set": "change {rating} to {value}"
+        }
+      },
+      "example": {
+        "name": "Example Improvement",
+        "line": "An improvement would make all our lives better.",
+        "heading": "Requires all of the following:",
+        "requirementOne": "Pen and paper",
+        "requirementTwo": "Creativity and community to write it!",
+        "completion": "increase Fortunes by 1",
+        "henceforth": "you are extra happy"
+      },
+      "placeholder": {
+        "requirement": "what it takes",
+        "line": "a line of text",
+        "heading": "the heading",
+        "words": "what it does",
+        "phrase": "when it happens",
+        "entry": "what it writes on the list",
+        "momentName": "e.g. the spring festival"
+      },
+      "adder": {
+        "add": "Add"
+      }
     },
     "steadfast": {
       "namePlaceholder": "Steadfast name",

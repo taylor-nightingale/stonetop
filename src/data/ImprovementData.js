@@ -10,7 +10,6 @@ export class ImprovementData extends foundry.abstract.TypeDataModel {
 		const f = foundry.data.fields;
 		return {
 			slug:      new f.StringField({ nullable: true, initial: null }),
-			sortOrder: new f.NumberField({ nullable: true, initial: null }),
 			choices:   new f.ObjectField({ nullable: true, initial: null }),
 			// What the improvement takes to build, as an expression over its own requirement-row slugs
 			// — `{all: [...]}` / `{any: 2, of: [...]}`, nesting freely. An ObjectField because the shape

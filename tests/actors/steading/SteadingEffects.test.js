@@ -13,12 +13,12 @@ const MILL = () => new SteadingImprovement("mill", "Mill", {
 		{ type: "entry", slug: "site",   content: { text: "a site" },   track: { max: 1 } },
 		{ type: "entry", slug: "miller", content: { text: "a miller" }, track: { max: 1 } },
 	],
-}, 0, {
+}, {
 	requires: { all: ["site", "miller"] },
 	effects: [
 		{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
 		{ when: { kind: "completed" }, listEntry: { list: "resources", text: "Mill" }, text: 'add "Mill" to the Resources list' },
-		{ when: { kind: "moment", moment: "autumn-harvest" }, change: { target: "surplus", amount: 1 },
+		{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] }, change: { target: "surplus", amount: 1 },
 		  text: "the steading generates +1 Surplus" },
 		{ when: { kind: "completed" }, text: "each of supplies has 1 extra use" },
 	],
@@ -29,7 +29,7 @@ const MILL = () => new SteadingImprovement("mill", "Mill", {
 const TOWNSHIP = () => new SteadingImprovement("township", "Township", {
 	slug: "township",
 	list: [{ type: "entry", slug: "government", content: { text: "a formal government" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "government",
 	effects: [
 		{ when: { kind: "completed" }, set: { target: "size", value: "town" }, text: "change Size to town" },
@@ -41,7 +41,7 @@ const TOWNSHIP = () => new SteadingImprovement("township", "Township", {
 const WATCH = () => new SteadingImprovement("standing-watch", "Standing Watch", {
 	slug: "standing-watch",
 	list: [{ type: "entry", slug: "leaders", content: { text: "the leaders" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "leaders",
 	effects: [
 		{ when: { kind: "completed" }, listEntry: { list: "fortifications", text: "Standing watch" },
@@ -58,7 +58,7 @@ const WATCH = () => new SteadingImprovement("standing-watch", "Standing Watch", 
 const RAINCATCHING = () => new SteadingImprovement("raincatching", "Raincatching", {
 	slug: "raincatching",
 	list: [{ type: "entry", slug: "conduits", content: { text: "roofs and conduits" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "conduits",
 	effects: [
 		{ when: { kind: "turn", seasons: ["summer"] }, change: { target: "surplus", amount: 1 },
@@ -71,7 +71,7 @@ const RAINCATCHING = () => new SteadingImprovement("raincatching", "Raincatching
 const MARKET = () => new SteadingImprovement("market", "Market", {
 	slug: "market",
 	list: [{ type: "entry", slug: "stalls", content: { text: "the stalls" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "stalls",
 	effects: [
 		{ when: { kind: "turn", seasons: ["summer"] }, change: { target: "surplus", amount: 1 },

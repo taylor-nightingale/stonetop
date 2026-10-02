@@ -6,7 +6,6 @@
   "_key": "!items!NlzvIrCFNvf3RI8P",
   "system": {
     "slug": "mill",
-    "sortOrder": 10,
     "choices": {
       "slug": "mill",
       "list": [
@@ -115,6 +114,9 @@
         "when": {
           "kind": "moment",
           "moment": "autumn-harvest",
+          "seasons": [
+            "autumn"
+          ],
           "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {

@@ -65,7 +65,9 @@ export class TurnoverSnapshot {
 export class MomentSnapshot {
 	constructor({ moment, statement }) {
 		this.key       = moment.key;
+		// The book's moments by key; one its author named, in their words.
 		this.labelKey  = moment.labelKey;
+		this.name      = moment.name;
 		this.statement = statement;
 	}
 

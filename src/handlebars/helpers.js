@@ -4,7 +4,7 @@ import { isGroupTag } from "../model/data/groupTag.js";
 import { TagLabels } from "../model/data/TagLabels.js";
 import { Advice, adviceLabel } from "../model/data/Advice.js";
 import { BarGrain } from "../utils/BarGrain.js";
-import { sectionBodyId, moveBodyId, movesPanelId } from "../utils/regionIds.js";
+import { sectionBodyId, moveBodyId, movesPanelId, improvementBodyId } from "../utils/regionIds.js";
 
 /**
  * Every Handlebars helper the Stonetop templates use, in one place.
@@ -51,6 +51,7 @@ Handlebars.registerHelper("barGrain", (title, index) => BarGrain.of(title, Numbe
 
 // A section's and a move row's region ids: minted here and opened by the sheet from the same functions.
 Handlebars.registerHelper("sectionId", (prefix, key) => sectionBodyId(prefix, key));
+Handlebars.registerHelper("improvementBodyId", (prefix, slug) => improvementBodyId(prefix, slug));
 // `choosing`, when passed, is the helper's fourth argument; Handlebars always appends its options.
 Handlebars.registerHelper("moveBodyId", (prefix, categoryKey, slug, ...rest) =>
 	moveBodyId(prefix, categoryKey, slug, rest.length > 1 && rest[0] === true));

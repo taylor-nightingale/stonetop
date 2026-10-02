@@ -15,7 +15,7 @@ import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 const TOWNSHIP = () => new SteadingImprovement("township", "Township", {
 	slug: "township",
 	list: [{ type: "entry", slug: "government", content: { text: "a formal government" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "government",
 	effects: [
 		{ when: { kind: "completed" }, advantage: { moves: ["muster", "pull-together", "trade-barter"] },
@@ -27,7 +27,7 @@ const TOWNSHIP = () => new SteadingImprovement("township", "Township", {
 const STONE_WALL = () => new SteadingImprovement("stone-wall", "Stone Wall", {
 	slug: "stone-wall",
 	list: [{ type: "entry", slug: "masons", content: { text: "masons" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "masons",
 	effects: [
 		{ when: { kind: "completed", phrase: "when **_you take advantage of the stone wall_**" },

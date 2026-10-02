@@ -6,7 +6,7 @@ import { SteadingImprovement } from "../../../../src/actors/steading/repositorie
 const improvement = effects => new SteadingImprovement("mill", "Mill", {
 	slug: "mill",
 	list: [{ type: "entry", slug: "site", content: { text: "a site" }, track: { max: 1 } }],
-}, 0, { requires: "site", effects });
+}, { requires: "site", effects });
 
 const chipsOf = (effects, values = { site: 1 }) =>
 	EffectChip.forImprovement(improvement(effects), values);
@@ -29,10 +29,17 @@ describe("EffectChip — what an improvement is for", () => {
 	});
 
 	it("states a rolled amount as its formula", () => {
-		const [chip] = chipsOf([{ when: { kind: "moment", moment: "autumn-harvest" },
+		const [chip] = chipsOf([{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 			change: { target: "surplus", formula: "1d4" }, text: "gain 1d4 Surplus" }]);
 		expect(chip.amount).toBe("1d4");
 		expect(chip.timingKeys).toEqual(["stonetop.steading.seasons.moments.autumn-harvest"]);
+	});
+
+	// A moment its author made up has no key; its chip says it in their words.
+	it("times a result at a made-up moment by that moment's name", () => {
+		const [chip] = chipsOf([{ when: { kind: "moment", moment: "custom-moment-x", momentName: "the spring festival", seasons: ["spring"] },
+			change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" }]);
+		expect(chip.timingKeys).toEqual(["the spring festival"]);
 	});
 
 	// The bug: Township's spring chip read "@population + 1 Surplus". See formulaLabel.

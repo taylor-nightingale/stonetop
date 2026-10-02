@@ -1,8 +1,8 @@
 {{!-- The hover card: a second, faster route to a move's words for a pointer already on its row, or a
       keyboard on its roll button. Never the only route — the caret opens the same text in place.
-      Context is the row's MoveSnapshot; param `categoryLabel`. Placed by script (MovePreviewPlacement),
-      since the lists it sits in scroll and would clip it. --}}
-<div class="stonetop-move-preview" role="presentation">
+      Context is the row's MoveSnapshot; param `categoryLabel`. A popover, shown and placed by script
+      (MovePreviews), since the lists it sits in scroll and would clip it. --}}
+<div class="stonetop-move-preview" role="presentation" popover="manual">
 	<p class="stonetop-move-preview-title">{{name}}
 		{{#if rollStat}}<span class="stonetop-move-preview-roll">{{localize 'stonetop.character.moves.previewRoll' mod=rollLabel}}</span>{{/if}}</p>
 	<div class="stonetop-move-preview-text">{{rich description}}</div>

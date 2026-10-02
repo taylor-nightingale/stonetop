@@ -11,12 +11,12 @@ import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 // Foundry game boundary (packs + items) is mocked — proving a custom world improvement the steading
 // owns actually surfaces on it.
 
-function packEntry(slug, sortOrder, choices) {
-	return { _id: `pack-${slug}`, name: slug, type: "improvement", system: { slug, sortOrder, choices } };
+function packEntry(slug, choices) {
+	return { _id: `pack-${slug}`, name: slug, type: "improvement", system: { slug, choices } };
 }
 
-function worldEntry(slug, sortOrder, choices) {
-	const obj = { _id: `world-${slug}`, name: slug, type: "improvement", system: { slug, sortOrder, choices } };
+function worldEntry(slug, choices) {
+	const obj = { _id: `world-${slug}`, name: slug, type: "improvement", system: { slug, choices } };
 	return { type: "improvement", toObject: () => obj };
 }
 
@@ -55,8 +55,8 @@ describe("Steading improvements — custom world improvement (integration)", () 
 
 	it("surfaces an owned world-authored improvement in the snapshot, in owned order", async () => {
 		stubGame(
-			[packEntry("inn", 1, { slug: "inn", list: [] })],
-			[worldEntry("watchtower", 2, WATCHTOWER)],
+			[packEntry("inn", { slug: "inn", list: [] })],
+			[worldEntry("watchtower", WATCHTOWER)],
 		);
 		const improvements = new SteadingImprovements(makeActor(["inn", "watchtower"]), new FoundrySteadingImprovementRepository());
 		const snap = (await improvements.buildSnapshot()).entries;
@@ -66,14 +66,14 @@ describe("Steading improvements — custom world improvement (integration)", () 
 	});
 
 	it("does not surface improvements the steading does not own", async () => {
-		stubGame([packEntry("inn", 1, { slug: "inn", list: [] })], [worldEntry("watchtower", 2, WATCHTOWER)]);
+		stubGame([packEntry("inn", { slug: "inn", list: [] })], [worldEntry("watchtower", WATCHTOWER)]);
 		const improvements = new SteadingImprovements(makeActor(["watchtower"]), new FoundrySteadingImprovementRepository());
 		const snap = (await improvements.buildSnapshot()).entries;
 		expect(snap.map(g => g.slug)).toEqual(["watchtower"]);
 	});
 
 	it("reflects a stored track value on the custom improvement's group", async () => {
-		stubGame([], [worldEntry("watchtower", 1, WATCHTOWER)]);
+		stubGame([], [worldEntry("watchtower", WATCHTOWER)]);
 		const actor = makeActor(["watchtower"], { watchtower: { built: 1 } });
 		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
 		const snap = (await improvements.buildSnapshot()).entries;
@@ -85,7 +85,7 @@ describe("Steading improvements — custom world improvement (integration)", () 
 	// pack is granted by slug and immediately resolves to its content — the proof that a dropped
 	// improvement needs no embedded item to show up on the sheet.
 	it("renders an improvement granted by slug, resolved through the real catalog", async () => {
-		stubGame([packEntry("watchtower", 1, WATCHTOWER)], []);
+		stubGame([packEntry("watchtower", WATCHTOWER)], []);
 		const actor = new FakeActorBuilder().withSystem({ improvements: [], improvementValues: {} }).build();
 		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
 
@@ -98,7 +98,7 @@ describe("Steading improvements — custom world improvement (integration)", () 
 	});
 
 	it("track state set after a grant survives a revoke and re-grant", async () => {
-		stubGame([packEntry("watchtower", 1, WATCHTOWER)], []);
+		stubGame([packEntry("watchtower", WATCHTOWER)], []);
 		const actor = new FakeActorBuilder().withSystem({ improvements: [], improvementValues: {} }).build();
 		const improvements = new SteadingImprovements(actor, new FoundrySteadingImprovementRepository());
 
@@ -112,7 +112,7 @@ describe("Steading improvements — custom world improvement (integration)", () 
 	});
 
 	it("writes a track change back for a custom improvement", async () => {
-		stubGame([], [worldEntry("watchtower", 1, WATCHTOWER)]);
+		stubGame([], [worldEntry("watchtower", WATCHTOWER)]);
 		const actor = makeActor(["watchtower"]);
 		await steadingOver(actor).setChoiceTrackFor(watchtowerTrack(), "1", true);
 

@@ -1,68 +1,69 @@
 import { describe, it, expect } from "vitest";
 import { Moment, Moments } from "../../src/model/data/steading/Moments.js";
 import { Seasons } from "../../src/model/data/steading/Seasons.js";
+import { EffectTrigger } from "../../src/model/data/steading/ImprovementEffect.js";
 
 /**
  * A moment is a named occasion INSIDE a season — one the sheet cannot see coming, which the table
- * declares by applying it. Everything about the registry follows from that one sentence, including
- * the case this file exists to pin down: an occasion that can happen in ANY season is still a
- * moment, not a fourth kind of trigger.
+ * declares by applying it. Which seasons it can happen in is the improvements' to say: each result
+ * that fires at a moment names its seasons, and nothing in code keeps a list of them.
  */
-describe("Moments", () => {
-	const seasons = Seasons.all();
+const at = (moment, seasons, momentName) => EffectTrigger.fromRaw({ kind: "moment", moment, seasons, momentName });
+const autumn = Seasons.byKey("autumn");
+const spring = Seasons.byKey("spring");
 
-	it("knows which seasons a moment can occur in", () => {
-		const harvest = Moments.byKey("autumn-harvest");
-		expect(harvest.occursIn(Seasons.byKey("autumn"))).toBe(true);
-		expect(harvest.occursIn(Seasons.byKey("spring"))).toBe(false);
+describe("Moments", () => {
+	it("gathers the moments results fire at, once each", () => {
+		const moments = Moments.fromTriggers([at("autumn-harvest", ["autumn"]), at("autumn-harvest", ["autumn"]), at("aurochs-hunt", ["spring"])]);
+		expect(moments.all().map(m => m.key)).toEqual(["autumn-harvest", "aurochs-hunt"]);
 	});
 
-	it("has no opinion about a season it was not given", () => {
-		expect(new Moment("nowhere", []).occursIn(Seasons.byKey("spring"))).toBe(false);
-		expect(Moments.byKey("autumn-harvest").occursIn(null)).toBe(false);
+	it("ignores every trigger that is not a moment", () => {
+		const moments = Moments.fromTriggers([EffectTrigger.fromRaw({ kind: "turn", seasons: ["autumn"] }), EffectTrigger.fromRaw({ kind: "completed" })]);
+		expect(moments.all()).toEqual([]);
+	});
+
+	// Two improvements at the same moment may name different seasons for it; it can happen in either.
+	it("lets a moment happen in every season any of its results names", () => {
+		const harvest = Moments.fromTriggers([at("feast", ["autumn"]), at("feast", ["winter"])]).byKey("feast");
+		expect(harvest.seasons).toEqual(["autumn", "winter"]);
+	});
+
+	it("offers only the moments that can happen in a season", () => {
+		const moments = Moments.fromTriggers([at("autumn-harvest", ["autumn"]), at("aurochs-hunt", ["spring"])]);
+		expect(moments.inSeason(autumn).map(m => m.key)).toEqual(["autumn-harvest"]);
+		expect(moments.inSeason(spring).map(m => m.key)).toEqual(["aurochs-hunt"]);
 	});
 
 	it("resolves by key, and says so when it cannot", () => {
-		expect(Moments.byKey("aurochs-hunt").key).toBe("aurochs-hunt");
-		expect(Moments.byKey("not-a-moment")).toBeNull();
-		expect(Moments.has("aurochs-hunt")).toBe(true);
-		expect(Moments.has("not-a-moment")).toBe(false);
+		const moments = Moments.fromTriggers([at("aurochs-hunt", ["spring"])]);
+		expect(moments.byKey("aurochs-hunt").key).toBe("aurochs-hunt");
+		expect(moments.byKey("not-a-moment")).toBeNull();
+	});
+});
+
+describe("Moment", () => {
+	it("knows which seasons it can happen in", () => {
+		const harvest = new Moment("autumn-harvest", { seasons: ["autumn"] });
+		expect(harvest.occursIn(autumn)).toBe(true);
+		expect(harvest.occursIn(spring)).toBe(false);
+		expect(harvest.occursIn(null)).toBe(false);
 	});
 
-	it("labels every moment through a translation key", () => {
-		for (const moment of Moments.all()) {
-			expect(moment.labelKey).toBe(`stonetop.steading.seasons.moments.${moment.key}`);
-		}
+	// The book's moments are named in the language files, by key; one an author names carries its words.
+	it("is named by a translation key, or by its author's words", () => {
+		expect(new Moment("autumn-harvest").labelKey).toBe("stonetop.steading.seasons.moments.autumn-harvest");
+		const festival = new Moment("custom-moment-x", { name: "the spring festival" });
+		expect([festival.labelKey, festival.name]).toEqual([null, "the spring festival"]);
 	});
 
-	/**
-	 * The Inn's "once per season, when you expend 1 Surplus and bring folks together at the inn".
-	 *
-	 * Modelled as a moment rather than as a new `once-per-season` cadence, because it already is one:
-	 * a named occasion the table triggers. The only difference from the harvest is that it can happen
-	 * in any season — which is what `seasons` is for, so it needs no new machinery at all.
-	 */
-	describe("an occasion that can happen in any season", () => {
-		const inn = Moments.byKey("inn-gathering");
-
-		it("occurs in every season", () => {
-			for (const season of seasons) {
-				expect(inn.occursIn(season), season.key).toBe(true);
-			}
-		});
-
-		it("is offered in every season, alongside whatever else that season has", () => {
-			for (const season of seasons) {
-				expect(Moments.inSeason(season)).toContain(inn);
-			}
-			expect(Moments.inSeason(Seasons.byKey("autumn"))).toContain(Moments.byKey("autumn-harvest"));
-			expect(Moments.inSeason(Seasons.byKey("summer"))).not.toContain(Moments.byKey("autumn-harvest"));
-		});
+	it("stays its author's while it has no name yet", () => {
+		expect(new Moment("custom-moment-x", { name: "" }).labelKey).toBeNull();
 	});
 
-	it("hands out a copy, so a caller cannot edit the registry", () => {
-		const all = Moments.all();
-		all.push(new Moment("intruder", ["spring"]));
-		expect(Moments.has("intruder")).toBe(false);
+	it("takes its name from whichever of its results carries one", () => {
+		const festival = Moments.fromTriggers([at("custom-moment-x", ["spring"]), at("custom-moment-x", ["spring"], "the spring festival")])
+			.byKey("custom-moment-x");
+		expect(festival.name).toBe("the spring festival");
 	});
 });

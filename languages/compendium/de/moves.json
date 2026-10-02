@@ -2609,8 +2609,9 @@
       "text": "Überreden (bei NSCs)"
     },
     "description": {
-      "source": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +DEX: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
-      "text": "Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein."
+      "source": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +CHA: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
+      "text": "Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein.",
+      "needsReview": true
     },
     "moveResults/success/value": {
       "source": "They either do as you want or reveal the easiest way to convince them",

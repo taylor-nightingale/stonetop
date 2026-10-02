@@ -4051,18 +4051,18 @@ button.stonetop-view-toggle.is-active {
 .stonetop.sheet.character button.stonetop-owing-choose[hidden] { display: none; }
 
 /* ── The hover card ───────────────────────────────────────────────────────────
-   Out of flow until a pointer or a focused roll button asks for it: a 20rem card laid out inside a
-   scrolling list is a horizontal scrollbar. Fixed, and placed by script (MovePreviews), because the
-   lists scroll and would clip it. */
+   A popover, shown and placed by script (MovePreviews): in the top layer nothing it sits in can
+   clip it or move it. The user agent's popover box is centred (inset 0, margin auto); this one sits
+   where the script puts it. */
 .stonetop.sheet.character .stonetop-move-preview {
-	display: none;
 	position: fixed;
+	inset: auto;
 	left: var(--move-preview-x, 0);
 	top: var(--move-preview-y, 0);
-	z-index: 50;
+	margin: 0;
 	width: 20rem;
 	max-height: 60vh;
-	overflow-y: auto;
+	overflow: hidden auto;
 	padding: 0.6rem 0.75rem 0.5rem;
 	background: var(--st-paper-raised);
 	border: 1px solid var(--st-rule-strong);
@@ -4072,17 +4072,6 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-ink-soft);
 	pointer-events: none;
 }
-
-/* The keyboard route is the roll button taking visible focus, which a mouse click does not give it:
-   `:focus-within` left a clicked row's card up for good. */
-.stonetop.sheet.character .stonetop-mrow:hover > .stonetop-move-preview,
-.stonetop.sheet.character .stonetop-mrow:has(.stonetop-mrow-roll:focus-visible) > .stonetop-move-preview {
-	display: block;
-}
-
-/* Below the rule above, and it has to be: same specificity, so the later one wins. A card for a row
-   whose text is already open is the same move said twice. */
-.stonetop.sheet.character .stonetop-mrow.is-open > .stonetop-move-preview { display: none; }
 
 .stonetop.sheet.character .stonetop-move-preview-title {
 	margin: 0 0 0.3rem;
@@ -4595,10 +4584,10 @@ button.stonetop-view-toggle.is-active {
 /* ── The outfit adder ──
    Hung from the "+ add item" that opened it, its width, over what is under it rather than pushing
    the column down — the wound editor's panel. Headed by the row the item will make, then a title
-   and a control per line. */
+   and a control per line. The improvement sheet's editors hang the same way, from what opened them. */
 .stonetop-inv-add { position: relative; }
 
-.stonetop.sheet .stonetop-outfit-adder {
+.stonetop.sheet :is(.stonetop-outfit-adder, .stonetop-improvement-panel) {
 	position: absolute;
 	top: 100%;
 	left: 0;
@@ -4613,7 +4602,7 @@ button.stonetop-view-toggle.is-active {
 	font-size: var(--fs-fine);
 }
 
-.stonetop.sheet .stonetop-outfit-adder-head {
+.stonetop.sheet :is(.stonetop-outfit-adder-head, .stonetop-improvement-panel-head) {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
@@ -4624,7 +4613,7 @@ button.stonetop-view-toggle.is-active {
 }
 
 /* The row as the column will draw it, on the column's own paper, ruled off from the fields. */
-.stonetop.sheet .stonetop-outfit-adder-preview {
+.stonetop.sheet :is(.stonetop-outfit-adder-preview, .stonetop-improvement-panel-preview) {
 	min-height: 1.6rem;
 	margin: 0 0 0.5rem;
 	padding: 0.25rem 0.35rem;
@@ -4684,14 +4673,14 @@ button.stonetop-view-toggle.is-active {
 .stonetop.sheet .stonetop-outfit-adder-stepper > input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 
 /* `button.`, and the face said again: every sheet button is otherwise set in the small caps. */
-.stonetop.sheet button.stonetop-outfit-adder-cancel,
+.stonetop.sheet button:is(.stonetop-outfit-adder-cancel, .stonetop-improvement-panel-done),
 .stonetop.sheet .stonetop-outfit-adder-stepper > button,
-.stonetop.sheet button.stonetop-outfit-adder-add {
+.stonetop.sheet button:is(.stonetop-outfit-adder-add, .stonetop-improvement-panel-add) {
 	all: unset;
 	cursor: pointer;
 }
 
-.stonetop.sheet button.stonetop-outfit-adder-cancel {
+.stonetop.sheet button:is(.stonetop-outfit-adder-cancel, .stonetop-improvement-panel-done) {
 	padding: 0 0.25rem;
 	font-family: "StonetopUI", serif;
 	letter-spacing: 0.06em;
@@ -4709,13 +4698,13 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet .stonetop-outfit-adder-foot {
+.stonetop.sheet :is(.stonetop-outfit-adder-foot, .stonetop-improvement-panel-foot) {
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 0.5rem;
 }
 
-.stonetop.sheet button.stonetop-outfit-adder-add {
+.stonetop.sheet button:is(.stonetop-outfit-adder-add, .stonetop-improvement-panel-add) {
 	padding: 0.15rem 0.8rem;
 	font-family: "StonetopUI", serif;
 	letter-spacing: 0.06em;
@@ -4724,12 +4713,12 @@ button.stonetop-view-toggle.is-active {
 	border-radius: 2px;
 }
 
-.stonetop.sheet button.stonetop-outfit-adder-cancel:hover,
-.stonetop.sheet button.stonetop-outfit-adder-cancel:focus-visible,
+.stonetop.sheet button:is(.stonetop-outfit-adder-cancel, .stonetop-improvement-panel-done):hover,
+.stonetop.sheet button:is(.stonetop-outfit-adder-cancel, .stonetop-improvement-panel-done):focus-visible,
 .stonetop.sheet .stonetop-outfit-adder-stepper > button:hover,
 .stonetop.sheet .stonetop-outfit-adder-stepper > button:focus-visible { color: var(--st-accent); border-color: var(--st-accent); }
-.stonetop.sheet button.stonetop-outfit-adder-add:hover,
-.stonetop.sheet button.stonetop-outfit-adder-add:focus-visible { filter: brightness(1.1); }
+.stonetop.sheet button:is(.stonetop-outfit-adder-add, .stonetop-improvement-panel-add):hover,
+.stonetop.sheet button:is(.stonetop-outfit-adder-add, .stonetop-improvement-panel-add):focus-visible { filter: brightness(1.1); }
 
 /* -- Playbook tab intro (description) ------------------------ */
 /* -- Hide PBTA advancement controls on Stonetop sheets -------- */
@@ -6542,7 +6531,7 @@ button.stonetop-xp-toggle {
    The Fell faces also run smaller than Signika at a given size — a smaller x-height and a narrower
    set — so swapping the family without lifting the scale would have made the sheet harder to read,
    not easier. The two changes belong together. */
-.stonetop.sheet.steading {
+.stonetop.sheet:is(.steading, .improvement) {
 	/* Both tokens, and with the stack written out rather than pointed at `--font-serif`.
 	   `--font-serif` is declared on :root as the book's roman, but Foundry's own FONT SETTING
 	   redeclares --font-primary AND --font-serif on `body` — in this world both resolve to Amiri. A
@@ -6665,7 +6654,7 @@ button.stonetop-xp-toggle {
    the sheet read as two designs. A rule is also what the book itself uses for the four ratings it
    does NOT crown, which is the hierarchy the frames were flattening. */
 
-.stonetop.sheet.steading .steading-block {
+.stonetop.sheet:is(.steading, .improvement) .steading-block {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -7061,7 +7050,8 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
-.stonetop-rollmode--stacked .stonetop-rollmode-legend {
+.stonetop-rollmode--stacked .stonetop-rollmode-legend,
+.stonetop-improvement-group-label {
 	font-family: "StonetopUI", serif;
 	font-size: var(--fs-note);
 	padding: 0;
@@ -7932,7 +7922,7 @@ button.stonetop-xp-toggle {
 }
 
 /* The add control is the list's last row and says what it makes. */
-.stonetop.sheet.steading .stonetop-list-add {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-list-add {
 	display: flex;
 	align-items: center;
 	gap: 0.35rem;
@@ -7954,11 +7944,11 @@ button.stonetop-xp-toggle {
 /* The color it takes is the house idiom's, at the foot of this sheet; what stays here is the ramp
    that brings it up from faint, which is this control's own idea — a list's add affordance waits
    until you reach for the list. */
-.stonetop.sheet.steading .stonetop-list-add:hover {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-list-add:hover {
 	opacity: 1;
 }
 
-.stonetop.sheet.steading .stonetop-list-add img {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-list-add img {
 	width: 11px;
 	height: 11px;
 	border: none;
@@ -8510,7 +8500,7 @@ button.stonetop-xp-toggle {
    custom look and renders a bright native check instead. Re-assert the custom square at higher
    specificity, with hardcoded ink (--color-text-dark-primary is undefined on a V2 sheet, so it
    drew nothing), and neutralize any core check pseudo. */
-.stonetop.sheet.steading .stonetop-item-check {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-item-check {
 	appearance: none !important;
 	-webkit-appearance: none !important;
 	width: 14px !important;
@@ -8520,11 +8510,11 @@ button.stonetop-xp-toggle {
 	border: 2px solid var(--st-ink) !important;
 	background: transparent !important;
 }
-.stonetop.sheet.steading .stonetop-item-check:checked {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-item-check:checked {
 	background: var(--st-ink) !important;
 }
-.stonetop.sheet.steading .stonetop-item-check::before,
-.stonetop.sheet.steading .stonetop-item-check::after {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-item-check::before,
+.stonetop.sheet:is(.steading, .improvement) .stonetop-item-check::after {
 	content: none !important;
 }
 /* Resource pips: the shared border color is --color-text-dark-primary, which core doesn't define on
@@ -8999,13 +8989,13 @@ button.stonetop-xp-toggle {
    What a set of results proposes to do, before anyone commits. Shown on a finished improvement's
    card and, later, at the turn of the season. */
 
-.stonetop.sheet.steading .steading-statement {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement {
 	display: grid;
 	gap: 5px;
 	margin-top: 5px;
 }
 
-.stonetop.sheet.steading .steading-statement-lines {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines {
 	display: grid;
 	gap: 2px;
 	margin: 0;
@@ -9029,7 +9019,7 @@ button.stonetop-xp-toggle {
    used to be --fs-fine ("source labels, page refs, fine print") here and --fs-note in the payoff's
    own override — one partial, one row shape, rendering at two roles depending on which panel it
    landed in. It reads at the size of a result either way now, and the override is gone. */
-.stonetop.sheet.steading .steading-statement-line {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line {
 	display: flex;
 	gap: 0.4rem;
 	align-items: flex-start;
@@ -9043,8 +9033,8 @@ button.stonetop-xp-toggle {
 	margin: 0;
 }
 
-.stonetop.sheet.steading .steading-statement-clause { flex: 1 1 auto; min-width: 0; }
-.stonetop.sheet.steading .steading-statement-clause > * { display: inline; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-clause { flex: 1 1 auto; min-width: 0; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-clause > * { display: inline; }
 
 /* TWO COLUMNS where the row states its source: the improvement in one, what it does in the other.
    A row used to be one run-on sentence, so the half that DIFFERS between rows started at a different
@@ -9061,13 +9051,13 @@ button.stonetop-xp-toggle {
 
    Only where the source is shown — on an improvement's own card there is no source column, and a
    grid reserving one would indent every line against nothing. */
-.stonetop.sheet.steading .steading-statement-lines--sourced {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines--sourced {
 	display: grid;
 	grid-template-columns: minmax(0, max-content) minmax(0, 1fr) auto auto;
 	row-gap: 2px;
 }
 
-.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-line {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines--sourced .steading-statement-line {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column: 1 / -1;
@@ -9075,7 +9065,7 @@ button.stonetop-xp-toggle {
 	column-gap: 0.5rem;
 }
 
-.stonetop.sheet.steading .steading-statement-source {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-source {
 	color: var(--st-ink);
 	min-width: 0;
 }
@@ -9086,34 +9076,34 @@ button.stonetop-xp-toggle {
    the steps alone, which left the three lists below them reading as a name and an unrelated clause
    with a gap between. The source is never conditionally hidden the way a timing chip is, so there is
    no row where this dash is left standing on its own. */
-.stonetop.sheet.steading .steading-statement-source::after {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-source::after {
 	content: " —";
 }
 
 /* The last two columns are PINNED, because both are optional. Left to auto-placement, a row with no
    delta would put its Apply in the delta's column and the buttons down the list would not line up —
    which is the same failure the source column was fixed for, one column to the right. */
-.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-delta {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines--sourced .steading-statement-delta {
 	grid-column: 3;
 }
 
-.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-line-btn,
-.stonetop.sheet.steading .steading-statement-lines--sourced .steading-statement-line-state {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines--sourced .steading-statement-line-btn,
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines--sourced .steading-statement-line-state {
 	grid-column: 4;
 }
 
 /* The whens run ahead of the source on a card's Henceforth half, where nothing above states the
    timing. Never on the season's own panel — there the timing is the panel. */
-.stonetop.sheet.steading .steading-statement-whens { min-width: 0; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-whens { min-width: 0; }
 
 /* Applied: still listed, and visibly done. Never hidden — what the season did to the steading is
    worth reading after the fact, and on a document six people share it is the only way the one who
    was not here learns it happened. */
-.stonetop.sheet.steading .steading-statement-line.is-applied { color: var(--st-ink-soft); }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line.is-applied { color: var(--st-ink-soft); }
 
 /* One control per result. Quiet by default — an unpressed Apply is an offer, not the main event on a
    card that is mostly prose — and it earns its 24px target without a filled button on every line. */
-.stonetop.sheet.steading .steading-statement-line-btn {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line-btn {
 	flex: 0 0 auto;
 	width: auto;
 	/* SC 2.5.8: a real target, not a text link. */
@@ -9131,20 +9121,20 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
-.stonetop.sheet.steading .steading-statement-line-btn:hover,
-.stonetop.sheet.steading .steading-statement-line-btn:focus-visible {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line-btn:hover,
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line-btn:focus-visible {
 	border-color: var(--st-accent);
 }
 
 /* Revert is the undo, so it reads as the quieter of the two: the line beside it already says it
    happened, and this is only the way back. */
-.stonetop.sheet.steading .steading-statement-line-btn.is-revert {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line-btn.is-revert {
 	color: var(--st-ink-soft);
 }
 
 /* Applied, with nothing to offer: a record migrated from the old per-improvement storage knows THAT
    it happened and not what it wrote, so there is no inverse to press. */
-.stonetop.sheet.steading .steading-statement-line-state {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-line-state {
 	flex: 0 0 auto;
 	/* The control's size, for the same reason: it stands where the control would. */
 	font-size: inherit;
@@ -9155,7 +9145,7 @@ button.stonetop-xp-toggle {
 
 /* The arithmetic, stated. An advisory delta is dimmed: it is what the book says, not what the sheet
    will do. */
-.stonetop.sheet.steading .steading-statement-delta {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-delta {
 	flex: 0 0 auto;
 	font-size: var(--fs-fine);
 	color: var(--st-accent);
@@ -9165,14 +9155,14 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
-.stonetop.sheet.steading .steading-statement-delta.is-advisory {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-delta.is-advisory {
 	color: var(--st-ink-soft);
 	border-color: var(--st-rule);
 }
 
-.stonetop.sheet.steading .steading-statement-lines--advisory { margin-top: 2px; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-lines--advisory { margin-top: 2px; }
 
-.stonetop.sheet.steading .steading-statement-foot {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-foot {
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
@@ -9181,7 +9171,7 @@ button.stonetop-xp-toggle {
 }
 
 /* before → after, so nobody has to add up a column of deltas to know what the button does. */
-.stonetop.sheet.steading .steading-statement-totals {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-totals {
 	display: flex;
 	gap: 0.7rem;
 	flex-wrap: wrap;
@@ -9189,11 +9179,11 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .steading-statement-from { opacity: 0.7; }
-.stonetop.sheet.steading .steading-statement-to   { color: var(--st-ink); font-weight: 600; }
-.stonetop.sheet.steading .steading-statement-arrow { opacity: 0.6; margin: 0 0.15rem; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-from { opacity: 0.7; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-to   { color: var(--st-ink); font-weight: 600; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-arrow { opacity: 0.6; margin: 0 0.15rem; }
 
-.stonetop.sheet.steading .steading-statement-apply {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-apply {
 	width: auto;
 	min-height: 24px;
 	margin-left: auto;
@@ -9205,7 +9195,7 @@ button.stonetop-xp-toggle {
 	color: var(--st-paper);
 }
 
-.stonetop.sheet.steading .steading-statement-apply:disabled {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-apply:disabled {
 	background: none;
 	color: var(--st-ink-soft);
 	border-color: var(--st-rule);
@@ -9213,7 +9203,7 @@ button.stonetop-xp-toggle {
 
 /* A result that confers a MOVE has nothing to apply and everything to roll, so it renders as that
    move's own row — the shared one, so nothing here restyles a move. A list wrapper and no more. */
-.stonetop.sheet.steading .steading-statement-moves {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-moves {
 	margin: 4px 0 0;
 	padding: 0;
 	list-style: none;
@@ -9224,7 +9214,7 @@ button.stonetop-xp-toggle {
    Ruled off from the requirement rows above it, because the card's whole job is to read
    requirements → payoff in one flow, and the rule is what says which half you are in. It used to sit
    ABOVE the header instead, floating with no context on a shut card. */
-.stonetop.sheet.steading .steading-payoff {
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff {
 	margin-top: 6px;
 	padding-top: 6px;
 	border-top: 1px solid var(--st-rule);
@@ -9237,14 +9227,14 @@ button.stonetop-xp-toggle {
    used to sit on --fs-body and --fs-label and looked level only because the steading block lifts
    the first to the 1rem the second already sits at. The first version of this used the sheet's UI
    face at soft ink, which put two lines of a different typeface in a card of book prose. */
-.stonetop.sheet.steading .steading-payoff-head {
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff-head {
 	margin: 8px 0 3px;
 	font-size: var(--fs-body);
 	line-height: 1.25;
 	color: var(--st-ink);
 }
 
-.stonetop.sheet.steading .steading-payoff-head:first-child { margin-top: 0; }
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff-head:first-child { margin-top: 0; }
 
 /* Tabbed in under their heading, at the indent the sheet already uses for the book's own nested
    rows (.stonetop-choice--indent). The requirement rows above reach the same column via their
@@ -9256,7 +9246,7 @@ button.stonetop-xp-toggle {
 
    The indent absorbs the marker's gutter rather than adding to it, so the words stay in the column
    they were already in and the swirl takes the space the bare indent was holding. */
-.stonetop.sheet.steading .steading-payoff .steading-statement-lines {
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff .steading-statement-lines {
 	/* The column the requirement rows above reach past their checkbox: a control's width plus the
 	   row's own gap. Said as that arithmetic rather than as the px it comes to, so the two lists in
 	   one card cannot drift apart when Foundry's font setting moves the control scale. It was a bare
@@ -9278,7 +9268,7 @@ button.stonetop-xp-toggle {
    Baseline, not center: a `when` is one line and the clause it leads into may be two, and centring
    put "Spring" 8.8px below the line it introduces — reading as a label for the block rather than as
    the opening words of the sentence. */
-.stonetop.sheet.steading .steading-payoff .steading-statement-line {
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff .steading-statement-line {
 	align-items: baseline;
 	line-height: 1.3;
 	color: inherit;
@@ -9289,20 +9279,20 @@ button.stonetop-xp-toggle {
    on a card with two of them there was nothing saying which result each one applied. */
 /* On a card the clause takes only the width it needs, so the control sits beside the words rather
    than at the far edge of a mostly empty row. There is no source column here — the card is it. */
-.stonetop.sheet.steading .steading-payoff .steading-statement-clause { flex: 0 1 auto; }
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff .steading-statement-clause { flex: 0 1 auto; }
 
 /* Sits on the line it belongs to, and holds its own 24px target there (SC 2.5.8) rather than
    borrowing it from a row pinned to that height. Its SIZING cannot be set here — core styles every
    button unlayered, so it outranks the layer however specific this gets; that half lives at the end
    of this file, with the rating-name button that had the same 28px problem. */
-.stonetop.sheet.steading .steading-payoff .steading-statement-line-btn {
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff .steading-statement-line-btn {
 	align-self: baseline;
 }
 
 /* WHEN a Henceforth result fires — set as the lead-in of its own line, in the book's voice. It was
    a bordered badge in the margin, which sat off the text's baseline and read as a control rather
    than as words. */
-.stonetop.sheet.steading .steading-statement-when {
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-when {
 	font-style: italic;
 	color: var(--st-ink-soft);
 }
@@ -9312,9 +9302,9 @@ button.stonetop-xp-toggle {
    "Spring — Summer —" reads as spring THROUGH summer, and a result that fires in two seasons and
    not the one between them was saying the opposite of what it does. Seasons are conjoined; the
    dash closes the group. */
-.stonetop.sheet.steading .steading-statement-when + .steading-statement-when::before { content: " & "; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-when + .steading-statement-when::before { content: " & "; }
 
-.stonetop.sheet.steading .steading-statement-whens::after { content: " — "; }
+.stonetop.sheet:is(.steading, .improvement) .steading-statement-whens::after { content: " — "; }
 
 
 /* What Stonetop has built that bends a STEP of the season, gathered under the step it bends. Set
@@ -9412,7 +9402,7 @@ button.stonetop-xp-toggle {
 	gap: 5px;
 }
 
-.stonetop.sheet.steading .steading-improvement-card {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card {
 	border: 1px solid var(--st-decor);
 	border-radius: 2px;
 	padding: 5px 8px;
@@ -9424,7 +9414,7 @@ button.stonetop-xp-toggle {
 /* Why a row wants attention, said in a word. Set as a quiet outlined badge rather than a filled one:
    on a board where several rows carry it at once, filled badges would be the loudest thing on the
    tab and the names they sit beside would be the second. */
-.stonetop.sheet.steading .steading-improvement-attention {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-attention {
 	flex: 0 0 auto;
 	font-size: var(--fs-micro);
 	font-style: italic;
@@ -9437,17 +9427,17 @@ button.stonetop-xp-toggle {
 
 /* An untouched card is dimmed — unless it is the one asking for attention, which would be a marker
    that whispers. */
-.stonetop.sheet.steading .steading-improvement-card.is-untouched { opacity: 0.75; }
-.stonetop.sheet.steading .steading-improvement-card.is-untouched:has(.steading-improvement-attention) {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-untouched { opacity: 0.75; }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-untouched:has(.steading-improvement-attention) {
 	opacity: 1;
 }
-.stonetop.sheet.steading .steading-improvement-card.is-untouched:hover,
-.stonetop.sheet.steading .steading-improvement-card.is-untouched:focus-within { opacity: 1; }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-untouched:hover,
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-untouched:focus-within { opacity: 1; }
 
 /* What the improvement is FOR, as the numbers its results already state — never a paraphrase of the
    prose inside the card. Shut, a card is otherwise a name and a meter: how far along the work is, and
    nothing at all about what the work buys. */
-.stonetop.sheet.steading .steading-effect-chips {
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-chips {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 3px 4px;
@@ -9468,7 +9458,7 @@ button.stonetop-xp-toggle {
 	align-items: flex-start;
 }
 
-.stonetop.sheet.steading .steading-effect-chip {
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-chip {
 	display: inline-flex;
 	align-items: baseline;
 	gap: 0.25rem;
@@ -9481,10 +9471,10 @@ button.stonetop-xp-toggle {
 }
 
 /* What it WILL do, not what it does — the requirement behind this result does not hold yet. */
-.stonetop.sheet.steading .steading-effect-chip.is-pending { opacity: 0.6; }
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-chip.is-pending { opacity: 0.6; }
 
 
-.stonetop.sheet.steading .steading-effect-when {
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-when {
 	font-style: italic;
 	opacity: 0.8;
 }
@@ -9492,17 +9482,17 @@ button.stonetop-xp-toggle {
 /* Conjoined, as on a statement's line. A chip lays its whens out as flex items, so two of them were
    separated by a gap and nothing else: "Spring Summer" left the reader to guess whether that was a
    list or a span. */
-.stonetop.sheet.steading .steading-effect-when + .steading-effect-when::before { content: "& "; }
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-when + .steading-effect-when::before { content: "& "; }
 
-.stonetop.sheet.steading .steading-effect-amount {
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-amount {
 	font-weight: 600;
 	color: var(--st-ink);
 	font-variant-numeric: tabular-nums;
 }
 
-.stonetop.sheet.steading .steading-effect-entry { color: var(--st-ink); }
+.stonetop.sheet:is(.steading, .improvement) .steading-effect-entry { color: var(--st-ink); }
 
-.stonetop.sheet.steading .steading-improvement-card-top {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card-top {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
@@ -9510,7 +9500,7 @@ button.stonetop-xp-toggle {
 }
 
 /* The name IS the disclosure — one target, the width of the row, well past SC 2.5.8. */
-.stonetop.sheet.steading .steading-improvement-disclosure {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-disclosure {
 	flex: 1 1 auto;
 	display: flex;
 	align-items: center;
@@ -9530,7 +9520,7 @@ button.stonetop-xp-toggle {
 	cursor: pointer;
 }
 
-.stonetop.sheet.steading .steading-improvement-name {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-name {
 	font-size: var(--fs-body);
 	color: var(--st-ink);
 	overflow: hidden;
@@ -9538,20 +9528,20 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
-.stonetop.sheet.steading .steading-improvement-meter {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-meter {
 	display: flex;
 	gap: 2px;
 	align-items: center;
 	flex: 0 0 auto;
 }
 
-.stonetop.sheet.steading .steading-improvement-pips {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-pips {
 	display: flex;
 	gap: 2px;
 	align-items: center;
 }
 
-.stonetop.sheet.steading .steading-improvement-pip {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-pip {
 	width: 6px;
 	height: 6px;
 	border: 1px solid var(--st-ink-soft);
@@ -9559,42 +9549,42 @@ button.stonetop-xp-toggle {
 	display: block;
 }
 
-.stonetop.sheet.steading .steading-improvement-pip.is-on {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-pip.is-on {
 	background: var(--st-accent);
 	border-color: var(--st-accent);
 }
 
 /* The count in words beside the pips: the pips are the shape of the progress, this is the progress. */
-.stonetop.sheet.steading .steading-improvement-count {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-count {
 	font-size: var(--fs-fine);
 	color: var(--st-ink-soft);
 	margin-left: 4px;
 	white-space: nowrap;
 }
 
-.stonetop.sheet.steading .steading-improvement-line {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-line {
 	margin: 3px 0 0;
 	font-size: var(--fs-fine);
 	line-height: 1.4;
 	color: var(--st-ink-soft);
 }
 
-.stonetop.sheet.steading .steading-improvement-line > * { display: inline; }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-line > * { display: inline; }
 
 /* The one clause a finished improvement is re-read for, so it reads at full strength. */
-.stonetop.sheet.steading .steading-improvement-henceforth { color: var(--st-ink); }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-henceforth { color: var(--st-ink); }
 
-.stonetop.sheet.steading .steading-improvement-needs-list {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-needs-list {
 	margin: 2px 0 0;
 	padding-left: 1rem;
 	display: grid;
 	gap: 1px;
 }
 
-.stonetop.sheet.steading .steading-improvement-needs-list li { font-size: var(--fs-fine); }
-.stonetop.sheet.steading .steading-improvement-needs-list li > * { display: inline; }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-needs-list li { font-size: var(--fs-fine); }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-needs-list li > * { display: inline; }
 
-.stonetop.sheet.steading .steading-improvement-needs-more {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-needs-more {
 	margin: 2px 0 0;
 	font-size: var(--fs-fine);
 	font-style: italic;
@@ -9602,11 +9592,11 @@ button.stonetop-xp-toggle {
 	opacity: 0.85;
 }
 
-.stonetop.sheet.steading .steading-improvement-needs-label {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-needs-label {
 	color: var(--st-ink);
 }
 
-.stonetop.sheet.steading .steading-improvement-body { margin-top: 6px; }
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-body { margin-top: 6px; }
 
 /* Chips are the SHUT view. An open card states every one of those payloads in the book's words with
    a control beside it, so leaving them up is the same reward said twice an inch apart — which is the
@@ -9614,16 +9604,16 @@ button.stonetop-xp-toggle {
    shutting the card costs no re-render.
 
    The header cannot move as a result: the chip row sits BELOW it. */
-.stonetop.sheet.steading .steading-improvement-card.is-open .steading-effect-chips {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-open .steading-effect-chips {
 	display: none;
 }
 
 /* The caret turns when the card is open — the same disclosure affordance the move rows use. */
-.stonetop.sheet.steading .steading-improvement-card.is-open .stonetop-move-caret {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-open .stonetop-move-caret {
 	transform: rotate(90deg);
 }
 
-.stonetop.sheet.steading .steading-improvement-group {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-group {
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -9632,7 +9622,7 @@ button.stonetop-xp-toggle {
 /* In flow, at the end of the card's top row. It used to be absolutely positioned into the corner of
    a framed panel; the board's card has a real row to sit in, so it no longer has to be lifted out of
    the flow (and no longer needs a z-index to stay clickable above the choice rows). */
-.stonetop.sheet.steading .steading-improvement-remove {
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-remove {
 	flex: 0 0 auto;
 }
 
@@ -10060,7 +10050,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-moment-state { margin: 0; }
 
 /* Behind you, not undone — dimmed rather than struck through. */
-.stonetop.sheet.steading .steading-moment.is-applied .steading-statement { opacity: 0.7; }
+.stonetop.sheet:is(.steading, .improvement) .steading-moment.is-applied .steading-statement { opacity: 0.7; }
 
 .stonetop.sheet.steading .steading-turnover-empty,
 .stonetop.sheet.steading .steading-board-empty {
@@ -11365,10 +11355,103 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop-insert-sheet-move { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 4px; }
 .stonetop-insert-sheet-move .insert-move-open { flex: 1 1 auto; cursor: pointer; }
 
-/* -- Improvement item sheet (StonetopImprovementSheet) — reuses .stonetop-insert-sheet-* layout. --
-   The rendered view shares improvement-group.hbs with the steading; its tracks are a read-only
-   preview of the improvement's structure (real track state lives on each steading), so disable them. */
-.stonetop-improvement-preview input { pointer-events: none; }
+/* -- Improvement item sheet (StonetopImprovementSheet) --
+   The sheet is the steading board's own card, edited in place: the card's rules take `.improvement`
+   alongside `.steading`, the add controls are the steading's list add, the editors are the outfit
+   adder's panel, the tools are the shared icon buttons. What follows is only how the card's parts
+   group and where the editors hang. */
+.stonetop.sheet.improvement .stonetop-improvement-sheet-catalog {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid var(--st-rule);
+}
+
+/* The name fills the top line, as the board's disclosure button does, so the meter sits at its end. */
+.stonetop.sheet.improvement .stonetop-improvement-editor .steading-improvement-name { flex: 1 1 auto; min-width: 0; }
+
+/* A row, and its tools at its right edge. */
+.stonetop.sheet.improvement .stonetop-improvement-line-main { display: flex; align-items: baseline; gap: 0.4rem; }
+.stonetop.sheet.improvement .stonetop-improvement-line-main > :first-child { flex: 1 1 auto; min-width: 0; }
+.stonetop.sheet.improvement .stonetop-improvement-tools { flex: none; display: inline-flex; align-items: center; gap: 1px; }
+.stonetop.sheet.improvement .stonetop-improvement-tools .stonetop-icon-btn:disabled { visibility: hidden; }
+.stonetop.sheet.improvement .stonetop-improvement-tools img { width: 12px; height: 12px; border: none; }
+
+/* A section is one group: its heading over its requirements, which sit in under it, with the
+   section's own add at their foot. */
+.stonetop.sheet.improvement .stonetop-improvement-section { margin: 0.15rem 0 0.4rem; }
+.stonetop.sheet.improvement .stonetop-improvement-section-rows {
+	margin-left: 0.4rem;
+	padding-left: 0.6rem;
+	border-left: 1px solid var(--st-rule);
+}
+
+/* A requirement: its boxes, then − / + for how many, then its words — the card's own line. */
+.stonetop.sheet.improvement .stonetop-improvement-row .stonetop-choice-track { display: flex; align-items: baseline; gap: 0.3rem; }
+.stonetop.sheet.improvement .stonetop-improvement-row .stonetop-choice-track-checks { flex: none; }
+.stonetop.sheet.improvement .stonetop-improvement-boxes { flex: none; display: inline-flex; }
+.stonetop.sheet.improvement .stonetop-improvement-row .stonetop-choice-track-desc { flex: 1 1 auto; min-width: 0; }
+
+/* What a heading's rule asks, or what the sheet does with a result — one faint line under it. */
+.stonetop.sheet.improvement .stonetop-improvement-gloss {
+	margin: 0 0 0.3rem;
+	font-size: var(--fs-micro);
+	font-style: italic;
+	color: var(--st-ink-faint);
+}
+.stonetop.sheet.improvement button.stonetop-improvement-link {
+	all: unset;
+	cursor: pointer;
+	color: var(--st-accent);
+	text-decoration: underline;
+	font-style: normal;
+}
+
+/* The editors hang from what opened them — a heading, a result, an "add a result" — over what is
+   below, at its width (the outfit adder's panel, above). */
+.stonetop.sheet.improvement .stonetop-improvement-anchor { position: relative; }
+/* Three groups a panel through — It happens · The sheet · Words, or Rule · Words — one gap apart,
+   then a foot: the note on the words at its left, the panel's button at its right. */
+.stonetop.sheet.improvement .stonetop-improvement-panel { display: flex; flex-direction: column; gap: 0.6rem; }
+.stonetop.sheet.improvement .stonetop-improvement-group { border: 0; padding: 0; margin: 0; min-width: 0; }
+.stonetop.sheet.improvement .stonetop-improvement-panel-foot { align-items: baseline; gap: 0.6rem; margin-top: 0; }
+.stonetop.sheet.improvement .stonetop-improvement-panel-foot > .stonetop-improvement-provenance { flex: 1 1 auto; }
+.stonetop.sheet.improvement .stonetop-improvement-panel-foot > button { margin-left: auto; }
+.stonetop.sheet.improvement .stonetop-improvement-sentence {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.3rem 0.5rem;
+	font-size: var(--fs-fine);
+}
+.stonetop.sheet.improvement .stonetop-improvement-sentence > span:first-child { color: var(--st-ink-soft); }
+/* A choice in an editor is a column of rings, and what the chosen option asks for sits indented under
+   it, ruled like a section's requirements, so it is plain which choice those fields belong to. */
+.stonetop.sheet.improvement .stonetop-improvement-panel .stonetop-rollmode-detail {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	margin: 0.15rem 0 0.15rem 0.3rem;
+	padding-left: 0.75rem;
+	border-left: 1px solid var(--st-rule);
+}
+/* A short sub-choice — a rating, a list, the roll — is the same rings in a row, wrapping between
+   whole options and never inside one. */
+.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode--stacked { flex-direction: row; flex-wrap: wrap; column-gap: 0.7rem; }
+.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode-legend { flex-basis: 100%; }
+.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode-option { white-space: nowrap; }
+.stonetop.sheet.improvement .stonetop-improvement-sentence input[type="number"] { width: 3rem; }
+.stonetop.sheet.improvement input.stonetop-improvement-phrase,
+.stonetop.sheet.improvement .stonetop-improvement-sentence .stonetop-combo { flex: 1 1 12rem; }
+.stonetop.sheet.improvement .stonetop-improvement-seasons label { display: inline-flex; align-items: center; gap: 0.25rem; }
+.stonetop.sheet.improvement textarea.stonetop-improvement-words { width: 100%; font: inherit; font-size: var(--fs-note); }
+.stonetop.sheet.improvement .stonetop-improvement-provenance { margin: 0; font-size: var(--fs-micro); font-style: italic; color: var(--st-ink-faint); }
+.stonetop.sheet.improvement .stonetop-improvement-provenance:empty { display: none; }
+
+.stonetop.sheet.improvement .stonetop-improvement-adds { display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; margin: 0.2rem 0 0.6rem; }
+.stonetop.sheet.improvement .stonetop-improvement-result { display: block; }
 
 /* -- Inventory item sheet (StonetopOutfitItemSheet) — reuses .stonetop-insert-sheet-* layout and
    the shared .stonetop-arcanum-fields editor rows. The rendered view shares outfit-item-row.hbs
@@ -12511,7 +12594,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
    it. The button states its own 24px (SC 2.5.8) and nothing else — it used to take that height from
    a row pinned to 24px whether or not it held a control, which cost every controlless list in the
    card 4.5px a row against the requirement rows above. */
-.stonetop.sheet.steading .steading-payoff .steading-statement-line-btn {
+.stonetop.sheet:is(.steading, .improvement) .steading-payoff .steading-statement-line-btn {
 	height: auto;
 	min-height: 24px;
 	padding-block: 0;
@@ -12614,7 +12697,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 
    Everything that should NOT be the roman says so for itself: the small-caps rules above, and Font
    Awesome, which sets its own family on the icon and so beats an inherited one. */
-.stonetop.sheet.steading {
+.stonetop.sheet:is(.steading, .improvement) {
 	font-family: var(--font-primary);
 }
 
@@ -12625,9 +12708,9 @@ textarea.stonetop-editable__edit { min-height: 0; }
    Scoped inside `.window-content`: the window FRAME is Foundry's, not the sheet's, and its header
    buttons draw their glyphs from an icon font set on the button itself. Handing those `inherit` took
    the icon font away and left the close and collapse controls blank. */
-.stonetop.sheet.steading .window-content input,
-.stonetop.sheet.steading .window-content textarea,
-.stonetop.sheet.steading .window-content select {
+.stonetop.sheet:is(.steading, .improvement) .window-content input,
+.stonetop.sheet:is(.steading, .improvement) .window-content textarea,
+.stonetop.sheet:is(.steading, .improvement) .window-content select {
 	font-family: inherit;
 }
 
@@ -12656,14 +12739,14 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	font-family: var(--font-numeral);
 }
 
-.stonetop.sheet.steading .window-content input[type="number"],
+.stonetop.sheet:is(.steading, .improvement) .window-content input[type="number"],
 .stonetop.sheet.steading .steading-attr-input,
 .stonetop.sheet.steading .steading-tile-value {
 	font-variant-numeric: lining-nums tabular-nums;
 }
 
-.stonetop.sheet.steading .stonetop-list-add,
-.stonetop.sheet.steading .stonetop-list-add span {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-list-add,
+.stonetop.sheet:is(.steading, .improvement) .stonetop-list-add span {
 	font-weight: normal;
 	font-size: var(--fs-note);
 }
@@ -12722,7 +12805,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop.sheet.steading .steading-folk-list-toggle:hover,
 .stonetop.sheet.steading .stonetop-person-unlink:hover,
 .stonetop.sheet.steading .stonetop-place-unlink:hover,
-.stonetop.sheet.steading .stonetop-list-add:hover {
+.stonetop.sheet:is(.steading, .improvement) .stonetop-list-add:hover {
 	color: var(--st-accent);
 	text-decoration: underline;
 	text-underline-offset: 2px;

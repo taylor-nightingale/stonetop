@@ -28,7 +28,7 @@
 		<article class="steading-moment{{#if applied}} is-applied{{/if}}" data-moment="{{key}}">
 
 			<h4 class="steading-moment-title">
-				{{localize labelKey}}
+				{{#if labelKey}}{{localize labelKey}}{{else}}{{name}}{{/if}}
 				{{#if applied}}
 					{{!-- Said rather than shown by absence: six people share this document, and the one
 					      who was not here when it was pressed has no other way to learn it happened. --}}

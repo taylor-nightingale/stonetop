@@ -1,0 +1,34 @@
+{{!-- One section of the card: its heading over the requirements it governs, drawn as one group, with
+      its own "add a requirement" — a requirement is always added to a section, and moves only within
+      it. The heading moves the section whole; removing it folds its requirements into the section
+      above (or takes the section, if there is none above). Removing a section's last requirement asks
+      to remove the section, so a heading is never left saying nothing. The heading's editor hangs from
+      the foot of the section — under its requirements, which the rule is about, so they stay in view.
+
+      Context: an ImprovementEditorBlock (a section). --}}
+<div class="stonetop-improvement-section stonetop-improvement-anchor" data-lead="{{lead}}">
+	{{#with heading}}
+		<div class="stonetop-improvement-heading{{#if isOpen}} is-open{{/if}}" data-index="{{index}}">
+			<div class="stonetop-improvement-line-main">
+				<div class="stonetop-choice-description">{{rich text}}</div>
+				{{> "stonetop.improvement-editor-tools" editAction="openHeading" editKey=index
+				    moveAction="moveBlock" moveKey=../blockIndex canUp=(not ../isFirst) canDown=(not ../isLast)
+				    removeAction="removeHeading" removeKey=index removeName=words}}
+			</div>
+			<p class="stonetop-improvement-gloss">↳ {{localize glossKey count=count}}
+				{{#if canUseGenerated}}<button type="button" class="stonetop-improvement-link" data-action="useGeneratedHeading" data-key="{{index}}">{{localize "stonetop.improvement.useGenerated"}}</button>{{/if}}</p>
+		</div>
+	{{/with}}
+
+	<div class="stonetop-improvement-section-rows">
+		{{#each requirements}}
+			{{> "stonetop.improvement-editor-row" moveAction="moveRequirement" moveKey=index canUp=(not isFirstInSection) canDown=(not isLastInSection)
+			    removeAction=(ifThen isOnlyInSection "removeSection" "removeLine") removeKey=(ifThen isOnlyInSection lead index)}}
+		{{/each}}
+		<button type="button" class="stonetop-list-add" data-action="addRequirementTo" data-key="{{lead}}">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.improvement.add.requirement"}}</span>
+		</button>
+	</div>
+
+	{{#if heading.isOpen}}{{#with heading}}{{> "stonetop.improvement-editor-heading"}}{{/with}}{{/if}}
+</div>

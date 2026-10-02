@@ -1,0 +1,25 @@
+{{!-- A section heading's editor, hanging from the foot of its section over what is below, as the wound
+      editor hangs from its panel — under the requirements the rule is about, so they stay in view: the rule (a column of rings, how many under "some of these"), the words it
+      writes, and a foot with the note on those words and Done. No head and no preview — the heading it
+      hangs from is the card's own, and follows each change. It saves as you go; Done, Escape or a
+      click elsewhere shuts it.
+
+      Context: an ImprovementEditorHeading. --}}
+<div class="stonetop-improvement-panel" data-index="{{index}}" role="group" aria-label="{{localize 'stonetop.improvement.rule.lead'}}">
+	{{> "stonetop.roll-mode-picker" modes=ruleModes name=ruleName changeAction="sectionRule" variant="stacked"
+	    legendKey="stonetop.improvement.rule.lead" detail="stonetop.improvement-rule-detail" detailContext=this}}
+	<fieldset class="stonetop-improvement-group">
+		<legend class="stonetop-improvement-group-label">{{localize "stonetop.improvement.words.label"}}</legend>
+		<textarea class="stonetop-improvement-words stonetop-grow-field" data-change-action="lineText" rows="1"
+		          placeholder="{{localize 'stonetop.improvement.placeholder.heading'}}"
+		          aria-label="{{localize 'stonetop.improvement.words.label'}}">{{words}}</textarea>
+	</fieldset>
+	<div class="stonetop-improvement-panel-foot">
+		<p class="stonetop-improvement-provenance">
+			{{#if isGenerated}}{{localize "stonetop.improvement.words.generated"}}{{/if}}
+			{{#if canUseGenerated}}{{localize "stonetop.improvement.words.yours"}}
+				<button type="button" class="stonetop-improvement-link" data-action="useGeneratedHeading" data-key="{{index}}">{{localize "stonetop.improvement.useGenerated"}}</button>{{/if}}
+		</p>
+		<button type="button" class="stonetop-improvement-panel-done" data-action="closePart" data-view-state>{{localize "stonetop.sheet.section.done"}}</button>
+	</div>
+</div>
