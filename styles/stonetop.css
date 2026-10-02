@@ -246,6 +246,10 @@ figure.art:has(> img.stonetop-broken-img) {
 	   the column states the gap once. */
 	--band-block-gap: 0.375rem;   /* 6px */
 
+	/* The Ailments panel's widest. A wound's state sits against the panel's right edge, and on a
+	   wide sheet an unbounded panel put the window's width between a wound and its state. */
+	--ailments-measure: 30rem;   /* 480px */
+
 	/* Every tab's view-state toggle (moves filter, playbook lock, insert locks) is one control at
 	   one size; the tabs that lay a toggle over their first line reserve exactly this. */
 	--view-toggle-height: 1.25rem;
@@ -644,7 +648,7 @@ body,
 .stonetop.sheet.character .stonetop-band > .sheet-top { grid-area: numbers; }
 /* At the top of its cell, its bar level with the stats' heading: at the foot, a character with one
    ailment had a gap above it that read as the panel having slipped. */
-.stonetop.sheet.character .stonetop-band > .stonetop-ailments { grid-area: says; align-self: start; min-width: 0; }
+.stonetop.sheet.character .stonetop-band > .stonetop-ailments { grid-area: says; align-self: start; min-width: 0; max-width: var(--ailments-measure); }
 .stonetop.sheet.character .stonetop-band > .stonetop-band-foot { grid-area: foot; }
 
 /* Folded, the numbers and the ailments go and the foot is the band's own line. The masthead is NOT
@@ -899,7 +903,8 @@ body,
 	position: absolute;
 	top: 100%;
 	left: 0;
-	right: 0;
+	width: 100%;
+	max-width: var(--ailments-measure);
 	z-index: 20;
 	max-height: 60vh;
 	overflow-y: auto;

@@ -286,6 +286,45 @@ describe.skipIf(!canProbe())("the wound editor", () => {
 	});
 });
 
+// Reported: on a wide sheet the panel took the whole column, and a wound's state sat the window's
+// width away from its name.
+describe.skipIf(!canProbe())("the ailments on a wide sheet", () => {
+	const WIDE = 1800;
+	const targets = { ...TARGETS, editor: ".stonetop-ailment-editor" };
+	const measureToken = () => parseFloat(probe.render({
+		bodyHtml: `<div id="measure" style="width: var(--ailments-measure)"></div>`,
+		bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
+		probes: { measure: { selector: "#measure", properties: ["width"] } },
+	}).get("measure").get("width"));
+	let m, open, measured;
+	beforeAll(() => {
+		m = measure({ width: WIDE });
+		open = measure({ width: WIDE, band: bandHtml({ ailmentsOpen: true }), targets });
+		measured = measureToken();
+	});
+	const el = name => m.get(name).values;
+
+	it("stops the panel at its measure, short of the band's edge", () => {
+		expect(measured).toBeGreaterThan(0);
+		expect(el("ailments").boxWidth).toBeCloseTo(measured, 0);
+		expect(right(el("ailments"))).toBeLessThan(right(el("bandBox")) - INSET - 100);
+	});
+
+	it("keeps the panel lined up with the instinct", () => {
+		expect(el("who").boxLeft).toBeCloseTo(el("ailments").boxLeft, 0);
+	});
+
+	it("keeps the foot at the band's right edge", () => {
+		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
+	});
+
+	it("hangs the editor at the panel's width", () => {
+		const v = name => open.get(name).values;
+		expect(v("editor").boxLeft).toBeCloseTo(v("ailments").boxLeft, 0);
+		expect(right(v("editor"))).toBeCloseTo(right(v("ailments")), 0);
+	});
+});
+
 // ── Short of room: the foot keeps to its column ────────────────────────────────────
 // It never goes under the stats. BandFootFit first drops the fold control's word (compact), and
 // where even that does not fit, the line wraps inside its own column (wrapped, which is compact too).
