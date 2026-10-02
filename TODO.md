@@ -13,9 +13,8 @@
 * feature collapse names sidebar on folks screen
 * feature Instead of blank, default to stonetop for folk
 * feature: update well-versed to be able to pick topics automatically from your background, bold Well Versed in the backgrounds to show it is granted
-* resources are too close to the change button on moves.
-* the move on hover displays the moves way too far to the right
-* level/armor/damage should fill in with the sheet color, not black (only on dark theme). its different from the stats, should be consistent. The light theme looks consistent. Also the background swirls for aren't very visible. perhaps we can make them display somewhere (like at the top bar?)
+
+
 * ailments looks weird when the sheet is wide. it stretches too far
 * Update arcana formatting to be more inline with character sheet
 * character portrait should push up against the border we have

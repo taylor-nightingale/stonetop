@@ -3498,6 +3498,11 @@ button.stonetop-view-toggle.is-active {
    stamp on the sheet's paper: it sits out over the panel's top and side rule by the rule's width, and
    wears into stone towards its right end. */
 
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) {
+	--bar-pad-y: 0.3rem;
+	--bar-tab-hang: 0.95rem;
+}
+
 :is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-panel {
 	background: var(--st-paper-raised);
 	border: 1px solid var(--st-rule-strong);
@@ -3523,7 +3528,7 @@ button.stonetop-view-toggle.is-active {
 	align-items: baseline;
 	gap: 0.6rem;
 	color: var(--st-chip-ink);
-	padding: 0.3rem 0.6rem;
+	padding: var(--bar-pad-y) 0.6rem;
 	font-family: "StonetopUI", serif;
 	font-size: var(--fs-note);
 	letter-spacing: 0.05em;
@@ -3595,7 +3600,7 @@ button.stonetop-view-toggle.is-active {
 	display: inline-flex;
 	align-items: center;
 	align-self: flex-start;
-	margin: -0.3rem 0 -0.95rem;
+	margin: calc(-1 * var(--bar-pad-y)) 0 calc(-1 * var(--bar-tab-hang));
 	padding: 0.68rem 0.55rem;
 	color: var(--st-chip-ink);
 	background: color-mix(in srgb, var(--st-accent) 55%, var(--st-chip-fill));
@@ -4022,6 +4027,13 @@ button.stonetop-view-toggle.is-active {
 .stonetop.sheet.character .stonetop-moves-panel .stonetop-section-door { position: relative; z-index: 1; }
 .stonetop.sheet.character .stonetop-moves-panel:has(> .stonetop-bar .stonetop-bar-toggle[aria-expanded="false"]) .stonetop-section-door {
 	display: none;
+}
+
+/* The door hangs over the right of the first row, which is where a move's or a possession's resource
+   track sits, so while it shows the bar keeps the hang as room beneath it. */
+.stonetop.sheet.character :is(.stonetop-moves-panel, .stonetop-possessions-panel)
+	> .stonetop-bar:has(.stonetop-section-door):not(:has(.stonetop-bar-toggle[aria-expanded="false"])) {
+	margin-bottom: calc(var(--bar-tab-hang) - var(--bar-pad-y));
 }
 
 /* A move or a possession owed, at the top of its panel: the rail's threshold edge, because it is the
