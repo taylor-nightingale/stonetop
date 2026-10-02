@@ -1166,7 +1166,23 @@ body,
 
 .stonetop-section-panel {
 	position: relative;
-	background: var(--st-paper-raised);
+}
+
+/* The ground of every frame drawn from the panel-corner art, notched to the art's diagonals (6px
+   legs) so no square of paper shows outside them. Gradients rather than `clip-path`, which would
+   also trim what lies past the box — a roll button's focus ring, for one. A gradient's stop runs
+   along the diagonal, hence the leg over √2; the tiles overlap a px so odd sizes leave no seam. */
+:is(.stonetop-section-panel, .stonetop-outfit-header, .stonetop-prosperity-panel,
+	.stonetop-roll-pick-content, .stonetop-roll-dialog .dialog-button, .stonetop-follower-card) {
+	--cut: 6px;
+	--notch: calc(var(--cut) * 0.7071);
+	background:
+		linear-gradient(135deg, transparent var(--notch), var(--st-paper-raised) 0) top left,
+		linear-gradient(225deg, transparent var(--notch), var(--st-paper-raised) 0) top right,
+		linear-gradient(315deg, transparent var(--notch), var(--st-paper-raised) 0) bottom right,
+		linear-gradient(45deg, transparent var(--notch), var(--st-paper-raised) 0) bottom left;
+	background-size: calc(50% + 1px) calc(50% + 1px);
+	background-repeat: no-repeat;
 }
 
 .stonetop-section-panel::before {
@@ -1192,10 +1208,8 @@ body,
 	url("../assets/ui/decor/panel-edge-bottom.png"),
 	url("../assets/ui/decor/panel-edge-left.png"),
 	url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-	repeat-x, repeat-x, repeat-y, repeat-y;
-	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-	repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 	mask-position: left top, right top, left bottom, right bottom,
 	left 16px top 0,
 	left 16px bottom 0,
@@ -4784,7 +4798,6 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-outfit-header {
 	position: relative;
-	background: var(--st-paper-raised);
 	padding: 10px 12px;
 	font-size: var(--fs-label);
 	flex: 1 1 auto;
@@ -4793,7 +4806,6 @@ button.stonetop-view-toggle.is-active {
 
 .stonetop-prosperity-panel {
 	position: relative;
-	background: var(--st-paper-raised);
 	padding: 10px 12px;
 	font-size: var(--fs-label);
 	flex: 0 0 auto;
@@ -4823,10 +4835,8 @@ button.stonetop-view-toggle.is-active {
 	url("../assets/ui/decor/panel-edge-bottom.png"),
 	url("../assets/ui/decor/panel-edge-left.png"),
 	url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-	repeat-x, repeat-x, repeat-y, repeat-y;
-	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-	repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 	mask-position: left top, right top, left bottom, right bottom,
 	left 16px top 0, left 16px bottom 0,
 	left 0 top 16px, right 0 top 16px;
@@ -5235,7 +5245,6 @@ button.stonetop-xp-toggle {
 
 .stonetop-roll-pick-content {
 	position: relative;
-	background: var(--st-paper-raised);
 	padding: 10px 12px;
 	margin-bottom: 8px;
 	font-size: var(--fs-label);
@@ -5263,10 +5272,8 @@ button.stonetop-xp-toggle {
 		url("../assets/ui/decor/panel-edge-bottom.png"),
 		url("../assets/ui/decor/panel-edge-left.png"),
 		url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-		repeat-x, repeat-x, repeat-y, repeat-y;
-	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-		repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 	mask-position: left top, right top, left bottom, right bottom,
 		left 16px top 0, left 16px bottom 0,
 		left 0 top 16px, right 0 top 16px;
@@ -5307,7 +5314,6 @@ button.stonetop-xp-toggle {
 .stonetop-roll-dialog .dialog-button {
 	flex: 1 1 auto;
 	position: relative;
-	background-color: var(--st-paper-raised);
 	border: none;
 	min-width: 70px;
 	height: 60px;
@@ -5344,10 +5350,8 @@ button.stonetop-xp-toggle {
 		url("../assets/ui/decor/panel-edge-bottom.png"),
 		url("../assets/ui/decor/panel-edge-left.png"),
 		url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-		repeat-x, repeat-x, repeat-y, repeat-y;
-	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-		repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 	mask-position: left top, right top, left bottom, right bottom,
 		left 16px top 0, left 16px bottom 0,
 		left 0 top 16px, right 0 top 16px;
@@ -5942,7 +5946,6 @@ button.stonetop-xp-toggle {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
-	background: var(--st-paper-raised);
 	padding: 12px;
 	font-size: var(--fs-body);
 }
@@ -5970,10 +5973,8 @@ button.stonetop-xp-toggle {
 	url("../assets/ui/decor/panel-edge-bottom.png"),
 	url("../assets/ui/decor/panel-edge-left.png"),
 	url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-	repeat-x, repeat-x, repeat-y, repeat-y;
-	-webkit-mask-repeat: no-repeat, no-repeat, no-repeat, no-repeat,
-	repeat-x, repeat-x, repeat-y, repeat-y;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
 	mask-position: left top, right top, left bottom, right bottom,
 	left 16px top 0, left 16px bottom 0,
 	left 0 top 16px, right 0 top 16px;

@@ -12,7 +12,5 @@
 * feature Instead of blank, default to stonetop for folk
 * feature: update well-versed to be able to pick topics automatically from your background, bold Well Versed in the backgrounds to show it is granted
 
-
-* clip corners of outfit borders like character portrait
 * Update arcana formatting to be more inline with character sheet
 * increase font size of section titles to increase readability
