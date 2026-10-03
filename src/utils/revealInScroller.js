@@ -14,6 +14,18 @@ export function revealInScroller(panel) {
 	else if (box.bottom > view.bottom) scroller.scrollTop += Math.min(box.bottom - view.bottom, box.top - view.top);
 }
 
+/**
+ * Bring a panel's TOP into view, and only when the reader has scrolled past it — for a panel shown in
+ * place of another where the reader is already looking. Never scrolls down: a panel taller than the
+ * view would otherwise pull everything beside it away.
+ */
+export function revealTopInScroller(panel) {
+	const scroller = nearestScroller(panel);
+	if (!scroller) return;
+	const above = scroller.getBoundingClientRect().top - panel.getBoundingClientRect().top;
+	if (above > 0) scroller.scrollTop -= above;
+}
+
 function nearestScroller(element) {
 	for (let node = element.parentElement; node; node = node.parentElement) {
 		const overflow = getComputedStyle(node).overflowY;

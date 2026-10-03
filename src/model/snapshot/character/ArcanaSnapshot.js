@@ -83,6 +83,16 @@ export class ArcanumSnapshot {
 		this.flipped = b._flipped;
 		this.checked = b._checked;
 	}
+
+	/** The side lying face up — what the card shows, and what its line in the list names. */
+	get face() { return this.flipped ? this.back : this.front; }
+
+	/** The face-up ◇ item, for the list line under the name — unless it is only the arcanum's own name
+	 *  again, as a major's item usually is. */
+	get listedItem() {
+		const item = this.face?.item ?? null;
+		return item && item.name !== this.name ? item : null;
+	}
 }
 
 export class ArcanumSnapshotBuilder {
@@ -117,10 +127,13 @@ export class ArcanumSnapshotBuilder {
 // ── Sections ──────────────────────────────────────────────────────────────────
 
 export class ArcanaSectionSnapshot {
-	constructor(title, items) {
-		this.title = title;
+	/** @param {string} titleKey the heading's i18n key — the tab localizes it */
+	constructor(titleKey, items) {
+		this.titleKey = titleKey;
 		this.items = items;
 	}
+
+	get owned() { return this.items.filter(i => i.owned); }
 
 	get hasOwned() { return this.items.some(i => i.owned); }
 }
@@ -133,4 +146,10 @@ export class ArcanaSnapshot {
 
 	/** Owned in either section — what the tab's "drag arcana here" note is gated on. */
 	get hasOwned() { return this.minor.hasOwned || this.major.hasOwned; }
+
+	/** The sections that hold anything, majors first as the book orders them. */
+	get sections() { return [this.major, this.minor].filter(s => s.hasOwned); }
+
+	/** A list of one chooses nothing, so a lone arcanum is shown as its card alone. */
+	get showList() { return this.minor.owned.length + this.major.owned.length > 1; }
 }

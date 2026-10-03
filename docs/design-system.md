@@ -97,7 +97,7 @@ or three different ways. This is the material a style decision has to be made *a
 
 `section-heading.hbs` emits `<h3 class="stonetop-move-group-title">` plus a `.stonetop-panel-divider`
 and is used in **16 templates** — the dominant idiom. Alongside it: bare `<h3>`s with their own
-classes (`.stonetop-arcana-section-title`, `.stonetop-insert-name`), and title *spans*
+classes (`.stonetop-insert-name`), and title *spans*
 (`.stonetop-prosperity-title`, `.stonetop-levelup-title`, `.stonetop-outfit-heading`,
 `.stonetop-introductions-title`). `section-sub-heading.hbs` is the h4.
 
@@ -223,7 +223,8 @@ itself, that is recorded in §2 as a collision rather than settled here by asser
 | level | used for |
 |---|---|
 | **Book art frame** | a single **object** you read or act on whole: a stat tile, a vital, a follower card, an arcanum card, the tab strip, the outfit and prosperity panels |
-| **Nothing** | lists, and anything inside another enclosure — a row, a pick, a choice line |
+| **Sunken ground and a thin rule** | an **object inside an object** — a follower printed on the arcanum that grants it. Set apart as its own thing, never given a second art frame inside the first |
+| **Nothing** | lists, and anything else inside another enclosure — a row, a pick, a choice line |
 
 Art is expensive attention: an object earns it, a sequence doesn't. Six art frames stacked down a
 page is the failure the steading's own comment warns about — *"a rectangle can never crop a curved
@@ -265,6 +266,10 @@ two marks.
 `section-heading.hbs` emits an h3 plus a `.stonetop-panel-divider` and is the dominant idiom —
 **16 templates**. `section-sub-heading.hbs` is the h4. Bare `<h3>`s and title spans also exist (§2).
 `.stonetop-move-group-title` is the generic section-title class despite its name.
+
+A panel's ink bar (`bar.hbs`) names its section at the same size, `--fs-heading`, on both sheets. The
+bar's own text is `--fs-note`, which is where its instruction stays; the small-caps face stands its
+lowercase at about two-thirds of its size, so a name set there read near 10px.
 
 ### Rollable — one contract, one active state
 
@@ -345,3 +350,12 @@ Numbered, because the code cites them.
   door for the GM alone that opens the same pill as radios, with the year beside it.
 - **D12 · An insert is a tab, with the whole insert on it**, straight after Playbook: its moves, its
   instinct and its sections. One gained by dying arrives open and the sheet goes to its tab.
+- **D13 · The arcana a character holds are listed beside the one card being read.** Majors first, as
+  the book orders them, each group under its ink bar. A line names the arcanum, what lies face up (the
+  mystery once flipped, else its ◇ item or disguise tags), and its track, live. Every card is drawn and
+  only the chosen one shown, so choosing draws nothing; the choice is the reader's, per sheet. A lone
+  arcanum is its card alone. Cards keep the book's chain frame and its art — trimmed of the canvas the
+  books embed it on, to the right of the title band once the card is wide enough; the card stops at a
+  reading measure and never splits its text into columns, since a requirement list broken across two
+  would read as two lists. A follower the card grants is printed whole and read-only on sunken ground
+  (§3), saying where it goes once marked; it is edited on the Followers tab.

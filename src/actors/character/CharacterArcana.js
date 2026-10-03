@@ -38,8 +38,8 @@ export class CharacterArcana {
 			return ArcanumSnapshotBuilder.fromArcanum(a.definition(), ctx);
 		}));
 
-		const minor = new ArcanaSectionSnapshot("Minor Arcana", snapshots.filter(s => !s.major));
-		const major = new ArcanaSectionSnapshot("Major Arcana", snapshots.filter(s => s.major));
+		const minor = new ArcanaSectionSnapshot("stonetop.arcana.minorTitle", snapshots.filter(s => !s.major));
+		const major = new ArcanaSectionSnapshot("stonetop.arcana.majorTitle", snapshots.filter(s => s.major));
 		return new ArcanaSnapshot(minor, major);
 	}
 

@@ -198,6 +198,30 @@ export class Raster {
 		return new Raster(width, height, c, px);
 	}
 
+	/**
+	 * The raster cropped to its painted pixels (alpha above zero) — the books embed each arcanum's
+	 * drawing on a far larger transparent canvas. This raster itself when there is nothing to trim:
+	 * no alpha channel, no transparent margin, or nothing painted at all.
+	 */
+	trimmed() {
+		if (this.channels !== 2 && this.channels !== 4) return this;
+		const c = this.channels;
+		let left = this.width, top = this.height, right = -1, bottom = -1;
+		for (let y = 0; y < this.height; y++) {
+			for (let x = 0; x < this.width; x++) {
+				if (this.px[(y * this.width + x) * c + c - 1] === 0) continue;
+				if (x < left) left = x;
+				if (x > right) right = x;
+				if (y < top) top = y;
+				if (y > bottom) bottom = y;
+			}
+		}
+		if (right < 0) return this;
+		const width = right - left + 1, height = bottom - top + 1;
+		if (width === this.width && height === this.height) return this;
+		return this.crop(left, top, width, height);
+	}
+
 	/** Collapse RGB whose three samples agree everywhere to 1-channel gray, else null. */
 	toGray() {
 		if (this.channels !== 3) return null;

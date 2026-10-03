@@ -1746,7 +1746,9 @@ body,
    something rendered above it — no divider elements in the template. */
 .stonetop-arcanum-body > .stonetop-arcanum-section + .stonetop-arcanum-section::before {
 	content: "";
-	display: block;
+	/* Its own formatting context, so beside the card's floated art it shortens to the text's width
+	   instead of running on under the picture. */
+	display: flow-root;
 	/* Foundry v13 no longer defines --color-border-dark; without the fallback the border vanishes. */
 	border-top: 1px solid var(--st-rule-strong);
 	margin: 4px 0 8px;
@@ -3584,7 +3586,9 @@ button.stonetop-view-toggle.is-active {
 :is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar--flip-x { --bar-flip-x: -1; --bar-fade: to left; }
 :is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar--flip-y { --bar-flip-y: -1; }
 
-:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar-title { flex: none; }
+/* A section's name, at the section-title size. The small-caps face stands its lowercase at about
+   two-thirds of the size it is set at, so at the bar's own --fs-note the name read near 10px. */
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar-title { flex: none; font-size: var(--fs-heading); }
 
 /* The book's instruction for what is being chosen. It wraps rather than clipping: an instruction cut
    off mid-word is the choice's own words hidden from the person making it. Small italic over stone
@@ -5425,27 +5429,166 @@ button.stonetop-xp-toggle {
 	text-align: center;
 }
 
-/* `minmax(0, 1fr)`, not `1fr`: a track's automatic minimum is min-content, so a card holding an
-   inline follower (its widest stat row) pushes the column past half the tab and spills over the
-   panel edge instead of the card shrinking. Same guard the followers grid uses. */
-.stonetop-arcana-grid {
+/* D13: the list beside the one card being read. The tab is the container the layout asks, since its
+   width moves with the sheet's AND with the rail opening or being put away — which no viewport query
+   sees. Its narrowest is 42rem (the sheet's 47rem floor less its gutters), which still holds the list
+   and a card wider than the old grid's columns, so the two never stack.
+
+   The card stops at a reading measure: past it, the list takes its wider width and the rest of the tab
+   stays paper. `minmax(0, …)`, not a bare length, so a card holding an inline follower (its widest stat
+   row) shrinks with its track instead of spilling past it. */
+.stonetop.sheet .tab.arcana {
+	container: arcana-tab / inline-size;
+}
+
+.stonetop-arcana-layout {
+	--arcana-list: 14rem;
+	--arcana-card: 46rem;
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 10px;
+	grid-template-columns: minmax(0, var(--arcana-card));
+	gap: 1rem;
 	padding: 8px;
 	align-items: start;
 }
 
-.stonetop-arcanum-card {
+.stonetop-arcana-layout.has-list {
+	grid-template-columns: var(--arcana-list) minmax(0, var(--arcana-card));
+}
+
+/* 18 + 1 + 46 and the layout's own padding: the width at which the card has reached its measure. */
+@container arcana-tab (min-width: 66rem) {
+	.stonetop-arcana-layout { --arcana-list: 18rem; }
+}
+
+/* Stays beside a long card as it scrolls; a list taller than the tab scrolls on with the card. */
+.stonetop-arcana-list {
+	position: sticky;
+	top: 0;
 	display: flex;
 	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.stonetop-arcana-lines {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.stonetop-arcana-line {
+	position: relative;
+	padding: 0.35rem 0.6rem;
+	border-top: 1px solid var(--st-rule);
+}
+
+.stonetop-arcana-line:first-child {
+	border-top: none;
+}
+
+/* The line being read: a mark down its edge as well as the veil, so it is never color alone — and
+   `aria-current` on its name says it in words. */
+.stonetop-arcana-line:has(> .stonetop-arcana-pick[aria-current="true"]) {
+	background: var(--st-accent-veil);
+	box-shadow: inset 3px 0 0 var(--st-accent);
+}
+
+/* A name, not a box: core pins every button to --button-size and gives it a fill. */
+.stonetop.sheet button.stonetop-arcana-pick {
+	display: block;
+	width: 100%;
+	height: auto;
+	min-height: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	color: inherit;
+	text-align: left;
+	line-height: 1.25;
+	cursor: pointer;
+}
+
+/* On a span, as the rail's move names are: core's layered button rules keep the button's own face. */
+.stonetop-arcana-pick-name {
+	font-family: "StonetopUI", serif;
+	font-weight: 700;
+	font-size: var(--fs-body);
+	letter-spacing: 0.01em;
+}
+
+/* The whole line chooses the card; the tags and pips sit above this on their own. */
+.stonetop.sheet button.stonetop-arcana-pick::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.stonetop-arcana-line-face {
+	display: block;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	color: var(--st-ink-soft);
+	pointer-events: none;
+}
+
+.stonetop-arcana-line-face button,
+.stonetop-arcana-line-track {
+	position: relative;
+	pointer-events: auto;
+}
+
+.stonetop-arcana-line-track {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 2px;
+	margin-top: 3px;
+	font-size: var(--fs-fine);
+}
+
+.stonetop-arcana-reader {
+	min-width: 0;
+}
+
+/* Flow, not flex: the art floats beside the title band and the text wraps under it once it clears,
+   which a flex column cannot do. The card is the container its own art asks (see below). */
+.stonetop-arcanum-card {
+	container: arcanum / inline-size;
+	display: flow-root;
 	background: var(--st-paper-raised);
-	min-width: 0; /* shrink with the track rather than overflowing it (see the grid above) */
-	min-height: 260px;
+	min-width: 0;
 	position: relative;
 	border-width: 28px;
 	border-style: solid;
 	border-color: transparent;
+}
+
+.stonetop-arcanum-card[hidden] {
+	display: none;
+}
+
+/* Above the title band, centred, while the card is too narrow to set it beside it. */
+/* Capped, not sized: a fixed height letterboxed every picture wider than its box, leaving the empty
+   band under the drawing that trimming the art had just removed. */
+.stonetop-arcanum-img {
+	display: block;
+	width: auto;
+	height: auto;
+	max-height: 12rem;
+	max-width: 100%;
+	margin: 0 auto 6px;
+}
+
+/* Right of the title band, so the card spends no height on a picture with nothing next to it. Measured
+   on the card's content box (inside the chain): 26rem leaves the band 11rem beside 14rem of art, room
+   for a title and its ◇ item. The narrowest sheet's card is under it; the default sheet's is over. */
+@container arcanum (min-width: 26rem) {
+	.stonetop-arcanum-img {
+		float: right;
+		max-width: 14rem;
+		margin: 0 0 0.4rem 0.9rem;
+	}
 }
 
 /* The card's chain frame. It is drawn as a nine-slice — notched corners that must not scale,
@@ -5538,12 +5681,16 @@ button.stonetop-xp-toggle {
 	-webkit-mask-repeat: no-repeat round;
 }
 
+/* The track keeps its whole width and drops under the title when the two do not fit side by side.
+   Kept on the title's line and squeezed instead, a labelled track ("youthful · mature · elderly") left
+   the title and its ◇ item a column one word wide. */
 .stonetop-arcanum-header {
 	background: var(--st-paper);
 	padding: 5px 8px;
 	border-bottom: 1px solid var(--st-rule-strong);
 	border-radius: 3px 3px 0 0;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: 6px;
@@ -5552,6 +5699,7 @@ button.stonetop-xp-toggle {
 .stonetop-arcanum-header-left {
 	display: flex;
 	flex-direction: column;
+	flex: 1 1 12rem;
 	min-width: 0;
 }
 
@@ -5562,6 +5710,15 @@ button.stonetop-xp-toggle {
 	gap: 2px;
 	flex-shrink: 0;
 	padding-top: 2px;
+}
+
+/* A labelled pip reads as one pair: its word against it, a space before the next pip. */
+.stonetop-arcanum-resource-btn + .stonetop-resource-label {
+	margin-left: 2px;
+}
+
+.stonetop-resource-label + .stonetop-arcanum-resource-btn {
+	margin-left: 0.5em;
 }
 
 .stonetop-arcanum-title {
@@ -5578,23 +5735,11 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-.stonetop-arcanum-weight-note-row {
-	display: inline-flex;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 3px;
-}
-
-.stonetop-arcanum-note {
-	font-size: var(--fs-note);
-	color: var(--st-ink-soft);
-}
-
+/* No overflow of its own: that would make it a formatting context, and it would stand clear of the
+   floated art instead of wrapping its text under it. */
 .stonetop-arcanum-body {
-	flex: 1;
 	padding: 6px 8px;
 	font-size: var(--fs-note);
-	overflow-y: auto;
 }
 
 .stonetop-arcanum-body p {
@@ -5645,6 +5790,7 @@ button.stonetop-xp-toggle {
 }
 
 .stonetop-arcanum-footer {
+	clear: both;
 	padding: 4px 6px;
 	border-top: 1px solid var(--st-rule-strong);
 	display: flex;
@@ -5678,59 +5824,10 @@ button.stonetop-xp-toggle {
 	flex: 1 1 auto;
 }
 
-.stonetop-arcanum-unlock-lead {
-	margin: 0 0 4px;
-}
-
-.stonetop-arcanum-unlock-list {
-	margin: 0;
-	padding-left: 1em;
-	list-style: none;
-}
-
-.stonetop-arcanum-unlock-option {
-	margin-bottom: 3px;
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	flex-wrap: nowrap;
-}
-
-.stonetop-arcanum-unlock-checks {
-	flex-shrink: 0;
-	display: flex;
-	gap: 2px;
-	padding-top: 2px;
-}
-
-.stonetop-arcanum-unlock-check {
-	flex-shrink: 0;
-}
-
-.stonetop-arcanum-unlock-desc {
-	flex: 1;
-	min-width: 0;
-	overflow-wrap: break-word;
-}
-
-.stonetop-arcanum-resource {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	flex-wrap: wrap;
-}
-
 .stonetop-arcanum-resource-title {
 	font-size: var(--fs-body);
 	font-weight: normal;
 	margin-right: 4px;
-}
-
-.stonetop-arcanum-resource-boxes {
-	display: flex;
-	align-items: center;
-	gap: 2px;
-	flex-wrap: wrap;
 }
 
 /* Match the other resource tracks on the sheet (background / follower loyalty): round filled dots. */
@@ -5753,20 +5850,18 @@ button.stonetop-xp-toggle {
 	background-color: var(--st-ink) !important;
 }
 
-.stonetop-arcanum-resource-label {
-	font-size: var(--fs-note);
-	color: var(--st-ink-soft);
-	margin-right: 4px;
-}
-
-/* Major-arcana mystery moves reuse the moves-tab move-item partial, but single-column. */
+/* Major-arcana mystery moves reuse the moves-tab move-item partial, but single-column. Plain blocks,
+   not a flex column: a box that is its own formatting context stands clear of the card's floated art
+   for its whole height, so a long move ran in a narrow column long after the picture had ended. */
 .stonetop-arcanum-moves {
 	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
+	display: block;
 	margin: 6px 0 0;
 	padding: 0;
+}
+
+.stonetop-arcanum-moves > .stonetop-item + .stonetop-item {
+	margin-top: 6px;
 }
 
 /* PDF-style section titles on the arcanum card ("Moves" / "Consequences"), ruled off below as on
@@ -5789,6 +5884,13 @@ button.stonetop-xp-toggle {
 	margin-top: 0;
 }
 
+/* Its own formatting context inside a card, like the divider: a plain block's border runs on under the
+   floated art while only its text steps around it, so the rule crossed the picture. */
+.stonetop-arcanum-body .stonetop-arcanum-section-label,
+.stonetop-arcanum-body .stonetop-choice-entry-title {
+	display: flow-root;
+}
+
 .stonetop-arcanum-follower {
 	display: flex;
 	align-items: flex-start;
@@ -5805,18 +5907,69 @@ button.stonetop-xp-toggle {
 	min-width: 0;
 }
 
+/* A follower as its arcanum's card prints it: the whole stat block, read-only. It is an object inside
+   an object, so it is set apart on sunken ground inside a thin rule — the rail's own sunken mix — and
+   never given a second art frame inside the card's chain (§3). */
+.stonetop-follower-stat-block {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex: 1;
+	min-width: 0;
+	padding: 0.5rem 0.6rem;
+	background: color-mix(in srgb, var(--st-ink) 7%, transparent);
+	border: 1px solid var(--st-rule);
+	border-radius: 3px;
+}
+
+.stonetop-follower-stat-block-name {
+	font-family: "StonetopUI", serif;
+	font-weight: bold;
+	font-size: var(--fs-body);
+}
+
+.stonetop-follower-stat-block-where {
+	font-size: var(--fs-fine);
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+.stonetop-follower-stat-block-stats,
+.stonetop-follower-stat-block-cost {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	column-gap: 0.9rem;
+	row-gap: 2px;
+}
+
 /* A move granted by a choice entry: the ornamental checkbox sits INLINE to the left of the move-row
-   (matching the follower pattern above), not stacked on the line above it. */
+   (matching the follower pattern above), not stacked on the line above it. Only a grant with that
+   checkbox is a row; one without is a plain block, so its text wraps under the art (see above). */
 .stonetop-arcanum-move-grant {
+	margin-top: 6px;
+}
+
+.stonetop-arcanum-move-grant:has(> .stonetop-choice-track-checks) {
 	display: flex;
 	align-items: flex-start;
 	gap: 6px;
-	margin-top: 6px;
 }
 
 .stonetop-arcanum-move-grant .stonetop-arcanum-moves {
 	flex: 1;
 	margin-top: 0;
+}
+
+/* A move that carries a track ("Casting penalty ○○○○○") drops the track under its name when both do
+   not fit, rather than squeezing the name to a word per line. The name's basis is its own width — that
+   is what decides the wrap — and it does not grow, since core centres a button's text in its box. */
+.stonetop-arcanum-moves .stonetop-item-header {
+	flex-wrap: wrap;
+}
+
+.stonetop-arcanum-moves .stonetop-item-header > .stonetop-item-name {
+	flex: 0 1 auto;
 }
 
 /* The move-row li adds 4px top padding (fine on the moves tab); drop it here so the move NAME's first

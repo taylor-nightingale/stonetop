@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { norm, arcanumOnPage, pickPageIllustration } from "../../../scripts/import/pdf/arcana-art.js";
+import { mkdtempSync, writeFileSync, readFileSync } from "fs";
+import os from "os";
+import path from "path";
+import { norm, arcanumOnPage, pickPageIllustration, storeTrimmed } from "../../../scripts/import/pdf/arcana-art.js";
+import { Raster } from "../../../src/art/Raster.js";
 
 const roster = new Map([["mindgem", "mindgem"], ["norubasicesphere", "norubas-ice-sphere"]]);
 
@@ -47,5 +51,19 @@ describe("pickPageIllustration", () => {
 	it("returns null for a page with no images", () => {
 		expect(pickPageIllustration([])).toBeNull();
 		expect(pickPageIllustration(undefined)).toBeNull();
+	});
+});
+
+// The store keeps each drawing without the canvas the book embeds it on, exactly as the in-Foundry
+// installer writes it — the same Raster.trimmed, so the two pipelines key the same pixels.
+describe("storeTrimmed", () => {
+	it("writes the extracted image trimmed to its painted pixels", async () => {
+		const dir = mkdtempSync(path.join(os.tmpdir(), "arc-trim-"));
+		const padded = Raster.fromPdfMask(8, 4, new Uint8Array([0xFF, 0xE7, 0xF7, 0xFF]));
+		writeFileSync(path.join(dir, "in.png"), padded.toPng());
+		storeTrimmed(path.join(dir, "in.png"), path.join(dir, "out.png"));
+		const out = Raster.fromPng(readFileSync(path.join(dir, "out.png")));
+		expect([out.width, out.height]).toEqual([2, 2]);
+		expect(await out.key()).toBe(await padded.trimmed().key());
 	});
 });

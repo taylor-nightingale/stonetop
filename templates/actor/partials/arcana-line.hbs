@@ -1,0 +1,21 @@
+{{!-- One owned arcanum's line in the list beside the reader (D13). Context: an ArcanumSnapshot.
+
+      The name is the one control that opens the card; its ::after stretches over the line so a click
+      anywhere on it does too. What lies face up rides under it — the mystery's title once flipped,
+      else the ◇ item (when it names more than the arcanum does) or the disguise tags — and the track
+      sits live beside it, so a use is spent without opening the card. Those are siblings of the name,
+      never inside it: a button cannot hold the tag and pip buttons, and both are controls of their
+      own. --}}
+<li class="stonetop-arcana-line">
+	<button type="button" class="stonetop-arcana-pick" data-action="selectArcanum" data-view-state
+	        data-slug="{{slug}}" aria-controls="{{@root.sheetIdPrefix}}-arcanum-{{slug}}" aria-current="false"><span class="stonetop-arcana-pick-name">{{name}}</span></button>
+	{{#if flipped}}<span class="stonetop-arcana-line-face">{{rich face.title}}</span>
+	{{else if listedItem}}<span class="stonetop-arcana-line-face">{{listedItem.name}}</span>
+	{{else if face.tags.length}}<span class="stonetop-arcana-line-face">{{> "stonetop.tag-list" tags=face.tags}}</span>
+	{{/if}}
+	{{#if face.resource}}
+	<span class="stonetop-arcana-line-track">
+		{{> "stonetop.resource-track" resource=face.resource btnClass="stonetop-arcanum-resource-btn" action="arcanumResourcePip" slug=slug}}
+	</span>
+	{{/if}}
+</li>

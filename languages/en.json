@@ -648,6 +648,10 @@
     },
     "arcana": {
       "empty": "Drag arcana here from the Arcana compendium.",
+      "followerJoinsHint": "",
+      "followerJoined": "",
+      "majorTitle": "Major Arcana",
+      "minorTitle": "Minor Arcana",
       "showFront": "Show Front",
       "showBack": "Reveal Back",
       "removeArcanum": "Remove",

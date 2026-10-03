@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import { describe, it, expect } from "vitest";
-import { revealInScroller } from "../../src/utils/revealInScroller.js";
+import { revealInScroller, revealTopInScroller } from "../../src/utils/revealInScroller.js";
 
 /**
  * A hanging editor opens wherever its opener is — at the foot of a long tab, that can be below what
@@ -50,5 +50,30 @@ describe("revealInScroller", () => {
 		const panel = document.createElement("div");
 		document.body.appendChild(panel);
 		expect(() => revealInScroller(panel)).not.toThrow();
+	});
+});
+
+/**
+ * A card shown in place of another, where the reader is already looking: it moves the view only when
+ * the reader had scrolled past where its top now is. A card taller than the view is not pulled down
+ * to its foot — choosing one should not move the list being chosen from.
+ */
+describe("revealTopInScroller", () => {
+	it("scrolls up to a card whose top is above the view", () => {
+		const { scroller, panel } = layout({ panelTop: -250, panelBottom: 600, scrollTop: 400 });
+		revealTopInScroller(panel);
+		expect(scroller.scrollTop).toBe(150);
+	});
+
+	it("leaves a card whose top is in view where it is, however far it runs below", () => {
+		const { scroller, panel } = layout({ panelTop: 40, panelBottom: 1200 });
+		revealTopInScroller(panel);
+		expect(scroller.scrollTop).toBe(100);
+	});
+
+	it("does nothing for a card with no scroll container", () => {
+		const panel = document.createElement("div");
+		document.body.appendChild(panel);
+		expect(() => revealTopInScroller(panel)).not.toThrow();
 	});
 });

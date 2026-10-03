@@ -16,9 +16,10 @@ export class ChoiceOption {
  *  the template resolves each slug against the normalized `followers.bySlug` registry at render. No
  *  follower data is duplicated into the choice tree. */
 export class EntryRowFollowers {
-	constructor(slugs, inlineDisplay = false) {
+	constructor(slugs, inlineDisplay = false, markJoinsTab = false) {
 		this.slugs         = slugs;         // referenced follower slugs (the FollowerLink)
 		this.inlineDisplay = inlineDisplay; // full card inline vs. a labelled checkbox row
+		this.markJoinsTab  = markJoinsTab;  // marking this row puts the follower on the Followers tab
 	}
 }
 

@@ -1,6 +1,7 @@
 // Single pipeline for rendering game text (markdown stored): bold/italic via markdown,
 // bare dice -> Foundry inline rolls, plus @UUID links - all through Foundry's enrichHTML.
 import { markdownBlocks, joinBlocks } from "./markdownBlocks.js";
+import { isInlineTableToken } from "../journal/drawTableEnricher.js";
 
 const DIE       = "\\d*d\\d+(?:\\s*[+-]\\s*\\d+)?";
 // A protected Foundry token: an inline roll [[...]] or a @Doc[...]{...} content link.
@@ -48,7 +49,7 @@ export function toRollableBlocks(raw, { autoRoll = true } = {}) {
 
 /** The same markup as one string: blocks joined for display, authored line breaks intact. */
 export function toRollableMarkup(raw, { autoRoll = true } = {}) {
-	return joinBlocks(toRollableBlocks(raw, { autoRoll }));
+	return joinBlocks(toRollableBlocks(raw, { autoRoll }), { isBlock: isInlineTableToken });
 }
 
 // Cross-render memo cache. The followers tab re-runs ~6 enrichGameText calls per follower on every
