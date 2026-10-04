@@ -12,4 +12,3 @@
 
 
 * increase font size of section titles to increase readability
-* resources, epand and chat button are too close together on moves page

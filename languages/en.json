@@ -306,8 +306,8 @@
       },
       "folk": {
         "searchPlaceholder": "search the roster…",
-        "listsShow": "",
-        "listsHide": "",
+        "listsShow": "Show Names",
+        "listsHide": "Hide Names",
         "namePlaceholder": "Name (Pronouns)",
         "homePlaceholder": "Home",
         "traitsPlaceholder": "Traits",
