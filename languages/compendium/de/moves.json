@@ -1742,19 +1742,19 @@
     },
     "description": {
       "source": "When you **_first meet someone from beyond Stonetop_**, roll +Fortunes: **on a 10+**, say what they’ve heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they’ve heard; **on a 6-**, the GM decides what they’ve heard.",
-      "text": ""
+      "text": "Wenn du **_zum ersten Mal jemandem von außerhalb Stonetops begegnest_**, würfle +Schicksal. **Bei einer 10+** sagst du, was sie über dich oder Stonetop gehört hat, und du erhältst einen Vorteil auf deinen nächsten Spielzug gegen sie. **Bei 7–9** sagst du, was sie gehört hat. **Bei einer 6-** entscheidet der SL, was sie gehört hat."
     },
     "moveResults/success/value": {
       "source": "Say what they’ve heard about you or Stonetop, and gain advantage on your next move against them.",
-      "text": ""
+      "text": "Du sagst, was sie über dich oder Stonetop gehört hat, und du erhältst einen Vorteil auf deinen nächsten Spielzug gegen sie."
     },
     "moveResults/partial/value": {
       "source": "Say what they’ve heard.",
-      "text": ""
+      "text": "Du sagst, was sie gehört hat."
     },
     "moveResults/failure/value": {
       "source": "The GM decides what they’ve heard.",
-      "text": ""
+      "text": "Der SL entscheidet, was sie gehört hat."
     }
   },
   "home-on-the-range": {
