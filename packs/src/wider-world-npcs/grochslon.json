@@ -27,8 +27,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Lurk unseen in a dark, sheltered spot\n- Spring forward without warning, chomping down\n- Hold tight with outer jaws while tearing away with the inner\n- Squirm through a narrow opening\n\nPale, eyeless things that spawn in the lightless lakes below the Steplands. Like a great big pale salamander or snake with two stubby, muscular legs. As they grow, they find food down there sparse, and make their way to the surface. Mostly they stick to cave mouths, but sometimes—sometimes—they get bold enough to leave their sheltered holes of rock, and they find other places to lurk, places where you’d never expect them.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "moves": "- Lurk unseen in a dark, sheltered spot\n- Spring forward without warning, chomping down\n- Hold tight with outer jaws while tearing away with the inner\n- Squirm through a narrow opening",
+    "description": "Pale, eyeless things that spawn in the lightless lakes below the Steplands. Like a great big pale salamander or snake with two stubby, muscular legs. As they grow, they find food down there sparse, and make their way to the surface. Mostly they stick to cave mouths, but sometimes—sometimes—they get bold enough to leave their sheltered holes of rock, and they find other places to lurk, places where you’d never expect them.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
     "notes": ""
   },
   "ownership": {

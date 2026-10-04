@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Assume the aspect(s) of one or more beasts\n- Do something impossible for a human, easy for a beast\n- Suffer through a terrible wound unfazed, healing with a few days’ rest\n- Ask beasts or spirits (even quiet ones) for information or favors\n\nWhen a young Hillfolk shows signs of being touched by spirits, their band had best seek out a spirit-talker (page 235) to mentor the child. Without such guidance, these youths might forsake their humanity, forget their language, and eventually bind spirits of the wild to their very flesh.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "moves": "- Assume the aspect(s) of one or more beasts\n- Do something impossible for a human, easy for a beast\n- Suffer through a terrible wound unfazed, healing with a few days’ rest\n- Ask beasts or spirits (even quiet ones) for information or favors",
+    "description": "When a young Hillfolk shows signs of being touched by spirits, their band had best seek out a spirit-talker (page 235) to mentor the child. Without such guidance, these youths might forsake their humanity, forget their language, and eventually bind spirits of the wild to their very flesh.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
     "notes": ""
   },
   "ownership": {

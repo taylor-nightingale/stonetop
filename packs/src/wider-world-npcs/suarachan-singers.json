@@ -26,8 +26,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Drown out all other noises with their song\n- Raise a shrill call of alarm\n- Scuttle away and hide\n- Keep a prisoner living, long enough\n\nThere are places in Ferrier’s Fen where horrors sleep, where the Things Below dream unquiet. The air in these places thrums with frog-song, so deep and so loud you can barely hear yourself think. But it’s not frogs singing. It’s the suarachan. The suarachan believe that their songs keep the Things Below quiet. And they hope that their sacrifices—given in bulk in late autumn—will keep their dark gods satiated while the suarachan sleep through winter. Most suarachan bear mutations: extra legs (often twisted and useless), overgrown or atrophied limbs, missing or extra eyes, strange growths, etc. The most mobile become hunters, but the chorus welcomes any suarachan that can sing.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "moves": "- Drown out all other noises with their song\n- Raise a shrill call of alarm\n- Scuttle away and hide\n- Keep a prisoner living, long enough",
+    "description": "There are places in Ferrier’s Fen where horrors sleep, where the Things Below dream unquiet. The air in these places thrums with frog-song, so deep and so loud you can barely hear yourself think. But it’s not frogs singing. It’s the suarachan. The suarachan believe that their songs keep the Things Below quiet. And they hope that their sacrifices—given in bulk in late autumn—will keep their dark gods satiated while the suarachan sleep through winter. Most suarachan bear mutations: extra legs (often twisted and useless), overgrown or atrophied limbs, missing or extra eyes, strange growths, etc. The most mobile become hunters, but the chorus welcomes any suarachan that can sing.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
     "notes": ""
   },
   "ownership": {

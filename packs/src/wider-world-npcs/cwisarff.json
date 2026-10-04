@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Wait patiently to spring on prey\n- Hiss menacingly at a threat\n- Bite quickly and ready to strike again\n\nThe vaunted \"tree adder,\" most lethal serpent in the Wood, up to 6 feet long and dripping with venom. In warm months, they hunt and bask in the canopy or sunny clearings. In colder months, they hide in hollows and under logs, going into torpor in winter. They don’t hunt people, but they don’t fear them either. When you are bitten by a cwisarff, mark a debility in addition to taking damage. Until the poison is treated, you can’t regain",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "moves": "- Wait patiently to spring on prey\n- Hiss menacingly at a threat\n- Bite quickly and ready to strike again",
+    "description": "The vaunted \"tree adder,\" most lethal serpent in the Wood, up to 6 feet long and dripping with venom. In warm months, they hunt and bask in the canopy or sunny clearings. In colder months, they hide in hollows and under logs, going into torpor in winter. They don’t hunt people, but they don’t fear them either. When you are bitten by a cwisarff, mark a debility in addition to taking damage. Until the poison is treated, you can’t regain\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
     "notes": ""
   },
   "ownership": {

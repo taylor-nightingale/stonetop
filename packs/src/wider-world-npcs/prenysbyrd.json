@@ -30,8 +30,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Blame one for the sins of another\n- Fill minds with leering images and unreasoning dread\n- Form a body of fallen trees, leaves, rotting wood (vulnerable to fire)\n- Smother a prone foe with soil, leaves, wood (d8+1 damage, near, grabby)\n\nWhat becomes of a dead tree’s spirit? Most linger as simple log-spirits, weakening as the log rots to mulch. But when generations of trees grow and die in the same place, they might become something more. Something that defends the grove, and its current trees, and all the trees that are yet to come.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
+    "moves": "- Blame one for the sins of another\n- Fill minds with leering images and unreasoning dread\n- Form a body of fallen trees, leaves, rotting wood (vulnerable to fire)\n- Smother a prone foe with soil, leaves, wood (d8+1 damage, near, grabby)",
+    "description": "What becomes of a dead tree’s spirit? Most linger as simple log-spirits, weakening as the log rots to mulch. But when generations of trees grow and die in the same place, they might become something more. Something that defends the grove, and its current trees, and all the trees that are yet to come.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
     "notes": ""
   },
   "ownership": {

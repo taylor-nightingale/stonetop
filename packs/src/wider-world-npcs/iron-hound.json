@@ -30,8 +30,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Follow the trail of its master’s property\n- Fix its prey with a soul-chilling stare\n- Once it’s bitten down: crush bone, shred muscle, tear apart (+messy, 3 piercing)\n\nThere was a Forge Lord who prized his hounds as much as he prized his treasure. When one would die, he’d capture its spirit in red crystal (page 424) and set them as the eyes in a crudely-wrought effigy. If anyone would be so foolish as to steal from him, he would loose his iron hounds to punish not just the thief but all whose hands had sullied his property. That Forge Lord is long gone, but his iron hounds remain. They’ve learned to leave their master’s treasures lying about in plain sight, and to give thieves a nice long head start. For the more hands touch the stolen goods, the more victims they can claim.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "moves": "- Follow the trail of its master’s property\n- Fix its prey with a soul-chilling stare\n- Once it’s bitten down: crush bone, shred muscle, tear apart (+messy, 3 piercing)",
+    "description": "There was a Forge Lord who prized his hounds as much as he prized his treasure. When one would die, he’d capture its spirit in red crystal (page 424) and set them as the eyes in a crudely-wrought effigy. If anyone would be so foolish as to steal from him, he would loose his iron hounds to punish not just the thief but all whose hands had sullied his property. That Forge Lord is long gone, but his iron hounds remain. They’ve learned to leave their master’s treasures lying about in plain sight, and to give thieves a nice long head start. For the more hands touch the stolen goods, the more victims they can claim.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
     "notes": ""
   },
   "ownership": {

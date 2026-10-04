@@ -27,8 +27,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Lay an ambush, where they can surround prey\n- Spit a head-sized gob of sticky mucus (near, grabby, reload)\n- Sprint much more quickly than you’d expect\n\nThey’re about the size of a big wolf, but lower and squatter, with arms out to the sides like lizards and a big old frill that pops up when they’re startled or bearing down on prey. They favor canyons, defiles, or overlooks where they can bask in the sun but have a good angle to ambush passersby. Something interesting: Their mucus adheres quickly to rock, pinning prey in place. Even if it doesn’t pin prey down, it gloms on and slows them up. It’ll dry out and start to flake away after a few hours. Something useful: Strong spirits (yes, like whisky) quickly dissolve the mucus. Also, you can identify their territory by the pale chalky stains their mucus leaves on stone.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
+    "moves": "- Lay an ambush, where they can surround prey\n- Spit a head-sized gob of sticky mucus (near, grabby, reload)\n- Sprint much more quickly than you’d expect",
+    "description": "They’re about the size of a big wolf, but lower and squatter, with arms out to the sides like lizards and a big old frill that pops up when they’re startled or bearing down on prey. They favor canyons, defiles, or overlooks where they can bask in the sun but have a good angle to ambush passersby. Something interesting: Their mucus adheres quickly to rock, pinning prey in place. Even if it doesn’t pin prey down, it gloms on and slows them up. It’ll dry out and start to flake away after a few hours. Something useful: Strong spirits (yes, like whisky) quickly dissolve the mucus. Also, you can identify their territory by the pale chalky stains their mucus leaves on stone.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DBEagy54rlf52AOz]{The Steplands} (Book p.372-381)",
     "notes": ""
   },
   "ownership": {

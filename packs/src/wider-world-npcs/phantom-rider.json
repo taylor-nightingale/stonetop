@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Speed across the landscape like the wind itself\n- Form a body of soil, dust, and mist\n- Flank and harry their foes\n\nFor a time, it was common for warriors to pledge both their lives and their deaths to their lieges, and to be interred with their horses and their fellows in their master’s tomb. Thus, they could live on in death, still basking in a grim and joyless glory.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders} (Book p.34-47)",
+    "moves": "- Speed across the landscape like the wind itself\n- Form a body of soil, dust, and mist\n- Flank and harry their foes",
+    "description": "For a time, it was common for warriors to pledge both their lives and their deaths to their lieges, and to be interred with their horses and their fellows in their master’s tomb. Thus, they could live on in death, still basking in a grim and joyless glory.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders} (Book p.34-47)",
     "notes": ""
   },
   "ownership": {
