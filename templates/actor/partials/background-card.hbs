@@ -26,4 +26,13 @@
 		{{/if}}
 	</div>
 	{{/if}}
+	{{#each moveMarks}}
+	<div class="stonetop-bg-choices">
+		{{#if ../choosing}}
+		{{#each list}}{{> "stonetop.choice-row" cgContext="background" cgGroup=../slug namePrefix=../../slug}}{{/each}}
+		{{else}}
+		{{> "stonetop.choice-group-condensed" blocks=condensed}}
+		{{/if}}
+	</div>
+	{{/each}}
 </div>

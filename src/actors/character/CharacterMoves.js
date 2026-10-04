@@ -12,6 +12,7 @@ import {
 	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
+import { MovePicks } from "./MovePicks.js";
 import { OutfitEffects } from "../../model/data/character/OutfitEffect.js";
 import { MovePhaseGroup } from "../../model/snapshot/character/MovePhaseGroup.js";
 
@@ -23,10 +24,10 @@ export class CharacterMoves {
 		this._moveRepo           = moveRepo;
 		this._actor              = actor;
 		this._resourceController = resourceController;
-		this._factory            = factory;
 		this._grantedItems       = grantedItems;
 		this._requirements       = requirements;
 		this._grants             = new CharacterMoveGrants(moveRepo, actor, grantedItems);
+		this._picks              = new MovePicks(actor, factory, moveRepo);
 	}
 
 	/** The moves this character has actually taken. Derived fresh: they take more. */
@@ -126,8 +127,7 @@ export class CharacterMoves {
 
 	/** The controller for one move's picks, or null when the move is absent or has no choice group. */
 	controllerFor(moveSlug) {
-		const item = findMoveItemBySlug(this._actor, moveSlug);
-		return item?.system?.choices ? this._factory.forDocument(item._id, "pickValues") : null;
+		return this._picks.controllerFor(moveSlug);
 	}
 
 	// The current value of a move's own track — the Thrall's Favor, say. Null when the character

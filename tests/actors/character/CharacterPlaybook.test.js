@@ -27,14 +27,20 @@ class FakeBackground {
 	}
 }
 
+class FakeMoveMarks {
+	switches = [];
+	async switchBetween(from, to) { this.switches.push([from?.slug ?? null, to?.slug ?? null]); }
+}
+
 class FakeOrigin {
 	buildSnapshot(data) { return data; }
 }
 
-function makePlaybook(actor, { background = new FakeBackground(), vitals, moves = new FakeMoves() } = {}) {
+function makePlaybook(actor, { background = new FakeBackground(), vitals, moves = new FakeMoves(),
+                               marks = new FakeMoveMarks() } = {}) {
 	const factory = new ChoiceGroupControllerFactory(actor);
 	return new CharacterPlaybook(actor, background, factory, new FakeOrigin(), vitals, moves,
-		new PlaybookSelection(actor));
+		new PlaybookSelection(actor), marks);
 }
 
 const INSTINCT_GROUP = { slug: "instinct", list: [{ type: "pick", pickCount: 1, options: [
@@ -505,6 +511,25 @@ describe("CharacterPlaybook.selectBackground", () => {
 
 		expect(moves.addedCategories)
 			.toContainEqual({ type: "background-destined", name: "Destined", moveSlugs: ["omens"] });
+	});
+
+	// Leaving a background un-marks the topic it named on Well Versed; the new one marks its own.
+	it("moves the marks a background makes on a move from the old background to the new", async () => {
+		const marks = new FakeMoveMarks();
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: new FakeBackground("herbalist"), marks });
+
+		await pb.selectBackground("vessel");
+
+		expect(marks.switches).toEqual([["herbalist", "vessel"]]);
+	});
+
+	it("switches from nothing when no background was chosen", async () => {
+		const marks = new FakeMoveMarks();
+		const pb = makePlaybook(makeActor("the-blessed", [PLAYBOOK_ITEM]), { background: new FakeBackground(""), marks });
+
+		await pb.selectBackground("vessel");
+
+		expect(marks.switches).toEqual([[null, "vessel"]]);
 	});
 });
 

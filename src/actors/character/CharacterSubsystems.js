@@ -13,6 +13,8 @@ import {CharacterAdvancement} from "./CharacterAdvancement.js";
 import {CharacterDebilities} from "./CharacterDebilities.js";
 import {CharacterWounds} from "./CharacterWounds.js";
 import {CharacterPlaybook} from "./CharacterPlaybook.js";
+import {MovePicks} from "./MovePicks.js";
+import {BackgroundMoveMarks} from "./BackgroundMoveMarks.js";
 import {PlaybookSelection} from "./PlaybookSelection.js";
 import {ActorOutfitItems} from "./ActorOutfitItems.js";
 import {ChoiceGroupControllerFactory} from "./ChoiceGroupControllerFactory.js";
@@ -51,10 +53,12 @@ export class CharacterSubsystems {
 
 		// ── Subsystems, in dependency order ──────────────────────────────────────────────────────
 		const followers   = new CharacterFollowers(actor, repos.followers, resourceController, factory, repos.inventory, grantedItems, repos.inventoryPage);
-		const background  = new CharacterBackgrounds(actor, factory, resourceController);
+		const movePicks   = new MovePicks(actor, factory, repos.moves);
+		const background  = new CharacterBackgrounds(actor, factory, resourceController, movePicks);
+		const moveMarks   = new BackgroundMoveMarks(movePicks, background);
 		const requirements = new MoveRequirements(vitals, playbookSelection, repos.moves, repos.playbooks);
 		const moves       = new CharacterMoves(repos.moves, actor, new ResourceController(actor, "moveResources"), factory, grantedItems, requirements);
-		const playbook    = new CharacterPlaybook(actor, background, factory, origin, vitals, moves, playbookSelection);
+		const playbook    = new CharacterPlaybook(actor, background, factory, origin, vitals, moves, playbookSelection, moveMarks);
 		const possessions = new CharacterPossessions(actor, moves, repos.possessions, factory, outfitSync, grantedItems);
 		const inventory   = new CharacterInventory(actor, repos.inventory, outfitItems, resourceController, repos.steading, repos.inventoryPage, moves);
 		const arcana      = new CharacterArcana(actor, repos.arcana, stats, followers, factory, moves, outfitSync, grantedItems);
@@ -65,7 +69,8 @@ export class CharacterSubsystems {
 		//    handler can fire against a half-built graph. Each subscriber decides its own relevance.
 		factory.subscribe(new FollowerSideEffectHandler(followers))
 		       .subscribe(outfitSync)
-		       .subscribe(new ArcanumSideEffectHandler(arcana));
+		       .subscribe(new ArcanumSideEffectHandler(arcana))
+		       .subscribe(moveMarks);
 
 		return {
 			stats, origin, vitals, selection: playbookSelection, debilities, wounds,

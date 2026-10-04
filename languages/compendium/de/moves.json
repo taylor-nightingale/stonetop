@@ -4354,8 +4354,41 @@
       "text": "Bewandert"
     },
     "description": {
-      "source": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.\n\n- The Last Door, death, and the undead\n- The civilizations of humanity\n- The Fae and their strange ways\n- The Makers and their arts\n- The primordial powers\n- The Things Below\n- The wild world and its spirits\nWhen you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).",
-      "text": "Markiere ein Themengebiet, zusätzlich zu dem, das in deinem Hintergrund vermerkt ist. Jedes weitere Mal, wenn du diesen Spielzug wählst, markierst du zwei zusätzliche Themengebiete.\n\n- Das Schwarze Tor, der Tod und die Untoten\n- Die Zivilisationen der Menschheit\n- Die Feen und ihre seltsamen Bräuche\n- Die Schöpfer und ihre Künste\n- Die Urkräfte\n- Die Dinge unter der Erde\n- Die Natur und ihre Geister\nWenn du **_bei einem deiner Themengebiete Wissen kundtust_**, kannst du dem SL eine beliebige Folgefrage stellen, selbst bei einer 6-."
+      "source": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.",
+      "text": "Markiere ein Themengebiet, zusätzlich zu dem, das in deinem Hintergrund vermerkt ist. Jedes weitere Mal, wenn du diesen Spielzug wählst, markierst du zwei zusätzliche Themengebiete.\n\n- Das Schwarze Tor, der Tod und die Untoten\n- Die Zivilisationen der Menschheit\n- Die Feen und ihre seltsamen Bräuche\n- Die Schöpfer und ihre Künste\n- Die Urkräfte\n- Die Dinge unter der Erde\n- Die Natur und ihre Geister\nWenn du **_bei einem deiner Themengebiete Wissen kundtust_**, kannst du dem SL eine beliebige Folgefrage stellen, selbst bei einer 6-.",
+      "needsReview": true
+    },
+    "choices/last-door/text": {
+      "source": "The Last Door, death, and the undead",
+      "text": ""
+    },
+    "choices/civilizations/text": {
+      "source": "The civilizations of humanity",
+      "text": ""
+    },
+    "choices/fae/text": {
+      "source": "The Fae and their strange ways",
+      "text": ""
+    },
+    "choices/makers/text": {
+      "source": "The Makers and their arts",
+      "text": ""
+    },
+    "choices/primordial-powers/text": {
+      "source": "The primordial powers",
+      "text": ""
+    },
+    "choices/things-below/text": {
+      "source": "The Things Below",
+      "text": ""
+    },
+    "choices/wild-world/text": {
+      "source": "The wild world and its spirits",
+      "text": ""
+    },
+    "choices/follow-up/text": {
+      "source": "When you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).",
+      "text": ""
     }
   },
   "whispers": {

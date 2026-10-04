@@ -14,10 +14,102 @@ So: open `languages/compendium/de/steadfasts.json`, find `"stonetop"`, find
 `"neighborPlaces/other/subtitle"` inside it, and edit its `"text"`. Leave `"source"` alone —
 it is regenerated, and it is there to show you what the German is meant to say.
 
-- **0** entries where the English changed under an existing translation
-- **4** flagged earlier and still awaiting a revision
-- **7** translations whose row was restructured and need re-filing
-- **84** interface strings with no translation yet, listed at the end
+- **4** entries where the English changed under an existing translation
+- **5** flagged earlier and still awaiting a revision
+- **8** translations whose row was restructured and need re-filing
+- **166** interface strings with no translation yet, listed at the end
+
+## playbooks.json
+
+### `playbooks.json` › `"the-seeker"` › `"backgrounds/patriot/description"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.
+
+You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.
+
+You start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Now:
+
+```
+These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.
+
+You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.
+
+You start with the **Let's Make a Deal** move and are **Well Versed** in the Things Below. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Your German:
+
+```
+Diese Menschen sind deine Familie. Um dich herum breitet sich das Chaos aus, aber du willst verdammt sein, wenn du zulässt, dass deiner Familie etwas zustößt. Verdammt, in der Tat.
+
+Du hast nach dunkler Macht gesucht und sie dir zu eigen gemacht, um das zu schützen, was dir lieb und teuer ist. Oder vielleicht ist diese Macht über dich gekommen und du hast sie zum Wohle aller angenommen. So oder so, du strebst nach mehr.
+
+Du beginnst mit dem Spielzug Lass uns einen Handel abschließen und du bist bewandert in den Dingen aus der Tiefe (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:
+```
+
+### `playbooks.json` › `"the-seeker"` › `"backgrounds/antiquarian/description"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?
+
+Your travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Now:
+
+```
+The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?
+
+Your travels and studies mean that you start with the **Polyglot** move and are **Well Versed** in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Your German:
+
+```
+Die Vergangenheit birgt viele Geheimnisse, und du bist entschlossen, sie zu lüften. Jahrelange Studien im ganzen Land haben dich hierhergeführt, und du bist überzeugt, dass hier der Schlüssel zu deinen größten Entdeckungen liegt. Was erhoffst du zu finden? Was hält dich hier?
+
+Auf jeden Fall bedeuten deine Reisen und Studien, dass du mit dem Spielzug Polyglott beginnst und du bist bewandert in den Schöpfern und ihren Künsten (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:
+```
+
+### `playbooks.json` › `"the-seeker"` › `"backgrounds/witch-hunter/description"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?
+
+Regardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Now:
+
+```
+You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?
+
+Regardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Your German:
+
+```
+Du hast dein Leben dem Aufspüren und Vernichten von Schrecken und ihren Dienern gewidmet. Was hat dich auf diesen Weg gebracht? Was musstest du opfern, um ihn zu beschreiten? Was hat dich dazu bewogen, Stonetop zu deiner Heimat zu machen?
+
+Wie dem auch sei, du beginnst mit dem Spielzug Alles blutet und du bist bewandert in (wähle 1) den Feen, den Dingen aus der Tiefe oder der Schwarzen Pforte des Todes und dessen, was dahinter liegt (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:
+```
 
 ## moves.json
 
@@ -59,6 +151,22 @@ Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin d
 - Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.
 - Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.
 - Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}.
+```
+
+### `moves.json` › `"persuade-vs-npcs"` › `"description"`
+
+Flagged for review earlier; the English has not changed since.
+
+English:
+
+```
+When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +CHA: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.
+```
+
+Your German:
+
+```
+Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein.
 ```
 
 ### `moves.json` › `"strengthen-your-bond"` › `"description"`
@@ -109,6 +217,46 @@ Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an
 Wenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz.
 ```
 
+### `moves.json` › `"well-versed"` › `"description"`
+
+The English changed after this was translated.
+
+Was:
+
+```
+Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.
+
+- The Last Door, death, and the undead
+- The civilizations of humanity
+- The Fae and their strange ways
+- The Makers and their arts
+- The primordial powers
+- The Things Below
+- The wild world and its spirits
+When you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).
+```
+
+Now:
+
+```
+Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.
+```
+
+Your German:
+
+```
+Markiere ein Themengebiet, zusätzlich zu dem, das in deinem Hintergrund vermerkt ist. Jedes weitere Mal, wenn du diesen Spielzug wählst, markierst du zwei zusätzliche Themengebiete.
+
+- Das Schwarze Tor, der Tod und die Untoten
+- Die Zivilisationen der Menschheit
+- Die Feen und ihre seltsamen Bräuche
+- Die Schöpfer und ihre Künste
+- Die Urkräfte
+- Die Dinge unter der Erde
+- Die Natur und ihre Geister
+Wenn du **_bei einem deiner Themengebiete Wissen kundtust_**, kannst du dem SL eine beliebige Folgefrage stellen, selbst bei einer 6-.
+```
+
 ## ui.json
 
 ### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.lock"`
@@ -131,6 +279,17 @@ Your German:
 
 ```
 Fassen deine Auswahl in einer schreibgeschützten Übersicht zusammen.
+```
+
+### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.unlock"`
+
+**This string is no longer in the game text, and nothing here needs these words.**
+Delete the entry named in the heading. Say so if you think the text should still exist.
+
+Your German:
+
+```
+Bearbeiten
 ```
 
 ### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.unlockHint"`
@@ -239,6 +398,139 @@ already shows English.
 - `"stonetop.steading.seasons.year"` — "Year"
 - `"stonetop.steading.seasons.setTitle"` — "Change the season"
 - `"stonetop.steading.seasons.setConfirm"` — "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns."
+
+### `stonetop.improvement`
+
+- `"stonetop.improvement.catalog"` — ""
+- `"stonetop.improvement.image"` — "Change image"
+- `"stonetop.improvement.onRoll"` — "on a roll of"
+- `"stonetop.improvement.useGenerated"` — "use the generated words"
+
+### `stonetop.improvement.add`
+
+- `"stonetop.improvement.add.requirement"` — "add a requirement"
+- `"stonetop.improvement.add.heading"` — "add a heading"
+- `"stonetop.improvement.add.line"` — "add a line of text"
+- `"stonetop.improvement.add.result"` — "add a result"
+
+### `stonetop.improvement.row`
+
+- `"stonetop.improvement.row.moveUp"` — "Move up"
+- `"stonetop.improvement.row.moveDown"` — "Move down"
+- `"stonetop.improvement.row.remove"` — "Remove"
+- `"stonetop.improvement.row.fewerBoxes"` — "One box fewer"
+- `"stonetop.improvement.row.moreBoxes"` — "One box more"
+
+### `stonetop.improvement.rule`
+
+- `"stonetop.improvement.rule.lead"` — "This section needs"
+- `"stonetop.improvement.rule.all"` — "all of these"
+- `"stonetop.improvement.rule.some"` — "some of these"
+- `"stonetop.improvement.rule.none"` — "none of these"
+- `"stonetop.improvement.rule.or"` — "these, instead of the section above"
+- `"stonetop.improvement.rule.atLeast"` — "at least"
+
+### `stonetop.improvement.when`
+
+- `"stonetop.improvement.when.lead"` — "It happens"
+- `"stonetop.improvement.when.turn"` — "each season"
+- `"stonetop.improvement.when.moment"` — "at a moment in the season"
+- `"stonetop.improvement.when.standing"` — "for as long as it stands"
+- `"stonetop.improvement.when.words"` — "In words"
+- `"stonetop.improvement.when.momentName"` — "The moment's name"
+
+### `stonetop.improvement.outcome`
+
+- `"stonetop.improvement.outcome.any"` — "any result"
+
+### `stonetop.improvement.does`
+
+- `"stonetop.improvement.does.lead"` — "The sheet"
+- `"stonetop.improvement.does.nothing"` — "no automation"
+- `"stonetop.improvement.does.change"` — "changes a rating"
+- `"stonetop.improvement.does.list"` — "adds to a list"
+- `"stonetop.improvement.does.set"` — "sets a rating"
+- `"stonetop.improvement.does.advantage"` — "gives advantage on a move"
+- `"stonetop.improvement.does.move"` — "grants a move"
+- `"stonetop.improvement.does.adjustment"` — "bends a step of the season"
+- `"stonetop.improvement.does.rating"` — "Rating"
+- `"stonetop.improvement.does.amount"` — "By how much"
+- `"stonetop.improvement.does.whichList"` — "Which list"
+- `"stonetop.improvement.does.entry"` — "What it writes"
+- `"stonetop.improvement.does.value"` — "To what"
+
+### `stonetop.improvement.gloss`
+
+- `"stonetop.improvement.gloss.nothing"` — "the table does this; the sheet only says it"
+- `"stonetop.improvement.gloss.change"` — "the sheet adds {amount} {rating}"
+- `"stonetop.improvement.gloss.list"` — "the sheet writes “{entry}” on {list}"
+- `"stonetop.improvement.gloss.set"` — "the sheet sets {rating} to {value}"
+- `"stonetop.improvement.gloss.advantage"` — "a reminder on the move it gives advantage to"
+- `"stonetop.improvement.gloss.move"` — "the steading gains this move to roll"
+- `"stonetop.improvement.gloss.adjustment"` — "the sheet bends that step when it runs"
+
+### `stonetop.improvement.gloss.rule`
+
+- `"stonetop.improvement.gloss.rule.all"` — "every requirement below"
+- `"stonetop.improvement.gloss.rule.some"` — "at least {count} of the requirements below"
+- `"stonetop.improvement.gloss.rule.none"` — ""
+- `"stonetop.improvement.gloss.rule.or"` — "or, instead, the section above"
+
+### `stonetop.improvement.words`
+
+- `"stonetop.improvement.words.label"` — "Words"
+- `"stonetop.improvement.words.generated"` — "Written from the choices. Change them and they’re yours."
+- `"stonetop.improvement.words.yours"` — "Your words."
+
+### `stonetop.improvement.wording.heading.first`
+
+- `"stonetop.improvement.wording.heading.first.all"` — "**Requires** all of the following:"
+- `"stonetop.improvement.wording.heading.first.some"` — "**Requires** {count} of the following:"
+- `"stonetop.improvement.wording.heading.first.or"` — "**Requires** either this:"
+
+### `stonetop.improvement.wording.heading.later`
+
+- `"stonetop.improvement.wording.heading.later.all"` — "And then:"
+- `"stonetop.improvement.wording.heading.later.some"` — "And at least {count} of these:"
+- `"stonetop.improvement.wording.heading.later.or"` — "Or all of these:"
+
+### `stonetop.improvement.wording.result`
+
+- `"stonetop.improvement.wording.result.increase"` — "increase {rating} by {amount}"
+- `"stonetop.improvement.wording.result.decrease"` — "decrease {rating} by {amount}"
+- `"stonetop.improvement.wording.result.list"` — "add \"{entry}\" to the {list} list"
+- `"stonetop.improvement.wording.result.set"` — "change {rating} to {value}"
+
+### `stonetop.improvement.example`
+
+- `"stonetop.improvement.example.name"` — "Example Improvement"
+- `"stonetop.improvement.example.line"` — "An improvement would make all our lives better."
+- `"stonetop.improvement.example.heading"` — "Requires all of the following:"
+- `"stonetop.improvement.example.requirementOne"` — "Pen and paper"
+- `"stonetop.improvement.example.requirementTwo"` — "Creativity and community to write it!"
+- `"stonetop.improvement.example.completion"` — "increase Fortunes by 1"
+- `"stonetop.improvement.example.henceforth"` — "you are extra happy"
+
+### `stonetop.improvement.placeholder`
+
+- `"stonetop.improvement.placeholder.requirement"` — "what it takes"
+- `"stonetop.improvement.placeholder.line"` — "a line of text"
+- `"stonetop.improvement.placeholder.heading"` — "the heading"
+- `"stonetop.improvement.placeholder.words"` — "what it does"
+- `"stonetop.improvement.placeholder.phrase"` — "when it happens"
+- `"stonetop.improvement.placeholder.entry"` — "what it writes on the list"
+- `"stonetop.improvement.placeholder.momentName"` — "e.g. the spring festival"
+
+### `stonetop.improvement.adder`
+
+- `"stonetop.improvement.adder.add"` — "Add"
+
+### `stonetop.arcana`
+
+- `"stonetop.arcana.followerJoinsHint"` — ""
+- `"stonetop.arcana.followerJoined"` — ""
+- `"stonetop.arcana.majorTitle"` — "Major Arcana"
+- `"stonetop.arcana.minorTitle"` — "Minor Arcana"
 
 ### `stonetop.inventory.adder`
 

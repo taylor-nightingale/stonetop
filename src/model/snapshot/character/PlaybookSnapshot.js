@@ -55,6 +55,8 @@ export class BackgroundOptionSnapshot {
 		this.selected    = b._selected;
 		this.moves       = b._moves;
 		this.choices     = b._choices;
+		// The picks a background makes on a move (the Witch Hunter's Well Versed topic), one group each.
+		this.moveMarks   = b._moveMarks ?? [];
 		this.resource    = b._resource ?? null;
 	}
 }
@@ -66,6 +68,7 @@ export class BackgroundOptionSnapshotBuilder {
 	withSelected(v)    { this._selected    = v; return this; }
 	withMoves(v)       { this._moves       = v; return this; }
 	withChoices(v)     { this._choices     = v; return this; }
+	withMoveMarks(v)   { this._moveMarks   = v; return this; }
 	withResource(v)    { this._resource    = v; return this; }
 	build()            { return new BackgroundOptionSnapshot(this); }
 }

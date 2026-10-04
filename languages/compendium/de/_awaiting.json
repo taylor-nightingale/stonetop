@@ -1,7 +1,17 @@
 {
+  "playbooks": {
+    "the-seeker": [
+      "backgrounds/patriot/description",
+      "backgrounds/antiquarian/description",
+      "backgrounds/witch-hunter/description"
+    ]
+  },
   "moves": {
     "deaths-door": [
       "name",
+      "description"
+    ],
+    "persuade-vs-npcs": [
       "description"
     ],
     "strengthen-your-bond": [
@@ -9,12 +19,16 @@
     ],
     "tethered": [
       "description"
+    ],
+    "well-versed": [
+      "description"
     ]
   },
   "ui": {
     "_ui": [
       "stonetop.sheet.lock.lock",
       "stonetop.sheet.lock.lockHint",
+      "stonetop.sheet.lock.unlock",
       "stonetop.sheet.lock.unlockHint",
       "stonetop.inventory.addItemWeight",
       "stonetop.inventory.addItemConfirm",

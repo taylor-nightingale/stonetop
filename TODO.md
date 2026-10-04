@@ -10,6 +10,6 @@
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
 * feature collapse names sidebar on folks screen
 * feature Instead of blank, default to stonetop for folk
-* feature: update well-versed to be able to pick topics automatically from your background, bold Well Versed in the backgrounds to show it is granted
+
 
 * increase font size of section titles to increase readability
