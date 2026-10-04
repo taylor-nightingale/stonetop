@@ -8,8 +8,8 @@
 
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
-* feature collapse names sidebar on folks screen
 * feature Instead of blank, default to stonetop for folk
 
 
 * increase font size of section titles to increase readability
+* resources, epand and chat button are too close together on moves page

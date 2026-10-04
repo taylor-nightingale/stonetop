@@ -18,6 +18,18 @@
 		<input type="search" class="steading-folk-search" data-view-state
 		       placeholder="{{localize 'stonetop.steading.folk.searchPlaceholder'}}"
 		       aria-label="{{localize 'stonetop.a11y.folkSearch'}}">
+		{{!-- Puts the reference column away and gives the roster the tab's width. A disclosure like
+		      each list's own fold, so OpenDisclosures keeps it put away across renders; view state,
+		      so a locked sheet leaves it live. --}}
+		<button type="button" class="steading-folk-ref-toggle stonetop-icon-btn" data-action="toggleFolkList"
+		        data-disclosure data-view-state
+		        aria-controls="{{@root.sheetIdPrefix}}-folk-reference" aria-expanded="true"
+		        data-label-show="{{localize 'stonetop.steading.folk.listsShow'}}"
+		        data-label-hide="{{localize 'stonetop.steading.folk.listsHide'}}"
+		        aria-label="{{localize 'stonetop.steading.folk.listsHide'}}"
+		        title="{{localize 'stonetop.steading.folk.listsHide'}}">
+			<i class="fas fa-chevron-right steading-folk-ref-caret" aria-hidden="true"></i>
+		</button>
 	</div>
 
 	<div class="steading-folk-table">

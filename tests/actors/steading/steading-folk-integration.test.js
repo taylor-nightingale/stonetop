@@ -383,6 +383,56 @@ describe("folding a name list away (integration)", () => {
 	});
 });
 
+// The whole column at once, for a GM who is filling in the roster rather than inventing anybody.
+describe("putting the reference column away (integration)", () => {
+	const columnToggle = root => root.querySelector(".steading-folk-ref-toggle");
+	const column       = root => root.querySelector(".steading-folk-ref");
+
+	it("arrives with the column showing, the toggle driving it", async () => {
+		const root = await render(makeSheet(), true);
+		const toggle = columnToggle(root);
+
+		expect(toggle.getAttribute("aria-controls")).toBe(column(root).id);
+		expect(toggle.getAttribute("aria-expanded")).toBe("true");
+		expect(column(root).hidden).toBe(false);
+	});
+
+	it("hides the column, and the toggle says so", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+
+		await act(sheet, "toggleFolkList", columnToggle(root));
+
+		expect(column(root).hidden).toBe(true);
+		expect(columnToggle(root).getAttribute("aria-expanded")).toBe("false");
+	});
+
+	it("stays put away across the render an edit causes", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		await act(sheet, "toggleFolkList", columnToggle(root));
+
+		const next = await render(sheet);
+
+		expect(column(next).hidden, "the column came back on the render").toBe(true);
+		expect(columnToggle(next).getAttribute("aria-expanded")).toBe("false");
+	});
+
+	it("leaves each list's own fold alone", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		const folds = () => [...root.querySelectorAll(".steading-folk-list-toggle")]
+			.map(t => t.getAttribute("aria-expanded"));
+		const before = folds();
+
+		await act(sheet, "toggleFolkList", columnToggle(root));
+		await act(sheet, "toggleFolkList", columnToggle(root));
+
+		expect(column(root).hidden).toBe(false);
+		expect(folds()).toEqual(before);
+	});
+});
+
 describe("the search (integration)", () => {
 	async function withRoster() {
 		const sheet = makeSheet();

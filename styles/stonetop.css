@@ -8577,6 +8577,13 @@ button.stonetop-xp-toggle {
 	padding-inline: var(--focus-ring-reach);
 }
 
+/* Put away by the roster head's toggle. The column's own `display: flex` outranks the user agent's
+   `[hidden]`, so it has to be said here; the divider goes with it rather than ruling off nothing. */
+.stonetop.sheet.steading .steading-folk-ref[hidden],
+.stonetop.sheet.steading .steading-folk-grid:has(> .steading-folk-ref[hidden]) > .steading-folk-divider {
+	display: none;
+}
+
 /* Thin sheets: the two columns become two rows.
 
    Side by side, the roster's share of a narrow tab is six columns of editable text in ~300px — the
@@ -8640,6 +8647,19 @@ button.stonetop-xp-toggle {
 	border-bottom: 1px solid var(--st-rule-veil);
 	background: transparent;
 	color: var(--st-ink);
+}
+
+/* Points the way the column goes: out to the right while it is showing, back in once put away. */
+.stonetop.sheet.steading .steading-folk-ref-toggle {
+	grid-column: 3;
+}
+
+.stonetop.sheet.steading .steading-folk-ref-caret {
+	transition: transform 0.1s ease;
+}
+
+.stonetop.sheet.steading .steading-folk-ref-toggle[aria-expanded="false"] .steading-folk-ref-caret {
+	transform: rotate(180deg);
 }
 
 .stonetop.sheet.steading .steading-folk-hint {

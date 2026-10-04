@@ -275,7 +275,8 @@
 
 				<div class="steading-folk-divider" aria-hidden="true"></div>
 
-				<section class="steading-folk-ref steading-block">
+				{{!-- Put away whole by the toggle in the roster's head; see steading-folk-roster.hbs. --}}
+				<section class="steading-folk-ref steading-block" id="{{sheetIdPrefix}}-folk-reference">
 					{{#each stonetop.folkSuggestions}}
 						{{> "stonetop.steading-folk-suggestions" list=this}}
 					{{/each}}

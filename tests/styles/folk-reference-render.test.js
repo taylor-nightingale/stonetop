@@ -174,7 +174,7 @@ const ROSTER_FOLK = [
 
 // The rail is part of the fixture because the tab's width is the sheet's LESS the rail's, and that
 // is the width the folk grid answers to.
-const folkTab = width => `
+const folkTab = (width, { refHidden = false } = {}) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
  <div class="window-content"><div class="sheet-wrapper">
   <div class="stonetop-rail-layout">
@@ -185,7 +185,7 @@ const folkTab = width => `
      <div class="steading-folk-grid">
       ${renderPartial("stonetop.steading-folk-roster", { folk: ROSTER_FOLK, isGM: true, actor: { name: "Stonetop" } })}
       <div class="steading-folk-divider"></div>
-      <section class="steading-folk-ref steading-block">
+      <section class="steading-folk-ref steading-block"${refHidden ? " hidden" : ""}>
         ${renderPartial("stonetop.steading-folk-suggestions", { list: nameList })}
       </section>
      </div>
@@ -350,5 +350,39 @@ describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
 	// two columns have to still be two columns, or they fold and unfold as the window shrinks.
 	it.each([1100, 1040, 1020, 1000, 960, 860, 760])("does not fold on the way down at %ipx", width => {
 		sideBySide(measure(width), `the lists folded under the roster at ${width}px and will jump back`);
+	});
+});
+
+// The column's own `display: flex` outranks the user agent's `[hidden]`, so a column the toggle has
+// put away would still be drawn unless the stylesheet says otherwise — and the divider has no
+// business ruling the roster off from nothing.
+describe.skipIf(!canProbe())("the reference column put away", () => {
+	let m;
+	beforeAll(() => {
+		m = probe.measure({
+			bodyHtml: folkTab(1180, { refHidden: true }), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
+			targets: {
+				grid:    ".steading-folk-grid",
+				roster:  ".steading-folk-roster",
+				ref:     ".steading-folk-ref",
+				divider: ".steading-folk-divider",
+				toggle:  ".steading-folk-ref-toggle",
+			},
+			chromeFlags: ["--window-size=1300,1400"],
+		});
+	});
+
+	it("draws neither the column nor the divider", () => {
+		expect(m.get("ref").values.boxWidth, "the hidden column still takes room").toBe(0);
+		expect(m.get("divider").values.boxWidth, "the divider still rules off an empty column").toBe(0);
+	});
+
+	it("gives the roster the tab's whole width", () => {
+		expect(m.get("roster").values.boxWidth).toBeCloseTo(m.get("grid").values.boxWidth, 0);
+	});
+
+	it("leaves the toggle on screen to bring the column back", () => {
+		expect(m.get("toggle").missing, "the toggle did not render").toBe(false);
+		expect(m.get("toggle").values.boxWidth).toBeGreaterThan(0);
 	});
 });
