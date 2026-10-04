@@ -1336,6 +1336,13 @@ body,
 	filter: var(--st-art-filter);
 }
 
+/* The book's line art as a directory or compendium thumbnail, whole. Core crops every thumbnail to fill
+   its square, and Chromium scales a cropped image down that far with coarse sampling — the arcana drew
+   as speckled two-tone blocks, cut into besides. Contained, the same image scales down smooth. */
+.directory-item img.thumbnail[src*="stonetop-art/"] {
+	object-fit: contain;
+}
+
 /* ── Stats row: six across ──────────────────────────────────────────────────── */
 
 /* Six frames in one row, at the token the frame art is masked to: 6 × 6rem plus five 0.25rem gaps.
