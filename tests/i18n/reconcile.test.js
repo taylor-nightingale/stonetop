@@ -21,7 +21,7 @@ describe("englishCatalog", () => {
 	});
 
 	it("skips documents of untranslated types and documents with no slug", () => {
-		const catalog = english([{ type: "npc", name: "Nerth serpent", system: { slug: "nerth-serpent" } }, { type: "playbook", name: "x", system: {} }]);
+		const catalog = english([{ type: "character", name: "Aranwe", system: { slug: "aranwe" } }, { type: "playbook", name: "x", system: {} }]);
 		expect(catalog.size).toBe(0);
 	});
 

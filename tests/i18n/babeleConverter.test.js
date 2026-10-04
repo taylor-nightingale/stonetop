@@ -119,8 +119,8 @@ describe("stonetopStringsConverter", () => {
 	});
 
 	it("leaves a document of an untranslated type untouched", () => {
-		const npc = { _id: "x", type: "npc", name: "Nerth serpent", system: { slug: "nerth-serpent", description: "A great serpent." } };
-		expect(translate(npc, { description: "Eine große Schlange." })).toBeUndefined();
+		const character = { _id: "x", type: "character", name: "Aranwe", system: { slug: "aranwe", description: "A seeker." } };
+		expect(translate(character, { description: "Eine Sucherin." })).toBeUndefined();
 	});
 });
 
