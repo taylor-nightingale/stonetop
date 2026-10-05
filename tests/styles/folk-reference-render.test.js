@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
-import { RenderProbe, canProbe } from "./RenderProbe.js";
+import { RenderProbe, canProbe, fontAwesomeCss } from "./RenderProbe.js";
 import { CssColor } from "./cssColor.js";
 import { renderPartial } from "../fakes/renderTemplate.js";
 import { Suggestion, SuggestionList } from "../../src/model/snapshot/steading/SuggestionSnapshot.js";
@@ -37,6 +37,9 @@ const sheets = [
 	sheet("themes/parchment-dark.css"),
 	sheet("tokens.css"),
 	sheet("stonetop.css"),
+	// The roster's link chip is an icon in core's bordered frame; without the icon's real box the
+	// chip measures as a frame around nothing.
+	...(fontAwesomeCss() ? [fontAwesomeCss()] : []),
 ];
 
 const probe = new RenderProbe(sheets);
@@ -217,6 +220,8 @@ describe.skipIf(!canProbe())("the roster fits the tab it shares with the referen
 						ref:     ".steading-folk-ref",
 						linkCell: '.steading-folk-row[data-id="d"] .steading-doc-link',
 						linkText: '.steading-folk-row[data-id="d"] .content-link',
+						linkIcon: '.steading-folk-row[data-id="d"] .content-link i',
+						unlink:   '.steading-folk-row[data-id="d"] .stonetop-person-unlink',
 						nameCell: '.steading-folk-row[data-id="d"] .stonetop-person-name',
 						traits:   '.steading-folk-row[data-id="c"] .stonetop-person-traits',
 						shortRow: '.steading-folk-row[data-id="a"]',
@@ -263,10 +268,22 @@ describe.skipIf(!canProbe())("the roster fits the tab it shares with the referen
 				expect(linkCell.boxWidth, "the link column is wider than its controls")
 					.toBeLessThan(m.get("nameCell").values.boxWidth);
 				expect(m.get("linkText").values.boxWidth, "the chip is still drawing the document's name")
-					.toBeLessThan(24);
+					.toBeLessThan(m.get("linkIcon").values.boxWidth * 2);
 				// Icon and ✕ both still inside it: shrinking the column must not clip the control that
 				// unlinks the row.
 				expect(m.get("linkCell").overflowX, "the chip's controls are clipped").toBe(0);
+				expect(right(m.get("unlink")), "the ✕ runs past the link column")
+					.toBeLessThanOrEqual(right(m.get("linkCell")) + 1);
+			});
+
+			// The chip is core's bordered content-link. Squeezed narrower than its icon, the frame
+			// stopped short and the icon hung out of its right side — a portrait drawn off its own box.
+			it("draws the link's icon inside the chip's frame", () => {
+				const chip = m.get("linkText").values;
+				const icon = m.get("linkIcon").values;
+				expect(icon.boxLeft, "the icon starts left of its frame").toBeGreaterThanOrEqual(chip.boxLeft);
+				expect(right(m.get("linkIcon")), "the icon hangs out of its frame")
+					.toBeLessThanOrEqual(right(m.get("linkText")));
 			});
 
 			// A list of traits is the one cell that cannot be read at a glance if it is cut: "knows all
@@ -333,9 +350,10 @@ describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
 	// The point of stacking: the roster's own columns stop being unusable. A name cell narrower than
 	// the delete button beside it is a roster you cannot read a name in. The floor is a readability
 	// one, not a measurement: a folded rail takes a real strip out of this width now, so the cell is
-	// some px narrower than it was and still holds a name.
+	// some px narrower than it was and still holds a name, and so does the link column taking the
+	// width its chip and ✕ actually need rather than a pinned one that squeezed the chip.
 	it("gives the roster's name cell a usable width", () => {
-		expect(measure(560).get("name").values.boxWidth).toBeGreaterThan(90);
+		expect(measure(560).get("name").values.boxWidth).toBeGreaterThan(85);
 	});
 
 	const sideBySide = (m, why) => expect(m.get("ref").values.boxLeft, why)

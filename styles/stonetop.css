@@ -8753,41 +8753,51 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-ink) !important;
 }
 
+/* The TABLE owns the columns; the header and every row take them through subgrid, so a track sized
+   by its content is sized by the widest cell in it across the whole roster, and every row still lines
+   up with the header.
+
+   Home sits second, right after the name — it is the column that says whether someone is of this
+   steading or of somewhere else, and blank means here.
+
+   minmax(0, …) on every flexible track, not a bare `fr`: an `fr` track floors at its content's
+   min-content width, and a text input's min-content is the ~20 characters the user agent sizes it
+   to. Six of those put the roster ~100px wider than its own column at the sheet's default width and
+   ~270px wider at 900 — a horizontal scrollbar under the table instead of narrower columns.
+   tests/styles/folk-reference-render.test.js measures exactly this.
+
+   The link track holds an icon and a ✕ and nothing else — see the chip below — and is `auto`, as
+   wide as those two are. Pinned at 2.4rem it was narrower than core's bordered chip and its ✕, and
+   the chip's frame was squeezed short of the icon inside it. At 5rem it was the widest fixed thing on
+   the row: a quarter of the roster spent restating a name that is already in the row.
+
+   Traits takes the largest share. It is the only cell that WRAPS — "knows all the gossip, cheery,
+   owes the Marshedge dockmaster" is a list, not a word — so every character it is short is a line the
+   row grows by, while the three beside it hold a name, a place and a trade. */
 .stonetop.sheet.steading .steading-folk-table {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+	display: grid;
+	grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 2.2fr) auto 1.5rem;
+	column-gap: 4px;
+	row-gap: 2px;
 }
 
+.stonetop.sheet.steading .steading-folk-table > * {
+	grid-column: 1 / -1;
+}
+
+.stonetop.sheet.steading .steading-folk-rows,
 .stonetop.sheet.steading .steading-folk-header,
 .stonetop.sheet.steading .steading-folk-row {
 	display: grid;
-	/* Trailing link + delete columns are FIXED (not auto): each row is its own grid, so a
-	   content-sized column would compute a different width per row and knock the text inputs out of
-	   alignment with the header. Fixed tracks keep every row and the header on the same columns.
-	   Home sits second, right after the name — it is the column that says whether someone is of this
-	   steading or of somewhere else, and blank means here.
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+}
 
-	   minmax(0, …) on every flexible track, not a bare `fr`: an `fr` track floors at its content's
-	   min-content width, and a text input's min-content is the ~20 characters the user agent sizes it
-	   to. Six of those put the roster ~100px wider than its own column at the sheet's default width
-	   and ~270px wider at 900 — a horizontal scrollbar under the table instead of narrower columns.
-	   tests/styles/folk-reference-render.test.js measures exactly this.
-
-	   The link track holds an icon and a ✕ and nothing else — see the chip below. At 5rem it was the
-	   widest fixed thing on the row and, on a narrow sheet, wider than the Name cell: a quarter of the
-	   roster spent restating a name that is already in the row.
-
-	   Cells align to the TOP, not the middle. The traits cell wraps to a second line, and a centred
-	   row would then float the other five cells down its middle — the roster stops lining up as soon
-	   as anyone is interesting.
-
-	   Traits takes the largest share, and takes the room the link column gave up. It is the only cell
-	   that WRAPS — "knows all the gossip, cheery, owes the Marshedge dockmaster" is a list, not a
-	   word — so every character it is short is a line the row grows by, while the three beside it hold
-	   a name, a place and a trade. */
-	grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 2.2fr) 2.4rem 1.5rem;
-	gap: 4px;
+/* Cells align to the TOP, not the middle. The traits cell wraps to a second line, and a centred row
+   would then float the other five cells down its middle — the roster stops lining up as soon as
+   anyone is interesting. */
+.stonetop.sheet.steading .steading-folk-header,
+.stonetop.sheet.steading .steading-folk-row {
 	align-items: start;
 }
 
@@ -8886,6 +8896,8 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-folk-row .steading-doc-link .content-link {
 	font-size: 0;
 	overflow: visible;
+	/* Never narrower than its icon: the chip is core's bordered frame, and squeezed it draws short. */
+	flex: none;
 }
 
 .stonetop.sheet.steading .steading-folk-row .steading-doc-link .content-link i {

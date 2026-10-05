@@ -308,6 +308,12 @@ describe("folding a name list away (integration)", () => {
 	const keyOf       = toggle => toggle.getAttribute("aria-controls").replace(/^.*-folk-/, "");
 	const isOpen      = toggle => !listBody(toggle).hidden;
 	const toggleFor   = (root, key) => listToggles(root).find(t => keyOf(t) === key);
+	// Pressed through the action the caret itself names, and let the slide land: without layout every
+	// box is 0px tall, so it has no distance to go and settles on the next tick.
+	const press       = async (sheet, toggle) => {
+		await act(sheet, toggle.dataset.action, toggle);
+		await new Promise(r => setTimeout(r, 0));
+	};
 
 	it("arrives with the steading's own names open and each neighbour's folded", async () => {
 		const root = await render(makeSheet(), true);
@@ -324,13 +330,20 @@ describe("folding a name list away (integration)", () => {
 		}
 	});
 
+	// The same slide as the rail's groups and a move's text — a list snapping shut jumped every list
+	// under it up the column at once.
+	it("slides a list open and shut rather than snapping it", async () => {
+		const root = await render(makeSheet(), true);
+		for (const toggle of listToggles(root)) expect(toggle.dataset.action, keyOf(toggle)).toBe("toggleSliding");
+	});
+
 	it("folds one list away without touching the others", async () => {
 		const sheet = makeSheet();
 		const root = await render(sheet, true);
 		const own = toggleFor(root, "names-own");
 		const others = listToggles(root).filter(t => t !== own);
 
-		await act(sheet, "toggleFolkList", own);
+		await press(sheet, own);
 
 		expect(listBody(own).hidden).toBe(true);
 		expect(own.getAttribute("aria-expanded")).toBe("false");
@@ -348,7 +361,7 @@ describe("folding a name list away (integration)", () => {
 		const neighbour = listToggles(root).find(t => keyOf(t).startsWith("names-") && keyOf(t) !== "names-own");
 		expect(neighbour, "the fixture seeds no neighbouring place").toBeTruthy();
 
-		await act(sheet, "toggleFolkList", neighbour);
+		await press(sheet, neighbour);
 		expect(isOpen(neighbour)).toBe(true);
 
 		const next = await render(sheet);
@@ -361,7 +374,7 @@ describe("folding a name list away (integration)", () => {
 		const sheet = makeSheet();
 		const root = await render(sheet, true);
 		const folded = listToggles(root)[0];
-		await act(sheet, "toggleFolkList", folded);
+		await press(sheet, folded);
 
 		const next = await render(sheet);
 		const again = listToggles(next)[0];
@@ -375,8 +388,8 @@ describe("folding a name list away (integration)", () => {
 		const root = await render(sheet, true);
 		const toggle = listToggles(root)[0];
 
-		await act(sheet, "toggleFolkList", toggle);
-		await act(sheet, "toggleFolkList", toggle);
+		await press(sheet, toggle);
+		await press(sheet, toggle);
 
 		const next = await render(sheet);
 		expect(listBody(listToggles(next)[0]).hidden).toBe(false);

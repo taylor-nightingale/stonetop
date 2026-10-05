@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
-import { existsSync, readdirSync } from "fs";
-import { RenderProbe, canProbe } from "./RenderProbe.js";
+import { RenderProbe, canProbe, fontAwesomeCss } from "./RenderProbe.js";
 
 // What the improvement card's chip row must do, settled in a browser with core's own stylesheet and
 // core's own FontAwesome — both taken from the local Foundry install, so the cascade and the icon
@@ -22,27 +21,10 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
 const STYLES = path.resolve("styles");
 const sheet = (f) => path.join(STYLES, f);
 
-/**
- * Core's REAL FontAwesome, from the same local Foundry install the probe already takes foundry2.css
- * from — not a stub of it.
- *
- * This file was written twice against a synthetic stand-in first, and both were wrong in the same
- * direction: an empty `<i class="fas">` contributes no line box, so every chip measured level on the
- * broken stylesheet too. A stub good enough to reproduce the bug turned out to be a stub whose
- * metrics were the thing under test. The real font settles it, and it is sitting on disk.
- */
-function fontAwesomeCss() {
-	const home = process.env.HOME ?? "";
-	const installs = existsSync(home)
-		? readdirSync(home).filter(d => /^FoundryVTT/.test(d)).sort().reverse()
-		: [];
-	for (const dir of installs) {
-		const css = path.join(home, dir, "resources/app/public/fonts/fontawesome/css/all.min.css");
-		if (existsSync(css)) return css;
-	}
-	return null;
-}
-
+// Core's REAL FontAwesome — not a stub. This file was written twice against a synthetic stand-in
+// first, and both were wrong in the same direction: an empty `<i class="fas">` contributes no line
+// box, so every chip measured level on the broken stylesheet too. A stub good enough to reproduce the
+// bug turned out to be a stub whose metrics were the thing under test.
 const iconFont = fontAwesomeCss();
 
 const probe = new RenderProbe([

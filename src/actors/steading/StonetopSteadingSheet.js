@@ -77,14 +77,15 @@ export function createStonetopSteadingSheetClass(Base) {
 					this.rosterFocus.focusOn(person.id);
 				}),
 
-				// Folding a name list away, and opening an improvement card onto its requirement
-				// rows, are view state on the thing itself rather than edits — so neither is
-				// edit-gated and both survive a locked sheet. The same disclosure the move rows use,
+				// Putting the Folk reference column away, and opening an improvement card onto its
+				// requirement rows, are view state on the thing itself rather than edits — so neither
+				// is edit-gated and both survive a locked sheet. The same disclosure the move rows use,
 				// through the same one implementation.
 				toggleFolkList:        toggleDisclosure,
 				// A section's door (D11) — the season head's, the character sheet's own toggle.
 				toggleSection:         toggleSwappingDisclosure,
-				// A rail group's bar, opening and shutting its panel as the character's do.
+				// A rail group's bar, or a Folk name list's caret, sliding its panel as the
+				// character's do.
 				toggleSliding:         toggleSlidingDisclosure,
 				toggleImprovementCard: toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
