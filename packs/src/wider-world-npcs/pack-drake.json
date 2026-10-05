@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Dart through tall grass, unseen\n- Surround their prey\n- Bite down and pull in one direction while a packmate pulls in the other (+messy)\n\nSneaky little dog-sized critters that prowl the Flats. Hunt in packs ranging from six to a couple dozen. Just the worst.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "moves": "- Dart through tall grass, unseen\n- Surround their prey\n- Bite down and pull in one direction while a packmate pulls in the other (+messy)",
+    "description": "Sneaky little dog-sized critters that prowl the Flats. Hunt in packs ranging from six to a couple dozen. Just the worst.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
     "notes": ""
   },
   "ownership": {

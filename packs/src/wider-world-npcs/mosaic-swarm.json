@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Wait for intruders to get close, rattling softly\n- Explode into a cloud of whirling ceramic tiles, d8+1 damage (area, messy, 1 piercing)\n- Reform into a vaguely humanoid mass\n\nStone Lords adorned their halls with elaborate tilework and mosaics. Most of them were decorative. Most of them. Something interesting: Either some spirit is possessing these tiles, or this is some sort of construct. If it’s a spirit, there must be a tether. If it’s a Stone Lord construct, well, the individual tiles are too small to power or direct themselves. Something useful: The mosaic’s frame remained on the wall, and it’s glowing blue—aetherium runes! Destroy the runes, and the construct should fall apart.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
+    "moves": "- Wait for intruders to get close, rattling softly\n- Explode into a cloud of whirling ceramic tiles, d8+1 damage (area, messy, 1 piercing)\n- Reform into a vaguely humanoid mass",
+    "description": "Stone Lords adorned their halls with elaborate tilework and mosaics. Most of them were decorative. Most of them. Something interesting: Either some spirit is possessing these tiles, or this is some sort of construct. If it’s a spirit, there must be a tether. If it’s a Stone Lord construct, well, the individual tiles are too small to power or direct themselves. Something useful: The mosaic’s frame remained on the wall, and it’s glowing blue—aetherium runes! Destroy the runes, and the construct should fall apart.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
     "notes": ""
   },
   "ownership": {

@@ -10,7 +10,7 @@ import path from "path";
 // Widened one pack at a time: each needs an allowlist in src/i18n/translatablePaths.js first.
 export const TRANSLATED_PACKS = [
 	"playbooks", "moves", "arcana", "possessions", "followers",
-	"outfit-items", "inserts", "steading-improvements", "steadfasts",
+	"outfit-items", "inserts", "steading-improvements", "steadfasts", "wider-world-npcs",
 ];
 
 export const compendiumDir = (root = ".") => path.join(root, "languages", "compendium");

@@ -40,7 +40,12 @@ export function stonetopStringsConverter(value, translation, source) {
 	const document = { ...source, system: foundry.utils.deepClone(value) };
 	const touched  = new Set();
 
-	for (const entry of translatableEntriesForType(source?.type, document)) {
+	const sourceType = source?.type === "Actor" || source?.documentName === "Actor"
+        ? (value.instinct && Object.hasOwn(value, "damage") ? "npc" : source?.type)
+        : source?.type;
+    document.type = sourceType;
+
+	for (const entry of translatableEntriesForType(sourceType, document)) {
 		// `name` is mapped separately, by Babele's own primitive converter.
 		if (!entry.path.startsWith(SYSTEM_PREFIX)) continue;
 		const translated = translation[entry.key];

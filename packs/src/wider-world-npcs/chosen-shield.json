@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Lash out with sudden, casual violence\n- Fight with grim purpose or reckless abandon\n- Pry apart an enemy’s defenses\n\nThe chosen shields are a chief’s best: the most loyal, the bravest, the bloodiest. They’re professional fighters, their chief’s bodyguards, enforcers, and lieutenants. They sit closest to the chief by the fire, and share the best haunches of meat. They take a share, too, of their chief’s loot and their chief’s glory. The wise chief lets them have it, for a chief is nothing without their chosen shields. And when a chief is toppled, it’s usually one of their chosen shields that does the toppling.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "moves": "- Lash out with sudden, casual violence\n- Fight with grim purpose or reckless abandon\n- Pry apart an enemy’s defenses",
+    "description": "The chosen shields are a chief’s best: the most loyal, the bravest, the bloodiest. They’re professional fighters, their chief’s bodyguards, enforcers, and lieutenants. They sit closest to the chief by the fire, and share the best haunches of meat. They take a share, too, of their chief’s loot and their chief’s glory. The wise chief lets them have it, for a chief is nothing without their chosen shields. And when a chief is toppled, it’s usually one of their chosen shields that does the toppling.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
     "notes": ""
   },
   "ownership": {

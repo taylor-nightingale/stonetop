@@ -27,8 +27,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Form/hold a shield wall\n- Pick their battles\n- Charge!\n\nNo longer young, no longer eager or scared. Just grim folk with something to fight for, something to lose. They might not be as spry as once they were, but they’re no strangers to the black business.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "moves": "- Form/hold a shield wall\n- Pick their battles\n- Charge!",
+    "description": "No longer young, no longer eager or scared. Just grim folk with something to fight for, something to lose. They might not be as spry as once they were, but they’re no strangers to the black business.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
     "notes": ""
   },
   "ownership": {

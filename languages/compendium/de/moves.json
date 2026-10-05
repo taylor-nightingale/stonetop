@@ -1102,13 +1102,11 @@
   "deaths-door": {
     "name": {
       "source": "Death's Door",
-      "text": "An der Schwelle des Todes",
-      "needsReview": true
+      "text": "An der Schwelle des Todes"
     },
     "description": {
       "source": "When **_you are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:\n\n- Make one last move as if you rolled a 12+, then step through the Last Door\n- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert\n- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert",
-      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}.",
-      "needsReview": true
+      "text": "Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:\n\n- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.\n- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.\n- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}."
     },
     "moveResults/success/value": {
       "source": "You wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you.",
@@ -1744,19 +1742,19 @@
     },
     "description": {
       "source": "When you **_first meet someone from beyond Stonetop_**, roll +Fortunes: **on a 10+**, say what they’ve heard about you or Stonetop, and gain advantage on your next move against them; **on a 7-9**, say what they’ve heard; **on a 6-**, the GM decides what they’ve heard.",
-      "text": ""
+      "text": "Wenn du **_zum ersten Mal jemandem von außerhalb Stonetops begegnest_**, würfle +Schicksal. **Bei einer 10+** sagst du, was sie über dich oder Stonetop gehört hat, und du erhältst einen Vorteil auf deinen nächsten Spielzug gegen sie. **Bei 7–9** sagst du, was sie gehört hat. **Bei einer 6-** entscheidet der SL, was sie gehört hat."
     },
     "moveResults/success/value": {
       "source": "Say what they’ve heard about you or Stonetop, and gain advantage on your next move against them.",
-      "text": ""
+      "text": "Du sagst, was sie über dich oder Stonetop gehört hat, und du erhältst einen Vorteil auf deinen nächsten Spielzug gegen sie."
     },
     "moveResults/partial/value": {
       "source": "Say what they’ve heard.",
-      "text": ""
+      "text": "Du sagst, was sie gehört hat."
     },
     "moveResults/failure/value": {
       "source": "The GM decides what they’ve heard.",
-      "text": ""
+      "text": "Der SL entscheidet, was sie gehört hat."
     }
   },
   "home-on-the-range": {
@@ -2068,23 +2066,23 @@
   "lead-the-aurochs-hunt": {
     "name": {
       "source": "Lead the Aurochs Hunt",
-      "text": ""
+      "text": "Die Auerochsenjagd anführen"
     },
     "description": {
       "source": "When you **_lead the aurochs hunt in spring,_** roll +Defenses: **on a 10+**, gain 1d4 Surplus; **on a 7-9**, gain 1d4 Surplus, but pick 1 from the list below; **on a 6-**, pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town’s horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they’ll be wiped out",
-      "text": ""
+      "text": "Wenn du **_im Frühling die Auerochsenjagd anführst_**, würfle +Verteidigung. **Bei einer 10+** erhältst du 1W4 Überschuss. **Bei 7–9** erhältst du 1W4 Überschuss, aber wähle 1 aus der folgenden Liste. **Bei einer 6-** wähle 1 aus der Liste – oder 2 und erhalte 1W4 Überschuss.\n\n- 1W4 Pferde des Dorfes werden lahm oder getötet.\n- Eine Reihe von Einheimischen wird verletzt. Markiere bei der Siedlung Geschwächt (Nachteil auf Truppen einsetzen, Truppen aufbieten oder Gemeinsam anpacken).\n- Der SL wählt einen bei der Jagd anwesenden NSC. Er wird getötet.\n- Das Hügelvolk fühlt sich auf irgendeine Weise beleidigt.\n- Die Herde ist geschwächt. Wenn du im nächsten Jahr jagst, wird sie vollständig ausgelöscht."
     },
     "moveResults/success/value": {
       "source": "Gain 1d4 Surplus.",
-      "text": ""
+      "text": "Du erhältst 1W4 Überschuss."
     },
     "moveResults/partial/value": {
       "source": "Gain 1d4 Surplus, but pick 1 from the list below.",
-      "text": ""
+      "text": "Du erhältst 1W4 Überschuss, aber wähle 1 aus der folgenden Liste."
     },
     "moveResults/failure/value": {
       "source": "Pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town’s horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they’ll be wiped out",
-      "text": ""
+      "text": "Wähle 1 aus der Liste – oder 2 und erhalte 1W4 Überschuss.\n\n- 1W4 Pferde des Dorfes werden lahm oder getötet.\n- Eine Reihe von Einheimischen wird verletzt. Markiere bei der Siedlung Geschwächt (Nachteil auf Truppen einsetzen, Truppen aufbieten oder Gemeinsam anpacken).\n- Der SL wählt einen bei der Jagd anwesenden NSC. Er wird getötet.\n- Das Hügelvolk fühlt sich auf irgendeine Weise beleidigt.\n- Die Herde ist geschwächt. Wenn du im nächsten Jahr jagst, wird sie vollständig ausgelöscht."
     }
   },
   "let-fly": {
@@ -2464,15 +2462,15 @@
   "news-at-the-inn": {
     "name": {
       "source": "News at the Inn",
-      "text": ""
+      "text": "Neuigkeiten im Gasthaus"
     },
     "description": {
       "source": "When **_the seasons change_**, whoever is friendliest rolls +Fortunes: **on a 10+**, ask the GM 3 questions about the wider world; **on a 7-9**, ask 1 question; **on a 6-**, ask 1 question, but the GM describes some trouble that stems from the inn or its guests.",
-      "text": ""
+      "text": "Wenn **_die Jahreszeit wechselt_**, würfelt die Person, die am freundlichsten ist, +Schicksal. **Bei einer 10+** stelle dem SL drei Fragen über die weite Welt. **Bei 7–9** stelle eine Frage. **Bei einer 6-** stelle eine Frage, aber der SL beschreibt Schwierigkeiten, die auf das Gasthaus oder seine Gäste zurückzuführen sind."
     },
     "moveResults/success/value": {
       "source": "Ask the GM 3 questions about the wider world.",
-      "text": ""
+      "text": "Stelle dem SL drei Fragen über die weite Welt."
     },
     "moveResults/partial/value": {
       "source": "Ask 1 question.",
@@ -2480,7 +2478,7 @@
     },
     "moveResults/failure/value": {
       "source": "Ask 1 question, but the GM describes some trouble that stems from the inn or its guests.",
-      "text": ""
+      "text": "Stelle eine Frage, aber der SL beschreibt Schwierigkeiten, die auf das Gasthaus oder seine Gäste zurückzuführen sind."
     }
   },
   "noble-mien": {
@@ -3707,8 +3705,7 @@
     },
     "description": {
       "source": "When you **_pay your follower's cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).\n\nSpend your follower's Loyalty 1-for-1 to have them:\n\n- Overcome their fear to do as you say\n- Resist acting on their instinct/tags/traits\n- Do something they don't want to do (so long as it's not abhorrent or suicidal)\n\nWhen a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.",
-      "text": "Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).\n\nGib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:\n\n- seine Angst überwindet und das tut, was du ihm befohlen hast\n- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;\n- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist).",
-      "needsReview": true
+      "text": "Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).\n\nGib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:\n\n- seine Angst überwindet und das tut, was du ihm befohlen hast\n- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;\n- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist)."
     }
   },
   "struggle-as-one": {
@@ -3834,12 +3831,11 @@
     },
     "description": {
       "source": "When you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.",
-      "text": "Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw.\n\nWenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz.",
-      "needsReview": true
+      "text": "Wenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz, und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz."
     },
     "choices/tether/text": {
       "source": "Choose something to which you are bound: your mortal remains, the place where you died, an object of personal significance, etc.",
-      "text": ""
+      "text": "Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw."
     }
   },
   "the-flesh-remembers": {
@@ -3935,7 +3931,7 @@
   "trade-barter": {
     "name": {
       "source": "Trade & Barter",
-      "text": "Handel & Tausch"
+      "text": "Handeln & Tauschen"
     },
     "description": {
       "source": "When you **_wish to acquire or sell a commonly available item_**, you can. When you **_seek to acquire or sell a special item_**, roll +Prosperity and subtract the item's Value. In winter, you have disadvantage. **On a 10+**, you can get it or sell it for a fair price; **on a 7-9**, when you're trying to buy, the GM picks 1:\n\n- You can get it, but it'll cost more than usual\n- ____ has it, but they aren't keen to give it up.\n- You can get get something close, but not quite right\n\n**On a 7-9 when you're looking to sell**, you can sell it now but you won't get its full worth.\n\n**On a 6- either way** don't mark XP. If you want to aquire/sell it, you'll need to travel to ____ or wait until next season.\n\nFor unique or truly exceptional items, don't Trade & Barter. Either get with the GM and Make a Plan or wait for a trade opportunity when Seasons Change.\n\nSee @UUID[Compendium.stonetop.reference.JournalEntry.YtD7j5PutvcvOHC6.JournalEntryPage.96v6UhrjmP0UfmIw]{Gear & Possessions} for what a Value is worth, and for the items you can acquire.",
@@ -4476,6 +4472,46 @@
     }
   },
   "_folders": {
+    "arcana": {
+      "source": "arcana",
+      "text": "Arkana"
+    },
+    "basic": {
+      "source": "basic",
+      "text": "Grundspielzüge"
+    },
+    "expedition": {
+      "source": "expedition",
+      "text": "Expedition"
+    },
+    "follower": {
+      "source": "follower",
+      "text": "Gefolgsleute"
+    },
+    "homefront": {
+      "source": "homefront",
+      "text": "Heimatfront"
+    },
+    "improvement": {
+      "source": "improvement",
+      "text": ""
+    },
+    "playbook": {
+      "source": "playbook",
+      "text": "Klassenbücher"
+    },
+    "post-death": {
+      "source": "post death",
+      "text": "Nach dem Tod"
+    },
+    "seasons": {
+      "source": "seasons",
+      "text": "Jahreszeiten"
+    },
+    "special": {
+      "source": "special",
+      "text": "Sonderspielzüge"
+    },
     "ghost": {
       "source": "ghost",
       "text": "Geist"
@@ -4527,46 +4563,6 @@
     "the-would-be-hero": {
       "source": "The Would-Be Hero",
       "text": "Der Möchtegern-Held"
-    },
-    "arcana": {
-      "source": "arcana",
-      "text": "Arkana"
-    },
-    "basic": {
-      "source": "basic",
-      "text": "Grundspielzüge"
-    },
-    "expedition": {
-      "source": "expedition",
-      "text": "Expedition"
-    },
-    "follower": {
-      "source": "follower",
-      "text": "Gefolgsleute"
-    },
-    "homefront": {
-      "source": "homefront",
-      "text": "Heimatfront"
-    },
-    "improvement": {
-      "source": "improvement",
-      "text": ""
-    },
-    "playbook": {
-      "source": "playbook",
-      "text": "Klassenbücher"
-    },
-    "post-death": {
-      "source": "post death",
-      "text": "Nach dem Tod"
-    },
-    "seasons": {
-      "source": "seasons",
-      "text": "Jahreszeiten"
-    },
-    "special": {
-      "source": "special",
-      "text": "Sonderspielzüge"
     }
   }
 }

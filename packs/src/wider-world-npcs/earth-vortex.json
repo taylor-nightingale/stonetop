@@ -31,8 +31,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Manifest a churning mass out of nearby earth, sand, and rocks\n- Pin a smaller foe (+grabby)\n- Grind a pinned foe, dealing damage w/advantage (+messy)\n- Ruin a sturdy object or structure (costs 1d4 HP)\n- Shake the earth (+area, +forceful, one range greater than normal; costs 1d4 HP)\n\nAn earth matrix absorbs power from pressure, blunt force, and seismic activity. It gains 1d4 HP from a week buried under earth or stone, from being at the bottom of a rockslide or cave-in, or from touching the ground during a major earthquake (not one it created). When you strike an earth matrix with a bludgeoning attack, it takes no damage. If the blow was forceful and its vortex has 10",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
+    "moves": "- Manifest a churning mass out of nearby earth, sand, and rocks\n- Pin a smaller foe (+grabby)\n- Grind a pinned foe, dealing damage w/advantage (+messy)\n- Ruin a sturdy object or structure (costs 1d4 HP)\n- Shake the earth (+area, +forceful, one range greater than normal; costs 1d4 HP)",
+    "description": "An earth matrix absorbs power from pressure, blunt force, and seismic activity. It gains 1d4 HP from a week buried under earth or stone, from being at the bottom of a rockslide or cave-in, or from touching the ground during a major earthquake (not one it created). When you strike an earth matrix with a bludgeoning attack, it takes no damage. If the blow was forceful and its vortex has 10 HP or less, it gains 1 HP. (The vortex itself has no such immunities, smash away!)\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
     "notes": ""
   },
   "ownership": {

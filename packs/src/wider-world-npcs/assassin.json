@@ -27,8 +27,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Stalk their target at length\n- Pass unnoticed, in shadow or disguise\n- Poison someone\n- Slip away, try again later\n\nOnly in \"civilized\" lands is there such demand for murder that it’s an actual profession.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
+    "moves": "- Stalk their target at length\n- Pass unnoticed, in shadow or disguise\n- Poison someone\n- Slip away, try again later",
+    "description": "Only in \"civilized\" lands is there such demand for murder that it’s an actual profession.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
     "notes": ""
   },
   "ownership": {

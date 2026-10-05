@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Ignore pain, doubt\n- Explode into sudden violence\n- Fight dirty, mean, without remorse\n\nA goatherder from north of Barrier Pass, with orange irises and too-long fingers (marks of the Howling Curse, page 492). She turned up in Gordin’s Delve years back, and one of the Bosses put her to work as an enforcer. They keep her sauced and happy, until there’s work to be done. Then they dry her out, point out the target, and stand back.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.93L1wwoxn0M4ANCL]{Gordin's Delve} (Book p.190-199)",
+    "moves": "- Ignore pain, doubt\n- Explode into sudden violence\n- Fight dirty, mean, without remorse",
+    "description": "A goatherder from north of Barrier Pass, with orange irises and too-long fingers (marks of the Howling Curse, page 492). She turned up in Gordin’s Delve years back, and one of the Bosses put her to work as an enforcer. They keep her sauced and happy, until there’s work to be done. Then they dry her out, point out the target, and stand back.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.93L1wwoxn0M4ANCL]{Gordin's Delve} (Book p.190-199)",
     "notes": ""
   },
   "ownership": {

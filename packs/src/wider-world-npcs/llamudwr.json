@@ -30,8 +30,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Lurk unseen, pick a target, and wait until sunset\n- Leap out of the water with shocking speed\n- Follow prey from the sky, or hanging from trees\n- Strafe its prey and deliver a painful, debilitating sting\n- Chomp down, and then swallow whole\n\nEveryone knows to shun deep, still water, and the llamudwr (or \"water leapers\") are surely one reason why. Take the body of a frog, 6 or 7 feet long. Add another 8 or 9 feet of whipping tail, tipped with a venomous barb. Get rid of its legs, not even stumps, but give it bat wings, a span of nearly 20 feet unfurled. Hide it in a lake or fen, away from the sun’s cruel light. And finally, make it hungry. Very, very hungry.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "moves": "- Lurk unseen, pick a target, and wait until sunset\n- Leap out of the water with shocking speed\n- Follow prey from the sky, or hanging from trees\n- Strafe its prey and deliver a painful, debilitating sting\n- Chomp down, and then swallow whole",
+    "description": "Everyone knows to shun deep, still water, and the llamudwr (or \"water leapers\") are surely one reason why. Take the body of a frog, 6 or 7 feet long. Add another 8 or 9 feet of whipping tail, tipped with a venomous barb. Get rid of its legs, not even stumps, but give it bat wings, a span of nearly 20 feet unfurled. Hide it in a lake or fen, away from the sun’s cruel light. And finally, make it hungry. Very, very hungry.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
     "notes": ""
   },
   "ownership": {

@@ -153,6 +153,17 @@ const FOLLOWER = [
 	...rowPaths("system.choices[].list[]"),
 ];
 
+const NPC = [
+	"name",
+	"system.armor",
+	"system.damage",
+	"system.specialQuality",
+	"system.instinct.options[]",
+	"system.instinct.selected[]",
+	"system.moves",
+	"system.description",
+];
+
 const OUTFIT_ITEM = [
 	"name",
 	"system.qualifier",
@@ -209,6 +220,7 @@ export const TEXT_PATHS = {
 	arcanum:     ARCANUM,
 	possession:  POSSESSION,
 	follower:    FOLLOWER,
+	npc:         NPC,
 	outfitItem:  OUTFIT_ITEM,
 	insert:      INSERT,
 	improvement: IMPROVEMENT,
@@ -237,6 +249,9 @@ export const UNTRANSLATED_PATHS = {
 	follower: {
 		"system.tagOptions[]": "A tag — translated once through stonetop.tagLabels, not per follower.",
 		"system.companion.catalog[].options[]": "Tags, and they render as tag chips; see tagLabels.",
+	},
+	npc: {
+		"system.tagList[]": "Tags are translated once through stonetop.tagLabels, not pre NPC.",
 	},
 	steadfast: {
 		"system.residents.names":         "Personal names.",

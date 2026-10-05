@@ -33,8 +33,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Animate its preserved corpse\n- Overawe anyone in its presence\n- Twist, mutate, or transform living things with a gesture\n- Wield nearby plants and beasts as extensions of itself\n- Regenerate its corpse, even if burned, unless its canopic jars destroyed\n\nThey lie entombed, their corpses embalmed, their souls bound to the heavily-warded canopic jars that store their most-vital organs. Yet those souls linger forever in Fae-woven realms of glamour and delight. In these realms, the Green Lords are as gods. They are loathe to leave them, and rarely need to. But should their existence be truly threatened, they will return to this world of base flesh, inhabit their long-dead bodies, and punish any intruders with the savagery of the cruelest beasts.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
+    "moves": "- Animate its preserved corpse\n- Overawe anyone in its presence\n- Twist, mutate, or transform living things with a gesture\n- Wield nearby plants and beasts as extensions of itself\n- Regenerate its corpse, even if burned, unless its canopic jars destroyed",
+    "description": "They lie entombed, their corpses embalmed, their souls bound to the heavily-warded canopic jars that store their most-vital organs. Yet those souls linger forever in Fae-woven realms of glamour and delight. In these realms, the Green Lords are as gods. They are loathe to leave them, and rarely need to. But should their existence be truly threatened, they will return to this world of base flesh, inhabit their long-dead bodies, and punish any intruders with the savagery of the cruelest beasts.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
     "notes": ""
   },
   "ownership": {

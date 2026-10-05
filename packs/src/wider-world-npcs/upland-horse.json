@@ -30,8 +30,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Sniff trouble on the wind\n- Navigate tricky terrain or obstacles\n- Remain calm, unmoved\n- Find their own way\n\nHillfolk bands breed their horses for strength, agility, and courage. The best become steeds for Hillfolk riders. It takes a firm hand and a steady will to handle an Upland, but win one over and you’ve got a friend for life.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.oXGiyvBGsB2GPzQZ]{Hillfolk} (Book p.228-235)",
+    "moves": "- Sniff trouble on the wind\n- Navigate tricky terrain or obstacles\n- Remain calm, unmoved\n- Find their own way",
+    "description": "Hillfolk bands breed their horses for strength, agility, and courage. The best become steeds for Hillfolk riders. It takes a firm hand and a steady will to handle an Upland, but win one over and you’ve got a friend for life.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.oXGiyvBGsB2GPzQZ]{Hillfolk} (Book p.228-235)",
     "notes": ""
   },
   "ownership": {

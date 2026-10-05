@@ -27,8 +27,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Grab on and stab stab stab\n- Fend off any who would steal the flock’s meal\n- Scent blood from miles away\n\nAbout the size of a woodpecker, with black and wine-red plumage, flitting about in small flocks (2d6+4). Their laugh will make your blood run cold. But don’t worry. They’ll get your blood flowing again, real soon. Something interesting: Butcherbirds can smell fresh blood from miles away, and might descend on a hunter’s kill to gorge. Something useful: They can smell the blood of their own, and shun it; smeared butcherbird blood is an excellent repellent.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "moves": "- Grab on and stab stab stab\n- Fend off any who would steal the flock’s meal\n- Scent blood from miles away",
+    "description": "About the size of a woodpecker, with black and wine-red plumage, flitting about in small flocks (2d6+4). Their laugh will make your blood run cold. But don’t worry. They’ll get your blood flowing again, real soon. Something interesting: Butcherbirds can smell fresh blood from miles away, and might descend on a hunter’s kill to gorge. Something useful: They can smell the blood of their own, and shun it; smeared butcherbird blood is an excellent repellent.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
     "notes": ""
   },
   "ownership": {

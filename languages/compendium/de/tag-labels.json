@@ -60,6 +60,10 @@
       "source": "angry",
       "text": "Wütend"
     },
+    "animal-lover": {
+      "source": "animal-lover",
+      "text": "Tierfreund"
+    },
     "annoying": {
       "source": "annoying",
       "text": "Lästig"
@@ -100,6 +104,10 @@
       "source": "beautiful",
       "text": "Wunderschön"
     },
+    "big": {
+      "source": "big",
+      "text": "Groß"
+    },
     "bird-wise": {
       "source": "Bird-wise",
       "text": "Vogelkundig"
@@ -119,6 +127,10 @@
     "brutal": {
       "source": "brutal",
       "text": "Brutal"
+    },
+    "bully": {
+      "source": "bully",
+      "text": "Raufbold"
     },
     "burrowing": {
       "source": "burrowing",
@@ -199,6 +211,10 @@
     "curious": {
       "source": "curious",
       "text": "Neugierig"
+    },
+    "cynical": {
+      "source": "cynical",
+      "text": "Zynisch"
     },
     "damage-is-messy-1-piercing": {
       "source": "Damage is _messy_, 1 piercing",
@@ -356,6 +372,10 @@
       "source": "frail",
       "text": "Gebrechlich"
     },
+    "gambler": {
+      "source": "gambler",
+      "text": "Glücksspieler"
+    },
     "gluttonous": {
       "source": "gluttonous",
       "text": "Gefräßig"
@@ -396,6 +416,10 @@
       "source": "healer",
       "text": "Heilerin"
     },
+    "heartthrob": {
+      "source": "heartthrob",
+      "text": "Herzensbrecher"
+    },
     "hedonistic": {
       "source": "hedonistic",
       "text": "Hedonistisch"
@@ -407,6 +431,10 @@
     "hoarder": {
       "source": "hoarder",
       "text": "Sammler"
+    },
+    "honest": {
+      "source": "honest",
+      "text": "Ehrlich"
     },
     "horde": {
       "source": "horde",
@@ -500,6 +528,14 @@
       "source": "leader",
       "text": "Anführer"
     },
+    "lewd": {
+      "source": "lewd",
+      "text": "Obszön"
+    },
+    "little": {
+      "source": "little",
+      "text": "Klein"
+    },
     "lonely": {
       "source": "lonely",
       "text": "Einsam"
@@ -568,6 +604,10 @@
       "source": "obsessive",
       "text": "Zwanghaft"
     },
+    "old": {
+      "source": "old",
+      "text": "Alt"
+    },
     "opportunistic": {
       "source": "opportunistic",
       "text": "Opportunistisch"
@@ -604,6 +644,10 @@
       "source": "plodding",
       "text": "Behäbig"
     },
+    "popular": {
+      "source": "popular",
+      "text": "Beliebt"
+    },
     "powerful": {
       "source": "powerful",
       "text": "Kräftig"
@@ -636,6 +680,10 @@
       "source": "reach",
       "text": "Lang"
     },
+    "reckless": {
+      "source": "reckless",
+      "text": "Waghalsig"
+    },
     "relentless": {
       "source": "relentless",
       "text": "Unerbittlich"
@@ -656,6 +704,10 @@
       "source": "restless",
       "text": "Ruhelos"
     },
+    "rookie": {
+      "source": "rookie",
+      "text": "Neuling"
+    },
     "sadistic": {
       "source": "sadistic",
       "text": "Sadistisch"
@@ -672,6 +724,10 @@
       "source": "self-sufficient",
       "text": "Selbstversorger"
     },
+    "shameless": {
+      "source": "shameless",
+      "text": "Schamlos"
+    },
     "shapeshifter": {
       "source": "shapeshifter",
       "text": "Gestaltwandler"
@@ -679,6 +735,10 @@
     "sharp-eyed": {
       "source": "sharp-eyed",
       "text": "Scharfe Augen"
+    },
+    "short-tempered": {
+      "source": "short-tempered",
+      "text": "Jähzornig"
     },
     "size-by-hp": {
       "source": "size by HP",

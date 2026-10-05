@@ -27,8 +27,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Put itself between a threat and the young\n- Stampede (area, forceful, messy)\n- Leap a surprising height and distance, even from a standstill\n\nForest bison travel in herds of up to twenty, but only the bulls typically fight. When cornered, though, even the sows can be dangerous due to their mass and strength.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
+    "moves": "- Put itself between a threat and the young\n- Stampede (area, forceful, messy)\n- Leap a surprising height and distance, even from a standstill",
+    "description": "Forest bison travel in herds of up to twenty, but only the bulls typically fight. When cornered, though, even the sows can be dangerous due to their mass and strength.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JjyXyicr58qim0bV]{The Great Wood} (Book p.200-209)",
     "notes": ""
   },
   "ownership": {

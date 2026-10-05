@@ -6,15 +6,15 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-any-new-homes-to-the/text": {
       "source": "add any new homes to the map",
-      "text": "zeichne alle neuen Häuser auf der Karte ein"
+      "text": "Zeichne alle neuen Häuser auf der Karte ein."
     },
     "effects/consider-population-to-be-1-lower/text": {
       "source": "consider Population to be 1 lower than it is",
-      "text": "setze die Bevölkerung um 1 niedriger an, als sie tatsächlich ist"
+      "text": "setze die Bevölkerung um 1 niedriger an, als sie tatsächlich ist."
     },
     "effects/consider-population-to-be-1-lower/when/phrase": {
       "source": "when you **_consume Surplus in winter_**",
@@ -48,7 +48,7 @@
   "aetherium-crucible": {
     "name": {
       "source": "Aetherium Crucible",
-      "text": ""
+      "text": "Ätheriumtiegel"
     },
     "effects/add-aetherium-crucible-to-the-resources/text": {
       "source": "add \"Aetherium Crucible\" to the Resources list and the map",
@@ -64,7 +64,7 @@
     },
     "effects/you-have-advantage/text": {
       "source": "you have advantage",
-      "text": ""
+      "text": "hast du einen Vorteil."
     },
     "effects/increase-prosperity-by-1/when/phrase": {
       "source": "**_as long as you trade aetherium to the outside world_**",
@@ -76,7 +76,7 @@
     },
     "effects/add-aetherium-crucible-to-the-resources/listEntry/text": {
       "source": "Aetherium Crucible",
-      "text": ""
+      "text": "Ätheriumtiegel"
     },
     "choices/requires-all-of-the-following/text": {
       "source": "Requires all of the following:",
@@ -114,7 +114,7 @@
     },
     "effects/add-aurochs-hunting-meat-hide-horn/text": {
       "source": "add \"Aurochs hunting (meat, hide, horn)\" to the Resources list",
-      "text": ""
+      "text": "Füge „Auerochsenjagd (Fleisch, Fell, Horn)“ zur Ressourcenliste hinzu."
     },
     "effects/lead-the-aurochs-hunt-rolling-defenses/text": {
       "source": "lead the aurochs hunt, rolling +Defenses",
@@ -122,11 +122,11 @@
     },
     "effects/add-aurochs-hunting-meat-hide-horn/listEntry/text": {
       "source": "Aurochs hunting (meat, hide, horn)",
-      "text": ""
+      "text": "Auerochsenjagd (Fleisch, Fell, Horn)"
     },
     "choices/large-herds-form-on-the-flats/text": {
       "source": "Large herds form on the Flats in spring. The Hillfolk hunt them, but Stonetop has never learned to do so.",
-      "text": "Im Frühling bilden sich auf den Ebenen große Herden. Das Hügelvolk jagt sie seit jeher, doch in Stonetop hat man diese Kunst nie erlernt."
+      "text": "Im Frühling sammeln sich in der Ebene große Herden. Das Hügelvolk jagt sie seit jeher, doch in Stonetop hat man diese Kunst nie erlernt."
     },
     "choices/requires-2-of-the-following/text": {
       "source": "**Requires** 2 of the following:",
@@ -160,7 +160,7 @@
     },
     "effects/increase-prosperity-by-1-and-decrease/text": {
       "source": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)",
-      "text": ""
+      "text": "Erhöhe den Wohlstand um 1 (und verringere ihn um 1, wenn du sie nicht mehr erfüllst)."
     },
     "choices/specialization-is-the-key-to-prosperity/text": {
       "source": "Specialization is the key to prosperity!",
@@ -218,19 +218,19 @@
     },
     "effects/add-golden-sapling-to-the-resources/text": {
       "source": "add \"Golden Sapling\" to the Resources list",
-      "text": ""
+      "text": "Füge „Goldener Setzling“ zur Ressourcenliste hinzu."
     },
     "effects/automatically-mark-the-greater-harvest-improvement/text": {
       "source": "automatically mark the Greater Harvest improvement",
-      "text": ""
+      "text": "Markiere automatisch die Verbesserung „Reichere Ernte“."
     },
     "effects/it-generates-1-surplus/text": {
       "source": "it generates +1 Surplus",
-      "text": ""
+      "text": "erzeugt sie +1 Überschuss."
     },
     "effects/it-generates-1-surplus/when/phrase": {
       "source": "when **_the steading generates Surplus, even just 1_**",
-      "text": ""
+      "text": "Wenn die **_Siedlung Überschuss erzeugt_** (selbst wenn es nur 1 ist)"
     },
     "effects/add-golden-sapling-to-the-resources/listEntry/text": {
       "source": "Golden Sapling",
@@ -260,31 +260,31 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-timber-from-the-great-wood/text": {
       "source": "add \"Timber from the Great Wood\" to the Resources list",
-      "text": ""
+      "text": "Füge „Holz aus dem Großen Wald“ zur Ressourcenliste hinzu."
     },
     "effects/the-steading-has-a-ready-supply/text": {
       "source": "the steading has a ready supply of timber for improvements and other projects",
-      "text": ""
+      "text": "in der die Siedlung über eine zuverlässige Versorgung mit Bauholz für Verbesserungen und andere Projekte verfügt"
     },
     "effects/the-steading-consumes-1-less-surplus/text": {
       "source": "the steading consumes 1 less Surplus",
-      "text": ""
+      "text": "verbraucht die Siedlung 1 Überschuss weniger."
     },
     "effects/the-steading-consumes-1-less-surplus/when/phrase": {
       "source": "**_every winter_**",
-      "text": ""
+      "text": "**_Jeden Winter_**"
     },
     "effects/add-timber-from-the-great-wood/listEntry/text": {
       "source": "Timber from the Great Wood",
-      "text": ""
+      "text": "Holz aus dem Großen Wald"
     },
     "choices/requires-all-of-the-following/text": {
       "source": "Requires all of the following:",
-      "text": "Erfordert alle folgenden Voraussetzungen:"
+      "text": "**Erfordert** alle folgenden Voraussetzungen:"
     },
     "choices/proof-that/text": {
       "source": "Proof that trees can be felled without dire consequence",
@@ -310,15 +310,15 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/gain-1d4-surplus/text": {
       "source": "gain +1d4 Surplus",
-      "text": ""
+      "text": "erhältst du +1W4 Überschuss."
     },
     "effects/gain-1d4-surplus/when/phrase": {
       "source": "when **_the autumn harvest is complete_**",
-      "text": ""
+      "text": "Wenn **_die Herbsternte abgeschlossen ist_**"
     },
     "choices/beyond-the-old-wall-the-prairie/text": {
       "source": "Beyond the Old Wall, the prairie grass of the Flats chokes out any crops we try to grow.",
@@ -344,19 +344,19 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-them-to-the-resources-list/text": {
       "source": "add them to the Resources list",
-      "text": ""
+      "text": "Füge die entsprechende Anlage der Ressourcenliste hinzu."
     },
     "effects/the-steading-generates-1-surplus/text": {
       "source": "the steading generates 1 Surplus",
-      "text": ""
+      "text": "erzeugt die Siedlung 1 Überschuss."
     },
     "effects/the-steading-generates-1-surplus/when/phrase": {
       "source": "when **_spring breaks forth and you roll a 7+ with Fortunes_**",
-      "text": ""
+      "text": "Wenn der Frühling anbricht und du würfelst mit Schicksal eine 7+"
     },
     "effects/add-them-to-the-resources-list/listEntry/text": {
       "source": "Harnessing the Stream",
@@ -368,7 +368,7 @@
     },
     "choices/requires-2-of-the-following/text": {
       "source": "**Requires** 2 of the following:",
-      "text": "**Erfordert eine der folgenden Voraussetzungen:**"
+      "text": "**Erfordert** eine der folgenden Voraussetzungen:"
     },
     "choices/reservoir/text": {
       "source": "A reservoir for the Stream to pool in",
@@ -390,43 +390,43 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/replace-a-pair-of-sturdy-draft/text": {
       "source": "replace \"a pair of sturdy draft horses\" with \"a herd of horses\" on the Assets list. Make a note of its size",
-      "text": ""
+      "text": "Ersetze auf der Besitztümerliste „Ein Paar kräftige Zugpferde“ durch „Eine Pferdeherde“. Notiere dir ihre Größe."
     },
     "effects/it-takes-half-as-long-and/text": {
       "source": "it takes half as long and costs half as much",
-      "text": ""
+      "text": "dauert es nur noch halb so lange und kostet nur noch halb so viel."
     },
     "effects/treat-a-6-as-a-7/text": {
       "source": "treat a 6- as a 7-9",
-      "text": ""
+      "text": "behandle eine 6- wie 7-9."
     },
     "effects/any-yearlings-become-horses-value-3/text": {
       "source": "any yearlings become horses (Value 3 once trained), any foals become yearlings (Value 2), and the herd gains foals (Value 1) equal to 1d4+Fortunes (min 0)",
-      "text": ""
+      "text": "werden alle Jährlinge zu Pferden (Wert 3, sobald sie ausgebildet sind), alle Fohlen zu Jährlingen (Wert 2), und die Herde bekommt Fohlen (Wert 1) in einer Anzahl von 1W4 + Schicksal (min. 0)."
     },
     "effects/the-herd-consumes-1-surplus-per/text": {
       "source": "the herd consumes 1 Surplus per 6 grown or yearling horses; for every Surplus not consumed, 1d6 horses are lost",
-      "text": ""
+      "text": "verbraucht die Herde 1 Überschuss je 6 ausgewachsene Pferde oder Jährlinge. Für jeden Überschuss, der nicht verbraucht wird, gehen 1W6 Pferde verloren."
     },
     "effects/it-takes-half-as-long-and/when/phrase": {
       "source": "when **_you leverage the horses to Pull Together_**",
-      "text": ""
+      "text": "Wenn du **_die Pferde einsetzt, um gemeinsam anzupacken_**"
     },
     "effects/treat-a-6-as-a-7/when/phrase": {
       "source": "when **_you Requisition half the herd or less_**",
-      "text": ""
+      "text": "Wenn du **_höchstens die Hälfte der Herde anforderst_**"
     },
     "effects/any-yearlings-become-horses-value-3/when/phrase": {
       "source": "when **_the seasons change to summer_**",
-      "text": ""
+      "text": "Wenn **_der Sommer beginnt_**"
     },
     "effects/the-herd-consumes-1-surplus-per/when/phrase": {
       "source": "when **_winter grips the land_**",
-      "text": ""
+      "text": "Wenn **_der Winter das Land fest im Griff hat_**"
     },
     "choices/imagine-what-we-could-do-with/text": {
       "source": "Imagine what we could do with a dozen fine steeds.",
@@ -518,11 +518,11 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/name-the-inn-add-it-to/text": {
       "source": "name the inn, add it to both the Resources list and map",
-      "text": ""
+      "text": "Gib dem Gasthaus einen Namen füge es zur Ressourcenliste hinzu und zeichne es auf der Karte ein."
     },
     "effects/whoever-is-friendliest-rolls-fortunes-for/text": {
       "source": "whoever is friendliest rolls +Fortunes for news of the wider world",
@@ -530,15 +530,15 @@
     },
     "effects/clear-one-of-the-steadings-debilities/text": {
       "source": "clear one of the steading's debilities",
-      "text": ""
+      "text": "streiche eine Beeinträchtigung der Siedlung."
     },
     "effects/clear-one-of-the-steadings-debilities/when/phrase": {
       "source": "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**",
-      "text": ""
+      "text": "Einmal pro Jahreszeit, wenn du **_1 Überschuss ausgibst und die Leute im Gasthaus zusammenbringst_**"
     },
     "effects/name-the-inn-add-it-to/listEntry/text": {
       "source": "The inn",
-      "text": ""
+      "text": "Das Gasthaus"
     },
     "choices/the-public-house-offers-a-common/text": {
       "source": "The public house offers a common room and shelter for a few horses, but it's hardly a proper inn.",
@@ -576,15 +576,15 @@
     },
     "effects/increase-prosperity-by-1-and-decrease/text": {
       "source": "increase Prosperity by 1 (and decrease it by 1 if you cease to meet the requirements)",
-      "text": ""
+      "text": "Erhöhe den Wohlstand um 1 (und verringere ihn um 1, wenn du die Voraussetzungen nicht mehr erfüllst)."
     },
     "effects/the-market-generates-1-surplus/text": {
       "source": "the market generates 1 Surplus",
-      "text": ""
+      "text": "erzeugt der Marktplatz 1 Überschuss."
     },
     "effects/the-market-generates-1-surplus/when/phrase": {
       "source": "when **_the seasons change to spring, summer, or autumn, and the market is active, and Population is +1 or better_**",
-      "text": ""
+      "text": "Wenn **_die Jahreszeiten zu Frühling, Sommer oder Herbst wechseln, der Marktplatz aktiv ist und die Bevölkerung mindestens +1 beträgt_**"
     },
     "choices/stonetop-is-at-most-an-afterthought/text": {
       "source": "Stonetop is at most an afterthought for traders in the region. We need to change that.",
@@ -626,27 +626,27 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-mill-to-the-resources-list/text": {
       "source": "add \"Mill\" to the Resources list and draw it on the map",
-      "text": ""
+      "text": "Füge „Mühle“ zur Ressourcenliste hinzu und zeichne sie auf der Karte ein."
     },
     "effects/the-steading-generates-1-surplus/text": {
       "source": "the steading generates +1 Surplus",
-      "text": ""
+      "text": "erzeugt die Siedlung +1 Überschuss."
     },
     "effects/each-of-supplies-has-1-extra/text": {
       "source": "each of supplies has 1 extra use",
-      "text": ""
+      "text": "haben alle Vorräte eine zusätzliche Anwendung."
     },
     "effects/the-steading-generates-1-surplus/when/phrase": {
       "source": "when **_the autumn harvest is complete_**",
-      "text": ""
+      "text": "Wenn **_die Herbsternte abgeschlossen ist_**"
     },
     "effects/each-of-supplies-has-1-extra/when/phrase": {
       "source": "when **_you Outfit from Stonetop or Have What You Need after doing so_**",
-      "text": ""
+      "text": "Wenn du **_dich in Stonetop ausrüstest oder wenn du hast, was du brauchst_**"
     },
     "effects/add-mill-to-the-resources-list/listEntry/text": {
       "source": "Mill",
@@ -688,19 +688,19 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-palisade-to-the-fortifications-list/text": {
       "source": "add \"Palisade\" to the Fortifications list and draw it on the map",
-      "text": ""
+      "text": "Füge „Palisade“ zur Befestigungenliste hinzu und zeichne sie auf der Karte ein."
     },
     "effects/you-have-advantage-to-deploy/text": {
       "source": "you have advantage to Deploy",
-      "text": ""
+      "text": "hast du einen Vorteil um Truppen einzusetzen."
     },
     "effects/you-have-advantage-to-deploy/when/phrase": {
       "source": "when **_you take advantage of the palisade_**",
-      "text": ""
+      "text": "Wenn du **_die Palisade zu deinem Vorteil nutzt_**"
     },
     "effects/add-palisade-to-the-fortifications-list/listEntry/text": {
       "source": "Palisade",
@@ -738,31 +738,31 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-logging-timber-wood-to-the/text": {
       "source": "add \"Logging: timber, wood\" to the Resources list",
-      "text": ""
+      "text": "Füge „Abholzung: Bauholz, Holz“ zur Ressourcenliste hinzu."
     },
     "effects/the-steading-consumes-1-less-surplus/text": {
       "source": "the steading consumes 1 less Surplus than usual",
-      "text": ""
+      "text": "verbraucht die Siedlung 1 Überschuss weniger als üblich."
     },
     "effects/the-logging-camp-consumes-1-surplus/text": {
       "source": "the logging camp consumes 1 Surplus, or else it ceases operation",
-      "text": ""
+      "text": "verbraucht das Holzfällerlage 1 Überschuss, andernfalls stellt es den Betrieb ein."
     },
     "effects/the-steading-consumes-1-less-surplus/when/phrase": {
       "source": "**_in winter, as long as the camp is in operation_**",
-      "text": ""
+      "text": "**_Im Winter, solange das Holzfällerlager betrieben wird_**"
     },
     "effects/the-logging-camp-consumes-1-surplus/when/phrase": {
       "source": "**_every summer_**",
-      "text": ""
+      "text": "**_Jeden Sommer_**"
     },
     "effects/add-logging-timber-wood-to-the/listEntry/text": {
       "source": "Logging: timber, wood",
-      "text": ""
+      "text": "Abholzung: Bauholz, Holz"
     },
     "choices/suppose-we-built-a-few-cabins/text": {
       "source": "Suppose we built a few cabins and kept loggers up there year-round?",
@@ -800,19 +800,19 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-raincatching-to-the-resources-list/text": {
       "source": "add \"Raincatching\" to the Resources list",
-      "text": ""
+      "text": "Füge „Regenauffangsystem“ zur Ressourcenliste hinzu."
     },
     "effects/the-steading-generates-1-surplus/text": {
       "source": "the steading generates 1 Surplus",
-      "text": ""
+      "text": "erzeugt die Siedlung 1 Überschuss."
     },
     "effects/the-steading-generates-1-surplus/when/phrase": {
       "source": "when **_summer comes and you roll a 7+ with Fortunes_**",
-      "text": ""
+      "text": "Wenn **_der Sommer beginnt und du würfelst mit Schicksal eine 7+_**"
     },
     "effects/add-raincatching-to-the-resources-list/listEntry/text": {
       "source": "Raincatching",
@@ -842,11 +842,11 @@
   "rhoillyg-orchard": {
     "name": {
       "source": "Rhoillyg Orchard",
-      "text": ""
+      "text": "Rhoillyg-Obstgarten"
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Wrhöhe Schicksal um 1."
     },
     "effects/add-rhoillyg-orchard-to-both-the/text": {
       "source": "add \"Rhoillyg Orchard\" to both the Resources list and the steading map",
@@ -854,7 +854,7 @@
     },
     "effects/the-steading-generates-1-surplus/text": {
       "source": "the steading generates +1 Surplus",
-      "text": ""
+      "text": "erzeugt die Siedlung +1 Überschuss."
     },
     "effects/the-steading-generates-another-1-surplus/text": {
       "source": "the steading generates another +1 Surplus",
@@ -866,11 +866,11 @@
     },
     "effects/the-steading-generates-another-1-surplus/when/phrase": {
       "source": "when **_the autumn harvest is complete_**",
-      "text": ""
+      "text": "Wenn **_die Herbsternte abgeschlossen ist_**"
     },
     "effects/add-rhoillyg-orchard-to-both-the/listEntry/text": {
       "source": "Rhoillyg Orchard",
-      "text": ""
+      "text": "Rhoillyg-Obstgarten"
     },
     "choices/requires-both/text": {
       "source": "Requires both:",
@@ -920,11 +920,11 @@
     },
     "effects/you-can-expand-or-repair-the/text": {
       "source": "you can expand or repair the Makers' Roads. Every ~25 miles of road requires Pulling Together, one season of labor, 2 Surplus to feed the laborers, and a purse of silvers for payment and supplies",
-      "text": ""
+      "text": "Du kannst die Straßen der Schöpfer ausbauen oder reparieren. Für jeweils ca. 25 Meilen Straße erfordert dies gemeinsames Anpacken, eine Jahreszeit Arbeit, 2 Überschuss zur Versorgung der Arbeiter sowie ein Beutel voller Silbermünzen für Löhne und Material."
     },
     "choices/requires-all-of-the-following/text": {
       "source": "Requires all of the following:",
-      "text": "Erfordert alle folgenden Voraussetzungen:"
+      "text": "**Erfordert** alle folgenden Voraussetzungen:"
     },
     "choices/unlock-secrets/text": {
       "source": "Unlock the secrets of **runic calligraphy**",
@@ -954,27 +954,27 @@
     },
     "effects/add-standing-watch-to-the-fortifications/text": {
       "source": "add \"standing watch\" to the Fortifications list",
-      "text": ""
+      "text": "Füge „Stehende Wache“ zur Befestigungenliste hinzu."
     },
     "effects/the-watch-consumes-1-surplus-or/text": {
       "source": "the watch consumes 1 Surplus, or it disbands",
-      "text": ""
+      "text": "verbraucht die Wache 1 Überschuss – andernfalls löst sie sich auf."
     },
     "effects/treat-defenses-as-1-higher-than/text": {
       "source": "treat Defenses as 1 higher than they are",
-      "text": ""
+      "text": "behandle Verteidigung als 1 höher, als sie tatsächlich ist."
     },
     "effects/the-watch-consumes-1-surplus-or/when/phrase": {
       "source": "at **_the start of each season_**",
-      "text": ""
+      "text": "**_Zu Beginn jeder Jahreszeit_**"
     },
     "effects/treat-defenses-as-1-higher-than/when/phrase": {
       "source": "when **_you specifically involve the watch in a move_**",
-      "text": ""
+      "text": "Wenn du die Wache gezielt in einem Spielzug einbeziehst"
     },
     "effects/add-standing-watch-to-the-fortifications/listEntry/text": {
       "source": "Standing watch",
-      "text": ""
+      "text": "Stehende Wache"
     },
     "choices/some-full-time-warriors-would-make/text": {
       "source": "Some full-time warriors would make us all safer, no?",
@@ -1004,23 +1004,23 @@
     },
     "effects/add-stone-wall-to-the-fortifications/text": {
       "source": "add \"Stone Wall\" to the Fortifications list (erase \"Palisade\" if you had it) and draw it on the map",
-      "text": ""
+      "text": "Füge „Palisade“ zur Befestigungenliste hinzu (streiche „Palisade“, falls du sie hast) und zeichne sie auf der Karte ein."
     },
     "effects/you-have-advantage-to-deploy/text": {
       "source": "you have advantage to Deploy",
-      "text": ""
+      "text": "hast du einen Vorteil um Truppen einzusetzen."
     },
     "effects/the-steading-consumes-1-less-surplus/text": {
       "source": "the steading consumes 1 less Surplus than normal",
-      "text": ""
+      "text": "verbraucht die Siedlung 1 Überschuss weniger als gewöhnlich."
     },
     "effects/you-have-advantage-to-deploy/when/phrase": {
       "source": "when **_you take advantage of the stone wall_**",
-      "text": ""
+      "text": "Wenn du **_die Steinmauer zu deinem Vorteil nutzt_**"
     },
     "effects/the-steading-consumes-1-less-surplus/when/phrase": {
       "source": "when **_winter grips the land_**",
-      "text": ""
+      "text": "Wenn der **_Winter das Land fest im Griff hat_**"
     },
     "effects/add-stone-wall-to-the-fortifications/listEntry/text": {
       "source": "Stone Wall",
@@ -1054,39 +1054,39 @@
   "township": {
     "name": {
       "source": "Township",
-      "text": "Stadtgründung"
+      "text": "Stadt"
     },
     "effects/change-size-to-town/text": {
       "source": "change Size to town",
-      "text": ""
+      "text": "Ändere die Größe in Stadt."
     },
     "effects/change-population-to-0/text": {
       "source": "change Population to +0",
-      "text": ""
+      "text": "Ändere die Bevölkerung auf +0."
     },
     "effects/you-have-advantage/text": {
       "source": "you have advantage",
-      "text": ""
+      "text": "hast du einen Vorteil."
     },
     "effects/the-town-generates-surplus-equal-to/text": {
       "source": "the town generates Surplus equal to Population+1",
-      "text": ""
+      "text": "erzeugt die Stadt Überschuss in Höhe von Bevölkerung+1."
     },
     "effects/roll-2d6-population-to-consume-surplus/text": {
       "source": "roll 2d6+Population to consume Surplus, instead of 1d4+Population",
-      "text": ""
+      "text": "würfle 2W6+Bevölkerung, um Überschuss zu verbrauchen, statt 1W4+Bevölkerung."
     },
     "effects/you-have-advantage/when/phrase": {
       "source": "when **_you Muster, Pull Together, or Trade & Barter_**",
-      "text": ""
+      "text": "Wenn du **_Truppen aufbietest, gemeinsam anpackst oder handelst & tauschst_**"
     },
     "effects/the-town-generates-surplus-equal-to/when/phrase": {
       "source": "when **_the seasons change to spring or summer_**",
-      "text": ""
+      "text": "Wenn **_der Frühling oder Sommer beginnt_**"
     },
     "effects/roll-2d6-population-to-consume-surplus/when/phrase": {
       "source": "when **_winter grips the land_**",
-      "text": ""
+      "text": "Wenn der **_Winter das Land fest im Griff hat_**"
     },
     "choices/will-this-ever-be-more-than/text": {
       "source": "Will this ever be more than a backwater village?",
@@ -1124,31 +1124,31 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "erhöhe Schicksal um 1"
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-trade-with-barrier-pass-timber/text": {
       "source": "add \"Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)\"",
-      "text": ""
+      "text": "Füge „Handel mit dem Barrierenpass (Holz, Elfenbein, Pergament, feine Wolle, Ziegen, Schafe)“ hinzu."
     },
     "effects/stonetop-gains-1-surplus-from-trade/text": {
       "source": "Stonetop gains +1 Surplus from trade",
-      "text": ""
+      "text": "Stonetop erhält durch Handel +1 Überschuss."
     },
     "effects/you-have-advantage/text": {
       "source": "you have advantage",
-      "text": ""
+      "text": "hast du einen Vorteil."
     },
     "effects/stonetop-gains-1-surplus-from-trade/when/phrase": {
       "source": "when **_spring bursts forth and Stonetop has at least 1 Surplus_**",
-      "text": ""
+      "text": "Wenn **_der Frühling anbricht und Stonetop mindestens 1 Überschuss besitzt_**"
     },
     "effects/you-have-advantage/when/phrase": {
       "source": "when **_you Trade & Barter for timber, ivory, fine wool, goats, sheep, parchment, vellum, or ink_**",
-      "text": ""
+      "text": "Wenn du **_mit Holz, Elfenbein, feiner Wolle, Ziegen, Schafen, Pergament, Velinpapier oder Tinte handelst & tauschst_**"
     },
     "effects/add-trade-with-barrier-pass-timber/listEntry/text": {
       "source": "Trade with Barrier Pass (timber, ivory, parchment, fine wool, goats, sheep)",
-      "text": ""
+      "text": "Handel mit dem Barrierenpass (Holz, Elfenbein, Pergament, feine Wolle, Ziegen, Schafe)"
     },
     "choices/surely-it-would-benefit-both-communities/text": {
       "source": "Surely it would benefit both communities were we to trade with each other!",
@@ -1190,31 +1190,31 @@
     },
     "effects/increase-defenses-by-1/text": {
       "source": "increase Defenses by 1",
-      "text": ""
+      "text": "Erhöhte die Verteidigung um 1."
     },
     "effects/add-weapons-of-war-to-the/text": {
       "source": "add \"Weapons of War\" to the Fortifications list",
-      "text": ""
+      "text": "Füge „Kriegswaffen“ zur Befestigungenliste hinzu."
     },
     "effects/the-village-must-expend-1-surplus/text": {
       "source": "the village must expend 1 Surplus to maintain and replace the town's weapons",
-      "text": ""
+      "text": "muss das Dorf 1 Überschuss aufwenden, um die Waffen der Siedlung instand zu halten oder zu ersetzen."
     },
     "effects/you-can-treat-maces-flails-battleaxes/text": {
       "source": "you can treat maces, flails, battleaxes, warhammers, and all types of swords as common items",
-      "text": ""
+      "text": "kannst du Streitkolben, Dreschflegel, Streitäxte, Kriegshämmer und alle Arten von Schwertern wie gewöhnliche Gegenstände behandeln, als wären sie bereits auf der Ausrüstungsbeilage aufgeführt."
     },
     "effects/battleaxes-and-swords-have-x-piercing/text": {
       "source": "battleaxes and swords have \"x piercing,\" where x is the steading's current Prosperity",
-      "text": ""
+      "text": "Streitäxte und Schwerter haben „Durchdringung x“, wobei x dem aktuellen Wohlstand der Siedlung entspricht."
     },
     "effects/the-village-must-expend-1-surplus/when/phrase": {
       "source": "**_each spring_**",
-      "text": ""
+      "text": "**_Jeden Frühling_**"
     },
     "effects/you-can-treat-maces-flails-battleaxes/when/phrase": {
       "source": "when **_you Outfit from Stonetop or Have What You Need after doing so_**",
-      "text": ""
+      "text": "Wenn du **_dich in Stonetop ausrüstest oder wenn du hast, was du brauchst_**"
     },
     "effects/add-weapons-of-war-to-the/listEntry/text": {
       "source": "Weapons of War",
@@ -1268,23 +1268,23 @@
     },
     "effects/you-are-likely-acting-from-a/text": {
       "source": "you are likely acting from a position of strength (you pick the consequence on a 7-9, not the GM)",
-      "text": ""
+      "text": "handelst du wahrscheinlich aus einer Position der Stärke (bei  7–9 wählst du die Konsequenz, nicht der SL)."
     },
     "effects/when-the-militia-has-trained-in/text": {
       "source": "when the militia has trained in 2+ tactics, increase Defenses by 1",
-      "text": ""
+      "text": "Wenn die Miliz zwei oder mehr Taktiken eingeübt hat, erhöhe die Verteidigung um 1."
     },
     "effects/the-militia-must-spend-1-surplus/text": {
       "source": "the militia must spend 1 Surplus and a week or so practicing, or else lose its training in 1 tactic",
-      "text": ""
+      "text": "muss die Miliz 1 Überschuss aufwenden und einige Wochen trainieren, ansonsten verliert sie ihre Ausbildung in einer Taktik."
     },
     "effects/you-are-likely-acting-from-a/when/phrase": {
       "source": "when **_you Deploy using one of the militia's trained tactics_**",
-      "text": ""
+      "text": "Wenn du **_Truppen einsetzt, und die Miliz wendet dabei eine der von ihr eingeübten Taktiken an_**"
     },
     "effects/the-militia-must-spend-1-surplus/when/phrase": {
       "source": "**_each summer_**",
-      "text": ""
+      "text": "Jeden Sommer"
     },
     "choices/everyone-can-use-a-spear-and/text": {
       "source": "Everyone can use a spear and shield, but some hard drilling could make us a force to be reckoned with.",
