@@ -273,8 +273,10 @@ describe("steading-improvement-card.hbs ↔ revoke handler contract", () => {
 		expect(template).toContain('data-name="{{name}}"');
 	});
 
-	it("renders the control only on an editable sheet", () => {
-		expect(template).toMatch(/\{\{#if @root\.editable\}\}[\s\S]*steading-improvement-remove[\s\S]*\{\{\/if\}\}/);
+	// Only on an editable STEADING: the improvement item's own sheet draws this card too
+	// (`@root.isCatalog`), and there is no steading behind it to revoke the improvement from.
+	it("renders the control only on an editable steading sheet", () => {
+		expect(template).toMatch(/\{\{#if \(and @root\.editable \(not @root\.isCatalog\)\)\}\}[\s\S]*steading-improvement-remove[\s\S]*\{\{\/if\}\}/);
 	});
 
 	// One board, which renders one card per owned improvement. It replaced three fixed columns each

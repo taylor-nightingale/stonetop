@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { Background } from "../../../../src/model/data/character/Background.js";
+import { MoveMark } from "../../../../src/model/data/character/MoveMark.js";
 
 const INITIATE = {
 	slug:  "initiate",
@@ -104,5 +105,18 @@ describe("Background.grantedMoveSlugs", () => {
 			{ type: "entry", grants: [{ type: "move", slug: "commune-with-aratis", locations: ["inline"] }] },
 		] };
 		expect(Background.of(malformed).grantedMoveSlugs).toEqual([]);
+	});
+});
+
+describe("Background.moveMarks", () => {
+	it("wraps each mark the background makes on a move", () => {
+		const patriot = { slug: "patriot", moveMarks: [{ move: "well-versed", group: "topics", options: ["things-below"] }] };
+		const [mark] = Background.of(patriot).moveMarks;
+		expect(mark).toBeInstanceOf(MoveMark);
+		expect(mark.options).toEqual(["things-below"]);
+	});
+
+	it("is empty for a background that marks nothing", () => {
+		expect(Background.of(VESSEL).moveMarks).toEqual([]);
 	});
 });

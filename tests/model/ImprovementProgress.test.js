@@ -16,7 +16,7 @@ function improvement(slug, tracks, requires, name = slug) {
 			})),
 			{ type: "entry", content: { text: "Henceforth, something happens." } },
 		],
-	}, 0, {
+	}, {
 		requires: requires ?? { all: tracks.map(([rowSlug]) => rowSlug) },
 		effects: [{ when: { kind: "completed" }, text: "it helps" }],
 	});
@@ -141,7 +141,7 @@ describe("what a card wants attention for", () => {
 		slug,
 		list: [{ type: "entry", slug: "work", content: { text: "needs work" }, track: { max: 1 } },
 		       { type: "entry", content: { text: "Henceforth, something happens." } }],
-	}, 0, {
+	}, {
 		requires: { all: ["work"] },
 		effects: [{ when, change: { target: "surplus", amount: 1 }, text: "the steading generates +1 Surplus" }],
 	});
@@ -162,7 +162,7 @@ describe("what a card wants attention for", () => {
 		// Both cadences a season carries: what fires when the wheel arrives, and what fires at a
 		// moment the season can hold.
 		it("counts a moment the season can hold", () => {
-			const orchard = seasonal("orchard", { kind: "moment", moment: "autumn-harvest" });
+			const orchard = seasonal("orchard", { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] });
 			expect(cardFor(orchard, built, autumn).firesThisSeason).toBe(true);
 			expect(cardFor(orchard, built, winter).firesThisSeason).toBe(false);
 		});

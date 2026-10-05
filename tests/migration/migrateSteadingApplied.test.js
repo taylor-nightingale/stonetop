@@ -18,13 +18,13 @@ import { FakeActorBuilder } from "../fakes/FakeActorBuilder.js";
 const MILL = new SteadingImprovement("mill", "Mill", {
 	slug: "mill",
 	list: [{ type: "entry", slug: "site", content: { text: "a site" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "site",
 	effects: [
 		{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
 		{ when: { kind: "completed" }, listEntry: { list: "resources", text: "Mill" }, text: 'add "Mill"' },
 		{ when: { kind: "completed" }, text: "draw it on the map" },
-		{ when: { kind: "moment", moment: "autumn-harvest" }, change: { target: "surplus", amount: 1 },
+		{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] }, change: { target: "surplus", amount: 1 },
 		  text: "the steading generates +1 Surplus" },
 	],
 });

@@ -48,14 +48,30 @@ describe("Arcanum grants resolve to real arcana pack files", () => {
 		expect(missing).toEqual([]);
 	});
 
-	// Marking the row is what makes the character own the card, and buildEntryRow renders a track only
-	// for a row with BOTH a slug and a `track` — a grant anywhere else can never fire.
-	it("every arcanum grant sits on a row that can be marked", () => {
+	// Marking is what makes the character own the card. buildEntryRow renders a track only for a row
+	// with BOTH a slug and a `track`, and a pick option is marked by its slug — a grant anywhere else
+	// can never fire.
+	it("every arcanum grant sits on a row or pick option that can be marked", () => {
+		const grantsArcanum = node => (node.grants ?? []).some(g => g.type === "arcanum");
 		const unmarkable = granters.flatMap(({ file, doc }) => ChoiceGroupDefs.findAll(doc.system ?? {})
-			.flatMap(group => (group.def.list ?? [])
-				.filter(row => (row.grants ?? []).some(g => g.type === "arcanum"))
-				.filter(row => !(row.slug && row.track))
-				.map(row => `${file}: arcanum grant on an unmarkable row "${row.slug ?? "(no slug)"}"`)));
+			.flatMap(group => (group.def.list ?? []).flatMap(row => [
+				...(grantsArcanum(row) && !(row.slug && row.track) ? [row.slug ?? "(no slug)"] : []),
+				...(row.options ?? []).filter(o => grantsArcanum(o) && !o.slug).map(() => `${row.slug ?? "(no slug)"} option`),
+			]))
+			.map(where => `${file}: arcanum grant on an unmarkable row "${where}"`));
 		expect(unmarkable).toEqual([]);
+	});
+
+	// "You've also acquired 1 major arcanum": each Seeker background offers its three as a pick of one,
+	// so choosing another hands the first back.
+	it("offers each Seeker background's arcana as a single pick of one", () => {
+		const seeker = granters.find(({ doc }) => doc.system?.slug === "the-seeker");
+		for (const background of seeker.doc.system.backgrounds) {
+			const picks = background.choices.list.filter(row => row.options);
+			expect(picks, background.slug).toHaveLength(1);
+			expect(picks[0], background.slug).toMatchObject({ type: "pick", pickCount: 1 });
+			expect(picks[0].options.map(o => o.grants?.[0]?.slug), background.slug).toEqual(picks[0].options.map(o => o.slug));
+			expect(picks[0].options, background.slug).toHaveLength(3);
+		}
 	});
 });

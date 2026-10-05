@@ -123,8 +123,8 @@ export class ImprovementProgress {
 	static _firesIn(improvement, boxes, season) {
 		if (!season) return false;
 		if (improvement.effects.firingAt("turn", boxes, { season }).length) return true;
-		return Moments.inSeason(season)
-			.some(moment => improvement.effects.firingAt("moment", boxes, { moment: moment.key }).length);
+		return Moments.fromTriggers(improvement.effects.all().map(e => e.trigger)).inSeason(season)
+			.some(moment => improvement.effects.firingAt("moment", boxes, { moment: moment.key, season }).length);
 	}
 }
 

@@ -6,7 +6,6 @@
   "_key": "!items!9IdOSSVM6Z9vNZ0t",
   "system": {
     "slug": "inn",
-    "sortOrder": 8,
     "choices": {
       "slug": "inn",
       "list": [
@@ -122,6 +121,12 @@
         "when": {
           "kind": "moment",
           "moment": "inn-gathering",
+          "seasons": [
+            "spring",
+            "summer",
+            "autumn",
+            "winter"
+          ],
           "phrase": "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**"
         },
         "condition": true,

@@ -71,6 +71,16 @@ describe("AdderPlace", () => {
 });
 
 describe("OutfitItemAdder", () => {
+	// It hangs from its "+ add item"; at the foot of a long list that can be below what the window shows.
+	it("brings itself into view once, when it opens — never on the re-renders after", () => {
+		const { root, adder } = attached();
+		const reveal = vi.fn();
+		adder.applyReveal(root, reveal);
+		adder.applyReveal(root, reveal);
+		expect(reveal).toHaveBeenCalledOnce();
+		expect(reveal.mock.calls[0][0]).toBe(root.querySelector(".stonetop-outfit-adder"));
+	});
+
 	it("is shut, with nothing to draw, until opened", () => {
 		const adder = new OutfitItemAdder();
 		expect(adder.isOpen).toBe(false);

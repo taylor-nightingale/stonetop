@@ -1,5 +1,6 @@
 import { InventoryOwner } from "./InventoryOwner.js";
 import { OutfitItemDraft } from "./OutfitItemDraft.js";
+import { revealInScroller } from "../../utils/revealInScroller.js";
 
 /** Which "+ add item" the adder hangs from: the character's regular or small column, or a follower's
  *  inventory (always regular). `key` is what the template matches to draw the adder at its button. */
@@ -55,18 +56,29 @@ export class OutfitItemAdder {
 	static NAME      = '[data-draft-field="name"]';
 	static TAG_FIELD = "outfitDraftTags";
 
-	#place = null;
-	#draft = null;
-	#focus = null;
+	#place  = null;
+	#draft  = null;
+	#focus  = null;
+	#reveal = false;
 
 	get isOpen() { return this.#place !== null; }
 	get place()  { return this.#place; }
 	get draft()  { return this.#draft; }
 
 	open(place) {
-		this.#place = place;
-		this.#draft = OutfitItemDraft.for(place.isRegular);
-		this.#focus = OutfitItemAdder.NAME;
+		this.#place  = place;
+		this.#draft  = OutfitItemDraft.for(place.isRegular);
+		this.#focus  = OutfitItemAdder.NAME;
+		this.#reveal = true;
+	}
+
+	/** Bring the adder into view the first time it draws after opening; never on later renders. */
+	applyReveal(root, reveal = revealInScroller) {
+		if (!this.isOpen || !this.#reveal) return;
+		const adder = root.querySelector(OutfitItemAdder.ADDER);
+		if (!adder) return;
+		this.#reveal = false;
+		reveal(adder);
 	}
 
 	close() {

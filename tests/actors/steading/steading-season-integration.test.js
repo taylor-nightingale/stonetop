@@ -39,7 +39,7 @@ function improvement(slug, name, { tracks = [], effects = [], effect = "Hencefor
 			})),
 			{ type: "entry", content: { text: effect } },
 		],
-	}, 0, { requires: { all: tracks.map(([rowSlug]) => rowSlug) }, effects });
+	}, { requires: { all: tracks.map(([rowSlug]) => rowSlug) }, effects });
 }
 
 const MILL = improvement("mill", "Mill", {
@@ -95,7 +95,7 @@ const TOWNSHIP = improvement("township", "Township", {
 // happened; the wheel arriving in autumn is not the same event.
 const ORCHARD = improvement("rhoillyg-orchard", "Rhoillyg Orchard", {
 	tracks: [["saplings", 1]],
-	effects: [{ when: { kind: "moment", moment: "autumn-harvest" },
+	effects: [{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 		change: { target: "surplus", amount: 1 }, text: "the orchard yields +1 Surplus" }],
 });
 
@@ -103,7 +103,7 @@ const ORCHARD = improvement("rhoillyg-orchard", "Rhoillyg Orchard", {
 // rather than an amount doing.
 const GREATER = improvement("greater-harvest", "Greater Harvest", {
 	tracks: [["fields", 1]],
-	effects: [{ when: { kind: "moment", moment: "autumn-harvest" },
+	effects: [{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 		change: { target: "surplus", formula: "1d4" }, text: "gain +1d4 Surplus" }],
 });
 
@@ -111,7 +111,7 @@ const GREATER = improvement("greater-harvest", "Greater Harvest", {
 // part of the book's own clause and nothing the sheet can judge.
 const INN = improvement("inn", "The Inn", {
 	tracks: [["innkeeper", 1]],
-	effects: [{ when: { kind: "moment", moment: "inn-gathering",
+	effects: [{ when: { kind: "moment", moment: "inn-gathering", seasons: ["spring", "summer", "autumn", "winter"],
 			phrase: "once per season, when **_you expend 1 Surplus and bring folks together at the inn_**" },
 		condition: true, text: "clear one of the steading's debilities" }],
 });
@@ -119,7 +119,7 @@ const INN = improvement("inn", "The Inn", {
 // A moment that hands the table a MOVE instead of a delta: the hunt is led by rolling it.
 const AUROCHS = improvement("aurochs-hunting", "Aurochs Hunting", {
 	tracks: [["hunters", 1]],
-	effects: [{ when: { kind: "moment", moment: "aurochs-hunt" }, grantsMove: "lead-the-aurochs-hunt",
+	effects: [{ when: { kind: "moment", moment: "aurochs-hunt", seasons: ["spring"] }, grantsMove: "lead-the-aurochs-hunt",
 		text: "when you lead the aurochs hunt in spring, roll +Defenses" }],
 });
 

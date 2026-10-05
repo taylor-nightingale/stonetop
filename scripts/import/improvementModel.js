@@ -11,7 +11,7 @@
 
 import { readFileSync, readdirSync } from "fs";
 import path from "path";
-import { Moments } from "../../src/model/data/steading/Moments.js";
+import { Moment } from "../../src/model/data/steading/Moments.js";
 import { Seasons } from "../../src/model/data/steading/Seasons.js";
 import { seasonalClausesIn } from "./seasonalClauses.js";
 
@@ -112,20 +112,22 @@ export function problemsFor(doc, moveSlugs = null) {
 		if (!named.has(row)) problems.push(`${slug}: tracked row "${row}" is named by no requirement`);
 	}
 
-	// A result has to say something, and a moment has to be one we know.
+	// A result has to say something. A moment is the results' to define: each names its seasons, and
+	// a moment the pack names without words of its own has to be named in the language files.
 	(entry.effects ?? []).forEach((e, i) => {
 		if (!e.text || !String(e.text).trim()) problems.push(`${slug}: effects[${i}] has no text`);
 		const when = e.when ?? {};
-		if (when.kind === "moment" && !Moments.has(when.moment)) {
-			problems.push(`${slug}: effects[${i}] fires at unknown moment "${when.moment}"`);
+		if (when.kind === "moment" && !when.moment) problems.push(`${slug}: effects[${i}] fires at a moment but names none`);
+		if (when.kind === "moment" && !when.seasons?.length) {
+			problems.push(`${slug}: effects[${i}] fires at a moment but names no season it happens in`);
+		}
+		if (when.kind === "moment" && when.moment && typeof when.momentName !== "string" && !isNamedMoment(when.moment)) {
+			problems.push(`${slug}: effects[${i}] fires at "${when.moment}", which no language file names`);
 		}
 		for (const key of when.seasons ?? []) {
 			if (!Seasons.all().some(s => s.key === key)) {
 				problems.push(`${slug}: effects[${i}] names unknown season "${key}"`);
 			}
-		}
-		if (when.kind === "moment" && when.seasons?.length) {
-			problems.push(`${slug}: effects[${i}] is a moment; its season comes from the moment, not from seasons[]`);
 		}
 		// A granted move is an ordinary item in the moves pack, rolled through the ordinary pipeline.
 		// A slug that resolves to nothing renders as an empty row with no way to see why.
@@ -173,4 +175,10 @@ export function strayRequirementRows(doc) {
 		.filter(r => !r?.track)
 		.map(r => (r?.content?.text ?? "").trim())
 		.filter(t => t && !header.test(t) && !outcome.test(t));
+}
+
+/** Whether the English language file names one of the book's moments, by the key Moment reads. */
+function isNamedMoment(key) {
+	const en = JSON.parse(readFileSync(new URL("../../languages/en.json", import.meta.url), "utf8"));
+	return typeof Moment.labelKeyFor(key).split(".").reduce((node, part) => node?.[part], en) === "string";
 }

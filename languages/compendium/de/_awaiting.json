@@ -1,2 +1,22 @@
 {
+  "playbooks": {
+    "the-seeker": [
+      "backgrounds/patriot/description",
+      "backgrounds/antiquarian/description",
+      "backgrounds/witch-hunter/description"
+    ]
+  },
+  "moves": {
+    "persuade-vs-npcs": [
+      "description"
+    ],
+    "well-versed": [
+      "description"
+    ]
+  },
+  "ui": {
+    "_ui": [
+      "stonetop.sheet.lock.unlock"
+    ]
+  }
 }

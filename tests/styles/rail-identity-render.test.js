@@ -55,9 +55,9 @@ const railContents = ({ hp } = {}) => {
 	</div>`;
 };
 
-const SHEET = ({ width, state = "", hp } = {}) => `
+const SHEET = ({ width, state = "", hp, theme = "light" } = {}) => `
 ${FONT_AWESOME}
-<div class="application stonetop sheet actor character themed theme-light" style="width: ${width}px; height: 900px"><div class="window-content">
+<div class="application stonetop sheet actor character themed theme-${theme}" style="width: ${width}px; height: 900px"><div class="window-content">
   <div class="sheet-wrapper"><div class="stonetop-rail-layout ${state}" style="height: 880px">
     <button type="button" class="stonetop-rail-toggle" data-action="toggleRail" aria-expanded="true" aria-label="Hide the rail">
       <i class="fas fa-chevron-left stonetop-rail-caret" aria-hidden="true"></i>
@@ -157,6 +157,17 @@ describe.skipIf(!canProbe())("the rail's identity", () => {
 		expect(portrait.values.boxHeight).toBeGreaterThanOrEqual(portrait.values.boxWidth);
 		expect(portrait.values.boxHeight).toBeLessThanOrEqual(13 * REM + 0.5);
 		expect(right(m.get("frame"))).toBeLessThanOrEqual(right(m.get("rail")));
+	});
+
+	// frame-stat's rule is 4px thick at its 30px slice size; the picture meets its inner edge.
+	it("sets the picture against the frame's rule, no paper between", () => {
+		const frame = m.get("frame");
+		const portrait = m.get("portrait");
+		const RULE = 4;
+		expect(portrait.values.boxLeft - frame.values.boxLeft).toBeCloseTo(RULE, 0);
+		expect(portrait.values.boxTop - frame.values.boxTop).toBeCloseTo(RULE, 0);
+		expect(right(frame) - right(portrait)).toBeCloseTo(RULE, 0);
+		expect(bottom(frame) - bottom(portrait)).toBeCloseTo(RULE, 0);
 	});
 });
 
@@ -264,6 +275,27 @@ describe.skipIf(!canProbe())("the bars' tones and the conditional edges", () => 
 	it("sinks the rail's paper below the tab's", () => {
 		const rail = life.get("rail").values["background-color"];
 		expect(rail).not.toMatch(/rgba\(0, 0, 0, 0\)|transparent/);
+	});
+});
+
+// Reported: on dark paper Level, Armor and Damage were filled near-black while the stats beside them
+// sat on the band's raised paper. The tiles take the same ground as the stats and the frame they sit on.
+describe.skipIf(!canProbe())("the portrait's tiles, on dark paper", () => {
+	let looks;
+	beforeAll(() => {
+		const html = SHEET({ width: 1100, theme: "dark" })
+			.replace("Tab content", `<header class="stonetop-head"></header>`);
+		looks = probe.render({ bodyHtml: html, bodyClass: "theme-dark", chromeFlags: windowFor(1100), probes: {
+			tile:  { selector: ".stonetop-cluster-item--level .stonetop-resource", pseudo: "::after", properties: ["background-color"] },
+			band:  { selector: ".stonetop-head", properties: ["background-color"] },
+			frame: { selector: ".stonetop-portrait-frame", properties: ["background-color"] },
+		} });
+	});
+
+	it("fills each tile with the stats band's paper, the paper of the frame it sits on", () => {
+		const tile = looks.get("tile").values["background-color"];
+		expect(tile).toBe(looks.get("band").values["background-color"]);
+		expect(tile).toBe(looks.get("frame").values["background-color"]);
 	});
 });
 

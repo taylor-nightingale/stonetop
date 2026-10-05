@@ -6,6 +6,8 @@ import { ArtManifest } from "./ArtManifest.js";
 import { BookArtExtractor } from "./BookArtExtractor.js";
 import { ArtInstaller } from "./ArtInstaller.js";
 import { FoundryArtWriter } from "./FoundryArtWriter.js";
+import { InstalledArtReader } from "./InstalledArtReader.js";
+import { InstalledArtTrim } from "./InstalledArtTrim.js";
 
 /** The active FilePicker implementation (v13 namespace, with a legacy fallback). */
 function filePicker() {
@@ -45,6 +47,14 @@ export async function createArtInstaller() {
 		wasmUrl: route("systems/stonetop/lib/pdfjs/wasm") + "/",
 	});
 	return new ArtInstaller(extractor, new FoundryArtWriter(filePicker()), manifest);
+}
+
+/** The once-per-world trim of art installed before the store kept the major arcana trimmed. */
+export async function createInstalledArtTrim() {
+	const manifest = await loadArtManifest();
+	const picker = filePicker();
+	const reader = new InstalledArtReader({ picker, fetch: (url, init) => globalThis.fetch(url, init), url: route });
+	return new InstalledArtTrim(manifest, reader, new FoundryArtWriter(picker));
 }
 
 /**

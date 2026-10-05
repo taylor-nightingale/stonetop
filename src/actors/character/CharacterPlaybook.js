@@ -9,8 +9,9 @@ import {PlaybookTitle} from "../../model/data/character/PlaybookTitle.js";
 import {rich} from "../../model/snapshot/RichText.js";
 
 export class CharacterPlaybook {
-	constructor(actor, background, factory, origin, vitals, moves, selection) {
+	constructor(actor, background, factory, origin, vitals, moves, selection, moveMarks) {
 		this._actor = actor;
+		this._moveMarks = moveMarks;
 		this._background = background;
 		this._origin = origin;
 		this._vitals = vitals;
@@ -62,9 +63,11 @@ export class CharacterPlaybook {
 		// A background's own moves are items only it grants, so the switch hands the old one's back
 		// before handing out the new one's.
 		if (oldSlug) await this._moves.removeCategory(Background.categoryKeyFor(oldSlug));
-		const background = Background.of(this._background.selectedBackground(await this.getData()));
+		const data       = await this.getData();
+		const background = Background.of(this._background.selectedBackground(data));
 		const granted    = background?.grantedMoveSlugs ?? [];
 		await this._moves.addCategory(Background.categoryKeyFor(slug), background?.label, granted, granted);
+		await this._moveMarks.switchBetween(Background.find(data, oldSlug), background);
 	}
 
 	// What choosing a playbook does to the character itself. The items it grants are not here — those

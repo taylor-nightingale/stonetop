@@ -15,12 +15,17 @@ vi.mock("../../src/actors/PackProvenance.js", () => ({ PackProvenance: class {} 
 vi.mock("../../src/actors/character/repositories/FoundryRepositoryFactory.js", () => ({
 	FoundryRepositoryFactory: class {},
 }));
-vi.mock("../../src/art/foundryArt.js", () => ({ isArtInstalled: async () => true }));
+const artInstalled = vi.fn(async () => true);
+const trimRun = vi.fn(async () => []);
+vi.mock("../../src/art/foundryArt.js", () => ({
+	isArtInstalled: (...args) => artInstalled(...args),
+	createInstalledArtTrim: async () => ({ run: () => trimRun() }),
+}));
 // Pinned to the version the stubbed world reports, so every test below runs as a current client.
 // The stale-client gate is exercised by overriding `game.system.version` in its own suite.
 vi.mock("../../src/version.js", () => ({ SYSTEM_VERSION: "1.0.2" }));
 
-import { onReady } from "../../src/hooks/Ready.js";
+import { onReady, trimInstalledArt } from "../../src/hooks/Ready.js";
 
 const settings = {};
 const errors   = [];
@@ -44,6 +49,11 @@ beforeEach(() => {
 	errors.length = 0;
 	settings.systemVersion   = "0.14.0";
 	settings.artNudgeDismissed = true;
+	settings.artTrimmed = true;
+	artInstalled.mockClear();
+	artInstalled.mockImplementation(async () => true);
+	trimRun.mockClear();
+	trimRun.mockImplementation(async () => []);
 	vi.stubGlobal("game", {
 		user:   { isGM: true },
 		system: { version: "1.0.2" },
@@ -223,5 +233,42 @@ describe("onReady — the stale client gate", () => {
 		game.system.version = "1.0.3";
 		await onReady();
 		expect(errors).toEqual(['stonetop.staleClient:{"installed":"1.0.3","loaded":"1.0.2"}']);
+	});
+});
+
+// Art installed before the store kept the major arcana trimmed still has the books' padded canvas.
+// It is trimmed once per world, silently, and a failure is tried again on the next load.
+describe("trimInstalledArt", () => {
+	beforeEach(() => { settings.artTrimmed = false; });
+
+	it("trims the installed art and marks the world done", async () => {
+		await trimInstalledArt();
+		expect(trimRun).toHaveBeenCalledOnce();
+		expect(settings.artTrimmed).toBe(true);
+	});
+
+	it("does nothing in a world already done", async () => {
+		settings.artTrimmed = true;
+		await trimInstalledArt();
+		expect(trimRun).not.toHaveBeenCalled();
+	});
+
+	// The installer writes them trimmed, so a world with no art yet never needs the pass.
+	it("marks a world with no art installed done without reading anything", async () => {
+		artInstalled.mockImplementation(async () => false);
+		await trimInstalledArt();
+		expect(trimRun).not.toHaveBeenCalled();
+		expect(settings.artTrimmed).toBe(true);
+	});
+
+	it("leaves the world unmarked when the trim fails, so the next load tries again", async () => {
+		trimRun.mockImplementation(async () => { throw new Error("upload refused"); });
+		await expect(trimInstalledArt()).resolves.toBeUndefined();
+		expect(settings.artTrimmed).toBe(false);
+	});
+
+	it("runs from the GM's ready", async () => {
+		await onReady();
+		await vi.waitFor(() => expect(trimRun).toHaveBeenCalledOnce());
 	});
 });

@@ -1,6 +1,7 @@
 import {StonetopPlaybook} from "./StonetopPlaybook.js";
 import {StonetopSteadfast} from "./StonetopSteadfast.js";
 import {ItemSlugCatalog} from "./ItemSlugCatalog.js";
+import {ImprovementAuthoring} from "./ImprovementAuthoring.js";
 
 export function createStonetopItemClass(BaseItem) {
 	return class StonetopItem extends BaseItem {
@@ -8,6 +9,7 @@ export function createStonetopItemClass(BaseItem) {
 		async _preCreate(data, options, user) {
 			const allowed = await super._preCreate(data, options, user);
 			if (allowed === false) return false;
+			this.typedItem?.onPreCreate?.(data);
 			await this.#claimFreeSlug();
 		}
 
@@ -28,10 +30,11 @@ export function createStonetopItemClass(BaseItem) {
 		}
 
 		// The typed view of this item, built lazily and cached (mirrors Actor.typedActor). Only steadfast
-		// items have one today — other types return null.
+		// and improvement items have one today — other types return null.
 		get typedItem() {
 			if (this._typedItem) return this._typedItem;
 			if (this.type === "steadfast") this._typedItem = new StonetopSteadfast(this);
+			if (this.type === "improvement") this._typedItem = new ImprovementAuthoring(this);
 			return this._typedItem ?? null;
 		}
 	};

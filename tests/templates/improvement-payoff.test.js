@@ -15,7 +15,7 @@ import { SteadingImprovement } from "../../src/actors/steading/repositories/Foun
 const payoffFor = (slug, dir = "stonetop") => {
 	const doc = JSON.parse(readFileSync(
 		`packs/src/steading-improvements/${dir}/${slug}.json`, "utf8"));
-	const improvement = new SteadingImprovement(doc.system.slug, doc.name, doc.system.choices, 0,
+	const improvement = new SteadingImprovement(doc.system.slug, doc.name, doc.system.choices,
 		{ requires: doc.system.requires, effects: doc.system.effects });
 	const root = document.createElement("div");
 	root.innerHTML = renderPartial("stonetop.steading-improvement-payoff",
@@ -58,7 +58,7 @@ describe("an improvement's card", () => {
 	// The chips are the fallback for a clause with no phrase of its own — a homebrew improvement, or
 	// one authored before the trigger words were.
 	it("keeps the timing chip where the clause says nothing of when", () => {
-		const bare = new SteadingImprovement("bare", "Bare", { slug: "bare", list: [] }, 0, {
+		const bare = new SteadingImprovement("bare", "Bare", { slug: "bare", list: [] }, {
 			effects: [{ when: { kind: "turn", seasons: ["winter"] }, text: "something happens" }],
 		});
 		const root = document.createElement("div");

@@ -37,7 +37,7 @@
 			"allowCustom": true
 		},
 		"loyalty": {
-			"value": 0,
+			"value": 3,
 			"max": 3
 		},
 		"choices": [

@@ -1,0 +1,52 @@
+{{!-- A follower as its arcanum's card prints it (D13). Context: a FollowerSnapshot, plus `markJoinsTab`
+      — whether marking the granting row puts the follower on the Followers tab.
+
+      The whole stat block, read-only: it is edited on the Followers tab, where its card is. Set apart
+      on its own ground inside the arcanum's chain rather than in a second art frame (§3). Loyalty stays
+      live, since it is spent at the table. The line under the name says where the follower goes once
+      marked, or that it is there — each drawn only once it has words. --}}
+<div class="stonetop-follower-stat-block" data-slug="{{slug}}">
+	<div class="stonetop-follower-head">
+		{{#if img}}<img class="stonetop-follower-img" src="{{img}}" alt="">{{/if}}
+		<div class="stonetop-follower-head-main">
+			<span class="stonetop-follower-stat-block-name">{{name}}</span>
+			{{#if tagList.resolved.length}}<span class="stonetop-follower-stat-block-tags">{{> "stonetop.tag-list" tags=tagList.resolved}}</span>{{/if}}
+			{{#if onTab}}
+			{{#if (hasText (localize "stonetop.arcana.followerJoined"))}}<span class="stonetop-follower-stat-block-where">{{localize "stonetop.arcana.followerJoined"}}</span>{{/if}}
+			{{else if markJoinsTab}}
+			{{#if (hasText (localize "stonetop.arcana.followerJoinsHint"))}}<span class="stonetop-follower-stat-block-where">{{localize "stonetop.arcana.followerJoinsHint"}}</span>{{/if}}
+			{{/if}}
+		</div>
+	</div>
+
+	{{#unless isObject}}
+	<div class="stonetop-follower-stat-block-stats">
+		{{#unless isGroup}}
+		<span class="stonetop-creature-line"><span class="stonetop-follower-label">{{localize "stonetop.followers.hp"}}</span> <span>{{hp}}/{{hpMax}}</span></span>
+		{{/unless}}
+		{{#if (hasText armor)}}<span class="stonetop-creature-line"><span class="stonetop-follower-label">{{localize "stonetop.followers.armor"}}</span> <span>{{rich armor}}</span></span>{{/if}}
+		{{#if (hasText damage)}}<span class="stonetop-creature-line"><span class="stonetop-follower-label">{{localize "stonetop.followers.damage"}}</span> <span>{{rich damage}}</span></span>{{/if}}
+	</div>
+	{{/unless}}
+
+	{{#if (hasText instinct)}}
+	<div class="stonetop-creature-line"><span class="stonetop-follower-label">{{localize "stonetop.followers.instinct"}}</span> <span>{{instinct}}</span></div>
+	{{/if}}
+	{{#if (hasText specialQuality)}}
+	<div class="stonetop-creature-line"><span class="stonetop-follower-label">{{localize "stonetop.followers.specialQuality"}}</span> <span>{{rich specialQuality}}</span></div>
+	{{/if}}
+	{{#if (hasText moves)}}
+	<div class="stonetop-follower-stat-block-moves">
+		<span class="stonetop-follower-label">{{localize "stonetop.followers.moves"}}</span>
+		<div class="stonetop-follower-stat-block-text">{{rich moves}}</div>
+	</div>
+	{{/if}}
+
+	<div class="stonetop-creature-line stonetop-follower-stat-block-cost">
+		{{#if (hasText cost)}}<span class="stonetop-follower-label">{{localize "stonetop.followers.cost"}}</span> <span>{{cost}}</span>{{/if}}
+		<span class="stonetop-follower-loyalty">
+			<span class="stonetop-follower-label">{{localize "stonetop.followers.loyalty"}}</span>
+			{{> "stonetop.resource-track" resource=loyalty btnClass="stonetop-follower-loyalty-btn" action="followerLoyaltyPip" slug=slug}}
+		</span>
+	</div>
+</div>

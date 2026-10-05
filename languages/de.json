@@ -474,12 +474,7 @@
       "introStep6": "Sechste Vorstellungsrunde (SC-Fragen)"
     },
     "improvement": {
-      "namePlaceholder": "Name der Verbesserung",
-      "sortOrder": "Sortierreihenfolge",
-      "sortOrderPlaceholder": "Position im Katalog",
-      "choices": "Optionen",
-      "edit": "Bearbeiten",
-      "done": "Übernehmen"
+      "namePlaceholder": "Name der Verbesserung"
     },
     "steadfast": {
       "namePlaceholder": "Name der Siedlung",

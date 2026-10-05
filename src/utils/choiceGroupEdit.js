@@ -32,10 +32,19 @@ export function addRow(group, type) {
 	const g = clone(group);
 	const row = foundry.utils.deepClone(DEFAULT_ROWS[type]);
 	if (!row) return g;
-	if (type === "entry") row.slug = "entry-" + g.list.length;
+	if (type === "entry") row.slug = unusedEntrySlug(g.list);
 	if (type === "pick")  row.options.push(blankOption(1));
 	g.list.push(row);
 	return g;
+}
+
+// A row's slug is its identity — stored values and an improvement's requirement name it — so a new
+// row takes the lowest number no row in the group holds, never the row count.
+export function unusedEntrySlug(list) {
+	const taken = new Set(list.map(row => row.slug));
+	let n = 0;
+	while (taken.has("entry-" + n)) n++;
+	return "entry-" + n;
 }
 
 export function removeRow(group, index) {

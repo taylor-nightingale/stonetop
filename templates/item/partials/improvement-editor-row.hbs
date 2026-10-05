@@ -1,0 +1,35 @@
+{{!-- One requirement or line of text, as the card draws it and edited where it sits: its words with the
+      editable field's own edit control, a requirement's boxes (which tick nothing here — a catalog
+      improvement has no ticks) with − / + for how many.
+
+      Context: an ImprovementEditorRow. Params: the tools' moveAction / moveKey / canUp / canDown /
+      removeAction / removeKey. --}}
+<div class="stonetop-improvement-row" data-index="{{index}}">
+	<div class="stonetop-improvement-line-main">
+		{{#if isRequirement}}
+			<div class="stonetop-choice-track stonetop-row">
+				<div class="stonetop-choice-track-checks" inert>
+					{{#each checks}}<input type="checkbox" class="stonetop-cg-track" tabindex="-1"
+					       aria-label="{{localize 'stonetop.a11y.trackPip' name=(localize 'stonetop.a11y.track') position=(inc @index) total=../checks.length}}">{{/each}}
+				</div>
+				<span class="stonetop-improvement-boxes">
+					<button type="button" class="stonetop-icon-btn" data-action="stepBoxes" data-key="{{index}}" data-step="-1"
+					        aria-label="{{localize 'stonetop.improvement.row.fewerBoxes'}}" title="{{localize 'stonetop.improvement.row.fewerBoxes'}}">−</button>
+					<button type="button" class="stonetop-icon-btn" data-action="stepBoxes" data-key="{{index}}" data-step="1"
+					        aria-label="{{localize 'stonetop.improvement.row.moreBoxes'}}" title="{{localize 'stonetop.improvement.row.moreBoxes'}}">+</button>
+				</span>
+				<span class="stonetop-choice-track-desc stonetop-choice-track-desc-row">
+					{{> "stonetop.editable-field" field=text changeAction="lineText" multiline=true label=(localize "stonetop.improvement.words.label")
+					    placeholder=(localize "stonetop.improvement.placeholder.requirement")}}
+				</span>
+			</div>
+		{{else}}
+			<div class="stonetop-choice-description">
+				{{> "stonetop.editable-field" field=text changeAction="lineText" multiline=true label=(localize "stonetop.improvement.words.label")
+				    placeholder=(localize "stonetop.improvement.placeholder.line")}}
+			</div>
+		{{/if}}
+		{{> "stonetop.improvement-editor-tools" moveAction=moveAction moveKey=moveKey canUp=canUp canDown=canDown
+		    removeAction=removeAction removeKey=removeKey removeName=words}}
+	</div>
+</div>

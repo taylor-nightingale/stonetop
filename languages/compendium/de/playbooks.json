@@ -2255,58 +2255,65 @@
       "text": "Patriot"
     },
     "backgrounds/patriot/description": {
-      "source": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.",
-      "text": "Diese Menschen sind deine Familie. Um dich herum breitet sich das Chaos aus, aber du willst verdammt sein, wenn du zulässt, dass deiner Familie etwas zustößt. Verdammt, in der Tat.\n\nDu hast nach dunkler Macht gesucht und sie dir zu eigen gemacht, um das zu schützen, was dir lieb und teuer ist. Oder vielleicht ist diese Macht über dich gekommen und du hast sie zum Wohle aller angenommen. So oder so, du strebst nach mehr.\n\nDu beginnst mit dem Spielzug Lass uns einen Handel abschließen und du bist bewandert in den Dingen aus der Tiefe (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:"
+      "source": "These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.\n\nYou have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.\n\nYou start with the **Let's Make a Deal** move and are **Well Versed** in the Things Below. Go mark them now. You've also acquired 1 major arcanum.",
+      "text": "Diese Menschen sind deine Familie. Um dich herum breitet sich das Chaos aus, aber du willst verdammt sein, wenn du zulässt, dass deiner Familie etwas zustößt. Verdammt, in der Tat.\n\nDu hast nach dunkler Macht gesucht und sie dir zu eigen gemacht, um das zu schützen, was dir lieb und teuer ist. Oder vielleicht ist diese Macht über dich gekommen und du hast sie zum Wohle aller angenommen. So oder so, du strebst nach mehr.\n\nDu beginnst mit dem Spielzug Lass uns einen Handel abschließen und du bist bewandert in den Dingen aus der Tiefe (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:",
+      "needsReview": true
     },
     "backgrounds/antiquarian/label": {
       "source": "Antiquarian",
       "text": "Antiquar"
     },
     "backgrounds/antiquarian/description": {
-      "source": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.",
-      "text": "Die Vergangenheit birgt viele Geheimnisse, und du bist entschlossen, sie zu lüften. Jahrelange Studien im ganzen Land haben dich hierhergeführt, und du bist überzeugt, dass hier der Schlüssel zu deinen größten Entdeckungen liegt. Was erhoffst du zu finden? Was hält dich hier?\n\nAuf jeden Fall bedeuten deine Reisen und Studien, dass du mit dem Spielzug Polyglott beginnst und du bist bewandert in den Schöpfern und ihren Künsten (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:"
+      "source": "The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?\n\nYour travels and studies mean that you start with the **Polyglot** move and are **Well Versed** in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.",
+      "text": "Die Vergangenheit birgt viele Geheimnisse, und du bist entschlossen, sie zu lüften. Jahrelange Studien im ganzen Land haben dich hierhergeführt, und du bist überzeugt, dass hier der Schlüssel zu deinen größten Entdeckungen liegt. Was erhoffst du zu finden? Was hält dich hier?\n\nAuf jeden Fall bedeuten deine Reisen und Studien, dass du mit dem Spielzug Polyglott beginnst und du bist bewandert in den Schöpfern und ihren Künsten (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:",
+      "needsReview": true
     },
     "backgrounds/witch-hunter/label": {
       "source": "Witch Hunter",
       "text": "Hexenjäger"
     },
     "backgrounds/witch-hunter/description": {
-      "source": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.",
-      "text": "Du hast dein Leben dem Aufspüren und Vernichten von Schrecken und ihren Dienern gewidmet. Was hat dich auf diesen Weg gebracht? Was musstest du opfern, um ihn zu beschreiten? Was hat dich dazu bewogen, Stonetop zu deiner Heimat zu machen?\n\nWie dem auch sei, du beginnst mit dem Spielzug Alles blutet und du bist bewandert in (wähle 1) den Feen, den Dingen aus der Tiefe oder der Schwarzen Pforte des Todes und dessen, was dahinter liegt (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:"
+      "source": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1):",
+      "text": "Du hast dein Leben dem Aufspüren und Vernichten von Schrecken und ihren Dienern gewidmet. Was hat dich auf diesen Weg gebracht? Was musstest du opfern, um ihn zu beschreiten? Was hat dich dazu bewogen, Stonetop zu deiner Heimat zu machen?\n\nWie dem auch sei, du beginnst mit dem Spielzug Alles blutet und du bist bewandert in (wähle 1) den Feen, den Dingen aus der Tiefe oder der Schwarzen Pforte des Todes und dessen, was dahinter liegt (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:",
+      "needsReview": true
     },
-    "backgrounds/patriot/choices/hectumel-codex/text": {
+    "backgrounds/witch-hunter/choices/go-mark-them-now-youve-also/text": {
+      "source": "Go mark them now. You've also acquired 1 major arcanum.",
+      "text": ""
+    },
+    "backgrounds/patriot/choices/major-arcanum/options/hectumel-codex/text": {
       "source": "The Hec'tumel Codex",
       "text": "Der Hec'tumel-Kodex"
     },
-    "backgrounds/patriot/choices/red-scepter/text": {
+    "backgrounds/patriot/choices/major-arcanum/options/red-scepter/text": {
       "source": "The Red Scepter",
       "text": "Das Rote Zepter"
     },
-    "backgrounds/patriot/choices/staff-of-the-lidless-orb/text": {
+    "backgrounds/patriot/choices/major-arcanum/options/staff-of-the-lidless-orb/text": {
       "source": "The Staff of the Lidless Orb",
       "text": "Der Stab des lidlosen Auges"
     },
-    "backgrounds/antiquarian/choices/norubas-ice-sphere/text": {
+    "backgrounds/antiquarian/choices/major-arcanum/options/norubas-ice-sphere/text": {
       "source": "Noruba's Ice Sphere",
       "text": "Norubas Eissphäre"
     },
-    "backgrounds/antiquarian/choices/azure-hand/text": {
+    "backgrounds/antiquarian/choices/major-arcanum/options/azure-hand/text": {
       "source": "The Azure Hand",
       "text": "Die Azurblaue Hand"
     },
-    "backgrounds/antiquarian/choices/mindgem/text": {
+    "backgrounds/antiquarian/choices/major-arcanum/options/mindgem/text": {
       "source": "The Mindgem",
       "text": "Der Seelenstein"
     },
-    "backgrounds/witch-hunter/choices/demonhide-cloak/text": {
+    "backgrounds/witch-hunter/choices/major-arcanum/options/demonhide-cloak/text": {
       "source": "The Demonhide Cloak",
       "text": "Der Dämonenhaut-Umhang"
     },
-    "backgrounds/witch-hunter/choices/redwood-effigy/text": {
+    "backgrounds/witch-hunter/choices/major-arcanum/options/redwood-effigy/text": {
       "source": "The Redwood Effigy",
       "text": "Das Rotholz-Abbild"
     },
-    "backgrounds/witch-hunter/choices/twisted-spear/text": {
+    "backgrounds/witch-hunter/choices/major-arcanum/options/twisted-spear/text": {
       "source": "The Twisted Spear",
       "text": "Der gewundene Speer"
     },

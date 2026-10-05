@@ -10,7 +10,7 @@ export class FakeSteadingImprovementRepository {
 	// entry with no content yet, which the steading must skip rather than render blank. `name` is what
 	// the panels title the improvement with; it defaults off the slug so most tests need not say.
 	withImprovement(slug, choices = { slug, list: [] }, name = slug) {
-		this._improvements.push(new SteadingImprovement(slug, name, choices, this._improvements.length));
+		this._improvements.push(new SteadingImprovement(slug, name, choices));
 		return this;
 	}
 

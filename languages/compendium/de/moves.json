@@ -2607,8 +2607,9 @@
       "text": "Überreden (bei NSCs)"
     },
     "description": {
-      "source": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +DEX: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
-      "text": "Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein."
+      "source": "When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +CHA: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.",
+      "text": "Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein.",
+      "needsReview": true
     },
     "moveResults/success/value": {
       "source": "They either do as you want or reveal the easiest way to convince them",
@@ -4349,8 +4350,41 @@
       "text": "Bewandert"
     },
     "description": {
-      "source": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.\n\n- The Last Door, death, and the undead\n- The civilizations of humanity\n- The Fae and their strange ways\n- The Makers and their arts\n- The primordial powers\n- The Things Below\n- The wild world and its spirits\nWhen you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).",
-      "text": "Markiere ein Themengebiet, zusätzlich zu dem, das in deinem Hintergrund vermerkt ist. Jedes weitere Mal, wenn du diesen Spielzug wählst, markierst du zwei zusätzliche Themengebiete.\n\n- Das Schwarze Tor, der Tod und die Untoten\n- Die Zivilisationen der Menschheit\n- Die Feen und ihre seltsamen Bräuche\n- Die Schöpfer und ihre Künste\n- Die Urkräfte\n- Die Dinge unter der Erde\n- Die Natur und ihre Geister\nWenn du **_bei einem deiner Themengebiete Wissen kundtust_**, kannst du dem SL eine beliebige Folgefrage stellen, selbst bei einer 6-."
+      "source": "Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.",
+      "text": "Markiere ein Themengebiet, zusätzlich zu dem, das in deinem Hintergrund vermerkt ist. Jedes weitere Mal, wenn du diesen Spielzug wählst, markierst du zwei zusätzliche Themengebiete.\n\n- Das Schwarze Tor, der Tod und die Untoten\n- Die Zivilisationen der Menschheit\n- Die Feen und ihre seltsamen Bräuche\n- Die Schöpfer und ihre Künste\n- Die Urkräfte\n- Die Dinge unter der Erde\n- Die Natur und ihre Geister\nWenn du **_bei einem deiner Themengebiete Wissen kundtust_**, kannst du dem SL eine beliebige Folgefrage stellen, selbst bei einer 6-.",
+      "needsReview": true
+    },
+    "choices/last-door/text": {
+      "source": "The Last Door, death, and the undead",
+      "text": ""
+    },
+    "choices/civilizations/text": {
+      "source": "The civilizations of humanity",
+      "text": ""
+    },
+    "choices/fae/text": {
+      "source": "The Fae and their strange ways",
+      "text": ""
+    },
+    "choices/makers/text": {
+      "source": "The Makers and their arts",
+      "text": ""
+    },
+    "choices/primordial-powers/text": {
+      "source": "The primordial powers",
+      "text": ""
+    },
+    "choices/things-below/text": {
+      "source": "The Things Below",
+      "text": ""
+    },
+    "choices/wild-world/text": {
+      "source": "The wild world and its spirits",
+      "text": ""
+    },
+    "choices/follow-up/text": {
+      "source": "When you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).",
+      "text": ""
     }
   },
   "whispers": {
@@ -4438,46 +4472,6 @@
     }
   },
   "_folders": {
-    "arcana": {
-      "source": "arcana",
-      "text": "Arkana"
-    },
-    "basic": {
-      "source": "basic",
-      "text": "Grundspielzüge"
-    },
-    "expedition": {
-      "source": "expedition",
-      "text": "Expedition"
-    },
-    "follower": {
-      "source": "follower",
-      "text": "Gefolgsleute"
-    },
-    "homefront": {
-      "source": "homefront",
-      "text": "Heimatfront"
-    },
-    "improvement": {
-      "source": "improvement",
-      "text": ""
-    },
-    "playbook": {
-      "source": "playbook",
-      "text": "Klassenbücher"
-    },
-    "post-death": {
-      "source": "post death",
-      "text": "Nach dem Tod"
-    },
-    "seasons": {
-      "source": "seasons",
-      "text": "Jahreszeiten"
-    },
-    "special": {
-      "source": "special",
-      "text": "Sonderspielzüge"
-    },
     "ghost": {
       "source": "ghost",
       "text": "Geist"
@@ -4529,6 +4523,46 @@
     "the-would-be-hero": {
       "source": "The Would-Be Hero",
       "text": "Der Möchtegern-Held"
+    },
+    "arcana": {
+      "source": "arcana",
+      "text": "Arkana"
+    },
+    "basic": {
+      "source": "basic",
+      "text": "Grundspielzüge"
+    },
+    "expedition": {
+      "source": "expedition",
+      "text": "Expedition"
+    },
+    "follower": {
+      "source": "follower",
+      "text": "Gefolgsleute"
+    },
+    "homefront": {
+      "source": "homefront",
+      "text": "Heimatfront"
+    },
+    "improvement": {
+      "source": "improvement",
+      "text": ""
+    },
+    "playbook": {
+      "source": "playbook",
+      "text": "Klassenbücher"
+    },
+    "post-death": {
+      "source": "post death",
+      "text": "Nach dem Tod"
+    },
+    "seasons": {
+      "source": "seasons",
+      "text": "Jahreszeiten"
+    },
+    "special": {
+      "source": "special",
+      "text": "Sonderspielzüge"
     }
   }
 }

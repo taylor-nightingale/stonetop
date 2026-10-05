@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
-import { RenderProbe, canProbe, pseudoAsClass } from "./RenderProbe.js";
+import { RenderProbe, canProbe } from "./RenderProbe.js";
 import { renderPartial } from "../fakes/renderTemplate.js";
 import { buildMoveSnapshot } from "../../src/actors/embeddedMoves.js";
 import { MoveCategorySnapshotBuilder } from "../../src/model/snapshot/character/MoveSnapshot.js";
@@ -13,7 +13,6 @@ const STYLES = path.resolve("styles");
 const SHEETS = ["themes/palette.css", "themes/parchment-light.css", "themes/parchment-dark.css", "tokens.css", "stonetop.css"]
 	.map(f => path.join(STYLES, f));
 const probe = new RenderProbe(SHEETS);
-const hoverProbe = new RenderProbe(SHEETS, { transformCss: pseudoAsClass("hover") });
 
 const resources = new ResourceController(new FakeCharacterActorBuilder().build(), "moveResources");
 const move = (name, slug, system = {}) => buildMoveSnapshot(
@@ -159,7 +158,7 @@ describe.skipIf(!canProbe())("the ink bar", () => {
 });
 
 describe.skipIf(!canProbe())("the hover card", () => {
-	it("stays out of the list until a pointer is on its row", () => {
+	it("stays out of the list until it is shown", () => {
 		const styles = probe.render({
 			bodyHtml: RAIL(group(true)), bodyClass: "theme-light",
 			probes: { card: { selector: `${row("defend")} .stonetop-move-preview`, properties: ["display"] } },
@@ -167,23 +166,31 @@ describe.skipIf(!canProbe())("the hover card", () => {
 		expect(styles.get("card").get("display")).toBe("none");
 	});
 
-	it("comes out of the list, fixed, under the pointer", () => {
-		const hovered = RAIL(group(true)).replace(/(<li class="stonetop-mrow[^"]*)(" data-disclosure-row data-slug="defend")/, "$1 is-hover$2");
-		const styles = hoverProbe.render({
-			bodyHtml: hovered, bodyClass: "theme-light",
-			probes: { card: { selector: `${row("defend")} .stonetop-move-preview`, properties: ["display", "position"] } },
-		});
-		expect(styles.get("card").get("display")).toBe("block");
-		expect(styles.get("card").get("position")).toBe("fixed");
-	});
+	// Core's dark theme blurs behind `.window-content`, which makes it what a merely fixed card is placed
+	// against and clipped by: the card landed the window's offset away from its row, cut off at its edge.
+	describe("shown, inside a window that blurs behind its content", () => {
+		const WINDOW = `<div style="position: absolute; left: 150px; top: 120px; width: 400px; height: 300px">${RAIL(group(true))}</div>`;
+		const shown = WINDOW.replace("theme-light", "theme-dark") + `<script>
+			const card = document.querySelector('${row("defend")} .stonetop-move-preview');
+			card.style.setProperty("--move-preview-x", "600px");
+			card.style.setProperty("--move-preview-y", "40px");
+			card.showPopover();
+		</script>`;
 
-	it("is not shown for a row whose text is already open", () => {
-		const hovered = openRow(RAIL(group(true)), "defend")
-			.replace(/(<li class="stonetop-mrow[^"]*)(" data-disclosure-row data-slug="defend")/, "$1 is-hover$2");
-		const styles = hoverProbe.render({
-			bodyHtml: hovered, bodyClass: "theme-light",
-			probes: { card: { selector: `${row("defend")} .stonetop-move-preview`, properties: ["display"] } },
+		it("is in that window — the hazard is real", () => {
+			const styles = probe.render({
+				bodyHtml: shown, bodyClass: "theme-dark",
+				probes: { content: { selector: ".window-content", properties: ["backdrop-filter", "overflow"] } },
+			});
+			expect(styles.get("content").get("backdrop-filter")).toBe("blur(4px)");
+			expect(styles.get("content").get("overflow")).toBe("hidden");
 		});
-		expect(styles.get("card").get("display")).toBe("none");
+
+		it("sits exactly where it was placed, outside the window, at its own size", () => {
+			const card = probe.measure({ bodyHtml: shown, bodyClass: "theme-dark",
+				targets: { card: `${row("defend")} .stonetop-move-preview` } }).get("card");
+			expect([card.values.boxLeft, card.values.boxTop]).toEqual([600, 40]);
+			expect(card.values.boxWidth).toBeGreaterThan(200);
+		});
 	});
 });

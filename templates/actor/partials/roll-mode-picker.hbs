@@ -17,9 +17,15 @@
 
       Parameters: `modes` (RollModes.options — [{key, labelKey, checked}]), `name` scoping the radio
       group, `variant`, and `changeAction` for a sheet's change router. The dialog passes no
-      changeAction: its value is read once on submit rather than written back as you click. --}}
+      changeAction: its value is read once on submit rather than written back as you click.
+
+      The improvement sheet's editors draw their choices (a section's rule, when a result fires, what
+      the sheet does) as the stacked variant, passing their own `modes` and `legendKey`, and `detail`:
+      a partial drawn under the CHECKED option, given `detailContext` — the fields that option asks
+      for sit directly under it, so it is plain which choice they belong to. Only under an option
+      whose mode says `hasDetail`: one that asks for nothing gets no empty box. --}}
 <fieldset class="stonetop-rollmode stonetop-rollmode--{{#if variant}}{{variant}}{{else}}inline{{/if}}">
-	<legend class="stonetop-rollmode-legend">{{localize "stonetop.rollMode.label"}}</legend>
+	<legend class="stonetop-rollmode-legend">{{localize (ifThen legendKey legendKey "stonetop.rollMode.label")}}</legend>
 	{{#each modes}}
 	{{!-- The inline line draws "Adv" and "Disadv": beside the stats it is short of room, and the
 	      full words overran the conditions. The full word still names the radio and shows on hover.
@@ -36,6 +42,9 @@
 		<span class="stonetop-rollmode-label">{{localize labelKey}}</span>
 		{{/if}}
 	</label>
+	{{#if (and checked hasDetail ../detail)}}
+	<div class="stonetop-rollmode-detail">{{> (lookup .. "detail") ../detailContext}}</div>
+	{{/if}}
 	{{/each}}
 	{{!-- D9: Advantage/Disadvantage explains what this control does, so it sits on the control as the
 	      last item of its row. The advice button's look, but it opens the move. Param: `rule`, the move. --}}

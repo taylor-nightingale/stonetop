@@ -15,12 +15,12 @@ import { TurnoverLine } from "../../../../src/model/snapshot/steading/TurnoverSt
 const MILL = new SteadingImprovement("mill", "Mill", {
 	slug: "mill",
 	list: [{ type: "entry", slug: "site", content: { text: "a site" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "site",
 	effects: [
 		{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
 		{ when: { kind: "completed" }, text: "draw it on the map" },
-		{ when: { kind: "moment", moment: "autumn-harvest" }, change: { target: "surplus", amount: 1 },
+		{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] }, change: { target: "surplus", amount: 1 },
 		  text: "the steading generates +1 Surplus" },
 	],
 });
@@ -30,7 +30,7 @@ const MILL = new SteadingImprovement("mill", "Mill", {
 const RAINCATCHING = new SteadingImprovement("raincatching", "Raincatching", {
 	slug: "raincatching",
 	list: [{ type: "entry", slug: "roofs", content: { text: "roofs" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "roofs",
 	effects: [
 		{ when: { kind: "turn", seasons: ["summer"], phrase: "when **_summer comes and you roll a 7+ with Fortunes_**" },
@@ -41,7 +41,7 @@ const RAINCATCHING = new SteadingImprovement("raincatching", "Raincatching", {
 const PALISADE = new SteadingImprovement("palisade", "Palisade", {
 	slug: "palisade",
 	list: [{ type: "entry", slug: "timber", content: { text: "timber" }, track: { max: 1 } }],
-}, 0, {
+}, {
 	requires: "timber",
 	effects: [
 		{ when: { kind: "completed" }, change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
@@ -76,8 +76,18 @@ describe("ImprovementPayoff", () => {
 			expect(payoff.henceforth.lines.map(l => l.text.raw)).toEqual(["you have advantage to Deploy"]);
 		});
 
+		// One its author has just made, before it has the clause that says when: it is still a result
+		// that holds for as long as the improvement stands, and still belongs under Henceforth.
+		it("files a result that holds as long as it stands under Henceforth before it has words for when", () => {
+			const standing = new SteadingImprovement("s", "S", { slug: "s", list: [] }, {
+				effects: [{ when: { kind: "completed" }, condition: true, text: "you have advantage" }] });
+			const payoff = ImprovementPayoff.from(standing);
+			expect(payoff.completion.lines).toEqual([]);
+			expect(payoff.henceforth.lines.map(l => l.text.raw)).toEqual(["you have advantage"]);
+		});
+
 		it("says when it has nothing to show", () => {
-			const bare = new SteadingImprovement("bare", "Bare", { slug: "bare", list: [] }, 0, {});
+			const bare = new SteadingImprovement("bare", "Bare", { slug: "bare", list: [] }, {});
 			expect(ImprovementPayoff.forCatalog(bare).isEmpty).toBe(true);
 			expect(ImprovementPayoff.from(MILL).isEmpty).toBe(false);
 		});
@@ -136,7 +146,7 @@ describe("ImprovementPayoff", () => {
 			const township = new SteadingImprovement("township", "Township", {
 				slug: "township",
 				list: [{ type: "entry", slug: "folk", content: { text: "folk" }, track: { max: 1 } }],
-			}, 0, { requires: "folk", effects: [{ when: { kind: "completed" }, text: "change Size to town" }] });
+			}, { requires: "folk", effects: [{ when: { kind: "completed" }, text: "change Size to town" }] });
 
 			const payoff = ImprovementPayoff.from(township, { boxes: township.boxesFrom({ folk: 1 }) });
 			expect(payoff.hasCompletion).toBe(true);

@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { MovePreviewPlacement, MovePreviews } from "../../src/utils/MovePreviewPlacement.js";
 
 const VIEW = { width: 1400, height: 900 };
@@ -14,13 +14,10 @@ describe("MovePreviewPlacement", () => {
 		expect(place(rect(20, 300, 200, 40))).toEqual({ x: 228, y: 300 });
 	});
 
-	it("puts it on the left when there is no room on the right", () => {
-		expect(place(rect(1100, 300, 200, 40))).toEqual({ x: 1100 - 8 - 320, y: 300 });
-	});
-
 	// A tab's row runs the tab's width; sent left, its card landed on top of the rail.
-	it("puts a row too wide for either side's card under it, at its own left edge", () => {
-		expect(place(rect(300, 300, 900, 40))).toEqual({ x: 300, y: 346 });
+	it("puts a row with no room on its right under it, at its own left edge — never on its left", () => {
+		expect(place(rect(500, 300, 750, 40))).toEqual({ x: 500, y: 346 });
+		expect(place(rect(1100, 300, 200, 40))).toEqual({ x: VIEW.width - CARD.width - 8, y: 346 });
 	});
 
 	it("flips a card above a wide row near the bottom of the window", () => {
@@ -35,39 +32,87 @@ describe("MovePreviewPlacement", () => {
 });
 
 describe("MovePreviews", () => {
+	// happy-dom has no popover API; the card answers for itself as Chrome's would.
+	function popover(card) {
+		let open = false;
+		card.showPopover = vi.fn(() => { open = true; });
+		card.hidePopover = vi.fn(() => { open = false; });
+		Object.defineProperty(card, "isShown", { get: () => open });
+		card.getBoundingClientRect = () => rect(0, 0, 320, 200);
+	}
+
 	function sheet() {
 		document.body.innerHTML = `<div class="root"><ol>
 			<li class="stonetop-mrow"><button class="stonetop-mrow-roll">Defend</button>
-				<div class="stonetop-move-preview">text</div></li>
-		</ol></div>`;
+				<div class="stonetop-move-preview" popover="manual">text</div></li>
+		</ol><span class="elsewhere"></span></div>`;
 		const row = document.querySelector(".stonetop-mrow");
 		row.getBoundingClientRect = () => rect(20, 300, 200, 40);
 		const card = row.querySelector(".stonetop-move-preview");
-		Object.defineProperty(card, "scrollHeight", { value: 200 });
+		popover(card);
 		const root = document.querySelector(".root");
-		new MovePreviews({ width: () => 320, viewport: () => VIEW }).attach(root);
-		return { row, card, root };
+		new MovePreviews({ viewport: () => VIEW }).attach(root);
+		return { row, card, root, button: row.querySelector("button"), elsewhere: root.querySelector(".elsewhere") };
 	}
+	const pointer = (type, target, relatedTarget = null) =>
+		target.dispatchEvent(new PointerEvent(type, { bubbles: true, relatedTarget }));
 
-	it("places a row's card when a pointer comes onto the row", () => {
+	it("shows a row's card beside it when a pointer comes onto the row", () => {
 		const { row, card } = sheet();
-		row.dispatchEvent(new Event("pointerover", { bubbles: true }));
+		pointer("pointerover", row);
+		expect(card.isShown).toBe(true);
 		expect(card.style.getPropertyValue("--move-preview-x")).toBe("228px");
 		expect(card.style.getPropertyValue("--move-preview-y")).toBe("300px");
 	});
 
-	it("places it when the keyboard reaches the row", () => {
+	// The card's own size, measured as it shows: its height follows the move's text.
+	it("places the card by the size it shows at", () => {
 		const { row, card } = sheet();
-		row.querySelector("button").dispatchEvent(new Event("focusin", { bubbles: true }));
-		expect(card.style.getPropertyValue("--move-preview-x")).toBe("228px");
+		row.getBoundingClientRect = () => rect(300, 700, 1000, 40);
+		card.getBoundingClientRect = () => rect(0, 0, 320, 180);
+		pointer("pointerover", row);
+		expect(card.style.getPropertyValue("--move-preview-y")).toBe(`${700 - 6 - 180}px`);
 	});
 
-	// Dismissible: the keyboard route shows the card on the focused name, so Escape takes the focus off.
-	it("lets Escape put the card away from a focused row", () => {
-		const { row } = sheet();
-		const button = row.querySelector("button");
+	it("keeps it up while the pointer moves within the row, and puts it away as it leaves", () => {
+		const { row, card, button, elsewhere } = sheet();
+		pointer("pointerover", row);
+		pointer("pointerout", row, button);
+		expect(card.isShown).toBe(true);
+		pointer("pointerout", button, elsewhere);
+		expect(card.isShown).toBe(false);
+	});
+
+	it("shows nothing for a row whose text is already open", () => {
+		const { row, card } = sheet();
+		row.classList.add("is-open");
+		pointer("pointerover", row);
+		expect(card.showPopover).not.toHaveBeenCalled();
+	});
+
+	it("puts it away when the row is clicked — rolled, or its text opened", () => {
+		const { row, card, button } = sheet();
+		pointer("pointerover", row);
+		button.click();
+		expect(card.isShown).toBe(false);
+	});
+
+	it("shows it when the keyboard reaches the roll button, and puts it away as focus leaves", () => {
+		const { card, button, elsewhere } = sheet();
+		button.dispatchEvent(new FocusEvent("focusin", { bubbles: true }));
+		expect(card.isShown).toBe(false);
 		button.focus();
+		button.dispatchEvent(new FocusEvent("focusin", { bubbles: true }));
+		expect(card.isShown).toBe(true);
+		button.dispatchEvent(new FocusEvent("focusout", { bubbles: true, relatedTarget: elsewhere }));
+		expect(card.isShown).toBe(false);
+	});
+
+	it("lets Escape put the card away", () => {
+		const { card, button } = sheet();
+		button.focus();
+		button.dispatchEvent(new FocusEvent("focusin", { bubbles: true }));
 		button.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
-		expect(document.activeElement).not.toBe(button);
+		expect(card.isShown).toBe(false);
 	});
 });

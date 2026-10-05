@@ -1,0 +1,27 @@
+{{!-- A result's three groups — when it happens, what the sheet does, its words — the body of a saved
+      result's editor and of the adder alike. The note on the words sits in the panel's foot.
+
+      Each choice is a column of rings (the roll-mode picker, stacked: in an editor the choice is the
+      point), and the fields an option asks for sit indented under it once it is chosen — so it is
+      plain which choice they belong to. Short sub-choices (a rating, a list, the roll) are a row of
+      the same rings.
+
+      Context: an ImprovementEditorResult. --}}
+{{#if whenModes.length}}
+	{{> "stonetop.roll-mode-picker" modes=whenModes name=(concat nameBase "-when") changeAction="resultWhen" variant="stacked"
+	    legendKey="stonetop.improvement.when.lead" detail="stonetop.improvement-when-detail" detailContext=this}}
+{{/if}}
+
+{{#if isMechanicEditable}}
+	{{> "stonetop.roll-mode-picker" modes=doesModes name=(concat nameBase "-does") changeAction="resultDoes" variant="stacked"
+	    legendKey="stonetop.improvement.does.lead" detail="stonetop.improvement-does-detail" detailContext=this}}
+{{else}}
+	<p class="stonetop-improvement-sentence"><span>{{localize "stonetop.improvement.does.lead"}}</span> <span>{{localize doesLabelKey}}</span></p>
+{{/if}}
+
+<fieldset class="stonetop-improvement-group">
+	<legend class="stonetop-improvement-group-label">{{localize "stonetop.improvement.words.label"}}</legend>
+	<textarea class="stonetop-improvement-words stonetop-grow-field" data-change-action="resultText" rows="1"
+	          placeholder="{{localize 'stonetop.improvement.placeholder.words'}}"
+	          aria-label="{{localize 'stonetop.improvement.words.label'}}">{{words}}</textarea>
+</fieldset>

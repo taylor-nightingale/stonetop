@@ -1,0 +1,28 @@
+{{!-- What the chosen "when" asks for, under it: the seasons (each season, or at a moment), the moment's
+      name (typed — its ▾ offers the moments improvements use in those seasons), the season's own roll
+      it waits on, and the clause that says when, in words.
+
+      Context: an ImprovementEditorResult. --}}
+{{#if seasons}}
+	<div class="stonetop-improvement-sentence stonetop-improvement-seasons">
+		{{#each seasons}}<label><input type="checkbox" class="stonetop-item-check" data-change-action="resultSeason" value="{{key}}"{{#if checked}} checked{{/if}}> {{localize labelKey}}</label>{{/each}}
+	</div>
+{{/if}}
+{{#if momentField}}
+	<label class="stonetop-improvement-sentence">
+		<span>{{localize "stonetop.improvement.when.momentName"}}</span>
+		{{> "stonetop.selection-input" sel=momentField changeAction="resultMoment" inputClass="stonetop-improvement-moment"
+		    placeholder=(localize "stonetop.improvement.placeholder.momentName")}}
+	</label>
+{{/if}}
+{{#if outcomeModes}}
+	<div class="stonetop-improvement-rings">
+		{{> "stonetop.roll-mode-picker" modes=outcomeModes name=(concat nameBase "-outcome") changeAction="resultOutcome" variant="stacked"
+		    legendKey="stonetop.improvement.onRoll"}}
+	</div>
+{{/if}}
+<label class="stonetop-improvement-sentence">
+	<span>{{localize "stonetop.improvement.when.words"}}</span>
+	<input type="text" class="stonetop-improvement-phrase" data-change-action="resultPhrase" value="{{phraseWords}}"
+	       placeholder="{{localize 'stonetop.improvement.placeholder.phrase'}}">
+</label>

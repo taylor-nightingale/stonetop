@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { drawTableElement, drawTableInlineElement, onClickDrawTable, registerDrawTableEnricher } from "../../src/journal/drawTableEnricher.js";
+import { drawTableElement, drawTableInlineElement, onClickDrawTable, registerDrawTableEnricher, isInlineTableToken } from "../../src/journal/drawTableEnricher.js";
 
 const UUID = "Compendium.stonetop.wonder-tables.RollTable.AbCdEfGhIjKlMnOp";
 const match = (uuid = UUID, label = "1d12") => [`@DrawTable[${uuid}]{${label}}`, uuid, label];
@@ -14,6 +14,24 @@ describe("drawTableElement", () => {
 		expect(a.dataset.uuid).toBe(UUID);
 		expect(a.querySelector("i.fa-dice-d6")).toBeTruthy(); // FoundryVTT dice icon
 		expect(a.textContent).toContain("1d12");
+	});
+});
+
+describe("isInlineTableToken", () => {
+	it("is true of an inline table token alone", () => {
+		expect(isInlineTableToken(inlineMatch()[0])).toBe(true);
+	});
+
+	it("allows the whitespace around a line of its own", () => {
+		expect(isInlineTableToken(`  ${inlineMatch()[0]}\n`)).toBe(true);
+	});
+
+	it("is false of the journal's button-only token", () => {
+		expect(isInlineTableToken(match()[0])).toBe(false);
+	});
+
+	it("is false of a token with prose beside it", () => {
+		expect(isInlineTableToken(`Roll ${inlineMatch()[0]}`)).toBe(false);
 	});
 });
 

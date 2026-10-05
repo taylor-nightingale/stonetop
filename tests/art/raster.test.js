@@ -206,3 +206,55 @@ describe("Raster.crop", () => {
 		expect(() => ramp().crop(0, 0, 0, 2)).toThrow(/must be positive/);
 	});
 });
+
+// The books embed each major arcanum's illustration on a canvas far larger than the drawing; the
+// card shows the drawing, so the store keeps only it. Trimmed to the painted pixels — any alpha
+// above zero — so the result is exact and the same in every pipeline that keys it.
+describe("Raster.trimmed", () => {
+	/** RGBA, transparent everywhere except the given painted [x, y] cells. */
+	const canvas = (width, height, painted) => {
+		const px = new Uint8Array(width * height * 4);
+		for (const [x, y, a = 255] of painted) px[(y * width + x) * 4 + 3] = a;
+		return new Raster(width, height, 4, px);
+	};
+
+	it("crops to the painted pixels", () => {
+		const t = canvas(6, 5, [[2, 1], [3, 3]]).trimmed();
+		expect([t.width, t.height]).toEqual([2, 3]);
+		expect(t.px[3]).toBe(255);
+		expect(t.px[(2 * 2 + 1) * 4 + 3]).toBe(255);
+	});
+
+	it("counts a faintly painted pixel as painted", () => {
+		const t = canvas(5, 5, [[1, 1], [3, 3, 1]]).trimmed();
+		expect([t.width, t.height]).toEqual([3, 3]);
+	});
+
+	it("trims gray+alpha the same way", () => {
+		const px = new Uint8Array(4 * 3 * 2);
+		px[(1 * 4 + 2) * 2 + 1] = 255;
+		const t = new Raster(4, 3, 2, px).trimmed();
+		expect([t.width, t.height, t.channels]).toEqual([1, 1, 2]);
+	});
+
+	it("returns the same raster when nothing is transparent at the edges", () => {
+		const r = canvas(2, 2, [[0, 0], [1, 1]]);
+		expect(r.trimmed()).toBe(r);
+	});
+
+	it("returns the same raster when there is no alpha to trim by", () => {
+		const r = new Raster(3, 3, 3, new Uint8Array(27));
+		expect(r.trimmed()).toBe(r);
+	});
+
+	// Nothing painted is not a picture to crop to nothing; it is left for whoever asked to decide.
+	it("returns the same raster when nothing is painted", () => {
+		const r = canvas(3, 3, []);
+		expect(r.trimmed()).toBe(r);
+	});
+
+	it("changes nothing on a raster already trimmed", () => {
+		const once = canvas(6, 5, [[2, 1], [3, 3]]).trimmed();
+		expect(once.trimmed()).toBe(once);
+	});
+});

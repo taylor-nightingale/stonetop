@@ -13,6 +13,18 @@ describe("ResourceController.getCurrent", () => {
 		expect(makeController().getCurrent("backgrounds", "foo")).toBe(0);
 	});
 
+	// A follower that arrives holding loyalty ("treat it as a follower, with 3 Loyalty to start") has
+	// nothing recorded yet; the caller names where it starts.
+	it("returns the caller's starting count when nothing is saved", () => {
+		expect(makeController().getCurrent("followers", "void", 3)).toBe(3);
+	});
+
+	it("keeps a saved 0 rather than the starting count — spent is not unset", async () => {
+		const ctrl = makeController();
+		await ctrl.set("followers", "void", 0);
+		expect(ctrl.getCurrent("followers", "void", 3)).toBe(0);
+	});
+
 	it("returns the saved count for a namespace and slug", async () => {
 		const ctrl = makeController();
 		await ctrl.set("backgrounds", "foo", 2);
