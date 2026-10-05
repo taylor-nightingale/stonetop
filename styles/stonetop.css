@@ -3593,9 +3593,11 @@ button.stonetop-view-toggle.is-active {
 :is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar--flip-x { --bar-flip-x: -1; --bar-fade: to left; }
 :is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar--flip-y { --bar-flip-y: -1; }
 
-/* A section's name, at the section-title size. The small-caps face stands its lowercase at about
-   two-thirds of the size it is set at, so at the bar's own --fs-note the name read near 10px. */
-:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar-title { flex: none; font-size: var(--fs-heading); }
+/* A section's name, at the title size. The small-caps face stands its lowercase at about two-thirds
+   of the size it is set at, so at the bar's own --fs-note the name read near 10px, and at
+   --fs-heading near 12px. Its line is set solid so the larger name does not deepen the bar past
+   the controls that hang from it; the glyphs reach into the bar's padding. */
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar-title { flex: none; font-size: var(--fs-title); line-height: 1; }
 
 /* The book's instruction for what is being chosen. It wraps rather than clipping: an instruction cut
    off mid-word is the choice's own words hidden from the person making it. Small italic over stone
@@ -4369,6 +4371,20 @@ button.stonetop-view-toggle.is-active {
    label is a row item beside its pip. Nothing may break it onto a line of its own. */
 .stonetop-resource-label {
 	white-space: nowrap;
+}
+
+/* A labelled pip and its word, wrapped as one item so a wrapping track never splits them. */
+.stonetop-resource-pair {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	white-space: nowrap;
+}
+
+/* A space between pairs on an arcanum's track — a gap, not a margin, so a wrapped line starts flush. */
+.stonetop-arcana-line-track:has(> .stonetop-resource-pair),
+.stonetop-arcanum-header-resource:has(> .stonetop-resource-pair) {
+	column-gap: 0.5em;
 }
 
 /* Resource pips are <button>s, and core v13 themes buttons with min-height/min-width: var(--button-size)
@@ -5722,15 +5738,6 @@ button.stonetop-xp-toggle {
 	gap: 2px;
 	flex-shrink: 0;
 	padding-top: 2px;
-}
-
-/* A labelled pip reads as one pair: its word against it, a space before the next pip. */
-.stonetop-arcanum-resource-btn + .stonetop-resource-label {
-	margin-left: 2px;
-}
-
-.stonetop-resource-label + .stonetop-arcanum-resource-btn {
-	margin-left: 0.5em;
 }
 
 .stonetop-arcanum-title {

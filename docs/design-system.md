@@ -267,9 +267,9 @@ two marks.
 **16 templates**. `section-sub-heading.hbs` is the h4. Bare `<h3>`s and title spans also exist (§2).
 `.stonetop-move-group-title` is the generic section-title class despite its name.
 
-A panel's ink bar (`bar.hbs`) names its section at the same size, `--fs-heading`, on both sheets. The
-bar's own text is `--fs-note`, which is where its instruction stays; the small-caps face stands its
-lowercase at about two-thirds of its size, so a name set there read near 10px.
+A panel's ink bar (`bar.hbs`) names its section at `--fs-title`, on both sheets. The bar's own text
+is `--fs-note`, which is where its instruction stays; the small-caps face stands its lowercase at about
+two-thirds of its size, so a name set there read near 10px, and at `--fs-heading` near 12px.
 
 ### Rollable — one contract, one active state
 
