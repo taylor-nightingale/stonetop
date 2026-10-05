@@ -30,8 +30,15 @@ const playbookItem = () => new TestPlaybookItemBuilder()
 	.withBackgrounds([
 		{ slug: "patriot",      label: "Patriot",      description: "Well Versed in the Things Below.", moveMarks: mark(["things-below"]) },
 		{ slug: "antiquarian",  label: "Antiquarian",  description: "Well Versed in the Makers.",       moveMarks: mark(["makers"]) },
-		{ slug: "witch-hunter", label: "Witch Hunter", description: "Well Versed in (pick 1).",
-		  moveMarks: mark(["fae", "things-below", "last-door"]) },
+		{ slug: "witch-hunter", label: "Witch Hunter", description: "Well Versed in (pick 1):",
+		  moveMarks: mark(["fae", "things-below", "last-door"]),
+		  choices: { slug: "witch-hunter", list: [
+			{ type: "entry", content: { title: null, text: "You've also acquired 1 major arcanum." } },
+			{ type: "pick", slug: "major-arcanum", pickCount: 1, options: [
+			  { slug: "demonhide-cloak", text: "The Demonhide Cloak", grants: [{ type: "arcanum", slug: "demonhide-cloak" }] },
+			  { slug: "twisted-spear",   text: "The Twisted Spear",   grants: [{ type: "arcanum", slug: "twisted-spear" }] },
+		  ] },
+		] } },
 	])
 	.build();
 
@@ -93,6 +100,31 @@ describe("Well Versed topics from the Seeker's background (integration)", () => 
 		expect([...picks].map(p => p.dataset.cgOption)).toEqual(["fae", "things-below", "last-door"]);
 		expect([...picks].every(p => p.type === "radio")).toBe(true);
 		expect(backgrounds(root).textContent).toContain("The Fae and their strange ways");
+	});
+
+	// The book's sentence runs straight into the picks it asks for: "Well Versed in (pick 1): [] the
+	// Fae …", then the background's own group, "You've also acquired 1 major arcanum." [] … — each list
+	// under its own words.
+	it("draws the Witch Hunter's words, topics, intro and arcana in the book's order", async () => {
+		const root = await render(makeSheet().sheet);
+		const card = backgrounds(root).querySelector('input[value="witch-hunter"]').closest(".stonetop-item");
+		const description = card.querySelector(".stonetop-item-description");
+		const topic  = card.querySelector('input[data-cg-group="witch-hunter-well-versed"]');
+		const intro  = card.querySelector(".stonetop-choice-description");
+		const arcana = card.querySelector('input[data-cg-group="witch-hunter"]');
+		const order  = [description, topic, intro, arcana];
+
+		expect([description, intro].map(d => d.textContent.trim())).toEqual(["Well Versed in (pick 1):", "You've also acquired 1 major arcanum."]);
+		for (let i = 1; i < order.length; i++) {
+			expect(order[i - 1].compareDocumentPosition(order[i]) & Node.DOCUMENT_POSITION_FOLLOWING, `${i}`).toBeTruthy();
+		}
+	});
+
+	it("offers the Witch Hunter's arcana as a pick of one, like the topics", async () => {
+		const root = await render(makeSheet().sheet);
+		const arcana = [...backgrounds(root).querySelectorAll('input[data-cg-group="witch-hunter"]')];
+		expect(arcana.map(a => a.dataset.cgOption)).toEqual(["demonhide-cloak", "twisted-spear"]);
+		expect(arcana.every(a => a.type === "radio" && a.dataset.cgSiblings === "demonhide-cloak,twisted-spear")).toBe(true);
 	});
 
 	it("marks the Patriot's topic on Well Versed when the Patriot is chosen", async () => {

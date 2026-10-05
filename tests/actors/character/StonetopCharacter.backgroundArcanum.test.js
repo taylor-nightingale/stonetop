@@ -4,25 +4,22 @@ import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder
 import { ChoiceTarget } from "../../../src/actors/character/ChoiceTarget.js";
 
 // Integration test: real StonetopCharacter + real CharacterBackgrounds/CharacterArcana, only the
-// Foundry boundary faked. The Seeker's backgrounds each offer three major arcana as marked rows; the
-// mark is what makes the character own the card. This drives the whole road a click takes — background
+// Foundry boundary faked. The Seeker's backgrounds each offer three major arcana as a pick of one; the
+// pick is what makes the character own the card. This drives the whole road a click takes — background
 // choice store → published change → arcanum handler → an embedded card on the Arcana tab.
 
 function seekerPlaybookItem() {
-	const row = (slug, text) => ({
-		slug, track: { max: 1 }, type: "entry", content: { title: null, text },
-		grants: [{ type: "arcanum", slug, locations: ["tab"] }],
-	});
+	const option = (slug, text) => ({ slug, text, grants: [{ type: "arcanum", slug, locations: ["tab"] }] });
 	return {
 		_id: "pb1", type: "playbook", name: "The Seeker",
 		system: {
 			slug: "the-seeker", backgroundValues: {},
 			backgrounds: [{
 				slug: "patriot", label: "Patriot",
-				choices: { slug: "patriot", list: [
-					row("red-scepter", "The Red Scepter"),
-					row("staff-of-the-lidless-orb", "The Staff of the Lidless Orb"),
-				] },
+				choices: { slug: "patriot", list: [{ type: "pick", slug: "major-arcanum", pickCount: 1, options: [
+					option("red-scepter", "The Red Scepter"),
+					option("staff-of-the-lidless-orb", "The Staff of the Lidless Orb"),
+				] }] },
 			}],
 		},
 	};
@@ -41,15 +38,17 @@ function characterWithSeeker() {
 	return { char, actor };
 }
 
-const patriotRow = option => new ChoiceTarget({ context: "background", group: "patriot", option });
+const patriotPick = option => new ChoiceTarget({
+	context: "background", group: "patriot", option, siblingsCsv: "red-scepter,staff-of-the-lidless-orb",
+});
 
 const ownedArcana = actor => [...actor.items].filter(i => i.type === "arcanum").map(i => i.system.slug);
 
-describe("StonetopCharacter — a background choice row grants its arcanum (integration)", () => {
-	it("marking the row embeds the arcanum it grants", async () => {
+describe("StonetopCharacter — a background's arcanum pick grants its arcanum (integration)", () => {
+	it("picking an option embeds the arcanum it grants", async () => {
 		const { char, actor } = characterWithSeeker();
 
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, true);
+		await char.setChoicePickFor(patriotPick("red-scepter"));
 
 		expect(ownedArcana(actor)).toEqual(["red-scepter"]);
 		expect([...actor.items].find(i => i.type === "arcanum").name).toBe("Red Scepter");
@@ -57,41 +56,38 @@ describe("StonetopCharacter — a background choice row grants its arcanum (inte
 
 	it("the marked card lands on the Arcana tab as a major arcanum", async () => {
 		const { char } = characterWithSeeker();
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, true);
+		await char.setChoicePickFor(patriotPick("red-scepter"));
 
 		const snapshot = await char.buildSnapshot();
 
 		expect(snapshot.arcana.major.items.map(c => c.slug)).toEqual(["red-scepter"]);
 	});
 
-	it("un-marking the row hands the card back", async () => {
+	it("releasing the pick hands the card back", async () => {
 		const { char, actor } = characterWithSeeker();
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, true);
+		await char.setChoicePickFor(patriotPick("red-scepter"));
 
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, false);
+		await char.clearChoicePickFor(patriotPick("red-scepter"));
 
 		expect(ownedArcana(actor)).toEqual([]);
 	});
 
-	// The rows are independent checkboxes, not an exclusive pick: the sheet guides ("1 major arcanum")
-	// but never blocks a table that wants to hand out two.
-	it("each row grants only its own arcanum", async () => {
+	it("picking another option swaps the card for its own", async () => {
 		const { char, actor } = characterWithSeeker();
 
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, true);
-		await char.setChoiceTrackFor(patriotRow("staff-of-the-lidless-orb"), 0, true);
-
-		expect(ownedArcana(actor).sort()).toEqual(["red-scepter", "staff-of-the-lidless-orb"]);
-
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, false);
+		await char.setChoicePickFor(patriotPick("red-scepter"));
+		await char.setChoicePickFor(patriotPick("staff-of-the-lidless-orb"));
 
 		expect(ownedArcana(actor)).toEqual(["staff-of-the-lidless-orb"]);
+		expect(actor.items.get("pb1").system.backgroundValues.patriot).toEqual({
+			"red-scepter": 0, "staff-of-the-lidless-orb": 1,
+		});
 	});
 
-	it("records the mark on the playbook's background value store", async () => {
+	it("records the pick on the playbook's background value store", async () => {
 		const { char, actor } = characterWithSeeker();
 
-		await char.setChoiceTrackFor(patriotRow("red-scepter"), 0, true);
+		await char.setChoicePickFor(patriotPick("red-scepter"));
 
 		expect(actor.items.get("pb1").system.backgroundValues.patriot["red-scepter"]).toBe(1);
 	});

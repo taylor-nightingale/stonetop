@@ -14,28 +14,18 @@ So: open `languages/compendium/de/steadfasts.json`, find `"stonetop"`, find
 `"neighborPlaces/other/subtitle"` inside it, and edit its `"text"`. Leave `"source"` alone —
 it is regenerated, and it is there to show you what the German is meant to say.
 
-- **4** entries where the English changed under an existing translation
-- **5** flagged earlier and still awaiting a revision
+- **1** entries where the English changed under an existing translation
+- **8** flagged earlier and still awaiting a revision
 - **8** translations whose row was restructured and need re-filing
-- **166** interface strings with no translation yet, listed at the end
+- **168** interface strings with no translation yet, listed at the end
 
 ## playbooks.json
 
 ### `playbooks.json` › `"the-seeker"` › `"backgrounds/patriot/description"`
 
-The English changed after this was translated.
+Flagged for review earlier; the English has not changed since.
 
-Was:
-
-```
-These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.
-
-You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.
-
-You start with the **Let's Make a Deal** move and are Well Versed in the Things Below. Go mark them now. You've also acquired 1 major arcanum.
-```
-
-Now:
+English:
 
 ```
 These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.
@@ -57,17 +47,9 @@ Du beginnst mit dem Spielzug Lass uns einen Handel abschließen und du bist bewa
 
 ### `playbooks.json` › `"the-seeker"` › `"backgrounds/antiquarian/description"`
 
-The English changed after this was translated.
+Flagged for review earlier; the English has not changed since.
 
-Was:
-
-```
-The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?
-
-Your travels and studies mean that you start with the **Polyglot** move and are Well Versed in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.
-```
-
-Now:
+English:
 
 ```
 The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?
@@ -92,7 +74,7 @@ Was:
 ```
 You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?
 
-Regardless, you start with the **Everything Bleeds** move and are Well Versed in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.
+Regardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.
 ```
 
 Now:
@@ -100,7 +82,7 @@ Now:
 ```
 You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?
 
-Regardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.
+Regardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1):
 ```
 
 Your German:
@@ -219,24 +201,9 @@ Wenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und 
 
 ### `moves.json` › `"well-versed"` › `"description"`
 
-The English changed after this was translated.
+Flagged for review earlier; the English has not changed since.
 
-Was:
-
-```
-Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.
-
-- The Last Door, death, and the undead
-- The civilizations of humanity
-- The Fae and their strange ways
-- The Makers and their arts
-- The primordial powers
-- The Things Below
-- The wild world and its spirits
-When you **_Know Things about one of your topics_**, you can ask the GM a follow-up question of your choice (even **on a 6-**).
-```
-
-Now:
+English:
 
 ```
 Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.
@@ -398,6 +365,11 @@ already shows English.
 - `"stonetop.steading.seasons.year"` — "Year"
 - `"stonetop.steading.seasons.setTitle"` — "Change the season"
 - `"stonetop.steading.seasons.setConfirm"` — "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns."
+
+### `stonetop.steading.folk`
+
+- `"stonetop.steading.folk.listsShow"` — "Show Names"
+- `"stonetop.steading.folk.listsHide"` — "Hide Names"
 
 ### `stonetop.improvement`
 

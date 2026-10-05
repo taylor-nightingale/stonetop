@@ -108,61 +108,47 @@
 					"slug": "patriot",
 					"list": [
 						{
-							"slug": "hectumel-codex",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Hec'tumel Codex"
-							},
-							"grants": [
+							"type": "pick",
+							"slug": "major-arcanum",
+							"pickCount": 1,
+							"options": [
 								{
-									"type": "arcanum",
 									"slug": "hectumel-codex",
-									"locations": [
-										"tab"
+									"text": "The Hec'tumel Codex",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "hectumel-codex",
+											"locations": [
+												"tab"
+											]
+										}
 									]
-								}
-							]
-						},
-						{
-							"slug": "red-scepter",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Red Scepter"
-							},
-							"grants": [
+								},
 								{
-									"type": "arcanum",
 									"slug": "red-scepter",
-									"locations": [
-										"tab"
+									"text": "The Red Scepter",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "red-scepter",
+											"locations": [
+												"tab"
+											]
+										}
 									]
-								}
-							]
-						},
-						{
-							"slug": "staff-of-the-lidless-orb",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Staff of the Lidless Orb"
-							},
-							"grants": [
+								},
 								{
-									"type": "arcanum",
 									"slug": "staff-of-the-lidless-orb",
-									"locations": [
-										"tab"
+									"text": "The Staff of the Lidless Orb",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "staff-of-the-lidless-orb",
+											"locations": [
+												"tab"
+											]
+										}
 									]
 								}
 							]
@@ -190,61 +176,47 @@
 					"slug": "antiquarian",
 					"list": [
 						{
-							"slug": "norubas-ice-sphere",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "Noruba's Ice Sphere"
-							},
-							"grants": [
+							"type": "pick",
+							"slug": "major-arcanum",
+							"pickCount": 1,
+							"options": [
 								{
-									"type": "arcanum",
 									"slug": "norubas-ice-sphere",
-									"locations": [
-										"tab"
+									"text": "Noruba's Ice Sphere",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "norubas-ice-sphere",
+											"locations": [
+												"tab"
+											]
+										}
 									]
-								}
-							]
-						},
-						{
-							"slug": "azure-hand",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Azure Hand"
-							},
-							"grants": [
+								},
 								{
-									"type": "arcanum",
 									"slug": "azure-hand",
-									"locations": [
-										"tab"
+									"text": "The Azure Hand",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "azure-hand",
+											"locations": [
+												"tab"
+											]
+										}
 									]
-								}
-							]
-						},
-						{
-							"slug": "mindgem",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Mindgem"
-							},
-							"grants": [
+								},
 								{
-									"type": "arcanum",
 									"slug": "mindgem",
-									"locations": [
-										"tab"
+									"text": "The Mindgem",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "mindgem",
+											"locations": [
+												"tab"
+											]
+										}
 									]
 								}
 							]
@@ -269,66 +241,59 @@
 						]
 					}
 				],
-				"description": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1) the Fae, the Things Below, or the Last Door and what lies beyond. Go mark them now. You've also acquired 1 major arcanum.",
+				"description": "You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?\n\nRegardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1):",
 				"choices": {
 					"slug": "witch-hunter",
 					"list": [
 						{
-							"slug": "demonhide-cloak",
-							"track": {
-								"max": 1
-							},
 							"type": "entry",
 							"content": {
 								"title": null,
-								"text": "The Demonhide Cloak"
-							},
-							"grants": [
+								"text": "Go mark them now. You've also acquired 1 major arcanum."
+							}
+						},
+						{
+							"type": "pick",
+							"slug": "major-arcanum",
+							"pickCount": 1,
+							"options": [
 								{
-									"type": "arcanum",
 									"slug": "demonhide-cloak",
-									"locations": [
-										"tab"
+									"text": "The Demonhide Cloak",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "demonhide-cloak",
+											"locations": [
+												"tab"
+											]
+										}
 									]
-								}
-							]
-						},
-						{
-							"slug": "redwood-effigy",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Redwood Effigy"
-							},
-							"grants": [
+								},
 								{
-									"type": "arcanum",
 									"slug": "redwood-effigy",
-									"locations": [
-										"tab"
+									"text": "The Redwood Effigy",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "redwood-effigy",
+											"locations": [
+												"tab"
+											]
+										}
 									]
-								}
-							]
-						},
-						{
-							"slug": "twisted-spear",
-							"track": {
-								"max": 1
-							},
-							"type": "entry",
-							"content": {
-								"title": null,
-								"text": "The Twisted Spear"
-							},
-							"grants": [
+								},
 								{
-									"type": "arcanum",
 									"slug": "twisted-spear",
-									"locations": [
-										"tab"
+									"text": "The Twisted Spear",
+									"grants": [
+										{
+											"type": "arcanum",
+											"slug": "twisted-spear",
+											"locations": [
+												"tab"
+											]
+										}
 									]
 								}
 							]
