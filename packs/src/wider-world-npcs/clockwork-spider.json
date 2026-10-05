@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Skitter towards them, ominously\n- \"Watch\" intently, responding subtly to every move\n- Try to take things from their hands\n- Defend itself if attacked\n- Follow orders given in the Forge Lord’s tongue, poorly\n\nThey’re not really shaped like spiders, but that’s what they make you think of. Picture a metal basket, holding gears and springs and a glowing central core. Articulated legs extend out, each ending in a little 3-clawed pincer. They squeak as they move, their many joints needing oil. They were made to be little servants, extra sets of hands to help around a house or forge. Even now, they’re just trying to help.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
+    "moves": "- Skitter towards them, ominously\n- \"Watch\" intently, responding subtly to every move\n- Try to take things from their hands\n- Defend itself if attacked\n- Follow orders given in the Forge Lord’s tongue, poorly",
+    "description": "They’re not really shaped like spiders, but that’s what they make you think of. Picture a metal basket, holding gears and springs and a glowing central core. Articulated legs extend out, each ending in a little 3-clawed pincer. They squeak as they move, their many joints needing oil. They were made to be little servants, extra sets of hands to help around a house or forge. Even now, they’re just trying to help.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
     "notes": ""
   },
   "ownership": {

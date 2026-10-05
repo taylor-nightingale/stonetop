@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Ooze through the smallest cracks or openings\n- Assume the form (wholly or partially) of any being it touches (from small to large size)\n- Reveal its true form, shockingly\n- Grow (and gain 1d8 HP) by consuming a living thing\n- Spawn a smaller version of itself\n\nThese… things… served as blank canvasses for the Green Lord’s flesh-weaving. Once, they were kept carefully locked away in laboratories and breeding pits. Now, with their creators gone all these years… well, who knows where they might be found?",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Book p.468-477)",
+    "moves": "- Ooze through the smallest cracks or openings\n- Assume the form (wholly or partially) of any being it touches (from small to large size)\n- Reveal its true form, shockingly\n- Grow (and gain 1d8 HP) by consuming a living thing\n- Spawn a smaller version of itself",
+    "description": "These… things… served as blank canvasses for the Green Lord’s flesh-weaving. Once, they were kept carefully locked away in laboratories and breeding pits. Now, with their creators gone all these years… well, who knows where they might be found?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Book p.468-477)",
     "notes": ""
   },
   "ownership": {

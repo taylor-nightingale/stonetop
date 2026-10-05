@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Track down one whose life is forfeit\n- Wait until they are alone\n- Shape a hulking form from peat, soil, and mud (takes half damage from stabbing, slashing, or fire)\n- Whisper its victim’s crimes, freezing them with fear\n\nIn Ferrier’s Fen (page 116), not far from Marshedge (page 274), there lies a peat mound where the town buries criminals alive. Over the years, the place has given birth to a spirit of death and punishment. The spirit is young and eager, and can be set to work upon criminals; see the grim peat mound (page 511) minor arcanum for details.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "moves": "- Track down one whose life is forfeit\n- Wait until they are alone\n- Shape a hulking form from peat, soil, and mud (takes half damage from stabbing, slashing, or fire)\n- Whisper its victim’s crimes, freezing them with fear",
+    "description": "In Ferrier’s Fen (page 116), not far from Marshedge (page 274), there lies a peat mound where the town buries criminals alive. Over the years, the place has given birth to a spirit of death and punishment. The spirit is young and eager, and can be set to work upon criminals; see the grim peat mound (page 511) minor arcanum for details.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
     "notes": ""
   },
   "ownership": {

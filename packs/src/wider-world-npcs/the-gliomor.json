@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Poke its eyestalks out of the water or above grass\n- Burst into view, making the mind reel with horror\n- Scuttle back quickly, to escape danger or to drag off prey\n- Spew forth a cloud of sickening, blinding, corrosive goo: d8 damage (area, close)\n\nAn enormous albino crayfish, older than the Fen itself. If you encounter it, pray it’s not hungry. But fat chance of that.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
+    "moves": "- Poke its eyestalks out of the water or above grass\n- Burst into view, making the mind reel with horror\n- Scuttle back quickly, to escape danger or to drag off prey\n- Spew forth a cloud of sickening, blinding, corrosive goo: d8 damage (area, close)",
+    "description": "An enormous albino crayfish, older than the Fen itself. If you encounter it, pray it’s not hungry. But fat chance of that.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
     "notes": ""
   },
   "ownership": {

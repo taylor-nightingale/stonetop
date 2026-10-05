@@ -40,7 +40,9 @@
         "inventory": "Ausrüstung",
         "arcana": "Arkana",
         "followers": "Gefolgsleute",
-        "notes": "Notizen"
+        "notes": "Notizen",
+        "more": "More",
+        "moreLabel": "More tabs"
       },
       "bandShow": "Ausklappen",
       "bandHide": "Einklappen",
@@ -66,30 +68,46 @@
           "step6Preamble": "Wenn du das nächste Mal an der Reihe bist, <strong>stelle deinen Mitspielern eine dieser Fragen</strong>. Wenn dir andere eine Frage stellen, antworte, wie du möchtest.",
           "step7": "Geht wieder reihum. Stelle eine weitere Frage aus 6 oder passe. Wenn alle gepasst haben, geht es weiter.",
           "step8": "Zeichne dein Haus in das Spielbuch für die Siedlung ein. Wenn alle damit fertig sind, lasst den Frühling beginnen!"
-        }
+        },
+        "noNames": "No names of its own — borrow one from another list."
       },
       "advice": {
         "label": "If you want to… {topic}",
         "sheetLabel": "If you want to…",
         "close": "Close"
+      },
+      "section": {
+        "change": "Change",
+        "choose": "Choose",
+        "open": "Open",
+        "done": "Done",
+        "changeNamed": "Change {name}",
+        "chooseNamed": "Choose {name}",
+        "openNamed": "Open {name}",
+        "doneNamed": "Done with {name}"
       }
     },
     "rollMode": {
       "label": "Würfelmodus",
+      "rule": "{name}: the rule",
       "normal": "Normal",
       "adv": "Vorteil",
-      "dis": "Nachteil"
+      "dis": "Nachteil",
+      "short": {
+        "adv": "Vorteil",
+        "dis": "Nachteil"
+      }
     },
     "steading": {
       "startsAt": "Beginnt bei {value}",
-      "startingValue": "was {value}",
+      "startingValue": "war {value}",
       "attr": {
-        "fortunes": "Fortunes",
-        "surplus": "Surplus",
-        "size": "Size",
-        "population": "Population",
-        "prosperity": "Prosperity",
-        "defenses": "Defenses"
+        "fortunes": "Schicksal",
+        "surplus": "Überfluss",
+        "size": "Größe",
+        "population": "Bevölkerung",
+        "prosperity": "Wohlstand",
+        "defenses": "Verteidigung"
       },
       "attrShort": {
         "fortunes": "Fort",
@@ -102,17 +120,17 @@
       "railShow": "Show Fortunes, Surplus and the steading's moves",
       "railHide": "Hide Fortunes, Surplus and the steading's moves",
       "headings": {
-        "npcTraits": "NPC Traits",
+        "npcTraits": "NSC-Merkmale",
         "npcTraitsNote": "Assign as needed; choose from this list or make up your own.",
-        "placesOfInterest": "Places of Interest",
-        "notes": "Notes",
-        "neighbors": "Neighbouring Communities"
+        "placesOfInterest": "Interessante Orte",
+        "notes": "Notizen",
+        "neighbors": "Benachbarte Gemeinschaften"
       },
       "neighbors": {
-        "size": "Size",
-        "travel": "Travel",
-        "notes": "Notes",
-        "names": "Names"
+        "size": "Größe",
+        "travel": "Reisedauer",
+        "notes": "Notizen",
+        "names": "Namen"
       },
       "content": {
         "fromThePlaybook": "From the playbook",
@@ -120,39 +138,39 @@
         "procedure": "Keep this in sync with the GM playbook. Review it at the start of each session.\n\nWhen **_anyone calls “time out,”_** play stops. Step out of character, check in with each other, maybe take a break. Discuss what’s wrong, player-to-player.\n\nIf **_content was included that shouldn’t have been_**, acknowledge the mistake, fix the fiction, and move on.\n\nIf **_someone realizes they need content to be excluded, veiled, or handled in a particular way,_** then update the lists. Clarify specifics, now or later, but don’t ask reasons. Fix the fiction. Check in with the player(s).\n\nWhen everyone is ready, move on.",
         "sections": {
           "excluded": {
-            "label": "Excluded Content",
-            "note": "(Not part of the game, on-camera or off)"
+            "label": "Ausgeschlossene Inhalte",
+            "note": "(Nicht Teil des Spiels, weder vor noch hinter der Kamera)"
           },
           "veiled": {
-            "label": "Veiled Content",
-            "note": "(Part of the fiction, but only off-camera)"
+            "label": "Verschleierte Inhalte",
+            "note": "(Teil der Fiktion, aber nur hinter der Kamera)"
           },
           "specialHandling": {
-            "label": "Special Handling"
+            "label": "Besondere Handhabung"
           }
         }
       },
       "lists": {
-        "resources": "Resources",
-        "fortifications": "Fortifications, etc.",
-        "assets": "Assets",
-        "addResource": "add a resource",
-        "addFortification": "add a fortification",
-        "addAsset": "add an asset",
+        "resources": "Ressourcen",
+        "fortifications": "Befestigungen usw.",
+        "assets": "Besitztümer",
+        "addResource": "Eine Ressource hinzufügen",
+        "addFortification": "Eine Befestigung hinzufügen",
+        "addAsset": "Einen Besitz hinzufügen",
         "assetsOut": "{count} out",
         "assetOut": "requisitioned",
         "assetHome": "at home",
-        "addPlace": "add a place",
-        "coinage": "Coinage",
+        "addPlace": "Einen Ort hinzufügen",
+        "coinage": "Vermögen",
         "removeAsset": "Remove asset",
         "removeItem": "Remove"
       },
       "coinage": {
         "currency": "Currency",
-        "purses": "Purses",
-        "handfuls": "Handfuls",
-        "coins": "Coins",
-        "silver": "Silver",
+        "purses": "Beutel",
+        "handfuls": "Handvoll",
+        "coins": "Münzen",
+        "silver": "Silber",
         "gold": "Gold"
       },
       "tier": {
@@ -165,10 +183,10 @@
         },
         "unset": "—",
         "size": {
-          "hamlet": "hamlet",
-          "village": "village",
-          "town": "town",
-          "city": "city"
+          "hamlet": "Weiler",
+          "village": "Dorf",
+          "town": "Stadt",
+          "city": "Großstadt"
         }
       },
       "band": {
@@ -178,19 +196,19 @@
         "city": "2500+"
       },
       "debilities": {
-        "title": "Debilities",
+        "title": "Beeinträchtigungen",
         "diminished": {
-          "name": "diminished",
+          "name": "Geschwächt",
           "cause": "by injury/sickness/doubt",
           "effect": "disadvantage to Deploy, Muster, or Pull Together"
         },
         "lacking": {
-          "name": "lacking",
+          "name": "Mangel",
           "cause": "due to shortages/hoarding/distrust",
           "effect": "treat Prosperity as if it's 1 lower than it is"
         },
         "malcontent": {
-          "name": "malcontent",
+          "name": "Unzufriedenheit",
           "cause": "from fear/anger/despair",
           "effect": "Fortunes reset to +0 each season, not +1; folks need Persuading more often than usual"
         }
@@ -198,12 +216,12 @@
       "adjustedBy": "→ {effective} {debility}",
       "steadfastHint": "Type a name, or pick a steadfast",
       "tabs": {
-        "play": "Play",
-        "folk": "Folk",
-        "places": "Places",
-        "improvements": "Improvements",
-        "season": "Season",
-        "content": "Content"
+        "play": "Werte",
+        "folk": "Leute",
+        "places": "Orte",
+        "improvements": "Verbesserungen",
+        "season": "Jahreszeiten",
+        "content": "Spielinhalte"
       },
       "colName": "Name",
       "colOccupation": "Beruf",
@@ -224,9 +242,9 @@
       },
       "seasons": {
         "names": {
-          "spring": "Spring",
-          "summer": "Summer",
-          "autumn": "Autumn",
+          "spring": "Frühling",
+          "summer": "Sommer",
+          "autumn": "Herbst",
           "winter": "Winter"
         },
         "movesEmpty": "Dieser Siedlung sind keine saisonalen Spielzüge zugewiesen.",
@@ -283,21 +301,25 @@
           "aurochs-hunt": "The aurochs hunt",
           "inn-gathering": "A gathering at the inn"
         },
-        "everySeason": "every season"
+        "everySeason": "every season",
+        "sectionTitle": "Jahreszeit",
+        "year": "Jahr",
+        "setTitle": "Change the season",
+        "setConfirm": "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns."
       },
       "folk": {
         "searchPlaceholder": "search the roster…",
         "namePlaceholder": "Name (Pronouns)",
         "homePlaceholder": "Home",
         "traitsPlaceholder": "Traits",
-        "newVillager": "new villager",
+        "newVillager": "Neuen Einwohner hinzufügen",
         "remove": "Delete villager",
         "homeBlankHint": "Home blank means this steading. Search filters this table only.",
         "focusRowFirst": "Put the cursor in a villager's row first — a trait is added to the row you are editing.",
         "namesFrom": "Names — {place}"
       },
       "improvements": {
-        "boardTitle": "Improvements",
+        "boardTitle": "Verbesserungen",
         "boardEmpty": "This steading owns no improvements yet. Drop one onto the sheet to start it.",
         "progress": "{ticked} / {total}",
         "countInProgress": "{count} in progress",
@@ -310,7 +332,7 @@
         "owed": "owed",
         "firesNow": "this season",
         "nearlyDone": "1 to go",
-        "searchPlaceholder": "Search improvements"
+        "searchPlaceholder": "Suche Verbesserung"
       },
       "effects": {
         "apply": "Apply",
@@ -325,8 +347,8 @@
         "revert": "Revert",
         "applied": "Applied",
         "appliedLegacy": "Applied earlier",
-        "onCompletion": "When you **_meet the requirements_**:",
-        "henceforth": "**_Henceforth_**:",
+        "onCompletion": "Wenn du **_die Voraussetzungen erfüllst_**:",
+        "henceforth": "**_Von nun an gilt_**:",
         "applyLine": "Apply: {result}",
         "revertLine": "Revert: {result}"
       },
@@ -606,6 +628,19 @@
         "crude": "Ausrüstung ist <em>Grob</em>",
         "piercing1": "<em>x</em> = Durchdringung 1",
         "piercing2": "<em>x</em> = Durchdringung 2"
+      },
+      "adder": {
+        "title": "Add an item",
+        "cancel": "Cancel",
+        "name": "Name",
+        "weight": "Weight",
+        "uses": "Uses",
+        "word": "Word",
+        "tags": "Tags",
+        "note": "Note",
+        "add": "Add",
+        "less": "Less {field}",
+        "more": "More {field}"
       }
     },
     "outfitItem": {
@@ -736,6 +771,7 @@
         }
       },
       "attributes": {
+        "hp": "TP",
         "damage": "Schaden",
         "armor": "Rüstung",
         "xp": "EP",
@@ -764,7 +800,8 @@
           "byHand": "by hand",
           "armorNone": "none worn",
           "damageUnset": "none set",
-          "readyToLevel": "ready to level"
+          "readyToLevel": "ready to level",
+          "readyWithSpare": "ready to level · {count} spare"
         }
       },
       "levelUp": {
@@ -781,10 +818,15 @@
         "movesBehind": "{count} still to choose.",
         "stockRaised": "Maximum Stock {from} → {to}, applied for you.",
         "stockAt": "Maximum Stock is {max}, applied for you.",
-        "invocationsKnown": "You know {known} of {expected}."
+        "invocationsKnown": "You know {known} of {expected}.",
+        "onlyAtHome": "Only at home, in a quiet stretch of time",
+        "orSpend": "Or spend it now",
+        "chooseMove": "Choose a new move"
       },
       "gear": {
-        "specialPossessions": "Besondere Besitztümer"
+        "specialPossessions": "Besondere Besitztümer",
+        "stillToPick": "{count} still to pick",
+        "fromPlaybook": "Comes with your playbook"
       },
       "moveTypes": {
         "background": "Hintergrund"
@@ -804,7 +846,30 @@
         "openSource": "Detailansicht dieses Spielzugs öffnen",
         "open": "Öffne den Spielzug",
         "requires": "Voraussetzung",
-        "notMet": "Nicht erfüllt"
+        "notMet": "Nicht erfüllt",
+        "rollLabel": {
+          "ask": "Any",
+          "favor": "Favor",
+          "omens": "Omens"
+        },
+        "phase": {
+          "setting-out": "Setting out",
+          "on-the-road": "On the road",
+          "getting-home": "Getting home"
+        },
+        "showGroup": "Show the {name}",
+        "hideGroup": "Hide the {name}",
+        "showText": "Show the text of {name}",
+        "hideText": "Hide the text of {name}",
+        "previewRoll": "2d6 {mod}",
+        "insertMoves": "{name} moves",
+        "taken": "{name}: taken",
+        "timesTaken": ", taken {count} times",
+        "upTo": "Up to {count} times",
+        "takeAgain": "Take again",
+        "takeAgainNamed": "Take {name} again",
+        "showPanel": "Show {name}",
+        "hidePanel": "Hide {name}"
       },
       "selection": {
         "select": "Auswählen",
@@ -830,6 +895,31 @@
           "dialogTitle": "Wähle deine Herkunft",
           "namesLabel": "Namen",
           "instruction": "Stonetop ist deine Heimat – oder zumindest kommt sie dem nahe. Aber woher stammst du (oder deine Familie) ursprünglich? Wähle eines und einen passenden Namen (oder denke dir etwas Ähnliches aus)."
+        }
+      },
+      "instinct": {
+        "changeOn": "{instinct} — change it on {source}",
+        "setAside": "Set aside while the instinct from {source} is in force."
+      },
+      "ailments": {
+        "title": "Ailments",
+        "empty": "nothing ails you",
+        "more": "+{count} more",
+        "moreLabel": "Show {count} more ailments",
+        "edit": "Edit ailments",
+        "done": "Done",
+        "placeholder": "what happened",
+        "woundName": "Wound",
+        "nextState": "{state}: change the state",
+        "remove": "Remove {name}",
+        "addWound": "+ add a wound",
+        "note": "Debilities are marked on the brackets, not here."
+      },
+      "wounds": {
+        "state": {
+          "active": "active",
+          "stabilized": "stabilized",
+          "permanent": "permanent"
         }
       }
     },
@@ -877,7 +967,7 @@
       "xpCurrent": "Current XP",
       "xpMax": "XP needed to level",
       "damageDie": "Damage die",
-      "notes": "Notes",
+      "notes": "Notizen",
       "carried": "Carried",
       "addTag": "Add tag",
       "followerName": "Follower name",
@@ -928,8 +1018,7 @@
       "assetRequisitioned": "Requisitioned",
       "improvementSearch": "Search the improvement board",
       "rollStatNamed": "Roll {stat}",
-      "foldedLedger": "Stats and vitals",
-      "debilities": "Debilities"
+      "foldedLedger": "Stats and vitals"
     },
     "tagGlossary": {
       "general": {
@@ -1012,6 +1101,7 @@
       "amphibious": "Amphibisch",
       "ancient": "Uralt",
       "angry": "Wütend",
+      "animal-lover": "Tierfreund",
       "annoying": "Lästig",
       "aquatic": "Aquatisch",
       "archers": "Bogenschützen",
@@ -1022,11 +1112,13 @@
       "audacious": "Verwegen",
       "awkward": "Unhandlich",
       "beautiful": "Wunderschön",
+      "big": "Groß",
       "bird-wise": "Vogelkundig",
       "bloodthirsty": "Blutrünstig",
       "brash": "Ungestüm",
       "brave": "Mutig",
       "brutal": "Brutal",
+      "bully": "Raufbold",
       "burrowing": "Grabend",
       "cagey": "Schlau",
       "callous": "Hartherzig",
@@ -1047,6 +1139,7 @@
       "cumbersome": "Schwerfällig",
       "cunning": "Gerissen",
       "curious": "Neugierig",
+      "cynical": "Zynisch",
       "damage-is-messy-1-piercing": "Schaden ist _Brutal_, Durchdringend 1",
       "damage-is-2-damage-forceful": "Schaden ist _Wuchtig_, +2 Schaden",
       "dangerous": "Gefährlich",
@@ -1086,6 +1179,7 @@
       "forlorn": "Verlassen",
       "fragile": "Zerbrechlich",
       "frail": "Gebrechlich",
+      "gambler": "Glücksspieler",
       "gluttonous": "Gefräßig",
       "gossipy": "Geschwätzig",
       "grabby": "Fesselnd",
@@ -1096,9 +1190,11 @@
       "hand": "Hand",
       "hardy": "Robust",
       "healer": "Heilerin",
+      "heartthrob": "Herzensbrecher",
       "hedonistic": "Hedonistisch",
       "herb-wise": "Kräuterkundig",
       "hoarder": "Sammler",
+      "honest": "Ehrlich",
       "horde": "Horde",
       "horse-wise": "Pferdekundig",
       "huge": "Riesig",
@@ -1122,6 +1218,8 @@
       "large": "Groß",
       "large-4-hp-1-damage-close": "Groß (+4 TP, +1 Schaden, +_Kurz_)",
       "leader": "Anführer",
+      "lewd": "Obszön",
+      "little": "Klein",
       "lonely": "Einsam",
       "loud": "Laut",
       "loyal": "Treu",
@@ -1139,6 +1237,7 @@
       "near": "Nah",
       "observant": "Aufmerksam",
       "obsessive": "Zwanghaft",
+      "old": "Alt",
       "opportunistic": "Opportunistisch",
       "organized": "Organisiert",
       "ornery": "Widerspenstig",
@@ -1148,6 +1247,7 @@
       "passionate": "Leidenschaftlich",
       "patient": "Geduldig",
       "plodding": "Behäbig",
+      "popular": "Beliebt",
       "powerful": "Kräftig",
       "primordial": "Urtümlich",
       "protective": "Beschützend",
@@ -1156,17 +1256,21 @@
       "raucous": "Hemmungslos",
       "ravenous": "Gefräßig",
       "reach": "Lang",
+      "reckless": "Waghalsig",
       "relentless": "Unerbittlich",
       "reload": "Nachladen",
       "resolute": "Entschlossen",
       "respected": "Respektiert",
       "restless": "Ruhelos",
+      "rookie": "Neuling",
       "sadistic": "Sadistisch",
       "sarcastic": "Sarkastisch",
       "see-below": "siehe unten",
       "self-sufficient": "Selbstversorger",
+      "shameless": "Schamlos",
       "shapeshifter": "Gestaltwandler",
       "sharp-eyed": "Scharfe Augen",
+      "short-tempered": "Jähzornig",
       "size-by-hp": "Größe je nach TP",
       "skilled": "Erfahren",
       "slow": "Langsam",

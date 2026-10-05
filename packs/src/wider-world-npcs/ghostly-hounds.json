@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Manifest a form made of mist\n- Sniff out prey, or the dead\n- Call the pack and the Hunter\n- Harry, surround, drag down\n\nA score or so of these savage white dogs accompany him on any given night. But there are more. So many, many more. Are they undead souls he has claimed, vulnerable to silver? Fae hounds, hurt by iron? Manifestations of some primordial urge? That’s all for you to say.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{The Pale Hunter} (Book p.292-297)",
+    "moves": "- Manifest a form made of mist\n- Sniff out prey, or the dead\n- Call the pack and the Hunter\n- Harry, surround, drag down",
+    "description": "A score or so of these savage white dogs accompany him on any given night. But there are more. So many, many more. Are they undead souls he has claimed, vulnerable to silver? Fae hounds, hurt by iron? Manifestations of some primordial urge? That’s all for you to say.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MCe2YgHD24ptZJrG]{The Pale Hunter} (Book p.292-297)",
     "notes": ""
   },
   "ownership": {

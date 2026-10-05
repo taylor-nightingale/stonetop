@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Animate its particular skeleton\n- Grab on and pull them down with numbers\n- Reassemble themselves (regaining 1d4 HP), unless their tether is shattered\n\nSome of the simplest tulpas to create, each of these spirits is bound to a skeleton that’s been stripped of flesh and intricately carved. The Rime Lords and their disciples used them as domestic servants, tending to material needs and serving as guardians when needed. Gingkara still attempt to preserve their master’s homes, for what else should they do with their existence?",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
+    "moves": "- Animate its particular skeleton\n- Grab on and pull them down with numbers\n- Reassemble themselves (regaining 1d4 HP), unless their tether is shattered",
+    "description": "Some of the simplest tulpas to create, each of these spirits is bound to a skeleton that’s been stripped of flesh and intricately carved. The Rime Lords and their disciples used them as domestic servants, tending to material needs and serving as guardians when needed. Gingkara still attempt to preserve their master’s homes, for what else should they do with their existence?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
     "notes": ""
   },
   "ownership": {

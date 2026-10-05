@@ -30,8 +30,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Watch what happens at the Stream (seen or unseen)\n- Manifest a ghostly form of mist, cold air (harmed only by silver or salt)\n- Mouth and gesture in silent terror\n\nTip: shrink into your seat, to make yourself smaller, bug eyed, while mouthing gibberish. A pair of ghostly children who haunt the Stream. Sightings are uncommon, but common enough.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.eP9K8MXP1j3L6WZk]{The Stream} (Book p.396-397)",
+    "moves": "- Watch what happens at the Stream (seen or unseen)\n- Manifest a ghostly form of mist, cold air (harmed only by silver or salt)\n- Mouth and gesture in silent terror",
+    "description": "Tip: shrink into your seat, to make yourself smaller, bug eyed, while mouthing gibberish. A pair of ghostly children who haunt the Stream. Sightings are uncommon, but common enough.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.eP9K8MXP1j3L6WZk]{The Stream} (Book p.396-397)",
     "notes": ""
   },
   "ownership": {

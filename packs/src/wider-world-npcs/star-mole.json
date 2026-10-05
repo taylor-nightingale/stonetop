@@ -29,8 +29,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Soften stone with its spit, then dig through it\n- Spurt caustic blood when hurt\n- Scamper away, hide, act as bait\n- Trigger a collapse or cave-in\n\nBig, naked mole-rats, like 5’ long, with saggy skin, glowing freckles, and clusters of wriggling feelers on their noses. They eat vermin and fungus that grow near leaking pipes. They also tunnel through bedrock, collapse passages, and expose sealed-off rooms. Every so often, they wake a skittering horror (page 348) from its torpor. This spells doom for the colony, unless they can trap it or cut off access to the nest. They’ll treat the PCs as a similar threat.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
+    "moves": "- Soften stone with its spit, then dig through it\n- Spurt caustic blood when hurt\n- Scamper away, hide, act as bait\n- Trigger a collapse or cave-in",
+    "description": "Big, naked mole-rats, like 5’ long, with saggy skin, glowing freckles, and clusters of wriggling feelers on their noses. They eat vermin and fungus that grow near leaking pipes. They also tunnel through bedrock, collapse passages, and expose sealed-off rooms. Every so often, they wake a skittering horror (page 348) from its torpor. This spells doom for the colony, unless they can trap it or cut off access to the nest. They’ll treat the PCs as a similar threat.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
     "notes": ""
   },
   "ownership": {

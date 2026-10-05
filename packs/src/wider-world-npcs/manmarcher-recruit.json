@@ -26,8 +26,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Boast and brag\n- Form a ragged shield wall\n- Hesitate\n- Act rashly\n\nEvery able-bodied youth does their turn at their chief’s hillfort. They spend a year or two drilling, marching, learning the spear, and standing in the shield wall. They sing songs, and talk big, and maybe even get their hands red. A few are picked for their chief’s standing force, but most head home to their hamlets, prepared to defend their families and swell their chief ’s ranks when called. That’s the idea, at least.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
+    "moves": "- Boast and brag\n- Form a ragged shield wall\n- Hesitate\n- Act rashly",
+    "description": "Every able-bodied youth does their turn at their chief’s hillfort. They spend a year or two drilling, marching, learning the spear, and standing in the shield wall. They sing songs, and talk big, and maybe even get their hands red. A few are picked for their chief’s standing force, but most head home to their hamlets, prepared to defend their families and swell their chief ’s ranks when called. That’s the idea, at least.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
     "notes": ""
   },
   "ownership": {

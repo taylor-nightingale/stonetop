@@ -28,8 +28,8 @@
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Grab something, slip away unnoticed\n- Vanish into a crowd or an alley\n- Spot an easy mark\n- Wriggle free\n\nWhen you go unwary into the bustle of Edgemarket or the crowded streets of Dropoff, roll +WIS: on a 10+, you spot the pickpocket coming or catch them in the act; on a 7-9, they make off with only trifles (1d4 uses of Supplies, a purse of coppers, a skin of whisky, etc.); on a 6-, whatever they got, you’re going to miss it.",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.eHmYRGms3Q9bzY70]{Marshedge} (Book p.274-280)",
+    "moves": "- Grab something, slip away unnoticed\n- Vanish into a crowd or an alley\n- Spot an easy mark\n- Wriggle free",
+    "description": "When you go unwary into the bustle of Edgemarket or the crowded streets of Dropoff, roll +WIS: on a 10+, you spot the pickpocket coming or catch them in the act; on a 7-9, they make off with only trifles (1d4 uses of Supplies, a purse of coppers, a skin of whisky, etc.); on a 6-, whatever they got, you’re going to miss it.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.eHmYRGms3Q9bzY70]{Marshedge} (Book p.274-280)",
     "notes": ""
   },
   "ownership": {

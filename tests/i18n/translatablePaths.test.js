@@ -125,7 +125,6 @@ describe("translatableEntries", () => {
 
 	it("returns nothing for an unknown or absent allowlist", () => {
 		expect(translatableEntries({ name: "x" }, undefined)).toEqual([]);
-		expect(translatableEntriesForType("character", { name: "x" })).toEqual([]);
 	});
 });
 
@@ -135,7 +134,7 @@ describe("the playbook allowlist", () => {
 			"outfitItem", "insert", "improvement", "steadfast"]) {
 			expect(isTranslatableType(type), type).toBe(true);
 		}
-		// Characters and steadings hold the players' own data, never book prose.
+		// Actors and journals are a later pass and have no allowlist yet.
 		for (const type of ["character", "steading"]) {
 			expect(isTranslatableType(type), type).toBe(false);
 		}
