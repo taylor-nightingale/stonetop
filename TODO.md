@@ -4,11 +4,7 @@
 * Art uploader should grab the maps as well (and give a good way for the GM to set them as a background image in foundry)
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add a stonetop image to the game system in foundry like the delta green one has
-* After updating a system, foundry won't force reload the page even after shutting down the server and restarting. The character sheets will not open because a partial couldn't be found. How can i fix this?
-
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
 * feature Instead of blank, default to stonetop for folk
-
-
 * increase font size of section titles to increase readability
