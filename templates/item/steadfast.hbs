@@ -36,59 +36,61 @@
 		{{!-- Resources / Fortifications / Assets --}}
 		<section class="steading-overview-grid stonetop-steadfast-assets" data-density="full">
 			<section class="steading-overview-column">
-				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items}}
+				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items index=0}}
 			</section>
 			<section class="steading-overview-column">
-				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
+				{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items index=1}}
 			</section>
 			<section class="steading-overview-column steading-assets-column">
-				{{> "stonetop.steading-assets" items=stonetop.assets.items}}
-			{{> "stonetop.steading-coinage" coinage=stonetop.assets.coinage}}
+				{{> "stonetop.steading-assets" items=stonetop.assets.items index=2}}
+				{{> "stonetop.steading-coinage" coinage=stonetop.assets.coinage index=3}}
 			</section>
 		</section>
 
 		{{!-- Places of Interest --}}
 		<section class="stonetop-steadfast-section">
-			{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest}}
+			{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest index=4}}
 		</section>
 
 		{{!-- Neighbouring places --}}
 		{{#if stonetop.neighbors.places.length}}
 		<section class="stonetop-steadfast-section">
 			{{> "stonetop.steading-neighbor-places" title=(localize "stonetop.steading.headings.neighbors")
-			   places=stonetop.neighbors.places showNames=true editableSize=true editableTravel=true}}
+			   places=stonetop.neighbors.places showNames=true editableSize=true editableTravel=true index=5}}
 		</section>
 		{{/if}}
 
 		{{!-- Resident name / trait pool --}}
-		<section class="stonetop-steadfast-section steading-npc-traits steading-block">
-			{{> "stonetop.section-heading" title="Residents"
-			    note="The name and trait pools this place seeds — suggestions for generating residents."}}
-			<label class="stonetop-insert-sheet-label" for="steadfast-resident-names">Names</label>
-			<textarea id="steadfast-resident-names" class="stonetop-steadfast-resident-names" rows="2"
-			          {{#unless editable}}disabled{{/unless}}>{{stonetop.residentNames}}</textarea>
-			<label class="stonetop-insert-sheet-label">NPC Traits</label>
-			<textarea class="steading-npc-traits-source" aria-label="{{localize 'stonetop.a11y.npcTraits'}}" {{#unless editable}}disabled{{/unless}}>{{stonetop.residentTraitsText}}</textarea>
-			<div class="steading-npc-traits-columns">
-				{{#each stonetop.npcTraitColumns}}
-					<div class="steading-npc-traits-column">
-						{{#each this}}<div class="steading-npc-trait">{{this}}</div>{{/each}}
-					</div>
-				{{/each}}
+		<section class="stonetop-panel stonetop-steadfast-section steading-npc-traits">
+			{{> "stonetop.bar" title=(localize "stonetop.steadfast.residents") index=6
+			    note=(localize "stonetop.steadfast.residentsHint")}}
+			<div class="stonetop-panel-body">
+				<label class="stonetop-insert-sheet-label" for="steadfast-resident-names">{{localize "stonetop.steading.neighbors.names"}}</label>
+				<textarea id="steadfast-resident-names" class="stonetop-steadfast-resident-names" rows="2"
+				          {{#unless editable}}disabled{{/unless}}>{{stonetop.residentNames}}</textarea>
+				<label class="stonetop-insert-sheet-label">{{localize "stonetop.steading.headings.npcTraits"}}</label>
+				<textarea class="steading-npc-traits-source" aria-label="{{localize 'stonetop.a11y.npcTraits'}}" {{#unless editable}}disabled{{/unless}}>{{stonetop.residentTraitsText}}</textarea>
+				<div class="steading-npc-traits-columns">
+					{{#each stonetop.npcTraitColumns}}
+						<div class="steading-npc-traits-column">
+							{{#each this}}<div class="steading-npc-trait">{{this}}</div>{{/each}}
+						</div>
+					{{/each}}
+				</div>
 			</div>
 		</section>
 
 		{{!-- Granted improvements --}}
-		<section class="stonetop-steadfast-section stonetop-steadfast-improvements">
-			{{> "stonetop.section-heading" title=(localize "stonetop.steadfast.improvements")
+		<section class="stonetop-panel stonetop-steadfast-section stonetop-steadfast-improvements">
+			{{> "stonetop.bar" title=(localize "stonetop.steadfast.improvements") index=7
 			    note=(localize "stonetop.steadfast.improvementsHint")}}
-			<div class="steading-improvements-grid stonetop-steadfast-improvement-list">
+			<div class="stonetop-panel-body steading-improvements-grid stonetop-steadfast-improvement-list">
 				{{#each stonetop.improvements}}
 					<div class="steading-improvement-group steading-block stonetop-steadfast-improvement">
 						{{#if @root.editable}}
 						<button type="button" class="steadfast-improvement-remove stonetop-icon-btn"
 						        data-slug="{{slug}}" data-name="{{slug}}"
-						        title="{{localize 'stonetop.steadfast.improvementRemove'}}" aria-label="Remove">
+						        title="{{localize 'stonetop.steadfast.improvementRemove'}}" aria-label="{{localize 'stonetop.steadfast.improvementRemove'}}">
 							<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
 						</button>
 						{{/if}}

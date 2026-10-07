@@ -1,0 +1,32 @@
+{{!-- A rating's value, as the control that sets it: the shared stepper for a NUMERIC rating, a select
+      for a NAMED one (Size). The snapshot decides which; nothing here branches on the slug. Drawn by
+      the rating's tile and by the ink bar of the list a rating heads.
+
+      A numeric value's ▲▼ dispatch a native `change` (activateSteppers), which the change router
+      picks up like any other edit. `.steading-attr-input` is load-bearing: the steadfast item sheet
+      has no change router and binds these by that class (StonetopSteadfastSheet._onRender), so a
+      rename silently stops editing there.
+
+      Params: attr (slug), attrData (RatingSnapshot), changeAction (defaults to the generic
+      `attribute` handler). --}}
+{{#if attrData.isNumeric}}
+	<span class="stonetop-stepper">
+		<input type="number" class="stonetop-step steading-attr-input"
+		       data-change-action="{{#if changeAction}}{{changeAction}}{{else}}attribute{{/if}}" data-attr="{{attr}}"
+		       value="{{attrData.current}}" step="1"
+		       {{#if attrData.hasMin}}min="{{attrData.min}}"{{/if}}
+		       {{~#if attrData.hasMax}} max="{{attrData.max}}"{{/if}}
+		       aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
+		       {{#unless @root.editable}}disabled{{/unless}}>
+		{{> "stonetop.stepper-buttons"}}
+	</span>
+{{else}}
+	<select class="steading-attr-input steading-tile-select"
+	        data-change-action="{{#if changeAction}}{{changeAction}}{{else}}attribute{{/if}}" data-attr="{{attr}}"
+	        aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
+	        {{#unless @root.editable}}disabled{{/unless}}>
+		{{#each attrData.options}}
+			<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+		{{/each}}
+	</select>
+{{/if}}

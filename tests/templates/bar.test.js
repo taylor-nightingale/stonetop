@@ -39,6 +39,31 @@ describe("the bar partial", () => {
 		expect(toggle.getAttribute("aria-controls")).toBe("x-basic");
 	});
 
+	// A rating heads the list that justifies it, and a rating's name is what rolls it — so a bar can be
+	// the roll, with the die that says so, the same control the rating's name is on the ledger line.
+	it("is the roll button when it names a rating", () => {
+		const title = bar({ title: "Prosperity", index: 0, roll: "prosperity", rollLabel: "Roll Prosperity" })
+			.querySelector(".stonetop-bar-title");
+		expect(title.tagName).toBe("BUTTON");
+		expect(title.classList.contains("rollable")).toBe(true);
+		expect(title.dataset.roll).toBe("prosperity");
+		expect(title.getAttribute("aria-label")).toBe("Roll Prosperity");
+		expect(title.textContent.trim()).toBe("Prosperity");
+		expect(title.querySelector("i.fa-dice-d6")?.getAttribute("aria-hidden")).toBe("true");
+	});
+
+	it("names its panel in plain words when nothing rolls", () => {
+		const title = bar({ title: "Notes", index: 0 }).querySelector(".stonetop-bar-title");
+		expect(title.tagName).toBe("SPAN");
+		expect(title.classList.contains("rollable")).toBe(false);
+	});
+
+	it("marks its note with the kind the caller gives it", () => {
+		const note = bar({ title: "Prosperity", index: 0, note: "→ −1 lacking", noteClass: "steading-tile-note--adjustment" })
+			.querySelector(".stonetop-bar-note");
+		expect(note.classList.contains("steading-tile-note--adjustment")).toBe(true);
+	});
+
 	it("has an empty control slot without one", () => {
 		expect(bar({ title: "Ailments", index: 0 }).querySelector(".stonetop-bar-meta").children).toHaveLength(0);
 	});

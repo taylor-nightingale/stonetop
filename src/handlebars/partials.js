@@ -95,6 +95,7 @@ export const STONETOP_PARTIALS = {
 	"stonetop.section-heading":  "systems/stonetop/templates/actor/partials/section-heading.hbs",
 	"stonetop.steading-size-pill":      "systems/stonetop/templates/actor/partials/steading-size-pill.hbs",
 	"stonetop.steading-stat-panel":      "systems/stonetop/templates/actor/partials/steading-stat-panel.hbs",
+	"stonetop.steading-rating-value":    "systems/stonetop/templates/actor/partials/steading-rating-value.hbs",
 	"stonetop.steading-ratings-list":    "systems/stonetop/templates/actor/partials/steading-ratings-list.hbs",
 	"stonetop.steading-content-list":    "systems/stonetop/templates/actor/partials/steading-content-list.hbs",
 	"stonetop.steading-seasons":         "systems/stonetop/templates/actor/partials/steading-seasons.hbs",

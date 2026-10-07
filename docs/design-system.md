@@ -95,11 +95,12 @@ or three different ways. This is the material a style decision has to be made *a
 
 ### Headings
 
-`section-heading.hbs` emits `<h3 class="stonetop-move-group-title">` plus a `.stonetop-panel-divider`
-and is used in **16 templates** — the dominant idiom. Alongside it: bare `<h3>`s with their own
-classes (`.stonetop-insert-name`), and title *spans*
-(`.stonetop-prosperity-title`, `.stonetop-levelup-title`, `.stonetop-outfit-heading`,
-`.stonetop-introductions-title`). `section-sub-heading.hbs` is the h4.
+A panel's ink bar (`bar.hbs`) heads a section in **19 templates** — both sheets' tabs and rails, and
+the steadfast sheet — the dominant idiom. `section-heading.hbs` emits `<h3
+class="stonetop-move-group-title">` plus a `.stonetop-panel-divider` and is left in three: the band's
+Stats, Outfit (D5) and Notes. Alongside them: bare `<h3>`s with their own classes
+(`.stonetop-insert-name`), and title *spans* (`.stonetop-prosperity-title`, `.stonetop-levelup-title`,
+`.stonetop-outfit-heading`, `.stonetop-introductions-title`). `section-sub-heading.hbs` is the h4.
 
 ### Marks
 
@@ -138,7 +139,10 @@ size) it is a drawer over the tab. While a column rail slides, the column beside
 width it has with the rail shut and is pushed, clipped at the sheet's edge, rather than squeezed:
 the tab is laid out once per slide, never frame by frame. The column
 beside it — the character's band or the steading's ledger line, the tab strip and the tab — has one
-1.5rem inset, which is also where the rail's tab sits. Tabs never shrink or overlap: those the strip
+1.5rem inset, which is also where the rail's tab sits. A rail can also sit on a layout's END edge, with its tab on its left
+edge: the steading's Folk tab keeps its name and trait lists in one, beside the roster. It slides out
+to the right, and the column beside it widens with it rather than being held; it never becomes a
+drawer — a tab too narrow for it stacks it under the roster instead. Tabs never shrink or overlap: those the strip
 has no room for are listed under a "More" menu at its end, and the open tab always stays in the
 strip. The rail's move groups are panels headed by an ink bar with a caret.
 
@@ -188,8 +192,8 @@ live on a non-editable sheet.
      *is* the box
    - *outfit load* — a radio that is a **readout**: `pointer-events: none`, reporting the level read
      off the marked ◇ rather than setting it
-5. **Group headings, three idioms** — the `section-heading` partial (16 uses), bare `<h3>`s, and
-   title spans. The partial is the dominant one; the others predate or bypass it.
+5. **Group headings, four idioms** — the ink bar (19 uses), the `section-heading` partial (3), bare
+   `<h3>`s, and title spans. The bar is the dominant one; the others predate or bypass it.
 6. **Nine empty states, no component.** Every one is a one-off `<p>`.
 7. **Tile enclosure, three treatments** — `frame-stat` on a character stat, `frame-wide`/`frame-stat`
    on a vital, a whole lifted illustrated panel on a steading rating. Defensible, since the book
@@ -263,13 +267,50 @@ two marks.
 
 ### Headings
 
-`section-heading.hbs` emits an h3 plus a `.stonetop-panel-divider` and is the dominant idiom —
-**16 templates**. `section-sub-heading.hbs` is the h4. Bare `<h3>`s and title spans also exist (§2).
+A section on a tab is a panel headed by its ink bar (`bar.hbs`), on both sheets and the steadfast
+sheet. Its body takes the section inset; its controls — a door, a caret, the advice `?` — hang from the
+bar's far end as `.stonetop-bar-action`s. A list panel sizes to its rows; only a writing area (the
+steading's notes) takes a column's leftover height. Two columns of panels sit a panel's gap apart, with
+no rule between them.
+
+- **A rating heads the list that justifies it by being its bar** — Prosperity over Resources, Defenses
+  over Fortifications on the steading's Play tab. The bar's title is the rating's name and rolls it, its
+  note is the rating's note, and its value sits at the far end, centred on the bar's line rather than
+  hanging below it. One line for the rating, no frame between it and its evidence; the list's own name
+  lives on in its add control. The print sheet's rating-beside-list box is a pencil technique and is
+  not copied: it spends a column on three short lines.
+- **Lists that belong together are one panel.** The Folk tab's name pools and NPC traits are one
+  collapsible panel; each list inside it is a sub-heading with its own fold, in the voice a move
+  panel gives a part of the journey. Shut, the panel is its bar and the roster takes its width.
+- **A bar under a tab names what the tab holds, not the tab again.** The Season tab's head is a
+  section whose bar says which season and year it is ("Spring, year 1"), never "Season".
+- **The season's move keeps its glyph heading, not a bar.** The Seasons Change box is done once a
+  season, so it is quieter than a section: its own frame, the season's glyph and the move's name in
+  the season's tint. An ink bar made it the loudest thing on the tab — the fault the box was rebuilt
+  to fix (it used to be a shut disclosure headed "Turn to <next>").
+
+`section-heading.hbs` (an h3 plus a `.stonetop-panel-divider`) survives in three templates (§2).
+`section-sub-heading.hbs` is the h4. Bare `<h3>`s and title spans also exist (§2).
 `.stonetop-move-group-title` is the generic section-title class despite its name.
 
 A panel's ink bar (`bar.hbs`) names its section at `--fs-title`, on both sheets. The bar's own text
 is `--fs-note`, which is where its instruction stays; the small-caps face stands its lowercase at about
 two-thirds of its size, so a name set there read near 10px, and at `--fs-heading` near 12px.
+
+### Type — three faces, by role, one scale
+
+Both sheets set the same faces for the same jobs, on the one `--fs-*` scale in `:root`:
+
+| face | role | examples |
+|---|---|---|
+| **Signika** (`--font-primary`) | what you read and type, and every number | list rows, move text, fields, stat and rating values, the treasury, a note that is a number ("→ −1 lacking") |
+| **StonetopUI** small caps | names | bar titles, move names, stat and rating names |
+| **IM Fell English** italic | the book's own voice | conditions and their effects, a rating's tier gloss, the playbook title, ailment names |
+
+The Fell is named by its stack, never reached through `--font-serif`: Foundry's font setting
+redeclares that token on `body` (Amiri in the dev world). Its figures are old-style, which is why a note
+that is a number takes Signika. Core sets every textarea in its monospace face; one rule hands every
+Stonetop sheet's textareas back to the sheet's.
 
 ### Rollable — one contract, one active state
 
@@ -346,8 +387,9 @@ Numbered, because the code cites them.
 - **D11 · Sections rest on what was chosen** (§1), each with one door on its bar: Change or Choose,
   Done while open. Opening everything is an event (choosing a playbook, gaining an insert), not a
   standing state. The Playbook tab's sections sit in two fixed columns, so nothing jumps columns under
-  the pointer. The steading's season head is a section too: at rest the wheel and the year, and a
-  door for the GM alone that opens the same pill as radios, with the year beside it.
+  the pointer. The steading's season head is a section too, its bar naming the season and year (§3):
+  at rest the wheel, and a door for the GM alone that opens the same pill as radios, with the year
+  beside it.
 - **D12 · An insert is a tab, with the whole insert on it**, straight after Playbook: its moves, its
   instinct and its sections. One gained by dying arrives open and the sheet goes to its tab.
 - **D13 · The arcana a character holds are listed beside the one card being read.** Majors first, as

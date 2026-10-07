@@ -118,17 +118,26 @@ describe.skipIf(!canProbe())("what a focus ring actually surrounds", () => {
 						<textarea id="field-body" class="stonetop-notes stonetop-grow-field"></textarea>
 					</div></div>
 				</div>`],
-			["the Places tab's neighbours column", "neighbors",
-				`<section class="steading-neighbor-places" id="scroll-neighbors">
-					<section class="steading-neighbor-place steading-block"><label class="steading-neighbor-text-field">
-						<span>Notes</span>
-						<textarea id="field-neighbors" rows="2" class="stonetop-neighbor-place-note stonetop-grow-field"></textarea>
-					</label></section>
-				</section>`],
-			["the Folk tab's reference column", "folk",
-				`<div class="steading-folk-ref" id="scroll-folk">
-					<button type="button" id="field-folk" class="steading-folk-entry">Aelfa</button>
-				</div>`],
+			// A panel clips too (`overflow: clip`), so a field inside one needs the same room.
+			["the Places tab's neighbours panel", "neighbors",
+				`<div class="sheet-body"><section class="stonetop-panel steading-neighbor-places" id="scroll-neighbors">
+					<header class="stonetop-bar"><span class="stonetop-bar-title">Neighbouring Communities</span></header>
+					<div class="stonetop-panel-body">
+						<section class="steading-neighbor-place steading-block"><label class="steading-neighbor-text-field">
+							<span>Notes</span>
+							<textarea id="field-neighbors" rows="2" class="stonetop-neighbor-place-note stonetop-grow-field"></textarea>
+						</label></section>
+					</div>
+				</section></div>`],
+			["the Folk tab's reference rail", "folk",
+				`<div class="sheet-body"><div class="stonetop-rail-layout stonetop-rail-layout--end steading-folk-layout">
+					<div class="stonetop-rail-main"></div>
+					<aside class="stonetop-rail steading-folk-ref" id="scroll-folk">
+						<div class="steading-folk-list is-open"><p class="steading-folk-entries">
+							<button type="button" id="field-folk" class="steading-folk-entry">Aelfa</button>
+						</p></div>
+					</aside>
+				</div></div>`],
 		];
 
 		let reach;

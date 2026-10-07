@@ -599,7 +599,9 @@
       "improvements": "Granted improvements",
       "improvementsHint": "Drag improvement items here to grant them.",
       "improvementsEmpty": "No improvements granted yet.",
-      "improvementRemove": "Remove"
+      "improvementRemove": "Remove",
+      "residents": "Residents",
+      "residentsHint": "The name and trait pools this place seeds — suggestions for generating residents."
     },
     "follower": {
       "namePlaceholder": "Follower name",

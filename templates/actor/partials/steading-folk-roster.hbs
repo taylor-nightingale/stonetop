@@ -8,7 +8,7 @@
 <section class="steading-folk-roster steading-block">
 	{{!-- No heading, and no rule under the search either. The tab is called Folk, the panel beneath is
 	      a roster with Name/Home/Occupation written across its top, and the only other thing on this
-	      side of the divider is that table — so a title here restated the tab it is on, and a rule
+	      side of the tab is that table — so a title here restated the tab it is on, and a rule
 	      beneath it separated the search from the one thing the search acts on. --}}
 	<div class="steading-folk-head">
 		{{!-- No data-change-action: this writes nothing to the actor. It filters rows in place on
@@ -18,18 +18,6 @@
 		<input type="search" class="steading-folk-search" data-view-state
 		       placeholder="{{localize 'stonetop.steading.folk.searchPlaceholder'}}"
 		       aria-label="{{localize 'stonetop.a11y.folkSearch'}}">
-		{{!-- Puts the reference column away and gives the roster the tab's width. A disclosure like
-		      each list's own fold, so OpenDisclosures keeps it put away across renders; view state,
-		      so a locked sheet leaves it live. --}}
-		<button type="button" class="steading-folk-ref-toggle stonetop-icon-btn" data-action="toggleFolkList"
-		        data-disclosure data-view-state
-		        aria-controls="{{@root.sheetIdPrefix}}-folk-reference" aria-expanded="true"
-		        data-label-show="{{localize 'stonetop.steading.folk.listsShow'}}"
-		        data-label-hide="{{localize 'stonetop.steading.folk.listsHide'}}"
-		        aria-label="{{localize 'stonetop.steading.folk.listsHide'}}"
-		        title="{{localize 'stonetop.steading.folk.listsHide'}}">
-			<i class="fas fa-chevron-right steading-folk-ref-caret" aria-hidden="true"></i>
-		</button>
 	</div>
 
 	<div class="steading-folk-table">

@@ -198,9 +198,10 @@
 
 		{{!-- Play — the tab you are on essentially the whole session.
 
-		      The ratings at their full density: the SAME tile partial the line renders, laid out so a
-		      rating leads the evidence that justifies it — Prosperity over Resources, Defenses over
-		      Fortifications. That pairing is the book's best structural idea.
+		      A rating leads the evidence that justifies it — Prosperity over Resources, Defenses over
+		      Fortifications. That pairing is the book's best structural idea, and here the rating IS
+		      the list's ink bar: one panel, one line spent on the rating, rather than a rating row
+		      above a framed list that the frame cut it off from.
 
 		      Two columns, not three: Fortunes and Surplus lead no list, so they went to the rail with
 		      the moves, and each column here is now wider than all three were. --}}
@@ -210,8 +211,7 @@
 			<div class="steading-overview-grid steading-play-grid" data-density="full">
 
 				<section class="steading-overview-column">
-					{{> "stonetop.steading-stat-panel" attr="prosperity" attrData=stonetop.attributes.prosperity rollable=true panelClass="steading-prosperity"}}
-					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items}}
+					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.resources") addLabel=(localize "stonetop.steading.lists.addResource") attr="prosperity" items=stonetop.attributes.prosperity.items rating=stonetop.attributes.prosperity index=0}}
 					{{!-- The steading's own scratchpad.
 
 					      Here rather than with the safety agreements it used to sit beside: it is
@@ -221,20 +221,22 @@
 					      different lengths — it is the one thing on the tab that can use the height it
 					      is given, so it takes the slack and the plate below it simply closes the
 					      column. --}}
-					<div class="steading-notes-field steading-block">
-						{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.notes")}}
-						{{!-- The same field as the note kept on a neighbouring place: a framed box that grows
-						      with what is written, and a placeholder saying what goes on it. Nothing here draws
-						      the frame — it is the one core gives a textarea, kept rather than stripped, which
-						      is what makes the two boxes the same object without either of them describing it.
-						      `stonetop-notes` stays FIRST in the list — buildFocusSelector rebuilds the caret's
-						      selector from the first stonetop-/steading- class it finds, and the grower is a
-						      shared idiom that would match every note on the sheet. --}}
-						<textarea aria-label="{{localize 'stonetop.a11y.notes'}}"
-						          class="stonetop-notes stonetop-grow-field"
-						          placeholder="{{localize 'stonetop.steading.headings.notes'}}"
-						          data-change-action="notes">{{stonetop.notes}}</textarea>
-					</div>
+					<section class="stonetop-panel steading-notes-field">
+						{{> "stonetop.bar" title=(localize "stonetop.steading.headings.notes") index=1}}
+						<div class="stonetop-panel-body">
+							{{!-- The same field as the note kept on a neighbouring place: a framed box that grows
+							      with what is written, and a placeholder saying what goes on it. Nothing here draws
+							      the frame — it is the one core gives a textarea, kept rather than stripped, which
+							      is what makes the two boxes the same object without either of them describing it.
+							      `stonetop-notes` stays FIRST in the list — buildFocusSelector rebuilds the caret's
+							      selector from the first stonetop-/steading- class it finds, and the grower is a
+							      shared idiom that would match every note on the sheet. --}}
+							<textarea aria-label="{{localize 'stonetop.a11y.notes'}}"
+							          class="stonetop-notes stonetop-grow-field"
+							          placeholder="{{localize 'stonetop.steading.headings.notes'}}"
+							          data-change-action="notes">{{stonetop.notes}}</textarea>
+						</div>
+					</section>
 					{{!-- The book's whisky jugs, closing the column the resources fill — the one line of that
 					      list the book itself illustrates, under the list that names it. Absent in a world
 					      that has never run the art installer, which is what the snapshot answering null
@@ -247,11 +249,10 @@
 				</section>
 
 				<section class="steading-overview-column">
-					{{> "stonetop.steading-stat-panel" attr="defenses" attrData=stonetop.attributes.defenses rollable=true panelClass="steading-defenses"}}
-					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items}}
+					{{> "stonetop.steading-ratings-list" title=(localize "stonetop.steading.lists.fortifications") addLabel=(localize "stonetop.steading.lists.addFortification") attr="defenses" items=stonetop.attributes.defenses.items rating=stonetop.attributes.defenses index=2}}
 					{{> "stonetop.steading-assets" items=stonetop.assets.items
-				    note=stonetop.assets.requisitionedNote requisition=true}}
-					{{> "stonetop.steading-coinage" coinage=stonetop.assets.coinage advice="coin"}}
+					    note=stonetop.assets.requisitionedNote requisition=true index=3}}
+					{{> "stonetop.steading-coinage" coinage=stonetop.assets.coinage advice="coin" index=4}}
 				</section>
 
 			</div>
@@ -265,23 +266,32 @@
 
 			{{!-- One roster, and the lists you read to fill it.
 
-			      Two columns rather than the four stacked blocks this used to be: the roster on the left,
-			      and on the right the name and trait lists WHOLE. The search box narrows the roster and
-			      cannot reach the lists — reading down them is how an NPC gets made, so filtering them
-			      would remove the feature to speed up the overhead. --}}
-			<div class="steading-folk-grid">
+			      The roster is the work; the name and trait lists are what you read while doing it, WHOLE.
+			      The search box narrows the roster and cannot reach the lists — reading down them is how
+			      an NPC gets made, so filtering them would remove the feature to speed up the overhead.
 
-				{{> "stonetop.steading-folk-roster" folk=stonetop.folk isGM=isGM plate=stonetop.residentsPlate}}
+			      The lists are a rail on the tab's end edge — the same component as the sheet's own rail,
+			      with the same tab — because they are reference beside the work, put away to give the
+			      roster the room, not a section of the tab. --}}
+			<div class="stonetop-rail-layout stonetop-rail-layout--end steading-folk-layout">
+				<button type="button" class="stonetop-rail-toggle" data-action="toggleRail" data-view-state
+				        aria-expanded="true" aria-controls="{{sheetIdPrefix}}-folk-reference"
+				        data-label-show="{{localize 'stonetop.steading.folk.listsShow'}}"
+				        data-label-hide="{{localize 'stonetop.steading.folk.listsHide'}}"
+				        title="{{localize 'stonetop.steading.folk.listsHide'}}"
+				        aria-label="{{localize 'stonetop.steading.folk.listsHide'}}">
+					<i class="fas fa-chevron-right stonetop-rail-caret" aria-hidden="true"></i>
+				</button>
 
-				<div class="steading-folk-divider" aria-hidden="true"></div>
+				<div class="stonetop-rail-main">
+					{{> "stonetop.steading-folk-roster" folk=stonetop.folk isGM=isGM plate=stonetop.residentsPlate}}
+				</div>
 
-				{{!-- Put away whole by the toggle in the roster's head; see steading-folk-roster.hbs. --}}
-				<section class="steading-folk-ref steading-block" id="{{sheetIdPrefix}}-folk-reference">
+				<aside class="stonetop-rail steading-folk-ref" id="{{sheetIdPrefix}}-folk-reference">
 					{{#each stonetop.folkSuggestions}}
 						{{> "stonetop.steading-folk-suggestions" list=this}}
 					{{/each}}
-				</section>
-
+				</aside>
 			</div>
 
 		</div>{{!-- /tab folk --}}
@@ -296,14 +306,12 @@
 			<div class="steading-split-grid">
 
 				<section class="steading-split-column">
-					{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest linkHint=true}}
+					{{> "stonetop.steading-places-of-interest" places=stonetop.placesOfInterest linkHint=true index=0}}
 				</section>
-
-				<div class="steading-split-divider" aria-hidden="true"></div>
 
 				<section class="steading-split-column">
 					{{> "stonetop.steading-neighbor-places" title=(localize "stonetop.steading.headings.neighbors")
-					   places=stonetop.neighborPlaces showNames=false showTravel=true}}
+					   places=stonetop.neighborPlaces showNames=false showTravel=true index=1}}
 				</section>
 
 			</div>
@@ -316,11 +324,7 @@
 		<div class="tab {{tabs.improvements.cssClass}}" data-group="primary" data-tab="improvements"
 		     role="tabpanel" id="{{sheetIdPrefix}}-panel-improvements" aria-labelledby="{{sheetIdPrefix}}-tab-improvements">
 
-			<div class="stonetop-advice-toolbar">
-				{{> "stonetop.advice-button" variant="labelled" topic="steadingImprovement"}}
-			</div>
-
-			{{> "stonetop.steading-improvement-board" board=stonetop.improvements}}
+			{{> "stonetop.steading-improvement-board" board=stonetop.improvements index=0 advice="steadingImprovement"}}
 
 		</div>{{!-- /tab improvements --}}
 
@@ -351,15 +355,15 @@
 
 				<section class="steading-split-column">
 					{{#each stonetop.content}}
-						{{> "stonetop.steading-content-list" section=this}}
+						{{> "stonetop.steading-content-list" section=this index=@index}}
 					{{/each}}
 				</section>
 
-				<div class="steading-split-divider" aria-hidden="true"></div>
-
 				<section class="steading-split-column">
-					{{> "stonetop.section-heading" title=(localize "stonetop.steading.content.fromThePlaybook")}}
-					<div class="steading-content-procedure stonetop-rich">{{rich (localize "stonetop.steading.content.procedure")}}</div>
+					<section class="stonetop-panel">
+						{{> "stonetop.bar" title=(localize "stonetop.steading.content.fromThePlaybook") index=stonetop.content.length}}
+						<div class="stonetop-panel-body steading-content-procedure stonetop-rich">{{rich (localize "stonetop.steading.content.procedure")}}</div>
+					</section>
 				</section>
 
 			</div>

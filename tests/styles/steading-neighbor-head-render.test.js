@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
+import { renderPartial } from "../fakes/renderTemplate.js";
 
 /**
  * The neighbouring-community row, measured rather than read off the stylesheet.
@@ -31,42 +32,28 @@ const probe = new RenderProbe([
 	sheet("stonetop.css"),
 ]);
 
-// Mirrors steading-neighbor-places.hbs at the steading's settings: Size read-only, Travel editable.
-const fact = (label, value) => value ? `
-				<span class="steading-neighbor-fact">
-					<span class="steading-neighbor-fact-label">${label}</span>
-					${label === "Travel"
-						? `<input type="text" class="steading-neighbor-travel" value="${value}">`
-						: `<span class="steading-neighbor-fact-value">${value}</span>`}
-				</span>` : "";
+// Rendered through steading-neighbor-places.hbs at the STEADING's settings: Size read-only, Travel
+// editable, and a fact with no value left out entirely rather than drawn as a label and a dash.
+const place = (slug, name, subtitle, sizeLabel, travel, note = "") => ({ slug, name, subtitle, sizeLabel, travel, note });
 
-// Mirrors steading-neighbor-places.hbs at the STEADING's settings: Size read-only, Travel editable,
-// and a fact with no value left out entirely rather than drawn as a label and a dash.
-const row = (name, subtitle, size, travel, note = "") => `
-	<section class="steading-neighbor-place steading-block">
-		<div class="steading-neighbor-head">
-			<h4 class="steading-neighbor-name">${name}${subtitle ? ` <span class="steading-neighbor-subtitle">${subtitle}</span>` : ""}</h4>
-			<div class="steading-neighbor-facts">${fact("Size", size)}${fact("Travel", travel)}</div>
-		</div>
-		<label class="steading-neighbor-text-field">
-			<span>Notes</span>
-			<textarea rows="2" class="stonetop-neighbor-place-note stonetop-grow-field">${note}</textarea>
-		</label>
-	</section>`;
+// The harness renders a key-only {{localize}} as its key, and a key is far longer than the word it
+// stands for — the row has to be measured with the words the reader sees.
+const inEnglish = html => html.replace(/stonetop\.[\w.]+/g, key => (game.i18n.has(key) ? game.i18n.format(key) : key));
 
 const fixture = width => `
 <div class="application stonetop sheet actor steading themed theme-light">
-	<div class="window-content"><div class="sheet-wrapper">
+	<div class="window-content"><div class="sheet-wrapper"><section class="sheet-body">
 	<div class="steading-split-grid"><section class="steading-split-column" style="width: ${width}px; flex: none">
-		<section class="steading-neighbor-places">
-			<h3 class="stonetop-move-group-title">Neighbouring Communities</h3>
-			<div class="stonetop-panel-divider" aria-hidden="true"></div>
-			${row("Marshedge", "", "town", "10 days", "")}
-			${row("The Steplands", "Hillfolk", "", "4 days", LONG_NOTE)}
-			${row("Other places", "The Manmarch, etc.", "", "")}
-		</section>
+		${inEnglish(renderPartial("stonetop.steading-neighbor-places", {
+			title: "Neighbouring Communities", index: 1, showNames: false, showTravel: true,
+			places: [
+				place("marshedge", "Marshedge", "", "town", "10 days"),
+				place("steplands", "The Steplands", "Hillfolk", "", "4 days", LONG_NOTE),
+				place("other", "Other places", "The Manmarch, etc.", "", ""),
+			],
+		}))}
 	</section></div>
-	</div></div>
+	</section></div></div>
 </div>`;
 
 // A note written over a campaign, plus an unbroken token of the kind a URL or a name drop leaves in

@@ -58,12 +58,13 @@ export class SheetRail {
 		return !this.isDrawer;
 	}
 
+	// Its own, not a nested layout's: the Folk tab's rail sits inside the sheet's rail layout.
 	get _toggle() {
-		return this._layout.querySelector(".stonetop-rail-toggle");
+		return this._layout.querySelector(":scope > .stonetop-rail-toggle");
 	}
 
 	get _rail() {
-		return this._layout.querySelector(".stonetop-rail");
+		return this._layout.querySelector(":scope > .stonetop-rail");
 	}
 
 	/**

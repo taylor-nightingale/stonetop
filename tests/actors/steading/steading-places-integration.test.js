@@ -58,9 +58,10 @@ describe("the Places tab — neighbouring communities", () => {
 
 	// Five sibling headings with nothing naming them was the old shape; "Marshedge" says what it is
 	// only to someone who already knows.
-	it("puts the group's heading above the places, a level up from their names", () => {
+	it("puts the group's bar above the places, a level up from their names", () => {
 		const root = asSteading(steading().actor);
-		expect(root.querySelector("h3").textContent).toContain("Neighbouring Communities");
+		expect(root.querySelector(".steading-neighbor-places > .stonetop-bar .stonetop-bar-title").textContent)
+			.toContain("Neighbouring Communities");
 		expect(root.querySelectorAll("h4.steading-neighbor-name")).toHaveLength(6);
 	});
 

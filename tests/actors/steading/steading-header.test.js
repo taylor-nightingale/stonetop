@@ -183,16 +183,17 @@ describe("the steading line — one component, two densities", () => {
 		expect(pill.querySelector("select.steading-attr-input")?.dataset.attr).toBe("size");
 	});
 
-	// The claim, stated as a test: the Play tab does not get a compact copy of its own. It renders
-	// the same partial — same classes, same roll button, same editable input — at the other density.
+	// The claim, stated as a test: nothing gets a compact copy of its own. The rail's arches are the
+	// same tile partial at full density, and the ratings heading Play's lists set their value through
+	// the same control the tile uses — same class, same editable input.
 	it("renders the full density from the same partial, not a second one", () => {
 		const grid = renderHeader().querySelector(".stonetop-rail-layout");
 		const attrs = [...grid.querySelectorAll('[data-density="full"] .steading-tile')].map(t => t.dataset.attr);
-		expect(attrs).toEqual(["fortunes", "surplus", "prosperity", "defenses"]);
-		for (const attr of attrs) {
-			const tile = grid.querySelector(`.steading-tile[data-attr="${attr}"]`);
+		expect(attrs).toEqual(["fortunes", "surplus"]);
+		for (const attr of ["fortunes", "surplus", "prosperity", "defenses"]) {
 			// The class the steadfast sheet binds by — see steadfast-rating-bindings.test.js.
-			expect(tile.querySelector(".steading-attr-input"), `${attr} is not editable at full density`).not.toBeNull();
+			const input = grid.querySelector(`[data-density="full"] input.steading-attr-input[data-attr="${attr}"]`);
+			expect(input, `${attr} is not editable at full density`).not.toBeNull();
 		}
 	});
 
@@ -208,13 +209,17 @@ describe("the steading line — one component, two densities", () => {
 	});
 
 	// Prosperity leads Resources and Defenses leads Fortifications — the pairing is the book's best
-	// structural idea, and it is only true if the rating and its list share a column.
+	// structural idea, and it is only true if the rating heads the panel its list is in: the rating
+	// is that panel's bar, and it rolls.
 	it("puts each rating at the head of the evidence that justifies it", () => {
 		const columns = [...renderHeader().querySelectorAll(".steading-play-grid .steading-overview-column")];
-		const pairing = columns.map(c => [
-			c.querySelector(".steading-tile")?.dataset.attr,
-			c.querySelector(".steading-attr-list [data-attr]")?.dataset.attr,
-		]);
+		const pairing = columns.map(c => {
+			const panel = c.querySelector(".steading-overview-field");
+			return [
+				panel?.querySelector(":scope > .stonetop-bar button.stonetop-bar-title[data-roll]")?.dataset.roll,
+				panel?.querySelector(":scope > .stonetop-panel-body [data-attr]")?.dataset.attr,
+			];
+		});
 		// Two columns, not three: Fortunes and Surplus lead no list, so they went to the rail and
 		// what is left on Play is exactly the book's pairing.
 		expect(pairing).toEqual([["prosperity", "prosperity"], ["defenses", "defenses"]]);

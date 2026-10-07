@@ -58,7 +58,7 @@ const traitList = new SuggestionList("Traits", SuggestionList.TRAIT, [
 	new Suggestion("has a beef with Marshedge"), new Suggestion("knows all the gossip"),
 ]);
 
-// The reference column as the Folk tab renders it, in the width the tab's grid actually gives it.
+// The reference rail as the Folk tab renders it, in the width the tab's layout actually gives it.
 // The theme rides on the SHEET, not only on <body>: Foundry stamps theme-light/theme-dark on the
 // application element, and a fixture that hard-codes one renders the same page for both parchments —
 // which would make the dark assertions below a duplicate of the light ones.
@@ -67,13 +67,15 @@ const referenceColumn = (theme = "theme-light") => `
  <div class="window-content"><div class="sheet-wrapper">
   <div class="stonetop-rail-layout">
    <div class="stonetop-rail-main steading-main">
-    <div class="steading-folk-grid">
-     <section class="steading-folk-roster steading-block"></section>
-     <section class="steading-folk-ref steading-block">
+    <section class="sheet-body"><div class="tab active" data-tab="folk">
+    <div class="stonetop-rail-layout stonetop-rail-layout--end steading-folk-layout">
+     <div class="stonetop-rail-main"><section class="steading-folk-roster steading-block"></section></div>
+     <aside class="stonetop-rail steading-folk-ref">
        ${renderPartial("stonetop.steading-folk-suggestions", { list: nameList })}
        ${renderPartial("stonetop.steading-folk-suggestions", { list: traitList })}
-     </section>
+     </aside>
     </div>
+    </div></section>
    </div>
   </div>
  </div></div>
@@ -88,10 +90,8 @@ const styles = (bodyClass = "theme-light") => probe.render({
 	probes: {
 		live: { selector: `${ENTRY}:not(.is-used)`, properties: PROPERTIES },
 		used: { selector: `${ENTRY}.is-used`,       properties: PROPERTIES },
+		// The rail's sunken ground is what a dimmed entry has to stay readable against.
 		panel: { selector: ".steading-folk-ref",    properties: ["background-color", "color", "font-family"] },
-		// The reference panel paints no background of its own — it sits on the sheet's parchment, so
-		// that is what a dimmed entry has to stay readable against.
-		sheet: { selector: ".application.steading", properties: ["--st-paper"] },
 		para: { selector: ".steading-folk-entries", properties: ["color", "font-size", "--st-ink"] },
 	},
 	chromeFlags: ["--window-size=1300,1400"],
@@ -140,7 +140,7 @@ describe.skipIf(!canProbe())("a used entry dims without becoming unreadable", ()
 			let s;
 			beforeAll(() => { s = styles(bodyClass); });
 
-			const paper = () => CssColor.parse(s.get("sheet").get("--st-paper"));
+			const paper = () => CssColor.parse(s.get("panel").get("background-color"));
 
 			it("is visibly dimmer than an entry nobody has taken", () => {
 				console.log("DBG", theme, "entry", s.get("live").get("color"), "para", s.get("para").get("color"), s.get("para").get("font-size"), s.get("para").get("--st-ink"));
@@ -177,7 +177,9 @@ const ROSTER_FOLK = [
 
 // The rail is part of the fixture because the tab's width is the sheet's LESS the rail's, and that
 // is the width the folk grid answers to.
-const folkTab = (width, { refHidden = false } = {}) => `
+// `moving` is RailSlide's mark and `railMargin` a frame of the slide: the probe paints no
+// transitions, so a frame is set by hand.
+const folkTab = (width, { refShut = false, moving = false, railMargin = null } = {}) => `
 <div class="application stonetop sheet actor steading themed theme-light" style="width: ${width}px">
  <div class="window-content"><div class="sheet-wrapper">
   <div class="stonetop-rail-layout">
@@ -185,12 +187,16 @@ const folkTab = (width, { refHidden = false } = {}) => `
    <div class="stonetop-rail-main steading-main">
     <section class="sheet-body">
     <div class="tab active" data-tab="folk">
-     <div class="steading-folk-grid">
-      ${renderPartial("stonetop.steading-folk-roster", { folk: ROSTER_FOLK, isGM: true, actor: { name: "Stonetop" } })}
-      <div class="steading-folk-divider"></div>
-      <section class="steading-folk-ref steading-block"${refHidden ? " hidden" : ""}>
-        ${renderPartial("stonetop.steading-folk-suggestions", { list: nameList })}
-      </section>
+     <div class="stonetop-rail-layout stonetop-rail-layout--end steading-folk-layout${refShut ? " rail-shut" : ""}${moving ? " is-rail-moving" : ""}">
+      <button type="button" class="stonetop-rail-toggle" aria-expanded="${!refShut}" aria-controls="s1-folk-reference">
+       <i class="fas fa-chevron-right stonetop-rail-caret" aria-hidden="true"></i>
+      </button>
+      <div class="stonetop-rail-main">
+       ${renderPartial("stonetop.steading-folk-roster", { folk: ROSTER_FOLK, isGM: true, actor: { name: "Stonetop" } })}
+      </div>
+      <aside class="stonetop-rail steading-folk-ref" id="s1-folk-reference"${railMargin === null ? "" : ` style="margin-right: ${railMargin}px"`}>
+       ${renderPartial("stonetop.steading-folk-suggestions", { list: nameList })}
+      </aside>
      </div>
     </div>
     </section>
@@ -210,7 +216,7 @@ describe.skipIf(!canProbe())("the roster fits the tab it shares with the referen
 				m = probe.measure({
 					bodyHtml: folkTab(width), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
 					targets: {
-						grid:    ".steading-folk-grid",
+						grid:    ".steading-folk-layout",
 						roster:  ".steading-folk-roster",
 						table:   ".steading-folk-table",
 						row:     '.steading-folk-row[data-id="c"]',
@@ -328,7 +334,7 @@ describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
 	const measure = width => probe.measure({
 		bodyHtml: folkTab(width), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
 		targets: {
-			grid:   ".steading-folk-grid",
+			grid:   ".steading-folk-layout",
 			roster: ".steading-folk-roster",
 			ref:    ".steading-folk-ref",
 			row:    '.steading-folk-row[data-id="c"]',
@@ -371,36 +377,50 @@ describe.skipIf(!canProbe())("the Folk tab on a thin sheet", () => {
 	});
 });
 
-// The column's own `display: flex` outranks the user agent's `[hidden]`, so a column the toggle has
-// put away would still be drawn unless the stylesheet says otherwise — and the divider has no
-// business ruling the roster off from nothing.
-describe.skipIf(!canProbe())("the reference column put away", () => {
+// Put away from the tab on its edge, the rail slides out to the right and the roster has the tab.
+describe.skipIf(!canProbe())("the reference rail put away", () => {
 	let m;
 	beforeAll(() => {
 		m = probe.measure({
-			bodyHtml: folkTab(1180, { refHidden: true }), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
+			bodyHtml: folkTab(1180, { refShut: true }), bodyClass: "theme-light", rootAttrs: 'style="font-size: 16px"',
 			targets: {
-				grid:    ".steading-folk-grid",
-				roster:  ".steading-folk-roster",
-				ref:     ".steading-folk-ref",
-				divider: ".steading-folk-divider",
-				toggle:  ".steading-folk-ref-toggle",
+				layout: ".steading-folk-layout",
+				roster: ".steading-folk-roster",
+				ref:    ".steading-folk-ref",
+				toggle: ".steading-folk-layout > .stonetop-rail-toggle",
 			},
 			chromeFlags: ["--window-size=1300,1400"],
 		});
 	});
 
-	it("draws neither the column nor the divider", () => {
-		expect(m.get("ref").values.boxWidth, "the hidden column still takes room").toBe(0);
-		expect(m.get("divider").values.boxWidth, "the divider still rules off an empty column").toBe(0);
-	});
+	const right = el => el.values.boxLeft + el.values.boxWidth;
 
 	it("gives the roster the tab's whole width", () => {
-		expect(m.get("roster").values.boxWidth).toBeCloseTo(m.get("grid").values.boxWidth, 0);
+		expect(m.get("roster").values.boxWidth).toBeGreaterThan(m.get("layout").values.boxWidth - 24);
 	});
 
-	it("leaves the toggle on screen to bring the column back", () => {
-		expect(m.get("toggle").missing, "the toggle did not render").toBe(false);
-		expect(m.get("toggle").values.boxWidth).toBeGreaterThan(0);
+	it("slides the lists off the tab's end edge rather than folding them up", () => {
+		expect(m.get("ref").values.boxLeft, "the shut rail is still on the tab")
+			.toBeGreaterThanOrEqual(right(m.get("layout")) - 1);
+	});
+
+	it("leaves the tab on the edge to bring them back", () => {
+		expect(m.get("toggle").missing, "the tab did not render").toBe(false);
+		expect(Math.abs(right(m.get("toggle")) - right(m.get("layout"))), "the tab is not on the edge").toBeLessThan(2);
+	});
+});
+
+// Mid-slide, the roster stays where it is and only its width changes: the room being made is the
+// point. Held at one width, as the start rail's column is, its first columns slid off the tab's left
+// edge and back.
+describe.skipIf(!canProbe())("the reference rail sliding", () => {
+	it("keeps the roster's start on the tab's edge while the rail moves", () => {
+		const m = probe.measure({
+			bodyHtml: folkTab(1180, { moving: true, railMargin: -150 }), bodyClass: "theme-light",
+			rootAttrs: 'style="font-size: 16px"',
+			targets: { layout: ".steading-folk-layout", roster: ".steading-folk-roster" },
+			chromeFlags: ["--window-size=1300,1400"],
+		});
+		expect(m.get("roster").values.boxLeft).toBeCloseTo(m.get("layout").values.boxLeft, 0);
 	});
 });

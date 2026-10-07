@@ -445,6 +445,25 @@ describe("setting the season and year", () => {
 		expect(line).toContain("1");
 	});
 
+	// The tab is called Season; its section's bar says WHICH season, rather than "Season" again.
+	// The harness leaves a nested {{localize}} as its key, so the season is asserted by key.
+	it("names the season and year on the head's bar, not the tab's name again", async () => {
+		const title = head(await render(await makeSheet({ season: "summer", year: 2 })))
+			.querySelector(":scope > .stonetop-bar .stonetop-bar-title").textContent;
+		expect(title).toContain("names.summer");
+		expect(title).toContain("2");
+		expect(title).not.toContain("seasons.sectionTitle");
+	});
+
+	// The bar's title is the season it is; what the door changes is the season, whichever it is.
+	it("hangs the GM's door from the head's bar, named for what it changes", async () => {
+		asGM(true);
+		const root = await render(await makeSheet({ season: "summer" }));
+		expect(head(root).querySelector(':scope > .stonetop-bar [data-action="toggleSection"]')).toBe(door(root));
+		expect(door(root).getAttribute("aria-label")).toContain("seasons.sectionTitle");
+		expect(door(root).getAttribute("aria-label")).not.toContain("names.summer");
+	});
+
 	it("gives a player no door and no way to set either", async () => {
 		asGM(false);
 		const root = await render(await makeSheet());
@@ -589,7 +608,7 @@ describe("the season tab's one box", () => {
 		const advance = root.querySelector('[data-action="turnSeason"]');
 		// The harness leaves a nested {{localize}} as its key, so the season is asserted by key.
 		expect(advance.textContent).toContain("names.winter");
-		expect(root.querySelector(".steading-season-stated").textContent).toContain("names.autumn");
+		expect(root.querySelector(".steading-season-head .stonetop-bar-title").textContent).toContain("names.autumn");
 	});
 
 	// What the season owes now sits under the steps that describe that same season — which is what

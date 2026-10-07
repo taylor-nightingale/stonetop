@@ -56,9 +56,8 @@ const sections = root => [...panel(root).querySelectorAll(".steading-content-sec
 const sectionFor = (root, slug) =>
 	sections(root).find(s => s.querySelector(`[data-slug="${slug}"]`));
 const entries  = section => [...section.querySelectorAll(".stonetop-content-item")];
-// The heading's own words, without the gloss that shares its line.
-const headingOf = section =>
-	[...section.querySelector("h3").childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join("").trim();
+// The bar's own words, without the gloss that shares it.
+const headingOf = section => section.querySelector(".stonetop-bar-title").textContent.trim();
 const addIn    = section => section.querySelector(".stonetop-content-item-add");
 
 beforeEach(() => { document.body.innerHTML = ""; });
@@ -78,9 +77,9 @@ describe("the Content tab (integration)", () => {
 	// rule that only exists on hover is invisible to assistive tech and unreachable by touch.
 	it("states the gloss the book prints under a heading that has one", async () => {
 		const root = await render(makeSheet().sheet, true);
-		expect(sectionFor(root, "excluded").querySelector(".stonetop-section-note").textContent.trim())
+		expect(sectionFor(root, "excluded").querySelector(".stonetop-bar-note").textContent.trim())
 			.toBe("stonetop.steading.content.sections.excluded.note");
-		expect(sectionFor(root, "specialHandling").querySelector(".stonetop-section-note")).toBeNull();
+		expect(sectionFor(root, "specialHandling").querySelector(".stonetop-bar-note")).toBeNull();
 	});
 
 	// Quoted whole, beside the lists rather than above them: it is what the table reaches for

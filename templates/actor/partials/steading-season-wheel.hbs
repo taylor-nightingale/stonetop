@@ -1,4 +1,6 @@
-{{!-- Where Stonetop's year stands — a section (D11) resting on the season and year it is.
+{{!-- Where Stonetop's year stands — a section (D11) resting on the season and year it is. Its bar
+      names them — "Spring, year 1" — rather than saying "Season" under a tab that already does; it is
+      the same fact the ledger line carries, so the tab and the line can never disagree.
 
       The four seasons are STATED, not merely tinted — the current one is marked with text and with
       aria-current as well as with the band's color, because color is never the only carrier of
@@ -14,8 +16,11 @@
 
       Params: seasons (SeasonsSnapshot), isGM. --}}
 <section class="stonetop-panel stonetop-section steading-season-head" data-disclosure-row data-section="season">
-	{{> "stonetop.bar" title=(localize "stonetop.steading.seasons.sectionTitle") index=0
+	{{> "stonetop.bar" index=0
+	    title=(localize "stonetop.steading.seasons.stated"
+	                    season=(localize seasons.turnover.season.labelKey) year=seasons.turnover.year)
 	    action=(ifThen isGM "stonetop.section-door" "")
+	    doorName=(localize "stonetop.steading.seasons.sectionTitle")
 	    controls=(sectionId @root.sheetIdPrefix "season") door="change"}}
 
 	<div class="stonetop-section-rest" data-disclosure-shut>
@@ -27,13 +32,6 @@
 				</li>
 			{{/each}}
 		</ol>
-
-		{{!-- The season in words, with the year — the same fact the ledger line carries, so the tab
-		      and the line can never disagree. --}}
-		<p class="steading-season-stated">
-			{{localize "stonetop.steading.seasons.stated"
-			           season=(localize seasons.turnover.season.labelKey) year=seasons.turnover.year}}
-		</p>
 
 		{{!-- What the place is like right now, in the book's own words — one line from this
 		      steading's own Impressions, stamped when the wheel last turned. Absent for a steadfast
