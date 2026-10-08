@@ -338,8 +338,8 @@ describe("the folded line (integration)", () => {
 
 describe("the band's foot (integration)", () => {
 	// happy-dom lays nothing out, so the widths the sheet measures are given: six tiles' worth of
-	// stats in a band too narrow to seat the mode beside them.
-	const WIDTHS = { "stonetop-band": 600, "stonetop-stats-column": 460, "stonetop-rollmode": 240, "stonetop-top-toggle": 90 };
+	// stats in a band too narrow to seat the fold control beside them.
+	const WIDTHS = { "stonetop-band": 600, "stonetop-stats-column": 460, "stonetop-top-toggle": 240 };
 	let original;
 	beforeEach(() => {
 		original = Element.prototype.getBoundingClientRect;

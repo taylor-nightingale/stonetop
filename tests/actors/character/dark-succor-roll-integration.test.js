@@ -8,7 +8,6 @@ import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder
 import { FakeRepositoryFactory } from "../../fakes/FakeRepositoryFactory.js";
 import { FakeRoll } from "../../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../../fakes/foundry/FakeChatMessage.js";
-import { FakeDialog } from "../../fakes/foundry/FakeDialog.js";
 
 // End-to-end for a move that rolls a track rather than a stat: the SHIPPED Dark Succor and Favor
 // pack items on a real StonetopCharacter carrying the Thrall insert. The insert names the `favor`
@@ -25,10 +24,8 @@ beforeEach(async () => {
 	thrallInsert ??= await _read("inserts/thrall.json");
 	FakeRoll.reset();
 	FakeChatMessage.reset();
-	FakeDialog.reset();
 	vi.stubGlobal("Roll", FakeRoll);
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
-	vi.stubGlobal("Dialog", FakeDialog);
 	vi.stubGlobal("game", { i18n: { localize: k => k } });
 	foundry.applications.handlebars.renderTemplate = async (_p, d) =>
 		`${d.name ?? ""} | ${d.dice?.mod ?? ""}`;

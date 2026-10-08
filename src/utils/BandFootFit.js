@@ -1,5 +1,5 @@
 /**
- * How the character band's foot — the roll mode and the fold control — keeps to its column beside
+ * How the character band's foot — the fold control — keeps to its column beside
  * the stats. It never goes under them. Short of room, the fold control drops its word and keeps its
  * caret (`is-foot-compact`); short of room even for that, the line wraps inside its own column
  * (`is-foot-wrapped`, which is compact too).

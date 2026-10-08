@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CharacterStats } from "../../../src/actors/character/CharacterStats.js";
+import { RollableStat } from "../../../src/actors/RollableStat.js";
 import { Stats, STAT_KEYS } from "../../../src/model/data/character/Stats.js";
 import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
 import { FakeCharacterActorBuilder, FakeStatBuilder } from "../../fakes/FakeCharacterActorBuilder.js";
@@ -36,7 +37,7 @@ describe("CharacterStats.getRollableStats", () => {
 	// The harness's localize() returns the key by design, so this pins the KEY the stat is named from
 	// — which is the half that can silently rot. "names every stat from a key…" below proves it
 	// resolves. The name used to be the English word, written into the defs table, so a German sheet
-	// offered "Wisdom" in the stat-pick dialog while its own tiles read "WE".
+	// offered "Wisdom" in the roll dialog while its own tiles read "WE".
 	it("each entry has key, name, and value", () => {
 		const actor = new FakeCharacterActorBuilder().withStats(new FakeStatBuilder().withWis(2)).build();
 		const stats = new CharacterStats(actor).getRollableStats();
@@ -44,6 +45,13 @@ describe("CharacterStats.getRollableStats", () => {
 		expect(wis).toBeDefined();
 		expect(wis.name).toBe("stonetop.character.stats.wisdom");
 		expect(wis.value).toBe(2);
+	});
+
+	// The roll dialog draws each as a tile, which has room for the abbreviation and not the name.
+	it("carries each stat's abbreviation, from the key the sheet's tiles use", () => {
+		const wis = new CharacterStats(new FakeCharacterActorBuilder().build()).getRollableStats().find(s => s.key === "wis");
+		expect(wis).toBeInstanceOf(RollableStat);
+		expect(wis.abbr).toBe("stonetop.character.stats.abbr.wis");
 	});
 
 	it("covers all six stat keys", () => {

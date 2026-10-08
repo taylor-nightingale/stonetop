@@ -85,9 +85,7 @@ figure.art:has(> img.stonetop-broken-img) {
 .stonetop.sheet .stonetop-follower-name-input,
 .stonetop.sheet.steading .steading-steadfast-input,
 .stonetop-roll-dialog .window-title,
-.stonetop-advice-dialog .window-title,
-.stonetop-roll-dialog .stonetop-roll-mode-header,
-.stonetop-roll-dialog .dialog-button {
+.stonetop-advice-dialog .window-title {
 	font-family: "StonetopUI", serif;
 	font-weight: bolder;
 	letter-spacing: 0.4px;
@@ -752,9 +750,7 @@ body,
 .stonetop.sheet.character .stonetop-appearance > p { display: inline; margin: 0; }
 
 /* ── The band's foot ──
-   The line the band folds TO, the roll mode, and the control that folds it, in flow and in that
-   order. The mode is ONE control for the sheet and ends this line at both densities, so it never
-   moves between them.
+   The line the band folds TO and the control that folds it, in flow and in that order.
 
    `flex-end`, so the controls sit on the ledger's last line rather than floating above it. Half a
    rem apart: this line's width is what the column beside the stats has to hold. The numbers are the
@@ -775,35 +771,17 @@ body,
 	margin-right: auto;
 }
 
-.stonetop.sheet.character .stonetop-band-foot > .stonetop-rollmode,
 .stonetop.sheet.character .stonetop-band-foot > .stonetop-top-toggle { flex: 0 0 auto; }
-
-.stonetop.sheet.character .stonetop-band-foot .stonetop-rollmode { gap: 0.5rem; }
-
-/* Advantage/Disadvantage's `?`: the icon button at the size of the words beside it, and held close
-   to "Disadv" — it belongs to the row, not beside it as a fourth option. */
-.stonetop.sheet.character .stonetop-band-foot .stonetop-rollmode-rule {
-	font-size: var(--fs-note);
-	align-self: center;
-	margin-left: -0.2rem;
-}
 
 /* Short of room, the foot keeps to its column beside the stats and never goes under them
    (BandFootFit). Compact, the fold control drops its word — its aria-label and title still say it —
    and keeps the caret. Wrapped, where even that does not fit (a longer language), the line breaks
-   inside the column: the mode's options, then the caret, each run held to the right edge. Only while
+   inside the column, the caret held to the right edge. Only while
    open: folded, the foot is the band's whole line and has the room. */
 .stonetop.sheet.character .stonetop-band.is-foot-compact .stonetop-top-toggle-label { display: none; }
 
 .stonetop.sheet.character .sheet-wrapper:not(.top-collapsed) .stonetop-band.is-foot-wrapped > .stonetop-band-foot {
 	flex-wrap: wrap;
-	row-gap: 0.25rem;
-}
-
-.stonetop.sheet.character .sheet-wrapper:not(.top-collapsed) .stonetop-band.is-foot-wrapped > .stonetop-band-foot > .stonetop-rollmode {
-	flex: 0 1 auto;
-	flex-wrap: wrap;
-	justify-content: flex-end;
 	row-gap: 0.25rem;
 }
 
@@ -1163,8 +1141,7 @@ body,
    legs) so no square of paper shows outside them. Gradients rather than `clip-path`, which would
    also trim what lies past the box — a roll button's focus ring, for one. A gradient's stop runs
    along the diagonal, hence the leg over √2; the tiles overlap a px so odd sizes leave no seam. */
-:is(.stonetop-section-panel, .stonetop-outfit-header, .stonetop-prosperity-panel,
-	.stonetop-roll-pick-content, .stonetop-roll-dialog .dialog-button, .stonetop-follower-card) {
+:is(.stonetop-section-panel, .stonetop-outfit-header, .stonetop-prosperity-panel, .stonetop-follower-card) {
 	--cut: 6px;
 	--notch: calc(var(--cut) * 0.7071);
 	background:
@@ -3451,7 +3428,7 @@ button.stonetop-view-toggle.is-active {
 
 /* ── The roll reminder: the row's third line ──
    WHY this move might not roll a flat 2d6 — advantage a built improvement permits, or a debility
-   hindering it. Information and not a control: the roll-mode control stays the table's, so this is a
+   hindering it. Information and not a control: the mode is chosen in the roll dialog, so this is a
    span, and it is set in the GLOSS's register rather than in the badge register.
 
    That last part is not cosmetic. Small caps, letter-spacing and an outlined pill are what
@@ -5241,34 +5218,6 @@ button.stonetop-xp-toggle {
 	padding: 0 12px;
 }
 
-.stonetop-roll-mode-header {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-}
-
-.stonetop-roll-mode-header .stonetop-outfit-heading {
-	font-family: "StonetopUI", serif;
-	font-weight: bolder;
-	font-size: var(--fs-heading);
-	letter-spacing: 0.4px;
-	margin: 0;
-	flex-shrink: 0;
-}
-
-.stonetop-roll-mode-header .stonetop-outfit-loads {
-	flex-direction: row;
-	gap: 10px;
-}
-
-/* ── Roll-pick dialog ─────────────────────────────────────────────────────── */
-
-.stonetop-roll-dialog .window-content {
-	padding: 8px;
-	background: var(--st-paper);
-	font-family: var(--font-primary);
-}
-
 /* ── "If you want to…" advice dialog ─────────────────────────────────────────── */
 
 .stonetop-advice-dialog .window-content {
@@ -5315,139 +5264,221 @@ button.stonetop-xp-toggle {
 	margin-bottom: 0;
 }
 
-.stonetop-roll-pick-content {
-	position: relative;
-	padding: 10px 12px;
-	margin-bottom: 8px;
-	font-size: var(--fs-label);
+/* ── The roll dialog ─────────────────────────────────────────────────────────────
+   RollModeDialog: every 2d6 roll asks Advantage, Normal or Disadvantage. A DialogV2 wearing the
+   sheets' classes, so it takes their tokens and follows the theme as they do. Laid out as dnd5e lays
+   out its roll dialog: what is rolled and by whom, the dice, the formula they make, then the modes. */
+
+/* Sized to what it holds (DialogV2's "auto"), but never narrower than the three modes want. */
+.application.stonetop.stonetop-roll-dialog {
+	min-width: 22rem;
 }
 
-.stonetop-roll-pick-content::before {
-	content: "";
+/* The heading in the body names the roll; the frame keeps only its dice icon. The title stays in the
+   page as the window's accessible name. */
+.stonetop-roll-dialog .window-title {
 	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background-color: var(--st-decor);
-	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat;
-	-webkit-mask-repeat: no-repeat;
-	mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	-webkit-mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
-	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
-.stonetop-roll-pick-content > * {
-	position: relative;
-	z-index: 1;
+/* The title gave up its room in the header with its box, and that room is what pushes the controls to
+   the frame's far edge. The icon takes it instead, so the close button stays where every window has it. */
+.stonetop-roll-dialog .window-icon {
+	margin-inline-end: auto;
 }
 
-.stonetop-roll-pick-content .stonetop-roll-mode-header {
-	flex-wrap: wrap;
+/* The band's ground, the sheets' raised paper, rather than the tab's texture. */
+.application.stonetop.stonetop-roll-dialog .window-content {
+	padding: 0.75rem 1rem 1rem;
+	background: var(--region-head);
 }
 
-.stonetop-roll-pick-content .stonetop-outfit-loads {
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 8px;
+.stonetop-roll-dialog .dialog-form {
+	gap: 0.9rem;
 }
 
+.stonetop-roll-prompt {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.stonetop-roll-prompt-head {
+	text-align: center;
+}
+
+.stonetop.sheet .stonetop-roll-prompt-title {
+	margin: 0;
+	border: none;
+	font-size: var(--fs-display);
+	line-height: 1.15;
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt-roller {
+	margin: 0.15rem 0 0;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-subheading);
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt-note {
+	font-family: var(--font-serif);
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+/* The sheet's own die, the one on every roll control, two of them. */
+.stonetop-roll-prompt-dice {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	justify-items: center;
+	gap: 0.15rem 0.35rem;
+}
+
+.stonetop-roll-prompt-die {
+	font-size: 2.4rem;
+	line-height: 1;
+	color: var(--st-ink-soft);
+}
+
+.stonetop-roll-prompt-dice-label {
+	grid-column: 1 / -1;
+	padding: 0 0.4rem;
+	border-radius: 2px;
+	background: var(--st-chip-fill);
+	color: var(--st-chip-ink);
+	font-size: var(--fs-micro);
+	line-height: 1.5;
+}
+
+/* Under the dice, the stat beside the number it adds: "2d6 + 0 Pop". At the far edge it read as a
+   stray word. */
+.stonetop-roll-prompt-formula-line {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	gap: 0.4rem;
+}
+
+.stonetop-roll-prompt-formula {
+	font-size: var(--fs-label);
+	font-weight: bold;
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt-stat {
+	font-style: italic;
+	font-size: var(--fs-note);
+	color: var(--st-ink-soft);
+}
+
+/* The rule that explains the modes, the last thing above them. On the formula line it read as a note
+   on the stat. Drawn as the sheet's other inline move links are (.stonetop-move-link). */
+.stonetop-roll-prompt-rule-line {
+	text-align: center;
+}
+
+.stonetop-roll-prompt-rule {
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+.stonetop-roll-prompt-rule > .fas {
+	margin-inline-end: 0.3em;
+}
+
+.stonetop-roll-stat-choice {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.stonetop-roll-stat-choice-label {
+	flex: none;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-body);
+	color: var(--st-ink);
+}
+
+.stonetop-roll-stat-choice-label:empty {
+	display: none;
+}
+
+/* A field you pick from, so it is drawn as one. The sheets' inputs are write-in lines on the paper,
+   and a select drawn that way read as a line of text. */
+.stonetop-roll-stat-choice select {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding: 0 0.5rem;
+	border: 1px solid var(--st-rule-strong);
+	border-radius: 3px;
+	background-color: color-mix(in srgb, var(--st-ink) 8%, var(--region-head));
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt .stonetop-move-rollnotes {
+	margin: 0;
+}
+
+.stonetop-roll-prompt .stonetop-move-rollnote {
+	font-size: var(--fs-fine);
+}
+
+/* The modes: three buttons, alike — the sheet's own button, the leather of a bar's tab, in its small
+   label voice. Normal is the default by focus alone; a Normal drawn apart read as already chosen, and
+   the three as a selector rather than as three ways to roll. */
 .stonetop-roll-dialog .form-footer {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 4px;
+	gap: 0.5rem;
+	margin: 0;
 	padding: 0;
 	border: none;
 }
 
-.stonetop-roll-dialog .dialog-button {
-	flex: 1 1 auto;
-	position: relative;
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn {
+	flex: 1 1 0;
+	min-width: 0;
+	height: auto;
+	min-height: 2.25rem;
+	padding: 0.5rem 0.6rem;
 	border: none;
-	min-width: 70px;
-	height: 60px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2px;
-	font-size: 11px;
-	font-weight: bold;
-	cursor: pointer;
+	border-radius: 3px;
+	background: color-mix(in srgb, var(--st-accent) 55%, var(--st-chip-fill));
+	color: var(--st-chip-ink);
+	box-shadow: 0 2px 3px var(--st-shadow);
+	font-size: var(--fs-fine);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 	line-height: 1.2;
+	text-shadow: none;
 }
 
-.stonetop-roll-dialog .dialog-button::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background-color: var(--st-decor);
-	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat;
-	-webkit-mask-repeat: no-repeat;
-	mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	-webkit-mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
-	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:not(:disabled):is(:hover, :focus-visible) {
+	background: color-mix(in srgb, var(--st-accent) 80%, var(--st-chip-fill));
+	color: var(--st-chip-ink);
 }
 
-.stonetop-roll-dialog .dialog-button > * {
-	position: relative;
-	z-index: 1;
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:focus-visible {
+	outline: 2px solid var(--st-accent);
+	outline-offset: 2px;
 }
 
-.stonetop-roll-pick-mod {
-	display: block;
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 1;
+/* Core outlines a button on any focus, so Normal — focused when the dialog opens — stood apart from
+   the other two after a click. The ring is the keyboard's; a pointer gets none. */
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:disabled {
+	opacity: 0.45;
+	box-shadow: none;
+	cursor: default;
 }
 
 /* -- Supplies pool -------------------------------------------- */
@@ -6891,7 +6922,7 @@ button.stonetop-xp-toggle {
      · no boxes; the grid does the separating
 
    Everything below is that rule applied. Where an element used to have its own treatment — the
-   native select's arrow, the roll mode's bordered segments, the debility circles — it is brought
+   native select's arrow, the debility circles — it is brought
    onto the rule/accent language instead. */
 
 /* The line: the persistent region, present on every tab.
@@ -6983,12 +7014,6 @@ button.stonetop-xp-toggle {
 	gap: 2px 12px;
 	padding-bottom: 0.3rem;
 	border-bottom: 1px solid var(--st-rule-veil);
-}
-
-/* One step above the values rather than four. The old display size dwarfed everything under it,
-   which is most of why the header read as a headline with debris beneath. */
-.stonetop.sheet.steading .steading-identity .stonetop-rollmode {
-	margin-left: auto;
 }
 
 /* ── Band 2: the ratings ────────────────────────────────────────────────────────
@@ -7183,47 +7208,21 @@ button.stonetop-xp-toggle {
    A mode, not a value — so it gets neither a rule nor a box. Three small-caps words; the active
    one carries the same accent that marks an active debility. Real radios underneath. */
 
-/* ── Roll mode: one control, two arrangements ───────────────────────────────────
-   The character's masthead, the steading's ledger line and the stat-pick dialog set the same three
-   modes. `--inline` is the header form — words on a line, the live one in the accent, no rule and
-   no box, because a mode is not a value. `--stacked` is the dialog's column.
-
-   De-scoped from `.stonetop.sheet.steading`, where this lived when it was the steading's own
-   control. */
+/* ── One-of-N radios in a column ────────────────────────────────────────────────
+   roll-mode-picker.hbs: the improvement editors' choices (a section's rule, when a result fires, what
+   it does). A labelled column with a dot-in-ring mark, because there the choice IS the box. */
 
 .stonetop-rollmode {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
 	border: 0;
 	padding: 0;
 	margin: 0;
 	min-width: 0;
 }
 
-.stonetop-rollmode--inline {
-	display: inline-flex;
-	align-items: baseline;
-	gap: 0.75rem;
-}
-
-/* A column, and the one place the circle mark is drawn: in the dialog the choice IS the box, so the
-   options want to read as a list of things to pick rather than as a line of words. */
-.stonetop-rollmode--stacked {
-	display: flex;
-	flex-direction: column;
-	gap: 0.1rem;
-}
-
-/* Named for assistive tech, not drawn — inline, the three options say what they are. Three radios
-   that mean one setting are a group, and a group with no accessible name is three loose words. */
-.stonetop-rollmode--inline .stonetop-rollmode-legend {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	clip-path: inset(50%);
-	white-space: nowrap;
-}
-
-.stonetop-rollmode--stacked .stonetop-rollmode-legend,
+.stonetop-rollmode-legend,
 .stonetop-improvement-group-label {
 	font-family: "StonetopUI", serif;
 	font-size: var(--fs-note);
@@ -7256,13 +7255,7 @@ button.stonetop-xp-toggle {
 	pointer-events: none;
 }
 
-/* The mark is the stacked variant's alone. Inline, the accent on the live word IS the mark, and a
-   circle beside each of three words on one line is three times the furniture for the same fact. */
-.stonetop-rollmode--inline .stonetop-rollmode-mark {
-	display: none;
-}
-
-.stonetop-rollmode--stacked .stonetop-rollmode-mark {
+.stonetop-rollmode-mark {
 	width: 0.6rem;
 	height: 0.6rem;
 	flex: 0 0 auto;
@@ -7270,43 +7263,15 @@ button.stonetop-xp-toggle {
 	border-radius: 50%;
 }
 
-.stonetop-rollmode--stacked .stonetop-rollmode-input:checked + .stonetop-rollmode-mark {
+.stonetop-rollmode-input:checked + .stonetop-rollmode-mark {
 	background: var(--st-accent);
 	border-color: var(--st-accent);
-}
-
-/* The label voice, on BOTH sheets. This was declared only under `.stonetop.sheet.steading`, so one
-   partial that claims to be "one control, three surfaces" rendered the steading's ledger in the
-   house small-caps face and the character's masthead in the body serif at body size — three loose
-   words trailing the name input rather than a control. StonetopUI IS the small-caps face, so no
-   `text-transform` and no synthesised bold go near it; see the steading's tile titles.
-
-   Inline only. The dialog's stacked variant is a list of things to pick under its own legend, and
-   reads as a form rather than as a line of labels. */
-.stonetop-rollmode--inline .stonetop-rollmode-label {
-	font-family: "StonetopUI", serif;
-	font-size: var(--fs-fine);
-	font-weight: normal;
-	letter-spacing: 0.04em;
-	color: var(--st-ink-soft);
-	white-space: nowrap;
-}
-
-.stonetop-rollmode--inline .stonetop-rollmode-option.is-checked .stonetop-rollmode-label {
-	color: var(--st-accent);
-	border-bottom: 1px solid var(--st-accent);
 }
 
 .stonetop-rollmode-input:focus-visible ~ .stonetop-rollmode-label {
 	outline: 2px solid var(--st-accent);
 	outline-offset: 2px;
 }
-
-/* The character's masthead carries no roll mode. It did, at the far end beside the name, and it was
-   three words with nothing to align to — no rule under them, nothing beside them, and the portrait
-   starting somewhere below. It ends the band's FOOT now, which is the same shape the steading gives
-   it: one picker, one arrangement, at the end of a line on both sheets. Left as a note because "put
-   it back on the masthead" is the obvious idea and it has already been tried. */
 
 /* ── Band 3: conditions ─────────────────────────────────────────────────────────
    The same label/value grammar as the ratings: a small-caps name in the label column, the thing it
@@ -7531,11 +7496,6 @@ button.stonetop-xp-toggle {
 	row-gap: 0.15rem;
 }
 
-/* Last on its row: the mode is the final thing you set before rolling. */
-.stonetop.sheet.steading .steading-line .stonetop-rollmode {
-	margin-left: auto;
-}
-
 /* The conditions are in the book's order and STAY in it. Sorting the marked one to the front meant
    that ticking a circle moved the thing you had just clicked out from under the pointer and shuffled
    the other two past it — for a row of three items whose whole point is that they are always in the
@@ -7559,8 +7519,7 @@ button.stonetop-xp-toggle {
    a min-width spills straight out of its box and lands on top of its neighbour. The row clips from
    the right instead, which is the whole point of a line that cannot wrap. */
 .stonetop.sheet.steading .steading-line > *,
-.stonetop.sheet.steading .steading-line .stonetop-combo,
-.stonetop.sheet.steading .steading-line .stonetop-rollmode {
+.stonetop.sheet.steading .steading-line .stonetop-combo {
 	flex: 0 0 auto;
 }
 
@@ -7736,12 +7695,6 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-faint);
 }
 
-/* Last, and never the thing that runs out of room — the conditions beside it absorb the shrink. */
-.stonetop.sheet.steading .steading-line .stonetop-rollmode {
-	margin-left: auto;
-	padding-left: 0.4rem;
-}
-
 /* ── Narrow sheets ───────────────────────────────────────────────────────────────
    A sheet window resizes independently of the browser, so this keys off the line's own width. The
    line wraps by nature — the failure to avoid is not wrapping but losing the values, so what sheds
@@ -7792,7 +7745,6 @@ button.stonetop-xp-toggle {
 }
 
 @container steading-line (max-width: 30rem) {
-	.stonetop.sheet.steading .steading-line .stonetop-rollmode,
 	.stonetop.sheet.steading .steading-line .steading-season-line {
 		margin-left: 0;
 	}
@@ -9999,7 +9951,7 @@ button.stonetop-xp-toggle {
 }
 
 /* The season on the ledger line — display only, so it is type and not a control. It ends the values
-   row, pushed to the far end so it sits above the roll mode rather than beside it. */
+   row, pushed to the far end. */
 .stonetop.sheet.steading .steading-season-line {
 	display: flex;
 	align-items: center;
@@ -11684,7 +11636,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 }
 /* A short sub-choice — a rating, a list, the roll — is the same rings in a row, wrapping between
    whole options and never inside one. */
-.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode--stacked { flex-direction: row; flex-wrap: wrap; column-gap: 0.7rem; }
+.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode { flex-direction: row; flex-wrap: wrap; column-gap: 0.7rem; }
 .stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode-legend { flex-basis: 100%; }
 .stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode-option { white-space: nowrap; }
 .stonetop.sheet.improvement .stonetop-improvement-sentence input[type="number"] { width: 3rem; }
@@ -12998,7 +12950,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop.sheet.character button.stonetop-origin-name:hover,
 .stonetop-insert-sheet-move .insert-move-open:hover,
 .playbook-ref-row .playbook-ref-open:hover,
-.stonetop-roll-dialog .dialog-button:hover,
 .stonetop.sheet.steading .steading-stat-roll:hover,
 .stonetop.sheet.steading .steading-folk-entry:hover,
 .stonetop.sheet.steading .steading-folk-entry:focus-visible,

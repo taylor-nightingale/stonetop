@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { SteadingMoves } from "../../../src/actors/steading/SteadingMoves.js";
+import { RollRule } from "../../../src/actors/RollPrompt.js";
 import { ResourceController } from "../../../src/actors/character/ResourceController.js";
 import { RichText } from "../../../src/model/snapshot/RichText.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
@@ -298,6 +299,27 @@ describe("SteadingMoves and a move the steading does not own", () => {
 		const { moves, actor } = makeMoves(repoWith(homefront("Trade")));
 		expect(await moves.roll("nope")).toBe(false);
 		expect(actor.rolledItems).toHaveLength(0);
+	});
+
+	// A shift-click rolls Normal without asking; the mode rides through to the roll.
+	it("passes the mode it was given through to the roll", async () => {
+		const { moves, actor } = makeMoves(repoWith(conferred()));
+		await moves.roll("lead-the-aurochs-hunt", "normal");
+		expect(actor.rolledItems[0].rollMode).toBe("normal");
+	});
+});
+
+// The move the roll dialog links to explain the modes — resolved the way a row's move is.
+describe("SteadingMoves.rollRule", () => {
+	it("names the move from the pack", async () => {
+		const { moves } = makeMoves(repoWith(move("Advantage/Disadvantage", "special")));
+		expect(await moves.rollRule("advantage-disadvantage"))
+			.toEqual(new RollRule("advantage-disadvantage", "Advantage/Disadvantage"));
+	});
+
+	it("is null for a move nowhere to be found", async () => {
+		const { moves } = makeMoves(repoWith(homefront("Trade")));
+		expect(await moves.rollRule("advantage-disadvantage")).toBeNull();
 	});
 });
 

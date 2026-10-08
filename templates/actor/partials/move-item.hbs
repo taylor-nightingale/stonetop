@@ -117,22 +117,13 @@
 	      the reason for the badge that replaced them, and a badge that reads as "already applied" is a
 	      worse problem than a tall row.
 
-	      A span and never a button: the roll-mode control is the table's, and nothing here touches it.
+	      A span and never a button: the mode is chosen in the roll dialog, and nothing here touches it.
 	      Nothing is behind a hover either — `data-tooltip` binds pointer events only and is invisible to
 	      assistive tech.
 
 	      Deliberately NOT `stonetop-unmarked`: this is a list of prose, so it takes the book's swirl like
 	      every other one. The shared rule owns the indent the swirl is positioned into — see the CSS. --}}
-	{{#if rollNotes.all.length}}
-	<ul class="stonetop-move-rollnotes">
-		{{#each rollNotes.all}}
-		<li class="stonetop-move-rollnote">
-			<span class="stonetop-move-rollnote-verdict">{{localize verdictKey source=source mode=(localize modeKey)}}</span>
-			{{#if clause}}<span class="stonetop-move-rollnote-clause">{{rich clause}}</span>{{/if}}
-		</li>
-		{{/each}}
-	</ul>
-	{{/if}}
+	{{#if rollNotes.all.length}}{{> "stonetop.roll-notes" rollNotes}}{{/if}}
 </div>
 {{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}
 

@@ -1972,7 +1972,7 @@ describe("a move an improvement confers", () => {
 		expect(die.dataset.moveSlug).toBe("lead-the-aurochs-hunt");
 		await sheet.actor.typedActor.rollMoveBySlug(die.dataset.moveSlug);
 		expect(sheet.actor.rollItem).toHaveBeenCalledWith(
-			expect.objectContaining({ name: "Lead the Aurochs Hunt" }));
+			expect.objectContaining({ name: "Lead the Aurochs Hunt" }), null, null);
 	});
 
 	// The advisory line the row replaced said the same thing in fewer words. One rendering, not two.

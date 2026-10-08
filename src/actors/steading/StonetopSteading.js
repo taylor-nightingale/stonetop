@@ -22,7 +22,7 @@ import {FormulaRollCard} from "../../model/snapshot/FormulaRollCard.js";
 import {SeasonSnapshot} from "../../model/snapshot/steading/TurnoverSnapshot.js";
 import {SteadingRolls} from "./SteadingRolls.js";
 import {SteadingRollNotes} from "./SteadingRollNotes.js";
-import {RollModes} from "../RollModes.js";
+import {RollRule} from "../RollPrompt.js";
 import {SteadingDropRouter} from "./SteadingDropRouter.js";
 import {ChoiceStores} from "../character/ChoiceStores.js";
 import {applyPick} from "../character/ChoiceGroupController.js";
@@ -107,8 +107,6 @@ export class StonetopSteading {
 	get prosperity()                                { return this.#rolls.prosperity; }
 	get isLacking()                                 { return this.#rolls.isLacking; }
 
-	get rollMode() { return this.#actor.getFlag("stonetop", "rollMode") ?? "normal"; }
-
 	// What a move roll came up, offered to the season: its own Seasons Change is the one move whose
 	// result the sheet keeps, so the result row the dice landed on is the one lit under the step.
 	// Every other move's roll is handed over and dropped here (see SteadingSeason#recordRoll).
@@ -116,14 +114,13 @@ export class StonetopSteading {
 		await this.#season.recordRoll(moveSlug, outcome);
 	}
 
-	async setRollMode(mode) {
-		await this.#actor.setFlag("stonetop", "rollMode", mode);
+	async rollModeRule() {
+		return this.#moves.rollRule(RollRule.ADVANTAGE_SLUG);
 	}
 
-	/** See StonetopCharacter#clearRollMode — the steading's picker is the same control and was the
-	 *  same trap. */
-	async clearRollMode() {
-		if (this.rollMode !== "normal") await this.setRollMode("normal");
+	/** The reminders the move's row carries, for the roll dialog. Null where nothing speaks for it. */
+	async rollNotesFor(moveSlug) {
+		return (await this.#rollNotes.bySlug()).get(moveSlug) ?? null;
 	}
 
 	// ── Ratings ────────────────────────────────────────────────────────────────
@@ -410,7 +407,7 @@ export class StonetopSteading {
 	// The die on a move row whose move the steading does not own — the aurochs hunt, the news at the
 	// inn. Improvements confer those; they are resolved from the pack, so the row names its move by
 	// slug and there is no owned id for the roll handler to find. See StonetopActor#_onRoll.
-	async rollMoveBySlug(moveSlug)                          { return this.#moves.roll(moveSlug); }
+	async rollMoveBySlug(moveSlug, rollMode = null)         { return this.#moves.roll(moveSlug, rollMode); }
 	async openMoveSheet(moveSlug)                            { await this.#moves.openSheet(moveSlug); }
 	async toggleMoveResourcePip(moveSlug, index, wasChecked) { await this.#moves.toggleResourcePip(moveSlug, index, wasChecked); }
 	async setMoveResourceText(moveSlug, value)              { await this.#moves.setMoveResourceText(moveSlug, value); }
@@ -513,8 +510,6 @@ export class StonetopSteading {
 			season:             new SeasonSnapshot(this.season, true),
 			year:               this.year,
 			fortunesReset:      this.fortunesResetValue,
-			rollMode:           this.rollMode,
-			rollModes:          RollModes.options(this.rollMode),
 		});
 	}
 }

@@ -6,20 +6,22 @@ import { FakeStonetopCharacter } from "../fakes/FakeStonetopCharacter.js";
 import { FakeRoll } from "../fakes/foundry/FakeRoll.js";
 import { FakeDiceTerm } from "../fakes/foundry/FakeDiceTerm.js";
 import { FakeChatMessage } from "../fakes/foundry/FakeChatMessage.js";
-import { FakeDialog } from "../fakes/foundry/FakeDialog.js";
-import { renderTemplate as renderRealTemplate } from "../fakes/renderTemplate.js";
+import { FakeRollModeDialog } from "../fakes/FakeRollModeDialog.js";
+import { RollChoice, RollRule } from "../../src/actors/RollPrompt.js";
+import { RollableStat } from "../../src/actors/RollableStat.js";
+import { RollModeNote, RollModeNotes } from "../../src/model/snapshot/steading/RollModeNote.js";
 import { FormulaRollCard } from "../../src/model/snapshot/FormulaRollCard.js";
 import { AppliedStepRoll } from "../../src/model/data/steading/AppliedStepRoll.js";
 
 // -- helpers -------------------------------------------------------------------
 
-function makeRolling({ die, bonuses = {} } = {}) {
+function makeRolling({ die, bonuses = {}, dialog = new FakeRollModeDialog() } = {}) {
 	const actor = new FakeCharacterActorBuilder().withDamage(die).build();
 	actor.typedActor = new FakeStonetopCharacter();
 	for (const [stat, bonus] of Object.entries(bonuses)) {
 		actor.typedActor.withBonus(stat, bonus);
 	}
-	return new ActorRolling(actor);
+	return new ActorRolling(actor, dialog);
 }
 
 // A one-die roll that totalled something other than its die — the shape every formula roll has once
@@ -37,10 +39,8 @@ function statRequest(stat, rollMode = "normal") {
 beforeEach(() => {
 	FakeRoll.reset();
 	FakeChatMessage.reset();
-	FakeDialog.reset();
 	vi.stubGlobal("Roll", FakeRoll);
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
-	vi.stubGlobal("Dialog", FakeDialog);
 	vi.stubGlobal("game", {i18n: {localize: k => k}});
 	// Card-aware renderTemplate stub: flatten the card's text + dice so content assertions hold
 	// without a real Handlebars render. The template itself is exercised by Foundry.
@@ -208,43 +208,117 @@ describe("ActorRolling.execute — stat roll", () => {
 	});
 });
 
-// -- execute — the mode is spent -----------------------------------------------
+// -- execute — asking for the mode ---------------------------------------------
 
-// Advantage is FORWARD: it modifies the next roll and is then gone. It was held as a flag nothing
-// ever cleared, so picking Advantage once bent every roll after it — silently, because the picker
-// went on showing the right word for a state nobody meant to still be in.
+// Every 2d6 roll asks Advantage, Normal or Disadvantage — unless the request already carries a mode,
+// which is what a shift-click sends: Normal, straight away.
 
-describe("ActorRolling.execute — spending the roll mode", () => {
-	it("gives the mode back after a stat roll", async () => {
+describe("ActorRolling.execute — asking for the mode", () => {
+	const ask = stat => RollRequest.fromStat(stat, null);
+
+	it("asks when the request names no mode, and rolls the mode picked", async () => {
+		const dialog = new FakeRollModeDialog().answer(new RollChoice(null, "adv"));
+		await makeRolling({bonuses: {wis: 1}, dialog}).execute(ask("wis"));
+		expect(dialog.prompts).toHaveLength(1);
+		expect(FakeRoll.lastInstance.formula).toBe("3d6kh2 + 1");
+	});
+
+	it("rolls without asking when the request carries a mode", async () => {
+		const dialog = new FakeRollModeDialog();
+		await makeRolling({bonuses: {wis: 1}, dialog}).execute(statRequest("wis", "normal"));
+		expect(dialog.prompts).toHaveLength(0);
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
+	});
+
+	it("rolls nothing when the dialog is dismissed", async () => {
 		const rolling = makeRolling({bonuses: {wis: 1}});
-		await rolling.execute(statRequest("wis", "adv"));
-		expect(rolling._actor.typedActor.cleared, "the roll did not spend the mode").toBe(1);
+		await rolling.execute(ask("wis"));
+		expect(FakeRoll.lastInstance).toBeNull();
+		expect(FakeChatMessage.lastCreated).toBeNull();
+		expect(rolling._actor.typedActor.outcomes).toEqual([]);
 	});
 
-	// The order is the whole of it: the roll has to be made AT advantage and only then give it back.
-	// Clearing before the formula is built is the same defect with the sign flipped — the mode you
-	// picked would apply to the roll after the one you picked it for.
-	it("rolls at the mode it was given before spending it", async () => {
-		const rolling = makeRolling({bonuses: {wis: 1}});
-		await rolling.execute(statRequest("wis", "adv"));
-		expect(FakeRoll.lastInstance.formula, "the roll did not use the mode it was given")
-			.toBe("3d6kh2 + 1");
-		expect(rolling._actor.typedActor.cleared).toBe(1);
+	it("is titled by what is rolled, and shows the stat with its value", async () => {
+		const dialog = new FakeRollModeDialog();
+		const rolling = makeRolling({bonuses: {wis: 1}, dialog});
+		rolling._actor.typedActor.getRollableStats = () => [new RollableStat("wis", "Wisdom", 1, "WIS")];
+		await rolling.execute(ask("wis"));
+		expect(dialog.lastPrompt.title).toBe("WIS");
+		expect(dialog.lastPrompt.stat).toEqual(new RollableStat("wis", "Wisdom", 1, "WIS"));
+		expect(dialog.lastPrompt.choosesStat).toBe(false);
 	});
 
-	// A damage die is not rolled +STAT and takes no advantage, so there is nothing to spend — and
-	// spending one here would clear a mode the player set for the move they are about to roll.
-	it("leaves the mode alone on a damage roll", async () => {
-		const rolling = makeRolling({die: "d6"});
-		await rolling.execute(statRequest("damage"));
-		expect(rolling._actor.typedActor.cleared, "a damage roll spent the move's mode").toBe(0);
+	// A rating that is not one of the actor's own — a character rolling the steading's Fortunes for
+	// Requisition — is still shown, by the name the chat card gives it.
+	it("shows a rating the actor borrows by its key", async () => {
+		const dialog = new FakeRollModeDialog();
+		await makeRolling({bonuses: {fortunes: 2}, dialog}).execute(ask("fortunes"));
+		expect(dialog.lastPrompt.stat).toEqual(new RollableStat("fortunes", "FORTUNES", 2));
 	});
 
-	// Likewise a move with no roll in it: posting its text is not rolling.
-	it("leaves the mode alone when the move only posts its description", async () => {
-		const rolling = makeRolling();
-		await rolling.execute(statRequest("loyalty"));
-		expect(rolling._actor.typedActor.cleared, "posting a description spent the mode").toBe(0);
+	it("shows no stat for a bare 2d6", async () => {
+		const dialog = new FakeRollModeDialog();
+		await makeRolling({dialog}).execute(ask("prompt"));
+		expect(dialog.lastPrompt.stat).toBeNull();
+	});
+
+	it("hands the dialog the move's reminders and the rule", async () => {
+		const dialog = new FakeRollModeDialog();
+		const rolling = makeRolling({bonuses: {fortunes: 0}, dialog});
+		const notes = new RollModeNotes([new RollModeNote({ mode: "adv", source: "Township" })]);
+		rolling._actor.typedActor.notesBySlug.set("muster", notes);
+		rolling._actor.typedActor.rule = new RollRule("advantage-disadvantage", "Advantage/Disadvantage");
+		await rolling.execute(RollRequest.fromItem({ name: "Muster", system: { rollStat: "fortunes", slug: "muster" } }, null, null));
+		expect(dialog.lastPrompt.notes).toBe(notes);
+		expect(dialog.lastPrompt.rule).toBe(rolling._actor.typedActor.rule);
+	});
+
+	// The heading's second line: whose roll it is, with the note the Actors sidebar shows beside them.
+	it("says who is rolling", async () => {
+		const dialog = new FakeRollModeDialog();
+		const rolling = makeRolling({bonuses: {wis: 1}, dialog});
+		rolling._actor.name = "Maelen";
+		rolling._actor.typedActor.directoryNote = "The Seeker";
+		await rolling.execute(ask("wis"));
+		expect(dialog.lastPrompt.rollerName).toBe("Maelen");
+		expect(dialog.lastPrompt.rollerNote).toBe("The Seeker");
+	});
+
+	it("opens the rule through the actor that rolled", async () => {
+		const dialog = new FakeRollModeDialog();
+		const rolling = makeRolling({bonuses: {wis: 1}, dialog});
+		await rolling.execute(ask("wis"));
+		await dialog.options.openRule("advantage-disadvantage");
+		expect(rolling._actor.typedActor.opened).toEqual(["advantage-disadvantage"]);
+	});
+
+	// A debility is not a choice: it bends whatever was picked, as it bent the sheet's mode before.
+	it("lets the actor's debilities bend the mode picked", async () => {
+		const dialog = new FakeRollModeDialog().answer(new RollChoice(null, "adv"));
+		const rolling = makeRolling({bonuses: {str: 0}, dialog});
+		rolling._actor.typedActor.applyRollMode = (stat, mode) => (mode === "adv" ? "normal" : "dis");
+		await rolling.execute(ask("str"));
+		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 0");
+	});
+
+	// Nothing to ask about: a damage die takes no advantage, and a move with no rating posts its text.
+	it("does not ask for a damage roll", async () => {
+		const dialog = new FakeRollModeDialog();
+		await makeRolling({die: "d6", dialog}).execute(ask("damage"));
+		expect(dialog.prompts).toHaveLength(0);
+	});
+
+	it("does not ask for a move it cannot roll", async () => {
+		const dialog = new FakeRollModeDialog();
+		await makeRolling({dialog}).execute(ask("loyalty"));
+		expect(dialog.prompts).toHaveLength(0);
+		expect(FakeChatMessage.lastCreated.content).toContain("LOYALTY");
+	});
+
+	it("does not ask when only posting the move's text", async () => {
+		const dialog = new FakeRollModeDialog();
+		await makeRolling({bonuses: {wis: 1}, dialog}).execute(ask("wis"), {descriptionOnly: true});
+		expect(dialog.prompts).toHaveLength(0);
 	});
 });
 
@@ -311,112 +385,49 @@ describe("ActorRolling.execute — rich-text chat card", () => {
 	});
 });
 
-// -- _pickStat -----------------------------------------------------------------
-
-// The stat-pick dialog renders its body from a template, so it appears an await later than the
-// call. Tests drive it through this rather than each racing the render.
-const dialogShown = () => vi.waitUntil(() => FakeDialog.lastConfig);
-
-describe("ActorRolling._pickStat", () => {
-	// The dialog body is a real template now, so these render it for real — a stub returning a
-	// hand-written string would only prove the stub contains what the stub was told to contain.
-	beforeEach(() => {
-		foundry.applications.handlebars.renderTemplate = async (path, data) => renderRealTemplate(path, data);
-	});
-
-	// _pickStat's promise settles only on click or close, so these await the dialog, never the call.
-	// It comes back BOXED because an async function unwraps a returned promise recursively — handing
-	// `picked` straight back would make `await openPicker(...)` wait on the very thing it must not.
-	async function openPicker(stats, initialRollMode = "normal") {
-		const picked = ActorRolling._pickStat("Roll", stats, initialRollMode);
-		await dialogShown();
-		return { picked };
-	}
-
-	const oneStat = [{key: "str", name: "STR", value: 2}];
-
-	it("creates one button per stat", async () => {
-		await openPicker([{key: "str", name: "STR", value: 2}, {key: "dex", name: "DEX", value: 0}]);
-		expect(Object.keys(FakeDialog.lastConfig.buttons)).toEqual(["str", "dex"]);
-	});
-
-	it("resolves {stat, rollMode} when a button is clicked", async () => {
-		const { picked } = await openPicker(oneStat);
-		FakeDialog.clickButton("str", "adv");
-		expect(await picked).toEqual({stat: "str", rollMode: "adv"});
-	});
-
-	it("resolves null when the dialog is closed", async () => {
-		const { picked } = await openPicker(oneStat);
-		FakeDialog.close();
-		expect(await picked).toBeNull();
-	});
-
-	it("offers all three roll modes", async () => {
-		await openPicker(oneStat);
-		const content = FakeDialog.lastConfig.content;
-		expect(content).toContain('value="adv"');
-		expect(content).toContain('value="normal"');
-		expect(content).toContain('value="dis"');
-	});
-
-	it("pre-selects the supplied initialRollMode", async () => {
-		await openPicker(oneStat, "adv");
-		expect(FakeDialog.lastConfig.content).toMatch(/value="adv"[^>]*checked/);
-	});
-
-	// The dialog reads its radios once, on submit; the sheet's copy of this partial writes back
-	// through the change router as you click. Only the sheet passes a change action.
-	it("leaves the radios out of the sheet's change router", async () => {
-		await openPicker(oneStat);
-		expect(FakeDialog.lastConfig.content).not.toContain("data-change-action");
-	});
-
-	it("names the radio group so the callback can read it back", async () => {
-		await openPicker(oneStat);
-		expect(FakeDialog.lastConfig.content).toContain('name="rollMode"');
-	});
-
-	it("adds stonetop-roll-dialog class via dialog options", async () => {
-		await openPicker(oneStat);
-		expect(FakeDialog.lastOptions.classes).toContain("stonetop-roll-dialog");
-	});
-});
-
 // -- execute — ask stat --------------------------------------------------------
 
+// A move that rolls "ask" names no stat: the dialog offers the actor's rollable stats as well as the
+// modes, and asks even when the request carries a mode, since a shift-click cannot pick the stat.
+
 describe("ActorRolling.execute — ask stat", () => {
-	function makeAskRolling(bonuses = {}) {
-		const rolling = makeRolling({bonuses});
+	function makeAskRolling(bonuses, choice) {
+		const dialog = new FakeRollModeDialog().answer(choice);
+		const rolling = makeRolling({bonuses, dialog});
 		rolling._actor.typedActor.getRollableStats = () =>
-			Object.entries(bonuses).map(([k, v]) => ({key: k, name: k.toUpperCase(), value: v}));
-		return rolling;
+			Object.entries(bonuses).map(([k, v]) => new RollableStat(k, k.toUpperCase(), v));
+		return { rolling, dialog };
 	}
 
-	it("uses the stat returned by _pickStat", async () => {
-		const rolling = makeAskRolling({str: 1});
-		const p = rolling.execute(RollRequest.fromStat("ask", "normal"));
-		await dialogShown();
-		FakeDialog.clickButton("str", "normal");
-		await p;
-		expect(FakeRoll.lastInstance.formula).toBe("2d6 + 1");
+	it("offers every rollable stat to choose from", async () => {
+		const { rolling, dialog } = makeAskRolling({str: 1, dex: 0}, null);
+		await rolling.execute(RollRequest.fromStat("ask", null));
+		expect(dialog.lastPrompt.choosesStat).toBe(true);
+		expect(dialog.lastPrompt.choices.map(s => s.key)).toEqual(["str", "dex"]);
 	});
 
-	it("uses the rollMode from dialog, overriding request.rollMode", async () => {
-		const rolling = makeAskRolling({str: 1});
-		const p = rolling.execute(RollRequest.fromStat("ask", "normal"));
-		await dialogShown();
-		FakeDialog.clickButton("str", "adv");
-		await p;
+	it("rolls the stat and the mode picked", async () => {
+		const { rolling } = makeAskRolling({str: 1, dex: 0}, new RollChoice("str", "adv"));
+		await rolling.execute(RollRequest.fromStat("ask", null));
 		expect(FakeRoll.lastInstance.formula).toBe("3d6kh2 + 1");
 	});
 
+	it("asks even when the request carries a mode", async () => {
+		const { rolling, dialog } = makeAskRolling({str: 1}, new RollChoice("str", "dis"));
+		await rolling.execute(RollRequest.fromStat("ask", "normal"));
+		expect(dialog.prompts).toHaveLength(1);
+		expect(FakeRoll.lastInstance.formula).toBe("3d6kl2 + 1");
+	});
+
+	it("names the stat picked on the chat card", async () => {
+		const { rolling } = makeAskRolling({str: 1}, new RollChoice("str", "normal"));
+		await rolling.execute(RollRequest.fromStat("ask", null));
+		expect(FakeChatMessage.lastCreated.content).toContain("(STR)");
+	});
+
 	it("aborts without rolling when the dialog is closed", async () => {
-		const rolling = makeAskRolling({str: 1});
-		const p = rolling.execute(RollRequest.fromStat("ask", "normal"));
-		await dialogShown();
-		FakeDialog.close();
-		await p;
+		const { rolling } = makeAskRolling({str: 1}, null);
+		await rolling.execute(RollRequest.fromStat("ask", null));
 		expect(FakeRoll.lastInstance).toBeNull();
 	});
 });
@@ -465,7 +476,7 @@ describe("ActorRolling.execute — XP on a 6-", () => {
 		return RollRequest.fromItem({
 			name: "Defy Danger",
 			system: { rollStat: "str", description: "", moveResults: null, ...(xpOnMiss === undefined ? {} : { xpOnMiss }) },
-		});
+		}, null, "normal");
 	}
 
 	it("offers the Mark XP button when the roll totals 6-, without marking on its own", async () => {

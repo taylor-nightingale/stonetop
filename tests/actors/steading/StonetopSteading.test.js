@@ -446,12 +446,6 @@ describe("StonetopSteading.rollSeasonStep — a result of the move's own roll", 
 	});
 });
 
-describe("StonetopSteading.rollMode", () => {
-	it("always returns 'def'", () => {
-		expect(make().rollMode).toBe("normal");
-	});
-});
-
 describe("StonetopSteading.getRollableStats", () => {
 	it("returns 4 entries", () => {
 		expect(make().getRollableStats()).toHaveLength(4);

@@ -8,6 +8,7 @@ import { rich } from "../model/snapshot/RichText.js";
 import { toSlug } from "../utils/slug.js";
 import { MoveRollLabel } from "../model/snapshot/character/MoveRollLabel.js";
 import { MoveResults } from "../model/data/MoveResults.js";
+import { RollRule } from "./RollPrompt.js";
 
 // Generic mechanics for moves stored as embedded `move` items on an actor — shared by characters
 // (basic/playbook/insert/other categories) and steadings (homefront). The domain classes
@@ -68,6 +69,12 @@ export async function resolveMoveBySlug(actor, moveSlug, moveRepo) {
 	if (owned) return owned;
 	const [entry] = await moveRepo?.getMoveEntriesBySlugs([moveSlug]) ?? [];
 	return entry ?? null;
+}
+
+/** A move the roll dialog links to, resolved as a row's move is: the actor's own copy, else the pack's. */
+export async function resolveRollRule(actor, moveSlug, moveRepo) {
+	const item = await resolveMoveBySlug(actor, moveSlug, moveRepo);
+	return item ? new RollRule(moveSlug, item.name) : null;
 }
 
 /**

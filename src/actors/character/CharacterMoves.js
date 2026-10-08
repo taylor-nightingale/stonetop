@@ -9,6 +9,7 @@ import {
 	findMoveItemBySlug,
 	moveSlugOf,
 	openMoveSheet,
+	resolveRollRule,
 	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
@@ -92,10 +93,10 @@ export class CharacterMoves {
 
 	// Roll the move a rendered row stands for. Returns false when nothing carries the slug, so a
 	// caller with a fallback (an arcanum's inline move is text, not an item) can take over.
-	async roll(moveSlug) {
+	async roll(moveSlug, rollMode = null) {
 		const item = await resolveMoveBySlug(this._actor, moveSlug, this._moveRepo);
 		if (!item) return false;
-		await this._actor.rollItem(item);
+		await this._actor.rollItem(item, null, rollMode);
 		return true;
 	}
 
@@ -118,6 +119,10 @@ export class CharacterMoves {
 		if (!item) return false;
 		await this._actor.sendItemToChat(item);
 		return true;
+	}
+
+	async rollRule(moveSlug) {
+		return resolveRollRule(this._actor, moveSlug, this._moveRepo);
 	}
 
 	/** Open this move's own item sheet — see embeddedMoves.openMoveSheet. */

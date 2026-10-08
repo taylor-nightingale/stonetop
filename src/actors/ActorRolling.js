@@ -1,15 +1,16 @@
 import {RollDisplay} from "../utils/rollDisplay.js";
 import {RollOutcome} from "./RollOutcome.js";
-import {RollModes} from "./RollModes.js";
+import {RollModeDialog} from "./RollModeDialog.js";
+import {RollChoice, RollPrompt} from "./RollPrompt.js";
+import {RollableStat} from "./RollableStat.js";
 import {renderRollCard, postDescriptionCard} from "../utils/rollCard.js";
 import {rich} from "../model/snapshot/RichText.js";
 import {buildXpLine} from "../chat/xpMarkControl.js";
 
-const PICK_STAT_TEMPLATE = "systems/stonetop/templates/apps/roll-pick.hbs";
-
 export class ActorRolling {
-	constructor(actor) {
-		this._actor = actor;
+	constructor(actor, dialog = new RollModeDialog()) {
+		this._actor  = actor;
+		this._dialog = dialog;
 	}
 
 	get _display() {
@@ -29,24 +30,22 @@ export class ActorRolling {
 
 		if (request.stat === "damage") return this._rollDamage(speaker);
 
-		let statKey = request.stat;
-		let rollMode = request.rollMode;
-		if (request.stat === "ask") {
-			const picked = await ActorRolling._pickStat(request.label, this._actor.typedActor.getRollableStats(), request.rollMode);
-			if (!picked) return;
-			statKey = picked.stat;
-			rollMode = picked.rollMode;
+		const typed    = this._actor.typedActor;
+		const choosing = request.stat === "ask";
+		if (!choosing && request.stat !== "prompt" && typed.resolveBonus(request.stat) === null) {
+			return this._postDescription(speaker, request);
 		}
 
-		let bonus = 0;
-		if (request.stat !== "prompt") {
-			bonus = this._actor.typedActor.resolveBonus(statKey);
-			if (bonus === null) {
-				return this._postDescription(speaker, request);
-			}
-		}
+		// A request that carries a mode was shift-clicked: it rolls without asking. Nothing can pick
+		// the stat for an "ask" move, so that one always asks.
+		const choice = choosing || !request.rollMode
+			? await this._dialog.pick(await this._prompt(request), {openRule: slug => typed.openMoveSheet(slug)})
+			: new RollChoice(null, request.rollMode);
+		if (!choice) return;
 
-		const effectiveMode = this._actor.typedActor.applyRollMode(statKey, rollMode, request.moveSlug);
+		const statKey = choice.stat ?? request.stat;
+		const bonus   = statKey === "prompt" ? 0 : typed.resolveBonus(statKey);
+		const effectiveMode = typed.applyRollMode(statKey, choice.rollMode, request.moveSlug);
 		const formula = this._rollingFormula(effectiveMode, bonus);
 		const roll = await new Roll(formula).evaluate();
 		const outcome = RollOutcome.fromTotal(roll.total, k => game.i18n.localize(k));
@@ -63,11 +62,6 @@ export class ActorRolling {
 		// the dice landed on. Offered from here rather than from each roll site — the die on a move
 		// row, the die in the season box and the turn's own rollItem are three paths to one roll.
 		await this._actor.typedActor.recordMoveOutcome(request.moveSlug, outcome);
-
-		// And the mode is spent. It is read into `effectiveMode` well above, so clearing it here
-		// cannot change the roll that was just made — only what the NEXT one starts from. Beside
-		// recordMoveOutcome because they are the same kind of thing: what the roll leaves behind.
-		await this._actor.typedActor.clearRollMode();
 
 		// The card carries name, outcome and dice as three separate facts, so the template can put
 		// the outcome where it reads — a badge on the dice line — instead of in the headline.
@@ -149,30 +143,24 @@ export class ActorRolling {
 		}
 	}
 
-	static async _pickStat(title, stats, initialRollMode = "normal") {
-		// The radios come from the same partial the sheet's side-bar renders — the two used to be
-		// hand-copied markup and had already drifted apart.
-		const content = await foundry.applications.handlebars.renderTemplate(PICK_STAT_TEMPLATE, {
-			modes: RollModes.options(initialRollMode),
-		});
+	async _prompt(request) {
+		const typed  = this._actor.typedActor;
+		const extras = {
+			rollerName: this._actor.name,
+			rollerNote: typed.directoryNote ?? null,
+			notes:      await typed.rollNotesFor(request.moveSlug),
+			rule:       await typed.rollModeRule(),
+		};
+		if (request.stat === "ask") return RollPrompt.forChoice(request.label, typed.getRollableStats(), extras);
+		return RollPrompt.forStat(request.label, this._statFor(request.stat), extras);
+	}
 
-		return new Promise(resolve => {
-			const buttons = {};
-			for (const s of stats) {
-				const sign = s.value >= 0 ? "+" : "";
-				buttons[s.key] = {
-					label: `<i class="fas fa-dice-d6"></i> ${s.name}<span class="stonetop-roll-pick-mod">${sign}${s.value}</span>`,
-					callback: html => resolve({
-						stat: s.key,
-						rollMode: html.find("[name=rollMode]:checked").val() ?? initialRollMode,
-					}),
-				};
-			}
-
-			new Dialog(
-				{title, content, buttons, default: stats[0]?.key, close: () => resolve(null)},
-				{classes: ["stonetop-roll-dialog"], width: 440},
-			).render(true);
-		});
+	// A rating the actor does not own — the steading's Fortunes, rolled for Requisition — is named as
+	// the chat card names it.
+	_statFor(statKey) {
+		if (statKey === "prompt") return null;
+		const typed = this._actor.typedActor;
+		return typed.getRollableStats().find(s => s.key === statKey)
+			?? new RollableStat(statKey, statKey.toUpperCase(), typed.resolveBonus(statKey));
 	}
 }

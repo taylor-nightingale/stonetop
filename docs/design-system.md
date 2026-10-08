@@ -83,7 +83,6 @@ or three different ways. This is the material a style decision has to be made *a
 | `.stonetop-section-panel::before` | 9-slice `panel-*` | a panel of fields — **used by no template** |
 | `.stonetop-outfit-header` / `.stonetop-prosperity-panel::before` | 9-slice `panel-*` | a framed context panel |
 | `.stonetop-follower-card::before` | 9-slice `panel-*` | one follower |
-| `.stonetop-roll-pick-content` / `.dialog-button::before` | 9-slice `panel-*` | dialog surfaces |
 | `.stonetop-arcanum-card::before` + `.stonetop-arcanum-frame::before/::after` | `arcana-border-*` chain | one arcanum |
 | `.stonetop.sheet .sheet-tabs::before` + `.item::before` | `tab-half-frame` | **the tab strip — already art-framed** |
 | `.stonetop-panel-divider` | `divider-horizontal` | the rule under a section heading |
@@ -113,7 +112,7 @@ Stats, Outfit (D5) and Notes. Alongside them: bare `<h3>`s with their own classe
 | `.stonetop-inv-diamond` | `--control-marker` 11px | ◇, 1px border | **weight and carried, in one control** |
 | `.stonetop-inv-square` | `--control-marker` 11px | □, 1px border, fills when checked | a small item |
 | `.stonetop-choice-tick` | 14px | a **✓ glyph** | the same "taken" fact, in the condensed view |
-| `.stonetop-rollmode-mark` (stacked) | 0.6rem | circle | which roll mode is live |
+| `.stonetop-rollmode-mark` | 0.6rem | circle | which of an improvement editor's choices is live |
 | `.stonetop-masthead-debility-circle` | 0.6rem | circle | this debility is marked |
 
 ### Rollable
@@ -122,6 +121,15 @@ Six class combinations mean "this rolls": `rollable move-rollable`, `stonetop-st
 `stonetop-folded-abbr rollable`, `stonetop-resource__label stonetop-damage-roll rollable`,
 `steading-stat-roll rollable`, and the turn-roll variant. The shared token is `.rollable[data-roll]`,
 which is all the sheet's delegation needs.
+
+Every 2d6 roll then asks its mode in the roll dialog (`RollModeDialog`); shift-click rolls Normal
+without asking. The dialog is the one place the mode is chosen — neither sheet keeps one. It is laid out
+as dnd5e lays out its roll dialog: the roll's name, who rolls it (said as the masthead says it), the
+sheet's die twice, and the formula with the stat beside it. A move that rolls "ask" adds a dropdown of
+stats, none picked for you. Then the steading's reminders for the move, the Advantage/Disadvantage move
+named as a link (D9) — it explains the modes, so it sits right above them — and three buttons drawn
+alike — Advantage, Normal, Disadvantage. Normal is the default by focus
+alone, and what Enter rolls: a Normal drawn apart from the other two read as already chosen.
 
 ### Empty states
 
@@ -153,10 +161,8 @@ line) on raised paper, ruled off below; and the tab, strip and body, on the wind
 A drawer is lifted over the tab by its shadow, not by a lighter ground, which would make it read as
 part of the top bar.
 
-The character band's foot — the roll mode and the Stats fold control — always sits beside the stats,
-never under them. Short of room the fold control drops its word and keeps its caret; past that
-(a language longer than any shipped) the line wraps inside its own column. The rail breakpoint and
-the sheet's 47rem floor are set so English and German never need the wrap.
+The character band's foot — the Stats fold control — always sits beside the stats, never under them.
+Short of room the fold control drops its word and keeps its caret.
 
 The Ailments panel's wound editor hangs from the panel's bottom edge at the panel's width, over the
 tab. The outfit adder follows the same pattern: an editor hangs from what opened it (the "+ add
@@ -179,17 +185,14 @@ live on a non-editable sheet.
 2. **The condition circle and the radio ring are the same rule.** `.steading-circle` and
    `.stonetop-masthead-debility-circle` share one declaration for *a condition you are in*, and
    `.stonetop-rollmode-mark` is byte-identical to it. In practice they never meet: the ring is drawn
-   only in the stacked dialog variant, which carries no conditions, and the inline variant used on
-   both sheets sets `display: none` on the mark entirely.
+   only in the improvement sheet's editors, which carry no conditions.
 3. **Circles at two sizes.** A resource pip is `--control-pip` (16px); a condition is 0.6rem. Size is
    doing semantic work that nothing declares.
 4. **"One of these is selected" is drawn four ways.**
    - *background, origin* — a real `<input type="radio">` wearing `.stonetop-item-check`, the
      acquisition square (`tab-playbook.hbs:45`, `:100`)
-   - *roll mode, inline* — both sheet headers: **no mark at all**; the live word takes the accent
-     color and an accent underline
-   - *roll mode, stacked* — the stat-pick dialog: a dot-in-ring circle, because there the choice
-     *is* the box
+   - *a stat to roll* — the roll dialog's native dropdown
+   - *an improvement editor's choice* — a dot-in-ring circle, because there the choice *is* the box
    - *outfit load* — a radio that is a **readout**: `pointer-events: none`, reporting the level read
      off the marked ◇ rather than setting it
 5. **Group headings, four idioms** — the ink bar (19 uses), the `section-heading` partial (3), bare
@@ -243,8 +246,7 @@ shoulder cleanly… two strokes on the page."*
 | **□ square** | *taken.* Acquisition, and it persists until untaken | move check, repeat check, possession check — and, inconsistently, the background and origin radios (§2, collision 4) |
 | **○ circle** | *a state* — either a condition you are in, or one unit of a resource | debilities and steading conditions (0.6rem); resource pips, follower loyalty, arcanum tracks (`--control-pip`) |
 | **◇ diamond** | *weight* — and, in the inventory, simultaneously *carried* | outfit items |
-| **◉ dot-in-ring** | *one of these is selected* | the stat-pick dialog's roll mode — **the stacked variant only** |
-| **no mark at all** | *one of these is selected*, on a line of words | roll mode on both sheet headers: the live option takes the accent color **and an accent underline** |
+| **◉ dot-in-ring** | *one of these is selected* | the improvement editors' choices |
 
 **The split is "chose" versus "is".** A square is something you *decided*; a circle is a state you
 are *in* or *spend*. That is why debilities are circles and not checkboxes, even though they are
@@ -255,8 +257,8 @@ Within circles, context separates the two meanings: a **condition** circle stand
 name, a **resource** circle sits in a track of identical marks.
 
 **Selection has no single mark.** A one-of-N choice is drawn four different ways depending on the
-surface — see §2, collision 4. On a line of words the mark is dropped entirely and the accent color
-plus an underline carries it; in a dialog, where the choice *is* the box, the ring is drawn.
+surface — see §2, collision 4. In the roll dialog it is a native dropdown; in an editor, where the
+choice *is* the box, the ring is drawn.
 
 **Also unresolved:** a debility is drawn differently in the two densities — the band's tick *is* the
 input, framed in the bracket art; the masthead's is a painted span beside a hidden input. Same fact,
@@ -379,8 +381,8 @@ Numbered, because the code cites them.
 - **D8 · Reference moves are placed by what they are about.** The basic moves in the rail, open; the
   expedition moves a second rail group, shut, split by phase; follower moves once, at the top of
   Followers, while there are followers.
-- **D9 · The special moves land where they apply.** Advantage/Disadvantage is a `?` after the roll
-  mode; Death's Door a row under hit points only while dying (an insert's own zero-HP move in its
+- **D9 · The special moves land where they apply.** Advantage/Disadvantage is a link in the roll
+  dialog, right above the modes it explains; Death's Door a row under hit points only while dying (an insert's own zero-HP move in its
   place); End of Session a route beside experience; Level Up, then Burn Brightly, at the threshold.
 - **D10 · A player can write an item onto their own list**, in place, as a full item. See
   `docs/features/outfitting.md`.

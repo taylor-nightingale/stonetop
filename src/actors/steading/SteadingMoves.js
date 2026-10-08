@@ -9,6 +9,7 @@ import {
 	computeSelectable,
 	buildMoveSnapshot,
 	openMoveSheet,
+	resolveRollRule,
 	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { toSlug } from "../../utils/slug.js";
@@ -29,6 +30,10 @@ export class SteadingMoves {
 		this._seeder             = new ReferenceMoveSeeder(actor, moveRepo, grantedItems);
 	}
 
+
+	async rollRule(moveSlug) {
+		return resolveRollRule(this._actor, moveSlug, this._repo);
+	}
 
 	/** Open this move's own item sheet — see embeddedMoves.openMoveSheet. */
 	async openSheet(moveSlug) {
@@ -106,9 +111,9 @@ export class SteadingMoves {
 	// here so it goes out as an ordinary move roll rather than a second kind of card.
 	// Owned first, then the pack — the moves an improvement CONFERS are rendered from the pack and
 	// never seeded, so the aurochs hunt has no owned id to find it by. See resolveMoveBySlug.
-	async roll(moveSlug) {
+	async roll(moveSlug, rollMode = null) {
 		const item = await resolveMoveBySlug(this._actor, moveSlug, this._repo);
-		if (item) await this._actor.rollItem(item);
+		if (item) await this._actor.rollItem(item, null, rollMode);
 		return Boolean(item);
 	}
 

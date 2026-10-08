@@ -63,7 +63,7 @@ export const bandSnapshot = ({ marked = ["weakened"], wounds = [["broken arm", "
 	new CharacterSnapshotBuilder()
 		.withPlaybook(playbook()).withStats(STATS).withDebilities(debilities(marked))
 		.withWounds(wounds.map(([name, state], i) => new Wound(`w${i}`, name, state)))
-		.withRollMode("normal").withMoves(moves())
+		.withMoves(moves())
 		.build();
 
 /** The band's markup, from the real partial, in `lang` (German unless asked). */

@@ -24,8 +24,6 @@ const TARGETS = {
 	statsRow: ".stonetop-stats-row", debilities: ".stonetop-debilities",
 	toggle: ".stonetop-top-toggle", toggleLabel: ".stonetop-top-toggle-label", tabs: ".sheet-tabs", firstTab: ".sheet-tabs .item",
 	foot: ".stonetop-band-foot",
-	mode: ".stonetop-band-foot > .stonetop-rollmode",
-	rule: ".stonetop-band-foot .stonetop-rollmode-rule",
 	heading: ".stonetop-stats-column .stonetop-move-group-title",
 	headingRule: ".stonetop-stats-column .stonetop-panel-divider",
 
@@ -204,17 +202,6 @@ describe.skipIf(!canProbe())("the top band", () => {
 		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
 	});
 
-	it("rides the foot line, level with the roll mode", () => {
-		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
-		expect(within(centreY(el("toggle")), el("mode"))).toBe(true);
-		expect(el("toggle").boxLeft).toBeGreaterThanOrEqual(right(el("mode")));
-	});
-
-	it("keeps the Advantage/Disadvantage ? on the mode's own line", () => {
-		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
-		expect(within(centreY(el("rule")), el("mode"))).toBe(true);
-	});
-
 	it("sits the fold control inside the band, clear of its rule", () => {
 		expect(bottom(el("toggle"))).toBeLessThan(bottom(el("bandBox")));
 	});
@@ -326,12 +313,12 @@ describe.skipIf(!canProbe())("the ailments on a wide sheet", () => {
 });
 
 // ── Short of room: the foot keeps to its column ────────────────────────────────────
-// It never goes under the stats. BandFootFit first drops the fold control's word (compact), and
-// where even that does not fit, the line wraps inside its own column (wrapped, which is compact too).
+// It never goes under the stats. BandFootFit drops the fold control's word (compact) where the whole
+// control does not fit.
 
 const beside = (v, why) => {
 	expect(v("foot").boxLeft, `${why}: the foot is not beside the stats`).toBeGreaterThan(right(v("statsRow")));
-	expect(v("mode").boxLeft, `${why}: the roll mode runs out of its column over the stats`).toBeGreaterThanOrEqual(v("foot").boxLeft - 0.5);
+	expect(v("toggle").boxLeft, `${why}: the fold control runs out of its column over the stats`).toBeGreaterThanOrEqual(v("foot").boxLeft - 0.5);
 	expect(bottom(v("foot")), `${why}: the foot hangs below the stats`).toBeLessThanOrEqual(bottom(v("band")) + 1);
 };
 
@@ -351,35 +338,12 @@ describe.skipIf(!canProbe())("the foot, compact", () => {
 
 	it("keeps the foot beside the stats, on one line, ending the band's right edge", () => {
 		beside(el, "compact");
-		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
-		expect(within(centreY(el("toggle")), el("mode"))).toBe(true);
-		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
-	});
-});
-
-// German fits compact at the floor (198px of 202), so no shipped language wraps yet. This is one that
-// would: "Normal" said at length, at the sheet's 47rem floor, the compact line ~280px in 202.
-describe.skipIf(!canProbe())("the foot, wrapped", () => {
-	const LONG = 'class="stonetop-rollmode-label">Gewöhnlich gewürfelt<';
-	let m;
-	beforeAll(() => {
-		const band = bandHtml().replace('class="stonetop-rollmode-label">Normal<', LONG);
-		expect(band).toContain(LONG);
-		m = measure({ width: 752, band: withFoot(band, "is-foot-compact", "is-foot-wrapped") });
-	});
-	const el = name => m.get(name).values;
-
-	it("breaks the line inside its own column, the caret under the roll mode, still beside the stats", () => {
-		beside(el, "wrapped");
-		expect(right(el("mode")), "the roll mode runs out of its column on the right").toBeLessThanOrEqual(right(el("foot")) + 0.5);
-		expect(el("toggle").boxTop).toBeGreaterThanOrEqual(bottom(el("mode")) - 1);
 		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
 	});
 });
 
 // The widths the plan was measured against: in English, the compact line fits beside the stats at
-// the narrowest a column rail leaves, and at the sheet's own floor with the rail a drawer. German
-// needs more — "Vorteil", "Nachteil" — and is what the wrap is for; English must not need it.
+// the narrowest a column rail leaves, and at the sheet's own floor with the rail a drawer.
 describe.skipIf(!canProbe())("the foot at the narrowest the sheet gets, in English", () => {
 	const floor = () => parseFloat(probe.render({
 		bodyHtml: `<div class="application stonetop sheet actor character themed theme-light" id="floor" style="height: 100px"></div>`,

@@ -1,4 +1,5 @@
 import { StatSnapshot } from "../../model/snapshot/character/CharacterSnapshot.js";
+import { RollableStat } from "../RollableStat.js";
 import { Stats } from "../../model/data/character/Stats.js";
 
 /* Keys, never words. The name and the abbreviation used to be written here in English, so a German
@@ -32,8 +33,8 @@ export class CharacterStats {
 
 	getRollableStats() {
 		const stats = this.getStats();
-		return Object.entries(_STAT_DEFS).map(([key, { nameKey }]) =>
-			({ key, name: _localize(nameKey), value: stats.get(key) }));
+		return Object.entries(_STAT_DEFS).map(([key, { nameKey, abbrKey }]) =>
+			new RollableStat(key, _localize(nameKey), stats.get(key), _localize(abbrKey)));
 	}
 
 	resolveBonus(stat) {

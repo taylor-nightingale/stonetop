@@ -90,10 +90,7 @@
       "normal": "Normal",
       "adv": "Advantage",
       "dis": "Disadvantage",
-      "short": {
-        "adv": "Adv",
-        "dis": "Disadv"
-      }
+      "chooseStat": ""
     },
     "steading": {
       "startsAt": "Starts at {value}",

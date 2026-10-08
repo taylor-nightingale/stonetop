@@ -10,8 +10,8 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
  * actually put the boxes:
  *
  *  1. The line keeps EVERY rating, on every tab. An earlier pass shed the four stated in full below,
- *     which was backwards: rolling a steading move needs a rating, the condition bending it and the
- *     roll mode, and Play is the tab you roll from.
+ *     which was backwards: rolling a steading move needs a rating and the condition bending it, and
+ *     Play is the tab you roll from.
  *  2. One rule closes each rating head — including its note. Two bordered cells drew two rules at
  *     two heights, because label and value are baseline-aligned and their boxes end at different
  *     depths; the step was 2.3px and invisible to any reading of the CSS.
@@ -180,9 +180,6 @@ const fixture = (width, { shut = false, lean = false, heavy = false, plated = tr
           ${condition("lacking", true, "treat Prosperity as if it's 1 lower than it is")}
           ${condition("malcontent", false, "Fortunes reset to +0 each season, not +1")}
         </div>
-        <fieldset class="stonetop-rollmode stonetop-rollmode--inline"><legend class="stonetop-rollmode-legend">Roll Mode</legend>
-          <label class="stonetop-rollmode-option is-checked"><input type="radio" class="stonetop-rollmode-input" name="rm" checked><span class="stonetop-rollmode-mark" aria-hidden="true"></span><span class="stonetop-rollmode-label">Normal</span></label>
-        </fieldset>
       </div>
     </header>
     <nav class="sheet-tabs tabs"><button class="item active" data-tab="play">Play</button></nav>
@@ -227,7 +224,6 @@ const TARGETS = {
 
 	valuesRow:      ".steading-line-values",
 	conditionsRow:  ".steading-line-conditions",
-	rollMode:       ".steading-line-conditions .stonetop-rollmode",
 	debility1:      ".steading-conditions > .steading-debility:nth-of-type(1)",
 	debility2:      ".steading-conditions > .steading-debility:nth-of-type(2)",
 	debility3:      ".steading-conditions > .steading-debility:nth-of-type(3)",
@@ -290,13 +286,10 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 				}
 			});
 
-			it("puts the conditions on their own row under the values, with the mode ending it", () => {
+			it("puts the conditions on their own row under the values", () => {
 				const values = m.get("valuesRow").values;
 				const conds  = m.get("conditionsRow").values;
 				expect(conds.boxTop).toBeGreaterThan(values.boxTop + values.boxHeight - 1);
-				const mode = m.get("rollMode").values;
-				expect(mode.boxLeft + mode.boxWidth)
-					.toBeCloseTo(conds.boxLeft + conds.boxWidth, 0);
 			});
 
 			// The rating reads as one line, the way it is said aloud: "Prosperity, lacking, 2" — and that

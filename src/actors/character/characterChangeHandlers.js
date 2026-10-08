@@ -20,7 +20,6 @@ export function characterChangeHandlers(char) {
 		xp:       el => char.setXP(el.value),
 		level:    el => char.setLevel(el.value),
 		debility: el => char.setDebility(el.dataset.slug, el.checked),
-		rollMode: el => char.setRollMode(el.value),
 		woundName: el => char.renameWound(el.dataset.woundId, el.value.trim()),
 
 		// playbook tab

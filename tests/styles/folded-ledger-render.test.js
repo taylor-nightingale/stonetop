@@ -6,8 +6,8 @@ import { sheetWithBand, windowFor } from "./bandFixture.js";
 /**
  * The band's two densities, measured: the six stats and their conditions at full size, and the same
  * at line height once the band folds. Both are in the markup at every width and one class picks,
- * so whether the right one is on screen — and whether the line fits beside the mode and the fold
- * control — is a question only layout answers.
+ * so whether the right one is on screen — and whether the line fits beside the fold control — is a
+ * question only layout answers.
  *
  * The real band partial, in German (see bandFixture.js).
  */
@@ -27,7 +27,6 @@ const TARGETS = {
 	lineSr: ".stonetop-folded-sr",
 	handle: ".stonetop-top-toggle",
 	band: ".stonetop-band",
-	mode: ".stonetop-band-foot > .stonetop-rollmode",
 	bandStats: ".stonetop-stats-row",
 	ailments: ".stonetop-ailments",
 	tabs: ".sheet-tabs",
@@ -113,21 +112,20 @@ describe.skipIf(!canProbe())("the folded line", () => {
 		expect(Math.abs(abbr.boxTop - value.boxTop)).toBeLessThanOrEqual(2);
 	});
 
-	it("puts the numbers and the mode on one line once there is room", () => {
+	it("puts the numbers and the fold control on one line once there is room", () => {
 		const m = measure({ folded: true, railShut: true, width: 1600 });
-		const line = m.get("pairs").values, mode = m.get("mode").values;
-		expect(within(centre(mode), line), "the mode is on its own row under the numbers").toBe(true);
-		expect(mode.boxLeft).toBeGreaterThanOrEqual(right(line));
+		const line = m.get("pairs").values, handle = m.get("handle").values;
+		expect(within(centre(handle), line), "the fold control is on its own row under the numbers").toBe(true);
+		expect(handle.boxLeft).toBeGreaterThanOrEqual(right(line));
 	});
 
-	// Where there is not — at the sheet's floor — the NUMBERS take the second row and the two controls
-	// stay put.
-	it("wraps the numbers rather than the controls", () => {
+	// At the sheet's floor too: with the roll mode gone from the foot, the numbers keep one row.
+	it("keeps the numbers on one line beside the control at the sheet's floor", () => {
 		const m = measure({ folded: true, width: 720 });
-		const ledger = m.get("ledger").values;
-		expect(ledger.boxHeight, "the numbers did not take a second row").toBeGreaterThan(m.get("mode").values.boxHeight);
-		expect(right(m.get("handle").values)).toBeCloseTo(right(m.get("band").values) - INSET, 0);
-		expect(m.get("mode").values.boxLeft).toBeGreaterThanOrEqual(right(ledger));
+		const line = m.get("pairs").values, handle = m.get("handle").values;
+		expect(within(centre(handle), line), "the numbers took a second row").toBe(true);
+		expect(right(handle)).toBeCloseTo(right(m.get("band").values) - INSET, 0);
+		expect(handle.boxLeft).toBeGreaterThanOrEqual(right(line));
 	});
 
 	it("keeps the folded line clear of the fold control", () => {
@@ -136,13 +134,11 @@ describe.skipIf(!canProbe())("the folded line", () => {
 		expect(m.get("handle").overflowX).toBe(0);
 	});
 
-	it("keeps the one mode, and the handle, where they were when the band folds", () => {
+	it("keeps the handle where it was when the band folds", () => {
 		const open = measure({ folded: false, width: 1400 });
 		const shut = measure({ folded: true, width: 1400 });
-		for (const name of ["mode", "handle"]) {
-			expect(showing(shut, name), `folding took the ${name} away`).toBe(true);
-			expect(right(shut.get(name).values), `the ${name} moved sideways`).toBeCloseTo(right(open.get(name).values), 0);
-		}
+		expect(showing(shut, "handle"), "folding took the handle away").toBe(true);
+		expect(right(shut.get("handle").values), "the handle moved sideways").toBeCloseTo(right(open.get("handle").values), 0);
 	});
 
 	it("names the debility in text for a stat it has dimmed, clipped rather than removed", () => {

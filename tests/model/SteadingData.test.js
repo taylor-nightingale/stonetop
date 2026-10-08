@@ -16,12 +16,11 @@ describe("SteadingData defaults (blank = empty place)", () => {
 		expect(d.startingAttributes).toEqual({ fortunes: 0, surplus: 0, size: "", population: 0, prosperity: 0, defenses: 0 });
 	});
 
-	it("defaults its steadfast reference and text fields to empty, rollMode to normal", () => {
+	it("defaults its steadfast reference and text fields to empty", () => {
 		const d = new SteadingData();
 		expect(d.steadfast).toBe("");
 		expect(d.description).toBe("");
 		expect(d.notes).toBe("");
-		expect(d.rollMode).toBe("normal");
 	});
 
 	it("defaults all debilities to false", () => {

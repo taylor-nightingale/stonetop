@@ -67,7 +67,6 @@ export class ImprovementEditorHeading {
 		this.index    = index;
 		this.text     = rich(row.text);
 		this.words    = row.text;
-		// Not `rule`: the roll-mode picker this is handed to reads a `rule` of its own (its help button).
 		this.ruleKind = section.rule.kind;
 		this.count    = section.rule.count ?? 1;
 		this.isSome   = section.rule.kind === "some";

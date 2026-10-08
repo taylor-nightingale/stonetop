@@ -94,7 +94,6 @@ describe("a steading survives a reload (integration)", () => {
 		"a rating":        s => s.setAttribute("population", 2),
 		"fortunes":        s => s.setFortunes(3),
 		"a debility":      s => s.setDebility("lacking", true),
-		"the roll mode":   s => s.setRollMode("advantage"),
 		"a villager":      s => s.addPerson(),
 		"a place":         s => s.addPlace(),
 		"an asset":        s => s.addAssetItem(),
