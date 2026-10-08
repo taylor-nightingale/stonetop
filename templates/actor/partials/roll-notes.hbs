@@ -1,6 +1,7 @@
 {{!-- Why a move might not roll a flat 2d6, one line per source. Context: a RollModeNotes, passed as
-      context rather than hash params so its `all` getter survives. Drawn on the move's row and in the
-      roll dialog — see move-item.hbs for why it reads as a reminder and never as a state. --}}
+      context rather than hash params so its `all` getter survives. Drawn in the roll dialog, where the
+      mode is chosen. It says what CAN be applied and names the improvement that permits it: phrased as
+      a bare mode ("Advantage") it read as a state — that advantage was already on. --}}
 <ul class="stonetop-move-rollnotes">
 	{{#each all}}
 	<li class="stonetop-move-rollnote">

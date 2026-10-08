@@ -470,12 +470,14 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		// root at 16px — the width the three-column option was rejected at. A guard against a column
 		// narrowed back toward that measure, not a claim to the half-pixel.
 		//
-		// 390 rather than the 410 first measured, for two deliberate prices: the tab scroller reserves
-		// the focus ring's reach at its left edge, and since 2026-09-28 the steading's column takes the
+		// 380 rather than the 410 first measured, for three deliberate prices: the tab scroller reserves
+		// the focus ring's reach at its left edge; since 2026-09-28 the steading's column takes the
 		// character sheet's 1.5rem inset on both sides (less the gap beside the rail it no longer
-		// needs), so its ledger line, tab strip and tab start on one line.
-		it("is no narrower than the measure it had before the pass, less the shared inset", () => {
-			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(390);
+		// needs), so its ledger line, tab strip and tab start on one line; and since 2026-10-08 the
+		// rail is the character's moves width, 24px more than its old 220px, because the two rails
+		// draw one move row and a narrower rail was a narrower name column.
+		it("is no narrower than the measure it had before the pass, less the shared inset and rail", () => {
+			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(380);
 		});
 
 		// The two columns of this tab are different lengths — Prosperity leads eight resources, Defenses

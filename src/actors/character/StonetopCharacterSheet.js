@@ -230,8 +230,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				onAdd:         () => this.isEditable && this._addOutfitDraft(),
 				renderPreview: view => foundry.applications.handlebars.renderTemplate(OUTFIT_ADDER_PREVIEW, view),
 			});
-			const view = this.element.ownerDocument?.defaultView ?? globalThis;
-			new MovePreviews({ viewport: () => ({ width: view.innerWidth, height: view.innerHeight }) }).attach(this.element);
+			MovePreviews.attachTo(this.element);
 		}
 
 		// The band's fold is a class on the part root, and the part root is rebuilt on every render —

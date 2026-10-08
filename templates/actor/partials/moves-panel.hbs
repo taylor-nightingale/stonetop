@@ -24,12 +24,12 @@
 		</div>
 		{{/if}}
 		<div class="stonetop-section-rest" data-disclosure-shut>
-			{{> "stonetop.character-move-list" moves=category.taken phases=null categoryKey=category.key categoryLabel=category.label
+			{{> "stonetop.move-list" moves=category.taken phases=null categoryKey=category.key categoryLabel=category.label
 			    chat=true removable=category.allowAdditional choosing=false}}
 		</div>
 		{{#if category.offersChoice}}
 		<div class="stonetop-section-choose" id="{{sectionId @root.sheetIdPrefix category.sectionKey}}" hidden>
-			{{> "stonetop.character-move-list" moves=category.moves phases=null categoryKey=category.key categoryLabel=category.label
+			{{> "stonetop.move-list" moves=category.moves phases=null categoryKey=category.key categoryLabel=category.label
 			    chat=true removable=category.allowAdditional choosing=true}}
 		</div>
 		{{/if}}

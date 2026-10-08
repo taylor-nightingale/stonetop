@@ -24,8 +24,9 @@ that contradicts one.
   the one that behaves the same for pointer, touch and keyboard. It does not rule a hover card out
   as an *additional* path on top of one — the same comment refers to the shifting objection as
   having been *"an objection to HOVER"* in passing, which is not the same as rejecting it. A card
-  that is nobody's only route to the text is a separate question — answered on the character sheet:
-  its move rows carry a hover card as a second route beside the caret.
+  that is nobody's only route to the text is a separate question — answered by the shared move row
+  (`move-list-row.hbs`, both sheets' rails and the character's tabs): it carries a hover card as a
+  second route beside the caret.
 - **Nothing re-orders under a tick.** From the improvement board: *"Sorting by progress moved a card
   the moment you ticked a box on it, which is the one time a reader is certain to be looking at
   it."* The board's search filters rows in place on `input` — no re-render, no writes to the actor —

@@ -127,8 +127,7 @@ export async function clearMove(actor, categoryKey, moveSlug) {
 // `requirement` (optional) is the RequirementSnapshot the caller already built — see
 // MoveRequirements#snapshotFor. Callers with no character (an item-sheet preview, a steading) pass
 // none; those moves carry no requirements.
-export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null,
-                                  rollNotes = null) {
+export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null) {
 	const sys    = item?.system ?? null;
 	const slug   = moveSlugOf(item);
 	const resDef = sys?.resource ?? null;
@@ -159,7 +158,6 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withSteps(sys?.steps ?? null)
 		.withMoveResults(sys?.moveResults ?? null)
 		.withResults(MoveResults.fromRaw(sys?.moveResults ?? null))
-		.withRollNotes(rollNotes)
 		.withPhase(sys?.phase ?? null)
 		.withReplaces(sys?.replaces ?? null)
 		.withRollLabel(MoveRollLabel.of(sys?.rollStat ?? null, key => game.i18n.localize(key)))

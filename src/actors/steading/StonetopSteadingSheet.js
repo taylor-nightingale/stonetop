@@ -11,6 +11,7 @@ import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
 import { BoardView } from "./BoardView.js";
 import { toggleDisclosure, toggleSlidingDisclosure, toggleSwappingDisclosure } from "../../utils/Disclosure.js";
+import { MovePreviews } from "../../utils/MovePreviewPlacement.js";
 import { SeasonStepAddress } from "../../model/data/steading/SeasonStepAddress.js";
 import { Seasons } from "../../model/data/steading/Seasons.js";
 
@@ -338,6 +339,7 @@ export function createStonetopSteadingSheetClass(Base) {
 
 			// Arrow keys / Home / End across the tab row — core ships the clicks, not the keyboard model.
 			activateTablistKeys(root);
+			MovePreviews.attachTo(root);
 
 			// The roster's caret follows the caret: whichever row you put the cursor in is the row a
 			// click in the reference column lands on, so nothing extra has to be clicked to say

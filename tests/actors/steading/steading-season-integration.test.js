@@ -542,7 +542,7 @@ describe("the rail's seasonal moves", () => {
 	it("lists all four, spring to winter, under Seasonal Moves", async () => {
 		const root  = await render(await makeSheet({ season: "autumn" }));
 		const group = railGroup(root, "Seasonal Moves");
-		const names = [...group.querySelectorAll(".stonetop-item-name")].map(n => n.textContent.trim());
+		const names = [...group.querySelectorAll(".stonetop-mrow-title")].map(n => n.textContent.trim());
 		expect(names).toEqual([
 			"Seasons Change: Spring", "Seasons Change: Summer",
 			"Seasons Change: Autumn", "Seasons Change: Winter",
@@ -563,14 +563,18 @@ describe("the rail's seasonal moves", () => {
 	});
 
 	// Reference is about WEIGHT, not capability: a table that wants to roll a season's move on its
-	// own terms is not something the sheet should decide it cannot. Every rendering of a move goes
-	// through the same row, so every rendering rolls and posts to chat.
-	it("keeps every season's move rollable and postable, as the box's is", async () => {
+	// own terms is not something the sheet should decide it cannot.
+	it("keeps every season's move rollable, as the box's is", async () => {
 		const root  = await render(await makeSheet({ season: "spring" }));
 		const group = railGroup(root, "Seasonal Moves");
 		expect(group.querySelectorAll(".move-rollable")).toHaveLength(4);
-		expect(group.querySelectorAll('[data-action="moveToChat"]')).toHaveLength(4);
 		expect(root.querySelector(".steading-season-box .move-rollable")).not.toBeNull();
+	});
+
+	// The character rail's rows, so the character rail's width rule: no send-to-chat button.
+	it("puts no send-to-chat button on a rail row", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		expect(root.querySelectorAll('.steading-rail [data-action="moveToChat"]')).toHaveLength(0);
 	});
 
 	// A steading has all four from the day it exists, so the acquisition tick asserts a state that
@@ -631,7 +635,7 @@ describe("the season tab's one box", () => {
 
 	// A move ROW, addressed by the move it draws: the row itself carries the owned id, and the slug is
 	// on the die inside it.
-	const moveRowFor = (root, slug) => [...root.querySelectorAll(".stonetop-item")]
+	const moveRowFor = (root, slug) => [...root.querySelectorAll(".stonetop-item, .stonetop-mrow")]
 		.find(row => row.querySelector(`[data-move-slug="${slug}"]`));
 
 	// The move's full text ran into the numbered list it introduced, and was not what anyone had the

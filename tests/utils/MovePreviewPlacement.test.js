@@ -115,4 +115,26 @@ describe("MovePreviews", () => {
 		button.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
 		expect(card.isShown).toBe(false);
 	});
+
+	// A sheet popped out into its own window places its cards against that window, not the main one.
+	it("attaches to a sheet's root, placing cards within the window the root is in", () => {
+		document.body.innerHTML = `<div class="root"><ol>
+			<li class="stonetop-mrow"><button class="stonetop-mrow-roll">Defend</button>
+				<div class="stonetop-move-preview" popover="manual">text</div></li>
+		</ol></div>`;
+		const row = document.querySelector(".stonetop-mrow");
+		row.getBoundingClientRect = () => rect(20, 300, 200, 40);
+		const card = row.querySelector(".stonetop-move-preview");
+		popover(card);
+		const view = document.defaultView;
+		vi.spyOn(view, "innerWidth", "get").mockReturnValue(400);
+		vi.spyOn(view, "innerHeight", "get").mockReturnValue(900);
+
+		MovePreviews.attachTo(document.querySelector(".root"));
+		pointer("pointerover", row);
+
+		expect(card.isShown).toBe(true);
+		expect(card.style.getPropertyValue("--move-preview-y")).toBe("346px");
+		vi.restoreAllMocks();
+	});
 });

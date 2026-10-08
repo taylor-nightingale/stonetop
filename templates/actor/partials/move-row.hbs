@@ -1,6 +1,5 @@
-{{!-- One move row: the rollable <li> wrapper + the shared move-item body. Shared by the steading's
-      rail (steading-move-panel), the rows a choice grants and the major-arcana card (arcanum-cards) so the
-      roll wiring stays identical — a
+{{!-- One move row: the rollable <li> wrapper + the shared move-item body. Shared by the rows a choice
+      grants and the major-arcana card (arcanum-cards) so the roll wiring stays identical — a
       rollable move gets `.item[data-item-id]` so the sheet's roll handler resolves the OWNED move item
       (full description + 10+/7-9/6- result tiers) instead of a bare stat roll. Context is a MoveSnapshot;
       params: categoryKey, alwaysShowResource, disclosure, startOpen (forwarded to move-item). `is-open` is the row half of a disclosure's state — Disclosure toggles it there, so

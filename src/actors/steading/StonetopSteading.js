@@ -469,12 +469,9 @@ export class StonetopSteading {
 	// ── Rendering ──────────────────────────────────────────────────────────────
 
 	async buildSnapshot() {
-		// Before the rest: the move rows are built FROM these, and a reminder is not something a row
-		// can go and look up for itself.
-		const rollNotes = await this.#rollNotes.bySlug();
 		const [improvements, moves, seasons, resourcesPlate, residentsPlate, grantedMoves] = await Promise.all([
 			this.#improvements.buildSnapshot(this.#effects, this.#season.season),
-			this.#moves.buildSnapshot(rollNotes),
+			this.#moves.buildSnapshot(),
 			this.#seasons.buildSnapshot(),
 			this.#art.resourcesPlate(),
 			this.#art.residentsPlate(),

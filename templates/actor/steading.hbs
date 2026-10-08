@@ -59,7 +59,7 @@
 				{{> "stonetop.steading-stat-panel" attr="surplus"  attrData=stonetop.surplus                changeAction="surplus"  panelClass="steading-surplus steading-tile--arched"}}
 			</div>
 			{{#if stonetop.homefrontMoves}}
-				{{> "stonetop.steading-move-panel" group=stonetop.homefrontMoves index=0}}
+				{{> "stonetop.rail-move-group" category=stonetop.homefrontMoves index=0 open=true}}
 			{{/if}}
 			{{!-- The four Seasons Change moves, as a second group of the same kind. They used to hang
 			      off the wheel's segments, which put a whole move inside a control whose job is to
@@ -71,7 +71,7 @@
 			      numbered steps the move prescribes. A move is not a thing the sheet rations: both
 			      renderings go through the same row, so it rolls and posts identically in either. --}}
 			{{#if stonetop.seasonalMoves}}
-				{{> "stonetop.steading-move-panel" group=stonetop.seasonalMoves index=1}}
+				{{> "stonetop.rail-move-group" category=stonetop.seasonalMoves index=1 open=true}}
 			{{/if}}
 		</div>
 
