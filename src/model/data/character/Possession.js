@@ -14,5 +14,6 @@ export class Possession {
 		this.choices     = data.choices     ?? null;
 		this.scaling     = data.scaling     ?? null;
 		this.sortOrder   = data.sortOrder   ?? null;
+		this.grants      = data.grants      ?? [];
 	}
 }

@@ -1,0 +1,76 @@
+{
+	"_id": "RzvRU1mZrV5f1iQl",
+	"_key": "!items!RzvRU1mZrV5f1iQl",
+	"name": "Mastiffs",
+	"type": "follower",
+	"img": "systems/stonetop/assets/content/icons/animal-companion.png",
+	"system": {
+		"slug": "mastiffs",
+		"arcanaSlug": null,
+		"reference": null,
+		"tagList": [
+			"group",
+			"alert",
+			"keen-nosed",
+			"fierce",
+			"overprotective"
+		],
+		"tagOptions": [],
+		"hp": {
+			"value": 0,
+			"max": 6
+		},
+		"armor": "",
+		"damage": "[[/r d6]] (_hand_, _grabby_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to bark & threaten"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [
+				"affection"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [],
+		"moves": "",
+		"description": "",
+		"notes": "",
+		"members": [
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			},
+			{
+				"name": "",
+				"hp": {
+					"value": 6,
+					"max": 6
+				}
+			}
+		]
+	},
+	"flags": {},
+	"folder": "L8MaIYwGZ0HOUZzG"
+}

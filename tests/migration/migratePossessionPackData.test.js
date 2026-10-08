@@ -5,6 +5,7 @@ import { FakePossessionRepository } from "../fakes/FakePossessionRepository.js";
 import { ContainerOutfitSync } from "../../src/actors/character/ContainerOutfitSync.js";
 import { CharacterPossessions } from "../../src/actors/character/CharacterPossessions.js";
 import { FakeOutfitItems } from "../fakes/FakeOutfitItems.js";
+import { FakeFollowers } from "../fakes/FakeFollowers.js";
 
 // An embedded possession is a COPY taken when the playbook granted it, so regenerating the pack never
 // reaches it: a description added later never appears, and gear hung off a pick that the player already
@@ -183,5 +184,62 @@ describe("migratePossessionPackData", () => {
 		await migratePossessionPackData(actor, repo, sync);
 
 		expect(outfit.getSlugs("possession:weapons-of-war-heavy").filter(s => s === "sword")).toHaveLength(1);
+	});
+});
+
+// Hounds, A good dog and Mastiffs gained a follower grant after characters had already ticked them.
+// The refresh carries the grant across; a character who already took the possession gets the follower
+// once — when the grant is new to their copy — so a follower they later removed is not forced back.
+const HOUNDS = {
+	slug: "hounds", name: "Hounds", description: "2-3 followers",
+	outfitItems: [], choices: null, resource: null, scaling: null, sortOrder: null,
+	grants: [{ type: "follower", slug: "hounds", locations: ["tab"] }],
+};
+
+function houndsItem(overrides = {}) {
+	return {
+		_id: "pos1", type: "possession", name: "Hounds",
+		system: {
+			slug: "hounds", description: "2-3 followers", outfitItems: [], choices: null,
+			selected: true, preselected: false, uses: 0, pickValues: {}, choiceUses: {},
+			...overrides,
+		},
+	};
+}
+
+describe("migratePossessionPackData — follower grants", () => {
+	it("refreshes the grants from the pack", async () => {
+		const { actor, repo, sync } = setup([houndsItem()], [HOUNDS]);
+
+		await migratePossessionPackData(actor, repo, sync, new FakeFollowers());
+
+		expect(itemIn(actor).system.grants).toEqual(HOUNDS.grants);
+	});
+
+	it("gives a character who already took the possession its newly granted follower", async () => {
+		const { actor, repo, sync } = setup([houndsItem()], [HOUNDS]);
+		const followers = new FakeFollowers();
+
+		await migratePossessionPackData(actor, repo, sync, followers);
+
+		expect(followers.showOnTab("hounds")).toBe(true);
+	});
+
+	it("grants no follower for a possession the player has not selected", async () => {
+		const { actor, repo, sync } = setup([houndsItem({ selected: false })], [HOUNDS]);
+		const followers = new FakeFollowers();
+
+		await migratePossessionPackData(actor, repo, sync, followers);
+
+		expect(followers.owned).toEqual([]);
+	});
+
+	it("does not re-grant a follower the possession already carried a grant for", async () => {
+		const { actor, repo, sync } = setup([houndsItem({ grants: HOUNDS.grants })], [HOUNDS]);
+		const followers = new FakeFollowers();
+
+		await migratePossessionPackData(actor, repo, sync, followers);
+
+		expect(followers.owned).toEqual([]);
 	});
 });

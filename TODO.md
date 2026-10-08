@@ -5,6 +5,5 @@
 * let the GM define what the basic moves list entails, perhaps _all_ default move lists (playbook, special, steading, etc.)
 * add a stonetop image to the game system in foundry like the delta green one has
 * feature: the would be hero's "a shield bearing ___'s crest" should allow you to input text in ___
-* feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
 * feature Instead of blank, default to stonetop for folk
 

@@ -1,5 +1,6 @@
 import { CharacterMoveGrants } from "../actors/character/CharacterMoveGrants.js";
 import { GrantedItems } from "../actors/GrantedItems.js";
+import { GrantList } from "../model/data/Grant.js";
 import { info } from "../utils/logger.js";
 import { toSlug } from "../utils/slug.js";
 import { CharacterPossessions } from "../actors/character/CharacterPossessions.js";
@@ -109,7 +110,8 @@ export async function migrateCharacter(actor, repos, insertRepo = null) {
 	await migratePossessions(actor, repos.possessions, moves, outfitItems);
 	// Refresh authored fields before stamping the group slug: the refresh replaces `choices` (slug
 	// included), so the stamp has to run after it to correct a pack that ever drifts.
-	await migratePossessionPackData(actor, repos.possessions, outfitSync);
+	await migratePossessionPackData(actor, repos.possessions, outfitSync,
+		new CharacterFollowers(actor, repos.followers, resourceController));
 	await migratePossessionChoiceSlugs(actor);
 
 	if (insertRepo) await migrateInsert(actor, insertRepo, moves);
@@ -772,16 +774,21 @@ export async function migrateCompanionTypeSlugs(actor) {
 // Refreshing the data is not enough on its own: the grant has to be recomputed, or gear the pack just
 // added to an already-ticked pick would sit there unmaterialised. The sync is idempotent, so re-running
 // this cannot double-grant. Scoped to possessions the repo knows; drag-dropped custom ones are skipped.
-export async function migratePossessionPackData(actor, possessionRepo, outfitSync = null) {
+//
+// A follower grant is the exception to recomputing: it is applied only when it is new to the character's
+// copy, so a follower the player removed from the roster is not forced back on every version bump.
+export async function migratePossessionPackData(actor, possessionRepo, outfitSync = null, followers = null) {
 	const items = [...actor.items].filter(i => i.type === "possession" && i.system?.slug);
 	if (!items.length) return;
 
 	const bySlug = new Map((await possessionRepo.findBySlugs(items.map(i => i.system.slug))).map(p => [p.slug, p]));
 	const updates = [];
 	const refreshed = [];
+	const newFollowerGrants = [];
 	for (const item of items) {
 		const p = bySlug.get(item.system.slug);
 		if (!p) continue;
+		if (item.system.selected) newFollowerGrants.push(...newFollowerGrantsOf(item, p));
 		updates.push({
 			_id: item._id,
 			system: {
@@ -791,6 +798,7 @@ export async function migratePossessionPackData(actor, possessionRepo, outfitSyn
 				resource:    p.resource    ?? null,
 				scaling:     p.scaling     ?? null,
 				sortOrder:   p.sortOrder   ?? null,
+				grants:      p.grants      ?? [],
 			},
 		});
 		refreshed.push(item._id);
@@ -809,6 +817,14 @@ export async function migratePossessionPackData(actor, possessionRepo, outfitSyn
 		const item = [...actor.items].find(i => i._id === id);
 		if (item) await outfitSync?.syncItem(item);
 	}
+	for (const grant of newFollowerGrants) {
+		await followers?.addFollower(grant.slug, { showOnTab: grant.onTab });
+	}
+}
+
+function newFollowerGrantsOf(item, possession) {
+	const had = new Set(GrantList.fromRaw(item.system.grants).slugsOfType("follower"));
+	return GrantList.fromRaw(possession.grants).ofType("follower").filter(g => !had.has(g.slug));
 }
 
 // ── N. Refresh an acquired arcana follower's authored stat block from the pack ─
