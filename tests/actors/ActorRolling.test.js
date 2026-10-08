@@ -292,6 +292,15 @@ describe("ActorRolling.execute — asking for the mode", () => {
 		expect(rolling._actor.typedActor.opened).toEqual(["advantage-disadvantage"]);
 	});
 
+	// A roll clicked on a popped-out sheet asks over that sheet.
+	it("asks over the rolling actor's sheet", async () => {
+		const dialog = new FakeRollModeDialog();
+		const rolling = makeRolling({bonuses: {wis: 1}, dialog});
+		rolling._actor.sheet = { window: { windowId: "stonetop-character-abc" } };
+		await rolling.execute(ask("wis"));
+		expect(dialog.options.app).toBe(rolling._actor.sheet);
+	});
+
 	// A debility is not a choice: it bends whatever was picked, as it bent the sheet's mode before.
 	it("lets the actor's debilities bend the mode picked", async () => {
 		const dialog = new FakeRollModeDialog().answer(new RollChoice(null, "adv"));

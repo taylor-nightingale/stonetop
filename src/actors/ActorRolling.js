@@ -39,7 +39,10 @@ export class ActorRolling {
 		// A request that carries a mode was shift-clicked: it rolls without asking. Nothing can pick
 		// the stat for an "ask" move, so that one always asks.
 		const choice = choosing || !request.rollMode
-			? await this._dialog.pick(await this._prompt(request), {openRule: slug => typed.openMoveSheet(slug)})
+			? await this._dialog.pick(await this._prompt(request), {
+				openRule: slug => typed.openMoveSheet(slug),
+				app:      this._actor.sheet,
+			})
 			: new RollChoice(null, request.rollMode);
 		if (!choice) return;
 

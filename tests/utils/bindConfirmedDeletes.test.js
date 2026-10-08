@@ -24,12 +24,13 @@ describe("bindConfirmedDeletes", () => {
 		confirmDelete.mockResolvedValue(true);
 		const run = vi.fn();
 		const root = makeRoot();
-		bindConfirmedDeletes(root, ".del", run);
+		const sheet = { window: { windowId: "stonetop-steadfast-abc" } };
+		bindConfirmedDeletes(root, ".del", run, sheet);
 
 		fire(root.querySelector(".del"), "click");
 		await settle();
 
-		expect(confirmDelete).toHaveBeenCalledWith("Cloak"); // shows the row's data-name
+		expect(confirmDelete).toHaveBeenCalledWith("Cloak", sheet); // the row's data-name, asked over its sheet
 		expect(run).toHaveBeenCalledTimes(1);
 		// The handler reads ev.currentTarget.dataset AFTER awaiting the confirm; a native event's
 		// currentTarget is null by then, so bindConfirmedDeletes must hand run the element itself.

@@ -45,7 +45,7 @@ export const PIP_ACTIONS = {
 export const OUTFIT_ACTIONS = {
 	resetOutfit: editOnly(async function () {
 		const body = game.i18n.localize("stonetop.inventory.outfit.resetConfirm");
-		if (await confirmAction("stonetop.inventory.outfit.resetTitle", body)) {
+		if (await confirmAction("stonetop.inventory.outfit.resetTitle", body, this)) {
 			await this._stonetopCharacter.resetOutfit();
 		}
 	}),
@@ -59,7 +59,7 @@ export const ADVANCEMENT_ACTIONS = {
 		const { cost, level, xpAfter } = this._stonetopCharacter.advancement;
 		const body = game.i18n.format("stonetop.character.levelUp.confirm",
 			{ cost, from: level, to: level + 1, xp: xpAfter });
-		if (await confirmAction("stonetop.character.levelUp.confirmTitle", body)) {
+		if (await confirmAction("stonetop.character.levelUp.confirmTitle", body, this)) {
 			await this._stonetopCharacter.advance();
 		}
 	}),

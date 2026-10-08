@@ -18,7 +18,7 @@ import * as CG from "../utils/choiceGroupEdit.js";
 import * as PE from "../utils/playbookEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { bindAll } from "../utils/bindAll.js";
-import { HostedDialog } from "../utils/HostedDialog.js";
+import { inWindowOf } from "../utils/inWindowOf.js";
 import { itemDescriptionRich } from "./itemDescriptionRich.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { FoundryMoveRepository } from "../actors/character/repositories/FoundryMoveRepository.js";
@@ -305,11 +305,12 @@ export function createStonetopPlaybookSheetClass(Base) {
 					<option value="">— Create new —</option>
 					${options}
 				</select>`;
-			const slug = await new HostedDialog().prompt({
+			const slug = await foundry.applications.api.DialogV2.prompt({
 				window: { title: cfg.title },
 				content,
 				ok: { label: "Add", callback: (_event, button) => button.form.elements.ref?.value ?? "" },
 				rejectClose: false,
+				renderOptions: inWindowOf(this),
 			});
 			if (slug === null || slug === undefined) return;   // dismissed
 			if (slug) return onPick(slug);

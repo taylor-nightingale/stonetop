@@ -1,6 +1,6 @@
 import { RollModes } from "./RollModes.js";
 import { RollChoice } from "./RollPrompt.js";
-import { HostedDialog } from "../utils/HostedDialog.js";
+import { inWindowOf } from "../utils/inWindowOf.js";
 
 const TEMPLATE = "systems/stonetop/templates/apps/roll-prompt.hbs";
 
@@ -10,20 +10,21 @@ const TEMPLATE = "systems/stonetop/templates/apps/roll-prompt.hbs";
  */
 export class RollModeDialog {
 	constructor({
-		wait   = config => new HostedDialog().wait(config),
+		wait   = config => foundry.applications.api.DialogV2.wait(config),
 		render = (path, context) => foundry.applications.handlebars.renderTemplate(path, context),
 	} = {}) {
 		this._wait   = wait;
 		this._render = render;
 	}
 
-	async pick(prompt, { openRule = async () => {} } = {}) {
+	async pick(prompt, { openRule = async () => {}, app } = {}) {
 		return this._wait({
 			window:  { title: prompt.title, icon: "fa-solid fa-dice" },
 			classes: ["stonetop", "sheet", "stonetop-roll-dialog"],
 			content: (await this._render(TEMPLATE, prompt)).trim(),
 			buttons: RollModes.options().map(option => RollModeDialog._button(option, prompt)),
 			actions: { openRule: () => openRule(prompt.rule.slug) },
+			renderOptions: inWindowOf(app),
 			render:  (_event, dialog) => {
 				if (prompt.choosesStat) RollModeDialog._awaitStat(dialog.element);
 			},
