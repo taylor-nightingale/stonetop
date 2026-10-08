@@ -8,6 +8,7 @@
 import * as CG from "../utils/choiceGroupEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { bindAll } from "../utils/bindAll.js";
+import { HostedDialog } from "../utils/HostedDialog.js";
 import { FoundryMoveRepository } from "../actors/character/repositories/FoundryMoveRepository.js";
 import { itemDescriptionRich } from "./itemDescriptionRich.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
@@ -156,7 +157,7 @@ export function createStonetopInsertSheetClass(Base) {
 					<option value="">— Create new move —</option>
 					${options}
 				</select>`;
-			const moveSlug = await foundry.applications.api.DialogV2.prompt({
+			const moveSlug = await new HostedDialog().prompt({
 				window: { title: "Add move" },
 				content,
 				ok: {

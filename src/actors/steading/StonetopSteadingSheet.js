@@ -10,6 +10,7 @@ import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
 import { BoardView } from "./BoardView.js";
+import { HostedDialog } from "../../utils/HostedDialog.js";
 import { toggleDisclosure, toggleSlidingDisclosure, toggleSwappingDisclosure } from "../../utils/Disclosure.js";
 import { MovePreviews } from "../../utils/MovePreviewPlacement.js";
 import { SeasonStepAddress } from "../../model/data/steading/SeasonStepAddress.js";
@@ -17,7 +18,7 @@ import { Seasons } from "../../model/data/steading/Seasons.js";
 
 /** Ask before the steading enters `season` — a turn and the GM's correction both discard this one's record. */
 function confirmSeason(titleKey, confirmKey, season) {
-	return foundry.applications.api.DialogV2.confirm({
+	return new HostedDialog().confirm({
 		window:  { title: game.i18n.localize(`stonetop.steading.seasons.${titleKey}`) },
 		content: `<p>${game.i18n.format(`stonetop.steading.seasons.${confirmKey}`, {
 			season: game.i18n.localize(season.labelKey),

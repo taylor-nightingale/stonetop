@@ -14,6 +14,7 @@ import { renderTemplate } from "../../fakes/renderTemplate.js";
 import { renderSheetPart } from "../../fakes/renderSheetPart.js";
 import { readFileSync } from "fs";
 import path from "path";
+import { clickedIn } from "../../fakes/clickedIn.js";
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
@@ -380,6 +381,24 @@ describe("the season wheel", () => {
 		await sheet.actor.typedActor.rollMoveBySlug(die.dataset.moveSlug);
 		expect(sheet.actor.rolledItems.map(r => r.item.system.slug)).toEqual(["seasons-change-winter"]);
 		expect(sheet.actor.system.season).toBe("winter");
+	});
+
+	// Turned from a popped-out sheet, the question opens beside it rather than back in the main workspace.
+	it("asks in the popped-out window the sheet is in", async () => {
+		const sheet    = await makeSheet({ season: "autumn" });
+		const win      = clickedIn("stonetop-steading-abc");
+		const savedApi = foundry.applications.api;
+		const confirm  = vi.fn(async () => true);
+		foundry.applications.api      = { ...savedApi, DialogV2: { confirm } };
+		foundry.applications.detached = { windows: new Map([[win.id, { window: win }]]) };
+		try {
+			await render(sheet, true);
+			await act(sheet, "turnSeason", null);
+		} finally {
+			foundry.applications.api = savedApi;
+			delete foundry.applications.detached;
+		}
+		expect(confirm.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-steading-abc" } });
 	});
 
 	it("rolls nothing when the prompt is declined", async () => {

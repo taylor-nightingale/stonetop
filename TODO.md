@@ -8,5 +8,3 @@
 * feature: ranger special possession Hounds should add a group follower (3), also for would be hero non-group one
 * feature Instead of blank, default to stonetop for folk
 * blood quenched sword consequence "you no longer gain sustenance from food..." needs 3 resources on it to trac the sustenance
-* on a popped out window clicking a move roll pops up the new window in foundry, is there a way to pop it up over the detached sheet?
-* make stats collapse button look like a banner rather than a floating button.

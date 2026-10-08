@@ -1,5 +1,6 @@
 import { RollModes } from "./RollModes.js";
 import { RollChoice } from "./RollPrompt.js";
+import { HostedDialog } from "../utils/HostedDialog.js";
 
 const TEMPLATE = "systems/stonetop/templates/apps/roll-prompt.hbs";
 
@@ -9,7 +10,7 @@ const TEMPLATE = "systems/stonetop/templates/apps/roll-prompt.hbs";
  */
 export class RollModeDialog {
 	constructor({
-		wait   = config => foundry.applications.api.DialogV2.wait(config),
+		wait   = config => new HostedDialog().wait(config),
 		render = (path, context) => foundry.applications.handlebars.renderTemplate(path, context),
 	} = {}) {
 		this._wait   = wait;

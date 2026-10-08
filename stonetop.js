@@ -24,6 +24,8 @@ import { onDirectoryNoteItemChanged } from "./src/hooks/DirectoryNoteChanged.js"
 import { onPreUpdateSteadingPeople, onUpdateSteadingPeople } from "./src/hooks/SteadingPeopleChanged.js";
 import { onUpdateLinkedActor, onDeleteLinkedActor } from "./src/hooks/LinkedActorChanged.js";
 import { installBrokenImageHider } from "./src/hooks/HideBrokenImages.js";
+import { onOpenDetachedWindow } from "./src/hooks/OpenDetachedWindow.js";
+import { interactionWindows } from "./src/utils/InteractionWindows.js";
 import { onRenderChatMessage } from "./src/chat/xpMarkControl.js";
 import { onRenderRollMessage } from "./src/chat/inlineRollCard.js";
 import { onUpdateActor, onSteadingCreatedOrDeleted } from "./src/hooks/SteadingChanged.js";
@@ -79,6 +81,7 @@ Hooks.once("init", () => {
 	info("Initializing");
 
 	installBrokenImageHider(); // hide broken-image placeholders when stonetop-art/ illustrations are absent
+	interactionWindows.watch(window);
 
 	Object.assign(CONFIG.Actor.dataModels, { character: CharacterData, npc: NpcData, steading: SteadingData });
 	Object.assign(CONFIG.Item.dataModels, {
@@ -206,6 +209,10 @@ Hooks.once("init", () => {
 // -- RENDER PAUSE ----------------------------------------------
 // Fires when the game is paused
 Hooks.on("renderPause", onRenderPause);
+
+// -- DETACHED WINDOWS ------------------------------------------
+// A popped-out sheet's window, so dialogs asked from it open over it
+Hooks.on("openDetachedWindow", onOpenDetachedWindow);
 
 // -- READY -----------------------------------------------------
 // Fires when the world is fully loaded and all documents exist.

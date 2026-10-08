@@ -6,6 +6,7 @@ import { RollableStat } from "../../src/actors/RollableStat.js";
 import { RollModeNote, RollModeNotes } from "../../src/model/snapshot/steading/RollModeNote.js";
 import { renderTemplate } from "../fakes/renderTemplate.js";
 import { fakeI18n } from "../fakes/foundry/FakeI18n.js";
+import { clickedIn } from "../fakes/clickedIn.js";
 
 // The dialog every 2d6 roll asks through: Advantage, Normal or Disadvantage, under a heading, the
 // dice, and the formula they make (or a dropdown of stats, for a move that rolls "ask"). DialogV2.wait
@@ -104,6 +105,21 @@ describe("RollModeDialog — the window", () => {
 	it("sizes itself to its contents", async () => {
 		await makeDialog().pick(RollPrompt.forStat("Defy Danger", int, maelen));
 		expect(config.position).toBeUndefined();
+	});
+
+	// Rolled from a popped-out sheet, it opens over that sheet rather than back in the main workspace.
+	it("opens in the popped-out window the roll was clicked in", async () => {
+		const win  = clickedIn("stonetop-character-abc");
+		const wait = vi.fn(async () => null);
+		vi.stubGlobal("foundry", {
+			applications: {
+				api:      { DialogV2: { wait } },
+				detached: { windows: new Map([[win.id, { window: win }]]) },
+			},
+		});
+		await new RollModeDialog({ render: async (path, context) => renderTemplate(path, context) })
+			.pick(RollPrompt.forStat("Defy Danger", int, maelen));
+		expect(wait.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-character-abc" } });
 	});
 });
 
