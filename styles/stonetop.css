@@ -750,40 +750,20 @@ body,
 .stonetop.sheet.character .stonetop-appearance > p { display: inline; margin: 0; }
 
 /* ── The band's foot ──
-   The line the band folds TO and the control that folds it, in flow and in that order.
-
-   `flex-end`, so the controls sit on the ledger's last line rather than floating above it. Half a
-   rem apart: this line's width is what the column beside the stats has to hold. The numbers are the
-   only thing on it that shrinks. */
+   The line the band folds TO. Folded, it keeps clear of the fold tab's target, which reaches up into
+   the band's last line at its right end. */
 .stonetop.sheet.character .stonetop-band-foot {
 	display: flex;
-	flex-wrap: nowrap;
-	align-items: flex-end;
-	justify-content: flex-end;
 	align-self: end;
-	gap: 0.5rem;
 	padding-top: 0.25rem;
 }
 
 .stonetop.sheet.character .stonetop-band-foot > .stonetop-folded-ledger {
 	flex: 0 1 auto;
 	min-width: 0;
-	margin-right: auto;
 }
 
-.stonetop.sheet.character .stonetop-band-foot > .stonetop-top-toggle { flex: 0 0 auto; }
-
-/* Short of room, the foot keeps to its column beside the stats and never goes under them
-   (BandFootFit). Compact, the fold control drops its word — its aria-label and title still say it —
-   and keeps the caret. Wrapped, where even that does not fit (a longer language), the line breaks
-   inside the column, the caret held to the right edge. Only while
-   open: folded, the foot is the band's whole line and has the room. */
-.stonetop.sheet.character .stonetop-band.is-foot-compact .stonetop-top-toggle-label { display: none; }
-
-.stonetop.sheet.character .sheet-wrapper:not(.top-collapsed) .stonetop-band.is-foot-wrapped > .stonetop-band-foot {
-	flex-wrap: wrap;
-	row-gap: 0.25rem;
-}
+.stonetop.sheet.character .top-collapsed .stonetop-band-foot { padding-right: calc(var(--fold-tab-len) + 0.5rem); }
 
 /* ── Ailments ──
    The same panel and bar as every other group. One line per row, the columns reserved the way a
@@ -1007,10 +987,11 @@ body,
 	margin-top: 0;
 }
 
-/* ── The two fold controls, as one look ────────────────────────────────────────
+/* ── The two fold tabs, as one look ────────────────────────────────────────────
    The rail's and the band's do the same job on two edges — put this region away, bring it back — so
-   the chrome and the manners are declared once here and each keeps only its own SHAPE below (the
-   rail's tab, the band's handle).
+   they are one tab: the region's raised ground reaching past its edge, ruled on its outer sides, a
+   faint caret on it. The look and the manners are declared once here and each keeps only its own
+   place and shape (the rail's on its edge below, the band's on its foot here).
 
    A selector list rather than a class both buttons wear. A marker class is a thing to REMEMBER, and
    the first time it was written this way the steading's rail toggle did not get it and silently lost
@@ -1022,24 +1003,58 @@ body,
    moved the column at once and then sailed the caret across the tab for half a second behind it,
    over content that had already reflowed.
 
-   `min-width`/`min-height`/`padding` are core's too: `.window-app button` stretches a button to fill
-   its line, which is not what either of these is.
-
-   The corner is a custom property because the rail's folded strip squares it off, and its pill reads
-   it from here rather than restating it — one chip corner, one number. */
+   `min-width`/`min-height`/`padding`/`box-shadow` are core's too: `.window-app button` stretches a
+   button to fill its line and raises it off the page, which is not what either of these is. */
 .stonetop-rail-toggle,
 .stonetop-top-toggle {
-	--fold-chip-radius: 4px;
+	display: grid;
+	place-items: center;
 	min-width: 0;
 	min-height: 0;
 	padding: 0;
 	line-height: 1;
-	border: 1px solid var(--st-rule);
-	border-radius: var(--fold-chip-radius);
-	background: var(--st-paper);
+	border: 1px solid var(--st-rule-strong);
+	background: var(--st-paper-raised);
+	box-shadow: none;
+	color: var(--st-ink-faint);
+	font-size: 0.7rem;
+	overflow: visible;
 	cursor: pointer;
-	transition: color 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+	transition: color 0.15s ease, border-color 0.15s ease;
 }
+
+.stonetop-rail-toggle > i,
+.stonetop-top-toggle > i {
+	margin: 0;
+	line-height: 1;
+}
+
+/* The band's tab hangs from its bottom edge at its right end, over the band's rule, so the band's
+   ground runs on into it; ruled in the band's own rule. The band's margin is the tab's depth, so it
+   covers nothing on the strip below. Drawn shallow and pressed tall: the 24px target (SC 2.5.8)
+   reaches up into the band, where the line keeps clear of it (see the band's foot). */
+.stonetop.sheet.character .stonetop-band > .stonetop-top-toggle {
+	position: absolute;
+	top: 100%;
+	right: var(--main-inset);
+	z-index: 1;
+	width: var(--fold-tab-len);
+	height: var(--fold-tab-w);
+	border-color: var(--st-rule);
+	border-top: none;
+	border-radius: 0 0 3px 3px;
+}
+
+.stonetop.sheet.character .stonetop-band > .stonetop-top-toggle::after {
+	content: "";
+	position: absolute;
+	left: -1px;
+	right: -1px;
+	bottom: -1px;
+	height: 24px;
+}
+
+.stonetop.sheet.character .stonetop-band.stonetop-head { margin-bottom: max(var(--band-block-gap), var(--fold-tab-w)); }
 
 .stonetop-rail-toggle:hover,
 .stonetop-rail-toggle:focus-visible,
@@ -1051,49 +1066,9 @@ body,
 	color: var(--st-accent);
 }
 
-/* The band's chip, at the end of the foot line.
-
-   The same chip the rail's toggle is, carrying the region's name beside its caret: the two do the
-   same job on two edges, and a reader who has learned one has learned the other. It spent a while as
-   a bare underlined word on the grounds that the band's neighbours are small caps and no boxes — but
-   it was positioned then, hanging half below the band's rule, and what that actually drew was the
-   seam ruled straight through the word. In flow among the mode's own small caps, the chip is what
-   separates the one control on this line from the labels beside it.
-
-   `box-shadow` is core's `.window-app button`, which raises every button off the page; the size
-   floors it also sets are answered in the shared chrome above. */
-.stonetop-top-toggle {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.375rem;
-	flex: 0 0 auto;
-	margin-bottom: 0.1875rem;
-	padding: 0.125rem 0.375rem;
-	box-shadow: none;
-	color: var(--st-ink-soft);
-	font-size: var(--fs-fine);
-}
-
-/* The region's name, in the label voice every other name on this sheet is set in — see the note on
-   the steading's tile titles: StonetopUI IS the small-caps face, so neither `text-transform` nor a
-   synthesised bold goes anywhere near it. */
-.stonetop-top-toggle-label {
-	font-family: "StonetopUI", serif;
-	font-weight: normal;
-	letter-spacing: 0.04em;
-	line-height: 1;
-}
-
-.stonetop-top-caret {
-	margin: 0;
-	line-height: 1;
-	transition: transform 0.15s ease;
-}
-
-.sheet-wrapper.top-collapsed .stonetop-top-caret {
-	transform: rotate(180deg);
-}
+/* The caret points where the band is about to go: up while it is out, down while it is folded. */
+.stonetop-top-caret { transition: transform 0.15s ease; }
+.sheet-wrapper.top-collapsed .stonetop-top-caret { transform: rotate(180deg); }
 
 .stonetop.sheet .sheet-tabs .item.active {
 	transform: translateY(2px);
@@ -1207,12 +1182,9 @@ body,
 
 /* ── Character Sheet ────────────────────────────────────────────────────────── */
 
-/* The narrowest this sheet is written down to, and the number is measured rather than inherited.
-   What bounds it is the band: six stat frames, and beside them the foot, which never goes under
-   them (BandFootFit). With the rail a drawer the band has the sheet's width, and at 47rem the column
-   beside the stats still holds the foot on one line in English with the fold control compact —
-   218px against the 207 it needs, at the 16px root. In rem, because the frames and the foot are:
-   a px floor holds less of them at every step up of the Font Size setting. */
+/* The narrowest this sheet is written down to. What bounds it is the band: six stat frames, and the
+   Ailments panel beside them. In rem, because the frames are: a px floor holds less of them at every
+   step up of the Font Size setting. */
 .character {
 	min-width: 47rem;
 }
@@ -2385,8 +2357,10 @@ body,
 	   sheet whose names were ALREADY truncating — a stat tile's size is not an opinion about how
 	   much of "Persuade (vs. NPCs)" you should be able to read. */
 	--character-rail-width: max(var(--moves-rail-width), calc(2 * var(--stat-frame-w) + 0.25rem + 3rem));
-	/* The tab on the rail's edge, drawn this wide (see .stonetop-rail-toggle). */
-	--rail-tab-w: 0.85rem;
+	/* The fold tab on the rail's edge, and on the band's foot turned on its side: drawn this thick
+	   and this long (see .stonetop-rail-toggle, .stonetop-top-toggle). */
+	--fold-tab-w: 0.85rem;
+	--fold-tab-len: 2rem;
 	/* One inset, on both sheets, for everything in the column beside the rail — the character's band
 	   or the steading's ledger line, the tab strip and the tab — so they start on one line. It is
 	   also where the rail's tab rides, and its 24px target (SC 2.5.8) is what sets it: the tab covers
@@ -2581,18 +2555,10 @@ body,
 	top: 1.1rem;
 	left: var(--rail-width);
 	z-index: 5;
-	display: grid;
-	place-items: center;
-	width: var(--rail-tab-w);
-	height: 2rem;
-	padding: 0;
-	border: 1px solid var(--st-rule-strong);
+	width: var(--fold-tab-w);
+	height: var(--fold-tab-len);
 	border-left: none;
 	border-radius: 0 3px 3px 0;
-	background: var(--st-paper-raised);
-	color: var(--st-ink-faint);
-	font-size: 0.7rem;
-	overflow: visible;
 	transition: left 0.4s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -2605,11 +2571,6 @@ body,
 	bottom: -1px;
 	left: 0;
 	width: 24px;
-}
-
-.stonetop-rail-toggle > i {
-	margin: 0;
-	line-height: 1;
 }
 
 .stonetop-rail-layout.rail-shut > .stonetop-rail-toggle { left: 0; }
@@ -2643,9 +2604,9 @@ body,
    it borrows from the column, and the tab rides the drawer's edge. Untouched, a drawer is shut —
    `:not(.rail-open)` covers `.rail-shut` too, and says the same thing it does.
 
-   62.5rem is where a column rail still leaves the character's band room for its foot beside the
-   stats (BandFootFit), compact, in English: below it that column ran down to 142px. In rem, because
-   the band is — the stats, the rail and the foot all grow with the Font Size setting. */
+   62.5rem is where a column rail still leaves the character's band room for the Ailments panel
+   beside the stats. In rem, because the band is — the stats and the rail both grow with the Font
+   Size setting. */
 @container (max-width: 62.5rem) {
 	/* A drawer is wider than a column, and capped so it never takes the whole sheet. Both consumers
 	   are told, because the layout that declares the token is the container these queries ask about

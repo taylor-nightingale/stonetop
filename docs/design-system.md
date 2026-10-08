@@ -162,8 +162,9 @@ line) on raised paper, ruled off below; and the tab, strip and body, on the wind
 A drawer is lifted over the tab by its shadow, not by a lighter ground, which would make it read as
 part of the top bar.
 
-The character band's foot — the Stats fold control — always sits beside the stats, never under them.
-Short of room the fold control drops its word and keeps its caret.
+The character band folds by a tab on its bottom edge: the rail's tab turned on its side, the same
+look, hung at the band's right inset in the same place open and folded. The band's margin is the
+tab's depth, so it covers nothing on the tab strip.
 
 The Ailments panel's wound editor hangs from the panel's bottom edge at the panel's width, over the
 tab. The outfit adder follows the same pattern: an editor hangs from what opened it (the "+ add

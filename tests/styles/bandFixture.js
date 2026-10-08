@@ -73,13 +73,6 @@ export const bandHtml = ({ ailmentsOpen = false, lang = "de", ...options } = {})
 	editable: true, sheetIdPrefix: "s1", viewFlags: {}, ailmentsOpen,
 }, lang);
 
-/** The band with the classes BandFootFit would have put on it. */
-export const withFoot = (html, ...classes) => {
-	const marked = html.replace(/class="stonetop-band\b/, `class="stonetop-band ${classes.join(" ")}`);
-	if (marked === html) throw new Error("withFoot: no band in the markup");
-	return marked;
-};
-
 /**
  * The band where the sheet puts it: beside the rail, over the tabs. `wrapper` is the class list the
  * sheet wrapper carries (`top-collapsed` when folded), `layout` the rail layout's (`rail-shut`).

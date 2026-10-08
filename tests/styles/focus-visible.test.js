@@ -116,7 +116,6 @@ describe.skipIf(!canProbe())("reduced motion", () => {
 <div class="application stonetop sheet character themed theme-light"><div class="window-content">
   <button type="button" class="stonetop-top-toggle" id="rm-toggle" aria-label="Collapse">
     <i class="fas fa-chevron-up stonetop-top-caret" id="rm-chevron"></i>
-    <span class="stonetop-top-toggle-label">Stats</span>
   </button>
 </div></div>`;
 

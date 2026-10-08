@@ -17,7 +17,6 @@ import { TAG_DEFINITION_ACTIONS } from "../tagDefinitions.js";
 import { toggleSlidingDisclosure, toggleSwappingDisclosure } from "../../utils/Disclosure.js";
 import { MovePreviews } from "../../utils/MovePreviewPlacement.js";
 import { AilmentEditor } from "./AilmentEditor.js";
-import { BandFootWatch } from "../../utils/BandFootFit.js";
 import { ArrivalRegions } from "./ArrivalRegions.js";
 import { PendingTab } from "../../utils/PendingTab.js";
 import { openSections } from "../../utils/openSections.js";
@@ -45,8 +44,6 @@ export function createStonetopCharacterSheetClass(Base) {
 		_scrollAnchoring = new ScrollAnchoring();
 		// Whether this reader has the wound editor open; every save re-renders, and it comes back open.
 		_ailmentEditor = new AilmentEditor();
-		// Whether the band's foot fits beside the stats, carried across renders and re-asked on resize.
-		_bandFoot = new BandFootWatch();
 		// Which arcanum this reader has open beside the list (D13).
 		_arcanaSelection = new ArcanaSelection();
 
@@ -239,7 +236,6 @@ export function createStonetopCharacterSheetClass(Base) {
 		restoreViewState(root) {
 			super.restoreViewState(root);
 			this.topBandState.restore(root);
-			this._bandFoot.restore(root);
 			this._arcanaSelection.restore(root);
 		}
 
@@ -253,7 +249,6 @@ export function createStonetopCharacterSheetClass(Base) {
 			this._outfitAdder.applyFocus(this.element);
 			this._ailmentEditor.applyReveal(this.element);
 			this._outfitAdder.applyReveal(this.element);
-			this._bandFoot.watch(this.element);
 			this._pendingTab.applyTo(this.element, id => this.changeTab(id, "primary"));
 			const cards = this.element.querySelectorAll(".stonetop-arcanum-card");
 			if (!cards.length) return;

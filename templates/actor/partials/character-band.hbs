@@ -19,23 +19,20 @@
 
 	{{> "stonetop.ailments"}}
 
-	{{!-- The band's foot: the line it folds TO and the control that folds it, in flow and in that
-	      order. The roll mode is not here: every roll asks for it (RollModeDialog).
-
-	      Always beside the numbers, never under them. Short of room the fold control drops its
-	      word, and past that the line wraps in its own column (BandFootFit): what it needs is its
-	      words, which translate. --}}
+	{{!-- The band's foot: the line it folds TO. The roll mode is not here: every roll asks for it
+	      (RollModeDialog). --}}
 	<div class="stonetop-band-foot">
 		{{> "stonetop.folded-ledger"}}
-
-		<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state
-		        aria-expanded="true" aria-controls="{{sheetIdPrefix}}-band"
-		        data-label-show="{{localize 'stonetop.sheet.bandShow'}}"
-		        data-label-hide="{{localize 'stonetop.sheet.bandHide'}}"
-		        title="{{localize 'stonetop.sheet.bandHide'}}"
-		        aria-label="{{localize 'stonetop.sheet.bandHide'}}">
-			<i class="fas fa-chevron-up stonetop-top-caret" aria-hidden="true"></i>
-			<span class="stonetop-top-toggle-label">{{localize "stonetop.character.stats.sectionTitle"}}</span>
-		</button>
 	</div>
+
+	{{!-- The fold control: a tab on the band's bottom edge, the rail's tab turned on its side, in the
+	      same place open and folded. --}}
+	<button type="button" class="stonetop-top-toggle" data-action="toggleTop" data-view-state
+	        aria-expanded="true" aria-controls="{{sheetIdPrefix}}-band"
+	        data-label-show="{{localize 'stonetop.sheet.bandShow'}}"
+	        data-label-hide="{{localize 'stonetop.sheet.bandHide'}}"
+	        title="{{localize 'stonetop.sheet.bandHide'}}"
+	        aria-label="{{localize 'stonetop.sheet.bandHide'}}">
+		<i class="fas fa-chevron-up stonetop-top-caret" aria-hidden="true"></i>
+	</button>
 </div>

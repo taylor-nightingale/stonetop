@@ -6,7 +6,7 @@ import { sheetWithBand, windowFor } from "./bandFixture.js";
 /**
  * The band's two densities, measured: the six stats and their conditions at full size, and the same
  * at line height once the band folds. Both are in the markup at every width and one class picks,
- * so whether the right one is on screen — and whether the line fits beside the fold control — is a
+ * so whether the right one is on screen — and whether the line keeps clear of the fold tab — is a
  * question only layout answers.
  *
  * The real band partial, in German (see bandFixture.js).
@@ -112,20 +112,20 @@ describe.skipIf(!canProbe())("the folded line", () => {
 		expect(Math.abs(abbr.boxTop - value.boxTop)).toBeLessThanOrEqual(2);
 	});
 
-	it("puts the numbers and the fold control on one line once there is room", () => {
-		const m = measure({ folded: true, railShut: true, width: 1600 });
-		const line = m.get("pairs").values, handle = m.get("handle").values;
-		expect(within(centre(handle), line), "the fold control is on its own row under the numbers").toBe(true);
-		expect(handle.boxLeft).toBeGreaterThanOrEqual(right(line));
+	// The tab hangs from the band's edge, under the line rather than on it.
+	it("hangs the fold tab from the folded band's bottom edge", () => {
+		const m = measure({ folded: true, width: 1400 });
+		const band = m.get("band").values, handle = m.get("handle").values;
+		expect(Math.abs(handle.boxTop - (band.boxTop + band.boxHeight))).toBeLessThanOrEqual(1);
+		expect(handle.boxTop).toBeGreaterThanOrEqual(m.get("ledger").values.boxTop + m.get("ledger").values.boxHeight);
 	});
 
-	// At the sheet's floor too: with the roll mode gone from the foot, the numbers keep one row.
-	it("keeps the numbers on one line beside the control at the sheet's floor", () => {
+	it("keeps the numbers on one line at the sheet's floor, clear of the fold tab", () => {
 		const m = measure({ folded: true, width: 720 });
-		const line = m.get("pairs").values, handle = m.get("handle").values;
-		expect(within(centre(handle), line), "the numbers took a second row").toBe(true);
+		const handle = m.get("handle").values;
+		expect(within(centre(m.get("lastCond").values), m.get("firstPair").values), "the numbers took a second row").toBe(true);
 		expect(right(handle)).toBeCloseTo(right(m.get("band").values) - INSET, 0);
-		expect(handle.boxLeft).toBeGreaterThanOrEqual(right(line));
+		expect(right(m.get("lastCond").values)).toBeLessThanOrEqual(handle.boxLeft);
 	});
 
 	it("keeps the folded line clear of the fold control", () => {
