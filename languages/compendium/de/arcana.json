@@ -290,6 +290,10 @@
       "source": "You no longer gain sustenance from food. When you **_slay a living, bleeding creature with the_** **_Sword_**, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead.",
       "text": ""
     },
+    "back/choices/consequences/sword-c5-sustenance/text": {
+      "source": "Sustenance",
+      "text": ""
+    },
     "back/choices/consequences/sword-c6/text": {
       "source": "You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else.",
       "text": ""
