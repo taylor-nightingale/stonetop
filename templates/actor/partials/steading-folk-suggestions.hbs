@@ -1,5 +1,6 @@
-{{!-- One titled reference list — a region's names, or the NPC-trait pool. Context: `list` = a
-      SuggestionList (see src/model/snapshot/steading/SuggestionSnapshot.js).
+{{!-- One titled reference list — a region's names, or the NPC-trait pool — in the Folk tab's rail,
+      under a sub-heading that opens and shuts it. Context: `list` = a SuggestionList
+      (see src/model/snapshot/steading/SuggestionSnapshot.js).
 
       Names and traits are the same data structure, so they get the same partial; `list.action` is the
       only thing that differs, and it comes off the snapshot rather than being branched on here.
@@ -33,16 +34,16 @@
 
       A token that is not a usable value renders as plain text — the field is free text a GM edits,
       and no button should paste a sentence into a name cell. --}}
-<div class="steading-folk-list">
-	<h6 class="steading-folk-list-title">
-		<button type="button" class="steading-folk-list-toggle" data-action="toggleFolkList"
+<div class="steading-folk-list{{#if list.open}} is-open{{/if}}" data-disclosure-row>
+	<h4 class="steading-folk-list-title">
+		<button type="button" class="steading-folk-list-toggle" data-action="toggleSliding"
 		        data-disclosure data-view-state
 		        aria-expanded="{{#if list.open}}true{{else}}false{{/if}}" aria-controls="{{@root.sheetIdPrefix}}-folk-{{list.key}}">
-			<i class="fas fa-caret-down steading-folk-list-caret" aria-hidden="true"></i>
+			<i class="fas fa-chevron-right steading-folk-list-caret" aria-hidden="true"></i>
 			<span>{{list.title}}</span>
 		</button>
-	</h6>
-	<p class="steading-folk-entries" id="{{@root.sheetIdPrefix}}-folk-{{list.key}}" {{#unless list.open}}hidden{{/unless}}>
+	</h4>
+	<p class="steading-folk-entries" id="{{@root.sheetIdPrefix}}-folk-{{list.key}}"{{#unless list.open}} hidden{{/unless}}>
 		{{~#each list.entries~}}
 			{{~#if clickable~}}
 				<button type="button" class="steading-folk-entry{{#if used}} is-used{{/if}}"

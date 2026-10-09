@@ -25,18 +25,21 @@ const CHROME_CANDIDATES = [
 	"/opt/google/chrome/chrome"
 ];
 
-/** Newest local Foundry install, so the probe runs against core's real stylesheet. */
-function findFoundryCss() {
+/** One file out of the newest local Foundry install that has it, or null. */
+function findInFoundry(relative) {
 	const home = process.env.HOME ?? "";
 	const installs = existsSync(home)
 		? readdirSync(home).filter(d => /^FoundryVTT/.test(d)).sort().reverse()
 		: [];
 	for (const dir of installs) {
-		const css = path.join(home, dir, "resources/app/public/css/foundry2.css");
-		if (existsSync(css)) return css;
+		const file = path.join(home, dir, "resources/app", relative);
+		if (existsSync(file)) return file;
 	}
 	return null;
 }
+
+/** Core's real stylesheet, so the probe runs against the cascade the game has. */
+const findFoundryCss = () => findInFoundry("public/css/foundry2.css");
 
 /** One fixture file per run, in its own temp directory. */
 function writeFixture(html) {
@@ -48,6 +51,15 @@ function writeFixture(html) {
 
 export const chromePath = () => CHROME_CANDIDATES.find(existsSync) ?? null;
 export const foundryCss = findFoundryCss();
+
+/**
+ * Core's real FontAwesome, for a probe whose layout holds an icon. Not a stub: an empty
+ * `<i class="fas">` contributes no box at all, so a fixture without it measures every icon at zero
+ * and passes layouts that clip or overflow one. The box is FontAwesome's CSS, not its font, so it
+ * measures true even though the webfonts it points at do not resolve from an inlined sheet.
+ * Null without a local install; pass it last, where a module's stylesheet would stand.
+ */
+export const fontAwesomeCss = () => findInFoundry("public/fonts/fontawesome/css/all.min.css");
 
 /** True when this machine can run the probe at all. Tests skip rather than fail without it. */
 export const canProbe = () => Boolean(chromePath() && foundryCss);

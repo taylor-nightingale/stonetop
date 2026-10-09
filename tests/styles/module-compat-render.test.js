@@ -38,7 +38,7 @@ const BLANKET_RESET = path.resolve(process.cwd(), "tests/styles/fixtures/unlayer
 // written against — the diamonds are scoped to `.application.stonetop`, and a mark rendered outside
 // its scope would silently be core's instead of ours.
 //
-// Two marks here are NOT form controls: the debility's and the roll mode's. For both, the input is
+// Two marks here are NOT form controls: the debility's and the radio column's (roll-mode-picker.hbs). For both, the input is
 // taken out of sight and a <span> beside it is painted, which is how the steading's conditions have
 // always drawn theirs. A blanket `input { border: 0 }` cannot reach a span at all, so those marks
 // are immune by construction rather than by out-ranking anything — they stay in this file to hold
@@ -56,7 +56,7 @@ const fixture = `
  <label class="stonetop-outfit-load-label">
   <input type="radio" name="load" class="stonetop-outfit-load-radio" id="load">
  </label>
- <fieldset class="stonetop-rollmode stonetop-rollmode--stacked">
+ <fieldset class="stonetop-rollmode">
   <label class="stonetop-rollmode-option">
    <input type="radio" name="mode" class="stonetop-rollmode-input">
    <span class="stonetop-rollmode-mark" id="mode"></span>

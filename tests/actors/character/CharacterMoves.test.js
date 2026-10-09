@@ -1,5 +1,6 @@
 import {describe, expect, it, vi} from "vitest";
 import {CharacterMoves} from "../../../src/actors/character/CharacterMoves.js";
+import {RollRule} from "../../../src/actors/RollPrompt.js";
 import {ChoiceGroupControllerFactory} from "../../../src/actors/character/ChoiceGroupControllerFactory.js";
 import {ResourceController} from "../../../src/actors/character/ResourceController.js";
 import {FakeMoveRepository} from "../../fakes/FakeMoveRepository.js";
@@ -1306,7 +1307,29 @@ describe("CharacterMoves.roll", () => {
 			.build();
 		actor.rollItem = vi.fn(async () => {});
 		expect(await makeMoves({actor}).roll("defend")).toBe(true);
-		expect(actor.rollItem).toHaveBeenCalledWith(expect.objectContaining({_id: "m1"}));
+		expect(actor.rollItem).toHaveBeenCalledWith(expect.objectContaining({_id: "m1"}), null, null);
+	});
+
+	// A shift-click rolls Normal without asking; the mode rides through to the roll.
+	it("passes the mode it was given through to the roll", async () => {
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({_id: "m1", type: "move", name: "Defend", system: {slug: "defend", categoryKey: "basic"}})
+			.build();
+		actor.rollItem = vi.fn(async () => {});
+		await makeMoves({actor}).roll("defend", "normal");
+		expect(actor.rollItem).toHaveBeenCalledWith(expect.objectContaining({_id: "m1"}), null, "normal");
+	});
+
+	it("names the move the roll dialog links to, from the character's own copy", async () => {
+		const actor = new FakeCharacterActorBuilder()
+			.addItem({_id: "a1", type: "move", name: "Mine", system: {slug: "advantage-disadvantage", categoryKey: "special"}})
+			.build();
+		expect(await makeMoves({actor}).rollRule("advantage-disadvantage"))
+			.toEqual(new RollRule("advantage-disadvantage", "Mine"));
+	});
+
+	it("names no rule the character and the pack both lack", async () => {
+		expect(await makeMoves({actor: makeActor()}).rollRule("advantage-disadvantage")).toBeNull();
 	});
 
 	it("rolls nothing, and says so, for a slug nothing carries", async () => {

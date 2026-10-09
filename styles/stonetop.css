@@ -85,9 +85,7 @@ figure.art:has(> img.stonetop-broken-img) {
 .stonetop.sheet .stonetop-follower-name-input,
 .stonetop.sheet.steading .steading-steadfast-input,
 .stonetop-roll-dialog .window-title,
-.stonetop-advice-dialog .window-title,
-.stonetop-roll-dialog .stonetop-roll-mode-header,
-.stonetop-roll-dialog .dialog-button {
+.stonetop-advice-dialog .window-title {
 	font-family: "StonetopUI", serif;
 	font-weight: bolder;
 	letter-spacing: 0.4px;
@@ -566,15 +564,6 @@ body,
 	margin-bottom: 0;
 }
 
-/* A heading that carries the "If you want to…" ? — the `inline` variant pushes itself to the far end
-   with `margin-left: auto`, which needs a flex line to be pushed along. Keyed off the button rather
-   than off a modifier class, so a heading gets the behaviour by being given the control. */
-.stonetop.sheet .stonetop-move-group-title:has(.stonetop-advice-btn) {
-	display: flex;
-	align-items: baseline;
-	gap: 6px;
-}
-
 /* Sub-heading scale: section-sub-heading h4 matches the choice-track subtitle h4 (0.95rem). */
 .stonetop.sheet .stonetop-move-group-sub-heading {
 	font-size: var(--fs-subheading);
@@ -761,60 +750,20 @@ body,
 .stonetop.sheet.character .stonetop-appearance > p { display: inline; margin: 0; }
 
 /* ── The band's foot ──
-   The line the band folds TO, the roll mode, and the control that folds it, in flow and in that
-   order. The mode is ONE control for the sheet and ends this line at both densities, so it never
-   moves between them.
-
-   `flex-end`, so the controls sit on the ledger's last line rather than floating above it. Half a
-   rem apart: this line's width is what the column beside the stats has to hold. The numbers are the
-   only thing on it that shrinks. */
+   The line the band folds TO. Folded, it keeps clear of the fold tab's target, which reaches up into
+   the band's last line at its right end. */
 .stonetop.sheet.character .stonetop-band-foot {
 	display: flex;
-	flex-wrap: nowrap;
-	align-items: flex-end;
-	justify-content: flex-end;
 	align-self: end;
-	gap: 0.5rem;
 	padding-top: 0.25rem;
 }
 
 .stonetop.sheet.character .stonetop-band-foot > .stonetop-folded-ledger {
 	flex: 0 1 auto;
 	min-width: 0;
-	margin-right: auto;
 }
 
-.stonetop.sheet.character .stonetop-band-foot > .stonetop-rollmode,
-.stonetop.sheet.character .stonetop-band-foot > .stonetop-top-toggle { flex: 0 0 auto; }
-
-.stonetop.sheet.character .stonetop-band-foot .stonetop-rollmode { gap: 0.5rem; }
-
-/* Advantage/Disadvantage's `?`: the icon button at the size of the words beside it, and held close
-   to "Disadv" — it belongs to the row, not beside it as a fourth option. */
-.stonetop.sheet.character .stonetop-band-foot .stonetop-rollmode-rule {
-	font-size: var(--fs-note);
-	align-self: center;
-	margin-left: -0.2rem;
-}
-
-/* Short of room, the foot keeps to its column beside the stats and never goes under them
-   (BandFootFit). Compact, the fold control drops its word — its aria-label and title still say it —
-   and keeps the caret. Wrapped, where even that does not fit (a longer language), the line breaks
-   inside the column: the mode's options, then the caret, each run held to the right edge. Only while
-   open: folded, the foot is the band's whole line and has the room. */
-.stonetop.sheet.character .stonetop-band.is-foot-compact .stonetop-top-toggle-label { display: none; }
-
-.stonetop.sheet.character .sheet-wrapper:not(.top-collapsed) .stonetop-band.is-foot-wrapped > .stonetop-band-foot {
-	flex-wrap: wrap;
-	row-gap: 0.25rem;
-}
-
-.stonetop.sheet.character .sheet-wrapper:not(.top-collapsed) .stonetop-band.is-foot-wrapped > .stonetop-band-foot > .stonetop-rollmode {
-	flex: 0 1 auto;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	row-gap: 0.25rem;
-}
+.stonetop.sheet.character .top-collapsed .stonetop-band-foot { padding-right: calc(var(--fold-tab-len) + 0.5rem); }
 
 /* ── Ailments ──
    The same panel and bar as every other group. One line per row, the columns reserved the way a
@@ -1038,10 +987,11 @@ body,
 	margin-top: 0;
 }
 
-/* ── The two fold controls, as one look ────────────────────────────────────────
+/* ── The two fold tabs, as one look ────────────────────────────────────────────
    The rail's and the band's do the same job on two edges — put this region away, bring it back — so
-   the chrome and the manners are declared once here and each keeps only its own SHAPE below (the
-   rail's tab, the band's handle).
+   they are one tab: the region's raised ground reaching past its edge, ruled on its outer sides, a
+   faint caret on it. The look and the manners are declared once here and each keeps only its own
+   place and shape (the rail's on its edge below, the band's on its foot here).
 
    A selector list rather than a class both buttons wear. A marker class is a thing to REMEMBER, and
    the first time it was written this way the steading's rail toggle did not get it and silently lost
@@ -1053,24 +1003,58 @@ body,
    moved the column at once and then sailed the caret across the tab for half a second behind it,
    over content that had already reflowed.
 
-   `min-width`/`min-height`/`padding` are core's too: `.window-app button` stretches a button to fill
-   its line, which is not what either of these is.
-
-   The corner is a custom property because the rail's folded strip squares it off, and its pill reads
-   it from here rather than restating it — one chip corner, one number. */
+   `min-width`/`min-height`/`padding`/`box-shadow` are core's too: `.window-app button` stretches a
+   button to fill its line and raises it off the page, which is not what either of these is. */
 .stonetop-rail-toggle,
 .stonetop-top-toggle {
-	--fold-chip-radius: 4px;
+	display: grid;
+	place-items: center;
 	min-width: 0;
 	min-height: 0;
 	padding: 0;
 	line-height: 1;
-	border: 1px solid var(--st-rule);
-	border-radius: var(--fold-chip-radius);
-	background: var(--st-paper);
+	border: 1px solid var(--st-rule-strong);
+	background: var(--st-paper-raised);
+	box-shadow: none;
+	color: var(--st-ink-faint);
+	font-size: 0.7rem;
+	overflow: visible;
 	cursor: pointer;
-	transition: color 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+	transition: color 0.15s ease, border-color 0.15s ease;
 }
+
+.stonetop-rail-toggle > i,
+.stonetop-top-toggle > i {
+	margin: 0;
+	line-height: 1;
+}
+
+/* The band's tab hangs from its bottom edge at its right end, over the band's rule, so the band's
+   ground runs on into it; ruled in the band's own rule. The band's margin is the tab's depth, so it
+   covers nothing on the strip below. Drawn shallow and pressed tall: the 24px target (SC 2.5.8)
+   reaches up into the band, where the line keeps clear of it (see the band's foot). */
+.stonetop.sheet.character .stonetop-band > .stonetop-top-toggle {
+	position: absolute;
+	top: 100%;
+	right: var(--main-inset);
+	z-index: 1;
+	width: var(--fold-tab-len);
+	height: var(--fold-tab-w);
+	border-color: var(--st-rule);
+	border-top: none;
+	border-radius: 0 0 3px 3px;
+}
+
+.stonetop.sheet.character .stonetop-band > .stonetop-top-toggle::after {
+	content: "";
+	position: absolute;
+	left: -1px;
+	right: -1px;
+	bottom: -1px;
+	height: 24px;
+}
+
+.stonetop.sheet.character .stonetop-band.stonetop-head { margin-bottom: max(var(--band-block-gap), var(--fold-tab-w)); }
 
 .stonetop-rail-toggle:hover,
 .stonetop-rail-toggle:focus-visible,
@@ -1082,49 +1066,9 @@ body,
 	color: var(--st-accent);
 }
 
-/* The band's chip, at the end of the foot line.
-
-   The same chip the rail's toggle is, carrying the region's name beside its caret: the two do the
-   same job on two edges, and a reader who has learned one has learned the other. It spent a while as
-   a bare underlined word on the grounds that the band's neighbours are small caps and no boxes — but
-   it was positioned then, hanging half below the band's rule, and what that actually drew was the
-   seam ruled straight through the word. In flow among the mode's own small caps, the chip is what
-   separates the one control on this line from the labels beside it.
-
-   `box-shadow` is core's `.window-app button`, which raises every button off the page; the size
-   floors it also sets are answered in the shared chrome above. */
-.stonetop-top-toggle {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.375rem;
-	flex: 0 0 auto;
-	margin-bottom: 0.1875rem;
-	padding: 0.125rem 0.375rem;
-	box-shadow: none;
-	color: var(--st-ink-soft);
-	font-size: var(--fs-fine);
-}
-
-/* The region's name, in the label voice every other name on this sheet is set in — see the note on
-   the steading's tile titles: StonetopUI IS the small-caps face, so neither `text-transform` nor a
-   synthesised bold goes anywhere near it. */
-.stonetop-top-toggle-label {
-	font-family: "StonetopUI", serif;
-	font-weight: normal;
-	letter-spacing: 0.04em;
-	line-height: 1;
-}
-
-.stonetop-top-caret {
-	margin: 0;
-	line-height: 1;
-	transition: transform 0.15s ease;
-}
-
-.sheet-wrapper.top-collapsed .stonetop-top-caret {
-	transform: rotate(180deg);
-}
+/* The caret points where the band is about to go: up while it is out, down while it is folded. */
+.stonetop-top-caret { transition: transform 0.15s ease; }
+.sheet-wrapper.top-collapsed .stonetop-top-caret { transform: rotate(180deg); }
 
 .stonetop.sheet .sheet-tabs .item.active {
 	transform: translateY(2px);
@@ -1172,8 +1116,7 @@ body,
    legs) so no square of paper shows outside them. Gradients rather than `clip-path`, which would
    also trim what lies past the box — a roll button's focus ring, for one. A gradient's stop runs
    along the diagonal, hence the leg over √2; the tiles overlap a px so odd sizes leave no seam. */
-:is(.stonetop-section-panel, .stonetop-outfit-header, .stonetop-prosperity-panel,
-	.stonetop-roll-pick-content, .stonetop-roll-dialog .dialog-button, .stonetop-follower-card) {
+:is(.stonetop-section-panel, .stonetop-outfit-header, .stonetop-prosperity-panel, .stonetop-follower-card) {
 	--cut: 6px;
 	--notch: calc(var(--cut) * 0.7071);
 	background:
@@ -1239,12 +1182,9 @@ body,
 
 /* ── Character Sheet ────────────────────────────────────────────────────────── */
 
-/* The narrowest this sheet is written down to, and the number is measured rather than inherited.
-   What bounds it is the band: six stat frames, and beside them the foot, which never goes under
-   them (BandFootFit). With the rail a drawer the band has the sheet's width, and at 47rem the column
-   beside the stats still holds the foot on one line in English with the fold control compact —
-   218px against the 207 it needs, at the 16px root. In rem, because the frames and the foot are:
-   a px floor holds less of them at every step up of the Font Size setting. */
+/* The narrowest this sheet is written down to. What bounds it is the band: six stat frames, and the
+   Ailments panel beside them. In rem, because the frames are: a px floor holds less of them at every
+   step up of the Font Size setting. */
 .character {
 	min-width: 47rem;
 }
@@ -2399,7 +2339,12 @@ body,
 	/* The rail's width, declared once because the TOGGLE is placed off it too — open, the button
 	   rides the rail's own inner edge, and a second copy of this number is a button that drifts off
 	   that edge the moment either is touched. The drawer overrides it below. */
-	--rail-width: 220px;
+	--rail-width: var(--moves-rail-width);
+	/* What a list of move names needs, on both sheets: the rows are one partial under one set of
+	   rules, so a narrower rail is a narrower name column and nothing else. In rem, so the names and
+	   the room for them grow together under the Font Size setting; at a fixed 220px the steading's
+	   names broke where the character's, in a 244px rail, did not. */
+	--moves-rail-width: 15.25rem;
 	/* The character's rail holds two things, and its width answers to both.
 
 	   The Advancement frames set a FLOOR: two across, so 2 × --stat-frame-w, their gap, and the
@@ -2411,9 +2356,11 @@ body,
 	   would have dragged the rail from 244px to 196px behind them, narrowing the one column on this
 	   sheet whose names were ALREADY truncating — a stat tile's size is not an opinion about how
 	   much of "Persuade (vs. NPCs)" you should be able to read. */
-	--character-rail-width: max(15.25rem, calc(2 * var(--stat-frame-w) + 0.25rem + 3rem));
-	/* The tab on the rail's edge, drawn this wide (see .stonetop-rail-toggle). */
-	--rail-tab-w: 0.85rem;
+	--character-rail-width: max(var(--moves-rail-width), calc(2 * var(--stat-frame-w) + 0.25rem + 3rem));
+	/* The fold tab on the rail's edge, and on the band's foot turned on its side: drawn this thick
+	   and this long (see .stonetop-rail-toggle, .stonetop-top-toggle). */
+	--fold-tab-w: 0.85rem;
+	--fold-tab-len: 2rem;
 	/* One inset, on both sheets, for everything in the column beside the rail — the character's band
 	   or the steading's ledger line, the tab strip and the tab — so they start on one line. It is
 	   also where the rail's tab rides, and its 24px target (SC 2.5.8) is what sets it: the tab covers
@@ -2428,7 +2375,7 @@ body,
 	container-type: inline-size;
 }
 
-/* Character only: the shared 220px is what a list of move names needs; this rail holds the stats
+/* Character only: the shared width is what a list of move names needs; this rail holds the stats
    too. Set on the layout so the toggle, which is positioned off the same variable, moves with it. */
 .stonetop.sheet.character .stonetop-rail-layout {
 	--rail-width: var(--character-rail-width);
@@ -2608,18 +2555,10 @@ body,
 	top: 1.1rem;
 	left: var(--rail-width);
 	z-index: 5;
-	display: grid;
-	place-items: center;
-	width: var(--rail-tab-w);
-	height: 2rem;
-	padding: 0;
-	border: 1px solid var(--st-rule-strong);
+	width: var(--fold-tab-w);
+	height: var(--fold-tab-len);
 	border-left: none;
 	border-radius: 0 3px 3px 0;
-	background: var(--st-paper-raised);
-	color: var(--st-ink-faint);
-	font-size: 0.7rem;
-	overflow: visible;
 	transition: left 0.4s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -2634,19 +2573,17 @@ body,
 	width: 24px;
 }
 
-.stonetop-rail-toggle > i {
-	margin: 0;
-	line-height: 1;
-}
-
 .stonetop-rail-layout.rail-shut > .stonetop-rail-toggle { left: 0; }
 
 /* The caret points where the rail is about to go: at it while it is out, away from it while shut. */
 .stonetop-rail-caret { transition: transform 0.4s ease; }
-.stonetop-rail-layout.rail-shut .stonetop-rail-caret { transform: scaleX(-1); }
+.stonetop-rail-layout.rail-shut > .stonetop-rail-toggle .stonetop-rail-caret { transform: scaleX(-1); }
 
+/* The rules below place a START-edge rail — the sheet's own. Each names `:not(--end)`, because a rail
+   layout can sit inside another one's main column (the Folk tab's), and the end edge's own rules
+   follow after them. */
 @container (min-width: 62.51rem) {
-	.stonetop-rail-layout.rail-shut > .stonetop-rail {
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end).rail-shut > .stonetop-rail {
 		margin-left: calc(-1 * var(--rail-width));
 	}
 
@@ -2656,7 +2593,7 @@ body,
 	   again on every frame: lines re-wrapped, width-keyed layouts flipped mid-slide, and the
 	   steading's line changed height under everything below it. Held, the column is laid out once —
 	   as a shut starts, and as an open ends — and in between it only moves. */
-	.stonetop-rail-layout.is-rail-moving > .stonetop-rail-main {
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end).is-rail-moving > .stonetop-rail-main {
 		flex: none;
 		width: 100%;
 	}
@@ -2667,17 +2604,18 @@ body,
    it borrows from the column, and the tab rides the drawer's edge. Untouched, a drawer is shut —
    `:not(.rail-open)` covers `.rail-shut` too, and says the same thing it does.
 
-   62.5rem is where a column rail still leaves the character's band room for its foot beside the
-   stats (BandFootFit), compact, in English: below it that column ran down to 142px. In rem, because
-   the band is — the stats, the rail and the foot all grow with the Font Size setting. */
+   62.5rem is where a column rail still leaves the character's band room for the Ailments panel
+   beside the stats. In rem, because the band is — the stats and the rail both grow with the Font
+   Size setting. */
 @container (max-width: 62.5rem) {
 	/* A drawer is wider than a column, and capped so it never takes the whole sheet. Both consumers
 	   are told, because the layout that declares the token is the container these queries ask about
 	   and a container cannot restyle itself. */
-	.stonetop-rail,
-	.stonetop-rail-toggle { --rail-width: min(240px, 85%); }
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end) > :is(.stonetop-rail, .stonetop-rail-toggle) {
+		--rail-width: min(240px, 85%);
+	}
 
-	.stonetop-rail {
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end) > .stonetop-rail {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -2691,21 +2629,61 @@ body,
 		transform: translateX(-100%);
 	}
 
-	.stonetop-rail-layout.rail-open > .stonetop-rail { transform: translateX(0); }
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end).rail-open > .stonetop-rail { transform: translateX(0); }
 
-	.stonetop-rail-layout:not(.rail-open) > .stonetop-rail {
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end):not(.rail-open) > .stonetop-rail {
 		visibility: hidden;
 		transition: margin-left 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
 	}
 
-	.stonetop-rail-layout:not(.rail-open) > .stonetop-rail-toggle { left: 0; }
-	.stonetop-rail-layout:not(.rail-open) .stonetop-rail-caret { transform: scaleX(-1); }
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end):not(.rail-open) > .stonetop-rail-toggle { left: 0; }
+	.stonetop-rail-layout:not(.stonetop-rail-layout--end):not(.rail-open) > .stonetop-rail-toggle .stonetop-rail-caret {
+		transform: scaleX(-1);
+	}
 }
+
+/* ── A rail on the end edge ──
+   The same rail on the layout's right — the Folk tab's names beside its roster. Shut, it slides out
+   to the right and its tab rides its left edge. It never becomes a drawer: a layout too narrow for it
+   stacks it instead (see the Folk tab).
+
+   The column beside it is NOT held at one width while it slides, as the start rail's is: held, its
+   overflow can only go off the start edge, so the column's first columns slid out of view and back.
+   It widens and narrows with the slide instead — the room being made is the point. */
+.stonetop-rail-layout--end > .stonetop-rail {
+	order: 2;
+	border-right: none;
+	border-left: 1px solid var(--st-rule-strong);
+	transition: margin-right 0.4s ease, visibility 0s;
+}
+
+.stonetop-rail-layout--end.rail-shut > .stonetop-rail {
+	margin-right: calc(-1 * var(--rail-width));
+	visibility: hidden;
+	transition: margin-right 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.stonetop-rail-layout--end > .stonetop-rail-toggle {
+	left: auto;
+	right: var(--rail-width);
+	border-left: 1px solid var(--st-rule-strong);
+	border-right: none;
+	border-radius: 3px 0 0 3px;
+	transition: right 0.4s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.stonetop-rail-layout--end > .stonetop-rail-toggle::after {
+	left: auto;
+	right: 0;
+}
+
+.stonetop-rail-layout--end.rail-shut > .stonetop-rail-toggle { left: auto; right: 0; }
 
 @media (prefers-reduced-motion: reduce) {
 	.stonetop-rail,
 	.stonetop-rail-layout.rail-shut > .stonetop-rail,
 	.stonetop-rail-layout:not(.rail-open) > .stonetop-rail,
+	.stonetop-rail-layout--end > .stonetop-rail,
 	.stonetop-rail-toggle,
 	.stonetop-rail-caret { transition: none; }
 }
@@ -3085,7 +3063,7 @@ body,
 }
 
 /* Every "this goes somewhere" control: no chrome, a dotted underline. */
-.stonetop.sheet.character .stonetop-goto {
+.stonetop.sheet:is(.character, .steading) .stonetop-goto {
 	all: unset;
 	cursor: pointer;
 	color: inherit;
@@ -3093,8 +3071,8 @@ body,
 	text-underline-offset: 2px;
 }
 
-.stonetop.sheet.character .stonetop-goto:hover,
-.stonetop.sheet.character .stonetop-goto:focus-visible { color: var(--st-accent); }
+.stonetop.sheet:is(.character, .steading) .stonetop-goto:hover,
+.stonetop.sheet:is(.character, .steading) .stonetop-goto:focus-visible { color: var(--st-accent); }
 
 /* <button>, not <span>/<a>: core binds only `click` for [data-action], so neither was reachable by
    Tab nor activatable by Enter. `all: unset` strips the button chrome so each still reads as the
@@ -3414,33 +3392,11 @@ button.stonetop-view-toggle.is-active {
 	grid-row: 2;
 }
 
-/* ── The roll reminder: the row's third line ──
+/* ── The roll reminder ──
    WHY this move might not roll a flat 2d6 — advantage a built improvement permits, or a debility
-   hindering it. Information and not a control: the roll-mode control stays the table's, so this is a
-   span, and it is set in the GLOSS's register rather than in the badge register.
-
-   That last part is not cosmetic. Small caps, letter-spacing and an outlined pill are what
-   `.steading-improvement-attention` wears for `owed` and `this season` — which really are states of
-   the row — and wearing the same costume was half of why this line read as "advantage is already on".
-   Plain italic is what the sheet uses for text ABOUT a row.
-
-   Same columns as the gloss, one row lower. The header's `grid-template-rows` declares two; a third is
-   implicit and auto-sized, so a row with nothing to remind anybody of costs no height at all. It stays
-   when the row opens: it qualifies the roll, and the controls it qualifies are on the line above.
-
-   The BULLET is the shared swirl, and its indent is deliberately left to the shared rule
-   (`ul:not(.stonetop-unmarked)`, above). Zeroing the padding here is what put the swirl out in the
-   caret's column and clipped it against the rail: the swirl is drawn at `-(bullet + gap)` from the
-   item, so the list's own left padding IS the gutter it lives in. With that padding intact the swirl
-   sits exactly on the text column the name and the gloss start from. Only the UA's block margin is
-   overridden. */
-.stonetop-item-header > .stonetop-move-rollnotes {
-	grid-column: 2 / -1;
-	grid-row: 3;
-	margin: 0;
-	min-width: 0;
-}
-
+   hindering it — in the roll dialog. Information and not a control, so it is set in the gloss's
+   register: small caps and an outlined pill are what a STATE wears, and wearing them was half of why
+   this line read as "advantage is already on". */
 .stonetop-move-rollnote {
 	font-style: italic;
 	font-size: var(--fs-micro);
@@ -3599,6 +3555,11 @@ button.stonetop-view-toggle.is-active {
    the controls that hang from it; the glyphs reach into the bar's padding. */
 :is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-bar-title { flex: none; font-size: var(--fs-title); line-height: 1; }
 
+/* The rail is a fixed width at every Font Size, and "Homefront Moves" alone is wider than the room
+   beside the toggle: there the name wraps rather than pushing the toggle off the bar. Only there —
+   a bar with a note would wrap its name before the note. */
+:is(.stonetop.sheet.character, .stonetop.sheet.steading) .stonetop-rail .stonetop-bar-title { flex-shrink: 1; min-width: 0; }
+
 /* The book's instruction for what is being chosen. It wraps rather than clipping: an instruction cut
    off mid-word is the choice's own words hidden from the person making it. Small italic over stone
    is the hardest text on the bar to read, so it is full ink, outlined crisply in the bar's own under
@@ -3691,7 +3652,8 @@ button.stonetop-view-toggle.is-active {
 
 /* The track stays reserved: shutting both groups ended the rail's overflow, and without it the rail's
    contents widened by a scrollbar and every row jumped sideways. */
-.stonetop.sheet.character .stonetop-moves-rail { scrollbar-gutter: stable; }
+.stonetop.sheet.character .stonetop-moves-rail,
+.stonetop.sheet.steading .steading-rail { scrollbar-gutter: stable; }
 .stonetop.sheet.character .stonetop-moves-rail > .stonetop-panel:first-child { margin-top: 0.35rem; }
 
 /* ── A section of the Playbook tab (D11) ──────────────────────────────────────
@@ -3748,16 +3710,16 @@ button.stonetop-view-toggle.is-active {
 /* A route in a sentence: the line's face, not the small caps every sheet button otherwise takes. */
 .stonetop.sheet.character button.stonetop-set-aside { font-family: inherit; }
 
-/* ── The character's move row ─────────────────────────────────────────────────
-   One row on every list of the character's moves: the rail's groups, the follower moves, and the tabs
-   as they are ported. The steading, arcanum cards and granted rows keep `move-item.hbs`.
+/* ── The move row ──────────────────────────────────────────────────────────────
+   One row on every list of moves: both rails' groups — the character's and the steading's — the
+   follower moves, and the character's tabs. Arcanum cards and granted rows keep `move-item.hbs`.
 
    The LIST owns the columns and each row borrows them through subgrid, so an `auto` column is sized by
    the widest content across the list and every right edge lines up. The list is also the query
    container the row's width rules ask: a container gets layout containment, and a subgrid cannot
    both be one and take part in its parent's track sizing. */
 
-.stonetop.sheet.character .stonetop-move-list {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-list {
 	container-type: inline-size;
 	display: grid;
 	/* A floor on the name, not minmax(0, …): with none, Defend's column measured 31px holding a 48px
@@ -3769,7 +3731,7 @@ button.stonetop-view-toggle.is-active {
 	padding: 0;
 }
 
-.stonetop.sheet.character .stonetop-mrow {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow {
 	--mrow-die-w: 0.875rem;
 	/* How far a name's TEXT sits in from its cell, so a name that does not roll lines up with one that
 	   does, behind its die; the trigger and the open text sit in to meet it. */
@@ -3785,14 +3747,14 @@ button.stonetop-view-toggle.is-active {
 	cursor: auto;
 }
 
-.stonetop.sheet.character .stonetop-mrow:last-child { border-bottom: 0; }
-.stonetop.sheet.character .stonetop-mrow:hover { background: var(--st-paper-sunken); }
-.stonetop.sheet.character .stonetop-move-list:not(:has(.stonetop-mrow-roll)) > .stonetop-mrow { --mrow-name-inset: 0px; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow:last-child { border-bottom: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow:hover { background: var(--st-paper-sunken); }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-list:not(:has(.stonetop-mrow-roll)) > .stonetop-mrow { --mrow-name-inset: 0px; }
 
 /* Still a grid, and deliberately: with flex-wrap, a name that grows takes the whole line and pushes the
    controls onto one of their own, where they read as an orphan. When there is not enough room it is
    the NAME that wraps. */
-.stonetop.sheet.character .stonetop-mrow > .stonetop-item-header {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow > .stonetop-item-header {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column: 1 / -1;
@@ -3802,7 +3764,7 @@ button.stonetop-view-toggle.is-active {
 	padding: 0.3rem 0.4rem;
 }
 
-.stonetop.sheet.character .stonetop-mrow-name {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-name {
 	grid-column: name;
 	min-width: 0;
 	display: flex;
@@ -3812,7 +3774,7 @@ button.stonetop-view-toggle.is-active {
 
 /* The die and the name are one button, one target the width of the name's column. Something upstream
    gives buttons `flex: 0 0 auto`, which stopped "Persuade (vs. NPCs)" wrapping in the rail. */
-.stonetop.sheet.character .stonetop-mrow-roll {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-roll {
 	min-width: 0;
 	flex: 0 1 auto;
 	display: flex;
@@ -3823,7 +3785,7 @@ button.stonetop-view-toggle.is-active {
 }
 
 /* One declared width, read by both the die and the indent that stands in for it on the lines below. */
-.stonetop.sheet.character .stonetop-mrow-die {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-die {
 	font-size: 0.72rem;
 	opacity: 0.8;
 	width: var(--mrow-die-w);
@@ -3831,21 +3793,21 @@ button.stonetop-view-toggle.is-active {
 	flex: none;
 }
 
-.stonetop.sheet.character .stonetop-mrow-roll:hover .stonetop-mrow-die,
-.stonetop.sheet.character .stonetop-mrow-roll:focus-visible .stonetop-mrow-die { opacity: 1; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-roll:hover .stonetop-mrow-die,
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-roll:focus-visible .stonetop-mrow-die { opacity: 1; }
 
-.stonetop.sheet.character .stonetop-mrow-title--static { min-width: 0; padding-left: var(--mrow-name-inset); }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-title--static { min-width: 0; padding-left: var(--mrow-name-inset); }
 
 /* Full ink: the name is how a move is found. It wraps rather than truncating — "Persuade (vs. NPCs)"
    was 127px in a 125px column, and an ellipsis eats the half that tells it from the other Persuade. */
-.stonetop.sheet.character .stonetop-mrow-title,
-.stonetop.sheet.character .stonetop-move-preview-title {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-title,
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-title {
 	font-family: "StonetopUI", serif;
 	font-weight: 700;
 	letter-spacing: 0.01em;
 }
 
-.stonetop.sheet.character .stonetop-mrow-title {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-title {
 	font-size: var(--fs-note);
 	color: var(--st-ink);
 	white-space: normal;
@@ -3853,19 +3815,19 @@ button.stonetop-view-toggle.is-active {
 	overflow-wrap: anywhere;
 }
 
-.stonetop.sheet.character .stonetop-mrow-roll:hover .stonetop-mrow-title,
-.stonetop.sheet.character .stonetop-mrow-roll:focus-visible .stonetop-mrow-title { color: var(--st-accent); }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-roll:hover .stonetop-mrow-title,
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-roll:focus-visible .stonetop-mrow-title { color: var(--st-accent); }
 
 /* Centred, both the stat and the dash: right-aligned, the dash hung on the column's edge and the empty
    rows read as a second, ragged thing. Sized on the cell, so the dash and "+INT" take one size. */
-.stonetop.sheet.character .stonetop-mrow-stat {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-stat {
 	grid-column: roll;
 	text-align: center;
 	font-size: var(--fs-fine);
 }
 
-.stonetop.sheet.character .stonetop-mrow-mod,
-.stonetop.sheet.character .stonetop-move-preview-roll {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-mod,
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-roll {
 	font-family: var(--font-primary), sans-serif;
 	font-weight: 400;
 	font-variant-numeric: tabular-nums;
@@ -3873,9 +3835,9 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-accent);
 }
 
-.stonetop.sheet.character .stonetop-mrow-nil { color: var(--st-ink-faint); font-variant-numeric: tabular-nums; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-nil { color: var(--st-ink-faint); font-variant-numeric: tabular-nums; }
 
-.stonetop.sheet.character .stonetop-mrow > .stonetop-item-header > .stonetop-item-controls {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow > .stonetop-item-header > .stonetop-item-controls {
 	grid-column: ctl;
 	display: inline-flex;
 	align-items: center;
@@ -3887,7 +3849,7 @@ button.stonetop-view-toggle.is-active {
 
 /* One centred square per control: sized to its glyph, the chevron and the bubble sat at different
    heights and close enough to misclick. */
-.stonetop.sheet.character .stonetop-mrow-caret {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-caret {
 	all: unset;
 	cursor: pointer;
 	display: inline-flex;
@@ -3899,16 +3861,16 @@ button.stonetop-view-toggle.is-active {
 	font-size: var(--fs-fine);
 }
 
-.stonetop.sheet.character .stonetop-mrow-caret:focus-visible { outline: 2px solid var(--st-accent); outline-offset: 2px; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-caret:focus-visible { outline: 2px solid var(--st-accent); outline-offset: 2px; }
 
 /* The shipped 0.12s finished long before the text arrived and read as two events. */
-.stonetop.sheet.character .stonetop-mrow .stonetop-move-caret { transition-duration: 0.4s; }
-.stonetop.sheet.character .stonetop-mrow.is-open .stonetop-move-caret { transform: rotate(90deg); }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-move-caret { transition-duration: 0.4s; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow.is-open .stonetop-move-caret { transform: rotate(90deg); }
 
 /* The row's second line: the trigger, and — where the first line has no room for it — the track. A
    box of its own because the two share a line when the track joins them; wider rows dissolve it so the
    track can go up to the first line without the markup changing shape. */
-.stonetop.sheet.character .stonetop-mrow-sub {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-sub {
 	grid-column: name / -1;
 	grid-row: 2;
 	display: flex;
@@ -3917,7 +3879,7 @@ button.stonetop-view-toggle.is-active {
 	min-width: 0;
 }
 
-.stonetop.sheet.character .stonetop-mrow .stonetop-move-gloss {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-move-gloss {
 	padding-left: var(--mrow-name-inset);
 	min-width: 0;
 	flex: 0 1 auto;
@@ -3925,11 +3887,11 @@ button.stonetop-view-toggle.is-active {
 }
 
 /* `display: block` on the gloss would otherwise beat the attribute, and it slides out by `hidden`. */
-.stonetop.sheet.character .stonetop-mrow .stonetop-move-gloss[hidden] { display: none; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-move-gloss[hidden] { display: none; }
 
 /* Never broken or compressed: a resource reads as a run of identical marks, and a run that wraps stops
    reading as one. */
-.stonetop.sheet.character .stonetop-mrow .stonetop-item-resources {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-item-resources {
 	display: flex;
 	align-items: center;
 	gap: 0.2rem;
@@ -3938,7 +3900,7 @@ button.stonetop-view-toggle.is-active {
 	flex: none;
 }
 
-.stonetop.sheet.character .stonetop-mrow .stonetop-arcanum-resource-title {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-arcanum-resource-title {
 	display: inline;
 	font-family: var(--font-primary), sans-serif;
 	font-size: var(--fs-fine);
@@ -3950,23 +3912,23 @@ button.stonetop-view-toggle.is-active {
 /* The open text starts where the name's text starts, on every surface: the body spans every column
    and only its contents move in, behind the same inset as the trigger. `:not([hidden])` because
    `display: grid` would otherwise show every shut body. */
-.stonetop.sheet.character .stonetop-mrow > .stonetop-move-body:not([hidden]) {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow > .stonetop-move-body:not([hidden]) {
 	grid-column: 1 / -1;
 	display: grid;
 	grid-template-columns: subgrid;
 	background: var(--st-paper-sunken);
 }
 
-.stonetop.sheet.character .stonetop-mrow > .stonetop-move-body { padding: 0.15rem 0.4rem 0.5rem 0; font-size: var(--fs-note); }
-.stonetop.sheet.character .stonetop-mrow > .stonetop-move-body > * { grid-column: name / -1; padding-left: var(--mrow-name-inset); }
-.stonetop.sheet.character .stonetop-mrow > .stonetop-move-body p:last-child { margin-bottom: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow > .stonetop-move-body { padding: 0.15rem 0.4rem 0.5rem 0; font-size: var(--fs-note); }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow > .stonetop-move-body > * { grid-column: name / -1; padding-left: var(--mrow-name-inset); }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow > .stonetop-move-body p:last-child { margin-bottom: 0; }
 
 /* A phase of the expedition: a heading inside the one list, so the rows under every phase share one
    set of columns and one die inset. */
-.stonetop.sheet.character .stonetop-move-phase { grid-column: 1 / -1; list-style: none; padding: 0; }
-.stonetop.sheet.character .stonetop-move-phase:hover { background: none; }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-phase { grid-column: 1 / -1; list-style: none; padding: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-phase:hover { background: none; }
 
-.stonetop.sheet.character .stonetop-move-phase-title {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-phase-title {
 	margin: 0;
 	padding: 0.35rem 0.4rem 0.1rem;
 	border: 0;
@@ -3977,7 +3939,7 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-ink-faint);
 }
 
-.stonetop.sheet.character .stonetop-move-list > .stonetop-mrow:has(+ .stonetop-move-phase) {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-list > .stonetop-mrow:has(+ .stonetop-move-phase) {
 	border-bottom: 1px solid var(--st-rule);
 }
 
@@ -3985,36 +3947,36 @@ button.stonetop-view-toggle.is-active {
    wants about 206, so it cannot there; on a tab the longest the packs produce fits with room over.
    In rem, so Foundry's font size moves the rail and this threshold together. */
 @container (min-width: 16rem) {
-	.stonetop.sheet.character .stonetop-mrow-sub { display: contents; }
-	.stonetop.sheet.character .stonetop-mrow .stonetop-move-gloss { grid-column: name / -1; grid-row: 2; }
-	.stonetop.sheet.character .stonetop-mrow .stonetop-item-resources { grid-column: uses; grid-row: 1; justify-content: flex-end; margin-right: 0.6rem; }
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow-sub { display: contents; }
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-move-gloss { grid-column: name / -1; grid-row: 2; }
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-item-resources { grid-column: uses; grid-row: 1; justify-content: flex-end; margin-right: 0.6rem; }
 }
 
 /* A wide row has room for the type the roles name: a name that heads a row, and move prose. */
 @container (min-width: 40rem) {
-	.stonetop.sheet.character .stonetop-mrow-title { font-size: var(--fs-subheading); }
-	.stonetop.sheet.character .stonetop-mrow .stonetop-move-gloss,
-	.stonetop.sheet.character .stonetop-mrow-stat,
-	.stonetop.sheet.character .stonetop-mrow .stonetop-arcanum-resource-title { font-size: var(--fs-note); }
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow-title { font-size: var(--fs-subheading); }
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-move-gloss,
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow-stat,
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-arcanum-resource-title { font-size: var(--fs-note); }
 	/* The grid's gap is shared by every column; the stat and the track are two facts, not one group. */
-	.stonetop.sheet.character .stonetop-mrow .stonetop-item-resources { margin-left: 0.9rem; }
+	.stonetop.sheet:is(.character, .steading) .stonetop-mrow .stonetop-item-resources { margin-left: 0.9rem; }
 }
 
 /* ── Choosing, on a Moves or Possessions panel ─────────────────────────────────
    Two things and no more: one box a row, in the list's `mark` column (which takes no width where
    there is none), and a line under the trigger saying what taking it asks. */
-.stonetop.sheet.character .stonetop-mrow-mark {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-mark {
 	grid-column: mark;
 	grid-row: 1;
 	display: flex;
 	align-items: center;
 }
 
-.stonetop.sheet.character .stonetop-mrow-mark > .stonetop-item-check { margin: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-mark > .stonetop-item-check { margin: 0; }
 
 /* "×2": nice to know, not needed in play — small, in the faint ink the die rests in, and tabular so
    ×2 and ×3 are one width. It follows the name wherever the name wraps to. */
-.stonetop.sheet.character .stonetop-mrow-times {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-times {
 	flex: none;
 	font-family: var(--font-primary), sans-serif;
 	font-size: var(--fs-fine);
@@ -4024,7 +3986,7 @@ button.stonetop-view-toggle.is-active {
 
 /* Reference, so faint — except a requirement not met, which takes the danger colour with "(not met)"
    in its words, so colour is not the only carrier. */
-.stonetop.sheet.character .stonetop-mrow-choosing {
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-choosing {
 	grid-column: name / -1;
 	grid-row: 3;
 	display: flex;
@@ -4036,8 +3998,8 @@ button.stonetop-view-toggle.is-active {
 	color: var(--st-ink-faint);
 }
 
-.stonetop.sheet.character .stonetop-mrow-req--unmet { color: var(--st-danger); }
-.stonetop.sheet.character button.stonetop-mrow-again { font-family: inherit; color: var(--st-ink-soft); }
+.stonetop.sheet:is(.character, .steading) .stonetop-mrow-req--unmet { color: var(--st-danger); }
+.stonetop.sheet:is(.character, .steading) button.stonetop-mrow-again { font-family: inherit; color: var(--st-ink-soft); }
 
 /* A possession's second line is its content — the gear it gives — so it wraps, where a move's
    trigger is a one-line label for text a click away. */
@@ -4106,7 +4068,7 @@ button.stonetop-view-toggle.is-active {
    A popover, shown and placed by script (MovePreviews): in the top layer nothing it sits in can
    clip it or move it. The user agent's popover box is centred (inset 0, margin auto); this one sits
    where the script puts it. */
-.stonetop.sheet.character .stonetop-move-preview {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview {
 	position: fixed;
 	inset: auto;
 	left: var(--move-preview-x, 0);
@@ -4125,7 +4087,7 @@ button.stonetop-view-toggle.is-active {
 	pointer-events: none;
 }
 
-.stonetop.sheet.character .stonetop-move-preview-title {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-title {
 	margin: 0 0 0.3rem;
 	font-size: var(--fs-subheading);
 	color: var(--st-ink);
@@ -4134,10 +4096,10 @@ button.stonetop-view-toggle.is-active {
 	gap: 0.5rem;
 }
 
-.stonetop.sheet.character .stonetop-move-preview-roll { margin-left: auto; font-size: var(--fs-note); }
-.stonetop.sheet.character .stonetop-move-preview-text p:last-child { margin-bottom: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-roll { margin-left: auto; font-size: var(--fs-note); }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-text p:last-child { margin-bottom: 0; }
 
-.stonetop.sheet.character .stonetop-move-preview-tiers {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-tiers {
 	display: grid;
 	grid-template-columns: max-content 1fr;
 	gap: 0.15rem 0.6rem;
@@ -4147,11 +4109,11 @@ button.stonetop-view-toggle.is-active {
 	padding-top: 0.4rem;
 }
 
-.stonetop.sheet.character .stonetop-move-preview-tiers dt { font-variant-numeric: tabular-nums; color: var(--st-accent); }
-.stonetop.sheet.character .stonetop-move-preview-tiers dd { margin: 0; }
-.stonetop.sheet.character .stonetop-move-preview-tiers dd p { margin: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-tiers dt { font-variant-numeric: tabular-nums; color: var(--st-accent); }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-tiers dd { margin: 0; }
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-tiers dd p { margin: 0; }
 
-.stonetop.sheet.character .stonetop-move-preview-foot {
+.stonetop.sheet:is(.character, .steading) .stonetop-move-preview-foot {
 	margin: 0.45rem 0 0;
 	font-size: var(--fs-micro);
 	letter-spacing: 0.08em;
@@ -5201,34 +5163,6 @@ button.stonetop-xp-toggle {
 	padding: 0 12px;
 }
 
-.stonetop-roll-mode-header {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-}
-
-.stonetop-roll-mode-header .stonetop-outfit-heading {
-	font-family: "StonetopUI", serif;
-	font-weight: bolder;
-	font-size: var(--fs-heading);
-	letter-spacing: 0.4px;
-	margin: 0;
-	flex-shrink: 0;
-}
-
-.stonetop-roll-mode-header .stonetop-outfit-loads {
-	flex-direction: row;
-	gap: 10px;
-}
-
-/* ── Roll-pick dialog ─────────────────────────────────────────────────────── */
-
-.stonetop-roll-dialog .window-content {
-	padding: 8px;
-	background: var(--st-paper);
-	font-family: var(--font-primary);
-}
-
 /* ── "If you want to…" advice dialog ─────────────────────────────────────────── */
 
 .stonetop-advice-dialog .window-content {
@@ -5275,139 +5209,221 @@ button.stonetop-xp-toggle {
 	margin-bottom: 0;
 }
 
-.stonetop-roll-pick-content {
-	position: relative;
-	padding: 10px 12px;
-	margin-bottom: 8px;
-	font-size: var(--fs-label);
+/* ── The roll dialog ─────────────────────────────────────────────────────────────
+   RollModeDialog: every 2d6 roll asks Advantage, Normal or Disadvantage. A DialogV2 wearing the
+   sheets' classes, so it takes their tokens and follows the theme as they do. Laid out as dnd5e lays
+   out its roll dialog: what is rolled and by whom, the dice, the formula they make, then the modes. */
+
+/* Sized to what it holds (DialogV2's "auto"), but never narrower than the three modes want. */
+.application.stonetop.stonetop-roll-dialog {
+	min-width: 22rem;
 }
 
-.stonetop-roll-pick-content::before {
-	content: "";
+/* The heading in the body names the roll; the frame keeps only its dice icon. The title stays in the
+   page as the window's accessible name. */
+.stonetop-roll-dialog .window-title {
 	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background-color: var(--st-decor);
-	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat;
-	-webkit-mask-repeat: no-repeat;
-	mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	-webkit-mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
-	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
-.stonetop-roll-pick-content > * {
-	position: relative;
-	z-index: 1;
+/* The title gave up its room in the header with its box, and that room is what pushes the controls to
+   the frame's far edge. The icon takes it instead, so the close button stays where every window has it. */
+.stonetop-roll-dialog .window-icon {
+	margin-inline-end: auto;
 }
 
-.stonetop-roll-pick-content .stonetop-roll-mode-header {
-	flex-wrap: wrap;
+/* The band's ground, the sheets' raised paper, rather than the tab's texture. */
+.application.stonetop.stonetop-roll-dialog .window-content {
+	padding: 0.75rem 1rem 1rem;
+	background: var(--region-head);
 }
 
-.stonetop-roll-pick-content .stonetop-outfit-loads {
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 8px;
+.stonetop-roll-dialog .dialog-form {
+	gap: 0.9rem;
 }
 
+.stonetop-roll-prompt {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.stonetop-roll-prompt-head {
+	text-align: center;
+}
+
+.stonetop.sheet .stonetop-roll-prompt-title {
+	margin: 0;
+	border: none;
+	font-size: var(--fs-display);
+	line-height: 1.15;
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt-roller {
+	margin: 0.15rem 0 0;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-subheading);
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt-note {
+	font-family: var(--font-serif);
+	font-style: italic;
+	color: var(--st-ink-soft);
+}
+
+/* The sheet's own die, the one on every roll control, two of them. */
+.stonetop-roll-prompt-dice {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	justify-items: center;
+	gap: 0.15rem 0.35rem;
+}
+
+.stonetop-roll-prompt-die {
+	font-size: 2.4rem;
+	line-height: 1;
+	color: var(--st-ink-soft);
+}
+
+.stonetop-roll-prompt-dice-label {
+	grid-column: 1 / -1;
+	padding: 0 0.4rem;
+	border-radius: 2px;
+	background: var(--st-chip-fill);
+	color: var(--st-chip-ink);
+	font-size: var(--fs-micro);
+	line-height: 1.5;
+}
+
+/* Under the dice, the stat beside the number it adds: "2d6 + 0 Pop". At the far edge it read as a
+   stray word. */
+.stonetop-roll-prompt-formula-line {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	gap: 0.4rem;
+}
+
+.stonetop-roll-prompt-formula {
+	font-size: var(--fs-label);
+	font-weight: bold;
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt-stat {
+	font-style: italic;
+	font-size: var(--fs-note);
+	color: var(--st-ink-soft);
+}
+
+/* The rule that explains the modes, the last thing above them. On the formula line it read as a note
+   on the stat. Drawn as the sheet's other inline move links are (.stonetop-move-link). */
+.stonetop-roll-prompt-rule-line {
+	text-align: center;
+}
+
+.stonetop-roll-prompt-rule {
+	font-size: var(--fs-fine);
+	color: var(--st-ink-soft);
+}
+
+.stonetop-roll-prompt-rule > .fas {
+	margin-inline-end: 0.3em;
+}
+
+.stonetop-roll-stat-choice {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.stonetop-roll-stat-choice-label {
+	flex: none;
+	font-family: "StonetopUI", serif;
+	font-size: var(--fs-body);
+	color: var(--st-ink);
+}
+
+.stonetop-roll-stat-choice-label:empty {
+	display: none;
+}
+
+/* A field you pick from, so it is drawn as one. The sheets' inputs are write-in lines on the paper,
+   and a select drawn that way read as a line of text. */
+.stonetop-roll-stat-choice select {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding: 0 0.5rem;
+	border: 1px solid var(--st-rule-strong);
+	border-radius: 3px;
+	background-color: color-mix(in srgb, var(--st-ink) 8%, var(--region-head));
+	color: var(--st-ink);
+}
+
+.stonetop-roll-prompt .stonetop-move-rollnotes {
+	margin: 0;
+}
+
+.stonetop-roll-prompt .stonetop-move-rollnote {
+	font-size: var(--fs-fine);
+}
+
+/* The modes: three buttons, alike — the sheet's own button, the leather of a bar's tab, in its small
+   label voice. Normal is the default by focus alone; a Normal drawn apart read as already chosen, and
+   the three as a selector rather than as three ways to roll. */
 .stonetop-roll-dialog .form-footer {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 4px;
+	gap: 0.5rem;
+	margin: 0;
 	padding: 0;
 	border: none;
 }
 
-.stonetop-roll-dialog .dialog-button {
-	flex: 1 1 auto;
-	position: relative;
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn {
+	flex: 1 1 0;
+	min-width: 0;
+	height: auto;
+	min-height: 2.25rem;
+	padding: 0.5rem 0.6rem;
 	border: none;
-	min-width: 70px;
-	height: 60px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2px;
-	font-size: 11px;
-	font-weight: bold;
-	cursor: pointer;
+	border-radius: 3px;
+	background: color-mix(in srgb, var(--st-accent) 55%, var(--st-chip-fill));
+	color: var(--st-chip-ink);
+	box-shadow: 0 2px 3px var(--st-shadow);
+	font-size: var(--fs-fine);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 	line-height: 1.2;
+	text-shadow: none;
 }
 
-.stonetop-roll-dialog .dialog-button::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background-color: var(--st-decor);
-	mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	-webkit-mask-image: url("../assets/ui/decor/panel-corner-tl.png"),
-		url("../assets/ui/decor/panel-corner-tr.png"),
-		url("../assets/ui/decor/panel-corner-bl.png"),
-		url("../assets/ui/decor/panel-corner-br.png"),
-		url("../assets/ui/decor/panel-edge-top.png"),
-		url("../assets/ui/decor/panel-edge-bottom.png"),
-		url("../assets/ui/decor/panel-edge-left.png"),
-		url("../assets/ui/decor/panel-edge-right.png");
-	mask-repeat: no-repeat;
-	-webkit-mask-repeat: no-repeat;
-	mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	-webkit-mask-position: left top, right top, left bottom, right bottom,
-		left 16px top 0, left 16px bottom 0,
-		left 0 top 16px, right 0 top 16px;
-	mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
-	-webkit-mask-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px,
-		calc(100% - 32px) 8px, calc(100% - 32px) 8px,
-		8px calc(100% - 32px), 8px calc(100% - 32px);
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:not(:disabled):is(:hover, :focus-visible) {
+	background: color-mix(in srgb, var(--st-accent) 80%, var(--st-chip-fill));
+	color: var(--st-chip-ink);
 }
 
-.stonetop-roll-dialog .dialog-button > * {
-	position: relative;
-	z-index: 1;
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:focus-visible {
+	outline: 2px solid var(--st-accent);
+	outline-offset: 2px;
 }
 
-.stonetop-roll-pick-mod {
-	display: block;
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 1;
+/* Core outlines a button on any focus, so Normal — focused when the dialog opens — stood apart from
+   the other two after a click. The ring is the keyboard's; a pointer gets none. */
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.stonetop-roll-dialog .form-footer > .stonetop-roll-mode-btn:disabled {
+	opacity: 0.45;
+	box-shadow: none;
+	cursor: default;
 }
 
 /* -- Supplies pool -------------------------------------------- */
@@ -6686,72 +6702,6 @@ button.stonetop-xp-toggle {
 
 /* ===== Steading Sheet ===== */
 
-/* ── The rules ───────────────────────────────────────────────────────────────────
-   Two weights, and the gap between them said something it did not mean.
-
-   The heading's woodcut divider is 5px of #c9bca4 at full opacity — a bright, high-contrast bar on a
-   dark ground. The hairline under a list row is 1px of the same family at 25% alpha. Five times the
-   size and four times the contrast compounds to roughly a twentyfold difference in weight between
-   two marks that are both, to a reader, "a rule" — so the pair read as an inconsistency rather than
-   as a hierarchy, and the heavy one read as a splotch.
-
-   They are brought within about three times each other: the divider drops to a rule rather than a
-   bar, the hairline comes up to something deliberate. The distressed texture stays — it is the
-   book's own mark, and it is what makes a heading's rule different in KIND from a row's. */
-.stonetop.sheet.steading .stonetop-panel-divider,
-.stonetop.sheet.steading .stonetop-playbook-divider {
-	opacity: 0.5;
-}
-
-
-/* ── The type system ─────────────────────────────────────────────────────────────
-   This sheet is the book's sheet, and it has to sound like one thing.
-
-   Two faults, both structural rather than local, and both fixed here rather than at sixty call
-   sites:
-
-   1. THREE FACES. The book's small caps (StonetopUI) titled things, the book's roman (IM Fell) set
-      the numbers, and Signika — Foundry's UI sans, reached through `--font-primary` by every shared
-      partial — set the move names, the list rows, the add-rows and the coinage. "Resources" was in
-      the book's voice and the resources under it were not. Remapping the token is one declaration
-      and every shared partial follows, with no edits to the character sheet, which keeps Signika.
-
-   2. THE SCALE RAN TWO STEPS TOO LOW. `--fs-micro` ("tiny meta: dense counters") was carrying the
-      debility names, the rating notes and the coinage labels — content, not meta — at 11.5px, and
-      `--fs-fine` ("page refs, fine print") was carrying rating NAMES. Raising the floor here lifts
-      every one of them together and keeps their relative order intact.
-
-   The Fell faces also run smaller than Signika at a given size — a smaller x-height and a narrower
-   set — so swapping the family without lifting the scale would have made the sheet harder to read,
-   not easier. The two changes belong together. */
-.stonetop.sheet:is(.steading, .improvement) {
-	/* Both tokens, and with the stack written out rather than pointed at `--font-serif`.
-	   `--font-serif` is declared on :root as the book's roman, but Foundry's own FONT SETTING
-	   redeclares --font-primary AND --font-serif on `body` — in this world both resolve to Amiri. A
-	   sheet is a descendant of body, so every var() inside it was picking up the override, and the
-	   "book's roman" token had quietly stopped meaning the book's roman. That is the whole reason
-	   this sheet had three faces: not a missing rule anywhere, but a token that no longer pointed
-	   where its name said. Restated on the sheet, it does again, for everything beneath. */
-	--font-serif:   "IM Fell English", Georgia, serif;
-	--font-primary: "IM Fell English", Georgia, serif;
-
-	/* DIGITS, and only digits.
-	   The book's roman is a scan of a 17th-century face: its figures are old-style, irregular in
-	   width, and its zero is the height and shape of an `o`. That is right for prose and wrong for
-	   the six numbers this sheet exists to state — at value size, `0` read as a letter and `-1`
-	   ahead of "lacking" read as an em dash. Signika is Foundry's own UI face, already loaded in
-	   every world, and its figures are lining, monoline and unambiguous.
-	   A rating's NAME stays in the book's voice; it is the number that changes face, which also
-	   makes a value unmistakable on a line with no room for boxes or rules around it. */
-	--font-numeral: Signika, "Segoe UI", sans-serif;
-
-	--fs-micro:      0.8rem;      /* notes, glosses, population bands           12.8px */
-	--fs-fine:       0.875rem;    /* debility names, band labels, coinage       14px   */
-	--fs-note:       0.9375rem;   /* list rows, move text, prose                15px   */
-	--fs-body:       1rem;        /* move names                                 16px   */
-}
-
-
 /* Base layout (ApplicationV2). The V1 sheet put this on `form.stonetop.sheet.steading`, but under
    V2 that selector is the outer frame form (it wraps the window header too). Like the NPC card, the
    layout + scroll live on .window-content instead: it persists across V2 re-renders, so its
@@ -6810,9 +6760,9 @@ button.stonetop-xp-toggle {
 	flex: 1 1 auto;
 	min-height: 0;
 	/* The width a TAB actually has, which is the sheet's less the rail's — and the rail comes and goes
-	   now, at every width. A tab that asked `steading-sheet` was answering about a region up to 220px
-	   wider than itself, so the two-column tabs held their split ~220px past the point where they
-	   still fitted. Named for the same reason every container here is: an unnamed one binds to
+	   now, at every width. A tab that asked `steading-sheet` was answering about a region up to a
+	   rail wider than itself, so the two-column tabs held their split a rail's width past the point
+	   where they still fitted. Named for the same reason every container here is: an unnamed one binds to
 	   whatever ancestor is nearest, which is a silent trap the moment another is added above it. */
 	container-type: inline-size;
 	container-name: steading-tab;
@@ -6852,6 +6802,12 @@ button.stonetop-xp-toggle {
 	display: flex;
 	flex-direction: column;
 	min-width: 0;
+}
+
+/* A section on a tab is a panel under its ink bar, as on the character sheet, and its body takes the
+   inset a section's body has there. The rail's move panels are left out: their rows carry their own. */
+.stonetop.sheet.steading :is(.sheet-body, .stonetop-steadfast-body) .stonetop-panel > .stonetop-panel-body {
+	padding: 0.5rem 0.75rem;
 }
 
 
@@ -6911,7 +6867,7 @@ button.stonetop-xp-toggle {
      · no boxes; the grid does the separating
 
    Everything below is that rule applied. Where an element used to have its own treatment — the
-   native select's arrow, the roll mode's bordered segments, the debility circles — it is brought
+   native select's arrow, the debility circles — it is brought
    onto the rule/accent language instead. */
 
 /* The line: the persistent region, present on every tab.
@@ -7003,12 +6959,6 @@ button.stonetop-xp-toggle {
 	gap: 2px 12px;
 	padding-bottom: 0.3rem;
 	border-bottom: 1px solid var(--st-rule-veil);
-}
-
-/* One step above the values rather than four. The old display size dwarfed everything under it,
-   which is most of why the header read as a headline with debris beneath. */
-.stonetop.sheet.steading .steading-identity .stonetop-rollmode {
-	margin-left: auto;
 }
 
 /* ── Band 2: the ratings ────────────────────────────────────────────────────────
@@ -7203,47 +7153,21 @@ button.stonetop-xp-toggle {
    A mode, not a value — so it gets neither a rule nor a box. Three small-caps words; the active
    one carries the same accent that marks an active debility. Real radios underneath. */
 
-/* ── Roll mode: one control, two arrangements ───────────────────────────────────
-   The character's masthead, the steading's ledger line and the stat-pick dialog set the same three
-   modes. `--inline` is the header form — words on a line, the live one in the accent, no rule and
-   no box, because a mode is not a value. `--stacked` is the dialog's column.
-
-   De-scoped from `.stonetop.sheet.steading`, where this lived when it was the steading's own
-   control. */
+/* ── One-of-N radios in a column ────────────────────────────────────────────────
+   roll-mode-picker.hbs: the improvement editors' choices (a section's rule, when a result fires, what
+   it does). A labelled column with a dot-in-ring mark, because there the choice IS the box. */
 
 .stonetop-rollmode {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
 	border: 0;
 	padding: 0;
 	margin: 0;
 	min-width: 0;
 }
 
-.stonetop-rollmode--inline {
-	display: inline-flex;
-	align-items: baseline;
-	gap: 0.75rem;
-}
-
-/* A column, and the one place the circle mark is drawn: in the dialog the choice IS the box, so the
-   options want to read as a list of things to pick rather than as a line of words. */
-.stonetop-rollmode--stacked {
-	display: flex;
-	flex-direction: column;
-	gap: 0.1rem;
-}
-
-/* Named for assistive tech, not drawn — inline, the three options say what they are. Three radios
-   that mean one setting are a group, and a group with no accessible name is three loose words. */
-.stonetop-rollmode--inline .stonetop-rollmode-legend {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	clip-path: inset(50%);
-	white-space: nowrap;
-}
-
-.stonetop-rollmode--stacked .stonetop-rollmode-legend,
+.stonetop-rollmode-legend,
 .stonetop-improvement-group-label {
 	font-family: "StonetopUI", serif;
 	font-size: var(--fs-note);
@@ -7276,13 +7200,7 @@ button.stonetop-xp-toggle {
 	pointer-events: none;
 }
 
-/* The mark is the stacked variant's alone. Inline, the accent on the live word IS the mark, and a
-   circle beside each of three words on one line is three times the furniture for the same fact. */
-.stonetop-rollmode--inline .stonetop-rollmode-mark {
-	display: none;
-}
-
-.stonetop-rollmode--stacked .stonetop-rollmode-mark {
+.stonetop-rollmode-mark {
 	width: 0.6rem;
 	height: 0.6rem;
 	flex: 0 0 auto;
@@ -7290,43 +7208,15 @@ button.stonetop-xp-toggle {
 	border-radius: 50%;
 }
 
-.stonetop-rollmode--stacked .stonetop-rollmode-input:checked + .stonetop-rollmode-mark {
+.stonetop-rollmode-input:checked + .stonetop-rollmode-mark {
 	background: var(--st-accent);
 	border-color: var(--st-accent);
-}
-
-/* The label voice, on BOTH sheets. This was declared only under `.stonetop.sheet.steading`, so one
-   partial that claims to be "one control, three surfaces" rendered the steading's ledger in the
-   house small-caps face and the character's masthead in the body serif at body size — three loose
-   words trailing the name input rather than a control. StonetopUI IS the small-caps face, so no
-   `text-transform` and no synthesised bold go near it; see the steading's tile titles.
-
-   Inline only. The dialog's stacked variant is a list of things to pick under its own legend, and
-   reads as a form rather than as a line of labels. */
-.stonetop-rollmode--inline .stonetop-rollmode-label {
-	font-family: "StonetopUI", serif;
-	font-size: var(--fs-fine);
-	font-weight: normal;
-	letter-spacing: 0.04em;
-	color: var(--st-ink-soft);
-	white-space: nowrap;
-}
-
-.stonetop-rollmode--inline .stonetop-rollmode-option.is-checked .stonetop-rollmode-label {
-	color: var(--st-accent);
-	border-bottom: 1px solid var(--st-accent);
 }
 
 .stonetop-rollmode-input:focus-visible ~ .stonetop-rollmode-label {
 	outline: 2px solid var(--st-accent);
 	outline-offset: 2px;
 }
-
-/* The character's masthead carries no roll mode. It did, at the far end beside the name, and it was
-   three words with nothing to align to — no rule under them, nothing beside them, and the portrait
-   starting somewhere below. It ends the band's FOOT now, which is the same shape the steading gives
-   it: one picker, one arrangement, at the end of a line on both sheets. Left as a note because "put
-   it back on the masthead" is the obvious idea and it has already been tried. */
 
 /* ── Band 3: conditions ─────────────────────────────────────────────────────────
    The same label/value grammar as the ratings: a small-caps name in the label column, the thing it
@@ -7551,11 +7441,6 @@ button.stonetop-xp-toggle {
 	row-gap: 0.15rem;
 }
 
-/* Last on its row: the mode is the final thing you set before rolling. */
-.stonetop.sheet.steading .steading-line .stonetop-rollmode {
-	margin-left: auto;
-}
-
 /* The conditions are in the book's order and STAY in it. Sorting the marked one to the front meant
    that ticking a circle moved the thing you had just clicked out from under the pointer and shuffled
    the other two past it — for a row of three items whose whole point is that they are always in the
@@ -7579,8 +7464,7 @@ button.stonetop-xp-toggle {
    a min-width spills straight out of its box and lands on top of its neighbour. The row clips from
    the right instead, which is the whole point of a line that cannot wrap. */
 .stonetop.sheet.steading .steading-line > *,
-.stonetop.sheet.steading .steading-line .stonetop-combo,
-.stonetop.sheet.steading .steading-line .stonetop-rollmode {
+.stonetop.sheet.steading .steading-line .stonetop-combo {
 	flex: 0 0 auto;
 }
 
@@ -7667,25 +7551,17 @@ button.stonetop-xp-toggle {
 	min-width: 2.75ch;
 }
 
-/* The digits, in the face cut for digits.
-
-   A rating's value, at both densities, plus the glosses that are themselves numbers — "→ +0
-   lacking", a population band — and the treasury's counts. What stays in the book's roman is
-   everything that is words: the rating's name, a tier ("legendary"), a condition and its effect.
-
-   One selector list rather than a declaration on each, so "a number on this sheet looks like a
-   number wherever it is" is stated once and cannot half-drift. */
-/* The notes that are themselves numbers. The VALUES are set the same way, further down and outside
-   this layer — see "The digits" — because a field's family is decided by an unlayered rule that no
-   amount of specificity in here can reach.
-
-   The note's kind, spelled twice on purpose: each density sets the note's prose face at five
-   classes, and a numeric note has to outrank that wherever it is rather than being restated per
-   density. A tier ("legendary") is words and keeps the roman. */
+/* Every number in the face a character's stats are set in, which the ledger line's small caps would
+   otherwise hand down to its fields. A note that is a number — "→ +0 lacking", a population band —
+   joins them rather than the Fell italic the other notes take: the Fell's figures are old-style, so
+   its `0` reads as an `o` and `-1` as a dash. The kind is spelled twice so it outranks the note rule
+   at either density. `input`, because Size wears the value class on a <select> holding a word. */
+.stonetop.sheet.steading input.steading-attr-input,
+.stonetop.sheet.steading .steading-coinage-cell input[type="number"],
 .stonetop.sheet.steading .steading-size-band,
 .stonetop.sheet.steading .steading-tile .steading-tile-note.steading-tile-note--adjustment,
 .stonetop.sheet.steading .steading-tile .steading-tile-note.steading-tile-note--band {
-	font-family: var(--font-numeral);
+	font-family: var(--font-primary);
 }
 
 .stonetop.sheet.steading .steading-line .stonetop-stepper:hover > .steading-attr-input,
@@ -7699,7 +7575,7 @@ button.stonetop-xp-toggle {
    "treat Prosperity as if it's 1 lower" in capitals, which is shouting, and render numerals in a
    face that was never cut for them. */
 .stonetop.sheet.steading .steading-line .steading-tile-note {
-	font-family: var(--font-serif);
+	font-family: "IM Fell English", Georgia, serif;
 	font-size: var(--fs-micro);
 	font-style: italic;
 	letter-spacing: 0;
@@ -7764,12 +7640,6 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-faint);
 }
 
-/* Last, and never the thing that runs out of room — the conditions beside it absorb the shrink. */
-.stonetop.sheet.steading .steading-line .stonetop-rollmode {
-	margin-left: auto;
-	padding-left: 0.4rem;
-}
-
 /* ── Narrow sheets ───────────────────────────────────────────────────────────────
    A sheet window resizes independently of the browser, so this keys off the line's own width. The
    line wraps by nature — the failure to avoid is not wrapping but losing the values, so what sheds
@@ -7820,7 +7690,6 @@ button.stonetop-xp-toggle {
 }
 
 @container steading-line (max-width: 30rem) {
-	.stonetop.sheet.steading .steading-line .stonetop-rollmode,
 	.stonetop.sheet.steading .steading-line .steading-season-line {
 		margin-left: 0;
 	}
@@ -7839,6 +7708,7 @@ button.stonetop-xp-toggle {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
+	gap: 0.75rem;
 }
 
 /* ── The Play tab: the ratings at their full density ─────────────────────────────
@@ -7882,14 +7752,6 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-play-grid .steading-overview-column {
 	min-width: 0;
-	gap: 0.75rem;
-}
-
-/* The lists size to their contents here. `flex: 1` + a 200px floor is for a column that must fill a
-   tab; in a grid whose rows stretch it would stretch one list past its own rows. */
-.stonetop.sheet.steading .steading-play-grid .steading-overview-field {
-	flex: 0 0 auto;
-	min-height: 0;
 }
 
 /* The steading's scratchpad, closing the Resources column. It is the only thing on this tab that
@@ -7902,6 +7764,97 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-play-grid .steading-notes-field textarea {
 	min-height: 6rem;
+}
+
+/* ── A rating as its list's bar ──
+   On Play a rating heads the list that justifies it (steading-ratings-list.hbs): its name rolls from
+   the bar's title, its note rides the bar, and its value sits at the far end — centred on the bar's
+   line, where the bar's controls hang below it, because a value is read rather than pressed. */
+.stonetop.sheet.steading .stonetop-bar-roll {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.35rem;
+	cursor: pointer;
+	color: inherit;
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	width: auto;
+	line-height: 1;
+}
+
+.stonetop.sheet.steading .stonetop-bar-die {
+	font-size: var(--fs-fine);
+	opacity: 0.75;
+}
+
+.stonetop.sheet.steading .stonetop-bar-roll:hover,
+.stonetop.sheet.steading .stonetop-bar-roll:focus-visible {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.stonetop.sheet.steading .stonetop-bar-roll:focus-visible {
+	outline: 2px solid var(--st-accent);
+	outline-offset: 2px;
+}
+
+.stonetop.sheet.steading .steading-bar-note--tier {
+	font-family: "IM Fell English", Georgia, serif;
+}
+
+.stonetop.sheet.steading .stonetop-bar-meta > .stonetop-stepper {
+	align-self: center;
+}
+
+/* `> .steading-attr-input` under the stepper, to outrank the full-density value the Play grid's
+   `data-density` would otherwise hand it. */
+.stonetop.sheet.steading .stonetop-bar .stonetop-stepper > .steading-attr-input {
+	width: auto;
+	min-width: 2.75ch;
+	field-sizing: content;
+	height: auto;
+	padding: 0 2px;
+	border: 0;
+	border-bottom: 1px solid transparent;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	color: inherit;
+	font-size: var(--fs-subheading);
+	line-height: 1;
+	text-align: center;
+	text-shadow: inherit;
+}
+
+.stonetop.sheet.steading .stonetop-bar .stonetop-stepper:hover > .steading-attr-input,
+.stonetop.sheet.steading .stonetop-bar .stonetop-stepper > .steading-attr-input:focus {
+	border-bottom-color: currentColor;
+}
+
+/* The stone fades toward the value's end, and the panel shows through its texture in flecks as big
+   as the ink's own glyphs — the note, the number and its carets read as more of them. Each is set on
+   a patch of the bar's fill, feathered into the stone, so the patch is exactly as wide as what it
+   carries at any bar width. */
+.stonetop.sheet.steading .stonetop-bar:has(> .stonetop-bar-meta > .stonetop-stepper) > .stonetop-bar-note,
+.stonetop.sheet.steading .stonetop-bar-meta > .stonetop-stepper {
+	background: var(--st-chip-fill);
+	border-radius: 0.3rem;
+	box-shadow: 0 0 4px 3px var(--st-chip-fill);
+}
+
+.stonetop.sheet.steading .stonetop-bar:has(> .stonetop-bar-meta > .stonetop-stepper) > .stonetop-bar-note {
+	flex: 0 1 auto;
+}
+
+.stonetop.sheet.steading .stonetop-bar .stonetop-stepper-btn {
+	color: inherit;
+	text-shadow: inherit;
+}
+
+.stonetop.sheet.steading .stonetop-bar .stonetop-stepper-btn:hover {
+	color: inherit;
 }
 
 /* ── The rating head ──
@@ -7969,7 +7922,7 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading [data-density="full"] .steading-tile-note {
 	grid-area: note;
 	justify-self: start;
-	font-family: var(--font-serif);
+	font-family: "IM Fell English", Georgia, serif;
 	font-size: var(--fs-micro);
 	font-style: italic;
 	letter-spacing: 0;
@@ -8208,13 +8161,6 @@ button.stonetop-xp-toggle {
 	max-width: 100%;
 }
 
-/* A rail group's rows, in its panel. */
-.stonetop.sheet.steading .steading-move-list {
-	margin: 0;
-	padding: 0 0.4rem 0.2rem;
-	list-style: none;
-}
-
 /* No border, no radius, no inset: the panel is the picture. `aspect-ratio` is the measured one
    (450x448 at 600dpi — square within half a percent), declared so the row reserves the right height
    before the image has loaded and does not jump.
@@ -8351,11 +8297,11 @@ button.stonetop-xp-toggle {
 	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
 }
 
+/* A list panel sizes to its rows: stretched to fill a column, its frame ran on past the last one. */
 .stonetop.sheet.steading .steading-overview-field {
-	flex: 1;
+	flex: 0 0 auto;
 	display: flex;
 	flex-direction: column;
-	min-height: 200px;
 }
 
 .stonetop.sheet.steading .steading-overview-field textarea {
@@ -8439,12 +8385,11 @@ button.stonetop-xp-toggle {
 
 .stonetop.sheet.steading .steading-coinage {
 	flex: 0 0 auto;
-	margin-top: 8px;
 }
 
 .stonetop.sheet.steading .steading-coinage-table {
 	width: auto;
-	margin: 4px 0 0;
+	margin: 0;
 	border: none;
 	border-collapse: collapse;
 	background: none;
@@ -8509,17 +8454,14 @@ button.stonetop-xp-toggle {
 	white-space: nowrap;
 }
 
-/* At the value step, not the prose step. The book's roman has no lining figures, so its zero is the
-   height and shape of an `o`; at 15px in a field two characters wide the treasury read as a row of
-   letters. A rating's value is set at this step for the same reason, so the two now match — which is
-   also the point: a number on this sheet looks like a number wherever it is. */
+/* At the value step, not the prose step, the same as a rating's value: a number on this sheet looks
+   like a number wherever it is. */
 .stonetop.sheet.steading .steading-coinage-cell input[type="number"] {
 	width: auto;
 	min-width: 1.5ch;
 	field-sizing: content;
 	text-align: center;
 	font-size: var(--fs-subheading);
-	font-family: var(--font-serif);
 	/* A value on a rule, the sheet's one idiom for an editable number — the same treatment a rating's
 	   stepper gets three rows up, where the rule is invisible until the field is focused. Core draws
 	   a number input as a rounded, tinted, inset-shadowed box; six of those in a treasury is the only
@@ -8546,20 +8488,33 @@ button.stonetop-xp-toggle {
 
 
 /* ── Folk tab ─────────────────────────────────────────────────────────────────
-   One roster, and the lists you read to fill it. The roster takes the larger share because it has
-   six columns of editable text; the reference column takes what is left and scrolls, because it is
-   deliberately never filtered — every name and every trait stays in it however narrow the search
-   gets, since reading down them whole is how an NPC gets made. */
+   One roster, and the lists you read to fill it, as an end-edge rail (see the rail's own rules). The
+   roster is the column beside the rail and takes what the rail leaves; put away, the rail slides out
+   right and the roster has the tab. The lists are deliberately never filtered — every name and every
+   trait stays in them however narrow the search gets, since reading down them whole is how an NPC
+   gets made.
 
-.stonetop.sheet.steading .steading-folk-grid {
-	display: flex;
-	gap: 0;
+   The rail is wider than the moves rail: it holds runs of names, not one-line rows. `clip` with a
+   margin rather than the layout's `hidden`, so a roster field flush against the tab's edge keeps the
+   left side of its focus ring. */
+.stonetop.sheet.steading .steading-folk-layout {
+	--rail-width: clamp(16rem, 38%, 26rem);
+	overflow: clip;
+	overflow-clip-margin: var(--focus-ring-reach);
 	margin-bottom: 8px;
-	min-height: 0;
+}
+
+.stonetop.sheet.steading .steading-folk-layout > .stonetop-rail-main {
+	padding-inline-end: 1rem;
+}
+
+.stonetop.sheet.steading .steading-folk-layout > .stonetop-rail {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .stonetop.sheet.steading .steading-folk-roster {
-	flex: 1.55;
 	display: flex;
 	flex-direction: column;
 	/* Without this a grid row's text inputs set the column's min-content width and the six columns
@@ -8567,33 +8522,32 @@ button.stonetop-xp-toggle {
 	min-width: 0;
 }
 
-.stonetop.sheet.steading .steading-folk-divider {
-	width: 8px;
-	flex-shrink: 0;
-	margin: 0 4px;
-	background-color: var(--st-decor);
-	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
-	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
+/* A list's name in the rail, in the voice the character's move panels give a part of the journey —
+   a part of the reference, not a heading over it. */
+.stonetop.sheet.steading .steading-folk-list-title {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: var(--font-primary), sans-serif;
+	font-size: var(--fs-fine);
+	font-style: italic;
+	font-weight: normal;
+	color: var(--st-ink-faint);
 }
 
-/* A scroll container, so it clips at its padding box on BOTH axes — the room is the focus ring's,
-   which a roster entry flush against the column's edge would otherwise lose the left side of. See
-   .stonetop-rail-layout .sheet-body. */
-.stonetop.sheet.steading .steading-folk-ref {
-	flex: 1;
-	min-width: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-	overflow-y: auto;
-	padding-inline: var(--focus-ring-reach);
+.stonetop.sheet.steading .steading-folk-list-caret {
+	display: inline-block;
+	width: 0.8em;
+	font-size: 0.8em;
+	transition: transform 0.15s ease;
 }
 
-/* Put away by the roster head's toggle. The column's own `display: flex` outranks the user agent's
-   `[hidden]`, so it has to be said here; the divider goes with it rather than ruling off nothing. */
-.stonetop.sheet.steading .steading-folk-ref[hidden],
-.stonetop.sheet.steading .steading-folk-grid:has(> .steading-folk-ref[hidden]) > .steading-folk-divider {
-	display: none;
+.stonetop.sheet.steading .steading-folk-list.is-open .steading-folk-list-caret {
+	transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.stonetop.sheet.steading .steading-folk-list-caret { transition: none; }
 }
 
 /* Thin sheets: the two columns become two rows.
@@ -8604,38 +8558,41 @@ button.stonetop-xp-toggle {
    width and the lists follow it, which is also the order you use them in: read a name, write it into
    a row.
 
-   Keyed to the TAB's width, not the sheet's: with the rail showing, the tab is 220px narrower than
+   Keyed to the TAB's width, not the sheet's: with the rail showing, the tab is a rail narrower than
    the window, and that is the number that decides whether six columns fit.
 
    40rem (640px at the 16px root), which is BELOW anything a tab can be while the rail is still
-   inline (the rail drawers at 62.5rem, so the narrowest inline-rail tab is 1000 − 220 − 16 = 764).
-   That is the whole reason for the number: the rail hiding itself HANDS the tab 236px, so a
+   inline (the rail drawers at 62.5rem, so the narrowest inline-rail tab is 1000 − 244 − 16 = 740).
+   That is the whole reason for the number: the rail hiding itself HANDS the tab 260px, so a
    threshold above the narrowest inline tab would fold the tab as the sheet narrowed and then unfold
    it a moment later when the rail got out of the way — the lists jumping back beside the roster on
    the way down. Below it the two can only happen in one order: the rail goes, then, if the window
    keeps narrowing, the lists go under the roster.
 
-   In rem, like the rail's own breakpoint, so the margin between them scales with Foundry's Font
-   Size setting. The rail's 220px does not, so the order holds from the 12px step up; at 10px and
-   8px the rail is wide enough against the rest that the lists fold once before it drawers. */
+   In rem, like the rail and its breakpoint, so the margin between them scales with Foundry's Font
+   Size setting and the order holds at every step. */
 @container steading-tab (max-width: 40rem) {
-	.stonetop.sheet.steading .steading-folk-grid {
+	.stonetop.sheet.steading .steading-folk-layout {
 		flex-direction: column;
+		align-items: stretch;
 	}
 
-	/* The divider turns with the layout: the same decorative rule, run the other way. */
-	.stonetop.sheet.steading .steading-folk-divider {
+	.stonetop.sheet.steading .steading-folk-layout > .stonetop-rail-main {
+		padding-inline-end: 0;
+	}
+
+	/* Under the roster, there is no edge for it to slide off: the rail is the rest of the tab, at
+	   whatever its reader last left it, and the tab that would put it away goes. */
+	.stonetop.sheet.steading .steading-folk-layout > .stonetop-rail,
+	.stonetop.sheet.steading .steading-folk-layout.rail-shut > .stonetop-rail {
 		width: auto;
-		height: 5px;
-		margin: 6px 0;
-		mask: url("../assets/ui/decor/divider-horizontal-thin.png") repeat-x center / auto 5px;
-		-webkit-mask: url("../assets/ui/decor/divider-horizontal-thin.png") repeat-x center / auto 5px;
+		margin: 0.75rem 0 0;
+		border-left: 0;
+		visibility: visible;
 	}
 
-	/* Stacked, the reference column is part of the tab's own scroll rather than a column that scrolls
-	   inside it — a short scroller nested in a long page is two scrollbars for one list. */
-	.stonetop.sheet.steading .steading-folk-ref {
-		overflow-y: visible;
+	.stonetop.sheet.steading .steading-folk-layout > .stonetop-rail-toggle {
+		display: none;
 	}
 }
 
@@ -8659,19 +8616,6 @@ button.stonetop-xp-toggle {
 	border-bottom: 1px solid var(--st-rule-veil);
 	background: transparent;
 	color: var(--st-ink);
-}
-
-/* Points the way the column goes: out to the right while it is showing, back in once put away. */
-.stonetop.sheet.steading .steading-folk-ref-toggle {
-	grid-column: 3;
-}
-
-.stonetop.sheet.steading .steading-folk-ref-caret {
-	transition: transform 0.1s ease;
-}
-
-.stonetop.sheet.steading .steading-folk-ref-toggle[aria-expanded="false"] .steading-folk-ref-caret {
-	transform: rotate(180deg);
 }
 
 .stonetop.sheet.steading .steading-folk-hint {
@@ -8753,41 +8697,51 @@ button.stonetop-xp-toggle {
 	border-color: var(--st-ink) !important;
 }
 
+/* The TABLE owns the columns; the header and every row take them through subgrid, so a track sized
+   by its content is sized by the widest cell in it across the whole roster, and every row still lines
+   up with the header.
+
+   Home sits second, right after the name — it is the column that says whether someone is of this
+   steading or of somewhere else, and blank means here.
+
+   minmax(0, …) on every flexible track, not a bare `fr`: an `fr` track floors at its content's
+   min-content width, and a text input's min-content is the ~20 characters the user agent sizes it
+   to. Six of those put the roster ~100px wider than its own column at the sheet's default width and
+   ~270px wider at 900 — a horizontal scrollbar under the table instead of narrower columns.
+   tests/styles/folk-reference-render.test.js measures exactly this.
+
+   The link track holds an icon and a ✕ and nothing else — see the chip below — and is `auto`, as
+   wide as those two are. Pinned at 2.4rem it was narrower than core's bordered chip and its ✕, and
+   the chip's frame was squeezed short of the icon inside it. At 5rem it was the widest fixed thing on
+   the row: a quarter of the roster spent restating a name that is already in the row.
+
+   Traits takes the largest share. It is the only cell that WRAPS — "knows all the gossip, cheery,
+   owes the Marshedge dockmaster" is a list, not a word — so every character it is short is a line the
+   row grows by, while the three beside it hold a name, a place and a trade. */
 .stonetop.sheet.steading .steading-folk-table {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+	display: grid;
+	grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 2.2fr) auto 1.5rem;
+	column-gap: 4px;
+	row-gap: 2px;
 }
 
+.stonetop.sheet.steading .steading-folk-table > * {
+	grid-column: 1 / -1;
+}
+
+.stonetop.sheet.steading .steading-folk-rows,
 .stonetop.sheet.steading .steading-folk-header,
 .stonetop.sheet.steading .steading-folk-row {
 	display: grid;
-	/* Trailing link + delete columns are FIXED (not auto): each row is its own grid, so a
-	   content-sized column would compute a different width per row and knock the text inputs out of
-	   alignment with the header. Fixed tracks keep every row and the header on the same columns.
-	   Home sits second, right after the name — it is the column that says whether someone is of this
-	   steading or of somewhere else, and blank means here.
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+}
 
-	   minmax(0, …) on every flexible track, not a bare `fr`: an `fr` track floors at its content's
-	   min-content width, and a text input's min-content is the ~20 characters the user agent sizes it
-	   to. Six of those put the roster ~100px wider than its own column at the sheet's default width
-	   and ~270px wider at 900 — a horizontal scrollbar under the table instead of narrower columns.
-	   tests/styles/folk-reference-render.test.js measures exactly this.
-
-	   The link track holds an icon and a ✕ and nothing else — see the chip below. At 5rem it was the
-	   widest fixed thing on the row and, on a narrow sheet, wider than the Name cell: a quarter of the
-	   roster spent restating a name that is already in the row.
-
-	   Cells align to the TOP, not the middle. The traits cell wraps to a second line, and a centred
-	   row would then float the other five cells down its middle — the roster stops lining up as soon
-	   as anyone is interesting.
-
-	   Traits takes the largest share, and takes the room the link column gave up. It is the only cell
-	   that WRAPS — "knows all the gossip, cheery, owes the Marshedge dockmaster" is a list, not a
-	   word — so every character it is short is a line the row grows by, while the three beside it hold
-	   a name, a place and a trade. */
-	grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 2.2fr) 2.4rem 1.5rem;
-	gap: 4px;
+/* Cells align to the TOP, not the middle. The traits cell wraps to a second line, and a centred row
+   would then float the other five cells down its middle — the roster stops lining up as soon as
+   anyone is interesting. */
+.stonetop.sheet.steading .steading-folk-header,
+.stonetop.sheet.steading .steading-folk-row {
 	align-items: start;
 }
 
@@ -8886,6 +8840,8 @@ button.stonetop-xp-toggle {
 .stonetop.sheet.steading .steading-folk-row .steading-doc-link .content-link {
 	font-size: 0;
 	overflow: visible;
+	/* Never narrower than its icon: the chip is core's bordered frame, and squeezed it draws short. */
+	flex: none;
 }
 
 .stonetop.sheet.steading .steading-folk-row .steading-doc-link .content-link i {
@@ -9025,21 +8981,6 @@ button.stonetop-xp-toggle {
 	color: var(--st-ink-soft);
 }
 
-/* The caret turns off `aria-expanded`, which is the state itself rather than a class kept in step
-   with it — so the glyph and what a screen reader is told can never disagree. Down when open, right
-   when shut, the same way the move rows read. */
-.stonetop.sheet.steading .steading-folk-list-caret {
-	display: inline-block;
-	width: 0.7em;
-	font-size: 0.9em;
-	color: var(--st-ink-faint);
-	transition: transform 0.1s ease;
-}
-
-.stonetop.sheet.steading .steading-folk-list-toggle[aria-expanded="false"] .steading-folk-list-caret {
-	transform: rotate(-90deg);
-}
-
 .stonetop.sheet.steading .steading-folk-entries {
 	margin: 0;
 	font-size: var(--fs-fine);
@@ -9058,15 +8999,10 @@ button.stonetop-xp-toggle {
    steadfast's, where it sits beside the roster, and the steading's Places tab, where it stands
    opposite the landmarks inside the walls — the same concept at the other scale. */
 
-/* Scrolls, so the note on each place needs the focus ring's room reserved here or it is clipped
-   down its left edge — see .stonetop-rail-layout .sheet-body. */
-.stonetop.sheet.steading .steading-neighbor-places {
-	flex: 1;
+.stonetop.sheet.steading .steading-neighbor-places > .stonetop-panel-body {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
-	overflow-y: auto;
-	padding-inline: var(--focus-ring-reach);
 }
 
 .stonetop.sheet.steading .steading-neighbor-place {
@@ -9865,11 +9801,12 @@ button.stonetop-xp-toggle {
 
 /* ── The season wheel ── */
 
-.stonetop.sheet.steading .steading-season-head > :is(.stonetop-section-rest, .stonetop-section-choose) {
+/* The wheel and, while the GM corrects it, the year beside it; the impression wraps to its own line. */
+.stonetop.sheet.steading .steading-season-head > :is(.stonetop-section-rest, .stonetop-section-choose):not([hidden]) {
 	display: flex;
-	align-items: center;
-	gap: 0.6rem;
 	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 0.75rem;
 }
 
 /* One pill, four segments. At rest a list, not a way to SET the season — in play the year runs
@@ -9941,12 +9878,6 @@ button.stonetop-xp-toggle {
 /* A year runs past two digits sooner than a rating does. */
 .stonetop.sheet.steading .steading-season-year .steading-attr-input { width: 3.4ch; }
 
-.stonetop.sheet.steading .steading-season-stated {
-	margin: 0;
-	font-size: var(--fs-note);
-	color: var(--st-ink-soft);
-}
-
 .stonetop.sheet.steading .steading-season-advance {
 	flex: 0 0 auto;
 	width: auto;
@@ -9957,7 +9888,7 @@ button.stonetop-xp-toggle {
 }
 
 /* The season on the ledger line — display only, so it is type and not a control. It ends the values
-   row, pushed to the far end so it sits above the roll mode rather than beside it. */
+   row, pushed to the far end. */
 .stonetop.sheet.steading .steading-season-line {
 	display: flex;
 	align-items: center;
@@ -9993,29 +9924,34 @@ button.stonetop-xp-toggle {
 	padding: 8px 10px 10px;
 }
 
+/* Done once a season, so quieter than the section above it: the season's glyph and the move's name in
+   the season's tint, a step below the head's bar title rather than an ink bar of its own. */
 .stonetop.sheet.steading .steading-season-box-heading {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
-	margin: 0 0 8px;
-	font-size: var(--fs-body);
-	font-weight: normal;
+	gap: 0.45rem;
+	margin: 0 0 0.5rem;
+	padding: 0;
+	border: none;
 }
 
-/* The season's own glyph, masked so it takes the season tint rather than the sheet's art filter —
-   it is saying WHICH season, so it is the one image here that carries color. */
+/* Masked so it takes the season tint rather than the sheet's art filter — it is saying WHICH season,
+   so it is the one image here that carries color. */
 .stonetop.sheet.steading .steading-turn-glyph {
 	flex: 0 0 auto;
-	width: 1.4rem;
-	height: 1.4rem;
-	display: block;
+	width: 1.3rem;
+	height: 1.3rem;
 	background: var(--steading-season-tint, var(--st-accent));
 	mask: var(--steading-glyph) no-repeat center / contain;
 	-webkit-mask: var(--steading-glyph) no-repeat center / contain;
 }
 
 .stonetop.sheet.steading .steading-season-box-title {
-	min-width: 0;
+	font-family: "StonetopUI", serif;
+	font-variant: small-caps;
+	font-size: var(--fs-heading);
+	font-weight: normal;
+	line-height: 1.1;
 	color: var(--steading-season-tint, var(--st-accent));
 }
 
@@ -10357,34 +10293,27 @@ button.stonetop-xp-toggle {
 
 
 /* ── The split tabs ───────────────────────────────────────────────────────────
-   Two columns with a decorative rule between them. Named for the shape rather than for a tab, which
-   is what let Chronicle stop using it without anything having to be renamed: Places (landmarks |
-   communities) is the one that still does, now the notes box has gone to Play. */
+   Two columns of panels a panel's gap apart, as the character's Playbook tab sets its sections. Named
+   for the shape rather than for a tab: Places (landmarks | communities) and Content. */
 
 .stonetop.sheet.steading .steading-split-grid {
 	display: flex;
-	gap: 0;
+	align-items: flex-start;
+	gap: 1rem;
 	min-height: 300px;
 }
 
 .stonetop.sheet.steading .steading-split-column {
 	flex: 1;
+	min-width: 0;
 	display: flex;
 	flex-direction: column;
+	gap: 0.75rem;
 }
 
-.stonetop.sheet.steading .steading-split-divider {
-	width: 8px;
-	flex-shrink: 0;
-	margin: 0 4px;
-	background-color: var(--st-decor);
-	mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
-	-webkit-mask: url("../assets/ui/decor/divider-vertical-thin.png") repeat-y center / 8px auto;
-}
-
-/* A heading over a writing area, filling whatever column it is in: the steading's notes on Play, and
-   the places-of-interest list. */
-.stonetop.sheet.steading .steading-notes-field {
+/* A writing area filling whatever column it is in: the steading's notes on Play. */
+.stonetop.sheet.steading .steading-notes-field,
+.stonetop.sheet.steading .steading-notes-field > .stonetop-panel-body {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -10419,18 +10348,10 @@ button.stonetop-xp-toggle {
 	flex: 1.3;
 }
 
-.stonetop.sheet.steading .steading-content-section + .steading-content-section {
-	margin-top: 0.75rem;
-}
-
-/* Quoted, not written in: ruled off down its left edge the way the book sets an aside, so it reads
-   as something the playbook says rather than another field with nothing typed in it yet. */
 .stonetop.sheet.steading .steading-content-procedure {
 	font-size: var(--fs-note);
 	line-height: 1.45;
 	color: var(--st-ink-soft);
-	border-left: 2px solid var(--st-decor);
-	padding-left: 0.6rem;
 }
 
 /* Places of Interest */
@@ -11652,7 +11573,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 }
 /* A short sub-choice — a rating, a list, the roll — is the same rings in a row, wrapping between
    whole options and never inside one. */
-.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode--stacked { flex-direction: row; flex-wrap: wrap; column-gap: 0.7rem; }
+.stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode { flex-direction: row; flex-wrap: wrap; column-gap: 0.7rem; }
 .stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode-legend { flex-basis: 100%; }
 .stonetop.sheet.improvement .stonetop-improvement-rings .stonetop-rollmode-option { white-space: nowrap; }
 .stonetop.sheet.improvement .stonetop-improvement-sentence input[type="number"] { width: 3rem; }
@@ -12659,14 +12580,19 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	cursor: pointer;
 }
 
-/* The list's own heading, which is a <button> for the same reason its entries are: core binds click
-   for [data-action] on buttons only. Core's button treatment comes off exactly as it does for the
-   entries below — this has to read as the heading it replaced, not as a control bar above each
-   list. Unlayered for the same reason too: `!important` inside the layer does not win. */
+/* A trait can only be appended to a row, so with no caret anywhere it has nowhere to land — and it
+   says so rather than offering a pointer that produces a notification. RosterFocus sets the marker
+   on the panel; the names beside them stay live, because a name with no row focused CREATES one. */
+.stonetop.sheet.steading .steading-folk-ref:not([data-folk-focused]) .steading-folk-entry[data-action="useTrait"] {
+	cursor: default;
+}
+
+/* A list's name inside the reference panel is a <button> for the same reason its entries are, and
+   comes out of core's button treatment the same way: it has to read as the name it is. */
 .stonetop.sheet.steading .steading-folk-list-toggle {
-	display: flex;
+	display: inline-flex;
 	align-items: baseline;
-	gap: 0.25rem;
+	gap: 0.3rem;
 	width: auto;
 	min-width: 0;
 	height: auto;
@@ -12685,13 +12611,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 	cursor: pointer;
 }
 
-/* A trait can only be appended to a row, so with no caret anywhere it has nowhere to land — and it
-   says so rather than offering a pointer that produces a notification. RosterFocus sets the marker
-   on the panel; the names beside them stay live, because a name with no row focused CREATES one. */
-.stonetop.sheet.steading .steading-folk-ref:not([data-folk-focused]) .steading-folk-entry[data-action="useTrait"] {
-	cursor: default;
-}
-
 /* Already used in this steading. MARKED, never removed — repeating a trait is sometimes exactly
    right, and you still want to see at a glance that "cheery" is taken twice.
 
@@ -12704,7 +12623,9 @@ textarea.stonetop-editable__edit { min-height: 0; }
    Distinct from hover (accent + underline) by which line it draws, so a pointer resting on a used
    entry still says something the entry does not. */
 .stonetop.sheet.steading .steading-folk-entry.is-used {
-	color: var(--st-accent);
+	/* A shade toward the ink: the lists sit on the rail's sunken ground, where the bare accent falls
+	   just short of AA for text this size on the light parchment. */
+	color: color-mix(in srgb, var(--st-accent) 88%, var(--st-ink));
 	font-style: normal;
 	text-decoration: line-through;
 	text-decoration-thickness: 1px;
@@ -12772,7 +12693,8 @@ textarea.stonetop-editable__edit { min-height: 0; }
    background rendered a white menu over a dark sheet.
    ═══════════════════════════════════════════════════════════════════════════════════════════════ */
 
-.stonetop.sheet.steading .steading-stat-roll {
+.stonetop.sheet.steading .steading-stat-roll,
+.stonetop.sheet.steading .stonetop-bar-roll {
 	font-family: "StonetopUI", serif;
 	font-weight: normal;
 	letter-spacing: 0.04em;
@@ -12862,8 +12784,8 @@ textarea.stonetop-editable__edit { min-height: 0; }
 /* Every other control on this sheet that core would otherwise set in Signika. A move's name is a
    button (it discloses), the add-a-row controls are buttons — and the sheet reads as one voice only
    if they all speak in the book's faces. The tab labels take the character sheet's face. */
-.stonetop.sheet.steading .stonetop-move-disclosure,
-.stonetop.sheet.steading .stonetop-move-disclosure .stonetop-move-disclosure-name,
+.stonetop.sheet.steading .stonetop-item-name.stonetop-move-disclosure,
+.stonetop.sheet.steading .stonetop-item-name.stonetop-move-disclosure .stonetop-move-disclosure-name,
 .stonetop.sheet.steading .stonetop-item-name {
 	font-family: "StonetopUI", serif;
 	font-weight: normal;
@@ -12873,7 +12795,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 /* Core CENTRES a button's content, unlayered. On a row too narrow for its contents that centred the
    overflow — so the name spilled out of BOTH ends of its own button and "Bolster" rendered as
    "olster", with the caret pushed off the rail entirely. A row reads left to right. */
-.stonetop.sheet.steading .stonetop-move-disclosure {
+.stonetop.sheet.steading .stonetop-item-name.stonetop-move-disclosure {
 	justify-content: flex-start;
 	min-width: 0;
 }
@@ -12883,73 +12805,27 @@ textarea.stonetop-editable__edit { min-height: 0; }
    sits inside the name's button, so it was inheriting both the face and its tracking: "send a
    steading's people into danger" came out as spaced capitals, which is shouting a phrase the row is
    only murmuring, and ran out of room at a third of its length because small caps are wider. */
-.stonetop.sheet.steading .stonetop-move-disclosure .stonetop-move-gloss {
+.stonetop.sheet.steading .stonetop-item-name.stonetop-move-disclosure .stonetop-move-gloss {
 	font-family: var(--font-primary);
 	letter-spacing: 0;
 }
 
 /* And the name yields before the row does: `min-width: auto` on a flex item is what stops a nowrap
    label shrinking at all, so it overflows instead of ellipsising. */
-.stonetop.sheet.steading .stonetop-move-disclosure-name {
+.stonetop.sheet.steading .stonetop-item-name.stonetop-move-disclosure-name {
 	min-width: 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.stonetop.sheet.steading .stonetop-move-disclosure .stonetop-move-disclosure-name,
+.stonetop.sheet.steading .stonetop-item-name.stonetop-move-disclosure .stonetop-move-disclosure-name,
 .stonetop.sheet.steading .stonetop-item-name {
 	font-size: var(--fs-body);
 }
 
-/* The sheet's own voice, set once on its root and inherited by everything in it.
-
-   This is the counterpart to the token fix in the layered block above: with `--font-primary` pointing
-   at the book's roman again, the only thing left to do is make the sheet actually use it — the root
-   was being set to Signika by a rule outside this stylesheet's reach, and every descendant inherited
-   that. Unlayered, because the rule it has to beat is.
-
-   Everything that should NOT be the roman says so for itself: the small-caps rules above, and Font
-   Awesome, which sets its own family on the icon and so beats an inherited one. */
-.stonetop.sheet:is(.steading, .improvement) {
-	font-family: var(--font-primary);
-}
-
-/* Form controls do not inherit `font-family` — the user agent gives them its own — so the sheet's
-   voice has to be handed to them explicitly. `inherit` rather than the token, so a control always
-   matches whatever context it is sitting in.
-
-   Scoped inside `.window-content`: the window FRAME is Foundry's, not the sheet's, and its header
-   buttons draw their glyphs from an icon font set on the button itself. Handing those `inherit` took
-   the icon font away and left the close and collapse controls blank. */
-.stonetop.sheet:is(.steading, .improvement) .window-content input,
-.stonetop.sheet:is(.steading, .improvement) .window-content textarea,
-.stonetop.sheet:is(.steading, .improvement) .window-content select {
+/* Core sets every textarea in its monospace face, unlayered; a field is written in the sheet's. */
+.stonetop.sheet .window-content textarea {
 	font-family: inherit;
-}
-
-/* The digits.
-
-   Every field on this sheet inherits its family from the rule just above, which is what keeps core's
-   UI font out of them — and which is unlayered, so nothing inside `@layer system` can say anything
-   else about a value's face however specific it is. This is where a number gets to differ from the
-   words around it, and the only reason it does.
-
-   The book's roman sets its figures OLD-STYLE — a 3 that descends, a 0 at x-height. Measured against
-   its own cap height: "0" rises 7 of 13, "8" rises 10. That is right in running prose and unreadable
-   in a field two characters wide where the value is the only thing there: a rating's "0" read as a
-   letter and "-1" ahead of "lacking" read as an em dash. Asking for lining figures does not help —
-   IM Fell English ships none, so `lining-nums` is a no-op on the face that needs it.
-
-   So the digits change face, and nothing else does. A rating's name, a tier, a condition and its
-   effect all stay in the book's voice; `--font-numeral` is Foundry's own Signika, already loaded in
-   every world, with lining figures that cannot be mistaken for letters. `tabular-nums` below still
-   lines a column of values up wherever the face supports it. */
-/* `input`, not the class alone: Size wears `.steading-attr-input` too — it is a value on a rule
-   like the rest — but it holds a WORD, and it is a <select>. The element is what tells the two
-   apart, and it does so without a second class anyone has to remember to write. */
-.stonetop.sheet.steading .window-content input.steading-attr-input,
-.stonetop.sheet.steading .window-content .steading-coinage-cell input[type="number"] {
-	font-family: var(--font-numeral);
 }
 
 .stonetop.sheet:is(.steading, .improvement) .window-content input[type="number"],
@@ -13011,7 +12887,6 @@ textarea.stonetop-editable__edit { min-height: 0; }
 .stonetop.sheet.character button.stonetop-origin-name:hover,
 .stonetop-insert-sheet-move .insert-move-open:hover,
 .playbook-ref-row .playbook-ref-open:hover,
-.stonetop-roll-dialog .dialog-button:hover,
 .stonetop.sheet.steading .steading-stat-roll:hover,
 .stonetop.sheet.steading .steading-folk-entry:hover,
 .stonetop.sheet.steading .steading-folk-entry:focus-visible,
@@ -13027,8 +12902,7 @@ textarea.stonetop-editable__edit { min-height: 0; }
 /* A glyph riding inside one of these carries its own faint ink, so it does not inherit the accent
    the way the words around it do. Named here beside the rule that lights their parent, rather than
    left next to each glyph's own resting color, where the pairing was invisible. */
-.stonetop.sheet.steading .steading-stat-roll:hover .steading-roll-die,
-.stonetop.sheet.steading .steading-folk-list-toggle:hover .steading-folk-list-caret {
+.stonetop.sheet.steading .steading-stat-roll:hover .steading-roll-die {
 	color: var(--st-accent);
 }
 

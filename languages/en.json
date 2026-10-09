@@ -90,10 +90,7 @@
       "normal": "Normal",
       "adv": "Advantage",
       "dis": "Disadvantage",
-      "short": {
-        "adv": "Adv",
-        "dis": "Disadv"
-      }
+      "chooseStat": ""
     },
     "steading": {
       "startsAt": "Starts at {value}",
@@ -599,7 +596,9 @@
       "improvements": "Granted improvements",
       "improvementsHint": "Drag improvement items here to grant them.",
       "improvementsEmpty": "No improvements granted yet.",
-      "improvementRemove": "Remove"
+      "improvementRemove": "Remove",
+      "residents": "Residents",
+      "residentsHint": "The name and trait pools this place seeds — suggestions for generating residents."
     },
     "follower": {
       "namePlaceholder": "Follower name",

@@ -10,17 +10,20 @@ import { MOVE_ROW_ACTIONS, moveRowChangeHandlers } from "../moveRowHandlers.js";
 import { RosterFocus } from "./RosterFocus.js";
 import { RosterFilter } from "./RosterFilter.js";
 import { BoardView } from "./BoardView.js";
+import { inWindowOf } from "../../utils/inWindowOf.js";
 import { toggleDisclosure, toggleSlidingDisclosure, toggleSwappingDisclosure } from "../../utils/Disclosure.js";
+import { MovePreviews } from "../../utils/MovePreviewPlacement.js";
 import { SeasonStepAddress } from "../../model/data/steading/SeasonStepAddress.js";
 import { Seasons } from "../../model/data/steading/Seasons.js";
 
-/** Ask before the steading enters `season` — a turn and the GM's correction both discard this one's record. */
-function confirmSeason(titleKey, confirmKey, season) {
+/** Ask, over `sheet`, before the steading enters `season` — a turn and the GM's correction both discard this one's record. */
+function confirmSeason(sheet, titleKey, confirmKey, season) {
 	return foundry.applications.api.DialogV2.confirm({
 		window:  { title: game.i18n.localize(`stonetop.steading.seasons.${titleKey}`) },
 		content: `<p>${game.i18n.format(`stonetop.steading.seasons.${confirmKey}`, {
 			season: game.i18n.localize(season.labelKey),
 		})}</p>`,
+		renderOptions: inWindowOf(sheet),
 	});
 }
 
@@ -77,14 +80,13 @@ export function createStonetopSteadingSheetClass(Base) {
 					this.rosterFocus.focusOn(person.id);
 				}),
 
-				// Folding a name list away, and opening an improvement card onto its requirement
-				// rows, are view state on the thing itself rather than edits — so neither is
-				// edit-gated and both survive a locked sheet. The same disclosure the move rows use,
-				// through the same one implementation.
-				toggleFolkList:        toggleDisclosure,
-				// A section's door (D11) — the season head's, the character sheet's own toggle.
+				// Opening an improvement card onto its requirement rows is view state on the thing itself
+				// rather than an edit — so it is not edit-gated and survives a locked sheet. The same
+				// disclosure the move rows use, through the same one implementation.
+				// A section's door (D11) — the season's correction, the character sheet's own toggle.
 				toggleSection:         toggleSwappingDisclosure,
-				// A rail group's bar, opening and shutting its panel as the character's do.
+				// A rail group's bar, the Folk reference panel's bar, or one of its name lists, sliding
+				// as the character's do.
 				toggleSliding:         toggleSlidingDisclosure,
 				toggleImprovementCard: toggleDisclosure,
 				useTrait: editOnly(function (ev, target) {
@@ -102,7 +104,7 @@ export function createStonetopSteadingSheetClass(Base) {
 				// It asks first, because it discards this season's checklist and gain. The question
 				// names the season it brings, which is the whole of what pressing it does.
 				turnSeason: editOnly(async function () {
-					const ok = await confirmSeason("turnTitle", "turnConfirm", this._stonetopSteading.season.next);
+					const ok = await confirmSeason(this, "turnTitle", "turnConfirm", this._stonetopSteading.season.next);
 					if (ok) await this._stonetopSteading.turnSeason();
 				}),
 
@@ -179,7 +181,7 @@ export function createStonetopSteadingSheetClass(Base) {
 
 				// --- NPC actors for the roster (GM-only control; the automatic path is a hook) ---
 				createFolkActors: editOnly(function () {
-					return RosterActorCreation.forFolk(this._stonetopSteading).run();
+					return RosterActorCreation.forFolk(this._stonetopSteading, this).run();
 				}),
 
 				// --- unlinks (drop the linked document, keep the row; click confirms, right-click skips) ---
@@ -309,7 +311,7 @@ export function createStonetopSteadingSheetClass(Base) {
 		 * question re-renders to put it back on the season the steading is still in.
 		 */
 		async _chooseSeason(key) {
-			if (await confirmSeason("setTitle", "setConfirm", Seasons.byKey(key))) {
+			if (await confirmSeason(this, "setTitle", "setConfirm", Seasons.byKey(key))) {
 				await this._stonetopSteading.setSeason(key);
 			} else {
 				this.render();
@@ -339,6 +341,7 @@ export function createStonetopSteadingSheetClass(Base) {
 
 			// Arrow keys / Home / End across the tab row — core ships the clicks, not the keyboard model.
 			activateTablistKeys(root);
+			MovePreviews.attachTo(root);
 
 			// The roster's caret follows the caret: whichever row you put the cursor in is the row a
 			// click in the reference column lands on, so nothing extra has to be clicked to say

@@ -25,12 +25,6 @@ const fixture = `
     </div>
     <div class="stonetop-follower-card" id="p-follower"><p>Follower</p></div>
   </div>
-</div>
-<div class="application stonetop-roll-dialog">
-  <div class="window-content">
-    <div class="stonetop-roll-pick-content" id="p-pick"><p>Pick</p></div>
-    <footer class="form-footer"><button type="button" class="dialog-button" id="p-button"><span>Roll</span></button></footer>
-  </div>
 </div>`;
 
 const FRAMES = {
@@ -38,8 +32,6 @@ const FRAMES = {
 	outfit:     "#p-outfit",
 	prosperity: "#p-prosperity",
 	follower:   "#p-follower",
-	pick:       "#p-pick",
-	button:     "#p-button",
 };
 
 const PROPERTIES = ["background-color", "background-image", "clip-path"];

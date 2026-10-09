@@ -40,7 +40,7 @@
 			{{#if stonetop.vitals.hpMeter.isDying}}
 			{{#with stonetop.railMoves.atZeroHp}}
 			<div class="stonetop-conditional stonetop-conditional--dire">
-				<ol class="stonetop-move-list">{{> "stonetop.character-move-row" categoryKey="special"
+				<ol class="stonetop-move-list">{{> "stonetop.move-list-row" categoryKey="special"
 				    categoryLabel=(localize "stonetop.character.moves.specialMoves")}}</ol>
 			</div>
 			{{/with}}
@@ -66,7 +66,7 @@
 				{{#with stonetop.railMoves.burnBrightly}}
 				<div class="stonetop-conditional stonetop-conditional--spend">
 					<p class="stonetop-conditional-label">{{localize "stonetop.character.levelUp.orSpend"}}</p>
-					<ol class="stonetop-move-list">{{> "stonetop.character-move-row" categoryKey="special"
+					<ol class="stonetop-move-list">{{> "stonetop.move-list-row" categoryKey="special"
 					    categoryLabel=(localize "stonetop.character.moves.specialMoves") startOpen=true}}</ol>
 				</div>
 				{{/with}}

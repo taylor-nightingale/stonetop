@@ -1,13 +1,13 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
-import { bandHtml, sheetWithBand, windowFor, withFoot } from "./bandFixture.js";
+import { bandHtml, sheetWithBand, windowFor } from "./bandFixture.js";
 
 /**
  * The top band, measured (D7).
  *
  * The masthead across the top — the name and the playbook, the instinct and the appearance beside
- * them — the six stats with their brackets, the Ailments panel beside them, and the foot. The real
+ * them — the six stats with their brackets, the Ailments panel beside them, and the fold tab. The real
  * partial over a real snapshot, in German. Whether any of it lines up is a question only a renderer
  * answers: a grid is as valid with tracks too narrow for their contents as with tracks that fit.
  */
@@ -22,10 +22,7 @@ const TARGETS = {
 	appearance: ".stonetop-appearance",
 	column: ".stonetop-stats-column",
 	statsRow: ".stonetop-stats-row", debilities: ".stonetop-debilities",
-	toggle: ".stonetop-top-toggle", toggleLabel: ".stonetop-top-toggle-label", tabs: ".sheet-tabs", firstTab: ".sheet-tabs .item",
-	foot: ".stonetop-band-foot",
-	mode: ".stonetop-band-foot > .stonetop-rollmode",
-	rule: ".stonetop-band-foot .stonetop-rollmode-rule",
+	toggle: ".stonetop-top-toggle", railToggle: ".stonetop-rail-toggle", tabs: ".sheet-tabs", firstTab: ".sheet-tabs .item",
 	heading: ".stonetop-stats-column .stonetop-move-group-title",
 	headingRule: ".stonetop-stats-column .stonetop-panel-divider",
 
@@ -197,26 +194,16 @@ describe.skipIf(!canProbe())("the top band", () => {
 		expect(el("heading").boxTop - el("column").boxTop).toBeLessThan(1);
 	});
 
-	// ── The foot, beside the stats ────────────────────────────────────────────────
-	it("sets the foot beside the stats, under the ailments, ending the band's right edge", () => {
-		expect(el("foot").boxLeft).toBeGreaterThan(right(el("statsRow")));
-		expect(el("foot").boxTop).toBeGreaterThanOrEqual(bottom(el("ailments")) - 1);
+	// ── The fold tab, on the band's bottom edge ───────────────────────────────────
+	// The rail's tab turned on its side: hung from the band's rule as the rail's hangs from its edge.
+	it("hangs the fold tab from the band's bottom edge, ending at the band's inset", () => {
+		expect(Math.abs(el("toggle").boxTop - bottom(el("bandBox"))), "the tab is off the band's edge").toBeLessThanOrEqual(1);
 		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
 	});
 
-	it("rides the foot line, level with the roll mode", () => {
-		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
-		expect(within(centreY(el("toggle")), el("mode"))).toBe(true);
-		expect(el("toggle").boxLeft).toBeGreaterThanOrEqual(right(el("mode")));
-	});
-
-	it("keeps the Advantage/Disadvantage ? on the mode's own line", () => {
-		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
-		expect(within(centreY(el("rule")), el("mode"))).toBe(true);
-	});
-
-	it("sits the fold control inside the band, clear of its rule", () => {
-		expect(bottom(el("toggle"))).toBeLessThan(bottom(el("bandBox")));
+	it("draws the fold tab as the rail's tab turned on its side", () => {
+		expect(el("toggle").boxWidth).toBeCloseTo(el("railToggle").boxHeight, 0);
+		expect(el("toggle").boxHeight).toBeCloseTo(el("railToggle").boxWidth, 0);
 	});
 
 	it("covers no tab", () => {
@@ -314,7 +301,7 @@ describe.skipIf(!canProbe())("the ailments on a wide sheet", () => {
 		expect(el("who").boxLeft).toBeCloseTo(el("ailments").boxLeft, 0);
 	});
 
-	it("keeps the foot at the band's right edge", () => {
+	it("keeps the fold tab at the band's right edge", () => {
 		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
 	});
 
@@ -325,98 +312,45 @@ describe.skipIf(!canProbe())("the ailments on a wide sheet", () => {
 	});
 });
 
-// ── Short of room: the foot keeps to its column ────────────────────────────────────
-// It never goes under the stats. BandFootFit first drops the fold control's word (compact), and
-// where even that does not fit, the line wraps inside its own column (wrapped, which is compact too).
-
-const beside = (v, why) => {
-	expect(v("foot").boxLeft, `${why}: the foot is not beside the stats`).toBeGreaterThan(right(v("statsRow")));
-	expect(v("mode").boxLeft, `${why}: the roll mode runs out of its column over the stats`).toBeGreaterThanOrEqual(v("foot").boxLeft - 0.5);
-	expect(bottom(v("foot")), `${why}: the foot hangs below the stats`).toBeLessThanOrEqual(bottom(v("band")) + 1);
-};
-
-describe.skipIf(!canProbe())("the foot, compact", () => {
-	let m, whole;
-	beforeAll(() => {
-		m = measure({ band: withFoot(bandHtml(), "is-foot-compact") });
-		whole = measure();
-	});
-	const el = name => m.get(name).values;
-
-	it("drops the fold control's word, keeping its caret", () => {
-		expect(el("toggleLabel").boxWidth).toBe(0);
-		expect(el("toggle").boxWidth).toBeGreaterThan(0);
-		expect(el("toggle").boxWidth).toBeLessThan(whole.get("toggle").values.boxWidth);
-	});
-
-	it("keeps the foot beside the stats, on one line, ending the band's right edge", () => {
-		beside(el, "compact");
-		const within = (v, box) => v >= box.boxTop && v <= bottom(box);
-		expect(within(centreY(el("toggle")), el("mode"))).toBe(true);
-		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
-	});
-});
-
-// German fits compact at the floor (198px of 202), so no shipped language wraps yet. This is one that
-// would: "Normal" said at length, at the sheet's 47rem floor, the compact line ~280px in 202.
-describe.skipIf(!canProbe())("the foot, wrapped", () => {
-	const LONG = 'class="stonetop-rollmode-label">Gewöhnlich gewürfelt<';
-	let m;
-	beforeAll(() => {
-		const band = bandHtml().replace('class="stonetop-rollmode-label">Normal<', LONG);
-		expect(band).toContain(LONG);
-		m = measure({ width: 752, band: withFoot(band, "is-foot-compact", "is-foot-wrapped") });
-	});
-	const el = name => m.get(name).values;
-
-	it("breaks the line inside its own column, the caret under the roll mode, still beside the stats", () => {
-		beside(el, "wrapped");
-		expect(right(el("mode")), "the roll mode runs out of its column on the right").toBeLessThanOrEqual(right(el("foot")) + 0.5);
-		expect(el("toggle").boxTop).toBeGreaterThanOrEqual(bottom(el("mode")) - 1);
-		expect(right(el("toggle"))).toBeCloseTo(right(el("bandBox")) - INSET, 0);
-	});
-});
-
-// The widths the plan was measured against: in English, the compact line fits beside the stats at
-// the narrowest a column rail leaves, and at the sheet's own floor with the rail a drawer. German
-// needs more — "Vorteil", "Nachteil" — and is what the wrap is for; English must not need it.
-describe.skipIf(!canProbe())("the foot at the narrowest the sheet gets, in English", () => {
+// The widths the sheet is written down to: the stats and the panel beside them stay inside the band,
+// in English, at the narrowest a column rail leaves and at the sheet's own floor with the rail a drawer.
+describe.skipIf(!canProbe())("the band at the narrowest the sheet gets, in English", () => {
 	const floor = () => parseFloat(probe.render({
 		bodyHtml: `<div class="application stonetop sheet actor character themed theme-light" id="floor" style="height: 100px"></div>`,
 		bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
 		probes: { floor: { selector: "#floor", properties: ["min-width"] } },
 	}).get("floor").get("min-width"));
-	const english = (...classes) => withFoot(bandHtml({ lang: "en" }), ...classes);
+	const english = () => bandHtml({ lang: "en" });
 
-	it("keeps the whole line at the default width", () => {
-		const m = measure({ band: english() });
-		beside(n => m.get(n).values, "1160px");
-	});
+	const fits = (v, why) => {
+		expect(right(v("statsRow")), `${why}: the stats row overruns the band`).toBeLessThanOrEqual(right(v("bandBox")) + 1);
+		expect(v("ailments").boxLeft, `${why}: the ailments went under the stats`).toBeGreaterThan(right(v("statsRow")));
+		expect(right(v("ailments")), `${why}: the ailments overrun the band`).toBeLessThanOrEqual(right(v("bandBox")) + 1);
+		expect(right(v("toggle")), `${why}: the fold tab left the band's inset`).toBeCloseTo(right(v("bandBox")) - INSET, 0);
+	};
 
-	it("keeps the compact line beside the stats at the sheet's floor, the rail a drawer", () => {
+	it("fits at the sheet's floor, the rail a drawer", () => {
 		const width = floor();
 		expect(width).toBeGreaterThan(0);
-		const m = measure({ width, band: english("is-foot-compact") });
+		const m = measure({ width, band: english() });
 		const v = n => m.get(n).values;
-		expect(m.get("rail").values.boxLeft + m.get("rail").values.boxWidth, "the rail is still a column at the floor")
-			.toBeLessThanOrEqual(v("layout").boxLeft + 0.5);
-		expect(right(v("statsRow")), `the stats row overruns the band at ${width}px`).toBeLessThanOrEqual(right(v("bandBox")) + 1);
-		beside(v, `${width}px`);
+		expect(right(v("rail")), "the rail is still a column at the floor").toBeLessThanOrEqual(v("layout").boxLeft + 0.5);
+		fits(v, `${width}px`);
 	});
 
 	// 62.5rem is where the rail stops being a drawer: 1000px of layout at the 16px root, which the
 	// window's own padding makes a 1035px sheet.
-	it("keeps the compact line beside the stats at the narrowest a column rail leaves", () => {
-		const m = measure({ width: 1035, band: english("is-foot-compact") });
+	it("fits at the narrowest a column rail leaves", () => {
+		const m = measure({ width: 1035, band: english() });
 		const v = n => m.get(n).values;
 		expect(v("layout").boxWidth, "not the narrowest column layout").toBeGreaterThan(1000);
 		expect(v("layout").boxWidth, "not the narrowest column layout").toBeLessThan(1002);
 		expect(v("band").boxLeft, "the rail is a drawer at this width").toBeGreaterThanOrEqual(right(v("rail")) - 1);
-		beside(v, "narrowest column");
+		fits(v, "narrowest column");
 	});
 
 	it("makes the rail a drawer just below it", () => {
-		const m = measure({ width: 1033, band: english("is-foot-compact"), still: true });
+		const m = measure({ width: 1033, band: english(), still: true });
 		const v = n => m.get(n).values;
 		expect(v("layout").boxWidth).toBeLessThan(1000);
 		expect(right(v("rail")), "the rail is still a column below 62.5rem").toBeLessThanOrEqual(v("layout").boxLeft + 0.5);

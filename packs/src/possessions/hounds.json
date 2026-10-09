@@ -12,6 +12,15 @@
 		"outfitItems": [],
 		"choices": null,
 		"scaling": null,
-		"sortOrder": null
+		"sortOrder": null,
+		"grants": [
+			{
+				"type": "follower",
+				"slug": "hounds",
+				"locations": [
+					"tab"
+				]
+			}
+		]
 	}
 }

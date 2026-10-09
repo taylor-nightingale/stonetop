@@ -35,6 +35,65 @@ function layout({ open = false } = {}) {
 describe("SheetRail", () => {
 	beforeEach(() => document.body.replaceChildren());
 
+	// A rail inside a rail layout's main column — the Folk tab's names, beside the sheet's own rail.
+	// Each layout drives its own toggle and rail and nothing of the other's.
+	describe("nested inside another rail's layout", () => {
+		function nested() {
+			document.body.innerHTML = `
+				<div class="stonetop-rail-layout" id="outer">
+					<button type="button" class="stonetop-rail-toggle" id="outer-toggle" aria-expanded="true">Outer</button>
+					<div class="stonetop-rail" id="outer-rail"><button type="button">Move</button></div>
+					<div class="stonetop-rail-main">
+						<div class="stonetop-rail-layout stonetop-rail-layout--end" id="inner">
+							<button type="button" class="stonetop-rail-toggle" id="inner-toggle" aria-expanded="true"
+							        data-label-show="Show Names" data-label-hide="Hide Names">Names</button>
+							<div class="stonetop-rail-main"><button type="button">Roster</button></div>
+							<div class="stonetop-rail" id="inner-rail"><button type="button" class="name">Bryn</button></div>
+						</div>
+					</div>
+				</div>`;
+			return {
+				outer: document.getElementById("outer"), inner: document.getElementById("inner"),
+				innerToggle: document.getElementById("inner-toggle"), outerToggle: document.getElementById("outer-toggle"),
+			};
+		}
+
+		it("is found from its own toggle, not the layout around it", () => {
+			const { inner, innerToggle } = nested();
+			expect(SheetRail.from(innerToggle)._layout).toBe(inner);
+		});
+
+		it("names itself by its own rail", () => {
+			const { outer, inner } = nested();
+			expect(new SheetRail(inner).key).toBe("inner-rail");
+			expect(new SheetRail(outer).key).toBe("outer-rail");
+		});
+
+		it("shuts itself and says so on its own toggle, leaving the outer rail as it was", () => {
+			const { outer, inner, innerToggle, outerToggle } = nested();
+			new SheetRail(inner).close();
+			expect(inner.classList.contains("rail-shut")).toBe(true);
+			expect(innerToggle.getAttribute("aria-expanded")).toBe("false");
+			expect(innerToggle.getAttribute("aria-label")).toBe("Show Names");
+			expect(outer.classList.contains("rail-shut")).toBe(false);
+			expect(outerToggle.getAttribute("aria-expanded")).toBe("true");
+		});
+
+		it("restores each rail by its own key", () => {
+			const { outer, inner } = nested();
+			const state = new RailState();
+			const innerRail = new SheetRail(inner);
+			innerRail.setOpen(false);
+			state.remember(innerRail);
+			inner.classList.remove("rail-shut");
+
+			state.restore(document.body);
+
+			expect(inner.classList.contains("rail-shut")).toBe(true);
+			expect(outer.classList.contains("rail-shut")).toBe(false);
+		});
+	});
+
 	it("finds the rail from any control inside its layout", () => {
 		const { toggle, el } = layout();
 		expect(SheetRail.from(toggle)._layout).toBe(el);

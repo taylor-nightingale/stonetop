@@ -382,6 +382,22 @@ describe("the season wheel", () => {
 		expect(sheet.actor.system.season).toBe("winter");
 	});
 
+	// Turned from a popped-out sheet, the question opens beside it rather than back in the main workspace.
+	it("asks in the window the sheet is in", async () => {
+		const sheet    = await makeSheet({ season: "autumn" });
+		sheet.window   = { windowId: "stonetop-steading-abc" };
+		const savedApi = foundry.applications.api;
+		const confirm  = vi.fn(async () => true);
+		foundry.applications.api = { ...savedApi, DialogV2: { confirm } };
+		try {
+			await render(sheet, true);
+			await act(sheet, "turnSeason", null);
+		} finally {
+			foundry.applications.api = savedApi;
+		}
+		expect(confirm.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-steading-abc" } });
+	});
+
 	it("rolls nothing when the prompt is declined", async () => {
 		const sheet = await makeSheet({ season: "autumn" });
 		stubConfirm(false);
@@ -443,6 +459,25 @@ describe("setting the season and year", () => {
 		const line = root.querySelector(".steading-season-line").textContent;
 		expect(line).toContain("spring");
 		expect(line).toContain("1");
+	});
+
+	// The tab is called Season; its section's bar says WHICH season, rather than "Season" again.
+	// The harness leaves a nested {{localize}} as its key, so the season is asserted by key.
+	it("names the season and year on the head's bar, not the tab's name again", async () => {
+		const title = head(await render(await makeSheet({ season: "summer", year: 2 })))
+			.querySelector(":scope > .stonetop-bar .stonetop-bar-title").textContent;
+		expect(title).toContain("names.summer");
+		expect(title).toContain("2");
+		expect(title).not.toContain("seasons.sectionTitle");
+	});
+
+	// The bar's title is the season it is; what the door changes is the season, whichever it is.
+	it("hangs the GM's door from the head's bar, named for what it changes", async () => {
+		asGM(true);
+		const root = await render(await makeSheet({ season: "summer" }));
+		expect(head(root).querySelector(':scope > .stonetop-bar [data-action="toggleSection"]')).toBe(door(root));
+		expect(door(root).getAttribute("aria-label")).toContain("seasons.sectionTitle");
+		expect(door(root).getAttribute("aria-label")).not.toContain("names.summer");
 	});
 
 	it("gives a player no door and no way to set either", async () => {
@@ -523,7 +558,7 @@ describe("the rail's seasonal moves", () => {
 	it("lists all four, spring to winter, under Seasonal Moves", async () => {
 		const root  = await render(await makeSheet({ season: "autumn" }));
 		const group = railGroup(root, "Seasonal Moves");
-		const names = [...group.querySelectorAll(".stonetop-item-name")].map(n => n.textContent.trim());
+		const names = [...group.querySelectorAll(".stonetop-mrow-title")].map(n => n.textContent.trim());
 		expect(names).toEqual([
 			"Seasons Change: Spring", "Seasons Change: Summer",
 			"Seasons Change: Autumn", "Seasons Change: Winter",
@@ -544,14 +579,18 @@ describe("the rail's seasonal moves", () => {
 	});
 
 	// Reference is about WEIGHT, not capability: a table that wants to roll a season's move on its
-	// own terms is not something the sheet should decide it cannot. Every rendering of a move goes
-	// through the same row, so every rendering rolls and posts to chat.
-	it("keeps every season's move rollable and postable, as the box's is", async () => {
+	// own terms is not something the sheet should decide it cannot.
+	it("keeps every season's move rollable, as the box's is", async () => {
 		const root  = await render(await makeSheet({ season: "spring" }));
 		const group = railGroup(root, "Seasonal Moves");
 		expect(group.querySelectorAll(".move-rollable")).toHaveLength(4);
-		expect(group.querySelectorAll('[data-action="moveToChat"]')).toHaveLength(4);
 		expect(root.querySelector(".steading-season-box .move-rollable")).not.toBeNull();
+	});
+
+	// The character rail's rows, so the character rail's width rule: no send-to-chat button.
+	it("puts no send-to-chat button on a rail row", async () => {
+		const root = await render(await makeSheet({ season: "spring" }));
+		expect(root.querySelectorAll('.steading-rail [data-action="moveToChat"]')).toHaveLength(0);
 	});
 
 	// A steading has all four from the day it exists, so the acquisition tick asserts a state that
@@ -589,7 +628,7 @@ describe("the season tab's one box", () => {
 		const advance = root.querySelector('[data-action="turnSeason"]');
 		// The harness leaves a nested {{localize}} as its key, so the season is asserted by key.
 		expect(advance.textContent).toContain("names.winter");
-		expect(root.querySelector(".steading-season-stated").textContent).toContain("names.autumn");
+		expect(root.querySelector(".steading-season-head .stonetop-bar-title").textContent).toContain("names.autumn");
 	});
 
 	// What the season owes now sits under the steps that describe that same season — which is what
@@ -612,7 +651,7 @@ describe("the season tab's one box", () => {
 
 	// A move ROW, addressed by the move it draws: the row itself carries the owned id, and the slug is
 	// on the die inside it.
-	const moveRowFor = (root, slug) => [...root.querySelectorAll(".stonetop-item")]
+	const moveRowFor = (root, slug) => [...root.querySelectorAll(".stonetop-item, .stonetop-mrow")]
 		.find(row => row.querySelector(`[data-move-slug="${slug}"]`));
 
 	// The move's full text ran into the numbered list it introduced, and was not what anyone had the
@@ -1953,7 +1992,7 @@ describe("a move an improvement confers", () => {
 		expect(die.dataset.moveSlug).toBe("lead-the-aurochs-hunt");
 		await sheet.actor.typedActor.rollMoveBySlug(die.dataset.moveSlug);
 		expect(sheet.actor.rollItem).toHaveBeenCalledWith(
-			expect.objectContaining({ name: "Lead the Aurochs Hunt" }));
+			expect.objectContaining({ name: "Lead the Aurochs Hunt" }), null, null);
 	});
 
 	// The advisory line the row replaced said the same thing in fewer words. One rendering, not two.

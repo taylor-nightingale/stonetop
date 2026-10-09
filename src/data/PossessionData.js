@@ -23,6 +23,7 @@ export class PossessionData extends foundry.abstract.TypeDataModel {
 			choices:      new f.ObjectField({ nullable: true, initial: null }),
 			scaling:      new f.ObjectField({ nullable: true, initial: null }),
 			sortOrder:    new f.NumberField({ nullable: true, initial: null }),
+			grants:       new f.ArrayField(new f.ObjectField()),
 			selected:     new f.BooleanField({ initial: false }),
 			preselected:  new f.BooleanField({ initial: false }),
 			uses:         new f.NumberField({ initial: 0, integer: true }),

@@ -4,7 +4,7 @@
       Context: an ImprovementEditorResult. --}}
 {{#if ratingModes}}
 	<div class="stonetop-improvement-rings">
-		{{> "stonetop.roll-mode-picker" modes=ratingModes name=(concat nameBase "-rating") changeAction="resultRating" variant="stacked"
+		{{> "stonetop.roll-mode-picker" modes=ratingModes name=(concat nameBase "-rating") changeAction="resultRating"
 		    legendKey="stonetop.improvement.does.rating"}}
 	</div>
 {{/if}}
@@ -20,7 +20,7 @@
 {{/if}}
 {{#if setValueModes}}
 	<div class="stonetop-improvement-rings">
-		{{> "stonetop.roll-mode-picker" modes=setValueModes name=(concat nameBase "-value") changeAction="resultSetValue" variant="stacked"
+		{{> "stonetop.roll-mode-picker" modes=setValueModes name=(concat nameBase "-value") changeAction="resultSetValue"
 		    legendKey="stonetop.improvement.does.value"}}
 	</div>
 {{else if isSet}}
@@ -31,7 +31,7 @@
 {{/if}}
 {{#if listModes}}
 	<div class="stonetop-improvement-rings">
-		{{> "stonetop.roll-mode-picker" modes=listModes name=(concat nameBase "-list") changeAction="resultList" variant="stacked"
+		{{> "stonetop.roll-mode-picker" modes=listModes name=(concat nameBase "-list") changeAction="resultList"
 		    legendKey="stonetop.improvement.does.whichList"}}
 	</div>
 	<label class="stonetop-improvement-sentence">

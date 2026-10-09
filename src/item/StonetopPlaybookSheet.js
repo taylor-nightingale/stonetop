@@ -18,6 +18,7 @@ import * as CG from "../utils/choiceGroupEdit.js";
 import * as PE from "../utils/playbookEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { bindAll } from "../utils/bindAll.js";
+import { inWindowOf } from "../utils/inWindowOf.js";
 import { itemDescriptionRich } from "./itemDescriptionRich.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
 import { FoundryMoveRepository } from "../actors/character/repositories/FoundryMoveRepository.js";
@@ -309,6 +310,7 @@ export function createStonetopPlaybookSheetClass(Base) {
 				content,
 				ok: { label: "Add", callback: (_event, button) => button.form.elements.ref?.value ?? "" },
 				rejectClose: false,
+				renderOptions: inWindowOf(this),
 			});
 			if (slug === null || slug === undefined) return;   // dismissed
 			if (slug) return onPick(slug);

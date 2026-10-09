@@ -1,6 +1,9 @@
+// @vitest-environment happy-dom
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import path from "path";
+import { renderPartial } from "../fakes/renderTemplate.js";
+import { Advice } from "../../src/model/data/Advice.js";
 
 // The coinage block shipped with layout classes that had no CSS rule anywhere — so the captions and
 // inputs fell back to inline flow and wrapped wherever the column happened to end, scrambling which
@@ -11,6 +14,7 @@ const read = rel => readFileSync(path.resolve(process.cwd(), rel), "utf8");
 const partial = read("templates/actor/partials/steading-coinage.hbs");
 const assets = read("templates/actor/partials/steading-assets.hbs");
 const css = read("styles/stonetop.css");
+const en = JSON.parse(read("languages/en.json")).stonetop;
 
 // Layout classes only (the `steading-coinage…` family). The `stonetop-coinage-*` classes on the
 // inputs are event-binding hooks, not layout, and carry no styling obligation.
@@ -51,13 +55,20 @@ describe("steading coinage layout", () => {
 		}
 	});
 
-	// The block is titled the way every other block on the tab is, and the advice ? rides that heading
+	// A panel under its own ink bar, as every block on the tab is, and the advice ? rides that bar
 	// rather than the first currency's name row — which is what the deleted `order: 1` rule was for.
-	it("has a heading of its own, carrying the advice control", () => {
-		expect(partial).toContain(`{{> "stonetop.section-heading" title=(localize "stonetop.steading.lists.coinage") advice=advice}}`);
+	it("is a panel under its own bar, carrying the advice control", () => {
+		Advice.current = Advice.fromTranslations(en.advice);
+		const host = document.createElement("div");
+		host.innerHTML = renderPartial("stonetop.steading-coinage", { coinage: [], advice: "coin", index: 0 });
+		const panel = host.querySelector("section.stonetop-panel.steading-coinage");
+		expect(panel.querySelector(":scope > .stonetop-bar .stonetop-bar-title").textContent)
+			.toContain("stonetop.steading.lists.coinage");
+		const advice = panel.querySelector(':scope > .stonetop-bar .stonetop-bar-meta [data-action="showAdvice"][data-topic="coin"]');
+		expect(advice, "the ? is not on the bar").not.toBeNull();
+		expect(advice.classList.contains("stonetop-bar-action"), "the ? is not one of the bar's controls").toBe(true);
+		expect(panel.querySelector(":scope > .stonetop-panel-body > table.steading-coinage-table")).not.toBeNull();
 		expect(css).not.toContain(".steading-coinage-name .stonetop-advice-btn");
-		expect(read("templates/actor/partials/section-heading.hbs"))
-			.toContain(`{{#if advice}}{{> "stonetop.advice-button" variant="inline" topic=advice}}{{/if}}`);
 	});
 
 	// One partial, one block. The coinage used to hang off the foot of the assets file, which is why

@@ -31,10 +31,6 @@ export class StonetopNpc {
 	// landed in, so the offer every roll makes is taken and dropped.
 	async recordMoveOutcome(_moveSlug, _outcome) {}
 
-	// An NPC card offers no roll mode to pick, so there is none to spend. Present because every roll
-	// spends one through the typed actor, and a card that rolls must not have to be special-cased.
-	async clearRollMode() {}
-
 	/** Nothing: an NPC has no playbook, and its stat block is not a subtitle. */
 	get directoryNote() { return null; }
 

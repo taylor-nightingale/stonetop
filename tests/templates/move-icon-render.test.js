@@ -42,7 +42,7 @@ describe("move icon rendering", () => {
 	// neither of those files is allowed an icon of its own, which is what this file is about.
 	it("renders the seasonal moves through the rail's move panel", () => {
 		expect(read("templates/actor/steading.hbs"))
-			.toContain('{{> "stonetop.steading-move-panel" group=stonetop.seasonalMoves');
+			.toContain('{{> "stonetop.rail-move-group" category=stonetop.seasonalMoves');
 		for (const file of ["templates/actor/partials/steading-season-box.hbs",
 		                    "templates/actor/partials/steading-season-wheel.hbs"]) {
 			expect(read(file)).not.toContain("<img class=\"steading-season-icon\"");

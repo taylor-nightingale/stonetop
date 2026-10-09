@@ -8,12 +8,12 @@
 
       Context: an ImprovementEditorResult. --}}
 {{#if whenModes.length}}
-	{{> "stonetop.roll-mode-picker" modes=whenModes name=(concat nameBase "-when") changeAction="resultWhen" variant="stacked"
+	{{> "stonetop.roll-mode-picker" modes=whenModes name=(concat nameBase "-when") changeAction="resultWhen"
 	    legendKey="stonetop.improvement.when.lead" detail="stonetop.improvement-when-detail" detailContext=this}}
 {{/if}}
 
 {{#if isMechanicEditable}}
-	{{> "stonetop.roll-mode-picker" modes=doesModes name=(concat nameBase "-does") changeAction="resultDoes" variant="stacked"
+	{{> "stonetop.roll-mode-picker" modes=doesModes name=(concat nameBase "-does") changeAction="resultDoes"
 	    legendKey="stonetop.improvement.does.lead" detail="stonetop.improvement-does-detail" detailContext=this}}
 {{else}}
 	<p class="stonetop-improvement-sentence"><span>{{localize "stonetop.improvement.does.lead"}}</span> <span>{{localize doesLabelKey}}</span></p>

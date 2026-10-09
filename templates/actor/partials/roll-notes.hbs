@@ -1,0 +1,12 @@
+{{!-- Why a move might not roll a flat 2d6, one line per source. Context: a RollModeNotes, passed as
+      context rather than hash params so its `all` getter survives. Drawn in the roll dialog, where the
+      mode is chosen. It says what CAN be applied and names the improvement that permits it: phrased as
+      a bare mode ("Advantage") it read as a state — that advantage was already on. --}}
+<ul class="stonetop-move-rollnotes">
+	{{#each all}}
+	<li class="stonetop-move-rollnote">
+		<span class="stonetop-move-rollnote-verdict">{{localize verdictKey source=source mode=(localize modeKey)}}</span>
+		{{#if clause}}<span class="stonetop-move-rollnote-clause">{{rich clause}}</span>{{/if}}
+	</li>
+	{{/each}}
+</ul>

@@ -21,7 +21,7 @@ const DEFEND = {
 
 const render = (moves, params = {}) => {
 	const host = document.createElement("div");
-	host.innerHTML = renderPartial("stonetop.character-move-list", {
+	host.innerHTML = renderPartial("stonetop.move-list", {
 		moves, categoryKey: "basic", categoryLabel: "Basic Moves", sheetIdPrefix: "s1", ...params,
 	});
 	return host;
@@ -112,7 +112,7 @@ describe("a character's move row — its text", () => {
 describe("a character's move row — starting open", () => {
 	const open = () => {
 		const host = document.createElement("div");
-		host.innerHTML = renderPartial("stonetop.character-move-row",
+		host.innerHTML = renderPartial("stonetop.move-list-row",
 			{ ...move(DEFEND), categoryKey: "special", startOpen: true, sheetIdPrefix: "s1" });
 		return host.querySelector("li");
 	};

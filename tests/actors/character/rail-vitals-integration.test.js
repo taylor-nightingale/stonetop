@@ -205,10 +205,10 @@ describe("the special moves' places (integration)", () => {
 		expect(titles).not.toContain("stonetop.character.moves.specialMoves");
 	});
 
-	it("explains Advantage/Disadvantage from a ? after the roll modes", async () => {
+	// Advantage/Disadvantage is explained where the mode is chosen: the roll dialog's ?.
+	it("leaves Advantage/Disadvantage, and the roll mode, off the band", async () => {
 		const root = await render(makeSheet().sheet);
-		const rule = band(root).querySelector(".stonetop-rollmode .stonetop-rollmode-rule");
-		expect(rule.dataset.action).toBe("openMoveBySlug");
-		expect(rule.dataset.moveSlug).toBe("advantage-disadvantage");
+		expect(band(root).querySelector(".stonetop-rollmode")).toBeNull();
+		expect(band(root).querySelector("[data-move-slug='advantage-disadvantage']")).toBeNull();
 	});
 });

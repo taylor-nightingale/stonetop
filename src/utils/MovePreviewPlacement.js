@@ -39,6 +39,12 @@ export class MovePreviews {
 		this._viewport = viewport;
 	}
 
+	/** Cards on a sheet's root, placed within the window that root is in. */
+	static attachTo(root) {
+		const view = root.ownerDocument?.defaultView ?? globalThis;
+		new MovePreviews({ viewport: () => ({ width: view.innerWidth, height: view.innerHeight }) }).attach(root);
+	}
+
 	attach(root) {
 		const rowOf = el => {
 			const row = el?.closest?.(MovePreviews.ROW);

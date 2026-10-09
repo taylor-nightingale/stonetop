@@ -308,6 +308,12 @@ describe("folding a name list away (integration)", () => {
 	const keyOf       = toggle => toggle.getAttribute("aria-controls").replace(/^.*-folk-/, "");
 	const isOpen      = toggle => !listBody(toggle).hidden;
 	const toggleFor   = (root, key) => listToggles(root).find(t => keyOf(t) === key);
+	// Pressed through the action the caret itself names, and let the slide land: without layout every
+	// box is 0px tall, so it has no distance to go and settles on the next tick.
+	const press       = async (sheet, toggle) => {
+		await act(sheet, toggle.dataset.action, toggle);
+		await new Promise(r => setTimeout(r, 0));
+	};
 
 	it("arrives with the steading's own names open and each neighbour's folded", async () => {
 		const root = await render(makeSheet(), true);
@@ -324,13 +330,20 @@ describe("folding a name list away (integration)", () => {
 		}
 	});
 
+	// The same slide as the rail's groups and a move's text — a list snapping shut jumped every list
+	// under it up the column at once.
+	it("slides a list open and shut rather than snapping it", async () => {
+		const root = await render(makeSheet(), true);
+		for (const toggle of listToggles(root)) expect(toggle.dataset.action, keyOf(toggle)).toBe("toggleSliding");
+	});
+
 	it("folds one list away without touching the others", async () => {
 		const sheet = makeSheet();
 		const root = await render(sheet, true);
 		const own = toggleFor(root, "names-own");
 		const others = listToggles(root).filter(t => t !== own);
 
-		await act(sheet, "toggleFolkList", own);
+		await press(sheet, own);
 
 		expect(listBody(own).hidden).toBe(true);
 		expect(own.getAttribute("aria-expanded")).toBe("false");
@@ -348,7 +361,7 @@ describe("folding a name list away (integration)", () => {
 		const neighbour = listToggles(root).find(t => keyOf(t).startsWith("names-") && keyOf(t) !== "names-own");
 		expect(neighbour, "the fixture seeds no neighbouring place").toBeTruthy();
 
-		await act(sheet, "toggleFolkList", neighbour);
+		await press(sheet, neighbour);
 		expect(isOpen(neighbour)).toBe(true);
 
 		const next = await render(sheet);
@@ -361,7 +374,7 @@ describe("folding a name list away (integration)", () => {
 		const sheet = makeSheet();
 		const root = await render(sheet, true);
 		const folded = listToggles(root)[0];
-		await act(sheet, "toggleFolkList", folded);
+		await press(sheet, folded);
 
 		const next = await render(sheet);
 		const again = listToggles(next)[0];
@@ -375,47 +388,62 @@ describe("folding a name list away (integration)", () => {
 		const root = await render(sheet, true);
 		const toggle = listToggles(root)[0];
 
-		await act(sheet, "toggleFolkList", toggle);
-		await act(sheet, "toggleFolkList", toggle);
+		await press(sheet, toggle);
+		await press(sheet, toggle);
 
 		const next = await render(sheet);
 		expect(listBody(listToggles(next)[0]).hidden).toBe(false);
 	});
 });
 
-// The whole column at once, for a GM who is filling in the roster rather than inventing anybody.
-describe("putting the reference column away (integration)", () => {
-	const columnToggle = root => root.querySelector(".steading-folk-ref-toggle");
-	const column       = root => root.querySelector(".steading-folk-ref");
+// The whole column at once, for a GM who is filling in the roster rather than inventing anybody. The
+// lists are a rail on the tab's end edge — the sheet's own rail component — so they are put away the
+// way the sheet's rail is: from the tab on their edge, sliding out to give the roster the room.
+describe("putting the reference rail away (integration)", () => {
+	const layout    = root => root.querySelector(".steading-folk-layout");
+	const railTab   = root => layout(root).querySelector(":scope > .stonetop-rail-toggle");
+	const rail      = root => layout(root).querySelector(":scope > .stonetop-rail");
+	const sheetRail = root => root.querySelector(".sheet-wrapper > .stonetop-rail-layout");
+	const press = async (sheet, root) => act(sheet, railTab(root).dataset.action, railTab(root));
 
-	it("arrives with the column showing, the toggle driving it", async () => {
+	it("arrives showing, the tab on its edge driving it", async () => {
 		const root = await render(makeSheet(), true);
-		const toggle = columnToggle(root);
-
-		expect(toggle.getAttribute("aria-controls")).toBe(column(root).id);
-		expect(toggle.getAttribute("aria-expanded")).toBe("true");
-		expect(column(root).hidden).toBe(false);
+		expect(layout(root).classList.contains("stonetop-rail-layout--end")).toBe(true);
+		expect(railTab(root).dataset.action).toBe("toggleRail");
+		expect(railTab(root).getAttribute("aria-controls")).toBe(rail(root).id);
+		expect(railTab(root).getAttribute("aria-expanded")).toBe("true");
+		expect(layout(root).classList.contains("rail-shut")).toBe(false);
 	});
 
-	it("hides the column, and the toggle says so", async () => {
+	it("puts the lists away, and the tab says so", async () => {
 		const sheet = makeSheet();
 		const root = await render(sheet, true);
 
-		await act(sheet, "toggleFolkList", columnToggle(root));
+		await press(sheet, root);
 
-		expect(column(root).hidden).toBe(true);
-		expect(columnToggle(root).getAttribute("aria-expanded")).toBe("false");
+		expect(layout(root).classList.contains("rail-shut")).toBe(true);
+		expect(railTab(root).getAttribute("aria-expanded")).toBe("false");
 	});
 
 	it("stays put away across the render an edit causes", async () => {
 		const sheet = makeSheet();
 		const root = await render(sheet, true);
-		await act(sheet, "toggleFolkList", columnToggle(root));
+		await press(sheet, root);
 
 		const next = await render(sheet);
 
-		expect(column(next).hidden, "the column came back on the render").toBe(true);
-		expect(columnToggle(next).getAttribute("aria-expanded")).toBe("false");
+		expect(layout(next).classList.contains("rail-shut"), "the lists came back on the render").toBe(true);
+		expect(railTab(next).getAttribute("aria-expanded")).toBe("false");
+	});
+
+	it("leaves the sheet's own rail as it was", async () => {
+		const sheet = makeSheet();
+		const root = await render(sheet, true);
+		const before = sheetRail(root).className;
+
+		await press(sheet, root);
+
+		expect(sheetRail(root).className).toBe(before);
 	});
 
 	it("leaves each list's own fold alone", async () => {
@@ -425,10 +453,10 @@ describe("putting the reference column away (integration)", () => {
 			.map(t => t.getAttribute("aria-expanded"));
 		const before = folds();
 
-		await act(sheet, "toggleFolkList", columnToggle(root));
-		await act(sheet, "toggleFolkList", columnToggle(root));
+		await press(sheet, root);
+		await press(sheet, root);
 
-		expect(column(root).hidden).toBe(false);
+		expect(layout(root).classList.contains("rail-shut")).toBe(false);
 		expect(folds()).toEqual(before);
 	});
 });
@@ -534,15 +562,15 @@ describe("what survives a re-render (integration)", () => {
 	});
 });
 
-// Step 4 rides on the same tab machinery: an asset carries whether it is out, and the Assets heading
+// Step 4 rides on the same tab machinery: an asset carries whether it is out, and the Assets bar
 // says how many are — which is the thing the table forgets every single time.
 describe("requisitioned assets (integration)", () => {
 	const assetRows = root => [...root.querySelectorAll(".steading-asset-row")];
-	// Scoped to the ASSETS block by the one control only it stamps: the content lists render the same
-	// heading partial, and a note on one of those would otherwise answer for this one.
+	// Scoped to the ASSETS panel by the one control only it stamps: the content lists render the same
+	// bar, and a note on one of those would otherwise answer for this one.
 	const headingNote = root =>
 		root.querySelector(".stonetop-asset-item-add")?.closest(".steading-overview-field")
-			?.querySelector(".stonetop-section-note")?.textContent.trim() ?? "";
+			?.querySelector(".stonetop-bar-note")?.textContent.trim() ?? "";
 
 	it("says nothing in the heading while everything is at home", async () => {
 		const root = await render(makeSheet(), true);

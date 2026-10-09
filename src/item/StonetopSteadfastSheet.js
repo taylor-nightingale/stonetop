@@ -68,7 +68,7 @@ export function createStonetopSteadfastSheetClass(Base) {
 			});
 			bindConfirmedDeletes(root, ".stonetop-attr-extra-remove", async ev => {
 				await s.attributes.removeItemFromAttribute(ev.currentTarget.dataset.attr, parseInt(ev.currentTarget.dataset.index));
-			});
+			}, this);
 			bindAll(root, ".stonetop-attr-extra", "change", async ev => {
 				const { attr, index } = ev.currentTarget.dataset;
 				await s.attributes.updateItemOnAttribute(attr, parseInt(index), ev.currentTarget.value);
@@ -78,7 +78,7 @@ export function createStonetopSteadfastSheetClass(Base) {
 			bindAll(root, ".stonetop-asset-item-add", "click", async () => { await s.assets.addItem(); });
 			bindConfirmedDeletes(root, ".stonetop-asset-item-remove", async ev => {
 				await s.assets.removeItem(parseInt(ev.currentTarget.dataset.index));
-			});
+			}, this);
 			bindAll(root, ".stonetop-asset-item", "change", async ev => {
 				await s.assets.updateItem(parseInt(ev.currentTarget.dataset.index), ev.currentTarget.value);
 			});
@@ -124,7 +124,7 @@ export function createStonetopSteadfastSheetClass(Base) {
 			// Granted improvements — revoke (× / right-click); grant is drag-drop via _onDrop.
 			bindConfirmedDeletes(root, ".steadfast-improvement-remove", async ev => {
 				await s.revokeImprovement(ev.currentTarget.dataset.slug);
-			});
+			}, this);
 		}
 
 		async _onDrop(event) {

@@ -192,6 +192,18 @@
 						},
 						{
 							"type": "entry",
+							"slug": "sword-c5-sustenance",
+							"content": {
+								"title": null,
+								"text": "Sustenance"
+							},
+							"track": {
+								"max": 3
+							},
+							"indent": true
+						},
+						{
+							"type": "entry",
 							"slug": "sword-c6",
 							"content": {
 								"title": null,

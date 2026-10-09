@@ -27,7 +27,7 @@
 		{{#if insert.moves.length}}
 		<section class="stonetop-panel stonetop-insert-moves">
 			{{> "stonetop.bar" title=(localize "stonetop.character.moves.insertMoves" name=insert.name) index=0}}
-			{{> "stonetop.character-move-list" moves=insert.moves categoryKey=(concat "insert-" insert.slug)
+			{{> "stonetop.move-list" moves=insert.moves categoryKey=(concat "insert-" insert.slug)
 			    categoryLabel=insert.name chat=true}}
 		</section>
 		{{/if}}

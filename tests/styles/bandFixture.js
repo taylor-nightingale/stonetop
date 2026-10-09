@@ -63,7 +63,7 @@ export const bandSnapshot = ({ marked = ["weakened"], wounds = [["broken arm", "
 	new CharacterSnapshotBuilder()
 		.withPlaybook(playbook()).withStats(STATS).withDebilities(debilities(marked))
 		.withWounds(wounds.map(([name, state], i) => new Wound(`w${i}`, name, state)))
-		.withRollMode("normal").withMoves(moves())
+		.withMoves(moves())
 		.build();
 
 /** The band's markup, from the real partial, in `lang` (German unless asked). */
@@ -72,13 +72,6 @@ export const bandHtml = ({ ailmentsOpen = false, lang = "de", ...options } = {})
 	actor: { name: "Blodwen", img: "p.webp" },
 	editable: true, sheetIdPrefix: "s1", viewFlags: {}, ailmentsOpen,
 }, lang);
-
-/** The band with the classes BandFootFit would have put on it. */
-export const withFoot = (html, ...classes) => {
-	const marked = html.replace(/class="stonetop-band\b/, `class="stonetop-band ${classes.join(" ")}`);
-	if (marked === html) throw new Error("withFoot: no band in the markup");
-	return marked;
-};
 
 /**
  * The band where the sheet puts it: beside the rail, over the tabs. `wrapper` is the class list the

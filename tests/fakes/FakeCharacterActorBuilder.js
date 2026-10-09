@@ -52,7 +52,6 @@ export class FakeStatBuilder {
 // level, playbook); composes a FakeActorScaffold for the shared name/items/flags/handoff plumbing.
 export class FakeCharacterActorBuilder {
 	_scaffold = new FakeActorScaffold("Brakken");
-	_rollMode = null;
 	_playbookSlug = null;
 	_backgroundSlug = "";
 	_level = 1;
@@ -128,11 +127,6 @@ export class FakeCharacterActorBuilder {
 		return this;
 	}
 
-	withRollMode(rollMode) {
-		this._rollMode = rollMode;
-		return this;
-	}
-
 	withWounds(wounds) {
 		this._wounds = wounds;
 		return this;
@@ -166,7 +160,6 @@ export class FakeCharacterActorBuilder {
 	}
 
 	build() {
-		this._scaffold.flagsBuilder.withFlag("rollMode", this._rollMode);
 		return this._scaffold.build("character", this.buildSystem(), CharacterData);
 	}
 }

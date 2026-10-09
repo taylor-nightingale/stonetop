@@ -75,21 +75,24 @@ export async function isArtInstalled(picker = filePicker()) {
 // run the installer at all"; this answers "did THIS image come out of it" — Book I is optional, so a
 // world can have wonders art and no steading art. Cached per path: a sheet asks on every render, and
 // the answer only changes when the installer runs.
+//
+// Browsing is a permission Foundry grants trusted players and up; a player without it is refused,
+// so for them the file itself is asked for instead. A missing plate then costs one 404 per session.
 const _artFileCache = new Map();
 
-export async function hasArtFile(relPath, picker = filePicker()) {
+const userCanBrowse = () => globalThis.game?.user?.can?.("FILES_BROWSE") ?? true;
+const answersHead = async (relPath) => (await globalThis.fetch(route(relPath), { method: "HEAD" })).ok;
+
+export async function hasArtFile(relPath, picker = filePicker(), { canBrowse = userCanBrowse(), head = answersHead } = {}) {
 	if (_artFileCache.has(relPath)) return _artFileCache.get(relPath);
-	const promise = (async () => {
-		const dir = relPath.slice(0, relPath.lastIndexOf("/"));
-		try {
-			const result = await picker.browse("data", dir);
-			return (result?.files ?? []).some(f => f.endsWith(relPath.slice(relPath.lastIndexOf("/") + 1)));
-		} catch {
-			return false; // browse throws when the directory doesn't exist
-		}
-	})();
+	const promise = (canBrowse ? browsedFor(relPath, picker) : head(relPath)).catch(() => false);
 	_artFileCache.set(relPath, promise);
 	return promise;
+}
+
+async function browsedFor(relPath, picker) {
+	const result = await picker.browse("data", relPath.slice(0, relPath.lastIndexOf("/")));
+	return (result?.files ?? []).some(f => f.endsWith(relPath.slice(relPath.lastIndexOf("/") + 1)));
 }
 
 /**

@@ -8,6 +8,7 @@
 import * as CG from "../utils/choiceGroupEdit.js";
 import { activateChoiceGroupEditors } from "./choiceGroupEditorMixin.js";
 import { bindAll } from "../utils/bindAll.js";
+import { inWindowOf } from "../utils/inWindowOf.js";
 import { FoundryMoveRepository } from "../actors/character/repositories/FoundryMoveRepository.js";
 import { itemDescriptionRich } from "./itemDescriptionRich.js";
 import { enrichRichTextTree } from "../utils/enrichRichText.js";
@@ -164,6 +165,7 @@ export function createStonetopInsertSheetClass(Base) {
 					callback: (_event, button) => button.form.elements.move?.value ?? "",
 				},
 				rejectClose: false,
+				renderOptions: inWindowOf(this),
 			});
 			if (moveSlug === null || moveSlug === undefined) return; // dismissed
 			if (moveSlug) await this._addExistingMove(moveSlug);

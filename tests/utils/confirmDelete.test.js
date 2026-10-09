@@ -56,4 +56,10 @@ describe("confirmDelete", () => {
 		await confirmDelete("<b>x</b>");
 		expect(confirm.mock.calls[0][0].content).toContain("&lt;b&gt;x&lt;/b&gt;");
 	});
+
+	it("asks in the window of the sheet that asked", async () => {
+		const confirm = stubFoundry(true);
+		await confirmDelete("Cloak", { window: { windowId: "stonetop-character-abc" } });
+		expect(confirm.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-character-abc" } });
+	});
 });

@@ -82,10 +82,12 @@ describe("confirmedDelete", () => {
 		confirmDelete.mockResolvedValue(true);
 		const perform = vi.fn();
 		const el = target("Enfys");
+		const s  = sheet();
 
-		await confirmedDelete(perform).handler.call(sheet(), leftClick(), el);
+		await confirmedDelete(perform).handler.call(s, leftClick(), el);
 
-		expect(confirmDelete).toHaveBeenCalledWith("Enfys");
+		// Asked over the sheet that was clicked, so a popped-out sheet gets the question beside it.
+		expect(confirmDelete).toHaveBeenCalledWith("Enfys", s);
 		expect(perform).toHaveBeenCalledWith(el);
 	});
 
@@ -134,10 +136,11 @@ describe("confirmedUnlink", () => {
 		confirmUnlink.mockResolvedValue(true);
 		const perform = vi.fn();
 		const el = target("Enfys");
+		const s  = sheet();
 
-		await confirmedUnlink(perform).handler.call(sheet(), leftClick(), el);
+		await confirmedUnlink(perform).handler.call(s, leftClick(), el);
 
-		expect(confirmUnlink).toHaveBeenCalledWith("Enfys");
+		expect(confirmUnlink).toHaveBeenCalledWith("Enfys", s);
 		expect(perform).toHaveBeenCalledWith(el);
 	});
 

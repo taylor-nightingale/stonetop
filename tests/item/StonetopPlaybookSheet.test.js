@@ -259,3 +259,22 @@ describe("StonetopPlaybookSheet._onRender — edit wiring", () => {
 		expect(item.update).not.toHaveBeenCalled();
 	});
 });
+
+describe("StonetopPlaybookSheet._pickReference — the picker", () => {
+	// Opened from a popped-out playbook sheet, the picker appears over it rather than back in the
+	// main workspace.
+	it("asks in the window the sheet is in", async () => {
+		stubGame(PACKS);
+		const sheet  = makeSheet(makeItem(FULL));
+		sheet.window = { windowId: "stonetop-playbook-abc" };
+		const saved  = foundry.applications.api;
+		const prompt = vi.fn(async () => null);
+		foundry.applications.api = { ...saved, DialogV2: { prompt } };
+		try {
+			await sheet._pickReference("follower", vi.fn());
+		} finally {
+			foundry.applications.api = saved;
+		}
+		expect(prompt.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-playbook-abc" } });
+	});
+});

@@ -7,7 +7,8 @@ import { MoveCategorySnapshotBuilder } from "../../src/model/snapshot/character/
 import { ResourceController } from "../../src/actors/character/ResourceController.js";
 import { FakeCharacterActorBuilder } from "../fakes/FakeCharacterActorBuilder.js";
 
-// The character's move row, its panel and its bar, in real Chrome under core's stylesheet.
+// The move row, its panel and its bar, in real Chrome under core's stylesheet — the character's rail and
+// the steading's draw the same partials under the same rules, so the rail's claims hold in both.
 
 const STYLES = path.resolve("styles");
 const SHEETS = ["themes/palette.css", "themes/parchment-light.css", "themes/parchment-dark.css", "tokens.css", "stonetop.css"]
@@ -37,11 +38,22 @@ const openRow = (html, slug) => html
 	.replace(`id="s1-move-basic-${slug}" hidden`, `id="s1-move-basic-${slug}"`)
 	.replace(/(data-slug="recover"[\s\S]*?class="stonetop-move-gloss" data-disclosure-shut)/, "$1 hidden");
 
-const RAIL = html => `
-<div class="application stonetop sheet character themed theme-light" style="height: 900px"><div class="window-content">
+const RAILS = {
+	character: { rail: "stonetop-moves-rail", main: "character-main" },
+	steading:  { rail: "steading-rail",       main: "steading-main" },
+};
+
+// Wide enough that the rail sits beside the sheet: at the browser's own width it is a drawer, which
+// both sheets draw at one width, so a fixture there cannot see the rails' widths differ. The window
+// holds the sheet, which core caps at the viewport.
+const DOCKED = "1600px";
+const WIDE = ["--window-size=1800,1000"];
+
+const RAIL = (html, sheet = "character", width = "auto") => `
+<div class="application stonetop sheet ${sheet} themed theme-light" style="width: ${width}; height: 900px"><div class="window-content">
   <div class="sheet-wrapper"><div class="stonetop-rail-layout">
-    <div class="stonetop-rail stonetop-moves-rail">${html}</div>
-    <div class="stonetop-rail-main character-main"><section class="sheet-body"></section></div>
+    <div class="stonetop-rail ${RAILS[sheet].rail}">${html}</div>
+    <div class="stonetop-rail-main ${RAILS[sheet].main}"><section class="sheet-body"></section></div>
   </div></div>
 </div></div>`;
 
@@ -54,11 +66,11 @@ const row = slug => `li[data-slug="${slug}"]`;
 const bottom = el => el.values.boxTop + el.values.boxHeight;
 const right = el => el.values.boxLeft + el.values.boxWidth;
 
-describe.skipIf(!canProbe())("the move row, in the rail", () => {
+describe.skipIf(!canProbe()).each(Object.keys(RAILS))("the move row, in the %s's rail", sheet => {
 	let m;
 	beforeAll(() => {
 		m = probe.measure({
-			bodyHtml: RAIL(openRow(group(true), "recover")), bodyClass: "theme-light",
+			bodyHtml: RAIL(openRow(group(true), "recover"), sheet, DOCKED), bodyClass: "theme-light", chromeFlags: WIDE,
 			targets: {
 				defyStat:      `${row("defy")} .stonetop-mrow-stat`,
 				persuadeStat:  `${row("persuade")} .stonetop-mrow-stat`,
@@ -105,6 +117,52 @@ describe.skipIf(!canProbe())("the move row, in the rail", () => {
 
 	it("starts the open text where the name's text starts", () => {
 		expect(m.get("recoverText").textLeft).toBeCloseTo(m.get("recoverName").textLeft, 0);
+	});
+});
+
+// One row, one set of rules: a rule keyed on one sheet that reaches a part of the row would make the two
+// rails draw the same partial two ways, which is the drift this row exists to end.
+describe.skipIf(!canProbe()).each(["16px", "20px"])("the move row, the same in both rails, at a %s root", rootSize => {
+	const PROPS = ["font-family", "font-size", "font-weight", "letter-spacing", "color", "background-color",
+		"border-top-style", "border-top-color", "border-bottom-style", "width", "height", "min-width",
+		"justify-content", "padding-left", "padding-top", "display", "opacity"];
+	const PARTS = {
+		panel:    ".stonetop-move-panel",
+		bar:      ".stonetop-bar",
+		barTitle: ".stonetop-bar-title",
+		list:     ".stonetop-move-list",
+		row:      row("defend"),
+		header:   `${row("defend")} > .stonetop-item-header`,
+		roll:     `${row("defend")} .stonetop-mrow-roll`,
+		die:      `${row("defend")} .stonetop-mrow-die`,
+		title:    `${row("defend")} .stonetop-mrow-title`,
+		static:   `${row("recover")} .stonetop-mrow-title--static`,
+		mod:      `${row("defend")} .stonetop-mrow-mod`,
+		nil:      `${row("recover")} .stonetop-mrow-nil`,
+		controls: `${row("defend")} .stonetop-item-controls`,
+		caret:    `${row("defend")} .stonetop-mrow-caret`,
+		chevron:  `${row("defend")} .stonetop-move-caret`,
+		gloss:    `${row("defend")} .stonetop-move-gloss`,
+		pip:      `${row("defend")} .stonetop-item-resource-check`,
+		pipUsed:  `${row("defend")} .stonetop-item-resource-check.is-checked`,
+		text:     `${row("recover")} .stonetop-move-body .stonetop-item-description`,
+		card:     `${row("defend")} .stonetop-move-preview`,
+	};
+	const used = html => html.replace(/(class="[^"]*stonetop-item-resource-check)(")/, "$1 is-checked$2");
+	// Core gives every button `transition: all`, so a loaded machine can read a pip mid-fade.
+	const settled = "<style>* { transition: none !important; }</style>";
+	const styled = sheet => probe.render({
+		bodyHtml: settled + RAIL(used(openRow(group(true), "recover")), sheet, DOCKED), bodyClass: "theme-light",
+		rootAttrs: `style="font-size: ${rootSize}"`, chromeFlags: WIDE,
+		probes: Object.fromEntries(Object.entries(PARTS).map(([name, selector]) => [name, { selector, properties: PROPS }])),
+	});
+
+	let character, steading;
+	beforeAll(() => { character = styled("character"); steading = styled("steading"); });
+
+	it.each(Object.keys(PARTS))("styles the %s identically", part => {
+		expect(character.get(part).missing, `${part} did not render`).toBe(false);
+		expect(steading.get(part).values).toEqual(character.get(part).values);
 	});
 });
 

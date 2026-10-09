@@ -92,11 +92,7 @@
       "rule": "{name}: the rule",
       "normal": "Normal",
       "adv": "Vorteil",
-      "dis": "Nachteil",
-      "short": {
-        "adv": "Vorteil",
-        "dis": "Nachteil"
-      }
+      "dis": "Nachteil"
     },
     "steading": {
       "startsAt": "Beginnt bei {value}",

@@ -7,76 +7,82 @@
       moment you ticked a box on it, which is the one time a reader is certain to be looking at it.
 
       No new data anywhere: every requirement row already carries a `track`, and its checks ARE the
-      meter. Params: board (ImprovementBoard). --}}
-<section class="steading-board">
+      meter. Params: board (ImprovementBoard), `index` (its bar's place among the tab's bars), and
+      optionally advice (an "If you want to…" topic key, drawn as the ? on the bar). --}}
+<section class="stonetop-panel steading-board">
 
-	{{> "stonetop.section-heading" title=(localize "stonetop.steading.improvements.boardTitle")}}
+	{{> "stonetop.bar" title=(localize "stonetop.steading.improvements.boardTitle") index=index
+	    action=(ifThen advice "stonetop.advice-button" "") variant="bar" topic=advice}}
 
-	{{#if board.isEmpty}}
-		<p class="steading-board-empty">{{localize "stonetop.steading.improvements.boardEmpty"}}</p>
-	{{else}}
+	<div class="stonetop-panel-body">
 
-		<div class="steading-board-controls">
+		{{#if board.isEmpty}}
+			<p class="steading-board-empty">{{localize "stonetop.steading.improvements.boardEmpty"}}</p>
+		{{else}}
 
-			{{!-- Twenty-plus rows, and three state chips are not a way to find "mill". No
-			      data-change-action: this writes nothing to the actor. It filters rows in place on
-			      `input`, so it keeps up with typing and never puts the board through a render. Named
-			      by aria-label rather than a visible one — the placeholder alone is not an accessible
-			      name, and it disappears the moment anything is typed. --}}
-			<input type="search" class="steading-board-search" data-view-state
-			       placeholder="{{localize 'stonetop.steading.improvements.searchPlaceholder'}}"
-			       aria-label="{{localize 'stonetop.a11y.improvementSearch'}}">
+			<div class="steading-board-controls">
 
-			{{!-- Real toggles, not decoration: a count that looks like a filter and does nothing is
-			      worse than no chip at all. Independent, because "in progress AND nearly done" is a
-			      question someone actually asks; pressing the last active one clears back to the
-			      whole board. --}}
-			<div class="steading-board-chips" role="group"
-			     aria-label="{{localize 'stonetop.steading.improvements.filterLabel'}}">
-				<button type="button" class="steading-board-chip is-progress" data-action="toggleBoardFilter"
-				        data-board-filter="progress" data-view-state aria-pressed="false">
-					{{localize "stonetop.steading.improvements.countInProgress" count=board.inProgressCount}}
-				</button>
-				<button type="button" class="steading-board-chip" data-action="toggleBoardFilter"
-				        data-board-filter="untouched" data-view-state aria-pressed="false">
-					{{localize "stonetop.steading.improvements.countUntouched" count=board.untouchedCount}}
-				</button>
-				<button type="button" class="steading-board-chip is-complete" data-action="toggleBoardFilter"
-				        data-board-filter="complete" data-view-state aria-pressed="false">
-					{{localize "stonetop.steading.improvements.countComplete" count=board.completeCount}}
-				</button>
+				{{!-- Twenty-plus rows, and three state chips are not a way to find "mill". No
+				      data-change-action: this writes nothing to the actor. It filters rows in place on
+				      `input`, so it keeps up with typing and never puts the board through a render. Named
+				      by aria-label rather than a visible one — the placeholder alone is not an accessible
+				      name, and it disappears the moment anything is typed. --}}
+				<input type="search" class="steading-board-search" data-view-state
+				       placeholder="{{localize 'stonetop.steading.improvements.searchPlaceholder'}}"
+				       aria-label="{{localize 'stonetop.a11y.improvementSearch'}}">
+
+				{{!-- Real toggles, not decoration: a count that looks like a filter and does nothing is
+				      worse than no chip at all. Independent, because "in progress AND nearly done" is a
+				      question someone actually asks; pressing the last active one clears back to the
+				      whole board. --}}
+				<div class="steading-board-chips" role="group"
+				     aria-label="{{localize 'stonetop.steading.improvements.filterLabel'}}">
+					<button type="button" class="steading-board-chip is-progress" data-action="toggleBoardFilter"
+					        data-board-filter="progress" data-view-state aria-pressed="false">
+						{{localize "stonetop.steading.improvements.countInProgress" count=board.inProgressCount}}
+					</button>
+					<button type="button" class="steading-board-chip" data-action="toggleBoardFilter"
+					        data-board-filter="untouched" data-view-state aria-pressed="false">
+						{{localize "stonetop.steading.improvements.countUntouched" count=board.untouchedCount}}
+					</button>
+					<button type="button" class="steading-board-chip is-complete" data-action="toggleBoardFilter"
+					        data-board-filter="complete" data-view-state aria-pressed="false">
+						{{localize "stonetop.steading.improvements.countComplete" count=board.completeCount}}
+					</button>
+				</div>
+
+				{{!-- The two questions a board of twenty rows cannot answer by being read. They cut ACROSS
+				      the states beside them — an owed card is also a complete one — so they are their own
+				      group and narrow on their own axis. Absent when there is nothing to find: a chip
+				      reading "0 owed" is a control that does nothing. --}}
+				{{#if (or board.owedCount board.thisSeasonCount)}}
+					<div class="steading-board-chips steading-board-chips--flags" role="group"
+					     aria-label="{{localize 'stonetop.steading.improvements.attentionLabel'}}">
+						{{#if board.owedCount}}
+							<button type="button" class="steading-board-chip is-owed" data-action="toggleBoardFlag"
+							        data-board-flag="owed" data-view-state aria-pressed="false">
+								{{localize "stonetop.steading.improvements.countOwed" count=board.owedCount}}
+							</button>
+						{{/if}}
+						{{#if board.thisSeasonCount}}
+							<button type="button" class="steading-board-chip is-season" data-action="toggleBoardFlag"
+							        data-board-flag="season" data-view-state aria-pressed="false">
+								{{localize "stonetop.steading.improvements.countThisSeason" count=board.thisSeasonCount}}
+							</button>
+						{{/if}}
+					</div>
+				{{/if}}
+
 			</div>
 
-			{{!-- The two questions a board of twenty rows cannot answer by being read. They cut ACROSS
-			      the states beside them — an owed card is also a complete one — so they are their own
-			      group and narrow on their own axis. Absent when there is nothing to find: a chip
-			      reading "0 owed" is a control that does nothing. --}}
-			{{#if (or board.owedCount board.thisSeasonCount)}}
-				<div class="steading-board-chips steading-board-chips--flags" role="group"
-				     aria-label="{{localize 'stonetop.steading.improvements.attentionLabel'}}">
-					{{#if board.owedCount}}
-						<button type="button" class="steading-board-chip is-owed" data-action="toggleBoardFlag"
-						        data-board-flag="owed" data-view-state aria-pressed="false">
-							{{localize "stonetop.steading.improvements.countOwed" count=board.owedCount}}
-						</button>
-					{{/if}}
-					{{#if board.thisSeasonCount}}
-						<button type="button" class="steading-board-chip is-season" data-action="toggleBoardFlag"
-						        data-board-flag="season" data-view-state aria-pressed="false">
-							{{localize "stonetop.steading.improvements.countThisSeason" count=board.thisSeasonCount}}
-						</button>
-					{{/if}}
-				</div>
-			{{/if}}
+			<div class="steading-board-list">
+				{{#each board.entries}}
+					{{> "stonetop.steading-improvement-card"}}
+				{{/each}}
+			</div>
 
-		</div>
+		{{/if}}
 
-		<div class="steading-board-list">
-			{{#each board.entries}}
-				{{> "stonetop.steading-improvement-card"}}
-			{{/each}}
-		</div>
-
-	{{/if}}
+	</div>
 
 </section>

@@ -8,6 +8,7 @@ import { rich } from "../model/snapshot/RichText.js";
 import { toSlug } from "../utils/slug.js";
 import { MoveRollLabel } from "../model/snapshot/character/MoveRollLabel.js";
 import { MoveResults } from "../model/data/MoveResults.js";
+import { RollRule } from "./RollPrompt.js";
 
 // Generic mechanics for moves stored as embedded `move` items on an actor — shared by characters
 // (basic/playbook/insert/other categories) and steadings (homefront). The domain classes
@@ -70,6 +71,12 @@ export async function resolveMoveBySlug(actor, moveSlug, moveRepo) {
 	return entry ?? null;
 }
 
+/** A move the roll dialog links to, resolved as a row's move is: the actor's own copy, else the pack's. */
+export async function resolveRollRule(actor, moveSlug, moveRepo) {
+	const item = await resolveMoveBySlug(actor, moveSlug, moveRepo);
+	return item ? new RollRule(moveSlug, item.name) : null;
+}
+
 /**
  * Open the item behind a rendered move row: the actor's own copy when they have taken the move,
  * otherwise the compendium move it was rendered from — the same document the Items sidebar opens.
@@ -120,8 +127,7 @@ export async function clearMove(actor, categoryKey, moveSlug) {
 // `requirement` (optional) is the RequirementSnapshot the caller already built — see
 // MoveRequirements#snapshotFor. Callers with no character (an item-sheet preview, a steading) pass
 // none; those moves carry no requirements.
-export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null,
-                                  rollNotes = null) {
+export function buildMoveSnapshot(item, categoryKey, selectable, resourceController, requirement = null) {
 	const sys    = item?.system ?? null;
 	const slug   = moveSlugOf(item);
 	const resDef = sys?.resource ?? null;
@@ -152,7 +158,6 @@ export function buildMoveSnapshot(item, categoryKey, selectable, resourceControl
 		.withSteps(sys?.steps ?? null)
 		.withMoveResults(sys?.moveResults ?? null)
 		.withResults(MoveResults.fromRaw(sys?.moveResults ?? null))
-		.withRollNotes(rollNotes)
 		.withPhase(sys?.phase ?? null)
 		.withReplaces(sys?.replaces ?? null)
 		.withRollLabel(MoveRollLabel.of(sys?.rollStat ?? null, key => game.i18n.localize(key)))
