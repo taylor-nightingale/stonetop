@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseTrack, triggerMove, moveGrantEntry, withTableLink, isCardFurniture, isStatBlockFragment, stripMarkers, joinSplitItemLine, uniqueUnlockSlugs, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail } from "../../../scripts/import/pdf/arcana-parse.js";
+import { parseTrack, triggerMove, moveGrantEntry, withTableLink, isCardFurniture, isStatBlockFragment, stripMarkers, joinSplitItemLine, uniqueUnlockSlugs, tagText, stripLoyalty, parseItemLine, unlockSlug, followerChoiceEntry, followerChoices, isFollowerGroup, foldBackChoices, followerSectionIndex, isArcanaFollower, matchFollowerIcons, titleCase, majorMoveName, runInName, parseRequires, parseMoveRoll, resourceTracks, frontMoveResources, parseResourceLine, attachItemResource, parseNameFirstItem, parseFront, parseBack, splitAssignRows, numberBlanks, statblockMoveTail, startingLoyalty } from "../../../scripts/import/pdf/arcana-parse.js";
 
 // Synthetic block factories (markers are literal glyphs in the line text, as the load pipeline injects).
 const _line = (text) => ({ text, bbox: [0, 0, 0, 0], spans: [{ font: "ACaslonPro-Regular", size: 9, text }] });
@@ -1331,5 +1331,22 @@ describe("parseBack — a major card's own prose and its dice table", () => {
 		expect(back.rollTables[0].results.map((r) => r.description)).toEqual(["To punish", "To preserve", "To purge", "To build"]);
 		const row = back.consequences.list[0];
 		expect(row.content.text).toBe(`It remembers its original purpose. Roll 1d4 below.\n\n@DrawTableInline[${back.rollTables[0].uuid}]{1d4}`);
+	});
+});
+
+// The loyalty a card's follower arrives with is printed in the card's own text, in two phrasings.
+describe("startingLoyalty", () => {
+	it("reads \"with N Loyalty to start\"", () => {
+		expect(startingLoyalty("Treat it as a follower, with 3 Loyalty to start (it can never gain more).")).toBe(3);
+	});
+
+	it("reads \"holds N Loyalty to start\"", () => {
+		expect(startingLoyalty("Treat it as a follower; it holds 1 Loyalty to start.")).toBe(1);
+	});
+
+	// The Signet Ring's "+1 Loyalty" is a gain in play, not where a follower starts.
+	it("is 0 when the card names no starting loyalty", () => {
+		expect(startingLoyalty("you can choose to hold +1 Authority in lieu of your follower holding +1 Loyalty.")).toBe(0);
+		expect(startingLoyalty("")).toBe(0);
 	});
 });

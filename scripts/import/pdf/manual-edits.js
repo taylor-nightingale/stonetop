@@ -93,6 +93,15 @@ export const ARCANA_EDITS = {
 	"cloak-richly-embroidered": [
 		{ find: "exquisitly", replace: "exquisitely", note: "book typo in the cloak's front description" },
 	],
+	"blood-quenched-sword": [
+		{
+			// The card prints three ○ after this consequence's text to track the Sustenance it holds; a
+			// consequence row has one track (its own box), so the pips get a row of their own under it.
+			insertAfter: "sword-c5",
+			row: { type: "entry", slug: "sword-c5-sustenance", content: { title: null, text: "Sustenance" }, track: { max: 3 }, indent: true },
+			note: "Sustenance pips (○○○) under the 'no longer gain sustenance' consequence",
+		},
+	],
 };
 
 function replaceAll(text, edits) {
@@ -144,20 +153,38 @@ export function applyManualEdits(html, slug) {
 	return { html: text, applied: applied.length, misses: missedNotes(edits, applied) };
 }
 
+/** Insert each `{ insertAfter, row }` edit's row straight after the choice row with that slug, on
+ *  either face. Mutates `system`, so pass it a clone. */
+function insertRows(system, inserts, hit) {
+	for (const e of inserts) for (const face of [system.front, system.back]) for (const group of face?.choices ?? []) {
+		const list = group.list ?? [];
+		const at = list.findIndex((r) => r.slug === e.insertAfter);
+		if (at < 0) continue;
+		hit.add(e);
+		if (!list.some((r) => r.slug === e.row.slug)) list.splice(at + 1, 0, structuredClone(e.row));
+	}
+}
+
 /**
- * Apply one arcanum's edits to every string in its `system`, returning a corrected clone plus the
- * `misses` whose `find` matched nothing. An edit may legitimately match in several places (the same
- * wording on front and back), so an edit counts as applied if it hit anywhere.
+ * Apply one arcanum's edits, returning a corrected clone plus the `misses` that matched nothing. A
+ * `{ find, replace }` edit corrects every string in its `system`; it may legitimately match in
+ * several places (the same wording on front and back), so it counts as applied if it hit anywhere.
+ * A `{ insertAfter, row }` edit adds a choice row the parser can't produce, after the row with that
+ * slug.
  */
 export function applyArcanaEdits(system, slug) {
 	const edits = ARCANA_EDITS[slug] || [];
 	if (!edits.length) return { system, misses: [] };
+	const inserts = edits.filter((e) => e.insertAfter);
+	const textEdits = edits.filter((e) => !e.insertAfter);
 	const hit = new Set();
 	const walk = (v) => {
-		if (typeof v === "string") { const { text, applied } = replaceAll(v, edits); applied.forEach((e) => hit.add(e)); return text; }
+		if (typeof v === "string") { const { text, applied } = replaceAll(v, textEdits); applied.forEach((e) => hit.add(e)); return text; }
 		if (Array.isArray(v)) return v.map(walk);
 		if (v && typeof v === "object") return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x)]));
 		return v;
 	};
-	return { system: walk(system), misses: missedNotes(edits, [...hit]) };
+	const out = walk(system);
+	insertRows(out, inserts, hit);
+	return { system: out, misses: missedNotes(edits, [...hit]) };
 }

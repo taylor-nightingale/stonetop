@@ -6,6 +6,7 @@ import {applyPick} from "./ChoiceGroupController.js";
 import {ItemGrantRouter} from "./ItemGrantRouter.js";
 import {GrantSource} from "../../model/data/ItemGrant.js";
 import {GrantRegistry} from "../../item/GrantRegistry.js";
+import {RollRule} from "../RollPrompt.js";
 
 export class StonetopCharacter {
 	constructor(actor, repos) {
@@ -162,7 +163,6 @@ export class StonetopCharacter {
 			.withArcana(arcana)
 			.withInserts(inserts)
 			.withFollowers(followers)
-			.withRollMode(this.rollMode)
 			.withWounds(this._wounds.all())
 			.withBio(this.bio)
 			.withNotes(this.notes)
@@ -215,8 +215,8 @@ export class StonetopCharacter {
 	// The die on a rendered move row, when the row names its move by slug rather than by an owned id
 	// — see StonetopActor#_onRoll. Every rollable row on a character sheet IS owned; this is the
 	// mixin's one path, answered here so it does not have to know which actor types can take it.
-	async rollMoveBySlug(moveSlug) {
-		return this._moves.roll(moveSlug);
+	async rollMoveBySlug(moveSlug, rollMode = null) {
+		return this._moves.roll(moveSlug, rollMode);
 	}
 
 	/** Open the move's item sheet — its own copy when taken, else the compendium source. */
@@ -358,26 +358,13 @@ export class StonetopCharacter {
 		for (const item of documents) await this._grantRouter.revoke(item);
 	}
 
-	get rollMode() {
-		return this._actor.getFlag("stonetop", "rollMode") ?? "normal";
+	async rollModeRule() {
+		return this._moves.rollRule(RollRule.ADVANTAGE_SLUG);
 	}
 
-	async setRollMode(mode) {
-		await this._actor.setFlag("stonetop", "rollMode", mode);
-	}
-
-	/**
-	 * Spend the roll mode. Advantage is FORWARD, not a setting — in this family of games a modifier
-	 * you pick applies to your next roll and then it is gone, which is exactly what "I'm flanking
-	 * him" means. Stored as a flag it behaved as neither: set once, it quietly bent every roll after
-	 * it until somebody noticed the wrong word was still lit.
-	 *
-	 * ONGOING modifiers are a different thing and are not touched here — a marked debility hinders
-	 * every roll on its two stats for as long as it is marked, and {@link applyRollMode} applies that
-	 * from the debility itself with nobody setting anything.
-	 */
-	async clearRollMode() {
-		if (this.rollMode !== "normal") await this.setRollMode("normal");
+	// The reminders are the steading's — what its improvements entitle it to. A character's moves carry none.
+	async rollNotesFor(_moveSlug) {
+		return null;
 	}
 
 	getRollableStats() {

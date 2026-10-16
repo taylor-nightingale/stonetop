@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "fs";
 import path from "path";
+import { renderTemplate } from "../fakes/renderTemplate.js";
 
 // One renderer for every resource track. The move row used to hand-roll its own pips, and the extra
 // wrapper it emitted broke each label onto a line below its pip — a difference no test could see,
@@ -60,5 +61,22 @@ describe("resource track rendering", () => {
 
 	it("keeps a label beside its pip rather than under it", () => {
 		expect(read("styles/stonetop.css")).toContain(".stonetop-resource-label {");
+	});
+
+	// A labelled pip and its word are one unit: as sibling flex items a wrapping track could leave the
+	// pip at the end of one line and its word at the start of the next.
+	it("holds a labelled pip and its word in one pair", async () => {
+		const html = await renderTemplate(`systems/stonetop/${TRACK}`, {
+			resource: { current: 0, max: 2, labels: ["raspy voice", "mute"] }
+		});
+		const pairs = [...html.matchAll(/<span class="stonetop-resource-pair">([\s\S]*?)<\/span>\s*<\/span>/g)];
+		expect(pairs).toHaveLength(2);
+		for (const [, inner] of pairs) expect(inner).toMatch(/<button[\s\S]*<span class="stonetop-resource-label">/);
+	});
+
+	it("leaves an unlabelled pip bare", async () => {
+		const html = await renderTemplate(`systems/stonetop/${TRACK}`, { resource: { current: 1, max: 3 } });
+		expect(html).not.toContain("stonetop-resource-pair");
+		expect(html.match(/<button/g)).toHaveLength(3);
 	});
 });

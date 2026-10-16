@@ -31,11 +31,11 @@ const move = (slug, name, { taken = 0, max = 1, order = 0, extra = {} } = {}) =>
 		acquired: taken > 0, instanceCount: taken, repeatMax: max, sortOrder: order,
 		description: `When you **_${name.toLowerCase()}_**, something happens.`, ...extra },
 });
-const possession = (slug, name, { selected = false, preselected = false } = {}) => ({
+const possession = (slug, name, { selected = false, preselected = false, resource = null } = {}) => ({
 	flags: { stonetop: { grant: { source: "playbook:the-fox", key: `possession:${slug}` } } },
 	_id: `${slug}-item`, type: "possession", name,
 	system: { slug, description: `${name}: a long line of the gear it gives, which wraps rather than being cut to one line.`,
-		resource: null, outfitItems: [], choices: null, scaling: null, selected, preselected, uses: 0, pickValues: {}, choiceUses: {} },
+		resource, outfitItems: [], choices: null, scaling: null, selected, preselected, uses: 0, pickValues: {}, choiceUses: {} },
 });
 
 let MOVES, POSSESSIONS;
@@ -45,10 +45,10 @@ beforeAll(async () => {
 	playbook.system.specialPossessions = { pickCount: 2, pickNote: "Pick 2", preselected: ["kit"], slugs: ["kit", "ledger"] };
 	const actor = new FakeCharacterActorBuilder().withLevel(5).withXp(0, 8).withPlaybook("the-fox")
 		.withItems([playbook,
-			move("ambush", "Ambush", { taken: 1, extra: { rollStat: "dex" } }),
+			move("ambush", "Ambush", { taken: 1, extra: { rollStat: "dex", resource: { max: 2, title: "Resolve" } } }),
 			move("improved-stat", "Improved Stat", { taken: 2, max: 3, order: 1 }),
 			move("master-thief", "Master Thief", { order: 2, extra: { requirement: { level: 6 } } }),
-			possession("kit", "Burglar's kit", { selected: true, preselected: true }), possession("ledger", "Ledger")])
+			possession("kit", "Burglar's kit", { selected: true, preselected: true, resource: { max: 3, title: null, labels: [] } }), possession("ledger", "Ledger")])
 		.withTypedActor(a => new StonetopCharacter(a, new FakeRepositoryFactory({ moves: new FakeMoveRepository([], [LEVEL_UP]) })))
 		.build();
 	const root = { tabs: { moves: { cssClass: "active" }, possessions: { cssClass: "active" } }, actor, editable: true, viewFlags: {},
@@ -120,6 +120,31 @@ describe.skipIf(!canProbe())("the Moves tab while choosing", () => {
 	});
 });
 
+// A bar's door hangs below it, over the right of the first row, where a row's resource track sits.
+// Nothing owed, so the first row is the first thing under the bar.
+const CLEAR = 4;
+const settled = html => html.replace(/<div class="stonetop-conditional[^"]*stonetop-owing">[\s\S]*?<\/div>/, "");
+
+describe.skipIf(!canProbe())("the first row under a door", () => {
+	const firstTrack = (html, panel, list, slug) => measure(settled(html), 1000, {
+		door: `${panel} .stonetop-section-door`, track: `${panel} ${list} li[data-slug="${slug}"] .stonetop-item-resources`,
+	});
+	const clearance = m => {
+		for (const [name, probed] of m) expect(probed.missing, `${name} did not render`).toBe(false);
+		return m.get("track").values.boxTop - bottom(m.get("door").values);
+	};
+
+	it("keeps a move's resource track clear of the door, at rest and while choosing", () => {
+		expect(clearance(firstTrack(MOVES, ".stonetop-moves-panel", ".stonetop-section-rest", "ambush"))).toBeGreaterThanOrEqual(CLEAR);
+		expect(clearance(firstTrack(choosing(MOVES), ".stonetop-moves-panel", ".stonetop-section-choose", "ambush"))).toBeGreaterThanOrEqual(CLEAR);
+	});
+
+	it("keeps a possession's resource track clear of the door, at rest and while choosing", () => {
+		expect(clearance(firstTrack(POSSESSIONS, ".stonetop-possessions-panel", ".stonetop-section-rest", "kit"))).toBeGreaterThanOrEqual(CLEAR);
+		expect(clearance(firstTrack(choosing(POSSESSIONS), ".stonetop-possessions-panel", ".stonetop-section-choose", "kit"))).toBeGreaterThanOrEqual(CLEAR);
+	});
+});
+
 describe.skipIf(!canProbe())("the owed line, at the sheet's narrowest", () => {
 	it("keeps its words and its Choose inside its panel", () => {
 		const m = measure(MOVES, 520, {
@@ -133,15 +158,17 @@ describe.skipIf(!canProbe())("the owed line, at the sheet's narrowest", () => {
 });
 
 describe.skipIf(!canProbe())("a shut Moves panel", () => {
-	it("is its bar and its caret: the door goes with the panel", () => {
+	it("is its bar and its caret: the door, and the room it hangs into, go with the panel", () => {
 		const shut = MOVES.replace(/(class="stonetop-bar-toggle"[^>]*aria-expanded=)"true"/, '$1"false"')
 			.replace(/(<div class="stonetop-panel-body" id="s1-moves-panel-playbook-the-fox")/, "$1 hidden");
 		const m = probe.render({
 			bodyHtml: sheet(shut, 1000), bodyClass: "game themed theme-light", rootAttrs: 'style="font-size: 16px"',
 			chromeFlags: ["--window-size=1060,1500"],
-			probes: { door: { selector: ".stonetop-moves-panel .stonetop-section-door", properties: ["display"] } },
+			probes: { door: { selector: ".stonetop-moves-panel .stonetop-section-door", properties: ["display"] },
+				bar: { selector: ".stonetop-moves-panel > .stonetop-bar", properties: ["margin-bottom"] } },
 		});
 		expect(m.get("door").get("display")).toBe("none");
+		expect(m.get("bar").get("margin-bottom")).toBe("0px");
 	});
 });
 

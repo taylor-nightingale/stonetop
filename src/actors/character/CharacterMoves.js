@@ -9,9 +9,11 @@ import {
 	findMoveItemBySlug,
 	moveSlugOf,
 	openMoveSheet,
+	resolveRollRule,
 	resolveMoveBySlug,
 } from "../embeddedMoves.js";
 import { CharacterMoveGrants } from "./CharacterMoveGrants.js";
+import { MovePicks } from "./MovePicks.js";
 import { OutfitEffects } from "../../model/data/character/OutfitEffect.js";
 import { MovePhaseGroup } from "../../model/snapshot/character/MovePhaseGroup.js";
 
@@ -23,10 +25,10 @@ export class CharacterMoves {
 		this._moveRepo           = moveRepo;
 		this._actor              = actor;
 		this._resourceController = resourceController;
-		this._factory            = factory;
 		this._grantedItems       = grantedItems;
 		this._requirements       = requirements;
 		this._grants             = new CharacterMoveGrants(moveRepo, actor, grantedItems);
+		this._picks              = new MovePicks(actor, factory, moveRepo);
 	}
 
 	/** The moves this character has actually taken. Derived fresh: they take more. */
@@ -91,10 +93,10 @@ export class CharacterMoves {
 
 	// Roll the move a rendered row stands for. Returns false when nothing carries the slug, so a
 	// caller with a fallback (an arcanum's inline move is text, not an item) can take over.
-	async roll(moveSlug) {
+	async roll(moveSlug, rollMode = null) {
 		const item = await resolveMoveBySlug(this._actor, moveSlug, this._moveRepo);
 		if (!item) return false;
-		await this._actor.rollItem(item);
+		await this._actor.rollItem(item, null, rollMode);
 		return true;
 	}
 
@@ -119,6 +121,10 @@ export class CharacterMoves {
 		return true;
 	}
 
+	async rollRule(moveSlug) {
+		return resolveRollRule(this._actor, moveSlug, this._moveRepo);
+	}
+
 	/** Open this move's own item sheet — see embeddedMoves.openMoveSheet. */
 	async openSheet(moveSlug) {
 		return openMoveSheet(this._actor, moveSlug, this._moveRepo);
@@ -126,8 +132,7 @@ export class CharacterMoves {
 
 	/** The controller for one move's picks, or null when the move is absent or has no choice group. */
 	controllerFor(moveSlug) {
-		const item = findMoveItemBySlug(this._actor, moveSlug);
-		return item?.system?.choices ? this._factory.forDocument(item._id, "pickValues") : null;
+		return this._picks.controllerFor(moveSlug);
 	}
 
 	// The current value of a move's own track — the Thrall's Favor, say. Null when the character

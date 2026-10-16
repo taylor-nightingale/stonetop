@@ -1,12 +1,19 @@
 {{!-- A panel's ink bar. Params: `title` (already localized), `index` (its place among the bars its own
       surface draws, which picks its texture), `note` (the book's instruction, where there is one —
-      with `noteWhileOpen`, shown only while its section is open), and `action` — the partial that
-      draws its one control, which is handed the bar's own params.
+      with `noteWhileOpen`, shown only while its section is open — and `noteClass` naming its kind),
+      `roll` + `rollLabel` where the title is a rating that rolls (the title is then the roll button,
+      with the die, as a rating's name is on the ledger line), and `action` — the partial that draws
+      its one control, which is handed the bar's own params.
 
       The control is a named partial rather than a `{{#> }}` block: Handlebars strips prototype access
       from partial-block content, silently (see move-result-row.hbs). --}}
 <header class="stonetop-bar {{lookup (barGrain title index) "classes"}}" style="{{lookup (barGrain title index) "style"}}">
+	{{#if roll}}
+	<button type="button" class="stonetop-bar-title stonetop-bar-roll rollable" data-roll="{{roll}}"
+	        aria-label="{{rollLabel}}">{{title}}<i class="fas fa-dice-d6 stonetop-bar-die" aria-hidden="true"></i></button>
+	{{else}}
 	<span class="stonetop-bar-title">{{title}}</span>
-	{{#if note}}<span class="stonetop-bar-note"{{#if noteWhileOpen}} data-disclosure-open hidden{{/if}}>{{note}}</span>{{/if}}
+	{{/if}}
+	{{#if note}}<span class="stonetop-bar-note{{#if noteClass}} {{noteClass}}{{/if}}"{{#if noteWhileOpen}} data-disclosure-open hidden{{/if}}>{{note}}</span>{{/if}}
 	<span class="stonetop-bar-meta">{{#if action}}{{> (lookup . "action") .}}{{/if}}</span>
 </header>

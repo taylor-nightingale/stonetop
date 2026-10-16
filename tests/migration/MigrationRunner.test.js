@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 const migrateCharacter      = vi.fn(async () => {});
 const migrateMovePackData   = vi.fn(async () => {});
 const migrateSteadingMoves  = vi.fn(async () => {});
+const migrateRollMode       = vi.fn(async () => {});
 
 vi.mock("../../src/migration/migrateCharacter.js", () => ({
 	migrateCharacter: (...args) => migrateCharacter(...args),
@@ -15,10 +16,14 @@ vi.mock("../../src/migration/migrateSteadingMoves.js", () => ({
 vi.mock("../../src/migration/migrateWorldItems.js",    () => ({ migrateWorldItems: async () => {} }));
 vi.mock("../../src/migration/migrateGrantStamps.js",   () => ({ migrateGrantStamps: async () => {} }));
 vi.mock("../../src/migration/migrateSteadingFolk.js",  () => ({ migrateSteadingFolk: async () => {} }));
+vi.mock("../../src/migration/migrateSteadingContent.js", () => ({ migrateSteadingContent: async () => {} }));
 vi.mock("../../src/migration/migrateNeighborPlaces.js", () => ({ migrateNeighborPlaces: async () => {} }));
 vi.mock("../../src/migration/migrateSteadingImpressions.js",
 	() => ({ migrateSteadingImpressions: async () => {} }));
 vi.mock("../../src/migration/migrateSteadingApplied.js", () => ({ migrateSteadingApplied: async () => {} }));
+vi.mock("../../src/migration/migrateRollMode.js", () => ({
+	migrateRollMode: (...args) => migrateRollMode(...args),
+}));
 vi.mock("../../src/migration/migrateMovePackData.js", () => ({
 	migrateMovePackData: (...args) => migrateMovePackData(...args),
 }));
@@ -41,6 +46,7 @@ beforeEach(() => {
 	migrateCharacter.mockImplementation(async () => {});
 	migrateMovePackData.mockClear();
 	migrateSteadingMoves.mockClear();
+	migrateRollMode.mockClear();
 	vi.stubGlobal("game", { actors: [], packs: { get: () => null }, system: { version: "1.0.3" } });
 });
 
@@ -99,5 +105,15 @@ describe("MigrationRunner.run — steadings", () => {
 		game.actors = [{ name: "A boar", type: "npc" }];
 		await new MigrationRunner({}).run();
 		expect(migrateMovePackData).not.toHaveBeenCalled();
+	});
+});
+
+// The roll mode both sheets used to keep, now asked for on every roll.
+describe("MigrationRunner.run — the stored roll mode", () => {
+	it("clears it from characters and steadings", async () => {
+		const pc = character("Brakken"), place = steading("Stonetop");
+		game.actors = [pc, place, { name: "A boar", type: "npc" }];
+		await new MigrationRunner({}).run();
+		expect(migrateRollMode.mock.calls.map(([actor]) => actor)).toEqual([pc, place]);
 	});
 });

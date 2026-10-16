@@ -1,5 +1,6 @@
 import { warn } from "../utils/logger.js";
 import { toSlug } from "../utils/slug.js";
+import { migrateWorldImprovementRules } from "./migrateWorldImprovementRules.js";
 
 // Stamp a stable `system.slug` (= toSlug(name)) onto world move items that lack one, so references
 // to them survive a rename. Only fills the gap; never overwrites an existing slug.
@@ -28,6 +29,7 @@ export async function migrateWorldFollowerItemType() {
 export async function migrateWorldItems() {
 	await migrateWorldMoveSlugs();
 	await migrateWorldFollowerItemType();
+	await migrateWorldImprovementRules();
 
 	const equipmentItems = (game.items ?? []).filter(i => i.type === "equipment");
 	for (const item of equipmentItems) {

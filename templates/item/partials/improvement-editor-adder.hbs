@@ -1,0 +1,23 @@
+{{!-- The result adder, hanging from the "add a result" that opened it, over what is under it — the
+      outfit adder's pattern. Headed by its title and Done, then the result as the card will state it
+      (nothing above states it yet), then when it happens, what the sheet does and its words, and a foot
+      with the note on those words and Add. Nothing is written until Add; Done keeps nothing.
+
+      Context: an ImprovementEditorResult (the draft; `isAdder`). --}}
+<div class="stonetop-improvement-panel stonetop-improvement-adder" role="group" aria-label="{{localize 'stonetop.improvement.add.result'}}">
+	<p class="stonetop-improvement-panel-head">
+		<span>{{localize "stonetop.improvement.add.result"}}</span>
+		<button type="button" class="stonetop-improvement-panel-done" data-action="closePart" data-view-state>{{localize "stonetop.sheet.section.done"}}</button>
+	</p>
+	<div class="stonetop-improvement-panel-preview" inert>
+		<span class="steading-statement-clause">
+			{{#if timingKeys.length}}<span class="steading-statement-whens">{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}</span>{{/if}}{{#if phrase}}{{rich phrase}}, {{/if}}{{rich text}}
+		</span>
+		{{> "stonetop.improvement-editor-gloss"}}
+	</div>
+	{{> "stonetop.improvement-result-fields"}}
+	<div class="stonetop-improvement-panel-foot">
+		{{> "stonetop.improvement-result-provenance"}}
+		<button type="button" class="stonetop-improvement-panel-add" data-action="addResultDraft">{{localize "stonetop.improvement.adder.add"}}</button>
+	</div>
+</div>

@@ -26,7 +26,6 @@ export class RequirementSnapshot {
  * @property {string|null} requiresLabel
  * @property {ResourceSnapshot|null} resource
  * @property {string} gloss - the move's own trigger, for a collapsed disclosure row
- * @property {RollModeNotes|null} rollNotes - why it might not roll 2d6; steading moves only
  * @property {string|null} phase    - "setting-out" | "on-the-road" | "getting-home"; expedition moves only
  * @property {string|null} replaces - slug of the move this one is made instead of
  * @property {MoveResults|null} results - its authored result tiers, for a card that prints them
@@ -67,10 +66,6 @@ export class MoveSnapshot {
 		// MoveResults by whatever prints them: the chat card, and the Seasons Change box, which draws
 		// them as the rows of the season's own roll rather than authoring a second copy.
 		this.moveResults   = b._moveResults ?? null;
-		// Why this move might not roll a flat 2d6 — a RollModeNotes, or null where nothing speaks for
-		// it. A reminder the row draws, never a change to the roll: only the steading builds these, so
-		// on a character's moves tab the slot is empty and nothing renders.
-		this.rollNotes     = b._rollNotes ?? null;
 		this.phase         = b._phase ?? null;
 		this.replaces      = b._replaces ?? null;
 		this.rollLabel     = b._rollLabel ?? null;
@@ -103,7 +98,6 @@ export class MoveSnapshotBuilder {
 	withChoices(v)       { this._choices       = v; return this; }
 	withSteps(v)         { this._steps         = v; return this; }
 	withMoveResults(v)   { this._moveResults   = v; return this; }
-	withRollNotes(v)     { this._rollNotes     = v; return this; }
 	withPhase(v)         { this._phase         = v; return this; }
 	withReplaces(v)      { this._replaces      = v; return this; }
 	withRollLabel(v)     { this._rollLabel     = v; return this; }
@@ -134,7 +128,6 @@ export class MoveSnapshotBuilder {
 			.withChoices(null)
 			.withSteps(null)
 			.withMoveResults(null)
-			.withRollNotes(null)
 			.build();
 	}
 }

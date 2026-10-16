@@ -23,7 +23,7 @@ import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
 import { extractArticle } from "./layout.js";
 import { migrateTagsOn } from "../../../src/migration/migrateTags.js";
-import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, isFollowerGroup, foldBackChoices, numberBlanks } from "./arcana-parse.js";
+import { parseFront, parseBack, isArcanaFollower, matchFollowerIcons, parseMoveRoll, resourceTracks, frontMoveResources, followerChoices, followerChoiceEntry, isFollowerGroup, foldBackChoices, numberBlanks, startingLoyalty } from "./arcana-parse.js";
 import { parseStatBlock, toFollowerDoc } from "./creatures.js";
 import { markerImg, NPC_DEFAULT_IMG } from "./markers.js";
 import { gridCards } from "./minor-arcana-grid.js";
@@ -327,7 +327,10 @@ for (const r of followerRoster.values()) {
 	followersMatched++;
 	const marker = markerImg(hit.staged);
 	const img = marker || NPC_DEFAULT_IMG;
-	const doc = toFollowerDoc(hit.creature, { slug: r.slug, arcanaSlug: r.arcanaSlug, id: r.id, key: r.key, img, folder: r.folder });
+	// Where the follower starts is printed on its card ("with 3 Loyalty to start"), not in its stat block.
+	const cardText = JSON.stringify([parsedFront.get(r.arcanaSlug), parsedBack.get(r.arcanaSlug)]);
+	const doc = toFollowerDoc(hit.creature, { slug: r.slug, arcanaSlug: r.arcanaSlug, id: r.id, key: r.key, img, folder: r.folder,
+		startingLoyalty: startingLoyalty(cardText) });
 	if (WRITE) { writeFileSync(path.join(FOLLOWER_DIR, `${r.slug}.json`), JSON.stringify(doc, null, "\t") + "\n"); followersWritten++; }
 	followerLines.push(`- \`${r.slug}\` ← ${r.arcanaSlug}  (img: ${img.split("/").pop()})`);
 }

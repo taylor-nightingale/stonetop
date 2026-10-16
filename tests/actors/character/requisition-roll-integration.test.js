@@ -11,7 +11,6 @@ import { FakeRepositoryFactory } from "../../fakes/FakeRepositoryFactory.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeRoll } from "../../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../../fakes/foundry/FakeChatMessage.js";
-import { FakeDialog } from "../../fakes/foundry/FakeDialog.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // End-to-end for the one move that rolls a stat the character doesn't own: the SHIPPED Requisition
@@ -29,10 +28,8 @@ beforeEach(async () => {
 	forage      ??= await packMove("forage");
 	FakeRoll.reset();
 	FakeChatMessage.reset();
-	FakeDialog.reset();
 	vi.stubGlobal("Roll", FakeRoll);
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
-	vi.stubGlobal("Dialog", FakeDialog);
 	foundry.applications.handlebars.renderTemplate = async (_p, d) =>
 		`${d.name ?? ""} | ${d.dice?.mod ?? ""}`;
 });

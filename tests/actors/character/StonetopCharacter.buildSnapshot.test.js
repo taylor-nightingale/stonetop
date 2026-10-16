@@ -37,21 +37,6 @@ describe("buildSnapshot — playbook: null when no playbook selected", () => {
 	});
 });
 
-// ── rollMode ──────────────────────────────────────────────────────────────────
-
-describe("buildSnapshot — rollMode", () => {
-	it("defaults to 'normal' when no flag set", async () => {
-		const snap = await new TestCharacterBuilder(new FakeCharacterActorBuilder().build()).build().buildSnapshot();
-		expect(snap.rollMode).toBe("normal");
-	});
-
-	it("reflects stonetop rollMode flag", async () => {
-		const actor = new FakeCharacterActorBuilder().withRollMode("adv").build();
-		const snap = await new TestCharacterBuilder(actor).build().buildSnapshot();
-		expect(snap.rollMode).toBe("adv");
-	});
-});
-
 // ── vitals sources ────────────────────────────────────────────────────────────
 
 // End-to-end: the character has to hand its playbook item and its checked gear to the vitals

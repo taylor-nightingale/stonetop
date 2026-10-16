@@ -1,0 +1,40 @@
+{{!-- One result, as the card states it — its timing where it has no clause, its clause, its words —
+      with a faint line under it saying what the sheet does with it. Its edit icon opens its editor,
+      hanging from the result over what is below: when it happens, what the sheet does, its words, and a
+      foot with the note on those words and Done. No head and no preview — the result it hangs from is
+      the card's own statement of it, and follows each change. It saves as you go; Done, Escape or a
+      click elsewhere shuts it.
+
+      A result that grants a move draws the move (the steading's own lookup, @root.stonetop). A
+      mechanic the editor cannot author — a move, advantage, a step adjustment — is kept as stored and
+      named rather than offered.
+
+      Context: an ImprovementEditorResult. --}}
+<li class="steading-statement-line stonetop-improvement-result stonetop-improvement-anchor{{#if isOpen}} is-open{{/if}}" data-result-index="{{index}}">
+	<div class="stonetop-improvement-line-main">
+		<span class="steading-statement-clause">
+			{{#if timingKeys.length}}<span class="steading-statement-whens">{{#each timingKeys}}<span class="steading-statement-when">{{localize this}}</span>{{/each}}</span>{{/if}}{{#if phrase}}{{rich phrase}}, {{/if}}{{rich text}}
+		</span>
+		{{> "stonetop.improvement-editor-tools" editAction="openResult" editKey=index
+		    moveAction="moveResult" moveKey=index canUp=true canDown=true
+		    removeAction="removeResult" removeKey=index removeName=words}}
+	</div>
+	{{> "stonetop.improvement-editor-gloss"}}
+	{{#if isMove}}
+		<ul class="steading-statement-moves stonetop-unmarked">
+			{{#with (lookup @root.stonetop.grantedMoves moveSlug)}}
+				{{> "stonetop.move-row" categoryKey="granted" alwaysShowResource=false disclosure=true}}
+			{{/with}}
+		</ul>
+	{{/if}}
+
+	{{#if isOpen}}
+		<div class="stonetop-improvement-panel" role="group" aria-label="{{localize 'stonetop.improvement.words.label'}}">
+			{{> "stonetop.improvement-result-fields"}}
+			<div class="stonetop-improvement-panel-foot">
+				{{> "stonetop.improvement-result-provenance"}}
+				<button type="button" class="stonetop-improvement-panel-done" data-action="closePart" data-view-state>{{localize "stonetop.sheet.section.done"}}</button>
+			</div>
+		</div>
+	{{/if}}
+</li>

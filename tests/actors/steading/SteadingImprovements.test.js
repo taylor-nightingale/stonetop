@@ -179,16 +179,16 @@ describe("SteadingImprovements.grantedMoveSlugs", () => {
 	const withMoves = () => {
 		const repo = new FakeSteadingImprovementRepository();
 		repo._improvements.push(
-			new SteadingImprovement("inn", "Inn", { slug: "inn", list: [] }, 0, {
+			new SteadingImprovement("inn", "Inn", { slug: "inn", list: [] }, {
 				effects: [
 					{ when: { kind: "turn" }, text: "news reaches the inn", grantsMove: "news-at-the-inn" },
 					{ when: { kind: "completed" }, text: "increase Prosperity by 1",
 					  change: { target: "prosperity", amount: 1 } },
 				],
 			}),
-			new SteadingImprovement("aurochs-hunting", "Aurochs Hunting", { slug: "aurochs-hunting", list: [] }, 1, {
+			new SteadingImprovement("aurochs-hunting", "Aurochs Hunting", { slug: "aurochs-hunting", list: [] }, {
 				effects: [
-					{ when: { kind: "moment", moment: "aurochs-hunt" }, text: "lead the hunt",
+					{ when: { kind: "moment", moment: "aurochs-hunt", seasons: ["spring"] }, text: "lead the hunt",
 					  grantsMove: "lead-the-aurochs-hunt" },
 					{ when: { kind: "completed" }, text: "gain a reputation", grantsMove: "news-at-the-inn" },
 				],

@@ -1,3 +1,5 @@
+import { inWindowOf } from "./inWindowOf.js";
+
 // The sheets' "are you sure?" gate, as one dialog. Resolves `true` to proceed, `false` to cancel
 // (including dismissing the dialog). Uses Foundry's DialogV2 so it matches the app's look; the safe
 // choice (No) is the default. `body` is HTML — escape anything that came from the player.
@@ -7,12 +9,13 @@ export function escapeHtml(s) {
 	));
 }
 
-export async function confirmAction(titleKey, body) {
+export async function confirmAction(titleKey, body, app) {
 	// DialogV2.confirm defaults the No button and resolves undefined on dismissal — normalize both
 	// to a strict boolean so callers only ever see true/false.
 	const result = await foundry.applications.api.DialogV2.confirm({
 		window: { title: game.i18n.localize(titleKey) },
 		content: `<p>${body}</p>`,
+		renderOptions: inWindowOf(app),
 	});
 	return result === true;
 }

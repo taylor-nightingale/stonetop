@@ -6,11 +6,13 @@ import { ChoiceValues } from "../../model/snapshot/character/ChoiceGroup.js";
 import { buildChoiceGroup } from "../../model/snapshot/character/buildChoiceGroup.js";
 import { rich } from "../../model/snapshot/RichText.js";
 import { toSlug } from "../../utils/slug.js";
+import { Background } from "../../model/data/character/Background.js";
 
 export class CharacterBackgrounds {
-	constructor(actor, factory, resourceController) {
+	constructor(actor, factory, resourceController, movePicks) {
 		this._actor              = actor;
 		this._resourceController = resourceController;
+		this._movePicks          = movePicks;
 		this._ctrl               = factory.forSingleton("playbook", "backgroundValues");
 	}
 
@@ -24,6 +26,10 @@ export class CharacterBackgrounds {
 
 	/** The controller for background choice values — one store on the playbook item. */
 	controller() { return this._ctrl; }
+
+	get values() {
+		return new ChoiceValues(_findPlaybookItem(this._actor)?.system?.backgroundValues ?? {});
+	}
 
 	async setChoiceValue(namespace, optionSlug, count) {
 		await this._ctrl.setCount(namespace, optionSlug, count);
@@ -65,11 +71,21 @@ export class CharacterBackgrounds {
 				.withSelected(b.slug === savedSlug)
 				.withMoves((b.moves ?? []).map(toSlug))
 				.withChoices(choices)
+				.withMoveMarks(await this._moveMarkGroups(Background.of(b), values))
 				.withResource(this._resourceController.buildSnapshot("backgrounds", b.resource ?? null, b.slug))
 				.build());
 		}
 
 		return new BackgroundSection(savedSlug, options);
+	}
+
+	async _moveMarkGroups(background, values) {
+		const groups = [];
+		for (const mark of background.moveMarks.filter(m => !m.isFixed)) {
+			const def = mark.pickGroup(background.slug, await this._movePicks.choicesOf(mark.moveSlug));
+			if (def) groups.push(buildChoiceGroup(def, values));
+		}
+		return groups;
 	}
 }
 

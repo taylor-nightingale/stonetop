@@ -10,6 +10,7 @@ import { migrateSteadingImpressions } from "./migrateSteadingImpressions.js";
 import { migrateWorldItems } from "./migrateWorldItems.js";
 import { migrateGrantStamps } from "./migrateGrantStamps.js";
 import { migrateSteadingApplied } from "./migrateSteadingApplied.js";
+import { migrateRollMode } from "./migrateRollMode.js";
 import { FoundryInsertRepository } from "../actors/character/repositories/FoundryInsertRepository.js";
 import { error, info } from "../utils/logger.js";
 
@@ -64,6 +65,7 @@ export class MigrationRunner {
 					// not be offered it again by the new storage finding no record.
 					await migrateSteadingApplied(actor, this._repos?.improvements);
 				}
+				if (actor.type === "character" || actor.type === "steading") await migrateRollMode(actor);
 			} catch (err) {
 				failed.push(actor.name);
 				error(`Migration failed for actor "${actor.name}": ${err.message}`);

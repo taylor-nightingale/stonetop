@@ -52,8 +52,9 @@ export class ImprovementPayoff {
 			// "when you take advantage of the palisade" is stored as completion-triggered because it
 			// holds from the moment the palisade stands — but the book prints it under Henceforth, and
 			// under "When you meet the requirements:" it now reads as a second "when" inside the first.
-			// Nothing the sheet can apply carries a phrase, so no line loses a control by moving.
-			(effect.trigger.isCompletion && !effect.trigger.phrase ? completion : henceforth).push(line);
+			// Nothing the sheet can apply carries a phrase, so no line loses a control by moving. A result
+			// flagged as holding while it stands goes there too before it has its clause.
+			(effect.trigger.isCompletion && !effect.trigger.phrase && !effect.condition ? completion : henceforth).push(line);
 		}
 		return new ImprovementPayoff({
 			completion: new TurnoverStatement(completion, ratings, { stated }),

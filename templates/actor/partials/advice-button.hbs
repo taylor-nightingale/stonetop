@@ -12,6 +12,7 @@
 
       Params: topic (the advice key), and variant:
         inline   — icon only, last flex item of a heading row
+        bar      — icon only, as one of a panel's bar controls (bar.hbs `action`)
         labelled — icon + text, in a tab's toolbar (same look as the view toggles beside it)
         sheet    — icon only, one per sheet, no topic --}}
 {{#if (eq variant "sheet")}}
@@ -25,7 +26,7 @@
 <button type="button" data-action="showAdvice" data-topic="{{topic}}" data-view-state
         title="{{adviceLabel topic}}" aria-label="{{adviceLabel topic}}"
         class="stonetop-advice-btn stonetop-advice-btn--{{variant}}
-               {{~#if (eq variant "labelled")}} stonetop-view-toggle{{else}} stonetop-icon-btn{{/if}}">
+               {{~#if (eq variant "labelled")}} stonetop-view-toggle{{else if (eq variant "bar")}} stonetop-bar-action{{else}} stonetop-icon-btn{{/if}}">
 	<i class="fas fa-circle-question" aria-hidden="true"></i>
 	{{#if (eq variant "labelled")}}<span>{{adviceLabel topic}}</span>{{/if}}
 </button>

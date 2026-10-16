@@ -1,4 +1,9 @@
 import { CharacterMoveGrants } from "../actors/character/CharacterMoveGrants.js";
+import { CharacterBackgrounds } from "../actors/character/CharacterBackgrounds.js";
+import { BackgroundMoveMarks } from "../actors/character/BackgroundMoveMarks.js";
+import { ChoiceGroupControllerFactory } from "../actors/character/ChoiceGroupControllerFactory.js";
+import { MovePicks } from "../actors/character/MovePicks.js";
+import { ResourceController } from "../actors/character/ResourceController.js";
 import { GrantedItems } from "../actors/GrantedItems.js";
 import { Background } from "../model/data/character/Background.js";
 import { findMoveItem } from "../actors/embeddedMoves.js";
@@ -32,11 +37,21 @@ export async function migrateBackgroundGrants(actor, moveRepo) {
 	const acquired = await _acquirePlaybookMoves(actor, moves, playbookData.slug, background);
 	const created  = await _syncOwnCategory(moves, grantedItems, background);
 	await _revokeUnchosen(moves, playbookData, background);
+	const marked   = await _moveMarks(actor, moveRepo).ensureMarked(background);
 
-	if (acquired.length || created.length) {
+	if (acquired.length || created.length || marked) {
 		info(`  [background] ${actor.name}: ${background.label ?? background.slug} — acquired `
-			+ `${acquired.length} playbook move(s), granted ${created.length} of its own.`);
+			+ `${acquired.length} playbook move(s), granted ${created.length} of its own, `
+			+ `marked ${marked} move option(s).`);
 	}
+}
+
+// The topic the background makes you Well Versed in. Marked only where it is unmarked, with the same
+// trade as the moves above: a topic the player deliberately un-ticked comes back.
+function _moveMarks(actor, moveRepo) {
+	const factory = new ChoiceGroupControllerFactory(actor);
+	const picks   = new MovePicks(actor, factory, moveRepo);
+	return new BackgroundMoveMarks(picks, new CharacterBackgrounds(actor, factory, new ResourceController(actor), picks));
 }
 
 // The moves the playbook already owns that this background makes yours. Untaken ones only: a re-run

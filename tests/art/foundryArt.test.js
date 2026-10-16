@@ -49,6 +49,45 @@ describe("hasArtFile", () => {
 		expect(calls).toBe(1);
 	});
 
+	// Browsing the file system is a permission Foundry gives trusted players and up; a player without it
+	// gets an exception, which used to read as "not installed" and hid every plate from them.
+	describe("for a user who may not browse files", () => {
+		const forbidden = { browse: async () => { throw new Error("You do not have permission to browse the host file system!"); } };
+
+		it("is true when the file answers", async () => {
+			const head = async () => true;
+			expect(await hasArtFile("stonetop-art/steading/seasons.png", forbidden, { canBrowse: false, head })).toBe(true);
+		});
+
+		it("is false when the file does not answer", async () => {
+			const head = async () => false;
+			expect(await hasArtFile("stonetop-art/steading/seasons.png", forbidden, { canBrowse: false, head })).toBe(false);
+		});
+
+		it("asks for the file itself, never the folder", async () => {
+			const asked = [];
+			const head = async path => { asked.push(path); return true; };
+			let browsed = false;
+			const picker = { browse: async () => { browsed = true; return { files: [] }; } };
+			await hasArtFile("stonetop-art/steading/seasons.png", picker, { canBrowse: false, head });
+			expect(asked).toEqual(["stonetop-art/steading/seasons.png"]);
+			expect(browsed).toBe(false);
+		});
+
+		it("asks once per path and reuses the answer", async () => {
+			let calls = 0;
+			const head = async () => { calls++; return true; };
+			await hasArtFile("stonetop-art/steading/seasons.png", forbidden, { canBrowse: false, head });
+			await hasArtFile("stonetop-art/steading/seasons.png", forbidden, { canBrowse: false, head });
+			expect(calls).toBe(1);
+		});
+
+		it("is false when the request itself fails", async () => {
+			const head = async () => { throw new Error("offline"); };
+			expect(await hasArtFile("stonetop-art/steading/seasons.png", forbidden, { canBrowse: false, head })).toBe(false);
+		});
+	});
+
 	it("caches concurrent probes as one browse", async () => {
 		let calls = 0;
 		const picker = { browse: async () => { calls++; return { files: [] }; } };

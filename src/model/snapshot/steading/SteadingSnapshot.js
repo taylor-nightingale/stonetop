@@ -206,7 +206,7 @@ export class SteadingSnapshot {
 								fortunes, surplus, attributes, debilities,
 								placesOfInterest, notes, folk, folkSuggestions, neighborPlaces,
 								content, assets, improvements, resourcesPlate, residentsPlate,
-								moves, seasons, season, year, fortunesReset, rollMode, rollModes,
+								moves, seasons, season, year, fortunesReset,
 								grantedMoves,
 							}) {
 		this.fortunes = fortunes;
@@ -244,10 +244,6 @@ export class SteadingSnapshot {
 		// improvement that granted them and again at the moment they fire, and each of those places
 		// holds only a slug. See GrantedMoves.
 		this.grantedMoves = grantedMoves ?? {};
-		this.rollMode = rollMode ?? "normal";
-		// The same three options the character sheet and the stat-pick dialog draw, in the same order —
-		// the steading's hand-rolled copy had already drifted from them.
-		this.rollModes = rollModes ?? [];
 	}
 
 	/**

@@ -217,7 +217,6 @@ describe("character sheet wiring — tabs and the router (integration)", () => {
 			<input data-change-action="xp" value="2">
 			<input data-change-action="level" value="3">
 			<input data-change-action="armor" value="1">
-			<input data-change-action="rollMode" value="adv">
 			<input type="checkbox" data-change-action="debility" data-slug="weak">
 			<input data-change-action="bio" value="a life">
 			<input data-change-action="charNotes" value="a note">

@@ -479,6 +479,24 @@ describe("CharacterFollowers.buildSnapshot", () => {
 		expect(snap.loyalty.max).toBe(3);
 	});
 
+	// "Treat it as a follower, with 3 Loyalty to start": until a pip is ticked, that is where it stands.
+	it("loyalty starts at the follower's own starting loyalty while nothing is recorded", async () => {
+		const keen = new Follower({ ...ENFYS_DATA, slug: "keen", loyalty: { value: 2, max: 3 } });
+		const cf = makeCf(new FakeFollowerRepository([keen]));
+		await cf.addFollower("keen");
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.loyalty.current).toBe(2);
+	});
+
+	it("a recorded loyalty wins over the starting one, a spent 0 included", async () => {
+		const keen = new Follower({ ...ENFYS_DATA, slug: "keen", loyalty: { value: 2, max: 3 } });
+		const cf = makeCf(new FakeFollowerRepository([keen]));
+		await cf.addFollower("keen");
+		await cf.setLoyalty("keen", 0);
+		const [snap] = await cf.buildSnapshot();
+		expect(snap.loyalty.current).toBe(0);
+	});
+
 	it("loyalty.current reflects saved loyalty", async () => {
 		const cf = makeCf(new FakeFollowerRepository([ENFYS]));
 		await cf.addFollower("enfys");
@@ -885,6 +903,13 @@ describe("CharacterFollowers.arcanumGrants", () => {
 		);
 		return { actor, cf };
 	}
+
+	it("grants a follower holding the loyalty it starts with", async () => {
+		const voidElemental = new Follower({ slug: "void", name: "Void elemental", loyalty: { value: 3, max: 3 } });
+		const { actor, cf } = setup([voidElemental]);
+		await new GrantedItems(actor).sync(await cf.arcanumGrants("oversized-crown", ["void"]));
+		expect(actor.createdDocs.find(d => d.system?.slug === "void").system.loyalty).toEqual({ value: 3, max: 3 });
+	});
 
 	it("grants the card's followers owned but off the roster tab", async () => {
 		const { actor, cf } = setup([ASTOR]);

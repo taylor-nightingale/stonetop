@@ -7,14 +7,7 @@
       sits ON the border and the note sits ON the bottom border, so neither can be mistaken for the
       value between them.
 
-      A NUMERIC rating (Fortunes, Surplus, Population, Prosperity, Defenses) renders the shared
-      stepper — `activateSteppers` drives ▲▼ by dispatching a native `change`, which the steading's
-      ChangeActionRouter picks up like any other. A NAMED one (Size) renders a select. The snapshot
-      decides which; nothing here branches on the slug.
-
-      `.steading-attr-input` is load-bearing: the steadfast item sheet has no change router and binds
-      these by that class (StonetopSteadfastSheet._onRender). Renaming it silently breaks editing
-      there, so the two must move together.
+      The value is steading-rating-value.hbs, which the bar of the list a rating heads draws too.
 
       Params: attr (slug), attrData (RatingSnapshot), rollable, changeAction (defaults to the generic
       `attribute` handler), panelClass, and optionally advice (an "If you want to…" topic key). --}}
@@ -62,29 +55,7 @@
 		{{#if advice}}{{> "stonetop.advice-button" variant="inline" topic=advice}}{{/if}}
 	</span>
 
-	<span class="steading-tile-value">
-		{{#if attrData.isNumeric}}
-			<span class="stonetop-stepper">
-				<input type="number" class="stonetop-step steading-attr-input"
-				       data-change-action="{{#if changeAction}}{{changeAction}}{{else}}attribute{{/if}}" data-attr="{{attr}}"
-				       value="{{attrData.current}}" step="1"
-				       {{#if attrData.hasMin}}min="{{attrData.min}}"{{/if}}
-				       {{~#if attrData.hasMax}} max="{{attrData.max}}"{{/if}}
-				       aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
-				       {{#unless @root.editable}}disabled{{/unless}}>
-				{{> "stonetop.stepper-buttons"}}
-			</span>
-		{{else}}
-			<select class="steading-attr-input steading-tile-select"
-			        data-change-action="{{#if changeAction}}{{changeAction}}{{else}}attribute{{/if}}" data-attr="{{attr}}"
-			        aria-label="{{localize 'stonetop.a11y.ratingValue' rating=attrData.title}}"
-			        {{#unless @root.editable}}disabled{{/unless}}>
-				{{#each attrData.options}}
-					<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
-				{{/each}}
-			</select>
-		{{/if}}
-	</span>
+	<span class="steading-tile-value">{{> "stonetop.steading-rating-value"}}</span>
 
 	{{!-- Straddles the bottom rule: the one thing this rating most needs to say about its value —
 	      a debility's effect, the book's word for the number, a population band, or where it began. --}}

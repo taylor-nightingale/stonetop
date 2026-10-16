@@ -7,10 +7,11 @@
 
       Same row idiom as steading-ratings-list.hbs: an entry is a phrase, so it is a grow-textarea
       rather than an input, and the add button says what it makes. The slug + index pair is what
-      lets buildFocusSelector put the caret back after a re-render. --}}
-<div class="steading-overview-field steading-content-section">
-	{{> "stonetop.section-heading" title=section.label note=section.note}}
-	<div class="steading-attr-list">
+      lets buildFocusSelector put the caret back after a re-render. `index` is its bar's place among
+      the tab's bars. --}}
+<section class="stonetop-panel steading-overview-field steading-content-section">
+	{{> "stonetop.bar" title=section.label.raw index=index note=section.note.raw}}
+	<div class="stonetop-panel-body steading-attr-list">
 		{{#each section.items}}
 			<div class="steading-attr-row">
 				<textarea rows="1" class="stonetop-content-item stonetop-grow-field" data-change-action="contentItem"
@@ -32,4 +33,4 @@
 			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.content.addItem"}}</span>
 		</button>
 	</div>
-</div>
+</section>

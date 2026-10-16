@@ -22,6 +22,20 @@ describe("buildFollowerSnapshot", () => {
 		expect(snap.damage.raw).toBe("d6");
 	});
 
+	// Whether the follower is on the Followers tab — the same test the tab's roster applies. A card
+	// says so beside the mark that put it there.
+	it("is on the tab when owned and not held off it", () => {
+		expect(buildFollowerSnapshot(item({ slug: "void", owned: true })).onTab).toBe(true);
+	});
+
+	it("is off the tab while its card holds it there", () => {
+		expect(buildFollowerSnapshot(item({ slug: "void", owned: true, showOnTab: false })).onTab).toBe(false);
+	});
+
+	it("is off the tab when not owned", () => {
+		expect(buildFollowerSnapshot(item({ slug: "void", owned: false })).onTab).toBe(false);
+	});
+
 	it("carries specialQuality and description through as RichText", () => {
 		const snap = buildFollowerSnapshot(item({
 			slug: "x", specialQuality: "Immune to fire", description: "A weathered old scout.",

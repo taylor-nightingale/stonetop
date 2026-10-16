@@ -26,7 +26,7 @@ function confirmedAction(ask) {
 		handler: editOnly(async function (ev, target) {
 			ev.preventDefault(); // suppress the browser menu on the right-click path
 			const skipConfirm = ev.type === "contextmenu" || ev.button === 2;
-			if (!skipConfirm && !(await ask(target.dataset.name))) return;
+			if (!skipConfirm && !(await ask(target.dataset.name, this))) return;
 			await perform.call(this, target);
 		}),
 	});

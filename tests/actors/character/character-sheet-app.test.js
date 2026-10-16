@@ -63,7 +63,7 @@ function makeBase(actor) {
 function spyChar() {
 	const fns = [
 		"setHP", "setMaxHP", "setDamage", "setArmor", "setXP", "setLevel", "setDebility",
-		"setRollMode", "applyPlaybookBySlug", "selectBackground", "selectCustomInstinct",
+		"applyPlaybookBySlug", "selectBackground", "selectCustomInstinct",
 		"setChoiceTrackFor", "setChoicePickFor", "setChoiceTextFor", "setArcanumBlank",
 		"setMoveChecked", "setMoveResourceText", "setInventoryItemCheckedFor",
 		"toggleInventoryRegularPool", "toggleInventorySmallPool", "resetOutfit",

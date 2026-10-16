@@ -68,6 +68,17 @@
 {{~#if input.followsLead}}{{rich content.lead}} {{> entry-input inText=true}}{{#if (hasText content.rest)}} <span class="stonetop-choice-track-rest">{{rich content.rest}}</span>{{/if}}
 {{~else}}{{rich content.text}}{{/if~}}
 {{/inline}}
+{{! The followers a row grants, each resolved against the normalized registry
+    (@root.stonetop.followers.bySlug); #with skips a slug with no card (e.g. an item-sheet preview). An
+    arcanum's card prints its follower (follower-stat-block); elsewhere — a playbook's companion — the row
+    is where the follower is chosen and set up, so it draws the whole card. }}
+{{#*inline "granted-followers"}}
+{{#if (eq cgContext "arcana")}}
+{{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-stat-block" this markJoinsTab=../../followers.markJoinsTab}}{{/with}}{{/each}}
+{{else}}
+{{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
+{{/if}}
+{{/inline}}
 {{#if (eq type "entry")}}
 {{! Entry row. An indented row (an escalation tabbed in under its parent, e.g. major-arcana
     consequences) wraps ALL its output — title, track, text, input, followers — so the flag is
@@ -79,7 +90,7 @@
 {{#if followers.inlineDisplay}}
 <div class="stonetop-arcanum-follower">
     {{#if track}}<span class="stonetop-choice-track-checks">{{> track-checks}}</span>{{/if}}
-    {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
+    {{> granted-followers}}
 </div>
 {{/if}}
 {{#if moves}}
@@ -127,11 +138,10 @@
 {{#if (and input (not input.followsLead))}}
 <div class="stonetop-choice-option stonetop-choice-option--text">{{> entry-input}}</div>
 {{/if}}
-{{! The row's linked follower card, below its content. Resolves each slug against the normalized registry
-    (@root.stonetop.followers.bySlug); #with skips a slug with no card (e.g. an item-sheet preview). }}
+{{! The row's linked followers, below its content. }}
 {{#if followers.inlineDisplay}}
 <div class="stonetop-arcanum-follower">
-    {{#each followers.slugs}}{{#with (lookup @root.stonetop.followers.bySlug this)}}{{> "stonetop.follower-card" this}}{{/with}}{{/each}}
+    {{> granted-followers}}
 </div>
 {{/if}}
 {{! The row's inline move grant(s), below its content — resolved against the moves.bySlug registry. }}

@@ -56,7 +56,8 @@ function buildEntryRow(item, values, es) {
 	const grants = GrantList.fromRaw(item.grants);
 	const followerGrants = grants.ofType("follower");
 	const followers = followerGrants.length
-		? new EntryRowFollowers(followerGrants.map(g => g.slug), followerGrants.some(g => g.inline))
+		? new EntryRowFollowers(followerGrants.map(g => g.slug), followerGrants.some(g => g.inline),
+			!!track && followerGrants.some(g => g.onTab))
 		: null;
 	const moveGrants = grants.ofType("move").filter(g => g.inline);
 	const moves = moveGrants.length ? new EntryRowMoves(moveGrants.map(g => g.slug)) : null;

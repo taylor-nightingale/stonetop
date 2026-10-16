@@ -6,7 +6,6 @@
   "_key": "!items!Ai81Nq5WZvoKglDj",
   "system": {
     "slug": "aurochs-hunting",
-    "sortOrder": 2,
     "choices": {
       "slug": "aurochs-hunting",
       "list": [
@@ -104,7 +103,10 @@
       {
         "when": {
           "kind": "moment",
-          "moment": "aurochs-hunt"
+          "moment": "aurochs-hunt",
+          "seasons": [
+            "spring"
+          ]
         },
         "text": "lead the aurochs hunt, rolling +Defenses",
         "grantsMove": "lead-the-aurochs-hunt"

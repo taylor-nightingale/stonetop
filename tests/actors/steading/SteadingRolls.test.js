@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { SteadingRolls } from "../../../src/actors/steading/SteadingRolls.js";
+import { RollableStat } from "../../../src/actors/RollableStat.js";
 import { SteadingDebilities } from "../../../src/actors/steading/SteadingDebilities.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { fakeI18n } from "../../fakes/foundry/FakeI18n.js";
@@ -48,16 +49,16 @@ describe("SteadingRolls.prosperity", () => {
 });
 
 describe("SteadingRolls.rollableStats", () => {
-	// A rating's name reaches the player through the stat-pick dialog, so it is localized like every
+	// A rating's name reaches the player through the roll dialog, so it is localized like every
 	// other word on the sheet. The harness's localize() returns the key by design, so this pins the
 	// KEYS — and the test below proves they resolve, which is the half that can silently rot.
 	it("offers the four rollable ratings with their resolved values", () => {
 		const { rolls } = build({ population: 1, prosperity: 2, defenses: -1, fortunes: 3 });
-		expect(rolls.rollableStats()).toEqual([
-			{ key: "population", name: "stonetop.steading.attr.population", value: 1 },
-			{ key: "prosperity", name: "stonetop.steading.attr.prosperity", value: 2 },
-			{ key: "defenses",   name: "stonetop.steading.attr.defenses",   value: -1 },
-			{ key: "fortunes",   name: "stonetop.steading.attr.fortunes",   value: 3 },
+		expect(rolls.rollableStats()).toStrictEqual([
+			new RollableStat("population", "stonetop.steading.attr.population", 1,  "stonetop.steading.attrShort.population"),
+			new RollableStat("prosperity", "stonetop.steading.attr.prosperity", 2,  "stonetop.steading.attrShort.prosperity"),
+			new RollableStat("defenses",   "stonetop.steading.attr.defenses",   -1, "stonetop.steading.attrShort.defenses"),
+			new RollableStat("fortunes",   "stonetop.steading.attr.fortunes",   3,  "stonetop.steading.attrShort.fortunes"),
 		]);
 	});
 

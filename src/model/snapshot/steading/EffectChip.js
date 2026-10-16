@@ -1,11 +1,12 @@
 import { Seasons } from "../../data/steading/Seasons.js";
-import { Moments } from "../../data/steading/Moments.js";
+import { Moment } from "../../data/steading/Moments.js";
 import { formulaLabel } from "../../data/steading/formulaLabel.js";
 import { SteadingDefaults } from "../../data/steading/SteadingDefaults.js";
 import { formatRatingValue } from "./SteadingSnapshot.js";
 
 /** The list an entry is written onto, by the heading the sheet already draws over it. */
-const LIST_LABELS = {
+/** The label of each list a result can write to — `items` is the steading's Assets. */
+export const LIST_LABELS = {
 	resources:      "stonetop.steading.lists.resources",
 	fortifications: "stonetop.steading.lists.fortifications",
 	items:          "stonetop.steading.lists.assets",
@@ -54,9 +55,10 @@ export class EffectChip {
 	 */
 	static timingFor(trigger) {
 		if (trigger.isCompletion) return [];
+		// A moment its author named is said in their words, which pass through localize unchanged.
 		if (trigger.kind === "moment") {
-			const moment = Moments.byKey(trigger.moment);
-			return moment ? [moment.labelKey] : [];
+			if (!trigger.moment) return [];
+			return [trigger.momentName ?? Moment.labelKeyFor(trigger.moment)];
 		}
 		if (trigger.isEverySeason) return ["stonetop.steading.seasons.everySeason"];
 		return trigger.seasons.map(key => Seasons.byKey(key).labelKey);

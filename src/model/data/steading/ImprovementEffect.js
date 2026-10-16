@@ -24,9 +24,9 @@ import { SteadingDefaults } from "./SteadingDefaults.js";
  * amount can — "or it disbands", "or else it ceases operation".
  */
 
-// The ratings a DELTA can move. Not exported: EFFECT_SET_TARGETS is the wider list a result can name,
-// and it is the one every caller outside this file wants.
-const EFFECT_TARGETS = ["surplus", "fortunes", "population", "prosperity", "defenses"];
+// The ratings a DELTA can move. EFFECT_SET_TARGETS is the wider list a result can name; this one is
+// what the improvement editor offers a rating change, since it is all RatingChange accepts.
+export const EFFECT_TARGETS = ["surplus", "fortunes", "population", "prosperity", "defenses"];
 export const EFFECT_LISTS   = ["resources", "fortifications", "items"];
 export const EFFECT_STEPS   = ["consumption", "generation"];
 
@@ -226,16 +226,19 @@ export class StepAdjustment {
  *
  *   completed  once, when its requirement first holds — the +1 Fortunes and the Resources entry
  *   turn       when the wheel turns, in the named seasons (empty = every season)
- *   moment     at a named moment within a season — the autumn harvest, the aurochs hunt
+ *   moment     at a named moment within a season — the autumn harvest, the aurochs hunt — in the
+ *              seasons the result names (see Moments)
  *
  * There is deliberately no `lapsed`: "if you cease to meet the requirements, decrease Prosperity by
  * 1" is this result's REQUIREMENT going false again, not a fourth kind of trigger.
  */
 export class EffectTrigger {
-	constructor({ kind = "completed", seasons = [], moment = null, phrase = null } = {}) {
+	constructor({ kind = "completed", seasons = [], moment = null, momentName = null, phrase = null } = {}) {
 		this.kind    = kind;
 		this.seasons = seasons;
 		this.moment  = moment;
+		// The words naming a moment its author made up; the book's are named by key (Moment).
+		this.momentName = momentName;
 		// The book's own words for this trigger — "when summer comes and you roll a 7+ with Fortunes".
 		// The season's box never needs them (the step, the tier or the panel has just said when), so
 		// they exist for the one surface that is not inside a season: the improvement's own card, where
@@ -254,7 +257,7 @@ export class EffectTrigger {
 	firesAt(kind, season = null, moment = null) {
 		if (this.kind !== kind) return false;
 		if (kind === "turn")   return this.seasons.length === 0 || this.seasons.includes(season?.key);
-		if (kind === "moment") return this.moment === moment;
+		if (kind === "moment") return this.moment === moment && (season === null || this.seasons.includes(season.key));
 		return true;
 	}
 
@@ -266,6 +269,8 @@ export class EffectTrigger {
 				? raw.seasons.filter(k => Seasons.all().some(s => s.key === k))
 				: [],
 			moment: typeof raw?.moment === "string" ? raw.moment : null,
+			// Kept even while empty: a moment its author has not named yet is still theirs, not the book's.
+			momentName: typeof raw?.momentName === "string" ? raw.momentName.trim() : null,
 			phrase: typeof raw?.phrase === "string" && raw.phrase.trim() ? raw.phrase.trim() : null,
 		});
 	}

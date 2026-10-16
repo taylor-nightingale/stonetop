@@ -46,6 +46,14 @@ describe("RailSlide", () => {
 		expect(moving(el)).toBe(true);
 	});
 
+	// A rail on the layout's end edge slides out to the right, on its right-hand margin.
+	it("ends with an end-edge rail's slide too", () => {
+		const el = layout();
+		new RailSlide(el).start();
+		ended(el.querySelector(".stonetop-rail"), "margin-right");
+		expect(moving(el)).toBe(false);
+	});
+
 	it("clears the mark after the slide's length if the end is never reported", () => {
 		const el = layout();
 		new RailSlide(el).start();

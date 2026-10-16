@@ -1,6 +1,8 @@
 import { SLIDE_MS } from "./motion.js";
 
 /* The slide in progress on a layout, so a second press can take it over mid-way. */
+const SLIDING_MARGINS = new Set(["margin-left", "margin-right"]);
+
 const RUNNING = new WeakMap();
 
 /**
@@ -35,7 +37,8 @@ export class RailSlide {
 			stop();
 			this._layout.classList.remove(RailSlide.MOVING);
 		};
-		const onEnd = e => { if (e.target === rail && e.propertyName === "margin-left") finish(); };
+		// A start-edge rail slides on its left margin, an end-edge one on its right.
+		const onEnd = e => { if (e.target === rail && SLIDING_MARGINS.has(e.propertyName)) finish(); };
 		const timer = setTimeout(finish, SLIDE_MS + 100);
 		const stop = () => {
 			clearTimeout(timer);

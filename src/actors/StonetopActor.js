@@ -49,15 +49,16 @@ export function createStonetopActorClass(BaseActor) {
 			const itemId      = event.target.closest(".item")?.dataset.itemId;
 			const item        = itemId ? this.items.get(itemId) : null;
 
+			// A shift-click rolls Normal without asking; a click leaves the mode to the roll dialog.
+			const rollMode = event.shiftKey ? "normal" : null;
+
 			// A row can name its move by SLUG instead — the moves an improvement confers are resolved
 			// from the pack rather than seeded, so they have no owned id. Without this the die would
 			// fall through to a bare stat roll: the right bonus, none of the move's result tiers.
-			if (!item && die?.dataset.moveSlug) return this.typedActor.rollMoveBySlug(die.dataset.moveSlug);
+			if (!item && die?.dataset.moveSlug) return this.typedActor.rollMoveBySlug(die.dataset.moveSlug, rollMode);
 
 			if (itemId && !item) return false;
 			if (!rollStat && !item) return false;
-
-			const rollMode = this.typedActor.rollMode;
 
 			const request = item
 				? RollRequest.fromItem(item, rollStat, rollMode)
@@ -70,8 +71,8 @@ export function createStonetopActorClass(BaseActor) {
 		// Roll an owned item the way a click on its die would, for a caller that has the item rather
 		// than an event — the seasonal turn, which rolls Seasons Change on the steading's behalf. The
 		// same RollRequest and the same execute as _onRoll, so the chat card is identical.
-		async rollItem(item, rollStat = null) {
-			await this._rolling.execute(RollRequest.fromItem(item, rollStat, this.typedActor.rollMode));
+		async rollItem(item, rollStat = null, rollMode = null) {
+			await this._rolling.execute(RollRequest.fromItem(item, rollStat, rollMode));
 		}
 
 		// Roll stated dice with no result tiers — a season step that asks for 1d4+Population, not for

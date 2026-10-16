@@ -1,6 +1,9 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
+import { readFileSync } from "fs";
 import { RenderProbe, canProbe, pseudoAsClass } from "./RenderProbe.js";
+import { renderPartial } from "../fakes/renderTemplate.js";
+import { Advice } from "../../src/model/data/Advice.js";
 
 // Where the ? lands is decided by the cascade, not by the markup: core's `.window-app` button rules
 // stretch buttons to full width, and the steading panel's content-lifting rule out-specifies any
@@ -17,6 +20,15 @@ const probe = new RenderProbe([
 	sheet("tokens.css"),
 	sheet("stonetop.css"),
 ]);
+
+// The ? labels itself from the topic's title, which ships as a localized string.
+Advice.current = Advice.fromTranslations(
+	JSON.parse(readFileSync(path.resolve("languages/en.json"), "utf8")).stonetop.advice);
+
+const coinage = renderPartial("stonetop.steading-coinage", {
+	advice: "coin", index: 0,
+	coinage: [{ labelKey: "Silver", title: "silver", purses: 0, handfuls: 0, coins: 0 }],
+});
 
 // Markup as the partials emit it — the rules under test are selector-specific, so a simplified
 // stand-in would stop matching them.
@@ -45,18 +57,7 @@ const FIXTURE = `
       </span>
     </div>
   </section>
-  <div class="steading-coinage">
-    <h3 class="stonetop-move-group-title">Coinage${adviceButton("inline", "stonetop-icon-btn")}</h3>
-    <div class="stonetop-panel-divider" aria-hidden="true"></div>
-    <table class="steading-coinage-table">
-      <thead><tr><th scope="col" class="steading-coinage-corner">Currency</th><th scope="col">Purses</th><th scope="col">Handfuls</th></tr></thead>
-      <tbody>
-        <tr><th scope="row" class="steading-coinage-name">Silver</th>
-          <td class="steading-coinage-cell"><input type="number" class="stonetop-coinage-input" value="0"></td>
-          <td class="steading-coinage-cell"><input type="number" class="stonetop-coinage-input" value="0"></td></tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="steading-overview-column" style="width: 420px">${coinage}</div>
   <!-- width pinned: in play the tab fills the sheet, and the claim is that the button keeps to one end of it -->
   <div class="tab followers" style="width: 640px">
     <div class="stonetop-advice-toolbar">
@@ -85,8 +86,9 @@ const TARGETS = {
 	roll:    ".steading-prosperity .steading-stat-roll",
 	inline:  ".steading-prosperity .stonetop-advice-btn--inline",
 	coinage: ".steading-coinage",
-	coinHeading: ".steading-coinage .stonetop-move-group-title",
-	coinAdvice: ".steading-coinage .stonetop-advice-btn--inline",
+	coinBar: ".steading-coinage > .stonetop-bar",
+	coinTitle: ".steading-coinage .stonetop-bar-title",
+	coinAdvice: ".steading-coinage .stonetop-advice-btn--bar",
 	coinTable: ".steading-coinage-table",
 	toolbar:  ".tab.followers .stonetop-advice-toolbar",
 	labelled: ".tab.followers .stonetop-advice-btn--labelled",
@@ -127,22 +129,20 @@ describe.skipIf(!canProbe())("the advice ? button", () => {
 		expect(Math.abs(el("inline").boxMiddle - el("heading").boxMiddle)).toBeLessThan(4);
 	});
 
-	// The ? rides the coinage block's own HEADING — the placement every other ? on this sheet uses.
-	// It used to ride the first currency's name row, because the block had no heading, and that row
-	// then had to be ordered around the button to keep the hairline from running through the glyph.
-	//
-	// `margin-left: auto` only reaches the far end if the heading is a flex line, which a bare <h3>
-	// is not: the rule granting that is keyed off the button's presence, so this is the assertion
-	// that the cascade actually finds it.
-	it("rides the block's heading, flush with its far end", () => {
+	// The ? is one of the coinage panel's bar controls — hung from the bar's far end, as the
+	// character's Ailments + is. It used to ride the first currency's name row, because the block had
+	// no heading, and that row then had to be ordered around the button.
+	it("hangs from the coinage panel's bar, at its far end", () => {
 		expect(el("coinAdvice").missing).toBe(false);
-		expect(Math.abs(right(el("coinAdvice")) - right(el("coinHeading")))).toBeLessThan(2);
+		expect(el("coinAdvice").values.boxLeft).toBeGreaterThan(right(el("coinTitle")));
+		expect(right(el("coinAdvice"))).toBeLessThanOrEqual(right(el("coinBar")));
+		expect(right(el("coinBar")) - right(el("coinAdvice"))).toBeLessThan(16);
+		expect(el("coinAdvice").values.boxTop).toBeLessThanOrEqual(el("coinBar").values.boxTop + 1);
 	});
 
-	it("stays on the heading's line, with the table clear below it", () => {
-		expect(el("coinAdvice").boxMiddle).toBeCloseTo(el("coinHeading").boxMiddle, 0);
-		const bottom = el("coinAdvice").values.boxTop + el("coinAdvice").values.boxHeight;
-		expect(el("coinTable").values.boxTop).toBeGreaterThanOrEqual(bottom - 1);
+	it("leaves the table under the bar, not on it", () => {
+		const bar = el("coinBar").values;
+		expect(el("coinTable").values.boxTop).toBeGreaterThanOrEqual(bar.boxTop + bar.boxHeight);
 	});
 });
 

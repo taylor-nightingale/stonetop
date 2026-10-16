@@ -32,7 +32,6 @@ export class FakeSteadingBuilder {
 				steadfast: this._steadfast,
 				description: "",
 				notes:    "",
-				rollMode: "normal",
 				debilities: { diminished: false, lacking: false, malcontent: false },
 				content: { excluded: [], veiled: [], specialHandling: [] },
 				attributes: { fortunes: 1, surplus: 1, size: "village", population: 0, prosperity: 0, defenses: 0 },
@@ -165,7 +164,7 @@ export class FakeSteadingBuilder {
 		actor.sendItemToChat = async item => { actor.chatItems.push(item); };
 		// Recorder for StonetopActor#rollItem — the seasonal turn rolls Seasons Change through it.
 		actor.rolledItems = [];
-		actor.rollItem = async (item, rollStat = null) => { actor.rolledItems.push({ item, rollStat }); };
+		actor.rollItem = async (item, rollStat = null, rollMode = null) => { actor.rolledItems.push({ item, rollStat, rollMode }); };
 		actor.sendDescriptionToChat = async (label, description) => { actor.chatDescriptions.push({ label, description }); };
 
 		if (this._typedActorFactory) actor.typedActor = this._typedActorFactory(actor);

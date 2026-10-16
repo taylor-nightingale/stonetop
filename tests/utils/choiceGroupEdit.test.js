@@ -30,6 +30,18 @@ describe("choiceGroupEdit", () => {
 		expect(group.list[1].pickCount).toBe(1);
 	});
 
+	// A row's slug is its identity: stored track values and an improvement's requirement both name
+	// rows by it. Numbering by row count reissued a live slug after a delete — two rows, delete the
+	// first, add one, and the new row was a second "entry-1".
+	it("addRow never reissues a slug a row in the group already has", () => {
+		let group = addRow(addRow(g(), "entry"), "entry");     // entry-0, entry-1
+		group = removeRow(group, 0);                           // entry-1
+		group = addRow(group, "entry");
+		expect(group.list.map(r => r.slug)).toEqual(["entry-1", "entry-0"]);
+		group = addRow(group, "entry");
+		expect(group.list.map(r => r.slug)).toEqual(["entry-1", "entry-0", "entry-2"]);
+	});
+
 	it("addRow does not mutate the input group (returns a clone)", () => {
 		const before = g();
 		const after = addRow(before, "entry");

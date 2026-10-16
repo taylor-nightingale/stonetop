@@ -5,7 +5,6 @@ import { InstinctReadout } from "./InstinctReadout.js";
 import { AppearanceLine } from "./AppearanceLine.js";
 import { AilmentList } from "./AilmentList.js";
 import { PlaybookSections } from "./PlaybookSections.js";
-import { RollModes } from "../../../actors/RollModes.js";
 export { Resource } from "../../data/Resource.js";
 export { ResourceSnapshot, ResourceBuilder } from "../ResourceSnapshot.js";
 export { StatSnapshot } from "./StatSnapshot.js";
@@ -72,7 +71,6 @@ export { buildChoiceGroup } from "./buildChoiceGroup.js";
  * @property {ArcanaSnapshot} arcana
  * @property {InsertSnapshot[]} inserts
  * @property {FollowersSnapshot} followers - normalized { bySlug, tab }
- * @property {string} rollMode - "normal" | "adv" | "dis"
  * @property {Wound[]} wounds - problematic wounds, in the order they were written
  * @property {InstinctReadout} instinct - the instinct in force and where it is edited; derived
  * @property {AppearanceLine} appearance - the chosen appearance as one line; derived
@@ -98,7 +96,6 @@ export class CharacterSnapshot {
 		this.arcana          = b._arcana;
 		this.inserts         = b._inserts ?? [];
 		this.followers       = b._followers ?? new FollowersSnapshot();
-		this.rollMode        = b._rollMode;
 		this.wounds          = b._wounds ?? [];
 		this.instinct        = InstinctReadout.from(this.playbook ?? null, this.inserts);
 		this.appearance      = AppearanceLine.from(this.playbook?.appearanceGroup ?? null);
@@ -106,11 +103,6 @@ export class CharacterSnapshot {
 		this.playbookSections = PlaybookSections.from(this.playbook ?? null);
 		this.bio             = b._bio   ?? "";
 		this.notes           = b._notes ?? "";
-	}
-
-	/** The side-bar's radio list, ticked to the mode this character is set to. */
-	get rollModes() {
-		return RollModes.options(this.rollMode);
 	}
 }
 
@@ -127,7 +119,6 @@ export class CharacterSnapshotBuilder {
 	withArcana(v)          { this._arcana          = v; return this; }
 	withInserts(v)         { this._inserts         = v; return this; }
 	withFollowers(v)       { this._followers       = v; return this; }
-	withRollMode(v)        { this._rollMode        = v; return this; }
 	withWounds(v)          { this._wounds          = v; return this; }
 	withBio(v)             { this._bio             = v; return this; }
 	withNotes(v)           { this._notes           = v; return this; }

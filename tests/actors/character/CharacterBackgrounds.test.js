@@ -7,6 +7,9 @@ import { FakeCharacterActorBuilder } from "../../fakes/FakeCharacterActorBuilder
 import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 import { BackgroundSection } from "../../../src/model/snapshot/character/CharacterSnapshot.js";
 import { ChoiceGroup } from "../../../src/model/snapshot/character/ChoiceGroup.js";
+import { MovePicks } from "../../../src/actors/character/MovePicks.js";
+import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
+import { FakeCompendiumMoveBuilder } from "../../fakes/FakeCompendiumMoveBuilder.js";
 
 function makeResourceController() {
 	return new ResourceController(new FakeCharacterActorBuilder().build());
@@ -16,12 +19,14 @@ function makePbItem(backgroundValues = {}, backgrounds = []) {
 	return { _id: "pb-1", type: "playbook", name: "The Blessed", system: { backgrounds, backgroundValues } };
 }
 
-function makeBg(selectedSlug = "", backgroundValues = {}, followers = null, resourceCtrl = null, pbBackgrounds = []) {
+function makeBg(selectedSlug = "", backgroundValues = {}, followers = null, resourceCtrl = null, pbBackgrounds = [],
+                moveRepo = new FakeMoveRepository()) {
 	const actor = new FakeCharacterActorBuilder().withItems([makePbItem(backgroundValues, pbBackgrounds)]).build();
 	actor.system.background = { selected: selectedSlug };
 	const factory = new ChoiceGroupControllerFactory(actor);
 	if (followers) factory.subscribe(new FollowerSideEffectHandler(followers));
-	return new CharacterBackgrounds(actor, factory, resourceCtrl ?? makeResourceController());
+	return new CharacterBackgrounds(actor, factory, resourceCtrl ?? makeResourceController(),
+		new MovePicks(actor, factory, moveRepo));
 }
 
 const SIMPLE_BG_DATA = [
@@ -66,6 +71,18 @@ describe("CharacterBackgrounds", () => {
 		const bg = makeBg();
 		await bg.selectBackground("initiate");
 		expect(bg.selectedSlug).toBe("initiate");
+	});
+
+	it("values reads the background choice values off the playbook item", () => {
+		expect(makeBg("", { initiate: { enfys: 1 } }).values.getCount("initiate", "enfys")).toBe(1);
+	});
+
+	it("values is empty without a playbook item", () => {
+		const actor   = new FakeCharacterActorBuilder().build();
+		const factory = new ChoiceGroupControllerFactory(actor);
+		const bg = new CharacterBackgrounds(actor, factory, makeResourceController(),
+			new MovePicks(actor, factory, new FakeMoveRepository()));
+		expect(bg.values.toRaw()).toEqual({});
 	});
 });
 
@@ -198,6 +215,45 @@ describe("CharacterBackgrounds.buildSnapshot", () => {
 		await resourceCtrl.set("backgrounds", "initiate", 1);
 		const snap = await makeBg("", {}, null, resourceCtrl).buildSnapshot(data);
 		expect(snap.options[0].resource.current).toBe(1);
+	});
+});
+
+// -- buildSnapshot: move marks ------------------------------------------------
+
+describe("CharacterBackgrounds.buildSnapshot — the topic a background marks", () => {
+	const TOPICS = { slug: "topics", list: [
+		{ type: "entry", slug: "fae",          track: { max: 1 }, content: { title: null, text: "The Fae" } },
+		{ type: "entry", slug: "things-below", track: { max: 1 }, content: { title: null, text: "The Things Below" } },
+	] };
+	const WITCH_HUNTER = { slug: "witch-hunter", label: "Witch Hunter", description: "",
+		moveMarks: [{ move: "well-versed", group: "topics", options: ["fae", "things-below"] }] };
+	const PATRIOT = { slug: "patriot", label: "Patriot", description: "",
+		moveMarks: [{ move: "well-versed", group: "topics", options: ["things-below"] }] };
+	const repo = () => new FakeMoveRepository()
+		.addPlaybook(new FakeCompendiumMoveBuilder().withName("Well Versed").withChoices(TOPICS).build());
+
+	it("draws a pick-one over the move's topics for a background with a choice", async () => {
+		const snap = await makeBg("", {}, null, null, [], repo()).buildSnapshot([WITCH_HUNTER]);
+		const [group] = snap.options[0].moveMarks;
+		expect(group).toBeInstanceOf(ChoiceGroup);
+		expect(group.slug).toBe("witch-hunter-well-versed");
+		expect(group.list[0].options.map(o => o.text.raw)).toEqual(["The Fae", "The Things Below"]);
+		expect(group.list[0].radio).toBe(true);
+	});
+
+	it("checks the topic already picked", async () => {
+		const values = { "witch-hunter-well-versed": { "things-below": 1 } };
+		const snap = await makeBg("", values, null, null, [], repo()).buildSnapshot([WITCH_HUNTER]);
+		expect(snap.options[0].moveMarks[0].list[0].options.map(o => o.checked)).toEqual([false, true]);
+	});
+
+	it("draws nothing for a fixed mark — the background's own words say it", async () => {
+		const snap = await makeBg("", {}, null, null, [], repo()).buildSnapshot([PATRIOT]);
+		expect(snap.options[0].moveMarks).toEqual([]);
+	});
+
+	it("draws nothing for a background that marks nothing", async () => {
+		expect((await makeBg().buildSnapshot(SIMPLE_BG_DATA)).options[0].moveMarks).toEqual([]);
 	});
 });
 

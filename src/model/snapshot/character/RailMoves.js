@@ -4,11 +4,10 @@
  * of it (`replaces`), which an insert gained by dying brings.
  */
 export class RailMoves {
-	constructor({ atZeroHp = null, burnBrightly = null, endOfSession = null, advantage = null } = {}) {
+	constructor({ atZeroHp = null, burnBrightly = null, endOfSession = null } = {}) {
 		this.atZeroHp     = atZeroHp;
 		this.burnBrightly = burnBrightly;
 		this.endOfSession = endOfSession;
-		this.advantage    = advantage;
 	}
 
 	static from(movelist) {
@@ -21,7 +20,6 @@ export class RailMoves {
 			atZeroHp:     drawn.find(m => m.replaces === "deaths-door") ?? deathsDoor,
 			burnBrightly: bySlug("burn-brightly"),
 			endOfSession: bySlug("end-of-session"),
-			advantage:    bySlug("advantage-disadvantage"),
 		});
 	}
 }

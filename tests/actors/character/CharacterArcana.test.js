@@ -125,14 +125,15 @@ describe("CharacterArcana.buildSnapshot()", () => {
 			expect(snap.major).toBeInstanceOf(ArcanaSectionSnapshot);
 		});
 
-		it("minor.title is always 'Minor Arcana'", async () => {
+		// Keys, not words: the tab localizes them, so a translation reaches the headings.
+		it("names the minor section by its i18n key", async () => {
 			const snap = await makeArcana().buildSnapshot();
-			expect(snap.minor.title).toBe("Minor Arcana");
+			expect(snap.minor.titleKey).toBe("stonetop.arcana.minorTitle");
 		});
 
-		it("major.title is always 'Major Arcana'", async () => {
+		it("names the major section by its i18n key", async () => {
 			const snap = await makeArcana().buildSnapshot();
-			expect(snap.major.title).toBe("Major Arcana");
+			expect(snap.major.titleKey).toBe("stonetop.arcana.majorTitle");
 		});
 
 		it("minor.items is [] when no owned slugs", async () => {

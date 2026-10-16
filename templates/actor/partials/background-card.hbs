@@ -2,6 +2,8 @@
       choosing, every background shows all of that — which arcanum an Antiquarian starts with is part
       of what the background is — and the name is the radio's label. The card's HEADER is the label,
       not the card: the picks inside are controls of their own, and a label round them nests labels.
+      The picks a background makes on a move (the Witch Hunter's Well Versed topic) come before its own
+      choices: the book asks for the topic first, then the arcanum.
       Context: a BackgroundOptionSnapshot. Params: `choosing`. --}}
 <div class="stonetop-item{{#if selected}} is-checked{{/if}}">
 	{{#if choosing}}
@@ -17,6 +19,15 @@
 	</div>
 	{{/if}}
 	{{#if description.raw}}<div class="stonetop-item-description">{{rich description}}</div>{{/if}}
+	{{#each moveMarks}}
+	<div class="stonetop-bg-choices">
+		{{#if ../choosing}}
+		{{#each list}}{{> "stonetop.choice-row" cgContext="background" cgGroup=../slug namePrefix=../../slug}}{{/each}}
+		{{else}}
+		{{> "stonetop.choice-group-condensed" blocks=condensed}}
+		{{/if}}
+	</div>
+	{{/each}}
 	{{#if choices}}
 	<div class="stonetop-bg-choices">
 		{{#if choosing}}

@@ -14,7 +14,7 @@ import { fire } from "../../fakes/domEvents.js";
 // here would mean the sheet was reaching through the steading into its collaborators — the thing
 // this shape exists to prevent.
 const FACADE_METHODS = [
-	"setFortunes", "setSurplus", "setRollMode", "setNotes", "renameOrApplySteadfast",
+	"setFortunes", "setSurplus", "setNotes", "renameOrApplySteadfast",
 	"setAttribute", "addAttributeItem", "removeAttributeItem", "updateAttributeItem",
 	"setDebility", "addContentItem", "removeContentItem", "updateContentItem",
 	"addAssetItem", "removeAssetItem", "updateAssetItem", "setAssetRequisitioned",

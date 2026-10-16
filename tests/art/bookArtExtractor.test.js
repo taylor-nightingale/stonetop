@@ -71,6 +71,40 @@ describe("BookArtExtractor", () => {
 		expect(result.found[0].bytes).toBe(result.found[1].bytes);
 	});
 
+	// The books embed a major arcanum's drawing on a canvas far larger than it; the store keeps the
+	// drawing alone, so the manifest names the TRIMMED pixels and the install writes them trimmed.
+	it("finds a drawing the store keeps trimmed, and writes it trimmed", async () => {
+		// 8×4, painted (bit 0) at (3,1), (4,1) and (4,2): a 2×2 drawing on a margin.
+		const padded = new Uint8Array([0xFF, 0xE7, 0xF7, 0xFF]);
+		const trimmed = Raster.fromPdfMask(8, 4, padded).trimmed();
+		const manifest = await manifestFor([
+			(async () => ({ path: "arcana/mindgem.png", key: await trimmed.key() }))(),
+		]);
+		const pages = [page({
+			ops: { fnArray: [OPS.paintImageMaskXObject], argsArray: [[{ width: 8, height: 4, data: padded }]] },
+		})];
+		const result = await extractor(pages, manifest).extract(new Uint8Array());
+		expect(result.found.map((f) => f.path)).toEqual(["arcana/mindgem.png"]);
+		const written = Raster.fromPng(result.found[0].bytes);
+		expect([written.width, written.height]).toEqual([2, 2]);
+		expect(await written.key()).toBe(await trimmed.key());
+	});
+
+	// Everything the store keeps whole is written whole: trimming is only ever what the manifest names.
+	it("writes an image whole when its untrimmed key matches", async () => {
+		const padded = new Uint8Array([0xFF, 0xE7, 0xF7, 0xFF]);
+		const whole = Raster.fromPdfMask(8, 4, padded);
+		const manifest = await manifestFor([
+			(async () => ({ path: "steading/arch.png", key: await whole.key() }))(),
+		]);
+		const pages = [page({
+			ops: { fnArray: [OPS.paintImageMaskXObject], argsArray: [[{ width: 8, height: 4, data: padded }]] },
+		})];
+		const result = await extractor(pages, manifest).extract(new Uint8Array());
+		const written = Raster.fromPng(result.found[0].bytes);
+		expect([written.width, written.height]).toEqual([8, 4]);
+	});
+
 	it("resolves image ids from commonObjs and matches RGB by exact key", async () => {
 		const manifest = await manifestFor([
 			(async () => ({ path: "wonders/color.png", key: await rgb.key() }))(),

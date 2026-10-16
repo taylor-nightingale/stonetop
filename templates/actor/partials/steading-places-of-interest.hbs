@@ -1,29 +1,32 @@
 {{!-- The Places of Interest panel — a lettered (A, B, C…) list of place-name inputs plus an add
       button. Shared by the steading's Places tab and the steadfast sheet.
       Params: places (array of {key, index, value, docLink}); linkHint (steading only — shows the
-      drag-to-link hint, since only the steading sheet wires the document-link drop). --}}
-<div class="steading-notes-field steading-block">
-	{{> "stonetop.section-heading" title=(localize "stonetop.steading.headings.placesOfInterest")}}
-	<div class="stonetop-places-list">
-		{{#each places}}
-			<div class="stonetop-places-row" data-index="{{index}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
-				<span class="stonetop-place-key">{{key}}.</span>
-				<input type="text" class="stonetop-place-field" data-change-action="placeField" data-index="{{index}}" value="{{value}}"
-				       aria-label="{{localize 'stonetop.a11y.placeField'}}">
-				{{#if docLink}}
-					<span class="steading-doc-link">
-						{{rich docLink}}
-						<button class="stonetop-place-unlink" data-action="unlinkPlace" type="button" data-index="{{index}}" data-name="{{value}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
-					</span>
-				{{/if}}
-			</div>
-		{{/each}}
+      drag-to-link hint, since only the steading sheet wires the document-link drop); `index`, its
+      bar's place among the bars its surface draws. --}}
+<section class="stonetop-panel steading-places-panel">
+	{{> "stonetop.bar" title=(localize "stonetop.steading.headings.placesOfInterest") index=index}}
+	<div class="stonetop-panel-body">
+		<div class="stonetop-places-list">
+			{{#each places}}
+				<div class="stonetop-places-row" data-index="{{index}}" title="{{localize 'stonetop.steading.linkDropTitle'}}">
+					<span class="stonetop-place-key">{{key}}.</span>
+					<input type="text" class="stonetop-place-field" data-change-action="placeField" data-index="{{index}}" value="{{value}}"
+					       aria-label="{{localize 'stonetop.a11y.placeField'}}">
+					{{#if docLink}}
+						<span class="steading-doc-link">
+							{{rich docLink}}
+							<button class="stonetop-place-unlink" data-action="unlinkPlace" type="button" data-index="{{index}}" data-name="{{value}}" title="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}" aria-label="{{localize 'stonetop.steading.unlink'}} — {{localize 'stonetop.confirm.unlinkHint'}}">✕</button>
+						</span>
+					{{/if}}
+				</div>
+			{{/each}}
+		</div>
+		{{!-- The list's last row, and it says what it makes — the same add control the rating lists use. A
+		      bare + at the foot of a column named neither the list it joins nor what a row is. --}}
+		<button type="button" class="stonetop-place-add stonetop-list-add" data-action="addPlace"
+		        aria-label="{{localize 'stonetop.steading.lists.addPlace'}}">
+			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.lists.addPlace"}}</span>
+		</button>
+		{{#if linkHint}}<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>{{/if}}
 	</div>
-	{{!-- The list's last row, and it says what it makes — the same add control the rating lists use. A
-	      bare + at the foot of a column named neither the list it joins nor what a row is. --}}
-	<button type="button" class="stonetop-place-add stonetop-list-add" data-action="addPlace"
-	        aria-label="{{localize 'stonetop.steading.lists.addPlace'}}">
-		<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.lists.addPlace"}}</span>
-	</button>
-	{{#if linkHint}}<p class="steading-link-hint">{{localize "stonetop.steading.linkHint"}}</p>{{/if}}
-</div>
+</section>

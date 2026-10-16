@@ -1,0 +1,53 @@
+{
+	"_id": "dSoNU2AzanyNiUiK",
+	"_key": "!items!dSoNU2AzanyNiUiK",
+	"name": "A good dog",
+	"type": "follower",
+	"img": "systems/stonetop/assets/content/icons/animal-companion.png",
+	"system": {
+		"slug": "a-good-dog",
+		"arcanaSlug": null,
+		"reference": null,
+		"tagList": [
+			"keen-nosed",
+			"clever"
+		],
+		"tagOptions": [
+			"retriever",
+			"herder"
+		],
+		"hp": {
+			"value": 0,
+			"max": 6
+		},
+		"armor": "",
+		"damage": "[[/r d6]] (_hand_, _grabby_)",
+		"specialQuality": "",
+		"instinct": {
+			"selected": [
+				"to play"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"cost": {
+			"selected": [
+				"affection"
+			],
+			"options": [],
+			"multi": false,
+			"allowCustom": true
+		},
+		"loyalty": {
+			"value": 0,
+			"max": 3
+		},
+		"choices": [],
+		"moves": "",
+		"description": "",
+		"notes": ""
+	},
+	"flags": {},
+	"folder": "6D8LGEz2ZFvmUSSK"
+}

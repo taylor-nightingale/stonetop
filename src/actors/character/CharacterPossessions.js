@@ -10,18 +10,20 @@ import { OutfitGrant } from "../../model/data/character/OutfitGrant.js";
 import { rich } from "../../model/snapshot/RichText.js";
 import { GrantedItems } from "../GrantedItems.js";
 import { GrantSource, GrantStamp, ItemGrant, ItemGrantSet } from "../../model/data/ItemGrant.js";
+import { GrantList } from "../../model/data/Grant.js";
 
 export class CharacterPossessions {
 	// `factory` is required: a locally-constructed one would carry no registered side-effect handlers,
 	// so every choice group on the sheet would silently stop granting.
 	constructor(actor, moves, possessionRepo, factory, containerOutfitSync = null,
-	            grantedItems = new GrantedItems(actor)) {
+	            grantedItems = new GrantedItems(actor), followers = null) {
 		this._actor          = actor;
 		this._moves          = moves;
 		this._possessionRepo = possessionRepo;
 		this._factory        = factory;
 		this._outfitSync     = containerOutfitSync;
 		this._grantedItems   = grantedItems;
+		this._followers      = followers;
 	}
 
 	// A possession's sub-choices ARE a choice group: values persist through the shared controller, and
@@ -45,6 +47,7 @@ export class CharacterPossessions {
 		if (!item) return;
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { selected: true } }]);
 		await this.syncPossessionItems(slug);
+		await this._syncFollowerGrants(item, true);
 	}
 
 	// Deselecting takes the gear back through the same sync a tick uses: an unselected possession
@@ -54,6 +57,16 @@ export class CharacterPossessions {
 		if (!item) return;
 		await this._actor.updateEmbeddedDocuments("Item", [{ _id: item._id, system: { selected: false } }]);
 		await this.syncPossessionItems(slug);
+		await this._syncFollowerGrants(item, false);
+	}
+
+	// A possession's followers follow its tick the way a choice row's follow its mark: taking it puts
+	// them on the roster, giving it up only takes them off, so names and Loyalty survive a re-tick.
+	async _syncFollowerGrants(item, selected) {
+		if (!this._followers) return;
+		for (const grant of GrantList.fromRaw(item.system?.grants).ofType("follower")) {
+			await this._followers.addFollower(grant.slug, { showOnTab: selected && grant.onTab });
+		}
 	}
 
 	// Remove a drag-dropped (non-playbook) possession entirely, along with any outfit items it granted.
@@ -97,6 +110,7 @@ export class CharacterPossessions {
 	async onCreated(item) {
 		if (item?.type !== "possession" || !item.system?.preselected) return;
 		await this.syncPossessionItems(item.system.slug);
+		await this._syncFollowerGrants(item, true);
 	}
 
 	/** Every possession this playbook wants the character to own, keyed by slug. Which of the character's
@@ -119,6 +133,7 @@ export class CharacterPossessions {
 					choices:      possession.choices,
 					scaling:      possession.scaling,
 					sortOrder:    possession.sortOrder,
+					grants:       possession.grants,
 					selected:     preselectedSet.has(slug),
 					preselected:  preselectedSet.has(slug),
 					uses:         0,

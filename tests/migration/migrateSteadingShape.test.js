@@ -256,7 +256,6 @@ describe("migrateSteadingShape — a diff comes back saying only what it said", 
 		"a debility":    { debilities: { lacking: true } },
 		"the roster":    { folk: [{ id: "1", name: "Bryn", home: "" }] },
 		"a place link":  { placesOfInterest: [{ name: "The Stone", linkUuid: "" }] },
-		"the roll mode": { rollMode: "advantage" },
 		"a content list": { content: { excluded: ["Sexual violence"] } },
 	};
 

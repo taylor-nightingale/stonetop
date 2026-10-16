@@ -10,16 +10,26 @@
 	<p class="stonetop-arcana-empty">{{localize "stonetop.arcana.empty"}}</p>
 	{{/unless}}
 
-	{{!-- Minor arcana --}}
-	<div class="stonetop-arcana-grid">
-	{{> "stonetop.arcanum-cards" items=stonetop.arcana.minor.items}}
-	</div>
-
-	{{!-- Major arcana --}}
-	{{#if stonetop.arcana.major.hasOwned}}
-	<h3 class="stonetop-arcana-section-title">{{stonetop.arcana.major.title}}</h3>
-	<div class="stonetop-arcana-grid">
-	{{> "stonetop.arcanum-cards" items=stonetop.arcana.major.items}}
+	{{!-- D13: what the character holds, listed beside the one card being read. Every card is drawn and
+	      ArcanaSelection shows the chosen one, so choosing another draws nothing. Majors first, as the
+	      book orders them. A lone arcanum is its card alone — a list of one chooses nothing. --}}
+	{{#if stonetop.arcana.hasOwned}}
+	<div class="stonetop-arcana-layout{{#if stonetop.arcana.showList}} has-list{{/if}}">
+		{{#if stonetop.arcana.showList}}
+		<div class="stonetop-arcana-list">
+			{{#each stonetop.arcana.sections}}
+			<section class="stonetop-panel stonetop-arcana-group">
+				{{> "stonetop.bar" title=(localize titleKey) index=@index}}
+				<ul class="stonetop-arcana-lines stonetop-unmarked">
+					{{#each owned}}{{> "stonetop.arcana-line"}}{{/each}}
+				</ul>
+			</section>
+			{{/each}}
+		</div>
+		{{/if}}
+		<div class="stonetop-arcana-reader">
+			{{#each stonetop.arcana.sections}}{{> "stonetop.arcanum-cards" items=owned}}{{/each}}
+		</div>
 	</div>
 	{{/if}}
 

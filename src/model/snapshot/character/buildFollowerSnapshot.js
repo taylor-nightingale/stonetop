@@ -21,6 +21,7 @@ export function buildFollowerSnapshot(item, { loyaltyCurrent = 0, inventory = nu
 		.withName(item.name)
 		.withImg(item.img ?? null)
 		.withKind(sys.kind ?? "creature")
+		.withOnTab(sys.owned === true && sys.showOnTab !== false)
 		.withTags(Tags.creature(sys.tagList, sys.tagOptions ?? []))
 		.withHp(sys.hp?.value ?? 0)
 		.withHpMax(sys.hp?.max ?? 0)

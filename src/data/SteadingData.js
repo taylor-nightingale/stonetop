@@ -23,7 +23,6 @@ export class SteadingData extends foundry.abstract.TypeDataModel {
 			steadfast:   new f.StringField({ initial: "" }),
 			description: new f.StringField({ initial: "" }),
 			notes:       new f.StringField({ initial: "" }),
-			rollMode:    new f.StringField({ initial: "normal" }),
 
 			// Per-move resource state (checked counts + fill-in text) for homefront moves, keyed by
 			// slug under the "moves" namespace — same shape/section a character uses (ResourceController).

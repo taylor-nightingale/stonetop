@@ -8,6 +8,7 @@ export class TestPossessionBuilder {
 	_scaling     = null;
 	_outfitItems = [];
 	_choices     = null;
+	_grants      = [];
 
 	withSlug(slug)        { this._slug        = slug;  return this; }
 	withLabel(label)      { this._label       = label; return this; }
@@ -35,6 +36,11 @@ export class TestPossessionBuilder {
 		return this;
 	}
 
+	withGrants(...grants) {
+		this._grants = grants.flat();
+		return this;
+	}
+
 	withChoices(choiceGroup) {
 		this._choices = choiceGroup;
 		return this;
@@ -48,6 +54,7 @@ export class TestPossessionBuilder {
 			outfitItems: this._outfitItems,
 			choices:     this._choices,
 			scaling:     this._scaling,
+			grants:      this._grants,
 		}, this._label);
 	}
 }
