@@ -4439,49 +4439,6 @@
     }
   },
   "_folders": {
-<<<<<<< HEAD
-=======
-    "arcana": {
-      "source": "arcana",
-      "text": "Arkana"
-    },
-    "basic": {
-      "source": "basic",
-      "text": "Grundspielzüge"
-    },
-    "expedition": {
-      "source": "expedition",
-      "text": "Expedition"
-    },
-    "follower": {
-      "source": "follower",
-      "text": "Gefolgsleute"
-    },
-    "homefront": {
-      "source": "homefront",
-      "text": "Heimatfront"
-    },
-    "improvement": {
-      "source": "improvement",
-      "text": "Verbesserung"
-    },
-    "playbook": {
-      "source": "playbook",
-      "text": "Klassenbücher"
-    },
-    "post-death": {
-      "source": "post death",
-      "text": "Nach dem Tod"
-    },
-    "seasons": {
-      "source": "seasons",
-      "text": "Jahreszeiten"
-    },
-    "special": {
-      "source": "special",
-      "text": "Sonderspielzüge"
-    },
->>>>>>> 307944c510a35aa7be80628a3f9ef5049e6354e5
     "ghost": {
       "source": "ghost",
       "text": "Geist"
