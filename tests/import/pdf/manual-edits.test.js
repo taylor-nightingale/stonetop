@@ -54,4 +54,72 @@ describe("applyArcanaEdits", () => {
 			delete ARCANA_EDITS[slug];
 		}
 	});
+
+	describe("row inserts", () => {
+		const slug = "__test__";
+		const pips = { type: "entry", slug: "c1-pips", content: { title: null, text: "Pips" }, track: { max: 3 }, indent: true };
+		const system = () => ({
+			front: { choices: [{ slug: "front", list: [{ type: "entry", slug: "marks", track: { max: 5 } }] }] },
+			back: { choices: [{ slug: "consequences", list: [
+				{ type: "entry", slug: "c1", track: { max: 1 } },
+				{ type: "entry", slug: "c2", track: { max: 1 } },
+			] }] },
+		});
+		const slugsOf = (sys) => sys.back.choices[0].list.map((r) => r.slug);
+
+		it("puts the row straight after the row with that slug, without touching the input", () => {
+			ARCANA_EDITS[slug] = [{ insertAfter: "c1", row: pips, note: "pips" }];
+			try {
+				const input = system();
+				const { system: out, misses } = applyArcanaEdits(input, slug);
+				expect(slugsOf(out)).toEqual(["c1", "c1-pips", "c2"]);
+				expect(out.back.choices[0].list[1]).toEqual(pips);
+				expect(out.back.choices[0].list[1]).not.toBe(pips);
+				expect(slugsOf(input)).toEqual(["c1", "c2"]);
+				expect(misses).toEqual([]);
+			} finally {
+				delete ARCANA_EDITS[slug];
+			}
+		});
+
+		it("reports an insert whose anchor row is missing", () => {
+			ARCANA_EDITS[slug] = [{ insertAfter: "c9", row: pips, note: "stale insert" }];
+			try {
+				const { system: out, misses } = applyArcanaEdits(system(), slug);
+				expect(slugsOf(out)).toEqual(["c1", "c2"]);
+				expect(misses).toEqual(["stale insert"]);
+			} finally {
+				delete ARCANA_EDITS[slug];
+			}
+		});
+
+		it("does not add the row again when it is already there", () => {
+			ARCANA_EDITS[slug] = [{ insertAfter: "c1", row: pips, note: "pips" }];
+			try {
+				const once = applyArcanaEdits(system(), slug).system;
+				const { system: twice, misses } = applyArcanaEdits(once, slug);
+				expect(slugsOf(twice)).toEqual(["c1", "c1-pips", "c2"]);
+				expect(misses).toEqual([]);
+			} finally {
+				delete ARCANA_EDITS[slug];
+			}
+		});
+
+		it("leaves text edits working alongside an insert", () => {
+			ARCANA_EDITS[slug] = [
+				{ find: "Pips", replace: "Dots", note: "text" },
+				{ insertAfter: "c1", row: pips, note: "pips" },
+			];
+			try {
+				const input = system();
+				input.back.choices[0].list[0].content = { title: null, text: "Pips here" };
+				const { system: out, misses } = applyArcanaEdits(input, slug);
+				expect(out.back.choices[0].list[0].content.text).toBe("Dots here");
+				expect(out.back.choices[0].list[1].content.text).toBe("Pips");   // the inserted row is authored as-is
+				expect(misses).toEqual([]);
+			} finally {
+				delete ARCANA_EDITS[slug];
+			}
+		});
+	});
 });

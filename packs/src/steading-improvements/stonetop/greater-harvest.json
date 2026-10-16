@@ -6,7 +6,6 @@
   "_key": "!items!nGxlsJhmQhR61BsI",
   "system": {
     "slug": "greater-harvest",
-    "sortOrder": 4,
     "choices": {
       "slug": "greater-harvest",
       "list": [
@@ -70,6 +69,9 @@
         "when": {
           "kind": "moment",
           "moment": "autumn-harvest",
+          "seasons": [
+            "autumn"
+          ],
           "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {

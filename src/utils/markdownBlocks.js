@@ -66,11 +66,16 @@ export function startsBlock(html) {
 /**
  * Join rendered blocks for inline display: a blank line between two runs of prose, nothing where a
  * block-level element already breaks the line.
+ *
+ * `isBlock` names blocks that are not block-level markup YET but will be once enriched — a token
+ * the caller shielded from the markdown pass, which this module cannot see into.
  */
-export function joinBlocks(blocks) {
+export function joinBlocks(blocks, { isBlock = () => false } = {}) {
+	let previous = null;
 	return blocks.reduce((html, block) => {
-		if (!html) return block;
-		const gap = ENDS_BLOCK.test(html) || startsBlock(block) ? "" : "<br /><br />";
+		const endsLine = previous !== null && (ENDS_BLOCK.test(html) || isBlock(previous));
+		const gap = previous === null || endsLine || startsBlock(block) || isBlock(block) ? "" : "<br /><br />";
+		previous = block;
 		return html + gap + block;
 	}, "");
 }

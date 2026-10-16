@@ -1,6 +1,7 @@
 {{#each items}}
 {{#if owned}}
-<div class="stonetop-arcanum-card{{#if flipped}} is-flipped{{/if}}" data-slug="{{slug}}">
+<div class="stonetop-arcanum-card{{#if flipped}} is-flipped{{/if}}" data-slug="{{slug}}"
+     {{#if @root.sheetIdPrefix}}id="{{@root.sheetIdPrefix}}-arcanum-{{slug}}"{{/if}}>
 
 	{{!-- The chain frame. Decorative only; its three boxes (the span and its two
 	      pseudo-elements) each bound one part of the frame so the repeating runs stop

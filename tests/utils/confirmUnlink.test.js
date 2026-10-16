@@ -63,4 +63,10 @@ describe("confirmUnlink", () => {
 		await confirmUnlink("Cerdig");
 		expect(confirm.mock.calls[0][0].content).not.toContain("delete");
 	});
+
+	it("asks in the window of the sheet that asked", async () => {
+		const confirm = stubFoundry(true);
+		await confirmUnlink("Cerdig", { window: { windowId: "stonetop-character-abc" } });
+		expect(confirm.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-character-abc" } });
+	});
 });

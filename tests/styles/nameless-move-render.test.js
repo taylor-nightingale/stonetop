@@ -15,7 +15,7 @@ import { ValueMax } from "../../src/model/snapshot/character/VitalsSnapshot.js";
  * question; "did the browser give those two buttons a line of their own" is not.
  *
  * These rows are an arcanum card's and a playbook choice group's, granted inline with no acquisition
- * check; the character's Moves tab draws its own row (character-move-row.hbs).
+ * check; the character's Moves tab draws its own row (move-list-row.hbs).
  *
  * The fixture is the real partial rendered from a real snapshot — the rules under test are keyed on
  * `.stonetop-item--nameless` and on `display: contents`, which is to say on exactly the markup the

@@ -336,30 +336,33 @@ describe("the folded line (integration)", () => {
 	});
 });
 
-describe("the band's foot (integration)", () => {
-	// happy-dom lays nothing out, so the widths the sheet measures are given: six tiles' worth of
-	// stats in a band too narrow to seat the mode beside them.
-	const WIDTHS = { "stonetop-band": 600, "stonetop-stats-column": 460, "stonetop-rollmode": 240, "stonetop-top-toggle": 90 };
-	let original;
-	beforeEach(() => {
-		original = Element.prototype.getBoundingClientRect;
-		Element.prototype.getBoundingClientRect = function () {
-			const width = Object.entries(WIDTHS).find(([cls]) => this.classList?.contains(cls))?.[1] ?? 0;
-			return { width, height: 10, left: 0, top: 0, right: width, bottom: 10 };
-		};
-	});
-	afterEach(() => { Element.prototype.getBoundingClientRect = original; });
+describe("the band's fold tab (integration)", () => {
+	const tab = root => band(root).querySelector(":scope > .stonetop-top-toggle");
 
-	// Never under the stats: short of room the line keeps to its column and wraps there.
-	it("wraps in its own column where it does not fit beside the stats, and stays so across a render", async () => {
+	it("rides the band's own edge, not the line it folds to", async () => {
+		const root = await render(makeSheet().sheet);
+		expect(tab(root)).not.toBeNull();
+		expect(band(root).querySelector(".stonetop-band-foot .stonetop-top-toggle")).toBeNull();
+	});
+
+	it("is the caret alone, its name on the button for assistive tech", async () => {
+		const root = await render(makeSheet().sheet);
+		expect(tab(root).textContent.trim()).toBe("");
+		expect(tab(root).getAttribute("aria-label")).toBe(tab(root).dataset.labelHide);
+	});
+
+	it("folds the band, and keeps it folded across a render", async () => {
 		const { sheet } = makeSheet();
 		const root = await render(sheet);
-		expect([...band(root).classList]).toEqual(expect.arrayContaining(["is-foot-compact", "is-foot-wrapped"]));
-		expect(band(root).classList.contains("is-foot-under")).toBe(false);
+		await press(sheet, tab(root));
+		const wrapper = root.querySelector(".sheet-wrapper");
+		expect(wrapper.classList.contains("top-collapsed")).toBe(true);
+		expect(tab(root).getAttribute("aria-expanded")).toBe("false");
+		expect(tab(root).getAttribute("aria-label")).toBe(tab(root).dataset.labelShow);
 
-		const fresh = document.createElement("div");
-		fresh.innerHTML = root.innerHTML.replace(/ is-foot-compact| is-foot-wrapped/g, "");
+		const fresh = await render(sheet);
 		sheet.restoreViewState(fresh);
-		expect([...fresh.querySelector(".stonetop-band").classList]).toEqual(expect.arrayContaining(["is-foot-compact", "is-foot-wrapped"]));
+		expect(fresh.querySelector(".sheet-wrapper").classList.contains("top-collapsed")).toBe(true);
+		expect(tab(fresh).getAttribute("aria-expanded")).toBe("false");
 	});
 });

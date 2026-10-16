@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { createStonetopSteadingSheetClass } from "../../../src/actors/steading/StonetopSteadingSheet.js";
 import { StonetopSteading } from "../../../src/actors/steading/StonetopSteading.js";
 import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
@@ -12,15 +12,15 @@ import { renderSheetPart } from "../../fakes/renderSheetPart.js";
 
 // The steading's rail, end to end, as the character's now is: a tab on its edge that opens and shuts
 // it, the two crowned ratings coming back to the ledger line while it is shut, and its move groups as
-// panels whose bars open and shut them — remembered across the renders every edit causes. The rows
-// inside stay the steading's own.
+// panels whose bars open and shut them — remembered across the renders every edit causes. The groups
+// and their rows are the character rail's own.
 
 const STEADING_TEMPLATE = "systems/stonetop/templates/actor/steading.hbs";
 
 async function makeSheet() {
 	const actor = new FakeSteadingBuilder().build();
 	const repo = new FakeMoveRepository()
-		.addBasic(new FakeCompendiumMoveBuilder().withName("Bolster").withMoveType("homefront")
+		.addBasic(new FakeCompendiumMoveBuilder().withName("Bolster").withMoveType("homefront").withRollStat("fortunes")
 			.withDescription("When you **_prepare for what's coming_**, say how.").build());
 	actor.typedActor = new StonetopSteading(actor, steadingRepos({ improvements: { getBySlug: async () => null }, moves: repo }));
 	await actor.typedActor.onCreate();
@@ -30,7 +30,8 @@ async function makeSheet() {
 	return sheet;
 }
 
-const render = async sheet => renderSheetPart(sheet, renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({})));
+const render = async (sheet, options = {}) =>
+	renderSheetPart(sheet, renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({})), options);
 const press = (sheet, target) => sheet.constructor.DEFAULT_OPTIONS.actions[target.dataset.action].call(sheet, { type: "click" }, target);
 const panels = root => [...root.querySelectorAll(".steading-rail .stonetop-move-panel")];
 const caretOf = panel => panel.querySelector(":scope > .stonetop-bar .stonetop-bar-toggle");
@@ -68,14 +69,33 @@ describe("the steading's rail (integration)", () => {
 		expect(layout.classList.contains("is-rail-moving")).toBe(false);
 	});
 
-	it("sets its move groups as panels with a bar each, the rows the steading's own", async () => {
+	it("sets its move groups as panels with a bar each", async () => {
 		const root = await render(await makeSheet());
 		const [homefront] = panels(root);
 		expect(homefront).toBeDefined();
 		expect(homefront.querySelector(".stonetop-bar-title").textContent).toBeTruthy();
 		expect(caretOf(homefront).getAttribute("aria-expanded")).toBe("true");
-		expect(homefront.querySelector('.stonetop-move-disclosure[data-move-slug="bolster"]')).not.toBeNull();
 		expect(root.querySelector(".steading-rail .stonetop-move-group")).toBeNull();
+	});
+
+	it("draws its moves as the character rail's rows: die and name one roll button, then what it adds", async () => {
+		const row = (await render(await makeSheet())).querySelector('.steading-rail li.stonetop-mrow[data-slug="bolster"]');
+		expect(row).not.toBeNull();
+		expect(row.querySelector(".stonetop-mrow-roll .stonetop-mrow-title").textContent).toBe("Bolster");
+		expect(row.querySelector(".stonetop-mrow-roll").dataset.roll).toBe("fortunes");
+		expect(row.querySelector(".stonetop-mrow-mod").textContent).toMatch(/^\+\S/);
+		expect(row.querySelector(".stonetop-mrow-caret[data-action='toggleSliding']")).not.toBeNull();
+		expect(row.querySelector(".stonetop-move-chat")).toBeNull();
+	});
+
+	it("shows a move's hover card as the pointer reaches its row", async () => {
+		const sheet = await makeSheet();
+		const root = await render(sheet, { first: true });
+		const row = root.querySelector('.steading-rail li.stonetop-mrow[data-slug="bolster"]');
+		const card = row.querySelector(":scope > .stonetop-move-preview");
+		card.showPopover = vi.fn();
+		row.querySelector(".stonetop-mrow-title").dispatchEvent(new Event("pointerover", { bubbles: true }));
+		expect(card.showPopover).toHaveBeenCalled();
 	});
 
 	it("shuts a group from its bar, and keeps it shut across a render", async () => {

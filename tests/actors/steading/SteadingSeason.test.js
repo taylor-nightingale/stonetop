@@ -16,7 +16,6 @@ function repoWith(...specs) {
 		repo._improvements.push(new SteadingImprovement(
 			slug, name,
 			{ slug, list: [{ type: "entry", slug: "built", content: { text: "the work" }, track: { max: 1 } }] },
-			repo._improvements.length,
 			{ requires: { all: ["built"] }, effects },
 		));
 	}
@@ -66,11 +65,11 @@ const RAINCATCHING = { slug: "raincatching", name: "Raincatching", effects: [
 	  outcome: "7+", text: "the steading generates 1 Surplus" },
 ] };
 const ORCHARD = { slug: "rhoillyg-orchard", name: "Rhoillyg Orchard", effects: [
-	{ when: { kind: "moment", moment: "autumn-harvest" }, change: { target: "surplus", amount: 1 },
+	{ when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] }, change: { target: "surplus", amount: 1 },
 	  text: "the orchard yields +1 Surplus" },
 ] };
 const AUROCHS = { slug: "aurochs-hunting", name: "Aurochs Hunting", effects: [
-	{ when: { kind: "moment", moment: "aurochs-hunt" }, grantsMove: "lead-the-aurochs-hunt",
+	{ when: { kind: "moment", moment: "aurochs-hunt", seasons: ["spring"] }, grantsMove: "lead-the-aurochs-hunt",
 	  text: "when you lead the aurochs hunt in spring, roll +Defenses" },
 ] };
 
@@ -614,5 +613,34 @@ describe("SteadingSeason.applyMoment", () => {
 		const snap = await autumn().season.buildSnapshot();
 		expect(snap.hasMoments).toBe(true);
 		expect(snap.moments.map(m => m.key)).toEqual(["autumn-harvest"]);
+	});
+	// The seasons are the improvements' to say: nothing in code lists the moments.
+	describe("a moment its author made up", () => {
+		const FESTIVAL = { slug: "festival-green", name: "Festival Green", effects: [
+			{ when: { kind: "moment", moment: "custom-moment-fest", momentName: "the spring festival", seasons: ["spring"] },
+			  change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
+		] };
+		const MAYPOLE = { slug: "maypole", name: "Maypole", effects: [
+			{ when: { kind: "moment", moment: "custom-moment-fest", momentName: "the spring festival", seasons: ["spring"] },
+			  change: { target: "surplus", amount: -1 }, text: "the steading spends 1 Surplus" },
+		] };
+		const spring = extra => build({ season: "spring", owned: ["festival-green", "maypole"], improvements: [FESTIVAL, MAYPOLE], ...extra });
+
+		it("is offered in the season its results name, in its author's words", async () => {
+			const [moment] = (await spring().season.buildSnapshot()).moments;
+			expect([moment.key, moment.name, moment.labelKey]).toEqual(["custom-moment-fest", "the spring festival", null]);
+		});
+
+		// Two improvements at one moment meet in one box, applied together once.
+		it("gathers every improvement's result at it into one moment", async () => {
+			const moments = await spring().season.moments();
+			expect(moments).toHaveLength(1);
+			expect(moments[0].statement.lines.map(l => l.text.raw)).toEqual(["increase Fortunes by 1", "the steading spends 1 Surplus"]);
+		});
+
+		it("is not offered in a season its results do not name", async () => {
+			expect(await spring({ season: "summer" }).season.moments()).toEqual([]);
+			expect(await spring({ season: "summer" }).season.applyMoment("custom-moment-fest")).toBe(false);
+		});
 	});
 });

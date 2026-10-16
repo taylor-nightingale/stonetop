@@ -7,7 +7,7 @@
 	    labelShow=(localize "stonetop.character.moves.showGroup" name=category.label)
 	    labelHide=(localize "stonetop.character.moves.hideGroup" name=category.label)}}
 	<div class="stonetop-panel-body" id="{{@root.sheetIdPrefix}}-moves-{{category.key}}"{{#unless open}} hidden{{/unless}}>
-		{{> "stonetop.character-move-list" moves=category.moves phases=category.phases
+		{{> "stonetop.move-list" moves=category.moves phases=category.phases
 		    categoryKey=category.key categoryLabel=category.label}}
 	</div>
 </section>

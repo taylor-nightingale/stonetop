@@ -1,5 +1,3 @@
-import { Seasons } from "./Seasons.js";
-
 /**
  * A named point WITHIN a season at which an improvement's result can fire.
  *
@@ -8,45 +6,49 @@ import { Seasons } from "./Seasons.js";
  * season changes pays out too early. The sheet cannot know when the harvest happened; the table
  * says so by triggering the moment.
  *
- * Deliberately tiny, and not a registry of which improvement grants which: a moment appears on the
- * tab when some BUILT improvement has a result at it, which falls out of the effect data.
+ * Nothing in code lists the moments or their seasons. Each result that fires at a moment names it
+ * (by slug, so results from different improvements meet at one) and the seasons it can happen in;
+ * a moment is whatever the results say it is. The book's three are named in the language files by
+ * that slug, which the season moves name too; one an author makes up carries its own words.
  */
 export class Moment {
-	constructor(key, seasons) {
+	constructor(key, { name = null, seasons = [] } = {}) {
 		this.key     = key;
+		this.name    = name;
 		this.seasons = seasons;
 	}
 
-	get labelKey() { return `stonetop.steading.seasons.moments.${this.key}`; }
+	/** The translation key for one of the book's moments; null for one its author named. */
+	get labelKey() { return this.name === null ? Moment.labelKeyFor(this.key) : null; }
+
+	static labelKeyFor(key) { return `stonetop.steading.seasons.moments.${key}`; }
 
 	/** Whether this moment can occur in the given Season. */
-	occursIn(season) { return this.seasons.includes(season?.key); }
+	occursIn(season) { return Boolean(season) && this.seasons.includes(season.key); }
 }
 
-const EVERY_SEASON = Seasons.all().map(s => s.key);
-
-const _MOMENTS = [
-	new Moment("autumn-harvest", ["autumn"]),
-	new Moment("aurochs-hunt",   ["spring"]),
-	// The Inn's "once per season, when you expend 1 Surplus and bring folks together at the inn".
-	// A moment rather than a fourth kind of trigger, because it already IS one in every respect that
-	// matters: a named occasion inside a season, which the sheet cannot see coming and the table
-	// declares by applying it. The only thing that separates it from the harvest is that it can
-	// happen in any season rather than only autumn — which is what `seasons` is for.
-	//
-	// "Once per season" needs no modelling either: applyMoment refuses a second apply and
-	// turnoverApplied is cleared when the wheel turns, so once-per-season is what a moment already
-	// means. The autumn harvest happens once per autumn on the same mechanism.
-	new Moment("inn-gathering", EVERY_SEASON),
-];
-
 export class Moments {
-	static all() { return [..._MOMENTS]; }
+	constructor(moments = []) {
+		this._moments = moments;
+	}
 
-	static byKey(key) { return _MOMENTS.find(m => m.key === key) ?? null; }
+	/** The moments these triggers fire at, once each, with every season any of them names. */
+	static fromTriggers(triggers) {
+		const byKey = new Map();
+		for (const trigger of triggers) {
+			if (trigger?.kind !== "moment" || !trigger.moment) continue;
+			const known = byKey.get(trigger.moment) ?? { name: null, seasons: [] };
+			known.name ??= trigger.momentName ?? null;
+			for (const season of trigger.seasons) if (!known.seasons.includes(season)) known.seasons.push(season);
+			byKey.set(trigger.moment, known);
+		}
+		return new Moments([...byKey].map(([key, { name, seasons }]) => new Moment(key, { name, seasons })));
+	}
 
-	static has(key) { return _MOMENTS.some(m => m.key === key); }
+	all() { return [...this._moments]; }
 
-	/** The moments that can occur in a season, in registry order. */
-	static inSeason(season) { return _MOMENTS.filter(m => m.occursIn(season)); }
+	byKey(key) { return this._moments.find(m => m.key === key) ?? null; }
+
+	/** The moments that can occur in a season, in the order the results name them. */
+	inSeason(season) { return this._moments.filter(m => m.occursIn(season)); }
 }

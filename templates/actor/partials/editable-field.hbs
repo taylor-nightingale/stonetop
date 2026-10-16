@@ -1,12 +1,12 @@
 {{!--
 	Single-slot rich field: enriched display + a raw-markdown editor revealed by the pencil.
 	Params: field (a RichText — rendered for display, .raw for the editor), inputClass, inputId,
-	slug, placeholder, multiline, changeAction (optional data-change-action for sheets that route
+	slug, placeholder (also shown, faded, in place of an empty value), multiline, changeAction (optional data-change-action for sheets that route
 	changes through a ChangeActionRouter), label (the field's name, for callers whose visible label
 	is a sibling rather than a wrapper — an `id` alone names nothing without a <label for>).
 --}}
 <span class="stonetop-editable">
-	<span class="stonetop-editable__display">{{rich field}}</span>
+	<span class="stonetop-editable__display">{{#if (hasText field)}}{{rich field}}{{else if placeholder}}<span class="stonetop-editable__placeholder">{{placeholder}}</span>{{/if}}</span>
 	{{#if multiline}}
 	<textarea class="stonetop-editable__edit stonetop-grow-field {{inputClass}}"{{#if inputId}} id="{{inputId}}"{{/if}} data-slug="{{slug}}"{{#if changeAction}} data-change-action="{{changeAction}}"{{/if}} placeholder="{{placeholder}}" aria-label="{{#if label}}{{label}}{{else}}{{placeholder}}{{/if}}">{{field.raw}}</textarea>
 	{{else}}

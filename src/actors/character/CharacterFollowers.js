@@ -365,7 +365,8 @@ export class CharacterFollowers {
 
 	_buildFollowerSnapshotFromItem(item, page) {
 		const sys            = item.system;
-		const loyaltyCurrent = this._resourceController.getCurrent("followers", sys.slug);
+		// Until a pip is ticked, a follower stands at the loyalty it arrived with ("3 Loyalty to start").
+		const loyaltyCurrent = this._resourceController.getCurrent("followers", sys.slug, sys.loyalty?.value ?? 0);
 		const inventory      = this._buildFollowerInventory(sys.slug, sys.inventory ?? {}, page);
 		return buildFollowerSnapshot(item, { loyaltyCurrent, inventory });
 	}
@@ -385,10 +386,7 @@ export class CharacterFollowers {
 	async buildFollowersSnapshot(referenced = {}) {
 		const owned  = await this.buildSnapshot();
 		const bySlug = { ...referenced, ...Object.fromEntries(owned.map(f => [f.slug, f])) };
-		const tab    = [...this._actor.items]
-			.filter(i => i.type === "follower" && i.system?.owned === true && i.system?.showOnTab !== false)
-			.map(i => i.system?.slug)
-			.filter(Boolean);
+		const tab    = owned.filter(f => f.onTab).map(f => f.slug).filter(Boolean);
 		return new FollowersSnapshot(bySlug, tab);
 	}
 
@@ -492,7 +490,7 @@ function _followerToSystemFields(follower) {
 		instinct:       Selection.fromStored(follower.instinct).toRaw(),
 		moves:          follower.moves ?? "",
 		cost:           Selection.fromStored(follower.cost).toRaw(),
-		loyalty:        { value: 0, max: follower.loyalty?.max ?? 3 },
+		loyalty:        { value: follower.loyalty?.value ?? 0, max: follower.loyalty?.max ?? 3 },
 		choices:        follower.choices ?? null,
 		specialQuality: follower.specialQuality ?? "",
 		description:    follower.description ?? "",

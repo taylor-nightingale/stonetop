@@ -23,6 +23,18 @@ const nameOf = (root, id) => root.querySelector(`[data-wound-id="${id}"] .stonet
 beforeEach(() => { document.body.innerHTML = ""; });
 
 describe("AilmentEditor", () => {
+	// It hangs where it was opened; at the foot of a long tab that can be below what the window shows.
+	it("brings itself into view once, when it opens — never on the re-renders after", () => {
+		const editor = new AilmentEditor();
+		const reveal = vi.fn();
+		editor.open();
+		const root = mount("w1");
+		editor.applyReveal(root, reveal);
+		editor.applyReveal(root, reveal);
+		expect(reveal).toHaveBeenCalledOnce();
+		expect(reveal.mock.calls[0][0]).toBe(root.querySelector(".stonetop-ailment-editor"));
+	});
+
 	it("starts shut, opens and shuts", () => {
 		const editor = new AilmentEditor();
 		expect(editor.isOpen).toBe(false);

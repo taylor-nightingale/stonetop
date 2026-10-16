@@ -6,7 +6,6 @@
   "_key": "!items!FdcqcpAcjHIWsL0z",
   "system": {
     "slug": "rhoillyg-orchard",
-    "sortOrder": 5,
     "choices": {
       "slug": "rhoillyg-orchard",
       "list": [
@@ -165,6 +164,9 @@
         "when": {
           "kind": "moment",
           "moment": "autumn-harvest",
+          "seasons": [
+            "autumn"
+          ],
           "phrase": "when **_the autumn harvest is complete_**"
         },
         "change": {

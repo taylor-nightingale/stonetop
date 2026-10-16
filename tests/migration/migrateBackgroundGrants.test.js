@@ -220,3 +220,40 @@ describe("migrateBackgroundGrants — backgrounds the character did not choose",
 		expect(categoryItems(actor, "background-wide-wanderer")).toHaveLength(1);
 	});
 });
+
+// A Seeker who chose a background before Well Versed's topics could be ticked has none marked; the
+// background names one (or the Witch Hunter picked one), so the migration marks it.
+describe("migrateBackgroundGrants — the topic a background marks on a move", () => {
+	const TOPICS = { slug: "topics", list: ["fae", "things-below", "last-door"].map(slug => (
+		{ type: "entry", slug, track: { max: 1 }, content: { title: null, text: slug } }
+	)) };
+	const PATRIOT      = { slug: "patriot",      label: "Patriot",
+		moveMarks: [{ move: "well-versed", group: "topics", options: ["things-below"] }] };
+	const WITCH_HUNTER = { slug: "witch-hunter", label: "Witch Hunter",
+		moveMarks: [{ move: "well-versed", group: "topics", options: ["fae", "things-below", "last-door"] }] };
+
+	function wellVersed(pickValues = {}) {
+		const item = playbookMoveItem("well-versed", { instanceCount: 1 });
+		return { ...item, system: { ...item.system, choices: TOPICS, pickValues } };
+	}
+	const topics = actor => moveItem(actor, "well-versed").system.pickValues.topics ?? {};
+
+	it("marks the topic the chosen background names", async () => {
+		const actor = makeActor({ backgrounds: [PATRIOT], selected: "patriot", items: [wellVersed()] });
+		await migrateBackgroundGrants(actor, moveRepoWith());
+		expect(topics(actor)).toEqual({ "things-below": 1 });
+	});
+
+	it("marks the topic the Witch Hunter picked", async () => {
+		const actor = makeActor({ backgrounds: [WITCH_HUNTER], selected: "witch-hunter", items: [wellVersed()] });
+		actor.items[0].system.backgroundValues = { "witch-hunter-well-versed": { "last-door": 1 } };
+		await migrateBackgroundGrants(actor, moveRepoWith());
+		expect(topics(actor)).toEqual({ "last-door": 1 });
+	});
+
+	it("leaves the other topics the player marked alone", async () => {
+		const actor = makeActor({ backgrounds: [PATRIOT], selected: "patriot", items: [wellVersed({ topics: { fae: 1 } })] });
+		await migrateBackgroundGrants(actor, moveRepoWith());
+		expect(topics(actor)).toEqual({ fae: 1, "things-below": 1 });
+	});
+});

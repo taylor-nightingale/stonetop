@@ -10,15 +10,16 @@ import { FakePossessionRepository } from "../../fakes/FakePossessionRepository.j
 import { TestPossessionBuilder } from "../../fakes/TestPossessionBuilder.js";
 import { TestChoiceGroupBuilder } from "../../fakes/TestChoiceGroupBuilder.js";
 import { TestChoiceRowBuilder } from "../../fakes/TestChoiceRowBuilder.js";
+import { FakeFollowers } from "../../fakes/FakeFollowers.js";
 
 // CharacterPossessions requires a ChoiceGroupFactory — a locally-built one would carry no registered
 // side-effect handlers, so tests must pass one explicitly even when they don't exercise side effects.
-function makeCharacterPossessions(actor, moves = makeMoves(), outfit = null, repo = null, factory = null) {
+function makeCharacterPossessions(actor, moves = makeMoves(), outfit = null, repo = null, factory = null, followers = null) {
 	// Mirrors StonetopCharacter's wiring: pick gear is granted by the shared outfit-item side effect,
 	// so a factory without that handler registered would grant nothing.
 	const sync = new ContainerOutfitSync(outfit).register("possession", CharacterPossessions.outfitGrantFor);
 	const f    = factory ?? new ChoiceGroupControllerFactory(actor).subscribe(sync);
-	return new CharacterPossessions(actor, moves, repo, f, sync);
+	return new CharacterPossessions(actor, moves, repo, f, sync, undefined, followers);
 }
 
 
@@ -47,6 +48,7 @@ function makePossessionItem(p, opts = {}) {
 			choices:      p.choices      ?? null,
 			scaling:      p.scaling      ?? null,
 			sortOrder:    p.sortOrder    ?? null,
+			grants:       p.grants       ?? [],
 			selected:     opts.selected     ?? false,
 			preselected:  opts.preselected  ?? false,
 			uses:         opts.uses         ?? 0,
@@ -159,6 +161,62 @@ describe("CharacterPossessions — selection", () => {
 		await cp.deselect("apiary");
 		expect(cp.selected.has("apiary")).toBe(false);
 		expect(cp.selected.has("mastiffs")).toBe(true);
+	});
+});
+
+// -- follower grants ───────────────────────────────────────────────────────────
+
+function houndsPossession(locations = ["tab"]) {
+	return new TestPossessionBuilder()
+		.withSlug("hounds").withLabel("Hounds")
+		.withGrants({ type: "follower", slug: "hounds", locations })
+		.build();
+}
+
+describe("CharacterPossessions — follower grants", () => {
+	it("select puts the possession's follower on the roster tab", async () => {
+		const actor     = makeActor([makePossessionItem(houndsPossession())]);
+		const followers = new FakeFollowers();
+		const cp = makeCharacterPossessions(actor, makeMoves(), null, null, null, followers);
+		await cp.select("hounds");
+		expect(followers.isOwned("hounds")).toBe(true);
+		expect(followers.showOnTab("hounds")).toBe(true);
+	});
+
+	it("deselect takes the follower off the tab but keeps it owned", async () => {
+		const actor     = makeActor([makePossessionItem(houndsPossession(), { selected: true })]);
+		const followers = new FakeFollowers();
+		const cp = makeCharacterPossessions(actor, makeMoves(), null, null, null, followers);
+		await cp.select("hounds");
+		await cp.deselect("hounds");
+		expect(followers.isOwned("hounds")).toBe(true);
+		expect(followers.showOnTab("hounds")).toBe(false);
+	});
+
+	it("a grant without the tab location stays off the tab when selected", async () => {
+		const actor     = makeActor([makePossessionItem(houndsPossession(["inline"]))]);
+		const followers = new FakeFollowers();
+		const cp = makeCharacterPossessions(actor, makeMoves(), null, null, null, followers);
+		await cp.select("hounds");
+		expect(followers.showOnTab("hounds")).toBe(false);
+	});
+
+	it("a possession arriving preselected grants its follower", async () => {
+		const actor     = makeActor([makePossessionItem(houndsPossession(), { selected: true, preselected: true })]);
+		const followers = new FakeFollowers();
+		const cp = makeCharacterPossessions(actor, makeMoves(), null, null, null, followers);
+		await cp.onCreated([...actor.items][0]);
+		expect(followers.showOnTab("hounds")).toBe(true);
+	});
+
+	it("a possession without follower grants touches no followers", async () => {
+		const [, apiary] = basePossessions();
+		const actor     = makeActor([makePossessionItem(apiary)]);
+		const followers = new FakeFollowers();
+		const cp = makeCharacterPossessions(actor, makeMoves(), null, null, null, followers);
+		await cp.select("apiary");
+		await cp.deselect("apiary");
+		expect(followers.owned).toEqual([]);
 	});
 });
 
@@ -890,6 +948,14 @@ describe("CharacterPossessions — addPossessionsFromPlaybook", () => {
 		await cp.addPossessionsFromPlaybook(baseSp(), "the-blessed");
 		const apiaryItems = [...actor.items].filter(i => i.system?.slug === "apiary");
 		expect(apiaryItems).toHaveLength(1);
+	});
+
+	it("copies each possession's grants onto the embedded item", async () => {
+		const actor = makeActor();
+		const cp = makeCharacterPossessions(actor, makeMoves(), null, new FakePossessionRepository([houndsPossession()]));
+		await cp.addPossessionsFromPlaybook({ pickCount: 2, preselected: [], slugs: ["hounds"] }, "the-ranger");
+		const hounds = [...actor.items].find(i => i.system?.slug === "hounds");
+		expect(hounds.system.grants).toEqual([{ type: "follower", slug: "hounds", locations: ["tab"] }]);
 	});
 
 	it("is a no-op when sp is null", async () => {

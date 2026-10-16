@@ -1,0 +1,11 @@
+{{!-- What "some of these" asks for, under it: how many. Context: an ImprovementEditorHeading. --}}
+{{#if isSome}}
+	<label class="stonetop-improvement-sentence">
+		<span>{{localize "stonetop.improvement.rule.atLeast"}}</span>
+		<span class="stonetop-stepper">
+			<input type="number" class="stonetop-step" min="1" step="1" data-change-action="sectionCount" value="{{count}}"
+			       aria-label="{{localize 'stonetop.improvement.rule.atLeast'}}">
+			{{> "stonetop.stepper-buttons"}}
+		</span>
+	</label>
+{{/if}}

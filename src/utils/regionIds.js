@@ -14,5 +14,8 @@ export const sectionBodyId = (prefix, key) => `${prefix}-section-${key}`;
 export const moveBodyId = (prefix, categoryKey, slug, choosing = false) =>
 	`${prefix}-move-${categoryKey}-${slug}${choosing ? "-choosing" : ""}`;
 
+/** An improvement card's body — its rows and payoff — which the card's caret opens and shuts. */
+export const improvementBodyId = (prefix, slug) => `${prefix}-improvement-${slug}`;
+
 /** A Moves-tab panel's body, which its caret opens and shuts. */
 export const movesPanelId = (prefix, categoryKey) => `${prefix}-moves-panel-${categoryKey}`;

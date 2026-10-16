@@ -13,13 +13,13 @@ const line = (source, raw) => new TurnoverLine({
 	id: `${source}:0`, source, effect: ImprovementEffect.fromRaw(raw),
 });
 
-const MILL    = line("Mill", { when: { kind: "moment", moment: "autumn-harvest" },
+const MILL    = line("Mill", { when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 	change: { target: "surplus", amount: 1 }, text: "the steading generates +1 Surplus" });
-const GREATER = line("Greater Harvest", { when: { kind: "moment", moment: "autumn-harvest" },
+const GREATER = line("Greater Harvest", { when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 	change: { target: "surplus", formula: "1d4" }, text: "gain +1d4 Surplus" });
-const IFFY    = line("Somewhere", { when: { kind: "moment", moment: "autumn-harvest" },
+const IFFY    = line("Somewhere", { when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 	change: { target: "surplus", amount: 1 }, condition: true, text: "another +1 Surplus" });
-const FICTION = line("Somewhere", { when: { kind: "moment", moment: "autumn-harvest" },
+const FICTION = line("Somewhere", { when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 	text: "the folk talk of it all winter" });
 
 const harvestStep = () => SeasonProcedure.from({ steps: [
@@ -94,7 +94,7 @@ describe("StepContribution", () => {
 
 	// A move is rolled, and what it does depends on the roll — it renders as that move's own row.
 	it("leaves a granted move to the row that draws it", () => {
-		const hunt = line("Aurochs Hunting", { when: { kind: "moment", moment: "autumn-harvest" },
+		const hunt = line("Aurochs Hunting", { when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 			grantsMove: "lead-the-aurochs-hunt", text: "roll +Defenses" });
 		expect(StepContribution.forMoment(harvestStep(), [moment([hunt])]).lines).toEqual([]);
 	});

@@ -1,3 +1,4 @@
+import { RollableStat } from "../RollableStat.js";
 import { hinderRollMode } from "../hinderRollMode.js";
 
 const _localize = (key) => globalThis.game?.i18n?.localize?.(key) ?? key;
@@ -6,15 +7,15 @@ const _localize = (key) => globalThis.game?.i18n?.localize?.(key) ?? key;
 // one place the debilities bend a number: Lacking costs Prosperity 1, and a hindering debility turns
 // a normal roll into a disadvantaged one.
 export class SteadingRolls {
-	/* Keys, never words. These four names reach the player through the stat-pick dialog (a move that
+	/* Keys, never words. These four names reach the player through the roll dialog (a move that
 	   rolls "ask"), so an English word here was an English button on an otherwise translated
 	   steading — and `stonetop.steading.attr.*` already held the translations the sheet itself draws
 	   its rating tiles from. One source for the name of a rating, wherever it is shown. */
 	static ROLLABLE = [
-		{ key: "population", nameKey: "stonetop.steading.attr.population" },
-		{ key: "prosperity", nameKey: "stonetop.steading.attr.prosperity" },
-		{ key: "defenses",   nameKey: "stonetop.steading.attr.defenses" },
-		{ key: "fortunes",   nameKey: "stonetop.steading.attr.fortunes" },
+		{ key: "population", nameKey: "stonetop.steading.attr.population", shortKey: "stonetop.steading.attrShort.population" },
+		{ key: "prosperity", nameKey: "stonetop.steading.attr.prosperity", shortKey: "stonetop.steading.attrShort.prosperity" },
+		{ key: "defenses",   nameKey: "stonetop.steading.attr.defenses",   shortKey: "stonetop.steading.attrShort.defenses" },
+		{ key: "fortunes",   nameKey: "stonetop.steading.attr.fortunes",   shortKey: "stonetop.steading.attrShort.fortunes" },
 	];
 
 	constructor(actor, debilities) {
@@ -23,8 +24,8 @@ export class SteadingRolls {
 	}
 
 	rollableStats() {
-		return SteadingRolls.ROLLABLE.map(({ key, nameKey }) =>
-			({ key, name: _localize(nameKey), value: this.resolveBonus(key) ?? 0 }));
+		return SteadingRolls.ROLLABLE.map(({ key, nameKey, shortKey }) =>
+			new RollableStat(key, _localize(nameKey), this.resolveBonus(key) ?? 0, _localize(shortKey)));
 	}
 
 	// Null when the steading has no such rating at all, which keeps "not a stat" distinct from a

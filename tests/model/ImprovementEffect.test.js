@@ -13,7 +13,7 @@ const MILL = ImprovementEffects.fromRaw([
 	  change: { target: "fortunes", amount: 1 }, text: "increase Fortunes by 1" },
 	{ requires: { all: ["site", "miller"] }, when: { kind: "completed" },
 	  listEntry: { list: "resources", text: "Mill" }, text: 'add "Mill" to the Resources list' },
-	{ requires: { all: ["site", "miller"] }, when: { kind: "moment", moment: "autumn-harvest" },
+	{ requires: { all: ["site", "miller"] }, when: { kind: "moment", moment: "autumn-harvest", seasons: ["autumn"] },
 	  change: { target: "surplus", amount: 1 }, text: "the steading generates +1 Surplus" },
 ]);
 const MILL_SIZES = { site: 1, miller: 2 };

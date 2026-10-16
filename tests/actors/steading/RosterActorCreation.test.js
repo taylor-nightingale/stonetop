@@ -49,6 +49,13 @@ describe("RosterActorCreation.forFolk", () => {
 			.toBeLessThan(steading.createMissingFolkActors.mock.invocationCallOrder[0]);
 	});
 
+	it("asks in the window of the sheet that asked", async () => {
+		const { confirm } = stubFoundry(true);
+		const sheet = { window: { windowId: "stonetop-steading-abc" } };
+		await RosterActorCreation.forFolk(spySteading(), sheet).run();
+		expect(confirm.mock.calls[0][0].renderOptions).toEqual({ window: { windowId: "stonetop-steading-abc" } });
+	});
+
 	it("says so and asks nothing when there is no work", async () => {
 		const { confirm, info } = stubFoundry(true);
 		const steading = spySteading([plan("Idony", PersonActorPlan.LINKED)]);

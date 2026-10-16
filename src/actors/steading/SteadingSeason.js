@@ -1,6 +1,5 @@
 import { Seasons } from "../../model/data/steading/Seasons.js";
 import { Impressions } from "../../model/data/steading/Impressions.js";
-import { Moments } from "../../model/data/steading/Moments.js";
 import { SeasonalPicks } from "../../model/data/steading/SeasonalPicks.js";
 import { MomentSnapshot, SeasonSnapshot, TurnoverSnapshot } from "../../model/snapshot/steading/TurnoverSnapshot.js";
 
@@ -72,8 +71,8 @@ export class SteadingSeason {
 	 */
 	async moments() {
 		const found = [];
-		for (const moment of Moments.inSeason(this.season)) {
-			const statement = await this._effects.statementFor("moment", { moment: moment.key });
+		for (const moment of (await this._effects.moments()).inSeason(this.season)) {
+			const statement = await this._effects.statementFor("moment", { moment: moment.key, season: this.season });
 			if (statement.isEmpty) continue;
 			found.push(new MomentSnapshot({ moment, statement }));
 		}
@@ -93,9 +92,9 @@ export class SteadingSeason {
 	 * makes this safe on a sheet six people share.
 	 */
 	async applyMoment(key) {
-		const moment = Moments.byKey(key);
+		const moment = (await this._effects.moments()).byKey(key);
 		if (!moment?.occursIn(this.season)) return false;
-		return this._effects.apply(await this._effects.statementFor("moment", { moment: key }));
+		return this._effects.apply(await this._effects.statementFor("moment", { moment: key, season: this.season }));
 	}
 
 	/**

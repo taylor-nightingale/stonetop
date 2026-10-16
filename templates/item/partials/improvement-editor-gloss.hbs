@@ -1,0 +1,9 @@
+{{!-- The faint line under a result at rest: what the sheet does with it. Nothing at all where there
+      are no words for it yet. Context: an ImprovementEditorResult. --}}
+<p class="stonetop-improvement-gloss">↳
+	{{#if isChange}}{{localize "stonetop.improvement.gloss.change" amount=signedAmount rating=(localize ratingKey)}}
+	{{else if isList}}{{localize "stonetop.improvement.gloss.list" entry=entry list=(localize listKey)}}
+	{{else if isSet}}{{localize "stonetop.improvement.gloss.set" rating=(localize ratingKey) value=setValue}}
+	{{else}}{{localize glossKey}}{{/if}}
+	{{#if canUseGenerated}}{{#unless isAdder}}<button type="button" class="stonetop-improvement-link" data-action="useGeneratedResultWords" data-key="{{index}}">{{localize "stonetop.improvement.useGenerated"}}</button>{{/unless}}{{/if}}
+</p>

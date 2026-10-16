@@ -15,103 +15,122 @@ So: open `languages/compendium/de/steadfasts.json`, find `"stonetop"`, find
 it is regenerated, and it is there to show you what the German is meant to say.
 
 - **0** entries where the English changed under an existing translation
-- **4** flagged earlier and still awaiting a revision
-- **7** translations whose row was restructured and need re-filing
+- **5** flagged earlier and still awaiting a revision
+- **1** translations whose row was restructured and need re-filing
 - **84** interface strings with no translation yet, listed at the end
+
+## playbooks.json
+
+### `playbooks.json` › `"the-seeker"` › `"backgrounds/patriot/description"`
+
+Flagged for review earlier; the English has not changed since.
+
+English:
+
+```
+These people are family. Chaos grows all around, but you'll be damned if you'll let your family come to harm. Damned indeed.
+
+You have sought out and embraced dark power to protect that which you hold dear. Or perhaps that power fell upon you, and you took it up for the greater good. Either way, you seek more.
+
+You start with the **Let's Make a Deal** move and are **Well Versed** in the Things Below. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Your German:
+
+```
+Diese Menschen sind deine Familie. Um dich herum breitet sich das Chaos aus, aber du willst verdammt sein, wenn du zulässt, dass deiner Familie etwas zustößt. Verdammt, in der Tat.
+
+Du hast nach dunkler Macht gesucht und sie dir zu eigen gemacht, um das zu schützen, was dir lieb und teuer ist. Oder vielleicht ist diese Macht über dich gekommen und du hast sie zum Wohle aller angenommen. So oder so, du strebst nach mehr.
+
+Du beginnst mit dem Spielzug Lass uns einen Handel abschließen und du bist bewandert in den Dingen aus der Tiefe (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:
+```
+
+### `playbooks.json` › `"the-seeker"` › `"backgrounds/antiquarian/description"`
+
+Flagged for review earlier; the English has not changed since.
+
+English:
+
+```
+The past has buried many secrets, and you are determined to dig them up. Years of study across the land have led you here, and you are convinced that this town holds the key to your greatest discoveries. What is it you hope to find? What is it that keeps you here?
+
+Your travels and studies mean that you start with the **Polyglot** move and are **Well Versed** in the Makers and their arts. Go mark them now. You've also acquired 1 major arcanum.
+```
+
+Your German:
+
+```
+Die Vergangenheit birgt viele Geheimnisse, und du bist entschlossen, sie zu lüften. Jahrelange Studien im ganzen Land haben dich hierhergeführt, und du bist überzeugt, dass hier der Schlüssel zu deinen größten Entdeckungen liegt. Was erhoffst du zu finden? Was hält dich hier?
+
+Auf jeden Fall bedeuten deine Reisen und Studien, dass du mit dem Spielzug Polyglott beginnst und du bist bewandert in den Schöpfern und ihren Künsten (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:
+```
+
+### `playbooks.json` › `"the-seeker"` › `"backgrounds/witch-hunter/description"`
+
+Flagged for review earlier; the English has not changed since.
+
+English:
+
+```
+You've dedicated your life to rooting out and destroying horrors and their servants. What set you down this path? What did you sacrifice to walk it? What led you to call Stonetop home?
+
+Regardless, you start with the **Everything Bleeds** move and are **Well Versed** in (pick 1):
+```
+
+Your German:
+
+```
+Du hast dein Leben dem Aufspüren und Vernichten von Schrecken und ihren Dienern gewidmet. Was hat dich auf diesen Weg gebracht? Was musstest du opfern, um ihn zu beschreiten? Was hat dich dazu bewogen, Stonetop zu deiner Heimat zu machen?
+
+Wie dem auch sei, du beginnst mit dem Spielzug Alles blutet und du bist bewandert in (wähle 1) den Feen, den Dingen aus der Tiefe oder der Schwarzen Pforte des Todes und dessen, was dahinter liegt (markiere sie jetzt). Außerdem hast du ein großes Arkanum erworben:
+```
 
 ## moves.json
 
-### `moves.json` › `"deaths-door"` › `"name"`
+### `moves.json` › `"persuade-vs-npcs"` › `"description"`
 
 Flagged for review earlier; the English has not changed since.
 
 English:
 
 ```
-Death's Door
+When you **_press or entice an NPC_**, say what you want them to do (or not do). If they **_have reason to resist_**, roll +CHA: **on a 10+**, they either do as you want or reveal the easiest way to convince them;**on a 7-9**, they reveal something you can do to convince them, though it’ll likely be costly, tricky, or distasteful.
 ```
 
 Your German:
 
 ```
-An der Schwelle des Todes
+Wenn du **_einen NSC unter Druck setzt oder ihn zu etwas bewegen möchtest_**, sage, was er deiner Meinung nach tun (oder nicht tun) soll. Wenn er **_einen Grund hat, sich zu widersetzen_**, würfle +CH. **Bei einer 10+** tut er, was du willst, oder verrät dir den einfachsten Weg, ihn zu überzeugen. **Bei 7–9** verrät er dir etwas, das du tun kannst, um ihn zu überzeugen – allerdings wird es wahrscheinlich kostspielig, schwierig oder unangenehm sein.
 ```
 
-### `moves.json` › `"deaths-door"` › `"description"`
+### `moves.json` › `"well-versed"` › `"description"`
 
 Flagged for review earlier; the English has not changed since.
 
 English:
 
 ```
-When **_you are dying_**, you glimpse the Last Door and the Lady of Crows (describe them). Then, roll +nothing: **on a 10+**, you wrest yourself back to the realm of the living—return to 1 HP but say how your brush with death has marked you; **on a 7-9**, the Lady waves you off—you're no longer dying but you're out of the action; **on a 6-**, your time has come—choose 1:
-
-- Make one last move as if you rolled a 12+, then step through the Last Door
-- Refuse to go; gain the @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Revenant} or @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Ghost} insert
-- Call on one of the Things Below by name and beseech it to intercede; gain the @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Thrall} insert
+Mark 1 topic, in addition to the one noted in your Background. Each additional time you take this move, mark 2 more topics.
 ```
 
 Your German:
 
 ```
-Wenn du **_im Sterben liegst_**, erblickst du die Letzte Pforte und die Herrin der Krähen (beschreibe sie).  Würfle anschließend +nichts. **Bei einer 10+** kämpfst du dich zurück ins Reich der Lebenden – deine TP steigen wieder auf 1, aber beschreibe, wie dich diese Begegnung mit dem Tod geprägt hat. **Bei 7-9** weist dich die Herrin ab – du bist zwar nicht mehr am Sterben, aber vorläufig aus dem Spiel. **Bei einer 6-** ist deine Zeit gekommen – wähle 1:
+Markiere ein Themengebiet, zusätzlich zu dem, das in deinem Hintergrund vermerkt ist. Jedes weitere Mal, wenn du diesen Spielzug wählst, markierst du zwei zusätzliche Themengebiete.
 
-- Führe noch einen letzten Spielzug aus, als hättest du eine 12+ gewürfelt, und schreite anschließend durch die Letzte Pforte.
-- Weigere dich zu gehen; erhalte die @UUID[Compendium.stonetop.inserts.Item.7Dfeu35drOu1VYyA]{Widergänger-Ergänzung} oder @UUID[Compendium.stonetop.inserts.Item.tVh4S7MbvLoaywlL]{Geist-Ergänzung}.
-- Rufe eines der Dinge aus der Tiefe beim Namen und flehe es an, einzugreifen; erhalte die @UUID[Compendium.stonetop.inserts.Item.19UwDQOGthndDunk]{Knecht-Ergänzung}.
-```
-
-### `moves.json` › `"strengthen-your-bond"` › `"description"`
-
-Flagged for review earlier; the English has not changed since.
-
-English:
-
-```
-When you **_pay your follower's cost_**, and you haven't done so recently, they hold +1 Loyalty (max 3).
-
-Spend your follower's Loyalty 1-for-1 to have them:
-
-- Overcome their fear to do as you say
-- Resist acting on their instinct/tags/traits
-- Do something they don't want to do (so long as it's not abhorrent or suicidal)
-
-When a follower is without orders or they act on their own initiative, the GM decides what they do and how it goes.
-```
-
-Your German:
-
-```
-Wenn du **_die Kosten deines Gefolgsmanns bezahlst und dies nicht erst kürzlich getan hast_**, erhält er +1 Loyalität (maximal 3).
-
-Gib Loyalität deines Gefolgsmanns im Verhältnis 1:1 aus, damit er:
-
-- seine Angst überwindet und das tut, was du ihm befohlen hast
-- sich dagegen wehrt, nach seinem Instinkt, seinen Eigenschaften oder seinen Merkmalen zu handeln;
-- etwas tut, was er nicht tun möchte (solange es weder abscheulich noch selbstmörderisch ist).
-```
-
-### `moves.json` › `"tethered"` › `"description"`
-
-Flagged for review earlier; the English has not changed since.
-
-English:
-
-```
-When you **_are reduced to 0 HP,_** mark a consequence and your essence disperses until the next sunset. You reform near your tether with half your max HP. If your tether has been destroyed, mark the Final Consequence.
-```
-
-Your German:
-
-```
-Wähle etwas, an das du gebunden bist: deine sterblichen Überreste, den Ort, an dem du gestorben bist, einen Gegenstand von persönlicher Bedeutung usw.
-
-Wenn du **_auf 0 TP sinkst_**, markiere eine Konsequenz (siehe Rückseite), und deine Essenz zerstreut sich bis zum nächsten Sonnenuntergang. Du kehrst in der Nähe deiner Fessel mit der Hälfte deiner maximalen TP zurück. Wurde deine Fessel zerstört, markiere die Letzte Konsequenz.
+- Das Schwarze Tor, der Tod und die Untoten
+- Die Zivilisationen der Menschheit
+- Die Feen und ihre seltsamen Bräuche
+- Die Schöpfer und ihre Künste
+- Die Urkräfte
+- Die Dinge unter der Erde
+- Die Natur und ihre Geister
+Wenn du **_bei einem deiner Themengebiete Wissen kundtust_**, kannst du dem SL eine beliebige Folgefrage stellen, selbst bei einer 6-.
 ```
 
 ## ui.json
 
-### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.lock"`
+### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.unlock"`
 
 **This string is no longer in the game text, and nothing here needs these words.**
 Delete the entry named in the heading. Say so if you think the text should still exist.
@@ -119,73 +138,7 @@ Delete the entry named in the heading. Say so if you think the text should still
 Your German:
 
 ```
-Sperren
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.lockHint"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Fassen deine Auswahl in einer schreibgeschützten Übersicht zusammen.
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.sheet.lock.unlockHint"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Zurück zur Bearbeitung deiner Auswahl.
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.inventory.addItemWeight"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Gewicht
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.inventory.addItemConfirm"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Hinzufügen
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.character.moves.lockHint"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Show only the moves this character has taken.
-```
-
-### `ui.json` › `"_ui"` › `"stonetop.character.moves.unlockHint"`
-
-**This string is no longer in the game text, and nothing here needs these words.**
-Delete the entry named in the heading. Say so if you think the text should still exist.
-
-Your German:
-
-```
-Show every move again, to take new ones.
+Bearbeiten
 ```
 
 ## languages/de.json
@@ -199,146 +152,140 @@ The key is the full dotted path; create the nesting it names. Leave a key out ra
 copying the English in — an English placeholder reads as finished work, and the fallback
 already shows English.
 
-### `stonetop.sheet.tabs`
+### `stonetop.steading.folk`
 
-- `"stonetop.sheet.tabs.more"` — "More"
-- `"stonetop.sheet.tabs.moreLabel"` — "More tabs"
+- `"stonetop.steading.folk.listsShow"` — "Show Names"
+- `"stonetop.steading.folk.listsHide"` — "Hide Names"
 
-### `stonetop.sheet`
+### `stonetop.improvement`
 
-- `"stonetop.sheet.bandShow"` — "Show the stats band"
-- `"stonetop.sheet.bandHide"` — "Hide the stats band"
+- `"stonetop.improvement.catalog"` — ""
+- `"stonetop.improvement.image"` — "Change image"
+- `"stonetop.improvement.onRoll"` — "on a roll of"
+- `"stonetop.improvement.useGenerated"` — "use the generated words"
 
-### `stonetop.sheet.playbook`
+### `stonetop.improvement.add`
 
-- `"stonetop.sheet.playbook.noNames"` — "No names of its own — borrow one from another list."
+- `"stonetop.improvement.add.requirement"` — "add a requirement"
+- `"stonetop.improvement.add.heading"` — "add a heading"
+- `"stonetop.improvement.add.line"` — "add a line of text"
+- `"stonetop.improvement.add.result"` — "add a result"
 
-### `stonetop.sheet.section`
+### `stonetop.improvement.row`
 
-- `"stonetop.sheet.section.change"` — "Change"
-- `"stonetop.sheet.section.choose"` — "Choose"
-- `"stonetop.sheet.section.open"` — "Open"
-- `"stonetop.sheet.section.done"` — "Done"
-- `"stonetop.sheet.section.changeNamed"` — "Change {name}"
-- `"stonetop.sheet.section.chooseNamed"` — "Choose {name}"
-- `"stonetop.sheet.section.openNamed"` — "Open {name}"
-- `"stonetop.sheet.section.doneNamed"` — "Done with {name}"
+- `"stonetop.improvement.row.moveUp"` — "Move up"
+- `"stonetop.improvement.row.moveDown"` — "Move down"
+- `"stonetop.improvement.row.remove"` — "Remove"
+- `"stonetop.improvement.row.fewerBoxes"` — "One box fewer"
+- `"stonetop.improvement.row.moreBoxes"` — "One box more"
 
-### `stonetop.rollMode`
+### `stonetop.improvement.rule`
 
-- `"stonetop.rollMode.rule"` — "{name}: the rule"
+- `"stonetop.improvement.rule.lead"` — "This section needs"
+- `"stonetop.improvement.rule.all"` — "all of these"
+- `"stonetop.improvement.rule.some"` — "some of these"
+- `"stonetop.improvement.rule.none"` — "none of these"
+- `"stonetop.improvement.rule.or"` — "these, instead of the section above"
+- `"stonetop.improvement.rule.atLeast"` — "at least"
 
-### `stonetop.rollMode.short`
+### `stonetop.improvement.when`
 
-- `"stonetop.rollMode.short.adv"` — "Adv"
-- `"stonetop.rollMode.short.dis"` — "Disadv"
+- `"stonetop.improvement.when.lead"` — "It happens"
+- `"stonetop.improvement.when.turn"` — "each season"
+- `"stonetop.improvement.when.moment"` — "at a moment in the season"
+- `"stonetop.improvement.when.standing"` — "for as long as it stands"
+- `"stonetop.improvement.when.words"` — "In words"
+- `"stonetop.improvement.when.momentName"` — "The moment's name"
 
-### `stonetop.steading.seasons`
+### `stonetop.improvement.outcome`
 
-- `"stonetop.steading.seasons.sectionTitle"` — "Season"
-- `"stonetop.steading.seasons.year"` — "Year"
-- `"stonetop.steading.seasons.setTitle"` — "Change the season"
-- `"stonetop.steading.seasons.setConfirm"` — "Change the season to {season}? What this season has recorded is cleared, as it is when the season turns."
+- `"stonetop.improvement.outcome.any"` — "any result"
 
-### `stonetop.inventory.adder`
+### `stonetop.improvement.does`
 
-- `"stonetop.inventory.adder.title"` — "Add an item"
-- `"stonetop.inventory.adder.cancel"` — "Cancel"
-- `"stonetop.inventory.adder.name"` — "Name"
-- `"stonetop.inventory.adder.weight"` — "Weight"
-- `"stonetop.inventory.adder.uses"` — "Uses"
-- `"stonetop.inventory.adder.word"` — "Word"
-- `"stonetop.inventory.adder.tags"` — "Tags"
-- `"stonetop.inventory.adder.note"` — "Note"
-- `"stonetop.inventory.adder.add"` — "Add"
-- `"stonetop.inventory.adder.less"` — "Less {field}"
-- `"stonetop.inventory.adder.more"` — "More {field}"
+- `"stonetop.improvement.does.lead"` — "The sheet"
+- `"stonetop.improvement.does.nothing"` — "no automation"
+- `"stonetop.improvement.does.change"` — "changes a rating"
+- `"stonetop.improvement.does.list"` — "adds to a list"
+- `"stonetop.improvement.does.set"` — "sets a rating"
+- `"stonetop.improvement.does.advantage"` — "gives advantage on a move"
+- `"stonetop.improvement.does.move"` — "grants a move"
+- `"stonetop.improvement.does.adjustment"` — "bends a step of the season"
+- `"stonetop.improvement.does.rating"` — "Rating"
+- `"stonetop.improvement.does.amount"` — "By how much"
+- `"stonetop.improvement.does.whichList"` — "Which list"
+- `"stonetop.improvement.does.entry"` — "What it writes"
+- `"stonetop.improvement.does.value"` — "To what"
 
-### `stonetop.character.debilities.name`
+### `stonetop.improvement.gloss`
 
-- `"stonetop.character.debilities.name.weakened"` — "weakened"
-- `"stonetop.character.debilities.name.dazed"` — "dazed"
-- `"stonetop.character.debilities.name.miserable"` — "miserable"
+- `"stonetop.improvement.gloss.nothing"` — "the table does this; the sheet only says it"
+- `"stonetop.improvement.gloss.change"` — "the sheet adds {amount} {rating}"
+- `"stonetop.improvement.gloss.list"` — "the sheet writes “{entry}” on {list}"
+- `"stonetop.improvement.gloss.set"` — "the sheet sets {rating} to {value}"
+- `"stonetop.improvement.gloss.advantage"` — "a reminder on the move it gives advantage to"
+- `"stonetop.improvement.gloss.move"` — "the steading gains this move to roll"
+- `"stonetop.improvement.gloss.adjustment"` — "the sheet bends that step when it runs"
 
-### `stonetop.character.attributes`
+### `stonetop.improvement.gloss.rule`
 
-- `"stonetop.character.attributes.hp"` — "HP"
+- `"stonetop.improvement.gloss.rule.all"` — "every requirement below"
+- `"stonetop.improvement.gloss.rule.some"` — "at least {count} of the requirements below"
+- `"stonetop.improvement.gloss.rule.none"` — ""
+- `"stonetop.improvement.gloss.rule.or"` — "or, instead, the section above"
 
-### `stonetop.character.attributes.note`
+### `stonetop.improvement.words`
 
-- `"stonetop.character.attributes.note.fromPlaybook"` — "playbook"
-- `"stonetop.character.attributes.note.byHand"` — "by hand"
-- `"stonetop.character.attributes.note.armorNone"` — "none worn"
-- `"stonetop.character.attributes.note.damageUnset"` — "none set"
-- `"stonetop.character.attributes.note.readyToLevel"` — "ready to level"
-- `"stonetop.character.attributes.note.readyWithSpare"` — "ready to level · {count} spare"
+- `"stonetop.improvement.words.label"` — "Words"
+- `"stonetop.improvement.words.generated"` — "Written from the choices. Change them and they’re yours."
+- `"stonetop.improvement.words.yours"` — "Your words."
 
-### `stonetop.character.levelUp`
+### `stonetop.improvement.wording.heading.first`
 
-- `"stonetop.character.levelUp.onlyAtHome"` — "Only at home, in a quiet stretch of time"
-- `"stonetop.character.levelUp.orSpend"` — "Or spend it now"
-- `"stonetop.character.levelUp.chooseMove"` — "Choose a new move"
+- `"stonetop.improvement.wording.heading.first.all"` — "**Requires** all of the following:"
+- `"stonetop.improvement.wording.heading.first.some"` — "**Requires** {count} of the following:"
+- `"stonetop.improvement.wording.heading.first.or"` — "**Requires** either this:"
 
-### `stonetop.character.gear`
+### `stonetop.improvement.wording.heading.later`
 
-- `"stonetop.character.gear.stillToPick"` — "{count} still to pick"
-- `"stonetop.character.gear.fromPlaybook"` — "Comes with your playbook"
+- `"stonetop.improvement.wording.heading.later.all"` — "And then:"
+- `"stonetop.improvement.wording.heading.later.some"` — "And at least {count} of these:"
+- `"stonetop.improvement.wording.heading.later.or"` — "Or all of these:"
 
-### `stonetop.character.moves.rollLabel`
+### `stonetop.improvement.wording.result`
 
-- `"stonetop.character.moves.rollLabel.ask"` — "Any"
-- `"stonetop.character.moves.rollLabel.favor"` — "Favor"
-- `"stonetop.character.moves.rollLabel.omens"` — "Omens"
+- `"stonetop.improvement.wording.result.increase"` — "increase {rating} by {amount}"
+- `"stonetop.improvement.wording.result.decrease"` — "decrease {rating} by {amount}"
+- `"stonetop.improvement.wording.result.list"` — "add \"{entry}\" to the {list} list"
+- `"stonetop.improvement.wording.result.set"` — "change {rating} to {value}"
 
-### `stonetop.character.moves.phase`
+### `stonetop.improvement.example`
 
-- `"stonetop.character.moves.phase.setting-out"` — "Setting out"
-- `"stonetop.character.moves.phase.on-the-road"` — "On the road"
-- `"stonetop.character.moves.phase.getting-home"` — "Getting home"
+- `"stonetop.improvement.example.name"` — "Example Improvement"
+- `"stonetop.improvement.example.line"` — "An improvement would make all our lives better."
+- `"stonetop.improvement.example.heading"` — "Requires all of the following:"
+- `"stonetop.improvement.example.requirementOne"` — "Pen and paper"
+- `"stonetop.improvement.example.requirementTwo"` — "Creativity and community to write it!"
+- `"stonetop.improvement.example.completion"` — "increase Fortunes by 1"
+- `"stonetop.improvement.example.henceforth"` — "you are extra happy"
 
-### `stonetop.character.moves`
+### `stonetop.improvement.placeholder`
 
-- `"stonetop.character.moves.showGroup"` — "Show the {name}"
-- `"stonetop.character.moves.hideGroup"` — "Hide the {name}"
-- `"stonetop.character.moves.showText"` — "Show the text of {name}"
-- `"stonetop.character.moves.hideText"` — "Hide the text of {name}"
-- `"stonetop.character.moves.previewRoll"` — "2d6 {mod}"
-- `"stonetop.character.moves.insertMoves"` — "{name} moves"
-- `"stonetop.character.moves.taken"` — "{name}: taken"
-- `"stonetop.character.moves.timesTaken"` — ", taken {count} times"
-- `"stonetop.character.moves.upTo"` — "Up to {count} times"
-- `"stonetop.character.moves.takeAgain"` — "Take again"
-- `"stonetop.character.moves.takeAgainNamed"` — "Take {name} again"
-- `"stonetop.character.moves.showPanel"` — "Show {name}"
-- `"stonetop.character.moves.hidePanel"` — "Hide {name}"
+- `"stonetop.improvement.placeholder.requirement"` — "what it takes"
+- `"stonetop.improvement.placeholder.line"` — "a line of text"
+- `"stonetop.improvement.placeholder.heading"` — "the heading"
+- `"stonetop.improvement.placeholder.words"` — "what it does"
+- `"stonetop.improvement.placeholder.phrase"` — "when it happens"
+- `"stonetop.improvement.placeholder.entry"` — "what it writes on the list"
+- `"stonetop.improvement.placeholder.momentName"` — "e.g. the spring festival"
 
-### `stonetop.character.instinct`
+### `stonetop.improvement.adder`
 
-- `"stonetop.character.instinct.changeOn"` — "{instinct} — change it on {source}"
-- `"stonetop.character.instinct.setAside"` — "Set aside while the instinct from {source} is in force."
+- `"stonetop.improvement.adder.add"` — "Add"
 
-### `stonetop.character.ailments`
+### `stonetop.arcana`
 
-- `"stonetop.character.ailments.title"` — "Ailments"
-- `"stonetop.character.ailments.empty"` — "nothing ails you"
-- `"stonetop.character.ailments.more"` — "+{count} more"
-- `"stonetop.character.ailments.moreLabel"` — "Show {count} more ailments"
-- `"stonetop.character.ailments.edit"` — "Edit ailments"
-- `"stonetop.character.ailments.done"` — "Done"
-- `"stonetop.character.ailments.placeholder"` — "what happened"
-- `"stonetop.character.ailments.woundName"` — "Wound"
-- `"stonetop.character.ailments.nextState"` — "{state}: change the state"
-- `"stonetop.character.ailments.remove"` — "Remove {name}"
-- `"stonetop.character.ailments.addWound"` — "+ add a wound"
-- `"stonetop.character.ailments.note"` — "Debilities are marked on the brackets, not here."
-
-### `stonetop.character.wounds.state`
-
-- `"stonetop.character.wounds.state.active"` — "active"
-- `"stonetop.character.wounds.state.stabilized"` — "stabilized"
-- `"stonetop.character.wounds.state.permanent"` — "permanent"
-
-### `stonetop.a11y`
-
-- `"stonetop.a11y.rollStatNamed"` — "Roll {stat}"
-- `"stonetop.a11y.foldedLedger"` — "Stats and conditions"
+- `"stonetop.arcana.followerJoinsHint"` — ""
+- `"stonetop.arcana.followerJoined"` — ""
+- `"stonetop.arcana.majorTitle"` — "Major Arcana"
+- `"stonetop.arcana.minorTitle"` — "Minor Arcana"

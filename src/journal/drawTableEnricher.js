@@ -9,7 +9,14 @@
 // @DrawTableInline[Compendium…RollTable.<id>]{Formula} — roll button + the table's rows shown inline (arcana)
 const PATTERN = /@DrawTable\[([^\]]+)\]\{([^}]+)\}/g;
 const INLINE_PATTERN = /@DrawTableInline\[([^\]]+)\]\{([^}]+)\}/g;
+const INLINE_ALONE = /^\s*@DrawTableInline\[[^\]]+\]\{[^}]+\}\s*$/;
 const LINK_CLASS = "stonetop-draw-table";
+
+/** True when a block of text is one inline table and nothing else — it enriches to a block-level
+ *  <figure>, so the text around it needs no line break of its own. */
+export function isInlineTableToken(text) {
+	return INLINE_ALONE.test(text ?? "");
+}
 
 /** Build the roll button for one match: a FoundryVTT dice icon + the formula (e.g. 🎲 1d12). */
 export function drawTableElement(match) {

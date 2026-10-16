@@ -12,14 +12,17 @@
  * a name being typed is saved on `change`, which fires as its field loses focus, and a pointerdown
  * would re-render the editor away before that.
  */
+import { revealInScroller } from "../../utils/revealInScroller.js";
+
 export class AilmentEditor {
 	static EDITOR = ".stonetop-ailment-editor";
 	static OPENER = '[data-action="openAilments"]';
 	static NAME   = ".stonetop-ailment-edit-name";
 	static ADD    = ".stonetop-ailment-add";
 
-	#open  = false;
-	#focus = null;   // a wound id, NEWEST, FIRST, or null once applied
+	#open   = false;
+	#focus  = null;   // a wound id, NEWEST, FIRST, or null once applied
+	#reveal = false;
 
 	static #NEWEST = Symbol("newest");
 	static #FIRST  = Symbol("first");
@@ -30,8 +33,18 @@ export class AilmentEditor {
 
 	/** Open, with the focus to land on `woundId`'s name, or on the first control. */
 	open(woundId = null) {
-		this.#open  = true;
-		this.#focus = woundId ?? AilmentEditor.#FIRST;
+		this.#open   = true;
+		this.#focus  = woundId ?? AilmentEditor.#FIRST;
+		this.#reveal = true;
+	}
+
+	/** Bring the editor into view the first time it draws after opening; never on later renders. */
+	applyReveal(root, reveal = revealInScroller) {
+		if (!this.#open || !this.#reveal) return;
+		const editor = root.querySelector(AilmentEditor.EDITOR);
+		if (!editor) return;
+		this.#reveal = false;
+		reveal(editor);
 	}
 
 	close() {

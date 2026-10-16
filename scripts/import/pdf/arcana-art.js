@@ -4,13 +4,15 @@
 // `extractPageArt` pipeline pulls + normalizes them to black-on-transparent; here we only associate
 // each extracted illustration with its arcanum (by the name heading that precedes it) and persist it
 // under the arcanum's slug. No content-addressing: each major arcanum has a unique illustration, so a
-// stable slug name is simpler than a hash and needs no pack-ref changes.
-import { mkdtempSync, rmSync, mkdirSync, readdirSync, readFileSync, copyFileSync } from "fs";
+// stable slug name is simpler than a hash and needs no pack-ref changes. Each is stored trimmed of the
+// canvas the book embeds it on (see storeTrimmed).
+import { mkdtempSync, rmSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import os from "os";
 import path from "path";
 import { execFileSync } from "child_process";
 import { loadOutline, arcanaAppendixRanges } from "./outline.js";
 import { loadArticlePages } from "./load.js";
+import { Raster } from "../../../src/art/Raster.js";
 
 export const norm = (s) => (s ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "");
 
@@ -61,6 +63,15 @@ export function pickPageIllustration(images, { minW = 60 } = {}) {
 }
 
 /**
+ * Write an extracted illustration to the store trimmed to its painted pixels. The book embeds each
+ * drawing on a canvas far larger than it, which the card would otherwise show as empty margin. The
+ * in-Foundry installer writes the same trimmed pixels (Raster.trimmed), so the manifest's key fits both.
+ */
+export function storeTrimmed(from, to) {
+	writeFileSync(to, Raster.fromPng(readFileSync(from)).trimmed().toPng());
+}
+
+/**
  * Extract the major-arcana front illustrations from `pdf` (Book II) into `outDir/<slug>.png` — the
  * path the arcana pack already references. Works page-by-page off the raw `pageImages` (which retain
  * every extracted file, including the box-mis-flagged sparse illustrations). Returns
@@ -79,7 +90,7 @@ export function extractArcanaArt(pdf, outDir, { roster = majorArcanaRoster() } =
 				const slug = arcanumOnPage(page, roster);
 				if (!slug || found.has(slug)) return;
 				const img = pickPageIllustration(pageImages[i]);
-				if (img) { copyFileSync(img.file, path.join(outDir, `${slug}.png`)); found.set(slug, img); }
+				if (img) { storeTrimmed(img.file, path.join(outDir, `${slug}.png`)); found.set(slug, img); }
 			});
 		} finally { rmSync(tmp, { recursive: true, force: true }); }
 	}

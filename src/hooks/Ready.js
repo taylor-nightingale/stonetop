@@ -3,7 +3,7 @@ import { migrateItemProvenance } from "../migration/migrateItemProvenance.js";
 import { PackProvenance } from "../actors/PackProvenance.js";
 import { FoundryRepositoryFactory } from "../actors/character/repositories/FoundryRepositoryFactory.js";
 import { getSetting, setSetting } from "../settings.js";
-import { isArtInstalled } from "../art/foundryArt.js";
+import { isArtInstalled, createInstalledArtTrim } from "../art/foundryArt.js";
 import { PackVersionCheck } from "../migration/PackVersionCheck.js";
 import { ClientVersionCheck } from "../migration/ClientVersionCheck.js";
 import { SYSTEM_VERSION } from "../version.js";
@@ -18,6 +18,24 @@ async function nudgeMissingArt() {
 	if (await isArtInstalled()) return;
 	// Permanent: stays until the GM closes it (a timed toast vanishes before it's read).
 	ui.notifications.info(game.i18n.localize("stonetop.artInstaller.nudge"), { permanent: true });
+}
+
+/**
+ * Once per world, silently: art installed before the store kept the major arcana trimmed still has
+ * the books' padded canvas around each drawing. A world with no art yet is done too — the installer
+ * writes them trimmed. A failure is retried on the next load.
+ */
+export async function trimInstalledArt() {
+	if (getSetting("artTrimmed")) return;
+	try {
+		if (await isArtInstalled()) {
+			const trimmed = await (await createInstalledArtTrim()).run();
+			if (trimmed.length) info(`Trimmed ${trimmed.length} installed illustration(s).`);
+		}
+		await setSetting("artTrimmed", true);
+	} catch (e) {
+		warn(`Trimming the installed artwork failed; it will be tried again next load. ${e.message}`);
+	}
 }
 
 /**
@@ -77,6 +95,8 @@ export async function onReady() {
 
 	await ensureBookOrderSort();
 	await nudgeMissingArt();
+	// Not awaited: it reads and hashes every installed image once, and nothing below depends on it.
+	trimInstalledArt();
 
 	const stored  = getSetting("systemVersion");
 	const current = game.system?.version ?? "";

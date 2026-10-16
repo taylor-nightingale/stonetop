@@ -1,4 +1,4 @@
-import { Moments } from "./Moments.js";
+import { Moment } from "./Moments.js";
 import { MoveResults } from "../MoveResults.js";
 import { EFFECT_STEPS } from "./ImprovementEffect.js";
 import { SteadingDefaults } from "./SteadingDefaults.js";
@@ -202,7 +202,7 @@ export class MomentStep {
 	get kind()      { return "moment"; }
 	/** Autumn's "when the harvest is complete, roll 1d4" — the season's own dice at the moment. */
 	get rollsDice() { return Boolean(this.die); }
-	get labelKey()  { return Moments.byKey(this.moment)?.labelKey ?? `${KEYS}.moment`; }
+	get labelKey()  { return this.moment ? Moment.labelKeyFor(this.moment) : `${KEYS}.moment`; }
 	/** What the season's own half of the moment does, beside the improvements that fire at it. */
 	get noteKey()  { return this.die ? `${KEYS}.momentGenerate` : null; }
 }

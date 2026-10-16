@@ -51,12 +51,12 @@ async function render(sheet) {
 	return renderSheetPart(sheet, renderTemplate(STEADING_TEMPLATE, await sheet._prepareContext({})));
 }
 
-const rowFor = (root, slug) => root.querySelector(`.stonetop-move-disclosure[data-move-slug="${slug}"]`);
+const rowFor = (root, slug) => root.querySelector(`li.stonetop-mrow[data-slug="${slug}"] .stonetop-mrow-caret`);
 const bodyFor = (root, slug) =>
 	root.querySelector(`#${rowFor(root, slug).getAttribute("aria-controls")}`);
 
 const openRow = (sheet, root, slug) =>
-	sheet.constructor.DEFAULT_OPTIONS.actions.toggleMoveBody
+	sheet.constructor.DEFAULT_OPTIONS.actions[rowFor(root, slug).dataset.action]
 		.call(sheet, { type: "click" }, rowFor(root, slug));
 
 describe("a rail move stays open across a re-render (integration)", () => {

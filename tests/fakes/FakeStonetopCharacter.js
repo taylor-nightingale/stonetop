@@ -1,6 +1,6 @@
 export class FakeStonetopCharacter {
-	rollMode = "normal";
 	type = "character";
+	directoryNote = null;
 	_bonuses = {};
 
 	withBonus(stat, value) {
@@ -28,14 +28,21 @@ export class FakeStonetopCharacter {
 		this.outcomes.push({ moveSlug, outcome });
 	}
 
-	// The roll mode is FORWARD: every stat roll spends it (ActorRolling#execute). `cleared` counts
-	// the times it was spent, so a test can assert that a roll gave it back rather than leaving the
-	// picker lit for the next one.
-	cleared = 0;
+	// What the roll dialog shows beside the modes (ActorRolling#execute). Tests set these directly.
+	notesBySlug = new Map();
+	rule = null;
+	opened = [];
 
-	async clearRollMode() {
-		this.cleared++;
-		this.rollMode = "normal";
+	async rollNotesFor(moveSlug) {
+		return this.notesBySlug.get(moveSlug) ?? null;
+	}
+
+	async rollModeRule() {
+		return this.rule;
+	}
+
+	async openMoveSheet(moveSlug) {
+		this.opened.push(moveSlug);
 	}
 
 	// XP marking (ActorRolling's 6- rule). `xpMarks` counts landed marks.

@@ -85,6 +85,32 @@ describe("ChoiceGroup — entry row with a follower reference", () => {
 		expect(group.list[0].followers.inlineDisplay).toBe(true);
 	});
 
+	// Whether marking this row is what puts the follower on the Followers tab — the card says so beside
+	// the mark. A card-bound follower (the Ring) never goes there, and a row with no mark cannot.
+	it("markJoinsTab is true when the row's mark puts the follower on the tab", () => {
+		const group = buildChoiceGroup(
+			{ slug: "ns", list: [{ type: "entry", slug: "void", content: {}, track: { max: 1 }, grants: [{ type: "follower", slug: "void", locations: ["inline", "tab"] }] }] },
+			new ChoiceValues(),
+		);
+		expect(group.list[0].followers.markJoinsTab).toBe(true);
+	});
+
+	it("markJoinsTab is false for a follower that stays on its card", () => {
+		const group = buildChoiceGroup(
+			{ slug: "ns", list: [{ type: "entry", slug: "ring", content: {}, track: { max: 1 }, grants: [{ type: "follower", slug: "the-ring", locations: ["inline"] }] }] },
+			new ChoiceValues(),
+		);
+		expect(group.list[0].followers.markJoinsTab).toBe(false);
+	});
+
+	it("markJoinsTab is false on a row with no mark", () => {
+		const group = buildChoiceGroup(
+			{ slug: "ns", list: [{ type: "entry", slug: "void", content: {}, grants: [{ type: "follower", slug: "void", locations: ["inline", "tab"] }] }] },
+			new ChoiceValues(),
+		);
+		expect(group.list[0].followers.markJoinsTab).toBe(false);
+	});
+
 	it("emits an EntryRowMoves from an inline move grant (resolved against moves.bySlug at render)", () => {
 		const group = buildChoiceGroup(
 			{ slug: "ns", list: [{ type: "entry", slug: "darksome-vessel", content: {}, track: { max: 1 },

@@ -262,9 +262,10 @@ export function toNpcDoc(creature, { article, img = "systems/stonetop/assets/con
 }
 
 /** Build an arcanum-follower Item doc (src/data/creature.js schema) from a parsed stat block. Cost is
- *  the key follower field; its "(Loyalty ◯◯◯)" is dropped (loyalty is always max 3). `_id`/`_key`/
+ *  the key follower field; its "(Loyalty ◯◯◯)" is dropped (loyalty is always max 3, starting where the
+ *  granting card says). `_id`/`_key`/
  *  `img`/`folder` come from the existing follower (preserved by build-arcana) when present. */
-export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img = "icons/svg/item-bag.svg", folder = null, flags = {} } = {}) {
+export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img = "icons/svg/item-bag.svg", folder = null, flags = {}, startingLoyalty = 0 } = {}) {
 	// The canonical slug (filename + arcana back-ref) is passed in; it can differ from toSlug(name)
 	// when the book name carries a leading "The" the slug drops (e.g. "The Andalau of the Flute").
 	const followerSlug = slug ?? toSlug(creature.name);
@@ -316,7 +317,8 @@ export function toFollowerDoc(creature, { arcanaSlug = null, slug, id, key, img 
 			cost: creature.costOptions?.length
 				? selection([], false, creature.costOptions)
 				: selection(cost ? [cost] : [], false),
-			loyalty: { value: 0, max: 3 },
+			// Where it starts is printed on the granting card, not the stat block (see startingLoyalty).
+			loyalty: { value: startingLoyalty, max: 3 },
 			...(isObject ? { kind: "object" } : {}),
 			choices: [{ slug: "choices", list: moveChoices }],
 			moves: movesMd(fixedMoves),

@@ -100,6 +100,20 @@ describe("toRollableMarkup — authored line breaks", () => {
 		expect(toRollableMarkup("See @UUID[Actor.abc]{Garm}\n\nand roll [[/r 2d6]]"))
 			.toBe("See @UUID[Actor.abc]{Garm}<br /><br />and roll [[/r 2d6]]");
 	});
+
+	// The token becomes a <figure> once enriched, which already ends the line on both sides — a blank
+	// line either side of it left an empty line above and below every arcanum's dice table.
+	it("adds no blank line around a dice table on a line of its own", () => {
+		const table = "@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.abc]{1d6}";
+		expect(toRollableMarkup(`Today's food is...\n\n${table}\n\nWhen you draw more.`, { autoRoll: false }))
+			.toBe(`Today's food is...${table}When you draw more.`);
+	});
+
+	it("keeps the blank line around a dice-table button that sits inside prose", () => {
+		const button = "@DrawTable[Compendium.stonetop.wonder-tables.RollTable.abc]{1d6}";
+		expect(toRollableMarkup(`Roll.\n\n${button}\n\nThen.`, { autoRoll: false }))
+			.toBe(`Roll.<br /><br />${button}<br /><br />Then.`);
+	});
 });
 
 describe("toRollableBlocks", () => {

@@ -75,7 +75,7 @@ for (const { key } of TIERS) {
 	PROBES[`${key}Outcome`] = { selector: within(".stonetop-roll-outcome"), properties: ["color", "font-size", "font-weight"] };
 	PROBES[`${key}Total`]   = { selector: within(".stonetop-roll-total"),   properties: ["color", "border-top-color", "border-top-width", "background-color", "font-size"] };
 	PROBES[`${key}Result`]  = { selector: within(".stonetop-move-result"),  properties: ["color", "border-left-color"] };
-	PROBES[`${key}Dice`]    = { selector: within(".stonetop-roll-dice"),    properties: ["font-size"] };
+	PROBES[`${key}Dice`]    = { selector: within(".stonetop-roll-dice"),    properties: ["font-size", "display"] };
 	PROBES[`${key}Desc`]    = { selector: within(".stonetop-move-description"), properties: ["color", "font-size"] };
 	PROBES[`${key}Die`]     = { selector: within(".dice-rolls .roll"),      properties: ["background-image", "min-width", "color"] };
 }
@@ -136,6 +136,11 @@ describe.skipIf(!canProbe())("move-roll card, rendered", () => {
 					.toBeGreaterThan(px(r.get("partialOutcome").get("font-size")));
 				expect(px(r.get("partialOutcome").get("font-size")))
 					.toBeGreaterThan(px(r.get("partialDice").get("font-size")));
+			});
+
+			// The roll dialog once shared this class name, and its centred two-die grid won here.
+			it("lays the dice out as a row", () => {
+				expect(results().get("partialDice").get("display")).toBe("flex");
 			});
 
 			it("sets the move's full text below the outcome in the hierarchy", () => {
@@ -203,7 +208,7 @@ for (const { id } of KINDS) {
 	KIND_PROBES[`${id}Total`]   = { selector: within(".stonetop-roll-total"), properties: ["color", "background-color", "background-image", "border-top-width", "font-size", "border-top-style"] };
 	KIND_PROBES[`${id}Die`]     = { selector: within(".dice-rolls .roll"),    properties: ["background-image", "min-width", "color", "font-size"] };
 }
-KIND_PROBES.formula = { selector: "#p-season-msg .stonetop-roll-formula", properties: ["color", "font-size"] };
+KIND_PROBES.formula = { selector: "#p-season-msg .stonetop-roll-formula", properties: ["color", "font-size", "font-weight"] };
 KIND_PROBES.title   = { selector: "#p-season-msg .stonetop-roll-title",   properties: ["font-size"] };
 KIND_PROBES.mod     = { selector: "#p-season-msg .stonetop-roll-mod",     properties: ["font-weight"] };
 KIND_PROBES.applied = { selector: "#p-season-msg .stonetop-applied-what", properties: ["color", "font-size"] };
@@ -282,6 +287,11 @@ describe.skipIf(!canProbe())("every kind of roll card, side by side", () => {
 			it("sizes the total above the formula line", () => {
 				expect(px(results().get("seasonTotal").get("font-size")))
 					.toBeGreaterThan(px(results().get("formula").get("font-size")));
+			});
+
+			// A receipt, not a heading — the roll dialog's bold formula once reached it by a shared name.
+			it("states the formula in the receipt's weight", () => {
+				expect(results().get("formula").get("font-weight")).toBe("400");
 			});
 
 			// Core's chat h3 set a seven-word title at display size, across two lines.

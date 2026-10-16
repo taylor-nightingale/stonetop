@@ -17,10 +17,10 @@ import { TAG_DEFINITION_ACTIONS } from "../tagDefinitions.js";
 import { toggleSlidingDisclosure, toggleSwappingDisclosure } from "../../utils/Disclosure.js";
 import { MovePreviews } from "../../utils/MovePreviewPlacement.js";
 import { AilmentEditor } from "./AilmentEditor.js";
-import { BandFootWatch } from "../../utils/BandFootFit.js";
 import { ArrivalRegions } from "./ArrivalRegions.js";
 import { PendingTab } from "../../utils/PendingTab.js";
 import { openSections } from "../../utils/openSections.js";
+import { ArcanaSelection } from "./ArcanaSelection.js";
 
 // The adder's preview row alone, redrawn as its fields change — the same partial the sheet draws it with.
 const OUTFIT_ADDER_PREVIEW = "systems/stonetop/templates/actor/partials/outfit-item-adder-preview.hbs";
@@ -44,8 +44,8 @@ export function createStonetopCharacterSheetClass(Base) {
 		_scrollAnchoring = new ScrollAnchoring();
 		// Whether this reader has the wound editor open; every save re-renders, and it comes back open.
 		_ailmentEditor = new AilmentEditor();
-		// Whether the band's foot fits beside the stats, carried across renders and re-asked on resize.
-		_bandFoot = new BandFootWatch();
+		// Which arcanum this reader has open beside the list (D13).
+		_arcanaSelection = new ArcanaSelection();
 
 		/**
 		 * Whether this reader has folded the top band to its ledger line. Here rather than on the
@@ -99,6 +99,10 @@ export function createStonetopCharacterSheetClass(Base) {
 				toggleSliding: toggleSlidingDisclosure,
 				// A section's door: what it says at rest traded for everything on offer, at once.
 				toggleSection: toggleSwappingDisclosure,
+				// A line in the arcana list: show its card. Every card is already drawn, so nothing renders.
+				selectArcanum(ev, target) {
+					this._arcanaSelection.choose(this.element, target.dataset.slug);
+				},
 				toggleFollowerInventory(ev, target) {
 					const slug = target.dataset.slug;
 					if (this._openFollowerInventories.has(slug)) this._openFollowerInventories.delete(slug);
@@ -223,11 +227,7 @@ export function createStonetopCharacterSheetClass(Base) {
 				onAdd:         () => this.isEditable && this._addOutfitDraft(),
 				renderPreview: view => foundry.applications.handlebars.renderTemplate(OUTFIT_ADDER_PREVIEW, view),
 			});
-			const view = this.element.ownerDocument?.defaultView ?? globalThis;
-			new MovePreviews({
-				width:    () => 20 * parseFloat(view.getComputedStyle(view.document.documentElement).fontSize),
-				viewport: () => ({ width: view.innerWidth, height: view.innerHeight }),
-			}).attach(this.element);
+			MovePreviews.attachTo(this.element);
 		}
 
 		// The band's fold is a class on the part root, and the part root is rebuilt on every render —
@@ -236,7 +236,7 @@ export function createStonetopCharacterSheetClass(Base) {
 		restoreViewState(root) {
 			super.restoreViewState(root);
 			this.topBandState.restore(root);
-			this._bandFoot.restore(root);
+			this._arcanaSelection.restore(root);
 		}
 
 		// The @Blank enricher renders write-in blanks empty, so their stored values are seeded here
@@ -247,7 +247,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			this._scrollAnchoring.applyTo(this.element);
 			this._ailmentEditor.applyFocus(this.element);
 			this._outfitAdder.applyFocus(this.element);
-			this._bandFoot.watch(this.element);
+			this._ailmentEditor.applyReveal(this.element);
+			this._outfitAdder.applyReveal(this.element);
 			this._pendingTab.applyTo(this.element, id => this.changeTab(id, "primary"));
 			const cards = this.element.querySelectorAll(".stonetop-arcanum-card");
 			if (!cards.length) return;
@@ -296,6 +297,8 @@ export function createStonetopCharacterSheetClass(Base) {
 			if (!this.isEditable) return null;
 			if (this.actor.uuid === item.parent?.uuid) return super._onDropItem(event, item);
 			if (item.type === "insert" && item.system?.slug) this._pendingTab.set(`insert-${item.system.slug}`);
+			// The arcanum just dropped is the one its reader wants to read.
+			if (item.type === "arcanum" && item.system?.slug) this._arcanaSelection.select(item.system.slug);
 			await this._stonetopCharacter.applyDroppedItems([item.toObject()]);
 			return null;
 		}

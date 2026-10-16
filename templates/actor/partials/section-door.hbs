@@ -1,13 +1,14 @@
 {{!-- A section's door, hanging from its bar: Change (or Choose, or Open) while it rests, Done while it
       is open. Both words are in the button and the row shows the one that is true; the door swaps
       them and the section's two bodies at once, and eases the panel's height. Handed the bar's
-      params: `title`, `door`, `controls`. --}}
+      params: `title`, `door`, `controls`, and `doorName` where the bar's title is not the section's name
+      (the season's bar says which season it is; its door still changes the season). --}}
 <button type="button" class="stonetop-bar-action stonetop-section-door" data-action="toggleSection" data-disclosure data-view-state
         aria-controls="{{controls}}" aria-expanded="false"
-        data-label-show="{{localize (concat 'stonetop.sheet.section.' door 'Named') name=title}}"
-        data-label-hide="{{localize 'stonetop.sheet.section.doneNamed' name=title}}"
-        aria-label="{{localize (concat 'stonetop.sheet.section.' door 'Named') name=title}}"
-        title="{{localize (concat 'stonetop.sheet.section.' door 'Named') name=title}}">
+        data-label-show="{{localize (concat 'stonetop.sheet.section.' door 'Named') name=(ifThen doorName doorName title)}}"
+        data-label-hide="{{localize 'stonetop.sheet.section.doneNamed' name=(ifThen doorName doorName title)}}"
+        aria-label="{{localize (concat 'stonetop.sheet.section.' door 'Named') name=(ifThen doorName doorName title)}}"
+        title="{{localize (concat 'stonetop.sheet.section.' door 'Named') name=(ifThen doorName doorName title)}}">
 	<span data-disclosure-shut>{{localize (concat "stonetop.sheet.section." door)}}</span>
 	<span data-disclosure-open hidden>{{localize "stonetop.sheet.section.done"}}</span>
 </button>

@@ -1,61 +1,26 @@
 {{!-- ApplicationV2 part: the sheet root IS the <form> (DocumentSheetV2 tag) and carries the
       stonetop/sheet/item/improvement classes from DEFAULT_OPTIONS. HandlebarsApplicationMixin
-      requires each part to render a SINGLE root element — hence this wrapper div. --}}
+      requires each part to render a SINGLE root element — hence this wrapper div.
+
+      The improvement is its board card, and is edited as that card (improvement-editor.hbs). Above
+      it, and visibly apart, what the steading never draws: the image the Items directory shows. A
+      locked improvement is the board's own card, and nothing more. --}}
 <div class="stonetop-improvement-sheet">
 
-{{#unless editMode}}
-{{!-- ---- Rendered view: the improvement exactly as it appears on the steading ---- --}}
-<header class="stonetop-insert-sheet-header">
-	<img class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt="">
-	<span class="stonetop-insert-sheet-name">{{item.name}}</span>
-	{{#if editable}}
-	<button type="button" class="improvement-edit-toggle" data-action="toggleEditMode" data-mode="edit">{{localize "stonetop.improvement.edit"}}</button>
-	{{/if}}
-</header>
+	<header class="stonetop-improvement-sheet-catalog" aria-label="{{localize 'stonetop.improvement.catalog'}}">
+		{{#if editable}}
+		<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{localize 'stonetop.improvement.image'}}"><img data-edit="img" class="stonetop-insert-sheet-icon" src="{{item.img}}" alt=""></button>
+		{{else}}
+		<img class="stonetop-insert-sheet-icon" src="{{item.img}}" alt="">
+		{{/if}}
+	</header>
 
-<div class="stonetop-improvement-preview">
-	{{> "stonetop.improvement-group" preview}}
-	{{!-- What it GIVES YOU, from `system.effects`. The choice group above is only what it COSTS: the
-	      book's payoff sentence used to sit at the end of those rows as a second statement of
-	      everything the effects already say, and both halves were extracted for translation, so it was
-	      stripped. Without this the catalog would show a list of requirements and nothing about what
-	      meeting them is for. Read-only — there is no steading here to write to. --}}
-	{{#unless payoff.isEmpty}}
-		{{#with payoff}}{{> "stonetop.steading-improvement-payoff"}}{{/with}}
-	{{/unless}}
-</div>
-
-{{else}}
-{{!-- ---- Editor ---- --}}
-<header class="stonetop-insert-sheet-header">
-	<button type="button" class="stonetop-image-btn" data-action="editImage" aria-label="{{item.name}}"><img data-edit="img" class="stonetop-insert-sheet-icon" src="{{item.img}}" title="{{item.name}}" alt=""></button>
-	<input class="stonetop-insert-sheet-name" type="text" name="name" value="{{item.name}}"
-	       placeholder="{{localize 'stonetop.improvement.namePlaceholder'}}"
-	       {{#unless editable}}disabled{{/unless}}
-		       aria-label="{{localize 'stonetop.improvement.namePlaceholder'}}">
-	<button type="button" class="improvement-edit-toggle" data-action="toggleEditMode" data-mode="view">{{localize "stonetop.improvement.done"}}</button>
-</header>
-
-<div class="stonetop-insert-sheet-body">
-
-	<section class="stonetop-insert-sheet-section">
-		<div class="stonetop-insert-sheet-section-head">
-			<label class="stonetop-insert-sheet-label">{{localize "stonetop.improvement.sortOrder"}}</label>
-			<input type="number" name="system.sortOrder" value="{{system.sortOrder}}"
-			       placeholder="{{localize 'stonetop.improvement.sortOrderPlaceholder'}}"
-			       {{#unless editable}}disabled{{/unless}}
-			       aria-label="{{localize 'stonetop.improvement.sortOrder'}}">
-		</div>
-	</section>
-
-	<section class="stonetop-insert-sheet-section">
-		<label class="stonetop-insert-sheet-label">{{localize "stonetop.improvement.choices"}}</label>
-		<div class="stonetop-insert-sheet-choices-group">
-			{{> "stonetop.choice-group-editor" cgPath=choicesGroup.cgPath rows=choicesGroup.rows}}
-		</div>
-	</section>
-
-</div>
-{{/unless}}
+	<div class="stonetop-improvement-sheet-card">
+		{{#if editable}}
+			{{> "stonetop.improvement-editor"}}
+		{{else}}
+			{{#with card}}{{> "stonetop.steading-improvement-card"}}{{/with}}
+		{{/if}}
+	</div>
 
 </div>

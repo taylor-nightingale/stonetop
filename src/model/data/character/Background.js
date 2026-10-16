@@ -1,4 +1,5 @@
 import { ChoiceGroupDefs } from "../ChoiceGroupDefs.js";
+import { MoveMark } from "./MoveMark.js";
 
 /**
  * One background out of a playbook's `backgrounds` list.
@@ -9,6 +10,8 @@ import { ChoiceGroupDefs } from "../ChoiceGroupDefs.js";
  *    The background only makes them acquired; no item is created.
  *  - `grantedMoveSlugs` — moves only this background hands out, collected structurally from its
  *    choice group. These become items of their own, filed under `categoryKey`.
+ *
+ * It can also mark options on a move it does not grant — `moveMarks`, the Seeker's Well Versed topic.
  */
 export class Background {
 	/** @returns {Background|null} — null for a slug this playbook doesn't have. */
@@ -41,6 +44,8 @@ export class Background {
 	get label()       { return this._def.label ?? null; }
 	get categoryKey() { return Background.categoryKeyFor(this.slug); }
 	get moveSlugs()   { return this._def.moves ?? []; }
+
+	get moveMarks() { return MoveMark.listFrom(this._def.moveMarks); }
 
 	get grantedMoveSlugs() {
 		return ChoiceGroupDefs.grants(this._def, "move").map(g => g.slug);

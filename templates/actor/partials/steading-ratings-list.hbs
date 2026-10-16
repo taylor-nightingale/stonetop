@@ -1,15 +1,25 @@
 {{!-- An add/edit/remove list of the strings backing a rating: `resources` (Prosperity) or
       `fortifications` (Defenses). Shared by the steading overview and the steadfast sheet.
 
-      No frame: this list sits under the rating it justifies, and a border round it would cut the
-      two apart. The heading rule and the row hairlines are what separate it from its neighbours.
-      Params: title, addLabel, attr (the rating slug the list backs), items (array of strings). --}}
-<div class="steading-overview-field">
-	{{!-- The system's own section heading, so a block on this tab is titled the way every block on
-	      the character sheet is. It had a heading of its own that came out SMALLER than the rows
-	      underneath it, which is not a heading. --}}
-	{{> "stonetop.section-heading" title=title}}
-	<div class="steading-attr-list">
+      A panel under its ink bar, as every list on the character sheet is. Given its `rating`, the
+      rating IS the bar: it names the rating, rolls it, says what is bending it and sets it, so the
+      rating and the evidence that justifies it are one object. The list's own name then lives on
+      in its add control. Without one (the steadfast, which states its ratings together) the bar is
+      the list's name.
+
+      Params: title, addLabel, attr (the rating slug the list backs), items (array of strings),
+      `index` (its bar's place among the bars its surface draws), and optionally `rating`
+      (RatingSnapshot). --}}
+<section class="stonetop-panel steading-overview-field">
+	{{#if rating}}
+	{{> "stonetop.bar" title=rating.title index=index roll=attr
+	    rollLabel=(localize "stonetop.a11y.rollRating" rating=rating.title)
+	    note=rating.note noteClass=(concat "steading-bar-note--" rating.noteKind)
+	    action="stonetop.steading-rating-value" attr=attr attrData=rating}}
+	{{else}}
+	{{> "stonetop.bar" title=title index=index}}
+	{{/if}}
+	<div class="stonetop-panel-body steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row">
 				{{!-- A textarea, not an input: a resource is a phrase ("Tradesfolk (midwife, potter,
@@ -29,4 +39,4 @@
 			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{addLabel}}</span>
 		</button>
 	</div>
-</div>
+</section>

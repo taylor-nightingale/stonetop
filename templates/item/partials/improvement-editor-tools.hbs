@@ -1,0 +1,23 @@
+{{!-- A card row's tools, at its right edge, as the system's icon buttons: the edit icon where the row
+      opens an editor, move up and down, and the trash, which asks first (right-click skips the
+      question) as every delete does.
+
+      Params, all named for this partial so none can be picked up from the row's own context:
+      editAction / editKey (absent for a row edited in place), moveAction / moveKey / canUp / canDown,
+      removeAction / removeKey / removeName (what the question calls it). --}}
+<span class="stonetop-improvement-tools">
+	{{#if editAction}}
+		<button type="button" class="stonetop-icon-btn stonetop-improvement-edit" data-action="{{editAction}}" data-key="{{editKey}}" data-improvement-opener
+		        aria-label="{{localize 'stonetop.a11y.edit'}}" title="{{localize 'stonetop.a11y.edit'}}">
+			<img src="systems/stonetop/assets/ui/controls/edit-icon.png" alt="">
+		</button>
+	{{/if}}
+	<button type="button" class="stonetop-icon-btn stonetop-improvement-move" data-action="{{moveAction}}" data-key="{{moveKey}}" data-step="-1"
+	        aria-label="{{localize 'stonetop.improvement.row.moveUp'}}" title="{{localize 'stonetop.improvement.row.moveUp'}}"{{#unless canUp}} disabled{{/unless}}>↑</button>
+	<button type="button" class="stonetop-icon-btn stonetop-improvement-move" data-action="{{moveAction}}" data-key="{{moveKey}}" data-step="1"
+	        aria-label="{{localize 'stonetop.improvement.row.moveDown'}}" title="{{localize 'stonetop.improvement.row.moveDown'}}"{{#unless canDown}} disabled{{/unless}}>↓</button>
+	<button type="button" class="stonetop-icon-btn" data-action="{{removeAction}}" data-key="{{removeKey}}" data-name="{{removeName}}"
+	        aria-label="{{localize 'stonetop.improvement.row.remove'}}" title="{{localize 'stonetop.improvement.row.remove'}}">
+		<img src="systems/stonetop/assets/ui/controls/delete-icon.png" alt="">
+	</button>
+</span>

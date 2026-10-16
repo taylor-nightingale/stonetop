@@ -147,6 +147,13 @@ export function stripLoyalty(costRaw) {
 /** The single-pick choice row that links an arcanum to one of its followers — the follower IS
  *  the row (empty content, full card shown inline). Mirrors the hand-authored `beautiful-scroll`
  *  back. `hideFromFollowersTab` keeps a card-resident follower (the Ring) off the followers tab. */
+/** The loyalty a card's follower arrives with, as the card prints it ("with 3 Loyalty to start",
+ *  "it holds 1 Loyalty to start"); 0 when the card names none. */
+export function startingLoyalty(text) {
+	const m = (text ?? "").match(/(\d+)\s+Loyalty\s+to\s+start/i);
+	return m ? Number(m[1]) : 0;
+}
+
 export function followerChoiceEntry(followerSlug, { hideFromFollowersTab = false, owned = false } = {}) {
 	// A follower GRANT: shown inline on the card; on the roster tab unless card-bound (the Ring).
 	const locations = ["inline", ...(hideFromFollowersTab ? [] : ["tab"])];

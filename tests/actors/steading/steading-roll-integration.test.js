@@ -7,7 +7,6 @@ import { FakeSteadingBuilder } from "../../fakes/FakeSteadingBuilder.js";
 import { FakeMoveRepository } from "../../fakes/FakeMoveRepository.js";
 import { FakeRoll } from "../../fakes/foundry/FakeRoll.js";
 import { FakeChatMessage } from "../../fakes/foundry/FakeChatMessage.js";
-import { FakeDialog } from "../../fakes/foundry/FakeDialog.js";
 import { steadingRepos } from "../../fakes/FakeSteadingRepos.js";
 
 // End-to-end: a real StonetopSteading resolves the bonus, ActorRolling builds the formula.
@@ -23,10 +22,8 @@ function makeRolling() {
 beforeEach(() => {
 	FakeRoll.reset();
 	FakeChatMessage.reset();
-	FakeDialog.reset();
 	vi.stubGlobal("Roll", FakeRoll);
 	vi.stubGlobal("ChatMessage", FakeChatMessage);
-	vi.stubGlobal("Dialog", FakeDialog);
 	vi.stubGlobal("game", { i18n: { localize: k => k } });
 	foundry.applications.handlebars.renderTemplate = async () => "";
 });

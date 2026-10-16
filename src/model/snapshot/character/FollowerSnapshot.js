@@ -29,6 +29,7 @@ export class FollowerSnapshot {
 		// quality/inventory). The follower-card partial branches on `isObject`.
 		this.kind           = b._kind ?? "creature";
 		this.isObject       = this.kind === "object";
+		this.onTab          = b._onTab ?? false;  // on the Followers tab (owned, and no card holds it off)
 		this.tagList        = Tags.fromStored(b._tags);
 		this.tagSelection   = this.tagList.picker;
 		this.tags           = this.tagList.text;       // display string (back-compat)
@@ -107,6 +108,7 @@ export class FollowerSnapshotBuilder {
 	withName(v)            { this._name            = v; return this; }
 	withImg(v)             { this._img             = v; return this; }
 	withKind(v)            { this._kind            = v; return this; }
+	withOnTab(v)           { this._onTab           = v; return this; }
 	withTags(v)            { this._tags            = v; return this; }
 	withHp(v)              { this._hp              = v; return this; }
 	withHpMax(v)           { this._hpMax           = v; return this; }

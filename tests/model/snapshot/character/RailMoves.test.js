@@ -3,7 +3,7 @@ import { RailMoves } from "../../../../src/model/snapshot/character/RailMoves.js
 import { MoveCategorySnapshotBuilder } from "../../../../src/model/snapshot/character/MoveSnapshot.js";
 import { MovelistBuilder } from "../../../../src/model/snapshot/character/Movelist.js";
 
-// D9: the four special moves are not a group. Each goes to the thing it attaches to, so the rail asks
+// D9: the special moves are not a group. Each goes to the thing it attaches to, so the rail asks
 // for them one at a time.
 
 const move = (slug, over = {}) => ({ slug, name: slug, replaces: null, ...over });
@@ -19,7 +19,6 @@ describe("RailMoves", () => {
 		const rail = RailMoves.from(movelist([SPECIAL]));
 		expect(rail.burnBrightly.slug).toBe("burn-brightly");
 		expect(rail.endOfSession.slug).toBe("end-of-session");
-		expect(rail.advantage.slug).toBe("advantage-disadvantage");
 	});
 
 	it("makes Death's Door the move at zero hit points", () => {
@@ -42,12 +41,12 @@ describe("RailMoves", () => {
 
 	it("has nothing to offer where a character holds none of them", () => {
 		const rail = RailMoves.from(movelist([]));
-		expect([rail.atZeroHp, rail.burnBrightly, rail.endOfSession, rail.advantage]).toEqual([null, null, null, null]);
+		expect([rail.atZeroHp, rail.burnBrightly, rail.endOfSession]).toEqual([null, null, null]);
 	});
 
 	it("keeps each as an own field", () => {
 		expect(Object.keys(RailMoves.from(movelist([SPECIAL]))))
-			.toEqual(expect.arrayContaining(["atZeroHp", "burnBrightly", "endOfSession", "advantage"]));
+			.toEqual(expect.arrayContaining(["atZeroHp", "burnBrightly", "endOfSession"]));
 	});
 });
 

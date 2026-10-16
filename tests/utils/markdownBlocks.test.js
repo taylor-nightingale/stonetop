@@ -88,6 +88,16 @@ describe("joinBlocks", () => {
 	it("returns an empty string for no blocks", () => {
 		expect(joinBlocks([])).toBe("");
 	});
+
+	it("adds no break around a block its caller knows renders block-level", () => {
+		const isFigure = block => block === "FIGURE";
+		expect(joinBlocks(["Before.", "FIGURE", "After."], { isBlock: isFigure })).toBe("Before.FIGUREAfter.");
+	});
+
+	it("still recognises block-level markup alongside the caller's own", () => {
+		const never = () => false;
+		expect(joinBlocks(["Before.", "<ul><li>one</li></ul>"], { isBlock: never })).toBe("Before.<ul><li>one</li></ul>");
+	});
 });
 
 describe("markdownBlocks + joinBlocks (what the display shows)", () => {

@@ -1,14 +1,14 @@
 {{!-- The steading's assets — what it owns that is not a number. Shared by the steading's Play tab
       and the steadfast sheet. The coinage that used to hang off the foot of this file is its own
       block now (steading-coinage.hbs); one partial, one block.
-      Params: items (Asset[]), note (the heading's "2 out"), requisition (whether an asset can be
-      marked out).
+      Params: items (Asset[]), note (the bar's "2 out"), requisition (whether an asset can be
+      marked out), and `index`, its bar's place among the bars its surface draws.
 
       `requisition` is false on the steadfast: a steadfast is the DEFINITION of a place, and nothing
       is out on loan from a definition. --}}
-<div class="steading-overview-field">
-	{{> "stonetop.section-heading" title=(localize "stonetop.steading.lists.assets") note=note}}
-	<div class="steading-attr-list">
+<section class="stonetop-panel steading-overview-field">
+	{{> "stonetop.bar" title=(localize "stonetop.steading.lists.assets") index=index note=note}}
+	<div class="stonetop-panel-body steading-attr-list">
 		{{#each items}}
 			<div class="steading-attr-row steading-asset-row{{#if requisitioned}} is-requisitioned{{/if}}">
 				{{!-- Grows downward as it wraps rather than scrolling sideways — see the note in
@@ -34,5 +34,4 @@
 			<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.steading.lists.addAsset"}}</span>
 		</button>
 	</div>
-</div>
-
+</section>

@@ -31,6 +31,24 @@ describe("every improvement's authored model answers the rows it has", () => {
 	});
 });
 
+// A moment is the results' to define; the review holds the pack to saying everything that takes.
+describe("what a moment has to say", () => {
+	const at = when => ({ name: "X", system: { slug: "x", choices: { slug: "x", list: [] }, requires: { all: [] },
+		_prose: "", effects: [{ when: { kind: "moment", ...when }, text: "t" }] } });
+	const flags = (when, pattern) => problemsFor(at(when)).some(p => pattern.test(p));
+
+	it("names the seasons it happens in", () => {
+		expect(flags({ moment: "autumn-harvest" }, /names no season/)).toBe(true);
+		expect(flags({ moment: "autumn-harvest", seasons: ["autumn"] }, /names no season/)).toBe(false);
+	});
+
+	it("is named, by the language files or in words of its own", () => {
+		expect(flags({ moment: "goose-day", seasons: ["autumn"] }, /no language file names/)).toBe(true);
+		expect(flags({ moment: "goose-day", seasons: ["autumn"], momentName: "goose day" }, /no language file names/)).toBe(false);
+		expect(flags({ moment: "autumn-harvest", seasons: ["autumn"] }, /no language file names/)).toBe(false);
+	});
+});
+
 describe("what the model is for", () => {
 	// The live bug this whole model exists to fix: the book gives Greater Harvest two ways to get
 	// there and asks for one. "Every box ticked" could never be satisfied.

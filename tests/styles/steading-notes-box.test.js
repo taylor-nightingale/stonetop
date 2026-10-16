@@ -31,23 +31,29 @@ const probe = new RenderProbe([
 // The two notes as their templates write them: steading.hbs for the scratchpad,
 // partials/steading-neighbor-places.hbs for the place's note.
 const FIXTURE = `
-<div class="application stonetop sheet steading themed theme-light"><div class="window-content">
-	<section class="steading-neighbor-places">
-		<section class="steading-neighbor-place steading-block">
-			<label class="steading-neighbor-text-field" id="place-field">
-				<span>Notes</span>
-				<textarea id="place-note" rows="2" class="stonetop-neighbor-place-note stonetop-grow-field"
-				          placeholder="Notes">Owes us a boat.</textarea>
-			</label>
-		</section>
+<div class="application stonetop sheet steading themed theme-light"><div class="window-content"><section class="sheet-body">
+	<section class="stonetop-panel steading-neighbor-places">
+		<header class="stonetop-bar"><span class="stonetop-bar-title">Neighbouring Communities</span></header>
+		<div class="stonetop-panel-body">
+			<section class="steading-neighbor-place steading-block">
+				<label class="steading-neighbor-text-field" id="place-field">
+					<span>Notes</span>
+					<textarea id="place-note" rows="2" class="stonetop-neighbor-place-note stonetop-grow-field"
+					          placeholder="Notes">Owes us a boat.</textarea>
+				</label>
+			</section>
+		</div>
 	</section>
 	<div class="steading-play-grid">
-		<div class="steading-notes-field steading-block">
-			<textarea id="play-note" class="stonetop-notes stonetop-grow-field"
-			          placeholder="Notes">Tegwen is still angry.</textarea>
-		</div>
+		<section class="stonetop-panel steading-notes-field">
+			<header class="stonetop-bar"><span class="stonetop-bar-title">Notes</span></header>
+			<div class="stonetop-panel-body">
+				<textarea id="play-note" class="stonetop-notes stonetop-grow-field"
+				          placeholder="Notes">Tegwen is still angry.</textarea>
+			</div>
+		</section>
 	</div>
-</div></div>`;
+</section></div></div>`;
 
 // What a reader tells two boxes apart by. Not size — see the note above.
 const SHARED = [

@@ -1,0 +1,7 @@
+{{!-- Whether a result's words are the ones its choices wrote, or its author's — and the way back to the
+      generated ones. The left of an editor's foot. Context: an ImprovementEditorResult. --}}
+<p class="stonetop-improvement-provenance">
+	{{#if isGenerated}}{{localize "stonetop.improvement.words.generated"}}{{/if}}
+	{{#if canUseGenerated}}{{localize "stonetop.improvement.words.yours"}}
+		<button type="button" class="stonetop-improvement-link" data-action="useGeneratedResultWords" data-key="{{index}}">{{localize "stonetop.improvement.useGenerated"}}</button>{{/if}}
+</p>

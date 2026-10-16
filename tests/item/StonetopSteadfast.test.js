@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { StonetopSteadfast } from "../../src/item/StonetopSteadfast.js";
 import { SteadfastSnapshot } from "../../src/model/snapshot/steading/SteadfastSnapshot.js";
 import { createStonetopItemClass } from "../../src/item/StonetopItem.js";
+import { ImprovementAuthoring } from "../../src/item/ImprovementAuthoring.js";
 import { SteadingImprovement } from "../../src/actors/steading/repositories/FoundrySteadingImprovementRepository.js";
 
 // A steadfast item: the shared profile schema plus a name/img. `update` is a spy so we can assert what
@@ -118,7 +119,12 @@ describe("StonetopItem.typedItem", () => {
 		expect(item.typedItem).toBe(typed); // cached — same instance
 	});
 
-	it("returns null for a non-steadfast item", () => {
-		expect(make("improvement").typedItem).toBeNull();
+	// An improvement's typed view is what its author edits it through — and what seeds a new one.
+	it("returns an ImprovementAuthoring for an improvement item", () => {
+		expect(make("improvement").typedItem).toBeInstanceOf(ImprovementAuthoring);
+	});
+
+	it("returns null for an item with no typed view", () => {
+		expect(make("move").typedItem).toBeNull();
 	});
 });

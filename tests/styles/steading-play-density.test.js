@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import path from "path";
+import { renderPartial } from "../fakes/renderTemplate.js";
 import { RenderProbe, canProbe } from "./RenderProbe.js";
 
 /**
@@ -9,8 +10,8 @@ import { RenderProbe, canProbe } from "./RenderProbe.js";
  * actually put the boxes:
  *
  *  1. The line keeps EVERY rating, on every tab. An earlier pass shed the four stated in full below,
- *     which was backwards: rolling a steading move needs a rating, the condition bending it and the
- *     roll mode, and Play is the tab you roll from.
+ *     which was backwards: rolling a steading move needs a rating and the condition bending it, and
+ *     Play is the tab you roll from.
  *  2. One rule closes each rating head — including its note. Two bordered cells drew two rules at
  *     two heights, because label and value are baseline-aligned and their boxes end at different
  *     depths; the step was 2.3px and invisible to any reading of the CSS.
@@ -64,11 +65,13 @@ const fullTile = (attr, text, { arched = false, note = "", noteKind = "tier", ro
 		${note ? `<span class="steading-tile-note steading-tile-note--${noteKind}">${note}</span>` : ""}
 	</div>`;
 
+// A section as the steading draws it: a panel under its ink bar, as on the character sheet.
+const bar = (title, action = "") => `<header class="stonetop-bar"><span class="stonetop-bar-title">${title}</span><span class="stonetop-bar-meta">${action}</span></header>`;
+
 const assetsField = rows => `
-	<div class="steading-overview-field">
-		<h3 class="stonetop-move-group-title">Assets</h3>
-		<div class="stonetop-panel-divider" aria-hidden="true"></div>
-		<div class="steading-attr-list">
+	<section class="stonetop-panel steading-overview-field">
+		${bar("Assets")}
+		<div class="stonetop-panel-body steading-attr-list">
 			${rows.map(r => `<div class="steading-attr-row steading-asset-row">
 				<textarea rows="1" class="stonetop-asset-item stonetop-grow-field">${r}</textarea>
 				<label class="steading-asset-state"><input type="checkbox" class="stonetop-item-check"><span>at home</span></label>
@@ -76,7 +79,7 @@ const assetsField = rows => `
 			</div>`).join("")}
 			<button class="stonetop-asset-item-add stonetop-list-add" type="button"><img src="" alt=""><span>add an asset</span></button>
 		</div>
-	</div>`;
+	</section>`;
 
 const coinCell = value => `
 	<td class="steading-coinage-cell"><span class="stonetop-stepper">
@@ -86,23 +89,25 @@ const coinCell = value => `
 	</span></td>`;
 
 const coinage = `
-	<div class="steading-coinage">
-		<h3 class="stonetop-move-group-title">Coinage<button type="button" class="stonetop-advice-btn stonetop-advice-btn--inline stonetop-icon-btn" aria-label="advice">?</button></h3>
-		<div class="stonetop-panel-divider" aria-hidden="true"></div>
+	<section class="stonetop-panel steading-coinage">
+		${bar("Coinage", `<button type="button" class="stonetop-advice-btn stonetop-advice-btn--bar stonetop-bar-action" aria-label="advice"><i class="fas fa-circle-question" aria-hidden="true"></i></button>`)}
+		<div class="stonetop-panel-body">
 		<table class="steading-coinage-table">
 			<thead><tr><th scope="col" class="steading-coinage-corner">Currency</th><th scope="col">Purses</th><th scope="col">Handfuls</th><th scope="col">Coins</th></tr></thead>
 			<tbody>
 				${["Silver", "Gold"].map(name => `<tr><th scope="row" class="steading-coinage-name">${name}</th>${coinCell(0)}${coinCell(0)}${coinCell(0)}</tr>`).join("")}
 			</tbody>
 		</table>
-	</div>`;
+		</div>
+	</section>`;
 
 const notes = `
-	<div class="steading-notes-field steading-block">
-		<h3 class="stonetop-move-group-title">Notes</h3>
-		<div class="stonetop-panel-divider" aria-hidden="true"></div>
-		<textarea class="stonetop-notes stonetop-grow-field" placeholder="Notes"></textarea>
-	</div>`;
+	<section class="stonetop-panel steading-notes-field">
+		${bar("Notes")}
+		<div class="stonetop-panel-body">
+			<textarea class="stonetop-notes stonetop-grow-field" placeholder="Notes"></textarea>
+		</div>
+	</section>`;
 
 // The book's whisky jugs, at the intrinsic size the extracted plate actually has (650x431) — the
 // ratio is what decides how much of the column the picture takes, and a square stand-in would
@@ -115,18 +120,11 @@ const plate = `
 		<img src="${PLATE_SRC}" alt="">
 	</figure>`;
 
-const list = (attr, title, rows) => `
-	<div class="steading-overview-field">
-		<h3 class="stonetop-move-group-title">${title}</h3>
-		<div class="stonetop-panel-divider" aria-hidden="true"></div>
-		<div class="steading-attr-list">
-			${rows.map((r, i) => `<div class="steading-attr-row">
-				<input type="text" class="stonetop-attr-extra" data-attr="${attr}" data-index="${i}" value="${r}">
-				<button class="stonetop-attr-extra-remove stonetop-icon-btn" type="button"><img src="" alt=""></button>
-			</div>`).join("")}
-			<button class="stonetop-attr-extra-add stonetop-list-add" type="button"><img src="" alt=""><span>add one</span></button>
-		</div>
-	</div>`;
+// A list headed by the rating it justifies, through the partial the Play tab renders.
+const ratedList = (attr, title, listTitle, rows, note, noteKind, index) => renderPartial("stonetop.steading-ratings-list", {
+	title: listTitle, addLabel: "add one", attr, items: rows, index, editable: true,
+	rating: { title, note, noteKind, isNumeric: true, current: 2, hasMin: true, min: -1, hasMax: true, max: 3 },
+});
 
 const condition = (slug, active, effect) => `
 	<label class="steading-debility${active ? " is-active" : ""}">
@@ -182,9 +180,6 @@ const fixture = (width, { shut = false, lean = false, heavy = false, plated = tr
           ${condition("lacking", true, "treat Prosperity as if it's 1 lower than it is")}
           ${condition("malcontent", false, "Fortunes reset to +0 each season, not +1")}
         </div>
-        <fieldset class="stonetop-rollmode stonetop-rollmode--inline"><legend class="stonetop-rollmode-legend">Roll Mode</legend>
-          <label class="stonetop-rollmode-option is-checked"><input type="radio" class="stonetop-rollmode-input" name="rm" checked><span class="stonetop-rollmode-mark" aria-hidden="true"></span><span class="stonetop-rollmode-label">Normal</span></label>
-        </fieldset>
       </div>
     </header>
     <nav class="sheet-tabs tabs"><button class="item active" data-tab="play">Play</button></nav>
@@ -192,16 +187,14 @@ const fixture = (width, { shut = false, lean = false, heavy = false, plated = tr
       <div class="tab active" data-group="primary" data-tab="play">
         <div class="steading-overview-grid steading-play-grid" data-density="full">
           <section class="steading-overview-column">
-            ${fullTile("prosperity", "Prosperity", { note: "→ +0 lacking", noteKind: "adjustment" })}
-            ${list("prosperity", "Resources", ["Farming (beans, potatoes, oats, barley)", "Distilling (whisky)"])}
+            ${ratedList("prosperity", "Prosperity", "Resources", ["Farming (beans, potatoes, oats, barley)", "Distilling (whisky)"], "→ +0 lacking", "adjustment", 0)}
             ${notes}
             ${plated ? plate : ""}
           </section>
           <section class="steading-overview-column">
-            ${fullTile("defenses", "Defenses", { note: "legendary" })}
-            ${list("defenses", "Fortifications, etc.", heavy
+            ${ratedList("defenses", "Defenses", "Fortifications, etc.", heavy
               ? ["Village militia", "The Ringwall (low, stone)", "Three watchtowers", "Spears & shields in every home", "Some bows", "A beacon on the Old Wall"]
-              : ["Village militia", "The Ringwall (low, stone)"])}
+              : ["Village militia", "The Ringwall (low, stone)"], "legendary", "tier", 2)}
             ${lean ? "" : assetsField(["A pair of horse-drawn plows, iron", "A wagon (plus horse harness)"]) + coinage}
           </section>
         </div>
@@ -231,7 +224,6 @@ const TARGETS = {
 
 	valuesRow:      ".steading-line-values",
 	conditionsRow:  ".steading-line-conditions",
-	rollMode:       ".steading-line-conditions .stonetop-rollmode",
 	debility1:      ".steading-conditions > .steading-debility:nth-of-type(1)",
 	debility2:      ".steading-conditions > .steading-debility:nth-of-type(2)",
 	debility3:      ".steading-conditions > .steading-debility:nth-of-type(3)",
@@ -242,10 +234,10 @@ const TARGETS = {
 	plate:          ".steading-play-grid .steading-resources-plate",
 	plateImg:       ".steading-play-grid .steading-resources-plate img",
 	coinTable:      ".steading-coinage-table",
-	head:           '.steading-play-grid .steading-tile[data-attr="prosperity"]',
-	headLabel:      '.steading-play-grid .steading-tile[data-attr="prosperity"] .steading-tile-label',
-	headValue:      '.steading-play-grid .steading-tile[data-attr="prosperity"] .steading-tile-value',
-	headNote:       '.steading-play-grid .steading-tile[data-attr="prosperity"] .steading-tile-note',
+	head:           '.steading-play-grid .steading-overview-field:has([data-roll="prosperity"]) > .stonetop-bar',
+	headLabel:      '.steading-play-grid .stonetop-bar-title[data-roll="prosperity"]',
+	headValue:      '.steading-play-grid .stonetop-bar:has([data-roll="prosperity"]) .stonetop-bar-meta .stonetop-stepper',
+	headNote:       '.steading-play-grid .stonetop-bar:has([data-roll="prosperity"]) .stonetop-bar-note',
 	archTile:       '.steading-archpair .steading-tile[data-attr="fortunes"]',
 	archTile2:      '.steading-archpair .steading-tile[data-attr="surplus"]',
 	arch:           '.steading-archpair .steading-tile[data-attr="fortunes"] .steading-arch',
@@ -294,23 +286,18 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 				}
 			});
 
-			it("puts the conditions on their own row under the values, with the mode ending it", () => {
+			it("puts the conditions on their own row under the values", () => {
 				const values = m.get("valuesRow").values;
 				const conds  = m.get("conditionsRow").values;
 				expect(conds.boxTop).toBeGreaterThan(values.boxTop + values.boxHeight - 1);
-				const mode = m.get("rollMode").values;
-				expect(mode.boxLeft + mode.boxWidth)
-					.toBeCloseTo(conds.boxLeft + conds.boxWidth, 0);
 			});
 
-			// The rating reads as one line, the way it is said aloud: "Prosperity, lacking, 2". The note
-			// used to take a row of its own under the value, where it sat level with the heading of the
-			// list below and read as a caption on the wrong thing — and cost a row of height on the
-			// tiles that had one and none on the tiles that didn't, so the two columns fell out of step.
+			// The rating reads as one line, the way it is said aloud: "Prosperity, lacking, 2" — and that
+			// line is the bar of the list it heads, so it costs the list no row of its own.
 			//
-			// What keeps it from reading as a second number is its POSITION — hard against the name it
-			// qualifies, nowhere near the right edge where the value lives — so that is what is asserted
-			// here, along with the one rule that still closes the whole head.
+			// What keeps the note from reading as a second number is its POSITION — hard against the name
+			// it qualifies, nowhere near the right edge where the value lives — so that is what is
+			// asserted here, along with the bar holding all three.
 			it("sets each rating on one line: name, then its note, then the value", () => {
 				const head  = m.get("head").values;
 				const label = m.get("headLabel").values;
@@ -326,8 +313,10 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 				expect(note.boxLeft + note.boxWidth, "the note runs into the value")
 					.toBeLessThanOrEqual(value.boxLeft + 1);
 
-				// One rule closes the head, and the note is inside it rather than hanging below.
-				expect(note.boxTop + note.boxHeight).toBeLessThanOrEqual(head.boxTop + head.boxHeight + 1);
+				// The bar holds all three rather than any of them hanging below it.
+				for (const part of [label, note, value]) {
+					expect(part.boxTop + part.boxHeight).toBeLessThanOrEqual(head.boxTop + head.boxHeight + 1);
+				}
 			});
 
 			it("makes the arch, its name, its value and its bar one object of one width", () => {
@@ -481,12 +470,14 @@ describe.skipIf(!canProbe())("the Play tab's full density", () => {
 		// root at 16px — the width the three-column option was rejected at. A guard against a column
 		// narrowed back toward that measure, not a claim to the half-pixel.
 		//
-		// 390 rather than the 410 first measured, for two deliberate prices: the tab scroller reserves
-		// the focus ring's reach at its left edge, and since 2026-09-28 the steading's column takes the
+		// 380 rather than the 410 first measured, for three deliberate prices: the tab scroller reserves
+		// the focus ring's reach at its left edge; since 2026-09-28 the steading's column takes the
 		// character sheet's 1.5rem inset on both sides (less the gap beside the rail it no longer
-		// needs), so its ledger line, tab strip and tab start on one line.
-		it("is no narrower than the measure it had before the pass, less the shared inset", () => {
-			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(390);
+		// needs), so its ledger line, tab strip and tab start on one line; and since 2026-10-08 the
+		// rail is the character's moves width, 24px more than its old 220px, because the two rails
+		// draw one move row and a narrower rail was a narrower name column.
+		it("is no narrower than the measure it had before the pass, less the shared inset and rail", () => {
+			expect(measureAt(1107).get("col1").values.boxWidth).toBeGreaterThan(380);
 		});
 
 		// The two columns of this tab are different lengths — Prosperity leads eight resources, Defenses

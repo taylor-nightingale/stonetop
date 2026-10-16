@@ -1,4 +1,5 @@
 import { EFFECT_SET_TARGETS } from "../../model/data/steading/ImprovementEffect.js";
+import { Moments } from "../../model/data/steading/Moments.js";
 import { AppliedEffect } from "../../model/data/steading/AppliedEffect.js";
 import { ImprovementPayoff } from "../../model/snapshot/steading/ImprovementPayoff.js";
 import { TurnoverLine, TurnoverStatement } from "../../model/snapshot/steading/TurnoverStatement.js";
@@ -74,6 +75,12 @@ export class SteadingEffects {
 	 * `firingAt` answers both halves at once — the result fires here AND its own requirement holds —
 	 * so an unbuilt mill contributes nothing without a second check.
 	 */
+	/** The moments the steading's improvements fire at, with the seasons their results name. */
+	async moments() {
+		const owned = await this._improvements.owned();
+		return Moments.fromTriggers(owned.flatMap(improvement => improvement.effects.all().map(effect => effect.trigger)));
+	}
+
 	async statementFor(kind, { season = null, moment = null } = {}) {
 		const lines = [];
 		for (const improvement of await this._improvements.owned()) {

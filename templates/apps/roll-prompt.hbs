@@ -1,0 +1,48 @@
+{{!-- Body of the roll dialog (RollModeDialog); context is a RollPrompt. The modes are the dialog's own
+      buttons, drawn by DialogV2 below this.
+
+      Laid out as dnd5e lays out its roll dialog: what is rolled and by whom, the dice, and the formula
+      they make. A move that rolls "ask" offers its stats in a dropdown — nothing picked for you, and
+      the modes wait until something is; RollModeDialog keeps the formula line in step with it.
+
+      D9: the rule that explains the modes sits just above them, after the move's reminders about them. --}}
+<div class="stonetop-roll-prompt">
+	<header class="stonetop-roll-prompt-head">
+		<h2 class="stonetop-roll-prompt-title">{{title}}</h2>
+		{{!-- Said as the character's masthead says it: the name, then the playbook in the Fell italic. --}}
+		<p class="stonetop-roll-prompt-roller">{{rollerName}}{{#if rollerNote}} <span class="stonetop-roll-prompt-note">{{rollerNote}}</span>{{/if}}</p>
+	</header>
+
+	<div class="stonetop-roll-prompt-dice" aria-hidden="true">
+		<i class="fas fa-dice-d6 stonetop-roll-prompt-die"></i><i class="fas fa-dice-d6 stonetop-roll-prompt-die"></i>
+		<span class="stonetop-roll-prompt-dice-label">{{dice}}</span>
+	</div>
+
+	<div class="stonetop-roll-prompt-formula-line">
+		<span class="stonetop-roll-prompt-formula">{{formula}}</span>
+		<span class="stonetop-roll-prompt-stat">{{stat.shortName}}</span>
+	</div>
+
+	{{#if choosesStat}}
+	<label class="stonetop-roll-stat-choice">
+		<span class="stonetop-roll-stat-choice-label">{{localize "stonetop.rollMode.chooseStat"}}</span>
+		<select name="stat" required>
+			<option value="" selected></option>
+			{{#each choices}}
+			<option value="{{key}}" data-formula="{{rollFormula}}" data-abbr="{{shortName}}">{{name}} ({{signedValue}})</option>
+			{{/each}}
+		</select>
+	</label>
+	{{/if}}
+
+	{{#if hasNotes}}{{> "stonetop.roll-notes" notes}}{{/if}}
+
+	{{#if rule}}
+	<div class="stonetop-roll-prompt-rule-line">
+		<button type="button" class="stonetop-move-link stonetop-roll-prompt-rule" data-action="openRule"
+		        title="{{localize 'stonetop.rollMode.rule' name=rule.name}}">
+			<i class="fas fa-circle-question" aria-hidden="true"></i>{{rule.name}}
+		</button>
+	</div>
+	{{/if}}
+</div>

@@ -10,7 +10,8 @@ export class ResourceController {
 
 	_countsFor(namespace) { return this._allCounts[namespace] ?? {}; }
 
-	getCurrent(namespace, slug) { return this._countsFor(namespace)[slug] ?? 0; }
+	/** The saved count, or `starting` while none is saved — a saved 0 is spent, not unset. */
+	getCurrent(namespace, slug, starting = 0) { return this._countsFor(namespace)[slug] ?? starting; }
 
 	async set(namespace, slug, count) {
 		await this._actor.update({

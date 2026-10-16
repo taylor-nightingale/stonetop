@@ -1,0 +1,67 @@
+{{!-- The improvement's board card, as its own editor.
+
+      The markup is the card's (steading-improvement-card.hbs) — its top line, its meter, its rows as
+      the choice rows draw them, its payoff as the statement draws it — grouped as the card groups it:
+      a section is its heading over its requirements, and a line of text stands alone. Words are edited
+      where they sit; a heading's rule and a result's choices are edited in the one editor that hangs
+      from what opened it (ImprovementEditing).
+
+      Context: the sheet's root — `card` (ImprovementProgress, for the meter), `editor`
+      (ImprovementEditorView), `nameField`. --}}
+<div class="steading-improvement-card steading-block is-open stonetop-improvement-editor">
+
+	<div class="steading-improvement-card-top">
+		<span class="steading-improvement-name">
+			{{> "stonetop.editable-field" field=nameField changeAction="improvementName"
+			    placeholder=(localize "stonetop.improvement.namePlaceholder") label=(localize "stonetop.improvement.namePlaceholder")}}
+		</span>
+		<span class="steading-improvement-meter">
+			<span class="steading-improvement-pips" aria-hidden="true">
+				{{#each card.meter}}<i class="steading-improvement-pip{{#if this}} is-on{{/if}}"></i>{{/each}}
+			</span>
+			<span class="steading-improvement-count">
+				{{localize "stonetop.steading.improvements.progress" ticked=card.ticked total=card.total}}
+			</span>
+		</span>
+	</div>
+
+	<div class="steading-improvement-body">
+		<div class="stonetop-choice-entry">
+			{{#each editor.blocks}}
+				{{#if isSection}}
+					{{> "stonetop.improvement-editor-section"}}
+				{{else}}
+					{{#with line}}
+						{{> "stonetop.improvement-editor-row" moveAction="moveBlock" moveKey=../blockIndex
+						    canUp=(not ../isFirst) canDown=(not ../isLast) removeAction="removeLine" removeKey=index}}
+					{{/with}}
+				{{/if}}
+			{{/each}}
+		</div>
+		<div class="stonetop-improvement-adds">
+			<button type="button" class="stonetop-list-add" data-action="addHeading">
+				<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.improvement.add.heading"}}</span>
+			</button>
+			<button type="button" class="stonetop-list-add" data-action="addLine">
+				<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.improvement.add.line"}}</span>
+			</button>
+		</div>
+
+		<div class="steading-payoff">
+			{{#each editor.halves}}
+				<p class="steading-payoff-head">{{rich (localize headKey)}}</p>
+				<ul class="steading-statement-lines">
+					{{#each results}}{{> "stonetop.improvement-editor-result"}}{{/each}}
+				</ul>
+				{{!-- The adder hangs from the button that opened it, as the outfit adder does. --}}
+				<div class="stonetop-improvement-anchor">
+					<button type="button" class="stonetop-list-add" data-action="openResultAdder" data-half="{{key}}" data-improvement-opener>
+						<img src="systems/stonetop/assets/ui/controls/plus-icon.png" alt=""><span>{{localize "stonetop.improvement.add.result"}}</span>
+					</button>
+					{{#if adder}}{{#with adder}}{{> "stonetop.improvement-editor-adder"}}{{/with}}{{/if}}
+				</div>
+			{{/each}}
+		</div>
+	</div>
+
+</div>

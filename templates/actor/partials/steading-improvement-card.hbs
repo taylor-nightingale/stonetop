@@ -11,6 +11,9 @@
       card that paraphrased what the improvement did read oddly beside the real thing. A chip quotes
       nothing: it carries the numbers the result already states as data.)
 
+      The improvement item's own sheet draws this same card for a locked improvement, and sets
+      `@root.isCatalog` to say so: there is no steading to revoke it from.
+
       Context = an ImprovementProgress. --}}
 <div class="steading-improvement-card steading-block{{#if isComplete}} is-complete{{/if}}{{#if isUntouched}} is-untouched{{/if}}"
      data-disclosure-row data-slug="{{slug}}" data-state="{{state}}"
@@ -20,7 +23,7 @@
 
 		<button type="button" class="steading-improvement-disclosure" data-action="toggleImprovementCard"
 		        data-disclosure data-view-state
-		        aria-expanded="false" aria-controls="{{@root.sheetIdPrefix}}-improvement-{{slug}}">
+		        aria-expanded="false" aria-controls="{{improvementBodyId @root.sheetIdPrefix slug}}">
 			<i class="fas fa-caret-right stonetop-move-caret" aria-hidden="true"></i>
 			<span class="steading-improvement-name">{{name}}</span>
 		</button>
@@ -51,7 +54,7 @@
 			<span class="steading-improvement-attention">{{localize attentionKey}}</span>
 		{{/if}}
 
-		{{#if @root.editable}}
+		{{#if (and @root.editable (not @root.isCatalog))}}
 			<button type="button" class="steading-improvement-remove stonetop-icon-btn" data-action="revokeImprovement"
 			        data-slug="{{slug}}" data-name="{{name}}"
 			        title="{{localize 'stonetop.steading.improvementRemove'}}"
@@ -91,7 +94,7 @@
 	{{!-- Requirements, then payoff, in one flow — which is the order the book prints them in and the
 	      order the work happens in. The payoff used to be bolted on ABOVE the header, where it floated
 	      with no context on a shut card and sat an inch from the prose that repeated it. --}}
-	<div class="steading-improvement-body" id="{{@root.sheetIdPrefix}}-improvement-{{slug}}" hidden>
+	<div class="steading-improvement-body" id="{{improvementBodyId @root.sheetIdPrefix slug}}" hidden>
 		{{#with group}}{{> "stonetop.improvement-group"}}{{/with}}
 		{{#unless payoff.isEmpty}}
 			{{#with payoff}}{{> "stonetop.steading-improvement-payoff"}}{{/with}}

@@ -1,5 +1,7 @@
 {{#if resource.title}}<span class="stonetop-arcanum-resource-title">{{resource.title}}</span>{{/if}}
 {{#each (resourceChecks resource)}}
+{{!-- A labelled pip and its word wrap as one unit, never split across a line. --}}
+{{#if label}}<span class="stonetop-resource-pair">{{/if}}
 <button type="button"
         class="{{../btnClass}}{{#if checked}} is-checked{{/if}}"
         {{#if ../action}}data-action="{{../action}}"{{/if}}
@@ -12,5 +14,5 @@
         aria-pressed="{{#if checked}}true{{else}}false{{/if}}"
         aria-label="{{#if label}}{{label}}, {{/if}}{{#if ../resource.title}}{{localize 'stonetop.a11y.trackPip' name=../resource.title position=position total=total}}{{else}}{{localize 'stonetop.a11y.trackPip' name=(localize 'stonetop.a11y.track') position=position total=total}}{{/if}}"
         data-index="{{@index}}"></button>
-{{#if label}}<span class="stonetop-resource-label">{{label}}</span>{{/if}}
+{{#if label}}<span class="stonetop-resource-label">{{label}}</span></span>{{/if}}
 {{/each}}

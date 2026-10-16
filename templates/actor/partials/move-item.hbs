@@ -1,7 +1,7 @@
-{{!-- One move row body (shared between the moves tab, the major-arcana card and the steading's rail).
+{{!-- One move row body (shared between the major-arcana card and the rows a choice grants).
       Context is a MoveSnapshot; params: categoryKey, alwaysShowResource, `disclosure` and
-      `startOpen`. The caller supplies the <li>/<ol> wrapper. No acquisition box: the character's
-      moves are drawn by character-move-row.hbs, which has the one a Moves panel chooses with.
+      `startOpen`. The caller supplies the <li>/<ol> wrapper. No acquisition box: the rails' and the
+      tabs' moves are drawn by move-list-row.hbs, which has the one a Moves panel chooses with.
 
       `startOpen` renders the disclosure already open — for a surface whose whole point is the move's
       text, like the season the turn is about to roll. The reader can still shut it, and
@@ -104,35 +104,6 @@
 	      it rather than under the name alone. No dash in front of it: it is its own line, not a
 	      continuation of the name. --}}
 	{{#if disclosure}}{{#if (hasText gloss)}}<span class="stonetop-move-gloss">{{gloss}}</span>{{/if}}{{/if}}
-	{{!-- Why this move might not roll a flat 2d6 — the row's third line, and always there.
-
-	      A REMINDER, and it has to read as one. Three earlier attempts said it in the row's own voice
-	      ("Advantage", "Township gives advantage") and every one of them read as a state: the lines
-	      above are facts about the move, so a fourth joins them and claims advantage is already on. So
-	      the line says what CAN be applied, and names the improvement that permits it — the source is
-	      what makes it an offer rather than a status.
-
-	      Which is also why there is no collapsing: naming the source is only possible one source at a
-	      time. Trade & Barter can draw on three improvements at once and costs three lines. Height was
-	      the reason for the badge that replaced them, and a badge that reads as "already applied" is a
-	      worse problem than a tall row.
-
-	      A span and never a button: the roll-mode control is the table's, and nothing here touches it.
-	      Nothing is behind a hover either — `data-tooltip` binds pointer events only and is invisible to
-	      assistive tech.
-
-	      Deliberately NOT `stonetop-unmarked`: this is a list of prose, so it takes the book's swirl like
-	      every other one. The shared rule owns the indent the swirl is positioned into — see the CSS. --}}
-	{{#if rollNotes.all.length}}
-	<ul class="stonetop-move-rollnotes">
-		{{#each rollNotes.all}}
-		<li class="stonetop-move-rollnote">
-			<span class="stonetop-move-rollnote-verdict">{{localize verdictKey source=source mode=(localize modeKey)}}</span>
-			{{#if clause}}<span class="stonetop-move-rollnote-clause">{{rich clause}}</span>{{/if}}
-		</li>
-		{{/each}}
-	</ul>
-	{{/if}}
 </div>
 {{#if requirement}}<div class="stonetop-item-requirement{{#unless requirement.met}} stonetop-item-requirement--unmet{{/unless}}">{{localize "stonetop.character.moves.requires"}}: {{requiresLabel}}{{#unless requirement.met}} ({{localize "stonetop.character.moves.notMet"}}){{/unless}}</div>{{/if}}
 

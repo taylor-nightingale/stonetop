@@ -18,6 +18,20 @@ export class FoundArt {
 }
 
 /** Outcome of scanning one PDF. */
+/** A decoded image the manifest recognized: the raster to store, and every path that wants it. */
+class Recognition {
+	/**
+	 * @param {string[]} paths every store path this image satisfies — one image can be wanted at more
+	 *   than one path, and writing only the first leaves the rest reported as missing
+	 * @param {Raster} raster what to write: the decoded image, or its trimmed form when that is what
+	 *   the store keeps
+	 */
+	constructor(paths, raster) {
+		this.paths = paths;
+		this.raster = raster;
+	}
+}
+
 export class ExtractionResult {
 	/**
 	 * @param {FoundArt[]} found
@@ -82,10 +96,10 @@ export class BookArtExtractor {
 					imagesSeen++;
 					const raster = await this._toRaster(page, img);
 					if (!raster) continue;
-					const paths = await this._identify(raster);
-					if (!paths.length) continue;
-					const png = raster.toPng();
-					for (const path of paths) if (!found.has(path)) found.set(path, new FoundArt(path, png));
+					const recognition = await this._identify(raster);
+					if (!recognition) continue;
+					const png = recognition.raster.toPng();
+					for (const path of recognition.paths) if (!found.has(path)) found.set(path, new FoundArt(path, png));
 				}
 				page.cleanup();
 				onProgress?.({ page: pageNumber, pages: doc.numPages, found: found.size });
@@ -117,22 +131,27 @@ export class BookArtExtractor {
 	}
 
 	/**
-	 * Match a raster against the manifest: exact key, gray-collapsed key, then perceptual.
-	 * @returns {Promise<string[]>} every store path this image satisfies — one image can be wanted
-	 *   at more than one path, and writing only the first leaves the rest reported as missing.
+	 * Match a raster against the manifest: exact key, gray-collapsed key, trimmed key, then perceptual.
+	 * @returns {Promise<Recognition|null>}
 	 */
 	async _identify(raster) {
 		const exact = this._manifest.pathsForKey(await raster.key());
-		if (exact.length) return exact;
+		if (exact.length) return new Recognition(exact, raster);
 		// pdf.js expands 8-bit grayscale to RGB; the pipeline keys it as one channel.
 		const gray = raster.toGray();
 		if (gray) {
 			const grayMatch = this._manifest.pathsForKey(await gray.key());
-			if (grayMatch.length) return grayMatch;
+			if (grayMatch.length) return new Recognition(grayMatch, raster);
 		}
-		if (raster.isStencil()) return []; // stencils are exact or nothing
+		// The store keeps some drawings trimmed of the canvas the book embeds them on (the major arcana).
+		const trimmed = raster.trimmed();
+		if (trimmed !== raster) {
+			const trimMatch = this._manifest.pathsForKey(await trimmed.key());
+			if (trimMatch.length) return new Recognition(trimMatch, trimmed);
+		}
+		if (raster.isStencil()) return null; // stencils are exact or nothing
 		const lossy = this._manifest.identifyLossy(raster);
-		return lossy ? [lossy] : [];
+		return lossy ? new Recognition([lossy], raster) : null;
 	}
 
 	/**

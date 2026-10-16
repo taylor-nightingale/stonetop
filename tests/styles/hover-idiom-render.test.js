@@ -146,8 +146,8 @@ describe.skipIf(!canProbe())("the hover idiom", () => {
 				`<span class="steading-tile-label"><button type="button" id="probe" class="steading-stat-roll rollable ${HOVER}">Prosperity</button></span>`],
 			["a folk trait", "steading",
 				`<button type="button" id="probe" class="steading-folk-entry ${HOVER}">cheery</button>`],
-			["a folk list toggle", "steading",
-				`<button type="button" id="probe" class="steading-folk-list-toggle ${HOVER}">Residents</button>`],
+			["a folk list's name", "steading",
+				`<h4 class="steading-folk-list-title"><button type="button" id="probe" class="steading-folk-list-toggle ${HOVER}">Names — Stonetop</button></h4>`],
 			["an unlink control", "steading",
 				`<button type="button" id="probe" class="stonetop-person-unlink ${HOVER}">unlink</button>`],
 			["a list's add affordance", "steading",
@@ -199,26 +199,26 @@ describe.skipIf(!canProbe())("the hover idiom", () => {
 		}
 	});
 
-	// The rail's toggle and the band's fold handle are declared as one look. Both carry a border, so
-	// both take the accent on the BORDER as well as the ink, and neither takes the underline the
-	// idiom gives a bare word — a rule drawn under a word inside a bordered chip is a second line
-	// across a control that already has one. Asserted side by side, because the point of the shared
-	// declaration is that these two cannot drift apart.
+	// The rail's tab and the band's are declared as one look. Both carry a border, so both take the
+	// accent on the BORDER as well as the ink, and neither takes the underline the idiom gives a bare
+	// word. Asserted side by side, because the point of the shared declaration is that these two
+	// cannot drift apart — and each where it sits, because the band's rules its tab in the band's own
+	// rule, which the hover has to win over. Read on the bottom edge: each tab is open on one side.
 	describe("the fold controls light their border and their ink, never a rule", () => {
 		for (const [label, markup] of [
-			["the band's fold handle", `<button type="button" id="probe" class="stonetop-top-toggle ${HOVER}"><i class="fas fa-chevron-up stonetop-top-caret"></i><span class="stonetop-top-toggle-label">Attribute</span></button>`],
+			["the band's fold tab", `<div class="stonetop-band"><button type="button" id="probe" class="stonetop-top-toggle ${HOVER}"><i class="fas fa-chevron-up stonetop-top-caret"></i></button></div>`],
 			["the rail's toggle", `<button type="button" id="probe" class="stonetop-rail-toggle ${HOVER}"><i class="fas fa-chevron-left stonetop-rail-caret"></i></button>`]
 		]) {
 			it(label, () => {
 				const rendered = probe.render({
 					bodyHtml: `<div class="application stonetop sheet character themed theme-light"><div class="window-content">${markup}</div></div>`,
 					bodyClass: "theme-light",
-					probes: { target: { selector: "#probe", properties: ["color", "border-top-color", "text-decoration-line", "--st-accent"] } }
+					probes: { target: { selector: "#probe", properties: ["color", "border-bottom-color", "text-decoration-line", "--st-accent"] } }
 				});
 				const el = rendered.get("target");
 				const accent = CssColor.parse(el.get("--st-accent"));
 				const ink = CssColor.parse(el.get("color"));
-				const border = CssColor.parse(el.get("border-top-color"));
+				const border = CssColor.parse(el.get("border-bottom-color"));
 				expect([ink.r, ink.g, ink.b], "the ink did not take the accent").toEqual([accent.r, accent.g, accent.b]);
 				expect([border.r, border.g, border.b], "the border did not take the accent").toEqual([accent.r, accent.g, accent.b]);
 				expect(el.get("text-decoration-line"), "a rule was drawn across a bordered control").toBe("none");

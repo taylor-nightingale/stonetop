@@ -169,6 +169,10 @@ describe("toFollowerDoc", () => {
 		expect(doc.system.cost.selected).toEqual(["wonder, excitement, joy, discovery"]);
 		expect(doc.system.loyalty).toEqual({ value: 0, max: 3 });
 	});
+	// "Treat it as a follower, with 3 Loyalty to start" — printed on the granting card, not the stat block.
+	it("starts the follower at the loyalty its card gives it", () => {
+		expect(toFollowerDoc(creature, { startingLoyalty: 3 }).system.loyalty).toEqual({ value: 3, max: 3 });
+	});
 	it("builds Selection shapes + a bullet moves string + empty choices", () => {
 		expect(doc.system.tagList).toEqual(["large", "construct"]);
 		expect(doc.system.instinct.selected).toEqual(["to misunderstand"]);

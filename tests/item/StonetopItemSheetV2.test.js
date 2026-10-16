@@ -19,6 +19,8 @@ class FakeItemSheetV2Base {
 			el.disabled = disabled;
 		}
 	}
+	_onChangeForm() { this.submitted = true; }
+	_processFormData(event, form, data) { return data; }
 }
 
 describe("StonetopItemSheetV2 base", () => {
@@ -84,6 +86,36 @@ describe("StonetopItemSheetV2 base", () => {
 			sheet._toggleDisabled(false);
 			expect(sheet.element.querySelector(".flip").disabled).toBe(false);
 			expect(sheet.element.querySelector(".edit-field").disabled).toBe(false);
+		});
+	});
+
+	// The same two rules the actor sheets follow, so a control means the same thing on every sheet:
+	// one a domain method persists never enters core's submit, and a `name` carried only to group
+	// radios is never written to the item.
+	describe("form submit", () => {
+		const makeSheet = () => {
+			const Sheet = createStonetopItemSheetV2BaseClass();
+			return new Sheet({ document: { documentName: "Item", type: "improvement" } });
+		};
+
+		it("skips core's submit for a control a domain method persists", () => {
+			const sheet = makeSheet();
+			const input = document.createElement("input");
+			input.dataset.changeAction = "ruleCount";
+			sheet._onChangeForm({}, { target: input });
+			expect(sheet.submitted).toBeUndefined();
+		});
+
+		it("still submits the fields core owns", () => {
+			const sheet = makeSheet();
+			sheet._onChangeForm({}, { target: document.createElement("input") });
+			expect(sheet.submitted).toBe(true);
+		});
+
+		it("submits only name, img and system", () => {
+			expect(makeSheet()._processFormData(null, null, {
+				name: "Watchtower", system: { slug: "watchtower" }, "improvement-abc-rule-mode": "any",
+			})).toEqual({ name: "Watchtower", system: { slug: "watchtower" } });
 		});
 	});
 });

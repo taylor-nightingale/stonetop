@@ -23,6 +23,16 @@ export function registerSettings() {
 		default: false
 	});
 
+	// Whether this world's installed artwork has had the major arcana trimmed of the canvas the books
+	// embed them on (InstalledArtTrim). Done once; a later install writes them trimmed itself.
+	game.settings.register("stonetop", "artTrimmed", {
+		name: "Artwork Trimmed",
+		scope: "world",
+		config: false,
+		type: Boolean,
+		default: false
+	});
+
 	// Whether a resident/neighbour whose name is filled in gets an NPC actor under NPCs/<location>,
 	// created by the active GM's client. Off means the roster is data only, and the "create missing
 	// actors" buttons stay the only way to make them.
