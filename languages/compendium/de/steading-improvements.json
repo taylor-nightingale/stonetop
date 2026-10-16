@@ -846,11 +846,11 @@
     },
     "effects/increase-fortunes-by-1/text": {
       "source": "increase Fortunes by 1",
-      "text": "Wrhöhe Schicksal um 1."
+      "text": "Erhöhe Schicksal um 1."
     },
     "effects/add-rhoillyg-orchard-to-both-the/text": {
       "source": "add \"Rhoillyg Orchard\" to both the Resources list and the steading map",
-      "text": ""
+      "text": "Füge „Rhoillyg-Obstgarten“ zur Ressourcenliste hinzu und zeichne ihn auf der Karte ein."
     },
     "effects/the-steading-generates-1-surplus/text": {
       "source": "the steading generates +1 Surplus",
@@ -858,11 +858,11 @@
     },
     "effects/the-steading-generates-another-1-surplus/text": {
       "source": "the steading generates another +1 Surplus",
-      "text": ""
+      "text": "erzeugt die Siedlung nochmals +1 Überschuss."
     },
     "effects/the-steading-generates-1-surplus/when/phrase": {
       "source": "**_in summer_**",
-      "text": ""
+      "text": "**_Im Sommer_**"
     },
     "effects/the-steading-generates-another-1-surplus/when/phrase": {
       "source": "when **_the autumn harvest is complete_**",
@@ -874,43 +874,43 @@
     },
     "choices/requires-both/text": {
       "source": "Requires both:",
-      "text": ""
+      "text": "Erfordert beides:"
     },
     "choices/sack-full/text": {
       "source": "A ◇ sack full of rhoillyg seeds",
-      "text": ""
+      "text": "Einen ◇ Sack voller Rhoillyg-Samen"
     },
     "choices/herbalist-considerable/text": {
       "source": "An herbalist of considerable skill and patience",
-      "text": ""
+      "text": "Einen Kräuterkundigen mit beträchtlichem Geschick und viel Geduld"
     },
     "choices/and-either-of-these-to-germinate/text": {
       "source": "And either of these, to germinate the seeds:",
-      "text": ""
+      "text": "Und eines von diesen, um die Samen zum Keimen zu bringen:"
     },
     "choices/year-so/text": {
       "source": "A year or so of experimentation",
-      "text": ""
+      "text": "Etwa ein Jahr des Experimentierens"
     },
     "choices/advice-knowledgeable/text": {
       "source": "Advice from a knowledgeable source",
-      "text": ""
+      "text": "Den Rat einer sachkundigen Person"
     },
     "choices/and-then-each-of-these/text": {
       "source": "And then each of these:",
-      "text": ""
+      "text": "Und anschließend alles Folgende"
     },
     "choices/full-spring/text": {
       "source": "A full spring, to sprout and cultivate saplings",
-      "text": ""
+      "text": "Einen ganzen Frühling, um Setzlinge sprießen zu lassen und heranzuziehen"
     },
     "choices/pulling-together/text": {
       "source": "Pulling Together once, over the course of a summer, to clear and plant the orchard",
-      "text": ""
+      "text": "Einmal gemeinsam anpacken, um im Laufe eines Sommers, den Obstgarten zu roden und zu bepflanzen"
     },
     "choices/protecting-orchard/text": {
       "source": "Protecting the orchard through two more summers",
-      "text": ""
+      "text": "Den Obstgarten zwei weitere Sommer lang schützen"
     }
   },
   "roadbuilding": {

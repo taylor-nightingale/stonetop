@@ -19,7 +19,7 @@
       "max": 16
     },
     "armor": "4 (resilience, 0 vs. silver)",
-    "damage": "(_reach_, _area_, ignores armor) (_hand_, _grabby_, _forceful_) A gwyllgi is a harbinger of death, a being from beyond. A necromancer might call one forth to send against their foes. Or, one might slip through the Last Door when dark magic or the death of many cause it to swing wide open.",
+    "damage": "(_reach_, _area_, ignores armor) (_hand_, _grabby_, _forceful_)",
     "specialQuality": "hates daylight, must be manifest to feed",
     "instinct": {
       "selected": [
@@ -30,7 +30,7 @@
       "allowCustom": true
     },
     "moves": "- Manifest as a black wolf with blazing red eyes\n- Appear to someone out alone at night and lay a death curse on them (see below)\n- Breathe forth a baleful cloud, d6",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
+    "description": "A gwyllgi is a harbinger of death, a being from beyond. A necromancer might call one forth to send against their foes. Or, one might slip through the Last Door when dark magic or the death of many cause it to swing wide open.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.sNLYfvJEFM1v463y]{Death and the undying} (Book p.68-85)",
     "notes": ""
   },
   "ownership": {
