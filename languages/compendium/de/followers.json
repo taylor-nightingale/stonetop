@@ -1,4 +1,22 @@
 {
+  "a-good-dog": {
+    "name": {
+      "source": "A good dog",
+      "text": "Ein guter Hund"
+    },
+    "damage": {
+      "source": "[[/r d6]] (_hand_, _grabby_)",
+      "text": "[[/r d6]] (_Hand_, _Fesselnd_)"
+    },
+    "instinct/selected/to-play": {
+      "source": "to play",
+      "text": "zu spielen"
+    },
+    "cost/selected/affection": {
+      "source": "affection",
+      "text": ""
+    }
+  },
   "afon": {
     "name": {
       "source": "Afon, a Fellow Initiate",
@@ -835,6 +853,24 @@
       "text": "Betreuung & Pflege"
     }
   },
+  "hounds": {
+    "name": {
+      "source": "Hounds",
+      "text": "Jagdhunde"
+    },
+    "damage": {
+      "source": "[[/r d6]] (_hand_, _grabby_)",
+      "text": "[[/r d6]] (_Hand_, _Fesselnd_)"
+    },
+    "instinct/selected/to-bark-threaten": {
+      "source": "to bark & threaten",
+      "text": ""
+    },
+    "cost/selected/affection": {
+      "source": "affection",
+      "text": ""
+    }
+  },
   "mantle-wraiths": {
     "name": {
       "source": "Mantle wraiths",
@@ -863,6 +899,24 @@
     "cost/selected/souls-feasted-upon": {
       "source": "souls feasted upon",
       "text": "Seelen, an denen sie sich laben können"
+    }
+  },
+  "mastiffs": {
+    "name": {
+      "source": "Mastiffs",
+      "text": "Mastiffs"
+    },
+    "damage": {
+      "source": "[[/r d6]] (_hand_, _grabby_)",
+      "text": "[[/r d6]] (_Hand_, _Fesselnd_)"
+    },
+    "instinct/selected/to-bark-threaten": {
+      "source": "to bark & threaten",
+      "text": ""
+    },
+    "cost/selected/affection": {
+      "source": "affection",
+      "text": ""
     }
   },
   "mule": {
@@ -1443,6 +1497,10 @@
     "the-ranger": {
       "source": "The Ranger",
       "text": "Der Waldläufer"
+    },
+    "the-would-be-hero": {
+      "source": "The Would-Be Hero",
+      "text": "Der Möchtegern-Held"
     }
   }
 }
