@@ -52,9 +52,6 @@
         "bio": "Biographie",
         "notes": "Notizen"
       },
-      "lock": {
-        "unlock": "Bearbeiten"
-      },
       "playbook": {
         "emptyHint": "Wähle ein Klassenbuch aus oder ziehe es hierher, um zu beginnen.",
         "selectPlaceholder": "Wähle ein Klassenbuch",
