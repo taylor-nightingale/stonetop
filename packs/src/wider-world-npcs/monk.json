@@ -19,14 +19,14 @@
     },
     "armor": "0",
     "damage": "staff d8 with disadvantage (_close_)",
-    "specialQuality": "spirit sight; inured to hunger, cold, deprivation Empty Sky instinct to ignore the suffering or needs of others",
+    "specialQuality": "spirit sight; inured to hunger, cold, deprivation",
     "instinct": {
       "selected": [],
       "options": [],
       "multi": false,
       "allowCustom": true
     },
-    "moves": "- Remain unperturbed\n- Send their mind forth into the spirit world, their bodies insensate\n- Calm the elements around them\n\nUnmoved Mountain instinct to push and test themselves\n\n- Perform a feat of extreme athleticism or endurance\n- Endure or absorb raw elemental power\n- Refuse to adapt or change\n\nWhite Crystal instinct to impose order\n\n- Take charge\n- Do their duty\n- Suppress the emotions of others",
+    "moves": "Empty Sky instinct to ignore the suffering or needs of others\n\n- Remain unperturbed\n- Send their mind forth into the spirit world, their bodies insensate\n- Calm the elements around them\n\nUnmoved Mountain instinct to push and test themselves\n\n- Perform a feat of extreme athleticism or endurance\n- Endure or absorb raw elemental power\n- Refuse to adapt or change\n\nWhite Crystal instinct to impose order\n\n- Take charge\n- Do their duty\n- Suppress the emotions of others",
     "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrier Pass} (Book p.26-33)",
     "notes": ""
   },

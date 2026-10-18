@@ -2,31 +2,31 @@
   "a-folktale": {
     "name": {
       "source": "A folktale",
-      "text": ""
+      "text": "Ein Volksmärchen"
     },
     "front/choices/a-folktale/theres-this-old-tale-about-an/text": {
       "source": "There’s this old tale, about an old herb tender from Marshedge that tricks a fen-troll into eating an enchanted seedpod. She promises to go get the troll more food if he promises to then let her go. Of course, the troll breaks his word and tries to eat her, but the seedpod bursts into a mass of gwir-nettles when he does.",
-      "text": ""
+      "text": "Es gibt eine alte Geschichte über eine alte Kräutersammlerin aus Mooresrand, die einen Sumpftroll dazu bringt, eine verzauberte Samenkapsel zu fressen. Sie verspricht ihm, weitere Nahrung für ihn zu holen, wenn er ihr dafür verspricht, sie anschließend gehen zu lassen. Natürlich bricht der Troll sein Wort und versucht, sie zu fressen, doch in diesem Moment platzt die Samenkapsel auf und verwandelt sich in eine Masse von Gwir-Brennnesseln."
     },
     "front/choices/a-folktale/you-can-learn-the-secret-of/text": {
       "source": "You can learn the secret of the enchanted seedpods, but need one of the following:",
-      "text": ""
+      "text": "Du kannst das Geheimnis der verzauberten Samenkapseln erlernen, benötigst dafür jedoch eines der folgenden Dinge:"
     },
     "front/choices/a-folktale/marshedge-herbalist/text": {
       "source": "A Marshedge herbalist, steeped in lore, to teach you the ritual",
-      "text": ""
+      "text": "Einen Kräuterkundigen aus Mooresrand, der dich in die Geheimnisse der Überlieferung einweiht und dir das Ritual beibringt."
     },
     "front/choices/a-folktale/spirit-gwir/text": {
       "source": "The spirit of a gwir-nettle, friendly or bound, to reveal the secrets of its birth",
-      "text": ""
+      "text": "Den Geist einer Gwir-Brennnessel, freundlich oder gebunden, der dir die Geheimnisse ihrer Entstehung offenbart."
     },
     "back/title": {
       "source": "Truth Seeds",
-      "text": ""
+      "text": "Wahrheitssamen"
     },
     "back/choices/intro/when-you-soak-a-pair-of/text": {
       "source": "When you **_soak a pair of gwir-nettle seedpods in_** **_your own blood, whisper secrets over them, and_** **_say the words of power_**, they become truth seeds (*magical)*.\n\nWhen you and another **_each eat a truth seed and_** **_make promises to each other_**, the seeds stay in your guts and ensure that the promises are kept.\n\nWhen you **_break your promise_**, the truth seed in your gut sprouts violently into a full-grown gwir-nettle, dealing 1d10+3 damage with advantage (*messy*, ignores armor) and now you’ve got a gwir-nettle growing out of you.\n\nIf the **_other party breaks their promise_**, they suffer the same fate.",
-      "text": ""
+      "text": "Wenn du **_ein Paar Samenkapseln einer Gwir-Brennnessel in deinem eigenen Blut einweichst, ihnen Geheimnisse zuflüsterst und die Zauberworte sprichst_**, verwandeln sie sich in Wahrheitssamen (_Magisch_).\n\nWenn du und eine andere **_Person jeweils einen Wahrheitssamen esst und euch gegenseitig Versprechen gebt_**, bleiben die Samen in eurem Bauch und sorgen dafür, dass die Versprechen eingehalten werden.\n\nWenn du **_dein Versprechen brichst_**, sprießt der Wahrheitssamen in deinem Bauch gewaltsam zu einer ausgewachsenen Gwir-Brennnessel heran, die 1W10+3 Schaden mit Vorteil verursacht (_Brutal_, ignoriert Rüstung), und nun wächst eine Gwir-Brennnessel aus dir heraus.\n\nWenn die andere **_Person ihr Versprechen bricht_**, erleidet sie das gleiche Schicksal."
     }
   },
   "azure-hand": {
@@ -364,119 +364,119 @@
   "carvings-in-a-cave": {
     "name": {
       "source": "Carvings in a cave",
-      "text": ""
+      "text": "Gravuren in einer Höhle"
     },
     "front/choices/carvings-in-a-cave/at-the-bottom-of-a-sinkhole/text": {
       "source": "At the bottom of a sinkhole is a limestone cave. A moldering skeleton slumps against one wall, showing signs of having been hanged. Yet carved into the cave walls are runes, caked over with mineral deposits.",
-      "text": ""
+      "text": "Am Grund eines Erdlochs befindet sich eine Kalksteinhöhle. An einer Wand lehnt ein vermoderndes Skelett, das Anzeichen dafür aufweist, gehängt worden zu sein. Doch in die Höhlenwände sind Runen eingeritzt, die mit Mineralablagerungen überzogen sind."
     },
     "front/choices/carvings-in-a-cave/you-can-study-the-runes-and/text": {
       "source": "You can study the runes and learn the secrets they contain, but...",
-      "text": ""
+      "text": "Du kannst die Runen studieren und die Geheimnisse, die sie enthalten, erlernen, aber …"
     },
     "front/choices/carvings-in-a-cave/carefully-restore/text": {
       "source": "… you must carefully restore the runes over a few weeks of work.",
-      "text": ""
+      "text": "… du musst die Runen über mehrere Wochen sorgfältiger Arbeit hinweg behutsam freilegen."
     },
     "front/choices/carvings-in-a-cave/risk-ruining/text": {
       "source": "… you risk ruining them as you work.",
-      "text": ""
+      "text": "… du riskierst, sie bei deiner Arbeit zu beschädigen."
     },
     "front/choices/carvings-in-a-cave/decipher-old/text": {
       "source": "… you must decipher the old writings, which are similar to Stone Lord runes.",
-      "text": ""
+      "text": "… du musst die alten Schriften entziffern, die den Runen der Steinfürsten ähneln."
     },
     "front/choices/carvings-in-a-cave/then-take/text": {
       "source": "… it will then take a few days of study.",
-      "text": ""
+      "text": "… anschließend sind mehrere Tage des Studiums erforderlich."
     },
     "back/title": {
       "source": "Shell Game of Souls",
-      "text": ""
+      "text": "Hütchenspiel der Seelen"
     },
     "back/resource/title": {
       "source": "Souls max CON",
-      "text": ""
+      "text": "Seelen (max. KO)"
     },
     "back/choices/intro/when-you-touch-a-dying-intelligent/text": {
       "source": "When you **_touch a dying, intelligent being, speak_****_ing their name and words of binding_**, roll +INT: **on a 10+**, you bind their soul to your flesh; **on a** **7-9**, you bind their soul but weaken yours— reduce your max HP by 1d4+1.\n\nYour flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:\n\nWhen you **_roll a 6- on Death’s Door_**, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.",
-      "text": ""
+      "text": "Wenn du **_ein sterbendes, intelligentes Wesen berührst, seinen Namen nennst und die Bindungsworte sprichst_**, würfle +IN. **Bei einer 10+** bindest du ihre Seele an dein Fleisch. **Bei 7-9** bindest du ihre Seele, aber deine eigene wird dadurch geschwächt. Reduziere deine maximalen TP um 1W4+1.\n\nDein Fleisch kann eine Anzahl von Seelen binden, die deiner KO entspricht. Sie manifestieren sich in Träumen und ringen um die Kontrolle, wenn dein Geist oder Körper geschwächt ist. Schreibe ihre Namen hier auf:\n\nWenn du **_bei An der Schwelle des Todes eine 6- würfelst_**, kannst du eine gebundene Seele freilassen, damit sie an deiner Stelle durch die Letzte Pforte geht. Wenn du das tust, überlebst du, als hättest du 7-9 gewürfelt. Dein Körper trägt jedoch weiterhin die Spuren dessen, was dich getötet hätte."
     }
   },
   "chain-of-rusty-locks": {
     "name": {
       "source": "A chain of rusty locks",
-      "text": ""
+      "text": "Eine Kette rostiger Schlösser"
     },
     "front/item/name": {
       "source": "A chain of rusty locks",
-      "text": ""
+      "text": "Eine Kette rostiger Schlösser"
     },
     "front/choices/chain-of-rusty-locks/a-chain-six-links-long-each/text": {
       "source": "A chain, six links long, each link hung with a corroded bronze padlock. 1d4+1 locks bear a stylized face, frozen in a rusty grimace. The keys to these locks are lost to the ages.",
-      "text": ""
+      "text": "Eine Kette mit sechs Gliedern, an jedem Glied hängt ein korrodiertes Bronzeschloss. 1W4+1 der Schlösser tragen ein stilisiertes Gesicht, das zu einer rostigen Grimasse erstarrt ist. Die Schlüssel zu diesen Schlössern sind im Laufe der Zeit verloren gegangen."
     },
     "front/choices/chain-of-rusty-locks/when-you-hold-one-of-the/text": {
       "source": "When you **_hold one of the face-adorned locks and_** **_look into its eyes_**, you can hear the voice of the departed soul bound within: hateful, desperate, pleading to be set free.\n\nYou can master these locks by…",
-      "text": ""
+      "text": "Wenn du **_eines der mit einem Gesicht versehenen Schlösser in der Hand hältst und ihm in die Augen blickst_**, kannst du die Stimme der darin gebundenen verstorbenen Seele hören: hasserfüllt, verzweifelt, flehend um Befreiung.\n\nDu kannst diese Schlösser meistern, indem du …"
     },
     "front/choices/chain-of-rusty-locks/convincing-one/text": {
       "source": "… convincing one of the shades to reveal how it was captured.",
-      "text": ""
+      "text": "… einen der Schatten davon überzeugst, zu verraten, wie er gefangen wurde."
     },
     "front/choices/chain-of-rusty-locks/convincing-shade/text": {
       "source": "… convincing a shade to reveal what happens when a lock is opened.",
-      "text": ""
+      "text": "… einen Schatten davon überzeugst, zu verraten, was passiert, wenn ein Schloss geöffnet wird."
     },
     "front/choices/chain-of-rusty-locks/finding-way/text": {
       "source": "… finding a way to open the locks.",
-      "text": ""
+      "text": "… einen Weg findest, die Schlösser zu öffnen."
     },
     "back/title": {
       "source": "The Six Locks of Sajua",
-      "text": ""
+      "text": "Die sechs Schlösser von Sajua"
     },
     "back/resource/title": {
       "source": "Disturbance",
-      "text": ""
+      "text": "Störung"
     },
     "back/choices/intro/when-you-smear-the-blood-of/text": {
       "source": "When you **_smear the blood of the dying onto an_** **_open Lock of Sajua and then close the lock_**, roll +CON: **on a 10+**, their soul is bound in the lock; **on a 7-9**, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.\n\nWhen you **_extract a promise from a bound soul_** **_and then open the lock that binds it_**, the soul is compelled to fulfill the letter of its promise before it goes its own way. Tell the GM to treat it as a ghost (though not necessarily as a follower); the open lock serves as its tether, at least for now.\n\nEach time you release a soul, mark 1 Disturbance and roll 1d6. If you roll less than your Disturbance, you hear the call of the Pale Hunter in the distance. Expect a visit soon.",
-      "text": ""
+      "text": "Wenn du **_das Blut eines Sterbenden auf ein offenes Schloss von Sajua schmierst und das Schloss anschließend schließt_**, würfle +KO. **Bei einer 10+** wird seine Seele im Schloss gebunden. **Bei 7–9** wird seine Seele gebunden, doch jedes gewöhnliche Metall in deiner Gegenwart rostet oder läuft an, korrodiert und wird brüchig.\n\nWenn du **_einer gebundenen Seele ein Versprechen abringst und anschließend das Schloss öffnest, das sie bindet_**, ist die Seele gezwungen, ihr Versprechen wortgetreu zu erfüllen, bevor sie ihres Weges geht. Sage dem SL, sie soll sie wie einen Geist behandeln (wenn auch nicht unbedingt wie einen Gefolgsmann); das geöffnete Schloss dient ihr zumindest vorerst als Anker.\n\nJedes Mal, wenn du einen Schatten befreist, markiere 1 Störung und würfle 1W6. Wenn du weniger als deine Störung würfelst, hörst du den Ruf des bleichen Jägers in der Ferne. Erwarte bald einen Besuch."
     }
   },
   "clear-natural-pool": {
     "name": {
       "source": "A clear natural pool",
-      "text": ""
+      "text": "Ein klarer, natürlicher Teich"
     },
     "front/choices/clear-natural-pool/high-in-the-hills-a-stream/text": {
       "source": "High in the hills, a stream of snowmelt fills a deep pool in the rocks before flowing on. At the bottom of the pool is a large deposit of lodestone. Rusted old blades (many sized for giants) can be seen clinging to the lodestone.",
-      "text": ""
+      "text": "Hoch in den Bergen füllt das Schmelzwasser eines Baches einen tiefen Teich im Fels, bevor es weiterfließt. Auf dem Grund des Teichs befindet sich eine große Ansammlung von Magnetstein. An dem Magnetstein haften rostige alte Klingen (viele davon in der Größe für Riesen)."
     },
     "front/choices/clear-natural-pool/there-is-magic-here-to-unlock/text": {
       "source": "There is magic here; to unlock its secrets, either...",
-      "text": ""
+      "text": "Magie ist hier zugegen. Um ihre Geheimnisse zu entschlüsseln, muss du entweder …"
     },
     "front/choices/clear-natural-pool/spend-week/text": {
       "source": "… spend a week or so experimenting at the pool, then roll +INT: **on a 10+**, you figure it out; **on a 7-9**, no luck; **on a 6-**, you are interrupted by danger; or...",
-      "text": ""
+      "text": "… etwa eine Woche damit verbringen, am Teich zu experimentieren, und dann +IN würfeln. **Bei einer 10+** findest du heraus, wie es funktioniert. **Bei 7–9** hast du keinen Erfolg. Bei einer 6- wirst du von einer Gefahr unterbrochen; oder …"
     },
     "front/choices/clear-natural-pool/get-firsthand/text": {
       "source": "… get a firsthand account of the pool’s powers in use.",
-      "text": ""
+      "text": "… du erfährst aus erster Hand, wie die Kräfte des Teichs eingesetzt werden."
     },
     "back/title": {
       "source": "Ward of Still Waters",
-      "text": ""
+      "text": "Bann der stillen Wasser"
     },
     "back/resource/title": {
       "source": "Strain",
-      "text": ""
+      "text": "Belastung"
     },
     "back/choices/intro/when-you-cut-yourself-with-iron/text": {
       "source": "When you **_cut yourself with iron or steel and toss_** **_the blooded metal into the pool_**, you form a bond with the waters. So long as you carry a vial of the pool’s water on your person, you are protected by the ward of still waters.\n\nWhen you are so protected and **_subject to magic_** **_that attempts to sense or affect your thoughts,_** **_actions, or emotions_**, the magic targets the still waters of the pool instead—possibly befuddling the magic’s source.\n\nEach time the ward of still waters protects you, mark 1 Strain and then roll 1d6. If your roll is less than your current Strain, the water you carry loses its potency. When you **_return to the pool_** **_and renew your bond_**, clear all Strain.",
-      "text": ""
+      "text": "Wenn du **_dich mit Eisen oder Stahl schneidest und das blutige Metall in den Teich wirfst_**, gehst du eine Bindung mit dem Wasser ein. Solange du ein Fläschchen mit Wasser des Beckens bei dir trägst, schützt dich der Bann der stillen Wasser.\n\nWenn du auf diese Weise geschützt bist und **_Magie auf dich einwirkt, die versucht, deine Gedanken, Handlungen oder Gefühle zu ergründen oder zu beeinflussen_**, richtet sich die Magie stattdessen gegen die stillen Wasser des Teichs – und verwirrt möglicherweise die Quelle der Magie.\n\nJedes Mal, wenn der Bann der stillen Wasser dich schützt, markiere 1 Belastung und würfle anschließend 1W6. Ist dein Wurf niedriger als deine aktuelle Belastung,verliert das Wasser, das du bei dir trägst, seine Wirksamkeit. Wenn du **_zum Teich zurückkehrst und deine Bindung erneuerst_**, streiche die gesamte Belastung."
     }
   },
   "cloak-richly-embroidered": {
@@ -520,47 +520,47 @@
   "copper-banded-staff": {
     "name": {
       "source": "A copper-banded staff",
-      "text": ""
+      "text": "Ein kupferbeschlagener Stab"
     },
     "front/item/name": {
       "source": "A copper-banded staff",
-      "text": ""
+      "text": "Ein kupferbeschlagener Stab"
     },
     "front/choices/copper-banded-staff/a-short-staff-about-4-feet/text": {
       "source": "A short staff, about 4 feet tall, tapering towards the tip and made of blackened oak with a strange metallic sheen. A dozen bands adorn it, made of corroded copper, caked in verdigris and crumbling away in spots. The bands are embossed with runes of power, some of them worn away or obscured.",
-      "text": ""
+      "text": "Ein kurzer Stab von etwa 4 Fuß Länge, der sich zur Spitze hin verjüngt und aus geschwärztem Eichenholz gefertigt ist, das einen seltsamen metallischen Schimmer aufweist. Ein Dutzend Bänder zieren ihn, bestehend aus korrodiertem Kupfer, mit Grünspan überzogen und an einigen Stellen bereits zerbröckelnd. Die Bänder sind mit Runen der Macht geprägt, von denen einige abgenutzt oder unkenntlich geworden sind."
     },
     "front/choices/copper-banded-staff/the-staff-still-tingles-with-power/text": {
       "source": "The staff still tingles with power. To unlock its mysteries you must…",
-      "text": ""
+      "text": "Der Stab kribbelt noch immer vor Kraft. Um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/copper-banded-staff/figure-out/text": {
       "source": "… figure out the shape of the missing and damaged runes.",
-      "text": ""
+      "text": "… die Form der fehlenden und beschädigten Runen herausfinden."
     },
     "front/choices/copper-banded-staff/replace-bands/text": {
       "source": "… replace the bands with new ones of rune-embossed aetherium.",
-      "text": ""
+      "text": "… die Bänder durch neue aus mit Runen geprägtem Ätherium ersetzen."
     },
     "front/choices/copper-banded-staff/hold-fast/text": {
       "source": "… hold fast as lightning courses through the staff, attuning to its magic (you risk serious burns or at least flinching and letting go).",
-      "text": ""
+      "text": "… den Stab festhalten, während Blitze durch ihn hindurchfließen, und dich auf seine Magie einstimmen (du riskierst schwere Verbrennungen oder zumindest, zusammenzuzucken und ihn loszulassen)."
     },
     "front/choices/copper-banded-staff/spend-few/text": {
       "source": "… spend a few days practicing with the charged-up staff.",
-      "text": ""
+      "text": "… einige Tage damit verbringen, mit dem aufgeladenen Stab zu üben."
     },
     "back/title": {
       "source": "Staff of Magnetism",
-      "text": ""
+      "text": "Stab des Magnetismus"
     },
     "back/resource/title": {
       "source": "Charge",
-      "text": ""
+      "text": "Ladungen"
     },
     "back/choices/intro/when-lightning-courses-through-the-staff/text": {
       "source": "When **_lightning courses through the staff,_** it holds 3 Charge (max 3).\n\nWhen **_the staff holds Charge and you focus your_** **_will and senses through it_**, you can sense iron, steel, cobalt, and nickel within *near* range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.\n\nWhen you **_tap into the power stored within the_** **_staff_**, pick 1:\n\n- Extend its effects up to *far* range\n- Move items quickly and suddenly, fast enough to attack or defend (*dangerous*)\n- Manipulate an object of considerable mass, as much as you can deadlift Each time you tap into the staff’s power, roll 1d6. If you roll higher than the staff’s current Charge, it loses 1 Charge.",
-      "text": ""
+      "text": "Wenn **_Blitze durch den Stab zucken_**, erhält er 3 Ladungen (max. 3).\n\nWenn **_der Stab über Ladung verfügt und du deinen Willen und deine Sinne darauf konzentrierst_**, kannst du Eisen, Stahl, Kobalt und Nickel innerhalb der Reichweite Nah erspüren und solche Objekte langsam und unbeholfen bewegen. Du kannst nur Gegenstände manipulieren, die du mit einer Hand heben könntest.\n\nWenn du **_die im Stab gespeicherte Kraft nutzt_**, wähle 1:\n\n- Erweitere die Wirkung bis zur Reichweite Fern.\n- Bewege Gegenstände schnell und abrupt, schnell genug, um anzugreifen oder dich zu verteidigen  (_Gefährlich_).\n- Manipuliere einen Gegenstand von beträchtlicher Masse (so viel, wie du eigener Kraft heben könntest).\n\nJedes Mal, wenn du die Kraft des Stabes nutzt, würfle 1W6. Wenn du einen Wert würfelst, der höher ist als die aktuelle Ladung des Stabs, verliert er 1 Ladung."
     }
   },
   "corroded-spearhead": {
@@ -796,97 +796,97 @@
   "disturbing-mask": {
     "name": {
       "source": "A disturbing mask",
-      "text": ""
+      "text": "Eine unheimliche Maske"
     },
     "front/item/name": {
       "source": "A disturbing mask",
-      "text": ""
+      "text": "Eine unheimliche Maske"
     },
     "front/item/note": {
       "source": "if stowed;",
-      "text": ""
+      "text": "falls verstaut;"
     },
     "front/choices/disturbing-mask/this-stiff-leathery-mask-looks-a/text": {
       "source": "This stiff, leathery mask looks a bit like melted wax. A large pearlescent sphere is embedded in the forehead. It seems to whisper as you move to put it on.",
-      "text": ""
+      "text": "Diese steife, lederartige Maske sieht ein wenig wie geschmolzenes Wachs aus. In ihre Stirn ist eine große, perlmuttfarbene Kugel eingelassen. Sie scheint zu flüstern, sobald du sie aufsetzen willst."
     },
     "front/choices/disturbing-mask/theres-more-to-this-mask-than/text": {
       "source": "There’s more to this mask than meets the eye. To unlock its secrets, you must…",
-      "text": ""
+      "text": "Hinter dieser Maske verbirgt sich mehr, als man auf den ersten Blick sieht. Um ihre Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/disturbing-mask/don-mask/text": {
       "source": "… don the mask while alone, and wear it unseen for a night and a day.",
-      "text": ""
+      "text": "… die Maske allein aufsetzen und sie eine Nacht und einen Tag lang unbemerkt tragen."
     },
     "front/choices/disturbing-mask/watch-someone/text": {
       "source": "… watch someone unnoticed for a few hours, while you wear the mask.",
-      "text": ""
+      "text": "… jemanden mehrere Stunden lang unbemerkt beobachten, während du die Maske trägst."
     },
     "front/choices/disturbing-mask/tell-mask/text": {
       "source": "… tell the mask a secret, something no one else knows about you (tell the GM and other players what it is).",
-      "text": ""
+      "text": "… der Maske ein Geheimnis verraten, etwas, das niemand sonst über dich weiß (teile dem SL und den anderen Spielern mit, worum es sich handelt)."
     },
     "front/choices/disturbing-mask/tell-mask-another/text": {
       "source": "… tell the mask another person’s secret, something that you’ve promised never to tell (tell the GM and other players what it is).",
-      "text": ""
+      "text": "… der Maske das Geheimnis einer anderen Person verraten, etwas, das du versprochen hast, niemals zu erzählen (teile dem SL und den anderen Spielern mit, worum es sich handelt)."
     },
     "back/title": {
       "source": "Fetch’s Mask",
-      "text": ""
+      "text": "Fetchs Maske"
     },
     "back/resource/title": {
       "source": "Ken",
-      "text": ""
+      "text": "Kenntnis"
     },
     "back/choices/intro/when-you-wear-the-mask-and/text": {
       "source": "When you **_wear the mask and eat someone’s hair,_** **_blood, fingernail, etc._**, you and the mask become their flawless double until the next sunrise or you remove the mask.\n\nWhen you **_interact with an NPC known to_** **_whoever’s visage you wear_**, roll +CHA: **on a 10+**, hold 3 Ken; **on a 7-9**, hold 1 Ken; **on a 6-**, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:\n\n- What do they expect me to do/say?\n- What do they hope/want from me?\n- What secret do I keep from them? When you **_remove the mask after wearing_** **_someone’s visage_**, roll +CON: **on a 10+**, it hurts but comes off okay; **on a 7-9**, your face is raw and painful, mark a debility; **on a 6-**, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.",
-      "text": ""
+      "text": "Wenn du **_die Maske trägst und die Haare, das Blut, einen Fingernagel oder etwas Ähnliches einer Person isst_**, werden du und die Maske bis zum nächsten Sonnenaufgang oder bis du die Maske abnimmst zu ihrem perfekten Ebenbild.\n\nWenn du **_mit einem NSC interagierst, der die Person kennt, deren Antlitz du trägst_**, würfle +CH. **Bei einer 10+** nimm 3 Kenntnis. **Bei 7–9** nimm 1 Kenntnis. **Bei einer 6-** wird die Person zutiefst misstrauisch. Während du mit ihr interagierst, kannst du Kenntnis im Verhältnis 1:1 ausgeben, um den SL eine der folgenden Fragen zu stellen:\n\n- Was erwartet die Person von mir, was ich tun oder sagen soll?\n- Was will oder erhofft sich die Person von mir?\n- Welches Geheimnis verberge ich vor ihr?\n\nWenn du **_die Maske abnimmst, nachdem du das Antlitz einer anderen Person getragen hast_**, würfle +KO. **Bei einer 10+** schmerzt es, aber die Maske lässt sich problemlos abnehmen. **Bei 7–9** ist dein Gesicht wund und schmerzt – markiere eine Beeinträchtigung. **Bei einer 6-** verlierst du 1W4 TP, markierst eine Beeinträchtigung und die Maske hinterlässt bleibende, unverwechselbare Narben."
     }
   },
   "fine-ceramic-urn": {
     "name": {
       "source": "A fine ceramic urn",
-      "text": ""
+      "text": "Eine feine Keramikurne"
     },
     "front/item/name": {
       "source": "A fine ceramic urn",
-      "text": ""
+      "text": "Eine feine Keramikurne"
     },
     "front/choices/fine-ceramic-urn/a-jar-of-fine-pottery-the/text": {
       "source": "A jar of fine pottery, the size of a small cookpot. Its glaze is a wondrous blend of patterns and sheens. The lid fits snugly, though it’s clumsy to manipulate and tricky to open once closed. You get the feeling it was made for much bigger hands than yours.",
-      "text": ""
+      "text": "Ein Gefäß aus feiner Keramik, etwa so groß wie ein kleiner Kochtopf. Die Glasur ist eine wundervolle Mischung aus Mustern und Glanz. Der Deckel sitzt dicht auf, lässt sich jedoch nur umständlich handhaben und nach dem Verschließen nur schwer öffnen. Du hast das Gefühl, dass es für weitaus größere Hände als deine gefertigt wurde."
     },
     "front/choices/fine-ceramic-urn/to-unlock-the-secrets-of-the/text": {
       "source": "To unlock the secrets of the urn, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse der Urne zu entschlüsseln, musst du …"
     },
     "front/choices/fine-ceramic-urn/commune-chthonic/text": {
       "source": "… commune with the chthonic spirit that dwells within (**Instinct** to hoard secrets).",
-      "text": ""
+      "text": "… mit dem chthonischen Geist in Verbindung treten, der in ihr wohnt (Instinkt Geheimnisse zu horten)."
     },
     "front/choices/fine-ceramic-urn/convince-teach/text": {
       "source": "… convince it to teach you both the secret recipe and song required to make its magic work.",
-      "text": ""
+      "text": "… ihn davon überzeugen, dir sowohl das geheime Rezept als auch das Lied beizubringen, die nötig sind, damit seine Magie wirkt."
     },
     "front/choices/fine-ceramic-urn/acquire-reagents/text": {
       "source": "… acquire the reagents required for the recipe (Value 1).",
-      "text": ""
+      "text": "... die für das Rezept erforderlichen Reagenzien beschaffen (Wert 1)."
     },
     "front/choices/fine-ceramic-urn/manage-sing/text": {
       "source": "… manage to sing the secret song for a day and night, without pause.",
-      "text": ""
+      "text": "... es schaffen, das geheime Lied einen Tag und eine Nacht lang ohne Unterbrechung zu singen."
     },
     "back/title": {
       "source": "Plaster of Joining",
-      "text": ""
+      "text": "Verbindungsgips"
     },
     "back/resource/title": {
       "source": "Uses",
-      "text": ""
+      "text": "Anwendungen"
     },
     "back/choices/intro/when-you-pour-water-a-pinch/text": {
       "source": "When you **_pour water, a pinch of blood, and spe_****_cial reagents (Value 1) into the urn and sing over_** **_it for a full day and night_**, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you **_use the plaster to join two or more pieces_** **_of stone, rock, or crystal_** and let the plaster set for a few hours, the pieces will fuse together. Different materials will show a natural, gradient seam. Similar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.",
-      "text": ""
+      "text": "Wenn du **_Wasser, eine Prise Blut und spezielle Reagenzien (Wert 1) in die Urne gießt und einen ganzen Tag und eine ganze Nacht lang darüber singst_**, erhält die Urne 1 Anwendung Gips (max. 3 Anwendungen).\n\nWenn du **_den Verbindungsgips verwendest, um zwei oder mehr Stücke aus Stein, Gestein oder Kristall miteinander zu verbinden_**, und den Gips einige Stunden lang aushärten lässt, verschmelzen die Stücke miteinander. Bei unterschiedlichen Materialien entsteht eine natürliche, verlaufende Naht. Ähnliche Materialien verschmelzen nahtlos miteinander.\n\nEine einzelne Anwendung des Gipses reicht für eine Fläche von bis zu einigen Zoll Breite und Höhe. Mehrere Anwendungen können größere Steinstücke miteinander verbinden. Ungenutzter Gips ist unbegrenzt haltbar, solange die Urne verschlossen bleibt."
     }
   },
   "fine-drinking-horn": {
@@ -1010,115 +1010,115 @@
   "gold-butter-lamp": {
     "name": {
       "source": "A gold butter lamp",
-      "text": ""
+      "text": "Eine goldene Butterlampe"
     },
     "front/item/name": {
       "source": "A gold butter lamp",
-      "text": ""
+      "text": "Eine goldene Butterlampe"
     },
     "front/choices/gold-butter-lamp/an-oversized-highly-decorated-lamp-shaped/text": {
       "source": "An oversized, highly decorated lamp, shaped like a chalice with a wide cup, like those lamps they use up north to burn mammoth-butter in their rituals.",
-      "text": ""
+      "text": "Eine übergroße, reich verzierte Lampe, die wie ein Kelch mit einer breiten Schale geformt ist – ähnlich jenen Lampen, mit denen man im Norden bei Ritualen Mammutbutter verbrennt."
     },
     "front/choices/gold-butter-lamp/its-worth-a-fortune-value-4/text": {
       "source": "It’s worth a fortune (Value 4), but there’s more to this lamp than meets the eye. To unlock its secrets, you must...",
-      "text": ""
+      "text": "Sie ist ein Vermögen wert (Wert 4), doch diese Lampe birgt mehr, als man auf den ersten Blick erkennt. Um ihre Geheimnisse zu entschlüsseln, musst du..."
     },
     "front/choices/gold-butter-lamp/consult-disciple/text": {
       "source": "… consult with a disciple of the Rime Lords (or one of their troves of lore) to learn the recipe and mantra that makes the lamp work.",
-      "text": ""
+      "text": "… einen Jünger der Frostfürsten (oder einen ihrer Wissenshorte) zu Rate ziehen, um das Rezept und das Mantra zu erlernen, mit denen die Lampe zum Wirken gebracht wird."
     },
     "front/choices/gold-butter-lamp/acquire-special/text": {
       "source": "… acquire the special ingredients for the clarified mammoth-butter to be burned in the lamp (Value 1).",
-      "text": ""
+      "text": "… die besonderen Zutaten für die geklärte Mammutbutter beschaffen, die in der Lampe verbrannt werden soll (Wert 1)."
     },
     "front/choices/gold-butter-lamp/risk-drawing/text": {
       "source": "… risk drawing the attention of one or more wraiths when you first light the lamp and utter the incantation.",
-      "text": ""
+      "text": "… das Risiko einzugehen, die Aufmerksamkeit eines oder mehrerer Geister auf dich zu ziehen, wenn du die Lampe zum ersten Mal entzündest und die Beschwörungsformel sprichst."
     },
     "back/title": {
       "source": "Revealing Light",
-      "text": ""
+      "text": "Enthüllendes Licht"
     },
     "back/item/name": {
-      "source": "When you spend a day preparing the special ingredients",
-      "text": ""
+      "source": "jar of magic butter",
+      "text": "Glas magische Butter"
     },
     "back/item/note": {
       "source": "Value 1",
-      "text": ""
+      "text": "Wert 1"
     },
-    "back/choices/intro/hours-when-you-light-the-lamp/text": {
-      "source": "- hours). When you **_light the lamp using the magic butter_** **_and intone the mantra_**, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:\n- Active spirits are visible, even if they are not manifest\n- Illusions, glamours, and veils are stripped away\n- Shapechangers can be seen for what they truly are\n- Hidden things radiate a bright aura\n- Lies spoken are visible as black smoke that lingers near the ground Alas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.",
-      "text": ""
+    "back/choices/intro/when-you-spend-a-day-preparing/text": {
+      "source": "When you spend a day preparing the special ingredients (Value 1) according to the secret recipe, you create a ◇ jar of magic butter (○○○○○ hours).\nWhen you **_light the lamp using the magic butter_** **_and intone the mantra_**, the lamp gives off a pale, heatless light so long as you continue to chant. Within this light:\n\n- Active spirits are visible, even if they are not manifest\n- Illusions, glamours, and veils are stripped away\n- Shapechangers can be seen for what they truly are\n- Hidden things radiate a bright aura\n- Lies spoken are visible as black smoke that lingers near the ground\n\nAlas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.",
+      "text": "Wenn du **_einen Tag damit verbringst, die besonderen Zutaten_** (Wert 1) **_nach dem geheimen Rezept vorzubereiten_**, stellst du ein ◇ Glas magische Butter her (○○○○○ Stunden).\nWenn du **_die Lampe mit der magischen Butter entzündest und das Mantra rezitierst_**, verströmt die Lampe ein blasses, wärmeloses Licht, solange du weiter singst. In diesem Licht gilt:\n\n- Aktive Geister sind sichtbar, selbst wenn sie nicht manifestiert sind.\n- Illusionen, Trugbilder und Schleier werden aufgedeckt.\n- Gestaltwandler sind in ihrer wahren Gestalt zu erkennen.\n- Verborgene Dinge strahlen eine helle Aura aus.\n- Gesprochene Lügen erscheinen als schwarzer Rauch, der nahe am Boden verweilt.\n\nLeider zieht das Licht den Zorn von Gespenstern (oder anderen hungrigen untoten Geistern) in der Nähe auf sich."
     }
   },
   "gold-ring": {
     "name": {
       "source": "A gold ring",
-      "text": ""
+      "text": "Ein goldener Ring"
     },
     "front/choices/gold-ring/this-simple-golden-band-catches-the/text": {
       "source": "This simple, golden band catches the light and shines, even in darkness. Its very presence fills goodly people with peace and hope, and servants of darkness with jealous hate.",
-      "text": ""
+      "text": "Dieser schlichte goldene Ring fängt das Licht ein und strahlt, selbst in der Dunkelheit. Allein seine Gegenwart erfüllt gute Menschen mit Frieden und Hoffnung, während Diener der Dunkelheit von eifersüchtigem Hass erfüllt werden."
     },
     "front/choices/gold-ring/you-can-unlock-the-secrets-of/text": {
       "source": "You can unlock the secrets of this ring, but must first…",
-      "text": ""
+      "text": "Du kannst die Geheimnisse dieses Rings entschlüsseln, aber du musst zuerst …"
     },
     "front/choices/gold-ring/wear-ring/text": {
       "source": "… wear the ring continuously for 40 days, witnessing the sunrise each day.",
-      "text": ""
+      "text": "… den Ring 40 Tage lang ununterbrochen tragen und jeden Tag den Sonnenaufgang miterleben."
     },
     "front/choices/gold-ring/perform-act/text": {
       "source": "… perform an act of charity while wearing the ring, one that changes the recipient’s life.",
-      "text": ""
+      "text": "… beim Tragen des Rings einen wohltätige Tat vollbringen, der das Leben des Empfängers verändert."
     },
     "front/choices/gold-ring/participate-in/text": {
       "source": "… participate in the devout and proper worship of Helior.",
-      "text": ""
+      "text": "… an der andächtigen und angemessenen Verehrung Heliors teilnehmen."
     },
     "back/title": {
       "source": "Helior’s Shining Ring",
-      "text": ""
+      "text": "Heliors strahlender Ring"
     },
     "back/resource/title": {
       "source": "Daylight",
-      "text": ""
+      "text": "Tageslicht"
     },
     "back/choices/intro/when-you-spend-the-better-part/text": {
       "source": "When you **_spend the better part of a day wearing_** **_the ring and worshipping Helior in full sunlight_**, hold 1 Daylight.\n\nWhen you **_wear the ring in shadows or darkness_** **_and spend 1 Daylight_**, the ring shines forth with holy light (*near*, *area*) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer’s Invocations) uses up its fuel or snuffs it out.\n\nAlas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.",
-      "text": ""
+      "text": "Wenn du **_den größten Teil eines Tages damit verbringst, den Ring zu tragen und Helior in vollem Sonnenlicht zu verehren_**, nimm 1 Tageslicht.\n\nWenn du **_den Ring im Schatten oder in der Dunkelheit trägst und 1 Tageslicht ausgibst_**, erstrahlt der Ring in heiligem Licht (_Nah_, _Bereich_), das für Wesen der Dunkelheit schmerzhaft anzusehen ist. Er leuchtet einige Stunden lang, bis du ihn löschst oder bis ein anderer Effekt (wie die Anrufungen des Lichtträgers) seine Energie aufbraucht oder ihn zum Erlöschen bringt.\n\nLeider leuchtet der Ring währenddessen auch wie ein übersinnliches Leuchtfeuer und macht Diener der Dunkelheit im Umkreis von mehreren Meilen auf deine Anwesenheit und deinen Aufenthaltsort aufmerksam."
     }
   },
   "grim-peat-mound": {
     "name": {
       "source": "A grim peat mound",
-      "text": ""
+      "text": "Ein düsterer Torfhügel"
     },
     "front/choices/grim-peat-mound/not-far-from-marshedge-a-ways/text": {
       "source": "Not far from Marshedge, a ways into Ferrier’s Fen, lies a peat mound where no birds nest and flowers will not bloom. Since the town’s founding, the people of Marshedge have buried certain criminals here, alive.",
-      "text": ""
+      "text": "Nicht weit von Mooresrand entfernt, ein gutes Stück im Ferriers Moor, liegt ein Torfhügel, auf dem keine Vögel nisten und keine Blumen blühen. Seit der Gründung der Stadt haben die Bewohner von Mooresrand bestimmte Verbrecher hier lebendig begraben."
     },
     "front/choices/grim-peat-mound/over-the-years-the-land-has/text": {
       "source": "Over the years, the land has birthed a spirit that hungers for the dying breaths of the condemned (*Book II*, page 85). It is young and eager, and can be set to work upon criminals, but only if you...",
-      "text": ""
+      "text": "Im Laufe der Jahre hat das Land einen Geist hervorgebracht, der nach den letzten Atemzügen der Verurteilten dürstet. Er ist jung und eifrig und kann auf Verbrecher angesetzt werden, aber nur, wenn du …"
     },
     "front/choices/grim-peat-mound/find-way/text": {
       "source": "… find a way to communicate with it.",
-      "text": ""
+      "text": "… einen Weg findest, mit ihm zu kommunizieren."
     },
     "front/choices/grim-peat-mound/convince-that/text": {
       "source": "… convince it that you will use its mark only to condemn the guilty.",
-      "text": ""
+      "text": "… ihn davon überzeugst, dass du sein Zeichen nur verwenden wirst, um die Schuldigen zu verurteilen."
     },
     "back/title": {
       "source": "The Tomb-bog’s Mark",
-      "text": ""
+      "text": "Das Zeichen des Grabhügels"
     },
     "back/choices/intro/when-you-use-mud-from-the/text": {
       "source": "When you **_use mud from the tomb-bog to mark_** **_someone with the sign of Aratis_** **_and pronounce_** **_them guilty of a crime_**, you can place a geas upon them. Phrase it as one of the following:\n\n- You must never again @Blank[0].\n- Henceforth, you must always seek to @Blank[1] when you have the chance. Should they **_fail to follow the geas_**, their life is forfeit and the tomb-bog spirit will track them down and smother them. Should they **_prove themselves innocent to the_** **_tomb-bog spirit_**, your life is forfeit instead.",
-      "text": ""
+      "text": "Wenn du **_Schlamm aus dem Grabhügel verwendest, um jemanden mit dem Zeichen von Aratis zu markieren, und ihn eines Verbrechens für schuldig erklärst_**, kannst du ihm einen Geas auferlegen. Formuliere ihn wie folgt:/n/n- Du darfst niemals wieder _____./n- Von nun an musst du immer versuchen, ____ zu erreichen, wenn du die Gelegenheit dazu hast./n/nSollte **_die Person dem Geas nicht Folge leisten_**, ist ihr Leben verwirkt und der Geist des Grabhügels wird sie aufspüren und ersticken./n/nSollte sie **_gegenüber dem Geist des Grabhügels ihre Unschuld beweisen_**, ist stattdessen dein Leben verwirkt."
     }
   },
   "half-buried-plaque": {
@@ -1898,77 +1898,77 @@
   "old-scroll-case": {
     "name": {
       "source": "An old scroll case",
-      "text": ""
+      "text": "Eine alte Schriftrollenhülle"
     },
     "front/item/name": {
       "source": "An old scroll case",
-      "text": ""
+      "text": "Eine alte Schriftrollenhülle"
     },
     "front/choices/old-scroll-case/a-leather-scroll-case-cracked-and/text": {
       "source": "A leather scroll case, cracked and age-worn. Inside is a tattered letter and a pair of small, bluish ingots. It’s a letter, in an older Hillfolk dialect, from an apprentice to their master. It describes a mental exercise to draw latent power from aetherium.",
-      "text": ""
+      "text": "Eine lederne Schriftrollenhülle, rissig und vom Alter gezeichnet. Im Inneren befinden sich ein zerfledderter Brief und zwei kleine, bläulich schimmernde Barren. Der Brief ist in einem älteren Dialekt des Hügelvolks verfasst und stammt von einem Lehrling an seinen Meister. Er beschreibt eine mentale Übung, mit der man verborgene Kräfte aus Ätherium schöpfen kann."
     },
     "front/choices/old-scroll-case/you-can-learn-laoj-daveths-galvanic/text": {
       "source": "You can learn **Laoj Daveth’s Galvanic Infusion** from the scroll, but…",
-      "text": ""
+      "text": "Du kannst **Laoj Daveths galvanische Infusion** aus der Schriftrolle erlernen, aber …"
     },
     "front/choices/old-scroll-case/translate-letter/text": {
       "source": "… you must translate the letter.",
-      "text": ""
+      "text": "… du musst den Brief übersetzen."
     },
     "front/choices/old-scroll-case/itll-take/text": {
       "source": "… it’ll take a few weeks of dedicated study.",
-      "text": ""
+      "text": "… es wird einige Wochen intensiven Studiums erfordern."
     },
     "front/choices/old-scroll-case/youll-use/text": {
       "source": "… you’ll use up one of the aetherium ingots (or another source of aetherium).",
-      "text": ""
+      "text": "… du wirst einen der Ätheriumbarren (oder eine andere Quelle von Ätherium) verbrauchen."
     },
     "front/choices/old-scroll-case/risk-electrocuting/text": {
       "source": "… you risk electrocuting yourself and/or using up the other ingot.",
-      "text": ""
+      "text": "… du riskierst, einen Stromschlag zu erleiden und/oder den anderen Barren zu verbrauchen."
     },
     "back/title": {
       "source": "Laoj Daveth’s Galvanic Infusion",
-      "text": ""
+      "text": "Laoj Daveths galvanische Infusion"
     },
     "back/choices/intro/when-you-touch-a-piece-of/text": {
       "source": "When you **_touch a piece of aetherium and draw_** **_its power into yourself_**, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but** **on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused— gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen **_the spell ends,_** you lose 1d8 HP.",
-      "text": ""
+      "text": "Wenn du **_ein Stück Ätherium berührst und dessen Kraft in dich aufnimmst_**, würfle +KO. **Bei einer 7+** nimmst du die Kraft in dich auf und erhältst 1W8 TP (auch wenn du dadurch deine maximalen TP überschreitest). **Bei 7-9** wird das Ätherium verbraucht und zerfällt zu einer kreidigen Masse aus Grünspan.\n\nDer Zauber hält an, bis du ihn beendest oder bis du bei einem beliebigen Spielzug eine 6- würfelst. Solange er anhält, musst du nicht schlafen und bleibst hellwach und konzentriert – du erhältst einen Vorteil bei alle Würfe mit WE.\n\nWenn du länger als einige Tage wach bleibst, wird dein Körper zunehmend erschöpft und du riskierst Halluzinationen, Paranoia und Abhängigkeit.\n\nWenn **_der Zauber endet_**, verlierst du 1W8 TP."
     }
   },
   "oversized-codex": {
     "name": {
       "source": "An oversized codex",
-      "text": ""
+      "text": "Ein übergroßer Kodex"
     },
     "front/choices/oversized-codex/a-book-about-2-feet-by/text": {
       "source": "A book, about 2 feet by 3 feet, just over 6 inches tall when closed. The cover is made of silvery cedarwood planks. The sheets are made of fine vellum, stretched from the hides of some enormous beast.\n\nThe pages are full of calligraphy, large and precise, with many diagrams showing meditative poses and strange geometric patterns related to heat, water, and ice.",
-      "text": ""
+      "text": "Ein Buch von etwa 2 × 3 Fuß Größe, das im geschlossenen Zustand etwas mehr als 6 Zoll hoch ist. Der Einband besteht aus silberfarbenen Zedernholzplanken. Die Seiten bestehen aus feinem Pergament, das aus den Häuten irgendeines gewaltigen Tieres gefertigt wurde.\n\nDie Seiten sind voller Kalligrafien, groß und präzise, sowie zahlreicher Diagramme, die meditative Posen und seltsame geometrische Muster zeigen, die mit Hitze, Wasser und Eis in Verbindung stehen."
     },
     "front/choices/oversized-codex/to-unlock-the-codexs-mysteries-you/text": {
       "source": "To unlock the codex’s mysteries, you must…",
-      "text": ""
+      "text": "Um die Geheimnisse des Kodex zu entschlüsseln, musst du …"
     },
     "front/choices/oversized-codex/decipher-script/text": {
       "source": "… decipher the script, written in a form of the Rime Lords’ alphabet.",
-      "text": ""
+      "text": "… die Schrift entziffern, die in einer Form des Alphabets der Frostfürsten verfasst ist."
     },
     "front/choices/oversized-codex/spend-months/text": {
       "source": "… spend months studying the text and practicing the techniques therein.",
-      "text": ""
+      "text": "… Monate damit verbringen, den Text zu studieren und die darin beschriebenen Techniken zu üben."
     },
     "front/choices/oversized-codex/risk-permanently/text": {
       "source": "… risk permanently damaging your health as you master them.",
-      "text": ""
+      "text": "… riskieren, deine Gesundheit dauerhaft zu schädigen, während du sie meisterst."
     },
     "back/title": {
       "source": "Ice Weaving",
-      "text": ""
+      "text": "Eisweben"
     },
     "back/choices/intro/when-you-will-dark-ice-to/text": {
       "source": "When you **_will dark ice to form_**, lose 1 HP, +1 HP for each of the following you desire:\n\n- It’s enough to make a small wall or encase a person (else, it’s at most)\n- It’s hard as stone\n- It’s solid to spirits, able to block/harm/ hinder them Then, roll +CON: **on a 10+**, pick 2; **on a 7-9**, pick 1, or pick 2 and lose 2 more HP.\n- It forms quickly, even violently (else, it takes minutes, even hours)\n- It forms at up to *near* range (else, it forms at only *hand* range)\n- Its shape is as intricate as you can imagine (else, it’s just a crude block) The ice persists until it’s broken, melted by intense heat, or you let it melt. You cannot regain the spent HP while it persists.",
-      "text": ""
+      "text": "Wenn du **_dunkles Eis entstehen lässt_**, verlierst du 1 TP, plus 1 TP für jede der folgenden Eigenschaften, die du dir wünschst:\n\n- Es reicht aus, um eine kleine Mauer zu errichten oder eine Person einzuschließen (andernfalls sind es höchstens ◇◇).\n- Es ist hart wie Stein.\n- Es ist für Geister undurchdringlich und kann sie abwehren, verletzen oder behindern.\n\nWürfle anschließend +KO. Bei einer 10+ wähle 2. Bei 7–9 wähle 1 oder wähle 2 und verliere zusätzlich 2 TP.\n\n- Es bildet sich schnell, sogar gewaltsam (ansonsten dauert es Minuten, sogar Stunden)\n- Es bildet sich bis Reichweite _Nah_ (ansonsten nur bis Reichweite _Hand_)\n- Seine Form ist so komplex, wie du es dir vorstellen kannst (andernfalls ist es lediglich ein grober Block).\n\nDas Eis bleibt bestehen, bis es zerbrochen, durch intensive Hitze geschmolzen wird oder du es schmelzen lässt. Solange es besteht, kannst du die dafür ausgegebenen TP nicht wiedererlangen."
     }
   },
   "oversized-crown": {
@@ -2142,43 +2142,43 @@
   "ragged-fur-cloak": {
     "name": {
       "source": "A ragged fur cloak",
-      "text": ""
+      "text": "Ein zerschlissener Pelzumhang"
     },
     "front/item/name": {
       "source": "A ragged fur cloak",
-      "text": ""
+      "text": "Ein zerschlissener Pelzumhang"
     },
     "front/choices/ragged-fur-cloak/the-hide-of-some-unknown-black/text": {
       "source": "The hide of some unknown, black-furred beast. Its bristles are stiff and the air nearby is always chill.",
-      "text": ""
+      "text": "Das Fell eines unbekannten, schwarzhaarigen Tieres. Seine Borsten sind steif und die Luft in seiner Nähe stets kühl."
     },
     "front/choices/ragged-fur-cloak/when-you-don-the-cloak-you/text": {
       "source": "When you **_don the cloak_**, you can tolerate even the bitterest cold and can see in darkest shadow, but bright light hurts your eyes and the warmth of even a campfire is almost too much to bear.\n\nThere’s more to this ragged fur, to be sure. To unlock its secrets, you must…",
-      "text": ""
+      "text": "Wenn du **_den Umhang anlegst_**, kannst du selbst die bitterste Kälte ertragen und in tiefster Dunkelheit sehen, doch helles Licht schmerzt in deinen Augen und selbst die Wärme eines Lagerfeuers ist kaum zu ertragen.\n\nIn diesem zerschlissenen Fell steckt gewiss mehr, als man auf den ersten Blick erkennt. Um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/ragged-fur-cloak/wear-continuously/text": {
       "source": "… wear it continuously for seven days and seven nights.",
-      "text": ""
+      "text": "… ihn sieben Tage und sieben Nächte lang ununterbrochen tragen."
     },
     "front/choices/ragged-fur-cloak/stalk-warm/text": {
       "source": "… stalk a warm-blooded beast on a moonless night, smearing its blood on the fur.",
-      "text": ""
+      "text": "… in einer mondlosen Nacht einem warmblütigen Tier auflauern und sein Blut auf dem Fell verstreichen."
     },
     "front/choices/ragged-fur-cloak/suffer-self/text": {
       "source": "… suffer (or self-inflict) a grievous wound while wearing the fur, drenching it in your own fresh blood.",
-      "text": ""
+      "text": "… eine schwere Wunde erleiden (oder dir selbst zufügen), während du das Fell trägst, sodass es in deinem eigenen frischen Blut getränkt wird."
     },
     "back/title": {
       "source": "Darkwalker Cloak",
-      "text": ""
+      "text": "Umhang des Nachtwandlers"
     },
     "back/resource/title": {
       "source": "Charges",
-      "text": ""
+      "text": "Ladungen "
     },
     "back/choices/intro/when-you-open-your-own-veins/text": {
       "source": "When you **_open your own veins and drench the_** **_fur with your own fresh blood,_** lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.\n\nWhen you **_suffer a blow or physical injury while_** **_wearing the Darkwalker Cloak_**, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm after all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.\n\nWhen **_direct sunlight or holy light touch the_** **_Darkwalker Cloak,_** or **_anyone but you dons it_**, it loses all its Charges.",
-      "text": ""
+      "text": "Wenn du **_deine eigenen Adern öffnest und den Pelz mit deinem frischen Blut tränkst_**, verliere 1W8 TP und markiere eine Beeinträchtigung. Wenn der Umhang keine Ladungen mehr hay, erhält er 1W4 Ladungen. Die Narben der Wunde sind strahlend weiß und verblassen niemals.\n\nWenn du **_einen Schlag oder eine körperliche Verletzung erleidest, während du den Umhang des Nachtwandlers trägst_**, verliert er 1 Ladung und du verwandelst dich in eine Wolke aus Schatten. Du erleidest letztlich keinen Schaden und kannst einige Sekunden lang als Schatten umherflattern und -fliegen, bevor du dich wieder zurückverwandelst. Alles, was du in dieser schattenhaften Gestalt berührst, wird mit Raureif überzogen. Dieser Effekt wird nicht ausgelöst, wenn das Fell keine Ladungen mehr hat.\n\nWenn **_direktes Sonnenlicht oder heiliges Licht den Umhang des Nachtwandlers berührt oder jemand außer dir ihn anlegt_**, verliert er alle seine Ladungen."
     }
   },
   "red-scepter": {
@@ -3016,7 +3016,7 @@
   "small-strange-book": {
     "name": {
       "source": "A small, strange book",
-      "text": ""
+      "text": "Ein kleines, seltsames Buch"
     },
     "front/choices/small-strange-book/a-small-manual-written-on-what/text": {
       "source": "A small manual written on what appears to be sheets of supple leaves. It is written in the common script but in a strangely poetic sequence of nonsense syllables.",
@@ -3224,39 +3224,39 @@
   "strange-pendant": {
     "name": {
       "source": "A strange pendant",
-      "text": ""
+      "text": "Ein seltsamer Anhänger"
     },
     "front/choices/strange-pendant/a-strange-charm-on-a-simple/text": {
       "source": "A strange charm on a simple leather cord, like a scale of some shimmering material. It’s cold and clammy to the touch. When you first put it on, everyone nearby shivers from cold. Soon thereafter, you start to hear the raspy, inhaling whispers.",
-      "text": ""
+      "text": "Ein seltsamer Talisman an einer einfachen Lederschnur, wie eine Schuppe aus irgendeinem schimmernden Material. Er fühlt sich kalt und klamm an. Wenn du ihn zum ersten Mal anlegst, schaudert jeder in deiner Nähe vor Kälte. Kurz darauf beginnst du, das raue, einatmende Flüstern zu hören."
     },
     "front/choices/strange-pendant/to-unlock-the-secrets-of-the/text": {
       "source": "To unlock the secrets of the pendant…",
-      "text": ""
+      "text": "Um die Geheimnisse des Anhängers zu entschlüsseln …"
     },
     "front/choices/strange-pendant/wear-ceaselessly/text": {
       "source": "… wear it ceaselessly for a lunar cycle, answering its questions honestly.",
-      "text": ""
+      "text": "… trage ihn einen ganzen Mondzyklus lang ununterbrochen und beantworte aufrichtig seine Fragen."
     },
     "front/choices/strange-pendant/hold-yourself/text": {
       "source": "… hold yourself underwater until you risk drowning.",
-      "text": ""
+      "text": "… halte dich unter Wasser, bis du zu ertrinken drohst."
     },
     "front/choices/strange-pendant/drown-another/text": {
       "source": "… drown another person, and offer their last gasps to the pendant.",
-      "text": ""
+      "text": "… ertränke eine andere Person und biete dem Anhänger dessen letzte Atemzüge dar."
     },
     "back/title": {
       "source": "The Drowning Scale",
-      "text": ""
+      "text": "Skala des Ertrinkens"
     },
     "back/resource/title": {
       "source": "Breath",
-      "text": ""
+      "text": "Atem"
     },
     "back/choices/intro/when-you-lean-over-a-dying/text": {
       "source": "When you **_lean over a dying person, suck out_** **_their final breath, and breathe it into the pendant_**, roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1:\n\n- Hold 1 Breath, but it tears at your lungs; mark *miserable* and suffer a nasty coughing fit.\n- The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit. So long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour. When you **_remove the pendant_**, lose any Breath you hold.",
-      "text": ""
+      "text": "Wenn du **_dich über eine sterbende Person beugst, ihren letzten Atemzug in dich einsaugst und ihn anschließend in den Anhänger hauchst_**, würfle +KO. Bei einer 10+ nimm 1 Atemzug. Bei 7–9 wähle 1.\n\n- Nimm 1 Atzemzug, doch es zerreißt deine Lunge. Markiere die Beeinträchtigung Miserabel und erleide einen heftigen Hustenanfall.\n- Der Anhänger saugt gierig den letzten Atemzug ein, wird kälter und seufzt. Du hast leider keinen Nutzen davon.\n\nSolange du Atem besitzt, bist du unbeeindruckt und unempflindlich gegenüber extremer Kälte. Gib 1 Atem aus, um eine Stunde lang ohne Luft auszukommen.\n\nWenn du **_den Anhänger abnimmst_**, verlierst du deinen gesamten Atem."
     }
   },
   "strange-skull-and-antlers": {
@@ -3726,47 +3726,47 @@
   "vellum-scroll": {
     "name": {
       "source": "A vellum scroll",
-      "text": ""
+      "text": "Eine Pergamentrolle"
     },
     "front/item/name": {
       "source": "A vellum scroll",
-      "text": ""
+      "text": "Eine Pergamentrolle"
     },
     "front/choices/vellum-scroll/a-remarkably-supple-scroll-given-its/text": {
       "source": "A remarkably supple scroll, given its age, found in an ivory tube. It bears writing in a strange alphabet, penned in a dark red ink. There are diagrams, too. You think it might be some sort of recipe? Or spell? Maybe both?",
-      "text": ""
+      "text": "Eine für ihr Alter bemerkenswert geschmeidige Pergamentrolle, die in einer Elfenbeinhülse gefunden wurde. Sie trägt Schriftzeichen in einem seltsamen Alphabet, geschrieben mit dunkelroter Tinte. Auch einige Diagramme sind darauf zu sehen. Du vermutest, dass es sich um eine Art Rezept handelt. Oder um einen Zauber? Vielleicht um beides?"
     },
     "front/choices/vellum-scroll/to-unlock-the-secrets-of-this/text": {
       "source": "To unlock the secrets of this scroll, you must…",
-      "text": ""
+      "text": "Um die Geheimnisse dieser Schriftrolle zu entschlüsseln, musst du …"
     },
     "front/choices/vellum-scroll/determine-scrolls/text": {
       "source": "… determine the scroll’s origin and be able to read the author’s language.",
-      "text": ""
+      "text": "… den Ursprung der Schriftrolle ermitteln und in der Lage sein, die Sprache ihres Verfassers zu lesen."
     },
     "front/choices/vellum-scroll/break-cipher/text": {
       "source": "… break the cipher in which the recipe is encoded.",
-      "text": ""
+      "text": "… die Chiffre knacken, in der das Rezept verschlüsselt ist."
     },
     "front/choices/vellum-scroll/acquire-recipes/text": {
       "source": "… acquire the recipe’s unusual and unsavory ingredients (Value 1).",
-      "text": ""
+      "text": "… die ungewöhnlichen und unappetitlichen Zutaten des Rezepts beschaffen (Wert 1)."
     },
     "front/choices/vellum-scroll/spend-few/text": {
       "source": "… spend a few days practicing the incantation, risking a mistake on your first attempt, with potentially disastrous results.",
-      "text": ""
+      "text": "… einige Tage damit verbringen, die Beschwörungsformel zu üben, wobei du bei deinem ersten Versuch einen Fehler riskierst – mit möglicherweise katastrophalen Folgen."
     },
     "back/title": {
       "source": "Wishing Candles",
-      "text": ""
+      "text": "Wunschkerzen"
     },
     "back/resource/title": {
       "source": "Uses",
-      "text": ""
+      "text": "Anwendungen"
     },
     "back/choices/intro/when-you-spend-a-few-days/text": {
       "source": "When you **_spend a few days following the unsa_****_vory recipe from the scroll_** (Value 1), gain 1d4+1 Wishing Candles.\n\nWhen you **_burn a Wishing Candle and utter the_** **_ugly incantation_**, say what you wish to acquire: it will come into your possession soon. Roll the Die of Fate to learn the cost. If it was an item of Value 1 or less, roll twice and take your pick.\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.oJfcTJO2LY4FtMpA]{1d6}",
-      "text": ""
+      "text": "Wenn du **_einige Tage damit verbringst, das widerwärtige Rezept aus der Schriftrolle zu befolgen_** (Wert 1), erhältst du 1W4+1 Wunschkerzen.\n\nWenn du **_eine Wunschkerze abbrennst und die grässliche Beschwörungsformel aufsagst_**, sage, was du dir wünschst: Es wird schon bald in deinen Besitz gelangen. Würfle den Schicksalswürfel, um zu erfahren, was die Kosten sind.  Handelte es sich um einen Gegenstand mit einem Wert von 1 oder weniger, würfle zweimal und wähle eines der Ergebnisse.\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.oJfcTJO2LY4FtMpA]{1d6}"
     }
   },
   "whispering-rocks": {
@@ -3830,39 +3830,39 @@
   "whispering-word": {
     "name": {
       "source": "A whispering... word?",
-      "text": ""
+      "text": "Ein flüsterndes … Wort?"
     },
     "front/choices/whispering-word/hidden-from-the-sun-in-a/text": {
       "source": "Hidden from the sun, in a ring of runes, there is a... word?... floating in the air. Squiggling and wriggling, yearning to be free, it whispers promises of power. But the runes around it fill you with dread.",
-      "text": ""
+      "text": "Vor der Sonne verborgen, schwebt in einem Ring aus Runen ein … Wort? … in der Luft. Es windet und schlängelt sich, sehnt sich nach Freiheit und flüstert Versprechen von Macht. Doch die Runen, die es umgeben, erfüllen dich mit Grauen."
     },
     "front/choices/whispering-word/to-unlock-its-secrets-you-must/text": {
       "source": "To unlock its secrets, you must…",
-      "text": ""
+      "text": "Um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/whispering-word/master-fear/text": {
       "source": "… master your fear, forcing yourself to grasp it and take it inside of you.",
-      "text": ""
+      "text": "… deine Angst überwinden und dich zwingen, es zu ergreifen und in dich aufzunehmen."
     },
     "front/choices/whispering-word/hold-tight/text": {
       "source": "… hold tight as it wracks your body and soul, attempting to unmake you (2d6 damage, *messy*, ignores armor).",
-      "text": ""
+      "text": "… es festhalten, während es deinen Körper und deine Seele malträtiert und versucht, dich auszulöschen (2W6 Schaden, _Brutal_, ignoriert Rüstung)."
     },
     "front/choices/whispering-word/spend-weeks/text": {
       "source": "… spend weeks in isolation, wrapping your mind around the dread word that now lives in your head.",
-      "text": ""
+      "text": "… mehrere Wochen in Isolation verbringen und deinen Geist um das schreckliche Wort formen, das nun in deinem Kopf lebt."
     },
     "front/choices/whispering-word/risk-corrupting/text": {
       "source": "… risk corrupting your locale and destroying your possessions or anything else nearby as you practice speaking the dread word aloud.",
-      "text": ""
+      "text": "… riskieren, deine Umgebung zu verderben und deinen Besitz oder alles andere in der Nähe zu zerstören, während du übst, das schreckliche Wort laut auszusprechen."
     },
     "back/title": {
       "source": "Baleful Utterance",
-      "text": ""
+      "text": "Unheilvolle Äußerung"
     },
     "back/choices/intro/when-you-speak-the-dread-word/text": {
       "source": "When you **_speak the dread word_**, name an object that your voice can reach—it shatters, unravels, or is otherwise unmade.\n\nThen roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, pick 1 in addition to whatever else the GM says; **regard****less**, if the item you destroyed was *indestructible*, pick 1 more.\n\n- Your throat burns and your tongue blisters; mark *miserable* and you can barely whisper for a few days.\n- Your ears and those of all who heard the word start bleeding (1d4 damage, ignores armor, temporarily deafened).\n- 1d4 other objects of the GM’s choice also shatter/unravel/are unmade.\n- This place is corrupted by the Things Below; if already corrupted, it gets worse; otherwise, it is now a shunned place, a place of disquiet and unease.",
-      "text": ""
+      "text": "Wenn du **_das schreckliche Wort aussprichst_**, nenne einen Gegenstand, den deine Stimme erreichen kann – er zerbricht, zerfällt oder wird auf andere Weise ausgelöscht.\n\nWürfle anschließend +KO. **Bei einer 10+** wähle 1. **Bei 7-9** wähle 1 und der SL wählt etwas anderes. **Bei einer 6-** wählst du 1 zusätzlich zu allem, was die SL sonst noch sagt. **Unabhängig davon** wählst du noch 1 weiteres aus, wenn der von dir zerstörte Gegenstand unzerstörbar war.\n\n- Deine Kehle brennt und deine Zunge bekommt Blasen; markiere Miserabel und du kannst einige Tage lang kaum mehr als flüstern.\n- Deine Ohren und die Ohren aller, die das Wort gehört haben, beginnen zu bluten (1W4 Schaden, ignoriert Rüstung, vorübergehend taub).\n- 1W4 weitere Gegenstände nach Wahl des SL zerbrechen, zerfallen oder werden ausgelöscht.\n- Dieser Ort wird von den Dingen aus der Tiefe korrumpiert. War er bereits korrumpiert, verschlimmert sich der Zustand. Andernfalls wird er nun zu einem gemiedenen Ort, einem Ort der Unruhe und des Unbehagens."
     }
   },
   "wolf-pelt": {

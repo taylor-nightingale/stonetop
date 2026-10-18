@@ -428,6 +428,10 @@
       "source": "Herb-wise",
       "text": "Kräuterkundig"
     },
+    "herder": {
+      "source": "herder",
+      "text": ""
+    },
     "hoarder": {
       "source": "hoarder",
       "text": "Sammler"
@@ -624,6 +628,10 @@
       "source": "overbearing",
       "text": "Überheblich"
     },
+    "overprotective": {
+      "source": "overprotective",
+      "text": ""
+    },
     "pack-hunter": {
       "source": "pack-hunter",
       "text": "Rudeljäger"
@@ -703,6 +711,10 @@
     "restless": {
       "source": "restless",
       "text": "Ruhelos"
+    },
+    "retriever": {
+      "source": "retriever",
+      "text": ""
     },
     "rookie": {
       "source": "rookie",

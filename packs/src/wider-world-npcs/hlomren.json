@@ -17,7 +17,7 @@
       "max": 1
     },
     "armor": "3 (carapace, size)",
-    "damage": "(_close_, _area_) (_hand_, _messy_, 3 piercing), acid glob d6-2 (_reach_, _messy_, _reload_, 1 piercing) These red-shelled insects look like a cross between an ant and a beetle, but the size of a small cat. They form colonies a few-hundred large, typically on higher ground. A colony will harvest all the dead grass in a few miles, hibernate through winter, and then relocate in spring to a part of the Flats that hasn’t burned or been harvested in a few years. They mostly ignore people and other large animals, but they’ll swarm if threatened.",
+    "damage": "(_close_, _area_) (_hand_, _messy_, 3 piercing), acid glob d6-2 (_reach_, _messy_, _reload_, 1 piercing)",
     "specialQuality": "",
     "instinct": {
       "selected": [
@@ -28,7 +28,7 @@
       "allowCustom": true
     },
     "moves": "- Burrow into/out of/through loose soil\n- Swarm over a threat\n- Burst with acid when killed, d4",
-    "description": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
+    "description": "These red-shelled insects look like a cross between an ant and a beetle, but the size of a small cat. They form colonies a few-hundred large, typically on higher ground. A colony will harvest all the dead grass in a few miles, hibernate through winter, and then relocate in spring to a part of the Flats that hasn’t burned or been harvested in a few years. They mostly ignore people and other large animals, but they’ll swarm if threatened.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
     "notes": ""
   },
   "ownership": {

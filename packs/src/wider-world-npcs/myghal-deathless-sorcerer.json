@@ -25,13 +25,13 @@
     "specialQuality": "tethered to the device; broken body; aware of all that his servants perceive",
     "instinct": {
       "selected": [
-        "to jealously hoard secrets > Inflict false sensations on others > Fix someone with his terrible gaze > Reveal a plan or a horrid truth > Control his lithic servants like they were extensions of himself > Recover from any wound, slowly and never fully"
+        "to jealously hoard secrets"
       ],
       "options": [],
       "multi": false,
       "allowCustom": true
     },
-    "moves": "",
+    "moves": "- Inflict false sensations on others\n- Fix someone with his terrible gaze\n- Reveal a plan or a horrid truth\n- Control his lithic servants like they were extensions of himself\n- Recover from any wound, slowly and never fully",
     "description": "I write up his stat block like this:\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Qir4rs4BUipTSyFQ]{Barrow Builders} (Book p.34-47)",
     "notes": ""
   },
