@@ -14,7 +14,7 @@
     },
     "cost/selected/affection": {
       "source": "affection",
-      "text": ""
+      "text": "Zuneigung"
     }
   },
   "afon": {
@@ -864,11 +864,11 @@
     },
     "instinct/selected/to-bark-threaten": {
       "source": "to bark & threaten",
-      "text": ""
+      "text": "bellen und drohen"
     },
     "cost/selected/affection": {
       "source": "affection",
-      "text": ""
+      "text": "Zuneigung"
     }
   },
   "mantle-wraiths": {
@@ -912,11 +912,11 @@
     },
     "instinct/selected/to-bark-threaten": {
       "source": "to bark & threaten",
-      "text": ""
+      "text": "Bellen und drohen"
     },
     "cost/selected/affection": {
       "source": "affection",
-      "text": ""
+      "text": "Zuneigung"
     }
   },
   "mule": {

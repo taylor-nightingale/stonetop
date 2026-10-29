@@ -18,7 +18,7 @@
       "max": 3
     },
     "armor": "2 (shield, leather cuirass)",
-    "damage": "iron spear d6 (close, thrown) or dagger d6 (hand)",
+    "damage": "iron spear d6 (_close_, _thrown_) or dagger d6 (_hand_)",
     "specialQuality": "",
     "instinct": {
       "selected": [],
