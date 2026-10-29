@@ -26,33 +26,33 @@
     },
     "instinct/selected/see-below": {
       "source": "see below",
-      "text": ""
+      "text": "siehe Quelle"
     }
   },
   "adventurer": {
     "name": {
       "source": "Adventurer",
-      "text": ""
+      "text": "Abenteurer"
     },
     "armor": {
       "source": "1 to 3 (skill, armor, and/or shield)",
-      "text": ""
+      "text": "1 bis 3 (Geschick, Rüstung und/oder Schild)"
     },
     "damage": {
       "source": "whatever’s at hand d8 (_hand_, _close_, maybe _forceful_ or _messy_)",
-      "text": ""
+      "text": "was auch immer zur Hand ist d8 (_Hand_, _Kurz_, vielleicht _Wuchtig_ oder _Brutal_)"
     },
     "moves": {
       "source": "- Sniff out an opportunity, or reveal one\n- Escape danger in a way that endangers others\n- Act without scruple\n- Use a particular knack or skill",
-      "text": ""
+      "text": "- Wittere eine Gelegenheit oder decke eine auf\n- Entkomme einer Gefahr auf eine Art und Weise, die andere in Gefahr bringt\n- Handle ohne Skrupel \n- Setze ein besonderes Talent oder eine besondere Fertigkeit ein"
     },
     "description": {
       "source": "They make their way north now and then: scoundrels, mercenaries, treasure-hunters… folk who just can’t make a go of a normal life. They’ll show up in Marshedge or Stonetop or Gordin’s Delve, in search of some big score. Or running from the consequences of the last one. Or both.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
+      "text": "Von Zeit zu Zeit machen sie sich auf den Weg nach Norden: Schurken, Söldner, Schatzsucher … Menschen,  die mit einem gewöhnlichen Leben einfach nicht zurechtkommen. Sie tauchen in Mooresrand, Stonetop oder Gordins Binge auf, auf der Suche nach der großen Beute. Oder auf der Flucht vor den Folgen des letzten Beutezugs. Oder beidem.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
     },
     "instinct/selected/to-stir-up-trouble": {
       "source": "to stir up trouble",
-      "text": ""
+      "text": "Unruhe zu stiften"
     }
   },
   "alley-cutthroats": {
@@ -114,11 +114,11 @@
   "andalau": {
     "name": {
       "source": "Andalau",
-      "text": ""
+      "text": "Andalau"
     },
     "armor": {
       "source": "2 (tiny, agile)",
-      "text": ""
+      "text": "2 (Winzig, Flink)"
     },
     "damage": {
       "source": "none",
@@ -126,11 +126,11 @@
     },
     "moves": {
       "source": "- Manifest as a fluttering gust of wind (harmed only by lead or salt)\n- Flit things about (dust, leaves, etc.)\n- Annoy or spook someone\n- Deliver a whispery message",
-      "text": ""
+      "text": "- Manifestiere dich als flatternder Windstoß (ist nur durch Blei oder Salz verwundbar)\n- Wirble Dinge umher (Staub, Blätter usw.)\n- Verärgere oder erschrecke jemanden\n- Überbringe eine flüsternde Botschaft"
     },
     "description": {
       "source": "There are places where the wind dances constantly, fluttering and flitting, and here the andalau dwell. They are more prone to mischief than violence. Win their favor, and you might convince them to help you—especially if it involves going somewhere new or playing pranks. Just don’t be surprised when their attention flits elsewhere.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Es gibt Orte, an denen der Wind ständig tanzt, flattert und umherhuscht – dort leben die Andalau. Sie neigen eher zu Unfug als zu Gewalt. Gewinne ihre Gunst, und vielleicht kannst du sie dazu bringen, dir zu helfen – besonders, wenn es darum geht, einen neuen Ort aufzusuchen oder Streiche zu spielen. Sei nur nicht überrascht, wenn ihre Aufmerksamkeit schon bald wieder woandershin flattert.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-play-and-frolic": {
       "source": "to play and frolic",
@@ -148,49 +148,49 @@
     },
     "damage": {
       "source": "iron mattock d8 w/disadvantage (_close_, _messy_, _awkward_) or knife d6 w/disadvantage (_hand_)",
-      "text": ""
+      "text": "Eisenhacke d8 mit Nachteil (_Kurz_, _Brutal_, _Unhandlich_) oder Messer d6 mit Nachteil (_Hand_)"
     },
     "specialQuality": {
       "source": "often in possession of arcana (page 508) and willing to use them",
-      "text": ""
+      "text": "oft im Besitz von Arkana und bereit, diese einzusetzen"
     },
     "moves": {
       "source": "- Expound at length upon a topic\n- Open, touch, or tinker with something\n- Use a minor spell or artifact\n- Hang back and let the help face the danger",
-      "text": ""
+      "text": "- Lass dich ausführlich über ein Thema aus.\n- Öffne, berühre oder bastle an etwas herum\n- Wirke einen kleinen Zauber oder nutze ein Artefakt.\n- Halte dich zurück und überlasse deinen Helfern die Gefahr."
     },
     "description": {
       "source": "Among the southern well-to-do, the glorious past is a point of pride. Wealthy households keep pet scholars on retainer, and sponsor the study of ruins and antiquities. There’s a brisk trade in artifacts and relics. Collectors pay handsomely for items of true power. The south is full of ruins, but it’s also teeming with people. The best sites have already been dug up. But up north, at the World’s End? Why, one can barely swing a shovel without hitting some relic of the past, just waiting to be excavated. And studied. And sold.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
+      "text": "Unter den Wohlhabenden des Südens gilt die glorreiche Vergangenheit als Grund zum Stolz. Reiche Haushalte beschäftigen Gelehrte als persönliche Berater und fördern die Erforschung von Ruinen und Antiquitäten. Es gibt einen regen Handel mit Artefakten und Relikten. Sammler zahlen hohe Preise für Gegenstände von wahrer Macht.\n\nDer Süden ist voller Ruinen, aber es wimmelt dort auch nur so von Menschen. Die besten Fundstätten wurden bereits ausgegraben. Doch im Norden, am Ende der Welt? Nun, dort kann man kaum eine Schaufel in den Boden rammen, ohne auf irgendein Relikt der Vergangenheit zu stoßen, das nur darauf wartet, ausgegraben, erforscht und verkauft zu werden.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
     },
     "instinct/selected/to-indulge-their-curiosity-or-to-secure-the-next-big-score": {
       "source": "to indulge their curiosity or to secure the next big score",
-      "text": ""
+      "text": "ihre Neugier zu stillen oder den nächsten großen Coup zu landen"
     }
   },
   "assassin": {
     "name": {
       "source": "Assassin",
-      "text": ""
+      "text": "Assassine"
     },
     "armor": {
       "source": "1 (skill)",
-      "text": ""
+      "text": "1 (Geschick)"
     },
     "damage": {
       "source": "dagger 1d10 (_hand_, 1 piercing) or garrote d8 (_hand_, _grabby_, ignores armor)",
-      "text": ""
+      "text": "Dolch d10 (_Hand_, Durchdringung 1) oder Garrotte d8 (_Hand_, _Fesselnd_, ignoriert Rüstung)"
     },
     "moves": {
       "source": "- Stalk their target at length\n- Pass unnoticed, in shadow or disguise\n- Poison someone\n- Slip away, try again later",
-      "text": ""
+      "text": "- Spähe dein Ziel über lange Zeit aus\n- Bleibe unbemerkt, im Schatten oder durch eine Verkleidung\n- Vergifte jemanden\n- Zieh dich zurück und versuch es später noch einmal"
     },
     "description": {
       "source": "Only in \"civilized\" lands is there such demand for murder that it’s an actual profession.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
+      "text": "Nur in „zivilisierten“ Ländern ist die Nachfrage nach Mord so groß, dass es sich um einen echten Beruf handelt.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
     },
     "instinct/selected/to-finish-the-job-nothing-personal": {
       "source": "to finish the job (nothing personal)",
-      "text": ""
+      "text": "den Auftrag zu Ende bringen (nichts Persönliches)"
     }
   },
   "auntie-sallow": {
@@ -248,7 +248,7 @@
   "bandit": {
     "name": {
       "source": "Bandit",
-      "text": "Bandit"
+      "text": "Räuber"
     },
     "armor": {
       "source": "up to 2 (hides, shields)",
@@ -274,7 +274,7 @@
   "bandit-chief": {
     "name": {
       "source": "Bandit chief",
-      "text": "Banditenchef"
+      "text": "Räuberhauptmann"
     },
     "armor": {
       "source": "3 (hides, shield, skill)",
@@ -286,11 +286,11 @@
     },
     "moves": {
       "source": "- Suss out what people want or need\n- Exploit a weakness, opportunity, or loophole\n- Cut a deal\n- Ruthlessly expand/preserve their power",
-      "text": "- Finde heraus, was andere wollen oder brauchen\n- Nutze eine Schwäche, eine Gelegenheit oder ein Schlupfloch aus\n- Schließe ein Handel ab\n- Gehe rücksichtslos vor, um deine Macht zu erhalten/auszubauen"
+      "text": "- Finde heraus, was andere wollen oder brauchen\n- Nutze eine Schwäche, eine Gelegenheit oder ein Schlupfloch aus\n- Schließe einen Handel ab\n- Gehe rücksichtslos vor, um deine Macht zu erhalten/auszubauen"
     },
     "description": {
       "source": "Most bandit gangs struggle to find victims or shelter or both, and quickly die out or disband. The clever ones last a few seasons, but eventually folk catch wise and grow wary, and the bandits’ schemes start to fail. But every generation or so, a leader crops up who’s cagey enough to turn a gang of bandits into a serious threat. What does the chief possess that makes them such a threat? (pick 2 or 3) Agents in Gordin’s Delve and/or Marshedge A way to overcome the wards on the Roads Magic that can compel/lure/scare travelers off the Roads Magic that hides their crew, or changes their appearance Well-trained horses, or some other form of mobility A fortified hideout\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{The Flats} (Book p.126-135)",
-      "text": "Die meisten Banditenbanden haben Mühe, überhaupt Opfer oder Unterschlupf zu finden, und lösen sich schnell wieder auf. Die Klügeren  halten eine Zeit lang durch, doch irgendwann werden die Leute aufmerksamer und misstrauisch, und die Pläne der Banditen beginnen zu scheitern. Aber ungefähr einmal je Generation taucht ein Anführer auf, der gerissen genug ist, um aus einer Bande von Hals-abschneidern eine ernstzunehmende Bedrohung zu formen.\n\nWas zeichnet den Anführer aus, das ihn zu einer solchen Bedrohung macht? (Wähle 2 oder 3)\n\n- Mittelsmänner in Gordins Binge und/oder Marshedge\n- Eine Methode, die Schutzzauber der Straßen zu überwinden\n- Magie, die Reisende von den Straßen weglockt, zwingt oder erschreckt\n- Magie, die seine Truppe verbirgt oder ihr Aussehen verändert\n- Gut ausgebildete Pferde oder eine andere Form von Mobilität\n- Ein befestigtes Versteck\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{Ebene} (Buch S. 126-135)"
+      "text": "Die meisten Räuberbanden haben Mühe, überhaupt Opfer oder Unterschlupf zu finden, und lösen sich schnell wieder auf. Die Klügeren  halten eine Zeit lang durch, doch irgendwann werden die Leute aufmerksamer und misstrauisch, und die Pläne der Räuber beginnen zu scheitern. Aber ungefähr einmal je Generation taucht ein Anführer auf, der gerissen genug ist, um aus einer Bande von Hals-abschneidern eine ernstzunehmende Bedrohung zu formen.\n\nWas zeichnet den Anführer aus, das ihn zu einer solchen Bedrohung macht? (Wähle 2 oder 3)\n\n- Mittelsmänner in Gordins Binge und/oder Marshedge\n- Eine Methode, die Schutzzauber der Straßen zu überwinden\n- Magie, die Reisende von den Straßen weglockt, zwingt oder erschreckt\n- Magie, die seine Truppe verbirgt oder ihr Aussehen verändert\n- Gut ausgebildete Pferde oder eine andere Form von Mobilität\n- Ein befestigtes Versteck\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7Rj5pjaWepSJPAms]{Ebene} (Buch S. 126-135)"
     },
     "instinct/selected/to-make-the-best-out-of-what-theyve-got": {
       "source": "to make the best out of what they’ve got",
@@ -386,67 +386,67 @@
   "bhoka": {
     "name": {
       "source": "Bhoka",
-      "text": ""
+      "text": "Bhoka"
     },
     "armor": {
       "source": "1 (hide)",
-      "text": ""
+      "text": "1 (Fell)"
     },
     "damage": {
       "source": "talons 1d10+3 (_hand_, _close_, _grabby_, _forceful_)",
-      "text": ""
+      "text": "Krallen d10+3 (_Hand_, _Kurz_, _Fesselnd_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "blinded by full daylight or holy light, takes +1d4 damage from bronze",
-      "text": ""
+      "text": "wird durch Tageslicht oder heiliges Licht geblendet, erleidet +1W4 Schaden durch Bronze"
     },
     "moves": {
       "source": "- Slink through trees and shadows",
-      "text": ""
+      "text": "- Schleiche durch Bäume und Schatten"
     },
     "description": {
       "source": "These hulking brutes dwell in dark places: caves, north-facing slopes, and deep mountain forests. They’re hairy things, hunched and wild, only vaguely looking like people. They’d be little more than dangerous beasts, easily avoided, if they weren’t driven by an obsessive vice—and if they didn’t wield the wild elements themselves.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
+      "text": "Diese massigen Unholde hausen an dunklen Orten: in Höhlen, an nach Norden ausgerichteten Hängen und in tiefen Bergwäldern. Sie sind haarige Wesen, gebeugt und wild, die nur entfernt wie Menschen aussehen. Sie wären kaum mehr als gefährliche Bestien, denen man leicht ausweichen könnte, wären sie nicht von einem zwanghaften Laster getrieben – und würden sie nicht selbst die wilden Elemente beherrschen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
     },
     "instinct/selected/see-below": {
       "source": "see below",
-      "text": ""
+      "text": "siehe Quelle"
     }
   },
   "birdwaig": {
     "name": {
       "source": "Birdwaig",
-      "text": ""
+      "text": "Birdwaig"
     },
     "armor": {
       "source": "3 (woody, no vital organs)",
-      "text": ""
+      "text": "3 (hölzern, keine lebenswichtigen Organe)"
     },
     "damage": {
       "source": "crushing branches d10+3 (_close_, _reach_, _forceful_), choking vines/roots d10+1 (_reach_, _grabby_)",
-      "text": ""
+      "text": "Zerberstende Äste d10+3 (_Kurz_, _Lang_, _Wuchtig_), würgende Ranken/Wurzeln d10+1 (_Lang_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "tethered to its tree",
-      "text": ""
+      "text": "an ihren Baum gebunden"
     },
     "moves": {
       "source": "- Wield the plants around her like a weapon\n- Possess a nearby tree (vulnerable to fire, all but impossible to harm with most weapons)\n- Purge or bind an unnatural taint\n- Grant a secret or a boon to a friend of the forest",
-      "text": ""
+      "text": "- Setze die Pflanzen um dich herum wie eine Waffe ein\n- Nimm einen nahegelegenen Baum in Besitz  (empflindlich gegenüber Feuer, mit den meisten Waffen nahezu unmöglich zu verletzen)\n- Tilge oder binde eine widernatürliche Verderbnis\n- Gewähre einem Freund des Waldes ein Geheimnis oder einen Segen"
     },
     "description": {
       "source": "As they mature, Brennauwed grow more sedentary, manifesting only via their own tree or possessing other trees within a few miles. A birdwaig has a motherly regard for all natural things in her territory, and will turn the very forest against any that seek to do it harm.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Mit zunehmendem Alter werden Brennauwied sesshafter und manifestieren sich nur noch durch ihren eigenen Baum oder ergreifen Besitz von anderen Bäumen in einem Umkreis von wenigen Meilen. Eine Birdwaig empfindet eine mütterliche Fürsorge für alles Natürliche in ihrem Gebiet und wird den Wald selbst gegen jeden aufbringen, der ihm Schaden zufügen will.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-care-for-the-forest-especially-the-trees": {
       "source": "to care for the forest, especially the trees",
-      "text": ""
+      "text": "den Wald zu behüten, insbesondere die Bäume"
     }
   },
   "blue-magpie": {
     "name": {
       "source": "Blue magpie",
-      "text": ""
+      "text": "Blaue Elster"
     },
     "armor": {
       "source": "1 (size)",
@@ -588,23 +588,23 @@
   "bronze-colossus": {
     "name": {
       "source": "Bronze colossus",
-      "text": ""
+      "text": "Bronzekoloss"
     },
     "armor": {
       "source": "4 (metal, lacks organs)",
-      "text": ""
+      "text": "4 (Metall, keine Organe)"
     },
     "damage": {
       "source": "trample d10+5 (_hand_, _close_, _area_, _forceful_) or crushing hands d10+5 (_close_, _reach_, _forceful_, _grabby_) or hurled object d10+5 (_far_, _area_, _forceful_, _reload_)",
-      "text": ""
+      "text": "Zertrampeln d10+5 (_Hand_, _Kurz_, _Bereich_, _Wuchtig_) oder zermalmende Hände d10+5 (_Kurz_, _Lang_, _Wuchtig_, _Fesselnd_) oder geschleuderter Gegenstand d10+5 (_Fern_, _Bereich_, _Wuchtig_, _Nachladen_)"
     },
     "specialQuality": {
       "source": "fireproof, too big to hurt with most weapons, vulnerable to lightning",
-      "text": ""
+      "text": "Feuerresistent; zu groß, um mit den meisten Waffen verletzt zu werden; empfindlich gegenüber Blitzen"
     },
     "moves": {
       "source": "- Pretend to be \"just\" another statue\n- Come to life, screeching as it moves\n- Issue a booming challenge in a forgotten tongue\n- Block their path",
-      "text": ""
+      "text": "- Gib vor, „nur“ eine weitere Statue zu sein\n- Erwache zum Leben und scheppere bei jeder Bewegung\n- Sprich eine dröhnende Herausforderung in einer vergessenen Sprache aus\n- Versperre ihnen den Weg"
     },
     "description": {
       "source": "It stands nearly 60 feet tall, a muscular Forge Lord cast in bronze. Similar statues loom about, each one grand and imposing. This statue, though, is shot through with blueish veins. And it feels like it’s watching you. Because it is. The colossus guards the entrance to its master’s domain. If someone approaches honorably, speaking in the Forge Lord’s tongue, it politely tells them to come again later, for its master is away. Intruders, blowhards, and thieves are dealt with forcibly. Something interesting: Those blueish veins are aetherium (page 404), and likely what animates the statue. Which, alas, means there’s no single weak-point. Maybe you could harm this thing by drawing the lightning from it. Something useful: Or you could, you know, just blast it with lightning and overload it.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
@@ -612,7 +612,7 @@
     },
     "instinct/selected/to-defend-its-creators-honor": {
       "source": "to defend its creator’s honor",
-      "text": ""
+      "text": "die Ehre seines Schöpfers zu verteidigen"
     }
   },
   "broodfather": {
@@ -704,23 +704,23 @@
   "caravan-guard": {
     "name": {
       "source": "Caravan guard",
-      "text": ""
+      "text": "Karawanenwache"
     },
     "armor": {
       "source": "2 (shield, leather cuirass)",
-      "text": ""
+      "text": "2 (Schild, Lederkürass)"
     },
     "damage": {
-      "source": "iron spear d6 (close, thrown) or dagger d6 (hand)",
-      "text": ""
+      "source": "iron spear d6 (_close_, _thrown_) or dagger d6 (_hand_)",
+      "text": "Speer mit Eisenspitze d6 (_Kurz_, _Geworfen_) oder Dolch d6 (_Hand_)"
     },
     "moves": {
       "source": "Professional instinct to keep their ward(s) safe\n\n- Spot or suspect trouble\n- Take sensible precautions\n- Put themselves in harm’s way\n\nCraven instinct to avoid real danger\n\n- Suggest a safer course of action\n- Make a show of force\n- Flee, surrender, or betray their client",
-      "text": ""
+      "text": "Professioneller Instinkt ihre Schützlinge zu beschützen\n\n- Erkenne oder vermute Probleme\n- Triff vernünftige Vorsichtsmaßnahmen\n- Begib dich selbst in Gefahr\n\nFeiger Instinkt echte Gefahr zu vermeiden\n\n- Schlage eine sicherere Vorgehensweise vor\n- Demonstriere Stärke \n- Flüchte, ergebe dich oder verrate deinen Auftraggeber"
     },
     "description": {
       "source": "Much of the way between Lygos and Marshedge goes through trackless wilds, without the protection of the Makers’ Roads (page 270). Bandits, beasts, and Hillfolk (page 234) are all a threat, and plenty of potential clients would just as soon steal a merchant’s goods as trade fairly for them. So, merchants hire guards. And when danger looms, they hope they’ve hired well.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
+      "text": "Ein großer Teil des Weges zwischen Lygos und Mooresrand führt durch unwegsame Wildnis, fernab vom Schutz der Straßen der Schöpfer. Banditen, wilde Tiere und Überfälle des Hügelvolks stellen eine Bedrohung dar, und viele potenzielle Kunden würden die Waren eines Händlers lieber stehlen, als fair mit ihm zu handeln. Deshalb heuern Händler Wachen an. Und wenn die Gefahr naht, hoffen sie, dass sie die richtigen Leute angeheuert haben.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos und der Süden} (Buch II S. 256-263)"
     }
   },
   "caribou": {
@@ -752,19 +752,19 @@
   "cavalry": {
     "name": {
       "source": "Cavalry",
-      "text": ""
+      "text": "Kavallerie"
     },
     "armor": {
       "source": "2 (shield, iron scale)",
-      "text": ""
+      "text": "2 (Schild, eiserne Schuppenrüstung)"
     },
     "damage": {
       "source": "iron-tipped long spear d6+4 (_reach_, _forceful_), or sword d6+4 (_close_, _forceful_), or bow d6 (_far_)",
-      "text": ""
+      "text": "Langspeer mit Eisenspitze d6+4 (_Lang_, _Wuchtig_), oder Schwert d6+4 (_Kurz_, _Wuchtig_), oder Bogen d6 (_Fern_)"
     },
     "moves": {
       "source": "- Circle around their enemy\n- Attack on the move\n- Form a wedge and charge, d6+4 w/ advantage (reach, close, hand, area, forceful, messy, 1 piercing)",
-      "text": ""
+      "text": "- Umkreise deinen Gegner\n- Greife aus der Bewegung heraus an\n- Bilde einen Keil und stürme vor, d6+4 (_Lang_, _Kurz_, _Bereich_, _Wuchtig_, _Brutal_, Durchdringung 1, Vorteil)"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
@@ -772,7 +772,7 @@
     },
     "instinct/selected/to-attack-where-the-foe-is-weak": {
       "source": "to attack where the foe is weak",
-      "text": ""
+      "text": "dort anzugreifen, wo der Feind schwach ist"
     }
   },
   "cave-bear": {
@@ -804,7 +804,7 @@
   "ceffylwraig": {
     "name": {
       "source": "Ceffylwraig",
-      "text": ""
+      "text": "Ceffylwraig"
     },
     "armor": {
       "source": "0",
@@ -812,19 +812,19 @@
     },
     "damage": {
       "source": "kicking hoofs d8+3 (_hand_, _close_, _forceful_, disadvantage)",
-      "text": ""
+      "text": "Huftritte d8+3 (_Hand_, _Kurz_, _Wuchtig_, Nachteil)"
     },
     "moves": {
       "source": "- Appear as a majestic horse among the herd\n- Slip free of any restraint, disappearing into the wind if need be\n- Guide the herd like it was a single, living entity\n- Curse someone with wild, unbridled emotions",
-      "text": ""
+      "text": "- Erscheine als majestätisches Pferd inmitten der Herde\n- Befreie dich aus jeder Fessel und verschwinde, wenn nötig, im Wind\n- Führe die Herde, als wäre sie ein einzelnes, lebendiges Wesen\n- Verfluche jemanden mit wilden, ungezügelten Emotionen"
     },
     "description": {
       "source": "A herd of wild horses has a life, nay, a spirit all its own, a spirit as free and fickle as the wind. Take care, you who would poach wild horses for your own purpose, lest you find your heart turned against you! Something interesting: \"Ceffylwraig\" means \"horse wife,\" but she sees herself more as queen than wife: proud and haughty, disdainful of the weak and the slow, the herd her subjects more than her children. Something useful: A ceffylwraig is scornful and suspicious of praise or fancy words, but can be appeased by thoughtful gifts, offered with appropriate respect from proud women of noble bearing. What sort of gift do the ceffylwraig most value? What sort of gift will do in a pinch?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Eine Herde wilder Pferde hat ein eigenes Leben – nein, einen eigenen Geist, so frei und launisch wie der Wind. Nimm dich in Acht, du, der du wilde Pferde für deine eigenen Zwecke fangen willst, damit sich dein Herz nicht gegen dich wendet!\n\n**Etwas interessantes:** „Ceffylwraig“ bedeutet „Pferdefrau“, doch sie selbst sieht sich eher als Königin denn als Ehefrau: stolz und hochmütig, voller Verachtung für die Schwachen und Langsamen. Die Herde sind für sie eher ihre Untertanen als ihre Kinder.\n\n**Etwas Nützliches:** Eine Ceffylwraig ist verächtlich und misstrauisch gegenüber Lob und schönen Worten, lässt sich aber durch wohlüberlegte Geschenke besänftigen, die ihr von stolzen Frauen mit edlem Auftreten mit gebührendem Respekt dargebracht werden.\n\n- Welche Art von Geschenk schätzen Ceffylwraig am meisten?\n- Welche Art von Geschenk tut es zur Not auch?\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-be-fiercely-independent": {
       "source": "to be fiercely independent",
-      "text": ""
+      "text": "zutiefst unabhängig zu sein"
     }
   },
   "ceirwmawr": {
@@ -860,63 +860,63 @@
   "chosen-shield": {
     "name": {
       "source": "Chosen shield",
-      "text": ""
+      "text": "Auserwählter Schildträger"
     },
     "armor": {
       "source": "3 (iron hauberk, shield)",
-      "text": ""
+      "text": "3 (Eisenharnisch, Schild)"
     },
     "damage": {
       "source": "iron battleaxe d8 (_close_, _messy_, 1 piercing), spear d8 (_close_, _thrown_, 1 piercing), knife d6 (_hand_, 1 piercing)",
-      "text": ""
+      "text": "Eisenstreitaxt d8 (_Kurz_, _Brutal_, Durchdringend 1), Speer d8 (_Kurz_, _Geworfen_, Durchdringend 1), Messer d6 (_Hand_, Durchdringend 1)"
     },
     "moves": {
       "source": "- Lash out with sudden, casual violence\n- Fight with grim purpose or reckless abandon\n- Pry apart an enemy’s defenses",
-      "text": ""
+      "text": "- Lass deiner spontanen Aggression freien Lauf\n- Kämpfe mit grimmiger Entschlossenheit oder rücksichtslosem Ungestüm\n- Brich die Verteidigung deines Gegners auf"
     },
     "description": {
       "source": "The chosen shields are a chief’s best: the most loyal, the bravest, the bloodiest. They’re professional fighters, their chief’s bodyguards, enforcers, and lieutenants. They sit closest to the chief by the fire, and share the best haunches of meat. They take a share, too, of their chief’s loot and their chief’s glory. The wise chief lets them have it, for a chief is nothing without their chosen shields. And when a chief is toppled, it’s usually one of their chosen shields that does the toppling.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
+      "text": "Die auserwählten Schildträger sind die Besten eines Häuptlings: die Loyalsten, die Mutigsten, die Blutrünstigsten. Sie sind Berufskämpfer, die Leibwächter, Vollstrecker und Stellvertreter ihres Häuptlings. Sie sitzen am Feuer am nächsten bei ihm und teilen sich die besten Fleischstücke.\n\nAuch von der Beute und dem Ruhm ihres Häuptlings erhalten sie ihren Anteil. Ein kluger Häuptling lässt ihnen diesen Anteil, denn ohne seine auserwählten Schildträger ist ein Häuptling nichts. Und wenn ein Häuptling gestürzt wird, ist es gewöhnlich einer seiner auserwählten Schildträger, der ihn zu Fall bringt.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
     },
     "instinct/selected/to-suffer-no-insult-or-disrespect": {
       "source": "to suffer no insult or disrespect",
-      "text": ""
+      "text": "keine Beleidigung oder Respektlosigkeit zu dulden"
     }
   },
   "cinderboar": {
     "name": {
       "source": "Cinderboar",
-      "text": ""
+      "text": "Aschenkeiler"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. bronze",
-      "text": "4 (Widerstandskraft), 0 vs. Bronze"
+      "text": "4 (Zähigkeit), 0 vs. Bronze"
     },
     "damage": {
       "source": "gore d8+2 (_hand_, _forceful_, _messy_, 1 piercing)",
-      "text": ""
+      "text": "Aufspießen d8+2 (_Hand_, _Wuchtig_, _Brutal_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "fireproof; hot as banked coals; bleeds oily, choking smoke",
-      "text": ""
+      "text": "Feuerresistent; heiß wie glühende Kohlen; blutet öligen, erstickenden Rauch"
     },
     "moves": {
       "source": "- Snort and giggle\n- Start a fire, incidentally\n- Gnaw through and eat anything, eventually\n- Refuse to die, persist beyond reason",
-      "text": ""
+      "text": "- Schnaube und kichere\n- Entfache beiläufig ein Feuer \n- Durchnage und friss alles – früher oder später\n- Weigere dich zu sterben, und lebe wider jede Vernunft weiter\n- Es gibt einen verbrannten und verwüsteten Ort, wo die Hügellande an das Ferriers Moor grenzen."
     },
     "description": {
       "source": "There is a burnt and blasted place, where the Steplands (page 372) abut Ferrier’s Fen (page 116). It once boasted a Stone Lord (page 382) fortress: grand, a tower eternal, lit by a fiery gem. But the servants rebelled. The seals were sundered. Ta’l Themyin, the Burning Child, shattered the gem and toppled the tower and laughed and laughed and laughed. His rage still boils to the surface, poisoning any beast bold enough to forage in these ruins. His cruelty sends them forth, to uproot and topple, to sunder and burn.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
+      "text": "Einst gab es dort eine Festung eines Steinfürsten: prächtig, mit einem ewigen Turm, erleuchtet von einem glühenden Edelstein. Doch die Diener rebellierten. Die Siegel wurden gebrochen. Ta'l Themyin, das brennende Kind, zerschmetterte den Edelstein und stürzte den Turm ein, lachte, lachte und lachte. Seine Wut brodelt noch immer an der Oberfläche und vergiftet jedes Tier, das sich in diesen Ruinen herumtreibt. Seine Grausamkeit schickt sie hinaus, um zu entwurzeln und umstürzen, zu zerschlagen und zu verbrennen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
     },
     "instinct/selected/to-destroy-especially-the-most-stable-people-things": {
       "source": "to destroy, especially the most stable people/things",
-      "text": ""
+      "text": "zu zerstören, insbesondere die  stabilsten Menschen/Dinge"
     }
   },
   "cinderwraith": {
     "name": {
       "source": "Cinderwraith",
-      "text": ""
+      "text": "Glutgespenst"
     },
     "armor": {
       "source": "1 (amorphous)",
@@ -924,15 +924,15 @@
     },
     "damage": {
       "source": "blistering flames 1d10+1 (_hand_, _grabby_, _messy_, ignores armor)",
-      "text": ""
+      "text": "sengende Flammen d10+1 (_Hand_, _Fesselnd_, _Brutal_, ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "fireproof, dormant without fresh air to \"breathe,\" tethered to its bones",
-      "text": ""
+      "text": "Feuerresitent; ohne frische Luft zum „Atmen“ inaktiv; an seine Knochen gebunden"
     },
     "moves": {
       "source": "- Manifest a leering pillar of fire and blackened hands (harmed only by water or silver)\n- Melt silver or bronze, weaken steel or iron, ignite wood, char flesh\n- Engulf a living being, char both flesh and soul (deal damage with advantage, inflict debilities, harm even fireproof foes)",
-      "text": ""
+      "text": "- Erschaffe eine bedrohliche Feuersäule und geschwärzte Hände, die nur durch Wasser oder Silber verwundbar sind\n- Lass Silber oder Bronze schmelzen, schwäche Stahl oder Eisen, entzünde Holz und versenge Fleisch\n- Verschlinge ein lebendes Wesen und versenge Fleisch und Seele gleichermaßen (verursache Schaden mit Vorteil, füge Beeinträchtigungen zu und verletze selbst feuerresistente Gegner)"
     },
     "description": {
       "source": "The Forge Lords burned with an inner fire, a fire that threatened to consume them even when they lived. And when they died badly—slowly, desperately, betrayed and full of helpless rage—that fire could linger on. First it would burn away the Forge Lord’s flesh, and then its spirit, and then its soul. And then it would wait in the bones, like heat in banked coals. Wait for fresh air to give it new life, and fresh souls to burn for fuel.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
@@ -940,29 +940,29 @@
     },
     "instinct/selected/to-burn-the-living": {
       "source": "to burn the living",
-      "text": ""
+      "text": "die Lebenden zu verbrennen"
     }
   },
   "clockwork-spider": {
     "name": {
       "source": "Clockwork spider",
-      "text": ""
+      "text": "Uhrwerkspinne"
     },
     "armor": {
       "source": "2 (metal), 0 vs. crushing",
-      "text": ""
+      "text": "2 (Metall), 0 gegen Zermalmen"
     },
     "damage": {
       "source": "many little pincers d4 (_hand_, _grabby_)",
-      "text": ""
+      "text": "viele kleine Zangen d4 (_Hand_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "fireproof, blind, tremorsense, active only for short periods",
-      "text": ""
+      "text": "Feuerresistent, Blind, Erschütterungssinn, nur für kurze Zeit aktiv"
     },
     "moves": {
       "source": "- Skitter towards them, ominously\n- \"Watch\" intently, responding subtly to every move\n- Try to take things from their hands\n- Defend itself if attacked\n- Follow orders given in the Forge Lord’s tongue, poorly",
-      "text": ""
+      "text": "- Husche unheilvoll auf sie zu\n- „Beobachte“ sie aufmerksam und reagiere subtil auf jede ihrer Bewegungen\n- Versuche, ihnen Gegenstände aus den Händen zu reißen\n- Verteidige dich, wenn du angegriffen wirst\n- Befolge Anweisungen in der Sprache der Schmiedefürsten – allerdings nur mangelhaft"
     },
     "description": {
       "source": "They’re not really shaped like spiders, but that’s what they make you think of. Picture a metal basket, holding gears and springs and a glowing central core. Articulated legs extend out, each ending in a little 3-clawed pincer. They squeak as they move, their many joints needing oil. They were made to be little servants, extra sets of hands to help around a house or forge. Even now, they’re just trying to help.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
@@ -970,37 +970,37 @@
     },
     "instinct/selected/to-get-in-the-way": {
       "source": "to get in the way",
-      "text": ""
+      "text": "sich in den Weg zu stellen"
     }
   },
   "coedwaig": {
     "name": {
       "source": "Coedwaig",
-      "text": ""
+      "text": "Coedwaig"
     },
     "armor": {
       "source": "2 (bark, no vital organs)",
-      "text": ""
+      "text": "2 (Rinde, keine lebenswichtigen Organe)"
     },
     "damage": {
       "source": "nasty thorns d6 (_hand_, _grabby_)",
-      "text": ""
+      "text": "Fiese Dornen d6 (_Hand_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "thorns all over, to touch them is to bleed",
-      "text": ""
+      "text": "Über und über mit Dornen bedeckt; wer sie berührt, blutet."
     },
     "moves": {
       "source": "- Possess thorny plants or vines and shape them into a body\n- Cause vicious thorns and spines to sprout from nearby plants\n- Dig in deep, make them bleed (messy)",
-      "text": ""
+      "text": "- Ergreife dornige Pflanzen oder Ranken und forme sie zu einem Körper\n- Lass in der Nähe bösartige Dornen und Stacheln aus Pflanzen sprießen\n- Dringe tief ein, lass sie bluten (_Brutal_)"
     },
     "description": {
       "source": "Each thorn on a plant is a sword, brandished boldly against a world that would defile its flowers, steal its fruit, and devour its delicate buds. What, then, are the coedwaig? Only Danu’s swords, brandished by the Mother herself in defense of her most beautiful and vulnerable children.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Jeder Dorn an einer Pflanze ist ein Schwert, das sich kühn gegen eine Welt erhebt, die ihre Blüten schänden, ihre Früchte stehlen und ihre zarten Knospen verschlingen würde. Was also sind die Coedwaig? Nichts anderes als Danus Schwerter, von der Mutter selbst geführt, um ihre schönsten und verletzlichsten Kinder zu verteidigen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-viciously-defend-its-ward": {
       "source": "to viciously defend its ward",
-      "text": ""
+      "text": "seinen Schützling erbittert zu verteidigen"
     }
   },
   "cougar": {
@@ -1062,31 +1062,31 @@
   "cultist": {
     "name": {
       "source": "Cultist",
-      "text": ""
+      "text": "Kultist"
     },
     "armor": {
       "source": "0 (or by worn armor)",
-      "text": "0 (oder 1 durch verschlissene Rüstung)"
+      "text": "0 (oder entsprechend der getragenen Rüstung)"
     },
     "damage": {
       "source": "d8 (tags by weapon)",
-      "text": ""
+      "text": "d8 (Eigenschaften je nach Waffe)"
     },
     "specialQuality": {
       "source": "marked by the Things Below (page 432)",
-      "text": ""
+      "text": "von den Dingen aus der Tiefe (Seite 432) gezeichnet "
     },
     "moves": {
       "source": "- Use one of their gifts (page 432)\n- Make a sacrifice for the cause\n- Have second thoughts, maybe?",
-      "text": ""
+      "text": "- Setze eine deiner Gaben ein\n- Bring ein Opfer für die Sache\n- Bekomme Zweifel – vielleicht?"
     },
     "description": {
       "source": "Folks are capable of all sorts of dark things, if someone else suggests they do them. Especially if they’re desperate. Especially if the person leading them is someone they trust, or respect, or admire. And if that first little dark deed comes without any consequences, or any consequences to them? Well, then the next dark deed might not be so little, hmm?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
+      "text": "Menschen sind zu allerlei dunklen Taten fähig, wenn jemand anderes ihnen diese nahelegt. Besonders, wenn sie verzweifelt sind. Vor allem dann, wenn die Person, die sie dazu anstiftet, jemand ist, dem sie vertrauen, den sie respektieren oder bewundern. Und wenn diese erste kleine böse Tat ohne Folgen bleibt – oder zumindest ohne Folgen für sie selbst? Nun, dann ist die nächste böse Tat vielleicht schon gar nicht mehr so klein, hm?\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
     },
     "instinct/selected/to-belong-to-feel-important": {
       "source": "to belong, to feel important",
-      "text": ""
+      "text": "dazuzugehören und sich wichtig zu fühlen"
     }
   },
   "cwisarff": {
@@ -1316,7 +1316,7 @@
   "fadyn": {
     "name": {
       "source": "Fadyn",
-      "text": ""
+      "text": "Fadyn"
     },
     "armor": {
       "source": "1 (reflexes)",
@@ -1324,23 +1324,23 @@
     },
     "damage": {
       "source": "bite, scratches, or knife d6 (_hand_, disadvantage)",
-      "text": ""
+      "text": "Biss, Kratzer oder Messer d6 (_Hand_, Nachteil)"
     },
     "specialQuality": {
       "source": "tethered to a fox skull",
-      "text": ""
+      "text": "an einen Fuchsschädel gebunden"
     },
     "moves": {
       "source": "- Manifest as a fox (small) or a charming stranger\n- Be all manner of charming and ingratiating\n- Steal something when no one’s looking\n- Make something seem like something else",
-      "text": ""
+      "text": "- Manifestiere dich als Fuchs (klein) oder als charmante Fremde\n- Sei auf alle möglichen Arten charmant und einschmeichelnd\n- Stiehl etwas, wenn niemand hinsieht\n- Lass etwas wie etwas anderes erscheinen"
     },
     "description": {
       "source": "Every child has heard stories of the fox-spirit, the trickster, the fadyn. In some tales, a fadyn makes fools of the cruel or the proud. In others, they steal chickens from the slow-witted. And in still others, they seduce a beautiful human, disappearing when bored or discovered. Truth be told, there’s little pattern to who a fadyn torments or fancies. They are fickle, fickle things. Something interesting: When a fadyn takes the form of a person, it always has some fox-like feature (a tail, feet, hands, ears) that it strives to hide. It is easily embarrassed by this feature, and flees if it’s discovered. Something useful: Fadyn are in fact the spirits of old, cagey foxes who passed away, and they’re tethered to their old skulls. One can’t travel far from its skull, and often carries it hidden on its manifest person or buries it near the community that it torments. If you want to destroy a fadyn, or bind it to your service, getting your hands on its skull is the best way to do so.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Jedes Kind hat Geschichten über den Fuchsgeist, den Trickser, den Fadyn gehört. In manchen Geschichten führt ein Fadyn die Grausamen oder Hochmütigen an der Nase herum. In anderen stiehlt er den Einfältigen ihre Hühner. Und in wieder anderen verführt er einen schönen Menschen, nur um zu verschwinden, sobald ihm langweilig wird oder er entdeckt wird. In Wahrheit gibt es kaum ein Muster darin, wen ein Fadyn quält oder wen er begehrt. Sie sind wankelmütige, unbeständige Wesen.\n- Etwas Interessantes: Wenn ein Fadyn die Gestalt eines Menschen annimmt, weist sie immer ein fuchsähnliches Merkmal auf (einen Schwanz, Füße, Hände, Ohren), das sie zu verbergen versucht. Sie ist durch dieses Merkmal leicht in Verlegenheit zu bringen, und sie flieht, wenn es entdeckt wird.\n- Etwas Nützliches: Fadyn sind in Wirklichkeit die Geister alter, gerissener Füchse, die gestorben sind, und an ihre alten Schädel gebunden. Ein Fadyn kann sich nicht weit von seinem Schädel entfernen und trägt ihn oft versteckt bei sich oder vergräbt ihn in der Nähe der Gemeinschaft, die er heimsucht. Wenn du einen Fadyn vernichten oder ihn an dich binden willst, ist es am besten, seinen Schädel in die Hände zu bekommen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-make-mischief": {
       "source": "to make mischief",
-      "text": ""
+      "text": "Unfug zu treiben"
     }
   },
   "false-adept": {
@@ -1376,7 +1376,7 @@
   "fanatic": {
     "name": {
       "source": "Fanatic",
-      "text": ""
+      "text": "Fanatiker"
     },
     "armor": {
       "source": "0",
@@ -1384,19 +1384,19 @@
     },
     "damage": {
       "source": "weapons d8 (tags by weapon)",
-      "text": ""
+      "text": "Waffen d8 (Eigenschaften je nach Waffe)"
     },
     "moves": {
       "source": "- Make a passionate argument\n- Suffer for the cause\n- Do evil for the greater good",
-      "text": ""
+      "text": "- Argumentiere leidenschaftlich\n- Leide für eine Sache\n- Tue etwas Böses für das höhere Wohl"
     },
     "description": {
       "source": "A Lightbearer often attracts faithful followers, as do some of Helior’s more charismatic devotees. Some of these followers might take things a little far.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MMGebhUaITllcNJR]{Helior, the Daybringer} (Book p.224-227)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MMGebhUaITllcNJR]{Helior, der Lichtbringer} (Buch II S. 224-227)"
+      "text": "Ein Lichtträger zieht oft gläubige Anhänger an, ebenso wie einige der charismatischeren Anhänger von Helior. Manche dieser Anhänger könnten es ein wenig zu weit treiben.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.MMGebhUaITllcNJR]{Helior, der Lichtbringer} (Buch II S. 224-227)"
     },
     "instinct/selected/to-protect-their-beliefs": {
       "source": "to protect their beliefs",
-      "text": ""
+      "text": "ihre Überzeugungen zu verteidigen"
     }
   },
   "feathered-drake": {
@@ -1654,7 +1654,7 @@
     },
     "instinct/selected/see-below": {
       "source": "see below",
-      "text": ""
+      "text": "siehe Quelle"
     }
   },
   "ghostly-hounds": {
@@ -1720,31 +1720,31 @@
   "glasbren": {
     "name": {
       "source": "Glasbren",
-      "text": ""
+      "text": "Glasbren"
     },
     "armor": {
       "source": "2 (bark, no vital organs)",
-      "text": ""
+      "text": "2 (Rinde, keine lebenswichtigen Organe)"
     },
     "damage": {
       "source": "raking fingers d8 (_hand_, disadvantage)",
-      "text": ""
+      "text": "Kratzende Finger W8 (Hand, Nachteil)"
     },
     "specialQuality": {
       "source": "tethered to its tree",
-      "text": ""
+      "text": "an ihren Baum gebunden"
     },
     "moves": {
       "source": "- Travel freely between young trees\n- Spy on someone or something interesting\n- Manifest a beautiful form of moving wood (unharmed by stabbing, vulnerable to fire)\n- Call on the forest and its creatures for aid\n- Spread word through the Great Wood",
-      "text": ""
+      "text": "- Wandere frei zwischen jungen Bäumen umher\n- Spähe jemanden oder etwas Interessantes aus\n- Manifestiere eine wunderschöne Gestalt aus sich bewegendem Holz (unverwundbar gegenüber Stichwaffen, empfindlich gegenüber Feuer)\n- Rufe den Wald und seine Geschöpfe um Hilfe\n- Verbreite Neuigkeiten im Großen Wald"
     },
     "description": {
       "source": "Youngest of the Brennauwed, a glasbren’s tree is barely more than a sapling. The world is full of wonder and life, and they would see it all. From time to time, a comely mortal will catch a glasbren’s eye. If the mortal proves kind and curious and full of life, it might reveal itself and shyly pursue a friendship—or more. When you give your heart or loyalty to a glasbren, your instinct becomes \"Devotion: act in the glasbren’s interests.\" The glasbren becomes a follower (Cost: wonder and excitement; holds 2 Loyalty to start). When a season passes without you spending time with the glasbren, alone at her tree, she loses all Loyalty and you mark miserable. You cannot clear this debility without spending time with her.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Die jüngsten der Brennauwied: Der Baum einer Glasbren ist kaum mehr als ein Schössling. Die Welt steckt voller Wunder und Leben, und sie will all das sehen.\n\nVon Zeit zu Zeit erregt ein ansehnlicher Sterblicher die Aufmerksamkeit einer Glasbren. Erweist sich der Sterbliche als freundlich, neugierig und voller Leben, könnte sie sich ihm offenbaren und schüchtern eine Freundschaft – oder mehr – anstreben.\n\nWenn du **_einer Glasbren dein Herz oder deine Treue schenkst_**, wird dein Instinkt zu „Hingabe: Handle im Interesse der Glasbren.“ Die Glasbren wird zu einem Gefolgsmann (Kosten: Staunen und Aufregung; nimm 2 Loyalität zu Beginn).\n\nWenn **_eine Jahreszeit vergeht, ohne dass du Zeit mit der Glasbren allein bei ihrem Baum verbringst_**, verliert sie ihre gesamte Loyalität und du markierst Miserabel. Du kannst diese Beeinträchtigung erst entfernen, wenn du Zeit mit ihr verbringst.\n\nWenn du **_Zeit mit der Glasbren allein bei ihrem Baum verbringst_**, würfle +CH. **Bei einer 7+** streichst du alle deine Beeinträchtigungen und bittest den SL, ein Geheimnis über den Großen Wald oder die Dinge, die man dort finden kann, zu enthüllen. **Bei 7–9** wähle außerdem 1:\n\n- Tage oder Wochen vergehen, ohne dass einer von euch es bemerkt\n- Du beleidigst oder verärgerst sie; sie verliert jegliche Loyalität, die sie dir gegenüber hatte, und spricht derzeit nicht mit dir (sag uns, was du falsch gemacht hast)\n- Ihre „Familie“ möchte jetzt ein ernstes Wörtchen mit dir reden\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-stretch-and-grow-and-experience-life": {
       "source": "to stretch and grow and experience life",
-      "text": ""
+      "text": "sich zu entfalten, zu wachsen und das Leben zu erfahren"
     }
   },
   "gouzadn": {
@@ -1840,19 +1840,19 @@
   "grwgnach": {
     "name": {
       "source": "Grwgnach",
-      "text": ""
+      "text": "Grwgnach"
     },
     "armor": {
       "source": "2 (reflexes, swarm)",
-      "text": ""
+      "text": "2 (Reflexe, Schwarm)"
     },
     "damage": {
       "source": "whirlwind of pecks, claws, buffets d8+3 (_hand_, _area_, disadvantage)",
-      "text": ""
+      "text": "Wirbelwind aus Picken, Krallen und Flügelschlägen d8+3 (_Hand_, _Bereich_, Nachteil)"
     },
     "moves": {
       "source": "- Manifest in a murmuration of starlings (nigh impossible to harm with personal weapons)\n- Strip a swath of land clean of seed, saplings, insects\n- Overwhelm with sound and the weight of numbers",
-      "text": ""
+      "text": "- Manifestiere dich in einem Schwarm von Staren (nahezu unmöglich, mit Waffen zu verletzen)\n- Säubere einen Landstrich von Samen, Schösslingen und Insekten\n- Überwältige mit Lärm und schierer Überzahl"
     },
     "description": {
       "source": "When the sun sets, starlings flock in absurd numbers: thousands upon thousands dancing and wheeling in the sky, like a chittering thunderhead, like a cloud of living smoke. Farmers do what they can to keep starlings far from town, and not just because they eat precious seeds and bury the land in droppings. They do so for fear of the grwgnach.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
@@ -1860,7 +1860,7 @@
     },
     "instinct/selected/to-absorb-individual-identity": {
       "source": "to absorb individual identity",
-      "text": ""
+      "text": "die individuelle Identität aufzusaugen"
     }
   },
   "guardian": {
@@ -1882,7 +1882,7 @@
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrier Pass} (Book p.26-33)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrierenpass} (Buch II S. 26-33)"
+      "text": "Die Festungsklöster der Weißfänge unterhalten jeweils eine Schar von Kriegern, die sich aus den umliegenden Bergbauernhöfen, aus Gruppen von Mammuthirten oder gescheiterten Novizen rekrutieren. Sie konzentrieren sich stärker auf die Kriegskunst als auf die esoterischen Wege der Mönche.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrierenpass} (Buch II S. 26-33)"
     },
     "instinct/selected/to-subdue-or-drive-off-threats": {
       "source": "to subdue or drive off threats",
@@ -2004,31 +2004,31 @@
   "hennain": {
     "name": {
       "source": "Hennain",
-      "text": ""
+      "text": "Hennain"
     },
     "armor": {
       "source": "4 (woody, no vital organs)",
-      "text": ""
+      "text": "4 (hölzern, keine Organe)"
     },
     "damage": {
       "source": "walloping branches d12+5 (_close_, _reach_, _area_, _forceful_)",
-      "text": ""
+      "text": "Wuchtige Äste d12+5 (_Kurz_, _Lang_, _Bereich_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "tethered to its tree",
-      "text": ""
+      "text": "an ihren Baum gebunden"
     },
     "moves": {
       "source": "- Remain unmoved\n- See through any tree in the forest\n- Animate her own tree (almost impossible to harm with weapons, or even fire)\n- Call upon the power of Danu herself\n- Lay a lasting curse on a defiler",
-      "text": ""
+      "text": "- Bleibe regungslos\n- Sieh durch jeden Baum des Waldes\n- Beseele deinen eigenen Baum (mit Waffen oder selbst mit Feuer nahezu unmöglich zu verletzen)\n- Rufe die Macht Danus selbst herbei\n- Belege eine schändende Person mit einem dauerhaften Fluch"
     },
     "description": {
       "source": "Old grandmothers of the Wood, the hennain are few and ancient and mighty. They watch, and they wait, and they endure. It takes a dire threat indeed to rouse one, and even then it acts in slow and inscrutable ways. For a hennain cares not one bit for any given creature or tree; she cares only for the slow turn of the forest itself.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Die alten Großmütter des Waldes: Die Hennain sind wenige, uralt und mächtig. Sie beobachten, warten und harren aus. Es bedarf schon einer wahrhaft gewaltigen Bedrohung, um eine von ihnen aufzuschrecken, und selbst dann handelt sie auf langsame und undurchschaubare Weise. Denn eine Hennain kümmert sich nicht im Geringsten um irgendein einzelnes Lebewesen oder einen bestimmten Baum; ihr geht es einzig um den langsamen Wandel des Waldes selbst.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-take-the-long-long-view": {
       "source": "to take the long, long view",
-      "text": ""
+      "text": "die Dinge aus sehr, sehr großer Perspektive zu betrachten"
     }
   },
   "hillfolk-rider": {
@@ -2116,19 +2116,19 @@
   "horned-drake": {
     "name": {
       "source": "Horned drake",
-      "text": ""
+      "text": "Gehörnte Drachenechse"
     },
     "armor": {
       "source": "3 (stony hide)",
-      "text": ""
+      "text": "3 (steinartige Haut)"
     },
     "damage": {
       "source": "d8+3; Instinct to get curious, to _area_, _forceful_) or horn gore d10+5 (_close_, _forceful_, _messy_, 1 piercing)",
-      "text": ""
+      "text": "Trampelangriff d10+5 (_Hand_, _Bereich_, _Wuchtig_) oder Hornstoß d10+5 (_Kurz_, _Wuchtig_, _Brutal_, Durchdringung 1)"
     },
     "moves": {
       "source": "- Issue a honking call\n- Stand its ground, still as a rock\n- Lurch suddenly into a charge\n- Absorb raw elemental power (regaining 1d8 HP)",
-      "text": ""
+      "text": "- Stoße einen hupenden Ruf aus\n- Halte stand, unbeweglich wie ein Fels\n- Stürme unvermittelt vor!\n- Absorbiere rohe Elementarkraft (erlangt 1W8 TP zurück)"
     },
     "description": {
       "source": "The behemoth of the southern grasslands is striking for its great size, the quartz-like plates of its segmented hide, and its fearsome horns. The horns vary greatly from beast to beast, ranging from a single spike on its snout or forehead to a rack of five or six curved points edging the flanges of its massive skull. An intimidating beast, even at rest. To the Hillfolk, the downing of a d’lkornek (\"thorn-dragon\") is a hero’s feat, to be followed by a week of harvest and celebration at the kill site. Something interesting: Some scholars hold that the Stone Lords imbued horned drakes with elemental qualities. Specimens of their hide are commonly mistaken for dolostone or some other mineral, and Hillfolk prize their horns (Value 3). Something useful: The horns of a d’lkornek act like power-crystals (page 389), but larger and with great capacity. They are extremely dangerous to harvest; a wise butcher slowly bleeds away their energy over the course of days. Adult horned drakes might be accompanied by their young (group, large, hardy; HP 14;\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.hx1EiGo418JBGmVD]{South Manmarch} (Book p.350-355)",
@@ -2136,13 +2136,13 @@
     },
     "instinct/selected/to-get-curious-to-play-fight-whom-they-aggressively-defend": {
       "source": "to get curious, to play fight), whom they aggressively defend.",
-      "text": ""
+      "text": "seine Jungen zu beschützen"
     }
   },
   "ice-drake": {
     "name": {
       "source": "Ice drake",
-      "text": ""
+      "text": "Eisdrachenechse"
     },
     "armor": {
       "source": "0",
@@ -2150,41 +2150,41 @@
     },
     "damage": {
       "source": "claws, beak, or wing-buffet d4 (_hand_)",
-      "text": ""
+      "text": "Klauen, Schnabel oder Flügelschlag d4 (_Hand_)"
     },
     "specialQuality": {
       "source": "cold-proof, camouflaged, winged",
-      "text": ""
+      "text": "Kälteresistent, getarnt, geflügelt"
     },
     "moves": {
       "source": "- Burrow/dig into snow or ice, to forage or hide\n- Shake off a blast of clinging, freezing mist, 1d4 damage (close, area, reload)\n- Scatter and flee to the skies",
-      "text": ""
+      "text": "- Grabe dich in Schnee oder Eis ein, um Nahrung zu suchen oder dich zu verstecken\n- Schüttle eine Wolke aus haftendem, eiskaltem Nebel ab, 1W4 Schaden (_Kurz_, _Bereich_, _Nachladen_)\n- Stiebe auseinander und flieh in die Lüfte"
     },
     "description": {
       "source": "Like cranes, long-legged and long-necked, with long whipping tails. They’re hardly a threat in warmer months. But in winter— when their scales and feathers grow laden with hoarfrost—shepherds watch for their sign and avoid them. Wander into their midst, and you’ll get coated in a clinging, frozen mist that often leads to hypothermia & frostbite (page 489). Ice drake fat and blood never freezes. Properly rendered in a kitchen, it makes an oil used to insulate leather and wool garments. A flock of 8-12 drakes yields a jar of ice drake oil (Value 1 locally, Value 3 in the south).\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
+      "text": "Wie Kraniche, langbeinig und langhalsig, mit langen, peitschenden Schwänzen. In den wärmeren Monaten stellen sie kaum eine Bedrohung dar. Doch im Winter – wenn ihre Schuppen und Federn mit Raureif überzogen sind – achten Hirten auf ihre Spuren und meiden sie. Wer sich in ihre Nähe wagt, wird von einem klebrigen, gefrorenen Nebel eingehüllt, der oft zu Unterkühlung und Erfrierungen führt).\n\nDas Fett und das Blut von Eisdrachenechsen gefriert nie. In einer Küche fachgerecht ausgelassen, ergibt es ein Öl, das zum Imprägnieren von Leder- und Wollkleidung verwendet wird. Eine Herde von 8-12 Drachenechsen liefert einen ◇ Krug Eisdrachenechsenöl (Wert 1 vor Ort, Wert 3 im Süden).\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
     },
     "instinct/selected/to-spook-easily-and-overreact": {
       "source": "to spook easily and overreact",
-      "text": ""
+      "text": "sich leicht zu erschrecken und überzureagieren"
     }
   },
   "infantry": {
     "name": {
       "source": "Infantry",
-      "text": ""
+      "text": "Infanterie"
     },
     "armor": {
       "source": "2 (shield, linen cuirass)",
-      "text": ""
+      "text": "2 (Schild, Leinen-Brustpanzer)"
     },
     "damage": {
       "source": "iron-tipped long spear d6 (_reach_), or short sword d6 (_hand_, _close_)",
-      "text": ""
+      "text": "Langspeer mit Eisenspitze d6 (_Lang_), oder Kurzschwert d6 (_Hand_, _Kurz_)"
     },
     "moves": {
       "source": "- Form a phalanx\n- Pin down or hem in their foe",
-      "text": ""
+      "text": "- Bilde eine Phalanx\n- Setze deinen Gegner fest oder kessele ihn ein"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
@@ -2192,7 +2192,7 @@
     },
     "instinct/selected/to-follow-orders": {
       "source": "to follow orders",
-      "text": "Befehle befolgen"
+      "text": "Befehle zu befolgen"
     }
   },
   "infected-hagr": {
@@ -2228,23 +2228,23 @@
   "iron-hound": {
     "name": {
       "source": "Iron hound",
-      "text": ""
+      "text": "Eisenhund"
     },
     "armor": {
       "source": "4 (metal, lacks organs)",
-      "text": ""
+      "text": "4 (Metall, keine Organe)"
     },
     "damage": {
       "source": "bite d6+2 (_hand_, _grabby_)",
-      "text": ""
+      "text": "Biss d6+2 (_Hand_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "fireproof, heat-sensing",
-      "text": ""
+      "text": "Feuerresistent, nimmt Wärme wahr"
     },
     "moves": {
       "source": "- Follow the trail of its master’s property\n- Fix its prey with a soul-chilling stare\n- Once it’s bitten down: crush bone, shred muscle, tear apart (+messy, 3 piercing)",
-      "text": ""
+      "text": "- Folge der Spur der Besitztümer deines Meisters\n- Fixiere deine Beute mit einem seelenerschütternden Blick\n- Sobald du dich festgebissen hast: zermalme Knochen, zerfetze Muskeln und reiße dein Opfer in Stücke (+_Brutal_, Durchdringung 3)"
     },
     "description": {
       "source": "There was a Forge Lord who prized his hounds as much as he prized his treasure. When one would die, he’d capture its spirit in red crystal (page 424) and set them as the eyes in a crudely-wrought effigy. If anyone would be so foolish as to steal from him, he would loose his iron hounds to punish not just the thief but all whose hands had sullied his property. That Forge Lord is long gone, but his iron hounds remain. They’ve learned to leave their master’s treasures lying about in plain sight, and to give thieves a nice long head start. For the more hands touch the stolen goods, the more victims they can claim.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
@@ -2252,13 +2252,13 @@
     },
     "instinct/selected/to-punish-and-torment": {
       "source": "to punish and torment",
-      "text": ""
+      "text": "zu bestrafen und zu quälen"
     }
   },
   "jellied-horror": {
     "name": {
       "source": "Jellied horror",
-      "text": ""
+      "text": "Gallerthorror"
     },
     "armor": {
       "source": "1 (lacks organs)",
@@ -2266,15 +2266,15 @@
     },
     "damage": {
       "source": "pseudopod d10+1 (_reach_, _hand_, _grabby_, _messy_, 1 piercing)",
-      "text": ""
+      "text": "Pseudopode d10+1 (_Lang_, _Hand_, _Fesselnd_, _Brutal_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "immune to stabbing; takes half damage from weapons unless they’re forceful; acid-proof; harmed by chalk/quicklime/similar chemics",
-      "text": ""
+      "text": "immun gegen Stichwaffen; erleidet durch Waffen nur halben Schaden, sofern diese nicht Wuchtig sind; Säureresitent; empfindlich gegenüber Kreide, Branntkalk und ähnliche Chemikalien"
     },
     "moves": {
       "source": "- Lurk in water, moving slowly, seeking or waiting for food\n- Dissolve organic material—weapons, clothes, flesh, etc.\n- Engulf, d10+3 damage with advantage (hand, messy, ignores armor)",
-      "text": ""
+      "text": "- Lauere im Wasser, bewege dich langsam und suche nach Nahrung oder warte auf Beute\n- Löse organisches Material auf – Waffen, Kleidung, Fleisch usw.\n- Verschlinge, d10+3 Schaden mit Vorteil (_Hand_, _Brutal_, ignoriert Rüstung)"
     },
     "description": {
       "source": "Sometimes, the waters of the Dread River overflow their banks and flood the cursed ruins and tainted places. And sometimes, when the floodwaters recede, they leave behind… something. Something that just isn’t right.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
@@ -2282,29 +2282,29 @@
     },
     "instinct/selected/to-seep-to-consume-to-grow": {
       "source": "to seep, to consume, to grow",
-      "text": ""
+      "text": "durchzusickern, zu verschlingen, zu wachsen"
     }
   },
   "judge-of-aratis": {
     "name": {
       "source": "Judge of Aratis",
-      "text": ""
+      "text": "Richter von Aratis"
     },
     "armor": {
       "source": "2 (shield, leather cuirass)",
-      "text": ""
+      "text": "2 (Schild, Lederkürass)"
     },
     "damage": {
       "source": "mallet d8 (_hand_) or maul d8+2 (_close_, _forceful_, _awkward_)",
-      "text": ""
+      "text": "d8 (_Hand_) oder Streitkolben d8+2 (_Kurz_, _Wuchtig_, _Unbeholfen_)"
     },
     "specialQuality": {
-      "source": "bound by the requirements of a true disciple (previous page), at least publicly Stalwart instinct to see things as black and white (+tough, +4 HP)",
-      "text": ""
+      "source": "bound by the requirements of a true disciple (previous page), at least publicly",
+      "text": "an die Anforderungen eines wahren Jüngers gebunden (siehe gegenüber), zumindest in der Öffentlichkeit"
     },
     "moves": {
-      "source": "- Decry someone/thing, publicly\n- Enforce a law/tradition/contract, even despite good sense\n- Inspire others with their resolve\n\nAmbitious instinct to advance their own agenda (+cunning)\n\n- Make a reasonable-sounding ruling, to their own advantage\n- Suss out someone’s motives\n- Keep calm under pressure or scrutiny\n\nCircumspect instinct to try to make everyone happy (+friendly, +cautious, deals damage with disadvantage)\n\n- Stall, delay, make excuses\n- See both sides of an issue\n- Find a different way",
-      "text": ""
+      "source": "Stalwart instinct to see things as black and white (+tough, +4 HP)\n\n- Decry someone/thing, publicly\n- Enforce a law/tradition/contract, even despite good sense\n- Inspire others with their resolve\n\nAmbitious instinct to advance their own agenda (+cunning)\n\n- Make a reasonable-sounding ruling, to their own advantage\n- Suss out someone’s motives\n- Keep calm under pressure or scrutiny\n\nCircumspect instinct to try to make everyone happy (+friendly, +cautious, deals damage with disadvantage)\n\n- Stall, delay, make excuses\n- See both sides of an issue\n- Find a different way",
+      "text": "Unbeirrbarer Instinkt die Dinge in Schwarz und Weiß zu sehen (+Zäh, +4 TP)\n\n- Prangere jemanden/etwas öffentlich an\n- Setze ein Gesetz, eine Tradition oder einen Vertrag durch, selbst wenn es jeder Vernunft widerspricht\n- Inspiriere andere durch deine Entschlossenheit\n\nEhrgeiziger Instinkt die eigene Agenda voranzutreiben (+Gerissen)\n\n- Triff eine vernünftig klingende Entscheidung zu deinem eigenen Vorteil\n- Durchschaue die Beweggründe einer Person\n- Bleibe auch unter Druck oder kritischen Blicken gelassen\n\nUmsichtiger Instinkt zu versuchen, es allen recht zu machen (+Freundlich, +Vorsichtig; verursacht Schaden mit Nachteil)\n\n- Spiele auf Zeit, verzögere die Dinge und erfinde Ausreden\n- Betrachte beide Seiten einer Angelegenheit\n- Finde einen anderen Weg"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.RYrctZ8FYMypVSYu]{Aratis, the Lawkeeper} (Book p.22-25)",
@@ -2400,31 +2400,31 @@
   "kyakaara": {
     "name": {
       "source": "Kyakaara",
-      "text": ""
+      "text": "Kyakaara"
     },
     "armor": {
       "source": "1 (toughness)",
-      "text": ""
+      "text": "1 (Zähigkeit)"
     },
     "damage": {
       "source": "from bronze, see only in shades advantage (_hand_, _grabby_, _forceful_, _messy_, 1 piercing), or crude weapons d6 w/ advantage (tags by weapon) of red",
-      "text": ""
+      "text": "reißende Finger/Klauen d4+2 mit Vorteil (_Hand_, _Fesselnd_, _Wuchtig_, _Brutal_, Durchdringung 1), oder grobe Waffen d6 mit Vorteil (Eigenschaften durch Waffe)"
     },
     "specialQuality": {
       "source": "inured to cold, take +1d4",
-      "text": ""
+      "text": "kälteresistent, erleidet +1W4 Schaden durch Bronze, sieht nur in Rottöne"
     },
     "moves": {
       "source": "- Drive their prey to panic\n- Maim or traumatize someone\n- Surround, harry, dogpile, drag down\n- Drag off a captive, to eat or torture",
-      "text": ""
+      "text": "- Versetze deine Beute in Panik\n- Verstümmle oder traumatisiere jemanden\n- Umzingele, bedränge, überwältige, reiße jemanden zu Boden\n- Verschleppe einen Gefangenen, um ihn zu fressen oder zu foltern"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
+      "text": "Dies sind die Heuler, die Lachenden, jene, die dem Heulenden Fluch erlegen sind. Sie sind ausgemergelt und behaart, in Lumpen gekleidet, mit Kiefern, die sich zu knurrenden, mit Reißzähnen gefüllten Schnauzen entwickelt haben. Sie durchbohren ihr eigenes Fleisch. Sie krümmen sich, heulen und kreischen.\n\nWährend des Zeitalters der Kataklysmen streiften Kyakaara frei umher; heute sind sie glücklicherweise selten. Behandle sie als Bedrohung, als Bestien, mit den folgenden düsteren Vorzeichen und dem drohenden Unheil:\n\n○ Sie lassen sich in der Nähe einer Gemeinschaft nieder und verfolgen potenzielle Opfer.\n○ Sie entführen Einheimische und zwingen sie, sich gegenseitig Grausamkeiten anzutun.○ Überlebende Gefangene werden zu Kyakaara; ihre Zahl wächst.\n○ Drohendes Unheil: Sie überrennen die Gemeinschaft, schlachten viele ab, verderben den Rest und machen sich dann auf den Weg zum nächsten Dorf.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
     },
     "instinct/selected/to-delight-in-pain-savor-fear-and-indulge-in-every-cruelty": {
       "source": "to delight in pain, savor fear, and indulge in every cruelty",
-      "text": ""
+      "text": "sich am Schmerz zu erfreuen, Angst auszukosten und jeder Grausamkeit nachzugeben"
     }
   },
   "laborers": {
@@ -2456,19 +2456,19 @@
   "legionary": {
     "name": {
       "source": "Legionary",
-      "text": ""
+      "text": "Legionär"
     },
     "armor": {
       "source": "3 (shield, iron scale)",
-      "text": ""
+      "text": "3 (Schild, eiserne Schuppenrüstung)"
     },
     "damage": {
       "source": "iron short sword d6 (_hand_, _close_), or spear d6 (_close_, _thrown_)",
-      "text": ""
+      "text": "eisernes Kurzschwert d6 (_Hand_, _Kurz_), oder Speer d6 (_Kurz_, _Geworfen_)"
     },
     "moves": {
       "source": "- Fight in tight-knit formation\n- Hold the line\n- Advance implacably",
-      "text": ""
+      "text": "- Kämpfe in geschlossener Formation\n- Halte die Stellung\n- Rücke unerbittlich vor"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
@@ -2476,7 +2476,7 @@
     },
     "instinct/selected/to-conquer": {
       "source": "to conquer",
-      "text": ""
+      "text": "zu erobern"
     }
   },
   "lightning-sconce": {
@@ -2530,23 +2530,23 @@
   "lithic-servant": {
     "name": {
       "source": "Lithic servant",
-      "text": ""
+      "text": "Steinerner Diener"
     },
     "armor": {
       "source": "3 (made of stone)",
-      "text": ""
+      "text": "3 (aus Stein)"
     },
     "damage": {
       "source": "stone fists d6 (_hand_, _grabby_)",
-      "text": ""
+      "text": "Steinfäuste d6 (_Hand_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "externally powered; bug-like intellect; blind; tremorsense",
-      "text": ""
+      "text": "extere Energieversorgung; insektenähnlicher Verstand; blind; Erschütterungssinn"
     },
     "moves": {
       "source": "- Act with eternal patience and endurance\n- Act with no sense of consequence\n- Hurt someone unintentionally while performing its tasks",
-      "text": ""
+      "text": "- Handle mit unendlicher Geduld und Ausdauer\n- Handle ohne jedes Bewusstsein für die Folgen\n- Verletze jemanden unbeabsichtigt, während du deine Aufgaben ausführst"
     },
     "description": {
       "source": "Imagine one of those artists’ mannequins, but full-sized and made of polished rock. Two fingers and a thumb on each hand. Faceless, expressionless, making a stone-on-stone grinding noise as they move. They’re most often found inert and covered in dust, waiting for some energy source— like a Stone Lord’s song or a thrumming power-crystal—to give them \"life.\" They’ll then follow any orders given to them in the Stone Lord’s tongue. A few of these servants are still active, powered by inexhaustible sources in ancient halls. Their joints are worn smooth, their feet and hands ground down to nubs. Some crawl on broken limbs, attempting to complete tasks that will never end.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
@@ -2554,29 +2554,29 @@
     },
     "instinct/selected/to-follow-its-last-orders": {
       "source": "to follow its last orders",
-      "text": ""
+      "text": "seine letzten Befehle zu befolgen"
     }
   },
   "llamudwr": {
     "name": {
       "source": "Llamudwr",
-      "text": ""
+      "text": "Llamudwr"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. bronze",
-      "text": "4 (Widerstandskraft), 0 vs. Bronze"
+      "text": "4 (Zähigkeit), 0 vs. Bronze"
     },
     "damage": {
       "source": "stinging tail d10+1 (_reach_), crunching bite d10+1 (_hand_, _grabby_, _messy_, 1 piercing)",
-      "text": ""
+      "text": "Stachelschwanz d10+1 (_Lang_), zermalmender Biss d10+1 (_Hand_, _Fesselnd_, _Brutal_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "clumsy when grounded, hates the sun",
-      "text": ""
+      "text": "unbeholfen, wenn es festen Boden unter den Füßen hat; hasst die Sonne"
     },
     "moves": {
       "source": "- Lurk unseen, pick a target, and wait until sunset\n- Leap out of the water with shocking speed\n- Follow prey from the sky, or hanging from trees\n- Strafe its prey and deliver a painful, debilitating sting\n- Chomp down, and then swallow whole",
-      "text": ""
+      "text": "- Laure unbemerkt auf, wähle ein Ziel und warte bis zum Sonnenuntergang\n- Spring mit schockierender Geschwindigkeit aus dem Wasser hervor\n- Verfolge deine Beute vom Himmel aus oder hänge von Bäumen herab\n- Stich deine Beute mit einem schmerzhaften, lähmenden Stachel\n- Beiße zu und verschlinge sie in Gänze"
     },
     "description": {
       "source": "Everyone knows to shun deep, still water, and the llamudwr (or \"water leapers\") are surely one reason why. Take the body of a frog, 6 or 7 feet long. Add another 8 or 9 feet of whipping tail, tipped with a venomous barb. Get rid of its legs, not even stumps, but give it bat wings, a span of nearly 20 feet unfurled. Hide it in a lake or fen, away from the sun’s cruel light. And finally, make it hungry. Very, very hungry.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
@@ -2584,29 +2584,29 @@
     },
     "instinct/selected/to-fill-its-belly-and-retreat-beneath-the-water": {
       "source": "to fill its belly and retreat beneath the water",
-      "text": ""
+      "text": "sich den Bauch vollzuschlagen und sich unter Wasser zurückzuziehen"
     }
   },
   "luglfsk": {
     "name": {
       "source": "Luglfsk",
-      "text": ""
+      "text": "Luglfsk"
     },
     "armor": {
       "source": "1 (hide)",
-      "text": ""
+      "text": "1 (Fell)"
     },
     "damage": {
       "source": "electric shock d6 (_hand_, _reload_), or chew d4 (_hand_)",
-      "text": ""
+      "text": "Stromschlag W6 (Hand, Nachladen), oder Biss W4 (Hand)"
     },
     "specialQuality": {
       "source": "lightning-proof",
-      "text": ""
+      "text": "Resistent gegenüber Blitzen"
     },
     "moves": {
       "source": "- Sense a creature’s electrical field\n- Stun or paralyze with a touch, bzzzt\n- Swarm a stunned creature",
-      "text": ""
+      "text": "- Spüre das elektrische Feld einer Kreatur auf\n- Betäube oder lähme sie mit einer Berührung – bzzzt\n- Stürze dich in Schwärmen auf eine betäubte Kreatur"
     },
     "description": {
       "source": "Each one is a few feet long, like a cuttlefish crossed with a giant maggot, squirming wet and gray, a face full of feelers whose touch stings like lightning. They spend most of their lives in the water, congregating near power-crystals (page 389) and aetherium artifacts (page 404) that have been claimed by the river. They seem entranced by the passive energy, almost lulled to sleep. But when they sense something more dynamic, something meatier, they wriggle out of the water fast enough. Some Hillfolk claim that luglfsk are just tadpoles, and tell stories of larger, many-legged terrors that fling lightning from face-feelers that stretch as long as a man grows tall. But those are probably just spook-stories to scare travelers. Probably.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
@@ -2614,7 +2614,7 @@
     },
     "instinct/selected/to-feed": {
       "source": "to feed",
-      "text": ""
+      "text": "zu fressen"
     }
   },
   "magma-worm": {
@@ -2702,53 +2702,53 @@
   "manmarcher-recruit": {
     "name": {
       "source": "Manmarcher recruit",
-      "text": ""
+      "text": "Grenzmarker-Rekrut"
     },
     "armor": {
       "source": "2 (thick hides, shield)",
-      "text": ""
+      "text": " 2 (Dicke Felle, Schild)"
     },
     "damage": {
       "source": "iron battleaxe d6 (_close_, _messy_), knife d6 (_hand_), or javelins d6 (_thrown_)",
-      "text": ""
+      "text": "eiserne Streitaxt d6 (_Kurz_, _Brutal_), Messer d6 (_Hand_) oder Speere d6 (_Nah_)"
     },
     "moves": {
       "source": "- Boast and brag\n- Form a ragged shield wall\n- Hesitate\n- Act rashly",
-      "text": ""
+      "text": "- Prahle und gib an.\n- Bilde einen lückenhaften Schildwall\n- Zögere\n- Handle unüberlegt"
     },
     "description": {
       "source": "Every able-bodied youth does their turn at their chief’s hillfort. They spend a year or two drilling, marching, learning the spear, and standing in the shield wall. They sing songs, and talk big, and maybe even get their hands red. A few are picked for their chief’s standing force, but most head home to their hamlets, prepared to defend their families and swell their chief ’s ranks when called. That’s the idea, at least.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
+      "text": "Jeder wehrfähige junge Mann leistet seinen Dienst in der Hügelfestung seines Häuptlings. Ein oder zwei Jahre lang übt er, marschiert, lernt den Umgang mit dem Speer und steht in der Schildmauer. Sie singen Lieder, reißen große Sprüche und machen sich vielleicht sogar die Hände blutig. Einige werden für die ständige Streitmacht ihres Häuptlings ausgewählt, doch die meisten kehren in ihre Weiler zurück, bereit, ihre Familien zu verteidigen und die Reihen ihres Häuptlings zu verstärken, wenn sie gerufen werden. Zumindest ist das der Plan.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
     },
     "instinct/selected/to-prove-themselves-one-way-or-the-other": {
       "source": "to prove themselves, one way or the other",
-      "text": ""
+      "text": "sich auf die eine oder andere Weise zu beweisen"
     }
   },
   "manmarcher-veteran": {
     "name": {
       "source": "Manmarcher veteran",
-      "text": ""
+      "text": "Grenzmarker-Veteran"
     },
     "armor": {
       "source": "2 (thick hides, shield)",
-      "text": ""
+      "text": "2 (dicke Felle, Schild)"
     },
     "damage": {
       "source": "iron battleaxe d6 (_close_, _messy_), knife d6 (_hand_), or javelins d6 (_thrown_)",
-      "text": ""
+      "text": "eiserne Streitaxt d6 (_Kurz_, _Brutal_), Messer d6 (_Hand_) oder Speere d6 (_Nah_)"
     },
     "moves": {
       "source": "- Form/hold a shield wall\n- Pick their battles\n- Charge!",
-      "text": ""
+      "text": "- Bilde/Halte einen Schildwall\n- Wähle deine Kämpfe mit Bedacht\n- Stürme vor!"
     },
     "description": {
       "source": "No longer young, no longer eager or scared. Just grim folk with something to fight for, something to lose. They might not be as spry as once they were, but they’re no strangers to the black business.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
+      "text": "Nicht mehr jung, nicht mehr eifrig oder ängstlich. Einfach grimmige Leute, die etwas haben, wofür es sich zu kämpfen lohnt,  und etwas, das sie verlieren können. Sie sind vielleicht nicht mehr so flink wie einst, aber sie sind mit dem blutigen Handwerk bestens vertraut.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
     },
     "instinct/selected/to-protect-their-homes-their-kin-their-honor": {
       "source": "to protect their homes, their kin, their honor",
-      "text": ""
+      "text": "ihre Heimat, ihre Sippe und ihre Ehre zu verteidigen"
     }
   },
   "mkhalang": {
@@ -2804,13 +2804,13 @@
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrier Pass} (Book p.26-33)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrierenpass} (Buch II S. 26-33)"
+      "text": "Erwäge, für jede Gruppe von Mönchen eigene Instinkte und Spielzüge zu entwickeln, die auf den Lehren und Praktiken ihres Festungsklosters und ihrer jeweiligen Sekte basieren.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.at3jDszAWvz0csBO]{Barrierenpass} (Buch II S. 26-33)"
     }
   },
   "morgais": {
     "name": {
       "source": "Morgais",
-      "text": ""
+      "text": "Morgais"
     },
     "armor": {
       "source": "1 (lacks organs)",
@@ -2818,45 +2818,45 @@
     },
     "damage": {
       "source": "watery tendril 1d8 (_close_, _reach_, _grabby_)",
-      "text": ""
+      "text": "wässrige Tentakel d8 (_Kurz_, _Lang_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "tethered to a skull or trinket, deep in its pond",
-      "text": ""
+      "text": "an einen Schädel oder ein Schmuckstück tief in seinem Teich gebunden"
     },
     "moves": {
       "source": "- Manifest as a youth or beast, shaped from water (unharmed by cutting or stabbing, unless made of bronze)\n- Entrance with beauty, song, or grace (see below)\n- Drag them under, revealing their loathsome nature\n- Laugh merrily as they drown",
-      "text": ""
+      "text": "- Nimm die Gestalt eines Jünglings oder eines Tieres an, geformt aus Wasser (unverwundbar gegenüber Hieben oder\n- Stichen, sofern diese nicht aus Bronze bestehen)\n- Betöre durch Schönheit, Gesang oder Anmut (siehe unten)\n- Ziehe sie unter Wasser und enthülle dein abscheuliches Wesen\n- Lache fröhlich, während sie ertrinken"
     },
     "description": {
       "source": "The spirits of even shallow ponds can be callous and uncaring. How much worse, then, are the spirits of those deeper pools that have claimed the lives of mortals? For—willing or not—they have made offering to Daagon, and let it in to their watery hearts. When you listen to the morgais’ song or let your gaze linger on its graceful form, your heart fills with longing. If you go to it willingly, mark XP. If you wish to turn away, roll +WIS: on a 10+, you see the ugliness beneath and can think clearly; on a 7-9, you shake yourself free but the longing remains—mark miserable or dazed (your choice); on a 6-, you approach before you realize what you’re doing.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
+      "text": "Die Geister selbst seichter Teiche können gefühllos und gleichgültig sein. Wie viel schlimmer sind dann die Geister jener tieferen Teiche, die das Leben von Sterblichen gefordert haben? Denn – ob sie wollen oder nicht – sie haben Daagon ein Opfer dargebracht und ihn in ihre wässrigen Herzen gelassen.\n\nWenn du **_dem Gesang der Morgais lauschst oder deinen Blick auf ihrer anmutigen Gestalt verweilen lässt_**, erfüllt dich eine tiefe Sehnsucht. Wenn du dich ihr freiwillig hingibst, markiere EP. Wenn du dich abwenden willst, würfle +WE. **Bei einer 10+** erkennst du die Hässlichkeit unter der Oberfläche und kannst klar denken. **Bei 7-9** reißt du dich los, doch die Sehnsucht bleibt. Markiere Miserabel oder Benommen (deine Wahl). **Bei einer 6-** näherst du dich, bevor dir bewusst wird, was du tust.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
     },
     "instinct/selected/to-collect-drowned-souls": {
       "source": "to collect drowned souls",
-      "text": ""
+      "text": "ertrunkene Seelen zu sammeln"
     }
   },
   "mosaic-swarm": {
     "name": {
       "source": "Mosaic swarm",
-      "text": ""
+      "text": "Mosaikschwarm"
     },
     "armor": {
       "source": "3 (made of thousands of ceramic tiles)",
-      "text": ""
+      "text": "3 (aus Tausenden von Keramikfliesen bestehend)"
     },
     "damage": {
       "source": "jagged fists of ceramic d10+3 (_hand_, _close_, _forceful_)",
-      "text": ""
+      "text": "kantige Fäuste aus Keramik d10+3 (_Hand_, _Kurz_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "externally powered; bug-like mind; blind; tremorsense; unharmed by piercing weapons; half damage from cutting weapons; vulnerable to attacks that are blunt and forceful or area",
-      "text": ""
+      "text": "externe Energieversorgung; insektenähnlicher Verstand; blind; Erschütterungssinn; unverwundbar durch Stichwaffen; nur halber Schaden durch Hiebwaffen; anfällig für stumpfe und kraftvolle oder flächendeckende Angriffe"
     },
     "moves": {
       "source": "- Wait for intruders to get close, rattling softly\n- Explode into a cloud of whirling ceramic tiles, d8+1 damage (area, messy, 1 piercing)\n- Reform into a vaguely humanoid mass",
-      "text": ""
+      "text": "- Warte, bis Eindringlinge nahe genug herankommen, und klappere dabei leise.\n- Explodiere in einer Wolke wirbelnder Keramikfliesen (W8+1 Schaden; _Bereich_, _Brutal_, Durchdringung 1).\n- Füge dich zu einer vage humanoiden Masse wieder zusammen"
     },
     "description": {
       "source": "Stone Lords adorned their halls with elaborate tilework and mosaics. Most of them were decorative. Most of them. Something interesting: Either some spirit is possessing these tiles, or this is some sort of construct. If it’s a spirit, there must be a tether. If it’s a Stone Lord construct, well, the individual tiles are too small to power or direct themselves. Something useful: The mosaic’s frame remained on the wall, and it’s glowing blue—aetherium runes! Destroy the runes, and the construct should fall apart.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
@@ -2864,73 +2864,73 @@
     },
     "instinct/selected/to-destroy-intruders": {
       "source": "to destroy intruders",
-      "text": ""
+      "text": "Eindringlinge zu vernichten"
     }
   },
   "mountain-ape": {
     "name": {
       "source": "Mountain ape",
-      "text": ""
+      "text": "Bergaffe"
     },
     "armor": {
       "source": "1 (thick fur, hide)",
-      "text": ""
+      "text": "1 (dickes Fell, Haut)"
     },
     "damage": {
       "source": "grasping hands d8+2 (_reach_, _close_, _grabby_, _forceful_)",
-      "text": ""
+      "text": "Greifende Hände W8+2 (Kurz, Lang, Fesselnd, Wuchtig)"
     },
     "specialQuality": {
       "source": "arboreal, cold proof, keen senses of smell and hearing",
-      "text": ""
+      "text": "Baumbewohnend, Kältebeständig, ausgeprägter Geruchs- und Gehörsinn"
     },
     "moves": {
       "source": "- Hide in the trees or snowdrifts\n- Try to lure/spook intruders away\n- Reach out, snatch an intruder by surprise\n- Crush/rend/break a grabbed foe, d8+2 damage w/advantage (hand, forceful, messy, 1 piercing)",
-      "text": ""
+      "text": "- Verstecke dich in Bäumen oder Schneeverwehungen\n- Versuche Eindringlinge wegzulocken/zu verscheuchen\n- Strecke die Hände aus, um einen Eindringling überraschend zu packen\n- Zermalme, zerreiße oder zerbreche einen gepackten Gegner, W8+2 Schaden mit Vorteil (_Hand_, _Wuchtig_, _Brutal_, Durchdringung 1)"
     },
     "description": {
       "source": "Like orangutans but taller, more powerfully built, with thick, shaggy white hair. They dwell in small bands, in Rime Lord ruins (page 320) or sacred sites (page 362) that are far from any well-trod trails. They venture out to hunt and gather, but avoid people as much as they can. Each band of mountain apes collects things: a particular type of plant or flower, the bones of certain animals, bits of writing, dark ice (page 322), etc. They keep these hoards in a central place, hidden away, revered and treasured even more than their own children or their lives. Particularly large or well-established bands will have an alpha (large, leader, +6 HP, +1 damage) who does nothing but protect the hoard.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
+      "text": "Sie ähneln Orang-Utans, sind jedoch größer, kräftiger gebaut und haben dichtes, zotteliges weißes Haar. Sie leben in kleinen Gruppen in Ruinen der Frostfürsten oder an heiligen Stätten (Seite 362), die weit abseits viel begangener Wege liegen. Sie wagen sich hinaus, um zu jagen und zu sammeln, meiden Menschen jedoch so gut es geht.\n\nJede Gruppe von Bergaffen sammelt bestimmte Dinge: eine bestimmte Art von Pflanze oder Blume, die Knochen bestimmter Tiere, Schriftstücke, dunkles Eis usw. Sie bewahren diese Schätze an einem zentralen, verborgenen Ort auf und verehren und schätzen sie mehr als ihre eigenen Kinder oder ihr Leben. Besonders große oder etablierte Gruppen haben einen Alpha (_Groß_, _Anführer_, +6 TP, +1 Schaden), der nichts anderes tut, als den Hort zu beschützen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
     },
     "instinct/selected/to-keep-their-secrets": {
       "source": "to keep their secrets",
-      "text": ""
+      "text": "seine Geheimnisse zu bewahren"
     }
   },
   "mummified-green-lord": {
     "name": {
       "source": "Mummified Green Lord",
-      "text": ""
+      "text": "Mumifizierter Grüner Fürst"
     },
     "armor": {
       "source": "4 (potent wards), 0 vs. fire",
-      "text": ""
+      "text": "4 (mächtige Schutzzauber)"
     },
     "damage": {
       "source": "mighty blows d10+2 (_hand_, _close_, _forceful_)",
-      "text": ""
+      "text": "gewaltige Hiebe W10+2 (_Hand_, _Kurz_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "tethered to canopic jars, can sense all that happens in its tomb",
-      "text": ""
+      "text": "an Kanopengefäße gebunden; kann alles wahrnehmen, was in seinem Grabmal geschieht"
     },
     "moves": {
       "source": "- Animate its preserved corpse\n- Overawe anyone in its presence\n- Twist, mutate, or transform living things with a gesture\n- Wield nearby plants and beasts as extensions of itself\n- Regenerate its corpse, even if burned, unless its canopic jars destroyed",
-      "text": ""
+      "text": "- Belebe deinen einbalsamierten Leichnam\n- Schüchtere jeden in deiner Gegenwart ein\n- Verforme, mutiere oder verwandle Lebewesen mit einer Geste\n- Nutzen Pflanzen und Tiere in deiner Nähe als Erweiterung deiner selbst\n- Regeneriere deinen Leichnam, selbst wenn er verbrannt wurde, es sei denn, deine Kanopenkrüge wurden zerstört"
     },
     "description": {
       "source": "They lie entombed, their corpses embalmed, their souls bound to the heavily-warded canopic jars that store their most-vital organs. Yet those souls linger forever in Fae-woven realms of glamour and delight. In these realms, the Green Lords are as gods. They are loathe to leave them, and rarely need to. But should their existence be truly threatened, they will return to this world of base flesh, inhabit their long-dead bodies, and punish any intruders with the savagery of the cruelest beasts.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
+      "text": "Sie liegen begraben, ihre Leiber einbalsamiert, ihre Seelen an schwer bewachte Kanopen gebunden, in denen ihre lebenswichtigen Organe ruhen. Doch ihre Seelen weilen für immer in von Feen gewebten Reichen voller Glanz und Freude. Dort herrschen die Grünen Fürsten wie Götter. Nur ungern verlassen sie diese Gefilde, und selten gibt es für sie einen Grund dazu. Doch sollte ihre Existenz tatsächlich bedroht sein, kehren sie in diese Welt des niederen Fleisches zurück, ergreifen Besitz von ihren längst verstorbenen Körpern und strafen jeden Eindringling mit der Grausamkeit der grausamsten Bestien.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
     },
     "instinct/selected/to-preserve-its-glorious-afterlife": {
       "source": "to preserve its glorious afterlife",
-      "text": ""
+      "text": "sein ruhmreiches Nachleben zu bewahren"
     }
   },
   "mummified-servant": {
     "name": {
       "source": "Mummified servant",
-      "text": ""
+      "text": "Mumifizierter Diener"
     },
     "armor": {
       "source": "0",
@@ -2938,23 +2938,23 @@
     },
     "damage": {
       "source": "choking grip d6 (_hand_, _grabby_), spear d6 (_close_, 1 piercing)",
-      "text": ""
+      "text": "würgender Griff d6 (_Hand_, _Fesselnd_), Speer d6 (_Kurz_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "takes +1d4 damage from fire, tethered to canopic jars",
-      "text": ""
+      "text": "erleidet durch Feuer +1W4 Schaden, an Kanopengefäße gebunden"
     },
     "moves": {
       "source": "- Animate its preserved corpse\n- Surround intruders and hem them in, cutting off escape\n- Keep fighting with limbs that have been severed\n- Regenerate its corpse, unless burned or its canopic jars destroyed",
-      "text": ""
+      "text": "- Belebe deinen einbalsamierten Leichnam\n- Umzingle Eindringle und kessle sie ein, um ihnen den Fluchtweg abzuschneiden\n- Kämpft auch mit abgetrennten Gliedmaßen weiter\n- Regeneriere deinen Leichnam, selbst wenn er verbrannt wurde, es sei denn, deine Kanopenkrüge wurden zerstört"
     },
     "description": {
       "source": "Some of the Green Lords were mummified and interred with their most faithful mortal servants. These servants get to enjoy their master’s false afterlife, but when threats to the tomb arise, they are sent back to their corpses, to rise and crush any intruders they find.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
+      "text": "Einige der Grünen Füsten wurden mumifiziert und zusammen mit ihren treuesten sterblichen Dienern beigesetzt. Diese Diener dürfen das falsche Jenseits ihres Herrn genießen, doch sobald Gefahren das Grabmal bedrohen, werden sie in ihre Leichname zurückgeschickt, um sich zu erheben und jeden Eindringling zu zermalmen, den sie finden.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
     },
     "instinct/selected/to-destroy-intruders": {
       "source": "to destroy intruders",
-      "text": ""
+      "text": "Eindringlinge zu vernichten"
     }
   },
   "myghal-deathless-sorcerer": {
@@ -3050,7 +3050,7 @@
   "nemurvojak": {
     "name": {
       "source": "Nemurvojak",
-      "text": ""
+      "text": "Nemurvojak"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. bronze",
@@ -3058,53 +3058,53 @@
     },
     "damage": {
       "source": "iron-wood spears d6 w/advantage (_close_, _messy_, 1 piercing) or bare-handed rending d4 with advantage (_hand_, _grabby_, _messy_, 1 piercing)",
-      "text": ""
+      "text": "Eisenholzspeere d6 mit Vorteil (_Kurz_, _Brutal_, Durchdringung 1) oder Zerfleischen mit bloßen Händen d4 mit Vorteil (_Hand_, _Fesselnd_, _Brutal_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "bound by its last orders; shuns the sun or holy light",
-      "text": ""
+      "text": "an ihre letzten Befehle gebunden; meiden Sonne und heiliges Licht"
     },
     "moves": {
       "source": "- Rush a foe with an unearthly howl\n- Lash out with a mass of black, viny tendrils (reach, grabby)\n- Brutalize an already fallen foe",
-      "text": ""
+      "text": "- Stürme mit einem überirdischen Heulen auf einen Gegner los!\n- Schlage mit einer Masse schwarzer, rankenartiger Fühler zu (Lang, Fesselnd)\n- Schlage auf einen bereits gefallenen Gegner weiterhin ein"
     },
     "description": {
       "source": "When the Fae rebelled, some of the Green Lord’s mortal servants—the ancestors of the Forest Folk (page 150)—sided with the traitors. But not all. Most remained loyal, or at least too afraid of their masters to risk turning on them. Their loyalty, alas, did not save them. At first, the Green Lords would plant demon-seeds in only the bodies of servants who had already fallen. But when they saw just how effective those animated corpses were, well… the Green Lords were nothing if not practical. Many of these horrors remain in Vor Svetelik, bound by orders to protect the city or certain sites within. Thank the gods they were not allowed to roam free.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Book p.468-477)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Buch II S. 468-477)"
+      "text": "Als die Feen rebellierten, stellten sich einige der sterblichen Diener der Grünen Fürsten – die Vorfahren des Waldvolkes – auf die Seite der Verräter. Aber nicht alle. Die meisten blieben loyal oder hatten zumindest zu große Angst vor ihren Herren, um es zu wagen, sich gegen sie zu wenden.\n\nDoch ihre Loyalität rettete sie leider nicht. Zunächst pflanzten die Grünen Fürsten die Dämonensamen nur in die Körper von Dienern, die bereits gefallen waren. Als sie jedoch erkannten, wie wirksam diese belebten Leichname waren, nun … die Grünen Fürsten waren durchaus praktisch veranlagt.\n\nViele dieser Schrecken befinden sich noch immer in Vor Svetelik. Sie sind durch Befehle gebunden, die Stadt oder bestimmte Orte darin zu beschützen. Den Göttern sei Dank, dass man ihnen nicht erlaubt hatte, frei umherzustreifen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Buch II S. 468-477)"
     },
     "instinct/selected/to-revel-in-their-preys-fear-and-suffering": {
       "source": "to revel in their prey’s fear and suffering",
-      "text": ""
+      "text": "sich an der Angst und dem Leiden ihrer Beute zu ergötzen"
     }
   },
   "nerth-serpent": {
     "name": {
       "source": "Nerth serpent",
-      "text": ""
+      "text": "Nerthschlange"
     },
     "armor": {
       "source": "4 (resilience), or 0 against bare hands",
-      "text": ""
+      "text": "4 (Zähigkeit) oder 0 gegen bloße Hände"
     },
     "damage": {
       "source": "bite and constrict d10+3 (_hand_, _close_, _reach_, _forceful_, _grabby_)",
-      "text": ""
+      "text": "Biss und Würgen d10+3 (_Hand_, _Kurz_, _Lang_, _Wuchtig_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "tethered to the Nerth Tree",
-      "text": ""
+      "text": "an den Nerthbaum gebunden"
     },
     "moves": {
       "source": "- Politely offer a chance to back down\n- Restrain an opponent’s limb\n- Whisssper a foe’s own doubts in their ear",
-      "text": ""
+      "text": "- Biete höflich die Möglichkeit an, einen Rückzieher zu machen\n- Halte ein Glied des Gegners fest\n- Flüstere dem Feind seine eigenen Zweifel ins Ohr"
     },
     "description": {
       "source": "The Nerth Tree grows in the Great Wood. It can only be found by one mortal each midsummer, by following a particular path in the woods (page 516). The roots are littered with bones of former supplicants. Hanging from the tree: a great serpent. Crush it and eats its heart, and you will gain its vitality. But good luck with that.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Der Nerthbaum wächst im Großen Wald.  Er kann jedes Jahr zur Mittsommerzeit nur von einem Sterblichen gefunden werden, indem dieser einem bestimmten Pfad im Wald folgt. Die Wurzeln sind übersät mit den Knochen früherer Bittsteller.\n\nVon den Ästen hängt eine gewaltige Schlange herab. Zerquetsche sie und iss ihr Herz, und du wirst ihre Lebenskraft erlangen. Aber viel Glück dabei.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-test-the-might-of-supplicants": {
       "source": "to test the might of supplicants",
-      "text": ""
+      "text": "die Stärke der Bittsteller zu prüfen"
     }
   },
   "nine-fingered-stranger": {
@@ -3166,23 +3166,23 @@
   "pacifier": {
     "name": {
       "source": "Pacifier",
-      "text": ""
+      "text": "Besänftiger"
     },
     "armor": {
       "source": "4 (just a stone sphere)",
-      "text": ""
+      "text": "4 (nur eine Steinkugel)"
     },
     "damage": {
       "source": "stupefying pulse of sound d6 (_reach_, _area_, _reload_, ignores armor)",
-      "text": ""
+      "text": "betäubender Schallimpuls W6 (Nah, Bereich, Nachladen, Ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "must recharge after a few hours; limited autonomy; blind; tremorsense; has trouble with stairs; vulnerable to blunt, forceful attacks",
-      "text": ""
+      "text": "muss sich nach ein paar Stunden wieder aufladen; eingeschränkte Autonomie; blind; Erschütterungssinn; hat Schwierigkeiten mit Treppen; anfällig für stumpfe und kraftvolle Angriffe"
     },
     "moves": {
       "source": "- Sense and follow strong emotions\n- Hum a soothing, pacifying sound (near, area)\n- Sound the alarm, call for reinforcements",
-      "text": ""
+      "text": "- Spüre starke Emotionen auf und folge ihnen\n- Erzeuge einen beruhigenden, besänftigenden Ton (_Nah_, _Bereich_).\n- Schlage Alarm und rufe Verstärkung"
     },
     "description": {
       "source": "They’re basically hollow stone spheres, maybe scratched and dinged but otherwise featureless. Often found in their little alcoves, charging. The Stone Lords would deploy them among the rowdier servants to keep things running smoothly. When you are in range of a pacifier’s hum, your emotions lose their edge. When you rouse yourself to act violently, urgently, or passionately, roll +WIS. If you are in range of multiple pacifiers humming in unison, you have disadvantage. On a 10+, you shake off the effect; on a 7-9, you shake off the effect but pick 1. Your mind is addled; mark dazed Your freedom is short-lived; the effect returns if you pause for any reason You get carried away or take things too far, resulting in a consequence of the GM’s choice\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
@@ -3190,7 +3190,7 @@
     },
     "instinct/selected/to-keep-mortals-docile": {
       "source": "to keep mortals docile",
-      "text": ""
+      "text": "Sterbliche ruhig und gefügig zu halten"
     }
   },
   "pack-drake": {
@@ -3282,57 +3282,57 @@
   "plasmic-horror": {
     "name": {
       "source": "Plasmic horror",
-      "text": ""
+      "text": "Plasmatischer Schrecken"
     },
     "armor": {
       "source": "2 (membrane, lacks organs)",
-      "text": ""
+      "text": "2 (Membran, keine Organe)"
     },
     "damage": {
       "source": "pseudopod d10+3 (_hand_, _close_, _reach_, _grabby_, _forceful_) or acidic engulf d10+5 (_hand_, _grabby_, _forceful_, _messy_, ignores armor)",
-      "text": ""
+      "text": "Pseudopod d10+3 (_Hand_, _Kurz_, _Lang_, _Fesselnd_, _Wuchtig_) oder Säureverschlingung d10+5 (_Hand_, _Fesselnd_, _Wuchtig_, _Brutal_, ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "child-like intellect; susceptible to strong wills",
-      "text": ""
+      "text": "kindlicher Intellekt; anfällig für starke Willenskraft"
     },
     "moves": {
       "source": "- Ooze through the smallest cracks or openings\n- Assume the form (wholly or partially) of any being it touches (from small to large size)\n- Reveal its true form, shockingly\n- Grow (and gain 1d8 HP) by consuming a living thing\n- Spawn a smaller version of itself",
-      "text": ""
+      "text": "- Quetsche dich durch die kleinsten Ritzen und Öffnungen\n- Nimm ganz oder teilweise die Gestalt eines jeden Lebewesens an, das du berührst (von klein bis groß)\n- Offenbare auf schockierende Weise deine wahre Gestalt\n- Wachse (und erhalte 1W8 TP), indem du ein Lebewesen verzehrst\n- Bringe eine kleinere Version deiner selbst hervor"
     },
     "description": {
       "source": "These… things… served as blank canvasses for the Green Lord’s flesh-weaving. Once, they were kept carefully locked away in laboratories and breeding pits. Now, with their creators gone all these years… well, who knows where they might be found?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Book p.468-477)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Buch II S. 468-477)"
+      "text": "Diese … Dinge … dienten als leere Leinwände für die Fleischweberei der Grünen Fürsten. Einst wurden sie sorgfältig in Laboren und Zuchtgruben unter Verschluss gehalten. Nun, da ihre Schöpfer seit all den Jahren verschwunden sind … wer weiß schon, wo sie zu finden sein könnten?\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.CEgJVcGKz5wPubOg]{Vor Svetelik} (Buch II S. 468-477)"
     },
     "instinct/selected/to-recklessly-explore-the-world": {
       "source": "to recklessly explore the world",
-      "text": ""
+      "text": "die Welt rücksichtslos zu erkunden"
     }
   },
   "prenysbyrd": {
     "name": {
       "source": "Prenysbyrd",
-      "text": ""
+      "text": "Prenysbyrd"
     },
     "armor": {
       "source": "2 (woody, lacks organs)",
-      "text": ""
+      "text": "2 (hölzern, keine Organe)"
     },
     "damage": {
       "source": "club-like fists d10+3 (_close_, _forceful_)",
-      "text": ""
+      "text": "Keulenartige Fäuste W10+3 (Nah, Wuchtig)"
     },
     "moves": {
       "source": "- Blame one for the sins of another\n- Fill minds with leering images and unreasoning dread\n- Form a body of fallen trees, leaves, rotting wood (vulnerable to fire)\n- Smother a prone foe with soil, leaves, wood (d8+1 damage, near, grabby)",
-      "text": ""
+      "text": "- Mache jemanden für die Sünden eines anderen verantwortlich\n- Erfülle ihre Gedanken mit hämischen Bildern und grundloser Angst\n- Bilde einen Körper aus umgestürzten Bäumen, Blättern und morschem Holz (empfindlich gegenüber Feuer)\n- Ersticke einen am Boden liegenden Gegner mit Erde, Blättern und Holz (W8+1 Schaden, _Nah_, _Fesselnd_)"
     },
     "description": {
       "source": "What becomes of a dead tree’s spirit? Most linger as simple log-spirits, weakening as the log rots to mulch. But when generations of trees grow and die in the same place, they might become something more. Something that defends the grove, and its current trees, and all the trees that are yet to come.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Spirits of the wild} (Book p.356-371)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
+      "text": "Was geschieht mit dem Geist eines abgestorbenen Baumes? Die meisten verbleiben als einfache Baumgeister, die schwächer werden, wenn der Baum zu Mulch zerfällt. Aber wenn Generationen von Bäumen am selben Ort wachsen und sterben, kann daraus etwas Größeres entstehen. Etwas, das den Hain beschützt, seine gegenwärtigen Bäume und all jene, die noch kommen werden.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HOWpYxmR8Q44qS3E]{Naturgeister} (Buch II S. 356-371)"
     },
     "instinct/selected/to-punish-trespassers": {
       "source": "to punish trespassers",
-      "text": ""
+      "text": "Eindringlinge zu bestrafen"
     }
   },
   "pyped": {
@@ -3398,31 +3398,31 @@
   "rhagedn": {
     "name": {
       "source": "Rhagedn",
-      "text": ""
+      "text": "Rhagedn"
     },
     "armor": {
       "source": "2 (woody hide)",
-      "text": ""
+      "text": "2 (holzartige Haut)"
     },
     "damage": {
       "source": "talons, antlers d6+2 (_hand_, _messy_, 1 piercing)",
-      "text": ""
+      "text": "Krallen, Geweih d6+2 (_Hand_, _Brutal_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "clumsy fliers",
-      "text": ""
+      "text": "unbeholfene Flieger"
     },
     "moves": {
       "source": "- Shift into a better position while unobserved\n- Strafe their prey (forceful) and return to the skies\n- Roost on earth or stone or wood, sinking in talons, furling its wings, and becoming like woody stumps or boughs",
-      "text": ""
+      "text": "- Wechsle unbeobachtet in eine günstigere Position.\n- Greife deine Beute aus der Luft an (Wuchtig) und schwinge dich wieder in den Himmel empor\n- Lass dich auf Erde, Stein oder Holz nieder, schlage deine Krallen hinein, lege deine Flügel an und sehen dann aus wie knorrige Baumstümpfe oder Äste"
     },
     "description": {
       "source": "Hunched humanoid forms carved of wood, with great wings, taloned feet, and heads crowned with branch-like antlers. They were made by the Green Lords to be sentinels and guardians, to watch over their borders and their most important sites. Now, ages and generations later, they still watch, and wait, and protect their nests. Something interesting: The tales say that the song of a redbreasted bluebird will keep the rhagedn still, letting folk pass unmolested. Something useful: It just so happens that you know how to whistle the tune (whether or not you can whistle it well enough is questionable).\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
+      "text": "Gebückte, humanoide Gestalten aus Holz, mit großen Flügeln, Füßen mit Klauen und Köpfen, die von geweihartigen Ästen gekrönt sind. Die Grünen Fürsten erschufen sie als Wächter und Beschützer, die ihre Grenzen und ihre wichtigsten Stätten bewachen sollten. Nun, nach Zeitaltern und Generationen, wachen und warten sie noch immer und beschützen ihre Nester.\n\n**Etwas Interessantes:** Den Erzählungen zufolge hält der Gesang eines Rotbrust-Blaukehlchen die Rhagedn ruhig, sodass Menschen ungehindert passieren können.\n**Etwas Nützliches:** Zufälligerweise weißt du, wie man die Melodie pfeift (ob du sie gut genug pfeifen kannst, ist allerdings fraglich).\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
     },
     "instinct/selected/to-protect-their-nests": {
       "source": "to protect their nests",
-      "text": ""
+      "text": "seine Nester zu beschützen"
     }
   },
   "rime-lord": {
@@ -3492,7 +3492,7 @@
     },
     "damage": {
       "source": "see below",
-      "text": ""
+      "text": "siehe Quelle"
     },
     "specialQuality": {
       "source": "amphibious (or close enough)",
@@ -3574,31 +3574,31 @@
   "shantyara": {
     "name": {
       "source": "Shantyara",
-      "text": ""
+      "text": "Shantyara"
     },
     "armor": {
       "source": "2 (thick hides/furs, skill)",
-      "text": ""
+      "text": "2 (dicke Felle/Pelze, Geschick)"
     },
     "damage": {
       "source": "orichalcum sword d10+2 w/advantage (_close_, _messy_, 2 piercing) or bronze knife d10 w/advantage (_hand_, 1 piercing)",
-      "text": ""
+      "text": "Orichalcum-Schwert d10+2 mit Vorteil (_Kurz_, _Brutal_, Durchdringung 2) oder Bronzemesser d10 mit Vorteil (_Hand_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "spirit-sight; immune to mental manipulation; inured to cold, hunger, pain, deprivation; hard to surprise",
-      "text": ""
+      "text": "Geistersicht; immun gegen mentale Manipulation; unempfindlich gegen Kälte, Hunger, Schmerz und Entbehrung; schwer zu überraschen"
     },
     "moves": {
       "source": "- Stalk a suspect with perfect patience\n- Condemn the tainted for all to hear\n- Try to avoid bloodshed for the untainted\n- Mercilessly cut down the condemned, and any who protect them\n- Deftly counter an attack they see coming",
-      "text": ""
+      "text": "- Pirsche dich mit perfekter Geduld an einen Verdächtigen heran\n- Verurteile die Befleckten vor aller Augen\n- Versuche, Blutvergießen für die Unbefleckten zu vermeiden\n- Strecke die Verurteilten und alle die sie beschützen gnadenlos nieder\n- Wehre einen Angriff, den du kommen gesehen hast, geschickt ab"
     },
     "description": {
       "source": "Only a handful of these \"tranquil killers\" remain, three or four at most. They wander the Whitefangs, hunting kyakaara (page 493) and anyone else corrupted by the Howling Curse (page 492). They are welcome in any settlement, but that welcome is often stilted, formal, fraught. Few are comfortable under a shantyara’s piercing gaze.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{The Whitefang Mountains} (Book p.480-495)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
+      "text": "Nur noch eine Handvoll dieser „stillen Killer“ sind noch übrig, höchstens drei oder vier. Sie durchstreifen die Weißfänge und jagen Kyakaara und alle anderen, die vom Heulenden Fluch verdorben wurden. Sie sind in jeder Siedlung willkommen, doch dieser Empfang ist oft gezwungen, förmlich und angespannt. Nur wenige fühlen sich unter dem durchdringenden Blick eines Shantyara wohl.\n\nShantyara rekrutieren ihre Schüler aus verwaisten oder unerwünschten Kindern. Viele fliehen vor der harten, endlosen Ausbildung. Die meisten anderen sterben an Entbehrungen oder einer der zahlreichen Gefahren, die ein solches Leben mit sich bringt. Nur wenige halten lange genug durch, um zu nützlichen Begleitern zu werden (TP 10, Rüstung 1, Schaden W8, Instinkt, sich den Respekt ihres Meisters zu verdienen). Und ein- oder zweimal in jeder Generation befindet ein Meister einen Schüler für würdig, führt ihn in eine heilige Höhle und bürdet ihm eine der Orichalkum-Klingen der Shantyara auf.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.JJlDjo038UgWzFTy]{Weißfanggebirge} (Buch II S. 480-495)"
     },
     "instinct/selected/to-cleanse-the-world-of-the-howling-curse": {
       "source": "to cleanse the world of the Howling Curse",
-      "text": ""
+      "text": "die Welt vom Heulenden Fluch zu säubern"
     }
   },
   "shellback-drake": {
@@ -3634,23 +3634,23 @@
   "singing-sword": {
     "name": {
       "source": "Singing sword",
-      "text": ""
+      "text": "Singendes Schwert"
     },
     "armor": {
       "source": "4 (quick, made of metal)",
-      "text": ""
+      "text": "4 (schnell, aus Metall)"
     },
     "damage": {
       "source": "cut, thrust, slash d10 w/advantage (_hand_, _messy_, 2 piercing)",
-      "text": ""
+      "text": "Schnitt, Stich, Hieb d10 mit Vorteil (_Hand_, _Brutal_, Durchdringung 2)"
     },
     "specialQuality": {
       "source": "flies, fireproof, blind, heat-sense, bound to its hall",
-      "text": ""
+      "text": "Fliegend, Feuerresistent, Blind, nimmt Hitze wahr, an seine Halle gebunden"
     },
     "moves": {
       "source": "- Make a strange, ethereal song\n- Strike a warning blow, deft but nonlethal\n- Respond enthusiastically to music\n- Block their path with a razor’s edge",
-      "text": ""
+      "text": "- Lass ein seltsames, ätherisches Lied erklingen\n- Führe einen Warnhieb aus – geschickt, aber nicht tödlich\n- Reagiere begeistert auf Musik\n- Versperre ihnen mit einer messerscharfen Klinge den Weg"
     },
     "description": {
       "source": "This naked blade needs no wielder. It dances about the air, making music as it moves: every bob a hum; every slice a whistle. It was set here long ago, as guardian to this crumbling hall. For ages it has kept its vigil. Yet, this is not some mindless thing waiting to cut down foes. It remembers and yearns for the days in which this hall was filled with light and laughter and—joy of joys—music! And so it waits. In the dark. Singing songs to itself that have not been heard by any living mortal ear. It waits, dutiful, and worries that it has misremembered the music it once knew. It waits. In the dark. Alone.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
@@ -3658,13 +3658,13 @@
     },
     "instinct/selected/to-defend-its-hall-to-ease-its-loneliness": {
       "source": "to defend its hall, to ease its loneliness",
-      "text": ""
+      "text": "seine Halle zu verteidigen, seine Einsamkeit zu lindern"
     }
   },
   "skirmisher": {
     "name": {
       "source": "Skirmisher",
-      "text": ""
+      "text": "Plänkler"
     },
     "armor": {
       "source": "0",
@@ -3672,11 +3672,11 @@
     },
     "damage": {
       "source": "long bow d6 (_far_), or sling d6 (_near_, _reload_), or short swords (_hand_, _close_)",
-      "text": ""
+      "text": "Langbogen d6 (_Fern_), oder Schleuder d6 (_Nah_, _Nachladen_), oder Kurzschwert (_Hand_, _Kurz_)"
     },
     "moves": {
       "source": "- Unleash a volley, then retreat\n- Cover distance quickly\n- Attack a flank",
-      "text": ""
+      "text": "- Gib eine Salve ab und zieh dich anschließend zurück\n- Überwinde eine Distanz in kürzester Zeit\n- Greife eine Flanke an"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.QcBQpzqDPNBoCyww]{Lygos and the South} (Book p.256-263)",
@@ -3684,7 +3684,7 @@
     },
     "instinct/selected/to-avoid-a-fair-fight": {
       "source": "to avoid a fair fight",
-      "text": ""
+      "text": "einen fairen Kampf zu vermeiden"
     }
   },
   "skittering-horror": {
@@ -3750,31 +3750,31 @@
   "sorcerer": {
     "name": {
       "source": "Sorcerer",
-      "text": ""
+      "text": "Zauberer"
     },
     "armor": {
       "source": "0 (or by worn armor)",
-      "text": "0 (oder 1 durch verschlissene Rüstung)"
+      "text": "0 (oder entsprechend der getragenen Rüstung)"
     },
     "damage": {
       "source": "iron blade d8 (_hand_)",
-      "text": ""
+      "text": "Eisenklinge d8 (_Hand_)"
     },
     "specialQuality": {
       "source": "marked by the Things Below (page 432)",
-      "text": ""
+      "text": "von den Dingen aus der Tiefe gezeichnet"
     },
     "moves": {
       "source": "- Use one of their gifts (page 432)\n- Amass power through study/ sacrifice/rites\n- Unleash their power\n- Reveal a plan or preparation",
-      "text": ""
+      "text": "- Setze eine deiner Gaben ein\n- Häufe durch Studium, Opfer oder Rituale Macht an.\n- Entfessele ihre Macht\n- Offenbare einen Plan oder eine Vorbereitung"
     },
     "description": {
       "source": "Some seek out corruption, embrace it. They might not have chosen the path, but at some point they chose to keep walking, believing the power on offer was worth the cost. Some think they are in control. And perhaps they are—for now. Sorcerers are often in possession of one or more arcana (page 508), which they do not hesitate to use. They may or may not be followed by cultists (see above).\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
+      "text": "Manche suchen die Verderbnis gezielt und nehmen sie bereitwillig an. Vielleicht haben sie diesen Weg nicht selbst gewählt, aber irgendwann haben sie beschlossen, ihn weiterzugehen, in der Überzeugung, dass die angebotene Macht den Preis wert sei. Manche glauben, sie hätten alles unter Kontrolle. Und vielleicht stimmt das auch – vorerst.\n\nZauberer besitzen häufig ein oder mehrere Arkana, die sie ohne Zögern einsetzen. Möglicherweise werden sie von Kultisten begleitet, möglicherweise auch nicht.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
     },
     "instinct/selected/to-aggrandize-themselves": {
       "source": "to aggrandize themselves",
-      "text": ""
+      "text": "sich selbst zu verherrlichen"
     }
   },
   "specter": {
@@ -3900,23 +3900,23 @@
   "stone-sentinel": {
     "name": {
       "source": "Stone sentinel",
-      "text": ""
+      "text": "Steinwächter"
     },
     "armor": {
       "source": "3 (made of stone)",
-      "text": ""
+      "text": "3 (aus Stein)"
     },
     "damage": {
       "source": "crushing fists d10+3 (_hand_, _close_, _grabby_, _messy_, _forceful_, 3 piercing)",
-      "text": ""
+      "text": "zerschmetternde Fäuste d10+3 (_Hand_, _Kurz_, _Fesselnd_, _Wuchtig_, _Brutal_, Durchdringung 4)"
     },
     "specialQuality": {
       "source": "can animate for only a few minutes at a time; dog-like mind; blind; tremorsense",
-      "text": ""
+      "text": "kann nur wenige Minuten belebt werden; hundeähnlicher Verstand; blind; Erschütterungssinn"
     },
     "moves": {
       "source": "- Emit an ominous hum, a warning as it powers up\n- Move with shocking, unexpected speed (but lose 1d4 HP)\n- Erupt in flurry of violence (area, +2 damage, lose 2d4 HP)",
-      "text": ""
+      "text": "- Erzeuge ein unheilvolles Summen als Warnung, während du dich hochfährst\n- Bewege dich mit schockierender, unerwarteter Geschwindigkeit (verliere jedoch 1W4 TP).\n- Brich in einen Gewaltausbruch aus (_Bereich_, +2 Schaden, verliere 2W4 TP)."
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.UyUHhvUYqOaGERlu]{Stone Lords} (Book p.382-395)",
@@ -3924,7 +3924,7 @@
     },
     "instinct/selected/to-protect-its-ward": {
       "source": "to protect its ward",
-      "text": ""
+      "text": "seinen Schutzbereich zu beschützen"
     }
   },
   "suarachan-hunters": {
@@ -4020,19 +4020,19 @@
   "swyn": {
     "name": {
       "source": "Swyn",
-      "text": ""
+      "text": "Swyn"
     },
     "armor": {
       "source": "4 (resilience), 2 vs. bronze (scales)",
-      "text": ""
+      "text": "4 (Zähigkeit) oder 2 gegen Bronze (Schuppen)"
     },
     "damage": {
       "source": "bite & constriction d10+3 (_hand_, _close_, _forceful_, _grabby_)",
-      "text": ""
+      "text": "Biss & Umschlingen d10+3 (_Hand_, _Kurz_, _Wuchtig_, _Fesselnd_)"
     },
     "moves": {
       "source": "- Appear out of nowhere and lock eyes\n- Hold its prey fast with gaze and soothing words\n- Plant a suggestion in its victim’s mind\n- Turn the weak-willed into fawning servants",
-      "text": ""
+      "text": "- Erscheine aus dem Nichts und nimm Blickkontakt auf\n- Halte deine Beute mit deinem Blick und besänftigenden Worten fest\n- Pflanze deinem Opfer einen Gedanken ein\n- Verwandle die Willensschwachen in unterwürfige Diener"
     },
     "description": {
       "source": "Swyn are great serpents with simian heads and hypnotic eyes. The Green Lords bred them out of desperation, borrowing secrets from the Things Below. They wanted spymasters and saboteurs. What they got was a race of petty, craven narcissists. Each swyn fancies itself the greatest, the most beautiful, the most magnificent of beings. They have exacting tastes, far more subtle and refined than any of their peers. But should you embarrass, defy, or simply bore one, expect to be brutally devoured. Few of these creatures survive, thankfully. The Fae hunt them and they shun others of their kind, jealous of territory and wealth. But every dozen years or so, some urge drives them all to the ruins of Vor Svetelik (page 468), entourage in tow, where they engage in ostentatious displays and mating rituals. There, amidst the sick white trees, the next brood of swyn are seeded. There, perhaps, these foul things might be wiped out once and for all. When the swyn compels you to act against your will, mark XP if you do what it wants. If you resist, you are Defying Danger.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
@@ -4040,7 +4040,7 @@
     },
     "instinct/selected/to-indulge-its-ego": {
       "source": "to indulge its ego",
-      "text": ""
+      "text": "seinem Ego zu frönen"
     }
   },
   "tal-gerdwyr": {
@@ -4398,7 +4398,7 @@
   "the-suileach": {
     "name": {
       "source": "The Suileach",
-      "text": ""
+      "text": "Der Suileach"
     },
     "armor": {
       "source": "2 (scales)",
@@ -4406,15 +4406,15 @@
     },
     "damage": {
       "source": "jaws like a cave d10+7 (_reach_, _forceful_, _messy_, 3 piercing) or thrashing coils d10+5 (_close_, _area_, _forceful_)",
-      "text": ""
+      "text": "ein Maul wie eine Höhle d10+7 (_Lang_, _Wuchtig_, _Brutal_, Durchdringung 3) oder Peitschende Windungen d10+5 (_Kurz_, _Bereich_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "many-eyed; impossible to surprise",
-      "text": ""
+      "text": "viele Augen; unmöglich zu überraschen"
     },
     "moves": {
       "source": "- Sense an intruder upon its domain\n- Transfix someone with one of its myriad eyes (see below)\n- Drag intruders to their doom",
-      "text": ""
+      "text": "- Spüre einen Eindringling in deinem Revier auf\n- Fessle jemanden mit einem deiner unzähligen Augen (siehe unten)\n- Reiße Eindringlinge ins Verderben"
     },
     "description": {
       "source": "It’s a thing of legend. A great scaly wurm, they say, hundreds of feet long, festooned with eyes along its bulk. Hundreds of eyes, so very many. They say it sees all that happens along the river. They say it brooks no tresspass, that it drowns or devours all who encroach on its domain. But that’s not entirely true. Some folks have met the Suileach and lived to tell the tale, haunted by what they saw reflected in its eyes. When you stare transfixed into one of the Suileach’s eyes, mark dazed and pick 1: You see yourself, unburdened. Name an NPC whom you love; your heart grows cold to them. Then, gain a new move from your playbook. You see yourself as you might have been. Change your instinct and swap one of your playbook moves for another. You see your death, as it will occur. The next time you would roll for Death’s Door, don’t—you get a 10+. The second time you would roll for Death’s Door, don’t—you get a 6-. You see the truth reflected, darkly. The GM will tell you something interesting and useful, yet thoroughly disturbing.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
@@ -4422,7 +4422,7 @@
     },
     "instinct/selected/to-dominate-the-dread-river": {
       "source": "to dominate the Dread River",
-      "text": ""
+      "text": "den Schreckensfluss zu beherrschen"
     }
   },
   "the-white-billies": {
@@ -4518,27 +4518,27 @@
     },
     "armor": {
       "source": "0 (or by worn armor)",
-      "text": "0 (oder 1 durch verschlissene Rüstung)"
+      "text": "0 (oder entsprechend der getragenen Rüstung)"
     },
     "damage": {
       "source": "d10 (tags by weapon)",
-      "text": ""
+      "text": "d10 (Eigenschaften der jeweiligen Waffe)"
     },
     "specialQuality": {
       "source": "marked by their master (page 432)",
-      "text": ""
+      "text": "von ihrem Meister gezeichnet"
     },
     "moves": {
       "source": "- Use one of their gifts (page 432)\n- Struggle against their master’s impulses\n- Act on their master’s impulses\n- Recover from terrible, even mortal injury",
-      "text": ""
+      "text": "- Setze eine deiner Gaben ein\n- Kämpfe gegen die Impulse deines Meisters an\n- Folge den Impulsen deines Meisters\n- Erhole dich von schrecklichen, sogar tödlichen Verletzungen"
     },
     "description": {
       "source": "When the Last Door stands open before you, what will you do? Some step through bravely, with a nod to the Lady of Crows (page 71). Others stagger through, weeping and wailing. Others—consumed by longing, vengeance, or duty—spit on fate, turn their back on the Last Door, and cling to this world for a time. But what if… you simply want to live? What if, when faced with oblivion, you called upon one of the Things Below and offered yourself up to them? What if they said yes?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
+      "text": "Was wirst du tun, wenn sich die letzte Pforte vor dir öffnet? Manche treten mutig hindurch und nicken der Herrin der Krähen zu. Andere taumeln hindurch, weinend und wehklagend. Wieder andere – verzehrt von Sehnsucht, Rache oder Pflichtgefühl – trotzen dem Schicksal, wenden der Letzten Pforte den Rücken zu und klammern sich noch eine Weile an diese Welt.\n\nDoch was wäre, wenn … du einfach nur leben willst? Was wäre, wenn du im Angesicht des Vergessens eines der Dinge aus der Tiefe anrufst und dich ihm ausliefern würdest?\n\nWas, wenn sie „Ja“ sagen würden?\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
     },
     "instinct/selected/to-explore-their-condition-or-to-hide-their-condition-or-to-serve-their-masters-whims": {
       "source": "to explore their condition or to hide their condition or to serve their master’s whims",
-      "text": ""
+      "text": "ihren Zustand zu erforschen oder zu verbergen oder den Launen ihres Meisters zu dienen"
     }
   },
   "thraulgwyn-raider": {
@@ -4634,7 +4634,7 @@
   "tonnerhorn": {
     "name": {
       "source": "Tonnerhorn",
-      "text": ""
+      "text": "Tonnerhorn"
     },
     "armor": {
       "source": "0",
@@ -4642,25 +4642,25 @@
     },
     "damage": {
       "source": "butt/gore d6+2 (_hand_, _close_, _forceful_)",
-      "text": ""
+      "text": "Stoßen/Aufspießen d6+2 (_Hand_, _Kurz_, _Wuchtig_)"
     },
     "moves": {
       "source": "- Relentlessly pull against a load or restraint\n- Grunt, huff, paw, or bellow to make its displeasure known\n- Smash into whatever offends it, repeatedly",
-      "text": ""
+      "text": "- Ziehe unnachgiebig an einer Last oder einem Hindernis\n- Grunze, schnaube, scharre oder blöke, um deinen Unmut kundzutun\n- Ramm wiederholt alles, was dich erzürnt"
     },
     "description": {
       "source": "Tonnerhorns are great big sheep, as big and strong as a donkey and twice as ornery. The ewes have good-sized horns, but the rams? The rams’ horns are massive, curved, and nigh-unbreakable. Which is good—for the rams at least—because they do love to just smack-smack-smack them into things. Manmarchers raise them as beasts of burden, lashing them to plows, carts, sleighs, or even chariots. They bottle-feed the lambs and as a result, tonnerhorns are fiercely loyal to those who raised them. They’re all kinds of unfriendly towards anyone else.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
+      "text": "Tonnerhörner sind riesige Schafe, so groß und stark wie ein Esel und doppelt so widerspenstig. Die Mutterschafe haben stattliche Hörner, aber die Widder? Die Hörner der Widder sind riesig und nahezu unzerbrechlich. Was gut ist – zumindest für die Widder –, denn sie lieben es, sie einfach immer wieder gegen Dinge zu schlagen.\n\nDie Grenzmarker züchten sie als Lasttiere und spannen sie vor Pflüge, Karren, Schlitten oder sogar Streitwagen. Die Lämmer werden mit der Flasche aufgezogen, weshalb Tonnerhörner denjenigen, die sie aufgezogen haben, äußerst treu ergeben sind. Allen anderen gegenüber verhalten sie sich äußerst unfreundlich.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
     },
     "instinct/selected/to-protect-its-herd": {
       "source": "to protect its herd",
-      "text": ""
+      "text": "seine Herde zu beschützen"
     }
   },
   "totnatter": {
     "name": {
       "source": "Totnatter",
-      "text": ""
+      "text": "Totnatter"
     },
     "armor": {
       "source": "2",
@@ -4668,15 +4668,15 @@
     },
     "damage": {
       "source": "venomous bite d10+1 (_reach_, _close_, _hand_, 1 piercing)",
-      "text": ""
+      "text": "giftiger Biss d10+1 (_Lang_, _Kurz_, _Hand_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "thermal vision; extraordinary sense of smell",
-      "text": ""
+      "text": "Thermalsicht; außergewöhnlicher Geruchssinn"
     },
     "moves": {
       "source": "- Scent prey, track it down\n- Rattle its tail, paralyzing prey with fear\n- Pump them full of venom, then retreat\n- Follow, waiting for its prey to collapse",
-      "text": ""
+      "text": "- Wittere die Beute und spüre sie auf\n- Rassle mit dem Schwanz und lähme deine Beute vor Angst\n- Pumpe sie mit Gift voll und zieh dich dann zurück\n- Folge ihr und warte, bis deine Beute zusammenbricht"
     },
     "description": {
       "source": "These grey-white rattlesnakes grow to absurd size, big enough to eat a boar, a deer, or even a person. Manmarchers say that they haunt the bluffs and ruins along the river, waiting months, years, or even decades between meals. While most rattlesnakes rattle to warn off threats or predators, totnatter use their rattles to hunt. They delight in the terror their rattle causes, and use it even when they could just bite their prey unawares. When a totnatter pumps its prey full of venom, start the following countdown: l Their hands shake, their bodies shiver (mark weakened) l They grow confused, thinking things that aren’t true (mark dazed) l They struggle to breathe, to keep going (mark miserable) l They are dying (roll for Death’s Door)\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zpb9Ld7t50gAjkx7]{The Dread River} (Book p.86-93)",
@@ -4684,7 +4684,7 @@
     },
     "instinct/selected/to-toy-with-its-food": {
       "source": "to toy with its food",
-      "text": ""
+      "text": "mit seiner Beute zu spielen"
     }
   },
   "typical-fomoraij": {
@@ -4836,31 +4836,31 @@
   "war-chariot": {
     "name": {
       "source": "War-chariot",
-      "text": ""
+      "text": "Streitwagen"
     },
     "armor": {
       "source": "1 (wood/iron construction)",
-      "text": ""
+      "text": "1 (Holz-/Eisenkonstruktion)"
     },
     "damage": {
       "source": "trample and wheel-scythes d8+5 (_hand_, _close_, _forceful_, _messy_, 1 piercing), or iron battleaxe d8+3 (_close_, _messy_, _forceful_), or long bow d8 (_far_)",
-      "text": ""
+      "text": "Trampeln und Sensenräder d8+5 (_Hand_, _Kurz_, _Wuchtig_, _Brutal_, Durchdringung 1) oder eiserne Streitaxt d8+3 (_Kurz_, _Wuchtig_, _Brutal_) oder Langbogen d8 (_Fern_)"
     },
     "specialQuality": {
       "source": "pulled by two tonnerhorns; carries a driver, two warriors",
-      "text": ""
+      "text": "von zwei Tonnerhörnern gezogen; bietet Platz für einen Lenker und zwei Krieger"
     },
     "moves": {
       "source": "- Ride in broad arcs around the battle, peppering foes\n- Ride down foes, filling them with dread\n- Crash spectacularly, d8+3 damage (area, forceful)",
-      "text": ""
+      "text": "- Reite in weiten Bögen um das Schlachtfeld und beharke deine Feinde mit Geschossen\n- Reite deine Feinde nieder und flöße ihnen Furcht ein\n- Spektakulärer Aufprall, W8+3 Schaden (Bereich, Wuchtig)"
     },
     "description": {
       "source": "Most violence in the North Manmarch is small-scale, intimate even. A nighttime raid on a steading. An ambush in the hills. A war-band’s throats slit around their campfire. When chiefs do raise large forces, and meet on the open plains, well… they bring their very best.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{North Manmarch} (Book p.282-291)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
+      "text": "Die meisten Gewalttaten in der nördlichen Grenzmark finden im kleinen Rahmen statt, geradezu persönlich. Ein Hinterhalt in den Hügeln. Eine Kriegerschar, deren Kehlen rund um ihr Lagerfeuer durchgeschnitten werden. Wenn die Häuptlinge große Heere aufbieten und sich in der offenen Ebene gegenüberstehen, nun ja … dann fahren sie alles auf, was sie zu bieten haben.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.V37UjFD9BlDh60JY]{Nördliche Grenzmark} (Buch II S. 282-291)"
     },
     "instinct/selected/to-rush-inexorably-forward": {
       "source": "to rush inexorably forward",
-      "text": ""
+      "text": "unaufhaltsam vorwärts zu stürmen"
     }
   },
   "water-vortex": {
@@ -5090,61 +5090,61 @@
   "wretch": {
     "name": {
       "source": "Wretch",
-      "text": ""
+      "text": "Missgestaltete Kreatur"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. bronze",
-      "text": "4 (Widerstandskraft), 0 vs. Bronze"
+      "text": "4 (Zähigkeit), 0 vs. Bronze"
     },
     "damage": {
       "source": "malformed appendages d6 (_hand_, _close_, _grabby_)",
-      "text": ""
+      "text": "missgestaltete Gliedmaßen d6 (_Hand_, _Kurz_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "horribly misshapen, bound to their prison, burnt by bronze (+1d6 damage)",
-      "text": ""
+      "text": "entsetzlich missgestaltet, an ihr Gefängnis gebunden, durch Bronze verbrannt (+1W6 Schaden)"
     },
     "moves": {
       "source": "- Moan, whisper, wail\n- Reveal themselves, terribly\n- Heal wounds, regrow limbs, get back up",
-      "text": ""
+      "text": "- Stöhne, Flüstere, Wimmere\n- Offenbare dich, auf schreckliche Art und Weiße\n- Heile Wunden, lass Gliedmaßen nachwachsen, steh wieder auf"
     },
     "description": {
       "source": "The victims of L’bin’bozia (Flesh-Candle, the Wax Skull, Roiling Tomb) find themselves turned into… things. Furniture. Decoration. Masses of flesh where it’s hard to see where one poor soul ends and the other begins. They do not die of old age. They cannot starve. They must endure, trapped in the cave or the mire or the tomb, or wherever they met their fate. They must persist, in pain, begging for some outsider to come and end their suffering.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
+      "text": "Die Opfer von L'bin'bozia (Fleischkerze, der Wachsschädel, das brodelnde Grab) verwandeln sich in... Dinge. Möbelstücke. Dekoration. Fleischmassen, bei denen kaum noch zu erkennen ist, wo eine arme Seele aufhört und die nächste beginnt. Sie sterben nicht an Altersschwäche. Sie können nicht verhungern. Sie müssen ausharren, gefangen in einer Höhle, einem Moor, einem Grab oder an einem anderen Ort, an dem sie ihr Schicksal ereilte. Sie müssen weiterexistieren, in Schmerzen, und darum flehen, dass ein Außenstehender kommt und ihrem Leiden ein Ende bereitet.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{Die Dinge aus der Tiefe} (Buch II S. 412-437)"
     },
     "instinct/selected/to-make-the-pain-stop": {
       "source": "to make the pain stop",
-      "text": ""
+      "text": "den Schmerz zu stoppen"
     }
   },
   "zrajedak": {
     "name": {
       "source": "Zrajedak",
-      "text": ""
+      "text": "Zrajedak"
     },
     "armor": {
       "source": "4 (resilience), 1 vs. bronze (hide)",
-      "text": ""
+      "text": "4 oder 1 gegen Bronze (Fell)"
     },
     "damage": {
       "source": "maw full of iron teeth d10+3 (_hand_, _messy_, _grabby_, 1 piercing, advantage), iron tail-quills d10+1 (_near_, _area_, _reload_)",
-      "text": ""
+      "text": "Maul voller Eisenzähne d10+3 (_Hand_, _Brutal_, _Fesselnd_, Durchdringung 1, Vorteil), eiserne Schwanzstacheln d10+1 (_Kurz_, _Bereich_, _Nachladen_)"
     },
     "specialQuality": {
       "source": "keen sense of smell",
-      "text": ""
+      "text": "ausgeprägter Geruchssinn"
     },
     "moves": {
       "source": "- Assume a form similar to that of its prey, but just a little off\n- Reveal its horrible, smiling maw\n- Cripple a victim and let it suffer\n- Chew right through a limb",
-      "text": ""
+      "text": "- Nimm eine Gestalt an, die der deiner Beute ähnelt, aber ein wenig davon abweicht\n- Entblöße deinen schreckliches, grinsendes Maul\n- Verstümmle dein Opfer und lass es leiden\n- Trenne eine Gliedmaße mit einem Biss ab"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Green Lords} (Book p.210-223)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
+      "text": "Als die Feen rebellierten, schufen die Grünen Fürsten lebende Waffen, um sie gegen sie einzusetzen. Die Zrajedak – oder „Verratsfresser“ – waren eine solche Waffe. Sie verschmolzen den Körper eines Löwen, den Schwanz einer stacheligen Drachenechse und das Gesicht ihrer sterblichen Diener und durchtränkten das Ganze dann mit Eisen, Bosheit und der grausamen Macht der Dinge aus der Tiefe.\n\nEinige dieser Schrecken sind durch Feenmagie gefangen.  Andere befinden sich noch immer in Starre und warten darauf, auf die Welt losgelassen zu werden. Doch gewiss streifen einige wenige noch immer durch die Welt, denn das Waldvolk würde im Flüsterton Geschichten über sie erzählen. „Vertraue niemals jemandem, der dir seine Zähne nicht zeigt“, würden sie sagen, „denn ein Zrajedak lächelt nur, bevor er zubeißt.“\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.gnP4Q10EDePdvgqz]{Grüne Fürsten} (Buch II S. 210-223)"
     },
     "instinct/selected/to-torment-its-prey": {
       "source": "to torment its prey",
-      "text": ""
+      "text": "seine Beute quälen"
     }
   }
 }
