@@ -31,12 +31,6 @@ export class SteadingImprovement {
 	boxesFrom(storedValues) {
 		return RequirementBoxes.from(this.choices?.list ?? [], storedValues ?? {});
 	}
-
-	/** Whether Stonetop has built it: anything it promises is true yet. */
-	isBuilt(storedValues) {
-		return this.effects.isBuilt(this.boxesFrom(storedValues));
-	}
-
 	/** The results firing at a trigger, given what has been ticked. */
 	firingAt(kind, storedValues, options = {}) {
 		return this.effects.firingAt(kind, this.boxesFrom(storedValues), options);
