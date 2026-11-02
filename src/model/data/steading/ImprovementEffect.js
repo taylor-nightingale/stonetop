@@ -392,7 +392,7 @@ export class ImprovementEffect {
 	 */
 	static fromRaw(raw, defaultRequires = undefined) {
 		return new ImprovementEffect({
-			requires:   parseRequirement(raw?.requires !== undefined ? raw.requires : defaultRequires),
+			requires:   parseRequirement(raw?.requires != null ? raw.requires : defaultRequires),
 			trigger:    EffectTrigger.fromRaw(raw?.when),
 			text:       typeof raw?.text === "string" ? raw.text : "",
 			change:     RatingChange.fromRaw(raw?.change),
@@ -417,9 +417,10 @@ export class ImprovementEffects {
 	}
 
 	static fromRaw(raw, defaultRequires = undefined) {
-		return new ImprovementEffects((Array.isArray(raw) ? raw : [])
+		let improvementEffects = new ImprovementEffects((Array.isArray(raw) ? raw : [])
 			.map(effect => ImprovementEffect.fromRaw(effect, defaultRequires))
 			.filter(effect => effect.text));
+		return improvementEffects;
 	}
 
 	get isEmpty() { return this._effects.length === 0; }
@@ -457,20 +458,5 @@ export class ImprovementEffects {
 		return this._effects
 			.map((effect, index) => ({ effect, index }))
 			.filter(({ effect }) => effect.trigger.firesAt(kind, season, moment) && effect.holds(boxes));
-	}
-
-	/**
-	 * Whether the improvement is BUILT — whether anything it promises is true yet.
-	 *
-	 * Deliberately ANY result rather than every one. Well-Trained Militia's "+1 Defenses" waits on two
-	 * trained tactics, but the militia itself exists as soon as there is a veteran warrior to command
-	 * it — and its summer upkeep says so by requiring only that. Demanding every result would leave
-	 * the militia unbuilt for as long as the table trained one tactic.
-	 *
-	 * For the Mill nothing holds until all five requirements do, which is the same answer as before by
-	 * a better route.
-	 */
-	isBuilt(boxes) {
-		return this._effects.some(e => e.holds(boxes));
 	}
 }
