@@ -78,18 +78,6 @@ export class SteadingImprovements {
 		}
 		return groups;
 	}
-
-	/**
-	 * The improvements Stonetop has actually BUILT — every requirement ticked (or none to tick).
-	 *
-	 * What the turnover checklist is assembled from: a seasonal clause is an ONGOING effect of a
-	 * finished improvement, so a mill nobody has built yet generates nothing when autumn comes.
-	 */
-	async inEffect() {
-		const stored = this._actor.system?.improvementValues ?? {};
-		return (await this.owned()).filter(imp => imp.isBuilt(stored[imp.slug] ?? {}));
-	}
-
 	/**
 	 * The slugs of every move the owned improvements confer.
 	 *
