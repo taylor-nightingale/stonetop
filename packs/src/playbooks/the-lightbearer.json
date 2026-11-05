@@ -80,12 +80,20 @@
       {
         "slug": "auspicious-birth",
         "label": "Auspicious Birth",
-        "description": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce."
+        "description": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
+        "resource": {
+          "max": 1,
+          "title": null
+        }
       },
       {
         "slug": "itinerant-mystic",
         "label": "Itinerant Mystic",
-        "description": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less."
+        "description": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.",
+        "resource": {
+          "max": 3,
+          "title": null
+        }
       },
       {
         "slug": "soul-on-fire",
