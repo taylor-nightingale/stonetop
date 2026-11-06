@@ -114,7 +114,7 @@
 							"options": [
 								{
 									"slug": "hectumel-codex",
-									"text": "The Hec'tumel Codex",
+									"text": "◇ The Hec'tumel Codex",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -127,7 +127,7 @@
 								},
 								{
 									"slug": "red-scepter",
-									"text": "The Red Scepter",
+									"text": "◇ The Red Scepter",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -140,7 +140,7 @@
 								},
 								{
 									"slug": "staff-of-the-lidless-orb",
-									"text": "The Staff of the Lidless Orb",
+									"text": "◇ The Staff of the Lidless Orb",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -182,7 +182,7 @@
 							"options": [
 								{
 									"slug": "norubas-ice-sphere",
-									"text": "Noruba's Ice Sphere",
+									"text": "◇ Noruba's Ice Sphere",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -195,7 +195,7 @@
 								},
 								{
 									"slug": "azure-hand",
-									"text": "The Azure Hand",
+									"text": "◇ The Azure Hand",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -208,7 +208,7 @@
 								},
 								{
 									"slug": "mindgem",
-									"text": "The Mindgem",
+									"text": "◇◇ The Mindgem",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -259,7 +259,7 @@
 							"options": [
 								{
 									"slug": "demonhide-cloak",
-									"text": "The Demonhide Cloak",
+									"text": "◇ The Demonhide Cloak",
 									"grants": [
 										{
 											"type": "arcanum",
@@ -285,7 +285,7 @@
 								},
 								{
 									"slug": "twisted-spear",
-									"text": "The Twisted Spear",
+									"text": "◇◇ The Twisted Spear",
 									"grants": [
 										{
 											"type": "arcanum",
