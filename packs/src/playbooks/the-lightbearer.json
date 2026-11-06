@@ -89,7 +89,24 @@
       {
         "slug": "itinerant-mystic",
         "label": "Itinerant Mystic",
-        "description": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.",
+        "description": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.",
+        "choices": {
+					"slug": "itinerant-mystic",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "off-a-wandering",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				},
         "resource": {
           "max": 3,
           "title": null
