@@ -1,0 +1,27 @@
+{
+  "_id": "r8zlensHqAS12tWo",
+  "_key": "!items!r8zlensHqAS12tWo",
+  "name": "Know Someone Outside Stonetop",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.\n\n- They still hold a grudge\n- They're going to need something from you first\n- They swore off this sort of thing long ago\n- You can't exactly, y'know, trust them",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "Yeah, they can help (tell us why they're willing)"
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They can help but pick 1 from the list below"
+      },
+      "failure": {
+        "label": "6-",
+        "value": "The GM chooses 1 from the list below and then some"
+      }
+    },
+    "rollStat": "cha",
+    "slug": "know-someone-outside-stonetop"
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
+}
