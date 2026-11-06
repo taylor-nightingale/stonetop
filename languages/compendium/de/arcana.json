@@ -98,39 +98,39 @@
   "beaded-satchel": {
     "name": {
       "source": "A beaded satchel",
-      "text": ""
+      "text": "Eine perlenbesetzte Tasche"
     },
     "front/item/name": {
       "source": "A beaded satchel",
-      "text": ""
+      "text": "Eine perlenbesetzte Tasche"
     },
     "front/choices/beaded-satchel/made-of-thick-stiff-leather-and/text": {
       "source": "Made of thick, stiff leather and decorated with impossibly fine beadwork. The pattern shows a fruit-laden tree sheltering various game and produce and grains. The specifics often change when you aren’t looking.",
-      "text": ""
+      "text": "Aus dickem, steifem Leder gefertigt und mit einer unglaublich feinen Perlenstickerei verziert. Das Muster zeigt einen mit Früchten beladenen Baum, unter dessen Krone verschiedene Wildtiere, Feldfrüchte und Getreide gedeihen. Die Einzelheiten verändern sich häufig, wenn du gerade nicht hinsiehst."
     },
     "front/choices/beaded-satchel/the-satchel-is-home-to-a/text": {
       "source": "The satchel is home to a number of spirits of autumn and plenty. To unlock the satchel’s secrets and gain the spirits’ aid, you must…",
-      "text": ""
+      "text": "Die Tasche ist das Zuhause einer Reihe von Geistern des Herbstes und des Überflusses. Um die Geheimnisse der Tasche zu lüften und die Hilfe der Geister zu erlangen, musst du …"
     },
     "front/choices/beaded-satchel/imbibe-prodigious/text": {
       "source": "… imbibe a prodigious, dangerous quantity of alcohol.",
-      "text": ""
+      "text": "… eine gewaltige, gefährliche Menge Alkohol zu dir nehmen."
     },
     "front/choices/beaded-satchel/thoroughly-drunk/text": {
       "source": "… while thoroughly drunk, commune with the tethered spirits (**Instinct** to be genuinely, awkwardly caring and giving) and win their friendship.",
-      "text": ""
+      "text": "… während du völlig betrunken bist, mit den darin gebundenen Geistern in Kontakt treten (Instinkt, aufrichtig, unbeholfen fürsorglich und großzügig zu sein) und ihre Freundschaft gewinnen."
     },
     "front/choices/beaded-satchel/feed-satchel/text": {
       "source": "… feed the satchel 1 Surplus of freshly harvested foodstuffs (which shouldn’t possibly fit, but does).",
-      "text": ""
+      "text": "… die Tasche mit 1 Überschuss an frisch geernteten Lebensmitteln füllen (die unmöglich hineinpassen dürften, es aber dennoch tun)."
     },
     "back/title": {
       "source": "Satchel of Plenty",
-      "text": ""
+      "text": "Tasche des Überflusses"
     },
     "back/choices/intro/when-you-feed-the-satchel-1/text": {
       "source": "When you **_feed the satchel 1 Surplus of freshly_** **_harvested foodstuffs_**, it fits even though it should not. Until next autumn’s harvest, the satchel will provide 1 use of provisions each day. They are fresh and nourishing, but different each time (and not at all what you fed the satchel).\n\n**1d6** today’s food is...\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.zKCaEYu3bUkn3A7p]{1d6}\n\nWhen you **_draw more than 1 use of provisions_** **_from the satchel in a given day_**, it provides up to 10 uses but will produce no more until you feed it again next autumn.",
-      "text": ""
+      "text": "Wenn du **_die Tasche mit 1 Vorrat an frisch geernteten Lebensmitteln füllst_**, passt alles hinein, obwohl es eigentlich nicht hineinpassen sollte. Bis zur Ernte im nächsten Herbst liefert die Tasche jeden Tag 1 Anwendung Proviant. Die Lebensmittel sind frisch und nahrhaft, aber jedes Mal anders (und hat überhaupt nichts mit dem zu tun, womit du die Tasche gefüllt hast).\n\n1W6 Das heutige Essen ist…\n\n@DrawTableInline[Compendium.stonetop.wonder-tables.RollTable.zKCaEYu3bUkn3A7p]{1d6}\n\nWenn du **_an einem Tag mehr als 1 Anwendung Proviant aus der Tasche entnimmst_**, liefert sie bis zu 10 Anwendungen, produziert danach jedoch keine weiteren, bis du sie im nächsten Herbst erneut füllst."
     }
   },
   "beautiful-scroll": {
@@ -302,47 +302,47 @@
   "bow-with-no-string": {
     "name": {
       "source": "A bow with no string",
-      "text": ""
+      "text": "Ein Bogen ohne Sehne"
     },
     "front/item/name": {
       "source": "A bow with no string",
-      "text": ""
+      "text": "Ein Bogen ohne Sehne"
     },
     "front/choices/bow-with-no-string/a-short-flatbow-made-of-pale/text": {
       "source": "A short flatbow made of pale blue metal, rigid and gracefully curved even though it’s unstrung. There aren’t even hooks where you *could* attach a string.",
-      "text": ""
+      "text": "Ein kurzer, flacher Bogen aus blassblauem Metall, starr und elegant geschwungen, obwohl er keine Sehne hat. Es gibt nicht einmal Haken, an denen man eine Sehne befestigen könnte."
     },
     "front/choices/bow-with-no-string/it-seems-to-be-of-little/text": {
       "source": "It seems to be of little use, but there is more to this bow than meets the eye. To unlock its mysteries, you must…",
-      "text": ""
+      "text": "Er scheint kaum von Nutzen zu sein, doch hinter diesem Bogen verbirgt sich mehr, als man auf den ersten Blick sieht. Um seine Geheimnisse zu lüften, musst du …"
     },
     "front/choices/bow-with-no-string/acquire-glove/text": {
       "source": "… acquire a glove of aetherium, properly attuned to the bow.",
-      "text": ""
+      "text": "… einen Handschuh aus Ätherium erwerben, der richtig auf den Bogen abgestimmt ist."
     },
     "front/choices/bow-with-no-string/learn-secret/text": {
       "source": "… learn the secret word that activates the bow.",
-      "text": ""
+      "text": "… das geheime Wort erfahren, das den Bogen aktiviert."
     },
     "front/choices/bow-with-no-string/charge-bow/text": {
       "source": "… charge the bow with lightning, risking harm to the bow or yourself.",
-      "text": ""
+      "text": "… den Bogen mit Blitzen aufladen und dabei riskieren, ihn oder dich selbst zu beschädigen."
     },
     "front/choices/bow-with-no-string/spend-few/text": {
       "source": "… spend a few weeks practicing, risking all manner of collateral damage in the process.",
-      "text": ""
+      "text": "… einige Wochen mit dem Bogen üben und dabei allerlei Kollateralschäden riskieren."
     },
     "back/title": {
       "source": "Thunderbolt Bow",
-      "text": ""
+      "text": "Donnerbogen"
     },
     "back/item/name": {
       "source": "Thunderbolt Bow",
-      "text": ""
+      "text": "Donnerbogen"
     },
     "back/item/note": {
       "source": "ignores armor",
-      "text": ""
+      "text": "ignoriert Rüstung"
     },
     "back/item/resource/labels/plenty-left": {
       "source": "plenty left",
@@ -358,7 +358,7 @@
     },
     "back/choices/intro/when-you-speak-the-secret-word/text": {
       "source": "When you **_speak the secret word_**, the bow activates and hums ominously. When you then **_wear the aetherium glove and grasp where the_** **_string should be_**, a crackling line of lightning appears between the horns.\n\nWhen you **_draw back the lightning_**, a thunderbolt forms where an arrow should be. It manifests over the course of a deep breath, after which you can Let Fly.\n\nYou must charge the bow with lightning to replenish its ammo.\n\nWhen you **_draw back the lightning for at least_** **_ten deep breathes_**, deplete your ammo. Your next shot deals +1d4 damage (+*area*, +*dangerous*), but if you roll snake eyes to Let Fly, the bow explodes (3d6 damage, *reach*, *area*, *forceful*, *loud*).",
-      "text": ""
+      "text": "Wenn du **_das geheime Wort aussprichst_**, wird der Bogen aktiviert und beginnt unheilvoll zu summen. Wenn du dann **_den Ätheriumhandschuh anziehst und an die Stelle greifst, an der sich die Sehne befinden sollte_**, erscheint zwischen den Bogenenden eine knisternde Blitzlinie.\n\nWenn du **_den Blitz zurückziehst_**, bildet sich dort, wo ein Pfeil sitzen sollte, ein Donnerkeil. Er entsteht im Laufe eines tiefen Atemzugs. Danach kannst du eine Salve abgeben.\n\nUm seine Munition wieder aufzufüllen, musst du den Bogen mit Blitzen aufladen.\n\nWenn du **_den Blitz mindestens zehn tiefe Atemzüge lang zurückziehst_**, reduzierst du deine Munition. Dein nächster Schuss verursacht zusätzlich +1W4 Schaden (+Bereich, +Gefährlich) aber wenn du zwei Einsen würfelst, während du eine Salve abgibst, explodiert der Bogen (3W6 Schaden, *Lang*, *Bereich*, *Wuchtig*, *Laut*)."
     }
   },
   "carvings-in-a-cave": {
@@ -1502,35 +1502,35 @@
   "length-of-prayer-beads": {
     "name": {
       "source": "A length of prayer beads",
-      "text": ""
+      "text": "Eine Kette aus Gebetsperlen"
     },
     "front/item/name": {
       "source": "A length of prayer beads",
-      "text": ""
+      "text": "Eine Kette aus Gebetsperlen"
     },
     "front/choices/length-of-prayer-beads/a-cord-almost-10-feet-long/text": {
       "source": "A cord almost 10 feet long, strung with bronze beads. Each bead is carved with a different glyph and a figure in a unique meditative pose. If you run your fingers along the beads, you feel a sense of stillness—but also a merciless weight of judgement.",
-      "text": ""
+      "text": "Eine fast 10 Fuß lange Schnur, auf die bronzefarbene Perlen aufgereiht sind. Jede Perle ist mit einem anderen Symbol und einer Figur in einer einzigartigen meditativen Haltung versehen. Wenn man mit den Fingern über die Perlen streicht, spürt man ein Gefühl der Stille – aber auch die gnadenlose Last des Urteils."
     },
     "front/choices/length-of-prayer-beads/to-unlock-the-secrets-of-the/text": {
       "source": "To unlock the secrets of the prayer beads, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse der Gebetskette zu entschlüsseln,  musst du …"
     },
     "front/choices/length-of-prayer-beads/decipher-rime/text": {
       "source": "… decipher the Rime Lord glyphs embossed upon the beads.",
-      "text": ""
+      "text": "… die auf den Perlen eingeprägten Symbole der Frostfürsten entziffern."
     },
     "front/choices/length-of-prayer-beads/learn-meditative/text": {
       "source": "… learn the meditative chants that accompany the beads (from a trove of knowledge or someone who knows).",
-      "text": ""
+      "text": "… die meditativen Gesänge erlernen, die zu den Perlen gehören (aus einem Hort des Wissens oder von jemandem, der sie kennt)."
     },
     "front/choices/length-of-prayer-beads/spend-season/text": {
       "source": "… spend a season in isolation, naked and fasting, meditating with the prayer beads, risking illness, accident, and misadventure.",
-      "text": ""
+      "text": "… eine Jahreszeit lang in Abgeschiedenheit verbringen, nackt und fastend, während du mit der Gebetskette meditierst und dabei Krankheit, Unfälle und Missgeschicke riskierst."
     },
     "back/title": {
       "source": "Cold Mind, Iron Body",
-      "text": ""
+      "text": "Kalter Geist, eiserner Körper"
     },
     "back/resource/title": {
       "source": "Preparation",
@@ -1538,7 +1538,7 @@
     },
     "back/choices/intro/when-you-bolster-by-spending-downtime/text": {
       "source": "When you **_Bolster by spending downtime in isola_****_tion, fasting, and meditation with the prayer beads_**, hold Preparation (as per the Bolster move).\n\nWhile you **_hold at least 1 Preparation_**, you require only an hour of sleep each night, can endure cold weather without *warm* clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.\n\nAlso, you can spend 1 Preparation to:\n\n- Add +1 to any roll, after it is made (maximum +1 per roll)\n- Clear a debility, or refuse to mark one\n- Perform a feat of extreme endurance\n- Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)",
-      "text": ""
+      "text": "Wenn du **_dich vorbereitest, indem du deine freie Zeit in Abgeschiedenheit verbringst, fastest und mit deiner Gebetskette meditierst_**, nimm 1 Vorbereitung (wie beim Spielzug Vorbereiten).\n\nSolange du **_mindestens 1 Vorbereitung besitzt_**, benötigst du pro Nacht nur eine Stunde Schlaf, kannst kaltes Wetter ohne warme Kleidung ertragen und musst auf Reisen oder beim Lagern keine Vorräte oder Proviant verbrauchen. Nach etwa zehn Tagen unter einer solch harten Lebensweise verlierst du 1 Vorbereitung.\n\nAußerdem kannst du 1 Vorbereitung ausgeben, um:\n\n- +1 auf einen beliebigen Wurf zu erhalten, nachdem du ihn ausgeführt hast (maximal +1 pro Wurf).\n- Eine Beeinträchtigung zu beseitigen oder dich zu weigern, eine zu markieren.\n- Eine Leistung von äußerster Ausdauer zu vollbringen.\n- Schaden durch eine Quelle elementarer Energie (Feuer, Kälte, Blitz usw.) zu ignorieren."
     }
   },
   "makerglass-chime": {
@@ -2820,31 +2820,31 @@
   "sealed-cave": {
     "name": {
       "source": "A sealed cave",
-      "text": ""
+      "text": "Eine versiegelte Höhle"
     },
     "front/choices/sealed-cave/high-in-the-hills-or-mountains/text": {
       "source": "High in the hills or mountains, one can find a bricked-over cave mouth. Inside lie dozens of corpses, preserved for centuries by the cold. Many have malformations in the jaw, oversized teeth, elongated fingers that taper to claws. Few show signs of violence; they appear to have just laid down and died.",
-      "text": ""
+      "text": "Hoch in den Hügeln oder Bergen findet man einen zugemauerten Höhleneingang. Im Inneren liegen Dutzende von Leichen, die seit Jahrhunderten durch die Kälte konserviert sind. Viele weisen Fehlbildungen des Kiefers, übergroße Zähne oder verlängerte Finger auf, die sich zu Krallen verjüngen. Nur wenige zeigen Anzeichen von Gewalt; es scheint, als hätten sie sich einfach hingelegt und seien gestorben."
     },
     "front/choices/sealed-cave/indeed-the-looping-glyphs-carved-all/text": {
       "source": "Indeed, the looping glyphs carved all over the cave walls sap your will to struggle, to fight, to do much of… anything. You can learn their mysteries, but…",
-      "text": ""
+      "text": "Tatsächlich rauben einem die geschwungenen Glyphen, die überall in die Höhlenwände eingraviert sind, den Willen, sich zu wehren, zu kämpfen, überhaupt irgendetwas zu tun. Du kannst ihre Geheimnisse ergründen, aber …"
     },
     "front/choices/sealed-cave/itll-take/text": {
       "source": "… it’ll take days of careful transcription, haunted by morose shades.",
-      "text": ""
+      "text": "… es wird Tage sorgfältiger Abschrift erfordern, während schwermütige Schatten dich heimsuchen."
     },
     "front/choices/sealed-cave/risk-succumbing/text": {
       "source": "… you risk succumbing to the ennui of the place.",
-      "text": ""
+      "text": "… du riskierst, der Lethargie dieses Ortes zu erliegen."
     },
     "back/title": {
       "source": "Peacebond",
-      "text": ""
+      "text": "Friedensbann"
     },
     "back/choices/intro/when-you-mark-a-place-with/text": {
       "source": "When you **_mark a place with the peace-bond_** **_glyphs_**, violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. The longer one stays in a peacebonded area, and the more tightly woven the glyphs are, the greater the effect.\n\nWhen you **_attempt to commit violence within_** **_a peacebonded area, or to harm the peacebond_** **_glyphs themselves_**, you hesitate.\n\nIf you **_will yourself to continue_**, lose 1d4 HP and roll +WIS: **on a 10+**, go for it; **on a 7-9**, you act but have disadvantage on any rolls to commit violence (including damage); **on a 6-**, you fail to act and mark *dazed*.",
-      "text": ""
+      "text": "Wenn du **_einen Ort mit den Glyphen des Friedensbanns versiehst_**, wird Gewalt (selbst zur Selbstverteidigung) in diesem Gebiet unterdrückt, solange die Glyphen bestehen bleiben. Je länger man sich in einem mit Friedensbann belegten Gebiet aufhält und je dichter die Glyphen miteinander verwoben sind, desto stärker ist der Effekt.\n\nWenn du **_versuchst, innerhalb eines mit Friedensbann belegten Gebiets Gewalt anzuwenden oder die Glyphen des Friedensbanns selbst zu beschädigen_**, zögerst du.\n\nWenn du **_dich zwingst, trotzdem weiterzumachen_**, verlierst du 1W4 TP und würfle +WE. **Bei einer 10+** machst du weiter. **Bei 7-9** handelst du, hast aber bei allen Würfen, mit denen du Gewalt anwenden willst (einschließlich Schaden), einen Nachteil. **Bei einer 6-** misslingt dein Versuch zu handeln und du markierst die Beeinträchtigung Benommen."
     }
   },
   "shield-of-the-wisent-witch": {
@@ -3334,43 +3334,43 @@
   "sunken-tablet": {
     "name": {
       "source": "A sunken tablet",
-      "text": ""
+      "text": "Eine versunkene Steintafel"
     },
     "front/choices/sunken-tablet/a-big-old-chunk-of-stone/text": {
       "source": "A big old chunk of stone, maybe 5 feet across, covered in mud and algae. There are Makerrunes on it, barely visible. Runes for the earth, and spirits, and rejuvenation.",
-      "text": ""
+      "text": "Ein großes, altes Stück Stein, vielleicht 5 Fuß breit, bedeckt mit Schlamm und Algen. Darauf befinden sich Runen der Schöpfer, die kaum noch zu erkennen sind. Runen der Erde, der Geister und der Erneuerung."
     },
     "front/choices/sunken-tablet/the-tablet-reveals-the-workings-for/text": {
       "source": "The tablet reveals the workings for a ritual, which you can learn if you…",
-      "text": ""
+      "text": "Die Tafel enthüllt die Anleitung für ein Ritual, das du erlernen kannst, wenn du …"
     },
     "front/choices/sunken-tablet/extract-tablet/text": {
       "source": "… extract the tablet from the muck.",
-      "text": ""
+      "text": "… die Tafel aus dem Dreck ziehst."
     },
     "front/choices/sunken-tablet/carefully-clean/text": {
       "source": "… carefully clean it.",
-      "text": ""
+      "text": "… sie sorgfältig reinigst."
     },
     "front/choices/sunken-tablet/decipher-maker/text": {
       "source": "… decipher the Maker-runes.",
-      "text": ""
+      "text": "… die Runen der Schöpfer entzifferst."
     },
     "front/choices/sunken-tablet/study-runes/text": {
       "source": "… study the runes for a few weeks.",
-      "text": ""
+      "text": "… die Runen einige Wochen lang studierst."
     },
     "front/choices/sunken-tablet/practice-casting/text": {
       "source": "… practice casting the spell, at the risk of harming the nearby soil or waking something dangerous from the earth.",
-      "text": ""
+      "text": "… übst, den Zauber zu wirken, auf die Gefahr hin, den umliegenden Boden zu schädigen oder etwas Gefährliches aus der Erde zu wecken."
     },
     "back/title": {
       "source": "Convocation of the Soil",
-      "text": ""
+      "text": "Beschwörung des Bodens"
     },
     "back/choices/intro/when-you-spill-your-blood-on/text": {
       "source": "When you **_spill your blood on the soil and speak_** **_the words of convocation_**, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.\n\nWhen you **_cast this spell on the fields in early_** **_spring, spilling a scary amount of your blood_**, mark all three debilities and lose all but 1 HP. If the steading spends 1 Surplus to plant in the fallow fields, this autumn’s harvest will generate 1d4+1 extra Surplus.\n\nHowever, you must roll +WIS: **on a 10+**, there is no consequence; **on a 7-9**, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; **on a 6-**, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.",
-      "text": ""
+      "text": "Wenn du **_dein Blut auf den Boden vergießt und die Worte der Beschwörung sprichst_**, werden die Geister des Bodens erweckt und erfüllen den Boden mit Leben, Energie und Nährstoffen.\n\nWenn du **_diesen Zauber zu Beginn des Frühlings auf den Feldern wirkst und dabei eine erschreckende Menge deines Blutes vergießt_**, markiere alle drei Beeinträchtigungen und verliere alle TP bis auf 1. Wenn die Siedlung 1 Überschuss aufwendet, um die brachliegenden Felder im Herbst zu bestellen, bringt die diesjährige Ernte 1W4+1 zusätzlichen Überschuss ein.\n\nWürfle jedoch +WE. **Bei 10+** hat der Zauber keine weiteren Folgen. **Bei 7-9** musst du den Boden vor Mittsommer mit dem Lebensblut eines großen, gesunden Tieres (etwa eines Pferdes, Maultiers, Wisents oder Auerochsen) tränken, andernfalls fällt die zusätzliche Ernte aus und der zusätzliche Überschuss geht verloren. **Bei einer 6-** wirkt der Zauber zwar, doch du weckst einen gefährlichen Geist oder ein bedrohliches Gewächs aus dem Erdreich oder befreist etwas Böses, das dort gefangen war."
     }
   },
   "tattered-mantle": {
@@ -3410,77 +3410,77 @@
   "the-key": {
     "name": {
       "source": "A... key?",
-      "text": ""
+      "text": "Ein… Schlüssel?"
     },
     "front/choices/the-key/secreted-away-in-some-makers-trove/text": {
       "source": "Secreted away in some Makers’ trove is a gleaming white thing, like a key, I guess, but not a specific key, more like the *idea* of keyness. Hurts to look right at it; makes you aware of your own dying flesh.",
-      "text": ""
+      "text": "Versteckt in der Schatzkammer eines Schöpfers liegt ein glänzendes weißes Ding, das wie ein Schlüssel aussieht – denke ich jedenfalls. Doch es ist kein Schlüssel zu etwas Bestimmtem, sondern eher die Vorstellung dessen, was einen Schlüssel ausmacht. Es schmerzt, direkt hinzuschauen, und führt dir dein eigenes sterbliches Fleisch vor Augen."
     },
     "front/choices/the-key/you-dont-unlock-this-keys-mysteries/text": {
       "source": "You don’t unlock this key’s mysteries, so much as it unlocks you. But only if you…",
-      "text": ""
+      "text": "Nicht du entschlüsselst die Geheimnisse dieses Schlüssels – er entschlüsselt deine. Aber nur, wenn du …"
     },
     "front/choices/the-key/master-fear/text": {
       "source": "… master your fear and force yourself to touch it.",
-      "text": ""
+      "text": "… deine Angst überwindest und dich zwingst, ihn zu berühren."
     },
     "front/choices/the-key/hold-tight/text": {
       "source": "… hold tight as it wracks your mind and soul, refusing to let go.",
-      "text": ""
+      "text": "... ihn festhältst, während es deinen Geist und deine Seele zerrüttet und dich weigerst loszulassen."
     },
     "front/choices/the-key/spend-few/text": {
       "source": "… spend a few weeks dealing with terrible migraines and flashes of color, learning to calm and control your mind’s new eye.",
-      "text": ""
+      "text": "… einige Wochen lang mit schrecklichen Migräneanfällen und Farbblitzen kämpfst und dabei lernst, das neue Auge deines Geistes zu beruhigen und zu kontrollieren."
     },
     "back/title": {
       "source": "The Eye, Opened",
-      "text": ""
+      "text": "Das geöffnete Auge"
     },
     "back/choices/intro/when-you-spend-a-few-minutes/text": {
       "source": "When you **_spend a few minutes quietly meditat_****_ing and opening your mind’s eye_**, it appears on your forehead as a shining point of light. Base matter and energy are dim and colorless to you, but you see minds and auras in luminous detail.\n\nWhile your **_mind’s eye is open_**, you can ask the GM \"What thinking entities are present here?\" and get an honest answer.\n\nWhen you **_Seek Insight while your mind’s eye_** **_is open_**, the questions you can ask become these instead:\n\n- Are they lying or trying to mislead?\n- What are they really feeling right now?\n- What do they intend to do?\n- What here are they most afraid of?\n- Is something controlling their mind, emotions, or actions, and if so, what?",
-      "text": ""
+      "text": "Wenn du **_einige Minuten lang still meditierst und dein geistiges Auge öffnest_**, erscheint es als leuchtender Lichtpunkt auf deiner Stirn. Gewöhnliche Materie und Energie wirken auf dich matt und farblos, doch du siehst Gedanken und Auren in leuchtenden Einzelheiten.\n\nSolange dein **_geistiges Auge geöffnet ist_**, kannst du den SL fragen: „Welche denkenden Wesen sind hier anwesend?“ und erhältst eine ehrliche Antwort.\n\nWenn du **_Gewissheit erlangst, während dein geistiges Auge geöffnet ist_**, lauten die Fragen, die du stellen kannst, stattdessen:\n\n- Lügen sie oder versuchen sie, mich in die Irre zu führen?\n- Was empfinden sie gerade wirklich?\n- Was haben sie vor?\n- Wovor haben sie hier am meisten Angst?\n- Kontrolliert etwas ihren Geist, ihre Gefühle oder ihre Handlungen – und wenn ja, was?"
     }
   },
   "time-worn-missive": {
     "name": {
       "source": "A time-worn missive",
-      "text": ""
+      "text": "Ein verwittertes Schreiben"
     },
     "front/choices/time-worn-missive/a-letter-on-faded-pocked-papyrus/text": {
       "source": "A letter on faded, pocked papyrus, written in an archaic form of Southern. It invites \"Boas\" to visit by way of \"your nearest portal,\" with instructions and a circle of arcane sigils. \"Ask for Calcus when you arrive.\"",
-      "text": ""
+      "text": "Ein Brief auf verblasstem, löchrigen Papyrus, verfasst in einer archaischen Form des Südlichen. Er lädt „Boas“ ein, „über das nächstgelegene Portal“ zu kommen, und enthält Anweisungen sowie einen Kreis aus arkanen Sigillen. „Fragt bei eurer Ankunft nach Calcus.“"
     },
     "front/choices/time-worn-missive/to-unlock-the-mysteries-of-these/text": {
       "source": "To unlock the mysteries of these portals, you must…",
-      "text": ""
+      "text": "Um die Geheimnisse dieser Portale zu entschlüsseln, musst du …"
     },
     "front/choices/time-worn-missive/translate-archaic/text": {
       "source": "… translate the archaic dialect.",
-      "text": ""
+      "text": "… den archaischen Dialekt übersetzen."
     },
     "front/choices/time-worn-missive/find-portal/text": {
       "source": "… find a portal (other than the one depicted in the missive).",
-      "text": ""
+      "text": "... ein anderes Portal finden (als das in dem Schreiben abgebildete)."
     },
     "front/choices/time-worn-missive/determine-how/text": {
       "source": "… determine how to \"invoke the axiom of local contagion.\"",
-      "text": ""
+      "text": "… herausfinden, wie man „das Axiom der sympathetischen Verbindung anruft“."
     },
     "front/choices/time-worn-missive/acquire-pouch/text": {
       "source": "… acquire a ◇ pouch of powdered cinnabar (1d4+8 uses, Value 2).",
-      "text": ""
+      "text": "… einen Beutel mit pulverisiertem Zinnober beschaffen (1W4+8 Anwendungen, Wert 2)."
     },
     "front/choices/time-worn-missive/attempt-casting/text": {
       "source": "… attempt casting the spell the first time, and risk miscasting it.",
-      "text": ""
+      "text": "… zum ersten Mal versuchen, den Zauber zu wirken, und dabei riskieren, dass er misslingt."
     },
     "back/title": {
       "source": "Opening the Way",
-      "text": ""
+      "text": "Den Weg öffnen"
     },
     "back/item/name": {
       "source": "pouch of powdered cinnabar",
-      "text": ""
+      "text": "Beutel mit pulverisiertem Zinnober"
     },
     "back/item/note": {
       "source": "Value 2",
@@ -3488,41 +3488,41 @@
     },
     "back/choices/intro/when-you-use-ink-of-powdered/text": {
       "source": "When you **_use ink of powdered cinnabar to_** **_carefully trace the sigils of one portal inside the_** **_permanent sigils of another, and then invoke_** **_the axiom of local contagion_**, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you **_stand before one portal and hold the_** **_sigils of another portal perfectly in your mind_**, mark a debility to manifest those sigils as lines of glowing light. When you **_then invoke the_** **_axiom of local contagion_**, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.",
-      "text": ""
+      "text": "Wenn du **_mit Tinte aus pulverisiertem Zinnober die Siegel eines Portals sorgfältig innerhalb der permanenten Siegel eines anderen Portals nachzeichnest und anschließend das Axiom der sympathetischen Verbindung anrufst_**, öffnet sich ein Durchgang zwischen den Portalen, der so lange bestehen bleibt, bis du dich aus ihrer Nähe entfernst oder das Axiom aufhebst. Die von dir gezeichneten Siegel verschwinden daraufhin. Das Durchqueren der Portale ist in der Regel sicher und erfolgt augenblicklich.\n\nWenn du **_vor einem Portal stehst und die Siegel eines anderen Portals vollkommen klar vor deinem geistigen Auge hast_**, markiere eine Beeinträchtigung, um diese Siegel als Linien leuchtenden Lichts erscheinen zu lassen. Wenn du **_anschließend das Axiom der sympathetischen Verbindung anrufst_**, würfle +IN. **Bei einer 10+** öffnen sich die Portale, schließen sich jedoch, sobald deine Konzentration nachlässt. **Bei 7-9** wie bei einer 10+, jedoch nur, wenn du eine weitere Beeinträchtigung markierst. **Bei einer 6-** markierst du eine Beeinträchtigung und verlierst aufgrund der Anstrengung das Bewusstsein."
     }
   },
   "timeless-vault": {
     "name": {
       "source": "A timeless vault",
-      "text": ""
+      "text": "Ein zeitloses Gewölbe"
     },
     "front/choices/timeless-vault/high-in-the-hills-or-mountains/text": {
       "source": "High in the hills or mountains, a pair of massive stone doors are set into the hillside. The markings outside are faded and covered in lichen. The doors aren’t locked; one lies a bit ajar. Inside, the vault and its contents are untouched by time, free of dust or mold. Clearly some magic is afoot.",
-      "text": ""
+      "text": "Hoch in den Hügeln oder Bergen sind zwei gewaltige Steintore in den Berghang eingelassen. Die Verzierungen außen sind verblasst und mit Flechten bedeckt. Die Tore sind nicht verschlossen; eines steht einen Spaltbreit offen. Im Inneren sind das Gewölbe und seine Inhalte von der Zeit unberührt, frei von Staub und Schimmel. Offensichtlich ist hier Magie am Werk."
     },
     "front/choices/timeless-vault/to-unlock-the-secrets-of-this/text": {
       "source": "To unlock the secrets of this place’s stasis…",
-      "text": ""
+      "text": "Um die Geheimnisse des zeitlosen Zustands dieses Ortes zu entschlüsseln, musst du …"
     },
     "front/choices/timeless-vault/find-reveal/text": {
       "source": "… find and reveal the hidden runes that anchor the magic.",
-      "text": ""
+      "text": "… die verborgenen Runen aufspüren und enthüllen, in denen die Magie verankert ist."
     },
     "front/choices/timeless-vault/spend-few/text": {
       "source": "… spend a few hours copying them, risking an error.",
-      "text": ""
+      "text": "… einige Stunden damit verbringen, sie abzuschreiben, wobei du das Risiko eines Fehlers eingehst."
     },
     "front/choices/timeless-vault/spend-weeks/text": {
       "source": "… spend weeks tracing the runes on objects, until they gleam silver and vanish.",
-      "text": ""
+      "text": "… wochenlang die Runen auf Gegenstände übertragen, bis sie silbern schimmern und verschwinden."
     },
     "back/title": {
       "source": "Preserving Runes",
-      "text": ""
+      "text": "Bewahrungsrunen"
     },
     "back/choices/intro/when-you-trace-the-runes-along/text": {
       "source": "When you **_trace the runes along the inside of a_** **_room or container_**, they gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each of the following that are true:\n\n- The container/room is more than a few feet long in any dimension\n- The container is portable (else, the effect ends if it is moved)\n- The effect lasts indefinitely, as long as the runes are intact (else, it starts when the room/container is sealed and ends when it is unsealed) Once the runes are in place, roll +CON: **on a** **10+**, you regain the lost HP normally; **on a 7-9**, you can’t regain the lost HP until a season passes *or* the effect ends, whichever comes first; **on a 6-**, you can’t regain the lost HP until the effect ends and then a season passes (and don’t mark XP).",
-      "text": ""
+      "text": "Wenn du **_die Runen an der Innenseite eines Raumes oder Behälters nachzeichnest_**, schimmern sie silbern und verblassen. Sie bewahren den Inhalt vor Staub, Zerfall, Rost usw. Du verlierst 1 TP plus 1 TP für jedes der folgenden Merkmale, das zutrifft:\n\n- Der Behälter/Raum ist in jeder Dimension mehr als ein paar Fuß lang\n- Der Behälter ist transportabel (andernfalls endet der Effekt, sobald er bewegt wird).\n- Der Effekt hält unbegrenzt an, solange die Runen intakt sind (andernfalls beginnt er, sobald der Raum/Behälter verschlossen wird, und endet, sobald er geöffnet wird).\n\nSobald die Runen angebracht sind, würfle +KO. **Bei einer 10+** erhältst du die verlorenen TP wie gewohnt zurück. **Bei 7-9** kannst du die verlorenen TP erst zurückerlangen, wenn eine Jahreszeit vergangen ist oder der Effekt endet – je nachdem, was zuerst eintritt. **Bei einer 6-** kannst du die verlorenen TP erst zurückerlangen, wenn der Effekt endet und anschließend eine Jahreszeit vergangen ist (und markiere keine EP)."
     }
   },
   "treasure-map": {
