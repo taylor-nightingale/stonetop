@@ -892,43 +892,43 @@
   "fine-drinking-horn": {
     "name": {
       "source": "A fine drinking horn",
-      "text": ""
+      "text": "Ein edles Trinkhorn"
     },
     "front/item/name": {
       "source": "A fine drinking horn",
-      "text": ""
+      "text": "Ein edles Trinkhorn"
     },
     "front/choices/fine-drinking-horn/you-got-it-off-a-stranger/text": {
       "source": "You got it off a stranger. Like, maybe on a bet, or in a contest, or as a gift in return for some kindness. Or maybe you took it without his consent? Regardless, he seemed a bit coy about the horn, almost glad to let you have it. And just before you parted ways, you noticed the missing finger on his left hand.",
-      "text": ""
+      "text": "Du hast es von einem Fremden bekommen. Vielleicht bei einer Wette, bei einem Wettbewerb oder als Geschenk als Dank für eine Gefälligkeit. Oder hast du es vielleicht ohne seine Zustimmung an dich genommen? Wie dem auch sei, er schien sich etwas zurückhaltend gegenüber dem Horn zu zeigen, und war beinahe froh, es dir überlassen zu können. Und kurz bevor ihr euch trenntet, fiel dir auf, dass ihm der kleine Finger an der linken Hand fehlte."
     },
     "front/choices/fine-drinking-horn/since-then-the-horn-has-seemed/text": {
       "source": "Since then, the horn has seemed to call to you, daring you to drink heavily from it. To unlock its mysteries, you must...",
-      "text": ""
+      "text": "Seitdem scheint das Horn dich zu rufen und dich herauszufordern, reichlich daraus zu trinken. Um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/fine-drinking-horn/fill-whisky/text": {
       "source": "… fill it with whisky or a similarly potent spirit.",
-      "text": ""
+      "text": "… es mit Whisky oder einer ähnlich hochprozentigen Spirituose füllen."
     },
     "front/choices/fine-drinking-horn/drink-contents/text": {
       "source": "… drink the contents in a single pull (mark *dazed*).",
-      "text": ""
+      "text": "… den gesamten Inhalt in einem einzigen Zug austrinken (markiere *Benommen*)."
     },
     "front/choices/fine-drinking-horn/risk-blacking/text": {
       "source": "… risk blacking out, acting the fool, or at least marking more debilties.",
-      "text": ""
+      "text": "… riskieren, das Bewusstsein zu verlieren, dich zum Narren zu machen oder zumindest weitere Beeinträchtigungen zu erleiden."
     },
     "front/choices/fine-drinking-horn/survive-storm/text": {
       "source": "… survive the storm you summon as a result (see reverse).",
-      "text": ""
+      "text": "… den Sturm überleben, den du dadurch heraufbeschwörst (siehe Rückseite)."
     },
     "back/title": {
       "source": "Horn of Storms",
-      "text": ""
+      "text": "Horn der Stürme"
     },
     "back/choices/intro/when-you-get-yourself-good-and/text": {
       "source": "When you **_get yourself good and drunk from the_** **_horn,_** mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4. **_Until the storm passes_**, you can’t clear debilities.\n\nAssign one d4 to each of the following:\n\n- @Blank[0] **Onset: 1** = next day; **2-3** = in a few hours; **4** = within the hour.\n- @Blank[1] **Intensity: 1** = dangerous to be out in; **2-3** = damages weak structures; **4** = lays waste to weak structures and damages sturdy ones.\n- @Blank[2] **Reach: 1** = a mile or so; **2-3** = a dozen miles or so; **4** = dozens or scores of miles.\n- @Blank[3] **Duration** (once it gets going)**: 1** = less than an hour; **2-3** = a few hours; **4** = a day or so.",
-      "text": ""
+      "text": "Wenn du **_dich mit dem Horn ordentlich betrunken hast_**, markiere eine Beeinträchtigung. Du beschwörst einen Sturm herauf, dessen Zentrum dein Standort ist. Würfle vier W4. Für jede weitere Beeinträchtigung, die du markierst, würfle einen zusätzlichen W4. **_Solange der Sturm anhält_**, kannst du keine Beeinträchtigung beseitigen.\n\nWeise jedem der folgenden Punkte einen W4 zu:\n\n- @Blank[0] **Beginn: 1** = am nächsten Tag; **2–3** = in einigen Stunden;** 4** = innerhalb der nächsten Stunde.\n- @Blank[1] **Intensität: 1** = es ist gefährlich, sich im Freien aufzuhalten; **2–3** = beschädigt schwache Bauwerke; **4** = verwüstet schwache Bauwerke und beschädigt stabile\n- @Blank[2] **Reichweite: 1** = etwa eine Meile; **2–3** = etwa ein Dutzend Meilen; **4** = Dutzende oder mehrere Dutzend Meilen.\n- @Blank[3]** Dauer** (sobald er in vollem Gange ist): **1** = weniger als eine Stunde; **2–3** = einige Stunden; **4** = etwa einen Tag."
     }
   },
   "giant-oak-leaf": {
@@ -1852,47 +1852,47 @@
   "odd-conveyance": {
     "name": {
       "source": "An odd conveyance",
-      "text": ""
+      "text": "Ein seltsames Gefährt"
     },
     "front/choices/odd-conveyance/its-like-two-of-those-canoes/text": {
       "source": "It’s like two of those canoes they use in Marshedge, but bigger and with big fins at the back. They’re linked with timbers and a platform set on top. One canoe boasts a tall spire, snapped in half, a torn triangle of cloth still attached. Much of the wood is rotted. The canoes are banded in aetherium, weighed down with stones.",
-      "text": ""
+      "text": "Es ähnelt zwei jener Kanus, wie man sie in Mooresrand benutzt, ist jedoch größer und hat große Flossen am Heck. Die beiden Kanus sind durch Balken miteinander verbunden, auf denen eine Plattform ruht. Eines der Kanus trägt einen hohen Mast, der in der Mitte gebrochen ist; ein zerrissenes dreieckiges Segel hängt noch daran. Das Holz ist größtenteils verfault. Die Kanus sind mit Ätherium beschlagen und mit Steinen beschwert."
     },
     "front/choices/odd-conveyance/you-suspect-this-is-some-sort/text": {
       "source": "You suspect this is some sort of vehicle, but to unlock its mysteries you…",
-      "text": ""
+      "text": "Du vermutest, dass es sich um eine Art Fahrzeug handelt, doch um seine Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/odd-conveyance/need-skilled/text": {
       "source": "… need a skilled carpetenter, good timber (Value 2), a new sail (Value 1), and a season spent on repairs.",
-      "text": ""
+      "text": "… einen geschickten Zimmermann, gutes Bauholz (Wert 2) und ein neues Segel (Wert 1) auftreiben und eine Jahreszeit lang Reparaturen durchführen."
     },
     "front/choices/odd-conveyance/risk-damaging/text": {
       "source": "… risk damaging it further, and/or having it/the aetherium float away.",
-      "text": ""
+      "text": "… riskierst du, es weiter zu beschädigen und/oder dass es bzw. das Ätherium davonschwebt."
     },
     "front/choices/odd-conveyance/attune-aetherium/text": {
       "source": "… must attune to the aetherium, so as to control how much it hovers.",
-      "text": ""
+      "text": "… dich auf das Ätherium einstimmen, um kontrollieren zu können, wie stark es schwebt."
     },
     "front/choices/odd-conveyance/another-spend/text": {
       "source": "… and another must spend a season learning to sail the thing, risking injury and damage to the craft.",
-      "text": ""
+      "text": "… und eine weitere Person müssen jeweils eine Jahreszeit damit verbringen, das Segeln mit diesem Gefährt zu erlernen, wobei ihr Verletzungen und Schäden am Fahrzeug riskiert."
     },
     "back/title": {
       "source": "Groundskimmer",
-      "text": ""
+      "text": "Bodengleiter"
     },
     "back/item/name": {
       "source": "Groundskimmer",
-      "text": ""
+      "text": "Bodengleiter"
     },
     "back/item/note": {
       "source": "requires a crew of 2",
-      "text": ""
+      "text": "erfordert eine Besatzung von 2 Personen"
     },
     "back/choices/intro/the-groundskimmer-can-carry-about-as/text": {
       "source": "The groundskimmer can carry about as much as a fully-loaded wagon. When you **_grasp the tiller_** **_and focus_**, you can adjust how much the craft’s aetherium repels the earth. When you **_properly_** **_adjust it to match its current load_**, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers). Sailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers’ Roads in those regions is dangerous.",
-      "text": ""
+      "text": "Der Bodengleiter kann ungefähr so viel Ladung transportieren wie ein voll beladener Wagen. Wenn du **_das Ruder ergreifst und dich konzentrierst_**, kannst du einstellen, wie stark das Ätherium des Gefährts die Erde abstößt. Wenn du **_es passend zur aktuellen Beladung einstellst_**, schwebt das Gefährt einige Fuß über dem Boden und kann über die Landschaft segeln. Bei günstigem Wind und sicherer Geschwindigkeit kann es die gesamte Breite der Ebene in etwa 8 Stunden zurücklegen. Gegen den Wind zu segeln ist deutlich langsamer und erfordert einen Zickzackkurs.\n\nSchlechtes Wetter, hohe Geschwindigkeit, zu große Flughöhe, unwegsames Gelände, das Ausweichen vor Hindernissen, Beschädigungen, Zusammenstöße und plötzliche Änderungen der Beladung erfordern, dass man einer Gefahr trotzt (durch dich, deine Besatzung oder deine Passagiere. Eine Fahrt durch den Großen Wald ist unmöglich (zu dicht bewachsen). Abseits der Wege durch die Stufenlande, das Vorgebirge oder die Berge zu fahren, kommt Selbstmord gleich; selbst die Straßen der Schöpfer in diesen Regionen zu benutzen, ist gefährlich."
     }
   },
   "old-scroll-case": {
@@ -2092,43 +2092,43 @@
   "prospectors-tale": {
     "name": {
       "source": "A prospector's tale",
-      "text": ""
+      "text": "Die Geschichte eines Prospektors"
     },
     "front/choices/prospectors-tale/an-ustrina-once-offered-me-a/text": {
       "source": "\"An Ustrina once offered me a mirror, a flawless thing framed in gold. It showed *me*, but… a better me, you see? They said who made it, one of the Forge Lords, I think? Said she ‘poured her Sublime Words into it,’ whatever that means. I couldn’t pay their price. But I’ll never forget that mirror, or how it made me feel.\"",
-      "text": ""
+      "text": "„Ein Ustrina bot mir einmal einen Spiegel an, ein makelloses Stück, in Gold gefasst. Er zeigte mir … nun ja, ein besseres Ich, verstehst du? Sie sagte, er sei von einem der Schmiedefürsten gefertigt worden, glaube ich? Sie sagte, sie habe ‚ihre Erhabenen Worte in ihn gegossen‘, was auch immer das bedeuten mag. Ich konnte ihren Preis nicht bezahlen. Aber ich werde diesen Spiegel nie vergessen, ebenso wenig wie das Gefühl, das er in mir auslöste.“"
     },
     "front/choices/prospectors-tale/that-old-man-turned-up-dead/text": {
       "source": "That old man turned up dead, but you suspect there’s some truth to his story. To unlock its mysteries, you must...",
-      "text": ""
+      "text": "Dieser alte Mann wurde tot aufgefunden, aber du vermutest, dass an seiner Geschichte etwas Wahres dran ist. Um ihre Geheimnisse zu entschlüsseln, musst du …"
     },
     "front/choices/prospectors-tale/proficient-some/text": {
       "source": "… be proficient with some art or craft (pottery, weaving, smithing, etc.).",
-      "text": ""
+      "text": "… eine Kunst oder ein Handwerk (Töpferei, Weberei, Schmiedekunst usw.) beherrschen."
     },
     "front/choices/prospectors-tale/find-ustrina/text": {
       "source": "… find an Ustrina able and willing to teach you the Sublime Words.",
-      "text": ""
+      "text": "… eine Ustrina finden, die fähig und bereit ist, dir die Erhabenen Worte beizubringen."
     },
     "front/choices/prospectors-tale/spend-season/text": {
       "source": "… spend a season studying with the Ustrina, practicing the Words.",
-      "text": ""
+      "text": "… eine Jahreszeit lang bei der Ustrina lernen und die Worte üben."
     },
     "front/choices/prospectors-tale/risk-never/text": {
       "source": "… risk never mastering the Words, or permanently harming your voice.",
-      "text": ""
+      "text": "… das Risiko eingehen, die Worte niemals zu meistern oder deiner Stimme dauerhaft zu schaden."
     },
     "back/title": {
       "source": "Sublime Words",
-      "text": ""
+      "text": "Erhabene Worte"
     },
     "back/resource/labels/raspy-voice": {
       "source": "raspy voice",
-      "text": "raue Stimme"
+      "text": "heisere Stimme"
     },
     "back/resource/labels/coughing-fits": {
       "source": "coughing fits",
-      "text": ""
+      "text": "Hustenanfälle"
     },
     "back/resource/labels/mute": {
       "source": "mute",
@@ -2136,7 +2136,7 @@
     },
     "back/choices/intro/when-you-spend-supplies-value-2/text": {
       "source": "When you **_spend supplies (Value 2) and a full_** **_season a-crafting, chanting the Sublime Words_** **_all the while,_** roll +WIS. No matter what, you’ve damaged your voice (mark a status above) but made a thing of true beauty (Value 4). **On a 10+**, pick 1, or 2 and further damage your voice; **on a** **7-9**, pick 1 and further damage your voice.\n\n- Its beauty will persist through the ages\n- It eases pain and lifts grief\n- It inspires others to better themselves **On a 6-**, it stokes greed in those who see it and fear in those who own it, worse if those qualities were already there. Expect bloodshed. When you **_rest your voice for a season_** (no shouting, little talking, not using the Sublime Words), clear one status above.",
-      "text": ""
+      "text": "Wenn du **_Vorräte (Wert 2) aufwendest und eine ganze Jahreszeit lang etwas erschaffst, während du unablässig die Erhabenen Worte rezitierst_**, würfle +WE. In jedem Fall hast du deine Stimme geschädigt (markiere einen der oben aufgeführten Zustände), aber etwas von wahrer Schönheit erschaffen (Wert 4). **Bei einer 10+** wähle 1 oder 2 und schädige deine Stimme weiter. **Bei 7-9** wähle 1 und schädige deine Stimme weiter.\n\n- Seine Schönheit wird die Zeitalter überdauern.\n- Es lindert Schmerzen und vertreibt Kummer.\n- Es inspiriert andere, sich zu verbessern.\n\n**Bei einer 6-** weckt es Gier in allen, die es sehen, und Furcht in denen, die es besitzen – umso stärker, wenn diese Eigenschaften bereits vorhanden sind. Rechne mit Blutvergießen.\n\nWenn du **_deine Stimme eine Jahreszeit lang schonst_** (nicht schreist, wenig sprichst und die Erhabenen Worte nicht verwendest), streiche einen der oben aufgeführten Zustände."
     }
   },
   "ragged-fur-cloak": {
@@ -2640,43 +2640,43 @@
   "runic-branding-iron": {
     "name": {
       "source": "A runic branding iron",
-      "text": ""
+      "text": "Ein Runenbrenneisen"
     },
     "front/item/name": {
       "source": "A runic branding iron",
-      "text": ""
+      "text": "Ein Runenbrenneisen"
     },
     "front/choices/runic-branding-iron/found-in-the-workshop-of-some/text": {
       "source": "Found in the workshop of some Forge Lord, still held in a vice-clamp. The head is a runic shape, 6 by 6 inches, with smaller runes etched into its surface. Or at least, most of its surface. A few inches are blank, the work clearly unfinished.",
-      "text": ""
+      "text": "Es wurde in der Werkstatt irgendeines Schmiedefürsten entdeckt und ist noch immer in einem Schraubstock eingespannt. Der Kopf hat die Form einer Rune, ist 6 × 6 Zoll groß und mit kleineren Runen graviert. Zumindest auf dem größten Teil seiner Oberfläche. Ein paar Zoll sind noch blank – die Arbeit wurde offensichtlich nicht abgeschlossen."
     },
     "front/choices/runic-branding-iron/to-unlock-the-mysteries-of-this/text": {
       "source": "To unlock the mysteries of this iron and claim its power as your own, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse dieses Eisens zu entschlüsseln und seine Macht für dich zu beanspruchen, musst du …"
     },
     "front/choices/runic-branding-iron/decipher-meaning/text": {
       "source": "… decipher the meaning of the runes, and identify the missing ones.",
-      "text": ""
+      "text": "… die Bedeutung der Runen entschlüsseln und die fehlenden identifizieren."
     },
     "front/choices/runic-branding-iron/finish-etchings/text": {
       "source": "… finish the etchings, risking an error that will make the next step fail.",
-      "text": ""
+      "text": "… die Gravuren vervollständigen und dabei riskieren, einen Fehler zu machen, der den nächsten Schritt scheitern lässt."
     },
     "front/choices/runic-branding-iron/heat-iron/text": {
       "source": "… heat the iron red-hot and let yourself be branded (lose 3d6 HP), the runes fading from the iron and searing themselves upon your soul.",
-      "text": ""
+      "text": "… das Eisen glühend heiß erhitzen und dich damit brandmarken lassen (verliere 3W6 TP), wobei die Runen vom Eisen verblassen und sich in deine Seele einbrennen."
     },
     "front/choices/runic-branding-iron/allow-wound/text": {
       "source": "… allow the wound to heal and scar, without the aid of any magic.",
-      "text": ""
+      "text": "… die Wunde ohne Hilfe von Magie heilen und vernarben lassen."
     },
     "back/title": {
       "source": "Searing Touch",
-      "text": ""
+      "text": "Versengende Berührung"
     },
     "back/choices/intro/when-you-call-up-the-fire/text": {
       "source": "When you **_call up the fire from your soul and_** **_pour it into your hands_**, roll +CON: **on a 7+**, your hands blaze like white-hot iron (see below); **but** **on a 10+**, first pick 1; **and on a 7-9**, first pick 2:\n\n- It takes minutes of intense focus\n- It burns your life force; lose 2d4 HP\n- The pain is terrible; mark a debility **On a 6-**, whatever else the GM says, you cannot do this again until you Convalesce. While your **_hands are ablaze_**, your touch deals 1d10 damage (*hand*, *messy*, *dangerous*, 1 piercing), sets fire to wood, boils water, heats metal. Your hands are unharmed by the heat, but your gear and the rest of your body has no such protection. Be careful. Your hands blaze as long as you maintain your focus, up to a minute or maybe two.",
-      "text": ""
+      "text": "Wenn du **_das Feuer aus deiner Seele heraufbeschwörst und in deine Hände gießt_**, würfle +CON. **Bei einer 7+** lodern deine Hände wie weißglühendes Eisen (siehe unten). **Bei einer 10+** wähle zunächst 1. **Bei 7-9** wähle zunächst 2:\n\n- Es braucht Minuten intensiver Konzentration.\n- Es verbrennt deine Lebenskraft; verliere 2W4 TP\n- Der Schmerz ist schrecklich; markiere eine Schwäche\n\n**Bei einer 6-** kannst du dies, unabhängig davon, was der SL sonst sagt, erst wieder tun, wenn du dich erholt hast.\n\nSolange deine **_Hände in Flammen stehen_**, verursacht deine Berührung 1W10 Schaden (Hand, Brutal, Gefährlich, Durchdringung 1), entzündet Holz, bringt Wasser zum Kochen und erhitzt Metall. Deine Hände bleiben von der Hitze unversehrt, aber deine Ausrüstung und der Rest deines Körpers genießen keinen solchen Schutz. Sei vorsichtig. Deine Hände lodern, solange du dich konzentrierst, höchstens jedoch ein oder vielleicht zwei Minuten."
     }
   },
   "rusty-cauldron": {
@@ -2720,67 +2720,67 @@
   "rusty-steel-blade": {
     "name": {
       "source": "A rusty steel blade",
-      "text": ""
+      "text": "Eine rostige Stahlklinge"
     },
     "front/item/name": {
       "source": "A rusty steel blade",
-      "text": ""
+      "text": "Eine rostige Stahlklinge"
     },
     "front/choices/rusty-steel-blade/it-was-clearly-once-a-fine/text": {
       "source": "It was clearly once a fine, fine blade. The steel holds a pattern of rune-like sworls, at least where the rust hasn’t taken over. The hilt is blackened, with hints of leather wrappings that long ago burned away. The metal is hot to the touch, like it’s been left out for hours in the summer sun.",
-      "text": ""
+      "text": "Es war einst zweifellos eine wunderschöne Klinge. Der Stahl weist ein Muster aus runenartigen Wirbeln auf, zumindest dort, wo der Rost noch nicht alles überzogen hat. Der Griff ist geschwärzt, mit Spuren einer Lederwicklung, die vor langer Zeit verbrannt ist. Das Metall fühlt sich heiß an, wenn man es berührt, als hätte es stundenlang in der Sommersonne gelegen."
     },
     "front/choices/rusty-steel-blade/to-unlock-the-mysteries-of-this/text": {
       "source": "To unlock the mysteries of this weapon, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse dieser Waffe zu entschlüsseln, musst du …"
     },
     "front/choices/rusty-steel-blade/restore-blade/text": {
       "source": "… restore the blade, which requires access to a smithy, a few weeks of work, and no small amount of skill.",
-      "text": ""
+      "text": "… die Klinge wiederherstellen, wofür du Zugang zu einer Schmiede, einige Wochen Arbeit und beträchtliches Geschick benötigst."
     },
     "front/choices/rusty-steel-blade/commune-spirit/text": {
       "source": "… commune with the spirit of fire within the steel (**Instinct** to seek glory), and convince it that you are worthy to wield the blade.",
-      "text": ""
+      "text": "… mit dem Geist des Feuers im Stahl (Instinkt Ruhm zu suchen) in Verbindung treten und ihn davon überzeugen, dass du würdig bist, die Klinge zu führen."
     },
     "front/choices/rusty-steel-blade/acquire-scabbard/text": {
       "source": "… acquire a scabbard that can withstand the fire and heat of a forge.",
-      "text": ""
+      "text": "… eine Scheide beschaffen, die dem Feuer und der Hitze einer Esse standhält."
     },
     "back/title": {
       "source": "Flaming Sword",
-      "text": ""
+      "text": "Flammenschwert"
     },
     "back/item/name": {
       "source": "Flaming Sword",
-      "text": ""
+      "text": "Flammenschwert"
     },
     "back/item/note": {
       "source": "+1 damage, 1 piercing",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung 1"
     },
     "back/item/resource/labels/nil": {
       "source": "nil",
-      "text": ""
+      "text": "nichts"
     },
     "back/item/resource/labels/1d4": {
       "source": "1d4",
-      "text": ""
+      "text": "1W4"
     },
     "back/item/resource/labels/1d6": {
       "source": "1d6",
-      "text": ""
+      "text": "1W6"
     },
     "back/item/resource/labels/1d8": {
       "source": "1d8",
-      "text": ""
+      "text": "1W8"
     },
     "back/item/resource/labels/1d10": {
       "source": "1d10",
-      "text": ""
+      "text": "1W10"
     },
     "back/choices/intro/when-you-call-on-the-fire/text": {
       "source": "When you **_call on the fire spirit within,_** the blade erupts in flames (+*magical*, +*dangerous*) and casts light (*reach*, *area*). The hilt gets hot; wear thick gloves!\n\nWhen you **_Clash with the Flaming Sword_**, after you resolve the move and deal damage, increase the Blaze die one step.\n\nWhen you **_roll to make a move while wielding_** **_the sword_**, take damage equal to the Blaze die (ignores armor).\n\nWhen you **_deal damage with the sword_**, add the Blaze die.\n\nWhen you **_sheathe the sword_**, the fire goes out and cannot be relit until the Blaze die is nil. Reduce the Blaze die once each hour.",
-      "text": ""
+      "text": "Wenn du **_den Feuergeist in der Klinge anrufst_**, geht sie in Flammen auf (+Magisch, +Gefährlich) und spendet Licht (Lang, Bereich). Der Griff wird heiß – trage dicke Handschuhe!\n\nWenn du **_mit dem Flammenschwert haust & stichst, erhöhe_**, nachdem du den Spielzug durchgeführt und deinen Schaden verursacht hast, den Flammenwürfel um eine Stufe.\n\nWenn du **_mit dem Schwert in der Hand für einen Spielzug würfelst_**, erleidest du Schaden in Höhe des Flammenwürfels (ignoriert Rüstung).\n\nWenn du **_mit dem Schwert Schaden verursachst_**, addiere den Flammenwürfel zum Schaden.\n\nWenn du **_das Schwert in die Scheide steckst_**, erlischt das Feuer. Es kann erst wieder entzündet werden, wenn der Flammenwürfel auf nichts steht. Reduziere den Flammenwürfel einmal pro Stunde um eine Stufe."
     }
   },
   "scroll-and-bone-flute": {
@@ -2974,35 +2974,35 @@
   "silvery-signet-ring": {
     "name": {
       "source": "A silvery signet ring",
-      "text": ""
+      "text": "Ein silberner Siegelring"
     },
     "front/choices/silvery-signet-ring/a-ring-of-white-metal-untarnished/text": {
       "source": "A ring of white metal, untarnished and gleaming, a single glyph carved into the bezel. The symbol squirms under your gaze, like it exists in more dimensions than you can perceive. The ring fits you perfectly, of course.",
-      "text": ""
+      "text": "Ein Ring aus weißem Metall, makellos und glänzend, mit einem einzigen, in die Fassung eingravierten Symbol. Das Symbol windet sich unter deinem Blick, als existiere es in mehr Dimensionen, als du wahrnehmen kannst. Selbstverständlich passt dir der Ring perfekt."
     },
     "front/choices/silvery-signet-ring/to-unlock-the-rings-mysteries-you/text": {
       "source": "To unlock the ring’s mysteries, you must...",
-      "text": ""
+      "text": "Um die Geheimnisse des Rings zu entschlüsseln, musst du …"
     },
     "front/choices/silvery-signet-ring/spend-season/text": {
       "source": "… spend a season wearing the ring and contemplating the glyph.",
-      "text": ""
+      "text": "… den Ring eine Jahreszeit lang tragen und über das Symbol nachsinnen."
     },
     "front/choices/silvery-signet-ring/get-used/text": {
       "source": "… get used to the headaches & nausea that come from wearing the ring.",
-      "text": ""
+      "text": "… dich an die Kopfschmerzen und Übelkeit gewöhnen, die das Tragen des Rings mit sich bringt."
     },
     "front/choices/silvery-signet-ring/spend-1/text": {
       "source": "… spend 1 of your follower’s Loyalty to charge the ring.",
-      "text": ""
+      "text": "… 1 Loyalität eines deiner Gefolgsleute opfern, um den Ring aufzuladen."
     },
     "front/choices/silvery-signet-ring/attempt-influence/text": {
       "source": "… attempt to influence one of your followers with the ring, at the risk of failing to ever master its power and/or alienating your follower(s).",
-      "text": ""
+      "text": "… versuchen, einen deiner Gefolgsleute mithilfe des Rings zu beeinflussen, und dabei riskieren, seine Macht niemals vollständig zu meistern und/oder deine Gefolgsleute gegen dich aufzubringen."
     },
     "back/title": {
       "source": "Sigil of Authority",
-      "text": ""
+      "text": "Siegel der Autorität"
     },
     "back/resource/title": {
       "source": "Authority",
@@ -3010,7 +3010,7 @@
     },
     "back/choices/intro/when-you-strengthen-your-bond-with/text": {
       "source": "When you **_Strengthen Your Bond_** with a member of your community, you can choose to hold +1 Authority (max 3) in lieu of your follower holding +1 Loyalty. If you **_remove the ring_**, lose all Authority.\n\nWhen you **_Persuade your follower(s) while hold_****_ing Authority_**, you have advantage.\n\nYou can spend Authority 1-for-1 to:\n\n- Wrap yourself in majesty for up to a few minutes, drawing all attention, cowing the weak-willed, and speaking in a voice that all can hear (*far*, *area*)\n- Will someone in your presence to do as you wish, attempting to Persuade them without words\n- Have one of your nearby followers suffer an attack on your behalf, as if they held Readiness from Defending",
-      "text": ""
+      "text": "Wenn du **_dein Band zu einem Mitglied deiner Gemeinschaft stärkst_**, kannst du wählen, ob du +1 Autorität (max. 3) erhalten möchtest, anstatt dass dein Anhänger +1 Loyalität erhält. Wenn du **_den Ring ablegst_**, verlierst du deine gesamte Autorität.\n\nWenn du **_deine Gefolgsleute Überreden willst, während du Autorität besitzt, hast du einen Vorteil.\n\nDu kannst Autorität im Verhältnis 1:1 ausgeben, um:\n\n- Dich für einige Minuten in majestätische Aura zu hüllen, alle Aufmerksamkeit auf dich zu ziehen, Willensschwache einzuschüchtern und mit einer Stimme zu sprechen, die jeder hören kann (Fern, Bereich).\n- Jemanden in deiner Gegenwart dazu zu bringen, deinen Willen zu befolgen, indem du versuchst, ihn ohne Worte zu überreden.\n- Einen deiner Gefolgsleute in deiner Nähe einen Angriff an deiner Stelle erleiden zu lassen, als hätte er durch Verteidigen Bereitschaft erlangt."
     }
   },
   "small-strange-book": {
