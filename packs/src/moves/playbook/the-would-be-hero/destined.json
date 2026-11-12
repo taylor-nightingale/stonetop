@@ -1,7 +1,7 @@
 {
   "_id": "tGelyaosKlgHogyB",
   "_key": "!items!tGelyaosKlgHogyB",
-  "name": "Destined",
+  "name": "Visions of the Destined",
   "type": "move",
   "system": {
     "moveType": null,
@@ -22,8 +22,7 @@
     },
     "rollStat": "omens",
     "slug": "destined",
-    "xpOnMiss": false,
-    "nameless": true
+    "xpOnMiss": false
   },
   "folder": "dgktpzqUfX5DWqqE"
 }
