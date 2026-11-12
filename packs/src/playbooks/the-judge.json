@@ -76,7 +76,36 @@
 			{
 				"slug": "legacy",
 				"label": "Legacy",
-				"description": "You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.\n\nWhen you **_Know Things about the people or history of Stonetop_**, you have advantage.\n\nWhen you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time."
+				"description": "You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.",
+				"choices": {
+					"slug": "legacy",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "legacy-know-things",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "pour-over-the-chronicle",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
 			},
 			{
 				"slug": "missionary",
@@ -165,9 +194,15 @@
 						},
 						{
 							"type": "entry",
-							"content": {
-								"text": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says."
-							}
+							"grants": [
+								{
+									"type": "move",
+									"slug": "send-a-message-bird",
+									"locations": [
+										"inline"
+									]
+								}
+							]
 						}
 					]
 				},
