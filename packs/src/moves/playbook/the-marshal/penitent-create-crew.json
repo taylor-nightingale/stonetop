@@ -1,0 +1,13 @@
+{
+  "_id": "m1roP9OEzq8GCX7Q",
+  "_key": "!items!m1roP9OEzq8GCX7Q",
+  "name": "Create Your Crew",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks).",
+    "slug": "penitent-create-crew",
+    "nameless": true
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
+}
