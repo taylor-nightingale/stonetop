@@ -1,0 +1,73 @@
+{
+  "_id": "Q7eX0g0rZFIWe2h9",
+  "_key": "!items!Q7eX0g0rZFIWe2h9",
+  "name": "Focus on Your Animal Companion",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
+    "choices": {
+        "slug": "beast-bonded-actions",
+        "list": [
+            {
+                "slug": "gauge-distance",
+                "track": {
+                    "max": 1
+                },
+                "type": "entry",
+                "content": {
+                    "title": null,
+                    "text": "Gauge its distance and direction from you"
+                }
+            },
+            {
+                "slug": "call-it-back",
+                "track": {
+                    "max": 1
+                },
+                "type": "entry",
+                "content": {
+                    "title": null,
+                    "text": "Call it back to your side"
+                }
+            },
+            {
+                "slug": "sense-emotions",
+                "track": {
+                    "max": 1
+                },
+                "type": "entry",
+                "content": {
+                    "title": null,
+                    "text": "Sense its emotional state"
+                }
+            },
+            {
+                "slug": "impression-of-senses",
+                "track": {
+                    "max": 1
+                },
+                "type": "entry",
+                "content": {
+                    "title": null,
+                    "text": "Get a brief impression of what it senses"
+                }
+            },
+            {
+                "slug": "lend-strength",
+                "track": {
+                    "max": 1
+                },
+                "type": "entry",
+                "content": {
+                    "title": null,
+                    "text": "Lend it your strength — lose 1d6 HP, and it regains an equal amount"
+                }
+            }
+        ]
+    },
+    "slug": "focus-on-animal-companion",
+    "nameless": true
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
+}
