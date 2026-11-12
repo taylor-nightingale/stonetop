@@ -303,6 +303,16 @@
       "text": "Wenn du **_einen Schild trägst_**, markiere nur ◆ (statt ◆◆). Außerdem kannst du bei Rüstung, die du trägst, die Eigenschaft Schwerfällig ignorieren.\n\nWenn du diesen Spielzug zu Beginn des Spiels wählst, füge deinem Inventar einen ◇◇ Eisenhauberk, einen ◇◇ Bronzekürass oder einen ◇◇ Schuppenpanzer hinzu (alle haben 2 Rüstung, Warm, Schwerfällig)."
     }
   },
+  "arrive-somewhere-familiar": {
+    "name": {
+      "source": "Arrive Somewhere Familiar",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_arrive somewhere you've visited before_** (your call), tell the GM when you were last here, and the GM will tell you how it's changed.",
+      "text": ""
+    }
+  },
   "arts-of-war": {
     "name": {
       "source": "Arts of War",
@@ -321,6 +331,38 @@
     "description": {
       "source": "When you **_Seek Insight_**, you can always ask, \"What here is infused with magic?\" for free, even **on a 6-**.",
       "text": "Wenn du **_Gewissheit erlangst_**, kannst du immer fragen: „Was ist hier von Magie durchdrungen?“, selbst bei einer 6-."
+    }
+  },
+  "auspicious-mark-debility": {
+    "name": {
+      "source": "Mark a Debility",
+      "text": ""
+    },
+    "description": {
+      "source": "When **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
+      "text": ""
+    }
+  },
+  "bark-order-or-warning": {
+    "name": {
+      "source": "Bark an Order or Warning",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do.",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "They must choose 1. You can sense which one they're about to do and act first if you like; gain advantage if you do",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They must choose 1",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "GM Move",
+      "text": ""
     }
   },
   "barkskin": {
@@ -463,6 +505,26 @@
     "description": {
       "source": "When you **_bear witness to someone's promise or oath_**, henceforth you may ask their player if they have kept their word. They must answer honestly. The character need not be present. If they have broken their word, you gain advantage on all rolls against them until they admit their wrong and suffer an appropriate consequence (your call).",
       "text": "Wenn du **_Zeuge des Versprechens oder Eides einer Person wirst_**, kannst du ihren Spieler fortan fragen, ob sie ihr Wort gehalten hat. Er muss ehrlich antworten. Der Charakter muss dabei nicht anwesend sein. Wenn **_er sein Wort gebrochen hat_**, erhältst du bei allen Würfen gegen sie einen Vorteil, bis er sein Fehlverhalten eingesteht und eine angemessene Konsequenz erleidet (du entscheidest)."
+    }
+  },
+  "blood-soaked-persuade": {
+    "name": {
+      "source": "Blood-Soaked Past",
+      "text": "Blutige Vergangenheit"
+    },
+    "description": {
+      "source": "When you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.",
+      "text": ""
+    }
+  },
+  "bloody-past-know-things": {
+    "name": {
+      "source": "Penitent's Bloody Past",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.",
+      "text": ""
     }
   },
   "blot-out-the-sun": {
@@ -839,6 +901,16 @@
       "text": "Dein Manöver misslingt, und du erleidest den Angriff deines Gegners (nach Ermessen des SL)."
     }
   },
+  "come-up-short": {
+    "name": {
+      "source": "Come Up Short",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details):\n\n- You get hurt (2d4 damage and an actual injury)\n- You cause collateral damage, endanger others, or otherwise escalate the situation\n- Something on your person is lost or breaks",
+      "text": ""
+    }
+  },
   "commune-with-aratis": {
     "name": {
       "source": "Commune with Aratis",
@@ -1199,12 +1271,14 @@
   },
   "destined": {
     "name": {
-      "source": "Destined",
-      "text": "Ausersehen"
+      "source": "Visions of the Destined",
+      "text": "Ausersehen",
+      "needsReview": true
     },
     "description": {
-      "source": "At the **_start of a session_**, roll +Omens: **on a 7+**, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, **on a 10+**, ask the GM a follow-up question and get a clear, helpful answer; **on a 6-**, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.\n\n**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.",
-      "text": "**_Zu Beginn einer Spielsitzung_** würfle +Omen. **Bei einer 7+** verlierst du sämtliches Omen, und der SL beschreibt eine Vision oder ein Vorzeichen, das auf dein Schicksal hindeutet und/oder deine aktuelle Situation erhellt. **Bei einer 10+** kannst du außerdem dem SL zusätzlich eine Folgefrage stellen und erhältst darauf eine klare, hilfreiche Antwort. **Bei einer 6-** markierst du keine EP, erhältst +1 Omen und erzählst uns von den Albträumen oder einer beunruhigenden Vision und davon, wie deine Angst dabei eine Rolle spielt. \n\n**_Solange sich dein Schicksal noch nicht erfüllt hat_**, behandle  bei Tor des Todes eine 6- wie 7–9 und 7–9 wie eine 10+."
+      "source": "At the **_start of a session_**, roll +Omens: **on a 7+**, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, **on a 10+**, ask the GM a follow-up question and get a clear, helpful answer; **on a 6-**, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.",
+      "text": "**_Zu Beginn einer Spielsitzung_** würfle +Omen. **Bei einer 7+** verlierst du sämtliches Omen, und der SL beschreibt eine Vision oder ein Vorzeichen, das auf dein Schicksal hindeutet und/oder deine aktuelle Situation erhellt. **Bei einer 10+** kannst du außerdem dem SL zusätzlich eine Folgefrage stellen und erhältst darauf eine klare, hilfreiche Antwort. **Bei einer 6-** markierst du keine EP, erhältst +1 Omen und erzählst uns von den Albträumen oder einer beunruhigenden Vision und davon, wie deine Angst dabei eine Rolle spielt. \n\n**_Solange sich dein Schicksal noch nicht erfüllt hat_**, behandle  bei Tor des Todes eine 6- wie 7–9 und 7–9 wie eine 10+.",
+      "needsReview": true
     },
     "moveResults/success/value": {
       "source": "Lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, ask the GM a follow-up question and get a clear, helpful answer.",
@@ -1427,6 +1501,16 @@
       "text": ""
     }
   },
+  "fight-to-kill": {
+    "name": {
+      "source": "Fight to Kill",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage.",
+      "text": ""
+    }
+  },
   "fire-within": {
     "name": {
       "source": "Fire Within",
@@ -1445,6 +1529,36 @@
     "description": {
       "source": "You can spend 1 Command to order your allies to bring down a foe. If you do, each ally has advantage on their next damage roll against that foe.",
       "text": "Du kannst 1 Kommando ausgeben, um deine Verbündeten anzuweisen, einen Gegner gemeinsam zu Fall zu bringen. Wenn du das tust, haben alle Verbündeten bei ihrem nächsten Schadenswurf gegen diesen Gegner einen Vorteil."
+    }
+  },
+  "focus-on-animal-companion": {
+    "name": {
+      "source": "Focus on Your Animal Companion",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
+      "text": ""
+    },
+    "choices/gauge-distance/text": {
+      "source": "Gauge its distance and direction from you",
+      "text": ""
+    },
+    "choices/call-it-back/text": {
+      "source": "Call it back to your side",
+      "text": ""
+    },
+    "choices/sense-emotions/text": {
+      "source": "Sense its emotional state",
+      "text": ""
+    },
+    "choices/impression-of-senses/text": {
+      "source": "Get a brief impression of what it senses",
+      "text": ""
+    },
+    "choices/lend-strength/text": {
+      "source": "Lend it your strength — lose 1d6 HP, and it regains an equal amount",
+      "text": ""
     }
   },
   "for-the-greater-good": {
@@ -1731,8 +1845,25 @@
       "text": "Helden bis zum Schluss"
     },
     "description": {
-      "source": "Each time you take this move, pick 1:\n\n- They are *exceptional* (and roll +2 instead of +1)\n- They are inured to terror & horror\n- Increase their max HP by 4 each\n- Increase their damage die one size (max d10)",
-      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1:\n\n- Sie sind außergewöhnlich (und würfeln +2 statt +1).\n- Sie sind abgehärtet gegen Angst und Schrecken.\n- Erhöhe ihre maximalen TP jeweils um 4.\n- Erhöhe ihren Schadenswürfel um eine Größe (max. W10)."
+      "source": "Each time you take this move, pick 1:",
+      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1:\n\n- Sie sind außergewöhnlich (und würfeln +2 statt +1).\n- Sie sind abgehärtet gegen Angst und Schrecken.\n- Erhöhe ihre maximalen TP jeweils um 4.\n- Erhöhe ihren Schadenswürfel um eine Größe (max. W10).",
+      "needsReview": true
+    },
+    "choices/exceptional/text": {
+      "source": "They are *exceptional* (and roll +2 instead of +1)",
+      "text": ""
+    },
+    "choices/inured/text": {
+      "source": "They are inured to terror & horror",
+      "text": ""
+    },
+    "choices/increase-hp-4/text": {
+      "source": "Increase their max HP by 4 each",
+      "text": ""
+    },
+    "choices/increase-damage-d10/text": {
+      "source": "Increase their damage die one size (max d10)",
+      "text": ""
     }
   },
   "heroic-reputation": {
@@ -2011,6 +2142,28 @@
       "text": "Wenn du **_ein Lagerfeuer errichtest und es mit Asche aus deinem eigenen Herd bestreust_**, bleibt jeder, der mit dir das Lager aufschlägt, von Albträumen und anderweitig schlechten Träumen verschont und regeneriert (zusätzlich) TP in Höhe deines CH."
     }
   },
+  "know-someone-outside-stonetop": {
+    "name": {
+      "source": "Know Someone Outside Stonetop",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.\n\n- They still hold a grudge\n- They're going to need something from you first\n- They swore off this sort of thing long ago\n- You can't exactly, y'know, trust them",
+      "text": ""
+    },
+    "moveResults/success/value": {
+      "source": "Yeah, they can help (tell us why they're willing)",
+      "text": ""
+    },
+    "moveResults/partial/value": {
+      "source": "They can help but pick 1 from the list below",
+      "text": ""
+    },
+    "moveResults/failure/value": {
+      "source": "The GM chooses 1 from the list below and then some",
+      "text": ""
+    }
+  },
   "know-things": {
     "name": {
       "source": "Know Things",
@@ -2083,6 +2236,16 @@
     "moveResults/failure/value": {
       "source": "Pick 1 from the list below, or pick 2 and gain 1d4 Surplus.\n\n- 1d4 of the town’s horses are lamed or killed\n- A number of locals are injured; the steading marks diminished (disadvantage to Deploy, Muster, or Pull Together)\n- The GM picks an NPC present for the hunt; they are killed\n- The Hillfolk are somehow offended\n- The herd is weak; if you hunt next year they’ll be wiped out",
       "text": "Wähle 1 aus der Liste – oder 2 und erhalte 1W4 Überschuss.\n\n- 1W4 Pferde des Dorfes werden lahm oder getötet.\n- Eine Reihe von Einheimischen wird verletzt. Markiere bei der Siedlung Geschwächt (Nachteil auf Truppen einsetzen, Truppen aufbieten oder Gemeinsam anpacken).\n- Der SL wählt einen bei der Jagd anwesenden NSC. Er wird getötet.\n- Das Hügelvolk fühlt sich auf irgendeine Weise beleidigt.\n- Die Herde ist geschwächt. Wenn du im nächsten Jahr jagst, wird sie vollständig ausgelöscht."
+    }
+  },
+  "legacy-know-things": {
+    "name": {
+      "source": "Legacy",
+      "text": "Vermächtnis"
+    },
+    "description": {
+      "source": "When you **_Know Things about the people or history of Stonetop_**, you have advantage.",
+      "text": ""
     }
   },
   "let-fly": {
@@ -2207,6 +2370,16 @@
     "description": {
       "source": "When you **_have a steading Muster or Pull Together, or when you Requisition_**, you have advantage.",
       "text": "Wenn du **_bei einer Siedlung Aufbieten, Gemeinsam anpacken, oder Anfordern durchführst_**, hast du einen Vorteil."
+    }
+  },
+  "luminary-create-crew": {
+    "name": {
+      "source": "Create Your Crew",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
+      "text": ""
     }
   },
   "luminous-shield": {
@@ -2409,6 +2582,16 @@
       "text": "Der SL macht einen Spielzug."
     }
   },
+  "natural-seek-insight": {
+    "name": {
+      "source": "The Natural",
+      "text": "Das Naturtalent"
+    },
+    "description": {
+      "source": "When you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.",
+      "text": ""
+    }
+  },
   "naturalist": {
     "name": {
       "source": "Naturalist",
@@ -2489,6 +2672,16 @@
     "description": {
       "source": "When you **_lead an NPC through danger and return them to safety_**, if they aren't part of your crew they will either offer to join your crew or pledge their future aid and support.",
       "text": "Wenn du **_einen NSC durch eine Gefahr führst und ihn in Sicherheit bringst_**, wird er, sofern er nicht zu deiner Truppe gehört, entweder anbieten, sich deiner Truppe anzuschließen, oder dir seine zukünftige Hilfe und Unterstützung zusichern."
+    }
+  },
+  "off-a-wandering": {
+    "name": {
+      "source": "Off a-Wandering",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to:\n\n- return from your wandering exactly when and where you are needed, fully Outfitted\n- Know Things as if you rolled a 10+\n- have What You Need to produce an oddly specific yet mundane item of Value 1 or less",
+      "text": ""
     }
   },
   "on-the-hoof": {
@@ -2591,6 +2784,16 @@
       "text": "Wenn du **_bereitstehst, um an der Seite gleichgesinnter Verbündeter zu kämpfen_**, erkennt jedes Wesen, das zu Furcht fähig ist, dich als ernsthafte Bedrohung und behandelt dich entsprechend."
     }
   },
+  "penitent-create-crew": {
+    "name": {
+      "source": "Create Your Crew",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks).",
+      "text": ""
+    }
+  },
   "perceptive": {
     "name": {
       "source": "Perceptive",
@@ -2599,6 +2802,16 @@
     "description": {
       "source": "When you **_Seek Insight_**, you may ask 1 additional question. Even **on a 6-**, you can ask 1 question (though you might not like how you learn the answer).",
       "text": "Wenn du **_Gewissheit erlangst_**, darfst du eine zusätzliche Frage stellen. Selbst bei einer 6- darfst du noch eine Frage stellen (auch wenn dir die Antwort vielleicht nicht gefallen wird)."
+    }
+  },
+  "persuade-a-group": {
+    "name": {
+      "source": "Persuade a Group",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
+      "text": ""
     }
   },
   "persuade-vs-npcs": {
@@ -2735,6 +2948,16 @@
     "choices/damage/text": {
       "source": "Increase your damage die to a d8",
       "text": "Erhöhe deinen Schadenswürfel auf 1W8"
+    }
+  },
+  "pour-over-the-chronicle": {
+    "name": {
+      "source": "Pour Over the Chronicle",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time.",
+      "text": ""
     }
   },
   "power-of-the-lidless-orb": {
@@ -2917,6 +3140,16 @@
       "text": "Wenn du **_mit einer treffenden Bemerkung den Stolz eines NSCs verletzt_**, muss er eine der folgenden Aktionen ausführen (seine Wahl):\n\n- Angreifen. Verursacht bei einem Treffer +1W4 Schaden, aber du erhältst einen Vorteil bei deinem nächsten Wurf gegen ihn.\n- Sich auf dein Niveau herablassen und dir auf gleiche Weise antworten.\n- Einige Augenblicke damit verbringen, vor Wut zu kochen, herumzustottern oder sich zu beherrschen."
     }
   },
+  "rbw-forage-advantage": {
+    "name": {
+      "source": "Raised by Wolves",
+      "text": "Von Wölfen aufgezogen"
+    },
+    "description": {
+      "source": "Regardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.",
+      "text": ""
+    }
+  },
   "read-the-land": {
     "name": {
       "source": "Read the Land",
@@ -3097,6 +3330,16 @@
     "description": {
       "source": "When **_another PC asks you for guidance_**, they get advantage on their next roll to follow your advice.",
       "text": "Wenn **_ein anderer SC dich um Rat bittet_**, erhält er bei seinem nächsten Wurf einen Vorteil, um deinen Rat zu befolgen."
+    }
+  },
+  "scion-create-crew": {
+    "name": {
+      "source": "Create Your Crew",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew).",
+      "text": ""
     }
   },
   "seal": {
@@ -3289,6 +3532,16 @@
     "moveResults/failure/value": {
       "source": "GM Move (**announce trouble, reveal an unwelcome truth, advance towards impending doom, use up their resources, turn their move back on them,** etc.)",
       "text": "Der SL macht einen Spielzug."
+    }
+  },
+  "send-a-message-bird": {
+    "name": {
+      "source": "Send a Message via Trained Bird",
+      "text": ""
+    },
+    "description": {
+      "source": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
+      "text": "Zusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht."
     }
   },
   "set-up-strike": {
@@ -3556,6 +3809,16 @@
     },
     "moveResults/failure/value": {
       "source": "the stones pry a secret from you.",
+      "text": ""
+    }
+  },
+  "spend-stock-hp": {
+    "name": {
+      "source": "Life For Stock",
+      "text": ""
+    },
+    "description": {
+      "source": "When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead.",
       "text": ""
     }
   },
@@ -4103,6 +4366,16 @@
       "text": "Wenn du **_im Kampf auf 0 TP fällst_**, kannst du weiterkämpfen. Jedes Mal, wenn du bei 0 TP Schaden erleidest, markiere eine freie Stelle. Wenn dich etwas heilen würde, während du weiterkämpfst, entferne stattdessen eine Markierung.\n\nWenn du **_aufhörst zu kämpfen_**, würfle für An der Schwelle des Todes mit einem Malus von -1 für jede Markierung. Wenn du überlebst, entferne alle Markierungen."
     }
   },
+  "until-destiny-fulfilled": {
+    "name": {
+      "source": "Until Destiny Fulfilled",
+      "text": ""
+    },
+    "description": {
+      "source": "**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.",
+      "text": ""
+    }
+  },
   "up-with-people": {
     "name": {
       "source": "Up With People",
@@ -4181,8 +4454,21 @@
       "text": "Veteranentruppe"
     },
     "description": {
-      "source": "Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.\n\n- Select 2 new tags for your Crew\n- Increase their damage die from d6 to d8\n- Increase their max HP by 2 each",
-      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1. Du kannst auch ihren Instinkt und ihre Kosten neu wählen.\n\n- Wähle 2 neue Eigenschaften für deine Truppe.\n- Erhöhe ihren Schadenswürfel von W6 auf W8.\n- Erhöhe ihre maximalen TP jeweils um 2."
+      "source": "Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.",
+      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1. Du kannst auch ihren Instinkt und ihre Kosten neu wählen.\n\n- Wähle 2 neue Eigenschaften für deine Truppe.\n- Erhöhe ihren Schadenswürfel von W6 auf W8.\n- Erhöhe ihre maximalen TP jeweils um 2.",
+      "needsReview": true
+    },
+    "choices/new-tags/text": {
+      "source": "Select 2 new tags for your Crew",
+      "text": ""
+    },
+    "choices/increase-damage-d8/text": {
+      "source": "Increase their max HP by 4 each",
+      "text": ""
+    },
+    "choices/increase-hp-2/text": {
+      "source": "Increase their max HP by 2 each",
+      "text": ""
     }
   },
   "vision-unclouded": {
@@ -4395,6 +4681,16 @@
       "text": ""
     }
   },
+  "wide-wanderer-know-things": {
+    "name": {
+      "source": "Wide Wanderer",
+      "text": "Weitgereister Wanderer"
+    },
+    "description": {
+      "source": "When you **_Know Things about the wider world_**, you can roll +WIS instead of +INT.",
+      "text": ""
+    }
+  },
   "wielder-of-the-white-flame": {
     "name": {
       "source": "Wielder of the White Flame",
@@ -4435,6 +4731,16 @@
     "description": {
       "source": "The grunts, barks, chirps, and calls of natural beasts are as a language to you. You can understand their intentions and communicate basic ideas. When you **_Persuade a beast_**, you can choose to roll +WIS.",
       "text": "Das Grunzen, Bellen, Zwitschern und Rufen natürlicher Tiere ist wie eine Sprache für dich. Du kannst ihre Absichten verstehen und dich mit ihnen über grundlegende Dinge verständigen. Wenn du **_ein Tier überredest_**, kannst du wählen, ob du +WE statt +CH würfelst."
+    }
+  },
+  "wild-ways-offend": {
+    "name": {
+      "source": "Wild Ways",
+      "text": ""
+    },
+    "description": {
+      "source": "For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP.",
+      "text": ""
     }
   },
   "work-with-what-youve-got": {
