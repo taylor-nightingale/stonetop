@@ -1,0 +1,13 @@
+{
+  "_id": "051Jk83ggQa0dDcX",
+  "_key": "!items!051Jk83ggQa0dDcX",
+  "name": "Blood-Soaked Past",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.",
+    "slug": "blood-soaked-persuade",
+    "nameless": true
+  },
+  "folder": "QAZ4iqkCm6GtadAu"
+}
