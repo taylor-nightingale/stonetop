@@ -80,7 +80,24 @@
       {
         "slug": "auspicious-birth",
         "label": "Auspicious Birth",
-        "description": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
+        "description": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.",
+				"choices": {
+					"slug": "auspicious-birth",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "auspicious-mark-debility",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				},
         "resource": {
           "max": 1,
           "title": null
@@ -115,7 +132,24 @@
       {
         "slug": "soul-on-fire",
         "label": "Soul on Fire",
-        "description": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more."
+        "description": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.",
+				"choices": {
+					"slug": "soul-on-fire",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "persuade-a-group",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
       }
     ],
     "specialPossessions": {
