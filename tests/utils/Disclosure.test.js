@@ -74,4 +74,24 @@ describe("Disclosure, as a move row uses it", () => {
 		document.body.innerHTML = `<button type="button" id="loose" aria-controls="nope">x</button>`;
 		expect(() => click(document.getElementById("loose"))).not.toThrow();
 	});
+
+	// Two tabs can render the same move with the same id. Each button must find its own body, not
+	// the other tab's — the bug that made "News at the Inn" toggle the wrong body.
+	it("finds the body in its own row even when another row has the same id", () => {
+		document.body.innerHTML = `
+			<li class="stonetop-item" data-disclosure-row>
+				<button type="button" data-disclosure aria-expanded="false" aria-controls="dup">A</button>
+				<div class="stonetop-move-body" id="dup" hidden>Body A</div>
+			</li>
+			<li class="stonetop-item" data-disclosure-row>
+				<button type="button" data-disclosure aria-expanded="false" aria-controls="dup">B</button>
+				<div class="stonetop-move-body" id="dup" hidden>Body B</div>
+			</li>`;
+
+		const [a, b] = document.querySelectorAll("[data-disclosure]");
+		click(a);
+		expect(a.getAttribute("aria-expanded")).toBe("true");
+		expect(a.nextElementSibling.hidden).toBe(false);
+		expect(b.nextElementSibling.hidden).toBe(true, "B's body untouched");
+	});
 });
