@@ -1,0 +1,13 @@
+{
+  "_id": "to2g2dbQXQCu0ZuV",
+  "_key": "!items!to2g2dbQXQCu0ZuV",
+  "name": "Raised by Wolves",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "Regardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.",
+    "slug": "rbw-forage-advantage",
+    "nameless": true
+  },
+  "folder": "twBI9Q4lZycODbDk"
+}
