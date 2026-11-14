@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { check } from "../../scripts/i18n/check.js";
+import { extract } from "../../scripts/i18n/extract.js";
 import { TRANSLATED_PACKS } from "../../scripts/i18n/files.js";
 
 // check() reads packs and translation files off disk and decides an exit code, so it is exercised
@@ -12,6 +13,11 @@ import { TRANSLATED_PACKS } from "../../scripts/i18n/files.js";
 let root;
 
 const move = (slug, description) => ({
+	_id: slug, type: "move", name: slug, system: { slug, description },
+});
+
+/** A move whose English contains a UUID link that the translation can break. */
+const moveWithUuid = (slug, description) => ({
 	_id: slug, type: "move", name: slug, system: { slug, description },
 });
 
@@ -148,5 +154,49 @@ describe("check", () => {
 
 		expect(await check({ root })).toBe(true);
 		expect(output()).toContain("de: 0 awaiting translator, 0 new");
+	});
+
+	it("fails on broken markup and passes once acknowledged", async () => {
+		// English has a UUID link; the translation mangles it.
+		buildRoot([moveWithUuid("aid", "Roll @UUID[Compendium.stonetop.moves.abc123]{Defy Danger} now.")]);
+		writeAuthoring("moves", {
+			aid: { description: { source: "Roll @UUID[Compendium.stonetop.moves.abc123]{Defy Danger} now.", text: "Würfele [[r 1d6]] jetzt." } },
+		});
+
+		// Without acknowledgement, broken markup fails the check.
+		expect(await check({ root })).toBe(false);
+		expect(output()).toContain("broken markup aid description");
+		expect(output()).toContain("de: 0 awaiting translator, 1 new");
+	});
+
+	it("passes on broken markup once acknowledged", async () => {
+		buildRoot([moveWithUuid("aid", "Roll @UUID[Compendium.stonetop.moves.abc123]{Defy Danger} now.")]);
+		writeAuthoring("moves", {
+			aid: { description: { source: "Roll @UUID[Compendium.stonetop.moves.abc123]{Defy Danger} now.", text: "Würfele [[r 1d6]] jetzt." } },
+		});
+		writeAwaiting({ moves: { aid: ["description"] } });
+
+		expect(await check({ root })).toBe(true);
+		expect(output()).toContain("awaiting translator  aid description");
+		expect(output()).toContain("de: 1 awaiting translator, 0 new");
+	});
+
+	// End-to-end: extract writes _awaiting.json, translator fixes the drift, check reports stale.
+	it("full extract-fix-check cycle reports stale entries", async () => {
+		// Step 1: English has changed, translation is drifted.
+		buildRoot([move("aid", "New English.")]);
+		writeAuthoring("moves", { aid: { description: { source: "Old English.", text: "Altes Deutsch." } } });
+
+		// Step 2: extract acknowledges the drift.
+		await extract({ lang: "de", root });
+		expect(await check({ root })).toBe(true);
+
+		// Step 3: translator fixes the drift by updating source and text.
+		writeAuthoring("moves", { aid: { description: { source: "New English.", text: "Neues Deutsch." } } });
+
+		// Step 4: check reports the acknowledgement as stale (the translator resolved it).
+		expect(await check({ root })).toBe(true);
+		expect(output()).toContain("resolved");
+		expect(output()).toContain("remove it from _awaiting.json");
 	});
 });
