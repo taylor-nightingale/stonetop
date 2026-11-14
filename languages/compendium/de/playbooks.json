@@ -49,16 +49,18 @@
       "text": "Von Wölfen aufgezogen"
     },
     "backgrounds/raised-by-wolves/description": {
-      "source": "Maybe not by *wolves*, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?\n\nRegardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.\n\nFor some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP.",
-      "text": "Vielleicht waren es keine Wölfe, aber du bist in der Wildnis aufgewachsen. Die Tiere zu Lande und in der Luft waren deine Geschwister. Der seufzende Wind lehrte dich die Sprache. Die Bäume und Felsen waren dein Zuhause. Warst du einer des Waldvolks? Ausgesetzt oder verwaist? Wurdest du in den Wald gelockt?\n\nWie dem auch sei, du erhältst den Spielzug Spurloser Schritt (markiere ihn jetzt). Außerdem hast du einen Vorteil, wenn du **Nahrung suchst**.\n\nAus irgendeinem Grund bist du in Stonetop bekannt geworden und vielleicht nennst du es sogar dein Zuhause. Doch die Sitten der Menschen sind dir noch immer fremd. Einmal pro Sitzung, **wenn deine wilde Art jemanden vor den Kopf stößt oder dazu führt, dass sich jemand von dir abwendet**, markiere EP."
+      "source": "Maybe not by *wolves*, but you grew up in the wild. Beasts of land and air were your siblings. The sighing wind taught you language. The trees and rocks were your home. Were you one of the Forest Folk? Abandoned or orphaned? Lured into the Wood?",
+      "text": "Vielleicht waren es keine Wölfe, aber du bist in der Wildnis aufgewachsen. Die Tiere zu Lande und in der Luft waren deine Geschwister. Der seufzende Wind lehrte dich die Sprache. Die Bäume und Felsen waren dein Zuhause. Warst du einer des Waldvolks? Ausgesetzt oder verwaist? Wurdest du in den Wald gelockt?\n\nWie dem auch sei, du erhältst den Spielzug Spurloser Schritt (markiere ihn jetzt). Außerdem hast du einen Vorteil, wenn du **Nahrung suchst**.\n\nAus irgendeinem Grund bist du in Stonetop bekannt geworden und vielleicht nennst du es sogar dein Zuhause. Doch die Sitten der Menschen sind dir noch immer fremd. Einmal pro Sitzung, **wenn deine wilde Art jemanden vor den Kopf stößt oder dazu führt, dass sich jemand von dir abwendet**, markiere EP.",
+      "needsReview": true
     },
     "backgrounds/vessel/label": {
       "source": "Vessel",
       "text": "Gefäß"
     },
     "backgrounds/vessel/description": {
-      "source": "A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the **Danu's Grasp** move. When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead.",
-      "text": "Ein Same von Danus Macht hat in deiner Seele Wurzeln geschlagen. Vielleicht war er schon immer dort und ist erst vor Kurzem aufgekeimt. Oder vielleicht wurde er während eines folgenschweren Ereignisses in dich eingepflanzt.\n\nWie dem auch sei, deine Träume werden von seltsamen Zeichen und Symbolen heimgesucht. Du spürst die mystische Kraft in Pflanzen, Steinen und der Erde. Und du hast den wachsenden Zorn der Erdmutter gespürt, während sich abscheuliche Dinge in Bewegung setzen. Du erhältst den Spielzug Danus Griff (markiere ihn jetzt).\n\nDanus Macht fließt durch dich, doch zu einem hohen Preis. Wenn du **1 Vorrat aus deinem heiligen Beutel ausgeben würdest**, kannst du stattdessen 2W4 TP verlieren."
+      "source": "A seed of Danu's power has taken root in your soul. Perhaps it has always been there and only recently sprouted. Or maybe it was planted in you during some portentous event. Take the **Danu's Grasp** move.",
+      "text": "Ein Same von Danus Macht hat in deiner Seele Wurzeln geschlagen. Vielleicht war er schon immer dort und ist erst vor Kurzem aufgekeimt. Oder vielleicht wurde er während eines folgenschweren Ereignisses in dich eingepflanzt.\n\nWie dem auch sei, deine Träume werden von seltsamen Zeichen und Symbolen heimgesucht. Du spürst die mystische Kraft in Pflanzen, Steinen und der Erde. Und du hast den wachsenden Zorn der Erdmutter gespürt, während sich abscheuliche Dinge in Bewegung setzen. Du erhältst den Spielzug Danus Griff (markiere ihn jetzt).\n\nDanus Macht fließt durch dich, doch zu einem hohen Preis. Wenn du **1 Vorrat aus deinem heiligen Beutel ausgeben würdest**, kannst du stattdessen 2W4 TP verlieren.",
+      "needsReview": true
     },
     "backgrounds/initiate/choices/enfys/text": {
       "source": "Enfys, your acolyte, beloved by birds",
@@ -407,8 +409,9 @@
       "text": "Das Naturtalent"
     },
     "backgrounds/the-natural/description": {
-      "source": "You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.\n\nSure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.\n\nWhen you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.",
-      "text": "Du bist hier in der Gegend aufgewachsen und hast dir schon immer schnell neue Dinge angeeignet. Lesen und Rechnen, klar und noch vieles mehr. Verstecken spielen. Steine werfen. Klettern. Kämpfen. Was auch immer du ausprobiert hast, du warst gut darin. So gut wie jeder andere, wenn nicht sogar besser.\n\nGewiss, du hast den Ruf, die Regeln zu beugen. Schmutzige Tricks anzuwenden. Aber wozu spielen, wenn man nicht auch gewinnen will? Und zu wem kommen sie, wenn es ein Problem zu lösen gibt? Zu dir natürlich.\n\nWenn du **_Gewissheit erlangst_**, kannst du stattdessen mit +INT statt +WE würfeln und „Welche Gelegenheit sieht sonst niemand?“ zur Liste der möglichen Fragen hinzufügen."
+      "source": "You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.\n\nSure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.",
+      "text": "Du bist hier in der Gegend aufgewachsen und hast dir schon immer schnell neue Dinge angeeignet. Lesen und Rechnen, klar und noch vieles mehr. Verstecken spielen. Steine werfen. Klettern. Kämpfen. Was auch immer du ausprobiert hast, du warst gut darin. So gut wie jeder andere, wenn nicht sogar besser.\n\nGewiss, du hast den Ruf, die Regeln zu beugen. Schmutzige Tricks anzuwenden. Aber wozu spielen, wenn man nicht auch gewinnen will? Und zu wem kommen sie, wenn es ein Problem zu lösen gibt? Zu dir natürlich.\n\nWenn du **_Gewissheit erlangst_**, kannst du stattdessen mit +INT statt +WE würfeln und „Welche Gelegenheit sieht sonst niemand?“ zur Liste der möglichen Fragen hinzufügen.",
+      "needsReview": true
     },
     "backgrounds/a-life-of-crime/label": {
       "source": "A Life of Crime",
@@ -423,8 +426,9 @@
       "text": "Der verloren gelaubte Sohn"
     },
     "backgrounds/the-prodigal-returned/description": {
-      "source": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.\n\nWhen you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.",
-      "text": "Du bist vor langer Zeit fortgegangen, bist weit gereist und hast dich mit Hilfe deines Verstandes durchgeschlagen. Warum bist du gegangen? Mit welchen Taten prahlst du, und welche bereust du?\n\nDu hast dich immer danach gesehnt, nach Stonetop zurückzukehren, und nun bist du wieder da. Inzwischen bist du so etwas wie eine Berühmtheit und hast überall in der bekannten Welt Freunde (oder zumindest Leute, die dir nahestehen).\n\nWenn du **_erklärst, dass du außerhalb von Stonetop jemanden kennst_**, der dir helfen kann, nenne diese Person und würfle +CH. **Bei einer 10+** kann sie dir tatsächlich helfen (sag uns, warum sie dazu bereit ist). **Bei 7–9** kann sie dir helfen, aber wähle eins aus der folgenden Liste. **Bei einer 6-** wählt der SL 1 und zusätzlich noch etwas anderes.\n\n- Sie hegt noch immer einen Groll gegen dich.\n- Sie wird zuerst etwas von dir verlangen.\n- Sie hat solchen Dingen schon vor langer Zeit abgeschworen.\n- Du kannst ihr nicht wirklich, nun ja, vertrauen."
+      "source": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.",
+      "text": "Du bist vor langer Zeit fortgegangen, bist weit gereist und hast dich mit Hilfe deines Verstandes durchgeschlagen. Warum bist du gegangen? Mit welchen Taten prahlst du, und welche bereust du?\n\nDu hast dich immer danach gesehnt, nach Stonetop zurückzukehren, und nun bist du wieder da. Inzwischen bist du so etwas wie eine Berühmtheit und hast überall in der bekannten Welt Freunde (oder zumindest Leute, die dir nahestehen).\n\nWenn du **_erklärst, dass du außerhalb von Stonetop jemanden kennst_**, der dir helfen kann, nenne diese Person und würfle +CH. **Bei einer 10+** kann sie dir tatsächlich helfen (sag uns, warum sie dazu bereit ist). **Bei 7–9** kann sie dir helfen, aber wähle eins aus der folgenden Liste. **Bei einer 6-** wählt der SL 1 und zusätzlich noch etwas anderes.\n\n- Sie hegt noch immer einen Groll gegen dich.\n- Sie wird zuerst etwas von dir verlangen.\n- Sie hat solchen Dingen schon vor langer Zeit abgeschworen.\n- Du kannst ihr nicht wirklich, nun ja, vertrauen.",
+      "needsReview": true
     },
     "choices/tall-tales-beginning/there-was-that-time-you/title": {
       "source": "There Was That Time You…",
@@ -729,16 +733,18 @@
       "text": "Sheriff"
     },
     "backgrounds/sheriff/description": {
-      "source": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.\n\nWhen you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do.",
-      "text": "Du sorgst in Stonetop für Ordnung und schützt den Ort vor Bedrohungen von außerhalb. Es ist vielleicht kein offizielles Amt, aber jeder weiß, dass du einen kühlen Kopf bewahren und deinen Worten Nachdruck verleihen kannst.\n\nWenn du **_einen Befehl oder eine Warnung aussprichst_**, würfle +CH. Bei einer 7+ müssen sie 1 wählen:\n\n- Tun, was du sagst\n- Sich verkriechen/in Deckung gehen/fliehen\n- Dich angreifen\n **Bei einer 10+** kannst du spüren, wofür sie sich entscheiden werden, und, wenn du willst, zuerst handeln. Wenn du das tust, hast du einen Vorteil."
+      "source": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.",
+      "text": "Du sorgst in Stonetop für Ordnung und schützt den Ort vor Bedrohungen von außerhalb. Es ist vielleicht kein offizielles Amt, aber jeder weiß, dass du einen kühlen Kopf bewahren und deinen Worten Nachdruck verleihen kannst.\n\nWenn du **_einen Befehl oder eine Warnung aussprichst_**, würfle +CH. Bei einer 7+ müssen sie 1 wählen:\n\n- Tun, was du sagst\n- Sich verkriechen/in Deckung gehen/fliehen\n- Dich angreifen\n **Bei einer 10+** kannst du spüren, wofür sie sich entscheiden werden, und, wenn du willst, zuerst handeln. Wenn du das tust, hast du einen Vorteil.",
+      "needsReview": true
     },
     "backgrounds/blood-soaked-past/label": {
       "source": "Blood-Soaked Past",
       "text": "Blutige Vergangenheit"
     },
     "backgrounds/blood-soaked-past/description": {
-      "source": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.\n\nWhen you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.\n\nWhen you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage.",
-      "text": "Du hast ein Leben voller Gewalt und einen Namen hinter dir gelassen, mit dem Mütter ihren Kindern Angst machten. Aus welchem Grund auch immer haben die Leute von Stonetop dich (wieder?) aufgenommen und behandeln dich wie einen der ihren.\n\nWenn du **_jemanden, der deinen schlechten Ruf kennt, mit Gewalt oder Drohungen überredest_**, kannst du +ST statt +CH würfeln. Wenn du außerdem den Spielzug Eindrucksvoll wählst, kannst du dich entscheiden, +KO statt +CH zu würfeln.\n\nWenn du **_kämpfst, um ohne Gnade oder Zögern zu töten_**, verursachst du +1W4 Schaden."
+      "source": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.",
+      "text": "Du hast ein Leben voller Gewalt und einen Namen hinter dir gelassen, mit dem Mütter ihren Kindern Angst machten. Aus welchem Grund auch immer haben die Leute von Stonetop dich (wieder?) aufgenommen und behandeln dich wie einen der ihren.\n\nWenn du **_jemanden, der deinen schlechten Ruf kennt, mit Gewalt oder Drohungen überredest_**, kannst du +ST statt +CH würfeln. Wenn du außerdem den Spielzug Eindrucksvoll wählst, kannst du dich entscheiden, +KO statt +CH zu würfeln.\n\nWenn du **_kämpfst, um ohne Gnade oder Zögern zu töten_**, verursachst du +1W4 Schaden.",
+      "needsReview": true
     },
     "backgrounds/storm-marked/label": {
       "source": "Storm-Marked",
@@ -1027,8 +1033,9 @@
       "text": "Vermächtnis"
     },
     "backgrounds/legacy/description": {
-      "source": "You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.\n\nWhen you **_Know Things about the people or history of Stonetop_**, you have advantage.\n\nWhen you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time.",
-      "text": "Du bist der jüngste in einer langen Reihe von Richtern – hier geboren, vom vorherigen Richter ausgebildet und dazu bestimmt, das Amt weiterzuführen. Die Chronik ist ein reichhaltiger Fundus an Überlieferungen, aber es gibt kein Stichwortverzeichnis – viel Glück also bei der Suche.\n\nWenn du **_über die Menschen oder die Geschichte von Stonetop Wissen kundtust_**, hast du einen Vorteil.\n\nWenn du **_Tage, Wochen oder Monate damit verbringst, die Chronik zu studieren_**, stell dem SL eine Frage, und er wird dir sagen, was du in dieser Zeit gelernt hast."
+      "source": "You are the latest in a long line of Judges—born here, apprenticed to the prior Judge, and charged with the passing of the mantle. The Chronicle is a rich repository of lore, but there's no index, so good luck finding anything.",
+      "text": "Du bist der jüngste in einer langen Reihe von Richtern – hier geboren, vom vorherigen Richter ausgebildet und dazu bestimmt, das Amt weiterzuführen. Die Chronik ist ein reichhaltiger Fundus an Überlieferungen, aber es gibt kein Stichwortverzeichnis – viel Glück also bei der Suche.\n\nWenn du **_über die Menschen oder die Geschichte von Stonetop Wissen kundtust_**, hast du einen Vorteil.\n\nWenn du **_Tage, Wochen oder Monate damit verbringst, die Chronik zu studieren_**, stell dem SL eine Frage, und er wird dir sagen, was du in dieser Zeit gelernt hast.",
+      "needsReview": true
     },
     "backgrounds/missionary/label": {
       "source": "Missionary",
@@ -1069,10 +1076,6 @@
     "backgrounds/missionary/choices/unz/text": {
       "source": "Unz (from the Hillfolk)",
       "text": ""
-    },
-    "backgrounds/missionary/choices/you-have-an-aviary-in-addition/text": {
-      "source": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
-      "text": "Zusätzlich zu deiner üblichen Auswahl an besonderen Besitztümern verfügst du über ein Vogelhaus (markiere es jetzt). Wenn du, wie es bei den Richtern deines Ordens üblich ist, **_eine Nachricht mit einem abgerichteten Vogel verschickst_**, teilt dir der SL mit, ob und wann du eine Antwort erhältst und was darin steht."
     },
     "choices/chronicle-plus/the-chronicle/title": {
       "source": "The Chronicle",
@@ -1369,24 +1372,27 @@
       "text": "Verheißungsvolle Geburt"
     },
     "backgrounds/auspicious-birth/description": {
-      "source": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.\n\nWhen **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
-      "text": "Du wurdest in Stonetop geboren, und diese Geburt wurde vom Gott des Lichts gesegnet. Bist du vielleicht während einer Sonnenfinsternis geboren worden oder im Licht eines strahlenden neuen Sterns? Hast du vielleicht ein sonnenförmiges Muttermal?\n\nWas auch immer das Zeichen sein mag, deine Verbindung zu Helior war schon früh offensichtlich. Du nimmst in Stonetop einen Ehrenplatz ein, obwohl es eine Lüge wäre zu behaupten, dass du nicht bei manchen Unbehagen auslöst.\n\nWenn du **_bei einem deiner Spielzüge eine Beeinträchtigung markieren müsstest_**, kannst du stattdessen den Kreis dieses Hintergrunds markieren, ohne dass dies negative Auswirkungen hat. Entferne die Markierung, wenn du ein Lager aufschlägst oder dich Erholst."
+      "source": "You were born in Stonetop, and that birth was marked by the God of Light. You were born during an eclipse, perhaps, or under the light of a bright new star? Maybe you bear a sun-shaped birthmark?\n\nWhatever the sign, your connection to Helior was clear early on. You've a place of honor in Stonetop, though it'd be a lie to say you don't make some uneasy.",
+      "text": "Du wurdest in Stonetop geboren, und diese Geburt wurde vom Gott des Lichts gesegnet. Bist du vielleicht während einer Sonnenfinsternis geboren worden oder im Licht eines strahlenden neuen Sterns? Hast du vielleicht ein sonnenförmiges Muttermal?\n\nWas auch immer das Zeichen sein mag, deine Verbindung zu Helior war schon früh offensichtlich. Du nimmst in Stonetop einen Ehrenplatz ein, obwohl es eine Lüge wäre zu behaupten, dass du nicht bei manchen Unbehagen auslöst.\n\nWenn du **_bei einem deiner Spielzüge eine Beeinträchtigung markieren müsstest_**, kannst du stattdessen den Kreis dieses Hintergrunds markieren, ohne dass dies negative Auswirkungen hat. Entferne die Markierung, wenn du ein Lager aufschlägst oder dich Erholst.",
+      "needsReview": true
     },
     "backgrounds/itinerant-mystic/label": {
       "source": "Itinerant Mystic",
       "text": "Wandernder Mystiker"
     },
     "backgrounds/itinerant-mystic/description": {
-      "source": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.\n\nWhen you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to: return from your wandering exactly when and where you are needed, fully Outfitted; Know Things as if you rolled a 10+; or have What You Need to produce an oddly specific yet mundane item of Value 1 or less.",
-      "text": "Sie halten dich für einen selbstgefälligen Sonderling, der hin und wieder auftaucht, in Rätseln spricht und mit dem Licht herumspielt. Sicher, sie wissen, dass du etwas Heiliges an dir hast, aber du bist ja auch kein Priester oder so. Priester reden vernünftig.\n\nWenn du **_dich auf Wanderschaft begibst_**, erhältst du 1 Rätsel, wenn du tagelang fort bist, 2, wenn du wochenlang fort bist, oder 3, wenn du monatelang fort bist. Zu Beginn des Spiels erhältst du 3 Rätsel. Gib Rätsel im Verhältnis 1:1 aus, um:\n\n- Genau dann und dort von deiner Wanderschaft zurückzukehren, wo du gebraucht wirst, und zwar vollständig ausgerüstet.\n- Wissen kundzutun, als hättest du eine 10+ gewürfelt, und dabei auf das zurückgreifst, was du während deiner Abwesenheit gelernt hast.\n- Zu haben, was du brauchst, um einen seltsam spezifischen, aber alltäglichen Gegenstand mit einem Wert von 1 oder weniger zu beschaffen."
+      "source": "They think of you as a self-important kook who comes through now and again, speaking in riddles and playing tricks with the light. Sure, they know there's something holy about you, but it's not like you're a priest or anything. Priests talk sense.",
+      "text": "Sie halten dich für einen selbstgefälligen Sonderling, der hin und wieder auftaucht, in Rätseln spricht und mit dem Licht herumspielt. Sicher, sie wissen, dass du etwas Heiliges an dir hast, aber du bist ja auch kein Priester oder so. Priester reden vernünftig.\n\nWenn du **_dich auf Wanderschaft begibst_**, erhältst du 1 Rätsel, wenn du tagelang fort bist, 2, wenn du wochenlang fort bist, oder 3, wenn du monatelang fort bist. Zu Beginn des Spiels erhältst du 3 Rätsel. Gib Rätsel im Verhältnis 1:1 aus, um:\n\n- Genau dann und dort von deiner Wanderschaft zurückzukehren, wo du gebraucht wirst, und zwar vollständig ausgerüstet.\n- Wissen kundzutun, als hättest du eine 10+ gewürfelt, und dabei auf das zurückgreifst, was du während deiner Abwesenheit gelernt hast.\n- Zu haben, was du brauchst, um einen seltsam spezifischen, aber alltäglichen Gegenstand mit einem Wert von 1 oder weniger zu beschaffen.",
+      "needsReview": true
     },
     "backgrounds/soul-on-fire/label": {
       "source": "Soul on Fire",
       "text": "Entflammte Seele"
     },
     "backgrounds/soul-on-fire/description": {
-      "source": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.\n\nWhen you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
-      "text": "Einst hast du ein weltliches Leben geführt, erfüllt von Angst und Zweifel, niederen Vergnügungen und kleinlichem Groll. Doch dann geschah etwas. Eine Verletzung, eine Krankheit, eine Begegnung mit dem Tod. Oder einfach ein Moment von so tiefem Elend und so großer Selbstverachtung, dass du dachtest, es könne nicht mehr schlimmer kommen.\n\nDort, in der Dunkelheit, fiel Heliors Licht auf dich. Es entfachte etwas in deiner Seele, richtete dich wieder auf und erfüllte dich mit einem tiefen Gefühl der Bestimmung.\n\nWenn du **_eine Gruppe überredest, indem du Nächstenliebe, Barmherzigkeit und Hoffnung predigst, und eine 7+ würfelst_**, wähle 1 zusätzlich zu dem üblichen Effekt:\n\n- Dein Name und deine Botschaft verbreiten sich. \n- Jemand tritt an dich heran – jetzt oder später –, begierig darauf, mehr zu erfahren."
+      "source": "You once led a worldly life, full of fear and doubt, base pleasures and petty grudges. But something happened. Injury, illness, a brush with death. Or just a moment of such profound misery and self-loathing that you thought you could go no further.\n\nThere, in the dark, Helior's light shined upon you, igniting in your soul, lifting you and filling you with a profound sense of purpose.",
+      "text": "Einst hast du ein weltliches Leben geführt, erfüllt von Angst und Zweifel, niederen Vergnügungen und kleinlichem Groll. Doch dann geschah etwas. Eine Verletzung, eine Krankheit, eine Begegnung mit dem Tod. Oder einfach ein Moment von so tiefem Elend und so großer Selbstverachtung, dass du dachtest, es könne nicht mehr schlimmer kommen.\n\nDort, in der Dunkelheit, fiel Heliors Licht auf dich. Es entfachte etwas in deiner Seele, richtete dich wieder auf und erfüllte dich mit einem tiefen Gefühl der Bestimmung.\n\nWenn du **_eine Gruppe überredest, indem du Nächstenliebe, Barmherzigkeit und Hoffnung predigst, und eine 7+ würfelst_**, wähle 1 zusätzlich zu dem üblichen Effekt:\n\n- Dein Name und deine Botschaft verbreiten sich. \n- Jemand tritt an dich heran – jetzt oder später –, begierig darauf, mehr zu erfahren.",
+      "needsReview": true
     },
     "choices/helior-worship-spread/praise-the-day/title": {
       "source": "Praise the day",
@@ -1719,24 +1725,27 @@
       "text": "Spross"
     },
     "backgrounds/scion/description": {
-      "source": "You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.\n\nYou start with the **Veteran Crew** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew).",
-      "text": "Du bist hier aufgewachsen und stammst aus einer alteingesessenen Familie. Einige der bedeutendsten Namen aus Stonetops Vergangenheit finden sich in deinem Stammbaum. Jeder im Dorf betrachtet deine Autorität als selbstverständlich, und deine Truppe ist eine feste Institution des Ortes.\n\nDu beginnst mit dem Spielzug Veteranentruppe, zusätzlich zu deinen üblichen Spielzügen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Respektiert (zusätzlich zu deiner restlichen Auswahl und denen, die sie durch Veteranentruppe erhalten)."
+      "source": "You grew up here, descended from a long line. Some of the biggest names in Stonetop's past are perched in your family tree. Everyone in the village takes your authority as a given, and your crew is a well-established institution in town.\n\nYou start with the **Veteran Crew** move, in addition to your usual moves. Go mark it now.",
+      "text": "Du bist hier aufgewachsen und stammst aus einer alteingesessenen Familie. Einige der bedeutendsten Namen aus Stonetops Vergangenheit finden sich in deinem Stammbaum. Jeder im Dorf betrachtet deine Autorität als selbstverständlich, und deine Truppe ist eine feste Institution des Ortes.\n\nDu beginnst mit dem Spielzug Veteranentruppe, zusätzlich zu deinen üblichen Spielzügen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Respektiert (zusätzlich zu deiner restlichen Auswahl und denen, die sie durch Veteranentruppe erhalten).",
+      "needsReview": true
     },
     "backgrounds/penitent/label": {
       "source": "Penitent",
       "text": "Büßer"
     },
     "backgrounds/penitent/description": {
-      "source": "Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.\n\nWhen you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.\n\nWhen you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks).",
-      "text": "Bevor du hierherkamst, warst du Anführer einer Bande von Halunken: Banditen, Räuber oder blutige Söldner. Aber etwas hat sich geändert. Ein Moment der Wahrheit veranlasste dich und deine Gefolgsleute – zumindest einige von ihnen -, dieses Leben hinter sich zu lassen. Und aus welchem Grund auch immer haben die Menschen von Stonetop dich aufgenommen.\n\nWenn du **_deine blutige Vergangenheit heranziehst, um Wissen kundzutun_**, darfst du +ST statt +IN würfeln. Wenn du das tust, wird der SL dich fragen, wem du damals Unrecht getan hast oder wer noch einen Groll hegen könnte. Beantworte seine Frage jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Krieger (zusätzlich zu deiner restlichen Auswahl)."
+      "source": "Before you came here, you led a band of ne'er-do-wells: bandits, raiders, or bloody-handed mercenaries. But something changed. A moment of truth led you and your followers—some of them at least—to leave that life behind. And for whatever reason, the people of Stonetop took you in.",
+      "text": "Bevor du hierherkamst, warst du Anführer einer Bande von Halunken: Banditen, Räuber oder blutige Söldner. Aber etwas hat sich geändert. Ein Moment der Wahrheit veranlasste dich und deine Gefolgsleute – zumindest einige von ihnen -, dieses Leben hinter sich zu lassen. Und aus welchem Grund auch immer haben die Menschen von Stonetop dich aufgenommen.\n\nWenn du **_deine blutige Vergangenheit heranziehst, um Wissen kundzutun_**, darfst du +ST statt +IN würfeln. Wenn du das tust, wird der SL dich fragen, wem du damals Unrecht getan hast oder wer noch einen Groll hegen könnte. Beantworte seine Frage jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Krieger (zusätzlich zu deiner restlichen Auswahl).",
+      "needsReview": true
     },
     "backgrounds/luminary/label": {
       "source": "Luminary",
       "text": "Koryphäe"
     },
     "backgrounds/luminary/description": {
-      "source": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.\n\nWhen you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
-      "text": "Du bist eine natürliche Führungspersönlichkeit – deine Worte inspirieren, deine Pläne bringen den Sieg, deine Taten sprechen sich weit und breit herum. Bist du von den Göttern berührt? Fließt uraltes Blut in deinen Adern? Oder bist du einfach der Held, den Stonetop in diesen schwierigen Zeiten braucht?\n\nDu beginnst zusätzlich zu deinen üblichen Spielzügen mit dem Spielzug Wir, die Wenigen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Ergeben (zusätzlich zu deiner restlichen Auswahl)."
+      "source": "You're a natural leader—your words inspire, your plans win the day, your deeds are recounted far and wide. Are you touched by the gods? Does ancient blood flow in your veins? Or are you simply the champion that Stonetop needs in these trying times?\n\nYou start with the **We Happy Few** move, in addition to your usual moves. Go mark it now.",
+      "text": "Du bist eine natürliche Führungspersönlichkeit – deine Worte inspirieren, deine Pläne bringen den Sieg, deine Taten sprechen sich weit und breit herum. Bist du von den Göttern berührt? Fließt uraltes Blut in deinen Adern? Oder bist du einfach der Held, den Stonetop in diesen schwierigen Zeiten braucht?\n\nDu beginnst zusätzlich zu deinen üblichen Spielzügen mit dem Spielzug Wir, die Wenigen. Markiere ihn jetzt.\n\nWenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft Ergeben (zusätzlich zu deiner restlichen Auswahl).",
+      "needsReview": true
     },
     "choices/war-stories-action/war-stories/title": {
       "source": "War stories",
@@ -1989,36 +1998,18 @@
       "text": "Weitgereister Wanderer"
     },
     "backgrounds/wide-wanderer/description": {
-      "source": "You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:\n\n- **Ennis** (from Marshedge)\n- **Shahar** (from Gordin's Delve)\n- **Yannic** (from the Hillfolk)\n- **Tovia** (from Lygos)\n- **Sasca** (from the northern Manmarch)\n\nYou start with the **Mental Map** move. Mark it now.\n\nWhen you *Know Things about the wider world*, you can roll +WIS instead of +INT. When you *arrive somewhere you've visited before* (your call), tell the GM when you were last here, and the GM will tell you how it's changed.",
-      "text": "Du hast einen Großteil der bekannten Welt und vielleicht auch Teile darüber hinaus bereist. Füge der Liste der Nachbarn im Stonetop-Spielbuch jeweils einen der folgenden Einträge hinzu und wähle für jeden ein Merkmal:\n\n- **Ennis** (aus Mooresrand)\n- **Shahar** (aus Gordins Binge)\n- **Yannic** (vom Hügelvolk)\n- **Tovia** (aus Lygos)\n- **Sasca** (aus der nördlichen Grenzmark)\n\nDu geginnst mit dem Spielzug Mentale Landkarte. Markiere ihn jetzt.\n\nWenn du **_über die weite Welt Wissen kundtust_**, kannst du +WE statt +IN würfeln.\n\nWenn du **_an einen Ort gelangst, den du schon einmal besucht hast_** (du entscheidest), sage dem SL, wann du zuletzt hier warst und der SL sagt dir dann, wie sich der Ort seitdem verändert "
+      "source": "You have travelled much of the known world and perhaps parts beyond. Add each of the following to the Neighbors list in the Stonetop playbook, choosing 1 trait for each:\n\n- **Ennis** (from Marshedge)\n- **Shahar** (from Gordin's Delve)\n- **Yannic** (from the Hillfolk)\n- **Tovia** (from Lygos)\n- **Sasca** (from the northern Manmarch)\n\nYou start with the **Mental Map** move. Mark it now.",
+      "text": "Du hast einen Großteil der bekannten Welt und vielleicht auch Teile darüber hinaus bereist. Füge der Liste der Nachbarn im Stonetop-Spielbuch jeweils einen der folgenden Einträge hinzu und wähle für jeden ein Merkmal:\n\n- **Ennis** (aus Mooresrand)\n- **Shahar** (aus Gordins Binge)\n- **Yannic** (vom Hügelvolk)\n- **Tovia** (aus Lygos)\n- **Sasca** (aus der nördlichen Grenzmark)\n\nDu geginnst mit dem Spielzug Mentale Landkarte. Markiere ihn jetzt.\n\nWenn du **_über die weite Welt Wissen kundtust_**, kannst du +WE statt +IN würfeln.\n\nWenn du **_an einen Ort gelangst, den du schon einmal besucht hast_** (du entscheidest), sage dem SL, wann du zuletzt hier warst und der SL sagt dir dann, wie sich der Ort seitdem verändert ",
+      "needsReview": true
     },
     "backgrounds/beast-bonded/label": {
       "source": "Beast-Bonded",
       "text": "Tierverbunden"
     },
     "backgrounds/beast-bonded/description": {
-      "source": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.\n\nWhen you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
-      "text": "Du bist in der Zivilisation aufgewachsen, doch deine Seele ist mit einem wilden Tier verbunden. Du stehst ihm näher als jedem Mann und jeder Frau. Wie kam diese Verbindung zustande? Wie lange ist es her? Wie dem auch sei, du beginnst mit dem Spielzug Tiergefährte. Markiere ihn jetzt.\n\nWenn du **_dich einige Augenblicke lang auf deinen Tiergefährten konzentrierst_**, kannst du jede der unten markierten Aktionen nutzen, unabhängig davon, wie weit ihr voneinander entfernt seid. Markiere auf der 1. Stufe 1 Aktion und anschließend jeweils eine weitere auf der 3., 5., 7. und 9. Stufe."
-    },
-    "backgrounds/beast-bonded/choices/gauge-distance/text": {
-      "source": "Gauge its distance and direction from you",
-      "text": ""
-    },
-    "backgrounds/beast-bonded/choices/call-it-back/text": {
-      "source": "Call it back to your side",
-      "text": ""
-    },
-    "backgrounds/beast-bonded/choices/sense-emotions/text": {
-      "source": "Sense its emotional state",
-      "text": ""
-    },
-    "backgrounds/beast-bonded/choices/impression-of-senses/text": {
-      "source": "Get a brief impression of what it senses",
-      "text": ""
-    },
-    "backgrounds/beast-bonded/choices/lend-strength/text": {
-      "source": "Lend it your strength — lose 1d6 HP, and it regains an equal amount",
-      "text": ""
+      "source": "You grew up civilized, but your soul is bound to a beast of the wild. You're closer to it than to any man or woman. How did this bond come about? How long ago?\n\nRegardless, you start with the **Animal Companion** move. Go mark it now.",
+      "text": "Du bist in der Zivilisation aufgewachsen, doch deine Seele ist mit einem wilden Tier verbunden. Du stehst ihm näher als jedem Mann und jeder Frau. Wie kam diese Verbindung zustande? Wie lange ist es her? Wie dem auch sei, du beginnst mit dem Spielzug Tiergefährte. Markiere ihn jetzt.\n\nWenn du **_dich einige Augenblicke lang auf deinen Tiergefährten konzentrierst_**, kannst du jede der unten markierten Aktionen nutzen, unabhängig davon, wie weit ihr voneinander entfernt seid. Markiere auf der 1. Stufe 1 Aktion und anschließend jeweils eine weitere auf der 3., 5., 7. und 9. Stufe.",
+      "needsReview": true
     },
     "choices/wicked-threat/something-wicked-this-way-comes/title": {
       "source": "Something Wicked This Way Comes",
@@ -2279,40 +2270,48 @@
       "text": ""
     },
     "backgrounds/patriot/choices/major-arcanum/options/hectumel-codex/text": {
-      "source": "The Hec'tumel Codex",
-      "text": "Der Hec'tumel-Kodex"
+      "source": "◇ The Hec'tumel Codex",
+      "text": "Der Hec'tumel-Kodex",
+      "needsReview": true
     },
     "backgrounds/patriot/choices/major-arcanum/options/red-scepter/text": {
-      "source": "The Red Scepter",
-      "text": "Das Rote Zepter"
+      "source": "◇ The Red Scepter",
+      "text": "Das Rote Zepter",
+      "needsReview": true
     },
     "backgrounds/patriot/choices/major-arcanum/options/staff-of-the-lidless-orb/text": {
-      "source": "The Staff of the Lidless Orb",
-      "text": "Der Stab des lidlosen Auges"
+      "source": "◇ The Staff of the Lidless Orb",
+      "text": "Der Stab des lidlosen Auges",
+      "needsReview": true
     },
     "backgrounds/antiquarian/choices/major-arcanum/options/norubas-ice-sphere/text": {
-      "source": "Noruba's Ice Sphere",
-      "text": "Norubas Eissphäre"
+      "source": "◇ Noruba's Ice Sphere",
+      "text": "Norubas Eissphäre",
+      "needsReview": true
     },
     "backgrounds/antiquarian/choices/major-arcanum/options/azure-hand/text": {
-      "source": "The Azure Hand",
-      "text": "Die Azurblaue Hand"
+      "source": "◇ The Azure Hand",
+      "text": "Die Azurblaue Hand",
+      "needsReview": true
     },
     "backgrounds/antiquarian/choices/major-arcanum/options/mindgem/text": {
-      "source": "The Mindgem",
-      "text": "Der Seelenstein"
+      "source": "◇◇ The Mindgem",
+      "text": "Der Seelenstein",
+      "needsReview": true
     },
     "backgrounds/witch-hunter/choices/major-arcanum/options/demonhide-cloak/text": {
-      "source": "The Demonhide Cloak",
-      "text": "Der Dämonenhaut-Umhang"
+      "source": "◇ The Demonhide Cloak",
+      "text": "Der Dämonenhaut-Umhang",
+      "needsReview": true
     },
     "backgrounds/witch-hunter/choices/major-arcanum/options/redwood-effigy/text": {
       "source": "The Redwood Effigy",
       "text": "Das Rotholz-Abbild"
     },
     "backgrounds/witch-hunter/choices/major-arcanum/options/twisted-spear/text": {
-      "source": "The Twisted Spear",
-      "text": "Der gewundene Speer"
+      "source": "◇◇ The Twisted Spear",
+      "text": "Der gewundene Speer",
+      "needsReview": true
     },
     "choices/collection/collection/title": {
       "source": "Collection",
@@ -2553,8 +2552,9 @@
       "text": "Ungestüme Jugend"
     },
     "backgrounds/impetuous-youth/description": {
-      "source": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!\n\nWhen you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks.",
-      "text": "Stonetop war schon immer dein Zuhause, aber die Anforderungen des alltäglichen Lebens engen dich ein, und du hast dich schon immer nach etwas Größerem gesehnt. Aufregung! Gefahr!\n\nWenn du **_einen Spielzug machst und nur knapp scheiterst_**, kannst du alles geben und aus einer 6− eine 7–9, aus einer 7–9 eine 10+ und (falls relevant) aus einer 10–11 eine 12+ machen. Wenn du das tust, wähle eines (der SL bestimmt die Einzelheiten):\n\n- Du wirst verletzt (2W4 Schaden und eine konkrete Verletzung).\n- Sie verursachen Kollateralschäden, gefährden andere oder verschärfen die Situation auf andere Weise.\n- Etwas, das du bei dir trägst, geht verloren oder zerbricht."
+      "source": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!",
+      "text": "Stonetop war schon immer dein Zuhause, aber die Anforderungen des alltäglichen Lebens engen dich ein, und du hast dich schon immer nach etwas Größerem gesehnt. Aufregung! Gefahr!\n\nWenn du **_einen Spielzug machst und nur knapp scheiterst_**, kannst du alles geben und aus einer 6− eine 7–9, aus einer 7–9 eine 10+ und (falls relevant) aus einer 10–11 eine 12+ machen. Wenn du das tust, wähle eines (der SL bestimmt die Einzelheiten):\n\n- Du wirst verletzt (2W4 Schaden und eine konkrete Verletzung).\n- Sie verursachen Kollateralschäden, gefährden andere oder verschärfen die Situation auf andere Weise.\n- Etwas, das du bei dir trägst, geht verloren oder zerbricht.",
+      "needsReview": true
     },
     "backgrounds/driven/label": {
       "source": "Driven",

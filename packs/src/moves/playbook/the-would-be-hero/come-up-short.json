@@ -1,0 +1,12 @@
+{
+  "_id": "y3J52zLHaYQ83D4y",
+  "_key": "!items!y3J52zLHaYQ83D4y",
+  "name": "Come Up Short",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details):\n\n- You get hurt (2d4 damage and an actual injury)\n- You cause collateral damage, endanger others, or otherwise escalate the situation\n- Something on your person is lost or breaks",
+    "slug": "come-up-short"
+  },
+  "folder": "dgktpzqUfX5DWqqE"
+}

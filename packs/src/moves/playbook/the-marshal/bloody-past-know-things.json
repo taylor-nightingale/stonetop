@@ -1,0 +1,13 @@
+{
+  "_id": "y947W89a1LvZmAt3",
+  "_key": "!items!y947W89a1LvZmAt3",
+  "name": "Penitent's Bloody Past",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.",
+    "slug": "bloody-past-know-things",
+    "nameless": true
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
+}
