@@ -1845,25 +1845,9 @@
       "text": "Helden bis zum Schluss"
     },
     "description": {
-      "source": "Each time you take this move, pick 1:",
+      "source": "Each time you take this move, pick 1:\n\n- They are *exceptional* (and roll +2 instead of +1)\n- They are inured to terror & horror\n- Increase their max HP by 4 each\n- Increase their damage die one size (max d10)",
       "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1:\n\n- Sie sind außergewöhnlich (und würfeln +2 statt +1).\n- Sie sind abgehärtet gegen Angst und Schrecken.\n- Erhöhe ihre maximalen TP jeweils um 4.\n- Erhöhe ihren Schadenswürfel um eine Größe (max. W10).",
       "needsReview": true
-    },
-    "choices/exceptional/text": {
-      "source": "They are *exceptional* (and roll +2 instead of +1)",
-      "text": ""
-    },
-    "choices/inured/text": {
-      "source": "They are inured to terror & horror",
-      "text": ""
-    },
-    "choices/increase-hp-4/text": {
-      "source": "Increase their max HP by 4 each",
-      "text": ""
-    },
-    "choices/increase-damage-d10/text": {
-      "source": "Increase their damage die one size (max d10)",
-      "text": ""
     }
   },
   "heroic-reputation": {
@@ -4454,21 +4438,9 @@
       "text": "Veteranentruppe"
     },
     "description": {
-      "source": "Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.",
+      "source": "Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.\n\n- Select 2 new tags for your Crew\n- Increase their damage die from d6 to d8\n- Increase their max HP by 2 each",
       "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1. Du kannst auch ihren Instinkt und ihre Kosten neu wählen.\n\n- Wähle 2 neue Eigenschaften für deine Truppe.\n- Erhöhe ihren Schadenswürfel von W6 auf W8.\n- Erhöhe ihre maximalen TP jeweils um 2.",
       "needsReview": true
-    },
-    "choices/new-tags/text": {
-      "source": "Select 2 new tags for your Crew",
-      "text": ""
-    },
-    "choices/increase-damage-d8/text": {
-      "source": "Increase their max HP by 4 each",
-      "text": ""
-    },
-    "choices/increase-hp-2/text": {
-      "source": "Increase their max HP by 2 each",
-      "text": ""
     }
   },
   "vision-unclouded": {
