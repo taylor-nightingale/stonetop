@@ -5,6 +5,20 @@
 // build every time it runs says nothing new. Acknowledging one here keeps it flagged in the
 // translator's file and printed by the check, while letting genuinely NEW drift be the only thing
 // that goes red.
+import { awaitingPath, writeJson } from "./files.js";
+
+/**
+ * Write `_awaiting.json` so that all currently flagged entries are acknowledged and i18n:check
+ * stays green. Shared by both extract and handoff so the write logic lives in one place.
+ *
+ * @param {Array} flagged  flagged entries from reconciliation results
+ * @param {string} lang
+ * @param {string} root
+ */
+export async function acknowledge(flagged, lang, root) {
+	await writeJson(awaitingPath(lang, root), AwaitingTranslator.fromFlagged(flagged).toJson());
+	console.log(`${awaitingPath(lang, root)}: ${flagged.length} acknowledged, so i18n:check stays green`);
+}
 
 /** One acknowledged entry, addressed the way the check addresses it: pack, document slug, key. */
 export class AwaitingEntry {

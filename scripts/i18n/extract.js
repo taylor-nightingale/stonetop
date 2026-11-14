@@ -12,9 +12,10 @@ import { pathToFileURL } from "url";
 import { englishCatalogForPack } from "./packCatalog.js";
 import { reconcile } from "./reconcile.js";
 import { corpusFor } from "./corpus.js";
-import { TRANSLATED_PACKS, awaitingPath, listLanguages, readJson, writeAuthoring, writeJson } from "./files.js";
+import { TRANSLATED_PACKS, listLanguages, writeAuthoring } from "./files.js";
 import { TAG_PACK, reconcileTagLabels } from "./tagLabels.js";
-import { AwaitingTranslator } from "./awaiting.js";
+import { reconcileUiStrings } from "./uiStrings.js";
+import { acknowledge } from "./awaiting.js";
 import { detail, summarise } from "./report.js";
 
 /** What the corpus pass did, printed once rather than buried per pack. */
@@ -66,19 +67,18 @@ export async function extract({ lang, root = "." } = {}) {
 		for (const line of detail(tags)) console.log(line);
 		results.push(tags);
 
+		// The sheet's own words, which live in languages/<lang>.json rather than in a pack.
+		const ui = await reconcileUiStrings(language, root);
+		console.log(summarise(ui));
+		for (const line of detail(ui)) console.log(line);
+		results.push(ui);
+
 		reportCorpus(settled, compositions);
 
 		// Acknowledge every flagged entry so i18n:check stays green — the authoring files already
-		// carry the `needsReview` / `orphaned` marks, so a human will see them. Merge stale entries
-		// from the existing `_awaiting.json` (those still flagged) with the new flagged entries.
+		// carry the `needsReview` / `orphaned` marks, so a human will see them.
 		const allFlagged = results.flatMap(r => r.flaggedEntries);
-		const existing   = AwaitingTranslator.fromJson(await readJson(awaitingPath(language, root), {}));
-		const stillFlagged = existing.entries.filter(e =>
-			allFlagged.some(f => e.matches(f.pack, f.slug, f.entry.key)));
-		const merged = AwaitingTranslator.fromFlagged(allFlagged);
-		merged.entries.push(...stillFlagged);
-		await writeJson(awaitingPath(language, root), merged.toJson());
-		console.log(`${awaitingPath(language, root)}: ${merged.size} acknowledged, so i18n:check stays green`);
+		await acknowledge(allFlagged, language, root);
 	}
 	return results;
 }
