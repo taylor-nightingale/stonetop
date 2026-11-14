@@ -23,8 +23,8 @@ import { authoringAt, mergeInProgress } from "./mergeTranslations.js";
 import { renamesBetween, schemeAt } from "./rekey.js";
 import { corpusFor } from "./corpus.js";
 import { readPackDocuments } from "./packCatalog.js";
-import { AwaitingTranslator } from "./awaiting.js";
-import { TRANSLATED_PACKS, authoringPath, awaitingPath, languageDir, readAuthoring, writeJson } from "./files.js";
+import { acknowledge } from "./awaiting.js";
+import { TRANSLATED_PACKS, authoringPath, languageDir, readAuthoring } from "./files.js";
 import { TAG_PACK, reconcileTagLabels } from "./tagLabels.js";
 import { UiStringWorklist, reconcileUiStrings } from "./uiStrings.js";
 import { promises as fs } from "fs";
@@ -400,10 +400,9 @@ export async function handoff({ lang = "de", incoming, ours = "HEAD", root = "."
 
 	const document = new TranslatorHandoff(lang, items, conflicts, UiStringWorklist.from(lang, ui));
 	await fs.writeFile(handoffPath(lang, root), document.toMarkdown(), "utf8");
-	await writeJson(awaitingPath(lang, root), AwaitingTranslator.fromFlagged(flagged).toJson());
+	await acknowledge(flagged, lang, root);
 
 	console.log(`${handoffPath(lang, root)}: ${document.reviews.length} to review, ${document.orphans.length} to re-file`);
-	console.log(`${awaitingPath(lang, root)}: ${flagged.length} acknowledged, so i18n:check stays green`);
 	return document;
 }
 

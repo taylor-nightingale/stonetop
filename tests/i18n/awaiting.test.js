@@ -1,5 +1,19 @@
-import { describe, expect, it } from "vitest";
-import { AwaitingEntry, AwaitingTranslator } from "../../scripts/i18n/awaiting.js";
+import { mkdtempSync, rmSync, readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { AwaitingEntry, AwaitingTranslator, acknowledge } from "../../scripts/i18n/awaiting.js";
+
+let root;
+
+beforeEach(() => {
+	root = mkdtempSync(path.join(tmpdir(), "i18n-awaiting-"));
+});
+
+afterEach(() => {
+	if (root) rmSync(root, { recursive: true, force: true });
+	root = undefined;
+});
 
 const flagged = (pack, slug, key) => ({ pack, slug, entry: { key } });
 
@@ -101,5 +115,42 @@ describe("AwaitingTranslator.renamed", () => {
 		const original = awaiting();
 		original.renamed("arcana", renames);
 		expect(original.has("arcana", "mindgem", "front/choices/0/text")).toBe(true);
+	});
+});
+
+describe("acknowledge", () => {
+	let consoleLog;
+
+	beforeEach(() => {
+		consoleLog = vi.spyOn(console, "log");
+	});
+
+	afterEach(() => {
+		consoleLog.mockRestore();
+	});
+
+	it("writes _awaiting.json with flagged entries", async () => {
+		const entries = [flagged("moves", "danus-grasp", "description"), flagged("playbooks", "the-judge", "backgrounds/prophet/description")];
+		await acknowledge(entries, "de", root);
+
+		const content = JSON.parse(readFileSync(path.join(root, "languages/compendium/de/_awaiting.json"), "utf8"));
+		expect(content).toEqual({
+			moves: { "danus-grasp": ["description"] },
+			playbooks: { "the-judge": ["backgrounds/prophet/description"] }
+		});
+	});
+
+	it("writes empty JSON when nothing is flagged", async () => {
+		await acknowledge([], "de", root);
+
+		const content = JSON.parse(readFileSync(path.join(root, "languages/compendium/de/_awaiting.json"), "utf8"));
+		expect(content).toEqual({});
+	});
+
+	it("prints summary line with count", async () => {
+		const entries = [flagged("moves", "danus-grasp", "description")];
+		await acknowledge(entries, "de", root);
+
+		expect(consoleLog).toHaveBeenCalledWith(`${root}/languages/compendium/de/_awaiting.json: 1 acknowledged, so i18n:check stays green`);
 	});
 });
