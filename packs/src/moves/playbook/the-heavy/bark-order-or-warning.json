@@ -1,0 +1,27 @@
+{
+  "_id": "qOeC6TLNOMp9LdCW",
+  "_key": "!items!qOeC6TLNOMp9LdCW",
+  "name": "Bark an Order or Warning",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do.",
+    "moveResults": {
+      "success": {
+        "label": "10+",
+        "value": "They must choose 1. You can sense which one they're about to do and act first if you like; gain advantage if you do"
+      },
+      "partial": {
+        "label": "7-9",
+        "value": "They must choose 1"
+      },
+      "failure": {
+        "label": "6-",
+        "value": "GM Move"
+      }
+    },
+    "rollStat": "cha",
+    "slug": "bark-order-or-warning"
+  },
+  "folder": "QAZ4iqkCm6GtadAu"
+}

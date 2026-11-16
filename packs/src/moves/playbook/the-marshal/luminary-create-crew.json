@@ -1,0 +1,13 @@
+{
+  "_id": "aR0dAtVji9yDXMWv",
+  "_key": "!items!aR0dAtVji9yDXMWv",
+  "name": "Create Your Crew",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
+    "slug": "luminary-create-crew",
+    "nameless": true
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
+}

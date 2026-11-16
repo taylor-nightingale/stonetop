@@ -1,0 +1,13 @@
+{
+  "_id": "KB0Gm7EWJZfxWxUh",
+  "_key": "!items!KB0Gm7EWJZfxWxUh",
+  "name": "The Natural",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.",
+    "slug": "natural-seek-insight",
+    "nameless": true
+  },
+  "folder": "xnEoWIXTKWl4oAJz"
+}

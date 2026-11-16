@@ -1,0 +1,58 @@
+{
+  "playbooks": {
+    "the-blessed": [
+      "backgrounds/raised-by-wolves/description",
+      "backgrounds/vessel/description"
+    ],
+    "the-fox": [
+      "backgrounds/the-natural/description",
+      "backgrounds/the-prodigal-returned/description"
+    ],
+    "the-heavy": [
+      "backgrounds/sheriff/description",
+      "backgrounds/blood-soaked-past/description"
+    ],
+    "the-judge": [
+      "backgrounds/legacy/description"
+    ],
+    "the-lightbearer": [
+      "backgrounds/auspicious-birth/description",
+      "backgrounds/itinerant-mystic/description",
+      "backgrounds/soul-on-fire/description"
+    ],
+    "the-marshal": [
+      "backgrounds/scion/description",
+      "backgrounds/penitent/description",
+      "backgrounds/luminary/description"
+    ],
+    "the-ranger": [
+      "backgrounds/wide-wanderer/description",
+      "backgrounds/beast-bonded/description"
+    ],
+    "the-seeker": [
+      "backgrounds/patriot/choices/major-arcanum/options/hectumel-codex/text",
+      "backgrounds/patriot/choices/major-arcanum/options/red-scepter/text",
+      "backgrounds/patriot/choices/major-arcanum/options/staff-of-the-lidless-orb/text",
+      "backgrounds/antiquarian/choices/major-arcanum/options/norubas-ice-sphere/text",
+      "backgrounds/antiquarian/choices/major-arcanum/options/azure-hand/text",
+      "backgrounds/antiquarian/choices/major-arcanum/options/mindgem/text",
+      "backgrounds/witch-hunter/choices/major-arcanum/options/demonhide-cloak/text",
+      "backgrounds/witch-hunter/choices/major-arcanum/options/twisted-spear/text"
+    ],
+    "the-would-be-hero": [
+      "backgrounds/impetuous-youth/description"
+    ]
+  },
+  "moves": {
+    "destined": [
+      "name",
+      "description"
+    ],
+    "heroes-to-the-last": [
+      "description"
+    ],
+    "veteran-crew": [
+      "description"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_id": "zJpzZD8bLWPXW219",
+  "_key": "!items!zJpzZD8bLWPXW219",
+  "name": "Arrive Somewhere Familiar",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_arrive somewhere you've visited before_** (your call), tell the GM when you were last here, and the GM will tell you how it's changed.",
+    "slug": "arrive-somewhere-familiar",
+    "nameless": true
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
+}

@@ -1,0 +1,13 @@
+{
+  "_id": "Dm8Ox8tz7MRLVmI8",
+  "_key": "!items!Dm8Ox8tz7MRLVmI8",
+  "name": "Life For Stock",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead.",
+    "slug": "spend-stock-hp",
+    "nameless": true
+  },
+  "folder": "twBI9Q4lZycODbDk"
+}

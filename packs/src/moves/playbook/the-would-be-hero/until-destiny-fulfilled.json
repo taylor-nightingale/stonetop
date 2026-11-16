@@ -1,0 +1,13 @@
+{
+  "_id": "jNK38SrEUObzDGXy",
+  "_key": "!items!jNK38SrEUObzDGXy",
+  "name": "Until Destiny Fulfilled",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.",
+    "slug": "until-destiny-fulfilled",
+    "nameless": true
+  },
+  "folder": "dgktpzqUfX5DWqqE"
+}

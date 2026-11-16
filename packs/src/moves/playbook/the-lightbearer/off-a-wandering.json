@@ -1,0 +1,12 @@
+{
+  "_id": "akg8T1n9quawS6i6",
+  "_key": "!items!akg8T1n9quawS6i6",
+  "name": "Off a-Wandering",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to:\n\n- return from your wandering exactly when and where you are needed, fully Outfitted\n- Know Things as if you rolled a 10+\n- have What You Need to produce an oddly specific yet mundane item of Value 1 or less",
+    "slug": "off-a-wandering"
+  },
+  "folder": "iPC15k3PnwMGDZE3"
+}

@@ -1,0 +1,13 @@
+{
+  "_id": "QvGaQHtmqFZrLep9",
+  "_key": "!items!QvGaQHtmqFZrLep9",
+  "name": "Wide Wanderer",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_Know Things about the wider world_**, you can roll +WIS instead of +INT.",
+    "slug": "wide-wanderer-know-things",
+    "nameless": true
+  },
+  "folder": "TOPlmLzP0PF3i9CM"
+}
