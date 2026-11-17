@@ -89,12 +89,58 @@
       {
         "slug": "sheriff",
         "label": "Sheriff",
-        "description": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.\n\nWhen you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do."
+        "description": "You keep order in Stonetop and protect it from outside threats. It might not be anything official, but everyone knows you've got a cool head and the weight to back up your words.",
+				"choices": {
+					"slug": "shefiff",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "bark-order-or-warning",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
       },
       {
         "slug": "blood-soaked-past",
         "label": "Blood-Soaked Past",
-        "description": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.\n\nWhen you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.\n\nWhen you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage."
+        "description": "You left behind a life of violence and a name mothers used to scare their children. For whatever reason, the people of Stonetop took you (back?) in and treat you like one of their own.",
+				"choices": {
+					"slug": "blood-soaked-past",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "blood-soaked-persuade",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						},
+            {
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "fight-to-kill",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
       },
       {
         "slug": "storm-marked",

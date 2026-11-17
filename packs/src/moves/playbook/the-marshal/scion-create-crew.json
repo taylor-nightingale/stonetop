@@ -1,0 +1,13 @@
+{
+  "_id": "ZZ58WIleuMOOCt4y",
+  "_key": "!items!ZZ58WIleuMOOCt4y",
+  "name": "Create Your Crew",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew).",
+    "slug": "scion-create-crew",
+    "nameless": true
+  },
+  "folder": "AFEGaCzrd5eKoPuV"
+}

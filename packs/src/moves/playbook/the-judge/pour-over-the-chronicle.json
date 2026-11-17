@@ -1,0 +1,13 @@
+{
+  "_id": "ocIhJIZ0XyGGGTtl",
+  "_key": "!items!ocIhJIZ0XyGGGTtl",
+  "name": "Pour Over the Chronicle",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time.",
+    "slug": "pour-over-the-chronicle",
+    "nameless": true
+  },
+  "folder": "jISe56pNVdmHJLgu"
+}

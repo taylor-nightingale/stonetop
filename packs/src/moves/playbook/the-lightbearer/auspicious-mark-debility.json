@@ -1,0 +1,13 @@
+{
+  "_id": "dxYktV0UNCBfsTFJ",
+  "_key": "!items!dxYktV0UNCBfsTFJ",
+  "name": "Mark a Debility",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
+    "slug": "auspicious-mark-debility",
+    "nameless": true
+  },
+  "folder": "iPC15k3PnwMGDZE3"
+}

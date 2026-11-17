@@ -1,0 +1,13 @@
+{
+  "_id": "L0RLAJNkN4IWC09D",
+  "_key": "!items!L0RLAJNkN4IWC09D",
+  "name": "Legacy",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_Know Things about the people or history of Stonetop_**, you have advantage.",
+    "slug": "legacy-know-things",
+    "nameless": true
+  },
+  "folder": "jISe56pNVdmHJLgu"
+}

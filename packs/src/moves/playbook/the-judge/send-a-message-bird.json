@@ -1,0 +1,13 @@
+{
+  "_id": "coHgVVJdl0WBNy1h",
+  "_key": "!items!coHgVVJdl0WBNy1h",
+  "name": "Send a Message via Trained Bird",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "You have an aviary in addition to your usual choice of special possessions. When you **_send a message via trained bird_**, the GM will tell you if and when you receive a response, and what it says.",
+    "slug": "send-a-message-bird",
+    "nameless": true
+  },
+  "folder": "jISe56pNVdmHJLgu"
+}

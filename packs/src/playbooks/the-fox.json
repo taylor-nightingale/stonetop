@@ -78,7 +78,24 @@
       {
         "slug": "the-natural",
         "label": "The Natural",
-        "description": "You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.\n\nSure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.\n\nWhen you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions."
+        "description": "You grew up around here, and always picked things up quickly. Reading and numbers, sure, but more. Hide and seek. Throwing stones. Climbing. Fighting. Whatever you tried, you were good at it. As good as anyone else, if not better.\n\nSure, you've got a reputation for bending the rules. Playing dirty. But why play if you don't play to win, right? And who do they come to when there's a problem needs solving? You, that's who.",
+				"choices": {
+					"slug": "the-natural",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "natural-seek-insight",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
       },
       {
         "slug": "a-life-of-crime",
@@ -88,7 +105,24 @@
       {
         "slug": "the-prodigal-returned",
         "label": "The Prodigal Returned",
-        "description": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.\n\nWhen you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some."
+        "description": "You left long ago, travelling far and living by your wits. Why did you leave? What deeds do you boast of, and which do you regret?\n\nYou always longed to return to Stonetop, and return you have. You're a bit of a celebrity now, and you've got friends (or close enough) strewn about the known world.",
+        "choices": {
+					"slug": "the-prodigal-returned",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "know-someone-outside-stonetop",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
       }
     ],
     "specialPossessions": {

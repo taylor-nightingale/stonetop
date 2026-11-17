@@ -93,7 +93,24 @@
       {
         "slug": "impetuous-youth",
         "label": "Impetuous Youth",
-        "description": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!\n\nWhen you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details): you get hurt (2d4 damage and an actual injury); you cause collateral damage, endanger others, or otherwise escalate the situation; or something on your person is lost or breaks."
+        "description": "Stonetop has always been home, but you chafe at the demands of mundane life and have always longed for more. Excitement! Danger!",
+        "choices": {
+					"slug": "impetuous-youth",
+					"list": [
+						{
+							"type": "entry",
+							"grants": [
+								{
+									"type": "move",
+									"slug": "come-up-short",
+									"locations": [
+										"inline"
+									]
+								}
+							]
+						}
+					]
+				}
       },
       {
         "slug": "driven",
@@ -334,6 +351,18 @@
                 {
                   "type": "move",
                   "slug": "destined",
+                  "locations": [
+                    "inline"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entry",
+              "grants": [
+                {
+                  "type": "move",
+                  "slug": "until-destiny-fulfilled",
                   "locations": [
                     "inline"
                   ]

@@ -1,0 +1,13 @@
+{
+  "_id": "tVHjPb6WmJsHT3s0",
+  "_key": "!items!tVHjPb6WmJsHT3s0",
+  "name": "Persuade a Group",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
+    "slug": "persuade-a-group",
+    "nameless": true
+  },
+  "folder": "iPC15k3PnwMGDZE3"
+}

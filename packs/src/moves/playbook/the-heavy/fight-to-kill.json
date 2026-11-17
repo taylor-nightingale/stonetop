@@ -1,0 +1,13 @@
+{
+  "_id": "xbvLXd8TUUeudPIJ",
+  "_key": "!items!xbvLXd8TUUeudPIJ",
+  "name": "Fight to Kill",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "When you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage.",
+    "slug": "fight-to-kill",
+    "nameless": true
+  },
+  "folder": "QAZ4iqkCm6GtadAu"
+}

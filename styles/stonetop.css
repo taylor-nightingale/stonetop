@@ -9757,8 +9757,9 @@ button.stonetop-xp-toggle {
 	display: none;
 }
 
-/* The caret turns when the card is open — the same disclosure affordance the move rows use. */
-.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-open .stonetop-move-caret {
+/* The caret turns when the card is open — the same disclosure affordance the move rows use.
+   Target only the card's own disclosure button, not nested move rows inside the card body. */
+.stonetop.sheet:is(.steading, .improvement) .steading-improvement-card.is-open > .steading-improvement-header .stonetop-move-caret {
 	transform: rotate(90deg);
 }
 

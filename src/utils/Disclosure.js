@@ -28,8 +28,12 @@ export class Disclosure {
 
 	/** The disclosure a toggle button drives, or null when the button controls nothing. */
 	static from(toggle) {
-		const body = toggle?.getAttribute?.("aria-controls")
-			&& toggle.ownerDocument?.getElementById(toggle.getAttribute("aria-controls"));
+		const id = toggle?.getAttribute?.("aria-controls");
+		if (!id) return null;
+		// Scope the lookup to the button's disclosure row so that two tabs rendering the same move
+		// with the same id each find their own body, not the other tab's.
+		const scope = toggle.closest(Disclosure.ROW) ?? toggle.ownerDocument;
+		const body = scope.querySelector(`#${CSS.escape(id)}`);
 		return body ? new Disclosure(toggle, body) : null;
 	}
 

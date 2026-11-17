@@ -14,6 +14,8 @@ import { reconcile } from "./reconcile.js";
 import { corpusFor } from "./corpus.js";
 import { TRANSLATED_PACKS, listLanguages, writeAuthoring } from "./files.js";
 import { TAG_PACK, reconcileTagLabels } from "./tagLabels.js";
+import { reconcileUiStrings } from "./uiStrings.js";
+import { acknowledge } from "./awaiting.js";
 import { detail, summarise } from "./report.js";
 
 /** What the corpus pass did, printed once rather than buried per pack. */
@@ -65,7 +67,18 @@ export async function extract({ lang, root = "." } = {}) {
 		for (const line of detail(tags)) console.log(line);
 		results.push(tags);
 
+		// The sheet's own words, which live in languages/<lang>.json rather than in a pack.
+		const ui = await reconcileUiStrings(language, root);
+		console.log(summarise(ui));
+		for (const line of detail(ui)) console.log(line);
+		results.push(ui);
+
 		reportCorpus(settled, compositions);
+
+		// Acknowledge every flagged entry so i18n:check stays green — the authoring files already
+		// carry the `needsReview` / `orphaned` marks, so a human will see them.
+		const allFlagged = results.flatMap(r => r.flaggedEntries);
+		await acknowledge(allFlagged, language, root);
 	}
 	return results;
 }

@@ -1,0 +1,13 @@
+{
+  "_id": "YcNrWj9WgeVQHktP",
+  "_key": "!items!YcNrWj9WgeVQHktP",
+  "name": "Wild Ways",
+  "type": "move",
+  "system": {
+    "moveType": null,
+    "description": "For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP.",
+    "slug": "wild-ways-offend",
+    "nameless": true
+  },
+  "folder": "twBI9Q4lZycODbDk"
+}
