@@ -228,7 +228,7 @@
     },
     "front/item/note": {
       "source": "+1 damage, 1 piercing",
-      "text": ""
+      "text": "+1 Schaden, Durchdringung 1"
     },
     "front/choices/blood-quenched-sword/an-ancient-blade-of-deep-red/text": {
       "source": "An ancient blade of deep red bronze, its pommel etched with symbols like those that the Hillfolk use to decorate their drinking horns. It thrums in its scabbard, wanting nothing more than to be drawn and to burn like a fire, quenching itself in the blood of foes.",
