@@ -2,23 +2,23 @@
   "adept": {
     "name": {
       "source": "Adept",
-      "text": ""
+      "text": "Adept"
     },
     "armor": {
       "source": "2 (toughness, skill)",
-      "text": ""
+      "text": "2 (Zähigkeit, Geschick)"
     },
     "damage": {
       "source": "freezing touch or aura d8 (_hand_ or _reach_, _area_, ignores armor)",
-      "text": ""
+      "text": "gefrierende Berührung oder Aura d8 (_Hand_ oder _Lang_, _Bereich_, ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "cold-proof; spirit sight; no longer ages; needs little food/drink/ sleep; powerful will",
-      "text": ""
+      "text": "kälteresistent; Geistersicht; altert nicht mehr; braucht wenig Essen/Trinken/Schlaf; starker Wille"
     },
     "moves": {
       "source": "- Send their mind forth into the spirit world, their bodies in stasis\n- Reveal a teaching/technique of the Rime Lords\n- 1-4 additional moves (next page)",
-      "text": ""
+      "text": "- Schicke deinen Geist in die Geisterwelt und wãhrend dein Körper in Stasis verharrt\n- Enthülle eine Lehre/Technik der Frostfürsten\n- 1-4 zusätzliche Spielzüge (siehe unten)"
     },
     "description": {
       "source": "The Rime Lords taught that the self could be perfected. That the needs and frailties of the body could be purged. That the mind could free itself of the flesh and know the unseen world of spirits and fundamental forces. That the will could conquer all. The goal was nothing short of immortality, the preservation of the perfect self. For most of the Rime Lords’ mortal disciples, these teachings did little more than strengthen the body and clear the mind. But for some—the adepts—these teachings unlocked a fragment of their masters’ power. Rivalries were fierce among the adepts even when the Rime Lords walked the land. When the last Rime Lords disappeared, these rivalries flourished into schisms, sects, and violent purges. Some of the adepts fell. Others went into hiding. Still others passed their knowledge on, building schools and monasteries around them. To create an adept, start with the stats above. Pick or roll for an instinct and 1-4 moves to represent their capabilities.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -330,7 +330,7 @@
   "base-archon": {
     "name": {
       "source": "Base archon",
-      "text": ""
+      "text": "Basis-Archon"
     },
     "armor": {
       "source": "5 (resilience, lacks vitals), 1 vs. black iron",
@@ -338,11 +338,11 @@
     },
     "damage": {
       "source": "physical blows d12+3 w/advantage (_close_, _reach_, _forceful_)",
-      "text": ""
+      "text": "physische Hiebe d12+3 mit Vorteil (_Kurz_, _Lang_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "ageless, immune to the elements, perceives thought and matter, omnilingual",
-      "text": ""
+      "text": "alterslos; immun gegen Elemente; nimmt Gedanken und Materie wahr; versteht alle Sprachen"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers} (Book p.298-313)",
@@ -350,7 +350,7 @@
     },
     "instinct/selected/per-its-purpose-1d12-purpose-to-seek-out-and-destroy-to-find-judge-and-punish-3-4-to-capture-retrieve-5-6-to-warn-castigate-correct-7-12-to-stand-watch-and-protect": {
       "source": "per its purpose 1d12 purpose To seek out and destroy To find, judge, and punish 3-4 To capture/retrieve 5-6 To warn/castigate/correct 7-12 To stand watch and protect",
-      "text": ""
+      "text": "entsprechend seinem Zweck 1W12: 1 Aufspüren und vernichten; 2 Finden, richten und bestrafen; 3-4 Einfangen / Zurückholen; 5-6 Warnen / Zurechtweisen / Korrigieren; 7-12 Wachen und beschützen"
     }
   },
   "beznpol": {
@@ -1170,7 +1170,7 @@
   "desperate-souls": {
     "name": {
       "source": "Desperate souls",
-      "text": ""
+      "text": "Verzweifelte Seelen"
     },
     "armor": {
       "source": "0",
@@ -1178,11 +1178,11 @@
     },
     "damage": {
       "source": "brick, makeshift club, rusty knife d6 (_hand_, _crude_)",
-      "text": ""
+      "text": "Ziegelstein, provisorischer Knüppel, rostiges Messer d6 (Hand, Primitiv)"
     },
     "moves": {
       "source": "- Do something unsavory, if there’s food or coin in it\n- Tell someone what they think they want to hear\n- Demonstrate their humanity in a small—or sometimes enormous—way",
-      "text": ""
+      "text": "- Tue etwas Antstößiges wenn es um Essen oder Geld geht\n- Sage jemanden, was dieser deiner Meinung nach hören will\n- Stelle deine Menschlichkeit im Kleinen — oder manchmal auch im Großen — unter Beweis"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.93L1wwoxn0M4ANCL]{Gordin's Delve} (Book p.190-199)",
@@ -1190,7 +1190,7 @@
     },
     "instinct/selected/to-do-what-they-must": {
       "source": "to do what they must",
-      "text": ""
+      "text": "zu tun, was sie tun müssen"
     }
   },
   "dialeddwr": {
@@ -1256,23 +1256,23 @@
   "draventao": {
     "name": {
       "source": "Draventao",
-      "text": ""
+      "text": "Draventao"
     },
     "armor": {
       "source": "4 (scales, steel plates)",
-      "text": ""
+      "text": "4 (Schuppen, Stahlplatten)"
     },
     "damage": {
       "source": "bite d12+3 w/ advantage (_close_, _reach_, _forceful_, _messy_, _grabby_, 1 piercing)",
-      "text": ""
+      "text": "Biss d12+3 mit Vorteil (_Kurz_, _Lang_, _Wuchtig_, _Brutal_, _Fesselnd_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "fireproof, bestial intellect, slumbers for years at a time",
-      "text": ""
+      "text": "Feuerresistent, tierischer Verstand, schläft jahrelang am Stück"
     },
     "moves": {
       "source": "- Lure or drive intruders into a trap\n- Attack with sudden, terrible ferocity that makes even stout hearts falter\n- Suck in air, stoking its inner flames\n- Breath sticky fire, d10+3 damage (near, area, grabby, messy, reload, ignores armor)",
-      "text": ""
+      "text": "- Locke Eindringlinge in eine Falle oder treibe sie hinein\n- Greife mit plötzlicher, schrecklicher Wildheit an, die selbst die Tapfersten erzittern lässt\n- Sau­ge Luft ein und fache deine inneren Flammen an\n- Speie klebriges Feuer W10+3 Schaden (_Nah_, _Bereich_, _Fesselnd_, _Brutal_, _Nachladen_, ignoriert Rüstung)"
     },
     "description": {
       "source": "Picture a long and sinuous beast with serpentine scales, curled upon a pile of treasure, covered in a layer of long-cold soot or ash. Bits of rusted steel protrude from its flesh. Smoke drifts lazily from its nostrils. Charred and jagged teeth poke out from its sneering lips. An eye snaps open. It fixes you with a glare like a red-hot coal. Hard to believe that this thing, this beast, was once a Maker. But it was. It was. A draventao is what remains of a Forge Lord. It survived the Time of Cataclysm (page 413), when its rivals moved against it, when its allies betrayed it, when even its loved ones came for it in the dark. It survived by Changing, by letting its inner fire burn until its heart was a blackened coal of wrath. It shed its once-beautiful form. It forced its servants to bolt living metal onto its now-twisted flesh and bones. Then it ate those servants.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.7CqkDvDTCiCWTus2]{Forge Lords} (Book p.156-171)",
@@ -1280,29 +1280,29 @@
     },
     "instinct/selected/to-protect-itself-and-its-hoard-from-threats-real-or-imagined": {
       "source": "to protect itself and its hoard, from threats real or imagined",
-      "text": ""
+      "text": "sich selbst und seinen Hort vor tatsächlichen oder eingebildeten Bedrohungen schützen"
     }
   },
   "earth-vortex": {
     "name": {
       "source": "Earth vortex",
-      "text": ""
+      "text": "Erdwirbel"
     },
     "armor": {
       "source": "by HP, +1 (made of rock)",
-      "text": ""
+      "text": "abhängig von TP, +1 (aus Fels)"
     },
     "damage": {
       "source": "smash (damage and tags by HP)",
-      "text": ""
+      "text": "Zerschmettern (Schaden und Eigenschaften abhängig von TP)"
     },
     "specialQuality": {
       "source": "half damage from stabbing or slashing weapons (unless magical)",
-      "text": ""
+      "text": "halber Schaden durch Stich- oder Hiebwaffen (sofern nicht magisch)"
     },
     "moves": {
       "source": "- Manifest a churning mass out of nearby earth, sand, and rocks\n- Pin a smaller foe (+grabby)\n- Grind a pinned foe, dealing damage w/advantage (+messy)\n- Ruin a sturdy object or structure (costs 1d4 HP)\n- Shake the earth (+area, +forceful, one range greater than normal; costs 1d4 HP)",
-      "text": ""
+      "text": "- Erschaffe aus Erde, Sand und Steinen in deiner Nähe eine wirbelnde Masse\n- Halte einen kleineren Gegner fest (+_Fesselnd_)\n- Zermahle einen festgehaltenen Gegner und füge ihm mit Vorteil Schaden zu (+_Brutal_)\n- Zerstöre einen stabilen Gegenstand oder ein Bauwerk (kostet 1W4 TP)\n- Erschüttere die Erde (+_Bereich_, +_Wuchtig_, eine Reichweitenstufe größer als üblich; kostet 1W4 TP)"
     },
     "description": {
       "source": "An earth matrix absorbs power from pressure, blunt force, and seismic activity. It gains 1d4 HP from a week buried under earth or stone, from being at the bottom of a rockslide or cave-in, or from touching the ground during a major earthquake (not one it created). When you strike an earth matrix with a bludgeoning attack, it takes no damage. If the blow was forceful and its vortex has 10 HP or less, it gains 1 HP. (The vortex itself has no such immunities, smash away!)\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
@@ -1310,7 +1310,7 @@
     },
     "instinct/selected/to-topple-and-undermine": {
       "source": "to topple and undermine",
-      "text": ""
+      "text": "umzustürzen und zu untergraben"
     }
   },
   "fadyn": {
@@ -1346,7 +1346,7 @@
   "false-adept": {
     "name": {
       "source": "False adept",
-      "text": ""
+      "text": "Falscher Adept"
     },
     "armor": {
       "source": "1 (lacks organs)",
@@ -1354,15 +1354,15 @@
     },
     "damage": {
       "source": "life-draining touch d8 (_hand_, ignores armor)",
-      "text": ""
+      "text": "lebensentziehende Berührung W8 (Hand, ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "tethered to some object; telepathic; powerful will",
-      "text": ""
+      "text": "an ein Objekt gebunden; telepathisch; starker Wille"
     },
     "moves": {
       "source": "- Attract followers with promises of greatness, easily achieved\n- Eat away at someone’s emotions/ memories/will\n- Possess a follower (or one’s corpse)\n- Siphon a follower’s lifeforce to mimic some art of the Rime Lords",
-      "text": ""
+      "text": "- Gewinne Anhänger mit Versprechen von Größe, die leicht zu erreichen scheint\n- Zehre an den Gefühlen, Erinnerungen oder am Willen eines anderen\n- Ergreife Besitz von einem Anhänger (oder dessen Leichnam)\n- Zapfe die Lebenskraft eines Anhängers an, um eine Kunst der Frostfürsten nachzuahmen"
     },
     "description": {
       "source": "Some who practice the Rime Lord’s teachings push themselves beyond their limits. Their bodies fail but they become rage-filled specters (page 79) or ever-hungry wraiths (page 79). The Rime Lords had many techniques for dealing with such abominations. Imagine, though, an adept who saw their body and their life as a resource to expend rather than a liability to overcome. One who burned health and vitality to empower their practice. One who saw vast, unused potential in those around them. Such an adept might deliberately sever their mind and spirit from their body and gather a herd of followers (victims) around them, to serve as fuel for their mighty arts.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -1370,7 +1370,7 @@
     },
     "instinct/selected/to-amass-more-followers-more-power": {
       "source": "to amass more followers, more power",
-      "text": ""
+      "text": "weitere Anhänger, weitere Macht anzuhäufen"
     }
   },
   "fanatic": {
@@ -1544,23 +1544,23 @@
   "fire-vortex": {
     "name": {
       "source": "Fire vortex",
-      "text": ""
+      "text": "Feuerwirbel"
     },
     "armor": {
       "source": "by HP",
-      "text": ""
+      "text": "abhängig von TP"
     },
     "damage": {
       "source": "flames & fire (damage and tags by HP, +_dangerous_)",
-      "text": ""
+      "text": "Feuer & Flammen (Schaden und Eigenschaften abhängig von TP, +_Gefährlich_)"
     },
     "specialQuality": {
       "source": "fireproof; harmed only by magical attacks, water, or smothering",
-      "text": ""
+      "text": "feuerressisten; kann nur durch magische Angriffe, Wasser oder Erstickung verletzt werden"
     },
     "moves": {
       "source": "- Set nearby combustibles alight\n- Manifest a vortex out of nearby fire, cinder, smoke, and ash\n- Extinguish fires, absorbing their power (near, area)\n- Engulf a smaller foe (+messy, +ignores armor)\n- Fling flames (+near; costs 1d4 HP)\n- Leap across a barrier (but lose 1d4 HP)",
-      "text": ""
+      "text": "- Entzünde brennbare Gegenstände in deiner Nähe\n- Erschaffe aus Feuer, Glut, Rauch und Asche in deiner Nähe einen Wirbel\n- Lösche Feuer und absorbiere ihre Kraft (_Nah_, _Bereich_)\n- Hülle einen kleineren Gegner in Flammen ein (+_Brutal_, +ignoriert Rüstung).\n- Schleudere Flammen (+_Nah_; kostet 1W4 TP).\n- Springe über ein Hindernis hinweg (verliere dabei jedoch 1W4 TP)"
     },
     "description": {
       "source": "A fire vortex absorbs power from heat and flames. It gains 1d4 HP by spending a day in an oven or an hour in a forge or kiln, or by absorbing a raging fire. When you target a fire vortex or its matrix with magical fire or heat, it takes no damage. If the vortex has 18 HP or less, it gains 1d4 HP instead.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
@@ -1568,7 +1568,7 @@
     },
     "instinct/selected/to-consume": {
       "source": "to consume",
-      "text": ""
+      "text": "zu verzehren"
     }
   },
   "frythanc": {
@@ -1634,23 +1634,23 @@
   "fundamental": {
     "name": {
       "source": "Fundamental",
-      "text": ""
+      "text": "Fundamentale Kraft"
     },
     "armor": {
       "source": "1 (lacks vitals), harmed only by black iron",
-      "text": ""
+      "text": "1 (keine lebenswichtigen Organe), nur durch schwarzes Eisen zu verletzen"
     },
     "damage": {
       "source": "destructive touch 1d10 w/advantage (_hand_, _grabby_, ignores armor)",
-      "text": ""
+      "text": "zerstörerische Berührung d10 mit Vorteil (_Hand_, _Fesselnd_, ignoriert Rüstung)"
     },
     "moves": {
       "source": "- Manifest in the proper conditions\n- Communicate poorly\n- Burden with incomprehensible knowledge (page 310)\n- Refuse to cooperate\n- Manipulate/manifest its element, locally and dramatically",
-      "text": ""
+      "text": "- Manifestiere unter den richtigen Bedingungen\n- Kommuniziere unzureichend oder unverständlich\n- Belaste mit unbegreiflichen Wissen (Seite 310)\n- Verweigere die Zusammenarbeit\n- Manipuliere / manifestiere dein Element, lokal und dramatisch"
     },
     "description": {
       "source": "These are spirits (page 358) of fundamental forces, far removed from mortal concerns. They are active only near sites of primordial power and uncontrolled rifts (page 311), or when called forth by powerful, dangerous magic.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers} (Book p.298-313)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte} (Buch II S. 298-313)"
+      "text": "Dies sind Geister fundamentaler Kräfte, weit entfernt von sterblichen Belangen. Sie werden nur an Orten urzeitlicher Macht und in instabilen Rissen aktiv oder wenn sie durch mächtige, gefährliche Magie herbeigerufen werden.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte} (Buch II S. 298-313)"
     },
     "instinct/selected/see-below": {
       "source": "see below",
@@ -1690,23 +1690,23 @@
   "gingkara": {
     "name": {
       "source": "Gingkara",
-      "text": ""
+      "text": "Gingkara"
     },
     "armor": {
       "source": "1 (lacks organs) or 4 vs. stabbing (just bones)",
-      "text": ""
+      "text": "1 (keine Organe) oder 4 gegen Stichangriffe (nur Knochen)"
     },
     "damage": {
       "source": "bony fingers d4 (_hand_, _grabby_)",
-      "text": ""
+      "text": "knöcherne Finger d4 (_Hand_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "tethered to one specific bone",
-      "text": ""
+      "text": "an einen bestimmten Knochen gebunden"
     },
     "moves": {
       "source": "- Animate its particular skeleton\n- Grab on and pull them down with numbers\n- Reassemble themselves (regaining 1d4 HP), unless their tether is shattered",
-      "text": ""
+      "text": "- Belebe dein spezielles Skelett\n- Packe sie mit zahlenmäßiger Überlegenheit und reiße sie zu Boden\n- Setze dich wieder zusammen (erhalten 1W4 TP zurück), sofern deine Bindung nicht zerstört wurde"
     },
     "description": {
       "source": "Some of the simplest tulpas to create, each of these spirits is bound to a skeleton that’s been stripped of flesh and intricately carved. The Rime Lords and their disciples used them as domestic servants, tending to material needs and serving as guardians when needed. Gingkara still attempt to preserve their master’s homes, for what else should they do with their existence?\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -1714,7 +1714,7 @@
     },
     "instinct/selected/to-keep-their-masters-house-in-order": {
       "source": "to keep their master’s house in order",
-      "text": ""
+      "text": "das Haus seines Meisters in Ordnung zu halten"
     }
   },
   "glasbren": {
@@ -1948,7 +1948,7 @@
   "hand-of-daagon": {
     "name": {
       "source": "Hand of Daagon",
-      "text": ""
+      "text": "Hand des Daagon"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. bronze",
@@ -1956,15 +1956,15 @@
     },
     "damage": {
       "source": "many hands d12+1 (_hand_, _close_, _grabby_, ignores armor)",
-      "text": ""
+      "text": "viele Hände d12+1 (_Hand_, _Kurz_, _Fesselnd_, ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "blind; tremorsense; reaches through matter like it was water",
-      "text": ""
+      "text": "blind; Erschütterungssinn; durchdringt Materie als wäre sie Wasser"
     },
     "moves": {
       "source": "- Sink into the stone, or emerge from it\n- Provoke abject revulsion\n- Reach through armor, clothing, flesh, bone to take what is most valued\n- Retreat with its prize, back to the water",
-      "text": ""
+      "text": "- Versickre im Stein oder tauche aus ihm hervor\n- Rufe abgrundtiefe Abscheu hervor\n- Greife durch Rüstung, Kleidung, Fleisch und Knochen hindurch, um das Wertvollste an dich zu nehmen\n- Zieh dich mit deiner Beute ins Wasser zurück"
     },
     "description": {
       "source": "In a deep deep cave, where light has never shined, there is a lake. In that lake, there is a Mouth of Daagon: ever-hungry, ever-greedy, consuming all that it is offered. And in the caverns around that lake? There you will find the Hand: ever-groping, ever-grasping, dragging all it finds of value back to the Mouth.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
@@ -1972,7 +1972,7 @@
     },
     "instinct/selected/to-feed-the-mouth": {
       "source": "to feed the Mouth",
-      "text": ""
+      "text": "das Maul zu füttern"
     }
   },
   "hdour": {
@@ -2314,23 +2314,23 @@
   "khyagseng": {
     "name": {
       "source": "Khyagseng",
-      "text": ""
+      "text": "Khyagseng"
     },
     "armor": {
       "source": "2 (icy \"skin,\" lacks organs)",
-      "text": ""
+      "text": "2 (eisige \"Haut\", keine Organe)"
     },
     "damage": {
       "source": "icy jaws and paws d8+2 with advantage (_hand_, _close_, _grabby_, _forceful_)",
-      "text": ""
+      "text": "eisige Kiefer und Pranken d8+2 mit Vorteil (_Hand_, _Kurz_, _Fesselnd_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "tethered to its pedestal; body made of dark ice; cold-proof",
-      "text": ""
+      "text": "an seinen Sockel gebunden; Körper aus dunklem Eis; kälteresistent"
     },
     "moves": {
       "source": "- See through illusions and deceptions\n- Offer a rumbling (though polite) warning\n- Repair itself while on its pedestal",
-      "text": ""
+      "text": "- Durchschaue Illusionen und Täuschungen\n- Sprich eine grollende (wenn auch höfliche) Warnung aus\n- Repariere dich selbst, während du auf deinem Sockel stehst"
     },
     "description": {
       "source": "These tulpas inhabit dark-ice sculptures of three-eyed, stylized lions—muscular, proud, fierce—standing atop decorated pedestals. Always found in pairs, guarding doorways or thresholds. They dutifully challenge any who approach without an invitation from their master. Never mind that their masters are all long gone. Some of the grander Rime Lord ruins boast large khyagseng made of dark ice that is strong as stone (+8 HP, +1 Armor, +1 damage). These greater guardians can also unleash a thunderous roar, deafening and terrifying, likely to trigger avalanches.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -2338,7 +2338,7 @@
     },
     "instinct/selected/to-repel-intruders": {
       "source": "to repel intruders",
-      "text": ""
+      "text": "Eindringlinge abzuwehren"
     }
   },
   "klezln": {
@@ -2482,41 +2482,41 @@
   "lightning-sconce": {
     "name": {
       "source": "Lightning sconce",
-      "text": ""
+      "text": "Blitzwandleuchter"
     },
     "armor": {
       "source": "4 (tiny, metal fittings, made of crystal)",
-      "text": ""
+      "text": "4 (_Winzig_, _Metallfassung_, aus Kristall gefertigt)"
     },
     "damage": {
       "source": "lightning 1d6+2 (_near_, _forceful_, _reload_, ignores armor) A glowing gem, set in a fixture of aetherium. Found in pairs, or sets of up to six. Each set is keyed to something (a pass phrase, a hand signal, a color of robes, a style of locket, etc.). Get too close without the key, and _zzzolt_, they start blasting.",
-      "text": ""
+      "text": "Blitz d6+2 (_Nah_, _Wuchtig_, _Nachladen_, ignoriert Rüstung)"
     },
     "description": {
       "source": "Source: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{The Ruined Tower} (Book p.332-349)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{Turmruine} (Buch II S. 332-349)"
+      "text": "Ein leuchtender Edelstein, eingefasst in eine Fassung aus Ätherium. Sie treten paarweise oder in Gruppen von bis zu sechs auf. Jede Gruppe ist mit einem Schlüssel versehen (eine Parole, ein Handzeichen, eine Farbe des Gewandes, eine Art Medaillon usw.). Wer sich ihnen ohne diesen Schlüssel nähert, hört ein scharfes Zzzapp! – und die Edelsteine entladen ihre tödlichen Blitze.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.Dp02ChmHXxEwVD75]{Turmruine} (Buch II S. 332-349)"
     }
   },
   "lightning-vortex": {
     "name": {
       "source": "Lightning vortex",
-      "text": ""
+      "text": "Blitzwirbel"
     },
     "armor": {
       "source": "by HP",
-      "text": ""
+      "text": "abhängig von TP"
     },
     "damage": {
       "source": "zap (damage and tags by HP)",
-      "text": ""
+      "text": "Stromschlag (Schaden und Eigenschaften abhängig von TP)"
     },
     "specialQuality": {
       "source": "flies; harmed only by magical attacks",
-      "text": ""
+      "text": "fliegt; kann nur durch magische Waffen verletzt werden"
     },
     "moves": {
       "source": "- Manifest a crackling pillar of lightning\n- Change position, incredibly fast (costs 1 HP)\n- Stun someone that they zap (costs 1d4 HP)\n- Fling a lightning bolt (+near, +forceful, +loud, ignores armor; costs 1d4 HP)\n- Tear the lightning from unattended aetherium, gaining 1d4 HP",
-      "text": ""
+      "text": "- Erschaffe eine knisternde Säule aus Blitzen\n- Ändere unglaublich schnell die Position (kostet 1 TP)\n- Betäube jemanden mit einem Blitzschlag (kostet 1W4 TP)\n- Schleudere einen Blitz (+_Nah_, +_Wuchtig_, +_Laut_, ignoriert Rüstung; kostet 1W4 TP)\n- Leite Blitze aus unbeaufsichtigtem Ätherium ab und stelle dadurch 1W4 TP wieder her"
     },
     "description": {
       "source": "A lightning vortex absorbs power from, well, lightning. When it is struck by lightning (mundane or magical), it gains HP instead of taking damage.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
@@ -2524,7 +2524,7 @@
     },
     "instinct/selected/to-lash-out": {
       "source": "to lash out",
-      "text": ""
+      "text": "wild um sich zu schlagen"
     }
   },
   "lithic-servant": {
@@ -2754,7 +2754,7 @@
   "mkhalang": {
     "name": {
       "source": "Mkhalang",
-      "text": ""
+      "text": "Mkhalang"
     },
     "armor": {
       "source": "1 (lacks organs)",
@@ -2762,15 +2762,15 @@
     },
     "damage": {
       "source": "trample d8+3 with disadvantage (_hand_, _close_) or ice-tusks d8+7 with disadvantage (_reach_, _forceful_, _messy_, _crude_, 1 piercing)",
-      "text": ""
+      "text": "Niedertrampeln d8+3 mit Nachteil (_Hand_, _Kurz_) oder Eishauer d8+7 mit Nachteil (_Lang_, _Wuchtig_, _Brutal_, _Grob_, Durchdringung 1)"
     },
     "specialQuality": {
       "source": "tethered to its dome but far-ranging; perfect memory; unable to lie",
-      "text": ""
+      "text": "an seine Kuppel gebunden, kann sich aber weit entfernen; perfektes Gedächtnis; kann nicht lügen"
     },
     "moves": {
       "source": "- Fly quickly across the skies\n- Manifest a mammoth-like form of freezing mist and ice (harmed only by salt, fire, heat)\n- Suck the strength and warmth from anyone they trample\n- Reveal just enough to cause trouble",
-      "text": ""
+      "text": "- Fliege mit hoher Geschwindigkeit durch die Lüfte\n- Nimm eine mammutähnliche Gestalt aus gefrierendem Nebel und Eis an (nur Salz, Feuer und Hitze können dir schaden)\n- Entziehe jedem, den du niedertrampelst, Kraft und Wärme\n- Offenbare gerade genug, um Ärger zu verursachen"
     },
     "description": {
       "source": "The Rime Lords created these mighty spirits to act as emissaries and spies. A few still remain, tethered to the meditation-halls in which they were made but roaming the Whitefangs in search of novelty and diversion. They have grown bored in their masters’ absence, and from boredom has grown a subtle cruelty. The people of the Whitefangs treat them with respect, for they are still the emissaries of the Rime Lords. But they also know better than to trust their counsel.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -2778,7 +2778,7 @@
     },
     "instinct/selected/to-amuse-itself-at-the-expense-of-others": {
       "source": "to amuse itself at the expense of others",
-      "text": ""
+      "text": "sich auf Kosten anderer zu amüsieren"
     }
   },
   "monk": {
@@ -3110,23 +3110,23 @@
   "nine-fingered-stranger": {
     "name": {
       "source": "Nine-fingered stranger",
-      "text": ""
+      "text": "Neunfingriger Fremder"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. black iron",
-      "text": ""
+      "text": "4 (Widerstandskraft), 0 vs. Schwarzes Eisen"
     },
     "damage": {
       "source": "by weapon d10+2 (tags by weapon, +_forceful_)",
-      "text": ""
+      "text": "durch Waffe d10+2 (Eigenschaften durch Waffe, +_Wuchtig_)"
     },
     "specialQuality": {
       "source": "unable/unwilling to solve problems (only causes/presents them); unaware of its true nature",
-      "text": ""
+      "text": "unfähig / nicht willens, Probleme zu lösen (verursacht / stellt sie nur); ist sich seiner wahren Natur nicht bewusst"
     },
     "moves": {
       "source": "- Manifest as a nine-fingered man\n- Present a challenge (next column)\n- Cloud their judgement, make this all seem reasonable\n- Bestow a (dubious?) gift or curse\n- Vanish mysteriously",
-      "text": ""
+      "text": "- Trete als neunfingriger Mann in Erscheinung\n- Stelle eine Herausforderung (siehe unten)\n- Trübe ihr Urteilsvermögen, und sorge dafür, dass all dies vernünftig erscheint\n- Verleihe ein (zweifelhaftes?) Geschenk oder einen Fluch\n- Verschwinde auf mysteriöse Weise"
     },
     "description": {
       "source": "Many tales tell of a stranger met in an unlikely place. The stranger is in some sort of pickle, or challenges our hero, or presents a tempting opportunity. Whatever else happens, the stranger ends up vanishing, but not before our hero notices his missing finger—and realizes that they just met Tor. When the tale’s hero rises to the occasion, they win a gift from the stranger: a treasure or a magic item, a secret or a prophecy, or maybe just some useful bit of advice. But when the \"hero\" comes up short, they wind up cursed or \"win\" some treasure that brings them ruin and woe.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.zvIOZzdCnXIsNrNx]{Tor, the Rain-maker} (Book p.452-455, 457)",
@@ -3134,7 +3134,7 @@
     },
     "instinct/selected/to-test-people-set-events-in-motion": {
       "source": "to test people, set events in motion",
-      "text": ""
+      "text": "Menschen auf die Probe zu stellen, Ereignisse in Gang zu setzen"
     }
   },
   "novice": {
@@ -3428,23 +3428,23 @@
   "rime-lord": {
     "name": {
       "source": "Rime Lord",
-      "text": ""
+      "text": "Frostfürst"
     },
     "armor": {
       "source": "5 (potent wards, skill)",
-      "text": ""
+      "text": "5 (mächtige Schutzzauber, Geschick)"
     },
     "damage": {
       "source": "conjured ice d12+3 (any range, _area_, _grabby_, _forceful_) or heat-drain d12+1 (_reach_, ignores armor)",
-      "text": ""
+      "text": "herbeibeschworenes Eis d12+3 (beliebige Reichweite, _Bereich_, _Fesselnd_, _Wuchtig_) oder Wärmeentzug d12+1 (_Lang_, ignoriert Rüstung)"
     },
     "specialQuality": {
       "source": "spirit sight; telepathic; cold-proof; ageless; no need to eat/drink/sleep/breathe; aura of bitter cold",
-      "text": ""
+      "text": "Geistersicht; telepathisch; kälteresistent; alterslos; keine Notwendigkeit zu essen/trinken/schlafen/atmen; Aura bitterer Kälte"
     },
     "moves": {
       "source": "- Overawe those in its presence\n- Act simultaneously in both the physical and spirit worlds\n- Impose its mighty will on the world: stilling emotions, freezing time, dismissing magic, reshaping reality, etc.\n- Create a tulpa or thoughtform",
-      "text": ""
+      "text": "- Schüchtere alle in deiner Gegenwart durch deine Ehrfurcht gebietende Erscheinung ein\n- Handle gleichzeitig in der physischen Welt und in der Geisterwelt\n- Zwinge der Welt deinen mächtigen Willen auf: Besänftige Emotionen, halte die Zeit an, banne Magie, forme die Wirklichkeit um usw.\n- Erschaffe einen Tulpa oder eine Gedankenform"
     },
     "description": {
       "source": "Only thirteen Rime Lords survive; each remains in stasis in some key place of power. Their spirits are merged in an eternal dance and song, continuously weaving the dark ice glacier that keeps the voice of Y’aaw’kara bound and prevents madness from spreading unchecked across the world. Pray, o mortal. Pray that they continue their vigil. Pray that their wills do not falter. Pray that no interloper is so foolish as to disturb them. Pray for your family, your friends, and all that you know. Pray that they do not wake.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -3452,7 +3452,7 @@
     },
     "instinct/selected/to-seek-perfection-in-themselves-in-their-surroundings-in-others": {
       "source": "to seek perfection (in themselves, in their surroundings, in others)",
-      "text": ""
+      "text": "Vollkommenheit zu suchen (in sich selbst, seiner Umgebung und anderen)"
     }
   },
   "screech-eel": {
@@ -3484,11 +3484,11 @@
   "servants-of-daagon": {
     "name": {
       "source": "Servants of Daagon",
-      "text": ""
+      "text": "Diener Daagons"
     },
     "armor": {
       "source": "variable",
-      "text": ""
+      "text": "variabel"
     },
     "damage": {
       "source": "see below",
@@ -3496,19 +3496,19 @@
     },
     "specialQuality": {
       "source": "amphibious (or close enough)",
-      "text": ""
+      "text": "Amphibisch (oder nahe dran)"
     },
     "moves": {
       "source": "- Emerge from deep water or thick fog\n- Snatch up something valued/treasured\n- See below",
-      "text": ""
+      "text": "- Tauche aus tiefem Wasser oder dichtem Nebel auf\n- Schnappe dir etwas Wertvolles/Begehrtes\n- Siehe Quelle"
     },
     "description": {
       "source": "Horrid things, wet and wriggling. Maybe they’re emanations (page 436) of Daagon, or mortal beings so thoroughly corrupted as to seem utterly alien to this world. They crawl forth. They feast on flesh and bone. They drag home wealth and beauty and treasured things to feed their master’s hunger. Choose or roll for their number appearing and their size. Then pick or roll for 1d4 traits and 1d4 additional moves. Think about things that live in the water. Imagine the creatures implied by the results.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.83TJVo6wM5U4TDgM]{Blackwater Lake} (Book p.48-57)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.83TJVo6wM5U4TDgM]{Schwarzwassersee} (Buch II S. 48-57)"
+      "text": "Abscheuliche Dinge, nass und sich windend. Vielleicht sind sie Emanationen Daagons, oder sterbliche Wesen, die so vollständig korrumpiert sind, dass sie völlig fremdartig für diese Welt erscheinen. Sie kriechen hervor. Sie verschlingen Fleisch und Knochen. Sie schleppen Reichtum, Schönheit und kostbare Dinge zu ihrem Hause, um den Hunger ihres Meisters zu stillen.\n\nWähle oder würfle für ihre Anzahl und ihre Größe. Dann wähle oder würfle für 1W4 Eigenschaften und 1W4 zusätzliche Spielzüge. Denke an Dinge, die im Wasser leben. Stelle dir die Kreaturen vor, die durch die Ergebnisse angedeutet werden.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.83TJVo6wM5U4TDgM]{Schwarzwassersee} (Buch II S. 48-57)"
     },
     "instinct/selected/to-devour-then-to-steal": {
       "source": "to devour, then to steal",
-      "text": ""
+      "text": "zu verschlingen, dann zu stehlen"
     }
   },
   "shade": {
@@ -3544,7 +3544,7 @@
   "shaksa": {
     "name": {
       "source": "Shaksa",
-      "text": ""
+      "text": "Shaksa"
     },
     "armor": {
       "source": "1 (lacks organs)",
@@ -3552,15 +3552,15 @@
     },
     "damage": {
       "source": "antler of jagged bone d10+2 (_close_, _messy_, 1 piercing) or stone hooves d8 (_hand_)",
-      "text": ""
+      "text": "Geweih aus gezackten Knochen W10+2 (Kurz, Brutal, Durchdringung 1) oder steinerne Hufe W8 (Hand)"
     },
     "specialQuality": {
       "source": "tethered to its cemetery, can only leave to track looters/vandals",
-      "text": ""
+      "text": "an seinen Friedhof gebunden; kann ihn nur verlassen, um Grabräuber oder Grabschänder zu verfolgen"
     },
     "moves": {
       "source": "- Fill an intruder with dread\n- Manifest a form of bone and grave-dirt (unharmed by stabbing; vulnerable to rain/running water)\n- Track a looter or vandal, unerringly",
-      "text": ""
+      "text": "- Erfülle einen Eindringling mit Grauen\n- Nimm eine Gestalt aus Knochen und Graberde an (unverwundbar gegenüber Stichangriffen; empfindlich gegenüber Regen/fließendes Wasser)\n- Spüre einen Grabräuber oder Vandalen zielsicher auf"
     },
     "description": {
       "source": "The Rime Lords and their disciples created shaksa to guard over cemeteries and charnel grounds. They usually watch, unseen and unmanifest. A shaksa manifests only within its cemetery, appearing as a powerful goat made of rock and soil, with a human (?) skull for a head, three eyes of floating light, and a single great antler of jagged bone. Once manifest, it can leave the cemetery in pursuit of looters or vandals. Should this form be destroyed, the spirit returns to the cemetery and cannot remanifest until the next sunset.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.DeWQFy1cWoLRvoU5]{Rime Lords} (Book p.316-331)",
@@ -3568,7 +3568,7 @@
     },
     "instinct/selected/to-preserve-the-sanctity-of-the-dead": {
       "source": "to preserve the sanctity of the dead",
-      "text": ""
+      "text": "die Heiligkeit der Toten zu bewahren"
     }
   },
   "shantyara": {
@@ -4196,23 +4196,23 @@
   "the-crombil-awakened": {
     "name": {
       "source": "The Crombil, Awakened",
-      "text": ""
+      "text": "Der erwachte Crombil"
     },
     "armor": {
       "source": "3 (scales, boney ridges)",
-      "text": ""
+      "text": "3 (Schuppen, knöcherne Wülste)"
     },
     "damage": {
       "source": "jaws like a cave d12+7 (_reach_, _forceful_, _messy_, 3 piercing), thrashing coils d12+5 (_close_, _area_, _forceful_)",
-      "text": ""
+      "text": "Kiefer wie eine Höhle d12+7 (_Lang_, _Wuchtig_, _Brutal_, Durchdringung 3), peitschende Windungen d12+5 (_Kurz_, _Bereich_, _Wuchtig_)"
     },
     "specialQuality": {
       "source": "fiery heat, stomach like a furnace, too big to hurt with most weapons",
-      "text": ""
+      "text": "glühende Hitze, Magen wie ein Hochofen, zu groß, um mit den meisten Waffen verletzt zu werden"
     },
     "moves": {
       "source": "- Chomp right through anything\n- Swallow up someone whole\n- Upend the terrain around it\n- Belch cinders, start fires",
-      "text": ""
+      "text": "- Beiß dich durch alles hindurch\n- Verschlinge jemanden mit Haut und Haaren\n- Wühle das Gelände um dich herum auf\n- Spucke glühende Asche aus und entfache Brände"
     },
     "description": {
       "source": "When someone’s been swallowed by the Crombil, start using these moves against them:\n\n- Batter them with debris, cinders (d6 damage)\n- Make them fight for any sort of purchase or bearings\n- Shove them further towards its furnace-like stomach\n- Blister skin, burn lungs, singe hair (d8 damage)\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.ABlsk5058TiGELkB]{The Crombil} (Book p.62-63)",
@@ -4220,7 +4220,7 @@
     },
     "instinct/selected/to-devour": {
       "source": "to devour",
-      "text": "Verschlingen"
+      "text": "zu verschlingen"
     }
   },
   "the-ghostly-legion": {
@@ -4776,7 +4776,7 @@
   "voice-of-the-eternal-maw": {
     "name": {
       "source": "Voice of the Eternal Maw",
-      "text": ""
+      "text": "Stimme des Ewigen Schlunds"
     },
     "armor": {
       "source": "4 (resilience), 0 vs. bronze",
@@ -4784,15 +4784,15 @@
     },
     "damage": {
       "source": "scream d10 (_near_, _area_, _reload_, ignores armor) or unnaturally large and toothy maw d10+2 (_hand_, _messy_, 3 piercing)",
-      "text": ""
+      "text": "Schrei d10 (_Nah_, _Bereich_, _Nachladen_, ignoriert Rüstung) oder unnatürlich großer und zahnbewehrtes Schlund d10+2 (_Hand_, _Brutal_, Durchdringung 3)"
     },
     "specialQuality": {
       "source": "tethered to the vortex, unable to leave the mountain",
-      "text": ""
+      "text": "an den Strudel gebunden; kann den Berg nicht verlassen"
     },
     "moves": {
       "source": "- Compel someone with whispers (see page 428), even from afar\n- Possess a traveler, especially one who is hungry, weary, or tired\n- Drive its host to feast\n- Leave its host corrupted, withering, doomed to become a wraith (page 79)",
-      "text": ""
+      "text": "- Beinflusse jemanden durch Flüstern, sogar aus der Ferne\n- Ergreife von einem Reisenden besitzt, besonders von einem, der hungrig, müde oder erschöpft ist\n- Bringe deinen Wirt dazu, sich den Bauch vollzuschlagen\n- Lass deinen Wirt korrumpiert, ausgemergelt und dazu verdammt ein Gespenst zu werden zurück"
     },
     "description": {
       "source": "Hidden in the southern arm of the Huffel Peaks, there is a gorge that splits a mountain. The gorge is cloaked in constantly churning mist, cold and clammy. At the base of the gorge is a thin split in reality, a vortex, a manifestation of Hlad the Devourer, sucking in everything it touches. The mountain and the gorge are shunned now. The Hillfolk (page 228) and the Ustrina (page 464) who live nearby know better than to approach. But the Barrow Builders (page 34) fed the vortex. They brought it gifts, and offerings, and living, screaming sacrifice. In time, these offerings gave the vortex a Voice. And the Voice roams the mountain still.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.HurhcWKZBn60Vcq3]{The Things Below} (Book p.412-437)",
@@ -4800,13 +4800,13 @@
     },
     "instinct/selected/to-create-more-mouths-more-wraiths": {
       "source": "to create more mouths, more wraiths",
-      "text": ""
+      "text": "weitere Mäuler und Gespenster zu erschaffen"
     }
   },
   "voidblight": {
     "name": {
       "source": "Voidblight",
-      "text": ""
+      "text": "Nichtigkeitsbrut"
     },
     "armor": {
       "source": "1 (lacks vitals)",
@@ -4814,23 +4814,23 @@
     },
     "damage": {
       "source": "spirit-rending bite d6+2 (_hand_, _grabby_)",
-      "text": ""
+      "text": "geisterzerreißender Biss d6+2 (_Hand_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "can harm only spirits and mortals sensitive to the spirit world; harmed only by other spirits or magic attacks",
-      "text": ""
+      "text": "kann nur Geister und Sterbliche verletzen, die für die Geisterwelt empfänglich sind; wird nur von anderen Geistern oder magischen Angriffen verletzt"
     },
     "moves": {
       "source": "- Follow the \"scent\" of a rift or a spirit-walker\n- Mimic a spirit it has eaten\n- Pounce on unsuspecting prey\n- After a good meal: spawn another of its kind",
-      "text": ""
+      "text": "- Folge der Spur eines Risses oder eines Geisterwanderers\n- Imitiere einen verschlungenen Geist\n- Falle über ahnunglose Beute her\n- Nach einer guten Mahlzeit: bringe weitere ihrer Art hervor"
     },
     "description": {
       "source": "To those who can perceive them, they seem like many-limbed salamanders made of star-filled night. Their broad, flat, eyeless heads split open into rows of glittering teeth. They are alien things, spiritual scavengers and predators. They haunt forgotten corners of the spirit world, the dead world-motes that float through the cosmic void. Mostly, they wait and hunger. But if they catch the scent of a traveler, or worse, a rift (page 311) into our world, they will follow it.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Primordial powers} (Book p.298-313)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte} (Buch II S. 298-313)"
+      "text": "Für diejenigen, die sie wahrnehmen können, erscheinen sie wie vielgliedrige Salamander aus sternenreicher Nacht. Ihre breiten, flachen, augenlosen Köpfe spalten sich in Reihen glitzernder Zähne auf.\n\nEs sind fremdartige Wesen – geistige Aasfresser und Jäger. Sie durchstreifen vergessene Winkel der Geisterwelt, die toten Weltfragmente, die durch den kosmische Leere schweben. Meistens warten sie und hungern. Doch wenn sie den Geruch eines Reisenden oder, schlimmer noch, eines Risses in unsere Welt wahrnehmen, werden sie ihm folgen.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.YxQdXyd9EDRJyEKv]{Urkräfte} (Buch II S. 298-313)"
     },
     "instinct/selected/to-eat-and-spawn": {
       "source": "to eat and spawn",
-      "text": ""
+      "text": "zu fressen und sich zu vermehren"
     }
   },
   "war-chariot": {
@@ -4866,23 +4866,23 @@
   "water-vortex": {
     "name": {
       "source": "Water vortex",
-      "text": ""
+      "text": "Wasserwirbel"
     },
     "armor": {
       "source": "by HP",
-      "text": ""
+      "text": "abhängig von TP"
     },
     "damage": {
       "source": "pummel (damage and tags by HP)",
-      "text": ""
+      "text": "Schmettern (Schaden und Eigenschaften abhängig von TP)"
     },
     "specialQuality": {
       "source": "harmed only by magical weapons, cold, or forceful blunt attacks",
-      "text": ""
+      "text": "kann nur durch magische Waffen, Kälte oder kräftige Wuchtangriffe verletzt werden"
     },
     "moves": {
       "source": "- Manifest a churning wave out of water it touches\n- Vanish into/burst out of a body of water\n- Engulf a smaller foe (+grabby, see below)\n- Surge past foes, dragging them off their feet (+area, +forceful, costs 1d4 HP)\n- Move across a porous surface (costs 1d4 HP)",
-      "text": ""
+      "text": "- Erschaffe aus Wasser, das du berührst, eine wirbelnde Welle\n- Verschwinde in einem Gewässer und tauche aus einem anderen wieder auf\n- Hülle einen kleineren Gegner ein (+_Fesselnd_, siehe unten)\n- Stürme an Gegnern vorbei und reiße sie von den Füßen (+_Bereich_, +_Wuchtig_; kostet 1W4 TP)\n- Bewege dich über eine poröse Oberfläche hinweg (kostet 1W4 TP)"
     },
     "description": {
       "source": "A water matrix absorbs power from currents, tides, waves, and falling water. It gains 1d4 HP from a few days in a flowing stream, a few hours in a rushing river, or a few minutes in rapids or a major waterfall. When you are engulfed by a water vortex, hold 1d4 Breath. When you make a move while engulfed, and that move involves a roll, spend 1 Breath or mark a debility after rolling. If you can’t do either, you drown and are at Death’s Door.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",
@@ -4890,7 +4890,7 @@
     },
     "instinct/selected/to-adjust-flow-and-adapt": {
       "source": "to adjust, flow, and adapt",
-      "text": ""
+      "text": "sich anzupassen, zu fließen und zu verändern"
     }
   },
   "wee-folk": {
@@ -4948,53 +4948,53 @@
   "willow-witch": {
     "name": {
       "source": "Willow Witch",
-      "text": ""
+      "text": "Weidenhexe"
     },
     "armor": {
       "source": "4 (wards, resilience), 0 vs. black iron",
-      "text": ""
+      "text": "4 (Schutzzauber, Widerstandskraft)"
     },
     "damage": {
       "source": "gnarled fists and fingers d10+2 w/ disadvantage (_hand_, _forceful_, _grabby_)",
-      "text": ""
+      "text": "knorrige Fäuste und Finger d10+2 mit Nachteil (_Hand_, _Wuchtig_, _Fesselnd_)"
     },
     "specialQuality": {
       "source": "impossible to deceive or surprise; divide damage taken equally between the three witches (round down)",
-      "text": ""
+      "text": "Unmöglich zu täuschen oder zu überra-schen; erlittener Schaden wird gleichmäßig auf alle drei Hexen aufgeteilt (abrunden)"
     },
     "moves": {
       "source": "- Frustrate, annoy, or provoke someone\n- Twist someone’s perceptions\n- Vanish, be elsewhere\n- Turn someone into a swamp creature",
-      "text": ""
+      "text": "-Frustriere, ärgere oder provoziere jemanden\n- Verzerre von jemanden dessen Wahrnehmung\n- Verschwinde, sei woanders\n- Verwandle jemanden in eine Sumpfkreatur"
     },
     "description": {
       "source": "Tip: use a different voice and different physical position (left, center, right) for each witch, and shift between them as you talk, sometimes mid-sentence. When you press or entice the Willow Witches into changing their price or altering their deal, don’t roll. They will not be budged; the price is what it is.\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferrier's Fen} (Book p.116-125)",
-      "text": "Quelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferriers Moor} (Buch II S. 116-125)"
+      "text": "**Tipp:** Verwenden für jede Hexe eine andere Stimme und eine andere körperliche Position (Links, Mitte, Rechts) und wechsle während des Gesprächs zwischen ihnen, manchmal mitten im Satz.\n\nWenn du die Weidenhexenunter Druck setzt oder dazu verleiten willst, ihren Preis zu ändern oder ihr Angebot anzupassen, würfle nicht. Sie lassen sich nicht beirren; der Preis ist, wie er ist.\n\nQuelle: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.805M3qxHZCLZS3Io]{Ferriers Moor} (Buch II S. 116-125)"
     },
     "instinct/selected/to-enforce-the-old-ways-the-old-rules": {
       "source": "to enforce the old ways, the old rules",
-      "text": ""
+      "text": "die alten Wege und alten Regeln durchzusetzen"
     }
   },
   "wind-vortex": {
     "name": {
       "source": "Wind vortex",
-      "text": ""
+      "text": "Windwirbel"
     },
     "armor": {
       "source": "by HP",
-      "text": ""
+      "text": "abhängig von TP"
     },
     "damage": {
       "source": "from a item or amount. tags by HP, but w/disadvantage)",
-      "text": ""
+      "text": "peitschender Sand/Schutt  (Schaden und Eigenschaften abhängig von TP, aber mit Nachteil)"
     },
     "specialQuality": {
       "source": "flies, harmed only by magical weapons, salt, or lead",
-      "text": ""
+      "text": "fliegt; kann nur durch magische Waffen, Salz oder Blei verletzt werden"
     },
     "moves": {
       "source": "- Manifest a vortex of churning wind, grit, and debris\n- Engulf a smaller foe (+grabby)\n- Carry an engulfed foe aloft (costs 1d4 HP)\n- Fling objects (+near; costs 1d4 HP)\n- Flee when hurt, frightened, or bored",
-      "text": ""
+      "text": "- Erschaffe einen Wirbel aus aufgewühltem Wind, Sand und Trümmern\n- Hülle einen kleineren Gegner ein (+_Fesselnd_)\n- Trage einen eingehüllten Gegner in die Höhe (kostet 1W4 TP)\n- Schleudere Gegenstände (+_Nah_; kostet 1W4 TP).\n- Fliehe, wenn du verletzt, verängstigt oder gelangweilt bist"
     },
     "description": {
       "source": "A wind matrix absorbs power from moving air. It gains 1d4 HP from weeks exposed to normal weather, an hour in high winds, or a minute or so in a tornado. When you strike a wind vortex with a salt or lead, it takes 1d4 damage from a handful, 2d4 damage from a ◇ item, and 3d4\n\nSource: @UUID[Compendium.stonetop.wider-world-and-other-wonders.JournalEntry.3UhyCbr1XGkhX6SO]{Tempest Lords} (Book p.398-411)",

@@ -52,15 +52,15 @@
     },
     "effects/add-aetherium-crucible-to-the-resources/text": {
       "source": "add \"Aetherium Crucible\" to the Resources list and the map",
-      "text": ""
+      "text": "Füge „Ätheriumtiegel“ der Ressourcenliste hinzu und zeichne ihn auf der Karte ein"
     },
     "effects/increase-prosperity-by-1/text": {
       "source": "increase Prosperity by 1",
-      "text": ""
+      "text": "erhöhe Wohlstand um 1"
     },
     "effects/small-amounts-of-raw-aetherium-magical/text": {
       "source": "small amounts of raw aetherium (magical, Value 1) are commonly available in Stonetop",
-      "text": ""
+      "text": " Kleine Mengen rohen Ätheriums (*Magisch*, Wert 1) sind in Stonetop allgemein verfügbar"
     },
     "effects/you-have-advantage/text": {
       "source": "you have advantage",
@@ -68,11 +68,11 @@
     },
     "effects/increase-prosperity-by-1/when/phrase": {
       "source": "**_as long as you trade aetherium to the outside world_**",
-      "text": ""
+      "text": "**_Solange du Ätherium mit der Außenwelt handelst_**"
     },
     "effects/you-have-advantage/when/phrase": {
       "source": "when **_you Trade & Barter for aetherium items with special characteristics (+2 Value)_**",
-      "text": ""
+      "text": "Wenn du **_ mit Ätherium-Gegenständen mit besonderen Eigenschaften (+2 Wert) handelst und feilschst_**"
     },
     "effects/add-aetherium-crucible-to-the-resources/listEntry/text": {
       "source": "Aetherium Crucible",
@@ -84,27 +84,27 @@
     },
     "choices/learning-process/text": {
       "source": "Learning the process of **making** **aetherium** (at left)",
-      "text": ""
+      "text": "Das Verfahren zur Herstellung von Ätherium erlernen"
     },
     "choices/learning-imbue/text": {
       "source": "Learning to imbue aetherium with at least one special characteristic",
-      "text": ""
+      "text": "Erlernen, wie man Ätherium mindestens eine besondere Eigenschaft verleiht"
     },
     "choices/reliable-means/text": {
       "source": "A reliable means of capturing, storing, and directing lightning that strikes the Stone",
-      "text": ""
+      "text": "Eine zuverlässige Möglichkeit, Blitze, die in den Stein einschlagen, einzufangen, zu speichern und zu lenken"
     },
     "choices/securing-steady/text": {
       "source": "Securing a steady supply of the chemics needed to make aetherium",
-      "text": ""
+      "text": "Eine stetige Versorgung mit den zur Herstellung von Ätherium benötigten Chemikalien sicherstellen"
     },
     "choices/securing-steady-2/text": {
       "source": "Securing a steady supply of copper",
-      "text": ""
+      "text": "Eine stetige Versorgung mit Kupfer sicherstellen"
     },
     "choices/exceptional-smith/text": {
       "source": "An exceptional smith who knows the secrets of aetherium",
-      "text": ""
+      "text": "Einen herausragenden Schmied, der die Geheimnisse des Ätheriums kennt"
     }
   },
   "aurochs-hunting": {
@@ -118,7 +118,7 @@
     },
     "effects/lead-the-aurochs-hunt-rolling-defenses/text": {
       "source": "lead the aurochs hunt, rolling +Defenses",
-      "text": ""
+      "text": "Führe die Auerochsenjagd an und würfle +Verteidigung."
     },
     "effects/add-aurochs-hunting-meat-hide-horn/listEntry/text": {
       "source": "Aurochs hunting (meat, hide, horn)",
@@ -230,7 +230,7 @@
     },
     "effects/it-generates-1-surplus/when/phrase": {
       "source": "when **_the steading generates Surplus, even just 1_**",
-      "text": "Wenn die **_Siedlung Überschuss erzeugt_** (selbst wenn es nur 1 ist)"
+      "text": "Wenn **_die Siedlung Überschuss erzeugt_** (selbst wenn es nur 1 ist)"
     },
     "effects/add-golden-sapling-to-the-resources/listEntry/text": {
       "source": "Golden Sapling",
@@ -476,7 +476,7 @@
     },
     "effects/gain-the-move-when-you-first/text": {
       "source": "gain the move: when you first meet someone from beyond Stonetop, roll +Fortunes",
-      "text": ""
+      "text": "Erhalte den Spielzug: Wenn du zum ersten Mal jemandem von außerhalb Stonetops begegnest, würfle +Schicksal."
     },
     "choices/few-have-heard-of-stonetops-heroes/text": {
       "source": "Few have heard of Stonetop's heroes. Yet.",
@@ -526,7 +526,7 @@
     },
     "effects/whoever-is-friendliest-rolls-fortunes-for/text": {
       "source": "whoever is friendliest rolls +Fortunes for news of the wider world",
-      "text": ""
+      "text": "Wer von euch am freundlichsten ist, würfle +Schicksal, um Neuigkeiten aus der weiten Welt zu erfahren."
     },
     "effects/clear-one-of-the-steadings-debilities/text": {
       "source": "clear one of the steading's debilities",
@@ -754,7 +754,7 @@
     },
     "effects/the-steading-consumes-1-less-surplus/when/phrase": {
       "source": "**_in winter, as long as the camp is in operation_**",
-      "text": "**_Im Winter, solange das Holzfällerlager betrieben wird_**"
+      "text": "**_Solange das Holzfällerlager im Winter betrieben wird_**"
     },
     "effects/the-logging-camp-consumes-1-surplus/when/phrase": {
       "source": "**_every summer_**",
