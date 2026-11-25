@@ -306,11 +306,11 @@
   "arrive-somewhere-familiar": {
     "name": {
       "source": "Arrive Somewhere Familiar",
-      "text": ""
+      "text": "Einen vertrauten Ort erreichen"
     },
     "description": {
       "source": "When you **_arrive somewhere you've visited before_** (your call), tell the GM when you were last here, and the GM will tell you how it's changed.",
-      "text": ""
+      "text": "Wenn du **_an einen Ort gelangst, den du schon einmal besucht hast_** (du entscheidest), sage dem SL, wann du zuletzt hier warst und der SL sagt dir dann, wie sich der Ort seitdem verändert"
     }
   },
   "arts-of-war": {
@@ -336,33 +336,33 @@
   "auspicious-mark-debility": {
     "name": {
       "source": "Mark a Debility",
-      "text": ""
+      "text": "Markiere eine Beeinträchtigung"
     },
     "description": {
       "source": "When **_one of your moves has you mark a debility_**, you may mark this background's circle instead, to no ill effect. Clear it when you Make Camp or Convalesce.",
-      "text": ""
+      "text": "Wenn du **_bei einem deiner Spielzüge eine Beeinträchtigung markieren müsstest_**, kannst du stattdessen den Kreis dieses Hintergrunds markieren, ohne dass dies negative Auswirkungen hat. Entferne die Markierung, wenn du ein Lager aufschlägst oder dich Erholst."
     }
   },
   "bark-order-or-warning": {
     "name": {
       "source": "Bark an Order or Warning",
-      "text": ""
+      "text": "Einen Befehl oder eine Warnung ausprechen"
     },
     "description": {
       "source": "When you **_bark an order or warning_**, roll +CHA: **on a 7+**, they must choose 1:\n\n- do what you say\n- dig in/take cover/flee or\n- attack you\n **_On a 10+_**, you can sense which one they're about to do and act first if you like; gain advantage if you do.",
-      "text": ""
+      "text": "Wenn du **_einen Befehl oder eine Warnung aussprichst_**, würfle +CH. Bei einer 7+ müssen sie 1 wählen:\n\n- Tun, was du sagst\n- Sich verkriechen/in Deckung gehen/fliehen\n- Dich angreifen\n **Bei einer 10+** kannst du spüren, wofür sie sich entscheiden werden, und, wenn du willst, zuerst handeln. Wenn du das tust, hast du einen Vorteil."
     },
     "moveResults/success/value": {
       "source": "They must choose 1. You can sense which one they're about to do and act first if you like; gain advantage if you do",
-      "text": ""
+      "text": "Sie müssen 1 wählen. Du kannst spüren, wofür sie sich entscheiden werden, und, wenn du willst, zuerst handeln. Wenn du das tust, hast du einen Vorteil."
     },
     "moveResults/partial/value": {
       "source": "They must choose 1",
-      "text": ""
+      "text": "Sie müssen 1 wählen."
     },
     "moveResults/failure/value": {
       "source": "GM Move",
-      "text": ""
+      "text": "Der SL macht einen Spielzug."
     }
   },
   "barkskin": {
@@ -514,17 +514,17 @@
     },
     "description": {
       "source": "When you **_Persuade using violence or threats against someone who knows your black reputation_**, you can roll +STR instead of +CHA. Also, if you take the **Formidable** move, you can choose to roll +CON instead of +CHA.",
-      "text": ""
+      "text": "Wenn du **_jemanden, der deinen schlechten Ruf kennt, mit Gewalt oder Drohungen überredest_**, kannst du +ST statt +CH würfeln. Wenn du außerdem den Spielzug **Eindrucksvoll** wählst, kannst du dich entscheiden, +KO statt +CH zu würfeln."
     }
   },
   "bloody-past-know-things": {
     "name": {
       "source": "Penitent's Bloody Past",
-      "text": ""
+      "text": "Die blutige Vergangenheit des Büßers"
     },
     "description": {
       "source": "When you **_draw on your bloody past to Know Things_**, you may roll +STR instead of +INT. If you do, the GM will ask you who you wronged back then or who might still hold a grudge. Answer them now.",
-      "text": ""
+      "text": "Wenn du **_deine blutige Vergangenheit heranziehst, um Wissen kundzutun_**, darfst du +ST statt +IN würfeln. Wenn du das tust, wird der SL dich fragen, wem du damals Unrecht getan hast oder wer noch einen Groll hegen könnte. Beantworte seine Frage jetzt."
     }
   },
   "blot-out-the-sun": {
@@ -904,11 +904,11 @@
   "come-up-short": {
     "name": {
       "source": "Come Up Short",
-      "text": ""
+      "text": "Knapp gescheitert"
     },
     "description": {
       "source": "When you **_make a move and come up short_**, you can give it your all and turn a 6- into a 7-9, a 7-9 into a 10+, and (if it matters) a 10-11 into a 12+. But if you do, pick 1 (the GM will fill in the details):\n\n- You get hurt (2d4 damage and an actual injury)\n- You cause collateral damage, endanger others, or otherwise escalate the situation\n- Something on your person is lost or breaks",
-      "text": ""
+      "text": "Wenn du **_einen Spielzug machst und nur knapp scheiterst_**, kannst du alles geben und aus einer 6- eine 7-9, aus einer 7-9 eine 10+ und (falls relevant) aus einer 10-11 eine 12+ machen. Wenn du das tust, wähle eines (der SL bestimmt die Einzelheiten):\n\n- Du wirst verletzt (2W4 Schaden und eine konkrete Verletzung).\n- Sie verursachen Kollateralschäden, gefährden andere oder verschärfen die Situation auf andere Weise.\n- Etwas, das du bei dir trägst, geht verloren oder zerbricht."
     }
   },
   "commune-with-aratis": {
@@ -1272,13 +1272,11 @@
   "destined": {
     "name": {
       "source": "Visions of the Destined",
-      "text": "Ausersehen",
-      "needsReview": true
+      "text": "Visionen der Auserwählten"
     },
     "description": {
       "source": "At the **_start of a session_**, roll +Omens: **on a 7+**, lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, **on a 10+**, ask the GM a follow-up question and get a clear, helpful answer; **on a 6-**, don’t mark XP, hold +1 Omen, and tell us of your recent nightmares or a troubling vision, and how your fears play into them.",
-      "text": "**_Zu Beginn einer Spielsitzung_** würfle +Omen. **Bei einer 7+** verlierst du sämtliches Omen, und der SL beschreibt eine Vision oder ein Vorzeichen, das auf dein Schicksal hindeutet und/oder deine aktuelle Situation erhellt. **Bei einer 10+** kannst du außerdem dem SL zusätzlich eine Folgefrage stellen und erhältst darauf eine klare, hilfreiche Antwort. **Bei einer 6-** markierst du keine EP, erhältst +1 Omen und erzählst uns von den Albträumen oder einer beunruhigenden Vision und davon, wie deine Angst dabei eine Rolle spielt. \n\n**_Solange sich dein Schicksal noch nicht erfüllt hat_**, behandle  bei Tor des Todes eine 6- wie 7–9 und 7–9 wie eine 10+.",
-      "needsReview": true
+      "text": "**_Zu Beginn einer Spielsitzung_** würfle +Omen. **Bei einer 7+** verlierst du sämtliches Omen, und der SL beschreibt eine Vision oder ein Vorzeichen, das auf dein Schicksal hindeutet und/oder deine aktuelle Situation erhellt. **Bei einer 10+** kannst du außerdem dem SL zusätzlich eine Folgefrage stellen und erhältst darauf eine klare, hilfreiche Antwort. **Bei einer 6-** markierst du keine EP, erhältst +1 Omen und erzählst uns von den Albträumen oder einer beunruhigenden Vision und davon, wie deine Angst dabei eine Rolle spielt."
     },
     "moveResults/success/value": {
       "source": "Lose all Omens and the GM will describe a vision or portent that points toward your fate and/or clarifies your current situation; also, ask the GM a follow-up question and get a clear, helpful answer.",
@@ -1504,11 +1502,11 @@
   "fight-to-kill": {
     "name": {
       "source": "Fight to Kill",
-      "text": ""
+      "text": "Kämpfen, um ohne Gnade oder Zögern zu töten"
     },
     "description": {
       "source": "When you **_fight to kill without mercy or hesitation_**, you deal +1d4 damage.",
-      "text": ""
+      "text": "Wenn du **_kämpfst, um ohne Gnade oder Zögern zu töten_**, verursachst du +1W4 Schaden."
     }
   },
   "fire-within": {
@@ -1534,31 +1532,31 @@
   "focus-on-animal-companion": {
     "name": {
       "source": "Focus on Your Animal Companion",
-      "text": ""
+      "text": "Auf deinen Tiergefährten konzentrieren"
     },
     "description": {
       "source": "When you **_focus on your animal companion for a few moments_**, you can use any of the actions you've marked, no matter the distance between you. Mark 1 action at 1st level, then another at 3rd, 5th, 7th, and 9th.",
-      "text": ""
+      "text": "Wenn du **_dich einige Augenblicke lang auf deinen Tiergefährten konzentrierst_**, kannst du jede der unten markierten Aktionen nutzen, unabhängig davon, wie weit ihr voneinander entfernt seid. Markiere auf der 1. Stufe 1 Aktion und anschließend jeweils eine weitere auf der 3., 5., 7. und 9. Stufe."
     },
     "choices/gauge-distance/text": {
       "source": "Gauge its distance and direction from you",
-      "text": ""
+      "text": "chätze seine Entfernung und Richtung zu dir ein"
     },
     "choices/call-it-back/text": {
       "source": "Call it back to your side",
-      "text": ""
+      "text": "Rufe es an deine Seite zurück"
     },
     "choices/sense-emotions/text": {
       "source": "Sense its emotional state",
-      "text": ""
+      "text": "Erspüre seinen emotionalen Zustand"
     },
     "choices/impression-of-senses/text": {
       "source": "Get a brief impression of what it senses",
-      "text": ""
+      "text": "Erhalte einen kurzen Eindruck von dem, was es wahrnimmt "
     },
     "choices/lend-strength/text": {
       "source": "Lend it your strength — lose 1d6 HP, and it regains an equal amount",
-      "text": ""
+      "text": "Verleihe ihm deine Stärke — du verlierst 1W6 TP, und es heilt diese in gleicher Höhe"
     }
   },
   "for-the-greater-good": {
@@ -1846,8 +1844,7 @@
     },
     "description": {
       "source": "Each time you take this move, pick 1:\n\n- They are *exceptional* (and roll +2 instead of +1)\n- They are inured to terror & horror\n- Increase their max HP by 4 each\n- Increase their damage die one size (max d10)",
-      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1:\n\n- Sie sind außergewöhnlich (und würfeln +2 statt +1).\n- Sie sind abgehärtet gegen Angst und Schrecken.\n- Erhöhe ihre maximalen TP jeweils um 4.\n- Erhöhe ihren Schadenswürfel um eine Größe (max. W10).",
-      "needsReview": true
+      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1:\n\n- Sie sind *Außergewöhnlich* (und würfeln +2 statt +1).\n- Sie sind abgehärtet gegen Angst und Schrecken.\n- Erhöhe ihre maximalen TP jeweils um 4.\n- Erhöhe ihren Schadenswürfel um eine Größe (max. W10)."
     }
   },
   "heroic-reputation": {
@@ -2129,23 +2126,23 @@
   "know-someone-outside-stonetop": {
     "name": {
       "source": "Know Someone Outside Stonetop",
-      "text": ""
+      "text": "Jemanden außerhalb von Stonetop kennen"
     },
     "description": {
       "source": "When you **_declare that you know someone outside of Stonetop_**, someone who can help, name them and roll +CHA: **on a 10+**, yeah, they can help (tell us why they're willing); **on a 7-9**, they can help but pick 1 from the list below; **on a 6-**, the GM chooses 1 and then some.\n\n- They still hold a grudge\n- They're going to need something from you first\n- They swore off this sort of thing long ago\n- You can't exactly, y'know, trust them",
-      "text": ""
+      "text": "Wenn du **_erklärst, dass du außerhalb von Stonetop jemanden kennst_**, der dir helfen kann, nenne diese Person und würfle +CH. **Bei einer 10+** kann sie dir tatsächlich helfen (sag uns, warum sie dazu bereit ist). **Bei 7–9** kann sie dir helfen, aber wähle 1 aus der folgenden Liste. **Bei einer 6-** wählt der SL 1 und zusätzlich noch etwas anderes.\n\n- Sie hegt noch immer einen Groll gegen dich.\n- Sie wird zuerst etwas von dir verlangen.\n- Sie hat solchen Dingen schon vor langer Zeit abgeschworen.\n- Du kannst ihr nicht wirklich, nun ja, vertrauen."
     },
     "moveResults/success/value": {
       "source": "Yeah, they can help (tell us why they're willing)",
-      "text": ""
+      "text": "Sie kann dir tatsächlich helfen (sag uns, warum sie dazu bereit ist)."
     },
     "moveResults/partial/value": {
       "source": "They can help but pick 1 from the list below",
-      "text": ""
+      "text": "Sie kann dir helfen, aber wähle 1 aus der folgenden Liste."
     },
     "moveResults/failure/value": {
       "source": "The GM chooses 1 from the list below and then some",
-      "text": ""
+      "text": "Der SL wählt 1 und zusätzlich noch etwas anderes."
     }
   },
   "know-things": {
@@ -2229,7 +2226,7 @@
     },
     "description": {
       "source": "When you **_Know Things about the people or history of Stonetop_**, you have advantage.",
-      "text": ""
+      "text": "Wenn du **_über die Menschen oder die Geschichte von Stonetop Wissen kundtust_**, hast du einen Vorteil."
     }
   },
   "let-fly": {
@@ -2359,11 +2356,11 @@
   "luminary-create-crew": {
     "name": {
       "source": "Create Your Crew",
-      "text": ""
+      "text": "Erstelle deine Truppe"
     },
     "description": {
       "source": "When you **_create your Crew_**, they automatically have the *devoted* tag (in addition to your usual picks).",
-      "text": ""
+      "text": "Wenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft *Ergeben* (zusätzlich zu deiner restlichen Auswahl)."
     }
   },
   "luminous-shield": {
@@ -2573,7 +2570,7 @@
     },
     "description": {
       "source": "When you **_Seek Insight_**, you may roll +INT instead of +WIS and add \"What opportunity does no one else see?\" to the list of possible questions.",
-      "text": ""
+      "text": "Wenn du **_Gewissheit erlangst_**, kannst du stattdessen mit +INT statt +WE würfeln und „Welche Gelegenheit sieht sonst niemand?“ zur Liste der möglichen Fragen hinzufügen."
     }
   },
   "naturalist": {
@@ -2661,11 +2658,11 @@
   "off-a-wandering": {
     "name": {
       "source": "Off a-Wandering",
-      "text": ""
+      "text": "Auf Wanderschaft begeben"
     },
     "description": {
       "source": "When you **_go off a-wandering_**, hold 1 Enigma if you're gone for days, 2 if you're gone for weeks, or 3 if you're gone for months. At the very start of play, hold 3 Enigma. Spend Enigma 1-for-1 to:\n\n- return from your wandering exactly when and where you are needed, fully Outfitted\n- Know Things as if you rolled a 10+\n- have What You Need to produce an oddly specific yet mundane item of Value 1 or less",
-      "text": ""
+      "text": "Wenn du **_dich auf Wanderschaft begibst_**, erhältst du 1 Rätsel, wenn du tagelang fort bist, 2, wenn du wochenlang fort bist, oder 3, wenn du monatelang fort bist. Zu Beginn des Spiels erhältst du 3 Rätsel. Gib Rätsel im Verhältnis 1:1 aus, um:\n\n- Genau dann und dort von deiner Wanderschaft zurückzukehren, wo du gebraucht wirst, und zwar vollständig ausgerüstet.\n- Wissen kundzutun, als hättest du eine 10+ gewürfelt, und dabei auf das zurückgreifst, was du während deiner Abwesenheit gelernt hast.\n- Zu haben, was du brauchst, um einen seltsam spezifischen, aber alltäglichen Gegenstand mit einem Wert von 1 oder weniger zu beschaffen."
     }
   },
   "on-the-hoof": {
@@ -2771,11 +2768,11 @@
   "penitent-create-crew": {
     "name": {
       "source": "Create Your Crew",
-      "text": ""
+      "text": "Erstelle deine Truppe"
     },
     "description": {
       "source": "When you **_create your Crew_**, they automatically have the *warriors* tag (in addition to your usual picks).",
-      "text": ""
+      "text": "Wenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft *Krieger* (zusätzlich zu deiner restlichen Auswahl)."
     }
   },
   "perceptive": {
@@ -2791,11 +2788,11 @@
   "persuade-a-group": {
     "name": {
       "source": "Persuade a Group",
-      "text": ""
+      "text": "Eine Gruppe überreden"
     },
     "description": {
       "source": "When you **_Persuade a group by preaching charity, mercy, and hope and roll a 7+_**, aside from the usual effect, choose 1:\n\n- your name and your message spread\n- someone approaches you, now or later, eager to know more.",
-      "text": ""
+      "text": "Wenn du **_eine Gruppe überredest, indem du Nächstenliebe, Barmherzigkeit und Hoffnung predigst, und eine 7+ würfelst_**, wähle 1 zusätzlich zu dem üblichen Effekt:\n\n- Dein Name und deine Botschaft verbreiten sich. \n- Jemand tritt an dich heran – jetzt oder später –, begierig darauf, mehr zu erfahren."
     }
   },
   "persuade-vs-npcs": {
@@ -2937,11 +2934,11 @@
   "pour-over-the-chronicle": {
     "name": {
       "source": "Pour Over the Chronicle",
-      "text": ""
+      "text": "Die Chronik eingehend studieren"
     },
     "description": {
       "source": "When you **_spend days, weeks, or months poring over the Chronicle_**, ask the GM and the GM will tell you what you learn in that time.",
-      "text": ""
+      "text": "Wenn du **_Tage, Wochen oder Monate damit verbringst, die Chronik eingehend zu studieren_**, stell dem SL eine Frage, und er wird dir sagen, was du in dieser Zeit gelernt hast."
     }
   },
   "power-of-the-lidless-orb": {
@@ -3131,7 +3128,7 @@
     },
     "description": {
       "source": "Regardless, you get the **Trackless Step** move. Also, when you **_Forage_**, you have advantage.",
-      "text": ""
+      "text": "Wie dem auch sei, du erhältst den Spielzug **Spurloser Schritt** (markiere ihn jetzt). Außerdem hast du einen Vorteil, wenn du **Nahrung suchst**"
     }
   },
   "read-the-land": {
@@ -3319,11 +3316,11 @@
   "scion-create-crew": {
     "name": {
       "source": "Create Your Crew",
-      "text": ""
+      "text": "Erstelle deine Truppe"
     },
     "description": {
       "source": "When you **_create your Crew_**, they automatically have the *respected* tag (in addition to your usual picks, and any you get from Veteran Crew).",
-      "text": ""
+      "text": "Wenn du **_deine Truppe erstellst_**, erhält sie automatisch die Eigenschaft *Respektiert* (zusätzlich zu deiner restlichen Auswahl und denen, die sie durch Veteranentruppe erhalten)."
     }
   },
   "seal": {
@@ -3799,11 +3796,11 @@
   "spend-stock-hp": {
     "name": {
       "source": "Life For Stock",
-      "text": ""
+      "text": "Leben für Vorräte"
     },
     "description": {
       "source": "When you **_would spend 1 Stock from your sacred pouch_**, you may choose to lose 2d4 HP instead.",
-      "text": ""
+      "text": "Danus Macht fließt durch dich, doch zu einem hohen Preis. Wenn du **1 Vorrat aus deinem heiligen Beutel ausgeben würdest**, kannst du stattdessen 2W4 TP verlieren."
     }
   },
   "spend-weeks-in": {
@@ -4353,11 +4350,11 @@
   "until-destiny-fulfilled": {
     "name": {
       "source": "Until Destiny Fulfilled",
-      "text": ""
+      "text": "Bis sich das Schicksal erfüllt"
     },
     "description": {
       "source": "**_Until your destiny is fulfilled_**, treat a 6- on Death’s Door as a 7-9, and a 7-9 as a 10+.",
-      "text": ""
+      "text": "**_Solange sich dein Schicksal noch nicht erfüllt hat_**, behandle  bei Tor des Todes eine 6- wie 7–9 und 7–9 wie eine 10+."
     }
   },
   "up-with-people": {
@@ -4439,8 +4436,7 @@
     },
     "description": {
       "source": "Each time you take this move, pick 1. You can also choose to reselect their Instinct and Cost.\n\n- Select 2 new tags for your Crew\n- Increase their damage die from d6 to d8\n- Increase their max HP by 2 each",
-      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1. Du kannst auch ihren Instinkt und ihre Kosten neu wählen.\n\n- Wähle 2 neue Eigenschaften für deine Truppe.\n- Erhöhe ihren Schadenswürfel von W6 auf W8.\n- Erhöhe ihre maximalen TP jeweils um 2.",
-      "needsReview": true
+      "text": "Jedes Mal, wenn du diesen Spielzug wählst, wähle 1. Du kannst auch ihren Instinkt und ihre Kosten neu wählen.\n\n- Wähle 2 neue Eigenschaften für deine Truppe.\n- Erhöhe ihren Schadenswürfel von W6 auf W8.\n- Erhöhe ihre maximalen TP jeweils um 2."
     }
   },
   "vision-unclouded": {
@@ -4660,7 +4656,7 @@
     },
     "description": {
       "source": "When you **_Know Things about the wider world_**, you can roll +WIS instead of +INT.",
-      "text": ""
+      "text": "Wenn du **_über die weite Welt Wissen kundtust_**, kannst du +WE statt +IN würfeln."
     }
   },
   "wielder-of-the-white-flame": {
@@ -4712,7 +4708,7 @@
     },
     "description": {
       "source": "For some reason, you've made yourself known to Stonetop and perhaps you even call it home. But the ways of the humans are still strange to you. Once per session, when **_your wild ways offend or alienate you from someone_**, mark XP.",
-      "text": ""
+      "text": "Aus irgendeinem Grund bist du in Stonetop bekannt geworden und vielleicht nennst du es sogar dein Zuhause. Doch die Sitten der Menschen sind dir noch immer fremd. Einmal pro Sitzung, **wenn deine wilde Art jemanden vor den Kopf stößt oder dazu führt, dass sich jemand von dir abwendet**, markiere EP."
     }
   },
   "work-with-what-youve-got": {
